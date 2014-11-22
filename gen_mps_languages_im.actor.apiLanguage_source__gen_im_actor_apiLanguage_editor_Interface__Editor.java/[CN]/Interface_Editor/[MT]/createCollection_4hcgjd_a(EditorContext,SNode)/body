@@ -1,0 +1,11 @@
+{
+  EditorCell_Collection editorCell=EditorCell_Collection.createIndent2(editorContext,node);
+  editorCell.setCellId("Collection_4hcgjd_a");
+  editorCell.setBig(true);
+  editorCell.addEditorCell(this.createConstant_4hcgjd_a0(editorContext,node));
+  editorCell.addEditorCell(this.createProperty_4hcgjd_b0(editorContext,node));
+  editorCell.addEditorCell(this.createConstant_4hcgjd_c0(editorContext,node));
+  editorCell.addEditorCell(this.createRefNodeList_4hcgjd_d0(editorContext,node));
+  editorCell.addEditorCell(this.createConstant_4hcgjd_e0(editorContext,node));
+  return editorCell;
+}

@@ -1,0 +1,11 @@
+{
+  AbstractCellListHandler handler=new Rpc_Editor.throwsListHandler_e7ja1v_k0(node,"throws",editorContext);
+  EditorCell_Collection editorCell=handler.createCells(editorContext,new CellLayout_Vertical(),false);
+  editorCell.setCellId("refNodeList_throws");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.INDENT_LAYOUT_INDENT,true);
+  style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE,true);
+  editorCell.getStyle().putAll(style);
+  editorCell.setRole(handler.getElementRole());
+  return editorCell;
+}

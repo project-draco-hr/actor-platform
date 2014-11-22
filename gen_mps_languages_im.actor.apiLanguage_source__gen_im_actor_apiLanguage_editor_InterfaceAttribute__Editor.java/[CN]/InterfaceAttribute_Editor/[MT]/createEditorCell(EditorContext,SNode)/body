@@ -1,0 +1,3 @@
+{
+  return this.createCollection_yfysis_a(editorContext,node);
+}

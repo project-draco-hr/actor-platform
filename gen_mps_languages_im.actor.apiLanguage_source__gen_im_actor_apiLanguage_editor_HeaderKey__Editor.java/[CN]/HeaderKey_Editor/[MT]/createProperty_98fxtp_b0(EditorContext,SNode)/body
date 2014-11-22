@@ -1,0 +1,20 @@
+{
+  CellProviderWithRole provider=new PropertyCellProvider(node,editorContext);
+  provider.setRole("hexValue");
+  provider.setNoTargetText("<no hexValue>");
+  EditorCell editorCell;
+  editorCell=provider.createEditorCell(editorContext);
+  editorCell.setCellId("property_hexValue");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.TEXT_COLOR,StyleRegistry.getInstance().getSimpleColor(MPSColors.lightGray));
+  editorCell.getStyle().putAll(style);
+  editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+  SNode attributeConcept=provider.getRoleAttribute();
+  Class attributeKind=provider.getRoleAttributeClass();
+  if (attributeConcept != null) {
+    IOperationContext opContext=editorContext.getOperationContext();
+    EditorManager manager=EditorManager.getInstanceFromContext(opContext);
+    return manager.createNodeRoleAttributeCell(editorContext,attributeConcept,attributeKind,editorCell);
+  }
+ else   return editorCell;
+}

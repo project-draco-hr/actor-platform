@@ -1,0 +1,16 @@
+{
+  boolean alternationCondition=true;
+  alternationCondition=Struct_Editor.renderingCondition_a8dvuz_a4a(node,editorContext);
+  EditorCell editorCell=null;
+  if (alternationCondition) {
+    editorCell=this.createCollection_a8dvuz_a4a(editorContext,node);
+  }
+ else {
+    editorCell=this.createEmpty_a8dvuz_a4a(editorContext,node);
+  }
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.PUNCTUATION_LEFT,true);
+  style.set(StyleAttributes.PUNCTUATION_RIGHT,true);
+  editorCell.getStyle().putAll(style);
+  return editorCell;
+}

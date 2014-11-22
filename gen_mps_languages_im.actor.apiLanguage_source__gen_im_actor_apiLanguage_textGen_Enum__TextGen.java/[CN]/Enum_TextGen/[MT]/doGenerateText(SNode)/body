@@ -1,0 +1,26 @@
+{
+  this.append("{\"type\":\"enum\",\"content\":{");
+  this.appendNewLine();
+  this.append("\"name\":\"");
+  this.append(SPropertyOperations.getString(node,"name"));
+  this.append("\",");
+  this.appendNewLine();
+  this.append("\"values\":[");
+  this.appendNewLine();
+  Boolean isFirstAttribute=true;
+  for (  SNode attr : ListSequence.fromList(SLinkOperations.getTargets(node,"attributes",true))) {
+    if (!(isFirstAttribute)) {
+      this.append(",");
+    }
+ else {
+      isFirstAttribute=false;
+    }
+    this.append("{\"name\":\"");
+    this.append(SPropertyOperations.getString(attr,"name"));
+    this.append("\",\"id\":");
+    this.append(SPropertyOperations.getInteger(attr,"id") + "");
+    this.append("}");
+    this.appendNewLine();
+  }
+  this.append("]}}");
+}

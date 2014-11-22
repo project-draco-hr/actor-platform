@@ -1,0 +1,5 @@
+{
+  EditorCell_Error editorCell=new EditorCell_Error(editorContext,node,"<no def>");
+  editorCell.setCellId("Error_mja8cp_a0");
+  return editorCell;
+}

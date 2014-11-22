@@ -1,0 +1,16 @@
+{
+  boolean alternationCondition=true;
+  alternationCondition=SerializableType_Editor.renderingCondition_mja8cp_a0(node,editorContext);
+  EditorCell editorCell=null;
+  if (alternationCondition) {
+    editorCell=this.createError_mja8cp_a0(editorContext,node);
+  }
+ else {
+    editorCell=this.createComponent_mja8cp_a0(editorContext,node);
+  }
+  EditorCell bigCell=BigCellUtil.findBigCell(editorCell,node);
+  if (bigCell != null) {
+    bigCell.setBig(true);
+  }
+  return editorCell;
+}

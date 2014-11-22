@@ -1,0 +1,3 @@
+{
+  SPropertyOperations.set(node,"hasInterface","" + (!(SPropertyOperations.getBoolean(node,"hasInterface"))));
+}
