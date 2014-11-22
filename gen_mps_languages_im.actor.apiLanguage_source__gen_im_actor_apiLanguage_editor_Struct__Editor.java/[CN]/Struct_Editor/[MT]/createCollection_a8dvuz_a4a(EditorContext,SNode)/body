@@ -6,5 +6,6 @@
   editorCell.getStyle().putAll(style);
   editorCell.addEditorCell(this.createConstant_a8dvuz_a0e0(editorContext,node));
   editorCell.addEditorCell(this.createRefCell_a8dvuz_b0e0(editorContext,node));
+  editorCell.addEditorCell(this.createRefNode_a8dvuz_c0e0(editorContext,node));
   return editorCell;
 }
