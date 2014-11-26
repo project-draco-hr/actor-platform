@@ -1,0 +1,7 @@
+{
+  ArrayList<SchemeEnum> res=new ArrayList<SchemeEnum>();
+  for (  SchemeSection section : sections) {
+    res.addAll(section.getAllEnums());
+  }
+  return res;
+}

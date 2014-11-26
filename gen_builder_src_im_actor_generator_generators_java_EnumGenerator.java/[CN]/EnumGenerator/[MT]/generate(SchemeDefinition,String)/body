@@ -1,0 +1,3 @@
+{
+  generate(definition,path,JavaConfig.PACKAGE);
+}

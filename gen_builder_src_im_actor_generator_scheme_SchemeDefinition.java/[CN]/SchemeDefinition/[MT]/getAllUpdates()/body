@@ -1,0 +1,7 @@
+{
+  ArrayList<SchemeUpdate> res=new ArrayList<SchemeUpdate>();
+  for (  SchemeSection section : sections) {
+    res.addAll(section.getAllUpdates());
+  }
+  return res;
+}

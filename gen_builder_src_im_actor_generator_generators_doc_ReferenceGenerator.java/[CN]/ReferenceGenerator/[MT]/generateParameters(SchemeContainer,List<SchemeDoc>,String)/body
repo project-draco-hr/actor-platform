@@ -1,0 +1,23 @@
+{
+  String body="";
+  body+="<h3>Parameters</h3>";
+  if (u.getAttributes().size() > 0) {
+    body+="<table class=\"table table-hover\">";
+    body+="<tr><th style=\"width:100px;\">Argument</th><th style=\"width:100px;\">Type</th><th>Description</th></tr>";
+    for (    SchemeDoc doc : docs) {
+      if (doc instanceof SchemeDocParameter) {
+        String name=((SchemeDocParameter)doc).getArgument();
+        String descr=((SchemeDocParameter)doc).getDescription();
+        body+="<tr>";
+        body+="<td>" + HtmlConfig.bold(name) + "</td>";
+        body+="<td>" + HtmlConfig.typeText(u.getAttribute(name).getType(),pathToReference) + "</td>";
+        body+="<td>" + descr + "</td>";
+      }
+    }
+    body+="</table>";
+  }
+ else {
+    body+="<h5>No parameters</h5>";
+  }
+  return body;
+}

@@ -1,0 +1,5 @@
+{
+  this.name=name;
+  this.header=header;
+  this.response=response;
+}

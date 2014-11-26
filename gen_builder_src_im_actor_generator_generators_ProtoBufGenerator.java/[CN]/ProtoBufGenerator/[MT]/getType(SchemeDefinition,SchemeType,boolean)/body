@@ -1,0 +1,26 @@
+{
+  if (attribute instanceof SchemePrimitiveType) {
+    return (isFirst ? "required " : "") + ((SchemePrimitiveType)attribute).getName();
+  }
+ else   if (attribute instanceof SchemeOptionalType) {
+    return "optional " + getType(definition,((SchemeOptionalType)attribute).getType(),false);
+  }
+ else   if (attribute instanceof SchemeListType) {
+    return "repeated " + getType(definition,((SchemeListType)attribute).getType(),false);
+  }
+ else   if (attribute instanceof SchemeStructType) {
+    return (isFirst ? "required " : "") + ((SchemeStructType)attribute).getType();
+  }
+ else   if (attribute instanceof SchemeEnumType) {
+    return (isFirst ? "required " : "") + ((SchemeEnumType)attribute).getName();
+  }
+ else   if (attribute instanceof SchemeAliasType) {
+    return getType(definition,definition.getAliases().get(((SchemeAliasType)attribute).getName()),isFirst);
+  }
+ else   if (attribute instanceof SchemeTraitType) {
+    return (isFirst ? "required bytes" : "bytes");
+  }
+ else {
+    throw new IOException();
+  }
+}
