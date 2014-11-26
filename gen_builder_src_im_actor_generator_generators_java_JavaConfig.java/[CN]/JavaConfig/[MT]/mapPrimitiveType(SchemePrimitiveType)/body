@@ -1,0 +1,23 @@
+{
+  if (primitiveType.getName().equals("int32")) {
+    return "int";
+  }
+ else   if (primitiveType.getName().equals("int64")) {
+    return "long";
+  }
+ else   if (primitiveType.getName().equals("bytes")) {
+    return "byte[]";
+  }
+ else   if (primitiveType.getName().equals("string")) {
+    return "String";
+  }
+ else   if (primitiveType.getName().equals("double")) {
+    return "double";
+  }
+ else   if (primitiveType.getName().equals("bool")) {
+    return "boolean";
+  }
+ else {
+    throw new IOException();
+  }
+}

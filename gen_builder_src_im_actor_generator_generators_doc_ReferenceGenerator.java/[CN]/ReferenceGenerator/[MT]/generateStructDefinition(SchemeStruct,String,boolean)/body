@@ -1,0 +1,3 @@
+{
+  return color("struct",KEYWORD) + " " + link(u.getName(),pathToReference + "Struct" + u.getName()+ ".html")+ " "+ generateAttributes(u.getAttributes(),pathToReference,useNoBreak);
+}

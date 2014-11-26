@@ -1,0 +1,3 @@
+{
+  super("im.actor.apiLanguage.structure.ApiSection");
+}

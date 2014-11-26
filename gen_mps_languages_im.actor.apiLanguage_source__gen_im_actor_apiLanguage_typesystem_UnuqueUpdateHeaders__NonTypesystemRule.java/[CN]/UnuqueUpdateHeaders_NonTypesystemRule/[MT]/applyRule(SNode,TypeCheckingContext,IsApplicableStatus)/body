@@ -1,0 +1,19 @@
+{
+  Integer count=0;
+  for (  SNode section : ListSequence.fromList(SLinkOperations.getTargets(SNodeOperations.cast(SNodeOperations.getContainingRoot(update),"im.actor.apiLanguage.structure.ApiDescription"),"sections",true))) {
+    for (    SNode upd : ListSequence.fromList(SLinkOperations.getTargets(section,"definitions",true))) {
+      if (SNodeOperations.isInstanceOf(upd,"im.actor.apiLanguage.structure.Update")) {
+        SNode u=SNodeOperations.cast(upd,"im.actor.apiLanguage.structure.Update");
+        if (HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(u,"header",true)) == HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(update,"header",true))) {
+          count++;
+        }
+      }
+    }
+  }
+  if (count > 1) {
+{
+      MessageTarget errorTarget=new NodeMessageTarget();
+      IErrorReporter _reporter_2309309498=typeCheckingContext.reportTypeError(update,"Duplicate Update ids","r:6e7b088d-9a56-43ad-8e6a-4a3f15c66539(im.actor.apiLanguage.typesystem)","4689615199751397963",null,errorTarget);
+    }
+  }
+}

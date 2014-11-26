@@ -1,0 +1,9 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"package");
+  editorCell.setCellId("Constant_10ghgg_c0a");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.INDENT_LAYOUT_INDENT,true);
+  editorCell.getStyle().putAll(style);
+  editorCell.setDefaultText("");
+  return editorCell;
+}

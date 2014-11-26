@@ -1,0 +1,11 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"@");
+  editorCell.setCellId("Constant_nl193m_b0");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.PUNCTUATION_LEFT,true);
+  style.set(StyleAttributes.PUNCTUATION_RIGHT,true);
+  style.set(StyleAttributes.TEXT_COLOR,StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
+  editorCell.getStyle().putAll(style);
+  editorCell.setDefaultText("");
+  return editorCell;
+}

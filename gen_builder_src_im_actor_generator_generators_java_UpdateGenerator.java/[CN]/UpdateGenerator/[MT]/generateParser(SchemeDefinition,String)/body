@@ -1,0 +1,30 @@
+{
+  String destFolder=path + "/" + JavaConfig.PATH+ "/parser/";
+  new File(destFolder).mkdirs();
+  FileGenerator generator=new FileGenerator(destFolder + "/UpdatesParser.java");
+  generator.appendLn("package " + JavaConfig.PACKAGE + ".parser;");
+  for (  String im : JavaConfig.IMPORTS) {
+    generator.appendLn("import " + im + ";");
+  }
+  generator.appendLn("import " + JavaConfig.PACKAGE + ".updates.*;");
+  generator.appendLn();
+  generator.appendLn("public class UpdatesParser extends BaseParser<Update> {");
+  generator.increaseDepth();
+  generator.appendLn("@Override");
+  generator.appendLn("public Update read(int type, byte[] payload) throws IOException {");
+  generator.increaseDepth();
+  generator.appendLn("switch(type) {");
+  generator.increaseDepth();
+  for (  SchemeUpdate u : definition.getAllUpdates()) {
+    String javaName=JavaConfig.getUpdateName(u);
+    generator.appendLn("case " + u.getHeader() + ": return "+ javaName+ ".fromBytes(payload);");
+  }
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn("throw new IOException();");
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.close();
+}

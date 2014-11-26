@@ -1,0 +1,7 @@
+{
+  String res="";
+  for (  String d : docs) {
+    res+=d + " ";
+  }
+  return res;
+}

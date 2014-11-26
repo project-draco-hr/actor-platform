@@ -1,0 +1,9 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"#");
+  editorCell.setCellId("Constant_tzimx8_a0");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.TEXT_COLOR,StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
+  editorCell.getStyle().putAll(style);
+  editorCell.setDefaultText("");
+  return editorCell;
+}

@@ -1,0 +1,15 @@
+{
+  String res=color("enum",KEYWORD) + " " + link(e.getName(),pathToReference + "Enum" + e.getName()+ ".html")+ " (";
+  boolean isFirst=true;
+  for (  SchemeEnum.Record r : e.getRecord()) {
+    if (isFirst) {
+      isFirst=false;
+    }
+ else {
+      res+=", ";
+    }
+    res+=r.getName() + color("@" + r.getId(),HEADER);
+  }
+  res+=")";
+  return res;
+}

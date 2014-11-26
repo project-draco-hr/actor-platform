@@ -1,0 +1,3 @@
+{
+  return this.createCollection_78un91_a(editorContext,node);
+}

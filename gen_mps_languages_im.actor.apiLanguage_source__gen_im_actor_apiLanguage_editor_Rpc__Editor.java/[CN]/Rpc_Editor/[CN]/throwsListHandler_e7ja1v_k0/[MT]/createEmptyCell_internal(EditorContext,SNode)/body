@@ -1,0 +1,3 @@
+{
+  return this.createConstant_e7ja1v_a01a(editorContext,node);
+}

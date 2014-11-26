@@ -1,0 +1,6 @@
+{
+  if (SConceptOperations.isSubConceptOf(kind,"im.actor.apiLanguage.structure.StructAttribute")) {
+    return SimpleRoleScope.forNamedElements(thisNode,SLinkOperations.findLinkDeclaration("im.actor.apiLanguage.structure.IStruct","attributes"));
+  }
+  return null;
+}

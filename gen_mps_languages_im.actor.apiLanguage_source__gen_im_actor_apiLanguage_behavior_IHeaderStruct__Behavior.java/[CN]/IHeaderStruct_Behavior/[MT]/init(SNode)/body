@@ -1,0 +1,3 @@
+{
+  SLinkOperations.setTarget(thisNode,"header",SConceptOperations.createNewNode("im.actor.apiLanguage.structure.HeaderKey",null),true);
+}

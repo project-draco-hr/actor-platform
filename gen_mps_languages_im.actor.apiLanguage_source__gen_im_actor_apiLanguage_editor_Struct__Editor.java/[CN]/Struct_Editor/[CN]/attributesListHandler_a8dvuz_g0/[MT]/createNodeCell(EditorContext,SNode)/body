@@ -1,0 +1,5 @@
+{
+  EditorCell elementCell=super.createNodeCell(editorContext,elementNode);
+  this.installElementCellActions(this.getOwner(),elementNode,elementCell,editorContext);
+  return elementCell;
+}

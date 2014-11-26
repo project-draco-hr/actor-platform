@@ -1,0 +1,22 @@
+{
+  String res="(";
+  int index=0;
+  for (  SchemeAttribute attribute : attributeList) {
+    if (useNoBreak) {
+      res+="<span style=\"white-space: nowrap;\">";
+    }
+    res+=typeText(attribute.getType(),referencePath) + color("@" + attribute.getId(),HEADER) + " "+ attribute.getName();
+    if (index != attributeList.size() - 1) {
+      res+=",";
+    }
+    if (useNoBreak) {
+      res+="</span>";
+    }
+    if (index != attributeList.size() - 1) {
+      res+=" ";
+    }
+    index++;
+  }
+  res+=")";
+  return res;
+}

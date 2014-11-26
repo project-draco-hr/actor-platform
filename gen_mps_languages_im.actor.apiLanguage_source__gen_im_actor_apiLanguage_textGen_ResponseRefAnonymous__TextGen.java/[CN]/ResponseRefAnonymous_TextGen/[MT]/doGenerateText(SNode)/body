@@ -1,0 +1,23 @@
+{
+  this.append("{\"type\":\"anonymous\",\"header\":");
+  this.append(HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(node,"header",true)) + "");
+  this.append(", \"attributes\":[");
+  Boolean isFirstAttribute=true;
+  for (  SNode attr : ListSequence.fromList(SLinkOperations.getTargets(node,"attributes",true))) {
+    if (!(isFirstAttribute)) {
+      this.append(",");
+    }
+ else {
+      isFirstAttribute=false;
+    }
+    this.append("{\"type\":");
+    appendNode(SLinkOperations.getTarget(attr,"type",true));
+    this.append(",\"id\":");
+    this.append(SPropertyOperations.getInteger(attr,"id") + "");
+    this.append(",\"name\":\"");
+    this.append(SPropertyOperations.getString(attr,"name"));
+    this.append("\"}");
+    this.appendNewLine();
+  }
+  this.append("]}");
+}

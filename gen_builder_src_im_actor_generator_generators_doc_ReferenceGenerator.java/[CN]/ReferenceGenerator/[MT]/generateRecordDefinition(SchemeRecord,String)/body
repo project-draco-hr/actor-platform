@@ -1,0 +1,33 @@
+{
+  if (record instanceof SchemeUpdate) {
+    SchemeUpdate u=(SchemeUpdate)record;
+    return ReferenceGenerator.generateUpdateDefinition(u,path,false);
+  }
+ else   if (record instanceof SchemeStruct) {
+    SchemeStruct s=(SchemeStruct)record;
+    return ReferenceGenerator.generateStructDefinition(s,path,false);
+  }
+ else   if (record instanceof SchemeEnum) {
+    SchemeEnum e=(SchemeEnum)record;
+    return ReferenceGenerator.generateEnumDefinition(e,path);
+  }
+ else   if (record instanceof SchemeRpc) {
+    SchemeRpc rpc=(SchemeRpc)record;
+    return ReferenceGenerator.generateRequestDefinition(rpc,path,false);
+  }
+ else   if (record instanceof SchemeResponse) {
+    SchemeResponse r=(SchemeResponse)record;
+    return ReferenceGenerator.generateResponseDefinition(r,path,false);
+  }
+ else   if (record instanceof SchemeUpdateBox) {
+    SchemeUpdateBox r=(SchemeUpdateBox)record;
+    return ReferenceGenerator.generateUpdateBoxDefinition(r,path,false);
+  }
+ else   if (record instanceof SchemeWhitespace) {
+    return "<br/>";
+  }
+ else   if (record instanceof SchemeComment) {
+    return color("// " + ((SchemeComment)record).getText(),COMMENT);
+  }
+  return "";
+}

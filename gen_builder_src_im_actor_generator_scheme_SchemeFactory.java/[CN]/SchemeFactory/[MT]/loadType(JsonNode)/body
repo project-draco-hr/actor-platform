@@ -1,0 +1,29 @@
+{
+  if (node.size() > 0) {
+    String complexNode=node.get("type").textValue();
+    if (complexNode.equals("list")) {
+      return new SchemeListType(loadType(node.get("childType")));
+    }
+ else     if (complexNode.equals("struct")) {
+      return new SchemeStructType(node.get("childType").textValue());
+    }
+ else     if (complexNode.equals("opt")) {
+      return new SchemeOptionalType(loadType(node.get("childType")));
+    }
+ else     if (complexNode.equals("enum")) {
+      return new SchemeEnumType(node.get("childType").textValue());
+    }
+ else     if (complexNode.equals("alias")) {
+      return new SchemeAliasType(node.get("childType").textValue());
+    }
+ else     if (complexNode.equals("trait")) {
+      return new SchemeTraitType(node.get("childType").textValue());
+    }
+ else {
+      throw new IOException();
+    }
+  }
+ else {
+    return new SchemePrimitiveType(node.textValue());
+  }
+}
