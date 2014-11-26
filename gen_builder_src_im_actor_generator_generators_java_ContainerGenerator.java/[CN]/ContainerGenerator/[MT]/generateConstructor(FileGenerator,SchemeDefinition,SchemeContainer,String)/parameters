@@ -1,3 +1,4 @@
 FileGenerator generator
+SchemeDefinition definition
 SchemeContainer container
 String javaName

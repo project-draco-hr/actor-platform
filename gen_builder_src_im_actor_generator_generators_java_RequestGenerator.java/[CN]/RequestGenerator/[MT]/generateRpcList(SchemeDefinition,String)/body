@@ -33,7 +33,7 @@
     }
     generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
     if (u.getAttributes().size() > 0) {
-      ContainerGenerator.generateConstructorArgs(generator,u);
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
     }
     generator.appendLn(") {");
     generator.increaseDepth();
@@ -45,7 +45,7 @@
     generator.appendLn();
     generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
     if (u.getAttributes().size() > 0) {
-      ContainerGenerator.generateConstructorArgs(generator,u);
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
       generator.append(", ");
     }
     generator.appendLn("long requestTimeout) {");
@@ -58,7 +58,7 @@
     generator.appendLn();
     generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
     if (u.getAttributes().size() > 0) {
-      ContainerGenerator.generateConstructorArgs(generator,u);
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
       generator.append(", ");
     }
     generator.appendLn("FutureCallback<" + responseJavaName + "> callback) {");
@@ -71,7 +71,7 @@
     generator.appendLn();
     generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
     if (u.getAttributes().size() > 0) {
-      ContainerGenerator.generateConstructorArgs(generator,u);
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
       generator.append(", ");
     }
     generator.appendLn("long requestTimeout, FutureCallback<" + responseJavaName + "> callback) {");
@@ -84,7 +84,7 @@
     generator.appendLn();
     generator.append("public " + responseJavaName + " "+ JavaConfig.getRequestsName(u.getName())+ "Sync (");
     if (u.getAttributes().size() > 0) {
-      ContainerGenerator.generateConstructorArgs(generator,u);
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
     }
     generator.appendLn(") throws TimeoutException, ApiRequestException {");
     generator.increaseDepth();
@@ -96,7 +96,7 @@
     generator.appendLn();
     generator.append("public " + responseJavaName + " "+ JavaConfig.getRequestsName(u.getName())+ "Sync (");
     if (u.getAttributes().size() > 0) {
-      ContainerGenerator.generateConstructorArgs(generator,u);
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
       generator.append(", ");
     }
     generator.appendLn("long requestTimeout) throws TimeoutException, ApiRequestException {");

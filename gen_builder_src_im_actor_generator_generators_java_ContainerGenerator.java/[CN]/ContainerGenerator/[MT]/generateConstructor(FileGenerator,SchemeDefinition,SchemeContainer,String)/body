@@ -1,6 +1,6 @@
 {
   generator.append("public " + javaName + "(");
-  ContainerGenerator.generateConstructorArgs(generator,container);
+  ContainerGenerator.generateConstructorArgs(generator,definition,container);
   generator.appendLn(") {");
   generator.increaseDepth();
   for (  SchemeAttribute attribute : container.getAttributes()) {

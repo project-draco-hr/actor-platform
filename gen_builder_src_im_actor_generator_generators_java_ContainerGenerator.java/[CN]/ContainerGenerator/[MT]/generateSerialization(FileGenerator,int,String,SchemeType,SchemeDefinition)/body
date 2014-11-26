@@ -1,0 +1,119 @@
+{
+  type=JavaConfig.reduceAlias(type,definition);
+  if (type instanceof SchemePrimitiveType) {
+    SchemePrimitiveType primitiveType=(SchemePrimitiveType)type;
+    if (primitiveType.getName().equals("int32")) {
+      generator.appendLn("this." + attributeName + " = values.getInt("+ attributeId+ ");");
+    }
+ else     if (primitiveType.getName().equals("int64")) {
+      generator.appendLn("this." + attributeName + " = values.getLong("+ attributeId+ ");");
+    }
+ else     if (primitiveType.getName().equals("bool")) {
+      generator.appendLn("this." + attributeName + " = values.getBool("+ attributeId+ ");");
+    }
+ else     if (primitiveType.getName().equals("bytes")) {
+      generator.appendLn("this." + attributeName + " = values.getBytes("+ attributeId+ ");");
+    }
+ else     if (primitiveType.getName().equals("string")) {
+      generator.appendLn("this." + attributeName + " = values.getString("+ attributeId+ ");");
+    }
+ else     if (primitiveType.getName().equals("double")) {
+      generator.appendLn("this." + attributeName + " = values.getDouble("+ attributeId+ ");");
+    }
+ else {
+      throw new IOException();
+    }
+  }
+ else   if (type instanceof SchemeStructType) {
+    generator.appendLn("this." + attributeName + " = values.getObj("+ attributeId+ ", "+ JavaConfig.getStructName(((SchemeStructType)type).getType())+ ".class);");
+  }
+ else   if (type instanceof SchemeEnumType) {
+    SchemeEnumType e=(SchemeEnumType)type;
+    generator.appendLn("this." + attributeName + " = "+ JavaConfig.getEnumName(e.getName())+ ".parse(values.getInt("+ attributeId+ "));");
+  }
+ else   if (type instanceof SchemeOptionalType) {
+    SchemeOptionalType optType=(SchemeOptionalType)type;
+    SchemeType childType=JavaConfig.reduceAlias(optType.getType(),definition);
+    if (childType instanceof SchemePrimitiveType) {
+      SchemePrimitiveType primitiveType=(SchemePrimitiveType)childType;
+      if (primitiveType.getName().equals("int32")) {
+        generator.appendLn("this." + attributeName + " = values.optInt("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("int64")) {
+        generator.appendLn("this." + attributeName + " = values.optLong("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("bool")) {
+        generator.appendLn("this." + attributeName + " = values.optBool("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("bytes")) {
+        generator.appendLn("this." + attributeName + " = values.optBytes("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("string")) {
+        generator.appendLn("this." + attributeName + " = values.optString("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("double")) {
+        generator.appendLn("this." + attributeName + " = values.optDouble("+ attributeId+ ");");
+      }
+ else {
+        throw new IOException();
+      }
+    }
+ else     if (childType instanceof SchemeStructType) {
+      generator.appendLn("this." + attributeName + " = values.optObj("+ attributeId+ ", "+ JavaConfig.getStructName(((SchemeStructType)childType).getType())+ ".class);");
+    }
+ else     if (childType instanceof SchemeEnumType) {
+      generator.appendLn("int val_" + attributeName + " = values.getInt("+ attributeId+ ", 0);");
+      generator.appendLn("if (val_" + attributeName + " != 0) {");
+      generator.increaseDepth();
+      generator.appendLn("this." + attributeName + " = "+ JavaConfig.getEnumName(((SchemeEnumType)childType).getName())+ ".parse(val_"+ attributeName+ ");");
+      generator.decreaseDepth();
+      generator.appendLn("}");
+    }
+ else     if (childType instanceof SchemeTraitType) {
+      generator.appendLn("this." + attributeName + " = values.optBytes("+ attributeId+ ");");
+    }
+ else {
+      throw new IOException();
+    }
+  }
+ else   if (type instanceof SchemeListType) {
+    SchemeListType listType=(SchemeListType)type;
+    SchemeType childType=JavaConfig.reduceAlias(listType.getType(),definition);
+    if (childType instanceof SchemePrimitiveType) {
+      SchemePrimitiveType primitiveType=(SchemePrimitiveType)childType;
+      if (primitiveType.getName().equals("int32")) {
+        generator.appendLn("this." + attributeName + " = values.getRepeatedInt("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("int64")) {
+        generator.appendLn("this." + attributeName + " = values.getRepeatedLong("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("bool")) {
+        generator.appendLn("this." + attributeName + " = values.getRepeatedBool("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("bytes")) {
+        generator.appendLn("this." + attributeName + " = values.getRepeatedBytes("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("string")) {
+        generator.appendLn("this." + attributeName + " = values.getRepeatedString("+ attributeId+ ");");
+      }
+ else       if (primitiveType.getName().equals("double")) {
+        generator.appendLn("this." + attributeName + " = values.getRepeatedDouble("+ attributeId+ ");");
+      }
+ else {
+        throw new IOException();
+      }
+    }
+ else     if (childType instanceof SchemeStructType) {
+      generator.appendLn("this." + attributeName + " = values.getRepeatedObj("+ attributeId+ ", "+ JavaConfig.getStructName(((SchemeStructType)childType).getType())+ ".class);");
+    }
+ else {
+      throw new IOException();
+    }
+  }
+ else   if (type instanceof SchemeTraitType) {
+    generator.appendLn("this." + attributeName + " = values.getBytes("+ attributeId+ ");");
+  }
+ else {
+    throw new IOException();
+  }
+}

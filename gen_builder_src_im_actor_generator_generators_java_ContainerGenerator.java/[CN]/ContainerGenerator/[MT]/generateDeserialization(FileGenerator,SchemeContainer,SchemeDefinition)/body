@@ -1,0 +1,11 @@
+{
+  generator.appendLn("@Override");
+  generator.appendLn("public void serialize(BserWriter writer) throws IOException {");
+  generator.increaseDepth();
+  for (  SchemeAttribute attribute : container.getAttributes()) {
+    generateDeserialization(generator,attribute.getId(),attribute.getName(),attribute.getType(),definition);
+  }
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn();
+}
