@@ -1,0 +1,4 @@
+{
+  this.name=name;
+  this.docs=new ArrayList<SchemeDoc>();
+}

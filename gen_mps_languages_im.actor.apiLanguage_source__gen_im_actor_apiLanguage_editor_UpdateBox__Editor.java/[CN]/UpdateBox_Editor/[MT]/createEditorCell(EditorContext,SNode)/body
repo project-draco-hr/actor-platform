@@ -1,0 +1,3 @@
+{
+  return this.createCollection_436jad_a(editorContext,node);
+}

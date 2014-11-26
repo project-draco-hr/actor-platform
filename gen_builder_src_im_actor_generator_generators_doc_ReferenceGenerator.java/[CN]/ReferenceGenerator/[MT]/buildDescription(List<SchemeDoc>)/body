@@ -1,0 +1,12 @@
+{
+  String res="";
+  for (  SchemeDoc doc : docs) {
+    if (doc instanceof SchemeDocComment) {
+      if (res.length() == 0) {
+        res+=" ";
+      }
+      res+=((SchemeDocComment)doc).getText();
+    }
+  }
+  return res;
+}

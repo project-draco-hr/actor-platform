@@ -1,0 +1,6 @@
+{
+  if (methodName.startsWith("Request")) {
+    return "Response" + methodName.substring("Request".length());
+  }
+  return "Response" + methodName;
+}

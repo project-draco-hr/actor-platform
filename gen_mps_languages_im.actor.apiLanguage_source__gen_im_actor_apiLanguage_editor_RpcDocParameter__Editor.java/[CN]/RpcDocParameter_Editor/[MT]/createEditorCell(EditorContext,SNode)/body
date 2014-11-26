@@ -1,0 +1,3 @@
+{
+  return this.createCollection_atf40r_a(editorContext,node);
+}

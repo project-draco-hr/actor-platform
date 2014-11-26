@@ -1,0 +1,3 @@
+{
+  return this.createCollection_hmt24j_a(editorContext,node);
+}

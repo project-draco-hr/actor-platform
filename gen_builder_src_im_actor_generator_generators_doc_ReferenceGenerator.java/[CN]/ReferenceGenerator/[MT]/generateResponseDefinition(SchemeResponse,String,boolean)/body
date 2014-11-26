@@ -1,0 +1,3 @@
+{
+  return color("response",KEYWORD) + " " + link(u.getName(),pathToReference + "Response" + u.getName()+ ".html")+ " "+ generateAttributes(u.getAttributes(),pathToReference,useNoBreak);
+}

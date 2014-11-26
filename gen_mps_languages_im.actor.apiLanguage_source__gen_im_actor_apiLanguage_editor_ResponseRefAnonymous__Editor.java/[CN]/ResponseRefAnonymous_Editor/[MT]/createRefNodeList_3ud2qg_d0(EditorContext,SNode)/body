@@ -1,0 +1,7 @@
+{
+  AbstractCellListHandler handler=new ResponseRefAnonymous_Editor.attributesListHandler_3ud2qg_d0(node,"attributes",editorContext);
+  EditorCell_Collection editorCell=handler.createCells(editorContext,new CellLayout_Indent(),false);
+  editorCell.setCellId("refNodeList_attributes");
+  editorCell.setRole(handler.getElementRole());
+  return editorCell;
+}

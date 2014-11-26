@@ -1,0 +1,3 @@
+{
+  return color("update box",KEYWORD) + " " + link(u.getName(),pathToReference + "UpdateBox" + u.getName()+ ".html")+ " "+ generateAttributes(u.getAttributes(),pathToReference,useNoBreak);
+}

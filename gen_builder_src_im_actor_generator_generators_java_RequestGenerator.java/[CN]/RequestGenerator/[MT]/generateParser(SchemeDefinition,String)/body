@@ -1,0 +1,45 @@
+{
+  String destFolder=path + "/" + JavaConfig.PATH+ "/parser/";
+  new File(destFolder).mkdirs();
+  FileGenerator generator=new FileGenerator(destFolder + "/RpcParser.java");
+  generator.appendLn("package " + JavaConfig.PACKAGE + ".parser;");
+  for (  String im : JavaConfig.IMPORTS) {
+    generator.appendLn("import " + im + ";");
+  }
+  generator.appendLn("import " + JavaConfig.PACKAGE + ".rpc.*;");
+  generator.appendLn("import " + JavaConfig.PACKAGE + ".base.*;");
+  generator.appendLn();
+  generator.appendLn("public class RpcParser extends BaseParser<RpcScope> {");
+  generator.increaseDepth();
+  generator.appendLn("@Override");
+  generator.appendLn("public RpcScope read(int type, byte[] payload) throws IOException {");
+  generator.increaseDepth();
+  generator.appendLn("switch(type) {");
+  generator.increaseDepth();
+  for (  SchemeRpc u : definition.getAllRpc()) {
+    String javaName=JavaConfig.getRequestName(u.getName());
+    generator.appendLn("case " + u.getHeader() + ": return "+ javaName+ ".fromBytes(payload);");
+  }
+  for (  SchemeBaseResponse u : definition.getAllResponses()) {
+    String javaName;
+    if (u instanceof SchemeResponse) {
+      javaName=JavaConfig.getResponseName(((SchemeResponse)u).getName());
+    }
+ else {
+      javaName=JavaConfig.getAnonymousResponseName(((SchemeResponseAnonymous)u).getRpc().getName());
+    }
+    generator.appendLn("case " + u.getHeader() + ": return "+ javaName+ ".fromBytes(payload);");
+  }
+  for (  SchemeUpdateBox u : definition.getAllUpdateBoxes()) {
+    String javaName=JavaConfig.getUpdateBoxName(u.getName());
+    generator.appendLn("case " + u.getHeader() + ": return "+ javaName+ ".fromBytes(payload);");
+  }
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn("throw new IOException();");
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.close();
+}

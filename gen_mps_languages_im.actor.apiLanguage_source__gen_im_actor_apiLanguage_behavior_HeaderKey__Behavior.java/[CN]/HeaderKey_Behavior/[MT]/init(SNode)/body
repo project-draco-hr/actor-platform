@@ -1,0 +1,3 @@
+{
+  SPropertyOperations.set(thisNode,"hexValue","01");
+}

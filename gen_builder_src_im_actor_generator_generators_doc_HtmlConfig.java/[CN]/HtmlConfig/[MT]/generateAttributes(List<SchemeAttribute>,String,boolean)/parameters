@@ -1,0 +1,3 @@
+List<SchemeAttribute> attributeList
+String referencePath
+boolean useNoBreak

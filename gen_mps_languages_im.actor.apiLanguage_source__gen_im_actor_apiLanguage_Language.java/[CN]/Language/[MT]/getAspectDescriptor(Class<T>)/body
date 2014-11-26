@@ -1,0 +1,9 @@
+{
+  if (descriptorClass == EditorAspectDescriptor.class) {
+    if (myEditorAspectDescriptor == null) {
+      myEditorAspectDescriptor=new EditorAspectDescriptorImpl();
+    }
+    return (T)myEditorAspectDescriptor;
+  }
+  return null;
+}

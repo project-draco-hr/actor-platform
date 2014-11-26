@@ -1,0 +1,7 @@
+{
+  List<SchemeRpc> res=new ArrayList<SchemeRpc>();
+  for (  SchemeSection section : sections) {
+    res.addAll(section.getAllRpc());
+  }
+  return res;
+}

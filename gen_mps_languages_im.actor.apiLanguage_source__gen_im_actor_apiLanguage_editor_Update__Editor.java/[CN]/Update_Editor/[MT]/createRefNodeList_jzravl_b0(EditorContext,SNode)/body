@@ -1,0 +1,10 @@
+{
+  AbstractCellListHandler handler=new Update_Editor.docsListHandler_jzravl_b0(node,"docs",editorContext);
+  EditorCell_Collection editorCell=handler.createCells(editorContext,new CellLayout_Vertical(),false);
+  editorCell.setCellId("refNodeList_docs");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE,true);
+  editorCell.getStyle().putAll(style);
+  editorCell.setRole(handler.getElementRole());
+  return editorCell;
+}

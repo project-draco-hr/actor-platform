@@ -1,0 +1,3 @@
+{
+  return "<ol class=\"breadcrumb\" style=\"margin-top:14px\">\n" + "  <li><a href=\"../index.html\">Actor API</a></li>\n" + "  <li><a href=\"" + section.getPkg() + ".html\">"+ section.getName()+ "</a></li>\n"+ "  <li class=\"active\">"+ entityName+ "</li>\n"+ "</ol>";
+}

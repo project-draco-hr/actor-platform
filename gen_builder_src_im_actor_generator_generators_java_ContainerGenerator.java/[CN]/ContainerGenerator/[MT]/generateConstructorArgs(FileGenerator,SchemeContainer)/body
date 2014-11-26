@@ -1,0 +1,13 @@
+{
+  boolean isFirst=true;
+  for (  SchemeAttribute attribute : container.getAttributes()) {
+    if (isFirst) {
+      isFirst=false;
+    }
+ else {
+      generator.append(", ");
+    }
+    generator.append(JavaConfig.convertType(attribute.getType()));
+    generator.append(" " + attribute.getName());
+  }
+}

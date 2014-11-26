@@ -1,0 +1,4 @@
+{
+  stream.append("\n");
+  isFirstData=true;
+}

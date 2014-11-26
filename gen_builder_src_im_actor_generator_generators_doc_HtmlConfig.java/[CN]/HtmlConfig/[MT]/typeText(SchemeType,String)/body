@@ -1,0 +1,22 @@
+{
+  if (type instanceof SchemeEnumType) {
+    String name=((SchemeEnumType)type).getName();
+    return link(name,referencePath + "Enum" + name+ ".html");
+  }
+ else   if (type instanceof SchemeListType) {
+    return color(bold("list<") + typeText(((SchemeListType)type).getType(),referencePath) + bold(">"),KEYWORD);
+  }
+ else   if (type instanceof SchemeOptionalType) {
+    return color(bold("opt<") + typeText(((SchemeOptionalType)type).getType(),referencePath) + bold(">"),KEYWORD);
+  }
+ else   if (type instanceof SchemePrimitiveType) {
+    return color(bold(((SchemePrimitiveType)type).getName()),KEYWORD);
+  }
+ else   if (type instanceof SchemeStructType) {
+    String name=((SchemeStructType)type).getType();
+    return link(name,referencePath + "Struct" + name+ ".html");
+  }
+ else {
+    throw new IOException();
+  }
+}

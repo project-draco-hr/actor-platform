@@ -1,6 +1,0 @@
-{
-  String path="/Users/ex3ndr/Documents/actor.json";
-  ObjectMapper mapper=new ObjectMapper();
-  JsonNode node=mapper.readValue(new File(path),JsonNode.class);
-  node.toString();
-}

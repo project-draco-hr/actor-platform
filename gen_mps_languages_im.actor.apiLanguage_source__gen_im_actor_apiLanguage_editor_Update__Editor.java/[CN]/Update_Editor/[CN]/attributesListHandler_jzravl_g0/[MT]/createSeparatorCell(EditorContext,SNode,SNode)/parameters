@@ -1,0 +1,3 @@
+EditorContext editorContext
+SNode prevNode
+SNode nextNode

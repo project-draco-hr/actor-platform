@@ -1,0 +1,7 @@
+{
+  List<SchemeStruct> res=new ArrayList<SchemeStruct>();
+  for (  SchemeSection section : sections) {
+    res.addAll(section.getAllStructs());
+  }
+  return res;
+}

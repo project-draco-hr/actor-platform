@@ -1,0 +1,12 @@
+{
+  if (SPropertyOperations.getBoolean(node,"hasInterface")) {
+    SPropertyOperations.set(node,"hasInterface","" + (false));
+    SLinkOperations.setTarget(node,"interface",null,false);
+    SLinkOperations.setTarget(node,"header",null,true);
+  }
+ else {
+    SPropertyOperations.set(node,"hasInterface","" + (true));
+    SLinkOperations.setTarget(node,"interface",null,false);
+    SLinkOperations.setTarget(node,"header",SConceptOperations.createNewNode("im.actor.apiLanguage.structure.HeaderKey",null),true);
+  }
+}

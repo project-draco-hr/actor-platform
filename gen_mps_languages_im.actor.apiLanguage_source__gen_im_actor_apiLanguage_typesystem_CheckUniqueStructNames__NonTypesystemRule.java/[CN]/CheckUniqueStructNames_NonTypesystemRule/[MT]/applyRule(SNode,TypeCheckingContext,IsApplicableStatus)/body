@@ -1,0 +1,24 @@
+{
+  if (SPropertyOperations.getString(iEntity,"name").equals("bytes")) {
+{
+      MessageTarget errorTarget=new NodeMessageTarget();
+      IErrorReporter _reporter_2309309498=typeCheckingContext.reportTypeError(iEntity,"name bytes in unavailable","r:6e7b088d-9a56-43ad-8e6a-4a3f15c66539(im.actor.apiLanguage.typesystem)","5312209286554794578",null,errorTarget);
+    }
+  }
+  Integer count=0;
+  for (  SNode section : ListSequence.fromList(SLinkOperations.getTargets(SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.getParent(iEntity)),"im.actor.apiLanguage.structure.ApiDescription"),"sections",true))) {
+    for (    SNode destDef : ListSequence.fromList(SLinkOperations.getTargets(section,"definitions",true))) {
+      if (SNodeOperations.isInstanceOf(destDef,"im.actor.apiLanguage.structure.IEntity")) {
+        if (SPropertyOperations.getString(iEntity,"name").equals(SPropertyOperations.getString(SNodeOperations.cast(destDef,"im.actor.apiLanguage.structure.IEntity"),"name"))) {
+          count++;
+        }
+      }
+    }
+  }
+  if (count > 1) {
+{
+      MessageTarget errorTarget=new NodeMessageTarget();
+      IErrorReporter _reporter_2309309498=typeCheckingContext.reportTypeError(iEntity,"Duplicate Names","r:6e7b088d-9a56-43ad-8e6a-4a3f15c66539(im.actor.apiLanguage.typesystem)","2348480312264610464",null,errorTarget);
+    }
+  }
+}

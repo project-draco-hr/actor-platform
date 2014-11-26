@@ -1,0 +1,5 @@
+{
+  this.append("{\"type\":\"reference\",\"name\":\"");
+  this.append(SPropertyOperations.getString(SLinkOperations.getTarget(node,"response",false),"name"));
+  this.append("\"}");
+}

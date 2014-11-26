@@ -1,0 +1,8 @@
+{
+  try {
+    return Integer.parseInt(SPropertyOperations.getString(thisNode,"hexValue"),16);
+  }
+ catch (  Exception e) {
+    return 0;
+  }
+}

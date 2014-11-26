@@ -1,0 +1,3 @@
+{
+  return ScopeProvider_Behavior.virtual_getScope_7722139651431880752(thisNode,kind,role,index);
+}
