@@ -1,3 +1,0 @@
-{
-  return SPropertyOperations.getString(node,"name");
-}
