@@ -27,7 +27,7 @@
             generator.appendLn("// " + ((SchemeDocComment)d).getText());
           }
  else           if (d instanceof SchemeDocParameter) {
-            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + ((SchemeDocParameter)d).getDescription());
+            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + " "+ ((SchemeDocParameter)d).getDescription());
           }
         }
         generator.appendLn("message " + sEnum.getName() + " {");
@@ -45,7 +45,7 @@
             generator.appendLn("// " + ((SchemeDocComment)d).getText());
           }
  else           if (d instanceof SchemeDocParameter) {
-            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + ((SchemeDocParameter)d).getDescription());
+            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + " "+ ((SchemeDocParameter)d).getDescription());
           }
         }
         generator.appendLn("message Update" + update.getName() + " {");
@@ -63,7 +63,7 @@
             generator.appendLn("// " + ((SchemeDocComment)d).getText());
           }
  else           if (d instanceof SchemeDocParameter) {
-            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + ((SchemeDocParameter)d).getDescription());
+            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + " "+ ((SchemeDocParameter)d).getDescription());
           }
         }
         generator.appendLn("message Update" + update.getName() + " {");
@@ -81,7 +81,7 @@
             generator.appendLn("// " + ((SchemeDocComment)d).getText());
           }
  else           if (d instanceof SchemeDocParameter) {
-            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + ((SchemeDocParameter)d).getDescription());
+            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + " "+ ((SchemeDocParameter)d).getDescription());
           }
         }
         generator.appendLn("message Response" + update.getName() + " {");
@@ -106,7 +106,7 @@
             generator.appendLn("// " + ((SchemeDocComment)d).getText());
           }
  else           if (d instanceof SchemeDocParameter) {
-            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + ((SchemeDocParameter)d).getDescription());
+            generator.appendLn("// " + ((SchemeDocParameter)d).getArgument() + " "+ ((SchemeDocParameter)d).getDescription());
           }
         }
         generator.appendLn("message " + requestName(rpc.getName()) + " {");
