@@ -6,7 +6,7 @@
   editorCell=provider.createEditorCell(editorContext);
   editorCell.setCellId("property_text");
   Style style=new StyleImpl();
-  style.set(StyleAttributes.TEXT_COLOR,StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
+  style.set(StyleAttributes.TEXT_COLOR,0,StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
   editorCell.getStyle().putAll(style);
   editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
   SNode attributeConcept=provider.getRoleAttribute();

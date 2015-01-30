@@ -1,12 +1,12 @@
 {
-  if (SPropertyOperations.getBoolean(node,"hasInterface")) {
-    SPropertyOperations.set(node,"hasInterface","" + (false));
-    SLinkOperations.setTarget(node,"interface",null,false);
-    SLinkOperations.setTarget(node,"header",null,true);
+  if (SPropertyOperations.getBoolean(node,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x49b8c23369a91f89L,"hasInterface"))) {
+    SPropertyOperations.set(node,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x49b8c23369a91f89L,"hasInterface"),"" + (false));
+    SLinkOperations.setTarget(node,MetaAdapterFactory.getReferenceLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x49b8c23369aa8d4cL,"interface"),null);
+    SLinkOperations.setTarget(node,MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x514b58ebb63dd5f5L,"header"),null);
   }
  else {
-    SPropertyOperations.set(node,"hasInterface","" + (true));
-    SLinkOperations.setTarget(node,"interface",null,false);
-    SLinkOperations.setTarget(node,"header",SConceptOperations.createNewNode("im.actor.apiLanguage.structure.HeaderKey",null),true);
+    SPropertyOperations.set(node,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x49b8c23369a91f89L,"hasInterface"),"" + (true));
+    SLinkOperations.setTarget(node,MetaAdapterFactory.getReferenceLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x49b8c23369aa8d4cL,"interface"),null);
+    SLinkOperations.setTarget(node,MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68208d1L,0x514b58ebb63dd5f5L,"header"),SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x4114dc2d726c9c8eL,"im.actor.apiLanguage.structure.HeaderKey"))));
   }
 }

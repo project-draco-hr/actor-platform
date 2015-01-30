@@ -9,8 +9,8 @@
     editorCell=this.createEmpty_a8dvuz_a4a(editorContext,node);
   }
   Style style=new StyleImpl();
-  style.set(StyleAttributes.PUNCTUATION_LEFT,true);
-  style.set(StyleAttributes.PUNCTUATION_RIGHT,true);
+  style.set(StyleAttributes.PUNCTUATION_LEFT,0,true);
+  style.set(StyleAttributes.PUNCTUATION_RIGHT,0,true);
   editorCell.getStyle().putAll(style);
   return editorCell;
 }

@@ -1,7 +1,7 @@
 {
   EditorCell_Collection editorCell=EditorCell_Collection.createIndent2(editorContext,node);
   editorCell.setCellId("Collection_10ghgg_a0");
-  editorCell.setCanBeFolded(true);
+  editorCell.setFoldable(true);
   editorCell.setFoldedCell(this.createCollection_10ghgg_a0a(editorContext,node));
   editorCell.addEditorCell(this.createConstant_10ghgg_a0a(editorContext,node));
   editorCell.addEditorCell(this.createProperty_10ghgg_b0a(editorContext,node));

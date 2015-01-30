@@ -1,10 +1,10 @@
 {
   Integer count=0;
-  for (  SNode section : ListSequence.fromList(SLinkOperations.getTargets(SNodeOperations.cast(SNodeOperations.getContainingRoot(update),"im.actor.apiLanguage.structure.ApiDescription"),"sections",true))) {
-    for (    SNode upd : ListSequence.fromList(SLinkOperations.getTargets(section,"definitions",true))) {
-      if (SNodeOperations.isInstanceOf(upd,"im.actor.apiLanguage.structure.Update")) {
-        SNode u=SNodeOperations.cast(upd,"im.actor.apiLanguage.structure.Update");
-        if (HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(u,"header",true)) == HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(update,"header",true))) {
+  for (  SNode section : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getContainingRoot(update),MetaAdapterFactory.getConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b6820f4bL,"im.actor.apiLanguage.structure.ApiDescription")),MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b6820f4bL,0x20977a66b682213bL,"sections")))) {
+    for (    SNode upd : ListSequence.fromList(SLinkOperations.getChildren(section,MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b6821192L,0x20977a66b68211bdL,"definitions")))) {
+      if (SNodeOperations.isInstanceOf(upd,MetaAdapterFactory.getConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x4114dc2d7272a279L,"im.actor.apiLanguage.structure.Update"))) {
+        SNode u=SNodeOperations.cast(upd,MetaAdapterFactory.getConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x4114dc2d7272a279L,"im.actor.apiLanguage.structure.Update"));
+        if (HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(u,MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b6914154L,0x4114dc2d726d3416L,"header"))) == HeaderKey_Behavior.call_intValue_4689615199750893375(SLinkOperations.getTarget(update,MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b6914154L,0x4114dc2d726d3416L,"header")))) {
           count++;
         }
       }

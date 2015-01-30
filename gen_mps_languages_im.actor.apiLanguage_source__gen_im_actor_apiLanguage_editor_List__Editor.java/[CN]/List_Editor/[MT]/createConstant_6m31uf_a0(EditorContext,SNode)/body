@@ -2,8 +2,8 @@
   EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"list<");
   editorCell.setCellId("Constant_6m31uf_a0");
   Style style=new StyleImpl();
-  style.set(StyleAttributes.TEXT_COLOR,StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
-  style.set(StyleAttributes.PUNCTUATION_RIGHT,true);
+  style.set(StyleAttributes.TEXT_COLOR,0,StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
+  style.set(StyleAttributes.PUNCTUATION_RIGHT,0,true);
   editorCell.getStyle().putAll(style);
   editorCell.setDefaultText("");
   return editorCell;

@@ -1,3 +1,3 @@
 {
-  SPropertyOperations.set(thisNode,"hexValue","01");
+  SPropertyOperations.set(thisNode,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x4114dc2d726c9c8eL,0x4114dc2d726c9c91L,"hexValue"),"01");
 }

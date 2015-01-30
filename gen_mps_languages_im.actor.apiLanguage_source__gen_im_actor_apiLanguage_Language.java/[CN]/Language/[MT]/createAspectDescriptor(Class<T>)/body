@@ -1,0 +1,21 @@
+{
+  if (descriptorClass == BehaviorAspectDescriptor.class) {
+    return (T)new im.actor.apiLanguage.behavior.BehaviorAspectDescriptor();
+  }
+  if (descriptorClass == ConstraintsAspectDescriptor.class) {
+    return (T)new im.actor.apiLanguage.constraints.ConstraintsAspectDescriptor();
+  }
+  if (descriptorClass == EditorAspectDescriptor.class) {
+    return (T)new EditorAspectDescriptorImpl();
+  }
+  if (descriptorClass == StructureAspectDescriptor.class) {
+    return (T)new im.actor.apiLanguage.structure.StructureAspectDescriptor();
+  }
+  if (descriptorClass == TextGenAspectDescriptor.class) {
+    return (T)new TextGenAspectInterpreted();
+  }
+  if (descriptorClass == IHelginsDescriptor.class) {
+    return (T)new TypesystemDescriptor();
+  }
+  return super.createAspectDescriptor(descriptorClass);
+}

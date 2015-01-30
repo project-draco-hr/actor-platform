@@ -1,4 +1,13 @@
 {
   SchemeDefinition definition=SchemeFactory.fromFile("/Users/ex3ndr/actor-api-schema/actor.json");
+  String destJava="/Users/ex3ndr/Develop/actor-api-schema/java/";
+  EnumGenerator.generate(definition,destJava);
+  UpdateGenerator.generate(definition,destJava);
+  UpdateGenerator.generateParser(definition,destJava);
+  StructGenerator.generate(definition,destJava);
+  RequestGenerator.generate(definition,destJava);
+  RequestGenerator.generateParser(definition,destJava);
+  RequestGenerator.generateRpcList(definition,destJava);
+  UpdateBoxGenerator.generate(definition,destJava);
   ProtoBufGenerator.generate(definition,"/Users/ex3ndr/actor-api-schema/actor.proto");
 }

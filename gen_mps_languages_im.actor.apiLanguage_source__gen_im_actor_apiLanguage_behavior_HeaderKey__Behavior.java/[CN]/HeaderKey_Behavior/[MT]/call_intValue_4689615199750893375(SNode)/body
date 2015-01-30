@@ -1,6 +1,6 @@
 {
   try {
-    return Integer.parseInt(SPropertyOperations.getString(thisNode,"hexValue"),16);
+    return Integer.parseInt(SPropertyOperations.getString(thisNode,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x4114dc2d726c9c8eL,0x4114dc2d726c9c91L,"hexValue")),16);
   }
  catch (  Exception e) {
     return 0;

@@ -1,7 +1,7 @@
 {
-  if (ListSequence.fromList(SLinkOperations.getTargets(SNodeOperations.cast(SNodeOperations.getParent(structAttribute),"im.actor.apiLanguage.structure.IStruct"),"attributes",true)).where(new IWhereFilter<SNode>(){
+  if (ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(structAttribute),MetaAdapterFactory.getInterfaceConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b69665d2L,"im.actor.apiLanguage.structure.IStruct")),MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b69665d2L,0x20977a66b6966607L,"attributes"))).where(new IWhereFilter<SNode>(){
     public boolean accept(    SNode it){
-      return SPropertyOperations.getInteger(it,"id") == SPropertyOperations.getInteger(structAttribute,"id");
+      return SPropertyOperations.getInteger(it,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68879a3L,0x20977a66b689e4d5L,"id")) == SPropertyOperations.getInteger(structAttribute,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68879a3L,0x20977a66b689e4d5L,"id"));
     }
   }
 ).count() > 1) {
