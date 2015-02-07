@@ -1,0 +1,4 @@
+{
+  readBody(bs);
+  return this;
+}

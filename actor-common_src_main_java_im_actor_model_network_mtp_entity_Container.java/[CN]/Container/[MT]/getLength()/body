@@ -1,0 +1,9 @@
+{
+  int messagesLength=0;
+  if (messages.length > 0) {
+    for (    ProtoMessage m : messages) {
+      messagesLength+=m.getLength();
+    }
+  }
+  return 1 + varintSize(messages.length) + messagesLength;
+}

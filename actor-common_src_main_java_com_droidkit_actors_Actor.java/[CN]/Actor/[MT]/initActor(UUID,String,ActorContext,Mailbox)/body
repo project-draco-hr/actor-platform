@@ -1,0 +1,13 @@
+{
+  this.uuid=uuid;
+  this.path=path;
+  this.context=context;
+  this.mailbox=mailbox;
+  this.askPattern=new ActorAskImpl(self());
+  this.typedAsk=new TypedAskExtensions(self());
+  this.callbackExtension=new CallbackExtension(self());
+  this.extensions.add(askPattern);
+  this.extensions.add(typedAsk);
+  this.extensions.add(callbackExtension);
+  this.extensions.add(new RunnableExtension());
+}

@@ -1,0 +1,21 @@
+{
+  JavaThreads.init();
+  Log.setLog(new JavaLog());
+  ConnectionFactory.setFactory(new ConnectionFactory.Factory(){
+    @Override public void createConnection(    final int connectionId,    final ConnectionEndpoint endpoint,    final ConnectionCallback callback,    final ConnectionFactory.CreateConnectionCallback createCallback){
+      new Thread(){
+        @Override public void run(){
+          try {
+            createCallback.onConnectionCreated(new TcpConnection(connectionId,endpoint,callback));
+          }
+ catch (          Exception e) {
+            e.printStackTrace();
+            createCallback.onConnectionCreateError();
+          }
+        }
+      }
+.start();
+    }
+  }
+);
+}

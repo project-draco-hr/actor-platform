@@ -1,0 +1,8 @@
+{
+  EnvConfig.setDispatcherFactory(new DispatcherFactory(){
+    @Override public ActorDispatcher createDispatcher(    String name,    int threadsCount,    ThreadPriority priority,    ActorSystem actorSystem){
+      return new JavaDispatcher(name,actorSystem,threadsCount,priority);
+    }
+  }
+);
+}

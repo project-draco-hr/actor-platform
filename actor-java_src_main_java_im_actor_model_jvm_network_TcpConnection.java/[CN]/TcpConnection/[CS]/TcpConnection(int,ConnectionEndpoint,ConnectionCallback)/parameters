@@ -1,0 +1,3 @@
+int id
+ConnectionEndpoint _endpoint
+ConnectionCallback _callback

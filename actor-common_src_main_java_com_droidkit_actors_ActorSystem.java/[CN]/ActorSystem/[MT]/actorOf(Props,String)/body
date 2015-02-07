@@ -1,0 +1,11 @@
+{
+  String dispatcherId=props.getDispatcher() == null ? DEFAULT_DISPATCHER : props.getDispatcher();
+  ActorDispatcher mailboxesDispatcher;
+synchronized (dispatchers) {
+    if (!dispatchers.containsKey(dispatcherId)) {
+      throw new RuntimeException("Unknown dispatcherId '" + dispatcherId + "'");
+    }
+    mailboxesDispatcher=dispatchers.get(dispatcherId);
+  }
+  return mailboxesDispatcher.referenceActor(path,props);
+}

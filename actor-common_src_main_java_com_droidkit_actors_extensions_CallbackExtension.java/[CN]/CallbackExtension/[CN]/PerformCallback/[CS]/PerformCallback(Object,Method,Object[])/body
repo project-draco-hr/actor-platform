@@ -1,0 +1,5 @@
+{
+  this.dest=dest;
+  this.method=method;
+  this.args=args;
+}

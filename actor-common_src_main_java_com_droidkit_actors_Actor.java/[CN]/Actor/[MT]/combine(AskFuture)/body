@@ -1,0 +1,3 @@
+{
+  return askPattern.combine(futures);
+}

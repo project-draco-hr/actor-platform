@@ -1,0 +1,3 @@
+{
+  return readMessagePayload(new ByteArrayInputStream(bs));
+}

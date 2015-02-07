@@ -1,0 +1,23 @@
+{
+  Log.d(TAG,"Out message");
+  if (currentConnection != null && currentConnection.isClosed()) {
+    currentConnection=null;
+    currentConnectionId=0;
+  }
+  if (currentConnection != null) {
+    ByteArrayOutputStream bos=new ByteArrayOutputStream();
+    try {
+      writeLong(authId,bos);
+      writeLong(sessionId,bos);
+      writeBytes(data,offset,len,bos);
+    }
+ catch (    IOException e) {
+    }
+    byte[] pkg=bos.toByteArray();
+    currentConnection.post(pkg,0,pkg.length);
+    Log.d(TAG,"Posted message to connection #" + currentConnectionId);
+  }
+ else {
+    Log.d(TAG,"Unable to send message: no connections");
+  }
+}

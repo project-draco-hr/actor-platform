@@ -1,0 +1,6 @@
+{
+  results=new Object[count];
+  completed=new boolean[count];
+  callbacks=new AskCallback[count];
+  futures=new AskFuture[count];
+}

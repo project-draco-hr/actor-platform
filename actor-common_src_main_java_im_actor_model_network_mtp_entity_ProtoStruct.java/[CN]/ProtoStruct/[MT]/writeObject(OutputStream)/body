@@ -1,0 +1,7 @@
+{
+  byte header=getHeader();
+  if (header != 0) {
+    writeByte(header,bs);
+  }
+  writeBody(bs);
+}

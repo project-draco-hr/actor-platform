@@ -1,0 +1,5 @@
+{
+  int result=requestId;
+  result=31 * result + sender.hashCode();
+  return result;
+}

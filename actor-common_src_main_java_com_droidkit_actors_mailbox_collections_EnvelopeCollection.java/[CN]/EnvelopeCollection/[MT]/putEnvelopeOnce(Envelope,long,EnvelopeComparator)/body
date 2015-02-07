@@ -1,0 +1,18 @@
+{
+  long key=root.buildKey(time);
+  long oldKey;
+synchronized (envelopes) {
+    oldKey=getTopKey();
+    Iterator<ScheduledEnvelope> iterator=envelopes.iterator();
+    while (iterator.hasNext()) {
+      if (comparator.equals(iterator.next().getEnvelope(),envelope)) {
+        iterator.remove();
+      }
+    }
+    envelopes.offer(new ScheduledEnvelope(key,time,envelope));
+  }
+  if (oldKey != getTopKey()) {
+    root.changedTopKey(this);
+  }
+  return key;
+}

@@ -1,0 +1,13 @@
+{
+  JavaInit.init();
+  AuthIdRetriever.requestAuthId(endpoints,new AuthIdRetriever.AuthIdCallback(){
+    @Override public void onSuccess(    long authId){
+      MTProto mtProto=new MTProto(authId,random.nextLong(),endpoints);
+      mtProto.sendMTMessage(new Ping(random.nextLong()));
+    }
+    @Override public void onFailure(){
+    }
+  }
+);
+  Thread.sleep(30000);
+}

@@ -1,0 +1,12 @@
+{
+  long key=root.buildKey(time);
+  long oldKey;
+synchronized (envelopes) {
+    oldKey=getTopKey();
+    envelopes.offer(new ScheduledEnvelope(key,time,envelope));
+  }
+  if (oldKey != getTopKey()) {
+    root.changedTopKey(this);
+  }
+  return key;
+}

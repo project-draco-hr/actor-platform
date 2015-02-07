@@ -1,0 +1,14 @@
+{
+  int reqId=nextReqId++;
+  AskFuture<T> future=new AskFuture<T>(this,reqId);
+  if (callback != null) {
+    future.addListener(callback);
+  }
+  AskContainer container=new AskContainer(future,ref,reqId);
+  asks.put(reqId,container);
+  ref.send(new TaskRequest(reqId),self);
+  if (timeout > 0) {
+    self.send(new TaskTimeout(reqId),timeout);
+  }
+  return future;
+}

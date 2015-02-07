@@ -1,0 +1,4 @@
+{
+  updateType=readInt(bs);
+  body=readProtoBytes(bs);
+}

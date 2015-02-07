@@ -1,0 +1,13 @@
+{
+  final int id=askId.incrementAndGet();
+  future.addListener(new FutureCallback<T>(){
+    @Override public void onResult(    T result){
+      self.send(new TypedFutureResult(id,result));
+    }
+    @Override public void onError(    Throwable throwable){
+      self.send(new TypedFutureError(id,throwable));
+    }
+  }
+);
+  containers.put(id,new AskContainer(id,future,callback));
+}

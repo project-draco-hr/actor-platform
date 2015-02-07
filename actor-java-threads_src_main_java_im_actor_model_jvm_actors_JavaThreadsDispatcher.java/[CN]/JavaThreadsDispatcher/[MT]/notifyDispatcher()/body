@@ -1,0 +1,10 @@
+{
+  if (threads != null) {
+synchronized (threads) {
+      threads.notifyAll();
+      for (      Thread thread : threads) {
+        ((DispatcherThread)thread).setChanged(true);
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  writeInt(requestType,bs);
+  writeProtoBytes(payload,bs);
+}

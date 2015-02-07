@@ -1,0 +1,5 @@
+{
+  messageId=readLong(bs);
+  responseMessageId=readLong(bs);
+  len=readInt(bs);
+}

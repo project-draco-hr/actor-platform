@@ -1,0 +1,6 @@
+{
+  if (dispatcherFactory == null) {
+    throw new RuntimeException("EnvConfig not inited!");
+  }
+  return dispatcherFactory.createDispatcher(name,threadsCount,priority,actorSystem);
+}

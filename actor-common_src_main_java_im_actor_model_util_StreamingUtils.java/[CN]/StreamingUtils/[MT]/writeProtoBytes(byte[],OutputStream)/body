@@ -1,0 +1,4 @@
+{
+  writeVarInt(data.length,stream);
+  writeBytes(data,stream);
+}

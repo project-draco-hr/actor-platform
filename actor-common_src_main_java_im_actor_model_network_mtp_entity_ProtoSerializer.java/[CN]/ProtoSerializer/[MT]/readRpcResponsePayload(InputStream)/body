@@ -1,0 +1,14 @@
+{
+  final byte header=readByte(bs);
+switch (header) {
+case RpcOk.HEADER:
+    return new RpcOk(bs);
+case RpcError.HEADER:
+  return new RpcError(bs);
+case RpcFloodWait.HEADER:
+return new RpcFloodWait(bs);
+case RpcInternalError.HEADER:
+return new RpcInternalError(bs);
+}
+throw new IOException("Unable to read proto object");
+}

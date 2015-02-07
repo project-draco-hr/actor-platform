@@ -1,0 +1,23 @@
+{
+  Log.d(TAG,"Received package");
+  ByteArrayInputStream bis=new ByteArrayInputStream(data,offset,len);
+  try {
+    long authId=readLong(bis);
+    long sessionId=readLong(bis);
+    if (authId != this.authId || sessionId != this.sessionId) {
+      throw new IOException("Incorrect header");
+    }
+    long messageId=readLong(bis);
+    byte[] payload=readProtoBytes(bis);
+    receiver.send(new ProtoMessage(messageId,payload));
+  }
+ catch (  IOException e) {
+    Log.w(TAG,"Closing connection: incorrect package");
+    e.printStackTrace();
+    if (currentConnection != null) {
+      currentConnection.close();
+      currentConnection=null;
+      currentConnectionId=0;
+    }
+  }
+}

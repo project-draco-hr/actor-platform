@@ -1,0 +1,3 @@
+{
+  return 1 + varintSize(messagesIds.length) + (messagesIds.length * 8);
+}

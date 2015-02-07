@@ -1,0 +1,14 @@
+{
+  if (proxyMap.containsKey(src)) {
+    return (T)proxyMap.get(src);
+  }
+  Object res=Proxy.newProxyInstance(self.system().getClassLoader(),new Class[]{tClass},new InvocationHandler(){
+    @Override public Object invoke(    Object proxy,    Method method,    Object[] args) throws Throwable {
+      self.send(new PerformCallback(src,method,args));
+      return null;
+    }
+  }
+);
+  proxyMap.put(src,res);
+  return (T)res;
+}

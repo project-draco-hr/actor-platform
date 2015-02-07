@@ -1,0 +1,5 @@
+{
+  long a=readUInt(src,offset);
+  long b=readUInt(src,offset + 4);
+  return (b & 0xFFFFFFFF) + ((a & 0xFFFFFFFF) << 32);
+}

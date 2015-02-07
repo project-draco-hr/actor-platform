@@ -1,0 +1,4 @@
+UUID uuid
+String path
+ActorContext context
+Mailbox mailbox

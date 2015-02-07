@@ -1,0 +1,3 @@
+{
+  return 1 + 4 + stringSize(errorTag)+ stringSize(userMessage)+ 1;
+}

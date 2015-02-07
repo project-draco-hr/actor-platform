@@ -1,0 +1,4 @@
+{
+  sessionId=readLong(bs);
+  messageId=readLong(bs);
+}

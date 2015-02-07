@@ -1,0 +1,4 @@
+{
+  writeProtoBool(canTryAgain,bs);
+  writeInt(tryAgainDelay,bs);
+}

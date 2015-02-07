@@ -1,0 +1,3 @@
+{
+  randomId=readLong(bs);
+}

@@ -1,0 +1,4 @@
+{
+  writeLong(messageId,bs);
+  writeProtoBytes(payload,bs);
+}

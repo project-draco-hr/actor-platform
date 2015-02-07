@@ -1,0 +1,15 @@
+{
+  long oldKey;
+synchronized (envelopes) {
+    oldKey=getTopKey();
+    Iterator<ScheduledEnvelope> iterator=envelopes.iterator();
+    while (iterator.hasNext()) {
+      if (comparator.equals(iterator.next().getEnvelope(),envelope)) {
+        iterator.remove();
+      }
+    }
+  }
+  if (oldKey != envelopes.peek().getKey()) {
+    root.changedTopKey(this);
+  }
+}

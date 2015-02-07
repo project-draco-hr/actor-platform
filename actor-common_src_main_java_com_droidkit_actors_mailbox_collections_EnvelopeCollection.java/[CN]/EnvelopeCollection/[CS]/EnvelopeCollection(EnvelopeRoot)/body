@@ -1,0 +1,5 @@
+{
+  this.id=NEXT_ID.getAndIncrement();
+  this.root=root;
+  this.root.attachCollection(this);
+}

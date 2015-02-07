@@ -1,0 +1,4 @@
+{
+  int arrayLength=(int)readVarInt(stream);
+  return readBytes(arrayLength,stream);
+}

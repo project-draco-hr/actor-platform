@@ -1,0 +1,3 @@
+{
+  currentActor.set(actor);
+}

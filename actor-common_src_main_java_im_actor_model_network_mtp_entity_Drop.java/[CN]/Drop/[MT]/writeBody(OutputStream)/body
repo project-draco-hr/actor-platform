@@ -1,0 +1,4 @@
+{
+  writeLong(messageId,bs);
+  writeProtoString(message,bs);
+}

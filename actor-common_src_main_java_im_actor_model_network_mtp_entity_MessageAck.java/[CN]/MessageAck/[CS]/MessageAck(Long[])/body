@@ -1,0 +1,6 @@
+{
+  this.messagesIds=new long[_messagesIds.length];
+  for (int i=0; i < _messagesIds.length; ++i) {
+    this.messagesIds[i]=_messagesIds[i];
+  }
+}

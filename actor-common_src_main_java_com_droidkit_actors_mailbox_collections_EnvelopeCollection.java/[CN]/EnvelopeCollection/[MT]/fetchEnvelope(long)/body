@@ -1,0 +1,22 @@
+{
+  FetchResult result;
+  long oldKey;
+synchronized (envelopes) {
+    oldKey=getTopKey();
+    if (envelopes.isEmpty()) {
+      return null;
+    }
+    ScheduledEnvelope envelope=envelopes.peek();
+    if (envelope.getTime() <= time) {
+      envelopes.poll();
+      result=FetchResult.envelope(envelope);
+    }
+ else {
+      result=FetchResult.delay(envelope.getTime() - time);
+    }
+  }
+  if (oldKey != getTopKey()) {
+    root.changedTopKey(this);
+  }
+  return result;
+}

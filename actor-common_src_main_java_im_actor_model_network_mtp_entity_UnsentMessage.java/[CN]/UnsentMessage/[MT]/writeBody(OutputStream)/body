@@ -1,0 +1,4 @@
+{
+  writeLong(messageId,bs);
+  writeInt(len,bs);
+}

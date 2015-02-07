@@ -1,0 +1,6 @@
+{
+  packages.add(p);
+synchronized (packages) {
+    packages.notifyAll();
+  }
+}

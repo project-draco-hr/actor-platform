@@ -1,0 +1,6 @@
+Class<T> aClass
+Object[] args
+int type
+String dispatcher
+ActorCreator<T> creator
+MailboxCreator mailboxCreator

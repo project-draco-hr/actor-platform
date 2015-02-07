@@ -1,0 +1,10 @@
+{
+  this.actorSystem=actorSystem;
+  this.mailbox=mailbox;
+  this.actorRef=new ActorRef(endpoint,actorSystem,dispatcher,uuid,path);
+  this.dispatcher=dispatcher;
+  this.uuid=uuid;
+  this.path=path;
+  this.props=props;
+  this.endpoint=endpoint;
+}

@@ -1,0 +1,11 @@
+{
+  if (letter.getMessage() instanceof TaskRequest) {
+    TaskRequest request=(TaskRequest)letter.getMessage();
+    AskContainer container=asks.get(request.getRequestId());
+    if (container != null) {
+      container.ref.send(request,self);
+      return true;
+    }
+  }
+  return false;
+}

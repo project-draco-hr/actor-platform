@@ -1,0 +1,3 @@
+{
+  return envelopes.size() > 0 ? envelopes.peek().getKey() : 0;
+}

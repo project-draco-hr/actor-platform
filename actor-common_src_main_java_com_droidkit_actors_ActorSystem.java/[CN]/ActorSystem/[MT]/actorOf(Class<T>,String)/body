@@ -1,0 +1,3 @@
+{
+  return actorOf(Props.create(actor),path);
+}

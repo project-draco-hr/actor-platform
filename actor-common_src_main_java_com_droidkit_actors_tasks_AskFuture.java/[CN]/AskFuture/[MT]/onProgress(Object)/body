@@ -1,0 +1,10 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  for (  AskCallback callback : callbacks) {
+    if (callback instanceof AskProgressCallback) {
+      ((AskProgressCallback)callback).onProgress(res);
+    }
+  }
+}

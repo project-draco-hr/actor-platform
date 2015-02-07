@@ -1,0 +1,7 @@
+{
+  errorCode=readInt(bs);
+  errorTag=readProtoString(bs);
+  userMessage=readProtoString(bs);
+  canTryAgain=readProtoBool(bs);
+  relatedData=readProtoBytes(bs);
+}

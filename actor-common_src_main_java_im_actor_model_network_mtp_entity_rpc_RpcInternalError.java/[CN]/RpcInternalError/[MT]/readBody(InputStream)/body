@@ -1,0 +1,4 @@
+{
+  canTryAgain=readProtoBool(bs);
+  tryAgainDelay=readInt(bs);
+}

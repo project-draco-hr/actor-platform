@@ -1,0 +1,3 @@
+{
+  delay=readInt(bs);
+}

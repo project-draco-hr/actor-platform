@@ -1,0 +1,6 @@
+{
+  if (classLoader == null) {
+    throw new IllegalArgumentException("ClassLoader cannot be null");
+  }
+  this.classLoader=classLoader;
+}

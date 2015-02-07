@@ -1,0 +1,7 @@
+{
+  writeInt(errorCode,bs);
+  writeProtoString(errorTag,bs);
+  writeProtoString(userMessage,bs);
+  writeProtoBool(canTryAgain,bs);
+  writeProtoBytes(relatedData,bs);
+}

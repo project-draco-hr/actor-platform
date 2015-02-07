@@ -1,0 +1,11 @@
+{
+  if (type == TYPE_DEFAULT) {
+    if (args == null || args.length == 0) {
+      return aClass.newInstance();
+    }
+  }
+ else   if (type == TYPE_CREATOR) {
+    return creator.create();
+  }
+  throw new RuntimeException("Unsupported create method");
+}

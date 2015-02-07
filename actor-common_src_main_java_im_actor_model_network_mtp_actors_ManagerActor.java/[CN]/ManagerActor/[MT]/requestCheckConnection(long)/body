@@ -1,0 +1,13 @@
+{
+  if (!isCheckingConnections) {
+    if (currentConnection == null) {
+      if (wait == 0) {
+        Log.w(TAG,"Requesting connection creating");
+      }
+ else {
+        Log.w(TAG,"Requesting connection creating in " + wait + " ms");
+      }
+    }
+    self().sendOnce(new PerformConnectionCheck(),wait);
+  }
+}

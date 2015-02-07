@@ -1,0 +1,3 @@
+{
+  currentFailureCount.set(0);
+}

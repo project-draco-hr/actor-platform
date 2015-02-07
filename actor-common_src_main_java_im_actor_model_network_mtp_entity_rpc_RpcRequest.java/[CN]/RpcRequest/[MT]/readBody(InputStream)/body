@@ -1,0 +1,4 @@
+{
+  requestType=readInt(bs);
+  payload=readProtoBytes(bs);
+}

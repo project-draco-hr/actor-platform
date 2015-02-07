@@ -1,0 +1,5 @@
+{
+  AskFuture future=combine(futures);
+  future.addListener(callback);
+  return future;
+}
