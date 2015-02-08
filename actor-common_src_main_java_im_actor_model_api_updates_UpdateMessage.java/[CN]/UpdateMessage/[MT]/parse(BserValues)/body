@@ -1,0 +1,7 @@
+{
+  this.peer=values.getObj(1,Peer.class);
+  this.senderUid=values.getInt(2);
+  this.date=values.getLong(3);
+  this.rid=values.getLong(4);
+  this.message=values.getObj(5,MessageContent.class);
+}

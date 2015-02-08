@@ -1,0 +1,9 @@
+{
+  this.seq=values.getInt(1);
+  this.state=values.getBytes(2);
+  this.updateHeader=values.getInt(3);
+  this.update=values.getBytes(4);
+  this.users=values.getRepeatedObj(5,User.class);
+  this.groups=values.getRepeatedObj(6,Group.class);
+  this.contacts=values.getRepeatedObj(7,ContactRecord.class);
+}

@@ -1,0 +1,7 @@
+{
+  this.groupPeer=values.getObj(1,GroupOutPeer.class);
+  this.seq=values.getInt(3);
+  this.state=values.getBytes(4);
+  this.users=values.getRepeatedInt(5);
+  this.date=values.getLong(6);
+}

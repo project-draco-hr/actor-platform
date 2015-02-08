@@ -1,0 +1,20 @@
+{
+  writer.writeLong(1,this.fileId);
+  writer.writeLong(2,this.accessHash);
+  writer.writeInt(3,this.fileSize);
+  if (this.name == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.name);
+  if (this.mimeType == null) {
+    throw new IOException();
+  }
+  writer.writeString(5,this.mimeType);
+  if (this.thumb != null) {
+    writer.writeObject(6,this.thumb);
+  }
+  writer.writeInt(7,this.extType);
+  if (this.ext != null) {
+    writer.writeBytes(8,this.ext);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (this.groupPeer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.groupPeer);
+  writer.writeLong(4,this.rid);
+  if (this.fileLocation == null) {
+    throw new IOException();
+  }
+  writer.writeObject(3,this.fileLocation);
+}

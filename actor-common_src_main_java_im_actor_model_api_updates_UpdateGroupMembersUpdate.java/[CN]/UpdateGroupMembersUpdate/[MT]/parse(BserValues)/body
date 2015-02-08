@@ -1,0 +1,4 @@
+{
+  this.groupId=values.getInt(1);
+  this.members=values.getRepeatedObj(2,Member.class);
+}

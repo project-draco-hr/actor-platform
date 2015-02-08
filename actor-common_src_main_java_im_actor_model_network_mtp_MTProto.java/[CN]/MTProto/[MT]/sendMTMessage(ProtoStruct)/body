@@ -1,3 +1,0 @@
-{
-  sender.send(new SenderActor.SendMessage(MTUids.nextId(),protoStruct.toByteArray()));
-}

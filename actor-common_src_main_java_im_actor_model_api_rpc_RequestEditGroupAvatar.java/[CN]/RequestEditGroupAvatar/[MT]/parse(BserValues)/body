@@ -1,0 +1,5 @@
+{
+  this.groupPeer=values.getObj(1,GroupOutPeer.class);
+  this.rid=values.getLong(4);
+  this.fileLocation=values.getObj(3,FileLocation.class);
+}

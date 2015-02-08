@@ -1,0 +1,5 @@
+int id
+long accessHash
+RecordType recordType
+String record
+String title

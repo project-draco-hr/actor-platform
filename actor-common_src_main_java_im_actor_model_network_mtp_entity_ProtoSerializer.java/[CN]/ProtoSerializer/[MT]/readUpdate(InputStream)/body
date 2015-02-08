@@ -1,3 +1,3 @@
 {
-  return new PushSimple(bs);
+  return new Push(bs);
 }

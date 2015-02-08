@@ -1,0 +1,16 @@
+{
+  writer.writeInt(1,this.id);
+  writer.writeLong(2,this.accessHash);
+  if (this.recordType == null) {
+    throw new IOException();
+  }
+  writer.writeInt(3,this.recordType.getValue());
+  if (this.record == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.record);
+  if (this.title == null) {
+    throw new IOException();
+  }
+  writer.writeString(5,this.title);
+}

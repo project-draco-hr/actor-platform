@@ -1,0 +1,3 @@
+OutPeer peer
+long rid
+MessageContent message

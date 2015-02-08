@@ -1,0 +1,4 @@
+{
+  this.uid=values.getInt(1);
+  this.contactId=values.getInt(2);
+}

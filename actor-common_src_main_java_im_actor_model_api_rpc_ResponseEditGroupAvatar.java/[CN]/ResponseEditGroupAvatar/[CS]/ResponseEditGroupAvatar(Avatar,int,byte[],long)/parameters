@@ -1,0 +1,4 @@
+Avatar avatar
+int seq
+byte[] state
+long date

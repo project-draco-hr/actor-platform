@@ -1,0 +1,4 @@
+{
+  this.keyHash=values.getLong(1);
+  this.aesEncryptedKey=values.getBytes(2);
+}

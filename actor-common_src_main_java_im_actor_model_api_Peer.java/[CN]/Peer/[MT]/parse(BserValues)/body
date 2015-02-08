@@ -1,0 +1,4 @@
+{
+  this.type=PeerType.parse(values.getInt(1));
+  this.id=values.getInt(2);
+}

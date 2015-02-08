@@ -1,0 +1,5 @@
+{
+  this.fileLocation=fileLocation;
+  this.offset=offset;
+  this.limit=limit;
+}

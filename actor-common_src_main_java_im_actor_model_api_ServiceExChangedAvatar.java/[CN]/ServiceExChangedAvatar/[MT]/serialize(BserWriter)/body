@@ -1,0 +1,5 @@
+{
+  if (this.avatar != null) {
+    writer.writeObject(1,this.avatar);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.smsHash=smsHash;
+  this.isRegistered=isRegistered;
+}

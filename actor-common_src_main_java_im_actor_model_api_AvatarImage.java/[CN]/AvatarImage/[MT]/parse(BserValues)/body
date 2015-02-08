@@ -1,0 +1,6 @@
+{
+  this.fileLocation=values.getObj(1,FileLocation.class);
+  this.width=values.getInt(2);
+  this.height=values.getInt(3);
+  this.fileSize=values.getInt(4);
+}

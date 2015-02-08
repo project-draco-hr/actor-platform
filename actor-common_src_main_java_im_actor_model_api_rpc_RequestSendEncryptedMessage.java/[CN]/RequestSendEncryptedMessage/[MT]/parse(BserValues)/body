@@ -1,0 +1,7 @@
+{
+  this.peer=values.getObj(1,OutPeer.class);
+  this.rid=values.getLong(3);
+  this.encryptedMessage=values.getBytes(4);
+  this.keys=values.getRepeatedObj(5,EncryptedAesKey.class);
+  this.ownKeys=values.getRepeatedObj(6,EncryptedAesKey.class);
+}

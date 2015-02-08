@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"Creating auth key...");
+  AuthIdRetriever.requestAuthId(endpoints,new AuthIdRetriever.AuthIdCallback(){
+    @Override public void onSuccess(    long authId){
+      Log.d(TAG,"Key created");
+      self().send(new InitMTProto(authId));
+    }
+    @Override public void onFailure(){
+      Log.d(TAG,"Key creation failure");
+      self().send(new RequestAuthId());
+    }
+  }
+);
+}

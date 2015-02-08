@@ -1,0 +1,7 @@
+{
+  writer.writeInt(2,this.contactId);
+  if (this.title == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.title);
+}

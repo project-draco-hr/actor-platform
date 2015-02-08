@@ -1,0 +1,12 @@
+{
+  writer.writeInt(1,this.seq);
+  if (this.state == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.state);
+  writer.writeRepeatedObj(3,this.users);
+  writer.writeRepeatedObj(6,this.groups);
+  writer.writeRepeatedObj(7,this.contacts);
+  writer.writeRepeatedObj(4,this.updates);
+  writer.writeBool(5,this.needMore);
+}

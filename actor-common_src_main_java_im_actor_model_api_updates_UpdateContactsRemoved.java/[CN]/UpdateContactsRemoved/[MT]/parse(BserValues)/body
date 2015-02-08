@@ -1,0 +1,3 @@
+{
+  this.uids=values.getRepeatedInt(1);
+}

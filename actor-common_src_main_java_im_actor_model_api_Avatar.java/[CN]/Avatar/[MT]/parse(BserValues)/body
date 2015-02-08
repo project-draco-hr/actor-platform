@@ -1,0 +1,5 @@
+{
+  this.smallImage=values.optObj(1,AvatarImage.class);
+  this.largeImage=values.optObj(2,AvatarImage.class);
+  this.fullImage=values.optObj(3,AvatarImage.class);
+}

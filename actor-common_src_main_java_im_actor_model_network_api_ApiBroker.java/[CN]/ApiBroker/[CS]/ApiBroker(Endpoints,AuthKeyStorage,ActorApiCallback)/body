@@ -1,0 +1,5 @@
+{
+  this.endpoints=endpoints;
+  this.keyStorage=keyStorage;
+  this.callback=callback;
+}

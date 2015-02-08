@@ -1,0 +1,10 @@
+{
+  RequestHolder holder=requests.get(randomId);
+  if (holder != null) {
+    requests.remove(randomId);
+    if (holder.protoId != 0 && proto != null) {
+      idMap.remove(holder.protoId);
+      proto.cancelRpc(holder.protoId);
+    }
+  }
+}

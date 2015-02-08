@@ -1,0 +1,4 @@
+String tag
+int code
+String message
+byte[] relatedData

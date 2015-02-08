@@ -1,0 +1,5 @@
+{
+  this.peer=values.getObj(1,Peer.class);
+  this.rid=values.getLong(2);
+  this.date=values.getLong(3);
+}

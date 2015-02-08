@@ -1,0 +1,5 @@
+{
+  this.newKeys=values.getRepeatedObj(1,UserKey.class);
+  this.removedKeys=values.getRepeatedObj(2,UserKey.class);
+  this.invalidKeys=values.getRepeatedObj(3,UserKey.class);
+}

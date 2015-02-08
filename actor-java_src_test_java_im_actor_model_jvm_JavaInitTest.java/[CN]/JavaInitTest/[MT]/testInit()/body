@@ -1,11 +1,25 @@
 {
   JavaInit.init();
-  AuthIdRetriever.requestAuthId(endpoints,new AuthIdRetriever.AuthIdCallback(){
-    @Override public void onSuccess(    long authId){
-      MTProto mtProto=new MTProto(authId,random.nextLong(),endpoints);
-      mtProto.sendMTMessage(new Ping(random.nextLong()));
+  ActorApi actorApi=new ActorApi(endpoints,new MemoryAuthIdStorage(),new ActorApiCallback(){
+    @Override public void onAuthIdInvalidated(    long authKey){
     }
-    @Override public void onFailure(){
+    @Override public void onNewSessionCreated(){
+    }
+    @Override public void onSeqFatUpdate(    int seq,    byte[] state,    Update update,    List<User> users,    List<Group> groups,    List<ContactRecord> contactRecords){
+    }
+    @Override public void onSeqUpdate(    int seq,    byte[] state,    Update update){
+    }
+    @Override public void onSeqTooLong(){
+    }
+    @Override public void onWeakUpdate(    long date,    Update update){
+    }
+  }
+);
+  actorApi.request(new RequestSendAuthCode(75552232323L,1,"??"),new RpcCallback<ResponseSendAuthCode>(){
+    @Override public void onResult(    ResponseSendAuthCode response){
+      Log.d(TAG,"SmsHash = " + response.getSmsHash() + ", isRegistered = "+ response.isRegistered());
+    }
+    @Override public void onError(    RpcException e){
     }
   }
 );

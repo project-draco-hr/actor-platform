@@ -1,0 +1,13 @@
+{
+  writer.writeInt(1,this.senderUid);
+  writer.writeLong(2,this.rid);
+  writer.writeLong(3,this.date);
+  if (this.message == null) {
+    throw new IOException();
+  }
+  writer.writeObject(5,this.message);
+  if (this.state == null) {
+    throw new IOException();
+  }
+  writer.writeInt(6,this.state.getValue());
+}

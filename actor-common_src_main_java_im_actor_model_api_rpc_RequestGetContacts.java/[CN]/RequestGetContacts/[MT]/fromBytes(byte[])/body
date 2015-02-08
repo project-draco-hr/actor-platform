@@ -1,0 +1,3 @@
+{
+  return Bser.parse(RequestGetContacts.class,data);
+}

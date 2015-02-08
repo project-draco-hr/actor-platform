@@ -1,0 +1,5 @@
+{
+  this.config=values.getObj(1,UploadConfig.class);
+  this.blockIndex=values.getInt(2);
+  this.payload=values.getBytes(3);
+}

@@ -1,0 +1,10 @@
+{
+  this.peer=values.getObj(1,Peer.class);
+  this.unreadCount=values.getInt(3);
+  this.sortDate=values.getLong(4);
+  this.senderUid=values.getInt(5);
+  this.rid=values.getLong(6);
+  this.date=values.getLong(7);
+  this.message=values.getObj(8,MessageContent.class);
+  this.state=MessageState.parse(values.getInt(9));
+}

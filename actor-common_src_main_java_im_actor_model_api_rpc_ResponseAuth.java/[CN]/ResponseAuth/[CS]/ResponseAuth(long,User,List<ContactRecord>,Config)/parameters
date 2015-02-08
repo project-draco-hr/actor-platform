@@ -1,0 +1,4 @@
+long publicKeyHash
+User user
+List<ContactRecord> contacts
+Config config

@@ -1,0 +1,4 @@
+{
+  this.history=values.getRepeatedObj(1,HistoryMessage.class);
+  this.users=values.getRepeatedObj(2,User.class);
+}

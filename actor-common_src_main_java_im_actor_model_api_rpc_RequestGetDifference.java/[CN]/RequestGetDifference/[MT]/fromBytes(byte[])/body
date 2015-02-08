@@ -1,0 +1,3 @@
+{
+  return Bser.parse(RequestGetDifference.class,data);
+}

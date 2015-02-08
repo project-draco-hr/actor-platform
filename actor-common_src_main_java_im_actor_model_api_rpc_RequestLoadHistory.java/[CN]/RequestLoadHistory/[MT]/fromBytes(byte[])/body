@@ -1,0 +1,3 @@
+{
+  return Bser.parse(RequestLoadHistory.class,data);
+}

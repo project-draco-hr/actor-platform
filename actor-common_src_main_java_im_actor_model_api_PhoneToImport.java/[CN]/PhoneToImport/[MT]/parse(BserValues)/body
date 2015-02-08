@@ -1,0 +1,4 @@
+{
+  this.phoneNumber=values.getLong(1);
+  this.name=values.optString(2);
+}

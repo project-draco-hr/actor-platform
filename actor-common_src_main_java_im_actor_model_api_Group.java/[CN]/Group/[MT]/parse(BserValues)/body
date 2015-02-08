@@ -1,0 +1,10 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  this.title=values.getString(3);
+  this.avatar=values.optObj(4,Avatar.class);
+  this.isMember=values.getBool(6);
+  this.adminUid=values.getInt(8);
+  this.members=values.getRepeatedObj(9,Member.class);
+  this.createDate=values.getLong(10);
+}

@@ -1,0 +1,4 @@
+{
+  this.phones=values.getRepeatedObj(1,PhoneToImport.class);
+  this.emails=values.getRepeatedObj(2,EmailToImport.class);
+}

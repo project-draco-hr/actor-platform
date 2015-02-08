@@ -1,0 +1,5 @@
+{
+  this.peer=values.getObj(1,Peer.class);
+  this.uid=values.getInt(2);
+  this.typingType=values.getInt(3);
+}

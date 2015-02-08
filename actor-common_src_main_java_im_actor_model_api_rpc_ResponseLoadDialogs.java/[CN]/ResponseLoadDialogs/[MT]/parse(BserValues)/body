@@ -1,0 +1,5 @@
+{
+  this.groups=values.getRepeatedObj(1,Group.class);
+  this.users=values.getRepeatedObj(2,User.class);
+  this.dialogs=values.getRepeatedObj(3,Dialog.class);
+}

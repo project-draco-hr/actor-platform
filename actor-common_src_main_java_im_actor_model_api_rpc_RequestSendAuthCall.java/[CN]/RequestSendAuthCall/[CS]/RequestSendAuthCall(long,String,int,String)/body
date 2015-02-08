@@ -1,0 +1,6 @@
+{
+  this.phoneNumber=phoneNumber;
+  this.smsHash=smsHash;
+  this.appId=appId;
+  this.apiKey=apiKey;
+}

@@ -1,0 +1,8 @@
+{
+  this.peer=peer;
+  this.senderUid=senderUid;
+  this.date=date;
+  this.keyHash=keyHash;
+  this.aesEncryptedKey=aesEncryptedKey;
+  this.message=message;
+}

@@ -1,0 +1,5 @@
+{
+  this.avatar=avatar;
+  this.seq=seq;
+  this.state=state;
+}

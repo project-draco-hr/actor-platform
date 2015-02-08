@@ -1,0 +1,4 @@
+{
+  this.peer=values.getObj(1,Peer.class);
+  this.rids=values.getRepeatedLong(2);
+}

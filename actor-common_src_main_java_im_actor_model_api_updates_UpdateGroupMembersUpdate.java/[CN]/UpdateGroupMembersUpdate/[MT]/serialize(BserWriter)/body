@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.groupId);
+  writer.writeRepeatedObj(2,this.members);
+}

@@ -1,0 +1,11 @@
+{
+  this.id=id;
+  this.authHolder=authHolder;
+  this.appId=appId;
+  this.appTitle=appTitle;
+  this.deviceTitle=deviceTitle;
+  this.authTime=authTime;
+  this.authLocation=authLocation;
+  this.latitude=latitude;
+  this.longitude=longitude;
+}

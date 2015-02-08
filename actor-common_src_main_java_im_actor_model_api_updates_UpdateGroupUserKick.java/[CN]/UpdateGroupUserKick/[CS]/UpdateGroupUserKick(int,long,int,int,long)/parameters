@@ -1,0 +1,5 @@
+int groupId
+long rid
+int uid
+int kickerUid
+long date

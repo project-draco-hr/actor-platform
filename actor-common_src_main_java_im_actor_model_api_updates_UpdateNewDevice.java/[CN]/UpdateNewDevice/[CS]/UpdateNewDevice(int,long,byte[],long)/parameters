@@ -1,0 +1,4 @@
+int uid
+long keyHash
+byte[] key
+long date

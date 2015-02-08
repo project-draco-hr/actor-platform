@@ -1,0 +1,8 @@
+int id
+long accessHash
+String title
+Avatar avatar
+boolean isMember
+int adminUid
+List<Member> members
+long createDate

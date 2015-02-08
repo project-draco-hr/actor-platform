@@ -1,0 +1,5 @@
+{
+  this.peer=values.getObj(1,OutPeer.class);
+  this.startDate=values.getLong(3);
+  this.limit=values.getInt(4);
+}

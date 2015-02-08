@@ -1,0 +1,5 @@
+{
+  this.text=values.getString(1);
+  this.extType=values.getInt(2);
+  this.ext=values.optBytes(3);
+}

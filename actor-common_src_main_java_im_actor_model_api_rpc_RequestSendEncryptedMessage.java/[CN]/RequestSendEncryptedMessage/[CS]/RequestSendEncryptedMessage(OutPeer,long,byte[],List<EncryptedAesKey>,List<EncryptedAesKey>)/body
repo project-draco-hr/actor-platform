@@ -1,0 +1,7 @@
+{
+  this.peer=peer;
+  this.rid=rid;
+  this.encryptedMessage=encryptedMessage;
+  this.keys=keys;
+  this.ownKeys=ownKeys;
+}

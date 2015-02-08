@@ -1,0 +1,7 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  this.recordType=RecordType.parse(values.getInt(3));
+  this.record=values.getString(4);
+  this.title=values.getString(5);
+}

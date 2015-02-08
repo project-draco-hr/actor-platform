@@ -1,0 +1,6 @@
+{
+  this.publicKeyHash=values.getLong(1);
+  this.user=values.getObj(2,User.class);
+  this.contacts=values.getRepeatedObj(4,ContactRecord.class);
+  this.config=values.getObj(3,Config.class);
+}

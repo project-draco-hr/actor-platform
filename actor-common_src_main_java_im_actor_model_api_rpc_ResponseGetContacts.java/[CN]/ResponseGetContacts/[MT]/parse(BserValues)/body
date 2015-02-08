@@ -1,0 +1,4 @@
+{
+  this.users=values.getRepeatedObj(1,User.class);
+  this.isNotChanged=values.getBool(2);
+}
