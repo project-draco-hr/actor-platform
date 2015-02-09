@@ -2,5 +2,4 @@
   if (addDefaultDispatcher) {
     addDispatcher(DEFAULT_DISPATCHER);
   }
-  classLoader=getClass().getClassLoader();
 }

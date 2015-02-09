@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestEncryptedReceived.class,data);
+  return Bser.parse(new RequestEncryptedReceived(),data);
 }

@@ -1,7 +1,0 @@
-{
-  byte[] data=getBytes(id);
-  if (data == null) {
-    throw new UnknownFieldException("Unable to find field #" + id);
-  }
-  return Bser.parse(clazz,data);
-}

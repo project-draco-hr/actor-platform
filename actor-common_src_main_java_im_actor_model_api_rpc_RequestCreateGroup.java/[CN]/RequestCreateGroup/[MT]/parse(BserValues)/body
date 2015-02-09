@@ -1,5 +1,9 @@
 {
   this.rid=values.getLong(1);
   this.title=values.getString(2);
-  this.users=values.getRepeatedObj(3,UserOutPeer.class);
+  List<UserOutPeer> _users=new ArrayList<UserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _users.add(new UserOutPeer());
+  }
+  this.users=values.getRepeatedObj(3,_users);
 }

@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestEditGroupAvatar.class,data);
+  return Bser.parse(new RequestEditGroupAvatar(),data);
 }

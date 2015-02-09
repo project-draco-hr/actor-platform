@@ -1,4 +1,4 @@
 {
   writeVarInt(data.length);
-  stream.write(data);
+  stream.writeBytes(data,0,data.length);
 }

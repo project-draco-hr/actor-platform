@@ -1,7 +1,0 @@
-{
-  int res=is.read();
-  if (res < 0) {
-    return 0;
-  }
-  return res & 0xFF;
-}

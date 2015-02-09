@@ -1,5 +1,5 @@
 {
-  this.fileLocation=values.getObj(1,FileLocation.class);
+  this.fileLocation=values.getObj(1,new FileLocation());
   this.offset=values.getInt(2);
   this.limit=values.getInt(3);
 }

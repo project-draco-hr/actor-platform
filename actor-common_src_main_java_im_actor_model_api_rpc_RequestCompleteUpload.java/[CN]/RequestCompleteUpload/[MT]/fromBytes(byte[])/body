@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestCompleteUpload.class,data);
+  return Bser.parse(new RequestCompleteUpload(),data);
 }

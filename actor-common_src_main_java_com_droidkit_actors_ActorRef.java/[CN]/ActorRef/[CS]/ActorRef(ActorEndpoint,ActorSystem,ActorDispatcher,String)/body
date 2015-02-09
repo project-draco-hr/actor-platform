@@ -1,0 +1,6 @@
+{
+  this.endpoint=endpoint;
+  this.system=system;
+  this.dispatcher=dispatcher;
+  this.path=path;
+}

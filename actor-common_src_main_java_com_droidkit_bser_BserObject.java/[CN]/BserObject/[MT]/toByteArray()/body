@@ -1,5 +1,5 @@
 {
-  ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+  DataOutput outputStream=new DataOutput();
   BserWriter writer=new BserWriter(outputStream);
   try {
     serialize(writer);

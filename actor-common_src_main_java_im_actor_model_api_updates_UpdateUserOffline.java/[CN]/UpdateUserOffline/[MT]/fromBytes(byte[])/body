@@ -1,3 +1,3 @@
 {
-  return Bser.parse(UpdateUserOffline.class,data);
+  return Bser.parse(new UpdateUserOffline(),data);
 }

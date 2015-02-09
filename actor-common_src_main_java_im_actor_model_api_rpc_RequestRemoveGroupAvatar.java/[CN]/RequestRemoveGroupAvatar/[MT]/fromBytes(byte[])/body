@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestRemoveGroupAvatar.class,data);
+  return Bser.parse(new RequestRemoveGroupAvatar(),data);
 }

@@ -1,3 +1,0 @@
-{
-  return parse(clazz,new ByteArrayInputStream(data));
-}

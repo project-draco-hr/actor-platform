@@ -3,7 +3,7 @@ synchronized (dispatchers) {
     if (dispatchers.containsKey(dispatcherId)) {
       return;
     }
-    ActorDispatcher dispatcher=EnvConfig.createDispatcher(dispatcherId,Runtime.getRuntime().availableProcessors(),ThreadPriority.LOW,this);
+    ActorDispatcher dispatcher=EnvConfig.createDispatcher(dispatcherId,EnvConfig.getJavaFactory().getCoresCount(),ThreadPriority.LOW,this);
     addDispatcher(dispatcherId,dispatcher);
   }
 }

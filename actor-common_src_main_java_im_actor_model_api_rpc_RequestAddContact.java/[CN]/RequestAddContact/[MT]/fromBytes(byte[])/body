@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestAddContact.class,data);
+  return Bser.parse(new RequestAddContact(),data);
 }

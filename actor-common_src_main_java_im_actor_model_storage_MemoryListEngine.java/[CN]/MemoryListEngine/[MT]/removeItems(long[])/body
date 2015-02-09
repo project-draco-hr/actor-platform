@@ -1,0 +1,6 @@
+{
+  for (  long l : ids) {
+    items.remove(l);
+  }
+  updateSort();
+}

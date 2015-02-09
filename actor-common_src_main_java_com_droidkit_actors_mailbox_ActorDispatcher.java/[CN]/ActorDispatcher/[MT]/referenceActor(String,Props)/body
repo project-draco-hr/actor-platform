@@ -9,7 +9,7 @@ synchronized (LOCK) {
       endpoint=new ActorEndpoint(path);
       endpoints.put(path,endpoint);
     }
-    ActorScope scope=new ActorScope(actorSystem,mailbox,this,UUID.randomUUID(),path,props,endpoint);
+    ActorScope scope=new ActorScope(actorSystem,mailbox,this,path,props,endpoint);
     endpoint.connect(mailbox,scope);
     scopes.put(scope.getPath(),scope);
     scope.getActorRef().send(StartActor.INSTANCE);

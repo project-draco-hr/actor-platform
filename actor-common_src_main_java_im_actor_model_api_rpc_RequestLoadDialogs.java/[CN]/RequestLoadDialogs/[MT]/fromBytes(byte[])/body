@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestLoadDialogs.class,data);
+  return Bser.parse(new RequestLoadDialogs(),data);
 }

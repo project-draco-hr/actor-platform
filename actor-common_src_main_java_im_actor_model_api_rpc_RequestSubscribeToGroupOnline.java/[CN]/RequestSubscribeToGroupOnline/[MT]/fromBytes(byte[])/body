@@ -1,3 +1,3 @@
 {
-  return Bser.parse(RequestSubscribeToGroupOnline.class,data);
+  return Bser.parse(new RequestSubscribeToGroupOnline(),data);
 }

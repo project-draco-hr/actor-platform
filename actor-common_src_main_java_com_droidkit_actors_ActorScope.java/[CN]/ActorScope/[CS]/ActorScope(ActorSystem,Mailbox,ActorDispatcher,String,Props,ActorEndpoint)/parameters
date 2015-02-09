@@ -1,0 +1,6 @@
+ActorSystem actorSystem
+Mailbox mailbox
+ActorDispatcher dispatcher
+String path
+Props props
+ActorEndpoint endpoint

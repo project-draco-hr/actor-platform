@@ -1,5 +1,5 @@
 {
-  this.groupPeer=values.getObj(1,GroupOutPeer.class);
+  this.groupPeer=values.getObj(1,new GroupOutPeer());
   this.rid=values.getLong(4);
   this.title=values.getString(3);
 }

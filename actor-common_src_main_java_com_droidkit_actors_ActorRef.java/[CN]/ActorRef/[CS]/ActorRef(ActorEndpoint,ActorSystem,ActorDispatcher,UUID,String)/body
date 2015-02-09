@@ -1,7 +1,0 @@
-{
-  this.endpoint=endpoint;
-  this.system=system;
-  this.dispatcher=dispatcher;
-  this.uuid=uuid;
-  this.path=path;
-}

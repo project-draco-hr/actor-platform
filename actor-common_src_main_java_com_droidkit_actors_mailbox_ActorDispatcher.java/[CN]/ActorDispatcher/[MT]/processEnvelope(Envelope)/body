@@ -11,8 +11,7 @@
     }
     try {
       Actor actor=scope.getProps().create();
-      CurrentActor.setCurrentActor(actor);
-      actor.initActor(scope.getUuid(),scope.getPath(),new ActorContext(scope),scope.getMailbox());
+      actor.initActor(scope.getPath(),new ActorContext(scope),scope.getMailbox());
       for (      ActorExtension e : actor.getExtensions()) {
         e.preStart();
       }
@@ -54,7 +53,6 @@ synchronized (LOCK) {
       }
     }
  else {
-      CurrentActor.setCurrentActor(scope.getActor());
       scope.setSender(envelope.getSender());
       for (      ActorExtension e : scope.getActor().getExtensions()) {
         if (e.onReceive(envelope.getMessage())) {
@@ -80,7 +78,6 @@ synchronized (LOCK) {
     if (actorSystem.getTraceInterface() != null) {
       actorSystem.getTraceInterface().onEnvelopeProcessed(envelope,ActorTime.currentTime() - start);
     }
-    CurrentActor.setCurrentActor(null);
     if (!isDisconnected) {
       dispatcher.getQueue().unlockMailbox(envelope.getMailbox());
     }

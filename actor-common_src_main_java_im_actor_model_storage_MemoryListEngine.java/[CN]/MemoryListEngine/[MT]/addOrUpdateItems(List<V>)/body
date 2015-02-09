@@ -1,0 +1,5 @@
+{
+  for (  V v : values) {
+    addOrUpdateItem(v);
+  }
+}

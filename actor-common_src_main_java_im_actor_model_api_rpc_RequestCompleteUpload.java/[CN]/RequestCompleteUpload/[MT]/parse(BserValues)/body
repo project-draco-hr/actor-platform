@@ -1,5 +1,5 @@
 {
-  this.config=values.getObj(1,UploadConfig.class);
+  this.config=values.getObj(1,new UploadConfig());
   this.blocksCount=values.getInt(2);
   this.crc32=values.getLong(3);
 }

@@ -1,3 +1,0 @@
-{
-  return callbackExtension.proxy(src,tClass);
-}

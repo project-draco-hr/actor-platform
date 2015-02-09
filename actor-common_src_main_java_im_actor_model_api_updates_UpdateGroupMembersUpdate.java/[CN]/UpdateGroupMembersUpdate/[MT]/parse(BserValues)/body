@@ -1,4 +1,8 @@
 {
   this.groupId=values.getInt(1);
-  this.members=values.getRepeatedObj(2,Member.class);
+  List<Member> _members=new ArrayList<Member>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _members.add(new Member());
+  }
+  this.members=values.getRepeatedObj(2,_members);
 }
