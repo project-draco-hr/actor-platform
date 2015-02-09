@@ -1,5 +1,15 @@
 {
+  im.actor.model.entity.Avatar avatar=EntityConverter.convert(_avatar);
   User u=users.getValue(uid);
   if (u != null) {
+    if (u.getAvatar() == null && avatar == null) {
+      return;
+    }
+    if (u.getAvatar() != null && u.getAvatar().equals(avatar)) {
+      return;
+    }
+    u=u.editAvatar(avatar);
+    users.addOrUpdateItem(u);
+    messenger.getMessages().getDialogsActor().send(new DialogsActor.UserChanged(u));
   }
 }

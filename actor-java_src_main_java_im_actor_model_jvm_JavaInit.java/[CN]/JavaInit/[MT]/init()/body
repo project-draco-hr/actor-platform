@@ -1,6 +1,22 @@
 {
   JavaThreads.init();
   Log.setLog(new JavaLog());
+  ActorSystem.system().setTraceInterface(new TraceInterface(){
+    @Override public void onEnvelopeDelivered(    Envelope envelope){
+    }
+    @Override public void onEnvelopeProcessed(    Envelope envelope,    long duration){
+    }
+    @Override public void onDrop(    ActorRef sender,    Object message,    Actor actor){
+      Log.w("ACTORS","Drop " + message);
+    }
+    @Override public void onDeadLetter(    ActorRef receiver,    Object message){
+      Log.w("ACTORS","DeadLetter: " + message);
+    }
+    @Override public void onActorDie(    ActorRef ref,    Exception e){
+      e.printStackTrace();
+    }
+  }
+);
   ConnectionFactory.setFactory(new ConnectionFactory.Factory(){
     @Override public void createConnection(    final int connectionId,    final ConnectionEndpoint endpoint,    final ConnectionCallback callback,    final ConnectionFactory.CreateConnectionCallback createCallback){
       new Thread(){

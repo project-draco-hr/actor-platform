@@ -1,4 +1,5 @@
 {
   users=new Users(this);
+  messages=new Messages(this);
   updates=new Updates(this);
 }

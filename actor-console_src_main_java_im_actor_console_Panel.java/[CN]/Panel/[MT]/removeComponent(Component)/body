@@ -1,0 +1,9 @@
+{
+  if (super.removeComponent(component)) {
+    layoutManager.removeComponent(component);
+    invalidate();
+    return true;
+  }
+  invalidate();
+  return false;
+}

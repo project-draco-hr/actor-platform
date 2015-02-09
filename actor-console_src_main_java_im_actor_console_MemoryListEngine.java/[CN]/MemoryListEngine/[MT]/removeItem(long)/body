@@ -1,0 +1,4 @@
+{
+  items.remove(id);
+  updateSort();
+}

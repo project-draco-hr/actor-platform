@@ -1,0 +1,8 @@
+{
+  String key="itm_" + id;
+  if (db.exists(key)) {
+    byte[] data=Base64.getDecoder().decode(db.getAtomicString(key).get());
+    return serializer.deserialize(data);
+  }
+  return null;
+}

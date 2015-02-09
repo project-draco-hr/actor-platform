@@ -1,0 +1,4 @@
+{
+  AvatarEntity avatarEntity=values.optObj(5,AvatarEntity.class);
+  this.user=new User(values.getInt(1),values.getLong(2),values.getString(3),values.optString(4),avatarEntity != null ? avatarEntity.getAvatar() : null);
+}

@@ -1,0 +1,10 @@
+{
+  if (message instanceof InMessage) {
+    InMessage inMessage=(InMessage)message;
+    onMessage(inMessage.getPeer(),inMessage.getMessage());
+  }
+ else   if (message instanceof UserChanged) {
+    UserChanged userChanged=(UserChanged)message;
+    onUserChanged(userChanged.getUser());
+  }
+}

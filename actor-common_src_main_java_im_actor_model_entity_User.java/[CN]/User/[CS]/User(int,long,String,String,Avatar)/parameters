@@ -1,0 +1,5 @@
+int uid
+long accessHash
+String name
+String localName
+Avatar avatar

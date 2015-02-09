@@ -4,6 +4,7 @@
   gui=new GUIScreen(screen,new DefaultBackgroundRenderer());
   screen.startScreen();
   JavaInit.init();
+  DB db=DBMaker.newFileDB(new File("prefs.db")).make();
   Configuration configuration=new Configuration();
   configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint("mtproto-api.actor.im",8080,ConnectionEndpoint.Type.TCP)}));
   configuration.setMainThread(new MainThread(){
@@ -14,6 +15,30 @@
         }
       }
 );
+    }
+  }
+);
+  configuration.setPreferencesStorage(new MapDbPreferences(db));
+  configuration.setEnginesFactory(new EnginesFactory(){
+    @Override public KeyValueEngine<User> createUsersEngine(){
+      return new MapDbKeyValueEngine<User>(DBMaker.newFileDB(new File("users.db")).make(),new MapDbKeyValueEngine.Serializer<User>(){
+        @Override public byte[] serialize(        User user){
+          return new UserEntity(user).toByteArray();
+        }
+        @Override public User deserialize(        byte[] v){
+          try {
+            return Bser.parse(UserEntity.class,v).getUser();
+          }
+ catch (          IOException e) {
+            e.printStackTrace();
+          }
+          return null;
+        }
+      }
+);
+    }
+    @Override public ListEngine<Dialog> createDialogsEngine(){
+      return new MemoryListEngine<Dialog>();
     }
   }
 );

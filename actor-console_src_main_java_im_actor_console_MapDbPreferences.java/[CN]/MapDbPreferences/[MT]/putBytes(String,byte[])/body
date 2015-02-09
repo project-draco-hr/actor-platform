@@ -1,0 +1,9 @@
+{
+  if (db.exists(key)) {
+    db.getAtomicString(key).set(java.util.Base64.getEncoder().encodeToString(v));
+  }
+ else {
+    db.createAtomicString(key,java.util.Base64.getEncoder().encodeToString(v));
+  }
+  db.commit();
+}

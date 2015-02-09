@@ -1,0 +1,11 @@
+{
+  if (avatar.getSmallImage() != null) {
+    smallImage=new AvatarImageEntity(avatar.getSmallImage());
+  }
+  if (avatar.getLargeImage() != null) {
+    largeImage=new AvatarImageEntity(avatar.getLargeImage());
+  }
+  if (avatar.getFullImage() != null) {
+    fullImage=new AvatarImageEntity(avatar.getFullImage());
+  }
+}

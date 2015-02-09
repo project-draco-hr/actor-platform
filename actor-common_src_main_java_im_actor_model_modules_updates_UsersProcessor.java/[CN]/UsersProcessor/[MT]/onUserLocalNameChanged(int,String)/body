@@ -1,6 +1,14 @@
 {
   User u=users.getValue(uid);
   if (u != null) {
-    users.addOrUpdateItem(u.editLocalName(name));
+    if (u.getLocalName() == null && name == null) {
+      return;
+    }
+    if (u.getLocalName() != null && u.getLocalName().equals(name)) {
+      return;
+    }
+    u=u.editLocalName(name);
+    users.addOrUpdateItem(u);
+    messenger.getMessages().getDialogsActor().send(new DialogsActor.UserChanged(u));
   }
 }

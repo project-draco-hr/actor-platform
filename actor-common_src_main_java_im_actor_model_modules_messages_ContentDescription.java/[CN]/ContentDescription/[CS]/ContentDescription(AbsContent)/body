@@ -1,0 +1,9 @@
+{
+  if (msg instanceof TextContent) {
+    contentType=Dialog.ContentType.TEXT;
+    text=((TextContent)msg).getText();
+  }
+ else {
+    throw new RuntimeException("Unknown content type");
+  }
+}

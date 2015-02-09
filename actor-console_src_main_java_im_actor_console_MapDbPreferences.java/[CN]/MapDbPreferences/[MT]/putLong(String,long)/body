@@ -1,0 +1,9 @@
+{
+  if (db.exists(key)) {
+    db.getAtomicLong(key).set(v);
+  }
+ else {
+    db.createAtomicLong(key,v);
+  }
+  db.commit();
+}

@@ -1,0 +1,6 @@
+{
+  this.border=border;
+  if (panelOrientation == Orientation.HORISONTAL)   layoutManager=new HorisontalLayout();
+ else   layoutManager=new VerticalLayout();
+  this.title=(title != null ? title : "");
+}

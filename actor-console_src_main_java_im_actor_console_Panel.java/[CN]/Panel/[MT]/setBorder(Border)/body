@@ -1,0 +1,3 @@
+{
+  if (border != null)   this.border=border;
+}

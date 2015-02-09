@@ -4,27 +4,26 @@
   Panel horisontalPanel=new Panel(new Border.Invisible(),Panel.Orientation.HORISONTAL);
   Panel leftPanel=new Panel(new Border.Invisible(),Panel.Orientation.VERTICAL);
   leftPanel.addComponent(new Label("Recent",30));
-  ActionListBox listBox=new ActionListBox();
-  leftPanel.addComponent(listBox);
-  listBox.addAction("Title",null);
-  listBox.addAction("Title1",null);
-  listBox.addAction("Title2",null);
-  listBox.addAction("Title3",null);
-  listBox.addAction("Title4",null);
-  listBox.addAction("Title5",null);
-  listBox.addAction("Title6",null);
-  listBox.addAction("Title7",null);
-  listBox.addAction("Title8",null);
-  listBox.addAction("Title9",null);
-  listBox.addAction("Title10",null);
-  listBox.addAction("Title11",null);
-  listBox.addAction("Title12",null);
-  listBox.addAction("Title13",null);
-  listBox.addAction("Title14",null);
-  listBox.addAction("Title15",null);
-  listBox.addAction("Title16",null);
-  listBox.addAction("Title17",null);
-  listBox.addAction("Title18",null);
+  final MemoryListEngine<Dialog> dialogEngine=((MemoryListEngine<Dialog>)messenger.getDialogs());
+  ArrayList<Dialog> d=new ArrayList<Dialog>();
+  final ConsoleList<Dialog> dialogConsoleList=new ConsoleList<Dialog>(leftPanel,d,new ConsoleList.Adapter<Dialog>(){
+    @Override public Component createComponent(    Dialog item){
+      return new DialogElement(item);
+    }
+  }
+);
+  dialogEngine.addListener(new MemoryListEngine.EngineListener(){
+    @Override public void onItemsChanged(){
+      final List<Dialog> itms=dialogEngine.getList();
+      messenger.getConfiguration().getMainThread().runOnUiThread(new Runnable(){
+        @Override public void run(){
+          dialogConsoleList.update(itms);
+        }
+      }
+);
+    }
+  }
+);
   horisontalPanel.addComponent(leftPanel,LinearLayout.MAXIMIZES_VERTICALLY);
   addComponent(horisontalPanel);
 }

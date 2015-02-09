@@ -1,3 +1,0 @@
-{
-  typedAsk.ask(future,callback);
-}

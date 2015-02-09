@@ -1,0 +1,5 @@
+{
+  super.addComponent(component);
+  layoutManager.addComponent(component,layoutParameters);
+  invalidate();
+}

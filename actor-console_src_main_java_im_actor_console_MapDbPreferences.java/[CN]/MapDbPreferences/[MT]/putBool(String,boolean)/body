@@ -1,0 +1,9 @@
+{
+  if (db.exists(key)) {
+    db.getAtomicBoolean(key).set(v);
+  }
+ else {
+    db.createAtomicBoolean(key,v);
+  }
+  db.commit();
+}

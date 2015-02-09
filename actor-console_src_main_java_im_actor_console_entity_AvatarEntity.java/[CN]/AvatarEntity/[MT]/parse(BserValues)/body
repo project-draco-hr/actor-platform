@@ -1,0 +1,5 @@
+{
+  smallImage=values.optObj(1,AvatarImageEntity.class);
+  largeImage=values.optObj(2,AvatarImageEntity.class);
+  fullImage=values.optObj(3,AvatarImageEntity.class);
+}

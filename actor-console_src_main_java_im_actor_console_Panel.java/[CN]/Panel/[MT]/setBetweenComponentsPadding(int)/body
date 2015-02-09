@@ -1,0 +1,6 @@
+{
+  if (paddingSize < 0)   paddingSize=0;
+  if (layoutManager instanceof LinearLayout) {
+    ((LinearLayout)layoutManager).setPadding(paddingSize);
+  }
+}

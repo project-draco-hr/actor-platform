@@ -1,0 +1,9 @@
+{
+  Dialog dialog=dialogs.getValue(user.peer().getUid());
+  if (dialog != null) {
+    if (dialog.getDialogTitle().equals(user.getName()) && equalsE(dialog.getDialogAvatar(),user.getAvatar())) {
+      return;
+    }
+    dialogs.addOrUpdateItem(dialog.editPeerInfo(user.getName(),user.getAvatar()));
+  }
+}

@@ -1,5 +1,0 @@
-{
-  User u=users.getValue(uid);
-  if (u != null) {
-  }
-}

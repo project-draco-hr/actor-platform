@@ -1,0 +1,10 @@
+{
+  this.messenger=messenger;
+  this.dialogs=messenger.getConfiguration().getEnginesFactory().createDialogsEngine();
+  this.dialogsActor=system().actorOf(Props.create(DialogsActor.class,new ActorCreator<DialogsActor>(){
+    @Override public DialogsActor create(){
+      return new DialogsActor(messenger);
+    }
+  }
+),"actor/messages");
+}

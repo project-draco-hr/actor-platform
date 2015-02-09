@@ -1,0 +1,3 @@
+{
+  return new AvatarImage(w,h,new FileLocation(fileId,accessHash,fileSize));
+}

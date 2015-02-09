@@ -1,0 +1,8 @@
+{
+  this.rid=rid;
+  this.sortKey=sortKey;
+  this.time=time;
+  this.senderId=senderId;
+  this.messageState=messageState;
+  this.content=content;
+}

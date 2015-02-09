@@ -4,7 +4,7 @@
       messenger.getActorApi().request(new RequestSendAuthCode(phone,APP_ID,APP_KEY),new RpcCallback<ResponseSendAuthCode>(){
         @Override public void onResult(        final ResponseSendAuthCode response){
           preferences.putLong(KEY_PHONE,phone);
-          preferences.putStrings(KEY_SMS_HASH,response.getSmsHash());
+          preferences.putString(KEY_SMS_HASH,response.getSmsHash());
           state=State.CODE_VALIDATION;
           mainThread.runOnUiThread(new Runnable(){
             @Override public void run(){

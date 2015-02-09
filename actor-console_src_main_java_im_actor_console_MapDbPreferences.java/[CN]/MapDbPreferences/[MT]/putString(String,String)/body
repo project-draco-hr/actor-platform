@@ -1,0 +1,9 @@
+{
+  if (db.exists(key)) {
+    db.getAtomicString(key).set(v);
+  }
+ else {
+    db.createAtomicString(key,v);
+  }
+  db.commit();
+}

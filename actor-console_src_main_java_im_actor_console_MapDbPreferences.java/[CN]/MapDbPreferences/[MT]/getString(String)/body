@@ -1,0 +1,8 @@
+{
+  if (db.exists(key)) {
+    return db.getAtomicString(key).get();
+  }
+ else {
+    return null;
+  }
+}

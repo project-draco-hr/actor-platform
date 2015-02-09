@@ -7,7 +7,7 @@
     deviceHash=RandomUtils.seed(32);
     preferences.putBytes(KEY_DEVICE_HASH,deviceHash);
   }
-  if (preferences.getBool("auth_yes",false)) {
+  if (preferences.getBool(KEY_AUTH,false)) {
     state=State.LOGGED_IN;
     messenger.onLoggedIn();
   }

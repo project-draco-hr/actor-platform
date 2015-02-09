@@ -1,0 +1,7 @@
+{
+  this.uid=uid;
+  this.accessHash=accessHash;
+  this.name=name;
+  this.localName=localName;
+  this.avatar=avatar;
+}

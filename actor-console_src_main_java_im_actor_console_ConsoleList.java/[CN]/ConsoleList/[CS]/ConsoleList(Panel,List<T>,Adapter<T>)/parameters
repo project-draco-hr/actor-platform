@@ -1,0 +1,3 @@
+Panel panel
+List<T> items
+Adapter<T> adapter

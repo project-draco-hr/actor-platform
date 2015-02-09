@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  Avatar avatar=(Avatar)o;
+  if (fullImage != null ? !fullImage.equals(avatar.fullImage) : avatar.fullImage != null)   return false;
+  if (largeImage != null ? !largeImage.equals(avatar.largeImage) : avatar.largeImage != null)   return false;
+  if (smallImage != null ? !smallImage.equals(avatar.smallImage) : avatar.smallImage != null)   return false;
+  return true;
+}

@@ -1,0 +1,11 @@
+{
+  writer.writeInt(1,user.getUid());
+  writer.writeLong(2,user.getAccessHash());
+  writer.writeString(3,user.getServerName());
+  if (user.getLocalName() != null) {
+    writer.writeString(4,user.getLocalName());
+  }
+  if (user.getAvatar() != null) {
+    writer.writeObject(5,new AvatarEntity(user.getAvatar()));
+  }
+}
