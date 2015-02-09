@@ -1,5 +1,0 @@
-{
-  this.future=future;
-  this.method=method;
-  this.args=args;
-}

@@ -17,4 +17,7 @@
  else   if (message instanceof ForceResend) {
     forceResend(((ForceResend)message).id);
   }
+ else   if (message instanceof ProtoUpdate) {
+    processUpdate(((ProtoUpdate)message).getData());
+  }
 }

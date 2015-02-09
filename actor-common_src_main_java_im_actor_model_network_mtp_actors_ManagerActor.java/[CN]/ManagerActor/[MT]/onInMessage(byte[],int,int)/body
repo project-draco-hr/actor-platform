@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"Received package");
   ByteArrayInputStream bis=new ByteArrayInputStream(data,offset,len);
   try {
     long authId=readLong(bis);

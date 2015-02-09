@@ -1,11 +1,9 @@
 {
-  Log.d(TAG,message + " rid#" + randomId);
   RequestHolder holder=new RequestHolder(randomId,new RpcRequest(message.getHeaderKey(),message.toByteArray()),callback);
   requests.put(holder.publicId,holder);
   if (proto != null) {
     long mid=proto.sendRpcMessage(holder.message);
     holder.protoId=mid;
     idMap.put(mid,randomId);
-    Log.d(TAG,message + " rid#" + randomId+ " <- mid#"+ mid);
   }
 }

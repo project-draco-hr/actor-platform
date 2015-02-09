@@ -19,6 +19,5 @@
   for (  RequestHolder holder : requests.values()) {
     holder.protoId=proto.sendRpcMessage(holder.message);
     idMap.put(holder.protoId,holder.publicId);
-    Log.d(TAG,holder.message + " rid#" + holder.publicId+ " <- mid#"+ holder.protoId);
   }
 }

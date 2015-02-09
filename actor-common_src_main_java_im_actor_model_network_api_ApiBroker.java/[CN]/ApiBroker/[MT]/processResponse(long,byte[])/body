@@ -8,7 +8,6 @@
     Log.w(TAG,"Broken response mid#" + mid);
     return;
   }
-  Log.w(TAG,protoStruct + " mid#" + mid);
   long rid;
   if (idMap.containsKey(mid)) {
     rid=idMap.get(mid);

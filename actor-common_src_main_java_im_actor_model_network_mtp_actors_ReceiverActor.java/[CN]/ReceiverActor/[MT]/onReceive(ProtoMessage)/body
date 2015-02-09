@@ -1,7 +1,6 @@
 {
   boolean disableConfirm=false;
   try {
-    Log.d(TAG,"Received message #" + message.getMessageId());
     if (receivedMessages.contains(message.getMessageId())) {
       Log.w(TAG,"Already received message #" + message.getMessageId() + ": ignoring");
       return;
@@ -19,7 +18,6 @@
       e.printStackTrace();
       return;
     }
-    Log.d(TAG,obj + "");
     if (obj instanceof NewSessionCreated) {
       sender.send(new SenderActor.NewSession());
       proto.getCallback().onSessionCreated();
