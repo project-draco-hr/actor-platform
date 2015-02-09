@@ -11,11 +11,7 @@
     _groups.add(new Group());
   }
   this.groups=values.getRepeatedObj(6,_groups);
-  List<ContactRecord> _contacts=new ArrayList<ContactRecord>();
-  for (int i=0; i < values.getRepeatedCount(7); i++) {
-    _contacts.add(new ContactRecord());
-  }
-  this.contacts=values.getRepeatedObj(7,_contacts);
+  this.contacts=new ArrayList<ContactRecord>();
   List<DifferenceUpdate> _updates=new ArrayList<DifferenceUpdate>();
   for (int i=0; i < values.getRepeatedCount(4); i++) {
     _updates.add(new DifferenceUpdate());
