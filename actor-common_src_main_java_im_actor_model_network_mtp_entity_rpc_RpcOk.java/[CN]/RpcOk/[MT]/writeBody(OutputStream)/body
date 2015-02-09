@@ -1,4 +1,0 @@
-{
-  writeInt(responseType,bs);
-  writeProtoBytes(payload,bs);
-}

@@ -1,5 +1,5 @@
 {
-  ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+  DataOutput outputStream=new DataOutput();
   try {
     writeObject(outputStream);
   }

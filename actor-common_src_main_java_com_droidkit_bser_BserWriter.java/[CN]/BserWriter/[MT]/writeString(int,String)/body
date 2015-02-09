@@ -1,0 +1,3 @@
+{
+  writeBytesField(fieldNumber,value.getBytes());
+}

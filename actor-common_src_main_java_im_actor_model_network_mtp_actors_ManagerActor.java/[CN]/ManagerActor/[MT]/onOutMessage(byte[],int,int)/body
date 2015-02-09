@@ -4,14 +4,10 @@
     currentConnectionId=0;
   }
   if (currentConnection != null) {
-    ByteArrayOutputStream bos=new ByteArrayOutputStream();
-    try {
-      writeLong(authId,bos);
-      writeLong(sessionId,bos);
-      writeBytes(data,offset,len,bos);
-    }
- catch (    IOException e) {
-    }
+    DataOutput bos=new DataOutput();
+    bos.writeLong(authId);
+    bos.writeLong(sessionId);
+    bos.writeBytes(data,offset,len);
     byte[] pkg=bos.toByteArray();
     currentConnection.post(pkg,0,pkg.length);
   }

@@ -8,13 +8,14 @@
         return;
       }
       try {
-        ByteArrayInputStream bis=new ByteArrayInputStream(data,offset,len);
-        long reqAuthId=readLong(bis);
-        long sessionId=readLong(bis);
-        long messageId=readLong(bis);
-        byte[] content=readProtoBytes(bis);
-        int header=content[0] & 0xFF;
-        long authId=readLong(content,1);
+        DataInput dataInput=new DataInput(data,offset,len);
+        long pAuthId=dataInput.readLong();
+        long pSessionId=dataInput.readLong();
+        long messageId=dataInput.readLong();
+        byte[] payload=dataInput.readProtoBytes();
+        DataInput msg=new DataInput(payload,0,payload.length);
+        int header=msg.readByte();
+        long authId=msg.readLong();
         if (!isFinished[0]) {
           isFinished[0]=true;
           callback.onSuccess(authId);
@@ -43,13 +44,13 @@
       }
       Log.d(TAG,"Connection created");
       try {
-        ByteArrayOutputStream baos=new ByteArrayOutputStream();
-        writeLong(0,baos);
-        writeLong(0,baos);
-        writeLong(0,baos);
-        writeVarInt(1,baos);
-        writeByte(0xF0,baos);
-        byte[] data=baos.toByteArray();
+        DataOutput output=new DataOutput();
+        output.writeLong(0);
+        output.writeLong(0);
+        output.writeLong(0);
+        output.writeVarInt(1);
+        output.writeByte(0xF0);
+        byte[] data=output.toByteArray();
         connection.post(data,0,data.length);
       }
  catch (      Exception e) {

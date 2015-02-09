@@ -1,3 +1,3 @@
 {
-  return readUpdate(new ByteArrayInputStream(bs));
+  return readUpdate(new DataInput(bs,0,bs.length));
 }

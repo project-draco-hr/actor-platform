@@ -1,0 +1,4 @@
+{
+  int len=(int)readVarInt();
+  return readBytes(len);
+}

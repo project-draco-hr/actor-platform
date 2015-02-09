@@ -1,0 +1,9 @@
+{
+  for (  Map.Entry<Integer,Class<? extends T>> t : types.entrySet()) {
+    T res=values.optObj(t.getKey(),t.getValue());
+    if (res != null) {
+      return res;
+    }
+  }
+  return null;
+}

@@ -1,0 +1,25 @@
+{
+  if (fields.containsKey(id)) {
+    Object obj=fields.get(id);
+    if (obj instanceof Byte) {
+      return (Byte)obj;
+    }
+ else     if (obj instanceof Integer) {
+      return (Integer)obj;
+    }
+ else     if (obj instanceof Long) {
+      return (Long)obj;
+    }
+ else     if (obj instanceof String) {
+      String s=(String)obj;
+      try {
+        return Long.parseLong(s);
+      }
+ catch (      NumberFormatException e) {
+        e.printStackTrace();
+      }
+    }
+    throw new IncorrectTypeException("Expected type: long, got " + obj.getClass().getSimpleName());
+  }
+  return defValue;
+}

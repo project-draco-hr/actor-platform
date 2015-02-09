@@ -1,13 +1,13 @@
 {
-  ByteArrayInputStream bis=new ByteArrayInputStream(data,offset,len);
+  DataInput bis=new DataInput(data,offset,len);
   try {
-    long authId=readLong(bis);
-    long sessionId=readLong(bis);
+    long authId=bis.readLong();
+    long sessionId=bis.readLong();
     if (authId != this.authId || sessionId != this.sessionId) {
       throw new IOException("Incorrect header");
     }
-    long messageId=readLong(bis);
-    byte[] payload=readProtoBytes(bis);
+    long messageId=bis.readLong();
+    byte[] payload=bis.readProtoBytes();
     receiver.send(new ProtoMessage(messageId,payload));
   }
  catch (  IOException e) {

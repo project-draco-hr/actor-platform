@@ -1,4 +1,0 @@
-{
-  messageId=readLong(bs);
-  payload=readProtoBytes(bs);
-}

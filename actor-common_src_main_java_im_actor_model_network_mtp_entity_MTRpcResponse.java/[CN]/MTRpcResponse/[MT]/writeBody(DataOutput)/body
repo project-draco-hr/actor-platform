@@ -1,0 +1,4 @@
+{
+  bs.writeLong(messageId);
+  bs.writeProtoBytes(payload,0,payload.length);
+}

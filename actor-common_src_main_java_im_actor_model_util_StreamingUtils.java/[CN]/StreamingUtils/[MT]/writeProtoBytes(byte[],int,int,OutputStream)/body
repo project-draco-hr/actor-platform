@@ -1,4 +1,0 @@
-{
-  writeVarInt(len,stream);
-  writeBytes(data,offset,len,stream);
-}

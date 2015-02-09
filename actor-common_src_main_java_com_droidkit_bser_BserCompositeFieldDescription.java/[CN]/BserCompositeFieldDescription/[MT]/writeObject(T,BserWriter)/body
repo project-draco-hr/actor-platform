@@ -1,0 +1,9 @@
+{
+  for (  Map.Entry<Integer,Class<? extends T>> t : types.entrySet()) {
+    if (t.getValue().equals(obj.getClass())) {
+      writer.writeObject(t.getKey(),obj);
+      return;
+    }
+  }
+  throw new IllegalArgumentException("Unable to find field id for object");
+}

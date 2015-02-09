@@ -1,0 +1,4 @@
+{
+  bs.writeProtoBool(canTryAgain);
+  bs.writeInt(tryAgainDelay);
+}

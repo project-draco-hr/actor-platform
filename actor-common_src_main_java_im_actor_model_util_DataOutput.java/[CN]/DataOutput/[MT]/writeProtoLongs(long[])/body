@@ -1,0 +1,6 @@
+{
+  writeVarInt(values.length);
+  for (  long l : values) {
+    writeLong(l);
+  }
+}

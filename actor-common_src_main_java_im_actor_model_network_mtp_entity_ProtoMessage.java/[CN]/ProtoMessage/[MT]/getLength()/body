@@ -1,3 +1,0 @@
-{
-  return 8 + varintSize(payload.length) + payload.length;
-}

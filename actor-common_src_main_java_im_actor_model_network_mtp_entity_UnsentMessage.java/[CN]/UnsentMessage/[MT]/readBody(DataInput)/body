@@ -1,0 +1,4 @@
+{
+  messageId=bs.readLong();
+  len=bs.readInt();
+}

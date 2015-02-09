@@ -1,4 +1,0 @@
-{
-  messageId=readLong(bs);
-  len=readInt(bs);
-}

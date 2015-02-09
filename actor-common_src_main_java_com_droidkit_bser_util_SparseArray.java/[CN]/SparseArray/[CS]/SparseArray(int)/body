@@ -1,0 +1,12 @@
+{
+  if (initialCapacity == 0) {
+    mKeys=ContainerHelpers.EMPTY_INTS;
+    mValues=ContainerHelpers.EMPTY_OBJECTS;
+  }
+ else {
+    initialCapacity=ArrayUtils.idealIntArraySize(initialCapacity);
+    mKeys=new int[initialCapacity];
+    mValues=new Object[initialCapacity];
+  }
+  mSize=0;
+}

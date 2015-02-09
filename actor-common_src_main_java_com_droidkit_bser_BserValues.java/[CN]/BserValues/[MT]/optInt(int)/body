@@ -1,0 +1,3 @@
+{
+  return getInt(id,0);
+}

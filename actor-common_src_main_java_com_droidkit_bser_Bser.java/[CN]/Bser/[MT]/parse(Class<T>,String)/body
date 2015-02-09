@@ -1,0 +1,12 @@
+{
+  FileInputStream inputStream=null;
+  try {
+    inputStream=new FileInputStream(fileName);
+    return parse(clazz,inputStream);
+  }
+  finally {
+    if (inputStream != null) {
+      inputStream.close();
+    }
+  }
+}

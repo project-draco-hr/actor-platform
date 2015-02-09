@@ -1,0 +1,8 @@
+{
+  final int header=bs.readByte();
+switch (header) {
+case RpcRequest.HEADER:
+    return new RpcRequest(bs);
+}
+throw new IOException("Unable to read proto object with header #" + header);
+}

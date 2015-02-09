@@ -1,0 +1,7 @@
+{
+  writeTag(fieldNumber,TYPE_LENGTH_DELIMITED);
+  ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+  BserWriter writer=new BserWriter(outputStream);
+  value.serialize(writer);
+  writeBytes(outputStream.toByteArray());
+}

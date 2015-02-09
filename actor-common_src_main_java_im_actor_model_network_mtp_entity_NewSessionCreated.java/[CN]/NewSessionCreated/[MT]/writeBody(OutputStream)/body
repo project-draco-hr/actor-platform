@@ -1,4 +1,0 @@
-{
-  writeLong(sessionId,bs);
-  writeLong(messageId,bs);
-}

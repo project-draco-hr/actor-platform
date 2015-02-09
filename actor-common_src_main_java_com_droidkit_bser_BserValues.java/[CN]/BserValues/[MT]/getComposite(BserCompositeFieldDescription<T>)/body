@@ -1,0 +1,7 @@
+{
+  T res=fieldDescritption.readObject(this);
+  if (res == null) {
+    throw new UnknownFieldException("Unable to find field for composite type");
+  }
+  return res;
+}

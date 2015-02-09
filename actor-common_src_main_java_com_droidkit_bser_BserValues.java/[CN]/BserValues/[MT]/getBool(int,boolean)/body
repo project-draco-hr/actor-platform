@@ -1,0 +1,4 @@
+{
+  long res=getLong(id,defValue ? 1 : 0);
+  return res != 0;
+}

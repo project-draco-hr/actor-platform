@@ -1,0 +1,30 @@
+{
+  ArrayList<Integer> res=new ArrayList<Integer>();
+  if (fields.containsKey(id)) {
+    Object val=fields.get(id);
+    if (val instanceof Long) {
+      res.add((int)(long)(Long)val);
+    }
+ else     if (val instanceof Integer) {
+      res.add((Integer)val);
+    }
+ else     if (val instanceof List) {
+      List<Object> rep=(List)val;
+      for (      Object val2 : rep) {
+        if (val2 instanceof Long) {
+          res.add((int)(long)(Long)val2);
+        }
+ else         if (val2 instanceof Integer) {
+          res.add((Integer)val2);
+        }
+ else {
+          throw new IncorrectTypeException("Expected type: int, got " + val2.getClass().getSimpleName());
+        }
+      }
+    }
+ else {
+      throw new IncorrectTypeException("Expected type: int, got " + val.getClass().getSimpleName());
+    }
+  }
+  return res;
+}

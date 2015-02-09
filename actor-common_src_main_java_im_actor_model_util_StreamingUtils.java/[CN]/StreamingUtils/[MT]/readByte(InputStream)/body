@@ -1,7 +1,0 @@
-{
-  int res=stream.read();
-  if (res < 0) {
-    throw new IOException();
-  }
-  return (byte)res;
-}

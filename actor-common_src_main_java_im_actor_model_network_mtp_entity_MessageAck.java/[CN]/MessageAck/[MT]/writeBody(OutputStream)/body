@@ -1,3 +1,0 @@
-{
-  writeProtoLongs(messagesIds,bs);
-}

@@ -1,0 +1,36 @@
+{
+  ArrayList<String> res=new ArrayList<String>();
+  if (fields.containsKey(id)) {
+    Object val=fields.get(id);
+    if (val instanceof Long) {
+      res.add("" + val);
+    }
+ else     if (val instanceof Integer) {
+      res.add("" + val);
+    }
+ else     if (val instanceof byte[]) {
+      res.add(new String((byte[])val));
+    }
+ else     if (val instanceof List) {
+      List<Object> rep=(List)val;
+      for (      Object val2 : rep) {
+        if (val2 instanceof Long) {
+          res.add("" + val2);
+        }
+ else         if (val2 instanceof Integer) {
+          res.add("" + val2);
+        }
+ else         if (val2 instanceof byte[]) {
+          res.add(new String((byte[])val2));
+        }
+ else {
+          throw new IncorrectTypeException("Expected type: byte[], got " + val2.getClass().getSimpleName());
+        }
+      }
+    }
+ else {
+      throw new IncorrectTypeException("Expected type: byte[], got " + val.getClass().getSimpleName());
+    }
+  }
+  return res;
+}

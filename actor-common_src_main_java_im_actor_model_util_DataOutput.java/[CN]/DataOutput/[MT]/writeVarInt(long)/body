@@ -1,0 +1,7 @@
+{
+  while ((v & 0xffffffffffffff80l) != 0l) {
+    writeByte((byte)((v & 0x7f) | 0x80));
+    v>>>=7;
+  }
+  writeByte((byte)(v & 0x7f));
+}

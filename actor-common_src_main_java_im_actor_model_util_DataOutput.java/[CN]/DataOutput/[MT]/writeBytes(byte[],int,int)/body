@@ -1,0 +1,8 @@
+{
+  if (data.length < offset + v.length) {
+    expand(offset + v.length);
+  }
+  for (int i=0; i < len; i++) {
+    data[offset++]=v[i + ofs];
+  }
+}

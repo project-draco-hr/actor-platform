@@ -1,6 +1,0 @@
-{
-  authId=readLong(bs);
-  sessionId=readLong(bs);
-  payload=new ProtoMessage(bs);
-  return this;
-}

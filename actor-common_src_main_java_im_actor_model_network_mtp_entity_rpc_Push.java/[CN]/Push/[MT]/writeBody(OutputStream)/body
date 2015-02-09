@@ -1,4 +1,0 @@
-{
-  writeInt(updateType,bs);
-  writeProtoBytes(body,bs);
-}

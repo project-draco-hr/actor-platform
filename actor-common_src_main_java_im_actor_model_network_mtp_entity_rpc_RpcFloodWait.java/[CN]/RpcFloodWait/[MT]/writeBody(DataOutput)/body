@@ -1,0 +1,3 @@
+{
+  bs.writeInt(delay);
+}

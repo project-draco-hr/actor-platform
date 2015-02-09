@@ -1,0 +1,5 @@
+{
+  for (  T l : values) {
+    writeObject(fieldNumber,l);
+  }
+}

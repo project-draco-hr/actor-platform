@@ -1,0 +1,23 @@
+{
+  long value=0;
+  long i=0;
+  int b;
+  do {
+    b=stream.read();
+    if (b < 0) {
+      throw new IOException("Unexpected end of varint");
+    }
+    value|=(b & 0x7FL) << i;
+    if ((b & 0x80) != 0) {
+      i+=7;
+      if (i > 70) {
+        throw new IOException();
+      }
+    }
+ else {
+      break;
+    }
+  }
+ while (true);
+  return value;
+}

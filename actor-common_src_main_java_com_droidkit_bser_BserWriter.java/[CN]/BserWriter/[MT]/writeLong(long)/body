@@ -1,0 +1,10 @@
+{
+  stream.write((byte)(v & 0xFF));
+  stream.write((byte)((v >> 8) & 0xFF));
+  stream.write((byte)((v >> 16) & 0xFF));
+  stream.write((byte)((v >> 24) & 0xFF));
+  stream.write((byte)((v >> 32) & 0xFF));
+  stream.write((byte)((v >> 40) & 0xFF));
+  stream.write((byte)((v >> 48) & 0xFF));
+  stream.write((byte)((v >> 56) & 0xFF));
+}

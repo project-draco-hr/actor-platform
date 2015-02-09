@@ -1,0 +1,10 @@
+{
+  if (offset + count > maxOffset) {
+    throw new IOException();
+  }
+  byte[] res=new byte[count];
+  for (int i=0; i < count; i++) {
+    res[i]=data[offset++];
+  }
+  return res;
+}

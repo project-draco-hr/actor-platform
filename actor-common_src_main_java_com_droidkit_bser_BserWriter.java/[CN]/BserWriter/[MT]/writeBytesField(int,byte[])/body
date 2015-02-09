@@ -1,0 +1,4 @@
+{
+  writeTag(fieldNumber,TYPE_LENGTH_DELIMITED);
+  writeBytes(value);
+}

@@ -1,4 +1,0 @@
-{
-  responseType=readInt(bs);
-  payload=readProtoBytes(bs);
-}

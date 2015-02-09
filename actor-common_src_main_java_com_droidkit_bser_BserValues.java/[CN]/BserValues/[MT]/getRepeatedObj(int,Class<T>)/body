@@ -1,0 +1,24 @@
+{
+  ArrayList<T> res=new ArrayList<T>();
+  if (fields.containsKey(id)) {
+    Object val=fields.get(id);
+    if (val instanceof byte[]) {
+      res.add(Bser.parse(clazz,(byte[])val));
+    }
+ else     if (val instanceof List) {
+      List<Object> rep=(List)val;
+      for (      Object val2 : rep) {
+        if (val2 instanceof byte[]) {
+          res.add(Bser.parse(clazz,(byte[])val2));
+        }
+ else {
+          throw new IncorrectTypeException("Expected type: byte[], got " + val2.getClass().getSimpleName());
+        }
+      }
+    }
+ else {
+      throw new IncorrectTypeException("Expected type: byte[], got " + val.getClass().getSimpleName());
+    }
+  }
+  return res;
+}

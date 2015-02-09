@@ -1,0 +1,4 @@
+{
+  writeTag(fieldNumber,TYPE_32BIT);
+  writeInt(value);
+}
