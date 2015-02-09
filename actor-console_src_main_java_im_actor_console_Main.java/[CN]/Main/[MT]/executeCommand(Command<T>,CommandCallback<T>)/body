@@ -1,0 +1,15 @@
+{
+  final WaitingDialog waitingDialog=new WaitingDialog("Actor Systems","Loading...");
+  execute.start(new CommandCallback<T>(){
+    @Override public void onResult(    T res){
+      waitingDialog.close();
+      callback.onResult(res);
+    }
+    @Override public void onError(    Exception e){
+      waitingDialog.close();
+      callback.onError(e);
+    }
+  }
+);
+  gui.showWindow(waitingDialog,GUIScreen.Position.CENTER);
+}

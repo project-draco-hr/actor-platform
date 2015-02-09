@@ -1,0 +1,43 @@
+{
+  if (messenger.getState() == State.AUTH_START) {
+    String res=TextInputDialog.showTextInputBox(gui,"Validate Phone","Please, set your phone number","");
+    long phone;
+    try {
+      phone=Long.parseLong(res);
+    }
+ catch (    Exception e) {
+      MessageBox.showMessageBox(gui,"Incorrect phone",null);
+      updateMainUi();
+      return;
+    }
+    executeCommand(messenger.getAuth().requestSms(phone),new CommandCallback<State>(){
+      @Override public void onResult(      State res){
+        updateMainUi();
+      }
+      @Override public void onError(      Exception e){
+        MessageBox.showMessageBox(gui,"Unable to register phone","Error: " + e);
+        updateMainUi();
+      }
+    }
+);
+  }
+ else   if (messenger.getState() == State.CODE_VALIDATION) {
+    String res=TextInputDialog.showTextInputBox(gui,"Validate Phone","Please, enter activation code","");
+    executeCommand(messenger.getAuth().sendCode(res),new CommandCallback<State>(){
+      @Override public void onResult(      State res){
+        updateMainUi();
+      }
+      @Override public void onError(      Exception e){
+        MessageBox.showMessageBox(gui,"Unable to register phone","Error: " + e);
+        updateMainUi();
+      }
+    }
+);
+  }
+ else   if (messenger.getState() == State.SIGN_UP) {
+    MessageBox.showMessageBox(gui,"Need signup","Please, perform signup on phone");
+  }
+ else   if (messenger.getState() == State.LOGGED_IN) {
+    gui.showWindow(new MainWindow(),GUIScreen.Position.FULL_SCREEN);
+  }
+}

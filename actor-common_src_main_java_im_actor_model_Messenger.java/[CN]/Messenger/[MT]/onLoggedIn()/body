@@ -1,0 +1,4 @@
+{
+  users=new Users(this);
+  updates=new Updates(this);
+}

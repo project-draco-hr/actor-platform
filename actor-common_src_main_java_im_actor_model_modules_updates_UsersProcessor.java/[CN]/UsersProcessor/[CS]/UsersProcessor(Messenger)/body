@@ -1,0 +1,4 @@
+{
+  this.messenger=messenger;
+  this.users=messenger.getUsers();
+}

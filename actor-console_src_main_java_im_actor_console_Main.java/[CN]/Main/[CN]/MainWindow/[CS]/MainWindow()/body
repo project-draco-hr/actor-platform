@@ -1,0 +1,30 @@
+{
+  super("Actor Messenger");
+  setBorder(new Border.Invisible());
+  Panel horisontalPanel=new Panel(new Border.Invisible(),Panel.Orientation.HORISONTAL);
+  Panel leftPanel=new Panel(new Border.Invisible(),Panel.Orientation.VERTICAL);
+  leftPanel.addComponent(new Label("Recent",30));
+  ActionListBox listBox=new ActionListBox();
+  leftPanel.addComponent(listBox);
+  listBox.addAction("Title",null);
+  listBox.addAction("Title1",null);
+  listBox.addAction("Title2",null);
+  listBox.addAction("Title3",null);
+  listBox.addAction("Title4",null);
+  listBox.addAction("Title5",null);
+  listBox.addAction("Title6",null);
+  listBox.addAction("Title7",null);
+  listBox.addAction("Title8",null);
+  listBox.addAction("Title9",null);
+  listBox.addAction("Title10",null);
+  listBox.addAction("Title11",null);
+  listBox.addAction("Title12",null);
+  listBox.addAction("Title13",null);
+  listBox.addAction("Title14",null);
+  listBox.addAction("Title15",null);
+  listBox.addAction("Title16",null);
+  listBox.addAction("Title17",null);
+  listBox.addAction("Title18",null);
+  horisontalPanel.addComponent(leftPanel,LinearLayout.MAXIMIZES_VERTICALLY);
+  addComponent(horisontalPanel);
+}

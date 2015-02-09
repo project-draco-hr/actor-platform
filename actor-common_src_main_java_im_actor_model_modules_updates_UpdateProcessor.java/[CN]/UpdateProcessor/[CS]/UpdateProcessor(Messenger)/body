@@ -1,0 +1,6 @@
+{
+  this.messenger=messenger;
+  this.usersProcessor=new UsersProcessor(messenger);
+  this.messagesProcessor=new MessagesProcessor();
+  this.groupsProcessor=new GroupsProcessor();
+}

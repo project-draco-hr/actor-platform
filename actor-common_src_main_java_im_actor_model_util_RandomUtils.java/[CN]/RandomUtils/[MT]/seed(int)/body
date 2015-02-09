@@ -1,0 +1,5 @@
+{
+  byte[] res=new byte[size];
+  random.nextBytes(res);
+  return res;
+}

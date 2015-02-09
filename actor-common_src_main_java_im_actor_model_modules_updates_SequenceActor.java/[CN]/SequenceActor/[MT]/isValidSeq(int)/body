@@ -1,0 +1,3 @@
+{
+  return this.seq <= 0 || seq == this.seq + 1;
+}

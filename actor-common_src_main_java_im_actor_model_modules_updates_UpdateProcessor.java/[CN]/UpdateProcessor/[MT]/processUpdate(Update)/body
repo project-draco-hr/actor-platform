@@ -1,0 +1,22 @@
+{
+  if (update instanceof UpdateUserContactAdded) {
+  }
+ else   if (update instanceof UpdateUserContactRemoved) {
+  }
+ else   if (update instanceof UpdateUserNameChanged) {
+    UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
+    usersProcessor.onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());
+  }
+ else   if (update instanceof UpdateUserLocalNameChanged) {
+    UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
+    usersProcessor.onUserLocalNameChanged(localNameChanged.getUid(),localNameChanged.getLocalName());
+  }
+ else   if (update instanceof UpdateUserAvatarChanged) {
+    UpdateUserAvatarChanged avatarChanged=(UpdateUserAvatarChanged)update;
+    usersProcessor.onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
+  }
+ else   if (update instanceof UpdateUserStateChanged) {
+    UpdateUserStateChanged stateChanged=(UpdateUserStateChanged)update;
+    usersProcessor.onUserStateChanged(stateChanged.getUid(),stateChanged.getState());
+  }
+}

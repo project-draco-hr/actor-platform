@@ -1,0 +1,7 @@
+{
+  seq=preferencesStorage.getInt(KEY_SEQ,-1);
+  state=preferencesStorage.getBytes(KEY_STATE);
+  parser=new UpdatesParser();
+  processor=new UpdateProcessor(messenger);
+  self().send(new Invalidate());
+}

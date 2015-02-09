@@ -1,0 +1,6 @@
+{
+  if (items.containsKey(key)) {
+    return (String)items.get(key);
+  }
+  return null;
+}

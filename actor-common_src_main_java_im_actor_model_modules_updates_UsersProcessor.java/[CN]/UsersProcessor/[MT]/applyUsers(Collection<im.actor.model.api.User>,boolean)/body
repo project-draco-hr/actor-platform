@@ -1,0 +1,14 @@
+{
+  ArrayList<User> batch=new ArrayList<User>();
+  for (  im.actor.model.api.User u : updated) {
+    if (users.getValue(u.getId()) == null) {
+      batch.add(EntityConverter.convert(u));
+    }
+ else     if (forced) {
+      batch.add(EntityConverter.convert(u));
+    }
+  }
+  if (batch.size() > 0) {
+    users.addOrUpdateItems(batch);
+  }
+}

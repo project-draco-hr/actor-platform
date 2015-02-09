@@ -1,0 +1,30 @@
+{
+  return new Command<State>(){
+    @Override public void start(    final CommandCallback<State> callback){
+      messenger.getActorApi().request(new RequestSignIn(preferences.getLong(KEY_PHONE,0),preferences.getStrings(KEY_SMS_HASH),code,RandomUtils.seed(1024),deviceHash,"ActorLib",APP_ID,APP_KEY),new RpcCallback<ResponseAuth>(){
+        @Override public void onResult(        ResponseAuth response){
+          preferences.putBool(KEY_AUTH,true);
+          state=State.LOGGED_IN;
+          messenger.onLoggedIn();
+          mainThread.runOnUiThread(new Runnable(){
+            @Override public void run(){
+              state=State.LOGGED_IN;
+              callback.onResult(state);
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          mainThread.runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

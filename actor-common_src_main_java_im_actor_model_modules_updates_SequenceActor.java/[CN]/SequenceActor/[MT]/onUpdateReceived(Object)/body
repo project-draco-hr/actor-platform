@@ -1,0 +1,79 @@
+{
+  int seq;
+  byte[] state;
+  int type;
+  byte[] body;
+  if (u instanceof SeqUpdate) {
+    seq=((SeqUpdate)u).getSeq();
+    state=((SeqUpdate)u).getState();
+    type=((SeqUpdate)u).getUpdateHeader();
+    body=((SeqUpdate)u).getUpdate();
+  }
+ else   if (u instanceof FatSeqUpdate) {
+    seq=((FatSeqUpdate)u).getSeq();
+    state=((FatSeqUpdate)u).getState();
+    type=((FatSeqUpdate)u).getUpdateHeader();
+    body=((FatSeqUpdate)u).getUpdate();
+  }
+ else   if (u instanceof WeakUpdate) {
+    WeakUpdate w=(WeakUpdate)u;
+    Log.w(TAG,"Received weak update");
+    try {
+      processor.processUpdate(parser.read(w.getUpdateHeader(),w.getUpdate()));
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      Log.w(TAG,"Unable to parse update: ignoring");
+    }
+    return;
+  }
+ else {
+    return;
+  }
+  if (seq <= this.seq) {
+    Log.d(TAG,"Ignored SeqUpdate {seq:" + seq + "}");
+    return;
+  }
+  Log.d(TAG,"SeqUpdate {seq:" + seq + "}");
+  if (!isValidated) {
+    Log.d(TAG,"Caching in further map");
+    further.put(seq,u);
+    return;
+  }
+  if (!isValidSeq(seq)) {
+    Log.w(TAG,"Out of sequence: starting timer for invalidation");
+    further.put(seq,u);
+    self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+    return;
+  }
+  Update update;
+  try {
+    update=new UpdatesParser().read(type,body);
+  }
+ catch (  IOException e) {
+    Log.w(TAG,"Unable to parse update: ignoring");
+    e.printStackTrace();
+    return;
+  }
+  if (processor.isCausesInvalidation(update)) {
+    Log.w(TAG,"Message causes invalidation");
+    invalidate();
+    return;
+  }
+  Log.d(TAG,"Processing update: " + update);
+  if (u instanceof FatSeqUpdate) {
+    FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
+    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),fatSeqUpdate.getContacts(),false);
+  }
+  processor.processUpdate(update);
+  if (u instanceof FatSeqUpdate) {
+    FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
+    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),fatSeqUpdate.getContacts(),true);
+  }
+  this.seq=seq;
+  this.state=state;
+  preferencesStorage.putInt(KEY_SEQ,seq);
+  preferencesStorage.putBytes(KEY_STATE,state);
+  checkFuture();
+  self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
+}

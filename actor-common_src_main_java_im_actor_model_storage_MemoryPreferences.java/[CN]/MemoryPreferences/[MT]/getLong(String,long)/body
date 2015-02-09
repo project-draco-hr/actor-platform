@@ -1,0 +1,6 @@
+{
+  if (items.containsKey(key)) {
+    return (Long)items.get(key);
+  }
+  return def;
+}

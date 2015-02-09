@@ -1,0 +1,6 @@
+{
+  if (items.containsKey(key)) {
+    return (Integer)items.get(key);
+  }
+  return def;
+}

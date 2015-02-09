@@ -1,0 +1,19 @@
+{
+  this.configuration=configuration;
+  this.actorApi=new ActorApi(configuration.getEndpoints(),new PreferenceApiStorage(configuration.getPreferencesStorage()),new ActorApiCallback(){
+    @Override public void onAuthIdInvalidated(    long authKey){
+    }
+    @Override public void onNewSessionCreated(){
+      if (updates != null) {
+        updates.onSessionCreated();
+      }
+    }
+    @Override public void onUpdateReceived(    Object obj){
+      if (updates != null) {
+        updates.onUpdateReceived(obj);
+      }
+    }
+  }
+);
+  this.auth=new Auth(this);
+}

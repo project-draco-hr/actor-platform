@@ -1,0 +1,4 @@
+List<User> users
+List<Group> groups
+List<ContactRecord> contactRecords
+boolean force
