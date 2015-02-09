@@ -1,0 +1,8 @@
+{
+synchronized (conversationEngines) {
+    if (!conversationEngines.containsKey(peer)) {
+      conversationEngines.put(peer,messenger.getConfiguration().getEnginesFactory().createMessagesEngine(peer));
+    }
+    return conversationEngines.get(peer);
+  }
+}

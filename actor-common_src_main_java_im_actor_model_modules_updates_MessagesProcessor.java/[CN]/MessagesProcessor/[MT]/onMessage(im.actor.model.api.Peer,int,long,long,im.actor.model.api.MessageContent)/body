@@ -14,6 +14,6 @@
  else {
     return;
   }
-  Message message=new Message(rid,buildSortKey(),date,senderUid,MessageState.UNKNOWN,msgContent);
-  messenger.getMessages().getDialogsActor().send(new DialogsActor.InMessage(peer,message));
+  Message message=new Message(rid,buildSortKey(),date,senderUid,messenger.myUid() == senderUid ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  messenger.getMessagesModule().getConversationActor(peer).send(message);
 }

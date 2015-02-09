@@ -9,7 +9,7 @@
       User upd=EntityConverter.convert(u);
       batch.add(upd);
       if (!upd.getName().equals(saved.getName()) || !equalsE(upd.getAvatar(),saved.getAvatar())) {
-        messenger.getMessages().getDialogsActor().send(new DialogsActor.UserChanged(upd));
+        messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(upd));
       }
     }
   }

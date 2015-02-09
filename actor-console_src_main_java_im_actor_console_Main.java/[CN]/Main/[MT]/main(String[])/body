@@ -40,6 +40,9 @@
     @Override public ListEngine<Dialog> createDialogsEngine(){
       return new MemoryListEngine<Dialog>();
     }
+    @Override public ListEngine<Message> createMessagesEngine(    Peer peer){
+      return new MemoryListEngine<Message>();
+    }
   }
 );
   messenger=new Messenger(configuration);

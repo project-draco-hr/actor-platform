@@ -1,0 +1,7 @@
+{
+  if (messages.getValue(message.getListId()) != null) {
+    return;
+  }
+  messages.addOrUpdateItem(message);
+  dialogsActor.send(new DialogsActor.InMessage(peer,message));
+}

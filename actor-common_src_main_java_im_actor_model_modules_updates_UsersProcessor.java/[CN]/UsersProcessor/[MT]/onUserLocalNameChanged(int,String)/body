@@ -9,6 +9,6 @@
     }
     u=u.editLocalName(name);
     users.addOrUpdateItem(u);
-    messenger.getMessages().getDialogsActor().send(new DialogsActor.UserChanged(u));
+    messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
   }
 }

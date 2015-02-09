@@ -2,6 +2,7 @@
   this.messenger=messenger;
   this.preferences=messenger.getConfiguration().getPreferencesStorage();
   this.mainThread=messenger.getConfiguration().getMainThread();
+  this.myUid=preferences.getInt(KEY_AUTH_UID,0);
   deviceHash=preferences.getBytes(KEY_DEVICE_HASH);
   if (deviceHash == null) {
     deviceHash=RandomUtils.seed(32);

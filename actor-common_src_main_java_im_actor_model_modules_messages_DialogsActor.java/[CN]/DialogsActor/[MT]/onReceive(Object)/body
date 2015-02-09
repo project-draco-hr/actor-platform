@@ -7,4 +7,10 @@
     UserChanged userChanged=(UserChanged)message;
     onUserChanged(userChanged.getUser());
   }
+ else   if (message instanceof ChatClear) {
+    onChatClear(((ChatClear)message).getPeer());
+  }
+ else   if (message instanceof ChatDelete) {
+    onChatDeleted(((ChatDelete)message).getPeer());
+  }
 }

@@ -1,0 +1,5 @@
+{
+  int result=peerType.hashCode();
+  result=31 * result + peerId;
+  return result;
+}

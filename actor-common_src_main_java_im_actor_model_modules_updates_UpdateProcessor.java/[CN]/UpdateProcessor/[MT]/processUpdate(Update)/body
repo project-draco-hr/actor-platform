@@ -3,6 +3,12 @@
   }
  else   if (update instanceof UpdateUserContactRemoved) {
   }
+ else   if (update instanceof UpdateContactMoved) {
+  }
+ else   if (update instanceof UpdateContactTitleChanged) {
+  }
+ else   if (update instanceof UpdateUserContactsChanged) {
+  }
  else   if (update instanceof UpdateUserNameChanged) {
     UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
     usersProcessor.onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());
@@ -48,5 +54,13 @@
  else   if (update instanceof UpdateEncryptedReadByMe) {
   }
  else   if (update instanceof UpdateEncryptedReceived) {
+  }
+ else   if (update instanceof UpdateChatClear) {
+    UpdateChatClear chatClear=(UpdateChatClear)update;
+    messagesProcessor.onChatClear(chatClear.getPeer());
+  }
+ else   if (update instanceof UpdateChatDelete) {
+    UpdateChatDelete chatDelete=(UpdateChatDelete)update;
+    messagesProcessor.onChatDelete(chatDelete.getPeer());
   }
 }

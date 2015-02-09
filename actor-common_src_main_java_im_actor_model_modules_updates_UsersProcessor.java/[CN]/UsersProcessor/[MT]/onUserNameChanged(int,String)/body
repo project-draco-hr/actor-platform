@@ -7,7 +7,7 @@
     u=u.editName(name);
     users.addOrUpdateItem(u.editName(name));
     if (u.getLocalName() == null) {
-      messenger.getMessages().getDialogsActor().send(new DialogsActor.UserChanged(u));
+      messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
     }
   }
 }
