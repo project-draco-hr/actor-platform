@@ -1,0 +1,6 @@
+{
+  JPanel chatsPanel=new JPanel();
+  chatsPanel.setLayout(new GridLayout());
+  chatsPanel.add(panel);
+  return chatsPanel;
+}

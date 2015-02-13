@@ -1,0 +1,8 @@
+{
+  for (  T v : items) {
+    if (v.getListId() == id) {
+      return v;
+    }
+  }
+  return null;
+}

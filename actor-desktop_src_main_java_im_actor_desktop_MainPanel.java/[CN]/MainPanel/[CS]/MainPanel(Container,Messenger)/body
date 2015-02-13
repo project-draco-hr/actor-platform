@@ -1,0 +1,14 @@
+{
+  JSplitPane splitPane=new JSplitPane();
+  splitPane.setDividerLocation(240);
+  JList<Dialog> jList=new JList<Dialog>();
+  jList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+  jList.setLayoutOrientation(JList.VERTICAL);
+  jList.setVisibleRowCount(-1);
+  jList.setModel(((SwingListEngine<Dialog>)messenger.getDialogs()).getListModel());
+  jList.setCellRenderer(new DialogRenderer());
+  jList.setFixedCellHeight(76);
+  jList.setBorder(null);
+  splitPane.setLeftComponent(fill(scroller(jList)));
+  replace(container,splitPane);
+}

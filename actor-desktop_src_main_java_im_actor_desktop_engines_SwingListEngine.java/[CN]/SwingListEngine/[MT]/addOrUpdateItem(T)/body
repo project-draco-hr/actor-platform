@@ -1,0 +1,13 @@
+{
+  removeItem(item.getListId());
+  int index=items.size();
+  for (int i=0; i < items.size(); i++) {
+    T c=items.get(i);
+    if (c.getSortingKey() <= item.getSortingKey()) {
+      index=i;
+      break;
+    }
+  }
+  items.add(index,item);
+  model.fireAdded(index,index);
+}

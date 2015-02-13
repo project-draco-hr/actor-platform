@@ -1,0 +1,3 @@
+{
+  fireIntervalAdded(this,start,end);
+}

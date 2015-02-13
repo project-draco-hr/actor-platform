@@ -1,2 +1,28 @@
 {
+  JavaInit.init();
+  Configuration configuration=new Configuration();
+  configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint("mtproto-api.actor.im",8080,ConnectionEndpoint.Type.TCP)}));
+  configuration.setEnginesFactory(new EnginesFactory(){
+    @Override public KeyValueEngine<User> createUsersEngine(){
+      return new MemoryKeyValueEngine<User>();
+    }
+    @Override public ListEngine<Dialog> createDialogsEngine(){
+      return new SwingListEngine<Dialog>();
+    }
+    @Override public ListEngine<Message> createMessagesEngine(    Peer peer){
+      return new SwingListEngine<Message>();
+    }
+    @Override public KeyValueEngine<PendingMessage> pendingMessages(    Peer peer){
+      return null;
+    }
+  }
+);
+  messenger=new Messenger(configuration);
+  JFrame frame=new JFrame("Actor Messenger");
+  frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  frame.setSize(740,600);
+  frame.setLocationRelativeTo(null);
+  frame.getContentPane().setBackground(Color.WHITE);
+  init(frame.getContentPane());
+  frame.setVisible(true);
 }

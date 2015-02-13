@@ -1,0 +1,6 @@
+{
+  component.setMaximumSize(new Dimension(w,h));
+  component.setMinimumSize(new Dimension(w,h));
+  component.setPreferredSize(new Dimension(w,h));
+  return component;
+}

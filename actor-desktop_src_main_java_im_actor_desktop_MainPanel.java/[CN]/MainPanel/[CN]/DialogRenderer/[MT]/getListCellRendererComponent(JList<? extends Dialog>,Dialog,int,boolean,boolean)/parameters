@@ -1,0 +1,5 @@
+JList<? extends Dialog> list
+Dialog value
+int index
+boolean isSelected
+boolean cellHasFocus

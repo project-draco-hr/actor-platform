@@ -1,0 +1,23 @@
+{
+  removeAll();
+  JPanel avatar=new JPanel();
+  avatar.setBackground(Color.DARK_GRAY);
+  add(fixSize(avatar,56,56));
+  add(Box.createRigidArea(new Dimension(8,0)));
+  JPanel messageContainer=verticalLayout();
+  JPanel titleContainer=horizontalLayout();
+  JLabel title=new JLabel();
+  title.setText(value.getDialogTitle());
+  JLabel status=new JLabel();
+  status.setText(value.getStatus() + "");
+  titleContainer.add(title);
+  titleContainer.add(Box.createRigidArea(new Dimension(8,0)));
+  titleContainer.add(status);
+  JLabel message=new JLabel();
+  message.setText(value.getText());
+  messageContainer.add(titleContainer);
+  messageContainer.add(message);
+  add(messageContainer);
+  revalidate();
+  return this;
+}

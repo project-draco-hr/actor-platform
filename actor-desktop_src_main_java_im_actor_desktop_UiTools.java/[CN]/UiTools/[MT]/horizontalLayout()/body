@@ -1,0 +1,7 @@
+{
+  JPanel res=new JPanel();
+  res.setLayout(new BoxLayout(res,BoxLayout.X_AXIS));
+  res.setBorder(null);
+  res.setBackground(Color.WHITE);
+  return res;
+}

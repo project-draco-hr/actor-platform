@@ -1,0 +1,7 @@
+{
+  JScrollPane listScroller=new JScrollPane(list);
+  listScroller.setBorder(null);
+  listScroller.setViewportBorder(null);
+  listScroller.setBackground(Color.WHITE);
+  return listScroller;
+}

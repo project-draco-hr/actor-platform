@@ -1,0 +1,5 @@
+{
+  container.removeAll();
+  container.add(component);
+  container.revalidate();
+}

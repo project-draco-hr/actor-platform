@@ -1,0 +1,58 @@
+{
+  if (messenger.getState() == State.AUTH_START) {
+    JPanel authPanel=linearLayout();
+    authPanel.setPreferredSize(new Dimension(480,300));
+    final JLabel title=new JLabel("Please, enter your phone number");
+    final JTextField textField=new JTextField();
+    final JButton button=new JButton("Next");
+    authPanel.add(title);
+    authPanel.add(textField);
+    authPanel.add(button);
+    replace(container,center(authPanel));
+    button.addActionListener(new ActionListener(){
+      @Override public void actionPerformed(      ActionEvent e){
+        execute(messenger.getAuth().requestSms(Long.parseLong(textField.getText())),new CommandCallback<State>(){
+          @Override public void onResult(          State res){
+            init(container);
+          }
+          @Override public void onError(          Exception e){
+          }
+        }
+);
+      }
+    }
+);
+  }
+ else   if (messenger.getState() == State.CODE_VALIDATION) {
+    JPanel authPanel=linearLayout();
+    authPanel.setPreferredSize(new Dimension(480,300));
+    final Label title=new Label("Activation code");
+    final TextField textField=new TextField();
+    final Button button=new Button("Next");
+    authPanel.add(title);
+    authPanel.add(textField);
+    authPanel.add(button);
+    replace(container,center(authPanel));
+    button.addActionListener(new ActionListener(){
+      @Override public void actionPerformed(      ActionEvent e){
+        execute(messenger.getAuth().sendCode(textField.getText()),new CommandCallback<State>(){
+          @Override public void onResult(          State res){
+            init(container);
+          }
+          @Override public void onError(          Exception e){
+          }
+        }
+);
+      }
+    }
+);
+  }
+ else   if (messenger.getState() == State.SIGN_UP) {
+  }
+ else   if (messenger.getState() == State.LOGGED_IN) {
+    new MainPanel(container,messenger);
+  }
+ else {
+    throw new RuntimeException("Unknown state");
+  }
+}

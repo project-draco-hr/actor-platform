@@ -1,0 +1,5 @@
+{
+  setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+  setBorder(new EmptyBorder(8,16,8,16));
+  setBackground(Color.CYAN);
+}

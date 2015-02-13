@@ -1,0 +1,5 @@
+{
+  JPanel authPanel=new JPanel();
+  authPanel.setLayout(new BoxLayout(authPanel,BoxLayout.Y_AXIS));
+  return authPanel;
+}

@@ -1,0 +1,7 @@
+{
+  int oldSize=items.size();
+  items.clear();
+  if (oldSize != 0) {
+    model.fireRemoved(0,oldSize);
+  }
+}
