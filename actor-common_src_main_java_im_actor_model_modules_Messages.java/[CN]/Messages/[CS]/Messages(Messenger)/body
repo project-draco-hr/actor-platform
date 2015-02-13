@@ -6,5 +6,11 @@
       return new DialogsActor(messenger);
     }
   }
-),"actor/messages");
+),"actor/dialogs");
+  this.dialogsHistoryActor=system().actorOf(Props.create(DialogsHistoryActor.class,new ActorCreator<DialogsHistoryActor>(){
+    @Override public DialogsHistoryActor create(){
+      return new DialogsHistoryActor(messenger);
+    }
+  }
+),"actor/dialogs/history");
 }

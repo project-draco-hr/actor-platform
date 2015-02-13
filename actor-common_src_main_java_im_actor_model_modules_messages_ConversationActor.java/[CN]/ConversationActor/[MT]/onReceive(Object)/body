@@ -2,4 +2,7 @@
   if (message instanceof Message) {
     onInMessage((Message)message);
   }
+ else   if (message instanceof MessageStateChanged) {
+    onMessageStateChanged((MessageStateChanged)message);
+  }
 }

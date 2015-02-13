@@ -1,0 +1,17 @@
+{
+  if (historyLoaded) {
+    return;
+  }
+  if (isLoading) {
+    return;
+  }
+  isLoading=true;
+  request(new RequestLoadDialogs(historyMaxDate,LIMIT),new RpcCallback<ResponseLoadDialogs>(){
+    @Override public void onResult(    ResponseLoadDialogs response){
+    }
+    @Override public void onError(    RpcException e){
+      e.printStackTrace();
+    }
+  }
+);
+}

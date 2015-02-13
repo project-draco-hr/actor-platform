@@ -1,0 +1,7 @@
+{
+  Message message=messages.getValue(stateChanged.getRid());
+  if (message == null) {
+    return;
+  }
+  messages.addOrUpdateItem(message.changeState(stateChanged.messageState));
+}

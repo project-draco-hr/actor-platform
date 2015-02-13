@@ -1,0 +1,31 @@
+{
+  final OutPeer outPeer;
+  final im.actor.model.api.Peer apiPeer;
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    User user=getMessenger().getUsers().getValue(peer.getUid());
+    if (user == null) {
+      return;
+    }
+    outPeer=new OutPeer(im.actor.model.api.PeerType.PRIVATE,peer.getPeerId(),user.getAccessHash());
+    apiPeer=new im.actor.model.api.Peer(im.actor.model.api.PeerType.PRIVATE,peer.getPeerId());
+  }
+ else {
+    return;
+  }
+  MessageContent outContent;
+  if (content instanceof TextContent) {
+    outContent=new MessageContent(0x01,new TextMessage(((TextContent)content).getText(),0,new byte[0]).toByteArray());
+  }
+ else {
+    return;
+  }
+  getMessenger().getMessagesModule().getConversationActor(peer).send(new Message(rid,time,time,getMessenger().myUid(),MessageState.PENDING,content));
+  request(new RequestSendMessage(outPeer,rid,outContent),new RpcCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate response){
+      getMessenger().getUpdatesModule().onUpdateReceived(new UpdateMessageSent(apiPeer,rid,response.getDate()));
+    }
+    @Override public void onError(    RpcException e){
+    }
+  }
+);
+}
