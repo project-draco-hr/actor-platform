@@ -5,4 +5,19 @@
  else   if (message instanceof MessageStateChanged) {
     onMessageStateChanged((MessageStateChanged)message);
   }
+ else   if (message instanceof MessageRead) {
+    onMessagePlainRead(((MessageRead)message).getDate());
+  }
+ else   if (message instanceof MessageEncryptedRead) {
+    onMessageEncryptedRead(((MessageEncryptedRead)message).getRid());
+  }
+ else   if (message instanceof MessageReceived) {
+    onMessagePlainReceived(((MessageReceived)message).getDate());
+  }
+ else   if (message instanceof MessageEncryptedReceived) {
+    onMessageEncryptedReceived(((MessageEncryptedReceived)message).getRid());
+  }
+ else {
+    drop(message);
+  }
 }

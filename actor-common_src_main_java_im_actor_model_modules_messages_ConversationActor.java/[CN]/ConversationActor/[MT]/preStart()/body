@@ -1,4 +1,5 @@
 {
   messages=messenger.getMessages(peer);
+  pendingMessages=messenger.getConfiguration().getEnginesFactory().pendingMessages(peer);
   dialogsActor=messenger.getMessagesModule().getDialogsActor();
 }

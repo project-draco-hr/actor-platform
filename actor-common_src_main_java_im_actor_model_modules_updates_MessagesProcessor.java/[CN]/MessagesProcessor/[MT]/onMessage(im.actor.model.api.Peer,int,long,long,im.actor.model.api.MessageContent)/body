@@ -4,6 +4,6 @@
   if (msgContent == null) {
     return;
   }
-  Message message=new Message(rid,buildSortKey(),date,senderUid,messenger.myUid() == senderUid ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  Message message=new Message(rid,date,date,senderUid,messenger.myUid() == senderUid ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
   messenger.getMessagesModule().getConversationActor(peer).send(message);
 }
