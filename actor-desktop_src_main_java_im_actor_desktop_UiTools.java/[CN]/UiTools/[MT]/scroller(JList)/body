@@ -3,5 +3,8 @@
   listScroller.setBorder(null);
   listScroller.setViewportBorder(null);
   listScroller.setBackground(Color.WHITE);
+  listScroller.getVerticalScrollBar().setUnitIncrement(8);
+  listScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+  listScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
   return listScroller;
 }

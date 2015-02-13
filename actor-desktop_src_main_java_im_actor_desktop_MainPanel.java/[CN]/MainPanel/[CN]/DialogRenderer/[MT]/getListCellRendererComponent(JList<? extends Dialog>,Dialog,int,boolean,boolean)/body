@@ -7,17 +7,51 @@
   JPanel messageContainer=verticalLayout();
   JPanel titleContainer=horizontalLayout();
   JLabel title=new JLabel();
+  try {
+    Font font=Font.createFont(Font.TRUETYPE_FONT,MainPanel.class.getResourceAsStream("/fonts/Roboto-Bold.ttf"));
+    title.setFont(font.deriveFont(14.0f));
+  }
+ catch (  FontFormatException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
   title.setText(value.getDialogTitle());
   JLabel status=new JLabel();
   status.setText(value.getStatus() + "");
   titleContainer.add(title);
-  titleContainer.add(Box.createRigidArea(new Dimension(8,0)));
+  titleContainer.add(Box.createHorizontalGlue());
   titleContainer.add(status);
   JLabel message=new JLabel();
+  try {
+    Font font=Font.createFont(Font.TRUETYPE_FONT,MainPanel.class.getResourceAsStream("/fonts/Roboto-Medium.ttf"));
+    message.setFont(font.deriveFont(14.0f));
+  }
+ catch (  FontFormatException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
   message.setText(value.getText());
-  messageContainer.add(titleContainer);
-  messageContainer.add(message);
+  messageContainer.add(fill(titleContainer));
+  messageContainer.add(fill(message));
+  fixSize(messageContainer,240 - 32 - 8- 56,56);
   add(messageContainer);
+  add(Box.createRigidArea(new Dimension(8,0)));
+  if (isSelected) {
+    setBackground(Color.LIGHT_GRAY);
+    title.setForeground(Color.WHITE);
+    status.setForeground(Color.WHITE);
+    message.setForeground(Color.WHITE);
+  }
+ else {
+    setBackground(Color.WHITE);
+    title.setForeground(new Color(0x21,0x21,0x21));
+    status.setForeground(new Color(0x9D,0x9D,0x9D));
+    message.setForeground(new Color(0x9D,0x9D,0x9D));
+  }
   revalidate();
   return this;
 }

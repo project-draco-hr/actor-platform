@@ -2,6 +2,6 @@
   JPanel res=new JPanel(new GridBagLayout());
   res.add(panel);
   res.setBorder(null);
-  res.setBackground(Color.WHITE);
+  res.setOpaque(false);
   return res;
 }

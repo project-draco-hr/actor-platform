@@ -2,6 +2,6 @@
   JPanel res=new JPanel();
   res.setLayout(new BoxLayout(res,BoxLayout.Y_AXIS));
   res.setBorder(null);
-  res.setBackground(Color.WHITE);
+  res.setOpaque(false);
   return res;
 }

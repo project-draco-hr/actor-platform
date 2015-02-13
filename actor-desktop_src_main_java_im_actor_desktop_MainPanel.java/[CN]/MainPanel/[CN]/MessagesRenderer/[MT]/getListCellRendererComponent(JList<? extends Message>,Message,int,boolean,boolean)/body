@@ -1,0 +1,7 @@
+{
+  removeAll();
+  User user=messenger.getUsers().getValue(value.getSenderId());
+  add(fill(new JLabel(user.getName())));
+  add(fill(new JLabel(((TextContent)value.getContent()).getText())));
+  return this;
+}

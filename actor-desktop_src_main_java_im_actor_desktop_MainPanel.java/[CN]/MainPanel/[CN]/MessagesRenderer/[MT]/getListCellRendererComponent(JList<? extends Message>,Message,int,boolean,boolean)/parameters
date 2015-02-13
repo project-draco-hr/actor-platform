@@ -1,0 +1,5 @@
+JList<? extends Message> list
+Message value
+int index
+boolean isSelected
+boolean cellHasFocus
