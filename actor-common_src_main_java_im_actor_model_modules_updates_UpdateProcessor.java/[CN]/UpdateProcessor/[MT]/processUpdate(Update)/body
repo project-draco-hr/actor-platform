@@ -50,10 +50,16 @@
  else   if (update instanceof UpdateEncryptedMessage) {
   }
  else   if (update instanceof UpdateEncryptedRead) {
+    UpdateEncryptedRead encryptedRead=(UpdateEncryptedRead)update;
+    messagesProcessor.onMessageEncryptedRead(encryptedRead.getPeer(),encryptedRead.getRid(),encryptedRead.getReadDate());
   }
  else   if (update instanceof UpdateEncryptedReadByMe) {
+    UpdateEncryptedReadByMe encryptedRead=(UpdateEncryptedReadByMe)update;
+    messagesProcessor.onMessageEncryptedReadByMe(encryptedRead.getPeer(),encryptedRead.getRid());
   }
  else   if (update instanceof UpdateEncryptedReceived) {
+    UpdateEncryptedReceived received=(UpdateEncryptedReceived)update;
+    messagesProcessor.onMessageEncryptedReceived(received.getPeer(),received.getRid(),received.getReceivedDate());
   }
  else   if (update instanceof UpdateChatClear) {
     UpdateChatClear chatClear=(UpdateChatClear)update;
