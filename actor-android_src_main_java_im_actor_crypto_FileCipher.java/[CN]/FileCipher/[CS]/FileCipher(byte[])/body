@@ -1,0 +1,10 @@
+{
+  if (key.length != AES_KEY_SIZE + MAC_KEY_SIZE) {
+    throw new IllegalArgumentException("key.length != " + (AES_KEY_SIZE + MAC_KEY_SIZE));
+  }
+  byte[][] sKey=Utils.split(key,AES_KEY_SIZE,MAC_KEY_SIZE);
+  cipherKey=sKey[0];
+  macKey=sKey[1];
+  cipherKeySpec=new SecretKeySpec(cipherKey,"AES");
+  macKeySpec=new SecretKeySpec(macKey,"HmacSHA256");
+}

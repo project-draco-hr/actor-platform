@@ -1,0 +1,11 @@
+{
+  for (  im.actor.api.scheme.UserKey userKey : invalid) {
+    onDeviceRemoved(userKey.getUid(),userKey.getKeyHash());
+  }
+  for (  im.actor.api.scheme.UserKey userKey : removed) {
+    onDeviceRemoved(userKey.getUid(),userKey.getKeyHash());
+  }
+  for (  im.actor.api.scheme.UserKey userKey : added) {
+    onDeviceAdded(userKey.getUid(),userKey.getKeyHash(),null);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  Cursor cursor=null;
+  try {
+    String[] proj={MediaStore.Images.Media.DATA,MediaStore.Video.Media.TITLE};
+    cursor=getActivity().getContentResolver().query(contentUri,proj,null,null,null);
+    int column_index=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    int column_index2=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE);
+    if (cursor.getCount() > 0) {
+      cursor.moveToFirst();
+      return new String[]{cursor.getString(column_index),cursor.getString(column_index2)};
+    }
+ else {
+      return null;
+    }
+  }
+  finally {
+    if (cursor != null) {
+      cursor.close();
+    }
+  }
+}

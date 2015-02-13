@@ -1,0 +1,19 @@
+{
+  R r=deserializeRaw(item);
+  if (r != null) {
+    long key=getRawId(r);
+    if (cache.containsKey(key)) {
+      B res=cache.get(key);
+      updateObject(res,r);
+      return res;
+    }
+ else {
+      B res=convertToObj(r);
+      cache.put(key,res);
+      return res;
+    }
+  }
+ else {
+    return null;
+  }
+}

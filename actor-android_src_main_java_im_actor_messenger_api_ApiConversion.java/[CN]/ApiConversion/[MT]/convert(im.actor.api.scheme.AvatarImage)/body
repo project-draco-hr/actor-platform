@@ -1,0 +1,9 @@
+{
+  if (img == null) {
+    return null;
+  }
+  if (img.getFileLocation().getFileId() == 0) {
+    return null;
+  }
+  return new AvatarImage(new FileLocation(img.getFileLocation().getFileId(),img.getFileLocation().getAccessHash(),img.getFileSize()),img.getWidth(),img.getHeight());
+}

@@ -1,0 +1,5 @@
+{
+  Rect bounds=getBounds();
+  canvas.drawCircle(bounds.centerX(),bounds.centerY(),bounds.width() / 2,circlePaint);
+  canvas.drawText(title,textX,textY,textPaint);
+}

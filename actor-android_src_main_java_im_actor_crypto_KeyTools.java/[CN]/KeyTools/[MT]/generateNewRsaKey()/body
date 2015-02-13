@@ -1,0 +1,11 @@
+{
+  KeyPairGenerator g=null;
+  try {
+    g=KeyPairGenerator.getInstance("RSA");
+  }
+ catch (  NoSuchAlgorithmException e) {
+    throw new AssertionError(e);
+  }
+  g.initialize(Config.RSA_SIZE);
+  return g.generateKeyPair();
+}

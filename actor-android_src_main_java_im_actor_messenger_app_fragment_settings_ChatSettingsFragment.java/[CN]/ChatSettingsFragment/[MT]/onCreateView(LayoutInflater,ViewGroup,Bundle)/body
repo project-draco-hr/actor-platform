@@ -1,0 +1,8 @@
+{
+  View res=inflater.inflate(R.layout.fr_settings_chat,container,false);
+  chatSettings=ChatSettings.getInstance();
+  getBinder().bindChecked((CheckBox)res.findViewById(R.id.sendByEnter),chatSettings.sendByEnterValue());
+  getBinder().bindOnClick(res.findViewById(R.id.sendByEnterCont),chatSettings.sendByEnterValue());
+  getBinder().bindOnClick(res.findViewById(R.id.sendByEnter),chatSettings.sendByEnterValue());
+  return res;
+}

@@ -1,0 +1,3 @@
+{
+  return TypedCreator.typed(ActorSystem.system().actorOf(NotificationsActor.class,"notifications"),NotificationsInt.class);
+}

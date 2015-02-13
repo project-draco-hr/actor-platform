@@ -1,0 +1,25 @@
+{
+switch (state) {
+case STATE_REQUESTED_SMS:
+case STATE_CODE_SENDING:
+case STATE_CODE_SEND_ERROR:
+    ((BaseBarFragmentActivity)getActivity()).showFragment(new SignInFragment(),false,isAnimated);
+  break;
+case STATE_SIGNING_ERROR:
+case STATE_SIGN_UP:
+case STATE_SIGNING:
+((BaseBarFragmentActivity)getActivity()).showFragment(new SignUpFragment(),false,isAnimated);
+break;
+default :
+case STATE_START:
+case STATE_REQUESTING_SMS:
+case STATE_REQUESTING_SMS_ERROR:
+((BaseBarFragmentActivity)getActivity()).showFragment(new SignPhoneFragment(),false,isAnimated);
+break;
+case STATE_SIGNED:
+FragmentActivity activity=getActivity();
+activity.startActivity(new Intent(activity,MainActivity.class));
+activity.finish();
+break;
+}
+}

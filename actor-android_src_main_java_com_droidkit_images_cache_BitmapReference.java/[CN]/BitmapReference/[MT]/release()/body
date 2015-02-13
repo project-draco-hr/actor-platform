@@ -1,0 +1,10 @@
+{
+  if (isReleased) {
+    throw new RuntimeException("Already released Bitmap");
+  }
+  isReleased=true;
+  baseReference.releaseReference(this);
+  baseReference=null;
+  bitmap=null;
+  key=null;
+}

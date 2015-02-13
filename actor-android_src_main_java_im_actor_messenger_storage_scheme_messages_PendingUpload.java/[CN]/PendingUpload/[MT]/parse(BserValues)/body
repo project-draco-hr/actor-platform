@@ -1,0 +1,11 @@
+{
+  chatType=values.getInt(1);
+  chatId=values.getInt(2);
+  rid=values.getLong(3);
+  fileName=values.getString(4);
+  name=values.getString(5);
+  messageType=values.getInt(6);
+  metadata=values.getBytes(7);
+  thumb=values.optBytes(8);
+  isStopped=values.optBool(9);
+}

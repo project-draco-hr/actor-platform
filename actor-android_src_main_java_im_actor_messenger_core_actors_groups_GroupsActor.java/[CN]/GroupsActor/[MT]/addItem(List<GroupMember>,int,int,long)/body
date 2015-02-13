@@ -1,0 +1,14 @@
+{
+  ArrayList<GroupMember> res=new ArrayList<GroupMember>(uids);
+  boolean founded=false;
+  for (  GroupMember g : res) {
+    if (g.getUid() == uid) {
+      founded=true;
+      break;
+    }
+  }
+  if (!founded) {
+    res.add(new GroupMember(uid,inviterId,date));
+  }
+  return res;
+}

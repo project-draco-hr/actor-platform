@@ -1,0 +1,8 @@
+{
+  boolean res=backedSet.add(object);
+  if (res) {
+    removeItem(object);
+  }
+  addItem(object);
+  return res;
+}

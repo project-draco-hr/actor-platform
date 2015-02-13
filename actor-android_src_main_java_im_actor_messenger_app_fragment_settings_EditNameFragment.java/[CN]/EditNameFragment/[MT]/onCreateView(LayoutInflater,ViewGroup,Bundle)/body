@@ -1,0 +1,75 @@
+{
+  type=getArguments().getInt("EXTRA_TYPE");
+  id=getArguments().getInt("EXTRA_ID");
+  helper=new KeyboardHelper(getActivity());
+  View res=inflater.inflate(R.layout.fragment_edit_name,container,false);
+  nameEdit=(EditText)res.findViewById(R.id.nameEdit);
+  if (type == EditNameActivity.TYPE_ME) {
+    UserModel userModel=users().get(myUid());
+    nameEdit.setText(userModel.getName());
+  }
+ else   if (type == EditNameActivity.TYPE_USER) {
+    UserModel userModel=users().get(id);
+    nameEdit.setText(userModel.getName());
+  }
+ else   if (type == EditNameActivity.TYPE_GROUP) {
+    GroupModel info=groups().get(id);
+    nameEdit.setText(info.getTitle());
+  }
+  res.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      getActivity().finish();
+    }
+  }
+);
+  res.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      String name=nameEdit.getText().toString().trim();
+      if (name.length() == 0) {
+        Toast.makeText(getActivity(),R.string.toast_empty_name,Toast.LENGTH_SHORT).show();
+        return;
+      }
+      if (type == EditNameActivity.TYPE_ME) {
+        ask(EditNameActor.editName().editMyName(name),getString(R.string.edit_name_process),new UiAskCallback<Boolean>(){
+          @Override public void onPreStart(){
+          }
+          @Override public void onCompleted(          Boolean res){
+            getActivity().finish();
+          }
+          @Override public void onError(          Throwable t){
+            Toast.makeText(getActivity(),R.string.toast_unable_change,Toast.LENGTH_SHORT).show();
+          }
+        }
+);
+      }
+ else       if (type == EditNameActivity.TYPE_GROUP) {
+        ask(GroupsActor.groupUpdates().editGroupName(id,name),getString(R.string.edit_name_process),new UiAskCallback<Boolean>(){
+          @Override public void onPreStart(){
+          }
+          @Override public void onCompleted(          Boolean res){
+            getActivity().finish();
+          }
+          @Override public void onError(          Throwable t){
+            Toast.makeText(getActivity(),R.string.toast_unable_change,Toast.LENGTH_SHORT).show();
+          }
+        }
+);
+      }
+ else       if (type == EditNameActivity.TYPE_USER) {
+        ask(EditNameActor.editName().editName(id,name),getString(R.string.edit_name_process),new UiAskCallback<Boolean>(){
+          @Override public void onPreStart(){
+          }
+          @Override public void onCompleted(          Boolean res){
+            getActivity().finish();
+          }
+          @Override public void onError(          Throwable t){
+            Toast.makeText(getActivity(),R.string.toast_unable_change,Toast.LENGTH_SHORT).show();
+          }
+        }
+);
+      }
+    }
+  }
+);
+  return res;
+}

@@ -1,0 +1,16 @@
+{
+  avatar.setEmptyDrawable(AvatarDrawable.create(data,24,context));
+  if (data.getAvatar() != null) {
+    avatar.bindAvatar(24,data.getAvatar());
+  }
+ else {
+    avatar.unbind();
+  }
+  title.setText(SearchHighlight.highlightQuery(data.getTitle(),query,0xff0277bd));
+  if (data.getContType() == DialogType.TYPE_GROUP) {
+    title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dialogs_group,0,0,0);
+  }
+ else {
+    title.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+  }
+}

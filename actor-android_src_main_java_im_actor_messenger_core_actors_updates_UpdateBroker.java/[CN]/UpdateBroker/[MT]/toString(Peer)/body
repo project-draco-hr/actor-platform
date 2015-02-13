@@ -1,0 +1,8 @@
+{
+  if (peer.getType() == PeerType.PRIVATE) {
+    return "{user:" + peer.getId() + "}";
+  }
+ else {
+    return "{group:" + peer.getId() + "}";
+  }
+}

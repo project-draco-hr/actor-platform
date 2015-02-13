@@ -1,0 +1,55 @@
+{
+  getMenuInflater().inflate(R.menu.main,menu);
+  MenuItem menuItem=menu.findItem(R.id.profile);
+  final AvatarView avatarView=(AvatarView)menuItem.getActionView().findViewById(R.id.avatarView);
+  UserModel userModel=users().get(myUid());
+  if (userModel != null) {
+    avatarView.setEmptyDrawable(AvatarDrawable.create(userModel,18,getActivity()));
+    getActivity().getBinder().bind(userModel.getAvatar(),new Listener<Avatar>(){
+      @Override public void onUpdated(      Avatar avatar){
+        if (avatar != null) {
+          avatarView.bindAvatar(40,avatar);
+        }
+ else {
+          avatarView.unbind();
+        }
+      }
+    }
+);
+  }
+  menuItem.getActionView().setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(new Intent(getActivity(),MyProfileActivity.class));
+    }
+  }
+);
+  searchMenu=menu.findItem(R.id.search);
+  searchMenu.setVisible(ProfileSyncState.getSyncState().getValue() == ProfileSyncState.State.READY);
+  searchView=(SearchView)searchMenu.getActionView();
+  searchView.setIconifiedByDefault(true);
+  MenuItemCompat.setOnActionExpandListener(searchMenu,new MenuItemCompat.OnActionExpandListener(){
+    @Override public boolean onMenuItemActionExpand(    MenuItem item){
+      SearchEngines.userSearch().clear();
+      showView(searchContainer);
+      return true;
+    }
+    @Override public boolean onMenuItemActionCollapse(    MenuItem item){
+      SearchEngines.userSearch().clear();
+      goneView(searchContainer);
+      return true;
+    }
+  }
+);
+  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+    @Override public boolean onQueryTextSubmit(    String query){
+      return false;
+    }
+    @Override public boolean onQueryTextChange(    String newText){
+      searchAdapter.setQuery(newText.toLowerCase());
+      SearchEngines.userSearch().query(newText);
+      return false;
+    }
+  }
+);
+  return true;
+}

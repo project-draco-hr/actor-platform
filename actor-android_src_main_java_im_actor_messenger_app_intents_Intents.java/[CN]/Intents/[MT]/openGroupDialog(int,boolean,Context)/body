@@ -1,0 +1,3 @@
+{
+  return openDialog(DialogType.TYPE_GROUP,chatId,compose,context);
+}

@@ -1,0 +1,14 @@
+{
+  if (obj.getContent() instanceof TextMessage) {
+    return new TextHolder(type,id,fragment,getUiList());
+  }
+ else   if (obj.getContent() instanceof PhotoMessage || obj.getContent() instanceof VideoMessage) {
+    return new PhotoHolder(fragment,getUiList(),type,id);
+  }
+ else   if (obj.getContent() instanceof DocumentMessage) {
+    return new DocHolder(fragment,getUiList(),type,id);
+  }
+ else {
+    return new ServiceHolder(type,id,fragment,getUiList());
+  }
+}

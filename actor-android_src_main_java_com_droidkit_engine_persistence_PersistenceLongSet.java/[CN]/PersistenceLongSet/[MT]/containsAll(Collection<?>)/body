@@ -1,0 +1,8 @@
+{
+  for (  Object o : collection) {
+    if (!map.containsKey(o)) {
+      return false;
+    }
+  }
+  return true;
+}

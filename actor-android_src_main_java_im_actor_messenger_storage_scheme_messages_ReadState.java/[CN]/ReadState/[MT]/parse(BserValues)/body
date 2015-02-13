@@ -1,0 +1,6 @@
+{
+  chatType=values.getInt(1);
+  chatId=values.getInt(2);
+  lastReadMessage=values.getLong(3,0);
+  lastReadSortingKey=values.getLong(4,0);
+}

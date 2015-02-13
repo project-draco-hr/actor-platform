@@ -1,0 +1,8 @@
+{
+  if (peer.getType() == PeerType.PRIVATE) {
+    stopTyping(peer.getId());
+  }
+ else   if (peer.getType() == PeerType.GROUP) {
+    stopTyping(peer.getId(),senderId);
+  }
+}

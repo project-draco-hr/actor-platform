@@ -1,0 +1,5 @@
+{
+  this.startTime=startTime;
+  this.runnable=runnable;
+  this.modification=new ListModification[]{modification};
+}

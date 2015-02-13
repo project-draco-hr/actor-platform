@@ -1,0 +1,13 @@
+{
+  this.fileWriter=new SafeFileWriter(context,fileName);
+  this.clazz=clazz;
+  byte[] data=fileWriter.loadData();
+  if (data != null && data.length > 0) {
+    try {
+      obj=Bser.parse(clazz,data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

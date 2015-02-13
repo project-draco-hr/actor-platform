@@ -1,0 +1,3 @@
+{
+  return new PhotoExtension(w,h).toByteArray();
+}

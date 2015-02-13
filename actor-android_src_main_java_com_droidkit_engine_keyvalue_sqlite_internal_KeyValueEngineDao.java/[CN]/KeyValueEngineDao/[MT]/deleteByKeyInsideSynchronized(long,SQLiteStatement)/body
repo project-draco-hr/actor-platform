@@ -1,0 +1,5 @@
+{
+  stmt.clearBindings();
+  stmt.bindLong(1,id);
+  stmt.execute();
+}

@@ -1,0 +1,4 @@
+{
+  isLoggedIn=values.getBool(1);
+  uid=values.getInt(2);
+}

@@ -1,0 +1,10 @@
+{
+  if (offset >= available) {
+    return new byte[0];
+  }
+  int size=Math.min(available - offset,limit);
+  if (size == 0) {
+    return new byte[0];
+  }
+  return StreamingUtils.readBytes(size,randomAccessFile);
+}

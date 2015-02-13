@@ -1,0 +1,29 @@
+{
+  if (message instanceof OnAppOpened) {
+    if (!isAppOpened) {
+      isAppOpened=true;
+      Logger.d(TAG,"Going online");
+      self().sendOnce(new PerformPresence());
+    }
+  }
+ else   if (message instanceof OnAppClosed) {
+    if (isAppOpened) {
+      isAppOpened=false;
+      Logger.d(TAG,"Going offline");
+      self().sendOnce(new PerformPresence());
+    }
+  }
+ else   if (message instanceof PerformPresence) {
+    Logger.d(TAG,"Performing request. isOnline: " + isAppOpened);
+    ask(requests().setOnline(isAppOpened,TIMEOUT,RESEND_TIMEOUT),new FutureCallback<ResponseVoid>(){
+      @Override public void onResult(      ResponseVoid result){
+        Logger.d(TAG,"Request completed.");
+      }
+      @Override public void onError(      Throwable throwable){
+        Logger.d(TAG,"Request error.");
+      }
+    }
+);
+    self().sendOnce(new PerformPresence(),RESEND_TIMEOUT);
+  }
+}

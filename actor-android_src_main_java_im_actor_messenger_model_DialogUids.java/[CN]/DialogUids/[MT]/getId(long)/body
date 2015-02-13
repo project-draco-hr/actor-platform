@@ -1,0 +1,3 @@
+{
+  return (int)(uid & 0xFFFFFFFFL);
+}

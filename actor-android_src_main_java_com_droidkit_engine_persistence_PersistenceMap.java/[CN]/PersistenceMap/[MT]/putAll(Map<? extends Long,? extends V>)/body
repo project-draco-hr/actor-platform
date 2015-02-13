@@ -1,0 +1,6 @@
+{
+  for (  Map.Entry<? extends Long,? extends V> entry : map.entrySet()) {
+    storage.put(new RawValue(entry.getKey(),serialize(entry.getValue())));
+    backedMap.put(entry.getKey(),entry.getValue());
+  }
+}

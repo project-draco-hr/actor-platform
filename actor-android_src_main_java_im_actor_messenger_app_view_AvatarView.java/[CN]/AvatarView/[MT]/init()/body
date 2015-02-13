@@ -1,0 +1,13 @@
+{
+  CIRCLE_BORDER_PAINT.setStyle(Paint.Style.STROKE);
+  CIRCLE_BORDER_PAINT.setAntiAlias(true);
+  CIRCLE_BORDER_PAINT.setColor(0x19000000);
+  CIRCLE_BORDER_PAINT.setStrokeWidth(1);
+  if (getContext().getApplicationContext() instanceof ImageLoaderProvider) {
+    ImageLoader loader=((ImageLoaderProvider)getContext().getApplicationContext()).getImageLoader();
+    receiver=loader.createReceiver(this);
+  }
+ else {
+    throw new RuntimeException("Application does not implement ImageLoaderProvider");
+  }
+}

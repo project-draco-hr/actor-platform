@@ -1,0 +1,10 @@
+{
+  this.emptyDrawable=emptyDrawable;
+  if (drawable == null || !(drawable instanceof ReferenceDrawable)) {
+    drawable=emptyDrawable;
+  }
+  if (prevDrawable == null || !(prevDrawable instanceof ReferenceDrawable)) {
+    prevDrawable=emptyDrawable;
+  }
+  invalidate();
+}

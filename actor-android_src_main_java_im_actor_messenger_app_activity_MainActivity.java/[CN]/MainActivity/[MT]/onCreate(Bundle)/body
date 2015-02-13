@@ -1,0 +1,10 @@
+{
+  super.onCreate(savedInstance);
+  checkForUpdates();
+  if (!auth().isAuthorized()) {
+    startActivity(new Intent(this,TourActivity.class));
+    finish();
+    return;
+  }
+  getWindow().setBackgroundDrawable(null);
+}

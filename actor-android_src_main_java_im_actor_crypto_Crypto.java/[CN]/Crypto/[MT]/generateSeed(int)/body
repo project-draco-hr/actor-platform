@@ -1,0 +1,5 @@
+{
+  byte[] key=new byte[size];
+  getSecureRandom().nextBytes(key);
+  return key;
+}

@@ -1,0 +1,5 @@
+{
+  shareType=getArguments().getString("MIME_TYPE");
+  data=getArguments().getStringArray("DATA");
+  return super.onCreateView(inflater,container,savedInstanceState);
+}

@@ -1,0 +1,13 @@
+{
+  ask(ConversationActor.conv(type,id).onStartUpload(fileMessage),new FutureCallback<MessageModel>(){
+    @Override public void onResult(    MessageModel result){
+      PendingUpload pendingUpload=new PendingUpload(type,id,result.getRid(),fileMessage.getUploadPath(),name,extType,extension,thumb,false,isEncrypted);
+      pendingUploads.add(pendingUpload);
+      sendFile(pendingUpload);
+    }
+    @Override public void onError(    Throwable throwable){
+      throwable.printStackTrace();
+    }
+  }
+);
+}

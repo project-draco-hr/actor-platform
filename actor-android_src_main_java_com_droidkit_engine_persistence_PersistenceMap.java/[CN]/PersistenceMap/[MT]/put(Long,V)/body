@@ -1,0 +1,4 @@
+{
+  storage.put(new RawValue(key,serialize(value)));
+  return backedMap.put(key,value);
+}

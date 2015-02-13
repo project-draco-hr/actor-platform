@@ -1,0 +1,6 @@
+{
+  isBookImported=values.getBool(1);
+  isContactsSynced=values.getBool(2);
+  isContactsEmpty=values.getBool(3);
+  isDialogsEmpty=values.getBool(4);
+}

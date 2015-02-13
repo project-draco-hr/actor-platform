@@ -1,0 +1,9 @@
+{
+  this.groupId=groupId;
+  this.accessHash=accessHash;
+  this.title=title;
+  this.avatar=avatar;
+  this.members=members;
+  this.adminId=adminId;
+  this.groupState=groupState;
+}

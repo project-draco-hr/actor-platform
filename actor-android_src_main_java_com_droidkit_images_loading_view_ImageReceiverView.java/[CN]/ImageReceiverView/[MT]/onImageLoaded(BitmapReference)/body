@@ -1,0 +1,4 @@
+{
+  onImageLoadedImpl(bitmap.getBitmap());
+  invalidate();
+}

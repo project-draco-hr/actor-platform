@@ -1,0 +1,10 @@
+{
+  if (check(getStateId(),nState)) {
+    setStateId(nState);
+    NotificationCenter.getInstance().fireEvent(Core.AUTH_STATE,new Object[]{nState,t});
+    return true;
+  }
+ else {
+    return false;
+  }
+}

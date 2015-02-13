@@ -1,0 +1,269 @@
+{
+  super.onCreate(saveInstance);
+  keyboardUtils=new KeyboardHelper(this);
+  chatType=getIntent().getExtras().getInt(Intents.EXTRA_CHAT_TYPE);
+  chatId=getIntent().getExtras().getInt(Intents.EXTRA_CHAT_ID);
+  if (saveInstance != null) {
+    isCompose=false;
+  }
+ else {
+    isCompose=getIntent().getExtras().getBoolean(Intents.EXTRA_CHAT_COMPOSE,false);
+  }
+  getSupportActionBar().setDisplayShowCustomEnabled(true);
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  getSupportActionBar().setDisplayShowHomeEnabled(true);
+  getSupportActionBar().setDisplayShowTitleEnabled(false);
+  getSupportActionBar().setDisplayUseLogoEnabled(false);
+  customView=LayoutInflater.from(this).inflate(R.layout.bar_conversation,null);
+  title=(TextView)customView.findViewById(R.id.title);
+  subtitleContainer=customView.findViewById(R.id.subtitleContainer);
+  typingIcon=(ImageView)customView.findViewById(R.id.typingImage);
+  typingIcon.setImageDrawable(new TypingDrawable());
+  typing=(TextView)customView.findViewById(R.id.typing);
+  subtitle=(TextView)customView.findViewById(R.id.subtitle);
+  typingContainer=customView.findViewById(R.id.typingContainer);
+  typingContainer.setVisibility(View.INVISIBLE);
+  avatar=(AvatarView)customView.findViewById(R.id.avatarPreview);
+  ActionBar.LayoutParams layout=new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,ActionBar.LayoutParams.MATCH_PARENT);
+  getSupportActionBar().setCustomView(customView,layout);
+  customView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (chatType == DialogType.TYPE_USER) {
+        startActivity(Intents.openProfile(chatId,ChatActivity.this));
+      }
+ else       if (chatType == DialogType.TYPE_GROUP) {
+        startActivity(Intents.openGroup(chatId,ChatActivity.this));
+      }
+    }
+  }
+);
+  setContentView(R.layout.activity_dialog);
+  getWindow().setBackgroundDrawable(null);
+  getFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(chatType,chatId)).commit();
+  messageBody=(EditText)findViewById(R.id.et_message);
+  messageBody.addTextChangedListener(new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+      if (after > count && !isTypingDisabled) {
+        MyTypingActor.myTyping().onType(chatType,chatId);
+      }
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      if (BuildConfig.ENABLE_VOICE) {
+        if (s.length() > 0) {
+          sendButton.setVisibility(View.VISIBLE);
+          audioMessage.setVisibility(View.GONE);
+        }
+ else {
+          sendButton.setVisibility(View.GONE);
+          audioMessage.setVisibility(View.VISIBLE);
+        }
+      }
+ else {
+        if (s.length() > 0) {
+          sendButton.setTint(getResources().getColor(R.color.conv_send_enabled));
+          sendButton.setEnabled(true);
+        }
+ else {
+          sendButton.setTint(getResources().getColor(R.color.conv_send_disabled));
+          sendButton.setEnabled(false);
+        }
+      }
+    }
+  }
+);
+  messageBody.setOnKeyListener(new View.OnKeyListener(){
+    @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
+      if (ChatSettings.getInstance().isSendByEnter()) {
+        if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keycode == KeyEvent.KEYCODE_ENTER) {
+          sendMessage();
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+);
+  messageBody.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+    @Override public boolean onEditorAction(    TextView textView,    int i,    KeyEvent keyEvent){
+      if (i == EditorInfo.IME_ACTION_SEND) {
+        sendMessage();
+        return true;
+      }
+      if (i == EditorInfo.IME_ACTION_DONE) {
+        sendMessage();
+        return true;
+      }
+      if (ChatSettings.getInstance().isSendByEnter()) {
+        if (keyEvent != null && i == EditorInfo.IME_NULL && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+          sendMessage();
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+);
+  kicked=findViewById(R.id.kickedFromChat);
+  kicked.setVisibility(View.GONE);
+  findViewById(R.id.kickedButton).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      new AlertDialog.Builder(ChatActivity.this).setMessage(R.string.alert_delete_group_title).setPositiveButton(R.string.alert_delete_group_yes,new DialogInterface.OnClickListener(){
+        @Override public void onClick(        DialogInterface dialog,        int which){
+          groupUpdates().deleteChat(chatId);
+        }
+      }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(false);
+    }
+  }
+);
+  recordingPanel=findViewById(R.id.recordingPanel);
+  recordingPanel.setVisibility(View.GONE);
+  audioMessage=(ImageView)findViewById(R.id.audioMessage);
+  cancelView=findViewById(R.id.cancelSlide);
+  recordTimer=(TextView)findViewById(R.id.recordTimer);
+  audioMessage.setOnTouchListener(new View.OnTouchListener(){
+    private int startX;
+    private boolean isActive=false;
+    private long recordStartTime;
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        system().actorOf(OpusRecorder.recorder()).send(new OpusRecorder.StartRecord());
+        startX=(int)event.getX();
+        audioMessage.setImageResource(R.drawable.conv_voice_pressed);
+        cancelView.setTranslationX(0);
+        recordingPanel.setVisibility(View.VISIBLE);
+        recordingPanel.setTranslationX(recordingPanel.getWidth());
+        recordingPanel.setAlpha(0);
+        recordingPanel.animate().translationX(0).alpha(1).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(150).start();
+        recordTimer.setText("00:00");
+        recordTimer.post(new Runnable(){
+          @Override public void run(){
+            if (isActive) {
+              recordTimer.setText(Formatter.duration((int)((SystemClock.uptimeMillis() - recordStartTime) / 1000)));
+              recordTimer.postDelayed(this,500);
+            }
+          }
+        }
+);
+        recordStartTime=SystemClock.uptimeMillis();
+        isActive=true;
+      }
+ else       if (event.getAction() == MotionEvent.ACTION_MOVE) {
+        if (!isActive) {
+          return false;
+        }
+        int delta=(int)(startX - event.getX()) - Screen.dp(32);
+        if (delta < 0) {
+          delta=0;
+        }
+        if (delta > Screen.dp(180)) {
+          system().actorOf(OpusRecorder.recorder()).send(new OpusRecorder.AbortRecord());
+          audioMessage.setImageResource(R.drawable.conv_voice_normal);
+          recordingPanel.setVisibility(View.GONE);
+          isActive=false;
+        }
+ else {
+          cancelView.setTranslationX(-delta);
+        }
+      }
+ else       if (event.getAction() == MotionEvent.ACTION_UP) {
+        if (!isActive) {
+          return false;
+        }
+        system().actorOf(OpusRecorder.recorder()).send(new OpusRecorder.SendAudio(chatType,chatId));
+        audioMessage.setImageResource(R.drawable.conv_voice_normal);
+        recordingPanel.setVisibility(View.GONE);
+        isActive=false;
+      }
+      return true;
+    }
+  }
+);
+  if (!BuildConfig.ENABLE_VOICE) {
+    audioMessage.setVisibility(View.GONE);
+    audioMessage.setEnabled(false);
+  }
+  sendButton=(TintImageView)findViewById(R.id.ib_send);
+  sendButton.setResource(R.drawable.conv_send);
+  sendButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      sendMessage();
+    }
+  }
+);
+  attachButton=(ImageButton)findViewById(R.id.ib_attach);
+  attachButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Context wrapper=new ContextThemeWrapper(ChatActivity.this,R.style.AttachPopupTheme);
+      PopupMenu popup=new PopupMenu(wrapper,findViewById(R.id.attachAnchor));
+      try {
+        Field[] fields=popup.getClass().getDeclaredFields();
+        for (        Field field : fields) {
+          if ("mPopup".equals(field.getName())) {
+            field.setAccessible(true);
+            Object menuPopupHelper=field.get(popup);
+            Class<?> classPopupHelper=Class.forName(menuPopupHelper.getClass().getName());
+            Method setForceIcons=classPopupHelper.getMethod("setForceShowIcon",boolean.class);
+            setForceIcons.invoke(menuPopupHelper,true);
+            break;
+          }
+        }
+      }
+ catch (      Exception e) {
+        e.printStackTrace();
+      }
+      if (BuildConfig.ENABLE_CHROME) {
+        popup.getMenuInflater().inflate(R.menu.attach_popup_chrome,popup.getMenu());
+      }
+ else {
+        popup.getMenuInflater().inflate(R.menu.attach_popup,popup.getMenu());
+      }
+      popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+        @Override public boolean onMenuItemClick(        MenuItem item){
+          if (item.getItemId() == R.id.gallery) {
+            Intent intent=new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/* video/*");
+            startActivityForResult(intent,REQUEST_GALLERY);
+            return true;
+          }
+ else           if (item.getItemId() == R.id.takePhoto) {
+            File externalFile=getExternalFilesDir(null);
+            if (externalFile == null) {
+              Toast.makeText(ChatActivity.this,R.string.toast_no_sdcard,Toast.LENGTH_LONG).show();
+              return true;
+            }
+            String externalPath=externalFile.getAbsolutePath();
+            new File(externalPath + "/actor/").mkdirs();
+            fileName=externalPath + "/actor/capture_" + RandomUtil.randomId()+ ".jpg";
+            startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(fileName))),REQUEST_PHOTO);
+          }
+ else           if (item.getItemId() == R.id.takeVideo) {
+            File externalFile=getExternalFilesDir(null);
+            if (externalFile == null) {
+              Toast.makeText(ChatActivity.this,R.string.toast_no_sdcard,Toast.LENGTH_LONG).show();
+              return true;
+            }
+            String externalPath=externalFile.getAbsolutePath();
+            new File(externalPath + "/actor/").mkdirs();
+            fileName=externalPath + "/actor/capture_" + RandomUtil.randomId()+ ".jpg";
+            Intent i=new Intent(MediaStore.ACTION_VIDEO_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(fileName)));
+            startActivityForResult(i,REQUEST_VIDEO);
+            return true;
+          }
+ else           if (item.getItemId() == R.id.file) {
+            startActivityForResult(Intents.pickFile(ChatActivity.this),REQUEST_DOC);
+          }
+ else           if (item.getItemId() == R.id.location) {
+            startActivityForResult(com.droidkit.pickers.Intents.pickLocation(ChatActivity.this),REQUEST_LOCATION);
+          }
+          return false;
+        }
+      }
+);
+      popup.show();
+    }
+  }
+);
+}

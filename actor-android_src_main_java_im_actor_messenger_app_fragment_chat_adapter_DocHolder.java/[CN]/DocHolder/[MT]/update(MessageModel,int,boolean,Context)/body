@@ -1,0 +1,89 @@
+{
+  super.update(message,pos,isUpdated,context);
+  this.message=message;
+  this.documentMessage=(DocumentMessage)message.getContent();
+  String ext="";
+  int dotIndex=documentMessage.getName().lastIndexOf('.');
+  if (dotIndex >= 0) {
+    ext=documentMessage.getName().substring(dotIndex + 1);
+  }
+  fileName.setText(documentMessage.getName());
+  fileSize.setText(Formatter.formatFileSize(documentMessage.getSize()) + " " + ext.toUpperCase());
+  boolean isAppliedThumb=false;
+  if (documentMessage.getFastThumb() != null) {
+    try {
+      Bitmap img=ImageLoading.loadBitmap(documentMessage.getFastThumb().getImage());
+      fileIcon.setImageBitmap(img);
+      fileIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+      isAppliedThumb=true;
+    }
+ catch (    ImageLoadException e) {
+      e.printStackTrace();
+    }
+  }
+  if (!isAppliedThumb) {
+    int type=FileTypes.getType(ext);
+switch (type) {
+default :
+case FileTypes.TYPE_UNKNOWN:
+      fileIcon.setImageResource(R.drawable.picker_unknown);
+    break;
+case FileTypes.TYPE_APK:
+  fileIcon.setImageResource(R.drawable.picker_apk);
+break;
+case FileTypes.TYPE_MUSIC:
+fileIcon.setImageResource(R.drawable.picker_music);
+break;
+case FileTypes.TYPE_PICTURE:
+fileIcon.setImageResource(R.drawable.picker_unknown);
+break;
+case FileTypes.TYPE_DOC:
+fileIcon.setImageResource(R.drawable.picker_doc);
+break;
+case FileTypes.TYPE_RAR:
+fileIcon.setImageResource(R.drawable.picker_rar);
+break;
+case FileTypes.TYPE_VIDEO:
+fileIcon.setImageResource(R.drawable.picker_video);
+break;
+case FileTypes.TYPE_ZIP:
+fileIcon.setImageResource(R.drawable.picker_zip);
+break;
+case FileTypes.TYPE_XLS:
+fileIcon.setImageResource(R.drawable.picker_xls);
+break;
+case FileTypes.TYPE_PPT:
+fileIcon.setImageResource(R.drawable.picker_ppt);
+break;
+case FileTypes.TYPE_CSV:
+fileIcon.setImageResource(R.drawable.picker_csv);
+break;
+case FileTypes.TYPE_HTM:
+fileIcon.setImageResource(R.drawable.picker_htm);
+break;
+case FileTypes.TYPE_HTML:
+fileIcon.setImageResource(R.drawable.picker_html);
+break;
+case FileTypes.TYPE_PDF:
+fileIcon.setImageResource(R.drawable.picker_pdf);
+break;
+}
+fileIcon.setScaleType(ImageView.ScaleType.CENTER);
+}
+if (documentMessage.getUploadPath() != null) {
+UploadModel.uploadState(message.getRid()).addUiSubscriber(uploadStateListener);
+}
+ else {
+if (documentMessage.isDownloaded()) {
+status.setText(R.string.chat_doc_open);
+fileIcon.setVisibility(View.VISIBLE);
+menu.setVisibility(View.VISIBLE);
+downloadIcon.setVisibility(View.GONE);
+progressValue.setVisibility(View.GONE);
+progressView.setVisibility(View.GONE);
+}
+ else {
+DownloadModel.downloadState(documentMessage.getLocation().getFileId()).addUiSubscriber(downloadStateListener);
+}
+}
+}

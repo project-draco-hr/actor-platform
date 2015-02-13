@@ -1,0 +1,15 @@
+{
+  KeyFactory keyFactory;
+  try {
+    keyFactory=KeyFactory.getInstance("RSA");
+  }
+ catch (  NoSuchAlgorithmException e) {
+    throw new AssertionError(e);
+  }
+  try {
+    return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(encoded));
+  }
+ catch (  InvalidKeySpecException e) {
+    throw new AssertionError(e);
+  }
+}

@@ -1,0 +1,5 @@
+int type
+int id
+String fileName
+String realName
+boolean isEncrypted

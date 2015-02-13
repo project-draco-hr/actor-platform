@@ -1,0 +1,6 @@
+{
+  if (this.enabledViewModel != null) {
+    this.enabledViewModel.removeUiSubscriber(enabledListener);
+  }
+  this.enabledViewModel=null;
+}

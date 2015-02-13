@@ -1,0 +1,12 @@
+{
+  Integer[] res=BoxUtil.box(users);
+  Arrays.sort(res,new Comparator<Integer>(){
+    @Override public int compare(    Integer integer,    Integer integer2){
+      UserModel u1=users().get(integer);
+      UserModel u2=users().get(integer2);
+      return u1.getName().compareTo(u2.getName());
+    }
+  }
+);
+  return BoxUtil.unbox(res);
+}

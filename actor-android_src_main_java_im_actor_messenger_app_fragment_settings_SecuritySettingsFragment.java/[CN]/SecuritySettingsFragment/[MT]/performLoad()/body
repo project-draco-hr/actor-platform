@@ -1,0 +1,49 @@
+{
+  ask(AuthController.authController().requestAuth(),new UiAskCallback<ResponseGetAuthSessions>(){
+    @Override public void onPreStart(){
+      loading.setText("Loading...");
+      loading.setClickable(false);
+      authItems.removeAllViews();
+      showView(loading,false);
+    }
+    @Override public void onCompleted(    ResponseGetAuthSessions res){
+      goneView(loading,false);
+      authItems.removeAllViews();
+      ArrayList<AuthSession> items=new ArrayList<AuthSession>(res.getUserAuths());
+      Collections.sort(items,new Comparator<AuthSession>(){
+        @Override public int compare(        AuthSession lhs,        AuthSession rhs){
+          return rhs.getAuthTime() - lhs.getAuthTime();
+        }
+      }
+);
+      for (      final AuthSession item : items) {
+        View view=getActivity().getLayoutInflater().inflate(R.layout.adapter_auth,authItems,false);
+        boolean isThisDevice=item.getAuthHolder() == 0;
+        String deviceTitle=(isThisDevice ? "(This) " : "") + item.getDeviceTitle();
+        ((TextView)view.findViewById(R.id.date)).setText(Formatter.formatShortDate(item.getAuthTime() * 1000L));
+        ((TextView)view.findViewById(R.id.appTitle)).setText(item.getAppTitle());
+        ((TextView)view.findViewById(R.id.deviceTitle)).setText(deviceTitle);
+        if (!isThisDevice) {
+          view.setOnClickListener(new View.OnClickListener(){
+            @Override public void onClick(            View v){
+              new AlertDialog.Builder(getActivity()).setMessage("Are you sure want to logout " + item.getDeviceTitle() + " device? All data will be lost on this device.").setPositiveButton("Yes",new DialogInterface.OnClickListener(){
+                @Override public void onClick(                DialogInterface dialog,                int which){
+                  removeAuth(item);
+                }
+              }
+).setNegativeButton("No",null).show().setCanceledOnTouchOutside(true);
+            }
+          }
+);
+        }
+        authItems.addView(view);
+      }
+    }
+    @Override public void onError(    Throwable t){
+      loading.setText("Unable to load. Press to try again.");
+      loading.setClickable(true);
+      showView(loading,false);
+    }
+  }
+);
+}

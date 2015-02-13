@@ -1,0 +1,6 @@
+{
+  this.engine=engine;
+  this.resultList=new UiList<T>();
+  this.currentQuery="";
+  this.state=new ValueModel<SearchState<T>>("search.state",new SearchState<T>(SearchState.State.EMPTY));
+}

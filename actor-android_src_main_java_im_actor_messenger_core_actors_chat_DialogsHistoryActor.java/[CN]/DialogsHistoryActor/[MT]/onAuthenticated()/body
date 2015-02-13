@@ -1,0 +1,5 @@
+{
+  if (!state.getObj().isCompleted() && state.getObj().maxLoadedDate == 0) {
+    onEndReached();
+  }
+}

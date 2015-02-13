@@ -1,0 +1,5 @@
+int chatId
+long rid
+int uid
+int adder
+long date

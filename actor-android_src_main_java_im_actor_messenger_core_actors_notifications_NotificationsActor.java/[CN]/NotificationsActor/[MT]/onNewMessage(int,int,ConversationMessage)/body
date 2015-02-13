@@ -1,0 +1,64 @@
+{
+  if (!notificationSettings.convValue(DialogUids.getDialogUid(type,id)).getValue()) {
+    disableNotifications(type,id);
+    return;
+  }
+  if (openedType == type && openedId == id) {
+    if (conversationMessage.getSenderId() != myUid()) {
+      if (notificationSettings.isInAppEnabled()) {
+        if (SystemClock.uptimeMillis() - lastSoundPlay > SOUND_DELAY) {
+          soundPool.play(inMessageId,1.0f,1.0f,0,0,1.0f);
+          lastSoundPlay=SystemClock.uptimeMillis();
+        }
+      }
+    }
+    return;
+  }
+  chats.add(DialogUids.getDialogUid(type,id));
+  PendingNotificationBuilder pendingNotification=new PendingNotificationBuilder().setConvType(type).setConvId(id).setRid(conversationMessage.getRid()).setUid(conversationMessage.getSenderId()).setDate(conversationMessage.getTime());
+  if (conversationMessage.getContent() instanceof TextMessage) {
+    pendingNotification.setType(PendingNotification.Type.TEXT);
+    pendingNotification.setText(((TextMessage)conversationMessage.getContent()).getText());
+  }
+ else   if (conversationMessage.getContent() instanceof PhotoMessage) {
+    pendingNotification.setType(PendingNotification.Type.PHOTO);
+  }
+ else   if (conversationMessage.getContent() instanceof VideoMessage) {
+    pendingNotification.setType(PendingNotification.Type.VIDEO);
+  }
+ else   if (conversationMessage.getContent() instanceof DocumentMessage) {
+    DocumentMessage documentMessage=(DocumentMessage)conversationMessage.getContent();
+    pendingNotification.setType(PendingNotification.Type.DOCUMENT);
+    pendingNotification.setText(documentMessage.getName());
+  }
+ else   if (conversationMessage.getContent() instanceof AudioMessage) {
+    pendingNotification.setType(PendingNotification.Type.VOICE);
+  }
+ else   if (conversationMessage.getContent() instanceof UserRegisteredMessage) {
+    pendingNotification.setType(PendingNotification.Type.USER_REGISTERED);
+  }
+ else   if (conversationMessage.getContent() instanceof UserAddedDeviceMessage) {
+    pendingNotification.setType(PendingNotification.Type.USER_DEVICE);
+  }
+ else   if (conversationMessage.getContent() instanceof GroupCreated) {
+    pendingNotification.setType(PendingNotification.Type.GROUP_CREATED);
+  }
+ else   if (conversationMessage.getContent() instanceof GroupAdd) {
+    pendingNotification.setType(PendingNotification.Type.GROUP_ADDED);
+    pendingNotification.setDestUid(((GroupAdd)conversationMessage.getContent()).getAddedUid());
+  }
+ else   if (conversationMessage.getContent() instanceof GroupKick) {
+    pendingNotification.setType(PendingNotification.Type.GROUP_KICKED);
+    pendingNotification.setDestUid(((GroupKick)conversationMessage.getContent()).getKickedUid());
+  }
+ else   if (conversationMessage.getContent() instanceof GroupLeave) {
+    pendingNotification.setType(PendingNotification.Type.GROUP_LEFT);
+  }
+ else {
+    return;
+  }
+  PendingNotification notification=pendingNotification.createPendingNotification();
+  currentNotifications.add(notification);
+  pendingNotifications.add(notification);
+  performNotify(false);
+}

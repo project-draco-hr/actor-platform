@@ -1,0 +1,11 @@
+{
+  FileCipher cipher=new FileCipher();
+  try {
+    cipher.encrypt(sourceFile,destFile);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    throw new RuntimeException(e);
+  }
+  return result(cipher.getKey());
+}

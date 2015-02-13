@@ -1,0 +1,102 @@
+{
+  setContentView(R.layout.activity_main);
+  getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));
+  syncInProgressView=findViewById(R.id.syncInProgress);
+  emptyContactsView=findViewById(R.id.emptyContacts);
+  emptyContactsImage=(ImageView)findViewById(R.id.emptyContactsImage);
+  emptyDialogsImage=(ImageView)findViewById(R.id.emptyDialogsImage);
+  ((TextView)findViewById(R.id.addContactButtonText)).setTypeface(Fonts.medium());
+  ((TextView)findViewById(R.id.inviteButtonText)).setTypeface(Fonts.medium());
+  isFabVisible=false;
+  fabContent=findViewById(R.id.fabContainer);
+  fabRoot=findViewById(R.id.rootFab);
+  fabRoot.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showFab();
+    }
+  }
+);
+  fabContent.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      goneFab();
+    }
+  }
+);
+  searchList=(ListView)findViewById(R.id.searchList);
+  searchContainer=findViewById(R.id.searchCont);
+  searchEmptyView=findViewById(R.id.empty);
+  searchHintView=findViewById(R.id.searchHint);
+  searchAdapter=new SearchAdapter(SearchEngines.userSearch().getResultList(),getActivity());
+  searchList.setAdapter(searchAdapter);
+  searchList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      Object pos=parent.getItemAtPosition(position);
+      if (pos != null && pos instanceof GlobalSearch) {
+        startActivity(Intents.openDialog(((GlobalSearch)pos).getContType(),((GlobalSearch)pos).getContId(),false,getActivity()));
+        searchMenu.collapseActionView();
+      }
+    }
+  }
+);
+  SearchEngines.userSearch().getResultList().addListener(new UiListListener(){
+    @Override public void onListUpdated(){
+      if (SearchEngines.userSearch().getResultList().getSize() > 0) {
+        goneView(searchHintView);
+        goneView(searchEmptyView);
+        showView(searchList);
+      }
+ else {
+        if (SearchEngines.userSearch().getCurrentQuery().length() > 0) {
+          goneView(searchHintView);
+          showView(searchEmptyView);
+        }
+ else {
+          showView(searchHintView);
+          goneView(searchEmptyView);
+        }
+        goneView(searchList);
+      }
+    }
+  }
+);
+  pager=(ViewPager)findViewById(R.id.vp_pager);
+  homePagerAdapter=new HomePagerAdapter(getFragmentManager());
+  pager.setAdapter(homePagerAdapter);
+  findViewById(R.id.composeContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      goneFab();
+      startActivity(new Intent(getActivity(),ComposeActivity.class));
+    }
+  }
+);
+  findViewById(R.id.createGroupContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      goneFab();
+      startActivity(new Intent(getActivity(),CreateGroupActivity.class));
+    }
+  }
+);
+  findViewById(R.id.addContactContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      goneFab();
+      startActivity(new Intent(getActivity(),AddContactActivity.class));
+    }
+  }
+);
+  findViewById(R.id.addContactButton).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(new Intent(getActivity(),AddContactActivity.class));
+    }
+  }
+);
+  findViewById(R.id.inviteButton).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      String inviteMessage=getResources().getString(R.string.invite_message);
+      Intent sendIntent=new Intent(Intent.ACTION_SEND);
+      sendIntent.putExtra(Intent.EXTRA_TEXT,inviteMessage);
+      sendIntent.setType("text/plain");
+      startActivity(sendIntent);
+    }
+  }
+);
+}

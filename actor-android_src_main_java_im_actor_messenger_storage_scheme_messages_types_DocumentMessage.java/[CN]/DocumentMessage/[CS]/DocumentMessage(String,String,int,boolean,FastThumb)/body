@@ -1,0 +1,6 @@
+{
+  super(uploadPath,isEncrypted);
+  this.name=name;
+  this.size=size;
+  this.fastThumb=fastThumb;
+}

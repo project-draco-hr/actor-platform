@@ -1,0 +1,4 @@
+AbsListView list
+int firstVisibleItem
+int visibleItemCount
+int totalItemCount

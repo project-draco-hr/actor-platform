@@ -1,0 +1,14 @@
+{
+  this.raw=raw;
+  avatarModel.change(raw.getAvatar());
+  titleModel.change(raw.getTitle());
+  stateModel.change(raw.getGroupState());
+  usersModel.change(raw.getMembers().toArray(new GroupMember[0]));
+  int[] onlineVal=onlineModel.getValue();
+  if (onlineVal.length > 1) {
+    onlineModel.change(new int[]{raw.getMembers().size(),onlineVal[1]});
+  }
+ else {
+    onlineModel.change(new int[]{raw.getMembers().size()});
+  }
+}

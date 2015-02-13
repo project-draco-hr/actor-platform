@@ -1,0 +1,7 @@
+{
+  if (groupState != GroupState.JOINED) {
+    if (getActivity() != null) {
+      getActivity().finish();
+    }
+  }
+}

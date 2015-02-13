@@ -1,0 +1,22 @@
+{
+  try {
+    new File(downloadFileName).delete();
+    randomAccessFile=new RandomAccessFile(downloadFileName,"rws");
+    randomAccessFile.setLength(fileLocation.getFileSize());
+  }
+ catch (  FileNotFoundException e) {
+    error(e);
+    return;
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+    error(e);
+    return;
+  }
+  blocksCount=fileLocation.getFileSize() / blockSize;
+  if (fileLocation.getFileSize() % blockSize != 0) {
+    blocksCount++;
+  }
+  Logger.d(TAG,"Downloading " + blocksCount + " blocks");
+  checkDownload();
+}

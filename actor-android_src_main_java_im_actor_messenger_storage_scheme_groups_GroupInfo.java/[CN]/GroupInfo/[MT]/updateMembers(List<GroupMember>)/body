@@ -1,0 +1,3 @@
+{
+  return new GroupInfo(groupId,accessHash,title,avatar,members,adminId,groupState);
+}

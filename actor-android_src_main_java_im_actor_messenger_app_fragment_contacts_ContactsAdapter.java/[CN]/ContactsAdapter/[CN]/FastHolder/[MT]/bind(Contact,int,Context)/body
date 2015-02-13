@@ -1,0 +1,12 @@
+{
+  String shortName=getFastName(data.getName());
+  boolean showFastName=true;
+  if (position > 0) {
+    Contact contact=getUiList().getItem(position - 1);
+    String prevShortName=getFastName(contact.getName());
+    if (shortName.equals(prevShortName)) {
+      showFastName=false;
+    }
+  }
+  view.bind(data.getUid(),data.getAvatar(),data.getName(),showFastName);
+}

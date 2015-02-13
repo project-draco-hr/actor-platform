@@ -1,0 +1,34 @@
+{
+  if (isCompleted()) {
+    return;
+  }
+  Logger.d(TAG,"Starting upload");
+  start=System.currentTimeMillis();
+  sourceSize=(int)new File(sourceFileName).length();
+  uploadSize=(int)new File(uploadFileName).length();
+  try {
+    randomAccessFile=new RandomAccessFile(uploadFileName,"r");
+  }
+ catch (  FileNotFoundException e) {
+    error(e);
+    return;
+  }
+  Logger.d(TAG,"File size: " + uploadSize + " bytes");
+  blocksCount=uploadSize / blockSize;
+  if (uploadSize % blockSize != 0) {
+    blocksCount++;
+  }
+  crc32=new CRC32();
+  ask(requests().startUpload(),new FutureCallback<ResponseStartUpload>(){
+    @Override public void onResult(    ResponseStartUpload result){
+      Logger.d(TAG,"Started upload");
+      UploadActor.this.uploadConfig=result.getConfig();
+      checkUpload();
+    }
+    @Override public void onError(    Throwable throwable){
+      Logger.d(TAG,"Error");
+      error(throwable);
+    }
+  }
+);
+}

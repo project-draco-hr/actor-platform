@@ -1,0 +1,4 @@
+{
+  performUpload(AvatarChangeState.getFileName());
+  isCanceled=false;
+}

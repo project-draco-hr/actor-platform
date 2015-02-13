@@ -1,0 +1,6 @@
+{
+  int category=clasificator.getType(free);
+  if (category < 0) {
+    return;
+  }
+}

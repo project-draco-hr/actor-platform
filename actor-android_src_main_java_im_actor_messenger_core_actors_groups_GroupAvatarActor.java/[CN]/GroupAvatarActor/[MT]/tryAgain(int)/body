@@ -1,0 +1,4 @@
+{
+  final ValueModel<GroupAvatarState.StateHolder> state=GroupAvatarState.getGroupState(gid);
+  performUpload(gid,state.getValue().getFileName());
+}

@@ -1,0 +1,3 @@
+{
+  dispatcher.removeAction(runnable);
+}

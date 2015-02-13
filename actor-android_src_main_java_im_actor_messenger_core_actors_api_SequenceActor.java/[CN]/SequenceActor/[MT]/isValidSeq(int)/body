@@ -1,0 +1,3 @@
+{
+  return updateState.getState().getSeq() <= 0 || seq == updateState.getState().getSeq() + 1;
+}

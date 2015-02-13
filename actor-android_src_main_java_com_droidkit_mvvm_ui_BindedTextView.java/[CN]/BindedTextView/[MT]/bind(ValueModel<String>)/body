@@ -1,0 +1,8 @@
+{
+  if (this.value == value) {
+    return;
+  }
+  unbind();
+  this.value=value;
+  this.value.addUiSubscriber(this);
+}

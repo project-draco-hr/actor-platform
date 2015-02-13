@@ -1,0 +1,6 @@
+{
+  super(r);
+  if (USE_AS_STRONG_REFERENCE) {
+    ref=r;
+  }
+}

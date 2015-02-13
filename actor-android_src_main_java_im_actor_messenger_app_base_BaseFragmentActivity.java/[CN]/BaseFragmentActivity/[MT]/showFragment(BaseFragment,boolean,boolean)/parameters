@@ -1,0 +1,3 @@
+BaseFragment fragment
+boolean addToBackStack
+boolean isAnimated

@@ -1,0 +1,2 @@
+Class<? extends AbsTask> taskClass
+Class<? extends BasicTaskActor> actorClass

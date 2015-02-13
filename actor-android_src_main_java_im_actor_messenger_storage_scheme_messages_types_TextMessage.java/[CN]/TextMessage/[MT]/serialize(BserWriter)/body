@@ -1,0 +1,5 @@
+{
+  writer.writeString(1,text);
+  writer.writeString(2,formattedText);
+  writer.writeBool(10,isEncrypted);
+}

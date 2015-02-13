@@ -1,0 +1,13 @@
+{
+  GroupModel groupInfo=groups().get(chatId);
+  if (groupInfo == null || groupInfo.getState() != GroupState.JOINED) {
+    return;
+  }
+  if (uid == myUid()) {
+    groups().put(chatId,groupInfo.getRaw().updateState(GroupState.DELETED).updateMembers(new ArrayList<GroupMember>()));
+  }
+ else {
+    groups().put(chatId,groupInfo.getRaw().updateMembers(removeItem(groupInfo.getRaw().getMembers(),uid)));
+  }
+  ConversationActor.conv(DialogType.TYPE_GROUP,chatId).onInMessage(rid,uid,date,new GroupLeave());
+}

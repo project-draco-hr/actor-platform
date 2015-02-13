@@ -1,0 +1,51 @@
+{
+  writer.writeInt(1,convType);
+  writer.writeInt(2,convId);
+  writer.writeLong(3,rid);
+  writer.writeInt(4,uid);
+  writer.writeLong(5,date);
+  if (destUid != 0) {
+    writer.writeInt(10,destUid);
+  }
+  if (text != null) {
+    writer.writeString(11,text);
+  }
+  int rawType;
+switch (type) {
+default :
+case TEXT:
+    rawType=0;
+  break;
+case PHOTO:
+rawType=1;
+break;
+case VIDEO:
+rawType=2;
+break;
+case DOCUMENT:
+rawType=3;
+break;
+case VOICE:
+rawType=4;
+break;
+case USER_REGISTERED:
+rawType=5;
+break;
+case GROUP_CREATED:
+rawType=6;
+break;
+case GROUP_ADDED:
+rawType=7;
+break;
+case GROUP_LEFT:
+rawType=8;
+break;
+case GROUP_KICKED:
+rawType=9;
+break;
+case USER_DEVICE:
+rawType=10;
+break;
+}
+writer.writeInt(12,rawType);
+}

@@ -1,0 +1,8 @@
+{
+synchronized (CHAT_ENGINES) {
+    if (CHAT_ENGINES.get(chatUid) == null) {
+      CHAT_ENGINES.put(chatUid,new ConversationHolder(chatUid));
+    }
+    return CHAT_ENGINES.get(chatUid);
+  }
+}

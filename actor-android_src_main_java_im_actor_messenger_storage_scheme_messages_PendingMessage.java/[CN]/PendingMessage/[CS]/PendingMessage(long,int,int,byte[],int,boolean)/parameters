@@ -1,0 +1,6 @@
+long rid
+int convType
+int convId
+byte[] messageContent
+int messageType
+boolean isEncrypted

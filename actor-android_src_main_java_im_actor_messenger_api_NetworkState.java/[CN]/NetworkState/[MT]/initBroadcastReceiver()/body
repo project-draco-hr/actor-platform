@@ -1,0 +1,8 @@
+{
+  AppContext.getContext().registerReceiver(new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      core().getActorApi().notifyNetworkChanged();
+    }
+  }
+,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+}

@@ -1,0 +1,28 @@
+{
+  Logger.d(TAG,TAG_PREFIX + "Received diff with " + diff.getUsers().size()+ " users and "+ diff.getUpdates().size()+ " updates");
+  if (diff.getUsers().size() > 0) {
+    UserActor.userActor().onUpdateUsers(diff.getUsers());
+  }
+  if (diff.getGroups().size() > 0) {
+    GroupsActor.groupUpdates().onUpdateGroups(diff.getGroups());
+  }
+  if (diff.getUpdates().size() > 0) {
+    ArrayList<Update> updates=new ArrayList<Update>();
+    for (    DifferenceUpdate u : diff.getUpdates()) {
+      try {
+        updates.add(updatesParser.read(u.getUpdateHeader(),u.getUpdate()));
+      }
+ catch (      Exception e) {
+        e.printStackTrace();
+      }
+    }
+    if (updates.size() > 0) {
+      system().actorOf(UpdateBroker.sequenceBroker()).send(updates);
+    }
+  }
+  updateState.setState(diff.getSeq(),diff.getState());
+  if (LOG_ENABLED) {
+    Logger.d(TAG,TAG_PREFIX + "Saved state {seq:" + diff.getSeq()+ "}");
+  }
+  self().sendOnce(new InvalidateForced(),24 * 60 * 60* 1000L);
+}

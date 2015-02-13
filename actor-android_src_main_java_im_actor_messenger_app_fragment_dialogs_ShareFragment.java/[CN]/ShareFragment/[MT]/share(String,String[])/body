@@ -1,0 +1,8 @@
+{
+  Bundle args=new Bundle();
+  args.putString("MIME_TYPE",mimeType);
+  args.putStringArray("DATA",uri);
+  ShareFragment fragment=new ShareFragment();
+  fragment.setArguments(args);
+  return fragment;
+}

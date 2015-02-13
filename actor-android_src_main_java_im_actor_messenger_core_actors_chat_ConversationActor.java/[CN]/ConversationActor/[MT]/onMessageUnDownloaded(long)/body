@@ -1,0 +1,6 @@
+{
+  MessageModel message=listEngine.getValue(rid);
+  if (message.getRaw().getContent() instanceof AbsFileMessage) {
+    update(message,message.getRaw().changeContent(((AbsFileMessage)message.getRaw().getContent()).undownloaded()));
+  }
+}

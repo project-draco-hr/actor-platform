@@ -1,0 +1,2 @@
+StorageAdapter<V> storageAdapter
+com.droidkit.engine.keyvalue.DataAdapter<V> dataAdapter

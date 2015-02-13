@@ -1,0 +1,9 @@
+{
+  inMemoryLruCache.remove(id);
+  dbActor.send(new Runnable(){
+    @Override public void run(){
+      storageAdapter.deleteSingle(id);
+    }
+  }
+);
+}

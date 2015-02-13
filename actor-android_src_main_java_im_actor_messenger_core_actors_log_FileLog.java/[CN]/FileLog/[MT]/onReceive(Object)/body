@@ -1,0 +1,29 @@
+{
+  if (message instanceof String) {
+    if (streamWriter != null) {
+      try {
+        streamWriter.write(simpleDateFormat.format(new Date(System.currentTimeMillis())) + "| " + message+ "\r\n");
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+ else   if (message instanceof Export) {
+    close();
+    try {
+      File destFile=new File(AppContext.getContext().getExternalFilesDir(null),"log_export" + RandomUtil.randomId() + ".txt");
+      IOUtils.copy(file,destFile);
+      AppContext.getContext().startActivity(new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_STREAM,Uri.fromFile(destFile)).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+    open();
+  }
+ else   if (message instanceof Clear) {
+    close();
+    file.delete();
+    open();
+  }
+}

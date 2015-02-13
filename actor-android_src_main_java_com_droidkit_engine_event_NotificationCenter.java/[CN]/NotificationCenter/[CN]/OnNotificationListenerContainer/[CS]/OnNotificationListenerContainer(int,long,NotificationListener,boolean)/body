@@ -1,0 +1,6 @@
+{
+  this.eventType=eventType;
+  this.eventId=eventId;
+  this.listener=listener;
+  this.wasAddedInUIThread=wasAddedInUIThread;
+}

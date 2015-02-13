@@ -1,0 +1,3 @@
+{
+  return new DialogItem(type,id,dialogTitle,unreadCount,rid,sortKey,senderId,time,messageType,text,status,avatar,relatedUid);
+}

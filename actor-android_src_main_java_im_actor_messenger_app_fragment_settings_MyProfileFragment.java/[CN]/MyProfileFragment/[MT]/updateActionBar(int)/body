@@ -1,0 +1,12 @@
+{
+  avatar.setOffset(offset);
+  ActionBar bar=((BaseBarActivity)getActivity()).getSupportActionBar();
+  int fullColor=baseColor;
+  if (Math.abs(offset) > Screen.dp(248 - 56)) {
+    bar.setBackgroundDrawable(new ColorDrawable(fullColor));
+  }
+ else {
+    float alpha=Math.abs(offset) / (float)Screen.dp(248 - 56);
+    bar.setBackgroundDrawable(new ColorDrawable(Color.argb((int)(255 * alpha),Color.red(fullColor),Color.green(fullColor),Color.blue(fullColor))));
+  }
+}

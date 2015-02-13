@@ -1,0 +1,6 @@
+{
+  super.onPause();
+  stateBroker().onActivityClose();
+  ACTOR_ACK.pause();
+  BINDER.unbindAll();
+}

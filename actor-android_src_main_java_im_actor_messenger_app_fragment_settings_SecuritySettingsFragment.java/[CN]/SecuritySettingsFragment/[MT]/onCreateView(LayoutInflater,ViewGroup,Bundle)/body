@@ -1,0 +1,31 @@
+{
+  View res=inflater.inflate(R.layout.fr_settings_encryption,container,false);
+  loading=(TextView)res.findViewById(R.id.loading);
+  loading.setVisibility(View.GONE);
+  loading.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      performLoad();
+    }
+  }
+);
+  authItems=(LinearLayout)res.findViewById(R.id.authItems);
+  res.findViewById(R.id.showMyKey).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      SecurityKey.showKey(users().get(myUid()).getRaw().getKeyHashes(),getActivity());
+    }
+  }
+);
+  res.findViewById(R.id.terminateSessions).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      new AlertDialog.Builder(getActivity()).setMessage(R.string.security_terminate_message).setPositiveButton(R.string.dialog_yes,new DialogInterface.OnClickListener(){
+        @Override public void onClick(        DialogInterface dialog,        int which){
+          removeAuth();
+        }
+      }
+).setNegativeButton(R.string.dialog_no,null).show().setCanceledOnTouchOutside(true);
+    }
+  }
+);
+  performLoad();
+  return res;
+}

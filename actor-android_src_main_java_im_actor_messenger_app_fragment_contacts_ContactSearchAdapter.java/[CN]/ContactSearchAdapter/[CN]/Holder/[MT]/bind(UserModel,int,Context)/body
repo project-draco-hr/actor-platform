@@ -1,0 +1,10 @@
+{
+  avatar.setEmptyDrawable(AvatarDrawable.create(data,24,context));
+  if (data.getAvatar().getValue() != null) {
+    avatar.bindAvatar(24,data.getAvatar().getValue());
+  }
+ else {
+    avatar.unbind();
+  }
+  title.setText(data.getName());
+}

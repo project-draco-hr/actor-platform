@@ -1,0 +1,5 @@
+{
+  super.onPause();
+  callBarrier.pause();
+  uiActorAsk.pause();
+}

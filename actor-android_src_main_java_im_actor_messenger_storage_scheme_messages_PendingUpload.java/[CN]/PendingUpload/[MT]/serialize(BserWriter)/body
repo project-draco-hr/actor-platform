@@ -1,0 +1,13 @@
+{
+  writer.writeInt(1,chatType);
+  writer.writeInt(2,chatId);
+  writer.writeLong(3,rid);
+  writer.writeString(4,fileName);
+  writer.writeString(5,name);
+  writer.writeInt(6,messageType);
+  writer.writeBytes(7,metadata);
+  if (thumb != null) {
+    writer.writeBytes(8,thumb);
+  }
+  writer.writeBool(9,isStopped);
+}

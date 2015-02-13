@@ -1,0 +1,19 @@
+{
+  Cursor cursor=database.query("\"" + tableName + "\"",new String[]{"\"ID\"","\"BYTES\""},null,null,null,null,null);
+  ArrayList<RawValue> res=new ArrayList<RawValue>();
+  if (cursor != null) {
+    try {
+      int idColumn=cursor.getColumnIndex("ID");
+      int bytesColumn=cursor.getColumnIndex("BYTES");
+      while (cursor.moveToNext()) {
+        long id=cursor.getLong(idColumn);
+        byte[] bytes=cursor.getBlob(bytesColumn);
+        res.add(new RawValue(id,bytes));
+      }
+    }
+  finally {
+      cursor.close();
+    }
+  }
+  return res.toArray(new RawValue[res.size()]);
+}

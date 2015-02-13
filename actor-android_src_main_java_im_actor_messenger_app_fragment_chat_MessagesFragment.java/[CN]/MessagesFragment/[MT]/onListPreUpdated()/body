@@ -1,0 +1,9 @@
+{
+  preDump=dumpState();
+  preSize=list.getSize();
+  bottomId=0;
+  if (preSize > 0) {
+    ConversationMessage bottomMessage=list.getItem(0).getRaw();
+    bottomId=bottomMessage.getRid();
+  }
+}

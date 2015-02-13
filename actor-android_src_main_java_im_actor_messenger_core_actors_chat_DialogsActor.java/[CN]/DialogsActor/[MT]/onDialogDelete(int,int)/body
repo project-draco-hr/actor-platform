@@ -1,0 +1,6 @@
+{
+  listEngine.removeItem(DialogUids.getDialogUid(type,id));
+  if (type == DialogType.TYPE_GROUP) {
+    removeIndex(DialogUids.getDialogUid(type,id));
+  }
+}

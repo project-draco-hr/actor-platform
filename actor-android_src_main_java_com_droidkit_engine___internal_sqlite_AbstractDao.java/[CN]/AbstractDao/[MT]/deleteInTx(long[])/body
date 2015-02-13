@@ -1,0 +1,17 @@
+{
+  SQLiteStatement stmt=statements.getDeleteStatement();
+  db.beginTransaction();
+  try {
+synchronized (stmt) {
+      if (entities != null) {
+        for (        long id : entities) {
+          deleteByKeyInsideSynchronized(id,stmt);
+        }
+      }
+    }
+    db.setTransactionSuccessful();
+  }
+  finally {
+    db.endTransaction();
+  }
+}

@@ -1,0 +1,7 @@
+{
+  final Intent intent=new Intent(context,ChatActivity.class);
+  intent.putExtra(EXTRA_CHAT_TYPE,chatType);
+  intent.putExtra(EXTRA_CHAT_ID,chatId);
+  intent.putExtra(EXTRA_CHAT_COMPOSE,compose);
+  return intent;
+}

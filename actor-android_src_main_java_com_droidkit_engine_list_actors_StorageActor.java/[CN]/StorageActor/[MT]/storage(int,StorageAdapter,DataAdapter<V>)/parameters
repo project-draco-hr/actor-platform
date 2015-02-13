@@ -1,0 +1,3 @@
+int listEngineId
+StorageAdapter adapter
+DataAdapter<V> dataAdapter

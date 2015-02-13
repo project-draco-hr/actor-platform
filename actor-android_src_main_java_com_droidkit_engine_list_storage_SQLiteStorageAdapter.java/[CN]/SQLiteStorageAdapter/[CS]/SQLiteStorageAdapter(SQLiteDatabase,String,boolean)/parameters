@@ -1,0 +1,3 @@
+SQLiteDatabase database
+String listEngineName
+boolean enableSearch

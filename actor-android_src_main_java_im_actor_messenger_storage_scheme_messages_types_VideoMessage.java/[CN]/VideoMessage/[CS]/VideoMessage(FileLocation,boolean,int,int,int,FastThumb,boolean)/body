@@ -1,0 +1,7 @@
+{
+  super(location,isDownloaded,isEncrypted);
+  this.duration=duration;
+  this.w=w;
+  this.h=h;
+  this.fastThumb=fastThumb;
+}

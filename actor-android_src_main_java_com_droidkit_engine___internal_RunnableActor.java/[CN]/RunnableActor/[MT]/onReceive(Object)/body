@@ -1,0 +1,5 @@
+{
+  if (message instanceof Runnable) {
+    ((Runnable)message).run();
+  }
+}

@@ -1,0 +1,20 @@
+{
+  AvatarChangeState.setFileName(null);
+  AvatarChangeState.uploadingState().change(AvatarChangeState.State.UPLOADING);
+  ask(requests().removeAvatar(),new FutureCallback<ResponseSeq>(){
+    @Override public void onResult(    ResponseSeq result){
+      UserActor.userActor().onAvatarChanged(myUid(),null);
+      UserActor.userActorRef().send(new Runnable(){
+        @Override public void run(){
+          AvatarChangeState.uploadingState().change(AvatarChangeState.State.NONE);
+        }
+      }
+);
+    }
+    @Override public void onError(    Throwable throwable){
+      AvatarChangeState.uploadingState().change(AvatarChangeState.State.ERROR);
+      ToastActor.get().show("Unable to remove avatar");
+    }
+  }
+);
+}

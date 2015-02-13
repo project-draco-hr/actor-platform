@@ -1,0 +1,12 @@
+{
+  if (!Core.isLoggedIn()) {
+    throw new IllegalArgumentException();
+  }
+  long id=Long.parseLong(uri.getLastPathSegment());
+  Downloaded downloaded=downloaded().get(id);
+  File file=new File(downloaded.getDownloadedPath());
+  if (!file.exists()) {
+    throw new IllegalArgumentException();
+  }
+  return ParcelFileDescriptor.open(file,ParcelFileDescriptor.MODE_READ_ONLY);
+}

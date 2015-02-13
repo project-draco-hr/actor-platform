@@ -1,0 +1,5 @@
+{
+  super.onPause();
+  unbind(users().get(myUid()).getAvatar());
+  avatar.clear();
+}

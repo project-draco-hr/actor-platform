@@ -1,0 +1,3 @@
+{
+  return getSexString(NEW_DEVICE,getUserSex(uid));
+}

@@ -1,0 +1,7 @@
+{
+  if (cachedHashCode == 0) {
+    T value=this.get();
+    cachedHashCode=value != null ? value.hashCode() : super.hashCode();
+  }
+  return cachedHashCode;
+}

@@ -1,0 +1,11 @@
+{
+  if (reference == null || reference.isReleased()) {
+    return;
+  }
+  Bitmap bmp=reference.getBitmap();
+  shaderMatrix.reset();
+  shaderMatrix.postScale(getBounds().width() / (float)bmp.getWidth(),getBounds().height() / (float)bmp.getHeight());
+  shader.setLocalMatrix(shaderMatrix);
+  paint.setShader(shader);
+  canvas.drawCircle(getBounds().centerX(),getBounds().centerY(),getBounds().width() / 2,paint);
+}

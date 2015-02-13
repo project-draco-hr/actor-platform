@@ -1,0 +1,6 @@
+{
+  UserModel user=users().get(uid);
+  if (user != null) {
+    ConversationActor.conv(DialogType.TYPE_USER,uid).onInMessage(RandomUtil.randomId(),uid,System.currentTimeMillis(),new UserRegisteredMessage());
+  }
+}

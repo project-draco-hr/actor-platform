@@ -1,0 +1,29 @@
+{
+  final TypedFuture future=future();
+  final long rid=RandomUtil.randomId();
+  List<UserOutPeer> peers=new ArrayList<UserOutPeer>();
+  for (  int u : uid) {
+    UserModel user=users().get(u);
+    peers.add(new UserOutPeer(u,user.getAccessHash()));
+  }
+  ask(requests().createGroup(rid,title,peers),new FutureCallback<ResponseCreateGroup>(){
+    @Override public void onResult(    ResponseCreateGroup result){
+      List<Group> groups=new ArrayList<Group>();
+      List<Member> members=new ArrayList<Member>();
+      for (      Integer i : result.getUsers()) {
+        members.add(new Member(i,myUid(),result.getDate()));
+      }
+      groups.add(new Group(result.getGroupPeer().getGroupId(),result.getGroupPeer().getAccessHash(),title,null,true,myUid(),members,result.getDate()));
+      if (groups().get(result.getGroupPeer().getGroupId()) == null) {
+        onUpdateGroups(groups);
+      }
+      future.doComplete(result.getGroupPeer().getGroupId());
+      system().actorOf(SequenceActor.sequence()).send(new SequenceActor.SeqFatUpdate(result.getSeq(),result.getState(),new UpdateGroupInvite(result.getGroupPeer().getGroupId(),rid,myUid(),result.getDate()),new ArrayList<User>(),groups));
+    }
+    @Override public void onError(    Throwable throwable){
+      future.doError(throwable);
+    }
+  }
+);
+  return future;
+}

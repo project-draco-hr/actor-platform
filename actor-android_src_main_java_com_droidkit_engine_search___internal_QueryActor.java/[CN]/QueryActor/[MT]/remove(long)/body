@@ -1,0 +1,5 @@
+{
+  searchAdapter.remove(key);
+  prevQueryValue=null;
+  prevQueryRes=null;
+}

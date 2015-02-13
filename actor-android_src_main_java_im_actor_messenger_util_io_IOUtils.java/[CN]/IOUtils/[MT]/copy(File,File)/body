@@ -1,0 +1,12 @@
+{
+  InputStream in=new FileInputStream(src);
+  OutputStream out=new FileOutputStream(dst);
+  byte[] buf=buffers.get();
+  int len;
+  while ((len=in.read(buf)) > 0) {
+    Thread.yield();
+    out.write(buf,0,len);
+  }
+  in.close();
+  out.close();
+}

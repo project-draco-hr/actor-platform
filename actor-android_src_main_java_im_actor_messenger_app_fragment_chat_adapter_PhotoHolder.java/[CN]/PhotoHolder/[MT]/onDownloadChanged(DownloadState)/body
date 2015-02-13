@@ -1,0 +1,17 @@
+{
+switch (downloadState.getState()) {
+default :
+case NONE:
+    showIcon(R.drawable.conv_media_download);
+  if (message.getContent() instanceof PhotoMessage) {
+    DownloadManager.downloader().request(type,id,message.getRid(),fileMessage,true);
+  }
+break;
+case DOWNLOADED:
+hideProgress(true);
+break;
+case DOWNLOADING:
+showProgress(downloadState.getProgress());
+break;
+}
+}

@@ -1,0 +1,13 @@
+{
+synchronized (sLock) {
+    if (sUrandomIn == null) {
+      try {
+        sUrandomIn=new DataInputStream(new FileInputStream(URANDOM_FILE));
+      }
+ catch (      IOException e) {
+        throw new SecurityException("Failed to open " + URANDOM_FILE + " for reading",e);
+      }
+    }
+    return sUrandomIn;
+  }
+}

@@ -1,0 +1,10 @@
+int chatType
+int chatId
+long rid
+String fileName
+String name
+int messageType
+byte[] metadata
+byte[] thumb
+boolean isStopped
+boolean isEncrypted

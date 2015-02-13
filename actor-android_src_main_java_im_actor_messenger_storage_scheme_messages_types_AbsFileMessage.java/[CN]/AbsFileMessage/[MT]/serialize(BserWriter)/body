@@ -1,0 +1,10 @@
+{
+  writer.writeBool(1,isDownloaded);
+  if (uploadPath != null) {
+    writer.writeString(2,uploadPath);
+  }
+ else {
+    writer.writeObject(3,location);
+  }
+  writer.writeBool(10,isEncrypted);
+}

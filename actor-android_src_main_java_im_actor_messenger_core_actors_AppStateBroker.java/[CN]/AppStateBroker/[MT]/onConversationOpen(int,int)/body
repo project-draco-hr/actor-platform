@@ -1,0 +1,6 @@
+{
+  Logger.d(TAG,"Conversation open #" + type + "@"+ id);
+  usersPresence.send(new UsersPresence.ConversationOpen(type,id));
+  groupPresence.send(new GroupPresenceActor.ConversationOpen(type,id));
+  NotificationsActor.notifications().onChatOpen(type,id);
+}

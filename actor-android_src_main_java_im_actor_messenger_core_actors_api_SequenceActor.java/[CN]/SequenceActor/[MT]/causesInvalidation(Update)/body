@@ -1,0 +1,108 @@
+{
+  if (update instanceof UpdateMessage) {
+    UpdateMessage updateMessage=(UpdateMessage)update;
+    if (users().get(updateMessage.getSenderUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateMessage unknown sender {uid:" + updateMessage.getSenderUid()+ "}");
+      return true;
+    }
+    if (updateMessage.getPeer().getType() == PeerType.GROUP) {
+      if (groups().get(updateMessage.getPeer().getId()) == null) {
+        Logger.d(TAG,TAG_PREFIX + "UpdateMessage unknown peer {group:" + updateMessage.getPeer().getId()+ "}");
+        return true;
+      }
+    }
+    if (updateMessage.getPeer().getType() == PeerType.PRIVATE) {
+      if (users().get(updateMessage.getPeer().getId()) == null) {
+        Logger.d(TAG,TAG_PREFIX + "UpdateMessage unknown peer {uid:" + updateMessage.getPeer().getId()+ "}");
+        return true;
+      }
+    }
+  }
+ else   if (update instanceof UpdateEncryptedMessage) {
+    UpdateEncryptedMessage updateMessage=(UpdateEncryptedMessage)update;
+    if (users().get(updateMessage.getSenderUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateEncryptedMessage unknown sender {uid:" + updateMessage.getSenderUid()+ "}");
+      return true;
+    }
+    if (updateMessage.getPeer().getType() == PeerType.GROUP) {
+      if (groups().get(updateMessage.getPeer().getId()) == null) {
+        Logger.d(TAG,TAG_PREFIX + "UpdateEncryptedMessage unknown peer {group:" + updateMessage.getPeer().getId()+ "}");
+        return true;
+      }
+    }
+    if (updateMessage.getPeer().getType() == PeerType.PRIVATE) {
+      if (users().get(updateMessage.getPeer().getId()) == null) {
+        Logger.d(TAG,TAG_PREFIX + "UpdateEncryptedMessage unknown peer {uid:" + updateMessage.getPeer().getId()+ "}");
+        return true;
+      }
+    }
+  }
+ else   if (update instanceof UpdateContactRegistered) {
+    UpdateContactRegistered contactRegistered=(UpdateContactRegistered)update;
+    if (users().get(contactRegistered.getUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateContactRegistered unknown user {uid:" + contactRegistered.getUid()+ "}");
+      return true;
+    }
+  }
+ else   if (update instanceof UpdateGroupInvite) {
+    UpdateGroupInvite groupInvite=(UpdateGroupInvite)update;
+    if (users().get(groupInvite.getInviteUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupInvite unknown inviter {uid:" + groupInvite.getInviteUid()+ "}");
+      return true;
+    }
+    if (groups().get(groupInvite.getGroupId()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupInvite unknown group {group:" + groupInvite.getGroupId()+ "}");
+      return true;
+    }
+  }
+ else   if (update instanceof UpdateGroupUserAdded) {
+    UpdateGroupUserAdded added=(UpdateGroupUserAdded)update;
+    if (users().get(added.getInviterUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserAdded unknown inviter {group:" + added.getInviterUid()+ "}");
+      return true;
+    }
+    if (users().get(added.getUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserAdded unknown added {uid:" + added.getUid()+ "}");
+      return true;
+    }
+    if (groups().get(added.getGroupId()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserAdded unknown group {uid:" + added.getGroupId()+ "}");
+      return true;
+    }
+  }
+ else   if (update instanceof UpdateGroupUserKick) {
+    UpdateGroupUserKick added=(UpdateGroupUserKick)update;
+    if (users().get(added.getKickerUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserAdded unknown kicker {uid:" + added.getKickerUid()+ "}");
+      return true;
+    }
+    if (users().get(added.getUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserAdded unknown kicked {uid:" + added.getUid()+ "}");
+      return true;
+    }
+    if (groups().get(added.getGroupId()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserKick unknown group {uid:" + added.getGroupId()+ "}");
+      return true;
+    }
+  }
+ else   if (update instanceof UpdateGroupUserLeave) {
+    UpdateGroupUserLeave added=(UpdateGroupUserLeave)update;
+    if (users().get(added.getUid()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserAdded unknown user {uid:" + added.getUid()+ "}");
+      return true;
+    }
+    if (groups().get(added.getGroupId()) == null) {
+      Logger.d(TAG,TAG_PREFIX + "UpdateGroupUserLeave unknown group {uid:" + added.getGroupId()+ "}");
+      return true;
+    }
+  }
+ else   if (update instanceof UpdateContactsAdded) {
+    for (    int u : ((UpdateContactsAdded)update).getUids()) {
+      if (users().get(u) == null) {
+        Logger.d(TAG,TAG_PREFIX + "UpdateContactsAdded unknown user {uid:" + u+ "}");
+        return true;
+      }
+    }
+  }
+  return false;
+}

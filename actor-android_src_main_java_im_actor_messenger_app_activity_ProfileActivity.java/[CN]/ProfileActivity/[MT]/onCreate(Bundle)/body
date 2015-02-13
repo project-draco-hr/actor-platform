@@ -1,0 +1,18 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setDisplayShowHomeEnabled(false);
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  getSupportActionBar().setDisplayShowTitleEnabled(false);
+  getSupportActionBar().setDisplayShowCustomEnabled(false);
+  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+  uid=getIntent().getIntExtra(Intents.EXTRA_UID,0);
+  if (savedInstanceState == null) {
+    showFragment(ProfileFragment.create(uid),false,false);
+  }
+  getBinder().bind(users().get(uid).getContactModel(),new Listener<Boolean>(){
+    @Override public void onUpdated(    Boolean aBoolean){
+      invalidateOptionsMenu();
+    }
+  }
+);
+}

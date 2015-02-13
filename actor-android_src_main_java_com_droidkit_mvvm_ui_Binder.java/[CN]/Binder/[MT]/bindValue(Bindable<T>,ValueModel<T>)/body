@@ -1,0 +1,13 @@
+{
+  BindContainer container=getContainer(bindable);
+  if (container.value != null) {
+    container.value.release();
+    container.value=null;
+  }
+  container.value=new Bind<T>(value,new ValueChangeListener<T>(){
+    @Override public void onChanged(    T value){
+      bindable.bind(value);
+    }
+  }
+);
+}

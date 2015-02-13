@@ -1,0 +1,14 @@
+{
+  super.onReceive(message);
+  if (message instanceof PendingUpload) {
+    PendingUpload pendingUpload=(PendingUpload)message;
+    MessageModel messageModel=ListEngines.getMessagesListEngine(DialogUids.getDialogUid(pendingUpload.getChatType(),pendingUpload.getChatId())).getValue(pendingUpload.getRid());
+    if (messageModel == null) {
+      return;
+    }
+    if (pendingUpload.isStopped()) {
+      return;
+    }
+    sendFile(pendingUpload);
+  }
+}

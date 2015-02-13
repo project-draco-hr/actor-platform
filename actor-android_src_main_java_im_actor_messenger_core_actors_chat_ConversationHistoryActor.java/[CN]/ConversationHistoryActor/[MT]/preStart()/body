@@ -1,0 +1,10 @@
+{
+  super.preStart();
+  state=new BserPersistence<State>(AppContext.getContext(),"chat_" + DialogUids.getDialogUid(chatType,chatId) + ".ini",State.class);
+  if (state.getObj() == null) {
+    state.setObj(new State(0,false));
+  }
+  if (!state.getObj().isCompleted() && state.getObj().maxLoadedDate == 0) {
+    onEndReached();
+  }
+}

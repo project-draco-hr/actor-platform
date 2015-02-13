@@ -1,0 +1,11 @@
+{
+  this.uiList=uiList;
+  this.context=context;
+  this.listListener=new UiListListener(){
+    @Override public void onListUpdated(){
+      notifyDataSetChanged();
+    }
+  }
+;
+  uiList.addListener(listListener);
+}

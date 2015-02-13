@@ -1,0 +1,20 @@
+{
+  V item=getItem(position);
+  if (stackFromBottom) {
+    if (position < LOAD_GAP) {
+      engine.requestLoadTail();
+    }
+ else     if (position > getCount() - LOAD_GAP) {
+      engine.requestLoadHead();
+    }
+  }
+ else {
+    if (position > getCount() - LOAD_GAP) {
+      engine.requestLoadTail();
+    }
+ else     if (position < LOAD_GAP) {
+      engine.requestLoadHead();
+    }
+  }
+  return getView(item,position,convertView,parent);
+}

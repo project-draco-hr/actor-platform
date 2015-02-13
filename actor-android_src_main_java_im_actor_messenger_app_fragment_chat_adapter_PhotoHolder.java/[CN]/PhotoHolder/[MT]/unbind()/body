@@ -1,0 +1,8 @@
+{
+  super.unbind();
+  UploadModel.uploadState(message.getRid()).removeUiSubscriber(uploadStateListener);
+  if (fileMessage.getLocation() != null) {
+    DownloadModel.downloadState(fileMessage.getLocation().getFileId()).removeUiSubscriber(downloadStateListener);
+  }
+  imageKitView.noRequest();
+}

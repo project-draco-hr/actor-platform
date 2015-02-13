@@ -1,0 +1,7 @@
+{
+  if (insertOrReplaceStatement == null) {
+    String sql=String.format("INSERT OR REPLACE INTO '%s' (ID,BYTES) VALUES (?,?)",tablename);
+    insertOrReplaceStatement=db.compileStatement(sql);
+  }
+  return insertOrReplaceStatement;
+}

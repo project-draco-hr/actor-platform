@@ -1,0 +1,15 @@
+{
+  fileWriter=new SafeFileWriter(context,"auth.bin");
+  byte[] data=fileWriter.loadData();
+  if (data != null && data.length > 0) {
+    try {
+      auth=Bser.parse(AuthState.class,data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  if (auth == null) {
+    auth=new AuthState(false,0);
+  }
+}

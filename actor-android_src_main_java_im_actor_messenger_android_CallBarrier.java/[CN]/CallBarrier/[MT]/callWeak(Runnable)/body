@@ -1,0 +1,6 @@
+{
+  checkUiThread();
+  if (!isPaused) {
+    runnable.run();
+  }
+}

@@ -1,0 +1,2 @@
+Checkable checkable
+ValueModel<Boolean> isChecked

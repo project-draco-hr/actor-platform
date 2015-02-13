@@ -1,0 +1,22 @@
+{
+  ask(future,new UiAskCallback<T>(){
+    private ProgressDialog progressDialog;
+    @Override public void onPreStart(){
+      progressDialog=new ProgressDialog(getActivity());
+      progressDialog.setMessage(progress);
+      progressDialog.setCancelable(false);
+      progressDialog.setCanceledOnTouchOutside(false);
+      progressDialog.show();
+      callback.onPreStart();
+    }
+    @Override public void onCompleted(    T res){
+      progressDialog.dismiss();
+      callback.onCompleted(res);
+    }
+    @Override public void onError(    Throwable t){
+      progressDialog.dismiss();
+      callback.onError(t);
+    }
+  }
+);
+}

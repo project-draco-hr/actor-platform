@@ -1,0 +1,26 @@
+{
+  boolean hasDeletions=false;
+  UserSpan[] spans=editable.getSpans(0,editable.length(),UserSpan.class);
+  for (  Integer u : selectedUsers) {
+    boolean founded=false;
+    for (    UserSpan span : spans) {
+      if (span.getUser().getId() == u) {
+        if (editable.getSpanStart(span) == editable.getSpanEnd(span)) {
+          break;
+        }
+ else {
+          founded=true;
+          break;
+        }
+      }
+    }
+    if (!founded) {
+      hasDeletions=true;
+      selectedUsers.remove(u);
+    }
+  }
+  if (hasDeletions) {
+    getActivity().invalidateOptionsMenu();
+    listView.invalidateViews();
+  }
+}

@@ -1,0 +1,13 @@
+{
+  database.beginTransaction();
+  try {
+    for (    long id : ids) {
+      Object[] args=new Object[]{tableId,id};
+      database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"LIST_ID\"=? AND \"ID\"=?",args);
+    }
+    database.setTransactionSuccessful();
+  }
+  finally {
+    database.endTransaction();
+  }
+}

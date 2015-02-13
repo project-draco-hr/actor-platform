@@ -1,0 +1,27 @@
+{
+  if (stateId == STATE_CODE_SENDING) {
+    progress.setVisibility(View.VISIBLE);
+    keyboardHelper.setImeVisibility(smsCodeEnterEditText,false);
+    hideError();
+  }
+ else   if (stateId == STATE_CODE_SEND_ERROR) {
+    progress.setVisibility(View.VISIBLE);
+    keyboardHelper.setImeVisibility(smsCodeEnterEditText,false);
+    if (t instanceof ApiRequestException) {
+      if ("PHONE_CODE_EXPIRED".equals(((ApiRequestException)t).getErrorTag())) {
+        showError(-1,t);
+      }
+    }
+    showError(stateId,t);
+  }
+ else   if (stateId == STATE_REQUESTED_SMS) {
+    progress.setVisibility(View.GONE);
+    smsCodeEnterEditText.requestFocus();
+    keyboardHelper.setImeVisibility(smsCodeEnterEditText,true);
+    hideError();
+  }
+ else {
+    hideError();
+    rawNavigate(stateId,isAnimated);
+  }
+}

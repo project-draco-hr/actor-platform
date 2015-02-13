@@ -1,0 +1,7 @@
+{
+  mode=MODE_FULL;
+  showAvatar=false;
+  avatarView.setVisibility(GONE);
+  findMessageView().setLayoutParams(new MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  requestLayout();
+}

@@ -1,0 +1,3 @@
+{
+  super(im.actor.messenger.storage.scheme.messages.ConversationMessage.class);
+}

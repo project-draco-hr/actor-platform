@@ -1,0 +1,8 @@
+{
+  DialogItem item=listEngine.getValue(DialogUids.getDialogUid(0,uid));
+  if (item != null) {
+    DialogItem itm2=new DialogItemBuilder(item).setAvatar(avatar).createDialogItem();
+    listEngine.addOrUpdateItem(itm2);
+    index(itm2);
+  }
+}

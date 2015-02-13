@@ -1,0 +1,7 @@
+{
+  if (!isCallbackBlocked) {
+    isInternal=true;
+    setImageBitmap(null);
+    isInternal=false;
+  }
+}

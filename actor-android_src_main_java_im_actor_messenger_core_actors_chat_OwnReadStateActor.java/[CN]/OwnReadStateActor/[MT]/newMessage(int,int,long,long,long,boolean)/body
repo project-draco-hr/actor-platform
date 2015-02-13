@@ -1,0 +1,19 @@
+{
+  long uid=DialogUids.getDialogUid(chatType,chatId);
+  ReadState readState=readStates().get(uid);
+  if (readState != null && sortingKey <= readState.getLastReadSortingKey()) {
+    if (isEncrypted) {
+      system().actorOf(ReadEncryptedActor.messageReader()).send(new ReadEncryptedActor.Read(chatType,chatId,rid));
+    }
+ else {
+    }
+    return;
+  }
+  if (isEncrypted) {
+    getEncryptedUnread(uid).add(new UnreadMessage(rid,sortingKey,date));
+  }
+ else {
+    getPlainUnread(uid).add(new UnreadMessage(rid,sortingKey,date));
+  }
+  DialogsActor.dialogs().onCounterChanged(chatType,chatId,getEncryptedUnread(uid).size() + getPlainUnread(uid).size());
+}

@@ -1,0 +1,8 @@
+{
+  if (BuildConfig.ENABLE_CHROME) {
+    return shareAvatar(location);
+  }
+ else {
+    return new Intent(Intent.ACTION_VIEW).setDataAndType(getAvatarUri(location),"image/jpeg");
+  }
+}

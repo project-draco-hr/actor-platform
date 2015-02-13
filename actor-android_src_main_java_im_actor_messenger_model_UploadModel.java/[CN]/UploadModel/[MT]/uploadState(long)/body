@@ -1,0 +1,8 @@
+{
+synchronized (uploadModels) {
+    if (!uploadModels.containsKey(rid)) {
+      uploadModels.put(rid,new ValueModel<UploadState>("upload." + rid,new UploadState(UploadState.State.NONE,0)));
+    }
+    return uploadModels.get(rid);
+  }
+}

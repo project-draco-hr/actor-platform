@@ -1,0 +1,5 @@
+{
+  pendingNotifications.clear();
+  currentNotifications.clear();
+  hideNotification();
+}

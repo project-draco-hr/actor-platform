@@ -1,0 +1,4 @@
+{
+  super.serialize(writer);
+  writer.writeString(1,newTitle);
+}

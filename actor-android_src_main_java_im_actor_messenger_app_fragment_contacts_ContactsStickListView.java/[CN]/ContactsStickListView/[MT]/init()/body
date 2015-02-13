@@ -1,0 +1,14 @@
+{
+  super.setOnScrollListener(new ScrollListener());
+  HEADER_PAINT.setTypeface(Fonts.medium());
+  HEADER_PAINT.setColor(getResources().getColor(R.color.primary));
+  HEADER_PAINT.setTextSize(Screen.sp(18));
+  HEADER_PAINT.setAntiAlias(true);
+  HEADER_BG.setColor(getResources().getColor(R.color.bg_light));
+  HEADER_BG.setStyle(Paint.Style.FILL);
+  HEADER_HEIGHT=Screen.dp(64);
+  HEADER_LEFT_PADDING=Screen.dp(6);
+  HEADER_WIDTH=Screen.dp(40);
+  HEADER_TEXT_HEIGHT=HEADER_PAINT.descent() - HEADER_PAINT.ascent();
+  HEADER_TOP=(HEADER_HEIGHT - HEADER_TEXT_HEIGHT) / 2.0f - HEADER_PAINT.ascent();
+}

@@ -1,0 +1,4 @@
+{
+  Object[] args=new Object[]{valueContainer.getId(),valueContainer.getOrder(),valueContainer.getQuery(),valueContainer.getData()};
+  database.execSQL("REPLACE INTO \"" + tableName + "\" (\"ID\",\"ORDER\",\"QUERY\",\"BYTES\") VALUES (?,?,?,?)",args);
+}

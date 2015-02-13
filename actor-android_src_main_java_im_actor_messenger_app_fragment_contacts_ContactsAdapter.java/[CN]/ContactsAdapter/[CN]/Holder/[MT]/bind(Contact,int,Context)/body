@@ -1,0 +1,49 @@
+{
+  String shortName=getFastName(data.getName());
+  if (position == 0) {
+    fastTitle.setVisibility(View.VISIBLE);
+    fastTitle.setText(shortName);
+  }
+ else {
+    Contact contact=getUiList().getItem(position - 1);
+    String prevShortName=getFastName(contact.getName());
+    if (shortName.equals(prevShortName)) {
+      fastTitle.setVisibility(View.GONE);
+    }
+ else {
+      fastTitle.setVisibility(View.VISIBLE);
+      fastTitle.setText(shortName);
+    }
+  }
+  avatar.setEmptyDrawable(AvatarDrawable.create(data,24,context));
+  if (data.getAvatar() != null) {
+    avatar.bindAvatar(Screen.dp(54),data.getAvatar());
+  }
+ else {
+    avatar.unbind();
+  }
+  if (query.length() > 0) {
+    title.setText(SearchHighlight.highlightQuery(data.getName(),query,0xff0277bd));
+  }
+ else {
+    title.setText(data.getName());
+  }
+  if (selectable) {
+    isSelected.setChecked(selectedUsers.contains(data.getUid()));
+  }
+  cont.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onItemClickedListener.onClicked(data);
+    }
+  }
+);
+  if (onItemLongClickedListener != null) {
+    cont.setOnLongClickListener(new View.OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        onItemLongClickedListener.onClicked(data);
+        return true;
+      }
+    }
+);
+  }
+}

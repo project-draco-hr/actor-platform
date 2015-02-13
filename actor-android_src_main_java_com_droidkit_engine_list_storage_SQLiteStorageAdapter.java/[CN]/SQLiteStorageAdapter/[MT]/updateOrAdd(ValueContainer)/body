@@ -1,0 +1,10 @@
+{
+  if (enableSearch) {
+    Object[] args=new Object[]{tableId,valueContainer.getId(),valueContainer.getQuery(),valueContainer.getOrder(),valueContainer.getData()};
+    database.execSQL("REPLACE INTO \"" + tableName + "\" (\"LIST_ID\",\"ID\",\"QUERY\",\"SORT_KEY\",\"BYTES\") VALUES (?,?,?,?,?)",args);
+  }
+ else {
+    Object[] args=new Object[]{tableId,valueContainer.getId(),valueContainer.getOrder(),valueContainer.getData()};
+    database.execSQL("REPLACE INTO \"" + tableName + "\" (\"LIST_ID\",\"ID\",\"SORT_KEY\",\"BYTES\") VALUES (?,?,?,?)",args);
+  }
+}

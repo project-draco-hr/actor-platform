@@ -1,0 +1,30 @@
+{
+  if (a.size() != b.size()) {
+    return false;
+  }
+  for (  GroupMember a1 : a) {
+    boolean isFounded=false;
+    for (    GroupMember b1 : b) {
+      if (a1.equals(b1)) {
+        isFounded=true;
+        break;
+      }
+    }
+    if (isFounded) {
+      return false;
+    }
+  }
+  for (  GroupMember b1 : b) {
+    boolean isFounded=false;
+    for (    GroupMember a1 : a) {
+      if (a1.equals(b1)) {
+        isFounded=true;
+        break;
+      }
+    }
+    if (isFounded) {
+      return false;
+    }
+  }
+  return true;
+}

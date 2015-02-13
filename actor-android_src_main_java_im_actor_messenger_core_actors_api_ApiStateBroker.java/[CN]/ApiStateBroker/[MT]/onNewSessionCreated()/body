@@ -1,0 +1,5 @@
+{
+  Logger.w(TAG,"Received NewSessionCreated");
+  seqActor.send(new NewSessionCreated());
+  usersPresence.send(new NewSessionCreated());
+}

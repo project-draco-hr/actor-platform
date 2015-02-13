@@ -1,0 +1,4 @@
+{
+  applyOpenSSLFix();
+  installLinuxPRNGSecureRandom();
+}

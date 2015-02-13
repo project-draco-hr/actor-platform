@@ -1,0 +1,4 @@
+{
+  String sender=users().get(pendingNotification.getUid()).getName();
+  return sender + ": " + getNotificationText(pendingNotification);
+}

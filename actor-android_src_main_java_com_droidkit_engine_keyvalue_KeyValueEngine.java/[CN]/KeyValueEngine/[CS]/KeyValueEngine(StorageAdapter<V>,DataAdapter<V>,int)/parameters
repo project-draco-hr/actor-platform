@@ -1,0 +1,3 @@
+StorageAdapter<V> storageAdapter
+DataAdapter<V> dataAdapter
+int inMemoryCacheSize

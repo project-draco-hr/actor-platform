@@ -1,0 +1,27 @@
+{
+  query=query.trim();
+synchronized (LOCK) {
+    currentQuery=query;
+    currentRequest=REQ_ID.incrementAndGet();
+    this.state.change(new SearchState<T>(SearchState.State.SEARCHING));
+    if (query.length() > 0) {
+      final int req=currentRequest;
+      engine.query(query,new ValuesCallback<T>(){
+        @Override public void values(        ArrayList<T> value){
+synchronized (LOCK) {
+            if (currentRequest != req) {
+              return;
+            }
+            resultList.editList(Modifications.replace(value));
+            state.change(new SearchState<T>(SearchState.State.COMPLETED,value));
+          }
+        }
+      }
+);
+    }
+ else {
+      resultList.editList(Modifications.clear());
+      this.state.change(new SearchState<T>(SearchState.State.EMPTY));
+    }
+  }
+}

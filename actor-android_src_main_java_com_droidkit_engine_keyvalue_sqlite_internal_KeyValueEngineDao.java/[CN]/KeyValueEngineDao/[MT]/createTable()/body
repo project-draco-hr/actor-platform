@@ -1,0 +1,6 @@
+{
+  if (!isTableExists()) {
+    String constraint="IF NOT EXISTS ";
+    db.execSQL("CREATE TABLE " + constraint + "'"+ tableName+ "' ("+ "'ID' INTEGER NOT NULL,"+ "'BYTES' BLOB NOT NULL,"+ "PRIMARY KEY('ID'));");
+  }
+}

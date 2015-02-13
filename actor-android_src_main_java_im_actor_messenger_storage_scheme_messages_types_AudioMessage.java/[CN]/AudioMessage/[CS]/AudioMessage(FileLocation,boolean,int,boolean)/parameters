@@ -1,0 +1,4 @@
+FileLocation location
+boolean isDownloaded
+int duration
+boolean isEncrypted

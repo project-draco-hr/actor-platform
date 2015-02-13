@@ -1,0 +1,16 @@
+{
+  GlobalSearch object=getItem(position);
+  ViewHolder<GlobalSearch> holder;
+  View view;
+  if (convertView == null || convertView.getTag() == null) {
+    holder=new Holder();
+    view=holder.init(object,parent,context);
+    view.setTag(holder);
+  }
+ else {
+    holder=(ViewHolder<GlobalSearch>)convertView.getTag();
+    view=convertView;
+  }
+  holder.bind(object,position,context);
+  return view;
+}

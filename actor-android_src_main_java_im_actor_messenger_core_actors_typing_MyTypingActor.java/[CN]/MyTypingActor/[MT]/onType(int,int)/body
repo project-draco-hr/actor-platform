@@ -1,0 +1,20 @@
+{
+  if (SystemClock.uptimeMillis() - lastRequest < TYPING_DELAY) {
+    return;
+  }
+  lastRequest=SystemClock.uptimeMillis();
+  if (chatType == DialogType.TYPE_USER) {
+    UserModel userModel=users().get(chatId);
+    if (userModel == null) {
+      return;
+    }
+    requests().typing(new OutPeer(PeerType.PRIVATE,chatId,userModel.getAccessHash()),0,5000);
+  }
+ else   if (chatType == DialogType.TYPE_GROUP) {
+    GroupModel groupModel=groups().get(chatId);
+    if (groupModel == null) {
+      return;
+    }
+    requests().typing(new OutPeer(PeerType.GROUP,chatId,groupModel.getAccessHash()),0,5000);
+  }
+}

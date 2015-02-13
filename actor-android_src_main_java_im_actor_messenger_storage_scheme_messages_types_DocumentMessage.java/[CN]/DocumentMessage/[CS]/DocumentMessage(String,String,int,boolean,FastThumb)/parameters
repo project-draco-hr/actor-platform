@@ -1,0 +1,5 @@
+String uploadPath
+String name
+int size
+boolean isEncrypted
+FastThumb fastThumb

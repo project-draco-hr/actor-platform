@@ -1,0 +1,36 @@
+{
+  if (documentMessage.getUploadPath() != null) {
+switch (UploadModel.uploadState(message.getRid()).getValue().getState()) {
+default :
+case NONE:
+      MessageDeliveryActor.messageSender().mediaTryAgain(type,id,message.getRid());
+    break;
+case UPLOADING:
+  MessageDeliveryActor.messageSender().mediaPause(type,id,message.getRid());
+break;
+case UPLOADED:
+break;
+}
+}
+ else {
+if (documentMessage.isDownloaded()) {
+Downloaded d=KeyValueEngines.downloaded().get(documentMessage.getLocation().getFileId());
+if (d == null) {
+return;
+}
+context.startActivity(Intents.openDoc(d));
+}
+ else {
+switch (DownloadModel.downloadState(documentMessage.getLocation().getFileId()).getValue().getState()) {
+case NONE:
+DownloadManager.downloader().request(type,id,message.getRid(),documentMessage,false);
+break;
+case DOWNLOADING:
+DownloadManager.downloader().pause(documentMessage);
+break;
+case DOWNLOADED:
+break;
+}
+}
+}
+}

@@ -1,0 +1,8 @@
+{
+  return new ActorSelection(Props.create(FileLog.class,new ActorCreator<FileLog>(){
+    @Override public FileLog create(){
+      return new FileLog(fileName);
+    }
+  }
+),fileName);
+}

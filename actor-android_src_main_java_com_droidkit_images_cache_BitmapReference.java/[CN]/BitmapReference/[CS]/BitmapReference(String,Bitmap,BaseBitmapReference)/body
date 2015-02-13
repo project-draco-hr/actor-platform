@@ -1,0 +1,6 @@
+{
+  this.bitmap=bitmap;
+  this.key=key;
+  this.isReleased=false;
+  this.baseReference=reference;
+}

@@ -1,0 +1,15 @@
+{
+  type=reader.getInt(FIELD_CHAT_TYPE);
+  id=reader.getInt(FIELD_CHAT_ID);
+  dialogTitle=reader.getString(FIELD_TITLE);
+  unreadCount=reader.getInt(FIELD_UNREAD);
+  rid=reader.getLong(FIELD_RID);
+  sortKey=reader.getLong(FIELD_SORTKEY);
+  senderId=reader.getInt(FIELD_SENDER_ID);
+  time=reader.getLong(FIELD_TIME);
+  messageType=reader.getInt(FIELD_TYPE);
+  text=reader.optString(FIELD_TEXT);
+  status=MessageState.parse(reader.getInt(FIELD_STATUS));
+  avatar=reader.optObj(FIELD_AVATAR,Avatar.class);
+  relatedUid=reader.optInt(FIELD_RELATED);
+}

@@ -1,0 +1,9 @@
+{
+  try {
+    T res=doWork();
+    complete(res);
+  }
+ catch (  Throwable t) {
+    error(t);
+  }
+}

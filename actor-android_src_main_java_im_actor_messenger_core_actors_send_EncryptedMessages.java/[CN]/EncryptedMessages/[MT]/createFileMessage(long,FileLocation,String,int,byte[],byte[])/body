@@ -1,0 +1,27 @@
+{
+  try {
+    im.actor.api.scheme.encrypted.FastThumb fastThumb2=null;
+    if (thumb != null) {
+      FastThumb fastThumb=Bser.parse(FastThumb.class,thumb);
+      fastThumb2=new im.actor.api.scheme.encrypted.FastThumb(fastThumb.getW(),fastThumb.getH(),fastThumb.getImage());
+    }
+    String mimeType;
+    if (extensionType == 0x01) {
+      mimeType="image/jpeg";
+    }
+ else     if (extensionType == 0x02) {
+      mimeType="video/mp4";
+    }
+ else     if (extensionType == 0x03) {
+      mimeType="audio/ogg";
+    }
+ else {
+      mimeType="application/octet-stream";
+    }
+    return createMessage(randomId,TYPE_FILE,new FileMessage(name,mimeType,createFileLocation(fileLocation),fastThumb2,extensionType,extension).toByteArray());
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return null;
+  }
+}

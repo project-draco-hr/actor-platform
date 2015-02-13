@@ -1,0 +1,4 @@
+{
+  this.chatType=chatType;
+  this.chatId=chatId;
+}

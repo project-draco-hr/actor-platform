@@ -1,0 +1,12 @@
+{
+  HANDLER.post(new Runnable(){
+    @Override public void run(){
+synchronized (subscribers) {
+        for (        S sub : subscribers) {
+          UiNotificator.this.notify(sub,value);
+        }
+      }
+    }
+  }
+);
+}

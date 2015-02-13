@@ -1,0 +1,19 @@
+{
+  writer.writeLong(1,fileId);
+  writer.writeLong(2,accessHash);
+  writer.writeInt(3,fileSize);
+switch (encryption) {
+default :
+case NONE:
+    writer.writeInt(4,1);
+  break;
+case AES:
+writer.writeInt(4,2);
+break;
+case AES_THEN_MAC:
+writer.writeInt(4,4);
+break;
+}
+writer.writeInt(5,encryptedFileSize);
+writer.writeBytes(6,encryptionKey);
+}

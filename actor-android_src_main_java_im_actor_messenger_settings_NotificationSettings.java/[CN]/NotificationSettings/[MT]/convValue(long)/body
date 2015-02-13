@@ -1,0 +1,10 @@
+{
+synchronized (conversationsEnabled) {
+    if (conversationsEnabled.containsKey(id)) {
+      return conversationsEnabled.get(id);
+    }
+    PreferenceBoolean val=new PreferenceBoolean("notifications." + id + ".enabled",notificationPreferences,true);
+    conversationsEnabled.put(id,val);
+    return val;
+  }
+}

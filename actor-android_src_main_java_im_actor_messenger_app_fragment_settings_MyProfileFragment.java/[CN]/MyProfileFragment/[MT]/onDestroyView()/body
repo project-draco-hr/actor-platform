@@ -1,0 +1,7 @@
+{
+  super.onDestroyView();
+  if (avatar != null) {
+    avatar.close();
+    avatar=null;
+  }
+}

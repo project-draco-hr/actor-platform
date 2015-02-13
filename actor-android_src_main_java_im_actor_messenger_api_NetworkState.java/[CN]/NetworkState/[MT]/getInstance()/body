@@ -1,0 +1,11 @@
+{
+  if (instance == null) {
+synchronized (NetworkState.class) {
+      if (instance == null) {
+        instance=new NetworkState();
+        instance.initBroadcastReceiver();
+      }
+    }
+  }
+  return instance;
+}

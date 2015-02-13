@@ -1,0 +1,42 @@
+{
+  Logger.d(TAG,"Completing download");
+  try {
+    randomAccessFile.getFD().sync();
+    randomAccessFile.close();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    error(e);
+    return;
+  }
+  if (fileLocation.getEncryption() == FileLocation.Encryption.NONE) {
+    complete(destFileName);
+  }
+ else   if (fileLocation.getEncryption() == FileLocation.Encryption.AES_THEN_MAC) {
+    ask(FileEncryption.fileEncryption().decryptFile(downloadFileName,fileLocation.getEncryptionKey(),destFileName),new FutureCallback<Boolean>(){
+      @Override public void onResult(      Boolean aBoolean){
+        complete(destFileName);
+      }
+      @Override public void onError(      Throwable throwable){
+        throwable.printStackTrace();
+        error(throwable);
+      }
+    }
+);
+  }
+ else   if (fileLocation.getEncryption() == FileLocation.Encryption.AES) {
+    ask(FileEncryption.fileEncryption().decryptFileAes(downloadFileName,fileLocation.getEncryptionKey(),destFileName),new FutureCallback<Boolean>(){
+      @Override public void onResult(      Boolean aBoolean){
+        complete(destFileName);
+      }
+      @Override public void onError(      Throwable throwable){
+        throwable.printStackTrace();
+        error(throwable);
+      }
+    }
+);
+  }
+ else {
+    error(new RuntimeException("Unsupported encryption type"));
+  }
+}

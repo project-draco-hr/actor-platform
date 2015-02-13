@@ -1,0 +1,8 @@
+{
+  long rid=RandomUtil.randomId();
+  ConversationMessage message=createMessage(rid,System.currentTimeMillis(),MessageState.PENDING,myUid(),content);
+  listEngine.addOrUpdateItem(new MessageModel(message));
+  dialogsActor.onMessageArrived(type,id,message);
+  OwnReadStateActor.readState().newOutMessage(type,id,rid,message.getSortKey(),message.getTime(),message.getContent().isEncrypted());
+  return result(listEngine.getValue(rid));
+}

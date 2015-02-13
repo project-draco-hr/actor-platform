@@ -1,0 +1,14 @@
+{
+  VideoChunks dest=new VideoChunks();
+  dest.setMediaFormat(extractor.getTrackFormat(track));
+  ByteBuffer inputBuffer=ByteBuffer.allocate(5 * 1024 * 1024);
+  int size=0;
+  while ((size=extractor.readSampleData(inputBuffer,0)) >= 0) {
+    long presentationTimeUs=extractor.getSampleTime();
+    int flags=extractor.getSampleFlags();
+    dest.addChunk(inputBuffer,size,flags,presentationTimeUs);
+    inputBuffer.clear();
+    extractor.advance();
+  }
+  return dest;
+}

@@ -1,0 +1,43 @@
+{
+  int chatType=peer.getType() == PeerType.GROUP ? DialogType.TYPE_GROUP : DialogType.TYPE_USER;
+  int chatId=peer.getId();
+  if (content.getType() == 1) {
+    try {
+      im.actor.api.scheme.TextMessage textMessage=Bser.parse(im.actor.api.scheme.TextMessage.class,content.getContent());
+      ConversationActor.conv(chatType,chatId).onInMessage(rid,senderUid,date,new TextMessage(textMessage.getText(),textMessage.getText(),false));
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      return;
+    }
+  }
+ else   if (content.getType() == 3) {
+    try {
+      im.actor.api.scheme.FileMessage fileMessage=Bser.parse(im.actor.api.scheme.FileMessage.class,content.getContent());
+      FileLocation fileLocation=new FileLocation(fileMessage.getFileId(),fileMessage.getAccessHash(),fileMessage.getFileSize(),FileLocation.Encryption.NONE,0,new byte[0]);
+      FastThumb fastThumb=null;
+      if (fileMessage.getThumb() != null) {
+        fastThumb=new FastThumb(fileMessage.getThumb().getW(),fileMessage.getThumb().getH(),fileMessage.getThumb().getThumb());
+      }
+      if (fileMessage.getExtType() == 0x01) {
+        FileExPhoto extension=Bser.parse(FileExPhoto.class,fileMessage.getExt());
+        ConversationActor.conv(chatType,chatId).onInMessage(rid,senderUid,date,new PhotoMessage(fileLocation,extension.getW(),extension.getH(),fastThumb,false));
+      }
+ else       if (fileMessage.getExtType() == 0x02) {
+        FileExVideo extension=Bser.parse(FileExVideo.class,fileMessage.getExt());
+        ConversationActor.conv(chatType,chatId).onInMessage(rid,senderUid,date,new VideoMessage(fileLocation,false,extension.getDuration(),extension.getW(),extension.getH(),fastThumb,false));
+      }
+ else {
+        ConversationActor.conv(chatType,chatId).onInMessage(rid,senderUid,date,new DocumentMessage(fileLocation,false,fileMessage.getName(),fileLocation.getFileSize(),false,fastThumb));
+      }
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      return;
+    }
+  }
+ else {
+    return;
+  }
+  PlainReceivedActor.plainReceive().markReceived(chatType,chatId,date);
+}

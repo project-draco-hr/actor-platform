@@ -1,0 +1,6 @@
+{
+  if (a.getMessage() instanceof CancelTyping && b.getMessage() instanceof CancelTyping) {
+    return ((CancelTyping)a.getMessage()).uid == ((CancelTyping)b.getMessage()).uid;
+  }
+  return super.isEqualEnvelope(a,b);
+}

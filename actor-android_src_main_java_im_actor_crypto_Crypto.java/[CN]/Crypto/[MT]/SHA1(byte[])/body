@@ -1,0 +1,10 @@
+{
+  MessageDigest digest;
+  try {
+    digest=MessageDigest.getInstance("SHA-1");
+    return digest.digest(data);
+  }
+ catch (  NoSuchAlgorithmException e) {
+    throw new RuntimeException("No SHA-1 available");
+  }
+}

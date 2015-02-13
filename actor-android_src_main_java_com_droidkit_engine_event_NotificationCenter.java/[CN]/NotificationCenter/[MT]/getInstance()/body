@@ -1,0 +1,10 @@
+{
+  if (instance == null) {
+synchronized (com.droidkit.engine.event.NotificationCenter.class) {
+      if (instance == null) {
+        instance=new com.droidkit.engine.event.NotificationCenter();
+      }
+    }
+  }
+  return instance;
+}

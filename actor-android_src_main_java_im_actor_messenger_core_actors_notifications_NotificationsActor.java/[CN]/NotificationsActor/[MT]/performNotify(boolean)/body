@@ -1,0 +1,132 @@
+{
+  if (chats.size() == 0 || currentNotifications.size() == 0) {
+    return;
+  }
+  NotificationCompat.Builder builder=new NotificationCompat.Builder(AppContext.getContext());
+  builder.setAutoCancel(true);
+  builder.setSmallIcon(R.drawable.ic_app_notify);
+  builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+  if (SystemClock.uptimeMillis() - lastSoundPlay > SOUND_DELAY && !isSilent) {
+    int defaults=Notification.DEFAULT_LIGHTS;
+    if (notificationSettings.isVibrationEnabled()) {
+      defaults|=Notification.DEFAULT_VIBRATE;
+    }
+    if (notificationSettings.isSoundsEnabled()) {
+      defaults|=Notification.DEFAULT_SOUND;
+    }
+    builder.setDefaults(defaults);
+    lastSoundPlay=SystemClock.uptimeMillis();
+  }
+ else {
+    builder.setDefaults(Notification.DEFAULT_LIGHTS);
+  }
+  Notification result;
+  if (!notificationSettings.isShowTitles()) {
+    builder.setContentTitle(AppContext.getContext().getString(R.string.app_name));
+    if (chats.size() == 1) {
+      PendingNotification pendingNotification=currentNotifications.get(0);
+      if (currentNotifications.size() == 1) {
+        builder.setTicker("1 new message");
+        builder.setContentText("1 new message");
+      }
+ else {
+        builder.setTicker(currentNotifications.size() + " new messages");
+        builder.setContentText(currentNotifications.size() + " new messages");
+      }
+      builder.setContentIntent(PendingIntent.getActivity(AppContext.getContext(),RandomUtil.randomInt(),Intents.openDialog(pendingNotification.getConvType(),pendingNotification.getConvId(),false,AppContext.getContext()),PendingIntent.FLAG_UPDATE_CURRENT));
+    }
+ else {
+      builder.setTicker(currentNotifications.size() + " new messages from " + chats.size()+ " readStates");
+      builder.setContentText(currentNotifications.size() + " new messages from " + chats.size()+ " readStates");
+      builder.setContentIntent(PendingIntent.getActivity(AppContext.getContext(),RandomUtil.randomInt(),new Intent(AppContext.getContext(),MainActivity.class),PendingIntent.FLAG_UPDATE_CURRENT));
+    }
+    result=builder.build();
+  }
+ else {
+    if (chats.size() == 1) {
+      PendingNotification pendingNotification=currentNotifications.get(0);
+      if (currentNotifications.size() == 1) {
+        CharSequence text=getNotificationTextFull(pendingNotification);
+        String sender=getNotificationSender(pendingNotification);
+        builder.setTicker(getNotificationTextFull(pendingNotification));
+        builder.setContentTitle(sender);
+        builder.setContentText(text);
+        builder.setContentIntent(PendingIntent.getActivity(AppContext.getContext(),0,Intents.openDialog(pendingNotification.getConvType(),pendingNotification.getConvId(),false,AppContext.getContext()),0));
+        NotificationCompat.BigTextStyle inboxStyle=new NotificationCompat.BigTextStyle(builder);
+        inboxStyle.setBigContentTitle(sender);
+        inboxStyle.bigText(getNotificationText(pendingNotification));
+        result=inboxStyle.build();
+      }
+ else {
+        NotificationCompat.InboxStyle inboxStyle;
+        if (pendingNotification.getConvType() == DialogType.TYPE_USER) {
+          String title=users().get(pendingNotification.getConvId()).getName();
+          builder.setContentTitle(title);
+          builder.setTicker("Messages from " + title);
+          builder.setContentText("Messages from " + title);
+          inboxStyle=new NotificationCompat.InboxStyle(builder);
+          inboxStyle.setBigContentTitle(title);
+          if (currentNotifications.size() <= 5) {
+            for (            PendingNotification notification : currentNotifications) {
+              inboxStyle.addLine(getNotificationText(notification));
+            }
+            inboxStyle.setSummaryText(currentNotifications.size() + " new messages");
+          }
+ else {
+            for (int i=0; i < 5; i++) {
+              PendingNotification notification=currentNotifications.get(i);
+              inboxStyle.addLine(getNotificationText(notification));
+            }
+            inboxStyle.setSummaryText("+ " + (currentNotifications.size() - 5) + " more");
+          }
+        }
+ else {
+          String title=groups().get(pendingNotification.getConvId()).getTitle();
+          builder.setContentTitle(title);
+          builder.setTicker("Messages in " + title);
+          builder.setContentText("Messages in " + title);
+          inboxStyle=new NotificationCompat.InboxStyle(builder);
+          inboxStyle.setBigContentTitle(title);
+          if (currentNotifications.size() <= 5) {
+            for (            PendingNotification notification : currentNotifications) {
+              inboxStyle.addLine(getNotificationTextSender(notification));
+            }
+            inboxStyle.setSummaryText(currentNotifications.size() + " new messages");
+          }
+ else {
+            for (int i=0; i < 5; i++) {
+              PendingNotification notification=currentNotifications.get(i);
+              inboxStyle.addLine(getNotificationTextSender(notification));
+            }
+            inboxStyle.setSummaryText("+ " + (currentNotifications.size() - 5) + " more");
+          }
+        }
+        builder.setContentIntent(PendingIntent.getActivity(AppContext.getContext(),RandomUtil.randomInt(),Intents.openDialog(pendingNotification.getConvType(),pendingNotification.getConvId(),false,AppContext.getContext()),0));
+        result=inboxStyle.build();
+      }
+    }
+ else {
+      builder.setTicker(currentNotifications.size() + " new messages");
+      builder.setContentText(currentNotifications.size() + " new messages");
+      builder.setContentTitle(AppContext.getContext().getString(R.string.app_name));
+      builder.setContentIntent(PendingIntent.getActivity(AppContext.getContext(),RandomUtil.randomInt(),new Intent(AppContext.getContext(),MainActivity.class),0));
+      NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle(builder);
+      if (currentNotifications.size() <= 5) {
+        for (        PendingNotification notification : currentNotifications) {
+          inboxStyle.addLine(getNotificationTextFull(notification));
+        }
+        inboxStyle.setSummaryText(currentNotifications.size() + " new messages");
+      }
+ else {
+        for (int i=0; i < 5; i++) {
+          PendingNotification notification=currentNotifications.get(i);
+          inboxStyle.addLine(getNotificationTextFull(notification));
+        }
+        inboxStyle.setSummaryText("+ " + (currentNotifications.size() - 5) + " more");
+      }
+      result=inboxStyle.build();
+    }
+  }
+  NotificationManager manager=(NotificationManager)AppContext.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+  manager.notify(NOTIFICATION_ID,result);
+}

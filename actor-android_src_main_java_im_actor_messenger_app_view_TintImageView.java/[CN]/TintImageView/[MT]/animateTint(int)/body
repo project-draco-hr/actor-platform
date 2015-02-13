@@ -1,0 +1,6 @@
+{
+  this.startTintColor=currentTintColor;
+  this.destTintColor=destColor;
+  this.animationStart=SystemClock.uptimeMillis();
+  invalidate();
+}

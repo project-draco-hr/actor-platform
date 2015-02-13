@@ -1,0 +1,5 @@
+{
+  if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+    throw new RuntimeException("Unable to call method not from ui thread");
+  }
+}

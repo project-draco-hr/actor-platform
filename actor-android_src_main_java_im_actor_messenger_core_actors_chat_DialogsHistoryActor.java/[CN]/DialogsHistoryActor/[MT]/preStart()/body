@@ -1,0 +1,7 @@
+{
+  super.preStart();
+  state=new BserPersistence<State>(AppContext.getContext(),"dialogs.ini",State.class);
+  if (state.getObj() == null) {
+    state.setObj(new State(0,false));
+  }
+}

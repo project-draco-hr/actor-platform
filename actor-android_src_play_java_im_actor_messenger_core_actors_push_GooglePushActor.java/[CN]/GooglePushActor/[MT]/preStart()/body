@@ -1,0 +1,21 @@
+{
+  if (!BuildConfig.ENABLE_GOOGLE_PLAY) {
+    return;
+  }
+  sharedPreferences=AppContext.getContext().getSharedPreferences("google_push.ini",Context.MODE_PRIVATE);
+  isRegistered=new PreferenceBoolean("push.registered",sharedPreferences,false);
+  isRegisteredOnServer=new PreferenceBoolean("push.registered_server",sharedPreferences,false);
+  token=new PreferenceString("push.token",sharedPreferences,null);
+  backoff=new ExponentialBackoff();
+  if (!isRegistered.getValue()) {
+    Logger.d(TAG,"Requesting registration");
+    self().send(new TryRegister());
+  }
+ else {
+    Logger.d(TAG,"Already registered");
+    if (!isRegisteredOnServer.getValue()) {
+      Logger.d(TAG,"Not sent to server: requesting send");
+      sendToken();
+    }
+  }
+}

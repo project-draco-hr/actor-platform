@@ -1,0 +1,8 @@
+{
+  if (stateId == STATE_CODE_SEND_ERROR) {
+    auth().resetCodeSend();
+  }
+ else   if (stateId == -1) {
+    auth().resetAuth();
+  }
+}

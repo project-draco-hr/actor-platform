@@ -1,0 +1,17 @@
+{
+  ViewHolder<V> holder;
+  View view;
+  if (convertView == null || convertView.getTag() == null) {
+    holder=createHolder(object);
+    view=holder.init(object,parent,context);
+    view.setTag(holder);
+    holders.add(holder);
+  }
+ else {
+    holder=(ViewHolder<V>)convertView.getTag();
+    view=convertView;
+  }
+  holder.bind(object,position,context);
+  afterItemLoaded(object,position);
+  return view;
+}

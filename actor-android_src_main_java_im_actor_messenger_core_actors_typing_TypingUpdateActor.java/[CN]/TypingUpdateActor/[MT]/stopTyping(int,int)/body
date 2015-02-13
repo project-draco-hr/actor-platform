@@ -1,0 +1,21 @@
+{
+  int[] val=TypingModel.groupChatTyping(groupId).getValue();
+  boolean founded=false;
+  for (  int u : val) {
+    if (u == uid) {
+      founded=true;
+      break;
+    }
+  }
+  if (!founded) {
+    return;
+  }
+  int[] val2=new int[val.length - 1];
+  int index=0;
+  for (  int u : val) {
+    if (u != uid) {
+      val2[index++]=u;
+    }
+  }
+  TypingModel.groupChatTyping(groupId).change(val2);
+}

@@ -1,0 +1,2 @@
+StorageAdapter adapter
+DataAdapter<V> dataAdapter

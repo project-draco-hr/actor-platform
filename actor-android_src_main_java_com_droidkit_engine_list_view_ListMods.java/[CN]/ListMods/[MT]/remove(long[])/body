@@ -1,0 +1,21 @@
+{
+  return new ListModification<V>(){
+    @Override public void modify(    List<V> arrayList,    boolean isLast){
+      Iterator<V> it=arrayList.iterator();
+      while (it.hasNext()) {
+        V value=it.next();
+        long srcId=dataAdapter.getId(value);
+        for (        long dstId : ids) {
+          if (dstId == srcId) {
+            it.remove();
+            break;
+          }
+        }
+      }
+      if (isLast) {
+        Collections.sort(arrayList,comparator);
+      }
+    }
+  }
+;
+}

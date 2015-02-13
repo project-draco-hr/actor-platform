@@ -1,0 +1,37 @@
+{
+  ConversationActor.conv(chatType,chatId).onUploaded(rid,fileLocation);
+  if (isEncrypted) {
+    byte[] message=EncryptedMessages.createFileMessage(rid,fileLocation,name,extType,extension,thumb);
+    PendingMessage pendingMessage=new PendingMessage(rid,chatType,chatId,message,0,true);
+    pending.put(rid,pendingMessage);
+    sendEncryptedMessage(pendingMessage);
+  }
+ else {
+    FastThumb fastThumb=null;
+    if (thumb != null && thumb.length > 0) {
+      try {
+        fastThumb=Bser.parse(FastThumb.class,thumb);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+    String mimeType;
+    if (extType == 0x01) {
+      mimeType="image/jpeg";
+    }
+ else     if (extType == 0x02) {
+      mimeType="video/mp4";
+    }
+ else     if (extType == 0x03) {
+      mimeType="audio/ogg";
+    }
+ else {
+      mimeType="application/octet-stream";
+    }
+    FileMessage fileMessage=new FileMessage(fileLocation.getFileId(),fileLocation.getAccessHash(),fileLocation.getFileSize(),name,mimeType,fastThumb,extType,extension);
+    PendingMessage pendingMessage=new PendingMessage(rid,chatType,chatId,fileMessage.toByteArray(),3,false);
+    pending.put(rid,pendingMessage);
+    sendPlainMessage(pendingMessage);
+  }
+}

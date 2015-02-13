@@ -1,0 +1,7 @@
+{
+  this.tableName=tableName;
+  this.db=db;
+  this.statements=statements;
+  this.binarySerializator=serializator;
+  createTable();
+}

@@ -1,0 +1,14 @@
+{
+  receiver.clear();
+  releasePrev();
+  if (!isNewDrawn) {
+    transitionStart=0;
+  }
+ else {
+    transitionStart=SystemClock.uptimeMillis();
+  }
+  prevDrawable=drawable;
+  drawable=new RoundDrawable(bitmap);
+  isNewDrawn=false;
+  postInvalidate();
+}

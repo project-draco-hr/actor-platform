@@ -1,0 +1,19 @@
+{
+  writer.writeInt(FIELD_CHAT_TYPE,type);
+  writer.writeInt(FIELD_CHAT_ID,id);
+  writer.writeString(FIELD_TITLE,dialogTitle);
+  writer.writeInt(FIELD_UNREAD,unreadCount);
+  writer.writeLong(FIELD_RID,rid);
+  writer.writeLong(FIELD_SORTKEY,sortKey);
+  writer.writeInt(FIELD_SENDER_ID,senderId);
+  writer.writeLong(FIELD_TIME,time);
+  writer.writeInt(FIELD_TYPE,messageType);
+  if (text != null) {
+    writer.writeString(FIELD_TEXT,text);
+  }
+  writer.writeInt(FIELD_STATUS,MessageState.serialize(status));
+  if (avatar != null) {
+    writer.writeObject(FIELD_AVATAR,avatar);
+  }
+  writer.writeInt(FIELD_RELATED,relatedUid);
+}

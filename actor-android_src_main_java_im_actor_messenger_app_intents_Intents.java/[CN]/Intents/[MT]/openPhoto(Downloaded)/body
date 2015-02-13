@@ -1,0 +1,8 @@
+{
+  if (BuildConfig.ENABLE_CHROME) {
+    return sharePhoto(downloaded);
+  }
+ else {
+    return new Intent(Intent.ACTION_VIEW).setDataAndType(getDocUri(downloaded),"image/jpeg");
+  }
+}

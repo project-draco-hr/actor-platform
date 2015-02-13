@@ -1,0 +1,3 @@
+{
+  return ActorSystem.system().actorOf(GroupPresenceActor.class,"groups_presence");
+}

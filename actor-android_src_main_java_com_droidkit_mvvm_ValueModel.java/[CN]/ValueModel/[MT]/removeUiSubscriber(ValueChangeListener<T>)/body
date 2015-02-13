@@ -1,0 +1,3 @@
+{
+  uiNotificator.unsubscribe(sub);
+}

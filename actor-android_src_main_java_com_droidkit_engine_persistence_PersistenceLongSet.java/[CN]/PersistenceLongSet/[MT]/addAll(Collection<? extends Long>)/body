@@ -1,0 +1,6 @@
+{
+  for (  Long l : collection) {
+    map.put(l,Boolean.TRUE);
+  }
+  return false;
+}

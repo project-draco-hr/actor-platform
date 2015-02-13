@@ -1,0 +1,6 @@
+{
+  super.onCreate();
+  Mint.initAndStartSession(ActorApplication.this,"4345135a");
+  Core.init(this);
+  startService(new Intent(this,KeepAliveService.class));
+}

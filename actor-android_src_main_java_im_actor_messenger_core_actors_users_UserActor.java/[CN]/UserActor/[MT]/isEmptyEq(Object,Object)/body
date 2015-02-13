@@ -1,0 +1,12 @@
+{
+  if (a == null && b == null) {
+    return true;
+  }
+  if (a != null && b == null) {
+    return false;
+  }
+  if (b != null && a == null) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,8 @@
+{
+  this.conversationMessage=conversationMessage;
+  this.rid=conversationMessage.getRid();
+  this.sortingKey=conversationMessage.getSortKey();
+  if (conversationMessage.getContent() instanceof AudioMessage && ((AudioMessage)conversationMessage.getContent()).isDownloaded()) {
+    audioState=new ValueModel<AudioState>("audio." + rid + ".state",new AudioState(AudioState.State.STOPPED));
+  }
+}

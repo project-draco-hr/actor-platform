@@ -1,0 +1,10 @@
+{
+  Cursor cursor;
+  if (sortKey == null) {
+    cursor=database.query("\"" + tableName + "\"",new String[]{"\"LIST_ID\"","\"ID\"","\"SORT_KEY\"","\"BYTES\""},"\"LIST_ID\"=?",new String[]{String.valueOf(tableId)},null,null,"SORT_KEY DESC",String.valueOf(limit));
+  }
+ else {
+    cursor=database.query("\"" + tableName + "\"",new String[]{"\"ID\",\"SORT_KEY\",\"BYTES\""},"\"LIST_ID\"=? AND \"SORT_KEY\" < ?",new String[]{String.valueOf(tableId),String.valueOf(((SqlKey)sortKey).getSortingKey())},null,null,"\"SORT_KEY\" DESC",String.valueOf(limit));
+  }
+  return loadSlice(cursor);
+}

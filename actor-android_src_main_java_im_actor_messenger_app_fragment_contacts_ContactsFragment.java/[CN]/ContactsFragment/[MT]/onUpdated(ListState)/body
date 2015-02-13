@@ -1,0 +1,16 @@
+{
+switch (listState.getState()) {
+case LOADED:
+    goneView(noContacts);
+  showView(listView);
+break;
+case LOADED_EMPTY:
+showView(noContacts);
+goneView(listView);
+break;
+case LOADING_EMPTY:
+goneView(noContacts);
+goneView(listView);
+break;
+}
+}

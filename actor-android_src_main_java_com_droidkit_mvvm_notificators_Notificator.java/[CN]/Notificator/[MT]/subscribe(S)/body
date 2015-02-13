@@ -1,0 +1,7 @@
+{
+synchronized (subscribers) {
+    if (!subscribers.contains(subs)) {
+      subscribers.add(subs);
+    }
+  }
+}

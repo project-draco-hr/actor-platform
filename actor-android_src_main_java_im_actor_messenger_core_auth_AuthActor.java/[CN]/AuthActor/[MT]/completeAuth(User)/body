@@ -1,0 +1,6 @@
+{
+  users().put(u.getId(),ApiConversion.convert(u));
+  authStorage.logIn(u.getId());
+  processState.changeState(STATE_SIGNED);
+  Core.core().afterLogIn();
+}

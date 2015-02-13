@@ -1,0 +1,8 @@
+{
+  try {
+    return (String)Build.class.getField("SERIAL").get(null);
+  }
+ catch (  Exception ignored) {
+    return null;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  long uid=DialogUids.getDialogUid(chatType,chatId);
+  UnreadMessage unreadMessage=null;
+  Set<UnreadMessage> unread=getEncryptedUnread(uid);
+  for (  UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+    if (u.rid == rid) {
+      unreadMessage=u;
+      break;
+    }
+  }
+  if (unreadMessage != null) {
+    messageRead(chatType,chatId,unreadMessage.rid,unreadMessage.sortKey,unreadMessage.date,true);
+  }
+}

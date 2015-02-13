@@ -1,0 +1,9 @@
+{
+  String fileName=convertToFileName(key);
+  File file=new File(fileName);
+  if (file.exists()) {
+    if (!file.delete()) {
+      file.deleteOnExit();
+    }
+  }
+}

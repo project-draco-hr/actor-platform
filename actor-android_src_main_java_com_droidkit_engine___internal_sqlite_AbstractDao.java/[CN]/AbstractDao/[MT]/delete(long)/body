@@ -1,0 +1,20 @@
+{
+  SQLiteStatement stmt=statements.getDeleteStatement();
+  if (db.isDbLockedByCurrentThread()) {
+synchronized (stmt) {
+      deleteByKeyInsideSynchronized(id,stmt);
+    }
+  }
+ else {
+    db.beginTransaction();
+    try {
+synchronized (stmt) {
+        deleteByKeyInsideSynchronized(id,stmt);
+      }
+      db.setTransactionSuccessful();
+    }
+  finally {
+      db.endTransaction();
+    }
+  }
+}

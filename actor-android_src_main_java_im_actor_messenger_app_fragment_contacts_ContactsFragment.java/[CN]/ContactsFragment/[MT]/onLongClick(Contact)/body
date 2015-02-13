@@ -1,0 +1,26 @@
+{
+  new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.contacts_menu_remove).replace("{0}",contact.getName()),getString(R.string.contacts_menu_edit)},new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      if (which == 0) {
+        new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_remove_contact_text).replace("{0}",contact.getName())).setPositiveButton(R.string.alert_remove_contact_yes,new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            ask(ContactsActor.contactsList().removeContact(contact.getUid()),getString(R.string.contacts_menu_remove_progress),new UiAskCallback<Boolean>(){
+              @Override public void onPreStart(){
+              }
+              @Override public void onCompleted(              Boolean res){
+              }
+              @Override public void onError(              Throwable t){
+              }
+            }
+);
+          }
+        }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
+      }
+ else {
+        startActivity(Intents.editUserName(contact.getUid(),getActivity()));
+      }
+    }
+  }
+).show().setCanceledOnTouchOutside(true);
+}

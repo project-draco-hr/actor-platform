@@ -1,0 +1,4 @@
+int chatId
+long rid
+int inviterId
+long date

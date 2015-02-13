@@ -1,0 +1,4 @@
+{
+  usersPresence=UsersPresence.presence();
+  groupPresence=GroupPresenceActor.groupPresence();
+}

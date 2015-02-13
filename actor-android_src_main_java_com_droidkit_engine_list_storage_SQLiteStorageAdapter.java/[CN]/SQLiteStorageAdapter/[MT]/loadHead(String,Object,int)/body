@@ -1,0 +1,13 @@
+{
+  if (!enableSearch) {
+    throw new RuntimeException("Search not enabled");
+  }
+  Cursor cursor;
+  if (bottomSortingKey == null) {
+    cursor=database.query("\"" + tableName + "\"",new String[]{"\"LIST_ID\"","\"ID\"","\"SORT_KEY\"","\"QUERY\"","\"BYTES\""},"\"LIST_ID\"=? AND (\"QUERY\" LIKE ? OR \"QUERY\" LIKE ?)",new String[]{String.valueOf(tableId),query + "%","% " + query + "%"},null,null,"SORT_KEY ASC",String.valueOf(limit));
+  }
+ else {
+    cursor=database.query("\"" + tableName + "\"",new String[]{"\"ID\",\"SORT_KEY\",\"BYTES\""},"\"LIST_ID\"=? AND (\"QUERY\" LIKE ? OR \"QUERY\" LIKE ?) AND \"SORT_KEY\" > ?",new String[]{String.valueOf(tableId),query + "%","% " + query + "%",String.valueOf(((SqlKey)bottomSortingKey).getSortingKey())},null,null,"\"SORT_KEY\" ASC",String.valueOf(limit));
+  }
+  return loadSlice(cursor);
+}

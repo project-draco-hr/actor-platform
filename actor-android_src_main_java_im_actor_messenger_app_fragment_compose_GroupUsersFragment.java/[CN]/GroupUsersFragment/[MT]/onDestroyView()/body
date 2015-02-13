@@ -1,0 +1,9 @@
+{
+  super.onDestroyView();
+  engineUiList.getUiList().removeListener(this);
+  if (adapter != null) {
+    adapter.dispose();
+    adapter=null;
+  }
+  listView=null;
+}

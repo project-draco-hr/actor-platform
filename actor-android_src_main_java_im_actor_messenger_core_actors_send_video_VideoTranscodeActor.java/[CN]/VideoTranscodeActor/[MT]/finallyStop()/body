@@ -1,0 +1,16 @@
+{
+  if (outputSurface != null) {
+    outputSurface.release();
+  }
+  if (inputSurface != null) {
+    inputSurface.release();
+  }
+  if (encoder != null) {
+    encoder.stop();
+    encoder.release();
+  }
+  if (decoder != null) {
+    decoder.stop();
+    decoder.release();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  super(isEncrypted);
+  this.location=location;
+  this.isDownloaded=isDownloaded;
+}

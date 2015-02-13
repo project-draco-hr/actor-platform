@@ -1,0 +1,7 @@
+{
+  if (reference != null && !reference.isReleased()) {
+    reference.release();
+    reference=null;
+  }
+  shader=null;
+}

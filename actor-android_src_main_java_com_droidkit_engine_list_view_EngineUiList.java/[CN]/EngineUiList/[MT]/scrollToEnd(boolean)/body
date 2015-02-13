@@ -1,0 +1,6 @@
+{
+  if (clear) {
+    clearList();
+  }
+  initBackward();
+}

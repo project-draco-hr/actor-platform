@@ -1,0 +1,3 @@
+{
+  bindShader(bitmap);
+}

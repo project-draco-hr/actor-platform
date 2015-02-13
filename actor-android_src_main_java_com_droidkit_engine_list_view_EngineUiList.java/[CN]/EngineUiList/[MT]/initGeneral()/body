@@ -1,0 +1,3 @@
+{
+  initForward(UiUtil.isMainThread());
+}

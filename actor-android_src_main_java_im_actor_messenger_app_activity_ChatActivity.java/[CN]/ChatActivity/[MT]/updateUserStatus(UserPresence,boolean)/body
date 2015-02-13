@@ -1,0 +1,19 @@
+{
+  String s=Formatter.formatPresence(presence,users().get(chatId).getRaw().getSex());
+  if (s == null) {
+    subtitleContainer.setVisibility(View.GONE);
+  }
+ else {
+    subtitleContainer.setVisibility(View.VISIBLE);
+    subtitle.setText(s);
+  }
+  if (isTyping) {
+    typing.setText(R.string.typing_private);
+    showView(typingContainer);
+    hideView(subtitle);
+  }
+ else {
+    hideView(typingContainer);
+    showView(subtitle);
+  }
+}

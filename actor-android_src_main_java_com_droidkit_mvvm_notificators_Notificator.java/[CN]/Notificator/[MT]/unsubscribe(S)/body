@@ -1,0 +1,5 @@
+{
+synchronized (subscribers) {
+    subscribers.remove(subs);
+  }
+}

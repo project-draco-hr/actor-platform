@@ -1,0 +1,9 @@
+{
+  RawValue[] rawValues=storage.readAll();
+  for (  RawValue rawValue : rawValues) {
+    V res=deserialize(rawValue.getData());
+    if (res != null) {
+      this.backedMap.put(rawValue.getKey(),res);
+    }
+  }
+}

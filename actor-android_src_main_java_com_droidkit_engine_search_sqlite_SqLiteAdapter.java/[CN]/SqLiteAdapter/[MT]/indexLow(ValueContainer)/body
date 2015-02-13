@@ -1,0 +1,14 @@
+{
+  Cursor cursor=database.query(tableName,new String[]{"\"ID\"","\"ORDER\""},"\"ID\" = ?",new String[]{"" + valueContainer.getId()},null,null,null);
+  long order;
+  if (cursor.moveToFirst()) {
+    order=cursor.getLong(cursor.getColumnIndex("ORDER"));
+    if (order < valueContainer.getOrder()) {
+      order=valueContainer.getOrder();
+    }
+  }
+ else {
+    order=valueContainer.getOrder();
+  }
+  index(new ValueContainer(valueContainer.getId(),order,valueContainer.getQuery(),valueContainer.getData()));
+}

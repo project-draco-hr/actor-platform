@@ -1,0 +1,5 @@
+{
+  long a=readUInt(stream);
+  long b=readUInt(stream);
+  return b + (a << 32);
+}

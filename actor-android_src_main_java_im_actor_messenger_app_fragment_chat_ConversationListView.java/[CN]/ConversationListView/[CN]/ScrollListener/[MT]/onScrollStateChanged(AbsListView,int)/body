@@ -1,0 +1,10 @@
+{
+  if (scrollState == SCROLL_STATE_FLING || scrollState == SCROLL_STATE_TOUCH_SCROLL) {
+    handler.removeMessages(DEACTIVATE);
+  }
+  if (scrollState == SCROLL_STATE_IDLE) {
+    handler.removeMessages(DEACTIVATE);
+    handler.sendEmptyMessageDelayed(DEACTIVATE,UI_TIMEOUT);
+  }
+  state=scrollState;
+}

@@ -1,0 +1,11 @@
+{
+  super.postStop();
+  if (randomAccessFile != null) {
+    try {
+      randomAccessFile.close();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

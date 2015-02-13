@@ -1,0 +1,8 @@
+{
+  if (chatType == DialogType.TYPE_USER) {
+    MessageSendActor.messageSender().sendText(chatType,chatId,text,true);
+  }
+ else   if (chatType == DialogType.TYPE_GROUP) {
+    MessageSendActor.messageSender().sendText(chatType,chatId,text,false);
+  }
+}

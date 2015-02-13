@@ -1,0 +1,8 @@
+{
+  if (CurrentActor.getCurrentActor() != null) {
+    logActor.send(new LogRecord(level,tag,msg,throwable),CurrentActor.getCurrentActor().self());
+  }
+ else {
+    logActor.send(new LogRecord(level,tag,msg,throwable));
+  }
+}

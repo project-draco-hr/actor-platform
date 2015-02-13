@@ -1,0 +1,6 @@
+{
+  CountryViewHolder holder;
+  if (convertView == null || convertView.getTag() == null)   holder=new CountryViewHolder();
+ else   holder=(CountryViewHolder)convertView.getTag();
+  return holder.getView(convertView,getItem(position),position,parent,context);
+}

@@ -1,0 +1,11 @@
+{
+  try {
+    MessageDigest md=MessageDigest.getInstance("MD5");
+    byte[] thedigest=md.digest(s);
+    return hex(thedigest);
+  }
+ catch (  NoSuchAlgorithmException e) {
+    e.printStackTrace();
+    throw new RuntimeException();
+  }
+}

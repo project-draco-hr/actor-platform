@@ -1,0 +1,5 @@
+{
+  Long id=nextId++;
+  persistenceMap.put(id,object);
+  mapping.put(object,id);
+}

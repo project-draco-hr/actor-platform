@@ -1,0 +1,9 @@
+{
+  int chatType=peer.getType() == PeerType.GROUP ? DialogType.TYPE_GROUP : DialogType.TYPE_USER;
+  int chatId=peer.getId();
+  long chatUid=DialogUids.getDialogUid(chatType,chatId);
+  MessageModel model=ListEngines.getMessagesListEngine(chatUid).getValue(rid);
+  if (model != null) {
+    ReadStateActor.readState().onNewOutMessage(chatType,chatId,date,rid,model.getContent().isEncrypted());
+  }
+}

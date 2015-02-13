@@ -1,0 +1,7 @@
+{
+  beforeSave();
+  ObjectOutputStream out=new ObjectOutputStream(openWrite(getClass().getName() + ".sav"));
+  out.writeObject(this);
+  out.close();
+  afterSave();
+}

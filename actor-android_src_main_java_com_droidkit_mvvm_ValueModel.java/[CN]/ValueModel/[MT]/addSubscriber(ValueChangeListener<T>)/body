@@ -1,0 +1,4 @@
+{
+  bgNotificator.subscribe(sub);
+  sub.onChanged(value);
+}

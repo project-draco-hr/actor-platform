@@ -1,0 +1,3 @@
+{
+  return new AvatarDrawable(contact.getName(),contact.getUid(),fontSize,context);
+}

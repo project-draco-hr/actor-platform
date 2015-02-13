@@ -1,0 +1,3 @@
+{
+  return loadBitmapOptimized(fileName,MAX_PIXELS);
+}

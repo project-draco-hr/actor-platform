@@ -1,0 +1,10 @@
+{
+  currentRule=new Rule();
+  currentRule.filter=new Filter(){
+    @Override public boolean checkType(    int w,    int h){
+      return true;
+    }
+  }
+;
+  return this;
+}

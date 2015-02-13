@@ -1,0 +1,30 @@
+{
+  try {
+    MediaMetadataRetriever retriever=new MediaMetadataRetriever();
+    retriever.setDataSource(fileName);
+    int duration=(int)(Long.parseLong(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)) / 1000L);
+    Bitmap img=retriever.getFrameAtTime(0);
+    int width=img.getWidth();
+    int height=img.getHeight();
+    Bitmap smallThumb=ImageScaling.scaleFit(img,90,90);
+    byte[] smallThumbData=ImageLoading.saveJpeg(smallThumb,ImageLoading.JPEG_QUALITY_LOW);
+    FastThumb thumb=new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),smallThumbData);
+    byte[] thumbData=thumb.toByteArray();
+    VideoMessage videoMessage=new VideoMessage(fileName,duration,width,height,thumb,isEncrypted);
+    byte[] extension;
+    int extType;
+    if (isEncrypted) {
+      extension=EncryptedMessages.videoMetadata(duration,width,height);
+      extType=0x02;
+    }
+ else {
+      extension=new FileExVideo(width,height,duration).toByteArray();
+      extType=0x02;
+    }
+    sendFile(type,id,"video.mp4",thumbData,videoMessage,extType,extension,isEncrypted);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    ToastActor.get().show("Unable to open video");
+  }
+}

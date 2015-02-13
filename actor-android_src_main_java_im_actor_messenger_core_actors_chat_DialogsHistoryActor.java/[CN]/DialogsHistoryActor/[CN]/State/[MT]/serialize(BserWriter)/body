@@ -1,0 +1,4 @@
+{
+  writer.writeLong(1,maxLoadedDate);
+  writer.writeBool(2,isCompleted);
+}

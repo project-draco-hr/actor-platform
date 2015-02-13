@@ -1,0 +1,19 @@
+{
+  if (isLocked) {
+    pending.add(modification);
+    return;
+  }
+  isLocked=true;
+  long start=System.currentTimeMillis();
+  modification.modify(list.getBackground(),true);
+  if (ENABLE_LOG) {
+    Logger.d("UiList","Modify first phase in " + (System.currentTimeMillis() - start) + " ms");
+  }
+  uiActor.send(new Runnable(){
+    @Override public void run(){
+      list.switchList();
+      self().send(new ListSwitched(switchStart,runnable,modification));
+    }
+  }
+);
+}

@@ -1,0 +1,3 @@
+{
+  return getUidString(GROUP_KICK,uid,getUserName(uid,true),getUserName(kickedUid,false));
+}

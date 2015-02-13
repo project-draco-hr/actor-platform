@@ -1,0 +1,3 @@
+String uploadPath
+int duration
+boolean isEncrypted

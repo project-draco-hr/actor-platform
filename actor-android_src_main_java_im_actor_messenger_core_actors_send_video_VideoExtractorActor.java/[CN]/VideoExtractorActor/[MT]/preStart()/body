@@ -1,0 +1,24 @@
+{
+  super.preStart();
+  MediaMetadataRetriever metaRetriever=new MediaMetadataRetriever();
+  metaRetriever.setDataSource(fileName);
+  int height=Integer.parseInt(metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+  int width=Integer.parseInt(metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
+  extractor=new MediaExtractor();
+  try {
+    extractor.setDataSource(fileName);
+    int trackIndex=selectTrack(extractor);
+    if (trackIndex < 0) {
+      throw new RuntimeException("No video track found in " + fileName);
+    }
+    extractor.selectTrack(trackIndex);
+    nextActor.send(new NotifyMediaFormat(width,height,extractor.getTrackFormat(trackIndex)));
+    inputBuffer=ByteBuffer.allocate(5 * 1024 * 1024);
+    self().sendOnce(new DoIteration());
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    stop();
+    return;
+  }
+}

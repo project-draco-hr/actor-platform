@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  PhoneBookPhone that=(PhoneBookPhone)o;
+  if (id != that.id)   return false;
+  if (number != that.number)   return false;
+  return true;
+}

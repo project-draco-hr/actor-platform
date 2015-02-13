@@ -1,0 +1,8 @@
+{
+  return Props.create(ReceiverActor.class,new ActorCreator<ReceiverActor>(){
+    @Override public ReceiverActor create(){
+      return new ReceiverActor(receiver,imageLoader);
+    }
+  }
+).changeDispatcher("ui");
+}

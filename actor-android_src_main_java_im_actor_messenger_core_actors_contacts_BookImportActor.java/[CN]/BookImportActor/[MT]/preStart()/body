@@ -1,0 +1,5 @@
+{
+  isoCountry=CountryUtil.getDeviceCountry(AppContext.getContext());
+  importedPhones=new PersistenceLongSet(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"imported_phones"));
+  importedEmails=new PersistenceSet<String>(new SerializableMap<String>(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"imported_emails")));
+}

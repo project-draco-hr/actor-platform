@@ -1,0 +1,4 @@
+{
+  this.contactId=contactId;
+  this.name=name;
+}

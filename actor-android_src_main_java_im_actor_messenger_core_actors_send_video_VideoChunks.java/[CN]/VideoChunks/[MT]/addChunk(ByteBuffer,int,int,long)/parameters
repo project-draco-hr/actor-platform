@@ -1,0 +1,4 @@
+ByteBuffer buf
+int size
+int flags
+long time

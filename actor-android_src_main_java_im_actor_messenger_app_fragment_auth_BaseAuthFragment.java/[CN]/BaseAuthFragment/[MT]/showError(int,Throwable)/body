@@ -1,0 +1,63 @@
+{
+  hideError();
+  boolean canTryAgain=false;
+  String message=getString(R.string.error_unknown);
+  if (t instanceof AskTimeoutException) {
+    message=getString(R.string.error_connection);
+    canTryAgain=true;
+  }
+ else   if (t instanceof ApiRequestException) {
+    ApiRequestException e=(ApiRequestException)t;
+    if ("PHONE_CODE_EXPIRED".equals(e.getErrorTag())) {
+      message=getString(R.string.auth_error_code_expired);
+      canTryAgain=false;
+    }
+ else     if ("PHONE_CODE_INVALID".equals(e.getErrorTag())) {
+      message=getString(R.string.auth_error_code_invalid);
+      canTryAgain=false;
+    }
+ else {
+      message=e.getErrorUserMessage();
+      canTryAgain=e.isCanTryAgain();
+    }
+  }
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  builder.setMessage(message);
+  builder.setCancelable(true);
+  if (canTryAgain) {
+    builder.setPositiveButton(R.string.dialog_try_again,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        onErrorRepeat(stateId);
+      }
+    }
+);
+    builder.setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        onErrorCancel(stateId);
+      }
+    }
+);
+  }
+ else {
+    builder.setNegativeButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        onErrorCancel(stateId);
+      }
+    }
+);
+  }
+  builder.setOnCancelListener(new DialogInterface.OnCancelListener(){
+    @Override public void onCancel(    DialogInterface dialog){
+      onErrorCancel(stateId);
+    }
+  }
+);
+  errorDialog=builder.show();
+  errorDialog.setCanceledOnTouchOutside(true);
+  errorDialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
+    @Override public void onDismiss(    DialogInterface dialog){
+      errorDialog=null;
+    }
+  }
+);
+}

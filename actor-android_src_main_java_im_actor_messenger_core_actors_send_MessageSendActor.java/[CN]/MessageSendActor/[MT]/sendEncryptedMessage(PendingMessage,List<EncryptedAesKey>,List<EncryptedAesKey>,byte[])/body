@@ -1,0 +1,34 @@
+{
+  final long randomId=message.getRid();
+  final int uid=message.getConvId();
+  UserModel receiver=users().get(uid);
+  ask(requests().sendEncryptedMessage(new OutPeer(PeerType.PRIVATE,uid,receiver.getAccessHash()),message.getRid(),encryptedMessage,keys,ownKeys),new FutureCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate result){
+      Log.d(TAG,"Sent #" + randomId);
+      pending.remove(randomId);
+      ConversationActor.conv(0,uid).onMessageSent(randomId,result.getDate());
+      system().actorOf(SequenceActor.sequence()).send(new SequenceActor.SeqUpdate(result.getSeq(),result.getState(),new UpdateMessageSent(new Peer(PeerType.PRIVATE,uid),randomId,result.getDate())));
+    }
+    @Override public void onError(    Throwable throwable){
+      Log.d(TAG,"Sent #" + randomId + " error"+ throwable);
+      if (throwable instanceof ApiRequestException) {
+        ApiRequestException apiRequestException=(ApiRequestException)throwable;
+        if (apiRequestException.getErrorTag().equals("WRONG_KEYS")) {
+          try {
+            WrongKeysErrorData data=Bser.parse(WrongKeysErrorData.class,apiRequestException.getRelatedData());
+            UserActor.userActor().onWrongKeys(data.getNewKeys(),data.getInvalidKeys(),data.getRemovedKeys());
+            sendEncryptedMessage(message);
+            Log.d(TAG,"Trying resend #" + randomId);
+            return;
+          }
+ catch (          IOException e) {
+            e.printStackTrace();
+          }
+        }
+      }
+      pending.remove(randomId);
+      ConversationActor.conv(0,uid).onMessageError(randomId);
+    }
+  }
+);
+}

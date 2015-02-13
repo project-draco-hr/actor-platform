@@ -1,0 +1,2 @@
+MessagesFragment fragment
+UiList<MessageModel> uiList

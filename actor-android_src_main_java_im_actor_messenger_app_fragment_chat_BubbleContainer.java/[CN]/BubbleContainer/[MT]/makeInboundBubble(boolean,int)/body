@@ -1,0 +1,29 @@
+{
+  mode=MODE_LEFT;
+  this.showAvatar=showAvatar;
+  if (showAvatar) {
+    avatarView.setVisibility(VISIBLE);
+    UserModel u=users().get(uid);
+    avatarView.setEmptyDrawable(new AvatarDrawable(u.getName(),u.getId(),12,getContext()));
+    Avatar avatar=u.getAvatar().getValue();
+    if (avatar != null) {
+      avatarView.bindAvatar(0,avatar);
+    }
+ else {
+      avatarView.unbind();
+    }
+    avatarView.setOnClickListener(new OnClickListener(){
+      @Override public void onClick(      View v){
+        if (onClickListener != null) {
+          onClickListener.onAvatarClick(uid);
+        }
+      }
+    }
+);
+  }
+ else {
+    avatarView.setVisibility(GONE);
+    avatarView.unbind();
+  }
+  findMessageView().setLayoutParams(new MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+}

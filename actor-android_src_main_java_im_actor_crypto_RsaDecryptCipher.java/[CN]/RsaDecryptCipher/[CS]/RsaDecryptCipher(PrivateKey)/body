@@ -1,0 +1,11 @@
+{
+  this.privateKey=privateKey;
+  this.rsaCipher=Crypto.createRSACipher();
+  try {
+    this.rsaCipher.init(Cipher.DECRYPT_MODE,privateKey);
+  }
+ catch (  InvalidKeyException e) {
+    throw new AssertionError(e);
+  }
+  this.aesCipher=Crypto.createAESCipher();
+}

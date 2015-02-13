@@ -1,0 +1,51 @@
+{
+  try {
+    long start=System.currentTimeMillis();
+    Log.d("ACTOR_INIT","phase2_0 in " + (System.currentTimeMillis() - start) + " ms");
+    start=System.currentTimeMillis();
+    AndroidApiStorage apiStorage=new AndroidApiStorage(AppContext.getContext());
+    ActorApiCallback callback=TypedCreator.typed(system().actorOf(ApiStateBroker.class,"api_state"),ActorApiCallback.class);
+    ApiLogger apiLogger=new ApiLogger();
+    MTProtoEndpoint[] endpoints=new MTProtoEndpoint[]{new MTProtoEndpoint(BuildConfig.API_SSL ? MTProtoEndpoint.EndpointType.TLS_TCP : MTProtoEndpoint.EndpointType.PLAIN_TCP,BuildConfig.API_HOST,BuildConfig.API_PORT)};
+    ActorApiConfig.Builder builder=new ActorApiConfig.Builder().setStorage(apiStorage).setEndpoints(endpoints).setLog(apiLogger).setApiCallback(callback).setChromeSupportEnabled(BuildConfig.ENABLE_CHROME);
+    actorApi=new ActorApi(builder.build());
+    Log.d("ACTOR_INIT","phase2_1 in " + (System.currentTimeMillis() - start) + " ms");
+    start=System.currentTimeMillis();
+    ProfileSyncState.init(AppContext.getContext());
+    if (authModel.isAuthorized()) {
+      system().actorOf(SequenceActor.sequence()).send(new SequenceActor.Invalidate());
+      system().actorOf(BookImportActor.contactsImport()).send(new BookImportActor.StartSync());
+      ContactsActor.contactsList();
+      system().actorOf(ReadEncryptedActor.messageReader());
+      system().actorOf(ReceivedEnctyptedActor.messageReceiver());
+      PlainReceivedActor.plainReceive();
+      PlainReadActor.plainRead();
+      system().actorOf(DeleteMessagesActor.messageReader());
+      system().actorOf(ClearChatActor.clearChat());
+      MessageSendActor.messageSender();
+      MediaSenderActor.mediaSender();
+    }
+    Log.d("ACTOR_INIT","phase2_2 in " + (System.currentTimeMillis() - start) + " ms");
+    start=System.currentTimeMillis();
+    GooglePushActor.push();
+    NetworkState.getInstance();
+    Log.d("ACTOR_INIT","phase2_3 in " + (System.currentTimeMillis() - start) + " ms");
+    start=System.currentTimeMillis();
+    NotificationCenter.getInstance().registerState(AUTH_STATE,new StateInitValue(){
+      @Override public Object[] initState(      int type,      long id){
+        if (authModel.isAuthorized()) {
+          return new Object[]{AuthModel.AuthProcessState.STATE_SIGNED};
+        }
+ else {
+          return new Object[]{authModel.getAuthProcessState().getStateId()};
+        }
+      }
+    }
+);
+    Log.d("ACTOR_INIT","phase2_4 in " + (System.currentTimeMillis() - start) + " ms");
+    start=System.currentTimeMillis();
+  }
+ catch (  Throwable t) {
+    Logger.d(t);
+  }
+}

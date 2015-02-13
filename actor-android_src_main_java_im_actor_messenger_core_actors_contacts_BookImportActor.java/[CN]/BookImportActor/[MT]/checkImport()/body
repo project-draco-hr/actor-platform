@@ -1,0 +1,5 @@
+{
+  if (importingEmails.size() == 0 && importingPhones.size() == 0) {
+    ProfileSyncState.onImportEnded();
+  }
+}

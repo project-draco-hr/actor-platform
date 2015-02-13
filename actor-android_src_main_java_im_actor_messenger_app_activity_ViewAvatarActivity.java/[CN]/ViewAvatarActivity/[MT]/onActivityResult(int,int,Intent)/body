@@ -1,0 +1,20 @@
+{
+  if (requestCode == REQUEST_GALLERY && resultCode == Activity.RESULT_OK) {
+    avatarPath=AppContext.getInternalTempFile("avatar","jpg");
+    new Crop(data.getData()).output(Uri.fromFile(new File(avatarPath))).asSquare().start(this);
+  }
+ else   if (requestCode == REQUEST_PHOTO && resultCode == Activity.RESULT_OK) {
+    avatarPath=AppContext.getInternalTempFile("avatar","jpg");
+    new Crop(Uri.fromFile(new File(externalFile))).output(Uri.fromFile(new File(avatarPath))).asSquare().start(this);
+  }
+ else   if (requestCode == Crop.REQUEST_CROP && resultCode == Activity.RESULT_OK) {
+    if (chatType == DialogType.TYPE_USER) {
+      if (chatId == myUid()) {
+        AvatarChangeActor.avatarSender().changeAvatar(avatarPath);
+      }
+    }
+ else     if (chatType == DialogType.TYPE_GROUP) {
+      GroupAvatarActor.get().changeAvatar(chatId,avatarPath);
+    }
+  }
+}

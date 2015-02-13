@@ -1,0 +1,11 @@
+{
+  for (  int u : uids) {
+    contactUsers.remove((long)u);
+    UserModel userModel=users().get(u);
+    if (userModel != null) {
+      userModel.getContactModel().change(false);
+    }
+  }
+  updateContactList();
+  performSync();
+}

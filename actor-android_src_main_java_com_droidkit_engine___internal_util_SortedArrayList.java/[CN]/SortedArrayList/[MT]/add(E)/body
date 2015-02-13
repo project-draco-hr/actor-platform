@@ -1,0 +1,5 @@
+{
+  super.add(o);
+  sort();
+  return true;
+}

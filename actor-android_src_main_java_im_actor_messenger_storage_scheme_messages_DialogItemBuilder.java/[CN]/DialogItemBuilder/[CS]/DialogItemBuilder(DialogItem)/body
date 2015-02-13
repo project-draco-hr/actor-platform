@@ -1,0 +1,15 @@
+{
+  type=dialogItem.getType();
+  id=dialogItem.getId();
+  dialogTitle=dialogItem.getDialogTitle();
+  unreadCount=dialogItem.getUnreadCount();
+  rid=dialogItem.getRid();
+  sortKey=dialogItem.getSortKey();
+  senderId=dialogItem.getSenderId();
+  time=dialogItem.getTime();
+  messageType=dialogItem.getMessageType();
+  text=dialogItem.getText();
+  status=dialogItem.getStatus();
+  avatar=dialogItem.getAvatar();
+  relatedUid=dialogItem.getRelatedUid();
+}

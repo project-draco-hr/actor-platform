@@ -1,0 +1,3 @@
+{
+  return new PendingNotification(convType,convId,rid,uid,date,type,text,destUid);
+}

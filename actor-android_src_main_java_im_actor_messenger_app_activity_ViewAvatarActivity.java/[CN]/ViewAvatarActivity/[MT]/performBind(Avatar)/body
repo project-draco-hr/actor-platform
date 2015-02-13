@@ -1,0 +1,86 @@
+{
+  if (chatType == DialogType.TYPE_USER) {
+    if (chatId == myUid()) {
+      if (AvatarChangeState.uploadingState().getValue() == AvatarChangeState.State.UPLOADING) {
+        if (AvatarChangeState.getFileName() != null) {
+          receiver.request(new RawFileTask(AvatarChangeState.getFileName()));
+        }
+ else {
+          receiver.clear();
+        }
+        showView(progress);
+        goneView(noPhoto);
+        isUploading=true;
+        return;
+      }
+    }
+  }
+ else   if (chatType == DialogType.TYPE_GROUP) {
+    GroupAvatarState.StateHolder uploadState=GroupAvatarState.getGroupState(chatId).getValue();
+    if (uploadState.getState() == GroupAvatarState.State.UPLOADING) {
+      if (uploadState.getFileName() != null) {
+        receiver.request(new RawFileTask(uploadState.getFileName()));
+      }
+ else {
+        receiver.clear();
+      }
+      showView(progress);
+      goneView(noPhoto);
+      isUploading=true;
+      return;
+    }
+  }
+  isUploading=false;
+  receiver.clear();
+  if (avatar == null) {
+    photoView.setImageBitmap(null);
+    showView(noPhoto);
+    goneView(progress);
+  }
+ else {
+    goneView(noPhoto);
+    DiskCache diskCache=Core.core().getImageLoader().getInternalDiskCache();
+    String file=diskCache.lockFile(FileKeys.avatarKey(avatar.getFullImage().getFileLocation().getFileId()));
+    if (file != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
+        photoView.setImageBitmap(bitmap);
+        photoView.setZoomable(true);
+        goneView(progress);
+        return;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+    showView(progress);
+    boolean isAppliedPreview=false;
+    String largeFile=diskCache.lockFile(FileKeys.avatarKey(avatar.getLargeImage().getFileLocation().getFileId()));
+    if (largeFile != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(largeFile);
+        photoView.setImageBitmap(bitmap);
+        photoView.setZoomable(false);
+        isAppliedPreview=true;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+    if (!isAppliedPreview) {
+      String smallFile=diskCache.lockFile(FileKeys.avatarKey(avatar.getSmallImage().getFileLocation().getFileId()));
+      if (smallFile != null) {
+        try {
+          Bitmap bitmap=ImageLoading.loadBitmapOptimized(smallFile);
+          photoView.setImageBitmap(bitmap);
+          photoView.setZoomable(false);
+        }
+ catch (        ImageLoadException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    showView(progress);
+    receiver.request(new FullAvatarTask(avatar));
+  }
+}

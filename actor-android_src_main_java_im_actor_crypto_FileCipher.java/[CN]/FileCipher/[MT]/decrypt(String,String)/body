@@ -1,0 +1,69 @@
+{
+  FileInputStream inputStream=null;
+  FileOutputStream outputStream=null;
+  try {
+    inputStream=new FileInputStream(srcFile);
+    outputStream=new FileOutputStream(destFile);
+    int fileSize=inputStream.available();
+    int contentSize=fileSize - mac.getMacLength() - cipher.getBlockSize();
+    byte[] iv=Utils.readBytes(cipher.getBlockSize(),inputStream);
+    cipher.init(Cipher.DECRYPT_MODE,cipherKeySpec,new IvParameterSpec(iv));
+    mac.init(macKeySpec);
+    mac.update(iv);
+    byte[] buffer=new byte[1024];
+    byte[] out=new byte[cipher.getOutputSize(1024)];
+    int count;
+    int readSize=0;
+    while ((count=inputStream.read(buffer,0,Math.min(contentSize - readSize,buffer.length))) > 0) {
+      readSize+=count;
+      mac.update(buffer,0,count);
+      byte[] oB;
+      int obSize;
+      try {
+        obSize=cipher.update(buffer,0,count,out,0);
+        oB=out;
+      }
+ catch (      ShortBufferException e) {
+        e.printStackTrace();
+        oB=cipher.update(buffer,0,count);
+        obSize=oB.length;
+      }
+      outputStream.write(oB,0,obSize);
+    }
+    out=cipher.doFinal();
+    outputStream.write(out);
+    byte[] ourMac=mac.doFinal();
+    byte[] msgMac=Utils.readBytes(mac.getMacLength(),inputStream);
+    if (!Utils.equals(ourMac,msgMac)) {
+      throw new RuntimeException("Incorrect MAC");
+    }
+  }
+ catch (  InvalidKeyException e) {
+    throw new RuntimeException(e);
+  }
+catch (  InvalidAlgorithmParameterException e) {
+    throw new RuntimeException(e);
+  }
+catch (  BadPaddingException e) {
+    throw new RuntimeException(e);
+  }
+catch (  IllegalBlockSizeException e) {
+    e.printStackTrace();
+  }
+ finally {
+    if (inputStream != null) {
+      try {
+        inputStream.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+    if (outputStream != null) {
+      try {
+        outputStream.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+  }
+}

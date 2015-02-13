@@ -1,0 +1,9 @@
+{
+  if (isStarted) {
+    opusLib.stopRecord();
+    audioRecord.stop();
+    audioRecord.release();
+    audioRecord=null;
+    isStarted=false;
+  }
+}

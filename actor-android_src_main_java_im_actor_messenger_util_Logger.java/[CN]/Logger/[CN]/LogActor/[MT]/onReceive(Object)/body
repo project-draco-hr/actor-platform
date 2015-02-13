@@ -1,0 +1,9 @@
+{
+  if (message instanceof LogRecord) {
+    LogRecord record=(LogRecord)message;
+synchronized (log) {
+      log.add(record.tag + ":" + record.msg+ ":"+ record.throwable);
+    }
+    onReceive(record.level,record.tag,record.msg,record.throwable);
+  }
+}

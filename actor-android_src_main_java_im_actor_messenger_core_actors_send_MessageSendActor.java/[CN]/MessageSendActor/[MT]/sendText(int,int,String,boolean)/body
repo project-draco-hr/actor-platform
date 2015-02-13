@@ -1,0 +1,15 @@
+{
+  long randomId=RandomUtil.randomId();
+  ConversationActor.conv(chatType,chatId).onOutText(randomId,text,isEncrypted);
+  if (isEncrypted) {
+    byte[] message=EncryptedMessages.createTextMessage(randomId,text);
+    PendingMessage pendingMessage=new PendingMessage(randomId,chatType,chatId,message,0,true);
+    pending.put(randomId,pendingMessage);
+    sendEncryptedMessage(pendingMessage);
+  }
+ else {
+    PendingMessage pendingMessage=new PendingMessage(randomId,chatType,chatId,new TextMessage(text,0,null).toByteArray(),1,false);
+    pending.put(randomId,pendingMessage);
+    sendPlainMessage(pendingMessage);
+  }
+}

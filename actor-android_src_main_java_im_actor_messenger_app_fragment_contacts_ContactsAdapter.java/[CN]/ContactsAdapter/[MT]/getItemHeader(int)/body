@@ -1,0 +1,3 @@
+{
+  return getFastName(getItem(index).getName());
+}

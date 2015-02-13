@@ -1,0 +1,77 @@
+{
+  View res=inflater.inflate(R.layout.fragment_dialogs,container,false);
+  loadingProgress=res.findViewById(R.id.loadingProgress);
+  noMessages=res.findViewById(R.id.noMessages);
+  dialogsEmptyImage=(ImageView)res.findViewById(R.id.emptyDialogsImage);
+  adapter=new DialogsAdapter(ListEngines.getChatsUiListEngine(),getActivity(),new OnItemClickedListener<DialogItem>(){
+    @Override public void onClicked(    DialogItem item){
+      onItemClick(item);
+    }
+  }
+,supportLongClick() ? new OnItemClickedListener<DialogItem>(){
+    @Override public void onClicked(    final DialogItem dialog){
+      onItemLongClick(dialog);
+    }
+  }
+ : null);
+  listView=(ListView)res.findViewById(R.id.list);
+  FrameLayout footer=new FrameLayout(getActivity());
+  footer.setBackgroundColor(getResources().getColor(R.color.bg_grey));
+  footer.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(160)));
+  ImageView shadow=new ImageView(getActivity());
+  shadow.setImageResource(R.drawable.card_shadow_bottom);
+  shadow.setScaleType(ImageView.ScaleType.FIT_XY);
+  shadow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+  footer.addView(shadow);
+  TextView hint=new TextView(getActivity());
+  hint.setText(R.string.dialogs_hint);
+  hint.setTypeface(Fonts.regular());
+  hint.setPadding(Screen.dp(16),Screen.dp(8),Screen.dp(16),0);
+  hint.setGravity(Gravity.CENTER);
+  hint.setTextSize(16);
+  hint.setTextColor(getResources().getColor(R.color.text_subheader));
+  hint.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  footer.addView(hint);
+  listView.addFooterView(footer,null,false);
+  TextView header=new TextView(getActivity());
+  header.setBackgroundColor(getResources().getColor(R.color.bg_grey));
+  header.setText(R.string.dialogs_title);
+  header.setTypeface(Fonts.bold());
+  header.setPadding(Screen.dp(16),0,0,0);
+  header.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
+  header.setTextSize(16);
+  header.setTextColor(getResources().getColor(R.color.text_subheader));
+  LinearLayout headerCont=new LinearLayout(getActivity());
+  headerCont.setBackgroundColor(getResources().getColor(R.color.bg_light));
+  headerCont.setOrientation(LinearLayout.VERTICAL);
+  headerCont.addView(header,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(48)));
+  headerCont.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  listView.addHeaderView(headerCont,null,false);
+  listView.setAdapter(adapter);
+  listView.setRecyclerListener(new AbsListView.RecyclerListener(){
+    @Override public void onMovedToScrapHeap(    View view){
+      adapter.onMovedToScrapHeap(view);
+    }
+  }
+);
+  getBinder().bind(ListEngines.getChatsUiListEngine().getListState(),new Listener<ListState>(){
+    @Override public void onUpdated(    ListState listState){
+switch (listState.getState()) {
+case LOADED:
+        loadingProgress.setVisibility(View.GONE);
+      noMessages.setVisibility(View.GONE);
+    break;
+case LOADED_EMPTY:
+  loadingProgress.setVisibility(View.GONE);
+noMessages.setVisibility(View.VISIBLE);
+break;
+case LOADING_EMPTY:
+loadingProgress.setVisibility(View.VISIBLE);
+noMessages.setVisibility(View.GONE);
+break;
+}
+}
+}
+);
+return res;
+}

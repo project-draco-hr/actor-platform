@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,seq);
+  writer.writeBytes(2,state);
+}

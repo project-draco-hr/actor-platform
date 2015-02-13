@@ -1,0 +1,9 @@
+{
+  if (isReleased) {
+    return;
+  }
+  references.remove(reference);
+  if (references.size() == 0) {
+    release();
+  }
+}

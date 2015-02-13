@@ -1,0 +1,3 @@
+{
+  return getUidString(GROUP_ADD,uid,getUserName(uid,true),getUserName(addedUid,false));
+}

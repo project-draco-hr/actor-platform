@@ -1,0 +1,11 @@
+{
+  ask(BitmapDecoderActor.decode(getTask().getFileName(),getLoader()),new AskCallback<Bitmap>(){
+    @Override public void onResult(    Bitmap result){
+      completeTask(result);
+    }
+    @Override public void onError(    Throwable throwable){
+      error(throwable);
+    }
+  }
+);
+}

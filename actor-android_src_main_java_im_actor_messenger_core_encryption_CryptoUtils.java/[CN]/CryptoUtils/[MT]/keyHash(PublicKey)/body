@@ -1,0 +1,8 @@
+{
+  byte[] keyHash=keySHA256(key);
+  byte[] res=Arrays.copyOfRange(keyHash,0,8);
+  bytesXor(res,keyHash,8,8);
+  bytesXor(res,keyHash,16,8);
+  bytesXor(res,keyHash,24,8);
+  return StreamingUtils.readLong(res,0);
+}

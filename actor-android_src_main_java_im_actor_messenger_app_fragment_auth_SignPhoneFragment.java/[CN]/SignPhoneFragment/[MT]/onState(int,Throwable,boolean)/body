@@ -1,0 +1,21 @@
+{
+  if (stateId == STATE_START) {
+    goneView(progress,isAnimated);
+    keyboardHelper.setImeVisibility(phoneNumberEditText,true);
+    hideError();
+  }
+ else   if (stateId == STATE_REQUESTING_SMS) {
+    showView(progress,isAnimated);
+    keyboardHelper.setImeVisibility(phoneNumberEditText,false);
+    hideError();
+  }
+ else   if (stateId == STATE_REQUESTING_SMS_ERROR) {
+    showView(progress,isAnimated);
+    keyboardHelper.setImeVisibility(phoneNumberEditText,false);
+    showError(stateId,t);
+  }
+ else {
+    hideError();
+    rawNavigate(stateId,isAnimated);
+  }
+}

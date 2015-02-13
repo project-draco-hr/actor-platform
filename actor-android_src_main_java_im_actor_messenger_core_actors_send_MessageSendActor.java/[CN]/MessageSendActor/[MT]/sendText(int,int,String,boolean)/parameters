@@ -1,0 +1,4 @@
+int chatType
+int chatId
+String text
+boolean isEncrypted

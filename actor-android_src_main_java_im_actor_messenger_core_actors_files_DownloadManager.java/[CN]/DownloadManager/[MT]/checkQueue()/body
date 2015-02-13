@@ -1,0 +1,61 @@
+{
+  Logger.d(TAG,"checkQueue");
+  int count=0;
+  for (  DownloadRequest request : requests) {
+    if (request.isActive) {
+      count++;
+    }
+  }
+  if (count >= MAX_DOWNLOADS) {
+    Logger.d(TAG,"Already have required number of downloads");
+    return;
+  }
+  DownloadRequest req=null;
+  for (  DownloadRequest request : requests) {
+    if (!request.isActive) {
+      req=request;
+      break;
+    }
+  }
+  if (req != null) {
+    final String path=getDestFileName(req.name);
+    if (path == null) {
+      Logger.d(TAG,"No external folder: aborting");
+      requests.remove(req);
+      DownloadModel.downloadState(req.location.getFileId()).change(new DownloadState(DownloadState.State.NONE));
+      return;
+    }
+    final long fileId=req.location.getFileId();
+    final DownloadRequest finalReq=req;
+    Logger.d(TAG,"Starting work for #" + req.location.getFileId() + " to "+ path);
+    req.isActive=true;
+    req.future=ask(DownloadActor.download(req.location,path),new AskProgressCallback<String,Integer>(){
+      @Override public void onResult(      String result){
+        downloaded().putSync(new Downloaded(finalReq.location.getFileId(),finalReq.location.getFileSize(),finalReq.name,result));
+        DownloadModel.downloadState(finalReq.location.getFileId()).change(new DownloadState(DownloadState.State.DOWNLOADED));
+        for (        long rid : finalReq.rids) {
+          ConversationActor.conv(finalReq.type,finalReq.id).onMessageDownloaded(rid);
+        }
+        Logger.d(TAG,"Downloaded #" + finalReq.location.getFileId() + " to "+ result);
+        requests.remove(finalReq);
+        checkQueue();
+      }
+      @Override public void onError(      Throwable throwable){
+        Logger.d(TAG,"Error during download");
+        requests.remove(finalReq);
+        DownloadModel.downloadState(finalReq.location.getFileId()).change(new DownloadState(DownloadState.State.NONE));
+        checkQueue();
+      }
+      @Override public void onProgress(      Integer progress){
+        Logger.d(TAG,"Downloaded #" + fileId + " "+ progress+ "%");
+        DownloadModel.downloadState(finalReq.location.getFileId()).change(new DownloadState(DownloadState.State.DOWNLOADING,progress));
+        checkQueue();
+      }
+    }
+);
+    checkQueue();
+  }
+ else {
+    Logger.d(TAG,"No work for downloader");
+  }
+}

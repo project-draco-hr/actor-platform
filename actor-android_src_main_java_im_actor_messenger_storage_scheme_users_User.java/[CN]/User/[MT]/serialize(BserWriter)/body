@@ -1,0 +1,14 @@
+{
+  writer.writeInt(1,id);
+  writer.writeLong(2,accessHash);
+  writer.writeString(4,serverName);
+  if (localName != null) {
+    writer.writeString(5,localName);
+  }
+  writer.writeInt(6,Sex.serialize(sex));
+  writer.writeRepeatedLong(7,keyHashes);
+  writer.writeLong(8,phone);
+  if (avatar != null) {
+    writer.writeObject(9,avatar);
+  }
+}

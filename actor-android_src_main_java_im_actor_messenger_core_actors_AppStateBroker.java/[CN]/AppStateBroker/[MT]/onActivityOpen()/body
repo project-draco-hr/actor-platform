@@ -1,0 +1,9 @@
+{
+  Logger.d(TAG,"Activity open");
+  activityCount++;
+  if (!isAppOpen) {
+    isAppOpen=true;
+    onAppOpened();
+  }
+  self().sendOnce(new CloseApp(),24 * 60 * 60* 1000);
+}

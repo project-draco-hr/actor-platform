@@ -1,0 +1,5 @@
+{
+  super(QueryInt.class);
+  this.dataAdapter=dataAdapter;
+  this.searchAdapter=searchAdapter;
+}

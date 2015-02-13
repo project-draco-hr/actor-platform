@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  OnNotificationListenerContainer that=(OnNotificationListenerContainer)o;
+  if (eventId != that.eventId)   return false;
+  if (eventType != that.eventType)   return false;
+  if (!listener.equals(that.listener))   return false;
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  isAnimationLock=true;
+  NotificationCenter.getInstance().addListener(Core.AUTH_STATE,this);
+  isAnimationLock=false;
+}

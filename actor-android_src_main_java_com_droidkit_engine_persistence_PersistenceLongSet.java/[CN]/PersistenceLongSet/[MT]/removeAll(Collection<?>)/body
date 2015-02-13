@@ -1,0 +1,6 @@
+{
+  for (  Object o : collection) {
+    map.remove(o);
+  }
+  return true;
+}

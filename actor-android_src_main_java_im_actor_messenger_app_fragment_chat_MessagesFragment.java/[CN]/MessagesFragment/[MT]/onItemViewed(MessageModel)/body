@@ -1,0 +1,5 @@
+{
+  if (messageModel.getRaw().getSenderId() != myUid()) {
+    OwnReadStateActor.readState().messageRead(chatType,chatId,messageModel.getRid(),messageModel.getRaw().getSortKey(),messageModel.getRaw().getTime(),messageModel.getRaw().getContent().isEncrypted());
+  }
+}

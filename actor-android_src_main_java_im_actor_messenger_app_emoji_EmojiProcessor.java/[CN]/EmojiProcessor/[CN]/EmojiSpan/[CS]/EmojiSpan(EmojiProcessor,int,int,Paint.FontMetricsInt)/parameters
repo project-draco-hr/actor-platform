@@ -1,0 +1,4 @@
+EmojiProcessor processor
+int index
+int size
+Paint.FontMetricsInt original

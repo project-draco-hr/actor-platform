@@ -1,0 +1,3 @@
+{
+  preferences.edit().putLong("authId",key).commit();
+}

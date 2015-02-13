@@ -1,0 +1,6 @@
+long randomId
+FileLocation fileLocation
+String name
+int extensionType
+byte[] extension
+byte[] thumb

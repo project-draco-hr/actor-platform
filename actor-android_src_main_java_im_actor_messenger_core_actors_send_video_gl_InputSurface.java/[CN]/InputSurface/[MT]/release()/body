@@ -1,0 +1,12 @@
+{
+  if (EGL14.eglGetCurrentContext().equals(mEGLContext)) {
+    EGL14.eglMakeCurrent(mEGLDisplay,EGL14.EGL_NO_SURFACE,EGL14.EGL_NO_SURFACE,EGL14.EGL_NO_CONTEXT);
+  }
+  EGL14.eglDestroySurface(mEGLDisplay,mEGLSurface);
+  EGL14.eglDestroyContext(mEGLDisplay,mEGLContext);
+  mSurface.release();
+  mEGLDisplay=null;
+  mEGLContext=null;
+  mEGLSurface=null;
+  mSurface=null;
+}

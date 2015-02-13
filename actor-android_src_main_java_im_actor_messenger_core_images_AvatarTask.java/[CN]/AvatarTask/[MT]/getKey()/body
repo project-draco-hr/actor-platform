@@ -1,0 +1,3 @@
+{
+  return "avatar:@file=" + avatar.getSmallImage().getFileLocation().getFileId() + "@size="+ size;
+}

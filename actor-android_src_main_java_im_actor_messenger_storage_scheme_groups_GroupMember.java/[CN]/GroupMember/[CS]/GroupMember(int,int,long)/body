@@ -1,0 +1,5 @@
+{
+  this.uid=uid;
+  this.inviterUid=invitedUid;
+  this.inviteDate=inviteDate;
+}

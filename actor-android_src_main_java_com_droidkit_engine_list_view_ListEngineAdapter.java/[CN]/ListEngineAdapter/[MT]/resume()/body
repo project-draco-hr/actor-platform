@@ -1,0 +1,6 @@
+{
+  if (autoUpdate) {
+    uiList.addListener(listListener);
+  }
+  notifyDataSetChanged();
+}

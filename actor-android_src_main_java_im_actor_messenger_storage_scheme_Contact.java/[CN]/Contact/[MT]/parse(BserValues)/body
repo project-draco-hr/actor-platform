@@ -1,0 +1,6 @@
+{
+  sortKey=values.getLong(2);
+  uid=values.getInt(4);
+  name=values.getString(5);
+  avatar=values.optObj(6,Avatar.class);
+}

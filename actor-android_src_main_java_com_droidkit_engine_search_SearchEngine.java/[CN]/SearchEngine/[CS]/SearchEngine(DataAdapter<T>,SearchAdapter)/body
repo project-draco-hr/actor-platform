@@ -1,0 +1,4 @@
+{
+  this.id=NEXT_ID.getAndIncrement();
+  queryActor=TypedCreator.typed(system().actorOf(QueryActor.queryActor(id,dataAdapter,searchAdapter)),QueryInt.class);
+}

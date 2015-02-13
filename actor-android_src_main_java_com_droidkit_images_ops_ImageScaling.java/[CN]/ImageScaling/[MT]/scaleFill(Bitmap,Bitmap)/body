@@ -1,0 +1,3 @@
+{
+  scaleFill(src,dest,CLEAR_COLOR);
+}

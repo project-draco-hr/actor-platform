@@ -1,0 +1,4 @@
+PendingMessage message
+List<EncryptedAesKey> keys
+List<EncryptedAesKey> ownKeys
+byte[] encryptedMessage

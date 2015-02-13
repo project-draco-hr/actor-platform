@@ -1,0 +1,18 @@
+{
+  int childCount=listView.getChildCount();
+  int headerCount=0;
+  ArrayList<VisibleViewItem> res=new ArrayList<VisibleViewItem>();
+  for (int i=0; i < childCount; i++) {
+    View v=listView.getChildAt(i);
+    int index=listView.getFirstVisiblePosition() + i;
+    if (index >= list.getSize()) {
+      continue;
+    }
+    long id=list.getItem(list.getSize() - index - 1).getRaw().getRid();
+    if (id != 0) {
+      int top=((v == null) ? 0 : v.getTop()) - listView.getPaddingTop();
+      res.add(new VisibleViewItem(index + headerCount,top,id));
+    }
+  }
+  return res.toArray(new VisibleViewItem[0]);
+}

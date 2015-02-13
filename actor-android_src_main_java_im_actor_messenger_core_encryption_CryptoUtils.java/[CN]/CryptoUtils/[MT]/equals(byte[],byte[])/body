@@ -1,0 +1,11 @@
+{
+  if (src.length != dst.length) {
+    return false;
+  }
+  for (int i=0; i < dst.length; i++) {
+    if (src[i] != dst[i]) {
+      return false;
+    }
+  }
+  return true;
+}

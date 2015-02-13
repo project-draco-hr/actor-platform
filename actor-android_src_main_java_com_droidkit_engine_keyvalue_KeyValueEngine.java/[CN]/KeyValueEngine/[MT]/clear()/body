@@ -1,0 +1,9 @@
+{
+  inMemoryLruCache.evictAll();
+  dbActor.send(new Runnable(){
+    @Override public void run(){
+      storageAdapter.deleteAll();
+    }
+  }
+);
+}

@@ -1,0 +1,6 @@
+{
+  for (  Long o : ids) {
+    map.remove(o);
+  }
+  return true;
+}

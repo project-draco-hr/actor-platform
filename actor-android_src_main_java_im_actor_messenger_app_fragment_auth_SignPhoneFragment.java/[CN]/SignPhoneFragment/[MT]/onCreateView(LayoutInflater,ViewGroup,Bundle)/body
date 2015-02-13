@@ -1,0 +1,27 @@
+{
+  View v=inflater.inflate(R.layout.fragment_sign_phone,container,false);
+  ((TextView)v.findViewById(R.id.button_continue_text)).setTypeface(Fonts.medium());
+  ((TextView)v.findViewById(R.id.button_why)).setTypeface(Fonts.medium());
+  keyboardHelper=new KeyboardHelper(getActivity());
+  initView(v);
+  countryDb=CountryDb.getInstance();
+  Activity a=getActivity();
+  String deviceCountry=CountryUtil.getDeviceCountry(a);
+  if (!TextUtils.isEmpty(deviceCountry)) {
+    Country country=countryDb.getCountryByShortName(deviceCountry);
+    setCountryName(country);
+    if (country != null) {
+      countryCodeEditText.setText(country.phoneCode);
+      focusPhone();
+    }
+ else {
+      focusCode();
+    }
+  }
+ else {
+    setCountryName(null);
+    countryCodeEditText.setText("");
+    focusCode();
+  }
+  return v;
+}

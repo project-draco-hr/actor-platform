@@ -1,0 +1,8 @@
+{
+  super.onDetachedFromWindow();
+  if (receiver != null) {
+    receiver.close();
+    receiver=null;
+  }
+  unbind();
+}

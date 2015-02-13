@@ -1,0 +1,3 @@
+{
+  preferences=context.getSharedPreferences("SecretSharedPreferencesKey",Context.MODE_PRIVATE);
+}

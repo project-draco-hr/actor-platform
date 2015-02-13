@@ -1,0 +1,9 @@
+{
+  try {
+    return Bser.parse(clazz,data);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return null;
+  }
+}

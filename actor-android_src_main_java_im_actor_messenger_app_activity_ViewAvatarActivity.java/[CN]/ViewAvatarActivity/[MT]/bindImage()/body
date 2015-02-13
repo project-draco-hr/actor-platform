@@ -1,0 +1,26 @@
+{
+  getBinder().bind(getAvatar(),new Listener<Avatar>(){
+    @Override public void onUpdated(    Avatar avatar){
+      performBind(avatar);
+    }
+  }
+);
+  if (chatType == DialogType.TYPE_USER) {
+    if (chatId == myUid()) {
+      getBinder().bind(AvatarChangeState.uploadingState(),new Listener<AvatarChangeState.State>(){
+        @Override public void onUpdated(        AvatarChangeState.State state){
+          performBind(getAvatar().getValue());
+        }
+      }
+);
+    }
+  }
+ else   if (chatType == DialogType.TYPE_GROUP) {
+    getBinder().bind(GroupAvatarState.getGroupState(chatId),new Listener<GroupAvatarState.StateHolder>(){
+      @Override public void onUpdated(      GroupAvatarState.StateHolder stateHolder){
+        performBind(getAvatar().getValue());
+      }
+    }
+);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  messageBody.setInputType(EditorInfo.TYPE_CLASS_TEXT | EditorInfo.TYPE_TEXT_FLAG_CAP_SENTENCES | EditorInfo.TYPE_TEXT_FLAG_AUTO_CORRECT| EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE);
+  messageBody.setImeOptions(EditorInfo.IME_ACTION_SEND);
+}

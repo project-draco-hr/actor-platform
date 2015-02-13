@@ -1,0 +1,13 @@
+{
+  if (!UiUtil.isMainThread()) {
+    throw new RuntimeException("Operations allowed only on UI thread");
+  }
+  receiver.send(new TaskCancel(currentTask));
+  currentTask=TASK_ID.getAndIncrement();
+  receiverCallback.onImageCleared();
+  if (reference != null) {
+    reference.release();
+    reference=null;
+  }
+  currentTaskKey=null;
+}

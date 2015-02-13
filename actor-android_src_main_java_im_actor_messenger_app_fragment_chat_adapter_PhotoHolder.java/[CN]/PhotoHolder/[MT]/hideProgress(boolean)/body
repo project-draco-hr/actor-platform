@@ -1,0 +1,10 @@
+{
+  if (success) {
+    progressView.setValue(100);
+    progressValue.setText("100");
+  }
+  goneView(progressContainer,!isInitialBind);
+  goneView(progressView,!isInitialBind);
+  goneView(progressValue,!isInitialBind);
+  goneView(progressIcon,!isInitialBind);
+}

@@ -1,0 +1,3 @@
+{
+  callback.onLoaded(adapter.getCount());
+}

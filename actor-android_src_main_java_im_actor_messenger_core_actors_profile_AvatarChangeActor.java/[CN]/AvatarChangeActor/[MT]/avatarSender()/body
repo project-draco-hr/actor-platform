@@ -1,0 +1,10 @@
+{
+  if (instance == null) {
+synchronized (LOCK) {
+      if (instance == null) {
+        instance=TypedCreator.typed(ActorSystem.system().actorOf(AvatarChangeActor.class,"avatar/my"),AvatarChangeInt.class);
+      }
+    }
+  }
+  return instance;
+}

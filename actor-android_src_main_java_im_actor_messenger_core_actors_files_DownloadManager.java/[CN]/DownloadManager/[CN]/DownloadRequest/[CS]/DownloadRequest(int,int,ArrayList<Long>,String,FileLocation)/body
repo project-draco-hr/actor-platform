@@ -1,0 +1,7 @@
+{
+  this.location=location;
+  this.type=type;
+  this.id=id;
+  this.name=name;
+  this.rids=rids;
+}

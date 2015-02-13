@@ -1,0 +1,3 @@
+Bitmap src
+Bitmap.CompressFormat format
+int quality

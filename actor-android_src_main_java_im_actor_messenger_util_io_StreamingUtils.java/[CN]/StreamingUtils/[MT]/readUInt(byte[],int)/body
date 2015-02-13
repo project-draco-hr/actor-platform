@@ -1,0 +1,7 @@
+{
+  long a=src[offset + 0] & 0xFF;
+  long b=src[offset + 1] & 0xFF;
+  long c=src[offset + 2] & 0xFF;
+  long d=src[offset + 3] & 0xFF;
+  return d + (c << 8) + (b << 16)+ (a << 24);
+}

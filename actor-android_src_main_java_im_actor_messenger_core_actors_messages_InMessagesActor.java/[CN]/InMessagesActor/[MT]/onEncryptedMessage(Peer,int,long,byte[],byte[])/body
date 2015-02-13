@@ -1,0 +1,96 @@
+{
+  if (peer.getType() == PeerType.PRIVATE) {
+    UserModel convUser=users().get(peer.getId());
+    if (convUser == null) {
+      Logger.d(TAG,"Unable to find user: exit");
+      return;
+    }
+  }
+ else   if (peer.getType() == PeerType.GROUP) {
+    GroupModel group=groups().get(peer.getId());
+    if (group == null) {
+      Logger.d(TAG,"Unable to find user: group");
+      return;
+    }
+  }
+ else {
+    return;
+  }
+  PrivateKey pk=keyStorage().getKeyPair().getPrivate();
+  RsaDecryptCipher decryptCipher=new RsaDecryptCipher(pk);
+  byte[] dest;
+  try {
+    dest=decryptCipher.decrypt(messageKey,message);
+  }
+ catch (  DecryptException e) {
+    e.printStackTrace();
+    Logger.d(TAG,"Unable to decrypt message");
+    return;
+  }
+  PlainMessage dm;
+  try {
+    PlainPackage dd=Bser.parse(PlainPackage.class,dest);
+    if (dd.getMesssageType() == 1) {
+      dm=Bser.parse(PlainMessage.class,dd.getBody());
+    }
+ else {
+      Logger.d(TAG,"Unsupported package type #" + dd.getMesssageType());
+      return;
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    Logger.d(TAG,"Unable to decrypt message");
+    return;
+  }
+  Logger.d(TAG,"Loaded message");
+  int chatType=peer.getType() == PeerType.GROUP ? DialogType.TYPE_GROUP : DialogType.TYPE_USER;
+  int chatId=peer.getId();
+  try {
+    if (dm.getMessageTyoe() == 1) {
+      TextMessage textMessage=Bser.parse(TextMessage.class,dm.getBody());
+      ConversationActor.conv(chatType,chatId).onInMessage(dm.getGuid(),senderUid,date,new TextMessage(textMessage.getText(),textMessage.getText(),true));
+    }
+ else     if (dm.getMessageTyoe() == 2) {
+      FileMessage fileMessage=Bser.parse(FileMessage.class,dm.getBody());
+      PlainFileLocation plainFileLocation=fileMessage.getFileLocation();
+      FileLocation.Encryption encryptionType;
+switch (plainFileLocation.getEncryptionType()) {
+case AES:
+        encryptionType=FileLocation.Encryption.AES;
+      break;
+case AES_THEN_MAC:
+    encryptionType=FileLocation.Encryption.AES_THEN_MAC;
+  break;
+default :
+case NONE:
+encryptionType=FileLocation.Encryption.NONE;
+break;
+}
+FileLocation fileLocation=new FileLocation(plainFileLocation.getFileId(),plainFileLocation.getAccessHash(),plainFileLocation.getFileSize(),encryptionType,plainFileLocation.getEncryptedFileSize(),plainFileLocation.getEncryptionKey());
+FastThumb fastThumb=null;
+if (fileMessage.getFastThumb() != null) {
+fastThumb=new FastThumb(fileMessage.getFastThumb().getW(),fileMessage.getFastThumb().getH(),fileMessage.getFastThumb().getPreview());
+}
+if (fileMessage.getExtType() == 0x01) {
+PhotoExtension extension=Bser.parse(PhotoExtension.class,fileMessage.getExtension());
+ConversationActor.conv(chatType,chatId).onInMessage(dm.getGuid(),senderUid,date,new PhotoMessage(fileLocation,extension.getW(),extension.getH(),fastThumb,true));
+}
+ else if (fileMessage.getExtType() == 0x02) {
+VideoExtension extension=Bser.parse(VideoExtension.class,fileMessage.getExtension());
+ConversationActor.conv(chatType,chatId).onInMessage(dm.getGuid(),senderUid,date,new VideoMessage(fileLocation,false,extension.getDuration(),extension.getW(),extension.getH(),fastThumb,true));
+}
+ else {
+ConversationActor.conv(chatType,chatId).onInMessage(dm.getGuid(),senderUid,date,new DocumentMessage(fileLocation,false,fileMessage.getName(),fileLocation.getFileSize(),true,fastThumb));
+}
+}
+ else {
+return;
+}
+}
+ catch (Exception e) {
+Logger.e(TAG,"",e);
+return;
+}
+system().actorOf(ReceivedEnctyptedActor.messageReceiver()).send(new ReceivedEnctyptedActor.Confirm(chatType,chatId,dm.getGuid()));
+}

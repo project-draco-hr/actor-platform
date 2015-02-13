@@ -1,0 +1,13 @@
+{
+  String sourceFileName=convertToFileNameTemp(key);
+  String destFileName=convertToFileName(key);
+  File source=new File(sourceFileName);
+  File dest=new File(destFileName);
+  if (!source.exists()) {
+    return null;
+  }
+  if (source.renameTo(dest)) {
+    return destFileName;
+  }
+  return null;
+}

@@ -1,0 +1,11 @@
+{
+  InputStream stream=context.getContentResolver().openInputStream(uri);
+  try {
+    copy(stream,dst);
+  }
+  finally {
+    if (stream != null) {
+      stream.close();
+    }
+  }
+}

@@ -1,0 +1,3 @@
+MemoryCache memoryCache
+String key
+Bitmap bitmap

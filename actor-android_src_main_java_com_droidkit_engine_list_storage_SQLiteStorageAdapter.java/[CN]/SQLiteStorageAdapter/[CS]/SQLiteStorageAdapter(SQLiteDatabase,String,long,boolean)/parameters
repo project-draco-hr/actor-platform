@@ -1,0 +1,4 @@
+SQLiteDatabase database
+String listEngineName
+long listEngineId
+boolean enableSearch

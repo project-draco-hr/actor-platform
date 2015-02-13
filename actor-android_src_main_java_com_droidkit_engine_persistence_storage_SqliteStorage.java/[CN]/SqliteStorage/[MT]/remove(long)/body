@@ -1,0 +1,3 @@
+{
+  database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"ID\"=?",new Object[]{key});
+}

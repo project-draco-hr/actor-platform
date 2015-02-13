@@ -1,0 +1,4 @@
+String query
+Object key
+int limit
+LoadCallback<V> callback

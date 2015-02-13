@@ -1,0 +1,8 @@
+{
+  SpannableStringBuilder res=new SpannableStringBuilder();
+  res.append(getNotificationSender(pendingNotification));
+  res.append(": ");
+  res.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),0,res.length(),0);
+  res.append(getNotificationText(pendingNotification));
+  return res;
+}

@@ -1,0 +1,3 @@
+{
+  return new VideoMessage(fileLocation,true,duration,w,h,fastThumb,isEncrypted);
+}

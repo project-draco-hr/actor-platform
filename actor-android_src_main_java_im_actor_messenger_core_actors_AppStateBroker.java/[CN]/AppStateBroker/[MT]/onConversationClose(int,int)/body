@@ -1,0 +1,4 @@
+{
+  Logger.d(TAG,"Conversation close #" + type + "@"+ id);
+  NotificationsActor.notifications().onChatClose(type,id);
+}

@@ -1,0 +1,8 @@
+{
+  rid=values.getLong(1);
+  convType=values.getInt(2);
+  convId=values.getInt(3);
+  messageContent=values.getBytes(4);
+  messageType=values.getInt(5,0);
+  isEncrypted=values.getBool(6,true);
+}

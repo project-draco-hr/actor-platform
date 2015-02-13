@@ -1,0 +1,6 @@
+{
+  if (BuildConfig.ENABLE_GOOGLE_PLAY) {
+    GooglePushActor.push().send(intent);
+  }
+  setResultCode(Activity.RESULT_OK);
+}

@@ -1,0 +1,5 @@
+{
+  super(dispatcher);
+  this.fileName=fileName;
+  this.memoryCache=loader.getMemoryCache();
+}

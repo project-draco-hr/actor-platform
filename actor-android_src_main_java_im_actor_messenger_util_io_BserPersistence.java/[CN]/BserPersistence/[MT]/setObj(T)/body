@@ -1,0 +1,9 @@
+{
+  this.obj=obj;
+  if (obj == null) {
+    fileWriter.saveData(new byte[0]);
+  }
+ else {
+    fileWriter.saveData(obj.toByteArray());
+  }
+}

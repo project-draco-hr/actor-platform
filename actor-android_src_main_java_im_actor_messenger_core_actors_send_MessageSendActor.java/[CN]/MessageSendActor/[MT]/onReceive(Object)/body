@@ -1,0 +1,12 @@
+{
+  super.onReceive(message);
+  if (message instanceof PendingMessage) {
+    PendingMessage msg=(PendingMessage)message;
+    if (msg.isEncrypted()) {
+      sendEncryptedMessage(msg);
+    }
+ else {
+      sendPlainMessage(msg);
+    }
+  }
+}

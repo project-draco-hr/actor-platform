@@ -1,0 +1,4 @@
+long rid
+int senderId
+long date
+AbsMessage content

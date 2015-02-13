@@ -1,0 +1,7 @@
+{
+  if (src.length % factor == 0) {
+    return src;
+  }
+  int padding=factor - src.length % factor;
+  return concat(src,new byte[padding]);
+}

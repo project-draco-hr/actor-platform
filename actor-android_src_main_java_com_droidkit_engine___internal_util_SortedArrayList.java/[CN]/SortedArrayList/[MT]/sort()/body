@@ -1,0 +1,5 @@
+{
+  if (comparator != null) {
+    Collections.sort(this,comparator);
+  }
+}

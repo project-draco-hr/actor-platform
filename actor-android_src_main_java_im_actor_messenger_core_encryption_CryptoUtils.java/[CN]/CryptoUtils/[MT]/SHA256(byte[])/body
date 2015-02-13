@@ -1,0 +1,10 @@
+{
+  MessageDigest digest=null;
+  try {
+    digest=MessageDigest.getInstance("SHA-256");
+    return digest.digest(data);
+  }
+ catch (  NoSuchAlgorithmException e) {
+    throw new RuntimeException("No SHA-256 available");
+  }
+}

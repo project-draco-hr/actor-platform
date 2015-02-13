@@ -1,0 +1,46 @@
+{
+  title=getArguments().getString("title");
+  avatarPath=getArguments().getString("avatarPath");
+  View res=inflater.inflate(R.layout.fragment_create_group_participants,container,false);
+  progressView=res.findViewById(R.id.progress);
+  progressView.setVisibility(View.GONE);
+  searchField=(EditText)res.findViewById(R.id.searchField);
+  textWatcher=new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      checkForDeletions(s);
+      String filter=s.toString().trim();
+      while (filter.length() > 0 && filter.charAt(0) == '!') {
+        filter=filter.substring(1);
+      }
+      engineUiList.filter(filter);
+    }
+  }
+;
+  listView=(ListView)res.findViewById(R.id.contactsList);
+  View header=new View(getActivity());
+  header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+  listView.addHeaderView(header,null,false);
+  engineUiList=new EngineUiList<Contact>(ListEngines.getContactsEngine());
+  adapter=new ContactsAdapter(engineUiList,getActivity(),true,new OnItemClickedListener<Contact>(){
+    @Override public void onClicked(    Contact contact){
+      if (selectedUsers.contains(contact.getUid())) {
+        selectedUsers.remove((Integer)contact.getUid());
+        adapter.unselect(contact.getUid());
+      }
+ else {
+        selectedUsers.add(contact.getUid());
+        adapter.select(contact.getUid());
+      }
+      getActivity().invalidateOptionsMenu();
+      updateEditText();
+    }
+  }
+,null);
+  listView.setAdapter(adapter);
+  engineUiList.getUiList().addListener(this);
+  return res;
+}

@@ -1,0 +1,11 @@
+{
+  final String text=messageBody.getText().toString().trim();
+  messageBody.setText("");
+  if (text.length() == 0) {
+    return;
+  }
+  if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
+    keyboardUtils.setImeVisibility(messageBody,false);
+  }
+  MessageDeliveryActor.messageSender().sendText(chatType,chatId,text);
+}

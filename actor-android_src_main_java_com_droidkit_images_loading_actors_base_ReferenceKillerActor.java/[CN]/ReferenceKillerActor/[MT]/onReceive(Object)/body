@@ -1,0 +1,6 @@
+{
+  if (message instanceof BitmapReference) {
+    BitmapReference reference=((BitmapReference)message);
+    reference.release();
+  }
+}

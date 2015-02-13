@@ -1,0 +1,9 @@
+{
+  TypedValue tv=new TypedValue();
+  if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize,tv,true)) {
+    return TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
+  }
+ else {
+    return 0;
+  }
+}

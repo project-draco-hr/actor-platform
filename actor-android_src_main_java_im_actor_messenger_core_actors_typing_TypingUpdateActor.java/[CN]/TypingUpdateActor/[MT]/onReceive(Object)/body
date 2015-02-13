@@ -1,0 +1,12 @@
+{
+  super.onReceive(message);
+  if (message instanceof CancelTyping) {
+    CancelTyping cancelTyping=(CancelTyping)message;
+    if (cancelTyping.chatType == DialogType.TYPE_USER) {
+      stopTyping(cancelTyping.chatId);
+    }
+ else {
+      stopTyping(cancelTyping.chatId,cancelTyping.uid);
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  if (listener != null) {
+    listener.onScroll(absListView,firstVisibleItem,visibleItemCount,totalItemCount);
+  }
+  ListAdapter adapter;
+  if (getAdapter() instanceof HeaderViewListAdapter) {
+    adapter=((HeaderViewListAdapter)getAdapter()).getWrappedAdapter();
+  }
+ else {
+    adapter=getAdapter();
+  }
+  if (firstVisibleItem == 0) {
+    visibleHeader=null;
+    visibleHeaderNext=null;
+    View view=getChildAt(1);
+    if (view != null) {
+      offset=view.getTop();
+      if (getAdapter().getCount() > 0) {
+        visibleHeader=((StickAdapter)adapter).getItemHeader(0);
+        headerMeasure=HEADER_PAINT.measureText(visibleHeader);
+      }
+    }
+  }
+ else {
+    int realFirstVisibleItem=firstVisibleItem - getHeaderViewsCount();
+    if (realFirstVisibleItem >= 0 && realFirstVisibleItem < adapter.getCount()) {
+      boolean isSameHeader=true;
+      String header=((StickAdapter)adapter).getItemHeader(realFirstVisibleItem);
+      String nextHeader=null;
+      if (realFirstVisibleItem >= 0 && realFirstVisibleItem + 1 < adapter.getCount()) {
+        nextHeader=((StickAdapter)adapter).getItemHeader(realFirstVisibleItem + 1);
+        isSameHeader=nextHeader.equals(header);
+      }
+      if (isSameHeader) {
+        offset=0;
+        visibleHeaderNext=null;
+      }
+ else {
+        View view=getChildAt(0);
+        if (view != null) {
+          offset=view.getTop();
+        }
+        visibleHeaderNext=nextHeader;
+        headerMeasureNext=HEADER_PAINT.measureText(visibleHeaderNext);
+      }
+      visibleHeader=header;
+      headerMeasure=HEADER_PAINT.measureText(visibleHeader);
+    }
+ else {
+      visibleHeader=null;
+      visibleHeaderNext=null;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (references.containsKey(key)) {
+    return references.get(key).createReference(referrent);
+  }
+  int category=clasificator.getType(bitmap);
+  BaseBitmapReference baseBitmapReference=new BaseBitmapReference(this,key,bitmap);
+  references.put(key,baseBitmapReference);
+  categoryMap.put(key,category);
+  return baseBitmapReference.createReference(referrent);
+}

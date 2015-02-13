@@ -1,0 +1,8 @@
+{
+  if (this.enabledViewModel == value) {
+    return;
+  }
+  unbindEnabled();
+  this.enabledViewModel=value;
+  this.enabledViewModel.addUiSubscriber(enabledListener);
+}

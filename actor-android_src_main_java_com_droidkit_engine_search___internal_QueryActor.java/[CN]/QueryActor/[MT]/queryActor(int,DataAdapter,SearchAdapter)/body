@@ -1,0 +1,8 @@
+{
+  return new ActorSelection(Props.create(QueryActor.class,new ActorCreator<QueryActor>(){
+    @Override public QueryActor create(){
+      return new QueryActor(dataAdapter,searchAdapter);
+    }
+  }
+).changeDispatcher("db"),"search_query_" + id);
+}

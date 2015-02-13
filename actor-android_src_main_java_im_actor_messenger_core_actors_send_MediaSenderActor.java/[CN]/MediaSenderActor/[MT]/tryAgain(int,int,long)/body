@@ -1,0 +1,14 @@
+{
+  for (  PendingUpload pendingUpload : pendingUploads) {
+    if (pendingUpload.getChatType() == type && pendingUpload.getChatId() == id && pendingUpload.getRid() == rid) {
+      if (!pendingUpload.isStopped()) {
+        return;
+      }
+      pendingUploads.remove(pendingUpload);
+      PendingUpload started=pendingUpload.start();
+      pendingUploads.add(started);
+      self().send(started);
+      break;
+    }
+  }
+}

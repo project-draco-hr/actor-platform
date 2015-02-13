@@ -1,0 +1,9 @@
+{
+  super.onPause();
+  listEngine.getUiList().removeExListener(this);
+  listView.setExScrollListener(null);
+  if (actionMode != null) {
+    actionMode.finish();
+  }
+  listView.invalidateViews();
+}

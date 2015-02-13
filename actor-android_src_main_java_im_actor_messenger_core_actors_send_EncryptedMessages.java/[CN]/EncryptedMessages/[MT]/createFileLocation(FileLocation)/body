@@ -1,0 +1,16 @@
+{
+  EncryptionType encryptionType;
+switch (fileLocation.getEncryption()) {
+case AES:
+    encryptionType=EncryptionType.AES;
+  break;
+case AES_THEN_MAC:
+encryptionType=EncryptionType.AES_THEN_MAC;
+break;
+default :
+case NONE:
+encryptionType=EncryptionType.NONE;
+break;
+}
+return new PlainFileLocation(fileLocation.getFileId(),fileLocation.getAccessHash(),fileLocation.getFileSize(),encryptionType,fileLocation.getEncryptedFileSize(),fileLocation.getEncryptionKey());
+}

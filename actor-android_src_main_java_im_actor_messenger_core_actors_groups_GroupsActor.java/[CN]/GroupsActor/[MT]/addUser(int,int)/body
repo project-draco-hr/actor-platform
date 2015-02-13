@@ -1,0 +1,23 @@
+{
+  GroupModel groupInfo=groups().get(chatId);
+  if (groupInfo == null) {
+    return result(false);
+  }
+  UserModel user=users().get(uid);
+  if (user == null) {
+    return result(false);
+  }
+  final TypedFuture<Boolean> res=future();
+  final long rid=RandomUtil.randomId();
+  ask(requests().inviteUser(new GroupOutPeer(chatId,groupInfo.getAccessHash()),rid,new UserOutPeer(uid,user.getAccessHash())),new FutureCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate result){
+      system().actorOf(SequenceActor.sequence()).send(new SequenceActor.SeqUpdate(result.getSeq(),result.getState(),new UpdateGroupUserAdded(chatId,rid,uid,myUid(),result.getDate())));
+      res.doComplete(true);
+    }
+    @Override public void onError(    Throwable throwable){
+      res.doError(throwable);
+    }
+  }
+);
+  return res;
+}

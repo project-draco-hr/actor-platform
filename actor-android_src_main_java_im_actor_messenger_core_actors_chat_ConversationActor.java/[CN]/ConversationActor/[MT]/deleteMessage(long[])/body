@@ -1,0 +1,9 @@
+{
+  listEngine.removeItems(rids);
+  MessageModel message=listEngine.getHeadValue();
+  DialogsActor.dialogs().onDeleteMessages(type,id,rids,message != null ? message.getRaw() : null);
+  for (  long l : rids) {
+    MessageDeliveryActor.messageSender().mediaCancel(type,id,l);
+    documentsEngine.removeItem(l);
+  }
+}

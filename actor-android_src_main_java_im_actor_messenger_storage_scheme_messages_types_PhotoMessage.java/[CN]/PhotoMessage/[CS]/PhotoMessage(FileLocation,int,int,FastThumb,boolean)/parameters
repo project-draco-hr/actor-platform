@@ -1,0 +1,5 @@
+FileLocation location
+int w
+int h
+FastThumb fastThumb
+boolean isEncrypted

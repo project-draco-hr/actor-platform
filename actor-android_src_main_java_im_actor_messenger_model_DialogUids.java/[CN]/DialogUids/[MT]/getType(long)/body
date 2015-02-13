@@ -1,0 +1,3 @@
+{
+  return (int)((uid >> 32) & 0xFFFFFFFFL);
+}

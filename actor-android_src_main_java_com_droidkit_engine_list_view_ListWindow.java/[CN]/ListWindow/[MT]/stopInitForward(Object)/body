@@ -1,0 +1,4 @@
+{
+  isInited=true;
+  currentTail=tail;
+}

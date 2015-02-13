@@ -1,0 +1,5 @@
+{
+  super(storage,backedMap);
+  this.vClass=vClass;
+  init();
+}

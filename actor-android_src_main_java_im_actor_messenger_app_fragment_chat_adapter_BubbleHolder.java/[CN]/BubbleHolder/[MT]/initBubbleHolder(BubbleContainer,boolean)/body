@@ -1,0 +1,34 @@
+{
+  this.container=container;
+  this.isFullSize=isFullSize;
+  if (isFullSize) {
+    container.makeFullSizeBubble();
+  }
+  if (!isFullSize) {
+    container.setOnLongClickListener(new View.OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        boolean res=fragment.onLongClick(currentMessage);
+        container.setBubbleSelected(fragment.isSelected(currentMessage.getRid()));
+        return res;
+      }
+    }
+);
+    container.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        if (!fragment.onClick(currentMessage)) {
+          onClicked();
+        }
+ else {
+          container.setBubbleSelected(fragment.isSelected(currentMessage.getRid()));
+        }
+      }
+    }
+);
+    container.setOnClickListener(new BubbleContainer.OnAvatarClickListener(){
+      @Override public void onAvatarClick(      int uid){
+        fragment.startActivity(Intents.openProfile(uid,fragment.getActivity()));
+      }
+    }
+);
+  }
+}

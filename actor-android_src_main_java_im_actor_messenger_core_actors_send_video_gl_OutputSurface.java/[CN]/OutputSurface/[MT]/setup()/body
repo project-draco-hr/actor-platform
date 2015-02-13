@@ -1,0 +1,8 @@
+{
+  mTextureRender=new TextureRender();
+  mTextureRender.surfaceCreated();
+  if (VERBOSE)   Log.d(TAG,"textureID=" + mTextureRender.getTextureId());
+  mSurfaceTexture=new SurfaceTexture(mTextureRender.getTextureId());
+  mSurfaceTexture.setOnFrameAvailableListener(this);
+  mSurface=new Surface(mSurfaceTexture);
+}

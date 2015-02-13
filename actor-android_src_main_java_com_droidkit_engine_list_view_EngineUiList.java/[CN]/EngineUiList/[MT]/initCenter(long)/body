@@ -1,0 +1,19 @@
+{
+  this.listState.change(new ListState(ListState.State.LOADING_EMPTY));
+  listWindow.startInitCenter();
+  listEngine.loadCenterInitial(key,loadLimit,new LoadCenterCallback<V>(){
+    @Override public void onLoaded(    List<V> res,    Object prevKey,    Object nextKey){
+      uiList.editList(listMods.replace(res));
+      listWindow.stopInitCenter(prevKey,nextKey);
+      if (res.size() == 0) {
+        listState.change(new ListState(ListState.State.LOADED_EMPTY));
+        listWindow.onTailCompleted();
+        listWindow.onHeadCompleted();
+      }
+ else {
+        listState.change(new ListState(ListState.State.LOADED));
+      }
+    }
+  }
+);
+}

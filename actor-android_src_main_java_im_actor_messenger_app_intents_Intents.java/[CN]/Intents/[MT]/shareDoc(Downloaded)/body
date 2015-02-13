@@ -1,0 +1,7 @@
+{
+  String mimeType=MimeTypeMap.getSingleton().getMimeTypeFromExtension(IOUtils.getFileExtension(downloaded.getName()));
+  if (mimeType == null) {
+    mimeType="*/*";
+  }
+  return new Intent(Intent.ACTION_SEND).putExtra(Intent.EXTRA_STREAM,getDocUri(downloaded)).setType(mimeType);
+}

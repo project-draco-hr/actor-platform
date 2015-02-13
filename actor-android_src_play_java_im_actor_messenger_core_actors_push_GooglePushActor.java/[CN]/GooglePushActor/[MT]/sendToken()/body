@@ -1,0 +1,15 @@
+{
+  if (!BuildConfig.ENABLE_GOOGLE_PLAY) {
+    return;
+  }
+  ask(requests().registerGooglePush(SENDER_ID,token.getValue()),new FutureCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid result){
+      Logger.d(TAG,"Token sent to server");
+      isRegisteredOnServer.change(true);
+    }
+    @Override public void onError(    Throwable throwable){
+      Logger.d(TAG,"Unable to sent token to server: " + throwable.getMessage());
+    }
+  }
+);
+}

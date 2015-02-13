@@ -1,0 +1,23 @@
+{
+  if (listEngine.getValue(rid) != null) {
+    return;
+  }
+  ConversationMessage message=createMessage(rid,date,MessageState.SENT,senderId,content);
+  listEngine.addOrUpdateItem(new MessageModel(message));
+  dialogsActor.onMessageArrived(type,id,message);
+  if (senderId != myUid()) {
+    OwnReadStateActor.readState().newMessage(type,id,rid,message.getSortKey(),message.getTime(),message.getContent().isEncrypted());
+    if ((!(content instanceof GroupLeave)) && (!(content instanceof UserAddedDeviceMessage))) {
+      NotificationsActor.notifications().onNewMessage(type,id,message);
+    }
+    onNewMessage();
+  }
+ else {
+    OwnReadStateActor.readState().newOutMessage(type,id,rid,message.getSortKey(),message.getTime(),message.getContent().isEncrypted());
+    ReadStateActor.readState().onNewOutMessage(type,id,message.getTime(),message.getRid(),content.isEncrypted());
+  }
+  if (content instanceof DocumentMessage) {
+    DocumentMessage documentMessage=(DocumentMessage)content;
+    documentsEngine.addOrUpdateItem(new Document(rid,documentMessage.getLocation(),documentMessage.getName(),"",senderId,date));
+  }
+}

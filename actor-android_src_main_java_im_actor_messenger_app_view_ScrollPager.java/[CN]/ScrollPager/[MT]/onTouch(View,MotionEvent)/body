@@ -1,0 +1,37 @@
+{
+  scroller.forceFinished(true);
+  mScrollView.removeCallbacks(task);
+  if (velocityTracker != null) {
+    velocityTracker.addMovement(event);
+  }
+  if (event.getAction() == MotionEvent.ACTION_DOWN) {
+    if (velocityTracker != null) {
+      velocityTracker.clear();
+    }
+ else {
+      velocityTracker=VelocityTracker.obtain();
+    }
+  }
+ else   if (event.getAction() == MotionEvent.ACTION_UP) {
+    int displayHeight=mScrollView.getHeight();
+    int contentTop=mContentView.getPaddingTop();
+    int contentBottom=mContentView.getHeight() - mContentView.getPaddingBottom();
+    int lastPageTop=contentBottom - displayHeight;
+    int currScrollY=mScrollView.getScrollY();
+    int currScrollMiddleY=currScrollY + displayHeight / 2 - contentTop;
+    int currPage=currScrollMiddleY / displayHeight;
+    int nextPage=currPage;
+    if (velocityTracker != null) {
+      velocityTracker.computeCurrentVelocity(1000);
+      if (velocityTracker.getYVelocity() > (mScrollView.getContext().getResources().getDisplayMetrics().density * 100)) {
+        nextPage--;
+      }
+ else       if (velocityTracker.getYVelocity() < -(mScrollView.getContext().getResources().getDisplayMetrics().density * 100)) {
+        nextPage++;
+      }
+    }
+    scrollToPage(nextPage);
+    return true;
+  }
+  return false;
+}

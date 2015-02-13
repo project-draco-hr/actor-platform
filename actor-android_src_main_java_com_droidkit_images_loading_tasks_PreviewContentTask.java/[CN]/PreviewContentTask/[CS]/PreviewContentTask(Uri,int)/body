@@ -1,0 +1,7 @@
+{
+  if (kind != MediaStore.Images.Thumbnails.MICRO_KIND && kind != MediaStore.Images.Thumbnails.MINI_KIND) {
+    throw new RuntimeException("Kind must be MICRO_KIND or MINI_KIND");
+  }
+  this.uri=uri;
+  this.kind=kind;
+}

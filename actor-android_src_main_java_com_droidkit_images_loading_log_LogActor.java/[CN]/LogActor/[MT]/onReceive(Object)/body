@@ -1,0 +1,8 @@
+{
+  if (sender() != null) {
+    android.util.Log.d("ImageKit",sender().getPath() + ":" + message);
+  }
+ else {
+    android.util.Log.d("ImageKit","" + message);
+  }
+}

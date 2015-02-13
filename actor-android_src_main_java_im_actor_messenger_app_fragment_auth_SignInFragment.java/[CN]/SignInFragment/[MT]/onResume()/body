@@ -1,0 +1,4 @@
+{
+  super.onResume();
+  setTitle(R.string.auth_code_title);
+}

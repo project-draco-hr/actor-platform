@@ -1,0 +1,12 @@
+{
+  ask(requests().leaveGroup(new GroupOutPeer(action.getChatId(),action.getChatAccessHash()),RandomUtil.randomId()),new FutureCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate result){
+      onActionCompleted(action);
+    }
+    @Override public void onError(    Throwable throwable){
+      throwable.printStackTrace();
+      onActionCompleted(action);
+    }
+  }
+);
+}

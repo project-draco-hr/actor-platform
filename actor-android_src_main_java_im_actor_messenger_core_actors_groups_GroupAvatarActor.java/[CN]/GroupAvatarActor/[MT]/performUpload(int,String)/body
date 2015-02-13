@@ -1,0 +1,44 @@
+{
+  final ValueModel<GroupAvatarState.StateHolder> state=GroupAvatarState.getGroupState(gid);
+  final GroupModel groupModel=groups().get(gid);
+  state.change(new GroupAvatarState.StateHolder(fileName,GroupAvatarState.State.UPLOADING));
+  ask(UploadActor.upload(fileName,false),new AskCallback<FileLocation>(){
+    @Override public void onResult(    FileLocation result){
+      if (state.getValue().getState() != GroupAvatarState.State.UPLOADING) {
+        return;
+      }
+      final long rid=RandomUtil.randomId();
+      ask(requests().editGroupAvatar(new GroupOutPeer(gid,groupModel.getAccessHash()),rid,new im.actor.api.scheme.FileLocation(result.getFileId(),result.getAccessHash())),new FutureCallback<ResponseEditGroupAvatar>(){
+        @Override public void onResult(        ResponseEditGroupAvatar result){
+          DiskCache diskCache=Core.core().getImageLoader().getInternalDiskCache();
+          try {
+            String fullKey=FileKeys.avatarKey(result.getAvatar().getFullImage().getFileLocation().getFileId());
+            String file=diskCache.startWriteFile(fullKey);
+            IOUtils.copy(new File(fileName),new File(file));
+            diskCache.commitFile(fullKey);
+          }
+ catch (          IOException e) {
+            e.printStackTrace();
+          }
+          system().actorOf(SequenceActor.sequence()).send(new SequenceActor.SeqUpdate(result.getSeq(),result.getState(),new UpdateGroupAvatarChanged(gid,rid,myUid(),result.getAvatar(),result.getDate())));
+          system().actorOf(SequenceActor.sequence()).send(new Runnable(){
+            @Override public void run(){
+              state.change(new GroupAvatarState.StateHolder(fileName,GroupAvatarState.State.NONE));
+            }
+          }
+);
+        }
+        @Override public void onError(        Throwable throwable){
+          state.change(new GroupAvatarState.StateHolder(fileName,GroupAvatarState.State.ERROR));
+          ToastActor.get().show("Unable to change avatar");
+        }
+      }
+);
+    }
+    @Override public void onError(    Throwable throwable){
+      state.change(new GroupAvatarState.StateHolder(fileName,GroupAvatarState.State.ERROR));
+      ToastActor.get().show("Unable to change avatar");
+    }
+  }
+);
+}

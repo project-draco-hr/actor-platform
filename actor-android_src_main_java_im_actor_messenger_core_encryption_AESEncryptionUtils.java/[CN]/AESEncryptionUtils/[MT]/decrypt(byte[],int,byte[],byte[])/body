@@ -1,0 +1,21 @@
+{
+  IvParameterSpec ivSpec=new IvParameterSpec(iv);
+  SecretKeySpec keySpec=new SecretKeySpec(key,"AES");
+  Cipher cipher=createAES();
+  try {
+    cipher.init(Cipher.DECRYPT_MODE,keySpec,ivSpec);
+    return cipher.doFinal(src,0,len);
+  }
+ catch (  InvalidKeyException e) {
+    throw new RuntimeException(e);
+  }
+catch (  BadPaddingException e) {
+    throw new RuntimeException(e);
+  }
+catch (  IllegalBlockSizeException e) {
+    throw new RuntimeException(e);
+  }
+catch (  InvalidAlgorithmParameterException e) {
+    throw new RuntimeException(e);
+  }
+}

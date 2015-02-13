@@ -1,0 +1,4 @@
+{
+  clearList();
+  initCenter(sortingKey);
+}

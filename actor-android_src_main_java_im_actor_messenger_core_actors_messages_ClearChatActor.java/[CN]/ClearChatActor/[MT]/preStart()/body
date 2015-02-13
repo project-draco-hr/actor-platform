@@ -1,0 +1,8 @@
+{
+  deletions=new SerializableMap<Boolean>(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"chat_deletions"));
+  for (  Long uid : deletions.keySet()) {
+    int type=DialogUids.getType(uid);
+    int id=DialogUids.getId(uid);
+    self().send(new PerformDeletion(type,id,deletions.get(uid)));
+  }
+}

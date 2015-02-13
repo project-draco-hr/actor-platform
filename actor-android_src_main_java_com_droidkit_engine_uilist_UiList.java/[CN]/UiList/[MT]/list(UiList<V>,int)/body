@@ -1,0 +1,8 @@
+{
+  return new ActorSelection(Props.create(UiListActor.class,new ActorCreator<UiListActor>(){
+    @Override public UiListActor create(){
+      return new UiListActor(list);
+    }
+  }
+),"ui_list_" + index);
+}

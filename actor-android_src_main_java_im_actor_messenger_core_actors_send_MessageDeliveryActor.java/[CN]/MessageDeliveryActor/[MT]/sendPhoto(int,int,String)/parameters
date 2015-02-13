@@ -1,0 +1,3 @@
+int chatType
+int chatId
+String fileName

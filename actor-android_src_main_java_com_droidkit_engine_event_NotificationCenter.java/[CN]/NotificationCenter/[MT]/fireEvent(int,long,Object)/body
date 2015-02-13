@@ -1,0 +1,41 @@
+{
+  final Iterator<WeakEqualReference<OnNotificationListenerContainer>> it=listeners.iterator();
+  final boolean isUiThread=Utils.isUIThread();
+  final State state=states.get(eventType);
+  if (state != null) {
+    statesValues.put(getKeyForEvent(eventType,eventId),args);
+  }
+  while (it.hasNext()) {
+    final WeakEqualReference<OnNotificationListenerContainer> weakListenerContainer=it.next();
+    final OnNotificationListenerContainer listenerContainer=weakListenerContainer.get();
+    if (listenerContainer == null) {
+      it.remove();
+    }
+ else     if (listenerContainer.eventType == eventType && listenerContainer.eventId == eventId) {
+synchronized (fireRemoveSyncObject) {
+        if (!listenerContainer.isDeleted()) {
+          if (isUiThread && listenerContainer.wasAddedInUIThread) {
+            listenerContainer.listener.onNotification(eventType,eventId,args);
+            continue;
+          }
+          final Runnable fireEvent=new Runnable(){
+            @Override public void run(){
+synchronized (fireRemoveSyncObject) {
+                if (!listenerContainer.isDeleted()) {
+                  listenerContainer.listener.onNotification(eventType,eventId,args);
+                }
+              }
+            }
+          }
+;
+          if (listenerContainer.wasAddedInUIThread) {
+            handler.post(fireEvent);
+          }
+ else {
+            backgroundFireLoop.postAction(fireEvent);
+          }
+        }
+      }
+    }
+  }
+}

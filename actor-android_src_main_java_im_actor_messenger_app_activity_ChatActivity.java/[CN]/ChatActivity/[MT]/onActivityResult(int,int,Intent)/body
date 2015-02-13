@@ -1,0 +1,28 @@
+{
+  if (resultCode == RESULT_OK) {
+    if (requestCode == REQUEST_GALLERY) {
+      if (data.getData() != null) {
+        sendUri(data.getData());
+      }
+    }
+ else     if (requestCode == REQUEST_PHOTO) {
+      MessageDeliveryActor.messageSender().sendPhoto(chatType,chatId,fileName);
+    }
+ else     if (requestCode == REQUEST_VIDEO) {
+      MessageDeliveryActor.messageSender().sendVideo(chatType,chatId,fileName);
+    }
+ else     if (requestCode == REQUEST_DOC) {
+      if (data.getData() != null) {
+        sendUri(data.getData());
+      }
+ else       if (data.hasExtra("picked")) {
+        ArrayList<String> files=data.getStringArrayListExtra("picked");
+        if (files != null) {
+          for (          String s : files) {
+            MessageDeliveryActor.messageSender().sendDocument(chatType,chatId,s,new File(s).getName());
+          }
+        }
+      }
+    }
+  }
+}

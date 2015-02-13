@@ -1,0 +1,5 @@
+{
+  int chatType=peer.getType() == PeerType.GROUP ? DialogType.TYPE_GROUP : DialogType.TYPE_USER;
+  int chatId=peer.getId();
+  ConversationActor.conv(chatType,chatId).clearChat();
+}

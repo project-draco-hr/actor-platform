@@ -1,0 +1,27 @@
+{
+  this.context=context;
+  LayoutInflater inflater=LayoutInflater.from(context);
+  BubbleContainer v=(BubbleContainer)inflater.inflate(R.layout.adapter_dialog_photo,viewGroup,false);
+  messageBubble=(FrameLayout)v.findViewById(R.id.bubbleContainer);
+  imageKitView=(PhotoPreview)v.findViewById(R.id.image);
+  time=(TextView)v.findViewById(R.id.time);
+  overlay=v.findViewById(R.id.photoOverlay);
+  duration=(TextView)v.findViewById(R.id.duration);
+  stateIcon=(TintImageView)v.findViewById(R.id.stateIcon);
+  progressContainer=v.findViewById(R.id.progressBg);
+  progressContainer.setVisibility(View.GONE);
+  progressValue=(TextView)v.findViewById(R.id.progressValue);
+  progressView=(CircularView)v.findViewById(R.id.progressView);
+  progressView.setColor(Color.WHITE);
+  progressIcon=(ImageView)v.findViewById(R.id.contentIcon);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    smallPreview=Bitmap.createBitmap(90,90,Bitmap.Config.ARGB_8888);
+  }
+  pendingColor=context.getResources().getColor(R.color.conv_media_state_pending);
+  sentColor=context.getResources().getColor(R.color.conv_media_state_sent);
+  receivedColor=context.getResources().getColor(R.color.conv_media_state_delivered);
+  readColor=context.getResources().getColor(R.color.conv_media_state_read);
+  errorColor=context.getResources().getColor(R.color.conv_media_state_error);
+  initBubbleHolder(v,false);
+  return v;
+}

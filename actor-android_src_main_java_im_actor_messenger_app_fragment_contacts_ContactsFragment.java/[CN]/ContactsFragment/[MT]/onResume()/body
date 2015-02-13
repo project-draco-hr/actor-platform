@@ -1,0 +1,4 @@
+{
+  super.onResume();
+  emptyContactsImage.setImageResource(R.drawable.contacts_empty_large);
+}

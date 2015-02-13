@@ -1,0 +1,12 @@
+{
+  super.onResume();
+  adapter.notifyDataSetChanged();
+  if (isFirst) {
+    isFirst=false;
+    initUnreadLocation();
+  }
+  scrollUp.setVisibility(View.GONE);
+  scrollDown.setVisibility(View.GONE);
+  listEngine.getUiList().addExListener(this);
+  listView.setExScrollListener(this);
+}

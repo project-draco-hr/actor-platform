@@ -1,0 +1,4 @@
+{
+  currentRule.useSizeInBytes=false;
+  return this;
+}

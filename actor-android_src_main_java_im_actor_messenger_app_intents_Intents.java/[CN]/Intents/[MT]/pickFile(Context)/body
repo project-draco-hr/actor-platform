@@ -1,0 +1,8 @@
+{
+  if (BuildConfig.ENABLE_CHROME) {
+    return new Intent(Intent.ACTION_PICK).setType("*/*");
+  }
+ else {
+    return com.droidkit.pickers.Intents.pickFile(context);
+  }
+}

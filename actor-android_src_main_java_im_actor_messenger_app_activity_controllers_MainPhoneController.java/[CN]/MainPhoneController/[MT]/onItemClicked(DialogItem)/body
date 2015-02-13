@@ -1,0 +1,3 @@
+{
+  startActivity(Intents.openDialog(item.getType(),item.getId(),false,getActivity()));
+}

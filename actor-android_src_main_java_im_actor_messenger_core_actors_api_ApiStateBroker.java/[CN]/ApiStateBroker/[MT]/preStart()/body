@@ -1,0 +1,6 @@
+{
+  super.preStart();
+  seqActor=system().actorOf(SequenceActor.sequence());
+  seqBroker=system().actorOf(UpdateBroker.sequenceBroker());
+  usersPresence=UsersPresence.presence();
+}

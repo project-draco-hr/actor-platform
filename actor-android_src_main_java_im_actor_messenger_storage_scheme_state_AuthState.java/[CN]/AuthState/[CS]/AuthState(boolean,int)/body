@@ -1,0 +1,4 @@
+{
+  this.isLoggedIn=isLoggedIn;
+  this.uid=uid;
+}

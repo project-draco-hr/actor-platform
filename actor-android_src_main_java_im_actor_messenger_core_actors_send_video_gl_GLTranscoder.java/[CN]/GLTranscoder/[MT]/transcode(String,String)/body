@@ -1,0 +1,29 @@
+{
+  long tStart=System.currentTimeMillis();
+  long start=System.currentTimeMillis();
+  MediaMetadataRetriever metaRetriever=new MediaMetadataRetriever();
+  metaRetriever.setDataSource(sourceFile);
+  int height=Integer.parseInt(metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+  int width=Integer.parseInt(metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
+  float scale=Math.min(MAX_SIZE / height,MAX_SIZE / width);
+  int destW=(int)(width * scale);
+  int destH=(int)(height * scale);
+  MediaExtractor extractor=new MediaExtractor();
+  extractor.setDataSource(sourceFile);
+  int trackIndex=selectTrack(extractor);
+  if (trackIndex < 0) {
+    throw new RuntimeException("No video track found in " + sourceFile);
+  }
+  extractor.selectTrack(trackIndex);
+  VideoChunks chunks=extractVideo(extractor,trackIndex);
+  Logger.d(TAG,"Extracted in " + (System.currentTimeMillis() - start) + " ms");
+  start=System.currentTimeMillis();
+  VideoChunks res=editVideo(chunks,destW,destH);
+  Logger.d(TAG,"Edited in " + (System.currentTimeMillis() - start) + " ms");
+  start=System.currentTimeMillis();
+  res.saveToFile(new File(destFile + ".h264"));
+  MuxerFactory.createMuxer().muxVideo(sourceFile,destFile + ".h264",destFile);
+  Logger.d(TAG,"Muxed in " + (System.currentTimeMillis() - start) + " ms");
+  Logger.d(TAG,"Completed in " + (System.currentTimeMillis() - tStart) + " ms");
+  return true;
+}

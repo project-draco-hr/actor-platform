@@ -1,0 +1,14 @@
+{
+  ByteArrayInputStream inputStream=new ByteArrayInputStream(value);
+  try {
+    ObjectInputStream objectInputStream=new ObjectInputStream(inputStream);
+    return (V)objectInputStream.readObject();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+catch (  ClassNotFoundException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

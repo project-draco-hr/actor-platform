@@ -1,0 +1,7 @@
+{
+  BindContainer container=getContainer(view);
+  if (container.checked != null) {
+    container.checked.release();
+    container.checked=null;
+  }
+}

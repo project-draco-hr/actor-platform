@@ -1,0 +1,94 @@
+{
+  int currentTrackItem=firstVisibleItem + visibleItemCount / 2;
+  int lastVisibleItem=firstVisibleItem + visibleItemCount;
+  if (prevTrackItem == -1 || prevTrackItem < firstVisibleItem || prevTrackItem > lastVisibleItem || state == SCROLL_STATE_IDLE) {
+    prevTrackItem=currentTrackItem;
+    lastTop=0;
+    View view=getChildAt(currentTrackItem - firstVisibleItem + getHeaderViewsCount());
+    if (view != null) {
+      lastTop=view.getTop();
+    }
+  }
+ else {
+    View prevTrack=getChildAt(prevTrackItem - firstVisibleItem + getHeaderViewsCount());
+    if (prevTrack == null) {
+      return;
+    }
+    int topDelta=prevTrack.getTop() - lastTop;
+    if (scrollDistance * topDelta < 0) {
+      scrollDistance=0;
+    }
+ else {
+      scrollDistance+=topDelta;
+    }
+    prevTrackItem=currentTrackItem;
+    lastTop=0;
+    View track=getChildAt(currentTrackItem - firstVisibleItem + getHeaderViewsCount());
+    if (track != null) {
+      lastTop=track.getTop();
+    }
+  }
+  if (lastVisibleItem + BORDER_GAP >= totalItemCount) {
+    if (!isScrolledToEnd) {
+      isScrolledToEnd=true;
+      if (exScrollListener != null) {
+        exScrollListener.onScrolledToEnd();
+      }
+    }
+  }
+ else {
+    if (isScrolledToEnd) {
+      isScrolledToEnd=false;
+      if (exScrollListener != null) {
+        exScrollListener.onScrolledFromEnd();
+      }
+    }
+  }
+  if (isUiActivated) {
+    if (firstVisibleItem <= BORDER_GAP) {
+      isUiActivated=false;
+      handler.removeMessages(DEACTIVATE);
+      handler.removeMessages(ACTIVATE);
+      if (exScrollListener != null) {
+        exScrollListener.onStoppedScroll();
+      }
+      scrollDistance=0;
+    }
+ else     if (lastVisibleItem + BORDER_GAP >= totalItemCount) {
+      isUiActivated=false;
+      handler.removeMessages(DEACTIVATE);
+      handler.removeMessages(ACTIVATE);
+      if (exScrollListener != null) {
+        exScrollListener.onStoppedScroll();
+        exScrollListener.onScrolledToEnd();
+      }
+      scrollDistance=0;
+    }
+ else {
+      if (!isScrollingUp && scrollDistance > SWITCH_DELTA_DP) {
+        isScrollingUp=true;
+        if (exScrollListener != null) {
+          exScrollListener.onScrolledUp();
+        }
+      }
+ else       if (isScrollingUp && scrollDistance < -SWITCH_DELTA_DP) {
+        isScrollingUp=false;
+        if (exScrollListener != null) {
+          exScrollListener.onScrolledDown();
+        }
+      }
+    }
+  }
+ else {
+    if (firstVisibleItem <= BORDER_GAP) {
+    }
+ else     if (lastVisibleItem + BORDER_GAP >= totalItemCount) {
+    }
+ else     if (Math.abs(scrollDistance) > ACTIVATE_DELTA_DP) {
+      isScrollingUp=scrollDistance > 0;
+      handler.removeMessages(DEACTIVATE);
+      handler.removeMessages(ACTIVATE);
+      handler.sendEmptyMessage(ACTIVATE);
+    }
+  }
+}

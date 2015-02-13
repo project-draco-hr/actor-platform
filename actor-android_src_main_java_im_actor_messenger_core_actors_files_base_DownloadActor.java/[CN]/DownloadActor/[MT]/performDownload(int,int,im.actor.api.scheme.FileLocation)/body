@@ -1,0 +1,31 @@
+{
+  ask(requests().getFile(location,offset,blockSize),new FutureCallback<ResponseGetFile>(){
+    @Override public void onResult(    ResponseGetFile result){
+      downloaded++;
+      Logger.d(TAG,"Download part #" + blockIndex + " completed");
+      try {
+        randomAccessFile.seek(offset);
+        randomAccessFile.write(result.getPayload());
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        error(e);
+        return;
+      }
+      currentDownloads--;
+      progress(100 * downloaded / blocksCount);
+      checkDownload();
+    }
+    @Override public void onError(    Throwable throwable){
+      if (throwable instanceof AskTimeoutException) {
+        Logger.d(TAG,"Download part #" + blockIndex + " error");
+        performDownload(blockIndex,offset,location);
+      }
+ else {
+        Logger.d(TAG,"Download part #" + blockIndex + " error: aborting");
+        error(throwable);
+      }
+    }
+  }
+);
+}

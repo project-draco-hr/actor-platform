@@ -1,0 +1,16 @@
+{
+  GroupModel groupModel=groups().get(chatId);
+  if (groupModel == null) {
+    return;
+  }
+  if (groupModel.getState() == GroupState.DELETED_PENDING) {
+    return;
+  }
+  groups().put(chatId,groupModel.getRaw().updateState(GroupState.JOINED));
+  if (inviterId == myUid()) {
+    ConversationActor.conv(DialogType.TYPE_GROUP,chatId).onInMessage(rid,inviterId,date,new GroupCreated(groupModel.getTitle()));
+  }
+ else {
+    ConversationActor.conv(DialogType.TYPE_GROUP,chatId).onInMessage(rid,inviterId,date,new GroupAdd(myUid()));
+  }
+}

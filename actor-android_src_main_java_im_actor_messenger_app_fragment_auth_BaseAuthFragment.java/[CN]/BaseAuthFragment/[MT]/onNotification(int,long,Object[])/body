@@ -1,0 +1,10 @@
+{
+  if (i == Core.AUTH_STATE) {
+    int state=(Integer)objects[0];
+    Throwable t=null;
+    if (objects.length >= 2) {
+      t=(Throwable)objects[1];
+    }
+    onState(state,t,!isAnimationLock);
+  }
+}

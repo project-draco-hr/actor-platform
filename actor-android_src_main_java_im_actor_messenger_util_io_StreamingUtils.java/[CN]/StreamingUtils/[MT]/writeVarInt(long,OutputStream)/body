@@ -1,0 +1,7 @@
+{
+  while ((i & 0xffffffffffffff80l) != 0l) {
+    stream.write((byte)((i & 0x7f) | 0x80));
+    i>>>=7;
+  }
+  stream.write((byte)(i & 0x7f));
+}

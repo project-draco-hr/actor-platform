@@ -1,0 +1,18 @@
+{
+  LayoutInflater inflater=LayoutInflater.from(context);
+  BubbleContainer v=(BubbleContainer)inflater.inflate(R.layout.adapter_dialog_text,parent,false);
+  messageBubble=(FrameLayout)v.findViewById(R.id.fl_bubble);
+  text=(TextView)v.findViewById(R.id.tv_text);
+  text.setTypeface(Fonts.regular());
+  time=(TextView)v.findViewById(R.id.tv_time);
+  time.setTypeface(Fonts.regular());
+  status=(TintImageView)v.findViewById(R.id.stateIcon);
+  colors=new int[]{context.getResources().getColor(R.color.placeholder_0),context.getResources().getColor(R.color.placeholder_1),context.getResources().getColor(R.color.placeholder_2),context.getResources().getColor(R.color.placeholder_3),context.getResources().getColor(R.color.placeholder_4),context.getResources().getColor(R.color.placeholder_5),context.getResources().getColor(R.color.placeholder_6)};
+  waitColor=context.getResources().getColor(R.color.conv_state_pending);
+  sentColor=context.getResources().getColor(R.color.conv_state_sent);
+  deliveredColor=context.getResources().getColor(R.color.conv_state_delivered);
+  readColor=context.getResources().getColor(R.color.conv_state_read);
+  errorColor=context.getResources().getColor(R.color.conv_state_error);
+  initBubbleHolder(v,false);
+  return v;
+}

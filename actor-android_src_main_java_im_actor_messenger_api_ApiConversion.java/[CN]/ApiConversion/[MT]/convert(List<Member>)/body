@@ -1,0 +1,7 @@
+{
+  ArrayList<GroupMember> res=new ArrayList<GroupMember>();
+  for (  Member m : members) {
+    res.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate()));
+  }
+  return res;
+}

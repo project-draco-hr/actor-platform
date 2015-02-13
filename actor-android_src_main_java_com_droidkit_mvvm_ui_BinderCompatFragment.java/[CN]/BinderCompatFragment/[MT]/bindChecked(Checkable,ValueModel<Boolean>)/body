@@ -1,0 +1,3 @@
+{
+  binder.bindChecked(checkable,isChecked);
+}

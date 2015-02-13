@@ -1,0 +1,4 @@
+EngineUiList<DialogItem> engine
+Context context
+OnItemClickedListener<DialogItem> itemClicked
+OnItemClickedListener<DialogItem> itemLongClicked

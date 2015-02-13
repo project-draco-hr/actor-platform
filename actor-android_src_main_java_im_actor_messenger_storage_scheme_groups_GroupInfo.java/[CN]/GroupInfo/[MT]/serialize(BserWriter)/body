@@ -1,0 +1,24 @@
+{
+  writer.writeInt(1,groupId);
+  writer.writeLong(2,accessHash);
+  writer.writeString(3,title);
+  if (avatar != null) {
+    writer.writeObject(4,avatar);
+  }
+  writer.writeRepeatedObj(5,members);
+  writer.writeInt(6,adminId);
+switch (groupState) {
+case JOINED:
+    writer.writeInt(7,0);
+  break;
+case KICKED:
+writer.writeInt(7,1);
+break;
+case DELETED:
+writer.writeInt(7,3);
+break;
+case DELETED_PENDING:
+writer.writeInt(7,4);
+break;
+}
+}

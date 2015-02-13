@@ -1,0 +1,26 @@
+{
+  final CacheConfig[] configs=new CacheConfig[rules.size()];
+  final Filter[] fiters=new Filter[rules.size()];
+  for (int i=0; i < rules.size(); i++) {
+    Rule rule=rules.get(i);
+    configs[i]=new CacheConfig(i,rule.lruSize != 0,rule.freeSize != 0,rule.useSizeInBytes,rule.lruSize,rule.freeSize);
+    fiters[i]=rule.filter;
+  }
+  return new BitmapClasificator(){
+    @Override public int getType(    int w,    int h){
+      for (int i=0; i < fiters.length; i++) {
+        if (fiters[i].checkType(w,h)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+    @Override public int getType(    Bitmap bitmap){
+      return getType(bitmap.getWidth(),bitmap.getHeight());
+    }
+    @Override public CacheConfig[] getConfigs(){
+      return configs;
+    }
+  }
+;
+}

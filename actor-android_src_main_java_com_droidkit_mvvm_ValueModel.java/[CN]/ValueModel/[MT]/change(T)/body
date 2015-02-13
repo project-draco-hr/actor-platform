@@ -1,0 +1,8 @@
+{
+  if (this.value != null && value != null && value.equals(this.value)) {
+    return;
+  }
+  this.value=value;
+  uiNotificator.notify(value);
+  bgNotificator.notify(value);
+}

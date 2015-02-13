@@ -1,0 +1,11 @@
+{
+  references.remove(reference.key);
+  int category=clasificator.getType(reference.bitmap);
+  if (category < 0) {
+    return;
+  }
+  CategoryHolder holder=categories.get(category);
+  if (holder.config.isLruEnabled()) {
+    holder.bitmapLruCache.put(reference.getKey(),reference.bitmap);
+  }
+}

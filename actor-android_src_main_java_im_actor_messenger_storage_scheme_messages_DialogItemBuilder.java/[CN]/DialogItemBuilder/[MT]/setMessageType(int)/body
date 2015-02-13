@@ -1,0 +1,4 @@
+{
+  this.messageType=messageType;
+  return this;
+}

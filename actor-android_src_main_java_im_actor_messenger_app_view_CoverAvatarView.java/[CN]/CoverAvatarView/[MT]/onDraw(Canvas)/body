@@ -1,0 +1,32 @@
+{
+  super.onDraw(canvas);
+  int imgW;
+  int imgH;
+  if (bitmap != null) {
+    imgW=bitmap.getWidth();
+    imgH=bitmap.getHeight();
+  }
+ else {
+    imgW=background.getWidth();
+    imgH=background.getHeight();
+  }
+  int topPadding=Math.abs(offset);
+  int height=getHeight() - topPadding;
+  float scale=Math.min((float)imgW / (float)getWidth(),(float)imgH / (float)height);
+  int realW=(int)(getWidth() * scale);
+  int realH=(int)(height * scale);
+  int paddingW=(imgW - realW) / 2;
+  int paddingH=(imgH - realH) / 2;
+  if (bitmap != null) {
+    rect1.set(paddingW,paddingH,paddingW + realW,paddingH + realH);
+    rect2.set(0,topPadding,getWidth(),getHeight());
+    canvas.drawBitmap(bitmap,rect1,rect2,BITMAP_PAINT);
+    bottomShadow.setBounds(0,getHeight() - Screen.dp(64),getWidth(),getHeight());
+    bottomShadow.draw(canvas);
+  }
+ else {
+    rect1.set(paddingW,paddingH,paddingW + realW,paddingH + realH);
+    rect2.set(0,topPadding,getWidth(),getHeight());
+    canvas.drawBitmap(background,rect1,rect2,BITMAP_PAINT);
+  }
+}

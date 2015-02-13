@@ -1,0 +1,17 @@
+{
+  long uid=DialogUids.getDialogUid(chatType,chatId);
+  long msgRid=0;
+  long msgDate=0;
+  long msgSortingKey=0;
+  Set<UnreadMessage> unread=getPlainUnread(uid);
+  for (  UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+    if (u.date <= date && u.date > msgDate) {
+      msgSortingKey=u.sortKey;
+      msgRid=u.rid;
+      msgDate=u.date;
+    }
+  }
+  if (msgSortingKey > 0) {
+    messageRead(chatType,chatId,msgRid,msgSortingKey,msgDate,false);
+  }
+}

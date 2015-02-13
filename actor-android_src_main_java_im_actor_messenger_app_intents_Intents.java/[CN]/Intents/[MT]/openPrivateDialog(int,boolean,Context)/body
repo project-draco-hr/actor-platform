@@ -1,0 +1,3 @@
+{
+  return openDialog(DialogType.TYPE_USER,uid,compose,context);
+}

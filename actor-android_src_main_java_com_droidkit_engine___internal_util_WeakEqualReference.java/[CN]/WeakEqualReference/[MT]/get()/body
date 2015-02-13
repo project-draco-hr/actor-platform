@@ -1,0 +1,8 @@
+{
+  if (USE_AS_STRONG_REFERENCE) {
+    return ref;
+  }
+ else {
+    return super.get();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  int result=chatType;
+  result=31 * result + chatId;
+  result=31 * result + (int)(rid ^ (rid >>> 32));
+  return result;
+}

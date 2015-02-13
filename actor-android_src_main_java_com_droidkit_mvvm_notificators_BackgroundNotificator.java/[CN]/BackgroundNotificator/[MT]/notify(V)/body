@@ -1,0 +1,12 @@
+{
+  notificator.send(new Runnable(){
+    @Override public void run(){
+synchronized (subscribers) {
+        for (        S sub : subscribers) {
+          BackgroundNotificator.this.notify(sub,value);
+        }
+      }
+    }
+  }
+);
+}

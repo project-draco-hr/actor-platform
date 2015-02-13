@@ -1,0 +1,6 @@
+{
+  super.onReceive(message);
+  if (message instanceof BitmapReference) {
+    system().actorOf(ReferenceKillerActor.killer()).send(message);
+  }
+}

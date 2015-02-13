@@ -1,0 +1,10 @@
+{
+  boolean res=false;
+  Iterator<?> it=collection.iterator();
+  while (it.hasNext()) {
+    if (remove(it.next())) {
+      res=true;
+    }
+  }
+  return res;
+}

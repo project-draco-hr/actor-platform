@@ -1,0 +1,12 @@
+{
+switch (uploadState.getState()) {
+default :
+case NONE:
+    showIcon(R.drawable.conv_media_upload);
+  break;
+case UPLOADED:
+case UPLOADING:
+showProgress(uploadState.getProgress());
+break;
+}
+}

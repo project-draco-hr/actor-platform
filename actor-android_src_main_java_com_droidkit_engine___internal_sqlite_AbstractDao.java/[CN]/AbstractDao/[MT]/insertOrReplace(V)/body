@@ -1,0 +1,3 @@
+{
+  return executeInsert(entity,statements.getInsertOrReplaceStatement());
+}

@@ -1,0 +1,80 @@
+{
+  if (shareType.startsWith("text")) {
+    MessageDeliveryActor.messageSender().sendText(item.getType(),item.getId(),data[0]);
+    startActivity(Intents.openDialog(item.getType(),item.getId(),false,getActivity()));
+    getActivity().finish();
+    return;
+  }
+  if (data.length == 1) {
+    Uri u=Uri.parse(data[0]);
+    String[] path=getRealPathFromURI(u);
+    if (path != null) {
+      if (shareType.startsWith("video/")) {
+        MessageDeliveryActor.messageSender().sendVideo(item.getType(),item.getId(),path[0]);
+      }
+ else       if (shareType.startsWith("image/")) {
+        MessageDeliveryActor.messageSender().sendPhoto(item.getType(),item.getId(),path[0]);
+      }
+ else {
+        MessageDeliveryActor.messageSender().sendDocument(item.getType(),item.getId(),path[0],path[1]);
+      }
+      startActivity(Intents.openDialog(item.getType(),item.getId(),false,getActivity()));
+      getActivity().finish();
+    }
+    return;
+  }
+  new AsyncTask<Void,Void,Void>(){
+    private ProgressDialog progressDialog;
+    @Override protected void onPreExecute(){
+      progressDialog=new ProgressDialog(getActivity());
+      progressDialog.setMessage("Downloading...");
+      progressDialog.setCancelable(false);
+      progressDialog.show();
+    }
+    @Override protected Void doInBackground(    Void... params){
+      for (int i=0; i < data.length; i++) {
+        Uri uri=Uri.parse(data[i]);
+        String[] filePathColumn={MediaStore.Images.Media.DATA,MediaStore.Video.Media.MIME_TYPE,MediaStore.Video.Media.TITLE};
+        Cursor cursor=getActivity().getContentResolver().query(uri,filePathColumn,null,null,null);
+        cursor.moveToFirst();
+        String picturePath=cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
+        String fileName=cursor.getString(cursor.getColumnIndex(filePathColumn[2]));
+        cursor.close();
+        if (picturePath == null || !uri.getScheme().equals("file")) {
+          File externalFile=AppContext.getContext().getExternalFilesDir(null);
+          if (externalFile == null) {
+            return null;
+          }
+          String externalPath=externalFile.getAbsolutePath();
+          File dest=new File(externalPath + "/Actor/");
+          dest.mkdirs();
+          File outputFile=new File(dest,"upload_" + RandomUtil.randomId() + ".jpg");
+          picturePath=outputFile.getAbsolutePath();
+          try {
+            IOUtils.copy(getActivity().getContentResolver().openInputStream(uri),new File(picturePath));
+          }
+ catch (          IOException e) {
+            e.printStackTrace();
+            return null;
+          }
+        }
+        if (shareType.startsWith("video/")) {
+          MessageDeliveryActor.messageSender().sendVideo(item.getType(),item.getId(),picturePath);
+        }
+ else         if (shareType.startsWith("image/")) {
+          MessageDeliveryActor.messageSender().sendPhoto(item.getType(),item.getId(),picturePath);
+        }
+ else {
+          MessageDeliveryActor.messageSender().sendDocument(item.getType(),item.getId(),picturePath,fileName);
+        }
+      }
+      return null;
+    }
+    @Override protected void onPostExecute(    Void aVoid){
+      startActivity(Intents.openDialog(item.getType(),item.getId(),false,getActivity()));
+      getActivity().finish();
+      progressDialog.dismiss();
+    }
+  }
+.execute();
+}

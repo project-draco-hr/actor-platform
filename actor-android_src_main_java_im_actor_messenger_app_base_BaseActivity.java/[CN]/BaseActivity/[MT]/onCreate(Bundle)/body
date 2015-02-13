@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+  getWindow().setBackgroundDrawableResource(R.drawable.transparent);
+}

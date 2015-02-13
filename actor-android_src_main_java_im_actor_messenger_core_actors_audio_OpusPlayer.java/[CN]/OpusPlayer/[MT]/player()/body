@@ -1,0 +1,3 @@
+{
+  return new ActorSelection(Props.create(OpusPlayer.class),"opus_player");
+}

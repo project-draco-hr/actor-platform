@@ -1,0 +1,29 @@
+{
+  super.onReceive(message);
+  if (message instanceof DoIteration) {
+    int size=0;
+    if ((size=extractor.readSampleData(inputBuffer,0)) >= 0) {
+      long presentationTimeUs=extractor.getSampleTime();
+      int flags=extractor.getSampleFlags();
+      byte[] data=new byte[size];
+      inputBuffer.get(data,0,size);
+      try {
+        ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+        StreamingUtils.writeInt(size,outputStream);
+        StreamingUtils.writeLong(presentationTimeUs,outputStream);
+        StreamingUtils.writeInt(flags,outputStream);
+        StreamingUtils.writeBytes(data,outputStream);
+        nextActor.send(new FilePipelineActor.FilePart(outputStream.toByteArray()));
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        stop();
+        return;
+      }
+      self().sendOnce(new DoIteration());
+    }
+ else {
+      nextActor.send(new FilePipelineActor.FileEnd());
+    }
+  }
+}

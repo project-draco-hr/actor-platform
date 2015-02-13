@@ -1,0 +1,7 @@
+{
+  isScrolledToEnd=true;
+  if (showNewMessage) {
+    showNewMessage=false;
+    goneView(scrollNewMessage);
+  }
+}

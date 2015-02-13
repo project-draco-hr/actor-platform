@@ -1,0 +1,4 @@
+{
+  V res=unpack(adapter.loadItem(id));
+  callback.onLoaded(res);
+}

@@ -1,0 +1,5 @@
+{
+  ImageReceiver res=new ImageReceiver(this,callback);
+  receivers.add(res);
+  return res;
+}

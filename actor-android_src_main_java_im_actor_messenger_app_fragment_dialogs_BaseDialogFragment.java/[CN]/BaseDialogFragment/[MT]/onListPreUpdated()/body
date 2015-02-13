@@ -1,0 +1,10 @@
+{
+  offsets=new HashMap<Long,Integer>();
+  ids=new long[listView.getChildCount()];
+  for (int i=0; i < listView.getChildCount(); i++) {
+    long id=listView.getItemIdAtPosition(listView.getFirstVisiblePosition() + i);
+    ids[i]=id;
+    View view=listView.getChildAt(i);
+    offsets.put(id,view.getTop());
+  }
+}

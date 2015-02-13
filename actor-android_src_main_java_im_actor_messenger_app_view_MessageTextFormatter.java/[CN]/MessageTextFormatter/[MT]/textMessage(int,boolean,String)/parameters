@@ -1,0 +1,3 @@
+int uid
+boolean isGroup
+String message

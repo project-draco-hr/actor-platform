@@ -1,0 +1,4 @@
+{
+  showView(scrollUp);
+  goneView(scrollDown);
+}

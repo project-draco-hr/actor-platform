@@ -1,0 +1,7 @@
+{
+  byte[] res;
+  InputStream in=new FileInputStream(fileName);
+  res=readAll(in);
+  in.close();
+  return res;
+}

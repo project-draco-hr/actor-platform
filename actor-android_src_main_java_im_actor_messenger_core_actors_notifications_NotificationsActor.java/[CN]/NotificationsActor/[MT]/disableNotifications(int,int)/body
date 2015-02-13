@@ -1,0 +1,16 @@
+{
+  Iterator<PendingNotification> iterator=currentNotifications.iterator();
+  while (iterator.hasNext()) {
+    PendingNotification n=iterator.next();
+    if (n.getConvId() == id && n.getConvType() == type) {
+      iterator.remove();
+      pendingNotifications.remove(n);
+    }
+  }
+  if (currentNotifications.size() == 0) {
+    hideNotification();
+  }
+ else {
+    performNotify(true);
+  }
+}

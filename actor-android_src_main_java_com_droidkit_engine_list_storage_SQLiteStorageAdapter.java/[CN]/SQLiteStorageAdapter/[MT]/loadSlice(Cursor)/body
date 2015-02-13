@@ -1,0 +1,28 @@
+{
+  int idColumn=cursor.getColumnIndex("ID");
+  int sortColumn=cursor.getColumnIndex("SORT_KEY");
+  int bytesColumn=cursor.getColumnIndex("BYTES");
+  ArrayList<ValueContainer> res=new ArrayList<ValueContainer>();
+  Object nMinKey=null;
+  Object nMaxKey=null;
+  if (cursor != null) {
+    try {
+      if (cursor.moveToFirst()) {
+        do {
+          res.add(new ValueContainer(cursor.getLong(idColumn),cursor.getLong(sortColumn),null,cursor.getBlob(bytesColumn)));
+        }
+ while (cursor.moveToNext());
+        if (res.size() > 0) {
+          ValueContainer first=res.get(0);
+          ValueContainer last=res.get(res.size() - 1);
+          nMinKey=new SqlKey(first.getOrder());
+          nMaxKey=new SqlKey(last.getOrder());
+        }
+      }
+    }
+  finally {
+      cursor.close();
+    }
+  }
+  return new SliceResult<ValueContainer>(res,nMaxKey,nMinKey);
+}

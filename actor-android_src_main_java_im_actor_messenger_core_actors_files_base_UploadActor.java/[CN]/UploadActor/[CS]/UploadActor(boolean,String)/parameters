@@ -1,0 +1,2 @@
+boolean useEncryption
+String fileName

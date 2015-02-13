@@ -1,0 +1,21 @@
+{
+  SliceResult<ValueContainer> before=adapter.loadBefore(centerKey,limit);
+  SliceResult<ValueContainer> after=adapter.loadAfter(centerKey,limit);
+  SliceResult<ValueContainer> res;
+  if (before.getValues().size() == 0 && after.getValues().size() == 0) {
+    res=new SliceResult<ValueContainer>(new ArrayList<ValueContainer>(),null,null);
+  }
+ else   if (before.getValues().size() == 0 && after.getValues().size() != 0) {
+    res=after;
+  }
+ else   if (after.getValues().size() == 0 && before.getValues().size() != 0) {
+    res=before;
+  }
+ else {
+    ArrayList<ValueContainer> items=new ArrayList<ValueContainer>();
+    items.addAll(before.getValues());
+    items.addAll(after.getValues());
+    res=new SliceResult<ValueContainer>(items,before.getBottomKey(),after.getBottomKey());
+  }
+  callback.onLoaded(unpack(res.getValues()),res.getBottomKey(),res.getTopKey());
+}

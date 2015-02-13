@@ -1,0 +1,12 @@
+{
+  String mimeType=MimeTypeMap.getSingleton().getMimeTypeFromExtension(IOUtils.getFileExtension(downloaded.getName()));
+  if (mimeType == null) {
+    mimeType="*/*";
+  }
+  if (BuildConfig.ENABLE_CHROME) {
+    return shareDoc(downloaded);
+  }
+ else {
+    return new Intent(Intent.ACTION_VIEW).setDataAndType(getDocUri(downloaded),mimeType);
+  }
+}

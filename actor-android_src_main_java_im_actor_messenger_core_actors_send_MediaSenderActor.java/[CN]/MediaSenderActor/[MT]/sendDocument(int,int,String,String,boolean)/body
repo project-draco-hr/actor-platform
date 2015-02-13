@@ -1,0 +1,24 @@
+{
+  File file=new File(fileName);
+  final int size=(int)file.length();
+  if (size <= 0) {
+    return;
+  }
+  byte[] thumb=null;
+  FastThumb fastThumb=null;
+  try {
+    Bitmap preview=ImageLoading.loadBitmapOptimized(fileName);
+    Bitmap smallThumb=ImageScaling.scaleFit(preview,90,90);
+    byte[] smallThumbData=ImageLoading.saveJpeg(smallThumb,ImageLoading.JPEG_QUALITY_LOW);
+    fastThumb=new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),smallThumbData);
+    thumb=fastThumb.toByteArray();
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+  }
+catch (  ImageSaveException e) {
+    e.printStackTrace();
+  }
+  DocumentMessage documentMessage=new DocumentMessage(fileName,realName,size,isEncrypted,fastThumb);
+  sendFile(type,id,realName,thumb,documentMessage,0,new byte[0],isEncrypted);
+}

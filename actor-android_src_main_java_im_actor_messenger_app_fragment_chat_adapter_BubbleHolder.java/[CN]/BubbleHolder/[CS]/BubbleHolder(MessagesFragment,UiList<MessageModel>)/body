@@ -1,0 +1,4 @@
+{
+  this.uiList=uiList;
+  this.fragment=fragment;
+}

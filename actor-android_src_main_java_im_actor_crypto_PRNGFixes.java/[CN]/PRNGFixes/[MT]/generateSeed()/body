@@ -1,0 +1,16 @@
+{
+  try {
+    ByteArrayOutputStream seedBuffer=new ByteArrayOutputStream();
+    DataOutputStream seedBufferOut=new DataOutputStream(seedBuffer);
+    seedBufferOut.writeLong(System.currentTimeMillis());
+    seedBufferOut.writeLong(System.nanoTime());
+    seedBufferOut.writeInt(Process.myPid());
+    seedBufferOut.writeInt(Process.myUid());
+    seedBufferOut.write(BUILD_FINGERPRINT_AND_DEVICE_SERIAL);
+    seedBufferOut.close();
+    return seedBuffer.toByteArray();
+  }
+ catch (  IOException e) {
+    throw new SecurityException("Failed to generate seed",e);
+  }
+}

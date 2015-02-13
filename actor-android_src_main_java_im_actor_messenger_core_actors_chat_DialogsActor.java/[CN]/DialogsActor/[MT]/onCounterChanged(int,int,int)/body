@@ -1,0 +1,7 @@
+{
+  DialogItem item=listEngine.getValue(DialogUids.getDialogUid(type,id));
+  if (item == null) {
+    return;
+  }
+  listEngine.addOrUpdateItem(new DialogItemBuilder(item).setUnreadCount(value).createDialogItem());
+}

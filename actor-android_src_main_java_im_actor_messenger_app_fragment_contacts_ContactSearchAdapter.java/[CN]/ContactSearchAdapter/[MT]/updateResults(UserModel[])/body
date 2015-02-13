@@ -1,0 +1,4 @@
+{
+  this.result=results;
+  notifyDataSetChanged();
+}

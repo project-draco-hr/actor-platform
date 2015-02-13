@@ -1,0 +1,4 @@
+int chatType
+int chatId
+MessagesFragment fragment
+UiList<MessageModel> uiList

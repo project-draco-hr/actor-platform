@@ -1,0 +1,4 @@
+{
+  this.state=state;
+  this.values=new ArrayList<V>();
+}

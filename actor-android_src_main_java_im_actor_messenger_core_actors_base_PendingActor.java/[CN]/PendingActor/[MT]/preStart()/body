@@ -1,0 +1,7 @@
+{
+  super.preStart();
+  pending=new PersistenceSet<T>(new SerializableMap<T>(new SqliteStorage(sqLiteDatabase,"pending_" + name)));
+  for (  T t : pending) {
+    self().send(new PerformAction<T>(t));
+  }
+}

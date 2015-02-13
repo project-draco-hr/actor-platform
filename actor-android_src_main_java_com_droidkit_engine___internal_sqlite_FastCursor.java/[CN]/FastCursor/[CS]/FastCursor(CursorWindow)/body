@@ -1,0 +1,4 @@
+{
+  this.window=window;
+  count=window.getNumRows();
+}

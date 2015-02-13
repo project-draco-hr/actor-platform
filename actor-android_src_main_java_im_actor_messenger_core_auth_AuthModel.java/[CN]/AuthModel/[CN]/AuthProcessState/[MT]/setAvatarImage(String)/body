@@ -1,0 +1,4 @@
+{
+  this.avatarImage=avatarImage;
+  trySave();
+}

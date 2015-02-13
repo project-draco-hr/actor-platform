@@ -1,0 +1,30 @@
+{
+  String cached=getLoader().getInternalDiskCache().lockFile(downloadedFileName);
+  if (cached != null) {
+    try {
+      completeTask(ImageLoading.loadBitmap(cached));
+      return;
+    }
+ catch (    ImageLoadException e) {
+      e.printStackTrace();
+    }
+ finally {
+      getLoader().getInternalDiskCache().unlockFile(downloadedFileName);
+    }
+  }
+  MediaMetadataRetriever retriever=new MediaMetadataRetriever();
+  retriever.setDataSource(downloadedFileName);
+  Bitmap img=retriever.getFrameAtTime(0);
+  Bitmap res=ImageScaling.scaleFit(img,800,800);
+  img.recycle();
+  String fileName=getLoader().getInternalDiskCache().startWriteFile(downloadedFileName);
+  try {
+    ImageLoading.save(res,fileName);
+    getLoader().getInternalDiskCache().commitFile(downloadedFileName);
+    completeTask(res);
+  }
+ catch (  ImageSaveException e) {
+    e.printStackTrace();
+    error(e);
+  }
+}

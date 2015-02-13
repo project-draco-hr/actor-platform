@@ -1,0 +1,7 @@
+{
+  super.onReceive(message);
+  if (message instanceof Confirm) {
+    final Confirm confirm=(Confirm)message;
+    addAction(new MessageAction(confirm.type,confirm.id,confirm.rid));
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.inMemoryLruCache=new LruCache<Long,V>(inMemoryCacheSize);
+  this.storageAdapter=storageAdapter;
+  this.dataAdapter=dataAdapter;
+  this.dbActor=ActorSystem.system().actorOf(Props.create(RunnableActor.class).changeDispatcher("db"),"key_value_db_" + NEXT_ID.getAndIncrement());
+}

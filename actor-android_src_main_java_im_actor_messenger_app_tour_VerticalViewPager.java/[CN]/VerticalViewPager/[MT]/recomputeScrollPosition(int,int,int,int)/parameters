@@ -1,0 +1,4 @@
+int height
+int oldHeight
+int margin
+int oldMargin

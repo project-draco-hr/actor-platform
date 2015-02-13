@@ -1,0 +1,8 @@
+{
+  persistence=new BserPersistence<>(context,"profile.bin",SyncState.class);
+  SyncState state=persistence.getObj();
+  if (state == null) {
+    persistence.setObj(new SyncState());
+  }
+  updateState();
+}

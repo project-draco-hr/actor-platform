@@ -1,0 +1,4 @@
+{
+  SQLiteStatement stmt=statements.getInsertStatement();
+  executeInsertInTx(stmt,entities);
+}

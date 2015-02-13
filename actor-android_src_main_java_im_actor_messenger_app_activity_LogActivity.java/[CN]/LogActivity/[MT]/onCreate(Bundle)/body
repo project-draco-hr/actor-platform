@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  WebView webView=new WebView(this);
+  webView.loadData(Logger.rawLog(),"text/plain","utf-8");
+  setContentView(webView);
+}

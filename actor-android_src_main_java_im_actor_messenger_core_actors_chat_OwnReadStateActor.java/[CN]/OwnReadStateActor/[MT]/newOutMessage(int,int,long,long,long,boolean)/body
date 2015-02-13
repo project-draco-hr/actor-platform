@@ -1,0 +1,25 @@
+{
+  long uid=DialogUids.getDialogUid(chatType,chatId);
+{
+    Set<UnreadMessage> unread=getEncryptedUnread(uid);
+    for (    UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+      system().actorOf(ReadEncryptedActor.messageReader()).send(new ReadEncryptedActor.Read(chatType,chatId,u.rid));
+      unread.remove(u);
+    }
+  }
+  long maxPlainReadDate=0;
+{
+    Set<UnreadMessage> unread=getPlainUnread(uid);
+    if (unread.size() > 0) {
+      for (      UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+        maxPlainReadDate=Math.max(u.date,maxPlainReadDate);
+      }
+      unread.clear();
+    }
+  }
+  if (maxPlainReadDate > 0) {
+    PlainReadActor.plainRead().markRead(chatType,chatId,maxPlainReadDate);
+  }
+  readStates().put(new ReadState(chatType,chatId,rid,sortingKey));
+  DialogsActor.dialogs().onCounterChanged(chatType,chatId,0);
+}

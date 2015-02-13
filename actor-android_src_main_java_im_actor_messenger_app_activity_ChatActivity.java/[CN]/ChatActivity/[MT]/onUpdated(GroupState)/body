@@ -1,0 +1,11 @@
+{
+  if (groupState == GroupState.JOINED) {
+    goneView(kicked,false);
+  }
+ else   if (groupState == GroupState.KICKED) {
+    showView(kicked,false);
+  }
+ else {
+    finish();
+  }
+}

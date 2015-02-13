@@ -1,0 +1,8 @@
+{
+  writer.writeLong(1,rid);
+  writer.writeLong(2,sortKey);
+  writer.writeLong(3,time);
+  writer.writeInt(4,senderId);
+  writer.writeInt(5,MessageState.serialize(messageState));
+  writer.writeComposite(MESSAGE_FIELD,content);
+}

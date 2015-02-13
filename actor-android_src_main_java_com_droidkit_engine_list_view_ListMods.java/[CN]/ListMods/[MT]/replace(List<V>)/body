@@ -1,0 +1,12 @@
+{
+  return new ListModification<V>(){
+    @Override public void modify(    List<V> arrayList,    boolean isLast){
+      arrayList.clear();
+      arrayList.addAll(items);
+      if (isLast) {
+        Collections.sort(arrayList,comparator);
+      }
+    }
+  }
+;
+}

@@ -1,0 +1,4 @@
+{
+  bottomShadow=getResources().getDrawable(R.drawable.profile_avatar_bottom_shadow);
+  background=((BitmapDrawable)getResources().getDrawable(R.drawable.img_profile_avatar_default)).getBitmap();
+}

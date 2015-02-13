@@ -1,0 +1,4 @@
+{
+  super(isEncrypted);
+  this.uploadPath=uploadPath;
+}

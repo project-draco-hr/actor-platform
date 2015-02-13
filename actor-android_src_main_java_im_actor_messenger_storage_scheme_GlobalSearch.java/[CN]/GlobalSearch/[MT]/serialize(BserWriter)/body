@@ -1,0 +1,8 @@
+{
+  writer.writeInt(1,contType);
+  writer.writeInt(2,contId);
+  writer.writeString(3,title);
+  if (avatar != null) {
+    writer.writeObject(4,avatar);
+  }
+}

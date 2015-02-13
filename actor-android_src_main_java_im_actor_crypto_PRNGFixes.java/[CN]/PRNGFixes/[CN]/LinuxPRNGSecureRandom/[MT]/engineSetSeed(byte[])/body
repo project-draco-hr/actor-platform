@@ -1,0 +1,16 @@
+{
+  try {
+    OutputStream out;
+synchronized (sLock) {
+      out=getUrandomOutputStream();
+    }
+    out.write(bytes);
+    out.flush();
+  }
+ catch (  IOException e) {
+    Log.w(PRNGFixes.class.getSimpleName(),"Failed to mix seed into " + URANDOM_FILE);
+  }
+ finally {
+    mSeeded=true;
+  }
+}

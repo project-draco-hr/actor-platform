@@ -1,0 +1,13 @@
+int type
+int id
+String dialogTitle
+int unreadCount
+long rid
+long sortKey
+int senderId
+long time
+int messageType
+String text
+MessageState status
+Avatar avatar
+int relatedUid

@@ -1,0 +1,4 @@
+{
+  super.onPause();
+  keyboardHelper.setImeVisibility(smsCodeEnterEditText,false);
+}

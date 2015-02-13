@@ -1,0 +1,8 @@
+{
+  if (!isInternal) {
+    isCallbackBlocked=true;
+    receiver.clear();
+    isCallbackBlocked=false;
+  }
+  super.setImageBitmap(bm);
+}

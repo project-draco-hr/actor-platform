@@ -1,0 +1,8 @@
+{
+  id=values.optLong(6);
+  fileLocation=values.getObj(1,FileLocation.class);
+  fileName=values.getString(2);
+  mimeType=values.getString(3);
+  sender=values.getInt(4);
+  addedTime=values.optLong(5);
+}

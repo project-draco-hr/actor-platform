@@ -1,0 +1,6 @@
+{
+  for (  long l : messages) {
+    system().actorOf(DeleteMessagesActor.messageReader()).send(new DeleteMessagesActor.Delete(chatType,chatId,l));
+  }
+  ConversationActor.conv(chatType,chatId).deleteMessage(messages);
+}

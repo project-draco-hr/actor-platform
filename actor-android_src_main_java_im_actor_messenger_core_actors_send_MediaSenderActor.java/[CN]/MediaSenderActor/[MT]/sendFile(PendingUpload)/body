@@ -1,0 +1,27 @@
+{
+  final long rid=pendingUpload.getRid();
+  UploadModel.uploadState(rid).change(new UploadState(UploadState.State.UPLOADING,0));
+  if (futures.containsKey(rid)) {
+    futures.remove(rid).cancel();
+  }
+  AskFuture future=ask(UploadActor.upload(pendingUpload.getFileName(),pendingUpload.isEncrypted()),new AskProgressCallback<FileLocation,Integer>(){
+    @Override public void onResult(    FileLocation result){
+      futures.remove(rid);
+      pendingUploads.remove(pendingUpload);
+      DownloadManager.downloader().writeToStorage(pendingUpload.getFileName(),pendingUpload.getName(),result);
+      UploadModel.uploadState(rid).change(new UploadState(UploadState.State.UPLOADED,100));
+      MessageSendActor.messageSender().sendFile(pendingUpload.getChatType(),pendingUpload.getChatId(),pendingUpload.getRid(),result,pendingUpload.getName(),pendingUpload.getMessageType(),pendingUpload.getMetadata(),pendingUpload.getThumb(),pendingUpload.isEncrypted());
+    }
+    @Override public void onError(    Throwable throwable){
+      futures.remove(rid);
+      pendingUploads.remove(pendingUpload);
+      ConversationActor.conv(pendingUpload.getChatType(),pendingUpload.getChatId()).onMessageError(rid);
+      UploadModel.uploadState(rid).change(new UploadState(UploadState.State.NONE,0));
+    }
+    @Override public void onProgress(    Integer integer){
+      UploadModel.uploadState(rid).change(new UploadState(UploadState.State.UPLOADING,integer));
+    }
+  }
+);
+  futures.put(rid,future);
+}

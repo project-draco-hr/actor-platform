@@ -1,0 +1,4 @@
+{
+  storage.clear();
+  backedMap.clear();
+}

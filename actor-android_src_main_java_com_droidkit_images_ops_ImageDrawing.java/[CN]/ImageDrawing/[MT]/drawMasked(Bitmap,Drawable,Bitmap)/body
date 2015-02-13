@@ -1,0 +1,3 @@
+{
+  drawMasked(src,mask,dest,CLEAR_COLOR);
+}

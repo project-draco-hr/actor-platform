@@ -1,0 +1,4 @@
+{
+  super(engine,stackFromBottom,loadGap,autoUpdate);
+  this.context=context;
+}

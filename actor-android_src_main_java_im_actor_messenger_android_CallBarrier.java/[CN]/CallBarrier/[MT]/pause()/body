@@ -1,0 +1,4 @@
+{
+  checkUiThread();
+  isPaused=true;
+}

@@ -1,0 +1,10 @@
+{
+  this.raw=user;
+  this.id=user.getId();
+  this.accessHash=user.getAccessHash();
+  this.phone=user.getPhone();
+  this.name=new ValueModel<String>("users." + id + ".name",raw.getName());
+  this.persistence=new ValueModel<UserPresence>("users." + id + ".presence",new UserPresence(UserPresence.State.UNKNOWN));
+  this.avatar=new ValueModel<Avatar>("users." + id + ".avatar",user.getAvatar());
+  this.isContact=new ValueModel<Boolean>("users." + id + ".isContact",SimpleStorage.getContactsMap().contains((long)id));
+}

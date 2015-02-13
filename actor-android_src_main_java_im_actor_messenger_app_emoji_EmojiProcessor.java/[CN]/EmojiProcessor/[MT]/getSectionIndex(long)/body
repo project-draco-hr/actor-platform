@@ -1,0 +1,6 @@
+{
+  int globalIndex=indexes.get(emoji);
+  int x=globalIndex / COUNT_IN_ROW;
+  int y=globalIndex % COUNT_IN_ROW;
+  return (y / SECTION_SIDE) + (x / SECTION_SIDE) * SECTION_ROW_COUNT;
+}

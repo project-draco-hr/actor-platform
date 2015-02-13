@@ -1,0 +1,5 @@
+{
+  writer.writeLong(1,rid);
+  writer.writeLong(2,sortKey);
+  writer.writeLong(3,date);
+}

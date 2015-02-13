@@ -1,0 +1,3 @@
+{
+  setDrawable(((BitmapDrawable)getResources().getDrawable(resId)).getBitmap());
+}

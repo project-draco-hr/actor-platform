@@ -1,0 +1,16 @@
+{
+  if (isGroup) {
+    String senderName=getUserName(uid,true);
+    SpannableStringBuilder builder=new SpannableStringBuilder();
+    builder.append(senderName).append(": ");
+    builder.append(message);
+    builder.setSpan(new ForegroundColorSpan(AppContext.getContext().getResources().getColor(R.color.text_secondary)),senderName.length() + 2,builder.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+    return builder;
+  }
+ else {
+    SpannableStringBuilder builder=new SpannableStringBuilder();
+    builder.append(message);
+    builder.setSpan(new ForegroundColorSpan(AppContext.getContext().getResources().getColor(R.color.text_secondary)),0,builder.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+    return builder;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return raw.getMembers().toArray(new GroupMember[raw.getMembers().size()]);
+}

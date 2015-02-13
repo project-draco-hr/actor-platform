@@ -1,0 +1,3 @@
+{
+  return new DocumentMessage(location,false,name,size,isEncrypted,fastThumb);
+}

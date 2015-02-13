@@ -1,0 +1,3 @@
+int blockIndex
+int offset
+im.actor.api.scheme.FileLocation location

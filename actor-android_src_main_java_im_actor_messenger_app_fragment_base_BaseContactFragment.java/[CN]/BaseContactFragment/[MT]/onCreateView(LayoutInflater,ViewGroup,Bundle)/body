@@ -1,0 +1,37 @@
+{
+  View res=inflater.inflate(R.layout.fragment_base_contacts,container,false);
+  emptyView=res.findViewById(R.id.notingFound);
+  emptyView.setVisibility(View.GONE);
+  listView=(ListView)res.findViewById(R.id.contactsList);
+  View header=new View(getActivity());
+  header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+  listView.addHeaderView(header,null,false);
+  engineUiList=new EngineUiList<Contact>(ListEngines.getContactsEngine());
+  adapter=new ContactsAdapter(engineUiList,getActivity(),false,new OnItemClickedListener<Contact>(){
+    @Override public void onClicked(    Contact item){
+      onUserSelected((int)(long)item.getUid());
+      getActivity().finish();
+    }
+  }
+,null);
+  listView.setAdapter(adapter);
+  getBinder().bind(engineUiList.getListState(),new Listener<ListState>(){
+    @Override public void onUpdated(    ListState listState){
+switch (listState.getState()) {
+case LOADING_EMPTY:
+        break;
+case LOADED_EMPTY:
+      showView(emptyView,true,false);
+    goneView(listView,true,false);
+  break;
+case LOADED:
+default :
+goneView(emptyView,true,false);
+showView(listView,true,false);
+break;
+}
+}
+}
+);
+return res;
+}

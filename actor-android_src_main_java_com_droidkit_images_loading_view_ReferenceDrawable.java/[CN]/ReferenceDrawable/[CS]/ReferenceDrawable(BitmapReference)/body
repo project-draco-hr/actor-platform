@@ -1,0 +1,5 @@
+{
+  this.reference=reference;
+  this.shader=new BitmapShader(reference.getBitmap(),Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+  this.shaderMatrix=new Matrix();
+}

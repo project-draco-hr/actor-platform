@@ -1,0 +1,3 @@
+{
+  super(ChatActionsInt.class);
+}

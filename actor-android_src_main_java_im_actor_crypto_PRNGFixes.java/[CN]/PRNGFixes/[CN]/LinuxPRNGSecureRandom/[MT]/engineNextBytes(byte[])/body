@@ -1,0 +1,17 @@
+{
+  if (!mSeeded) {
+    engineSetSeed(generateSeed());
+  }
+  try {
+    DataInputStream in;
+synchronized (sLock) {
+      in=getUrandomInputStream();
+    }
+synchronized (in) {
+      in.readFully(bytes);
+    }
+  }
+ catch (  IOException e) {
+    throw new SecurityException("Failed to read from " + URANDOM_FILE,e);
+  }
+}

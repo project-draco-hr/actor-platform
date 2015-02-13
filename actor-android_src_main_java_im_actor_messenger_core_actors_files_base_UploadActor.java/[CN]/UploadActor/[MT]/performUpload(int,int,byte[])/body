@@ -1,0 +1,28 @@
+{
+  ask(requests().uploadPart(uploadConfig,offset,data),new FutureCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid result){
+    }
+    @Override public void onError(    Throwable throwable){
+    }
+  }
+);
+  ask(requests().uploadPart(uploadConfig,offset,data),new FutureCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid result){
+      Logger.d(TAG,"Block #" + blockIndex + " uploaded");
+      uploadCount--;
+      uploaded++;
+      progress(100 * uploaded / blocksCount);
+      checkUpload();
+    }
+    @Override public void onError(    Throwable throwable){
+      if (throwable instanceof AskTimeoutException) {
+        Logger.d(TAG,"Block #" + blockIndex + " error. Trying again...");
+        performUpload(blockIndex,offset,data);
+      }
+ else {
+        error(throwable);
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,53 @@
+{
+  VideoChunks outputData=new VideoChunks();
+  MediaCodec decoder=null;
+  MediaCodec encoder=null;
+  InputSurface inputSurface=null;
+  OutputSurface outputSurface=null;
+  try {
+    MediaFormat inputFormat=inputData.getMediaFormat();
+    MediaFormat outputFormat=MediaFormat.createVideoFormat("video/avc",destW,destH);
+    outputFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT,MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface);
+    outputFormat.setInteger(MediaFormat.KEY_BIT_RATE,1000000);
+    outputFormat.setInteger(MediaFormat.KEY_FRAME_RATE,25);
+    outputFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL,15);
+    try {
+      encoder=MediaCodec.createEncoderByType("video/avc");
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+    encoder.configure(outputFormat,null,null,MediaCodec.CONFIGURE_FLAG_ENCODE);
+    inputSurface=new InputSurface(encoder.createInputSurface());
+    inputSurface.makeCurrent();
+    encoder.start();
+    try {
+      decoder=MediaCodec.createDecoderByType("video/avc");
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+    outputSurface=new OutputSurface();
+    decoder.configure(inputFormat,outputSurface.getSurface(),null,0);
+    decoder.start();
+    editVideoData(inputData,decoder,outputSurface,inputSurface,encoder,outputData);
+  }
+  finally {
+    Log.d(TAG,"shutting down encoder, decoder");
+    if (outputSurface != null) {
+      outputSurface.release();
+    }
+    if (inputSurface != null) {
+      inputSurface.release();
+    }
+    if (encoder != null) {
+      encoder.stop();
+      encoder.release();
+    }
+    if (decoder != null) {
+      decoder.stop();
+      decoder.release();
+    }
+  }
+  return outputData;
+}

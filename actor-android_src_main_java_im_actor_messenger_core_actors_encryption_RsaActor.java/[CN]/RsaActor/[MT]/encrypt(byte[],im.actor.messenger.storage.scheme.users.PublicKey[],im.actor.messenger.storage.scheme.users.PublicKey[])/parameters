@@ -1,0 +1,3 @@
+byte[] data
+im.actor.messenger.storage.scheme.users.PublicKey[] myKeys
+im.actor.messenger.storage.scheme.users.PublicKey[] foreign

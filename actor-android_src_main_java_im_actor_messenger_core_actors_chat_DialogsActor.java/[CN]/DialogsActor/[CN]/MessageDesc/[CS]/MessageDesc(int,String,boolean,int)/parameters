@@ -1,0 +1,4 @@
+int type
+String text
+boolean isSilent
+int relatedUid

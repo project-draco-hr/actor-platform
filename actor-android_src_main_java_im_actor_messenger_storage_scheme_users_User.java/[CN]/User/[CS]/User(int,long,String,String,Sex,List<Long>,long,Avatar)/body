@@ -1,0 +1,11 @@
+{
+  this.id=id;
+  this.accessHash=accessHash;
+  this.serverName=serverName;
+  this.name=name(localName,serverName);
+  this.localName=localName;
+  this.sex=sex;
+  this.keyHashes=keyHashes;
+  this.phone=phone;
+  this.avatar=avatar;
+}

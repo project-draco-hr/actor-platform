@@ -1,0 +1,6 @@
+{
+  if (allStatement == null) {
+    allStatement=String.format("SELECT ID,BYTES FROM '%s'",tablename);
+  }
+  return allStatement;
+}

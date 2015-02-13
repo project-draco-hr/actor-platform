@@ -1,0 +1,13 @@
+{
+  dbActor.loadHead(query,key,limit,new LoadCallback<V>(){
+    @Override public void onLoaded(    List<V> res,    Object nextRef){
+synchronized (LOCK) {
+        for (        V v : res) {
+          cache.onObjectLoaded(dataAdapter.getId(v),v);
+        }
+      }
+      callback.onLoaded(res,nextRef);
+    }
+  }
+);
+}

@@ -1,0 +1,21 @@
+{
+  VisibleViewItem[] items=null;
+  if (changed) {
+    items=dump();
+  }
+  super.onLayout(changed,l,t,r,b);
+  if (changed) {
+    final int changeDelta=(b - t) - oldHeight;
+    if (changeDelta < 0 && items.length > 0) {
+      final VisibleViewItem item=items[items.length - 1];
+      setSelectionFromTop(item.getIndex(),item.getTop() + changeDelta);
+      post(new Runnable(){
+        @Override public void run(){
+          setSelectionFromTop(item.getIndex(),item.getTop() + changeDelta);
+        }
+      }
+);
+    }
+  }
+  oldHeight=b - t;
+}

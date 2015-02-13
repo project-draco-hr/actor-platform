@@ -1,0 +1,5 @@
+{
+  if (pending.add(action)) {
+    self().send(new PerformAction<T>(action));
+  }
+}

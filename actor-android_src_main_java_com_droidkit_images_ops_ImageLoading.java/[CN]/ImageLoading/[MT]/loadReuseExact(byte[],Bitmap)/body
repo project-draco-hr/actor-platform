@@ -1,0 +1,3 @@
+{
+  return loadBitmapReuseExact(new MemorySource(data),dest);
+}

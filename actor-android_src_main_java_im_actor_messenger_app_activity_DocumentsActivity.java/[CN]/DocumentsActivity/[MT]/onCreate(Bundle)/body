@@ -1,0 +1,11 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setDisplayShowHomeEnabled(false);
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  getSupportActionBar().setDisplayShowTitleEnabled(true);
+  getSupportActionBar().setDisplayShowCustomEnabled(false);
+  getSupportActionBar().setTitle(R.string.documents_title);
+  int chatType=getIntent().getIntExtra(Intents.EXTRA_CHAT_TYPE,0);
+  int chatId=getIntent().getIntExtra(Intents.EXTRA_CHAT_ID,0);
+  showFragment(DocumentsFragment.open(chatType,chatId),false,false);
+}

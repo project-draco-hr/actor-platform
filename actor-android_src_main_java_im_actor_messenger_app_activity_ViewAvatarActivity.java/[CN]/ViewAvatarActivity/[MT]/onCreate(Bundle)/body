@@ -1,0 +1,40 @@
+{
+  super.onCreate(savedInstanceState);
+  chatType=getIntent().getIntExtra(Intents.EXTRA_CHAT_TYPE,0);
+  chatId=getIntent().getIntExtra(Intents.EXTRA_CHAT_ID,0);
+  getSupportActionBar().setDisplayShowHomeEnabled(false);
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  getSupportActionBar().setDisplayShowTitleEnabled(true);
+  getSupportActionBar().setDisplayShowCustomEnabled(false);
+  if (chatType == DialogType.TYPE_USER) {
+    if (chatId == myUid()) {
+      getSupportActionBar().setTitle(R.string.avatar_title_your);
+    }
+ else {
+      getSupportActionBar().setTitle(R.string.avatar_title_person);
+    }
+  }
+ else {
+    getSupportActionBar().setTitle(R.string.avatar_title_group);
+  }
+  setContentView(R.layout.activity_avatar);
+  photoView=(PhotoView)findViewById(R.id.avatar);
+  progress=findViewById(R.id.uploadProgress);
+  noPhoto=findViewById(R.id.noPhoto);
+  receiver=Core.core().getImageLoader().createReceiver(new ReceiverCallback(){
+    @Override public void onImageLoaded(    BitmapReference bitmap){
+      photoView.setImageBitmap(bitmap.getBitmap());
+      photoView.setZoomable(true);
+      showView(photoView);
+      if (!isUploading) {
+        goneView(progress);
+      }
+      invalidateOptionsMenu();
+    }
+    @Override public void onImageCleared(){
+    }
+    @Override public void onImageError(){
+    }
+  }
+);
+}

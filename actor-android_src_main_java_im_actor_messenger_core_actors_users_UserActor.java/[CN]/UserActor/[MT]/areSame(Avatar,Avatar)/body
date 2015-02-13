@@ -1,0 +1,13 @@
+{
+  if (a == b) {
+    return true;
+  }
+  if (!isEmptyEq(a,b))   return false;
+  if (isEmptyEq(a.getSmallImage(),b.getSmallImage())) {
+    return false;
+  }
+  if (a.getSmallImage() != null && b.getSmallImage() != null && a.getSmallImage().getFileLocation().getFileId() != b.getSmallImage().getFileLocation().getFileId()) {
+    return false;
+  }
+  return true;
+}

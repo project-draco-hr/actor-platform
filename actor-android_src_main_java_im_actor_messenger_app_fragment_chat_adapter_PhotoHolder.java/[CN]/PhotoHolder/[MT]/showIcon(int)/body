@@ -1,0 +1,7 @@
+{
+  progressIcon.setImageResource(resId);
+  showView(progressContainer,!isInitialBind);
+  showView(progressIcon,!isInitialBind);
+  goneView(progressView,!isInitialBind);
+  goneView(progressValue,!isInitialBind);
+}

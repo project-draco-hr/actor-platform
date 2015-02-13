@@ -1,0 +1,12 @@
+{
+  database.beginTransaction();
+  try {
+    for (    RawValue value : values) {
+      database.execSQL("REPLACE INTO \"" + tableName + "\" (\"ID\",\"BYTES\") VALUES (?,?)",new Object[]{value.getKey(),value.getData()});
+    }
+    database.setTransactionSuccessful();
+  }
+  finally {
+    database.endTransaction();
+  }
+}

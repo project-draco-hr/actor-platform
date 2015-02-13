@@ -1,0 +1,6 @@
+{
+  listEngine.clear();
+  documentsEngine.clear();
+  DialogsActor.dialogs().onDialogDelete(type,id);
+  MessageDeliveryActor.messageSender().mediaCancelAll(type,id);
+}

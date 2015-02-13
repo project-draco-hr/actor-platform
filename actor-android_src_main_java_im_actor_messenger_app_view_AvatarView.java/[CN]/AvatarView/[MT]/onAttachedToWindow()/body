@@ -1,0 +1,7 @@
+{
+  super.onAttachedToWindow();
+  if (receiver == null) {
+    ImageLoader loader=((ImageLoaderProvider)getContext().getApplicationContext()).getImageLoader();
+    receiver=loader.createReceiver(this);
+  }
+}

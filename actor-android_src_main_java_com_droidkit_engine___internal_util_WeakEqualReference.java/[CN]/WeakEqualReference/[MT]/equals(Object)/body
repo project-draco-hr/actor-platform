@@ -1,0 +1,11 @@
+{
+  boolean returnValue=super.equals(other);
+  if (!returnValue && (other instanceof com.droidkit.engine._internal.util.WeakEqualReference<?>)) {
+    T value=this.get();
+    if (null != value) {
+      T otherValue=((com.droidkit.engine._internal.util.WeakEqualReference<T>)other).get();
+      returnValue=value.equals(otherValue);
+    }
+  }
+  return returnValue;
+}

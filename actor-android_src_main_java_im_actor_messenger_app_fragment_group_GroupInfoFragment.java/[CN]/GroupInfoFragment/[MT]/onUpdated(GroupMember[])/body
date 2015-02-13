@@ -1,0 +1,3 @@
+{
+  groupUserAdapter.updateUid(sort(convert(users)));
+}

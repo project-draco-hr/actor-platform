@@ -1,0 +1,5 @@
+{
+  this.key=new AccountKey(KeyTools.encodeRsaPublicKey(pair.getPublic()),KeyTools.encodeRsaPrivateKey(pair.getPrivate()));
+  this.keyPair=pair;
+  this.fileWriter.saveData(key.toByteArray());
+}

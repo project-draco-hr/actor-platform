@@ -1,0 +1,4 @@
+{
+  inMemoryLruCache.put(dataAdapter.getId(value),value);
+  storageAdapter.insertOrReplaceSingle(value);
+}

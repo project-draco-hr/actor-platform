@@ -1,0 +1,4 @@
+{
+  inMemoryLruCache.remove(id);
+  storageAdapter.deleteSingle(id);
+}

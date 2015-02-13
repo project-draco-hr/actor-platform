@@ -1,0 +1,6 @@
+{
+  super(engine,context);
+  this.selectable=selectable;
+  this.onItemClickedListener=onItemClickedListener;
+  this.onItemLongClickedListener=onItemLongClickedListener;
+}

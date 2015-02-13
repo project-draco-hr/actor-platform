@@ -1,0 +1,3 @@
+{
+  ConversationActor.conv(chatType,chatId).onMessageMarkReceived(rid);
+}

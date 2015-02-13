@@ -1,0 +1,4 @@
+{
+  final ValueModel<GroupAvatarState.StateHolder> state=GroupAvatarState.getGroupState(gid);
+  state.change(new GroupAvatarState.StateHolder(GroupAvatarState.State.NONE));
+}

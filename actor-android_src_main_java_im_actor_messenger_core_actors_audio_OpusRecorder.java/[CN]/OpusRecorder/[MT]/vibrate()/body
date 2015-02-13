@@ -1,0 +1,8 @@
+{
+  try {
+    Vibrator v=(Vibrator)AppContext.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+    v.vibrate(20);
+  }
+ catch (  Exception e) {
+  }
+}

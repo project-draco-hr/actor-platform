@@ -1,0 +1,18 @@
+{
+  if (isInvalidated) {
+    return;
+  }
+  if (seq <= updateState.getState().getSeq()) {
+    Logger.d(TAG,TAG_PREFIX + "Received external seq is too small");
+    return;
+  }
+  if (seq > updateState.getState().getSeq() + 1) {
+    self().sendOnce(new InvalidateForced(),2 * 1000L);
+    Logger.d(TAG,TAG_PREFIX + "Forcing sequence invalidation by external {seq:" + seq+ "}");
+  }
+ else {
+    if (LOG_ENABLED) {
+      Logger.d(TAG,TAG_PREFIX + "Received external {seq:" + seq+ "}");
+    }
+  }
+}

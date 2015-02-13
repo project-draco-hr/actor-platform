@@ -1,0 +1,4 @@
+{
+  this.state=new SequenceState(seq,state);
+  write();
+}

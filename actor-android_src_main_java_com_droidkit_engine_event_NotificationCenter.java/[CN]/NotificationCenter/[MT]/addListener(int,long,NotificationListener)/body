@@ -1,0 +1,15 @@
+{
+  final State state=states.get(eventType);
+  if (state != null) {
+    Object[] value=statesValues.get(getKeyForEvent(eventType,eventId));
+    if (value == null && state.getStateInitValue() != null) {
+      value=state.getStateInitValue().initState(eventType,eventId);
+    }
+    if (notificationListener != null) {
+      notificationListener.onNotification(eventType,eventId,value);
+    }
+  }
+  if (notificationListener != null) {
+    listeners.add(new WeakEqualReference<OnNotificationListenerContainer>(new OnNotificationListenerContainer(eventType,eventId,notificationListener,Utils.isUIThread())));
+  }
+}

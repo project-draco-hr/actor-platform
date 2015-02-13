@@ -1,0 +1,10 @@
+{
+  Logger.d("AvatarView","Receiver: onImageError: " + error.getException());
+  if (!UiUtil.isMainThread()) {
+    throw new RuntimeException("Operations allowed only on UI thread");
+  }
+  if (error.getTaskId() != currentTask) {
+    return;
+  }
+  receiverCallback.onImageError();
+}

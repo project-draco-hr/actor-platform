@@ -1,0 +1,5 @@
+int chatType
+int chatId
+long date
+long rid
+boolean isEncrypted

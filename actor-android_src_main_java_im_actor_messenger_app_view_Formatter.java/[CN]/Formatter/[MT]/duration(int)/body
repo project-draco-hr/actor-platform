@@ -1,0 +1,11 @@
+{
+  if (duration < 60) {
+    return formatTwoDigit(0) + ":" + formatTwoDigit(duration);
+  }
+ else   if (duration < 60 * 60) {
+    return formatTwoDigit(duration / 60) + ":" + formatTwoDigit(duration % 60);
+  }
+ else {
+    return formatTwoDigit(duration / 3600) + ":" + formatTwoDigit(duration / 60)+ ":"+ formatTwoDigit(duration % 60);
+  }
+}

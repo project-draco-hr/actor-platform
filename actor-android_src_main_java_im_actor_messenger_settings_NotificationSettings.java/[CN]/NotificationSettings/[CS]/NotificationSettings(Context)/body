@@ -1,0 +1,8 @@
+{
+  notificationPreferences=context.getSharedPreferences("notifications.ini",Context.MODE_PRIVATE);
+  conversationsEnabled=new HashMap<Long,PreferenceBoolean>();
+  isInAppSoundEnabled=new PreferenceBoolean("notifications.in_app.enabled",notificationPreferences,true);
+  isNotificationsSoundsEnabled=new PreferenceBoolean("notifications.sound.enabled",notificationPreferences,true);
+  isNotificationsVibrateEnabled=new PreferenceBoolean("notifications.vibration.enabled",notificationPreferences,true);
+  showTitles=new PreferenceBoolean("notifications.titles.enabled",notificationPreferences,true);
+}

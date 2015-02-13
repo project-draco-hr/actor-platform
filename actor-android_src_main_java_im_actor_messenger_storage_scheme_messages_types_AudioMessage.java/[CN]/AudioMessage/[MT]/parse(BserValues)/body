@@ -1,0 +1,4 @@
+{
+  super.parse(values);
+  duration=values.getInt(4);
+}

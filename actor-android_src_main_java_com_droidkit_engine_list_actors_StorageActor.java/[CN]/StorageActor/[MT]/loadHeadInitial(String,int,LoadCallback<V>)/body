@@ -1,0 +1,4 @@
+{
+  SliceResult<ValueContainer> sliceResult=adapter.loadHead(query,null,limit);
+  callback.onLoaded(unpack(sliceResult.getValues()),sliceResult.getBottomKey());
+}

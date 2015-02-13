@@ -1,0 +1,14 @@
+{
+  this.engine=engine;
+  this.uiList=engine.getUiList();
+  this.LOAD_GAP=loadGap;
+  this.stackFromBottom=stackFromBottom;
+  this.autoUpdate=autoUpdate;
+  this.listListener=new UiListListener(){
+    @Override public void onListUpdated(){
+      notifyDataSetChanged();
+    }
+  }
+;
+  resume();
+}

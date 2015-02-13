@@ -1,0 +1,15 @@
+{
+  this.chatUid=chatUid;
+  MessagesAdapter dataAdapter=new MessagesAdapter();
+  SQLiteStorageAdapter storageAdapter=new SQLiteStorageAdapter(DbProvider.getDatabase(AppContext.getContext()),"MESSAGES" + chatUid);
+  engine=new ListEngine<MessageModel>(storageAdapter,dataAdapter);
+  uiList=new EngineUiList<MessageModel>(engine,20,false);
+  ReadState readState=readStates().get(chatUid);
+  if (readState == null || readState.getLastReadSortingKey() == 0) {
+    uiList.initGeneral();
+  }
+ else {
+    uiList.scrollToItem(readState.getLastReadSortingKey());
+  }
+  documents=new ListHolder<Document>(new ListBserFilterableAdapter<Document>(Document.class),"DOCUMENTS_" + chatUid);
+}

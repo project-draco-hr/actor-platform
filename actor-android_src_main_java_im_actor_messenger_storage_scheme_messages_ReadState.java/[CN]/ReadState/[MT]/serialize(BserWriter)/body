@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,chatType);
+  writer.writeInt(2,chatId);
+  writer.writeLong(3,lastReadMessage);
+  writer.writeLong(4,lastReadSortingKey);
+}

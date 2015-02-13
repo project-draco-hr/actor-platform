@@ -1,0 +1,21 @@
+{
+  int topOffset=0;
+  View messageView=findMessageView();
+  int padding=Screen.dp(8);
+  if (showAvatar) {
+    padding+=Screen.dp(48);
+  }
+  measureChildWithMargins(messageView,widthMeasureSpec,padding,heightMeasureSpec,0);
+  if (showDateDiv) {
+    measureChild(dateDiv,widthMeasureSpec,heightMeasureSpec);
+    topOffset+=Screen.dp(16) + dateDiv.getMeasuredHeight();
+  }
+  if (showUnreadDiv) {
+    measureChild(unreadDiv,widthMeasureSpec,heightMeasureSpec);
+    topOffset+=Screen.dp(16) + unreadDiv.getMeasuredHeight();
+  }
+  if (showAvatar) {
+    measureChild(avatarView,widthMeasureSpec,heightMeasureSpec);
+  }
+  setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),messageView.getMeasuredHeight() + topOffset);
+}

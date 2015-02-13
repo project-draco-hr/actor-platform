@@ -1,0 +1,13 @@
+{
+  BindContainer container=getContainer(textView);
+  if (container.text != null) {
+    container.text.release();
+    container.text=null;
+  }
+  container.text=new Bind<String>(textValue,new ValueChangeListener<String>(){
+    @Override public void onChanged(    String value){
+      textView.setText(value);
+    }
+  }
+);
+}

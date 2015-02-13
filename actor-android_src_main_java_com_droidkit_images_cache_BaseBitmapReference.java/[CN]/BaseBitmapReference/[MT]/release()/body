@@ -1,0 +1,13 @@
+{
+  if (isReleased) {
+    return;
+  }
+  isReleased=true;
+  for (  BitmapReference reference : references.keySet().toArray(new BitmapReference[0])) {
+    reference.release();
+  }
+  references.clear();
+  memoryCache.onReferenceDie(this);
+  bitmap=null;
+  key=null;
+}

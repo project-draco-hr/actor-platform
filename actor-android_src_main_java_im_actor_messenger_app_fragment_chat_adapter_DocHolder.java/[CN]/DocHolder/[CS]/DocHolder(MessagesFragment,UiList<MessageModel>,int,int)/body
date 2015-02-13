@@ -1,0 +1,5 @@
+{
+  super(fragment,uiList);
+  this.type=type;
+  this.id=id;
+}

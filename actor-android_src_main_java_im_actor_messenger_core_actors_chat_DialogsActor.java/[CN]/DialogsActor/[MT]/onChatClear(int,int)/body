@@ -1,0 +1,6 @@
+{
+  DialogItem item=listEngine.getValue(DialogUids.getDialogUid(type,id));
+  if (item != null) {
+    listEngine.addOrUpdateItem(new DialogItemBuilder(item).setText("").setMessageType(MessageType.EMPTY).setSenderId(0).setStatus(MessageState.PENDING).createDialogItem());
+  }
+}

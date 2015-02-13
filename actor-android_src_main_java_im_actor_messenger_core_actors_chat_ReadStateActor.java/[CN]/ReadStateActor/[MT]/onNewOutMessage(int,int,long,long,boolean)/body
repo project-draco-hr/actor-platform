@@ -1,0 +1,8 @@
+{
+  if (isEncrypted) {
+    return;
+  }
+  long uid=DialogUids.getDialogUid(chatType,chatId);
+  Set<PendingMessage> pendingMessages=getPlainUnread(uid);
+  pendingMessages.add(new PendingMessage(rid,date,STATE_NONE));
+}

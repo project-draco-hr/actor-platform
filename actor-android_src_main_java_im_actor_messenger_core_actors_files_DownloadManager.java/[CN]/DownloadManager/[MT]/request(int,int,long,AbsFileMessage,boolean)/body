@@ -1,0 +1,51 @@
+{
+  FileLocation location=fileMessage.getLocation();
+  String name;
+  if (fileMessage instanceof PhotoMessage) {
+    name="image.jpg";
+  }
+ else   if (fileMessage instanceof AudioMessage) {
+    name="voice.ogg";
+  }
+ else   if (fileMessage instanceof DocumentMessage) {
+    name=((DocumentMessage)fileMessage).getName();
+  }
+ else   if (fileMessage instanceof VideoMessage) {
+    name="video.mp4";
+  }
+ else {
+    name="file.bin";
+  }
+  Logger.d(TAG,"Requested #" + location.getFileId());
+  Downloaded downloaded=downloaded().get(location.getFileId());
+  if (downloaded != null) {
+    Logger.d(TAG,"Already Downloaded");
+    ConversationActor.conv(type,id).onMessageDownloaded(rid);
+    return;
+  }
+  for (int i=0; i < requests.size(); i++) {
+    DownloadRequest downloadRequest=requests.get(i);
+    if (downloadRequest.location.getFileId() == location.getFileId()) {
+      if (downloadRequest.rids.contains(rid)) {
+        Logger.d(TAG,"Already in list");
+        return;
+      }
+      downloadRequest.rids.add(rid);
+      if (!downloadRequest.isActive) {
+        Logger.d(TAG,"Move request to top");
+        requests.remove(downloadRequest);
+        requests.add(0,downloadRequest);
+      }
+      return;
+    }
+  }
+  if (isAutomatic && cancelled.contains(location.getFileId())) {
+    return;
+  }
+  Logger.d(TAG,"Adding request to queue");
+  ArrayList<Long> rids=new ArrayList<Long>();
+  rids.add(rid);
+  requests.add(0,new DownloadRequest(type,id,rids,name,location));
+  DownloadModel.downloadState(location.getFileId()).change(new DownloadState(DownloadState.State.DOWNLOADING));
+  checkQueue();
+}

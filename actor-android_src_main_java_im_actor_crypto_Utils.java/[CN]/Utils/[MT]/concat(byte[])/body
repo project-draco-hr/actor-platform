@@ -1,0 +1,13 @@
+{
+  int len=0;
+  for (  byte[] aV : v) {
+    len+=aV.length;
+  }
+  byte[] res=new byte[len];
+  int offset=0;
+  for (  byte[] aV : v) {
+    System.arraycopy(aV,0,res,offset,aV.length);
+    offset+=aV.length;
+  }
+  return res;
+}

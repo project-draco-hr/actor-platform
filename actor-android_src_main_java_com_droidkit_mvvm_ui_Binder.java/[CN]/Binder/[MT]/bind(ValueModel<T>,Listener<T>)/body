@@ -1,0 +1,9 @@
+{
+  BindContainer container=getContainer("<empty>");
+  container.customs.add(new Bind<T>(value,new ValueChangeListener<T>(){
+    @Override public void onChanged(    T value){
+      p.onUpdated(value);
+    }
+  }
+));
+}

@@ -1,0 +1,9 @@
+{
+  changeColors(0);
+  changeColors(1);
+  changeColors(2);
+  if (currentColor[0] == colors[nextcolor][0] && currentColor[1] == colors[nextcolor][1] && currentColor[2] == colors[nextcolor][2]) {
+    if (nextcolor == 3)     nextcolor=0;
+ else     nextcolor++;
+  }
+}

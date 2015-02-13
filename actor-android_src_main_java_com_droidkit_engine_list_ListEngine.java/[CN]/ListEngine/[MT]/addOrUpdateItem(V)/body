@@ -1,0 +1,9 @@
+{
+synchronized (LOCK) {
+    cache.onObjectUpdated(dataAdapter.getId(value),value);
+    dbActor.updateOrAdd(value);
+    for (    ListEngineCallback<V> callback : listeners) {
+      callback.addOrUpdate(value);
+    }
+  }
+}

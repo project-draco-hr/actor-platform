@@ -1,0 +1,20 @@
+{
+  int count=cursor.getCount();
+  ArrayList<DaoValue<V>> list=new ArrayList<DaoValue<V>>(count);
+  if (cursor instanceof CrossProcessCursor) {
+    CursorWindow window=((CrossProcessCursor)cursor).getWindow();
+    if (window != null) {
+      if (window.getNumRows() == count) {
+        cursor=new FastCursor(window);
+      }
+    }
+  }
+  final long start=System.currentTimeMillis();
+  if (cursor.moveToFirst()) {
+    do {
+      list.add(loadCurrent(cursor));
+    }
+ while (cursor.moveToNext());
+  }
+  return list;
+}

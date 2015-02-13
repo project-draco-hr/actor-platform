@@ -1,0 +1,3 @@
+SQLiteDatabase database
+String name
+DataAdapter<V> adapter

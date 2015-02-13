@@ -1,0 +1,6 @@
+{
+  if (openedType == type && openedId == id) {
+    openedType=0;
+    openedId=0;
+  }
+}

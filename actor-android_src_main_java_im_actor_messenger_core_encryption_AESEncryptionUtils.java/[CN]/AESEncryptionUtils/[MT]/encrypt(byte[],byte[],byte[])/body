@@ -1,0 +1,4 @@
+{
+  byte[] padded=CryptoUtils.align(src,16);
+  return encrypt(padded,padded.length,key,iv);
+}

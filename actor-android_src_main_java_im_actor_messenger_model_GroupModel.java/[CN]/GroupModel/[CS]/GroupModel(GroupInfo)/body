@@ -1,0 +1,8 @@
+{
+  this.raw=raw;
+  titleModel=new ValueModel<String>("group" + raw.getGroupId() + ".title",raw.getTitle());
+  avatarModel=new ValueModel<Avatar>("group" + raw.getGroupId() + ".avatar",raw.getAvatar());
+  stateModel=new ValueModel<GroupState>("group" + raw.getGroupId() + ".state",raw.getGroupState());
+  usersModel=new ValueModel<GroupMember[]>("group" + raw.getGroupId() + ".users",raw.getMembers().toArray(new GroupMember[0]));
+  onlineModel=new ValueModel<int[]>("group" + raw.getGroupId() + ".online",new int[]{raw.getMembers().size()});
+}

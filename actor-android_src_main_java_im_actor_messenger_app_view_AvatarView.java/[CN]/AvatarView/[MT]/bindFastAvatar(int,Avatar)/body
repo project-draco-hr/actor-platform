@@ -1,0 +1,18 @@
+{
+  FileLocation fileLocation=avatar.getSmallImage().getFileLocation();
+  DiskCache diskCache=Core.core().getImageLoader().getInternalDiskCache();
+  String avatarKey=FileKeys.avatarKey(fileLocation.getFileId());
+  String file=diskCache.lockFile(avatarKey);
+  if (file != null) {
+    try {
+      Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
+      bindImage(bitmap);
+      transitionStart=0;
+      return;
+    }
+ catch (    ImageLoadException e) {
+      e.printStackTrace();
+    }
+  }
+  bindAvatar(size,avatar);
+}

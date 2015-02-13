@@ -1,0 +1,5 @@
+String serverName
+String localName
+Avatar avatar
+Sex sex
+List<Long> keyHashes

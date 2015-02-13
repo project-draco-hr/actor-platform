@@ -1,0 +1,10 @@
+{
+  Logger.d(TAG,"Starting task");
+  if (fileLocation.getEncryption() == FileLocation.Encryption.NONE) {
+    downloadFileName=destFileName;
+  }
+ else {
+    downloadFileName=AppContext.getExternalTempFile("enc","bin");
+  }
+  startDownload();
+}

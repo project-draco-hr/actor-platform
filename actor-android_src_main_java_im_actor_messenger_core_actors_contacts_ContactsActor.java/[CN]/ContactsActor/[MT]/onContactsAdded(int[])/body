@@ -1,0 +1,15 @@
+{
+  for (  int u : uids) {
+    UserModel userModel=users().get(u);
+    if (userModel != null) {
+      contactUsers.add((long)u);
+      userModel.getContactModel().change(true);
+    }
+ else {
+      throw new RuntimeException("Unable to find user #" + u);
+    }
+  }
+  updateContactList();
+  ProfileSyncState.onContactsLoaded(contactUsers.size() == 0);
+  performSync();
+}

@@ -1,0 +1,7 @@
+{
+  if (src.exists()) {
+    if (!src.delete()) {
+      src.deleteOnExit();
+    }
+  }
+}

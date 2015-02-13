@@ -1,0 +1,10 @@
+{
+  if (settings == null) {
+synchronized (LOCK) {
+      if (settings == null) {
+        settings=new ChatSettings(AppContext.getContext());
+      }
+    }
+  }
+  return settings;
+}

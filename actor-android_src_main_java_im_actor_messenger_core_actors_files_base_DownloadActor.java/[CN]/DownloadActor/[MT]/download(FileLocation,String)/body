@@ -1,0 +1,8 @@
+{
+  return new ActorSelection(Props.create(DownloadActor.class,new ActorCreator<DownloadActor>(){
+    @Override public DownloadActor create(){
+      return new DownloadActor(location,destFile);
+    }
+  }
+),"downloader_" + location.getFileId());
+}

@@ -1,0 +1,6 @@
+{
+  contType=values.getInt(1);
+  contId=values.getInt(2);
+  title=values.getString(3);
+  avatar=values.optObj(4,Avatar.class);
+}

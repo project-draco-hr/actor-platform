@@ -1,0 +1,3 @@
+{
+  map=new SerializableMap<Boolean>(storage);
+}

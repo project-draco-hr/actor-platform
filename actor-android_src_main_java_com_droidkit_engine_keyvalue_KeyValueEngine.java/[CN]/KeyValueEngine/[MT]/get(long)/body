@@ -1,0 +1,11 @@
+{
+  V value=inMemoryLruCache.get(id);
+  if (value == null) {
+    value=storageAdapter.getById(id);
+    if (value != null) {
+      inMemoryLruCache.put(id,value);
+    }
+    return value;
+  }
+  return value;
+}

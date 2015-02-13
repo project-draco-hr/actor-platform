@@ -1,0 +1,11 @@
+{
+  try {
+    Cipher cipher=createRSACipher();
+    cipher.init(Cipher.DECRYPT_MODE,privateKey);
+    return cipher.doFinal(encryptedMessage);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+}

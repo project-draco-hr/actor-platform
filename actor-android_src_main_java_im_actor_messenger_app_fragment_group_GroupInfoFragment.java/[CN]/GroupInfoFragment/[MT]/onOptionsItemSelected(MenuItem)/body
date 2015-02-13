@@ -1,0 +1,21 @@
+{
+  if (item.getItemId() == R.id.leaveGroup) {
+    new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_delete_group_title).replace("{0}",groupInfo.getTitle())).setPositiveButton(R.string.alert_delete_group_yes,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog2,      int which){
+        GroupsActor.groupUpdates().leaveChat(chatId);
+      }
+    }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
+    return true;
+  }
+ else   if (item.getItemId() == R.id.addMember) {
+    startActivityForResult(Intents.pickUser(getActivity()),0);
+  }
+ else   if (item.getItemId() == R.id.editTitle) {
+    startActivity(Intents.editGroupTitle(chatId,getActivity()));
+  }
+ else   if (item.getItemId() == R.id.changePhoto) {
+    startActivity(ViewAvatarActivity.viewGroupAvatar(chatId,getActivity()));
+  }
+  return super.onOptionsItemSelected(item);
+}

@@ -1,0 +1,11 @@
+{
+  for (  V v : values) {
+    inMemoryLruCache.put(dataAdapter.getId(v),v);
+  }
+  dbActor.send(new Runnable(){
+    @Override public void run(){
+      storageAdapter.insertOrReplaceBatch(values);
+    }
+  }
+);
+}

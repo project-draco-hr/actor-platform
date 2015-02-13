@@ -1,0 +1,22 @@
+{
+  if (references.containsKey(key)) {
+    return references.get(key).createReference(referrent);
+  }
+  if (!categoryMap.containsKey(key)) {
+    return null;
+  }
+  int category=categoryMap.get(key);
+  if (category < 0) {
+    return null;
+  }
+  CategoryHolder holder=categories.get(category);
+  if (holder.config.isLruEnabled()) {
+    Bitmap img=holder.bitmapLruCache.get(key);
+    if (img != null) {
+      BaseBitmapReference baseBitmapReference=new BaseBitmapReference(this,key,img);
+      references.put(key,baseBitmapReference);
+      return baseBitmapReference.createReference(referrent);
+    }
+  }
+  return null;
+}

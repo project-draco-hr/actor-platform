@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  PendingUpload that=(PendingUpload)o;
+  if (chatId != that.chatId)   return false;
+  if (chatType != that.chatType)   return false;
+  if (rid != that.rid)   return false;
+  return true;
+}

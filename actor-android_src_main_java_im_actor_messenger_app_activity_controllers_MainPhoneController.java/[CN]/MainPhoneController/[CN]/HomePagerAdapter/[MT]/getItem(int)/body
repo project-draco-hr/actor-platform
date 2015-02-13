@@ -1,0 +1,9 @@
+{
+switch (position) {
+default :
+case 0:
+    return new DialogsFragment();
+case 1:
+  return new ContactsFragment();
+}
+}

@@ -1,0 +1,4 @@
+int type
+int id
+long rid
+MessageState messageState

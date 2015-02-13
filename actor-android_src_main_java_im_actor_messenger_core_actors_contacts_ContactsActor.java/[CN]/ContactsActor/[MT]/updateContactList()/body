@@ -1,0 +1,20 @@
+{
+  ArrayList<UserModel> userList=new ArrayList<UserModel>();
+  for (  long u : contactUsers) {
+    userList.add(users().get((int)u));
+  }
+  Collections.sort(userList,new Comparator<UserModel>(){
+    @Override public int compare(    UserModel lhs,    UserModel rhs){
+      return lhs.getName().compareTo(rhs.getName());
+    }
+  }
+);
+  List<Contact> registeredContacts=new ArrayList<Contact>();
+  int index=-1;
+  for (  UserModel userModel : userList) {
+    Contact contact=new Contact(userModel.getId(),(long)index--,userModel.getName(),userModel.getAvatar().getValue());
+    registeredContacts.add(contact);
+    searchEngine.indexLow(DialogUids.getDialogUid(DialogType.TYPE_USER,userModel.getId()),0,userModel.getName(),new GlobalSearch(DialogType.TYPE_USER,userModel.getId(),userModel.getName(),userModel.getAvatar().getValue()));
+  }
+  ListEngines.getContactsEngine().replaceItems(registeredContacts);
+}

@@ -1,0 +1,47 @@
+{
+  FileLocation location=getTask().getAvatar().getSmallImage().getFileLocation();
+  final String smallFile="avatar:" + location.getFileId();
+  String fileName=getLoader().getInternalDiskCache().lockFile(smallFile);
+  if (fileName != null) {
+    try {
+      Bitmap res=ImageLoading.loadBitmap(fileName);
+      completeTask(res);
+      return;
+    }
+ catch (    ImageLoadException e) {
+      e.printStackTrace();
+    }
+ finally {
+      getLoader().getInternalDiskCache().unlockFile(smallFile);
+    }
+  }
+  ask(requests().getFile(new im.actor.api.scheme.FileLocation(location.getFileId(),location.getAccessHash()),0,512 * 1024),new FutureCallback<ResponseGetFile>(){
+    @Override public void onResult(    ResponseGetFile result){
+      String fileName=getLoader().getInternalDiskCache().startWriteFile(smallFile);
+      try {
+        FileOutputStream outputStream=new FileOutputStream(fileName);
+        outputStream.write(result.getPayload());
+        outputStream.close();
+      }
+ catch (      FileNotFoundException e) {
+        e.printStackTrace();
+      }
+catch (      IOException e) {
+        e.printStackTrace();
+      }
+      getLoader().getInternalDiskCache().commitFile(smallFile);
+      try {
+        Bitmap res=ImageLoading.loadBitmap(result.getPayload());
+        completeTask(res);
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+        error(e);
+      }
+    }
+    @Override public void onError(    Throwable throwable){
+      error(throwable);
+    }
+  }
+);
+}

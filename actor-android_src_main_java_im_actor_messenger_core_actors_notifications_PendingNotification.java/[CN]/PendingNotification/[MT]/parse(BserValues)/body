@@ -1,0 +1,46 @@
+{
+  convType=values.getInt(1);
+  convId=values.getInt(2);
+  rid=values.getLong(3);
+  uid=values.getInt(4);
+  date=values.getLong(5);
+  destUid=values.optInt(10);
+  text=values.optString(11);
+  int rawType=values.getInt(12,0);
+switch (rawType) {
+default :
+case 0:
+    type=Type.TEXT;
+  break;
+case 1:
+type=Type.PHOTO;
+break;
+case 2:
+type=Type.VIDEO;
+break;
+case 3:
+type=Type.DOCUMENT;
+break;
+case 4:
+type=Type.VOICE;
+break;
+case 5:
+type=Type.USER_REGISTERED;
+break;
+case 6:
+type=Type.GROUP_CREATED;
+break;
+case 7:
+type=Type.GROUP_ADDED;
+break;
+case 8:
+type=Type.GROUP_LEFT;
+break;
+case 9:
+type=Type.GROUP_KICKED;
+break;
+case 10:
+type=Type.USER_DEVICE;
+break;
+}
+}

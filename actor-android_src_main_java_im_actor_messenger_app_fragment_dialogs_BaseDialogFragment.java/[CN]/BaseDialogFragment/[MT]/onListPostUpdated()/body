@@ -1,0 +1,68 @@
+{
+  adapter.notifyDataSetChanged();
+  boolean changed=false;
+  long[] idsNew=new long[listView.getChildCount()];
+  if (idsNew.length != ids.length) {
+    changed=true;
+    for (int i=0; i < listView.getChildCount(); i++) {
+      long id=listView.getItemIdAtPosition(listView.getFirstVisiblePosition() + i);
+      idsNew[i]=id;
+    }
+  }
+ else {
+    for (int i=0; i < listView.getChildCount(); i++) {
+      long id=listView.getItemIdAtPosition(listView.getFirstVisiblePosition() + i);
+      idsNew[i]=id;
+      if (ids[i] != id) {
+        changed=true;
+      }
+    }
+  }
+  if (changed) {
+    final HashSet<Long> changedIds=new HashSet<Long>();
+    for (int i=0; i < Math.min(ids.length,idsNew.length); i++) {
+      if (ids[i] != idsNew[i]) {
+        changedIds.add(ids[i]);
+        changedIds.add(idsNew[i]);
+      }
+    }
+    if (ids.length < idsNew.length) {
+      for (int i=ids.length; i < idsNew.length; i++) {
+        changedIds.add(idsNew[i]);
+      }
+    }
+    if (idsNew.length < ids.length) {
+      for (int i=idsNew.length; i < ids.length; i++) {
+        changedIds.add(ids[i]);
+      }
+    }
+    listView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+      @Override public boolean onPreDraw(){
+        if (listView == null)         return true;
+        listView.getViewTreeObserver().removeOnPreDrawListener(this);
+        for (int i=0; i < listView.getChildCount(); i++) {
+          View view=listView.getChildAt(i);
+          long id=listView.getItemIdAtPosition(listView.getFirstVisiblePosition() + i);
+          if (changedIds.contains(id) && offsets.containsKey(id)) {
+            int oldTop;
+            if (offsets.containsKey(id)) {
+              oldTop=offsets.get(id);
+            }
+ else {
+              oldTop=-view.getHeight();
+            }
+            int newTop=view.getTop();
+            if (oldTop != newTop) {
+              ObjectAnimator animator=ObjectAnimator.ofFloat(view,"translationY",oldTop - newTop,0).setDuration(300);
+              animator.setInterpolator(new MaterialInterpolator());
+              animator.start();
+            }
+          }
+        }
+        offsets.clear();
+        return true;
+      }
+    }
+);
+  }
+}

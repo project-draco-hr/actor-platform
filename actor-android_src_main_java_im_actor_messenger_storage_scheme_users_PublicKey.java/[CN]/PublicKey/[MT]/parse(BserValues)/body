@@ -1,0 +1,5 @@
+{
+  uid=values.getInt(1);
+  keyHash=values.getLong(2);
+  key=values.getBytes(3);
+}

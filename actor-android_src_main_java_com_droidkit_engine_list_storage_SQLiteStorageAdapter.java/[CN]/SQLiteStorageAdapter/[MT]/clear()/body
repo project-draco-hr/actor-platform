@@ -1,0 +1,4 @@
+{
+  Object[] args=new Object[]{tableId};
+  database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"LIST_ID\"=?",args);
+}

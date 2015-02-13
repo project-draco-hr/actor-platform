@@ -1,0 +1,21 @@
+{
+  FileOutputStream outputStream=null;
+  try {
+    outputStream=new FileOutputStream(fileName);
+    src.compress(format,quality,outputStream);
+    outputStream.close();
+  }
+ catch (  IOException e) {
+    throw new ImageSaveException(e);
+  }
+ finally {
+    if (outputStream != null) {
+      try {
+        outputStream.close();
+      }
+ catch (      IOException e1) {
+        e1.printStackTrace();
+      }
+    }
+  }
+}

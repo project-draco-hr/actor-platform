@@ -1,0 +1,12 @@
+{
+  try {
+    if (streamWriter != null) {
+      streamWriter.close();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  streamWriter=null;
+  stream=null;
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    return Cipher.getInstance("AES/CBC/PKCS5Padding");
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e);
+  }
+}

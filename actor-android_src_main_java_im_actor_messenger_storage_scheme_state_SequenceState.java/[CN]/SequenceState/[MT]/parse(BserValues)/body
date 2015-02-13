@@ -1,0 +1,4 @@
+{
+  seq=values.getInt(1);
+  state=values.getBytes(2);
+}

@@ -1,0 +1,8 @@
+{
+  if (avatarb != null && avatarb.getSmallImage() != null) {
+    avatar.request(avatarb);
+  }
+ else {
+    avatar.clear();
+  }
+}

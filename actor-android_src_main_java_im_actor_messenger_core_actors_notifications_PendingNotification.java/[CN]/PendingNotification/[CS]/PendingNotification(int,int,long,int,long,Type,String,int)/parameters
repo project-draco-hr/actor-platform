@@ -1,0 +1,8 @@
+int convType
+int convId
+long rid
+int uid
+long date
+Type type
+String text
+int destUid

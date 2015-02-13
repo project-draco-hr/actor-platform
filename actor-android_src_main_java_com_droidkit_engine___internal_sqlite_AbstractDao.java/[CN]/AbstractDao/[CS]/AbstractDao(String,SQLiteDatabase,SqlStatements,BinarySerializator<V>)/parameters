@@ -1,0 +1,4 @@
+String tableName
+SQLiteDatabase db
+SqlStatements statements
+BinarySerializator<V> serializator

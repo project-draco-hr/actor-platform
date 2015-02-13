@@ -1,0 +1,19 @@
+{
+  this.query=query;
+  this.listState.change(new ListState(ListState.State.LOADING_EMPTY));
+  listWindow.startInitForward();
+  listEngine.loadTailInitial(query,loadLimit,new LoadCallback<V>(){
+    @Override public void onLoaded(    List<V> res,    Object nextRef){
+      uiList.editList(listMods.replace(res));
+      listWindow.stopInitForward(nextRef);
+      if (res.size() == 0) {
+        listState.change(new ListState(ListState.State.LOADED_EMPTY));
+        listWindow.onTailCompleted();
+      }
+ else {
+        listState.change(new ListState(ListState.State.LOADED));
+      }
+    }
+  }
+);
+}

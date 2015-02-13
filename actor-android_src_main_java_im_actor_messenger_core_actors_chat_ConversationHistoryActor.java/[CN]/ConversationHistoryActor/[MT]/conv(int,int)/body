@@ -1,0 +1,10 @@
+{
+  long uid=DialogUids.getDialogUid(type,id);
+synchronized (PROXIES) {
+    if (!PROXIES.containsKey(uid)) {
+      ConversationHistoryInt res=TypedCreator.typed(ActorSystem.system().actorOf(selection(type,id)),ConversationHistoryInt.class);
+      PROXIES.put(uid,res);
+    }
+    return PROXIES.get(uid);
+  }
+}

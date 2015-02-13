@@ -1,0 +1,12 @@
+{
+  GroupModel groupInfo=groups().get(chatId);
+  if (groupInfo == null || groupInfo.getState() != GroupState.JOINED) {
+    return;
+  }
+  im.actor.messenger.storage.scheme.avatar.Avatar avatar1=ApiConversion.convert(avatar);
+  if (!areSame(avatar1,groupInfo.getRaw().getAvatar())) {
+    groups().put(chatId,groupInfo.getRaw().editAvatar(avatar1));
+  }
+  DialogsActor.dialogs().onGroupChangedAvatar(chatId,avatar1);
+  ConversationActor.conv(DialogType.TYPE_GROUP,chatId).onInMessage(rid,uid,date,new GroupAvatar(avatar1));
+}

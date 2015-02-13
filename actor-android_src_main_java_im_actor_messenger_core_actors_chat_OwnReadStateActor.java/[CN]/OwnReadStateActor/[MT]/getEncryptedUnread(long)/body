@@ -1,0 +1,9 @@
+{
+  if (unreadsEncryptedCache.containsKey(uid)) {
+    return unreadsEncryptedCache.get(uid);
+  }
+  BserMap<UnreadMessage> map=new BserMap<UnreadMessage>(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"unread_" + uid),UnreadMessage.class);
+  PersistenceSet<UnreadMessage> res=new PersistenceSet<UnreadMessage>(map);
+  unreadsEncryptedCache.put(uid,res);
+  return res;
+}

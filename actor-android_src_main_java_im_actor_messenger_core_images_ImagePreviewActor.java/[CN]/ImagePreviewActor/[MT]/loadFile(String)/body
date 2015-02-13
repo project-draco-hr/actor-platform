@@ -1,0 +1,11 @@
+{
+  try {
+    completeTask(ImageLoading.loadBitmapOptimized(fileName));
+    Logger.d(TAG,getPath() + "|Completed");
+  }
+ catch (  ImageLoadException e) {
+    Logger.d(TAG,"Loading from file failed #" + fileLocation.getFileId());
+    e.printStackTrace();
+    error(e);
+  }
+}

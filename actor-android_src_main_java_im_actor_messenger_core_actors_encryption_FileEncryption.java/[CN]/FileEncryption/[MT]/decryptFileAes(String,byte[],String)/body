@@ -1,0 +1,11 @@
+{
+  ObsoleteFileCipher cipher=new ObsoleteFileCipher(key);
+  try {
+    cipher.decrypt(sourceFile,destFile);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    throw new RuntimeException(e);
+  }
+  return result(true);
+}

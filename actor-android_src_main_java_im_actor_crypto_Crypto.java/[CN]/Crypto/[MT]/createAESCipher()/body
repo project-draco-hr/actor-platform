@@ -1,0 +1,11 @@
+{
+  try {
+    return Cipher.getInstance("AES/CBC/PKCS5Padding");
+  }
+ catch (  NoSuchAlgorithmException e) {
+    throw new AssertionError(e);
+  }
+catch (  NoSuchPaddingException e) {
+    throw new AssertionError(e);
+  }
+}

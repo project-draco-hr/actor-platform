@@ -1,0 +1,13 @@
+{
+  Iterator<PendingUpload> iterator=pendingUploads.iterator();
+  while (iterator.hasNext()) {
+    PendingUpload upload=iterator.next();
+    if (upload.getChatType() == type && upload.getChatId() == id) {
+      if (futures.containsKey(upload.getRid())) {
+        futures.get(upload.getRid()).cancel();
+        UploadModel.uploadState(upload.getRid()).change(new UploadState(UploadState.State.NONE));
+      }
+      iterator.remove();
+    }
+  }
+}

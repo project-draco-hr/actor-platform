@@ -1,0 +1,15 @@
+{
+  if (values.size() == 0) {
+    return;
+  }
+  if (values.size() == 1) {
+    adapter.updateOrAdd(buildContainer(values.get(0)));
+  }
+ else {
+    List<ValueContainer> containers=new ArrayList<ValueContainer>();
+    for (    V v : values) {
+      containers.add(buildContainer(v));
+    }
+    adapter.updateOrAdd(containers);
+  }
+}

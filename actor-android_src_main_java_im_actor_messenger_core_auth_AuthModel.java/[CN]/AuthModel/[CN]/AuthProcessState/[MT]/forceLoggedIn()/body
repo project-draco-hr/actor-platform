@@ -1,0 +1,6 @@
+{
+  stateId=STATE_SIGNED;
+  smsHash=null;
+  phoneNumber=0;
+  smsCode=0;
+}

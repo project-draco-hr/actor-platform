@@ -1,0 +1,4 @@
+{
+  super(name,preferences.getString(name,initialValue));
+  this.preferences=preferences;
+}

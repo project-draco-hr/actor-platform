@@ -1,0 +1,3 @@
+{
+  Toast.makeText(AppContext.getContext(),text,Toast.LENGTH_LONG).show();
+}

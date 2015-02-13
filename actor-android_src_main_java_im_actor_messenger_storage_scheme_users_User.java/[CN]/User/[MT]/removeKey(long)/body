@@ -1,0 +1,5 @@
+{
+  ArrayList<Long> nKeys=new ArrayList<Long>(keyHashes);
+  nKeys.remove(key);
+  return new User(id,accessHash,serverName,localName,sex,nKeys,phone,avatar);
+}

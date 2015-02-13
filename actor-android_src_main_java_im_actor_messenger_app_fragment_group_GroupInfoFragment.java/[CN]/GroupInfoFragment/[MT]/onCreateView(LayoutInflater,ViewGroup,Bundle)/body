@@ -1,0 +1,132 @@
+{
+  chatId=getArguments().getInt(EXTRA_CHAT_ID);
+  groupInfo=groups().get(chatId);
+  View res=inflater.inflate(R.layout.fragment_group,container,false);
+  listView=(ListView)res.findViewById(R.id.groupList);
+  View header=inflater.inflate(R.layout.fragment_group_header,listView,false);
+  avatarView=(CoverAvatarView)header.findViewById(R.id.avatar);
+  bind(groupInfo.getAvatarModel(),new Listener<Avatar>(){
+    @Override public void onUpdated(    Avatar avatar){
+      if (avatar != null) {
+        avatarView.request(avatar);
+      }
+ else {
+        avatarView.clear();
+      }
+    }
+  }
+);
+  avatarView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      startActivity(ViewAvatarActivity.viewGroupAvatar(chatId,getActivity()));
+    }
+  }
+);
+  getBinder().bindText((TextView)header.findViewById(R.id.title),groupInfo.getTitleModel());
+  TextView createdBy=(TextView)header.findViewById(R.id.createdBy);
+  if (groupInfo.getRaw().getAdminId() == myUid()) {
+    createdBy.setText(R.string.group_created_by_you);
+  }
+ else {
+    UserModel admin=users().get(groupInfo.getRaw().getAdminId());
+    createdBy.setText(getString(R.string.group_created_by).replace("{0}",admin.getName()));
+  }
+  header.findViewById(R.id.filesCont).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(Intents.openDocs(DialogType.TYPE_GROUP,chatId,getActivity()));
+    }
+  }
+);
+  int docsCount=ListEngines.getDocuments(DialogUids.getDialogUid(DialogType.TYPE_GROUP,chatId)).getCount();
+  if (docsCount == 0) {
+    header.findViewById(R.id.sharedTitle).setVisibility(View.GONE);
+    header.findViewById(R.id.sharedDiv).setVisibility(View.GONE);
+    header.findViewById(R.id.filesCont).setVisibility(View.GONE);
+  }
+ else {
+    header.findViewById(R.id.sharedTitle).setVisibility(View.VISIBLE);
+    header.findViewById(R.id.sharedDiv).setVisibility(View.VISIBLE);
+    header.findViewById(R.id.filesCont).setVisibility(View.VISIBLE);
+    ((TextView)header.findViewById(R.id.documentCount)).setText(ListEngines.getDocuments(DialogUids.getDialogUid(DialogType.TYPE_GROUP,chatId)).getCount() + "");
+  }
+  ((TextView)header.findViewById(R.id.membersCount)).setText(getString(R.string.group_members_count).replace("{0}",groupInfo.getUsersCount() + "").replace("{1}","300"));
+  listView.addHeaderView(header,null,false);
+  View add=inflater.inflate(R.layout.fragment_group_add,listView,false);
+  add.findViewById(R.id.addUser).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivityForResult(Intents.pickUser(getActivity()),0);
+    }
+  }
+);
+  listView.addFooterView(add,null,false);
+  groupUserAdapter=new GroupUserAdapter(sort(convert(groupInfo.getUsers())),getActivity());
+  listView.setAdapter(groupUserAdapter);
+  listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      Object item=parent.getItemAtPosition(position);
+      if (item != null && item instanceof UserModel) {
+        final UserModel userModel=(UserModel)item;
+        if (userModel.getId() == myUid()) {
+          return;
+        }
+        new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.group_context_message).replace("{0}",userModel.getName()),getString(R.string.group_context_call).replace("{0}",userModel.getName()),getString(R.string.group_context_view).replace("{0}",userModel.getName()),getString(R.string.group_context_remove).replace("{0}",userModel.getName())},new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            if (which == 0) {
+              startActivity(Intents.openPrivateDialog(userModel.getId(),true,getActivity()));
+            }
+ else             if (which == 1) {
+              startActivity(Intents.call(userModel.getPhone()));
+            }
+ else             if (which == 2) {
+              startActivity(Intents.openProfile(userModel.getId(),getActivity()));
+            }
+ else             if (which == 3) {
+              new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_group_remove_text).replace("{0}",userModel.getName())).setPositiveButton(R.string.alert_group_remove_yes,new DialogInterface.OnClickListener(){
+                @Override public void onClick(                DialogInterface dialog2,                int which){
+                  ask(GroupsActor.groupUpdates().kickUser(chatId,userModel.getId()),getString(R.string.group_removing),new UiAskCallback<Boolean>(){
+                    @Override public void onPreStart(){
+                    }
+                    @Override public void onCompleted(                    Boolean res){
+                      if (!res) {
+                        Toast.makeText(getActivity(),R.string.toast_unable_kick,Toast.LENGTH_SHORT).show();
+                      }
+                    }
+                    @Override public void onError(                    Throwable t){
+                      Toast.makeText(getActivity(),R.string.toast_unable_kick,Toast.LENGTH_SHORT).show();
+                    }
+                  }
+);
+                }
+              }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
+            }
+          }
+        }
+).show().setCanceledOnTouchOutside(true);
+      }
+    }
+  }
+);
+  listView.setOnScrollListener(new AbsListView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
+    }
+    @Override public void onScroll(    AbsListView view,    int firstVisibleItem,    int visibleItemCount,    int totalItemCount){
+      if (firstVisibleItem >= 1) {
+        updateBar(Integer.MAX_VALUE);
+      }
+ else {
+        View top=listView.getChildAt(0);
+        if (top != null) {
+          updateBar(-top.getTop());
+        }
+ else {
+          updateBar(Integer.MAX_VALUE);
+        }
+      }
+    }
+  }
+);
+  bind(groupInfo.getStateModel(),groupStateListener);
+  bind(groupInfo.getUsersModel(),groupUsersListener);
+  return res;
+}

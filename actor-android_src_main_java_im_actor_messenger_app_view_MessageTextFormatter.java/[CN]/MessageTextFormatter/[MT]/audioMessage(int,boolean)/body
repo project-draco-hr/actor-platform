@@ -1,0 +1,8 @@
+{
+  if (isGroup) {
+    return getUserName(uid,true) + ": " + getString(R.string.dialogs_audio);
+  }
+ else {
+    return getString(R.string.dialogs_audio);
+  }
+}

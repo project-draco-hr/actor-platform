@@ -1,0 +1,4 @@
+{
+  super(uploadPath,isEncrypted);
+  this.duration=duration;
+}

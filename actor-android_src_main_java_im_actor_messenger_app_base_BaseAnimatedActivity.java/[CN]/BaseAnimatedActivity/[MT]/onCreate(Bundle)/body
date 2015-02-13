@@ -1,0 +1,17 @@
+{
+  super.onCreate(savedInstanceState);
+  customAnimation=getIntent().getBooleanExtra(ENABLE_ANIMATION,false);
+  if (savedInstanceState != null) {
+    if (customAnimation) {
+      final ViewTreeObserver viewTreeObserver=getWindow().getDecorView().getViewTreeObserver();
+      viewTreeObserver.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+        @Override public boolean onPreDraw(){
+          viewTreeObserver.removeOnPreDrawListener(this);
+          onOpenAnimationStart();
+          return true;
+        }
+      }
+);
+    }
+  }
+}

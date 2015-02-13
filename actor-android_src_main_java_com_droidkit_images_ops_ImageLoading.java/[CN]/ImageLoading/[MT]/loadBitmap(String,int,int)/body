@@ -1,0 +1,3 @@
+{
+  return loadBitmapOptimized(new FileSource(fileName),minW,minH);
+}

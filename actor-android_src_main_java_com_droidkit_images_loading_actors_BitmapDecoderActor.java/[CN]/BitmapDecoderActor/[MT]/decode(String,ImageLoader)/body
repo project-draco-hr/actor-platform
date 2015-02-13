@@ -1,0 +1,8 @@
+{
+  return new ActorSelection(Props.create(BitmapDecoderActor.class,new ActorCreator<BitmapDecoderActor>(){
+    @Override public BitmapDecoderActor create(){
+      return new BitmapDecoderActor(fileName,loader);
+    }
+  }
+),"dec_" + HashUtil.md5(fileName));
+}

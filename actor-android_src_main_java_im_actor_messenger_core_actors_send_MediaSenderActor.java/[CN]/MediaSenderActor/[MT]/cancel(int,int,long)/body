@@ -1,0 +1,12 @@
+{
+  if (futures.containsKey(rid)) {
+    futures.get(rid).cancel();
+    UploadModel.uploadState(rid).change(new UploadState(UploadState.State.NONE));
+  }
+  for (  PendingUpload pendingUpload : pendingUploads) {
+    if (pendingUpload.getChatType() == type && pendingUpload.getChatId() == id && pendingUpload.getRid() == rid) {
+      pendingUploads.remove(pendingUpload);
+      break;
+    }
+  }
+}

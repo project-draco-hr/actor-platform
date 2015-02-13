@@ -1,0 +1,4 @@
+{
+  publicKey=values.optBytes(1);
+  privateKey=values.optBytes(2);
+}

@@ -1,0 +1,28 @@
+{
+  try {
+    if (cipherText.length <= cipher.getBlockSize() + mac.getMacLength()) {
+      throw new IllegalArgumentException("Message is too short");
+    }
+    mac.init(macKeySpec);
+    byte[][] ciphertextParts=Utils.split(cipherText,cipher.getBlockSize(),cipherText.length - this.cipher.getBlockSize() - this.mac.getMacLength(),this.mac.getMacLength());
+    this.mac.update(cipherText,0,cipherText.length - mac.getMacLength());
+    byte[] ourMac=this.mac.doFinal();
+    if (!Utils.equals(ourMac,ciphertextParts[2])) {
+      throw new IllegalArgumentException("Mac doesn't match!");
+    }
+    this.cipher.init(Cipher.DECRYPT_MODE,this.cipherKeySpec,new IvParameterSpec(ciphertextParts[0]));
+    return cipher.doFinal(ciphertextParts[1]);
+  }
+ catch (  InvalidKeyException e) {
+    throw new AssertionError(e);
+  }
+catch (  InvalidAlgorithmParameterException e) {
+    throw new AssertionError(e);
+  }
+catch (  IllegalBlockSizeException e) {
+    throw new AssertionError(e);
+  }
+catch (  BadPaddingException e) {
+    throw new IllegalArgumentException(e);
+  }
+}

@@ -1,0 +1,18 @@
+{
+  UserModel userModel=users().get(uid);
+  final TypedFuture<Boolean> res=new TypedFuture<Boolean>();
+  ask(requests().addContact(uid,userModel.getAccessHash()),new FutureCallback<ResponseSeq>(){
+    @Override public void onResult(    ResponseSeq result){
+      res.doComplete(true);
+      List<Integer> uids=new ArrayList<Integer>();
+      uids.add(uid);
+      system().actorOf(SequenceActor.sequence()).send(new SeqUpdate(result.getSeq(),result.getState(),UpdateContactsAdded.HEADER,new UpdateContactsAdded(uids).toByteArray()));
+    }
+    @Override public void onError(    Throwable throwable){
+      res.doError(throwable);
+      onContactsAdded(new int[]{uid});
+    }
+  }
+);
+  return res;
+}

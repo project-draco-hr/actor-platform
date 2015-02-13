@@ -1,0 +1,4 @@
+{
+  long sortKey=System.currentTimeMillis();
+  return new ConversationMessage(rid,sortKey,date,senderId,messageState,content);
+}

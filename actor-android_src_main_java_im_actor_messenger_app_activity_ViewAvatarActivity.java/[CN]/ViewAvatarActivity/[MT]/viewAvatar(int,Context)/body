@@ -1,0 +1,6 @@
+{
+  Intent res=new Intent(context,ViewAvatarActivity.class);
+  res.putExtra(Intents.EXTRA_CHAT_TYPE,DialogType.TYPE_USER);
+  res.putExtra(Intents.EXTRA_CHAT_ID,uid);
+  return res;
+}

@@ -1,0 +1,5 @@
+{
+  if (stateId == STATE_CODE_SEND_ERROR) {
+    auth().tryAgainCodeSend();
+  }
+}

@@ -1,0 +1,9 @@
+{
+  final String stmt=statements.getAllStatement();
+  ArrayList<V> res=new ArrayList<V>();
+  ArrayList<DaoValue<V>> daoValues=loadAllAndCloseCursor(db.rawQuery(stmt,null));
+  for (  DaoValue<V> v : daoValues) {
+    res.add(v.getValue());
+  }
+  return res;
+}

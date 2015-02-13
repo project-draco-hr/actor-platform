@@ -1,0 +1,3 @@
+{
+  seqActor.send(new SequenceActor.SeqUpdate(seq,state,update));
+}

@@ -1,0 +1,6 @@
+{
+  this.rowId=rowId;
+  this.id=id;
+  this.sortingKey=sortingKey;
+  this.value=value;
+}

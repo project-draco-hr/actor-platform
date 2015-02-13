@@ -1,0 +1,4 @@
+{
+  GlobalSearch search=getItem(position);
+  return DialogUids.getDialogUid(search.getContType(),search.getContId());
+}

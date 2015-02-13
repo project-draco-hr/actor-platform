@@ -1,0 +1,14 @@
+{
+  SyncState state=persistence.getObj();
+  if (state.isBookImported && state.isContactsSynced) {
+    if (state.isContactsEmpty && state.isDialogsEmpty) {
+      syncState.change(State.EMPTY_APP);
+    }
+ else {
+      syncState.change(State.READY);
+    }
+  }
+ else {
+    syncState.change(State.IN_PROGRESS);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (core == null) {
+    throw new RuntimeException("Core is not initialized");
+  }
+  return core;
+}

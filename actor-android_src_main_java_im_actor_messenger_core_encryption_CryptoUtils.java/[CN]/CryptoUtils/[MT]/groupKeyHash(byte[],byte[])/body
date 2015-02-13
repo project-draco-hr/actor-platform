@@ -1,0 +1,3 @@
+{
+  return CryptoUtils.SHA256(CryptoUtils.concat(aesFullKey,rsaPrivate));
+}

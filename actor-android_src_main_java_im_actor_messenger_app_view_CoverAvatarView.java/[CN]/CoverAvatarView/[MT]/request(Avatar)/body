@@ -1,0 +1,35 @@
+{
+  clear();
+{
+    FileLocation fileLocation=avatar.getLargeImage().getFileLocation();
+    DiskCache diskCache=Core.core().getImageLoader().getInternalDiskCache();
+    String avatarKey=FileKeys.avatarKey(fileLocation.getFileId());
+    String file=diskCache.lockFile(avatarKey);
+    if (file != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
+        bindResult(bitmap);
+        return;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+{
+    FileLocation fileLocation=avatar.getSmallImage().getFileLocation();
+    DiskCache diskCache=Core.core().getImageLoader().getInternalDiskCache();
+    String avatarKey=FileKeys.avatarKey(fileLocation.getFileId());
+    String file=diskCache.lockFile(avatarKey);
+    if (file != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
+        bindResult(bitmap);
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+  request(new FullAvatarTask(avatar));
+}

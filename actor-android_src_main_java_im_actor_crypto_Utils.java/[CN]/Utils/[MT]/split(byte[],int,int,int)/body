@@ -1,0 +1,12 @@
+{
+  if (data.length < splitSize1 + splitSize2 + splitSize3) {
+    throw new IllegalArgumentException("data.length must be >= splitSize1 + splitSize2 + splitSize3");
+  }
+  byte[] a=new byte[splitSize1];
+  byte[] b=new byte[splitSize2];
+  byte[] c=new byte[splitSize3];
+  System.arraycopy(data,0,a,0,a.length);
+  System.arraycopy(data,splitSize1,b,0,b.length);
+  System.arraycopy(data,splitSize1 + splitSize2,c,0,c.length);
+  return new byte[][]{a,b,c};
+}

@@ -1,0 +1,5 @@
+{
+  this.value=value;
+  this.listener=listener;
+  this.value.addUiSubscriber(listener);
+}

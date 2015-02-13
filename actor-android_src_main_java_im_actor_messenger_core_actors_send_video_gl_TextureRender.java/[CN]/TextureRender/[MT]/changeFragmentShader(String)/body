@@ -1,0 +1,7 @@
+{
+  GLES20.glDeleteProgram(mProgram);
+  mProgram=createProgram(VERTEX_SHADER,fragmentShader);
+  if (mProgram == 0) {
+    throw new RuntimeException("failed creating program");
+  }
+}

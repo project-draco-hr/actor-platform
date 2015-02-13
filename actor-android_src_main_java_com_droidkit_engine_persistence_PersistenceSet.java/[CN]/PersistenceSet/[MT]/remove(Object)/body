@@ -1,0 +1,7 @@
+{
+  if (backedSet.remove(object)) {
+    removeItem(object);
+    return true;
+  }
+  return false;
+}

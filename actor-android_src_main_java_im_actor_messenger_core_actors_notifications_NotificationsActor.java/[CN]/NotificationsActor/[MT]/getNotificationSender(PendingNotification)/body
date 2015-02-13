@@ -1,0 +1,12 @@
+{
+  String sender;
+  if (pendingNotification.getConvType() == DialogType.TYPE_GROUP) {
+    sender=users().get(pendingNotification.getUid()).getName();
+    sender+="@";
+    sender+=groups().get(pendingNotification.getConvId()).getTitle();
+  }
+ else {
+    sender=users().get(pendingNotification.getUid()).getName();
+  }
+  return sender;
+}

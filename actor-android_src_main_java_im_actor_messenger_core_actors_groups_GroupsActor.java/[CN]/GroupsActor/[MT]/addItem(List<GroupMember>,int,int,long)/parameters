@@ -1,0 +1,4 @@
+List<GroupMember> uids
+int uid
+int inviterId
+long date

@@ -1,0 +1,4 @@
+{
+  super.preStart();
+  opusLib=new OpusLib();
+}

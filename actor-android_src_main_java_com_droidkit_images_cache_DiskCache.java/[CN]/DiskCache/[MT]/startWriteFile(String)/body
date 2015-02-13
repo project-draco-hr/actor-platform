@@ -1,0 +1,10 @@
+{
+  String fileName=convertToFileNameTemp(key);
+  File file=new File(fileName);
+  if (file.exists()) {
+    if (!file.delete()) {
+      return null;
+    }
+  }
+  return fileName;
+}

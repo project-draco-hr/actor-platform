@@ -1,0 +1,6 @@
+{
+  this.sortKey=src.sortKey;
+  this.uid=src.uid;
+  this.name=src.getName();
+  this.avatar=avatar;
+}

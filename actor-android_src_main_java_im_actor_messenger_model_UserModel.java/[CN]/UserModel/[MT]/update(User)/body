@@ -1,0 +1,5 @@
+{
+  this.raw=user;
+  name.change(raw.getName());
+  avatar.change(raw.getAvatar());
+}

@@ -1,0 +1,3 @@
+{
+  MediaSenderActor.mediaSender().pause(chatType,chatId,rid);
+}

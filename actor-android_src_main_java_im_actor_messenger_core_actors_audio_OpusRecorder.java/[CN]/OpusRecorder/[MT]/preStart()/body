@@ -1,0 +1,5 @@
+{
+  super.preStart();
+  System.loadLibrary("opus");
+  opusLib=new OpusLib();
+}

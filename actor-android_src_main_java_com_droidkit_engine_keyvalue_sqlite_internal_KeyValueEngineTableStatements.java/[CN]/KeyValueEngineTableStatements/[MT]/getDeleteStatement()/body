@@ -1,0 +1,7 @@
+{
+  if (deleteStatement == null) {
+    String sql=String.format("DELETE FROM '%s' WHERE ID=?",tablename);
+    deleteStatement=db.compileStatement(sql);
+  }
+  return deleteStatement;
+}

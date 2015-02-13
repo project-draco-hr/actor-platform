@@ -1,0 +1,8 @@
+{
+  return Props.create(UsersPresence.class,new MailboxCreator(){
+    @Override public Mailbox createMailbox(    MailboxesQueue queue){
+      return new PresenceMailbox(queue);
+    }
+  }
+);
+}

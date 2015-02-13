@@ -1,0 +1,8 @@
+{
+  return new ActorSelection(Props.create(UploadActor.class,new ActorCreator<UploadActor>(){
+    @Override public UploadActor create(){
+      return new UploadActor(isEncrypted,fileName);
+    }
+  }
+),"upload_" + UUID.randomUUID());
+}

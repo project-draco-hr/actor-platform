@@ -1,0 +1,8 @@
+{
+synchronized (typingModels) {
+    if (!typingModels.containsKey(uid)) {
+      typingModels.put(uid,new ValueModel<Boolean>("typing." + uid,false));
+    }
+    return typingModels.get(uid);
+  }
+}

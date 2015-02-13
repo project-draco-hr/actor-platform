@@ -1,0 +1,4 @@
+byte[] res
+byte[] b
+int bOffset
+int bLength

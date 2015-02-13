@@ -1,0 +1,6 @@
+{
+  if (errorDialog != null) {
+    errorDialog.dismiss();
+    errorDialog=null;
+  }
+}

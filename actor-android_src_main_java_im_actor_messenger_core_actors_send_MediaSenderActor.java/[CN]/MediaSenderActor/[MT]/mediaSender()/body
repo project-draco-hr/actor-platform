@@ -1,0 +1,10 @@
+{
+  if (dialogInterface == null) {
+synchronized (LOCK) {
+      if (dialogInterface == null) {
+        dialogInterface=TypedCreator.typed(ActorSystem.system().actorOf(MediaSenderActor.class,"sender_media"),MediaSenderInt.class);
+      }
+    }
+  }
+  return dialogInterface;
+}

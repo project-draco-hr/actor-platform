@@ -1,0 +1,12 @@
+{
+  Avatar ava=ApiConversion.convert(avatar);
+  UserModel user=users().get(uid);
+  if (user != null) {
+    if (areSame(user.getRaw().getAvatar(),ava)) {
+      return;
+    }
+    DialogsActor.dialogs().onUserChangedAvatar(uid,ava);
+    ContactsActor.contactsList().onUserAvatarChanged(uid);
+    users().put(uid,user.getRaw().changeAvatar(ava));
+  }
+}

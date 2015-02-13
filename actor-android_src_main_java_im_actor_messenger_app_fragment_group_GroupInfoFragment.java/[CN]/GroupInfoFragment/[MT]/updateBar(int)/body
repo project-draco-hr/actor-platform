@@ -1,0 +1,12 @@
+{
+  avatarView.setOffset(offset);
+  int baseColor=getResources().getColor(R.color.primary);
+  if (offset > Screen.dp(248 - 56)) {
+    ((BaseBarActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(baseColor));
+  }
+ else {
+    float alpha=offset / (float)Screen.dp(248 - 56);
+    int color=Color.argb((int)(255 * alpha),Color.red(baseColor),Color.green(baseColor),Color.blue(baseColor));
+    ((BaseBarActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+  }
+}

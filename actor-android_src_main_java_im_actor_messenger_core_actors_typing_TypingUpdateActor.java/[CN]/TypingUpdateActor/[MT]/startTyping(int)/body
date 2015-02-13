@@ -1,0 +1,3 @@
+{
+  TypingModel.privateChatTyping(uid).change(true);
+}

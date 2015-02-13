@@ -1,0 +1,10 @@
+{
+  for (  long k : keyHashes) {
+    if (k == key) {
+      return this;
+    }
+  }
+  ArrayList<Long> nKeys=new ArrayList<Long>(keyHashes);
+  nKeys.add(key);
+  return new User(id,accessHash,serverName,localName,sex,nKeys,phone,avatar);
+}

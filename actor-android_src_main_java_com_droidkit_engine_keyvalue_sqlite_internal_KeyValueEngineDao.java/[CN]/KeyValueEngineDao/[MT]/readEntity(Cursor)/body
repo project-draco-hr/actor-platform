@@ -1,0 +1,3 @@
+{
+  return (V)binarySerializator.deserialize(cursor.isNull(1) ? null : cursor.getBlob(1));
+}

@@ -1,0 +1,18 @@
+{
+  if (!listWindow.startHeadLoading()) {
+    return;
+  }
+  listEngine.loadHead(listWindow.getCurrentHead(),loadLimit,new LoadCallback<V>(){
+    @Override public void onLoaded(    List<V> res,    Object nextRef){
+      if (res.size() == 0) {
+        listWindow.onHeadCompleted();
+      }
+ else {
+        listWindow.onHeadSliceLoaded(nextRef);
+      }
+      listWindow.endHeadLoading();
+      uiList.editList(listMods.add(res));
+    }
+  }
+);
+}

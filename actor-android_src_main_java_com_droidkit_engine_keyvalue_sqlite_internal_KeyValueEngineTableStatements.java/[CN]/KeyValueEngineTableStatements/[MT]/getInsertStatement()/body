@@ -1,0 +1,7 @@
+{
+  if (insertStatement == null) {
+    String sql=String.format("INSERT INTO '%s' (ID,BYTES) VALUES (?,?)",tablename);
+    insertStatement=db.compileStatement(sql);
+  }
+  return insertStatement;
+}

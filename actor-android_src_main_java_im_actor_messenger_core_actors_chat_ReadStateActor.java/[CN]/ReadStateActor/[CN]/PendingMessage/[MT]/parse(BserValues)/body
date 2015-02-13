@@ -1,0 +1,5 @@
+{
+  rid=values.getLong(1);
+  date=values.getLong(2);
+  state=values.getInt(3);
+}

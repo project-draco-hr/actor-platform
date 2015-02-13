@@ -1,0 +1,4 @@
+{
+  this.processState=model.getAuthProcessState();
+  this.authStorage=profileStorage;
+}

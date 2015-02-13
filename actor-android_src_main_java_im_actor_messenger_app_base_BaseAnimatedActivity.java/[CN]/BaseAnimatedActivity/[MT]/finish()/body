@@ -1,0 +1,9 @@
+{
+  if (customAnimation) {
+    onCloseAnimationStart();
+  }
+  super.finish();
+  if (customAnimation) {
+    overridePendingTransition(0,0);
+  }
+}

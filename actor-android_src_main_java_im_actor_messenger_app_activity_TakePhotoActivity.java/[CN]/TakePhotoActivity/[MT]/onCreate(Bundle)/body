@@ -1,0 +1,12 @@
+{
+  super.onCreate(savedInstanceState);
+  if (savedInstanceState != null) {
+    isPerformedAction=savedInstanceState.getBoolean("isPerformedAction");
+    isAllowDelete=savedInstanceState.getBoolean("isAllowDelete");
+    externalFile=savedInstanceState.getString("externalFile");
+    tempAvatarPath=savedInstanceState.getString("tempAvatarPath");
+  }
+ else {
+    isAllowDelete=getIntent().getBooleanExtra(Intents.EXTRA_ALLOW_DELETE,false);
+  }
+}

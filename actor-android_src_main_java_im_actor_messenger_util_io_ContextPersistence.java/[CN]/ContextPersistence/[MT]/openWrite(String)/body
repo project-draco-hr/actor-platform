@@ -1,0 +1,3 @@
+{
+  return context.openFileOutput(path,Context.MODE_PRIVATE);
+}

@@ -1,0 +1,23 @@
+{
+  if (name != null && name.trim().length() == 0) {
+    name=null;
+  }
+  UserModel user=users().get(uid);
+  if (user != null) {
+    if (name == null) {
+      if (user.getRaw().getLocalName() == null) {
+        return;
+      }
+      DialogsActor.dialogs().onUserChangedName(uid,user.getRaw().getServerName());
+      ContactsActor.contactsList().onUserNameChanged(uid);
+    }
+ else {
+      if (user.getRaw().getLocalName() != null && user.getRaw().getLocalName().equals(name)) {
+        return;
+      }
+      DialogsActor.dialogs().onUserChangedName(uid,name);
+      ContactsActor.contactsList().onUserNameChanged(uid);
+    }
+    users().put(uid,user.getRaw().changeLocalName(name));
+  }
+}

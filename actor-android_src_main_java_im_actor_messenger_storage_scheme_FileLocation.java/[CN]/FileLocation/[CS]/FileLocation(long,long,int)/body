@@ -1,0 +1,8 @@
+{
+  this.fileId=fileId;
+  this.accessHash=accessHash;
+  this.fileSize=fileSize;
+  this.encryption=Encryption.NONE;
+  this.encryptedFileSize=fileSize;
+  this.encryptionKey=new byte[0];
+}

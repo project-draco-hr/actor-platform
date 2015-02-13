@@ -1,0 +1,7 @@
+{
+  super(engine,false,false,context);
+  this.robotoMedium=Fonts.medium();
+  this.robotoRegular=Fonts.regular();
+  this.itemClicked=itemClicked;
+  this.itemLongClicked=itemLongClicked;
+}

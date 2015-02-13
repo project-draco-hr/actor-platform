@@ -1,0 +1,7 @@
+{
+  long key=getId(entity);
+  if (!cache.containsKey(key)) {
+    cache.put(key,entity);
+  }
+  return serializeRaw(convertToRaw(entity));
+}
