@@ -1,0 +1,7 @@
+{
+  if (update instanceof DialogHistoryLoaded) {
+    ResponseLoadDialogs dialogs=((DialogHistoryLoaded)update).getDialogs();
+    applyRelated(dialogs.getUsers(),dialogs.getGroups(),null,false);
+    messagesProcessor.onDialogsLoaded(dialogs);
+  }
+}

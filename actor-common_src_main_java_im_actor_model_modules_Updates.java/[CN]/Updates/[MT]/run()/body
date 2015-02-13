@@ -1,0 +1,8 @@
+{
+  this.updateActor=system().actorOf(Props.create(SequenceActor.class,new ActorCreator<SequenceActor>(){
+    @Override public SequenceActor create(){
+      return new SequenceActor(Updates.this);
+    }
+  }
+),"actor/updates");
+}

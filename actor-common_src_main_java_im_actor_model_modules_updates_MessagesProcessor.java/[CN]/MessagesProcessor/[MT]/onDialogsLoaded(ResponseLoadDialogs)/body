@@ -1,0 +1,15 @@
+{
+  ArrayList<DialogHistory> dialogs=new ArrayList<DialogHistory>();
+  long maxLoadedDate=0;
+  for (  im.actor.model.api.Dialog dialog : dialogsResponse.getDialogs()) {
+    maxLoadedDate=Math.max(dialog.getSortDate(),maxLoadedDate);
+    Peer peer=EntityConverter.convert(dialog.getPeer());
+    AbsContent msgContent=convertContent(dialog.getMessage());
+    if (msgContent == null) {
+      continue;
+    }
+    dialogs.add(new DialogHistory(peer,dialog.getUnreadCount(),dialog.getSortDate(),dialog.getRid(),dialog.getDate(),dialog.getSenderUid(),msgContent,convert(dialog.getState())));
+  }
+  messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.HistoryLoaded(dialogs));
+  messenger.getMessagesModule().getDialogsHistoryActor().send(new DialogsHistoryActor.LoadedMore(maxLoadedDate == 0,maxLoadedDate));
+}

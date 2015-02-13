@@ -11,4 +11,7 @@
  else   if (message instanceof WeakUpdate) {
     onUpdateReceived(message);
   }
+ else   if (message instanceof InternalUpdate) {
+    onUpdateReceived(message);
+  }
 }

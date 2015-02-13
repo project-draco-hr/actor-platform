@@ -1,16 +1,4 @@
 {
   this.messenger=messenger;
   this.dialogs=messenger.getConfiguration().getEnginesFactory().createDialogsEngine();
-  this.dialogsActor=system().actorOf(Props.create(DialogsActor.class,new ActorCreator<DialogsActor>(){
-    @Override public DialogsActor create(){
-      return new DialogsActor(messenger);
-    }
-  }
-),"actor/dialogs");
-  this.dialogsHistoryActor=system().actorOf(Props.create(DialogsHistoryActor.class,new ActorCreator<DialogsHistoryActor>(){
-    @Override public DialogsHistoryActor create(){
-      return new DialogsHistoryActor(messenger);
-    }
-  }
-),"actor/dialogs/history");
 }

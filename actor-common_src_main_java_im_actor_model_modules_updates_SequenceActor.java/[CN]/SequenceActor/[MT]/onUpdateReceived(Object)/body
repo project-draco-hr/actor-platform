@@ -27,6 +27,11 @@
     }
     return;
   }
+ else   if (u instanceof InternalUpdate) {
+    Log.w(TAG,"Received internal update");
+    processor.processInternalUpdate((InternalUpdate)u);
+    return;
+  }
  else {
     return;
   }

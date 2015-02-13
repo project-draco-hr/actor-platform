@@ -1,17 +1,7 @@
 {
   Peer peer=EntityConverter.convert(_peer);
-  AbsContent msgContent;
-  if (content.getType() == 0x01) {
-    try {
-      im.actor.model.api.TextMessage textMessage=Bser.parse(new im.actor.model.api.TextMessage(),content.getContent());
-      msgContent=new TextContent(textMessage.getText());
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-      return;
-    }
-  }
- else {
+  AbsContent msgContent=convertContent(content);
+  if (msgContent == null) {
     return;
   }
   Message message=new Message(rid,buildSortKey(),date,senderUid,messenger.myUid() == senderUid ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
