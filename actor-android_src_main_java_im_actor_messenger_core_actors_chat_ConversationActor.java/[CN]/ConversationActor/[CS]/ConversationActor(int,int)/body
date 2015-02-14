@@ -1,6 +1,0 @@
-{
-  super(ConversationInt.class);
-  this.type=type;
-  this.id=id;
-  this.uid=DialogUids.getDialogUid(type,id);
-}

@@ -1,8 +1,0 @@
-{
-  return new ActorSelection(Props.create(KeyLoaderActor.class,new ActorCreator<KeyLoaderActor>(){
-    @Override public KeyLoaderActor create(){
-      return new KeyLoaderActor(uid,accessHash,keyHash);
-    }
-  }
-),"key_" + uid + "_"+ keyHash);
-}

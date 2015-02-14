@@ -5,21 +5,21 @@
   }
   Dialog dialog=dialogs.getValue(peer.getUid());
   ContentDescription contentDescription=new ContentDescription(message.getContent());
-  DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getTime()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUid()).setStatus(message.getMessageState()).setSenderId(message.getSenderId());
+  DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUid()).setStatus(message.getMessageState()).setSenderId(message.getSenderId());
   if (dialog != null) {
-    if (!isAfterDelete && dialog.getSortKey() > message.getSortKey()) {
+    if (!isAfterDelete && dialog.getSortDate() > message.getSortDate()) {
       return;
     }
     builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setUnreadCount(dialog.getUnreadCount());
     if (!contentDescription.isSilent()) {
-      builder.setSortKey(message.getSortKey());
+      builder.setSortKey(message.getSortDate());
     }
   }
  else {
     if (contentDescription.isSilent()) {
       return;
     }
-    builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setUnreadCount(0).setSortKey(message.getSortKey());
+    builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setUnreadCount(0).setSortKey(message.getSortDate());
   }
   dialogs.addOrUpdateItem(builder.createDialog());
 }

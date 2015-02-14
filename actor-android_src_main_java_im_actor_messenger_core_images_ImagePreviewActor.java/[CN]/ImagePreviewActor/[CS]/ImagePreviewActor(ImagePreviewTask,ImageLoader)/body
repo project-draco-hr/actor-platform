@@ -1,6 +1,6 @@
 {
   super(task,loader);
   Logger.d(TAG,"Actor creating");
-  fileLocation=((AbsFileMessage)task.getMessage().getContent()).getLocation();
+  fileLocation=((PhotoContent)task.getMessage().getContent()).getSource();
   Logger.d(TAG,"Actor creating end");
 }

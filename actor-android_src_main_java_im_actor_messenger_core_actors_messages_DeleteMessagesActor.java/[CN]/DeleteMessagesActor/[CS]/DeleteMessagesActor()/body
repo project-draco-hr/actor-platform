@@ -1,3 +1,0 @@
-{
-  super("delete",DbProvider.getDatabase(AppContext.getContext()));
-}

@@ -1,6 +1,6 @@
 long rid
-long sortKey
-long time
+long sortDate
+long date
 int senderId
 MessageState messageState
 AbsContent content

@@ -1,3 +1,0 @@
-{
-  seqBroker.send(update);
-}

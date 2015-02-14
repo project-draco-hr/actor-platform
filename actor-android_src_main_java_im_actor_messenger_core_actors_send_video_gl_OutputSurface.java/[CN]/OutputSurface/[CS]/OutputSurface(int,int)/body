@@ -1,8 +1,0 @@
-{
-  if (width <= 0 || height <= 0) {
-    throw new IllegalArgumentException();
-  }
-  eglSetup(width,height);
-  makeCurrent();
-  setup();
-}

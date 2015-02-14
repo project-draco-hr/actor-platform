@@ -1,6 +1,0 @@
-{
-  this.chatType=chatType;
-  this.chatId=chatId;
-  this.lastReadMessage=lastReadMessage;
-  this.lastReadSortingKey=lastReadSortingKey;
-}

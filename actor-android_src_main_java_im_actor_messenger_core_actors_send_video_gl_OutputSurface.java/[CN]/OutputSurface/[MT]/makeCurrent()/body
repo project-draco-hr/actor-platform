@@ -1,9 +1,0 @@
-{
-  if (mEGL == null) {
-    throw new RuntimeException("not configured for makeCurrent");
-  }
-  checkEglError("before makeCurrent");
-  if (!mEGL.eglMakeCurrent(mEGLDisplay,mEGLSurface,mEGLSurface,mEGLContext)) {
-    throw new RuntimeException("eglMakeCurrent failed");
-  }
-}

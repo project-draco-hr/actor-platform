@@ -1,6 +1,0 @@
-int chatType
-int chatId
-long rid
-long sortingKey
-long date
-boolean isEncrypted

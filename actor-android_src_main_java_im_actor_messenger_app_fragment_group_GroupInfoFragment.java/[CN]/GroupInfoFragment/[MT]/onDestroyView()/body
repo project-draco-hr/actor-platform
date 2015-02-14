@@ -1,8 +1,0 @@
-{
-  super.onDestroyView();
-  groupUserAdapter=null;
-  if (avatarView != null) {
-    avatarView.clear();
-    avatarView=null;
-  }
-}

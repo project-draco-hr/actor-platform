@@ -1,7 +1,0 @@
-{
-  Logger.d(TAG,"App open");
-  if (auth().isAuthorized()) {
-    MyPresenceActor.myPresence().send(new MyPresenceActor.OnAppOpened());
-    NotificationsActor.notifications().onAppOpened();
-  }
-}

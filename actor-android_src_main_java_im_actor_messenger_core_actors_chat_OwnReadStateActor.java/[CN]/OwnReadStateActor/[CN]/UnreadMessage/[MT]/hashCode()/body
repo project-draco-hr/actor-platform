@@ -1,3 +1,0 @@
-{
-  return (int)(rid ^ (rid >>> 32));
-}

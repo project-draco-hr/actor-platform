@@ -5,7 +5,6 @@
   getSupportActionBar().setDisplayShowTitleEnabled(true);
   getSupportActionBar().setDisplayShowCustomEnabled(false);
   getSupportActionBar().setTitle(R.string.documents_title);
-  int chatType=getIntent().getIntExtra(Intents.EXTRA_CHAT_TYPE,0);
-  int chatId=getIntent().getIntExtra(Intents.EXTRA_CHAT_ID,0);
-  showFragment(DocumentsFragment.open(chatType,chatId),false,false);
+  Peer peer=Peer.fromUid(getIntent().getLongExtra(Intents.EXTRA_CHAT_PEER,0));
+  showFragment(DocumentsFragment.open(peer),false,false);
 }

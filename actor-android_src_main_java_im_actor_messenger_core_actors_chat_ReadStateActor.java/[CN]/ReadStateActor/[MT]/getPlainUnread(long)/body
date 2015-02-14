@@ -1,9 +1,0 @@
-{
-  if (pendingCache.containsKey(uid)) {
-    return pendingCache.get(uid);
-  }
-  BserMap<PendingMessage> map=new BserMap<PendingMessage>(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"plain_remote_unread_" + uid),PendingMessage.class);
-  PersistenceSet<PendingMessage> res=new PersistenceSet<PendingMessage>(map);
-  pendingCache.put(uid,res);
-  return res;
-}

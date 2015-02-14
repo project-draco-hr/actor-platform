@@ -1,5 +1,0 @@
-{
-  this.rid=rid;
-  this.sortKey=sortKey;
-  this.date=date;
-}

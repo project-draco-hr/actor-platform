@@ -1,8 +1,0 @@
-{
-  DialogItem item=listEngine.getValue(DialogUids.getDialogUid(DialogType.TYPE_USER,uid));
-  if (item != null) {
-    DialogItem itm2=new DialogItemBuilder(item).setDialogTitle(name).createDialogItem();
-    listEngine.addOrUpdateItem(itm2);
-    index(itm2);
-  }
-}

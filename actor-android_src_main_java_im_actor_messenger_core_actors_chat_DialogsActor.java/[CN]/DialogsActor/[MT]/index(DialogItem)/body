@@ -1,3 +1,0 @@
-{
-  searchEngine.index(DialogUids.getDialogUid(dialogItem.getType(),dialogItem.getId()),dialogItem.getSortKey(),dialogItem.getDialogTitle(),new GlobalSearch(dialogItem.getType(),dialogItem.getId(),dialogItem.getDialogTitle(),dialogItem.getAvatar()));
-}

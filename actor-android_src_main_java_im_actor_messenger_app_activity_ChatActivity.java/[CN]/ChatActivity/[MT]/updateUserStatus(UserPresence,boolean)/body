@@ -1,5 +1,5 @@
 {
-  String s=Formatter.formatPresence(presence,users().get(chatId).getRaw().getSex());
+  String s=Formatter.formatPresence(presence,users().get(peer.getPeerId()).getSex());
   if (s == null) {
     subtitleContainer.setVisibility(View.GONE);
   }

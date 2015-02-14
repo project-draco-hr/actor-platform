@@ -1,5 +1,0 @@
-{
-  writer.writeInt(1,uid);
-  writer.writeLong(2,keyHash);
-  writer.writeBytes(3,key);
-}

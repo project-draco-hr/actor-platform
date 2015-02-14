@@ -1,3 +1,0 @@
-{
-  fireEvent(eventType,NO_ID,args);
-}

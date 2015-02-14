@@ -1,3 +1,0 @@
-{
-  return item.getId() + ((long)item.getType() << 32);
-}

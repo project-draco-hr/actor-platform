@@ -1,4 +1,0 @@
-int chatType
-int chatId
-boolean compose
-Context context

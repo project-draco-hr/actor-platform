@@ -1,5 +1,0 @@
-{
-  this.listEngine=ListEngines.getMessagesListEngine(uid);
-  this.documentsEngine=ListEngines.getDocuments(uid);
-  this.dialogsActor=DialogsActor.dialogs();
-}

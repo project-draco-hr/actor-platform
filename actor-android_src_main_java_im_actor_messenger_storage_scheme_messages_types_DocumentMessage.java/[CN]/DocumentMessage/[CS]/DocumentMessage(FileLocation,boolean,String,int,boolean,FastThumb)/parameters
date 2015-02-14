@@ -1,6 +1,0 @@
-FileLocation location
-boolean isDownloaded
-String name
-int size
-boolean isEncrypted
-FastThumb fastThumb

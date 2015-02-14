@@ -1,0 +1,5 @@
+int id
+long accessHash
+int type
+String title
+String value

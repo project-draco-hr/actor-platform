@@ -9,10 +9,4 @@
   if (savedInstanceState == null) {
     showFragment(ProfileFragment.create(uid),false,false);
   }
-  getBinder().bind(users().get(uid).getContactModel(),new Listener<Boolean>(){
-    @Override public void onUpdated(    Boolean aBoolean){
-      invalidateOptionsMenu();
-    }
-  }
-);
 }

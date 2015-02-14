@@ -1,4 +1,0 @@
-{
-  this.unreadCount=unreadCount;
-  return this;
-}

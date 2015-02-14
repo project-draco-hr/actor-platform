@@ -1,6 +1,0 @@
-{
-  system().actorOf(BookImportActor.contactsImport()).send(new BookImportActor.StartSync());
-  ContactsActor.contactsList();
-  system().actorOf(SequenceActor.sequence()).send(new SequenceActor.Invalidate());
-  MyPresenceActor.myPresence().send(new MyPresenceActor.PerformPresence());
-}

@@ -2,7 +2,7 @@
   if (engine == null) {
 synchronized (lock) {
       if (engine == null) {
-        SQLiteStorageAdapter storageAdapter=new SQLiteStorageAdapter(DbProvider.getDatabase(AppContext.getContext()),tableName,dataAdapter instanceof FilterableDataAdapter);
+        SQLiteStorageAdapter storageAdapter=new SQLiteStorageAdapter(SQLiteProvider.db(),tableName,dataAdapter instanceof FilterableDataAdapter);
         engine=new ListEngine<T>(storageAdapter,dataAdapter);
         uiListEngine=new EngineUiList<T>(engine);
       }

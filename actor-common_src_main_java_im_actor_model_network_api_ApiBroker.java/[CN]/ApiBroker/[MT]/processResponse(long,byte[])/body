@@ -36,6 +36,7 @@
       e.printStackTrace();
       return;
     }
+    Log.d(TAG,"<- response#" + holder.publicId + ": "+ response);
     holder.callback.onResult(response);
   }
  else   if (protoStruct instanceof RpcError) {
@@ -44,7 +45,7 @@
     if (holder.protoId != 0) {
       idMap.remove(holder.protoId);
     }
-    holder.callback.onError(new RpcException(e.errorTag,e.errorCode,e.userMessage,e.relatedData));
+    holder.callback.onError(new RpcException(e.errorTag,e.errorCode,e.userMessage,e.canTryAgain,e.relatedData));
   }
  else   if (protoStruct instanceof RpcInternalError) {
     RpcInternalError e=((RpcInternalError)protoStruct);

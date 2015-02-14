@@ -1,5 +1,0 @@
-{
-  byte[] res=new byte[len];
-  System.arraycopy(src,start,res,0,len);
-  return res;
-}

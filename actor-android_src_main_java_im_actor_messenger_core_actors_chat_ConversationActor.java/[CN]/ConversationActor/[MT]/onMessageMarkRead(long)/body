@@ -1,7 +1,0 @@
-{
-  MessageModel message=listEngine.getValue(rid);
-  if (message != null) {
-    update(message,message.getRaw().changeState(MessageState.READ));
-    dialogsActor.onMessageStateChanged(type,id,rid,MessageState.READ);
-  }
-}

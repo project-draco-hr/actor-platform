@@ -1,7 +1,0 @@
-{
-  if (db == null || !db.isOpen()) {
-    DbHelper helper=new DbHelper(context.getApplicationContext(),DB_NAME,null);
-    db=helper.getWritableDatabase();
-  }
-  return db;
-}

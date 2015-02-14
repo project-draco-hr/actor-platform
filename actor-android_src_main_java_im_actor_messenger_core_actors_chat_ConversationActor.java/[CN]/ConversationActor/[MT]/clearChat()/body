@@ -1,6 +1,0 @@
-{
-  listEngine.clear();
-  documentsEngine.clear();
-  DialogsActor.dialogs().onChatClear(type,id);
-  MessageDeliveryActor.messageSender().mediaCancelAll(type,id);
-}

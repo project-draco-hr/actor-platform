@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  newAvatar=values.optObj(1,Avatar.class);
-}

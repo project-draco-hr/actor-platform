@@ -1,4 +1,0 @@
-{
-  updateState=new SequenceStorage(AppContext.getContext());
-  updatesParser=new UpdatesParser();
-}

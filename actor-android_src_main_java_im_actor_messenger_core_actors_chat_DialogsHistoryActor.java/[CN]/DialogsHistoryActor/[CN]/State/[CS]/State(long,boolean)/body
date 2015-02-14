@@ -1,4 +1,0 @@
-{
-  this.maxLoadedDate=maxLoadedDate;
-  this.isCompleted=isCompleted;
-}

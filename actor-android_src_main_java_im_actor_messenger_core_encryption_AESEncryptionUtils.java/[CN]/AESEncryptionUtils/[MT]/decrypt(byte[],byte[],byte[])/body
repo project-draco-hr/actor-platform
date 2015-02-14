@@ -1,3 +1,0 @@
-{
-  return decrypt(src,src.length,key,iv);
-}

@@ -1,8 +1,6 @@
 {
   View v=inflater.inflate(R.layout.fragment_sign_up,container,false);
   keyboardHelper=new KeyboardHelper(getActivity());
-  progress=v.findViewById(R.id.progressContainer);
-  progress.setVisibility(View.GONE);
   avatarView=(AvatarView)v.findViewById(R.id.avatar);
   avatarView.setEmptyDrawable(new AvatarDrawable("?",0,0,getActivity()));
   if (avatarPath != null) {
@@ -19,7 +17,7 @@
 );
   sendConfirmCodeButton.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      auth().sendSignUp(firstNameEditText.getText().toString().trim(),avatarPath);
+      auth().signUp(firstNameEditText.getText().toString().trim(),avatarPath,false);
     }
   }
 );

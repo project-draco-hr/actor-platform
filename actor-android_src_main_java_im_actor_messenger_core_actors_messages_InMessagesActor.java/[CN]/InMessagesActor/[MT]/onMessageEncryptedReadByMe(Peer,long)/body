@@ -1,5 +1,0 @@
-{
-  int chatType=peer.getType() == PeerType.GROUP ? DialogType.TYPE_GROUP : DialogType.TYPE_USER;
-  int chatId=peer.getId();
-  OwnReadStateActor.readState().messageEncryptedReadByMe(chatType,chatId,rid);
-}

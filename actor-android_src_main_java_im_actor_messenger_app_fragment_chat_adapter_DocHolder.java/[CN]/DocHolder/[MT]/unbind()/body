@@ -1,7 +1,3 @@
 {
   super.unbind();
-  UploadModel.uploadState(message.getRid()).removeUiSubscriber(uploadStateListener);
-  if (documentMessage.getLocation() != null) {
-    DownloadModel.downloadState(documentMessage.getLocation().getFileId()).removeUiSubscriber(downloadStateListener);
-  }
 }

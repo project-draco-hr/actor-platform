@@ -1,5 +1,4 @@
 {
   super.onResume();
   callBarrier.resume();
-  uiActorAsk.resume();
 }

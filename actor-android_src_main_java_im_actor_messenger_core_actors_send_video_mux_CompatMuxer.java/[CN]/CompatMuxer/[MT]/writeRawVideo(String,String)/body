@@ -1,3 +1,0 @@
-{
-  muxVideo(null,videoTrack,destFile);
-}

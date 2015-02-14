@@ -1,8 +1,0 @@
-int id
-long accessHash
-String serverName
-String localName
-Sex sex
-List<Long> keyHashes
-long phone
-Avatar avatar

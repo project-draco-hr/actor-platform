@@ -6,10 +6,8 @@
       }
     }
  else     if (requestCode == REQUEST_PHOTO) {
-      MessageDeliveryActor.messageSender().sendPhoto(chatType,chatId,fileName);
     }
  else     if (requestCode == REQUEST_VIDEO) {
-      MessageDeliveryActor.messageSender().sendVideo(chatType,chatId,fileName);
     }
  else     if (requestCode == REQUEST_DOC) {
       if (data.getData() != null) {
@@ -19,7 +17,6 @@
         ArrayList<String> files=data.getStringArrayListExtra("picked");
         if (files != null) {
           for (          String s : files) {
-            MessageDeliveryActor.messageSender().sendDocument(chatType,chatId,s,new File(s).getName());
           }
         }
       }

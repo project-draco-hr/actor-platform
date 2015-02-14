@@ -1,0 +1,5 @@
+{
+  writer.writeInt(1,width);
+  writer.writeInt(2,height);
+  writer.writeObject(3,fileLocation);
+}

@@ -1,0 +1,63 @@
+{
+  if (getEngine().getListState().getValue().getState() == ListState.State.LOADED) {
+    if (position > getCount() - LOAD_GAP) {
+    }
+  }
+  this.bindedItem=data;
+  avatar.unbind();
+  if (data.getUnreadCount() > 0) {
+    counter.setText("" + data.getUnreadCount());
+    counter.setVisibility(View.VISIBLE);
+  }
+ else {
+    counter.setVisibility(View.GONE);
+  }
+  title.setText(data.getDialogTitle());
+  int right=0;
+  int left=0;
+  title.setCompoundDrawablesWithIntrinsicBounds(left,0,right,0);
+  time.setText(Formatter.formatShortDate(data.getDate()));
+  if (privateTypingListener != null) {
+    TypingModel.privateChatTyping(bindedUid).removeUiSubscriber(privateTypingListener);
+    privateTypingListener=null;
+  }
+  if (groupTypingListener != null) {
+    TypingModel.groupChatTyping(bindedGid).removeUiSubscriber(groupTypingListener);
+    groupTypingListener=null;
+  }
+  if (data.getSenderId() != myUid()) {
+    state.setVisibility(View.GONE);
+  }
+ else {
+switch (data.getStatus()) {
+default :
+case PENDING:
+      state.setResource(R.drawable.msg_clock);
+    state.setTint(pendingColor);
+  break;
+case SENT:
+state.setResource(R.drawable.msg_check_1);
+state.setTint(sentColor);
+break;
+case RECEIVED:
+state.setResource(R.drawable.msg_check_2);
+state.setTint(receivedColor);
+break;
+case READ:
+state.setResource(R.drawable.msg_check_2);
+state.setTint(readColor);
+break;
+case ERROR:
+state.setResource(R.drawable.msg_error);
+state.setTint(errorColor);
+break;
+}
+state.setVisibility(View.VISIBLE);
+}
+if (position == getCount() - 1) {
+separator.setVisibility(View.GONE);
+}
+ else {
+separator.setVisibility(View.VISIBLE);
+}
+}

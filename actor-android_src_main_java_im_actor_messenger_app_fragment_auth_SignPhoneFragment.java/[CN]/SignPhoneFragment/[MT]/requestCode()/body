@@ -1,0 +1,12 @@
+{
+  if (countryCodeEditText.getText().toString().trim().length() == 0 || phoneNumberEditText.getText().toString().trim().length() == 0) {
+    new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_phone).setPositiveButton(R.string.dialog_ok,null).show();
+    return;
+  }
+  String rawPhoneN=countryCodeEditText.getText().toString().replaceAll("[^0-9]","") + phoneNumberEditText.getText().toString().replaceAll("[^0-9]","");
+  if (rawPhoneN.length() == 0) {
+    new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_phone).setPositiveButton(R.string.dialog_ok,null).show();
+    return;
+  }
+  execute(messenger().getAuth().requestSms(Long.parseLong(rawPhoneN)));
+}

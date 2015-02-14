@@ -1,7 +1,0 @@
-{
-  this.chatId=chatId;
-  this.actionType=actionType;
-  this.uid=uid;
-  this.chatAccessHash=chatAccessHash;
-  this.userAccessHash=userAccessHash;
-}

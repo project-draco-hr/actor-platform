@@ -1,3 +1,0 @@
-{
-  return new ConversationMessage(rid,sortKey,time,senderId,messageState,content);
-}

@@ -1,4 +1,0 @@
-MessagesFragment fragment
-UiList<MessageModel> uiList
-int type
-int id

@@ -16,7 +16,7 @@
     }
     return;
   }
-  if (list.getSize() > 0 && preSize > 0 && listView.getLastVisiblePosition() >= preSize - 1 && bottomId != list.getItem(0).getRaw().getRid()) {
+  if (list.getSize() > 0 && preSize > 0 && listView.getLastVisiblePosition() >= preSize - 1 && bottomId != list.getItem(0).getRid()) {
     if (BuildConfig.ENABLE_CHROME) {
       listView.smoothScrollToPosition(list.getSize());
     }
@@ -36,7 +36,7 @@
   Logger.d("MessagesList","Apply change");
   outer:   for (int i=0; i < list.getSize(); i++) {
     for (int j=0; j < preDump.length; j++) {
-      if (preDump[j].getId() == list.getItem(list.getSize() - i - 1).getRaw().getRid()) {
+      if (preDump[j].getId() == list.getItem(list.getSize() - i - 1).getRid()) {
         newIndex=i;
         newTop=preDump[j].getTop();
         break outer;

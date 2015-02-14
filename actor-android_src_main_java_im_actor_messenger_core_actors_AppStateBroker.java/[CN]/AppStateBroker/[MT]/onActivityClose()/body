@@ -1,9 +1,0 @@
-{
-  Logger.d(TAG,"Activity close");
-  activityCount--;
-  if (isAppOpen) {
-    if (activityCount == 0) {
-      self().sendOnce(new CloseApp(),CLOSE_TIMEOUT);
-    }
-  }
-}

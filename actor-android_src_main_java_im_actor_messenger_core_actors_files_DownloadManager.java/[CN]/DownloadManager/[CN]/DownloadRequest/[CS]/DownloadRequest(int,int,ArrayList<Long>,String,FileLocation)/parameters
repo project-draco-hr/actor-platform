@@ -1,5 +1,0 @@
-int type
-int id
-ArrayList<Long> rids
-String name
-FileLocation location

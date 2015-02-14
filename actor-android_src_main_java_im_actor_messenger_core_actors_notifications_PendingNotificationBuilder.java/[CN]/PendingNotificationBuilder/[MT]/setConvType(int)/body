@@ -1,4 +1,0 @@
-{
-  this.convType=convType;
-  return this;
-}

@@ -1,0 +1,4 @@
+{
+  if (messageModel.getSenderId() != myUid()) {
+  }
+}

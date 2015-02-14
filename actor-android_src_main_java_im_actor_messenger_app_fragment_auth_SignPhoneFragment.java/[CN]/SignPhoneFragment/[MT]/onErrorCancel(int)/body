@@ -1,5 +1,0 @@
-{
-  if (stateId == STATE_REQUESTING_SMS_ERROR) {
-    auth().resetCodeRequest();
-  }
-}

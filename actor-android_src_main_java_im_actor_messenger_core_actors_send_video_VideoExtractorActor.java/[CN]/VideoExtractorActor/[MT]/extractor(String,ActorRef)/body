@@ -1,8 +1,0 @@
-{
-  return new ActorSelection(Props.create(VideoExtractorActor.class,new ActorCreator<VideoExtractorActor>(){
-    @Override public VideoExtractorActor create(){
-      return new VideoExtractorActor(fileName,next);
-    }
-  }
-),"video_extractor_" + UUID.randomUUID());
-}

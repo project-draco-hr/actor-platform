@@ -1,5 +1,0 @@
-{
-  super(fragment,uiList);
-  this.chatType=chatType;
-  this.chatId=chatId;
-}

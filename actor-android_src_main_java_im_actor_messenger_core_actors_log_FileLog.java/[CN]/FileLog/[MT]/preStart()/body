@@ -1,7 +1,0 @@
-{
-  super.preStart();
-  new File(AppContext.getContext().getFilesDir(),"/logs/").mkdirs();
-  file=new File(AppContext.getContext().getFilesDir(),"/logs/" + fileName);
-  simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-  open();
-}

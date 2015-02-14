@@ -1,5 +1,0 @@
-{
-  super(isEncrypted);
-  this.text=text;
-  this.formattedText=formattedText;
-}

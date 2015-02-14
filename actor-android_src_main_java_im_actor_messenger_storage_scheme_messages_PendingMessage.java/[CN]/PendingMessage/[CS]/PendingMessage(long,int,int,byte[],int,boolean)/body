@@ -1,8 +1,0 @@
-{
-  this.rid=rid;
-  this.convType=convType;
-  this.convId=convId;
-  this.messageContent=messageContent;
-  this.messageType=messageType;
-  this.isEncrypted=isEncrypted;
-}

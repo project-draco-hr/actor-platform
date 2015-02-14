@@ -1,0 +1,29 @@
+{
+switch (val) {
+default :
+case 1:
+    return ContentType.TEXT;
+case 2:
+  return ContentType.DOCUMENT;
+case 3:
+return ContentType.DOCUMENT_PHOTO;
+case 4:
+return ContentType.DOCUMENT_VIDEO;
+case 5:
+return ContentType.SERVICE;
+case 6:
+return ContentType.SERVICE_CREATED;
+case 7:
+return ContentType.SERVICE_AVATAR;
+case 8:
+return ContentType.SERVICE_TITLE;
+case 9:
+return ContentType.SERVICE_ADDED;
+case 10:
+return ContentType.SERVICE_KICKED;
+case 11:
+return ContentType.SERVICE_LEAVE;
+case 12:
+return ContentType.SERVICE_REGISTERED;
+}
+}

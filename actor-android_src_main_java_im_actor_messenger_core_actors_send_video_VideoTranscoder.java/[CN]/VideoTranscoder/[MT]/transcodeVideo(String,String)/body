@@ -1,6 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT >= 18) {
-    return GLTranscoder.transcode(source,dest);
-  }
-  return false;
-}

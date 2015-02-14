@@ -1,0 +1,3 @@
+{
+  startActivity(Intents.openDialog(item.getPeer(),false,getActivity()));
+}

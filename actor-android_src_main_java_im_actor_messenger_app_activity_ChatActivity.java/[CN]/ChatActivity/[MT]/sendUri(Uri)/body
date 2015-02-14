@@ -36,15 +36,6 @@
           return null;
         }
       }
-      if (mimeType.startsWith("video/")) {
-        MessageDeliveryActor.messageSender().sendVideo(chatType,chatId,picturePath);
-      }
- else       if (mimeType.startsWith("image/")) {
-        MessageDeliveryActor.messageSender().sendPhoto(chatType,chatId,picturePath);
-      }
- else {
-        MessageDeliveryActor.messageSender().sendDocument(chatType,chatId,picturePath,fileName);
-      }
       return null;
     }
     @Override protected void onPostExecute(    Void aVoid){

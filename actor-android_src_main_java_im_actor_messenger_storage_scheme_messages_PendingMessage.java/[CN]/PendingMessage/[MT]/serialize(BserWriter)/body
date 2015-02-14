@@ -1,8 +1,0 @@
-{
-  writer.writeLong(1,rid);
-  writer.writeInt(2,convType);
-  writer.writeInt(3,convId);
-  writer.writeBytes(4,messageContent);
-  writer.writeInt(5,messageType);
-  writer.writeBool(6,isEncrypted);
-}

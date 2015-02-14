@@ -1,3 +1,0 @@
-{
-  return new DocumentMessage(fileLocation,true,name,size,isEncrypted,fastThumb);
-}

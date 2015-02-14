@@ -1,0 +1,11 @@
+{
+  if (this instanceof FileLocalSource) {
+    writer.writeInt(1,1);
+  }
+ else   if (this instanceof FileRemoteSource) {
+    writer.writeInt(1,2);
+  }
+ else {
+    throw new IOException("Invalid source type");
+  }
+}

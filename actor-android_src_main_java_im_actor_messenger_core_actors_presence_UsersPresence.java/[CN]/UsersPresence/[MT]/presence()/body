@@ -1,3 +1,0 @@
-{
-  return ActorSystem.system().actorOf(props(),"users_presence");
-}

@@ -1,3 +1,0 @@
-int blockIndex
-int offset
-byte[] data

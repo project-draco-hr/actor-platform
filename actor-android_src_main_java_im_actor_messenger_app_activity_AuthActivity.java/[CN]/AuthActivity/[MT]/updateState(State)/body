@@ -1,0 +1,21 @@
+{
+  if (this.state != null && this.state == state) {
+    return;
+  }
+  this.state=state;
+switch (state) {
+case AUTH_START:
+    showFragment(new SignPhoneFragment(),false,false);
+  break;
+case CODE_VALIDATION:
+showFragment(new SignInFragment(),false,false);
+break;
+case SIGN_UP:
+showFragment(new SignUpFragment(),false,false);
+break;
+case LOGGED_IN:
+finish();
+startActivity(new Intent(this,MainActivity.class));
+break;
+}
+}

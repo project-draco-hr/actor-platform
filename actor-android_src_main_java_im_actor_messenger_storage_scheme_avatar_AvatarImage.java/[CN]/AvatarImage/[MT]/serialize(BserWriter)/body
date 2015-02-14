@@ -1,5 +1,0 @@
-{
-  writer.writeObject(FIELD_LOCATION,fileLocation);
-  writer.writeInt(FIELD_WIDTH,width);
-  writer.writeInt(FIELD_HEIGHT,height);
-}

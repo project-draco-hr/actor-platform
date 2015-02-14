@@ -1,4 +1,0 @@
-{
-  this.smsHash=smsHash;
-  trySave();
-}

@@ -1,4 +1,0 @@
-{
-  nextActor.send(PoisonPill.INSTANCE);
-  context().stopSelf();
-}

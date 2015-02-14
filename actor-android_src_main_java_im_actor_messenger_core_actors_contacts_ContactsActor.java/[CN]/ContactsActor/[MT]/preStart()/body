@@ -1,5 +1,0 @@
-{
-  contactUsers=SimpleStorage.getContactsMap();
-  searchEngine=userSearchEngine();
-  performSync();
-}

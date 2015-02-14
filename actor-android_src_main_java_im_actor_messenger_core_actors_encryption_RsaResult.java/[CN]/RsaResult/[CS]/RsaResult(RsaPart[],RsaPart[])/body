@@ -1,4 +1,0 @@
-{
-  this.myParts=myParts;
-  this.foreignParts=foreignParts;
-}

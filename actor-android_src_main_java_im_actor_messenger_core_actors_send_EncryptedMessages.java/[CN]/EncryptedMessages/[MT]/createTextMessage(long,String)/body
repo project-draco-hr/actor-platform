@@ -1,3 +1,0 @@
-{
-  return createMessage(randomId,TYPE_TEXT,new TextMessage(text,0,null).toByteArray());
-}

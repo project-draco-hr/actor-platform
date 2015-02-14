@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstance);
   checkForUpdates();
-  if (!auth().isAuthorized()) {
+  if (Core.messenger().getAuth().getState() != State.LOGGED_IN) {
     startActivity(new Intent(this,TourActivity.class));
     finish();
     return;

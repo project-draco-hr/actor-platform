@@ -1,0 +1,4 @@
+{
+  super("Group theme changed");
+  this.newTitle=newTitle;
+}

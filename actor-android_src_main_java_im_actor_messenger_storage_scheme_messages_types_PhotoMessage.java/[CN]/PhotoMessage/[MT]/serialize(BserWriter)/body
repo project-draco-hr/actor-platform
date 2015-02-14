@@ -1,8 +1,0 @@
-{
-  super.serialize(writer);
-  writer.writeInt(4,w);
-  writer.writeInt(5,h);
-  if (fastThumb != null) {
-    writer.writeObject(6,fastThumb);
-  }
-}

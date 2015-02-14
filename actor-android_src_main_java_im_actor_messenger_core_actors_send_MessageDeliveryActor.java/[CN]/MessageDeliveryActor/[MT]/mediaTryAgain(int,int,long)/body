@@ -1,3 +1,0 @@
-{
-  MediaSenderActor.mediaSender().tryAgain(chatType,chatId,rid);
-}

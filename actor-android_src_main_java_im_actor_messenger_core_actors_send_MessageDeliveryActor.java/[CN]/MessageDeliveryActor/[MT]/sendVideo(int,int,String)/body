@@ -1,8 +1,0 @@
-{
-  if (chatType == DialogType.TYPE_USER) {
-    MediaSenderActor.mediaSender().sendVideo(chatType,chatId,fileName,true);
-  }
- else   if (chatType == DialogType.TYPE_GROUP) {
-    MediaSenderActor.mediaSender().sendVideo(chatType,chatId,fileName,false);
-  }
-}

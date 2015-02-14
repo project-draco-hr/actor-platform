@@ -1,7 +1,0 @@
-{
-  byte[] data=new byte[size];
-  buf.get(data);
-  mChunks.add(data);
-  mFlags.add(flags);
-  mTimes.add(time);
-}

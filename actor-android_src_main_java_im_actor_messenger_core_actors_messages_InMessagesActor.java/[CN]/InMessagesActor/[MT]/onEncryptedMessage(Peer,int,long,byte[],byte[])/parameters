@@ -1,5 +1,0 @@
-Peer peer
-int senderUid
-long date
-byte[] messageKey
-byte[] message

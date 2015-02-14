@@ -1,7 +1,0 @@
-{
-  this.isBinded=false;
-  this.bindedAvatar=null;
-  this.bindedFastName=null;
-  this.bindedName=null;
-  this.bindedShowFastName=false;
-}

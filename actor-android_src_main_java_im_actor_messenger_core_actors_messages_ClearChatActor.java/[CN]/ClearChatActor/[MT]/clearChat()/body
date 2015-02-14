@@ -1,3 +1,0 @@
-{
-  return new ActorSelection(Props.create(ClearChatActor.class),"chat_clear");
-}

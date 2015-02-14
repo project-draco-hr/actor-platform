@@ -1,4 +1,0 @@
-{
-  view=new ContactView(context);
-  return view;
-}

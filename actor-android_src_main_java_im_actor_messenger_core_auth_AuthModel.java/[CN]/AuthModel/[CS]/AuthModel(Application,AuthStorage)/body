@@ -1,7 +1,0 @@
-{
-  this.authProcessState=new AuthProcessState(context);
-  if (storage.isLoggedIn()) {
-    authProcessState.forceLoggedIn();
-  }
-  this.authActor=system().actorOf(AuthActor.auth(this,storage));
-}

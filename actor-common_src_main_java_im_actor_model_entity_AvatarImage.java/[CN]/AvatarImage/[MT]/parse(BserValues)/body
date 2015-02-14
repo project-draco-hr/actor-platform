@@ -1,0 +1,5 @@
+{
+  width=values.getInt(1);
+  height=values.getInt(2);
+  fileLocation=FileLocation.fromBytes(values.getBytes(3));
+}

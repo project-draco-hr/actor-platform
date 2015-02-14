@@ -1,8 +1,0 @@
-{
-  if (chatType == DialogType.TYPE_GROUP) {
-    return groups().get(chatId).getAvatarModel();
-  }
- else {
-    return users().get(chatId).getAvatar();
-  }
-}

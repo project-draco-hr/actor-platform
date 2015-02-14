@@ -1,0 +1,4 @@
+{
+  super("Group '" + groupTitle + "' created");
+  this.groupTitle=groupTitle;
+}

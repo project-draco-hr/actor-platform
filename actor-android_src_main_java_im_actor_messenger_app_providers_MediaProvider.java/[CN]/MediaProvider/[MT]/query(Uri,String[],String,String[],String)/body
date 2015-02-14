@@ -1,12 +1,6 @@
 {
   if (BuildConfig.ENABLE_CHROME) {
     long id=Long.parseLong(uri.getLastPathSegment());
-    Downloaded downloaded=downloaded().get(id);
-    if (downloaded != null) {
-      MatrixCursor matrixCursor=new MatrixCursor(new String[]{"_data"},1);
-      matrixCursor.addRow(new Object[]{downloaded.getName()});
-      return matrixCursor;
-    }
   }
   return null;
 }

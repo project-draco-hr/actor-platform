@@ -1,0 +1,110 @@
+{
+  super.update(data,position,isUpdated,context);
+  this.fileMessage=(DocumentContent)data.getContent();
+  if (data.getSenderId() == myUid()) {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_out);
+  }
+ else {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_in);
+  }
+  if (data.getSenderId() == myUid()) {
+    stateIcon.setVisibility(View.VISIBLE);
+switch (data.getMessageState()) {
+case ERROR:
+      stateIcon.setResource(R.drawable.msg_error);
+    stateIcon.setTint(errorColor);
+  break;
+default :
+case PENDING:
+stateIcon.setResource(R.drawable.msg_clock);
+stateIcon.setTint(pendingColor);
+break;
+case READ:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(readColor);
+break;
+case RECEIVED:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(receivedColor);
+break;
+case SENT:
+stateIcon.setResource(R.drawable.msg_check_1);
+stateIcon.setTint(sentColor);
+break;
+}
+}
+ else {
+stateIcon.setVisibility(View.GONE);
+}
+int w, h;
+FastThumb thumb;
+if (data.getContent() instanceof PhotoContent) {
+w=((PhotoContent)data.getContent()).getW();
+h=((PhotoContent)data.getContent()).getH();
+thumb=((PhotoContent)data.getContent()).getFastThumb();
+duration.setVisibility(View.GONE);
+}
+ else if (data.getContent() instanceof VideoContent) {
+w=((VideoContent)data.getContent()).getW();
+h=((VideoContent)data.getContent()).getH();
+thumb=((VideoContent)data.getContent()).getFastThumb();
+duration.setVisibility(View.VISIBLE);
+duration.setText(Formatter.duration(((VideoContent)data.getContent()).getDuration()));
+}
+ else {
+return;
+}
+int maxHeight=context.getResources().getDisplayMetrics().heightPixels - Screen.dp(96 + 32);
+maxHeight=Math.min(Screen.dp(360),maxHeight);
+int maxWidth=context.getResources().getDisplayMetrics().widthPixels - Screen.dp(32 + 48);
+maxWidth=Math.min(Screen.dp(360),maxWidth);
+float scale=Math.min(maxWidth / (float)w,maxHeight / (float)h);
+int bubbleW=(int)(scale * w);
+int bubbleH=(int)(scale * h);
+imageKitView.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
+overlay.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
+time.setText(TextUtils.formatTime(data.getDate()));
+if (isUpdated) {
+if (thumb != null) {
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+try {
+imageKitView.setSrc(ImageLoading.loadReuse(thumb.getImage(),smallPreview).getRes());
+}
+ catch (ImageLoadException e) {
+e.printStackTrace();
+imageKitView.setSrc(null);
+}
+}
+ else {
+try {
+imageKitView.setSrc(ImageLoading.loadBitmap(thumb.getImage()));
+}
+ catch (ImageLoadException e) {
+e.printStackTrace();
+imageKitView.setSrc(null);
+}
+}
+}
+ else {
+imageKitView.setSrc(null);
+}
+imageKitView.clear();
+isInitialBind=true;
+hideProgress(false);
+isInitialBind=false;
+}
+isInitialBind=true;
+if (fileMessage.getSource() instanceof FileLocalSource) {
+FileLocalSource localSource=(FileLocalSource)fileMessage.getSource();
+if (currentMessage.getContent() instanceof PhotoContent) {
+imageKitView.requestPhoto(localSource.getFileName());
+}
+ else if (currentMessage.getContent() instanceof VideoContent) {
+imageKitView.requestVideo(localSource.getFileName());
+}
+}
+ else if (fileMessage.getSource() instanceof FileRemoteSource) {
+FileRemoteSource remoteSource=(FileRemoteSource)fileMessage.getSource();
+}
+isInitialBind=false;
+}

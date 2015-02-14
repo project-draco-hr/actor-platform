@@ -1,6 +1,0 @@
-{
-  int result=eventType;
-  result=31 * result + ((Long)eventId).hashCode();
-  result=31 * result + listener.hashCode();
-  return result;
-}

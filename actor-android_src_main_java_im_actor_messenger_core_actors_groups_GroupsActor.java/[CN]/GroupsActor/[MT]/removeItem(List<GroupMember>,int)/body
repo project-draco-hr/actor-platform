@@ -1,9 +1,0 @@
-{
-  ArrayList<GroupMember> res=new ArrayList<GroupMember>();
-  for (  GroupMember u : uids) {
-    if (u.getUid() != uid) {
-      res.add(u);
-    }
-  }
-  return res;
-}

@@ -1,5 +1,0 @@
-{
-  super(seq,state,update);
-  this.users=users;
-  this.groups=groups;
-}

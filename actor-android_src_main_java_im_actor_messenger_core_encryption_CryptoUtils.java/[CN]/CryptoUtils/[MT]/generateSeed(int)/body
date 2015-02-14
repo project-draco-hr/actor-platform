@@ -1,5 +1,0 @@
-{
-synchronized (secure) {
-    return secure.generateSeed(size);
-  }
-}

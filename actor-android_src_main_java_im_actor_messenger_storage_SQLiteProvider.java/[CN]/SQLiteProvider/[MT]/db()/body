@@ -1,0 +1,7 @@
+{
+  if (sqLiteDatabase == null || !sqLiteDatabase.isOpen()) {
+    NoOpOpenHelper helper=new NoOpOpenHelper(AppContext.getContext(),DB);
+    sqLiteDatabase=helper.getWritableDatabase();
+  }
+  return sqLiteDatabase;
+}

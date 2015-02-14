@@ -13,8 +13,6 @@
     nameEdit.setText(userModel.getName());
   }
  else   if (type == EditNameActivity.TYPE_GROUP) {
-    GroupModel info=groups().get(id);
-    nameEdit.setText(info.getTitle());
   }
   res.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
@@ -28,45 +26,6 @@
       if (name.length() == 0) {
         Toast.makeText(getActivity(),R.string.toast_empty_name,Toast.LENGTH_SHORT).show();
         return;
-      }
-      if (type == EditNameActivity.TYPE_ME) {
-        ask(EditNameActor.editName().editMyName(name),getString(R.string.edit_name_process),new UiAskCallback<Boolean>(){
-          @Override public void onPreStart(){
-          }
-          @Override public void onCompleted(          Boolean res){
-            getActivity().finish();
-          }
-          @Override public void onError(          Throwable t){
-            Toast.makeText(getActivity(),R.string.toast_unable_change,Toast.LENGTH_SHORT).show();
-          }
-        }
-);
-      }
- else       if (type == EditNameActivity.TYPE_GROUP) {
-        ask(GroupsActor.groupUpdates().editGroupName(id,name),getString(R.string.edit_name_process),new UiAskCallback<Boolean>(){
-          @Override public void onPreStart(){
-          }
-          @Override public void onCompleted(          Boolean res){
-            getActivity().finish();
-          }
-          @Override public void onError(          Throwable t){
-            Toast.makeText(getActivity(),R.string.toast_unable_change,Toast.LENGTH_SHORT).show();
-          }
-        }
-);
-      }
- else       if (type == EditNameActivity.TYPE_USER) {
-        ask(EditNameActor.editName().editName(id,name),getString(R.string.edit_name_process),new UiAskCallback<Boolean>(){
-          @Override public void onPreStart(){
-          }
-          @Override public void onCompleted(          Boolean res){
-            getActivity().finish();
-          }
-          @Override public void onError(          Throwable t){
-            Toast.makeText(getActivity(),R.string.toast_unable_change,Toast.LENGTH_SHORT).show();
-          }
-        }
-);
       }
     }
   }

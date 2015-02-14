@@ -1,3 +1,0 @@
-{
-  ConversationActor.conv(chatType,chatId).onMessageMarkRead(rid);
-}

@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  PhoneBookEmail that=(PhoneBookEmail)o;
-  if (id != that.id)   return false;
-  if (email != null ? !email.equals(that.email) : that.email != null)   return false;
-  return true;
-}

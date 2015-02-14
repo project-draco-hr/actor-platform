@@ -1,3 +1,0 @@
-{
-  pendingUploads=new PersistenceSet<PendingUpload>(new BserMap<PendingUpload>(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"pending_uploads"),PendingUpload.class));
-}

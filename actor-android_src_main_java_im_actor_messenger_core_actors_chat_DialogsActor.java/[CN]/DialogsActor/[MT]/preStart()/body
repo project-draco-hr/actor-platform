@@ -1,4 +1,0 @@
-{
-  listEngine=getChatsListEngine();
-  searchEngine=userSearchEngine();
-}

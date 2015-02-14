@@ -1,4 +1,0 @@
-{
-  ConversationActor.conv(chatType,chatId).deleteChat();
-  system().actorOf(ClearChatActor.clearChat()).send(new ClearChatActor.DeleteChat(chatType,chatId));
-}

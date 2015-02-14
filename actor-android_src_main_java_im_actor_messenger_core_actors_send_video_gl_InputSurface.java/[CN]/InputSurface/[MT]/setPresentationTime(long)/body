@@ -1,3 +1,0 @@
-{
-  EGLExt.eglPresentationTimeANDROID(mEGLDisplay,mEGLSurface,nsecs);
-}

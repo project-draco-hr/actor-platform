@@ -1,8 +1,0 @@
-{
-  GroupModel groupInfo=groups().get(chatId);
-  if (groupInfo == null || groupInfo.getState() != GroupState.JOINED) {
-    return;
-  }
-  groups().put(chatId,groupInfo.getRaw().updateMembers(addItem(groupInfo.getRaw().getMembers(),uid,adder,date)));
-  ConversationActor.conv(DialogType.TYPE_GROUP,chatId).onInMessage(rid,adder,date,new GroupAdd(uid));
-}

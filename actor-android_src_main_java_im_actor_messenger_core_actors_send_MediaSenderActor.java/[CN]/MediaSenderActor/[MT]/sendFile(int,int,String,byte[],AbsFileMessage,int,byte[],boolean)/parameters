@@ -1,8 +1,0 @@
-int type
-int id
-String name
-byte[] thumb
-AbsFileMessage fileMessage
-int extType
-byte[] extension
-boolean isEncrypted

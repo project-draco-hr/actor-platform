@@ -1,9 +1,0 @@
-{
-  if (isStarted) {
-    messageModel.getAudioState().change(new AudioState(AudioState.State.STOPPED));
-    opusLib.closeOpusFile();
-    audioTrack.release();
-    audioTrack=null;
-    isStarted=false;
-  }
-}

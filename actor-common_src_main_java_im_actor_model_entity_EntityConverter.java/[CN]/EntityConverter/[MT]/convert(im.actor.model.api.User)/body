@@ -1,3 +1,0 @@
-{
-  return new User(user.getId(),user.getAccessHash(),user.getName(),user.getLocalName(),convert(user.getAvatar()));
-}

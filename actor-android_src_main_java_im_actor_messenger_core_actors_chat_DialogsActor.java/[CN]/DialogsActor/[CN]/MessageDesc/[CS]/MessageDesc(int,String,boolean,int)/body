@@ -1,6 +1,0 @@
-{
-  this.type=type;
-  this.text=text;
-  this.isSilent=isSilent;
-  this.relatedUid=relatedUid;
-}

@@ -1,3 +1,0 @@
-{
-  return new ActorSelection(Props.create(UpdateBroker.class).changeDispatcher("updates"),"sequence/broker");
-}

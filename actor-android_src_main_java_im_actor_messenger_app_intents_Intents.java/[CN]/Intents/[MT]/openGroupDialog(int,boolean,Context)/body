@@ -1,3 +1,3 @@
 {
-  return openDialog(DialogType.TYPE_GROUP,chatId,compose,context);
+  return openDialog(Peer.group(chatId),compose,context);
 }

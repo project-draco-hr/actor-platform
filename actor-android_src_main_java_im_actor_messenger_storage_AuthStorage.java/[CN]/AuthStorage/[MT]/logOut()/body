@@ -1,4 +1,0 @@
-{
-  auth=new AuthState(false,0);
-  fileWriter.saveData(auth.toByteArray());
-}

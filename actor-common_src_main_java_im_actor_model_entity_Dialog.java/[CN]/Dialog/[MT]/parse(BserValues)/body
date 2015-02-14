@@ -1,0 +1,25 @@
+{
+  peer=Peer.fromBytes(values.getBytes(1));
+  dialogTitle=values.getString(2);
+  byte[] av=values.optBytes(3);
+  if (av != null) {
+    dialogAvatar=Avatar.fromBytes(av);
+  }
+  unreadCount=values.getInt(4);
+  sortDate=values.getLong(5);
+  rid=values.getLong(6);
+  senderId=values.getInt(7);
+  date=values.getLong(8);
+switch (values.getInt(9)) {
+default :
+case 1:
+    messageType=ContentType.EMPTY;
+  break;
+case 2:
+messageType=ContentType.TEXT;
+break;
+}
+text=values.getString(10);
+status=MessageState.fromValue(values.getInt(11));
+relatedUid=values.getInt(12);
+}

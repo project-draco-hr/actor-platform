@@ -7,10 +7,4 @@
     avatar.unbind();
   }
   title.setText(SearchHighlight.highlightQuery(data.getTitle(),query,0xff0277bd));
-  if (data.getContType() == DialogType.TYPE_GROUP) {
-    title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dialogs_group,0,0,0);
-  }
- else {
-    title.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
-  }
 }

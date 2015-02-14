@@ -1,8 +1,0 @@
-{
-  return new ActorSelection(Props.create(ConversationActor.class,new ActorCreator<ConversationActor>(){
-    @Override public ConversationActor create(){
-      return new ConversationActor(type,id);
-    }
-  }
-),"conv_" + type + "_"+ id);
-}

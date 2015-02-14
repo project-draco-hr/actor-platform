@@ -1,4 +1,0 @@
-{
-  maxLoadedDate=values.getLong(1);
-  isCompleted=values.getBool(2);
-}

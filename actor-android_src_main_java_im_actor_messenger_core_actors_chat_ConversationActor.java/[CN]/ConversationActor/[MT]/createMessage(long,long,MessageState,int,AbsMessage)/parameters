@@ -1,5 +1,0 @@
-long rid
-long date
-MessageState messageState
-int senderId
-AbsMessage content

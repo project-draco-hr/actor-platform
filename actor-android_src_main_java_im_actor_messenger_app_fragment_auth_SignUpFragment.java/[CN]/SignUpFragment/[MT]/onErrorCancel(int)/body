@@ -1,8 +1,0 @@
-{
-  if (stateId == -1) {
-    auth().resetAuth();
-  }
- else   if (stateId == AuthModel.AuthProcessState.STATE_SIGNING_ERROR) {
-    auth().resetSignup();
-  }
-}

@@ -1,24 +1,13 @@
 {
   super.onResume();
   updateImeConfig();
-  if (chatType == DialogType.TYPE_USER) {
-    final UserModel user=users().get(chatId);
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    final UserModel user=users().get(peer.getPeerId());
     if (user == null) {
       finish();
       return;
     }
     avatar.setEmptyDrawable(AvatarDrawable.create(user,18,this));
-    getBinder().bind(user.getAvatar(),new Listener<Avatar>(){
-      @Override public void onUpdated(      Avatar a){
-        if (a != null) {
-          avatar.bindFastAvatar(38,a);
-        }
- else {
-          avatar.unbind();
-        }
-      }
-    }
-);
     getBinder().bindText(title,user.getNameModel());
     getBinder().bind(user.getPresence(),new Listener<UserPresence>(){
       @Override public void onUpdated(      UserPresence presence){
@@ -33,62 +22,14 @@
     }
 );
   }
- else   if (chatType == DialogType.TYPE_GROUP) {
-    final GroupModel groupInfo=groups().get(chatId);
-    if (groupInfo == null) {
-      finish();
-      return;
-    }
-    avatar.setEmptyDrawable(AvatarDrawable.create(groupInfo,18,this));
-    getBinder().bind(groupInfo.getAvatarModel(),new Listener<Avatar>(){
-      @Override public void onUpdated(      Avatar a){
-        if (a != null) {
-          avatar.bindFastAvatar(38,a);
-        }
- else {
-          avatar.unbind();
-        }
-      }
-    }
-);
-    getBinder().bindText(title,groupInfo.getTitleModel());
-    subtitle.setVisibility(View.VISIBLE);
-    getBinder().bind(groupInfo.getStateModel(),this);
-    getBinder().bind(TypingModel.groupChatTyping(chatId),new Listener<int[]>(){
-      @Override public void onUpdated(      int[] ints){
-        updateGroupStatus(groupInfo.getOnlineModel().getValue(),ints);
-      }
-    }
-);
-    getBinder().bind(groupInfo.getOnlineModel(),new Listener<int[]>(){
-      @Override public void onUpdated(      int[] ints){
-        updateGroupStatus(ints,TypingModel.groupChatTyping(chatId).getValue());
-      }
-    }
-);
-  }
- else   if (chatType == DialogType.TYPE_NOTIFICATIONS) {
-    title.setText("Notifications");
+ else   if (peer.getPeerType() == PeerType.GROUP) {
   }
   int left=0;
   int right=0;
-  if (!NotificationSettings.getInstance().convValue(DialogUids.getDialogUid(chatType,chatId)).getValue()) {
-    right=R.drawable.conv_mute;
-  }
   title.setCompoundDrawablesWithIntrinsicBounds(left,0,right,0);
   if (isCompose) {
     messageBody.requestFocus();
     keyboardUtils.setImeVisibility(messageBody,true);
   }
   isCompose=false;
-  stateBroker().onConversationOpen(chatType,chatId);
-  isTypingDisabled=true;
-  String text=DialogStorage.draftStorage().get(DialogUids.getDialogUid(chatType,chatId));
-  if (text != null) {
-    messageBody.setText(text);
-  }
- else {
-    messageBody.setText("");
-  }
-  isTypingDisabled=false;
 }

@@ -1,3 +1,0 @@
-{
-  return new PendingUpload(chatType,chatId,rid,fileName,name,messageType,metadata,thumb,true,isEncrypted);
-}

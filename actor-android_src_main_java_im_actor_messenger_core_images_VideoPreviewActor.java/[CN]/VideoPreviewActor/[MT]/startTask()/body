@@ -1,11 +1,2 @@
 {
-  ask(downloader().downloadedFileName(fileLocation),new FutureCallback<String>(){
-    @Override public void onResult(    String fileName){
-      loadFile(fileName);
-    }
-    @Override public void onError(    Throwable throwable){
-      error(new RuntimeException(throwable));
-    }
-  }
-);
 }

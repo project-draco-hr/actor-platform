@@ -1,7 +1,7 @@
 {
   UserModel u=users().get(uid);
   if (u != null) {
-    return u.getRaw().getSex();
+    return u.getSex();
   }
  else {
     return Sex.UNKNOWN;

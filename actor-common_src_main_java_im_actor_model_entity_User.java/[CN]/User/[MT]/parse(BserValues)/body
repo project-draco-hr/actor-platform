@@ -1,0 +1,11 @@
+{
+  uid=values.getInt(1);
+  accessHash=values.getLong(2);
+  name=values.getString(3);
+  localName=values.optString(4);
+  byte[] a=values.optBytes(5);
+  if (a != null) {
+    avatar=Avatar.fromBytes(a);
+  }
+  sex=Sex.fromValue(values.getInt(6));
+}

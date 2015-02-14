@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  addedUid=values.getInt(1);
-}

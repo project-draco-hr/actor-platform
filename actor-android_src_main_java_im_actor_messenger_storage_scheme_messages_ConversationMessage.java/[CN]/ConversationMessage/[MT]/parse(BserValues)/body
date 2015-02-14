@@ -1,8 +1,0 @@
-{
-  rid=values.getLong(1);
-  sortKey=values.getLong(2);
-  time=values.getLong(3);
-  senderId=values.getInt(4);
-  messageState=MessageState.parse(values.getInt(5));
-  content=values.getComposite(MESSAGE_FIELD);
-}

@@ -1,7 +1,0 @@
-{
-  super.onReceive(message);
-  if (message instanceof Read) {
-    final Read confirm=(Read)message;
-    addAction(new MessageAction(confirm.type,confirm.id,confirm.rid));
-  }
-}

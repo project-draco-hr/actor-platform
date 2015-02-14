@@ -1,6 +1,0 @@
-{
-  super.parse(values);
-  w=values.getInt(4);
-  h=values.getInt(5);
-  fastThumb=values.getObj(6,FastThumb.class);
-}

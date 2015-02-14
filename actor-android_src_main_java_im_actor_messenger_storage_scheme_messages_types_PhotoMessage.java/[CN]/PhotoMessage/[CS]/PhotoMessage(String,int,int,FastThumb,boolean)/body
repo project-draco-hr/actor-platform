@@ -1,6 +1,0 @@
-{
-  super(uploadPath,isEncrypted);
-  this.w=w;
-  this.h=h;
-  this.fastThumb=fastThumb;
-}

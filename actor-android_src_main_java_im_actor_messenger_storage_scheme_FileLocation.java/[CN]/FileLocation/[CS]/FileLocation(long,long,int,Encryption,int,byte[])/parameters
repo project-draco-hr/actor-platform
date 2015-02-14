@@ -1,6 +1,0 @@
-long fileId
-long accessHash
-int fileSize
-Encryption encryption
-int encryptedFileSize
-byte[] encryptionKey

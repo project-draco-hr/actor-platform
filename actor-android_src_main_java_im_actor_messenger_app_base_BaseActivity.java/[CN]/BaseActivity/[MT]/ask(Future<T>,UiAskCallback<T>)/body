@@ -1,3 +1,0 @@
-{
-  ACTOR_ACK.ask(future,callback);
-}

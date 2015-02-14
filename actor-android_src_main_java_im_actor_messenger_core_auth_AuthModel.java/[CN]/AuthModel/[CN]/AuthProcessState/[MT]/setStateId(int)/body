@@ -1,4 +1,0 @@
-{
-  this.stateId=stateId;
-  trySave();
-}

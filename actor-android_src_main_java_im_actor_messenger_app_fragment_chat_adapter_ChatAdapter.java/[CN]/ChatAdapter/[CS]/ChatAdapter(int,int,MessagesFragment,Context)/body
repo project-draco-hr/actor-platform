@@ -1,6 +1,0 @@
-{
-  super(ListEngines.messagesUiList(DialogUids.getDialogUid(type,id)),true,false,context);
-  this.fragment=fragment;
-  this.type=type;
-  this.id=id;
-}

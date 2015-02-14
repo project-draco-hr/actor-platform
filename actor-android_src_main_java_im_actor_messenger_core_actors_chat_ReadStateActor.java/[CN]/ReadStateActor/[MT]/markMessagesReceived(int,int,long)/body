@@ -1,9 +1,0 @@
-{
-  long uid=DialogUids.getDialogUid(chatType,chatId);
-  Set<PendingMessage> pendingMessages=getPlainUnread(uid);
-  for (  PendingMessage p : pendingMessages.toArray(new PendingMessage[0])) {
-    if (p.date <= date) {
-      ConversationActor.conv(chatType,chatId).onMessageMarkReceived(p.rid);
-    }
-  }
-}

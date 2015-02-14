@@ -1,3 +1,0 @@
-{
-  return typed(ActorSystem.system().actorOf(selection()),DownloadManagerInt.class);
-}

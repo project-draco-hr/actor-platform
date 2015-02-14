@@ -1,5 +1,0 @@
-{
-  int chatType=peer.getType() == PeerType.GROUP ? DialogType.TYPE_GROUP : DialogType.TYPE_USER;
-  int chatId=peer.getId();
-  ConversationActor.conv(chatType,chatId).deleteMessage(BoxUtil.unbox(rid.toArray(new Long[0])));
-}

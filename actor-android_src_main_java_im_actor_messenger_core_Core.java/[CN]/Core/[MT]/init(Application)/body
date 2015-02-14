@@ -1,13 +1,3 @@
 {
-  long start=System.currentTimeMillis();
-  AppContext.setContext(application);
-  DbProvider.getDatabase(application);
-  Formatter.init(application);
-  Log.d("ACTOR_INIT","phase1 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
   core=new Core(application);
-  Log.d("ACTOR_INIT","phase2 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
-  core.start();
-  Log.d("ACTOR_INIT","phase3 in " + (System.currentTimeMillis() - start) + " ms");
 }

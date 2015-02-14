@@ -14,33 +14,4 @@
       getLoader().getInternalDiskCache().unlockFile(sourceFile);
     }
   }
-  ask(requests().getFile(new FileLocation(getTask().getAvatarImage().getFileLocation().getFileId(),getTask().getAvatarImage().getFileLocation().getAccessHash()),0,512 * 1024),new FutureCallback<ResponseGetFile>(){
-    @Override public void onResult(    ResponseGetFile result){
-      String fileName=getLoader().getInternalDiskCache().startWriteFile(sourceFile);
-      try {
-        FileOutputStream outputStream=new FileOutputStream(fileName);
-        outputStream.write(result.getPayload());
-        outputStream.close();
-      }
- catch (      FileNotFoundException e) {
-        e.printStackTrace();
-      }
-catch (      IOException e) {
-        e.printStackTrace();
-      }
-      getLoader().getInternalDiskCache().commitFile(sourceFile);
-      try {
-        Bitmap res=ImageLoading.loadBitmap(result.getPayload());
-        completeTask(res);
-      }
- catch (      ImageLoadException e) {
-        e.printStackTrace();
-        error(e);
-      }
-    }
-    @Override public void onError(    Throwable throwable){
-      error(throwable);
-    }
-  }
-);
 }

@@ -3,7 +3,6 @@
   writer.writeLong(2,accessHash);
   writer.writeString(3,title);
   if (avatar != null) {
-    writer.writeObject(4,avatar);
   }
   writer.writeRepeatedObj(5,members);
   writer.writeInt(6,adminId);

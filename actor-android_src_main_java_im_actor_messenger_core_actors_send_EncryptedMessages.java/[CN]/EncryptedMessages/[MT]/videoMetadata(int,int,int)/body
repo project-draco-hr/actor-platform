@@ -1,3 +1,0 @@
-{
-  return new VideoExtension(w,h,duration).toByteArray();
-}

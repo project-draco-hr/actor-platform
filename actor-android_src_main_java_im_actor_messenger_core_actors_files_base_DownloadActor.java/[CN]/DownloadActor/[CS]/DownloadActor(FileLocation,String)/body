@@ -1,5 +1,0 @@
-{
-  TAG="DownloadManager:Actor:" + fileLocation.getFileId();
-  this.fileLocation=fileLocation;
-  this.destFileName=destFileName;
-}

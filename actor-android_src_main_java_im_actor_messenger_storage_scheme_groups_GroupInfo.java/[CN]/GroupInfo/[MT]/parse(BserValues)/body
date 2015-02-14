@@ -2,7 +2,6 @@
   groupId=values.getInt(1);
   accessHash=values.getLong(2);
   title=values.getString(3);
-  avatar=values.optObj(4,Avatar.class);
   members=values.getRepeatedObj(5,GroupMember.class);
   adminId=values.getInt(6);
 switch (values.getInt(7)) {

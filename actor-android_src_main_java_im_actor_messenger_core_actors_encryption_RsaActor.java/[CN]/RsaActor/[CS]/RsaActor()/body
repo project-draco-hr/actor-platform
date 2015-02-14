@@ -1,3 +1,0 @@
-{
-  super(RsaEncryptor.class);
-}

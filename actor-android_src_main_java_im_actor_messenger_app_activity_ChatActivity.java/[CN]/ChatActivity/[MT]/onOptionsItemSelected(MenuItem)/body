@@ -6,7 +6,6 @@ case android.R.id.home:
 case R.id.clear:
 new AlertDialog.Builder(this).setMessage(R.string.alert_delete_all_messages_text).setPositiveButton(R.string.alert_delete_all_messages_yes,new DialogInterface.OnClickListener(){
   @Override public void onClick(  DialogInterface dialog,  int which){
-    ChatActionsActor.actions().clearChat(chatType,chatId);
   }
 }
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
@@ -14,24 +13,18 @@ break;
 case R.id.leaveGroup:
 new AlertDialog.Builder(this).setMessage(R.string.alert_delete_group_title).setPositiveButton(R.string.alert_delete_group_yes,new DialogInterface.OnClickListener(){
 @Override public void onClick(DialogInterface dialog2,int which){
-groupUpdates().leaveChat(chatId);
 finish();
 }
 }
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
 break;
 case R.id.contact:
-startActivity(Intents.openProfile(chatId,ChatActivity.this));
 break;
 case R.id.groupInfo:
-startActivity(Intents.openGroup(chatId,ChatActivity.this));
 break;
 case R.id.files:
-startActivity(Intents.openDocs(chatType,chatId,ChatActivity.this));
 break;
 case R.id.call:
-UserModel user=users().get(chatId);
-startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:+" + user.getPhone())));
 break;
 }
 return super.onOptionsItemSelected(item);

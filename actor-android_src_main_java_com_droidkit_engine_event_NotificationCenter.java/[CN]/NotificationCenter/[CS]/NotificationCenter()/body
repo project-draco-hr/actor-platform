@@ -1,6 +1,0 @@
-{
-  backgroundFireLoop=new RunnableDispatcher("notification",1);
-  listeners=Collections.newSetFromMap(new ConcurrentHashMap<WeakEqualReference<OnNotificationListenerContainer>,Boolean>());
-  states=new ConcurrentHashMap<Integer,State>();
-  statesValues=new ConcurrentHashMap<String,Object[]>();
-}

@@ -1,8 +1,0 @@
-{
-  if (publicKey != null) {
-    writer.writeBytes(1,publicKey);
-  }
-  if (privateKey != null) {
-    writer.writeBytes(2,privateKey);
-  }
-}

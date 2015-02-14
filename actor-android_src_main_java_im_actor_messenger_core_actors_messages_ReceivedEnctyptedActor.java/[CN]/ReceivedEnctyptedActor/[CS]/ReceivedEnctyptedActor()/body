@@ -1,3 +1,0 @@
-{
-  super("confirm",DbProvider.getDatabase(AppContext.getContext()));
-}

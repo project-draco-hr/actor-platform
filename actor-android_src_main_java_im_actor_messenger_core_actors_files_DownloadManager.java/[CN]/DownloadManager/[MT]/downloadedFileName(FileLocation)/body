@@ -1,7 +1,0 @@
-{
-  Downloaded downloaded=downloaded().get(fileLocation.getFileId());
-  if (downloaded == null) {
-    throw new RuntimeException("Image not downloaded");
-  }
-  return result(downloaded.getDownloadedPath());
-}

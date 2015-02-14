@@ -1,6 +1,0 @@
-{
-  messageReceiver=InMessagesActor.messageReceiver();
-  groupActor=GroupsActor.groupUpdates();
-  userPresence=UsersPresence.presence();
-  groupPresence=GroupPresenceActor.groupPresence();
-}

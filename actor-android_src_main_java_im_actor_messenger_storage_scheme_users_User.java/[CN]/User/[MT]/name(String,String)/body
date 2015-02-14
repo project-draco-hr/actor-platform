@@ -1,8 +1,0 @@
-{
-  if (localName == null || localName.trim().length() == 0) {
-    return serverName;
-  }
- else {
-    return localName;
-  }
-}

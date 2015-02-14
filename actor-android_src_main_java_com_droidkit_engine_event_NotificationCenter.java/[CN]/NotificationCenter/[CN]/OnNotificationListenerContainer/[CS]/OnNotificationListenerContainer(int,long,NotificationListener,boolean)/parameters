@@ -1,4 +1,0 @@
-int eventType
-long eventId
-NotificationListener listener
-boolean wasAddedInUIThread

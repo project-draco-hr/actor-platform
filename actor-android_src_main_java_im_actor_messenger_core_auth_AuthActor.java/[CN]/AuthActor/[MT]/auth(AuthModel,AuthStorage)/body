@@ -1,8 +1,0 @@
-{
-  return new ActorSelection(Props.create(AuthActor.class,new ActorCreator<AuthActor>(){
-    @Override public AuthActor create(){
-      return new AuthActor(model,profileStorage);
-    }
-  }
-),"auth");
-}

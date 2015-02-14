@@ -1,5 +1,0 @@
-{
-  super(ConversationHistoryInt.class);
-  this.chatType=chatType;
-  this.chatId=chatId;
-}

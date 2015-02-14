@@ -1,0 +1,3 @@
+{
+  compatText=values.getString(2);
+}

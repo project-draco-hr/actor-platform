@@ -1,5 +1,0 @@
-{
-  if (!EGL14.eglMakeCurrent(mEGLDisplay,mEGLSurface,mEGLSurface,mEGLContext)) {
-    throw new RuntimeException("eglMakeCurrent failed");
-  }
-}

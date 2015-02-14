@@ -1,5 +1,0 @@
-int chatId
-long chatAccessHash
-int actionType
-int uid
-long userAccessHash

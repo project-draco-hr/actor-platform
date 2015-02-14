@@ -1,6 +1,5 @@
 {
   writer.writeLong(6,id);
-  writer.writeObject(1,fileLocation);
   writer.writeString(2,fileName);
   writer.writeString(3,mimeType);
   writer.writeInt(4,sender);

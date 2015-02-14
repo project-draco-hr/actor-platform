@@ -1,5 +1,0 @@
-{
-  final State state=new State(eventType,stateInitValue);
-  states.put(eventType,state);
-  return state;
-}

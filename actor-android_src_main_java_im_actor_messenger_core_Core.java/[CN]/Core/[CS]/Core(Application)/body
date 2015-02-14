@@ -1,30 +1,7 @@
 {
-  long start=System.currentTimeMillis();
-  this.authStorage=new AuthStorage(application);
-  this.keyStorage=new AccountKeyStorage(application);
-  Log.d("ACTOR_INIT","phase1_0 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
-  this.authModel=new AuthModel(application,authStorage);
-  Log.d("ACTOR_INIT","phase1_1 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
-  this.emojiProcessor=new EmojiProcessor(application);
-  Log.d("ACTOR_INIT","phase1_2 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
-  ActivityManager activityManager=(ActivityManager)AppContext.getContext().getSystemService(Context.ACTIVITY_SERVICE);
-  int memoryInMB=Math.min(activityManager.getMemoryClass(),32);
-  long totalAppHeap=memoryInMB * 1024 * 1024;
-  int cacheLimit=(int)totalAppHeap / 4;
-  int freeCacheLimit=cacheLimit / 2;
-  Log.d("ACTOR_INIT","Init image clasificator for " + cacheLimit / (1024 * 1024) + " mb");
-  BitmapClasificator clasificator=new BitmapClasificator.Builder().startExactSize(100,100).setFreeSize(2).setLruSize(15).endFilter().startAny().useSizeInBytes().setLruSize(cacheLimit).setFreeSize(freeCacheLimit).endFilter().build();
-  this.imageLoader=new ImageLoader(clasificator,application);
-  this.imageLoader.getTaskResolver().register(ImagePreviewTask.class,ImagePreviewActor.class);
-  this.imageLoader.getTaskResolver().register(VideoPreviewTask.class,VideoPreviewActor.class);
-  this.imageLoader.getTaskResolver().register(VideoTask.class,VideoActor.class);
-  this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
-  this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
-  Log.d("ACTOR_INIT","phase1_3 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
+  AppContext.setContext(application);
+  Formatter.init(application);
+  system().setClassLoader(AppContext.getContext().getClassLoader());
   AndroidTrace.initTrace(system(),new Thread.UncaughtExceptionHandler(){
     @Override public void uncaughtException(    Thread thread,    Throwable ex){
       if (BuildConfig.REPORT_CRASHES) {
@@ -32,11 +9,6 @@
     }
   }
 );
-  Log.d("ACTOR_INIT","phase1_4 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
-  system().setClassLoader(AppContext.getContext().getClassLoader());
-  Log.d("ACTOR_INIT","phase1_5 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
   system().addDispatcher("ui",new UiActorDispatcher("ui",system()));
   system().addDispatcher("db",1);
   system().addDispatcher("contacts",1);
@@ -44,7 +16,28 @@
   system().addDispatcher("rsa",1);
   system().addDispatcher("updates",1);
   system().addDispatcher("push",1);
-  system().addDispatcher("opus",1);
-  Log.d("ACTOR_INIT","phase1_6 in " + (System.currentTimeMillis() - start) + " ms");
-  start=System.currentTimeMillis();
+  this.emojiProcessor=new EmojiProcessor(application);
+  ActivityManager activityManager=(ActivityManager)AppContext.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+  int memoryInMB=Math.min(activityManager.getMemoryClass(),32);
+  long totalAppHeap=memoryInMB * 1024 * 1024;
+  int cacheLimit=(int)totalAppHeap / 4;
+  int freeCacheLimit=cacheLimit / 2;
+  BitmapClasificator clasificator=new BitmapClasificator.Builder().startExactSize(100,100).setFreeSize(2).setLruSize(15).endFilter().startAny().useSizeInBytes().setLruSize(cacheLimit).setFreeSize(freeCacheLimit).endFilter().build();
+  this.imageLoader=new ImageLoader(clasificator,application);
+  this.imageLoader.getTaskResolver().register(ImagePreviewTask.class,ImagePreviewActor.class);
+  this.imageLoader.getTaskResolver().register(VideoPreviewTask.class,VideoPreviewActor.class);
+  this.imageLoader.getTaskResolver().register(VideoTask.class,VideoActor.class);
+  this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
+  this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
+  JavaInit.init();
+  im.actor.model.Configuration configuration=new im.actor.model.Configuration();
+  configuration.setMainThread(new MainThread(){
+    private Handler handler=new Handler(Looper.getMainLooper());
+    @Override public void runOnUiThread(    Runnable runnable){
+      handler.post(runnable);
+    }
+  }
+);
+  configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint(BuildConfig.API_HOST,BuildConfig.API_PORT,BuildConfig.API_SSL ? ConnectionEndpoint.Type.TCP_TLS : ConnectionEndpoint.Type.TCP)}));
+  this.messenger=new im.actor.model.Messenger(configuration);
 }

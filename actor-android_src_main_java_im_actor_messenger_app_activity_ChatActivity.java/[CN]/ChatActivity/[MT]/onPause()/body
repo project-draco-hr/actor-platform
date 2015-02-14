@@ -1,12 +1,4 @@
 {
   super.onPause();
-  String text=messageBody.getText().toString().trim();
-  if (text.length() > 0) {
-    DialogStorage.draftStorage().put(DialogUids.getDialogUid(chatType,chatId),text);
-  }
- else {
-    DialogStorage.draftStorage().remove(DialogUids.getDialogUid(chatType,chatId));
-  }
   keyboardUtils.setImeVisibility(messageBody,false);
-  stateBroker().onConversationClose(chatType,chatId);
 }

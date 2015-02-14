@@ -1,3 +1,0 @@
-{
-  super("read",DbProvider.getDatabase(AppContext.getContext()));
-}

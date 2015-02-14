@@ -8,7 +8,7 @@
     if (index >= list.getSize()) {
       continue;
     }
-    long id=list.getItem(list.getSize() - index - 1).getRaw().getRid();
+    long id=list.getItem(list.getSize() - index - 1).getRid();
     if (id != 0) {
       int top=((v == null) ? 0 : v.getTop()) - listView.getPaddingTop();
       res.add(new VisibleViewItem(index + headerCount,top,id));

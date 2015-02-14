@@ -1,7 +1,0 @@
-{
-  super.preStart();
-  pending=new BserMap<PendingMessage>(new SqliteStorage(DbProvider.getDatabase(AppContext.getContext()),"messages"),PendingMessage.class);
-  for (  PendingMessage p : pending.values()) {
-    self().send(p);
-  }
-}

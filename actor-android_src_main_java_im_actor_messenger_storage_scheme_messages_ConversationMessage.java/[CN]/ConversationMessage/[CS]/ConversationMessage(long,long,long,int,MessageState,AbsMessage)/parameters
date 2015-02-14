@@ -1,6 +1,0 @@
-long rid
-long sortKey
-long time
-int senderId
-MessageState messageState
-AbsMessage content

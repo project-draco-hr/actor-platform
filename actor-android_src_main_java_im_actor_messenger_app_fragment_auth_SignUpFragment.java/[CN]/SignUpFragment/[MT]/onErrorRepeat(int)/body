@@ -1,5 +1,0 @@
-{
-  if (stateId == AuthModel.AuthProcessState.STATE_SIGNING_ERROR) {
-    auth().tryAgainSignup();
-  }
-}

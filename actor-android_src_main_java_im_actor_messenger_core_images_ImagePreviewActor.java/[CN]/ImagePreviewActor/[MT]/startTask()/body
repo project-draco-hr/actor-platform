@@ -1,14 +1,3 @@
 {
   Logger.d(TAG,getPath() + "|Starting task");
-  ask(downloader().downloadedFileName(fileLocation),new FutureCallback<String>(){
-    @Override public void onResult(    String fileName){
-      Logger.d(TAG,getPath() + "|Loaded file name " + fileName);
-      loadFile(fileName);
-    }
-    @Override public void onError(    Throwable throwable){
-      Logger.d(TAG,getPath() + "|Not downloaded");
-      error(new RuntimeException(throwable));
-    }
-  }
-);
 }

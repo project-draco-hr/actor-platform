@@ -1,4 +1,0 @@
-{
-  super.preStart();
-  cipher=RsaEncryptionUtils.createRSACipher();
-}

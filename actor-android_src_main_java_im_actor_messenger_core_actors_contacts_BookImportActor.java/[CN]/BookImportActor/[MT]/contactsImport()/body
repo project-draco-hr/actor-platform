@@ -1,3 +1,0 @@
-{
-  return new ActorSelection(Props.create(BookImportActor.class).changeDispatcher("contacts"),"contacts/import");
-}

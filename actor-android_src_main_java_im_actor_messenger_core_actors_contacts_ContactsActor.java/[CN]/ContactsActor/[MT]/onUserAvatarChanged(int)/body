@@ -1,6 +1,0 @@
-{
-  if (!contactUsers.contains((long)uid)) {
-    return;
-  }
-  updateContactList();
-}

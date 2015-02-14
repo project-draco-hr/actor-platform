@@ -1,7 +1,7 @@
 {
   if (engine == null) {
 synchronized (lock) {
-      StorageAdapter<T> storageAdapter=new SQLiteStorageAdapter<T>(DbProvider.getDatabase(AppContext.getContext()),databaseName,adapter);
+      StorageAdapter<T> storageAdapter=new SQLiteStorageAdapter<T>(SQLiteProvider.db(),databaseName,adapter);
       engine=new KeyValueEngine<T>(storageAdapter,adapter);
     }
   }

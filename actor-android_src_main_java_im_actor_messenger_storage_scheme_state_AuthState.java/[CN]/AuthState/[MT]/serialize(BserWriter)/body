@@ -1,4 +1,0 @@
-{
-  writer.writeBool(1,isLoggedIn);
-  writer.writeInt(2,uid);
-}

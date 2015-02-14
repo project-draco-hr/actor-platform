@@ -1,5 +1,5 @@
 {
-  if (!Core.isLoggedIn()) {
+  if (Core.messenger().getAuth().getState() != State.LOGGED_IN) {
     throw new IllegalArgumentException();
   }
   long id=Long.parseLong(uri.getLastPathSegment());

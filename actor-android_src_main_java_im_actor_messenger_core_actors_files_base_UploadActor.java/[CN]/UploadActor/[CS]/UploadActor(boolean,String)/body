@@ -1,4 +1,0 @@
-{
-  this.useEncryption=useEncryption;
-  this.sourceFileName=fileName;
-}

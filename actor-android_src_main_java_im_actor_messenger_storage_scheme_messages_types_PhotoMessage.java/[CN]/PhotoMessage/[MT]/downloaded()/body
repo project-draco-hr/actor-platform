@@ -1,3 +1,0 @@
-{
-  return new PhotoMessage(location,true,w,h,fastThumb,isEncrypted);
-}

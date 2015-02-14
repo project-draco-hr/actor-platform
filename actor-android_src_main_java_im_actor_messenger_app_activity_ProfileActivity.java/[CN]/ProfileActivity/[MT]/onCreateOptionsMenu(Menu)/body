@@ -3,7 +3,5 @@
   TelephonyManager tm=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
   menu.findItem(R.id.call).setVisible(tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE);
   UserModel userModel=users().get(uid);
-  menu.findItem(R.id.remove).setVisible(userModel.getContactModel().getValue());
-  menu.findItem(R.id.add).setVisible(!userModel.getContactModel().getValue());
   return super.onCreateOptionsMenu(menu);
 }

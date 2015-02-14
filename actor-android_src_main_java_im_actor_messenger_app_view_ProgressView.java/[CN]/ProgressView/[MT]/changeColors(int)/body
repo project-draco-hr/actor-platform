@@ -1,8 +1,0 @@
-{
-  if (currentColor[i] > colors[nextcolor][i]) {
-    currentColor[i]-=1;
-  }
-  if (currentColor[i] < colors[nextcolor][i]) {
-    currentColor[i]+=1;
-  }
-}

@@ -4,37 +4,12 @@
     return true;
   }
  else   if (item.getItemId() == R.id.call) {
-    UserModel userModel=users().get(uid);
-    startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:+" + userModel.getPhone())));
-    return true;
-  }
- else   if (item.getItemId() == R.id.encryption) {
-    UserModel userModel=users().get(uid);
-    SecurityKey.showKey(userModel.getRaw().getKeyHashes(),this);
     return true;
   }
  else   if (item.getItemId() == R.id.add) {
-    ask(ContactsActor.contactsList().addContact(uid),getString(R.string.profile_adding),new UiAskCallback<Boolean>(){
-      @Override public void onPreStart(){
-      }
-      @Override public void onCompleted(      Boolean res){
-      }
-      @Override public void onError(      Throwable t){
-      }
-    }
-);
     return true;
   }
  else   if (item.getItemId() == R.id.remove) {
-    ask(ContactsActor.contactsList().removeContact(uid),getString(R.string.profile_removing),new UiAskCallback<Boolean>(){
-      @Override public void onPreStart(){
-      }
-      @Override public void onCompleted(      Boolean res){
-      }
-      @Override public void onError(      Throwable t){
-      }
-    }
-);
     return true;
   }
  else   if (item.getItemId() == R.id.edit) {

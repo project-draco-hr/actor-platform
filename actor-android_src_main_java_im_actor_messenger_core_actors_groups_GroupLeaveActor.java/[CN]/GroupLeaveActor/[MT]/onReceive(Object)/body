@@ -1,7 +1,0 @@
-{
-  super.onReceive(message);
-  if (message instanceof LeaveChat) {
-    LeaveChat leaveChat=(LeaveChat)message;
-    addAction(new PendingUserAction(leaveChat.chatId,leaveChat.chatAccessHash,PendingUserAction.ACTION_LEAVE,0,0));
-  }
-}

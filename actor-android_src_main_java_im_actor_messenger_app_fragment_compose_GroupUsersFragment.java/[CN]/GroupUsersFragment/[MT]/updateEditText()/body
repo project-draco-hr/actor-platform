@@ -11,6 +11,5 @@
   searchField.setText(spannable);
   searchField.setSelection(spannable.length());
   searchField.addTextChangedListener(textWatcher);
-  engineUiList.filter("");
   listView.invalidateViews();
 }

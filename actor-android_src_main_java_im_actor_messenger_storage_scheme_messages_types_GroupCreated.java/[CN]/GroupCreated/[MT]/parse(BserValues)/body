@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  title=values.getString(1,"");
-}

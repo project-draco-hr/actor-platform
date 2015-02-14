@@ -1,4 +1,0 @@
-{
-  this.destUid=destUid;
-  return this;
-}

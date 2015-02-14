@@ -1,3 +1,0 @@
-{
-  return EGL14.eglSwapBuffers(mEGLDisplay,mEGLSurface);
-}

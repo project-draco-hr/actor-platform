@@ -1,0 +1,9 @@
+{
+  source=FileSource.fromBytes(values.getBytes(2));
+  mimetype=values.getString(3);
+  name=values.getString(4);
+  byte[] ft=values.getBytes(5);
+  if (ft != null) {
+    fastThumb=FastThumb.fromBytes(ft);
+  }
+}

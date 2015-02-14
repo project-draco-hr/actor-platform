@@ -1,5 +1,0 @@
-{
-  byte[] data=mChunks.get(chunk);
-  dest.put(data);
-  dest.position(0);
-}

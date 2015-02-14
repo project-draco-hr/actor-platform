@@ -1,4 +1,0 @@
-{
-  AvatarChangeState.uploadingState().change(AvatarChangeState.State.NONE);
-  isCanceled=true;
-}

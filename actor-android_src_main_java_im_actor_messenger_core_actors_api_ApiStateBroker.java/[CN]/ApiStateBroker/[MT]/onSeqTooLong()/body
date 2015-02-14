@@ -1,3 +1,0 @@
-{
-  seqActor.send(new SequenceActor.Invalidate());
-}

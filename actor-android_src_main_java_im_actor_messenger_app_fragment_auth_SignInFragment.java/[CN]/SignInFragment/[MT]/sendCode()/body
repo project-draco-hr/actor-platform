@@ -9,6 +9,6 @@
       e.printStackTrace();
       return;
     }
-    auth().sendCode(code);
+    execute(auth().sendCode(code));
   }
 }

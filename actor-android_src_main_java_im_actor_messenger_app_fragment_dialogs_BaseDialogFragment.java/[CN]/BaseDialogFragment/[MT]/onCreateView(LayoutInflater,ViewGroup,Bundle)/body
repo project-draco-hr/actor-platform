@@ -3,13 +3,13 @@
   loadingProgress=res.findViewById(R.id.loadingProgress);
   noMessages=res.findViewById(R.id.noMessages);
   dialogsEmptyImage=(ImageView)res.findViewById(R.id.emptyDialogsImage);
-  adapter=new DialogsAdapter(ListEngines.getChatsUiListEngine(),getActivity(),new OnItemClickedListener<DialogItem>(){
-    @Override public void onClicked(    DialogItem item){
+  adapter=new DialogsAdapter(ListEngines.getChatsUiListEngine(),getActivity(),new OnItemClickedListener<Dialog>(){
+    @Override public void onClicked(    Dialog item){
       onItemClick(item);
     }
   }
-,supportLongClick() ? new OnItemClickedListener<DialogItem>(){
-    @Override public void onClicked(    final DialogItem dialog){
+,supportLongClick() ? new OnItemClickedListener<Dialog>(){
+    @Override public void onClicked(    final Dialog dialog){
       onItemLongClick(dialog);
     }
   }

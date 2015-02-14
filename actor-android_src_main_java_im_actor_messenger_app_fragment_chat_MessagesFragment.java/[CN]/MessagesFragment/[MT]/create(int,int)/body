@@ -1,8 +1,0 @@
-{
-  Bundle bundle=new Bundle();
-  bundle.putInt("CHAT_TYPE",chatType);
-  bundle.putInt("CHAT_ID",chatId);
-  MessagesFragment res=new MessagesFragment();
-  res.setArguments(bundle);
-  return res;
-}

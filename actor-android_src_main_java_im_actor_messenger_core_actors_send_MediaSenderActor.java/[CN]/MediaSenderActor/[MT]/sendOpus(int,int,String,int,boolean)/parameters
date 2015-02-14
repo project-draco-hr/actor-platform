@@ -1,5 +1,0 @@
-int type
-int id
-String fileName
-int duration
-boolean isEncrypted

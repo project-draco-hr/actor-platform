@@ -1,3 +1,0 @@
-{
-  return new AudioMessage(fileLocation,true,duration,isEncrypted);
-}

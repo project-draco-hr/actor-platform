@@ -1,4 +1,0 @@
-{
-  isInvalidated=false;
-  invalidate();
-}

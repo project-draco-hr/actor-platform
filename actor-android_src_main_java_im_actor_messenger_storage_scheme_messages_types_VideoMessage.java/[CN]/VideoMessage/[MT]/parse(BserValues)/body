@@ -1,7 +1,0 @@
-{
-  super.parse(values);
-  duration=values.getInt(4);
-  w=values.getInt(5);
-  h=values.getInt(6);
-  fastThumb=values.optObj(7,FastThumb.class);
-}

@@ -1,5 +1,0 @@
-{
-  fileLocation=reader.getObj(FIELD_LOCATION,FileLocation.class);
-  width=reader.getInt(FIELD_WIDTH);
-  height=reader.getInt(FIELD_HEIGHT);
-}

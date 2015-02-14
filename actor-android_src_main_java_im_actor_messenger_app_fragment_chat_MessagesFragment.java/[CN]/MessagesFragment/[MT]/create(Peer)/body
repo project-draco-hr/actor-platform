@@ -1,0 +1,7 @@
+{
+  Bundle bundle=new Bundle();
+  bundle.putLong("CHAT_PEER",peer.getUid());
+  MessagesFragment res=new MessagesFragment();
+  res.setArguments(bundle);
+  return res;
+}

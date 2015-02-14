@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"-> request#" + randomId + ": "+ message);
   RequestHolder holder=new RequestHolder(randomId,new RpcRequest(message.getHeaderKey(),message.toByteArray()),callback);
   requests.put(holder.publicId,holder);
   if (proto != null) {

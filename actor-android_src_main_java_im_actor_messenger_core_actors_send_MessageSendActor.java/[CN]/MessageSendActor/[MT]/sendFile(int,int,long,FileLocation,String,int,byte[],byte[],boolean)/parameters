@@ -1,9 +1,0 @@
-int chatType
-int chatId
-long rid
-FileLocation fileLocation
-String name
-int extType
-byte[] extension
-byte[] thumb
-boolean isEncrypted

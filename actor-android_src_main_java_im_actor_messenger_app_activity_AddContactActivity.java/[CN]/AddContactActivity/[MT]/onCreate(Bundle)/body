@@ -22,47 +22,6 @@
       if (query.length() == 0) {
         return;
       }
-      ask(ContactsActor.contactsList().findUsers(query),new UiAskCallback<UserModel[]>(){
-        @Override public void onPreStart(){
-          showView(progress);
-        }
-        @Override public void onCompleted(        final UserModel[] res){
-          goneView(progress);
-          if (res.length == 0) {
-            new AlertDialog.Builder(AddContactActivity.this).setMessage(getString(R.string.alert_invite_text).replace("{0}",query)).setPositiveButton(R.string.alert_invite_yes,new DialogInterface.OnClickListener(){
-              @Override public void onClick(              DialogInterface dialogInterface,              int i){
-                String inviteMessage=getString(R.string.invite_message);
-                Intent sendIntent=new Intent(Intent.ACTION_VIEW);
-                sendIntent.setData(Uri.parse("sms:" + query));
-                sendIntent.putExtra("sms_body",inviteMessage);
-                startActivity(sendIntent);
-                finish();
-              }
-            }
-).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
-          }
- else {
-            ask(ContactsActor.contactsList().addContact(res[0].getId()),new UiAskCallback<Boolean>(){
-              @Override public void onPreStart(){
-              }
-              @Override public void onCompleted(              Boolean res2){
-                startActivity(Intents.openPrivateDialog(res[0].getId(),true,AddContactActivity.this));
-                finish();
-              }
-              @Override public void onError(              Throwable t){
-                startActivity(Intents.openPrivateDialog(res[0].getId(),true,AddContactActivity.this));
-                finish();
-              }
-            }
-);
-          }
-        }
-        @Override public void onError(        Throwable t){
-          t.printStackTrace();
-          goneView(progress);
-        }
-      }
-);
     }
   }
 );

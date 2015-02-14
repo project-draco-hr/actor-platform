@@ -1,7 +1,0 @@
-FileLocation location
-boolean isDownloaded
-int duration
-int w
-int h
-FastThumb fastThumb
-boolean isEncrypted

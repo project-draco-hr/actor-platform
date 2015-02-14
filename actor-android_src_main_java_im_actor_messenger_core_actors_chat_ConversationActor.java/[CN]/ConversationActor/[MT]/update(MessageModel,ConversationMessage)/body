@@ -1,4 +1,0 @@
-{
-  model.update(msg);
-  listEngine.addOrUpdateItem(model);
-}

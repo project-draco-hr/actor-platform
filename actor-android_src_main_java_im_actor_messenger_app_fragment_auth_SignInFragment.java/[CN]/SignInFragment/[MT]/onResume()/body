@@ -1,4 +1,6 @@
 {
   super.onResume();
   setTitle(R.string.auth_code_title);
+  keyboardHelper.setImeVisibility(smsCodeEnterEditText,true);
+  focus(smsCodeEnterEditText);
 }

@@ -1,0 +1,4 @@
+FileSource source
+String mimetype
+String name
+FastThumb fastThumb

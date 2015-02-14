@@ -1,9 +1,0 @@
-{
-  p=new Paint();
-  p.setStrokeWidth(6);
-  p.setStrokeCap(Paint.Cap.ROUND);
-  p.setAntiAlias(true);
-  p.setStyle(Paint.Style.STROKE);
-  p.setColor(Color.argb(255,colors[0][0],colors[0][1],colors[0][2]));
-  currentColor=Arrays.copyOf(colors[0],colors[0].length);
-}

@@ -1,4 +1,0 @@
-{
-  this.smsCode=smsCode;
-  trySave();
-}

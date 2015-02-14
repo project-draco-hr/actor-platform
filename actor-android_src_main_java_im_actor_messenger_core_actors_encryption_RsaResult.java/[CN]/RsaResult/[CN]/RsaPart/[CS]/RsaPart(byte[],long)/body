@@ -1,5 +1,0 @@
-{
-  this.encryptedData=encryptedData;
-  this.keyHash=keyHash;
-  this.isSuccessful=true;
-}

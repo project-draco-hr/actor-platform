@@ -8,5 +8,5 @@ ContentType messageType
 String text
 MessageState status
 int senderId
-long time
+long date
 int relatedUid

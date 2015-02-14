@@ -1,6 +1,0 @@
-{
-  UserModel user=users().get(uid);
-  if (user != null) {
-    users().put(uid,user.getRaw().removeKey(keyHash));
-  }
-}

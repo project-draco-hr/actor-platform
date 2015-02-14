@@ -1,8 +1,7 @@
 {
   super.onCreate(saveInstance);
   keyboardUtils=new KeyboardHelper(this);
-  chatType=getIntent().getExtras().getInt(Intents.EXTRA_CHAT_TYPE);
-  chatId=getIntent().getExtras().getInt(Intents.EXTRA_CHAT_ID);
+  peer=Peer.fromUid(getIntent().getExtras().getLong(Intents.EXTRA_CHAT_PEER));
   if (saveInstance != null) {
     isCompose=false;
   }
@@ -28,23 +27,21 @@
   getSupportActionBar().setCustomView(customView,layout);
   customView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      if (chatType == DialogType.TYPE_USER) {
-        startActivity(Intents.openProfile(chatId,ChatActivity.this));
+      if (peer.getPeerType() == PeerType.PRIVATE) {
+        startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
       }
- else       if (chatType == DialogType.TYPE_GROUP) {
-        startActivity(Intents.openGroup(chatId,ChatActivity.this));
+ else       if (peer.getPeerType() == PeerType.GROUP) {
       }
     }
   }
 );
   setContentView(R.layout.activity_dialog);
   getWindow().setBackgroundDrawable(null);
-  getFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(chatType,chatId)).commit();
+  getFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
   messageBody=(EditText)findViewById(R.id.et_message);
   messageBody.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
       if (after > count && !isTypingDisabled) {
-        MyTypingActor.myTyping().onType(chatType,chatId);
       }
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
@@ -111,7 +108,6 @@
     @Override public void onClick(    View v){
       new AlertDialog.Builder(ChatActivity.this).setMessage(R.string.alert_delete_group_title).setPositiveButton(R.string.alert_delete_group_yes,new DialogInterface.OnClickListener(){
         @Override public void onClick(        DialogInterface dialog,        int which){
-          groupUpdates().deleteChat(chatId);
         }
       }
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(false);
@@ -123,64 +119,6 @@
   audioMessage=(ImageView)findViewById(R.id.audioMessage);
   cancelView=findViewById(R.id.cancelSlide);
   recordTimer=(TextView)findViewById(R.id.recordTimer);
-  audioMessage.setOnTouchListener(new View.OnTouchListener(){
-    private int startX;
-    private boolean isActive=false;
-    private long recordStartTime;
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      if (event.getAction() == MotionEvent.ACTION_DOWN) {
-        system().actorOf(OpusRecorder.recorder()).send(new OpusRecorder.StartRecord());
-        startX=(int)event.getX();
-        audioMessage.setImageResource(R.drawable.conv_voice_pressed);
-        cancelView.setTranslationX(0);
-        recordingPanel.setVisibility(View.VISIBLE);
-        recordingPanel.setTranslationX(recordingPanel.getWidth());
-        recordingPanel.setAlpha(0);
-        recordingPanel.animate().translationX(0).alpha(1).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(150).start();
-        recordTimer.setText("00:00");
-        recordTimer.post(new Runnable(){
-          @Override public void run(){
-            if (isActive) {
-              recordTimer.setText(Formatter.duration((int)((SystemClock.uptimeMillis() - recordStartTime) / 1000)));
-              recordTimer.postDelayed(this,500);
-            }
-          }
-        }
-);
-        recordStartTime=SystemClock.uptimeMillis();
-        isActive=true;
-      }
- else       if (event.getAction() == MotionEvent.ACTION_MOVE) {
-        if (!isActive) {
-          return false;
-        }
-        int delta=(int)(startX - event.getX()) - Screen.dp(32);
-        if (delta < 0) {
-          delta=0;
-        }
-        if (delta > Screen.dp(180)) {
-          system().actorOf(OpusRecorder.recorder()).send(new OpusRecorder.AbortRecord());
-          audioMessage.setImageResource(R.drawable.conv_voice_normal);
-          recordingPanel.setVisibility(View.GONE);
-          isActive=false;
-        }
- else {
-          cancelView.setTranslationX(-delta);
-        }
-      }
- else       if (event.getAction() == MotionEvent.ACTION_UP) {
-        if (!isActive) {
-          return false;
-        }
-        system().actorOf(OpusRecorder.recorder()).send(new OpusRecorder.SendAudio(chatType,chatId));
-        audioMessage.setImageResource(R.drawable.conv_voice_normal);
-        recordingPanel.setVisibility(View.GONE);
-        isActive=false;
-      }
-      return true;
-    }
-  }
-);
   if (!BuildConfig.ENABLE_VOICE) {
     audioMessage.setVisibility(View.GONE);
     audioMessage.setEnabled(false);

@@ -1,6 +1,0 @@
-{
-  isDownloaded=values.optBool(1);
-  uploadPath=values.optString(2);
-  location=values.optObj(3,FileLocation.class);
-  isEncrypted=values.getBool(10,true);
-}

@@ -1,4 +1,0 @@
-int type
-int id
-String fileName
-boolean isEncrypted

@@ -1,3 +1,0 @@
-Future<T> future
-String progress
-UiAskCallback<T> callback

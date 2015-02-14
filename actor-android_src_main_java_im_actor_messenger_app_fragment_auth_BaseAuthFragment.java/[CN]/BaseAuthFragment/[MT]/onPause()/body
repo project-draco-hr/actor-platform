@@ -1,5 +1,0 @@
-{
-  super.onPause();
-  NotificationCenter.getInstance().removeListener(this);
-  hideError();
-}

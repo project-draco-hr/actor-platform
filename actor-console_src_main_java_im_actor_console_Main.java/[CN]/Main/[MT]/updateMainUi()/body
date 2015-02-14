@@ -23,7 +23,7 @@
   }
  else   if (messenger.getState() == State.CODE_VALIDATION) {
     String res=TextInputDialog.showTextInputBox(gui,"Validate Phone","Please, enter activation code","");
-    executeCommand(messenger.getAuth().sendCode(res),new CommandCallback<State>(){
+    executeCommand(messenger.getAuth().sendCode(Integer.parseInt(res)),new CommandCallback<State>(){
       @Override public void onResult(      State res){
         updateMainUi();
       }

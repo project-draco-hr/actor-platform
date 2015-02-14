@@ -1,7 +1,0 @@
-{
-  Logger.d(TAG,"App closed");
-  if (auth().isAuthorized()) {
-    MyPresenceActor.myPresence().send(new MyPresenceActor.OnAppClosed());
-    NotificationsActor.notifications().onAppClosed();
-  }
-}

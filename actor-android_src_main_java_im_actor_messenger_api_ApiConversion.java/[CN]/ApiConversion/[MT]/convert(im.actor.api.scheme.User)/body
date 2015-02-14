@@ -1,3 +1,0 @@
-{
-  return new User(u.getId(),u.getAccessHash(),u.getName(),u.getLocalName(),ApiConversion.convert(u.getSex()),u.getKeyHashes(),u.getPhone(),ApiConversion.convert(u.getAvatar()));
-}

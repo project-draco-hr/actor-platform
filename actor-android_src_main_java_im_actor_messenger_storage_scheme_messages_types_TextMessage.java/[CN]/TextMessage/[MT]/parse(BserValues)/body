@@ -1,5 +1,0 @@
-{
-  text=values.getString(1);
-  formattedText=values.getString(2);
-  isEncrypted=values.getBool(10,true);
-}

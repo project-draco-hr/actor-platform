@@ -1,7 +1,0 @@
-{
-  if (surface == null) {
-    throw new NullPointerException();
-  }
-  mSurface=surface;
-  eglSetup();
-}

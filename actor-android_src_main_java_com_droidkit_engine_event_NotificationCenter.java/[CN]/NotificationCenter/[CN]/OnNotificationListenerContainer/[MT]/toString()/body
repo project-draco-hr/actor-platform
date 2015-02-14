@@ -1,3 +1,0 @@
-{
-  return "OnNotificationListenerContainer{" + "eventType=" + eventType + ", eventId="+ eventId+ ", listener="+ listener+ '}';
-}

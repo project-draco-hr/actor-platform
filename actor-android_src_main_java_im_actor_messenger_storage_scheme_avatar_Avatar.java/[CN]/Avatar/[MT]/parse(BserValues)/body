@@ -1,5 +1,0 @@
-{
-  smallImage=values.optObj(FIELD_SMALL,AvatarImage.class);
-  largeImage=values.optObj(FIELD_LARGE,AvatarImage.class);
-  fullImage=values.optObj(FIELD_FULL,AvatarImage.class);
-}

@@ -1,3 +1,0 @@
-{
-  MediaSenderActor.mediaSender().cancelAll(chatType,chatId);
-}

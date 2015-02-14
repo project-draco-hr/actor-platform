@@ -1,8 +1,0 @@
-{
-  return new ActorSelection(Props.create(ConversationHistoryActor.class,new ActorCreator<ConversationHistoryActor>(){
-    @Override public ConversationHistoryActor create(){
-      return new ConversationHistoryActor(type,id);
-    }
-  }
-),"conv_history_" + type + "_"+ id);
-}

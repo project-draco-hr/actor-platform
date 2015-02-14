@@ -1,8 +1,0 @@
-{
-synchronized (holders) {
-    if (!holders.containsKey(gid)) {
-      holders.put(gid,new ValueModel<StateHolder>("avatar.group_" + gid,new StateHolder()));
-    }
-    return holders.get(gid);
-  }
-}

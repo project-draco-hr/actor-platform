@@ -1,5 +1,0 @@
-{
-  this.keyHash=keyHash;
-  this.isSuccessful=false;
-  this.encryptedData=null;
-}

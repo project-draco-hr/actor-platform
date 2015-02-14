@@ -1,4 +1,0 @@
-{
-  this.fileName=null;
-  this.state=State.NONE;
-}

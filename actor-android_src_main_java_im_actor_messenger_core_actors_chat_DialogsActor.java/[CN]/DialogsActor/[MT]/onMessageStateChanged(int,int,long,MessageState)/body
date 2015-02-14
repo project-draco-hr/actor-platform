@@ -1,8 +1,0 @@
-{
-  DialogItem item=listEngine.getValue(DialogUids.getDialogUid(type,id));
-  if (item != null) {
-    if (item.getRid() == rid) {
-      listEngine.addOrUpdateItem(new DialogItemBuilder(item).setStatus(messageState).createDialogItem());
-    }
-  }
-}

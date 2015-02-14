@@ -1,0 +1,15 @@
+{
+  writer.writeInt(1,peerId);
+switch (peerType) {
+default :
+case PRIVATE:
+    writer.writeInt(2,1);
+  break;
+case EMAIL:
+writer.writeInt(2,2);
+break;
+case GROUP:
+writer.writeInt(2,3);
+break;
+}
+}

@@ -1,0 +1,6 @@
+{
+  super.serialize(writer);
+  if (newAvatar != null) {
+    writer.writeObject(10,newAvatar);
+  }
+}

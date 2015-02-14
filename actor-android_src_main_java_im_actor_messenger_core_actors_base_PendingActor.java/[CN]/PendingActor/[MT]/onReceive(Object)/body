@@ -1,5 +1,0 @@
-{
-  if (message instanceof PerformAction) {
-    performAction(((PerformAction<T>)message).action);
-  }
-}

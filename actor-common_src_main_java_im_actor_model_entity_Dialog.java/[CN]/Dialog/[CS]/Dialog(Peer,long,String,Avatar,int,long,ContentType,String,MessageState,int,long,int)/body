@@ -4,9 +4,9 @@
   this.dialogAvatar=dialogAvatar;
   this.unreadCount=unreadCount;
   this.rid=rid;
-  this.sortKey=sortKey;
+  this.sortDate=sortKey;
   this.senderId=senderId;
-  this.time=time;
+  this.date=date;
   this.messageType=messageType;
   this.text=text;
   this.status=status;

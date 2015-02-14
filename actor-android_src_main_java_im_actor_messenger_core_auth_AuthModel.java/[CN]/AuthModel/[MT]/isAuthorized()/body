@@ -1,3 +1,0 @@
-{
-  return authProcessState.getStateId() == AuthProcessState.STATE_SIGNED;
-}

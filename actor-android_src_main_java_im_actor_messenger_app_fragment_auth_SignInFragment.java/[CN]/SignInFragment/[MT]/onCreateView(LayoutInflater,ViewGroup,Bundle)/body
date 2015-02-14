@@ -1,11 +1,9 @@
 {
   keyboardHelper=new KeyboardHelper(getActivity());
   View v=inflater.inflate(R.layout.fragment_sign_in,container,false);
-  progress=v.findViewById(R.id.progressContainer);
-  progress.setVisibility(View.GONE);
   ((TextView)v.findViewById(R.id.button_confirm_sms_code_text)).setTypeface(Fonts.medium());
   ((TextView)v.findViewById(R.id.button_edit_phone)).setTypeface(Fonts.medium());
-  String phoneNumber="+" + auth().getAuthProcessState().getPhoneNumber();
+  String phoneNumber="+" + auth().getPhone();
   try {
     Phonenumber.PhoneNumber number=PhoneNumberUtil.getInstance().parse(phoneNumber,null);
     phoneNumber=PhoneNumberUtil.getInstance().format(number,PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
@@ -48,6 +46,7 @@
       new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_code_change).setPositiveButton(R.string.auth_code_change_yes,new DialogInterface.OnClickListener(){
         @Override public void onClick(        DialogInterface dialog,        int which){
           auth().resetAuth();
+          updateState();
         }
       }
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);

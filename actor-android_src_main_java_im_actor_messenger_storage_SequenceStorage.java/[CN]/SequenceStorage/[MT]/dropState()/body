@@ -1,4 +1,0 @@
-{
-  state=new SequenceState(-1,new byte[0]);
-  writer.remove();
-}
