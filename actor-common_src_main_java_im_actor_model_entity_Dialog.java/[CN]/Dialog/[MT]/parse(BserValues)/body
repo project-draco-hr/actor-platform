@@ -10,16 +10,8 @@
   rid=values.getLong(6);
   senderId=values.getInt(7);
   date=values.getLong(8);
-switch (values.getInt(9)) {
-default :
-case 1:
-    messageType=ContentType.EMPTY;
-  break;
-case 2:
-messageType=ContentType.TEXT;
-break;
-}
-text=values.getString(10);
-status=MessageState.fromValue(values.getInt(11));
-relatedUid=values.getInt(12);
+  messageType=ContentType.fromValue(values.getInt(9));
+  text=values.getString(10);
+  status=MessageState.fromValue(values.getInt(11));
+  relatedUid=values.getInt(12);
 }

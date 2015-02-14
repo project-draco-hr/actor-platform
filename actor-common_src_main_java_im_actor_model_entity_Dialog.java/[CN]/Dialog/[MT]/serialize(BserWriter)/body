@@ -9,16 +9,8 @@
   writer.writeLong(6,rid);
   writer.writeInt(7,senderId);
   writer.writeLong(8,date);
-switch (messageType) {
-default :
-case EMPTY:
-    writer.writeInt(9,1);
-  break;
-case TEXT:
-writer.writeInt(9,2);
-break;
-}
-writer.writeString(10,text);
-writer.writeInt(11,status.getValue());
-writer.writeInt(12,relatedUid);
+  writer.writeInt(9,messageType.getValue());
+  writer.writeString(10,text);
+  writer.writeInt(11,status.getValue());
+  writer.writeInt(12,relatedUid);
 }

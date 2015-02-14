@@ -1,0 +1,33 @@
+{
+switch (value) {
+default :
+case 1:
+    return EMPTY;
+case 2:
+  return TEXT;
+case 3:
+return DOCUMENT;
+case 4:
+return DOCUMENT_PHOTO;
+case 5:
+return DOCUMENT_VIDEO;
+case 6:
+return SERVICE;
+case 7:
+return SERVICE_ADD;
+case 8:
+return SERVICE_KICK;
+case 9:
+return SERVICE_LEAVE;
+case 10:
+return SERVICE_REGISTERED;
+case 11:
+return SERVICE_CREATED;
+case 12:
+return SERVICE_TITLE;
+case 13:
+return SERVICE_AVATAR;
+case 14:
+return SERVICE_AVATAR_REMOVED;
+}
+}

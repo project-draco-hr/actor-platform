@@ -1,0 +1,9 @@
+{
+  String v=preference.getString(key,null);
+  if (v != null) {
+    return Base64.decode(v,Base64.DEFAULT);
+  }
+ else {
+    return null;
+  }
+}

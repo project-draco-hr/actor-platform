@@ -1,0 +1,3 @@
+{
+  preference.edit().putLong(key,v).commit();
+}

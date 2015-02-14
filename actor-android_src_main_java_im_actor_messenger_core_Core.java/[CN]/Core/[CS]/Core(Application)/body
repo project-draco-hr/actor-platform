@@ -38,6 +38,9 @@
     }
   }
 );
+  PropertiesProvider propertiesProvider=new PropertiesProvider();
+  configuration.setEnginesFactory(new AppEngineFactory());
+  configuration.setPreferencesStorage(propertiesProvider);
   configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint(BuildConfig.API_HOST,BuildConfig.API_PORT,BuildConfig.API_SSL ? ConnectionEndpoint.Type.TCP_TLS : ConnectionEndpoint.Type.TCP)}));
   this.messenger=new im.actor.model.Messenger(configuration);
 }

@@ -1,0 +1,3 @@
+{
+  preference.edit().putString(key,Base64.encodeToString(v,Base64.DEFAULT)).commit();
+}
