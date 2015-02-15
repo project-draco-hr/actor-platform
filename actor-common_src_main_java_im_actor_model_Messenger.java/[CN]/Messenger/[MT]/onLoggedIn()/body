@@ -3,6 +3,7 @@
   messages=new Messages(this);
   updates=new Updates(this);
   presence=new Presence(this);
+  typing=new Typing(this);
   messages.run();
   updates.run();
   presence.run();

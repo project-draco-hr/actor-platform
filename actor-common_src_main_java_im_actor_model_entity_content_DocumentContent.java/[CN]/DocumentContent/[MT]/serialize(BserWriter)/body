@@ -1,4 +1,5 @@
 {
+  super.serialize(writer);
   writer.writeBytes(2,source.toByteArray());
   writer.writeString(3,mimetype);
   writer.writeString(4,name);

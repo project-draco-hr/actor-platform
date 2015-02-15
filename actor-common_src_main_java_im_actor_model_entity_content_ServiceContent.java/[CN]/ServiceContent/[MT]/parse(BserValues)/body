@@ -1,3 +1,4 @@
 {
+  super.parse(values);
   compatText=values.getString(2);
 }

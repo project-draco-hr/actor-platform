@@ -1,0 +1,21 @@
+{
+  if (ActorTime.currentTime() - lastTypingTime < TYPING_DELAY) {
+    return;
+  }
+  lastTypingTime=ActorTime.currentTime();
+  OutPeer outPeer;
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    User user=getMessenger().getUsers().getValue(peer.getUid());
+    if (user == null) {
+      return;
+    }
+    outPeer=new OutPeer(im.actor.model.api.PeerType.PRIVATE,user.getUid(),user.getAccessHash());
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    return;
+  }
+ else {
+    return;
+  }
+  request(new RequestTyping(outPeer,0));
+}

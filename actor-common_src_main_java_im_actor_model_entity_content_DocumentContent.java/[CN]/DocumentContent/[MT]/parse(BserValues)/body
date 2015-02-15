@@ -1,4 +1,5 @@
 {
+  super.parse(values);
   source=FileSource.fromBytes(values.getBytes(2));
   mimetype=values.getString(3);
   name=values.getString(4);
