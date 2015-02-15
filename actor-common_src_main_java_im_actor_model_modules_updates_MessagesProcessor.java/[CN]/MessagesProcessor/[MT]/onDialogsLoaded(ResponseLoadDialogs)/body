@@ -3,8 +3,8 @@
   long maxLoadedDate=0;
   for (  im.actor.model.api.Dialog dialog : dialogsResponse.getDialogs()) {
     maxLoadedDate=Math.max(dialog.getSortDate(),maxLoadedDate);
-    Peer peer=EntityConverter.convert(dialog.getPeer());
-    AbsContent msgContent=convertContent(dialog.getMessage());
+    Peer peer=convert(dialog.getPeer());
+    AbsContent msgContent=convert(dialog.getMessage());
     if (msgContent == null) {
       continue;
     }

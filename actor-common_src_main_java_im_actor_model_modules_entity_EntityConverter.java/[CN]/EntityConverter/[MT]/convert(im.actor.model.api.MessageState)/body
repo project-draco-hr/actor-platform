@@ -1,6 +1,6 @@
 {
   if (state == null) {
-    return null;
+    return MessageState.UNKNOWN;
   }
 switch (state) {
 case READ:
@@ -9,6 +9,7 @@ case RECEIVED:
   return MessageState.RECEIVED;
 case SENT:
 return MessageState.SENT;
+default :
+return MessageState.UNKNOWN;
 }
-return null;
 }

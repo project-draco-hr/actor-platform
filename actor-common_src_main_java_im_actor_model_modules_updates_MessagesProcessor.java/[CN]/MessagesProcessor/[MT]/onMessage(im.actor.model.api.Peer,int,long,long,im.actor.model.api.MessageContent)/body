@@ -1,6 +1,6 @@
 {
-  Peer peer=EntityConverter.convert(_peer);
-  AbsContent msgContent=convertContent(content);
+  Peer peer=convert(_peer);
+  AbsContent msgContent=convert(content);
   if (msgContent == null) {
     return;
   }

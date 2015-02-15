@@ -1,0 +1,6 @@
+{
+  if (fastThumb == null) {
+    return null;
+  }
+  return new FastThumb(fastThumb.getW(),fastThumb.getH(),fastThumb.getThumb());
+}

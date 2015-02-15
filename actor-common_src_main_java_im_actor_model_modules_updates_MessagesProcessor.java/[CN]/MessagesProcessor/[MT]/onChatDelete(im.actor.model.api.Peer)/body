@@ -1,4 +1,4 @@
 {
-  Peer peer=EntityConverter.convert(_peer);
+  Peer peer=convert(_peer);
   messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.ChatDelete(peer));
 }
