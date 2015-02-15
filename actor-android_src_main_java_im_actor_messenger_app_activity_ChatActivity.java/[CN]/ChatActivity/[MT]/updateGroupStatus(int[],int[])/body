@@ -1,22 +1,22 @@
 {
   if (typings.length > 0) {
-    typing.setText(Formatter.formatTyping(typings));
-    showView(typingContainer);
-    hideView(subtitle);
+    barTyping.setText(Formatter.formatTyping(typings));
+    showView(barTypingContainer);
+    hideView(barSubtitle);
   }
  else {
     if (onlines.length == 1) {
       SpannableStringBuilder builder=new SpannableStringBuilder(getString(R.string.chat_group_members).replace("{0}",onlines[0] + ""));
       builder.setSpan(new ForegroundColorSpan(0xB7ffffff),0,builder.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-      subtitle.setText(builder);
+      barSubtitle.setText(builder);
     }
  else {
       SpannableStringBuilder builder=new SpannableStringBuilder(getString(R.string.chat_group_members).replace("{0}",onlines[0] + "") + ", ");
       builder.setSpan(new ForegroundColorSpan(0xB7ffffff),0,builder.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
       builder.append(getString(R.string.chat_group_members_online).replace("{0}",onlines[1] + ""));
-      subtitle.setText(builder);
+      barSubtitle.setText(builder);
     }
-    hideView(typingContainer);
-    showView(subtitle);
+    hideView(barTypingContainer);
+    showView(barSubtitle);
   }
 }

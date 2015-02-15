@@ -1,19 +1,19 @@
 {
   String s=Formatter.formatPresence(presence,users().get(peer.getPeerId()).getSex());
   if (s == null) {
-    subtitleContainer.setVisibility(View.GONE);
+    barSubtitleContainer.setVisibility(View.GONE);
   }
  else {
-    subtitleContainer.setVisibility(View.VISIBLE);
-    subtitle.setText(s);
+    barSubtitleContainer.setVisibility(View.VISIBLE);
+    barSubtitle.setText(s);
   }
   if (isTyping) {
-    typing.setText(R.string.typing_private);
-    showView(typingContainer);
-    hideView(subtitle);
+    barTyping.setText(R.string.typing_private);
+    showView(barTypingContainer);
+    hideView(barSubtitle);
   }
  else {
-    hideView(typingContainer);
-    showView(subtitle);
+    hideView(barTypingContainer);
+    showView(barSubtitle);
   }
 }

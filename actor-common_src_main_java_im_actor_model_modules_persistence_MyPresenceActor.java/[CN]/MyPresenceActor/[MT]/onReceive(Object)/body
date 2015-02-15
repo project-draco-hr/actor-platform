@@ -1,0 +1,14 @@
+{
+  if (message instanceof OnAppVisible) {
+    onAppVisible();
+  }
+ else   if (message instanceof OnAppHidden) {
+    onAppHidden();
+  }
+ else   if (message instanceof PerformOnline) {
+    performOnline();
+  }
+ else {
+    drop(message);
+  }
+}

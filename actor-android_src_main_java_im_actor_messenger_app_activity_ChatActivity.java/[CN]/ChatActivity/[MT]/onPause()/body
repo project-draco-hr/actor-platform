@@ -1,4 +1,5 @@
 {
   super.onPause();
-  keyboardUtils.setImeVisibility(messageBody,false);
+  messages.saveDraft(peer,messageBody.getText().toString());
+  messenger.onConversationClosed(peer);
 }

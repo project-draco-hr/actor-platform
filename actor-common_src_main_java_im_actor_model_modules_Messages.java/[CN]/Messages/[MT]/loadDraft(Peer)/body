@@ -1,0 +1,9 @@
+{
+  String res=messenger.getConfiguration().getPreferencesStorage().getString("draft_" + peer.getUid());
+  if (res == null) {
+    return "";
+  }
+ else {
+    return null;
+  }
+}

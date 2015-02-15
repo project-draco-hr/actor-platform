@@ -1,0 +1,4 @@
+{
+  isVisible=true;
+  self().sendOnce(new PerformOnline());
+}

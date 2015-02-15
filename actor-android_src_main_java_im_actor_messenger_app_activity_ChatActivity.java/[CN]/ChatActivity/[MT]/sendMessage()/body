@@ -7,4 +7,5 @@
   if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
     keyboardUtils.setImeVisibility(messageBody,false);
   }
+  messages.sendMessage(peer,new TextContent(text));
 }

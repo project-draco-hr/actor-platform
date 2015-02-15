@@ -1,0 +1,6 @@
+{
+  this.clazz=clazz;
+  this.selection=selection;
+  this.ref=system().actorOf(selection);
+  this.res=TypedCreator.typed(ref,clazz);
+}

@@ -2,6 +2,8 @@
   users=new Users(this);
   messages=new Messages(this);
   updates=new Updates(this);
+  presence=new Presence(this);
   messages.run();
   updates.run();
+  presence.run();
 }

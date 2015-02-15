@@ -1,0 +1,3 @@
+{
+  messenger.getConfiguration().getPreferencesStorage().putString("draft_" + peer.getUid(),draft.trim());
+}

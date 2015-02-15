@@ -1,14 +1,13 @@
 {
   super.onResume();
-  updateImeConfig();
   if (peer.getPeerType() == PeerType.PRIVATE) {
     final UserModel user=users().get(peer.getPeerId());
     if (user == null) {
       finish();
       return;
     }
-    avatar.setEmptyDrawable(AvatarDrawable.create(user,18,this));
-    getBinder().bindText(title,user.getNameModel());
+    barAvatar.setEmptyDrawable(AvatarDrawable.create(user,18,this));
+    getBinder().bindText(barTitle,user.getNameModel());
     getBinder().bind(user.getPresence(),new Listener<UserPresence>(){
       @Override public void onUpdated(      UserPresence presence){
         updateUserStatus(presence,TypingModel.privateChatTyping(user.getId()).getValue());
@@ -24,12 +23,19 @@
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
   }
-  int left=0;
-  int right=0;
-  title.setCompoundDrawablesWithIntrinsicBounds(left,0,right,0);
   if (isCompose) {
     messageBody.requestFocus();
     keyboardUtils.setImeVisibility(messageBody,true);
   }
   isCompose=false;
+  messenger().onConversationOpen(peer);
+  isTypingDisabled=true;
+  String text=messages.loadDraft(peer);
+  if (text != null) {
+    messageBody.setText(text);
+  }
+ else {
+    messageBody.setText("");
+  }
+  isTypingDisabled=false;
 }

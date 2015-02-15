@@ -1,0 +1,6 @@
+{
+  Logger.d(TAG,"App closed");
+  if (Core.messenger().getState() == State.LOGGED_IN) {
+    Core.messenger().onAppHidden();
+  }
+}

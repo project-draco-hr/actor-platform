@@ -1,0 +1,12 @@
+{
+  messenger.getActorApi().request(new RequestSetOnline(isVisible,TIMEOUT),new RpcCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid response){
+    }
+    @Override public void onError(    RpcException e){
+    }
+  }
+);
+  if (isVisible) {
+    self().sendOnce(new PerformOnline(),RESEND_TIMEOUT);
+  }
+}
