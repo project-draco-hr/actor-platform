@@ -1,0 +1,4 @@
+{
+  super(messenger);
+  onlineCallback=messenger.getConfiguration().getOnlineCallback();
+}

@@ -1,15 +1,21 @@
 {
   long oldKey;
 synchronized (envelopes) {
-    oldKey=getTopKey();
-    Iterator<ScheduledEnvelope> iterator=envelopes.iterator();
+    oldKey=topKey;
+    Iterator<Map.Entry<Long,ScheduledEnvelope>> iterator=envelopes.entrySet().iterator();
     while (iterator.hasNext()) {
-      if (comparator.equals(iterator.next().getEnvelope(),envelope)) {
+      if (comparator.equals(iterator.next().getValue().getEnvelope(),envelope)) {
         iterator.remove();
       }
     }
+    if (envelopes.isEmpty()) {
+      topKey=0;
+    }
+ else {
+      topKey=envelopes.firstKey();
+    }
   }
-  if (oldKey != envelopes.peek().getKey()) {
+  if (oldKey != topKey) {
     root.changedTopKey(this);
   }
 }

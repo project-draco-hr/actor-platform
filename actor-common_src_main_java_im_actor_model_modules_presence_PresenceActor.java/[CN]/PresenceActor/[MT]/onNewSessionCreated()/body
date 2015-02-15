@@ -1,0 +1,13 @@
+{
+  List<UserOutPeer> userPeers=new ArrayList<UserOutPeer>();
+  for (  int uid : uids) {
+    User user=getMessenger().getUsers().getValue(uid);
+    if (user == null) {
+      continue;
+    }
+    userPeers.add(new UserOutPeer(uid,user.getAccessHash()));
+  }
+  if (userPeers.size() > 0) {
+    request(new RequestSubscribeToOnline(userPeers));
+  }
+}

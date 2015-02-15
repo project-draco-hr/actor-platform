@@ -1,6 +1,6 @@
 {
 synchronized (envelopes) {
-    ScheduledEnvelope[] scheduledEnvelopes=envelopes.toArray(new ScheduledEnvelope[envelopes.size()]);
+    ScheduledEnvelope[] scheduledEnvelopes=envelopes.values().toArray(new ScheduledEnvelope[envelopes.size()]);
     Envelope[] res=new Envelope[scheduledEnvelopes.length];
     for (int i=0; i < res.length; i++) {
       res[i]=scheduledEnvelopes[i].getEnvelope();

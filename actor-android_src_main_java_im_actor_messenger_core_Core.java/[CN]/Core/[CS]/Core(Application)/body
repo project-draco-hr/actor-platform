@@ -39,6 +39,20 @@
   }
 );
   PropertiesProvider propertiesProvider=new PropertiesProvider();
+  configuration.setOnlineCallback(new OnlineCallback(){
+    @Override public void onUserOnline(    int uid){
+      users().get(uid).getPresence().change(new UserPresence(UserPresence.State.ONLINE,0));
+    }
+    @Override public void onUserOffline(    int uid){
+      users().get(uid).getPresence().change(new UserPresence(UserPresence.State.OFFLINE,0));
+    }
+    @Override public void onUserLastSeen(    int uid,    long lastSeen){
+      users().get(uid).getPresence().change(new UserPresence(UserPresence.State.OFFLINE,lastSeen));
+    }
+    @Override public void onGroupOnline(    int gid,    int count){
+    }
+  }
+);
   configuration.setEnginesFactory(new AppEngineFactory());
   configuration.setPreferencesStorage(propertiesProvider);
   configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint(BuildConfig.API_HOST,BuildConfig.API_PORT,BuildConfig.API_SSL ? ConnectionEndpoint.Type.TCP_TLS : ConnectionEndpoint.Type.TCP)}));

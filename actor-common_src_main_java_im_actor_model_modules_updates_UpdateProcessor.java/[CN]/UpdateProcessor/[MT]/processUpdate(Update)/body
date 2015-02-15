@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,update + "");
   if (update instanceof UpdateUserContactAdded) {
   }
  else   if (update instanceof UpdateUserContactRemoved) {
@@ -74,5 +75,21 @@
     if (!registered.isSilent()) {
       messagesProcessor.onUserRegistered(registered.getUid(),registered.getDate());
     }
+  }
+ else   if (update instanceof UpdateUserOnline) {
+    UpdateUserOnline userOnline=(UpdateUserOnline)update;
+    presenceProcessor.onUserOnline(userOnline.getUid());
+  }
+ else   if (update instanceof UpdateUserOffline) {
+    UpdateUserOffline offline=(UpdateUserOffline)update;
+    presenceProcessor.onUserOffline(offline.getUid());
+  }
+ else   if (update instanceof UpdateUserLastSeen) {
+    UpdateUserLastSeen lastSeen=(UpdateUserLastSeen)update;
+    presenceProcessor.onUserLastSeen(lastSeen.getUid(),lastSeen.getDate());
+  }
+ else   if (update instanceof UpdateGroupOnline) {
+    UpdateGroupOnline groupOnline=(UpdateGroupOnline)update;
+    presenceProcessor.onGroupOnline(groupOnline.getGroupId(),groupOnline.getCount());
   }
 }

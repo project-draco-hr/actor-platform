@@ -1,0 +1,6 @@
+{
+  if (onlineCallback != null) {
+    onlineCallback.onUserOnline(uid);
+  }
+  self().sendOnce(new UserOffline(uid),ONLINE_TIMEOUT);
+}

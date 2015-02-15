@@ -2,16 +2,17 @@
   long key=root.buildKey(time);
   long oldKey;
 synchronized (envelopes) {
-    oldKey=getTopKey();
-    Iterator<ScheduledEnvelope> iterator=envelopes.iterator();
+    oldKey=topKey;
+    Iterator<Map.Entry<Long,ScheduledEnvelope>> iterator=envelopes.entrySet().iterator();
     while (iterator.hasNext()) {
-      if (comparator.equals(iterator.next().getEnvelope(),envelope)) {
+      if (comparator.equals(iterator.next().getValue().getEnvelope(),envelope)) {
         iterator.remove();
       }
     }
-    envelopes.offer(new ScheduledEnvelope(key,time,envelope));
+    envelopes.put(key,new ScheduledEnvelope(key,time,envelope));
+    topKey=envelopes.firstKey();
   }
-  if (oldKey != getTopKey()) {
+  if (oldKey != topKey) {
     root.changedTopKey(this);
   }
   return key;

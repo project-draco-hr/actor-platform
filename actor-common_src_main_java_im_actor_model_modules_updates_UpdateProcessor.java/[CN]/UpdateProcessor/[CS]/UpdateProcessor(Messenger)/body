@@ -3,4 +3,5 @@
   this.usersProcessor=new UsersProcessor(messenger);
   this.messagesProcessor=new MessagesProcessor(messenger);
   this.groupsProcessor=new GroupsProcessor();
+  this.presenceProcessor=new PresenceProcessor(messenger);
 }
