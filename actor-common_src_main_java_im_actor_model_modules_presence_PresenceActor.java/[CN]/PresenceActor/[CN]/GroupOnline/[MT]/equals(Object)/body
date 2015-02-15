@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  GroupOnline that=(GroupOnline)o;
+  if (count != that.count)   return false;
+  if (gid != that.gid)   return false;
+  return true;
+}

@@ -27,6 +27,7 @@
  else   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
     messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());
+    typingProcessor.onMessage(message.getPeer(),message.getSenderUid());
   }
  else   if (update instanceof UpdateMessageRead) {
     UpdateMessageRead messageRead=(UpdateMessageRead)update;
@@ -49,6 +50,8 @@
     messagesProcessor.onMessageSent(messageSent.getPeer(),messageSent.getRid(),messageSent.getDate());
   }
  else   if (update instanceof UpdateEncryptedMessage) {
+    UpdateEncryptedMessage encryptedMessage=(UpdateEncryptedMessage)update;
+    typingProcessor.onMessage(encryptedMessage.getPeer(),encryptedMessage.getSenderUid());
   }
  else   if (update instanceof UpdateEncryptedRead) {
     UpdateEncryptedRead encryptedRead=(UpdateEncryptedRead)update;
@@ -91,5 +94,9 @@
  else   if (update instanceof UpdateGroupOnline) {
     UpdateGroupOnline groupOnline=(UpdateGroupOnline)update;
     presenceProcessor.onGroupOnline(groupOnline.getGroupId(),groupOnline.getCount());
+  }
+ else   if (update instanceof UpdateTyping) {
+    UpdateTyping typing=(UpdateTyping)update;
+    typingProcessor.onTyping(typing.getPeer(),typing.getUid(),typing.getTypingType());
   }
 }

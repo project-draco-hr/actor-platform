@@ -1,0 +1,8 @@
+{
+  if (typings.contains(uid)) {
+    typings.remove(uid);
+    if (callback != null) {
+      callback.onTypingEnd(uid);
+    }
+  }
+}

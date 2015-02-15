@@ -53,6 +53,18 @@
     }
   }
 );
+  configuration.setTypingCallback(new TypingCallback(){
+    @Override public void onTypingStart(    int uid){
+      TypingModel.privateChatTyping(uid).change(true);
+    }
+    @Override public void onTypingEnd(    int uid){
+      TypingModel.privateChatTyping(uid).change(false);
+    }
+    @Override public void onGroupTyping(    int gid,    int[] uids){
+      TypingModel.groupChatTyping(gid).change(uids);
+    }
+  }
+);
   configuration.setEnginesFactory(new AppEngineFactory());
   configuration.setPreferencesStorage(propertiesProvider);
   configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint(BuildConfig.API_HOST,BuildConfig.API_PORT,BuildConfig.API_SSL ? ConnectionEndpoint.Type.TCP_TLS : ConnectionEndpoint.Type.TCP)}));

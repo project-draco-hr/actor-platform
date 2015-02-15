@@ -1,0 +1,31 @@
+{
+  if (type != 0) {
+    return;
+  }
+  if (messenger.getUsers().getValue(uid) == null) {
+    return;
+  }
+  if (!groupTypings.containsKey(gid)) {
+    HashSet<Integer> set=new HashSet<Integer>();
+    set.add(uid);
+    groupTypings.put(gid,set);
+    if (callback != null) {
+      callback.onGroupTyping(gid,new int[]{uid});
+    }
+  }
+ else {
+    HashSet<Integer> src=groupTypings.get(gid);
+    if (!src.contains(uid)) {
+      src.add(uid);
+      Integer[] ids=src.toArray(new Integer[src.size()]);
+      int[] ids2=new int[ids.length];
+      for (int i=0; i < ids.length; i++) {
+        ids2[i]=ids[i];
+      }
+      if (callback != null) {
+        callback.onGroupTyping(gid,ids2);
+      }
+    }
+  }
+  self().sendOnce(new StopGroupTyping(gid,uid),TYPING_TEXT_TIMEOUT);
+}

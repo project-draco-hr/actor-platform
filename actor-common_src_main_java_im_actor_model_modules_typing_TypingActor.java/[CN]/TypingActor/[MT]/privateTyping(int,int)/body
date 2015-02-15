@@ -1,0 +1,15 @@
+{
+  if (type != 0) {
+    return;
+  }
+  if (messenger.getUsers().getValue(uid) == null) {
+    return;
+  }
+  if (!typings.contains(uid)) {
+    typings.add(uid);
+    if (callback != null) {
+      callback.onTypingStart(uid);
+    }
+  }
+  self().sendOnce(new StopTyping(uid),TYPING_TEXT_TIMEOUT);
+}

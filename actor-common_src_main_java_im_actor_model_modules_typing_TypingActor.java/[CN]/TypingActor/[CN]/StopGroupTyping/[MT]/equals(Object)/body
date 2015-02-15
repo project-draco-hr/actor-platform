@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  StopGroupTyping that=(StopGroupTyping)o;
+  if (gid != that.gid)   return false;
+  if (uid != that.uid)   return false;
+  return true;
+}

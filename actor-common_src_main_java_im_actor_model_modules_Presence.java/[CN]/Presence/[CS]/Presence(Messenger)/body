@@ -1,8 +1,8 @@
 {
   this.messenger=messenger;
-  this.myPresence=system().actorOf(Props.create(MyPresenceActor.class,new ActorCreator<MyPresenceActor>(){
-    @Override public MyPresenceActor create(){
-      return new MyPresenceActor(messenger);
+  this.myPresence=system().actorOf(Props.create(OwnPresenceActor.class,new ActorCreator<OwnPresenceActor>(){
+    @Override public OwnPresenceActor create(){
+      return new OwnPresenceActor(messenger);
     }
   }
 ),"actor/presence/own");

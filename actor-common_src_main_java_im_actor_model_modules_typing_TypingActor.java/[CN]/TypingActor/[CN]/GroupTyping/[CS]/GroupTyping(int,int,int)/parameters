@@ -1,0 +1,3 @@
+int gid
+int uid
+int type

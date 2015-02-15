@@ -4,5 +4,18 @@
       return new PresenceActor(messenger);
     }
   }
+,new MailboxCreator(){
+    @Override public Mailbox createMailbox(    MailboxesQueue queue){
+      return new Mailbox(queue){
+        @Override protected boolean isEqualEnvelope(        Envelope a,        Envelope b){
+          if (a.getMessage().equals(b.getMessage())) {
+            return true;
+          }
+          return super.isEqualEnvelope(a,b);
+        }
+      }
+;
+    }
+  }
 ),"actor/presence/users");
 }

@@ -1,0 +1,10 @@
+{
+  if (peer.getType() == PeerType.PRIVATE) {
+    typingActor.sendOnce(new TypingActor.StopTyping(uid));
+  }
+ else   if (peer.getType() == PeerType.GROUP) {
+    typingActor.sendOnce(new TypingActor.StopGroupTyping(peer.getId(),uid));
+  }
+ else {
+  }
+}

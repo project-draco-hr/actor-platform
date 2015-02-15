@@ -1,0 +1,5 @@
+{
+  int result=gid;
+  result=31 * result + count;
+  return result;
+}
