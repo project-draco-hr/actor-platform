@@ -1,3 +1,3 @@
 {
-  return new KeyValueProvider<User>(KeyValueEngines.usersEngine());
+  return new BoxerProvider<UserModel,User>(KeyValueEngines.users());
 }
