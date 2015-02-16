@@ -21,7 +21,7 @@
   this.imageLoader.getTaskResolver().register(VideoTask.class,VideoActor.class);
   this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
-  Configuration.Builder builder=new Configuration.Builder();
+  ConfigurationBuilder builder=new ConfigurationBuilder();
   builder.setThreading(new JavaThreading());
   builder.setNetworking(new JavaNetworking());
   builder.setMainThread(new AndroidMainThread());

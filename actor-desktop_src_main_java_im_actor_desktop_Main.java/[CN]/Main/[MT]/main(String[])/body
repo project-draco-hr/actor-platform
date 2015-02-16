@@ -14,7 +14,7 @@ catch (  IllegalAccessException e) {
 catch (  UnsupportedLookAndFeelException e) {
     e.printStackTrace();
   }
-  Configuration.Builder builder=new Configuration.Builder();
+  ConfigurationBuilder builder=new ConfigurationBuilder();
   builder.setThreading(new JavaThreading());
   builder.setNetworking(new JavaNetworking());
   builder.setLog(new JavaLog());
