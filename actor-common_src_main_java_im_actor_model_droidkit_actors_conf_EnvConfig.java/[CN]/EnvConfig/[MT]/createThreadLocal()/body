@@ -1,6 +1,0 @@
-{
-  if (javaFactory == null) {
-    throw new RuntimeException("EnvConfig not inited!");
-  }
-  return javaFactory.createThreadLocal();
-}

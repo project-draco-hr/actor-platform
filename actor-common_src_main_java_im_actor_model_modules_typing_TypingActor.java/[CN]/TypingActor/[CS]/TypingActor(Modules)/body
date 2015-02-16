@@ -1,4 +1,4 @@
 {
   super(messenger);
-  this.callback=messenger.getConfiguration().getTypingCallback();
+  this.callback=messenger.getConfiguration().getCallback();
 }

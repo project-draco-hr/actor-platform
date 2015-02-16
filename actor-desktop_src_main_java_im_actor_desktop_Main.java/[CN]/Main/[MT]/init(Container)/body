@@ -1,5 +1,5 @@
 {
-  if (messenger.getState() == State.AUTH_START) {
+  if (messenger.getAuthState() == AuthState.AUTH_START) {
     JPanel authPanel=linearLayout();
     authPanel.setPreferredSize(new Dimension(480,300));
     final JLabel title=new JLabel("Please, enter your phone number");
@@ -11,8 +11,8 @@
     replace(container,center(authPanel));
     button.addActionListener(new ActionListener(){
       @Override public void actionPerformed(      ActionEvent e){
-        execute(messenger.requestSms(Long.parseLong(textField.getText())),new CommandCallback<State>(){
-          @Override public void onResult(          State res){
+        execute(messenger.requestSms(Long.parseLong(textField.getText())),new CommandCallback<AuthState>(){
+          @Override public void onResult(          AuthState res){
             init(container);
           }
           @Override public void onError(          Exception e){
@@ -23,7 +23,7 @@
     }
 );
   }
- else   if (messenger.getState() == State.CODE_VALIDATION) {
+ else   if (messenger.getAuthState() == AuthState.CODE_VALIDATION) {
     JPanel authPanel=linearLayout();
     authPanel.setPreferredSize(new Dimension(480,300));
     final Label title=new Label("Activation code");
@@ -35,8 +35,8 @@
     replace(container,center(authPanel));
     button.addActionListener(new ActionListener(){
       @Override public void actionPerformed(      ActionEvent e){
-        execute(messenger.sendCode(Integer.parseInt(textField.getText())),new CommandCallback<State>(){
-          @Override public void onResult(          State res){
+        execute(messenger.sendCode(Integer.parseInt(textField.getText())),new CommandCallback<AuthState>(){
+          @Override public void onResult(          AuthState res){
             init(container);
           }
           @Override public void onError(          Exception e){
@@ -47,9 +47,9 @@
     }
 );
   }
- else   if (messenger.getState() == State.SIGN_UP) {
+ else   if (messenger.getAuthState() == AuthState.SIGN_UP) {
   }
- else   if (messenger.getState() == State.LOGGED_IN) {
+ else   if (messenger.getAuthState() == AuthState.LOGGED_IN) {
     new MainPanel(container,messenger);
   }
  else {

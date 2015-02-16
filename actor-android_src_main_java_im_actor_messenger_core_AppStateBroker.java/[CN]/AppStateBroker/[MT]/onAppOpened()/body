@@ -1,6 +1,6 @@
 {
   Logger.d(TAG,"App open");
-  if (Core.messenger().getState() == State.LOGGED_IN) {
+  if (Core.messenger().getAuthState() == AuthState.LOGGED_IN) {
     Core.messenger().onAppVisible();
   }
 }

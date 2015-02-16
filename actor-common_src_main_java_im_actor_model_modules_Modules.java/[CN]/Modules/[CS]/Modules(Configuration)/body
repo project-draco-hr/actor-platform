@@ -1,6 +1,7 @@
 {
   this.configuration=configuration;
-  this.actorApi=new ActorApi(configuration.getEndpoints(),new PreferenceApiStorage(configuration.getPreferencesStorage()),new ActorApiCallback(){
+  this.preferences=configuration.getStorage().createPreferencesStorage();
+  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallback(){
     @Override public void onAuthIdInvalidated(    long authKey){
     }
     @Override public void onNewSessionCreated(){
@@ -17,6 +18,6 @@
       }
     }
   }
-);
+,configuration.getNetworking());
   this.auth=new Auth(this);
 }

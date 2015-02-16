@@ -1,3 +1,5 @@
 {
+  Environment.setThreading(configuration.getThreading());
+  Log.setLog(configuration.getLog());
   this.modules=new Modules(configuration);
 }

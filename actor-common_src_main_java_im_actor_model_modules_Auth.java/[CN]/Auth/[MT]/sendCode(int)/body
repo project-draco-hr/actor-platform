@@ -1,16 +1,16 @@
 {
-  return new Command<State>(){
-    @Override public void start(    final CommandCallback<State> callback){
-      modules.getActorApi().request(new RequestSignIn(preferences.getLong(KEY_PHONE,0),preferences.getString(KEY_SMS_HASH),code + "",RandomUtils.seed(1024),deviceHash,"ActorLib",APP_ID,APP_KEY),new RpcCallback<ResponseAuth>(){
+  return new Command<AuthState>(){
+    @Override public void start(    final CommandCallback<AuthState> callback){
+      request(new RequestSignIn(preferences.getLong(KEY_PHONE,0),preferences.getString(KEY_SMS_HASH),code + "",RandomUtils.seed(1024),deviceHash,"ActorLib",APP_ID,APP_KEY),new RpcCallback<ResponseAuth>(){
         @Override public void onResult(        ResponseAuth response){
           preferences.putBool(KEY_AUTH,true);
-          state=State.LOGGED_IN;
+          state=AuthState.LOGGED_IN;
           myUid=response.getUser().getId();
           preferences.putInt(KEY_AUTH_UID,myUid);
-          modules.onLoggedIn();
-          mainThread.runOnUiThread(new Runnable(){
+          modules().onLoggedIn();
+          runOnUiThread(new Runnable(){
             @Override public void run(){
-              state=State.LOGGED_IN;
+              state=AuthState.LOGGED_IN;
               callback.onResult(state);
             }
           }
@@ -20,7 +20,7 @@
           if ("PHONE_CODE_EXPIRED".equals(e.getTag())) {
             resetAuth();
           }
-          mainThread.runOnUiThread(new Runnable(){
+          runOnUiThread(new Runnable(){
             @Override public void run(){
               callback.onError(e);
             }

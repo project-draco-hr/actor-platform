@@ -1,6 +1,5 @@
 {
-  this.modules=modules;
-  this.preferences=modules.getConfiguration().getPreferencesStorage();
+  super(modules);
   this.mainThread=modules.getConfiguration().getMainThread();
   this.myUid=preferences.getInt(KEY_AUTH_UID,0);
   deviceHash=preferences.getBytes(KEY_DEVICE_HASH);
@@ -9,10 +8,10 @@
     preferences.putBytes(KEY_DEVICE_HASH,deviceHash);
   }
   if (preferences.getBool(KEY_AUTH,false)) {
-    state=State.LOGGED_IN;
+    state=AuthState.LOGGED_IN;
     modules.onLoggedIn();
   }
  else {
-    state=State.AUTH_START;
+    state=AuthState.AUTH_START;
   }
 }

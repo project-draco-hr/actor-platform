@@ -1,0 +1,4 @@
+{
+  this.isMessagesPersisting=isMessagesPersisting;
+  return this;
+}

@@ -1,5 +1,5 @@
 {
-  if (messenger.getState() == State.AUTH_START) {
+  if (messenger.getAuthState() == AuthState.AUTH_START) {
     String res=TextInputDialog.showTextInputBox(gui,"Validate Phone","Please, set your phone number","");
     long phone;
     try {
@@ -10,8 +10,8 @@
       updateMainUi();
       return;
     }
-    executeCommand(messenger.getAuth().requestSms(phone),new CommandCallback<State>(){
-      @Override public void onResult(      State res){
+    executeCommand(messenger.getAuth().requestSms(phone),new CommandCallback<AuthState>(){
+      @Override public void onResult(      AuthState res){
         updateMainUi();
       }
       @Override public void onError(      Exception e){
@@ -21,10 +21,10 @@
     }
 );
   }
- else   if (messenger.getState() == State.CODE_VALIDATION) {
+ else   if (messenger.getAuthState() == AuthState.CODE_VALIDATION) {
     String res=TextInputDialog.showTextInputBox(gui,"Validate Phone","Please, enter activation code","");
-    executeCommand(messenger.getAuth().sendCode(Integer.parseInt(res)),new CommandCallback<State>(){
-      @Override public void onResult(      State res){
+    executeCommand(messenger.getAuth().sendCode(Integer.parseInt(res)),new CommandCallback<AuthState>(){
+      @Override public void onResult(      AuthState res){
         updateMainUi();
       }
       @Override public void onError(      Exception e){
@@ -34,10 +34,10 @@
     }
 );
   }
- else   if (messenger.getState() == State.SIGN_UP) {
+ else   if (messenger.getAuthState() == AuthState.SIGN_UP) {
     MessageBox.showMessageBox(gui,"Need signup","Please, perform signup on phone");
   }
- else   if (messenger.getState() == State.LOGGED_IN) {
+ else   if (messenger.getAuthState() == AuthState.LOGGED_IN) {
     gui.showWindow(new MainWindow(),GUIScreen.Position.FULL_SCREEN);
   }
 }

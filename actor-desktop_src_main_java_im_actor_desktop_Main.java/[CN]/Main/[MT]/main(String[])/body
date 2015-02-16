@@ -14,10 +14,14 @@ catch (  IllegalAccessException e) {
 catch (  UnsupportedLookAndFeelException e) {
     e.printStackTrace();
   }
-  JavaInit.init();
-  Configuration configuration=new Configuration();
-  configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint("mtproto-api.actor.im",8080,ConnectionEndpoint.Type.TCP)}));
-  configuration.setEnginesFactory(new EnginesFactory(){
+  Configuration.Builder builder=new Configuration.Builder();
+  builder.setThreading(new JavaThreading());
+  builder.setNetworking(new JavaNetworking());
+  builder.setLog(new JavaLog());
+  builder.setStorage(new Storage(){
+    @Override public PreferencesStorage createPreferencesStorage(){
+      return new MemoryPreferences();
+    }
     @Override public KeyValueEngine<User> createUsersEngine(){
       return new MemoryKeyValueEngine<User>();
     }
@@ -32,7 +36,25 @@ catch (  UnsupportedLookAndFeelException e) {
     }
   }
 );
-  messenger=new Messenger(configuration);
+  builder.setCallback(new MessengerCallback(){
+    @Override public void onUserOnline(    int uid){
+    }
+    @Override public void onUserOffline(    int uid){
+    }
+    @Override public void onUserLastSeen(    int uid,    long lastSeen){
+    }
+    @Override public void onGroupOnline(    int gid,    int count){
+    }
+    @Override public void onTypingStart(    int uid){
+    }
+    @Override public void onTypingEnd(    int uid){
+    }
+    @Override public void onGroupTyping(    int gid,    int[] uids){
+    }
+  }
+);
+  builder.addEndpoint("tcp://mtproto-api.actor.im:8080");
+  messenger=new Messenger(builder.build());
   JFrame frame=new JFrame("Actor Messenger");
   frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
   frame.setSize(740,600);

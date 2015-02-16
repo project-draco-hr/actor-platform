@@ -1,0 +1,69 @@
+{
+  dismissProgress();
+  progressDialog=new ProgressDialog(this);
+  progressDialog.setCanceledOnTouchOutside(false);
+  progressDialog.setCancelable(false);
+  progressDialog.setTitle("Loading...");
+  progressDialog.show();
+  command.start(new CommandCallback<AuthState>(){
+    @Override public void onResult(    final AuthState res){
+      dismissProgress();
+      updateState(res);
+    }
+    @Override public void onError(    final Exception e){
+      dismissProgress();
+      boolean canTryAgain=false;
+      String message=getString(R.string.error_unknown);
+      if (e instanceof RpcException) {
+        RpcException re=(RpcException)e;
+        if (re instanceof RpcInternalException) {
+          message=getString(R.string.error_unknown);
+          canTryAgain=true;
+        }
+ else         if (re instanceof RpcTimeoutException) {
+          message=getString(R.string.error_connection);
+          canTryAgain=true;
+        }
+ else {
+          if ("PHONE_CODE_EXPIRED".equals(re.getTag())) {
+            message=getString(R.string.auth_error_code_expired);
+            canTryAgain=false;
+          }
+ else           if ("PHONE_CODE_INVALID".equals(re.getTag())) {
+            message=getString(R.string.auth_error_code_invalid);
+            canTryAgain=false;
+          }
+ else {
+            message=re.getMessage();
+            canTryAgain=re.isCanTryAgain();
+          }
+        }
+      }
+      if (canTryAgain) {
+        new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_try_again,new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            dismissAlert();
+            execute(command);
+          }
+        }
+).setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            dismissAlert();
+            updateState(messenger().getAuthState());
+          }
+        }
+).setCancelable(false).show().setCanceledOnTouchOutside(false);
+      }
+ else {
+        new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            dismissAlert();
+            updateState(messenger().getAuthState());
+          }
+        }
+).setCancelable(false).show().setCanceledOnTouchOutside(false);
+      }
+    }
+  }
+);
+}

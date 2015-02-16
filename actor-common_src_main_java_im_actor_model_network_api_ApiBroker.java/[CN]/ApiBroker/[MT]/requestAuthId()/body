@@ -1,6 +1,6 @@
 {
   Log.d(TAG,"Creating auth key...");
-  AuthIdRetriever.requestAuthId(endpoints,new AuthIdRetriever.AuthIdCallback(){
+  AuthIdRetriever.requestAuthId(endpoints,networking,new AuthIdRetriever.AuthIdCallback(){
     @Override public void onSuccess(    long authId){
       Log.d(TAG,"Key created");
       self().send(new InitMTProto(authId));

@@ -1,3 +1,3 @@
 {
-  apiBroker.send(new ApiBroker.PerformRequest(request,callback));
+  this.apiBroker.send(new ApiBroker.PerformRequest(request,callback));
 }

@@ -1,7 +1,7 @@
 {
   if (message instanceof SendMessage) {
     SendMessage sendMessage=(SendMessage)message;
-    sendMessage(sendMessage.peer,RandomUtils.nextRid(),EnvConfig.getJavaFactory().getCurrentTime(),sendMessage.content);
+    sendMessage(sendMessage.peer,RandomUtils.nextRid(),Environment.getCurrentTime(),sendMessage.content);
   }
  else   if (message instanceof MessageSent) {
   }

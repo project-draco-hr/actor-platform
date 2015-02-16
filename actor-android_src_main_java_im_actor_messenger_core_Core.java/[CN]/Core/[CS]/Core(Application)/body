@@ -2,14 +2,6 @@
   AppContext.setContext(application);
   Formatter.init(application);
   system().setClassLoader(AppContext.getContext().getClassLoader());
-  AndroidTrace.initTrace(system(),new Thread.UncaughtExceptionHandler(){
-    @Override public void uncaughtException(    Thread thread,    Throwable ex){
-      if (BuildConfig.REPORT_CRASHES) {
-      }
-    }
-  }
-);
-  system().addDispatcher("ui",new UiActorDispatcher("ui",system()));
   system().addDispatcher("db",1);
   system().addDispatcher("contacts",1);
   system().addDispatcher("file_encryption",1);
@@ -29,17 +21,12 @@
   this.imageLoader.getTaskResolver().register(VideoTask.class,VideoActor.class);
   this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
-  JavaInit.init();
-  im.actor.model.Configuration configuration=new im.actor.model.Configuration();
-  configuration.setMainThread(new MainThread(){
-    private Handler handler=new Handler(Looper.getMainLooper());
-    @Override public void runOnUiThread(    Runnable runnable){
-      handler.post(runnable);
-    }
-  }
-);
-  PropertiesProvider propertiesProvider=new PropertiesProvider();
-  configuration.setOnlineCallback(new OnlineCallback(){
+  Configuration.Builder builder=new Configuration.Builder();
+  builder.setThreading(new JavaThreading());
+  builder.setNetworking(new JavaNetworking());
+  builder.setMainThread(new AndroidMainThread());
+  builder.setLog(new AndroidLog());
+  builder.setCallback(new MessengerCallback(){
     @Override public void onUserOnline(    int uid){
       users().get(uid).getPresence().change(new UserPresence(UserPresence.State.ONLINE,0));
     }
@@ -51,9 +38,6 @@
     }
     @Override public void onGroupOnline(    int gid,    int count){
     }
-  }
-);
-  configuration.setTypingCallback(new TypingCallback(){
     @Override public void onTypingStart(    int uid){
       TypingModel.privateChatTyping(uid).change(true);
     }
@@ -65,8 +49,12 @@
     }
   }
 );
-  configuration.setEnginesFactory(new AppEngineFactory());
-  configuration.setPreferencesStorage(propertiesProvider);
-  configuration.setEndpoints(new Endpoints(new ConnectionEndpoint[]{new ConnectionEndpoint(BuildConfig.API_HOST,BuildConfig.API_PORT,BuildConfig.API_SSL ? ConnectionEndpoint.Type.TCP_TLS : ConnectionEndpoint.Type.TCP)}));
-  this.messenger=new im.actor.model.Messenger(configuration);
+  builder.setStorage(new AppEngineFactory());
+  if (BuildConfig.API_SSL) {
+    builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
+  }
+ else {
+    builder.addEndpoint("tcp://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
+  }
+  this.messenger=new im.actor.model.Messenger(builder.build());
 }

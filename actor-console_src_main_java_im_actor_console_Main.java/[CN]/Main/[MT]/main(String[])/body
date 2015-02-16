@@ -19,7 +19,7 @@
   }
 );
   configuration.setPreferencesStorage(new MapDbPreferences(db));
-  configuration.setEnginesFactory(new EnginesFactory(){
+  configuration.setEnginesFactory(new Storage(){
     @Override public KeyValueEngine<User> createUsersEngine(){
       return new MapDbKeyValueEngine<User>(DBMaker.newFileDB(new File("users.db")).make(),new MapDbKeyValueEngine.Serializer<User>(){
         @Override public byte[] serialize(        User user){

@@ -1,6 +1,6 @@
 {
   super.onResume();
-  if (messenger().getState() == State.LOGGED_IN) {
+  if (messenger().getAuthState() == AuthState.LOGGED_IN) {
     finish();
   }
 }
