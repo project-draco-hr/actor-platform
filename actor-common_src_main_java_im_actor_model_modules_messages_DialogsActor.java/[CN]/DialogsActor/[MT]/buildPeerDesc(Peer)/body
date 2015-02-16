@@ -1,7 +1,7 @@
 {
 switch (peer.getPeerType()) {
 case PRIVATE:
-    User u=messenger.getUsers().getValue(peer.getPeerId());
+    User u=getUser(peer.getPeerId());
   return new PeerDesc(u.getName(),u.getAvatar());
 default :
 return null;

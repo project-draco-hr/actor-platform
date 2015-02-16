@@ -1,11 +1,11 @@
 {
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
-      messenger.getActorApi().request(new RequestEditName(newName),new RpcCallback<ResponseSeq>(){
+      request(new RequestEditName(newName),new RpcCallback<ResponseSeq>(){
         @Override public void onResult(        ResponseSeq response){
-          SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateUserNameChanged.HEADER,new UpdateUserNameChanged(messenger.myUid(),newName).toByteArray());
-          messenger.getUpdatesModule().onUpdateReceived(update);
-          mainThread.runOnUiThread(new Runnable(){
+          SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateUserNameChanged.HEADER,new UpdateUserNameChanged(myUid(),newName).toByteArray());
+          updates().onUpdateReceived(update);
+          runOnUiThread(new Runnable(){
             @Override public void run(){
               callback.onResult(true);
             }
@@ -13,7 +13,7 @@
 );
         }
         @Override public void onError(        final RpcException e){
-          mainThread.runOnUiThread(new Runnable(){
+          runOnUiThread(new Runnable(){
             @Override public void run(){
               callback.onError(e);
             }

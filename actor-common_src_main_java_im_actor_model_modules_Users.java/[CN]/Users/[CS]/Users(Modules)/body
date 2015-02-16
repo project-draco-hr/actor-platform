@@ -1,0 +1,4 @@
+{
+  super(messenger);
+  this.users=messenger.getConfiguration().getEnginesFactory().createUsersEngine();
+}

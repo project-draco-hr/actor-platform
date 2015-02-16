@@ -5,7 +5,7 @@
   lastTypingTime=ActorTime.currentTime();
   OutPeer outPeer;
   if (peer.getPeerType() == PeerType.PRIVATE) {
-    User user=getMessenger().getUsers().getValue(peer.getUid());
+    User user=getUser(peer.getPeerId());
     if (user == null) {
       return;
     }

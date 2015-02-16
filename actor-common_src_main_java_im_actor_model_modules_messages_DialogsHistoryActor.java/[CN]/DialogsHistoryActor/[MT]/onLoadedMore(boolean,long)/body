@@ -7,6 +7,6 @@
     historyLoaded=false;
     historyMaxDate=maxLoadedDate;
   }
-  preferencesStorage.putBool("dialogs_history_loaded",historyLoaded);
-  preferencesStorage.putLong("dialogs_history_date",0);
+  preferences().putLong("dialogs_history_date",0);
+  preferences().putBool("dialogs_history_loaded",historyLoaded);
 }

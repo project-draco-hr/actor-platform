@@ -1,5 +1,0 @@
-{
-  this.messenger=messenger;
-  this.mainThread=messenger.getConfiguration().getMainThread();
-  this.users=messenger.getConfiguration().getEnginesFactory().createUsersEngine();
-}

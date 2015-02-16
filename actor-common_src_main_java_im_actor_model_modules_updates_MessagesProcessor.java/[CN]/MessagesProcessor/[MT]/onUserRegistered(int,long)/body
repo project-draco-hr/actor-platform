@@ -1,4 +1,4 @@
 {
   Message message=new Message(RandomUtils.nextRid(),date,date,uid,MessageState.UNKNOWN,new ServiceUserRegistered());
-  messenger.getMessagesModule().getConversationActor(Peer.user(uid)).send(message);
+  conversationActor(Peer.user(uid)).send(message);
 }

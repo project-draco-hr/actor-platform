@@ -1,6 +1,6 @@
 {
   im.actor.model.entity.Avatar avatar=EntityConverter.convert(_avatar);
-  User u=users.getValue(uid);
+  User u=users().getValue(uid);
   if (u != null) {
     if (u.getAvatar() == null && avatar == null) {
       return;
@@ -9,7 +9,7 @@
       return;
     }
     u=u.editAvatar(avatar);
-    users.addOrUpdateItem(u);
-    messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
+    users().addOrUpdateItem(u);
+    modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
   }
 }

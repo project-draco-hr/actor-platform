@@ -1,5 +1,5 @@
 {
   super.onPause();
-  messages.saveDraft(peer,messageBody.getText().toString());
+  messenger.saveDraft(peer,messageBody.getText().toString());
   messenger.onConversationClosed(peer);
 }

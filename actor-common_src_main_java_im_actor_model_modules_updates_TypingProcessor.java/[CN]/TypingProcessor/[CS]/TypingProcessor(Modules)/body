@@ -1,0 +1,4 @@
+{
+  super(modules);
+  this.typingActor=TypingActor.get(modules);
+}

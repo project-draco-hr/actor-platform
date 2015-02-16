@@ -3,7 +3,7 @@ synchronized (conversationActors) {
     if (!conversationActors.containsKey(peer)) {
       conversationActors.put(peer,system().actorOf(Props.create(ConversationActor.class,new ActorCreator<ConversationActor>(){
         @Override public ConversationActor create(){
-          return new ConversationActor(peer,messenger);
+          return new ConversationActor(peer,modules());
         }
       }
 ),"actor/conv_" + peer.getPeerType() + "_"+ peer.getPeerId()));

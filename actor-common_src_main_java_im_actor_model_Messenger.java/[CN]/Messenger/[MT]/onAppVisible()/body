@@ -1,5 +1,5 @@
 {
-  if (presence != null) {
-    presence.onAppVisible();
+  if (modules.getPresenceModule() != null) {
+    modules.getPresenceModule().onAppVisible();
   }
 }

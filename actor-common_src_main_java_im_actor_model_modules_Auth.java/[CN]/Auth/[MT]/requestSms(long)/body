@@ -1,7 +1,7 @@
 {
   return new Command<State>(){
     @Override public void start(    final CommandCallback<State> callback){
-      messenger.getActorApi().request(new RequestSendAuthCode(phone,APP_ID,APP_KEY),new RpcCallback<ResponseSendAuthCode>(){
+      modules.getActorApi().request(new RequestSendAuthCode(phone,APP_ID,APP_KEY),new RpcCallback<ResponseSendAuthCode>(){
         @Override public void onResult(        final ResponseSendAuthCode response){
           preferences.putLong(KEY_PHONE,phone);
           preferences.putString(KEY_SMS_HASH,response.getSmsHash());

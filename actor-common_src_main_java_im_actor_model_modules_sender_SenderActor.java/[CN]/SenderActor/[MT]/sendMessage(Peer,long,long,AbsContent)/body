@@ -2,7 +2,7 @@
   final OutPeer outPeer;
   final im.actor.model.api.Peer apiPeer;
   if (peer.getPeerType() == PeerType.PRIVATE) {
-    User user=getMessenger().getUsers().getValue(peer.getUid());
+    User user=getUser(peer.getPeerId());
     if (user == null) {
       return;
     }
@@ -19,10 +19,9 @@
  else {
     return;
   }
-  getMessenger().getMessagesModule().getConversationActor(peer).send(new Message(rid,time,time,getMessenger().myUid(),MessageState.PENDING,content));
+  modules().getMessagesModule().getConversationActor(peer).send(new Message(rid,time,time,myUid(),MessageState.PENDING,content));
   request(new RequestSendMessage(outPeer,rid,outContent),new RpcCallback<ResponseSeqDate>(){
     @Override public void onResult(    ResponseSeqDate response){
-      getMessenger().getUpdatesModule().onUpdateReceived(new UpdateMessageSent(apiPeer,rid,response.getDate()));
     }
     @Override public void onError(    RpcException e){
     }

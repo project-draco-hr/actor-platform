@@ -1,13 +1,13 @@
 {
   this.dialogsActor=system().actorOf(Props.create(DialogsActor.class,new ActorCreator<DialogsActor>(){
     @Override public DialogsActor create(){
-      return new DialogsActor(messenger);
+      return new DialogsActor(modules());
     }
   }
 ),"actor/dialogs");
   this.dialogsHistoryActor=system().actorOf(Props.create(DialogsHistoryActor.class,new ActorCreator<DialogsHistoryActor>(){
     @Override public DialogsHistoryActor create(){
-      return new DialogsHistoryActor(messenger);
+      return new DialogsHistoryActor(modules());
     }
   }
 ),"actor/dialogs/history");

@@ -1,6 +1,6 @@
 {
   for (  Integer uid : uids) {
-    if (users.getValue(uid) == null) {
+    if (users().getValue(uid) == null) {
       return false;
     }
   }

@@ -1,9 +1,0 @@
-{
-  this.ownTypingActor=system().actorOf(Props.create(OwnTypingActor.class,new ActorCreator<OwnTypingActor>(){
-    @Override public OwnTypingActor create(){
-      return new OwnTypingActor(messenger);
-    }
-  }
-),"actor/typing/own");
-  this.typingActor=TypingActor.get(messenger);
-}

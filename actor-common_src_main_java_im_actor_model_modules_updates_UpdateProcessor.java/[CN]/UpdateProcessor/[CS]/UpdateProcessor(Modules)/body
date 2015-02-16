@@ -1,0 +1,7 @@
+{
+  this.usersProcessor=new UsersProcessor(modules);
+  this.messagesProcessor=new MessagesProcessor(modules);
+  this.groupsProcessor=new GroupsProcessor();
+  this.presenceProcessor=new PresenceProcessor(modules);
+  this.typingProcessor=new TypingProcessor(modules);
+}

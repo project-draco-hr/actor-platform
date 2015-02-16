@@ -1,6 +1,5 @@
 {
-  preferencesStorage=messenger.getConfiguration().getPreferencesStorage();
-  historyMaxDate=preferencesStorage.getLong("dialogs_history_date",0);
-  historyLoaded=preferencesStorage.getBool("dialogs_history_loaded",false);
+  historyMaxDate=preferences().getLong("dialogs_history_date",0);
+  historyLoaded=preferences().getBool("dialogs_history_loaded",false);
   self().sendOnce(new LoadMore());
 }

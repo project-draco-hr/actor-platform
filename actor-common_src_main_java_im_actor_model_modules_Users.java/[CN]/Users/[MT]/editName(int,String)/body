@@ -3,7 +3,7 @@
     @Override public void start(    final CommandCallback<Boolean> callback){
       User user=getUsers().getValue(uid);
       if (user == null) {
-        mainThread.runOnUiThread(new Runnable(){
+        runOnUiThread(new Runnable(){
           @Override public void run(){
             callback.onError(new RpcInternalException());
           }
@@ -11,11 +11,11 @@
 );
         return;
       }
-      messenger.getActorApi().request(new RequestEditUserLocalName(user.getUid(),user.getAccessHash(),name),new RpcCallback<ResponseSeq>(){
+      request(new RequestEditUserLocalName(user.getUid(),user.getAccessHash(),name),new RpcCallback<ResponseSeq>(){
         @Override public void onResult(        ResponseSeq response){
           SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateUserLocalNameChanged.HEADER,new UpdateUserLocalNameChanged(uid,name).toByteArray());
-          messenger.getUpdatesModule().onUpdateReceived(update);
-          mainThread.runOnUiThread(new Runnable(){
+          updates().onUpdateReceived(update);
+          runOnUiThread(new Runnable(){
             @Override public void run(){
               callback.onResult(true);
             }
@@ -23,7 +23,7 @@
 );
         }
         @Override public void onError(        RpcException e){
-          mainThread.runOnUiThread(new Runnable(){
+          runOnUiThread(new Runnable(){
             @Override public void run(){
               callback.onError(new RpcInternalException());
             }

@@ -1,7 +1,7 @@
 {
   ArrayList<User> batch=new ArrayList<User>();
   for (  im.actor.model.api.User u : updated) {
-    User saved=users.getValue(u.getId());
+    User saved=users().getValue(u.getId());
     if (saved == null) {
       batch.add(EntityConverter.convert(u));
     }
@@ -9,11 +9,11 @@
       User upd=EntityConverter.convert(u);
       batch.add(upd);
       if (!upd.getName().equals(saved.getName()) || !equalsE(upd.getAvatar(),saved.getAvatar())) {
-        messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(upd));
+        modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(upd));
       }
     }
   }
   if (batch.size() > 0) {
-    users.addOrUpdateItems(batch);
+    users().addOrUpdateItems(batch);
   }
 }

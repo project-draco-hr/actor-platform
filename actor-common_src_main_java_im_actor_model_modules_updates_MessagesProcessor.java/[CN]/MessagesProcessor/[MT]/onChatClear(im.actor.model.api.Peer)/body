@@ -1,4 +1,4 @@
 {
   Peer peer=convert(_peer);
-  messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.ChatClear(peer));
+  dialogsActor().send(new DialogsActor.ChatClear(peer));
 }

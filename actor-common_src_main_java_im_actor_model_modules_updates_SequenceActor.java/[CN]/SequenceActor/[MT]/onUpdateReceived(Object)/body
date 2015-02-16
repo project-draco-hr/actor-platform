@@ -77,8 +77,8 @@
   }
   this.seq=seq;
   this.state=state;
-  preferencesStorage.putInt(KEY_SEQ,seq);
-  preferencesStorage.putBytes(KEY_STATE,state);
+  preferences().putInt(KEY_SEQ,seq);
+  preferences().putBytes(KEY_STATE,state);
   checkFuture();
   self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
 }

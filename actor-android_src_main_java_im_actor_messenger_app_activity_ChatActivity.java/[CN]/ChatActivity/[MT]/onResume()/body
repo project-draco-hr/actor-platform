@@ -30,7 +30,7 @@
   isCompose=false;
   messenger().onConversationOpen(peer);
   isTypingDisabled=true;
-  String text=messages.loadDraft(peer);
+  String text=messenger().loadDraft(peer);
   if (text != null) {
     messageBody.setText(text);
   }

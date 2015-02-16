@@ -17,7 +17,7 @@
 );
   sendConfirmCodeButton.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      auth().signUp(firstNameEditText.getText().toString().trim(),avatarPath,false);
+      messenger().signUp(firstNameEditText.getText().toString().trim(),avatarPath,false);
     }
   }
 );

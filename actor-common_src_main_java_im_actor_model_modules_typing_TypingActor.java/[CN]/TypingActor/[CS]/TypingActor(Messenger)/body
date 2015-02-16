@@ -1,4 +1,0 @@
-{
-  this.callback=messenger.getConfiguration().getTypingCallback();
-  this.messenger=messenger;
-}

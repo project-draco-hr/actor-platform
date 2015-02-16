@@ -1,5 +1,5 @@
 {
-  User u=users.getValue(uid);
+  User u=users().getValue(uid);
   if (u != null) {
     if (u.getLocalName() == null && name == null) {
       return;
@@ -8,7 +8,7 @@
       return;
     }
     u=u.editLocalName(name);
-    users.addOrUpdateItem(u);
-    messenger.getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
+    users().addOrUpdateItem(u);
+    modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
   }
 }

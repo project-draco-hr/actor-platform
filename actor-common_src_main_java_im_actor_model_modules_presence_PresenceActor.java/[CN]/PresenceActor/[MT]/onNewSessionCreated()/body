@@ -1,7 +1,7 @@
 {
   List<UserOutPeer> userPeers=new ArrayList<UserOutPeer>();
   for (  int uid : uids) {
-    User user=getMessenger().getUsers().getValue(uid);
+    User user=getUser(uid);
     if (user == null) {
       continue;
     }

@@ -1,5 +1,0 @@
-{
-  super(updates.getMessenger());
-  this.messenger=updates.getMessenger();
-  this.preferencesStorage=updates.getMessenger().getConfiguration().getPreferencesStorage();
-}

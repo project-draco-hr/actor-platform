@@ -3,7 +3,7 @@
     if (uids.contains(peer.getPeerId())) {
       return;
     }
-    User user=getMessenger().getUsers().getValue(peer.getPeerId());
+    User user=getUser(peer.getPeerId());
     if (user == null) {
       return;
     }

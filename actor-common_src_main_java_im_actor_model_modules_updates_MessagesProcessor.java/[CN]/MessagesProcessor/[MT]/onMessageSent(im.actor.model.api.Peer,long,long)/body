@@ -1,4 +1,4 @@
 {
   Peer peer=convert(_peer);
-  messenger.getMessagesModule().getConversationActor(peer).send(new ConversationActor.MessageSent(rid,date));
+  conversationActor(peer).send(new ConversationActor.MessageSent(rid,date));
 }

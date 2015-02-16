@@ -4,7 +4,6 @@
   peer=Peer.fromUid(getIntent().getExtras().getLong(Intents.EXTRA_CHAT_PEER));
   isCompose=saveInstance == null && getIntent().getExtras().getBoolean(Intents.EXTRA_CHAT_COMPOSE,false);
   messenger=messenger();
-  messages=messenger.getMessagesModule();
   getSupportActionBar().setDisplayShowCustomEnabled(true);
   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   getSupportActionBar().setDisplayShowHomeEnabled(true);
