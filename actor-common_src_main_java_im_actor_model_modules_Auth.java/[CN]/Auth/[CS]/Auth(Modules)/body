@@ -1,13 +1,13 @@
 {
   super(modules);
   this.mainThread=modules.getConfiguration().getMainThread();
-  this.myUid=preferences.getInt(KEY_AUTH_UID,0);
-  deviceHash=preferences.getBytes(KEY_DEVICE_HASH);
+  this.myUid=preferences().getInt(KEY_AUTH_UID,0);
+  deviceHash=preferences().getBytes(KEY_DEVICE_HASH);
   if (deviceHash == null) {
     deviceHash=RandomUtils.seed(32);
-    preferences.putBytes(KEY_DEVICE_HASH,deviceHash);
+    preferences().putBytes(KEY_DEVICE_HASH,deviceHash);
   }
-  if (preferences.getBool(KEY_AUTH,false)) {
+  if (preferences().getBool(KEY_AUTH,false)) {
     state=AuthState.LOGGED_IN;
     modules.onLoggedIn();
   }

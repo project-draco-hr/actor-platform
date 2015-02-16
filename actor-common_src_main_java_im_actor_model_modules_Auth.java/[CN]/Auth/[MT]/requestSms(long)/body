@@ -3,8 +3,8 @@
     @Override public void start(    final CommandCallback<AuthState> callback){
       request(new RequestSendAuthCode(phone,APP_ID,APP_KEY),new RpcCallback<ResponseSendAuthCode>(){
         @Override public void onResult(        final ResponseSendAuthCode response){
-          preferences.putLong(KEY_PHONE,phone);
-          preferences.putString(KEY_SMS_HASH,response.getSmsHash());
+          preferences().putLong(KEY_PHONE,phone);
+          preferences().putString(KEY_SMS_HASH,response.getSmsHash());
           state=AuthState.CODE_VALIDATION;
           runOnUiThread(new Runnable(){
             @Override public void run(){
