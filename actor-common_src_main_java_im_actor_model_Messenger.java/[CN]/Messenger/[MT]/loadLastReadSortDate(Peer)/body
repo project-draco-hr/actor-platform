@@ -1,0 +1,9 @@
+{
+  ReadState state=modules.getMessagesModule().getReadStates().getValue(peer.getUid());
+  if (state == null) {
+    return 0;
+  }
+ else {
+    return state.getLastReadSortingDate();
+  }
+}
