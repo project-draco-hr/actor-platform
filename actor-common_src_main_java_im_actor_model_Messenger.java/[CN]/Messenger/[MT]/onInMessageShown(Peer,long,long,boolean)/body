@@ -1,0 +1,3 @@
+{
+  modules.getMessagesModule().onInMessageShown(peer,rid,sortDate,isEncrypted);
+}

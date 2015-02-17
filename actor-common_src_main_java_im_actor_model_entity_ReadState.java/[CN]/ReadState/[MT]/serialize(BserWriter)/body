@@ -1,0 +1,4 @@
+{
+  writer.writeLong(1,peer.getUid());
+  writer.writeLong(2,lastReadSortingDate);
+}

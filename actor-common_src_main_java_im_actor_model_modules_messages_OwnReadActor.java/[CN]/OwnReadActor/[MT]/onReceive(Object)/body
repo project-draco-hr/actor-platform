@@ -1,0 +1,25 @@
+{
+  if (message instanceof NewOutMessage) {
+    NewOutMessage outMessage=(NewOutMessage)message;
+    onNewOutMessage(outMessage.getPeer(),outMessage.getRid(),outMessage.getSortingDate(),outMessage.isEncrypted());
+  }
+ else   if (message instanceof NewMessage) {
+    NewMessage newMessage=(NewMessage)message;
+    onNewInMessage(newMessage.getPeer(),newMessage.getRid(),newMessage.getSortingDate(),newMessage.isEncrypted());
+  }
+ else   if (message instanceof MessageRead) {
+    MessageRead messageRead=(MessageRead)message;
+    onMessageRead(messageRead.getPeer(),messageRead.getRid(),messageRead.getSortingDate(),messageRead.isEncrypted());
+  }
+ else   if (message instanceof MessageReadByMe) {
+    MessageReadByMe readByMe=(MessageReadByMe)message;
+    onMessageReadByMe(readByMe.getPeer(),readByMe.getSortDate());
+  }
+ else   if (message instanceof MessageReadByMeEncrypted) {
+    MessageReadByMeEncrypted readByMeEncrypted=(MessageReadByMeEncrypted)message;
+    onMessageReadByMeEncrypted(readByMeEncrypted.getPeer(),readByMeEncrypted.getRid());
+  }
+ else {
+    drop(message);
+  }
+}

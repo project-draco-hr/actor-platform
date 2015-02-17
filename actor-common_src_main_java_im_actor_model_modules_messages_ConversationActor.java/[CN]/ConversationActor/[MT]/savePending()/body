@@ -1,0 +1,3 @@
+{
+  preferences().putBytes("conv_pending_" + peer.getUid(),messagesStorage.toByteArray());
+}

@@ -1,0 +1,7 @@
+{
+  for (  Peer peer : unreadMessages.keySet()) {
+    for (    UnreadMessage u : unreadMessages.get(peer)) {
+      writer.writeObject(1,u);
+    }
+  }
+}

@@ -4,6 +4,14 @@
   if (msgContent == null) {
     return;
   }
-  Message message=new Message(rid,date,date,senderUid,myUid() == senderUid ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  boolean isOut=myUid() == senderUid;
+  Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
   conversationActor(peer).send(message);
+  if (!isOut) {
+    ownReadActor().send(new OwnReadActor.NewMessage(peer,rid,date,false));
+    plainReceiveActor().send(new PlainReceiverActor.MarkReceived(peer,date));
+  }
+ else {
+    ownReadActor().send(new OwnReadActor.NewOutMessage(peer,rid,date,false));
+  }
 }

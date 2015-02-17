@@ -1,0 +1,13 @@
+{
+  ReadState state=readStates.getValue(peer.getUid());
+  if (state != null && sortingDate <= state.getLastReadSortingDate()) {
+    if (isEncrypted) {
+    }
+ else {
+    }
+  }
+  HashSet<UnreadMessage> unread=messagesStorage.getUnread(peer);
+  unread.add(new UnreadMessage(peer,rid,sortingDate,isEncrypted));
+  saveStorage();
+  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
+}

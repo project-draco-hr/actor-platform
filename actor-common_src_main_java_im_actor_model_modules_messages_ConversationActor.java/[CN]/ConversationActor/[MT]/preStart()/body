@@ -1,5 +1,14 @@
 {
   messages=messages(peer);
-  pendingMessages=modules().getConfiguration().getStorage().pendingMessages(peer);
+  messagesStorage=new PendingMessagesStorage();
+  byte[] data=preferences().getBytes("conv_pending_" + peer.getUid());
+  if (data != null) {
+    try {
+      messagesStorage=PendingMessagesStorage.fromBytes(data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
   dialogsActor=modules().getMessagesModule().getDialogsActor();
 }

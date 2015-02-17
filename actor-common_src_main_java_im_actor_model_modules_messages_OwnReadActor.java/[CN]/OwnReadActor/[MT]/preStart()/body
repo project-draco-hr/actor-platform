@@ -1,0 +1,14 @@
+{
+  super.preStart();
+  readStates=modules().getMessagesModule().getReadStates();
+  messagesStorage=new UnreadMessagesStorage();
+  byte[] st=preferences().getBytes("own_read_storage");
+  if (st != null) {
+    try {
+      messagesStorage=UnreadMessagesStorage.fromBytes(st);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

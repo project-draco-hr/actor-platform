@@ -1,0 +1,3 @@
+{
+  preferences().putBytes("own_read_storage",messagesStorage.toByteArray());
+}

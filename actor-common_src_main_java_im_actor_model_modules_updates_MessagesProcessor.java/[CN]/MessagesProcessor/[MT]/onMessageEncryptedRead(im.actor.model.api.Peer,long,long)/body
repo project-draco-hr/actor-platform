@@ -1,3 +1,4 @@
 {
   Peer peer=convert(_peer);
+  conversationActor(peer).send(new ConversationActor.MessageEncryptedRead(rid));
 }

@@ -1,5 +1,0 @@
-Peer peer
-long rid
-long sortDate
-long date
-boolean isEncrypted

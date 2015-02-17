@@ -1,0 +1,22 @@
+{
+  OutPeer outPeer;
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    User user=getUser(peer.getPeerId());
+    if (user == null) {
+      return;
+    }
+    outPeer=new OutPeer(im.actor.model.api.PeerType.PRIVATE,user.getUid(),user.getAccessHash());
+  }
+ else {
+    return;
+  }
+  request(new RequestMessageReceived(outPeer,date),new RpcCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid response){
+      onCompleted(peer,date);
+    }
+    @Override public void onError(    RpcException e){
+      PlainReceiverActor.this.onError(peer,date);
+    }
+  }
+);
+}

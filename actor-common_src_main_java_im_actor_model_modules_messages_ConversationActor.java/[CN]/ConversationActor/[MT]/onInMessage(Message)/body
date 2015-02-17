@@ -5,6 +5,7 @@
   messages.addOrUpdateItem(message);
   dialogsActor.send(new DialogsActor.InMessage(peer,message));
   if (message.getSenderId() == myUid()) {
-    pendingMessages.addOrUpdateItem(new PendingMessage(message.getRid(),message.getDate()));
+    messagesStorage.getMessages().add(new PendingMessage(message.getRid(),message.getDate()));
+    savePending();
   }
 }

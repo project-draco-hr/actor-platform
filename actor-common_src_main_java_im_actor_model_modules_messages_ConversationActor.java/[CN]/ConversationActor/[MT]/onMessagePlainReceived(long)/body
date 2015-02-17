@@ -1,5 +1,5 @@
 {
-  for (  PendingMessage p : pendingMessages.getAll()) {
+  for (  PendingMessage p : messagesStorage.getMessages()) {
     if (p.getDate() <= date) {
       Message msg=messages.getValue(p.getRid());
       if (msg != null && msg.getMessageState() == MessageState.SENT) {

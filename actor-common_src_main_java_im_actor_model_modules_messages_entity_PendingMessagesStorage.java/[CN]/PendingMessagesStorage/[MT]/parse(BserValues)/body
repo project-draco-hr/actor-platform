@@ -1,0 +1,9 @@
+{
+  messages.clear();
+  int count=values.getRepeatedCount(1);
+  List<PendingMessage> tmp=new ArrayList<PendingMessage>();
+  for (int i=0; i < count; i++) {
+    tmp.add(new PendingMessage());
+  }
+  messages.addAll(values.getRepeatedObj(1,tmp));
+}

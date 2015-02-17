@@ -1,0 +1,19 @@
+{
+  super.preStart();
+  plainCursorsStorage=new PlainCursorsStorage();
+  byte[] data=preferences().getBytes(preferenceName);
+  if (data != null) {
+    try {
+      plainCursorsStorage=PlainCursorsStorage.fromBytes(data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  for (  PlainCursor cursor : plainCursorsStorage.getAllCursors()) {
+    if (cursor.getSortDate() < cursor.getPendingSortDate()) {
+      inProgress.add(cursor.getPeer());
+      perform(cursor.getPeer(),cursor.getPendingSortDate());
+    }
+  }
+}
