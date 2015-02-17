@@ -1,0 +1,4 @@
+{
+  rid=values.getLong(1);
+  date=values.getLong(2);
+}

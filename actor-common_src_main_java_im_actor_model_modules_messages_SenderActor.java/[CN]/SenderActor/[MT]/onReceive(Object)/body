@@ -1,0 +1,17 @@
+{
+  if (message instanceof SendText) {
+    SendText sendText=(SendText)message;
+    doSendText(sendText.getPeer(),sendText.getText());
+  }
+ else   if (message instanceof MessageSent) {
+    MessageSent messageSent=(MessageSent)message;
+    onSent(messageSent.getPeer(),messageSent.getRid());
+  }
+ else   if (message instanceof MessageError) {
+    MessageError messageError=(MessageError)message;
+    onError(messageError.getPeer(),messageError.getRid());
+  }
+ else {
+    drop(message);
+  }
+}

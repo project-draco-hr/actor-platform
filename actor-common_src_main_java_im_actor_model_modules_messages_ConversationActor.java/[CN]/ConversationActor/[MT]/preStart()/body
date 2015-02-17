@@ -1,10 +1,10 @@
 {
   messages=messages(peer);
-  messagesStorage=new PendingMessagesStorage();
+  messagesStorage=new OutUnreadMessagesStorage();
   byte[] data=preferences().getBytes("conv_pending_" + peer.getUid());
   if (data != null) {
     try {
-      messagesStorage=PendingMessagesStorage.fromBytes(data);
+      messagesStorage=OutUnreadMessagesStorage.fromBytes(data);
     }
  catch (    IOException e) {
       e.printStackTrace();

@@ -2,6 +2,14 @@
   if (message instanceof Message) {
     onInMessage((Message)message);
   }
+ else   if (message instanceof MessageSent) {
+    MessageSent sent=(MessageSent)message;
+    onMessageSent(sent.getRid(),sent.getDate());
+  }
+ else   if (message instanceof MessageError) {
+    MessageError messageError=(MessageError)message;
+    onMessageError(messageError.getRid());
+  }
  else   if (message instanceof MessageRead) {
     onMessagePlainRead(((MessageRead)message).getDate());
   }

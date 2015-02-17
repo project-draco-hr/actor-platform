@@ -29,4 +29,10 @@
     }
   }
 ),"actor/plain/receive");
+  this.sendMessageActor=system().actorOf(Props.create(SenderActor.class,new ActorCreator<SenderActor>(){
+    @Override public SenderActor create(){
+      return new SenderActor(modules());
+    }
+  }
+),"actor/sender/small");
 }

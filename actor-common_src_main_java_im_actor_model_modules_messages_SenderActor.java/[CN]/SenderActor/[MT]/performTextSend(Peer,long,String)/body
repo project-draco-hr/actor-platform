@@ -1,0 +1,26 @@
+{
+  OutPeer outPeer;
+  final im.actor.model.api.Peer apiPeer;
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    User user=getUser(peer.getPeerId());
+    if (user == null) {
+      return;
+    }
+    outPeer=new OutPeer(im.actor.model.api.PeerType.PRIVATE,user.getUid(),user.getAccessHash());
+    apiPeer=new im.actor.model.api.Peer(im.actor.model.api.PeerType.PRIVATE,user.getUid());
+  }
+ else {
+    return;
+  }
+  request(new RequestSendMessage(outPeer,rid,new MessageContent(0x01,new TextMessage(text,0,new byte[0]).toByteArray())),new RpcCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate response){
+      self().send(new MessageSent(peer,rid));
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));
+    }
+    @Override public void onError(    RpcException e){
+      self().send(new MessageError(peer,rid));
+      getConversationActor(peer).send(new ConversationActor.MessageError(rid));
+    }
+  }
+);
+}

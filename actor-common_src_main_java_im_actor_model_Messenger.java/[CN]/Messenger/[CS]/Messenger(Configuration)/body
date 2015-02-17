@@ -1,5 +1,22 @@
 {
   Environment.setThreading(configuration.getThreading());
   Log.setLog(configuration.getLog());
+  ActorSystem.system().setTraceInterface(new TraceInterface(){
+    @Override public void onEnvelopeDelivered(    Envelope envelope){
+    }
+    @Override public void onEnvelopeProcessed(    Envelope envelope,    long duration){
+    }
+    @Override public void onDrop(    ActorRef sender,    Object message,    Actor actor){
+      Log.w("ACTOR_SYSTEM","Drop: " + message);
+    }
+    @Override public void onDeadLetter(    ActorRef receiver,    Object message){
+      Log.w("ACTOR_SYSTEM","Dead Letter: " + message);
+    }
+    @Override public void onActorDie(    ActorRef ref,    Exception e){
+      Log.w("ACTOR_SYSTEM","Die: " + e);
+      e.printStackTrace();
+    }
+  }
+);
   this.modules=new Modules(configuration);
 }

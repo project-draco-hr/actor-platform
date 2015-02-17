@@ -1,4 +1,5 @@
 {
-  rid=values.getLong(1);
-  date=values.getLong(2);
+  peer=Peer.fromUid(values.getLong(1));
+  rid=values.getLong(2);
+  content=AbsContent.contentFromBytes(values.getBytes(3));
 }

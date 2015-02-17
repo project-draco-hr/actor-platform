@@ -1,0 +1,7 @@
+{
+  Message msg=messages.getValue(rid);
+  if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
+    messages.addOrUpdateItem(msg.changeDate(date).changeState(MessageState.SENT));
+    dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.SENT));
+  }
+}

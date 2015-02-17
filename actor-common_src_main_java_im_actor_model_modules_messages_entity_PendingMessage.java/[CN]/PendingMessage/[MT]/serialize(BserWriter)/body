@@ -1,4 +1,5 @@
 {
-  writer.writeLong(1,rid);
-  writer.writeLong(2,date);
+  writer.writeLong(1,peer.getUid());
+  writer.writeLong(2,rid);
+  writer.writeBytes(3,content.toByteArray());
 }

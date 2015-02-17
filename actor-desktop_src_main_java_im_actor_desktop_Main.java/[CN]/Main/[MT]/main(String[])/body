@@ -31,8 +31,8 @@ catch (  UnsupportedLookAndFeelException e) {
     @Override public ListEngine<Message> createMessagesEngine(    Peer peer){
       return new SwingListEngine<Message>();
     }
-    @Override public KeyValueEngine<PendingMessage> pendingMessages(    Peer peer){
-      return new MemoryKeyValueEngine<PendingMessage>();
+    @Override public KeyValueEngine<OutUnreadMessage> pendingMessages(    Peer peer){
+      return new MemoryKeyValueEngine<OutUnreadMessage>();
     }
   }
 );

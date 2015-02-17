@@ -17,5 +17,5 @@
   if (endpoints.size() == 0) {
     throw new RuntimeException("Endpoints not set");
   }
-  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,callback,log);
+  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,callback,log,isUploadFilePersist);
 }

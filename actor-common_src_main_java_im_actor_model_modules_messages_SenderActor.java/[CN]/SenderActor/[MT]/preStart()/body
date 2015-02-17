@@ -1,0 +1,19 @@
+{
+  pendingMessages=new PendingMessagesStorage();
+  byte[] p=preferences().getBytes(PREFERENCES);
+  if (p != null) {
+    try {
+      pendingMessages=PendingMessagesStorage.fromBytes(p);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  for (  PendingMessage pending : pendingMessages.getPendingMessages()) {
+    if (pending.getContent() instanceof TextContent) {
+      performTextSend(pending.getPeer(),pending.getRid(),((TextContent)pending.getContent()).getText());
+    }
+ else {
+    }
+  }
+}
