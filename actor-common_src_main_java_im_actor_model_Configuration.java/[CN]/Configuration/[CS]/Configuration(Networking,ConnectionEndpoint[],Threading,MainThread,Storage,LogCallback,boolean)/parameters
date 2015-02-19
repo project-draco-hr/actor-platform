@@ -3,6 +3,5 @@ ConnectionEndpoint[] endpoints
 Threading threading
 MainThread mainThread
 Storage storage
-MessengerCallback callback
 LogCallback log
 boolean persistUploadingFiles

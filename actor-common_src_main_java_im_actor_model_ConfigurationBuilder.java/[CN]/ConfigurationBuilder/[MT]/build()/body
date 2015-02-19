@@ -8,14 +8,11 @@
   if (mainThread == null) {
     throw new RuntimeException("Main Thread is not set");
   }
-  if (callback == null) {
-    throw new RuntimeException("Callback is not set");
-  }
   if (enginesFactory == null) {
     throw new RuntimeException("Storage not set");
   }
   if (endpoints.size() == 0) {
     throw new RuntimeException("Endpoints not set");
   }
-  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,callback,log,isUploadFilePersist);
+  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,log,isUploadFilePersist);
 }

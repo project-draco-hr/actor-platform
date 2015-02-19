@@ -4,7 +4,6 @@
   this.threading=threading;
   this.mainThread=mainThread;
   this.storage=storage;
-  this.callback=callback;
   this.log=log;
   this.persistUploadingFiles=persistUploadingFiles;
 }
