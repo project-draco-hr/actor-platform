@@ -1,4 +1,0 @@
-{
-  setLayout(new BoxLayout(this,BoxLayout.LINE_AXIS));
-  setBorder(new EmptyBorder(8,8,8,8));
-}

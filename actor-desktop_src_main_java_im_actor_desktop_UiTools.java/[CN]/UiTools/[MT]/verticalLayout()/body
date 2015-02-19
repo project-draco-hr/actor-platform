@@ -1,7 +1,0 @@
-{
-  JPanel res=new JPanel();
-  res.setLayout(new BoxLayout(res,BoxLayout.Y_AXIS));
-  res.setBorder(null);
-  res.setOpaque(false);
-  return res;
-}

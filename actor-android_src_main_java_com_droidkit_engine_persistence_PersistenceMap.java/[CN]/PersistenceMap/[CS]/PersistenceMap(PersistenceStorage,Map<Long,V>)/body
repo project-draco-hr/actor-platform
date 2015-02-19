@@ -1,4 +1,0 @@
-{
-  this.storage=storage;
-  this.backedMap=backedMap;
-}

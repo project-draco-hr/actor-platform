@@ -1,8 +1,0 @@
-{
-  try {
-    return loadAllFromCursor(cursor);
-  }
-  finally {
-    cursor.close();
-  }
-}

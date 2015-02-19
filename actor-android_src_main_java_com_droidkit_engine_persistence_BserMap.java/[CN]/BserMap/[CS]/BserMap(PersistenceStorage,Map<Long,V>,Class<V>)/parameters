@@ -1,3 +1,0 @@
-PersistenceStorage storage
-Map<Long,V> backedMap
-Class<V> vClass

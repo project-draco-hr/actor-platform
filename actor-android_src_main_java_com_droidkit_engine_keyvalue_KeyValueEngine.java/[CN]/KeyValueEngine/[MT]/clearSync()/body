@@ -1,4 +1,0 @@
-{
-  inMemoryLruCache.evictAll();
-  storageAdapter.deleteAll();
-}

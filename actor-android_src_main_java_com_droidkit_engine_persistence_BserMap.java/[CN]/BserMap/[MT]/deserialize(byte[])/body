@@ -1,9 +1,0 @@
-{
-  try {
-    return Bser.parse(vClass,value);
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-    return null;
-  }
-}

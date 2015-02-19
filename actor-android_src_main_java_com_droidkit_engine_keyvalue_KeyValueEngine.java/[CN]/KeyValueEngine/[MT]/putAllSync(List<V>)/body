@@ -1,6 +1,0 @@
-{
-  for (  V v : values) {
-    inMemoryLruCache.put(dataAdapter.getId(v),v);
-  }
-  storageAdapter.insertOrReplaceBatch(values);
-}

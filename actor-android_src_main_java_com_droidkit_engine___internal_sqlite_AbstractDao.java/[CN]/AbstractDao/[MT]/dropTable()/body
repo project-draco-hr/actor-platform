@@ -1,4 +1,0 @@
-{
-  String sql="DROP TABLE " + "IF EXISTS " + "'" + tableName + "'";
-  db.execSQL(sql);
-}

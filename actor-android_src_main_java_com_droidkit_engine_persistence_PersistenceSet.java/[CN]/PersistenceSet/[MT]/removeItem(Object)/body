@@ -1,6 +1,0 @@
-{
-  Long id=mapping.remove(object);
-  if (id != null) {
-    persistenceMap.remove(id);
-  }
-}

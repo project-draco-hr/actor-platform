@@ -1,4 +1,0 @@
-{
-  V entity=readEntity(cursor);
-  return createDaoValue(cursor,entity);
-}

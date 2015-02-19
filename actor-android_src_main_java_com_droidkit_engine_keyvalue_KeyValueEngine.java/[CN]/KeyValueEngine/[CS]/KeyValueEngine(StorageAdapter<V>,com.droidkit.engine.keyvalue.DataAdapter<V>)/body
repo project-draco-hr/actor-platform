@@ -1,3 +1,0 @@
-{
-  this(storageAdapter,dataAdapter,DEFAULT_MEMORY_CACHE);
-}

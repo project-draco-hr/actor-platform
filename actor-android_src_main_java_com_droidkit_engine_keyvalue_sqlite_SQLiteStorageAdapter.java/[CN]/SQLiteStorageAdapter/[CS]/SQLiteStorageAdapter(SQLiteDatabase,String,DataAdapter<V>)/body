@@ -1,3 +1,0 @@
-{
-  dao=new KeyValueEngineDao<V>(name,database,adapter);
-}

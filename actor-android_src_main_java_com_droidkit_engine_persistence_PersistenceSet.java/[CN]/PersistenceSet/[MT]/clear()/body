@@ -1,4 +1,0 @@
-{
-  persistenceMap.clear();
-  backedSet.clear();
-}

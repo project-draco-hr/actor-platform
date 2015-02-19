@@ -1,3 +1,0 @@
-{
-  db.execSQL("DELETE FROM '" + tableName + "'");
-}

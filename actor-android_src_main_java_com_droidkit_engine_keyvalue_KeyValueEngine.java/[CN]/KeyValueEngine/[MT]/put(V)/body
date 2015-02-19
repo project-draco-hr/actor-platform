@@ -1,9 +1,0 @@
-{
-  inMemoryLruCache.put(dataAdapter.getId(value),value);
-  dbActor.send(new Runnable(){
-    @Override public void run(){
-      storageAdapter.insertOrReplaceSingle(value);
-    }
-  }
-);
-}

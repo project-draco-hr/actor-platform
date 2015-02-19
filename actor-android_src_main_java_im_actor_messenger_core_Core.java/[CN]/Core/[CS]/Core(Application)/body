@@ -26,18 +26,6 @@
   builder.setNetworking(new JavaNetworking());
   builder.setMainThread(new AndroidMainThread());
   builder.setLog(new AndroidLog());
-  builder.setCallback(new MessengerCallback(){
-    @Override public void onTypingStart(    int uid){
-      TypingModel.privateChatTyping(uid).change(true);
-    }
-    @Override public void onTypingEnd(    int uid){
-      TypingModel.privateChatTyping(uid).change(false);
-    }
-    @Override public void onGroupTyping(    int gid,    int[] uids){
-      TypingModel.groupChatTyping(gid).change(uids);
-    }
-  }
-);
   builder.setStorage(new AppEngineFactory());
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);

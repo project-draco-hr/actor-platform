@@ -1,4 +1,0 @@
-{
-  long id=cursor.getLong(0);
-  return new DaoValue<V>(0,id,0,v);
-}

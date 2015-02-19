@@ -1,4 +1,0 @@
-{
-  map.put(object,Boolean.TRUE);
-  return false;
-}

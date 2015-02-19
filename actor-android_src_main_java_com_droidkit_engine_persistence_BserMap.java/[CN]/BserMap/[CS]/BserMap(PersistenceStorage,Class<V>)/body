@@ -1,5 +1,0 @@
-{
-  super(storage);
-  this.vClass=vClass;
-  init();
-}

@@ -1,6 +1,0 @@
-{
-  if (getByIdStatement == null) {
-    getByIdStatement=String.format("SELECT ID,BYTES FROM '%s' WHERE ID=?",tablename);
-  }
-  return getByIdStatement;
-}

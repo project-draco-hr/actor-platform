@@ -1,7 +1,0 @@
-{
-  JPanel chatsPanel=new JPanel();
-  chatsPanel.setLayout(new GridLayout());
-  chatsPanel.add(panel);
-  chatsPanel.setOpaque(false);
-  return chatsPanel;
-}

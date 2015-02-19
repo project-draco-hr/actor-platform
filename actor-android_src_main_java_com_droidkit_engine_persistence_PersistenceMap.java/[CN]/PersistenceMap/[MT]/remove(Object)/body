@@ -1,6 +1,0 @@
-{
-  if (key != null && key instanceof Long) {
-    storage.remove((Long)key);
-  }
-  return backedMap.remove(key);
-}
