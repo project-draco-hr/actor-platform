@@ -33,7 +33,7 @@
 );
   setContentView(R.layout.activity_dialog);
   getWindow().setBackgroundDrawable(null);
-  getFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
+  getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
   messageBody=(EditText)findViewById(R.id.et_message);
   messageBody.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){

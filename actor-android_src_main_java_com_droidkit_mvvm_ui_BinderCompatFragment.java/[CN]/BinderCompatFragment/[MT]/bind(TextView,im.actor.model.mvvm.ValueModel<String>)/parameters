@@ -1,0 +1,2 @@
+TextView textView
+im.actor.model.mvvm.ValueModel<String> value

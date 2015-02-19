@@ -1,0 +1,12 @@
+{
+  checkDeleteStatement();
+  db.beginTransaction();
+  try {
+    deleteStatement.bindLong(1,id);
+    deleteStatement.execute();
+    db.setTransactionSuccessful();
+  }
+  finally {
+    db.endTransaction();
+  }
+}

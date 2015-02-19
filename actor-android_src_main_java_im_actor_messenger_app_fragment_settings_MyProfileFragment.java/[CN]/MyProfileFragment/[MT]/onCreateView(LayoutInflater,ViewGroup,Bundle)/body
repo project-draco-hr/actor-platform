@@ -1,9 +1,9 @@
 {
   View view=inflater.inflate(R.layout.fragment_settings,container,false);
   baseColor=getResources().getColor(R.color.primary);
-  final UserModel userModel=users().get(myUid());
+  final UserVM userModel=users().get(myUid());
   final TextView nameView=(TextView)view.findViewById(R.id.name);
-  getBinder().bindText(nameView,userModel.getNameModel());
+  bind(nameView,userModel.getName());
   TextView phoneView=(TextView)view.findViewById(R.id.phone);
   view.findViewById(R.id.notifications).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

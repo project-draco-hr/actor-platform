@@ -1,0 +1,2 @@
+AvatarView avatarView
+ValueModel<Avatar> avatar

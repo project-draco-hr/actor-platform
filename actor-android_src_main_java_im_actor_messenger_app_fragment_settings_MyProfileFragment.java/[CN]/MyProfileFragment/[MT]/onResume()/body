@@ -1,4 +1,4 @@
 {
   super.onResume();
-  bind(users().get(myUid()).getAvatar(),this);
+  bind(avatar,users().get(myUid()).getAvatar());
 }

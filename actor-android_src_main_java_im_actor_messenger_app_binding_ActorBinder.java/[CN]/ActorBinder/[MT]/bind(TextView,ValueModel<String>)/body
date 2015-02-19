@@ -1,0 +1,10 @@
+{
+  ValueChangedListener<String> listener=new ValueChangedListener<String>(){
+    @Override public void onChanged(    String val,    ValueModel<String> valueModel){
+      textView.setText(val);
+    }
+  }
+;
+  value.subscribe(listener);
+  bindings.add(new Binding(value,listener));
+}

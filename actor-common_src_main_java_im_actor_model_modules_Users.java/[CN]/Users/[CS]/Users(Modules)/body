@@ -1,4 +1,22 @@
 {
   super(messenger);
-  this.users=messenger.getConfiguration().getStorage().createUsersEngine();
+  this.collection=new MVVMCollection<User,UserVM>(messenger.getConfiguration().getStorage().createUsersEngine()){
+    @Override protected UserVM createNew(    User raw){
+      return new UserVM(raw);
+    }
+    @Override protected byte[] serialize(    User raw){
+      return raw.toByteArray();
+    }
+    @Override protected User deserialize(    byte[] raw){
+      try {
+        return User.fromBytes(raw);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        return null;
+      }
+    }
+  }
+;
+  this.users=collection.getEngine();
 }

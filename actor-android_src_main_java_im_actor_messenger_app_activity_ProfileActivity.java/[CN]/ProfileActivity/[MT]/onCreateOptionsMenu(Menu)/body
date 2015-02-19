@@ -2,6 +2,5 @@
   getMenuInflater().inflate(R.menu.profile_menu,menu);
   TelephonyManager tm=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
   menu.findItem(R.id.call).setVisible(tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE);
-  UserModel userModel=users().get(uid);
   return super.onCreateOptionsMenu(menu);
 }

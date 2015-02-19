@@ -26,17 +26,6 @@
   shadow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
   footer.addView(shadow);
   listView.addFooterView(footer,null,false);
-  getBinder().bind(progress,ContactsSyncState.getSyncState(),new Processor<View,Boolean>(){
-    @Override public void process(    View obj,    Boolean val){
-      if (val) {
-        showView(obj);
-      }
- else {
-        hideView(obj);
-      }
-    }
-  }
-);
   noContacts=res.findViewById(R.id.noContacts);
   res.findViewById(R.id.inviteButton).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

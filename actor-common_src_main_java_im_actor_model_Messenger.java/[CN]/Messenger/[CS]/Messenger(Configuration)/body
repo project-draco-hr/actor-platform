@@ -1,5 +1,6 @@
 {
   Environment.setThreading(configuration.getThreading());
+  MVVMEngine.init(configuration.getMainThread());
   Log.setLog(configuration.getLog());
   ActorSystem.system().setTraceInterface(new TraceInterface(){
     @Override public void onEnvelopeDelivered(    Envelope envelope){

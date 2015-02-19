@@ -5,12 +5,12 @@
   View res=inflater.inflate(R.layout.fragment_edit_name,container,false);
   nameEdit=(EditText)res.findViewById(R.id.nameEdit);
   if (type == EditNameActivity.TYPE_ME) {
-    UserModel userModel=users().get(myUid());
-    nameEdit.setText(userModel.getName());
+    UserVM userModel=users().get(myUid());
+    nameEdit.setText(userModel.getName().get());
   }
  else   if (type == EditNameActivity.TYPE_USER) {
-    UserModel userModel=users().get(id);
-    nameEdit.setText(userModel.getName());
+    UserVM userModel=users().get(id);
+    nameEdit.setText(userModel.getName().get());
   }
  else   if (type == EditNameActivity.TYPE_GROUP) {
   }

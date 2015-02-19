@@ -1,3 +1,0 @@
-{
-  boxer.put((int)item.getEngineId(),item);
-}

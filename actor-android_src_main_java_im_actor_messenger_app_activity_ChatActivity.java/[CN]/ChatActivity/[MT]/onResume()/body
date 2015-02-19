@@ -1,25 +1,12 @@
 {
   super.onResume();
   if (peer.getPeerType() == PeerType.PRIVATE) {
-    final UserModel user=users().get(peer.getPeerId());
+    final UserVM user=users().get(peer.getPeerId());
     if (user == null) {
       finish();
       return;
     }
     barAvatar.setEmptyDrawable(AvatarDrawable.create(user,18,this));
-    getBinder().bindText(barTitle,user.getNameModel());
-    getBinder().bind(user.getPresence(),new Listener<UserPresence>(){
-      @Override public void onUpdated(      UserPresence presence){
-        updateUserStatus(presence,TypingModel.privateChatTyping(user.getId()).getValue());
-      }
-    }
-);
-    getBinder().bind(TypingModel.privateChatTyping(user.getId()),new Listener<Boolean>(){
-      @Override public void onUpdated(      Boolean aBoolean){
-        updateUserStatus(user.getPresence().getValue(),aBoolean);
-      }
-    }
-);
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
   }

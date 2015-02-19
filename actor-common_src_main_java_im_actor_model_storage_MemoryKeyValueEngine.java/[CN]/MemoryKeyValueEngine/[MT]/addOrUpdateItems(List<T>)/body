@@ -1,5 +1,0 @@
-{
-  for (  T u : values) {
-    users.put(u.getEngineId(),u);
-  }
-}

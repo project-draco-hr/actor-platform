@@ -1,3 +1,0 @@
-{
-  return USERS.getEngine();
-}

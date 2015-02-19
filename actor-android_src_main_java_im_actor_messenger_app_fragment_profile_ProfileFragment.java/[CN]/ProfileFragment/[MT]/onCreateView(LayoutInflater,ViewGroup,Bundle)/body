@@ -1,23 +1,10 @@
 {
   final int uid=getArguments().getInt(EXTRA_UID);
-  final UserModel user=users().get(uid);
+  final UserVM user=users().get(uid);
   baseColor=getResources().getColor(R.color.primary);
   View res=inflater.inflate(R.layout.fragment_profile,container,false);
-  getBinder().bindText((TextView)res.findViewById(R.id.name),user.getNameModel());
+  bind((TextView)res.findViewById(R.id.name),user.getName());
   final TextView lastSeen=(TextView)res.findViewById(R.id.lastSeen);
-  getBinder().bind(user.getPresence(),new Listener<UserPresence>(){
-    @Override public void onUpdated(    UserPresence presence){
-      String s=Formatter.formatPresence(presence,user.getSex());
-      if (s != null) {
-        lastSeen.setVisibility(View.VISIBLE);
-        lastSeen.setText(s);
-      }
- else {
-        lastSeen.setVisibility(View.GONE);
-      }
-    }
-  }
-);
   res.findViewById(R.id.filesCont).setVisibility(View.GONE);
   res.findViewById(R.id.sharedDiv).setVisibility(View.GONE);
   res.findViewById(R.id.sharedTitle).setVisibility(View.GONE);

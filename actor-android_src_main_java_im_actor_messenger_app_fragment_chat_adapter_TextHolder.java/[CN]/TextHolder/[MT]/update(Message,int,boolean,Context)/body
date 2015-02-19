@@ -10,9 +10,9 @@
   }
   if (peer.getPeerType() == PeerType.GROUP && data.getSenderId() != myUid()) {
     String name;
-    UserModel userModel=users().get(data.getSenderId());
+    UserVM userModel=users().get(data.getSenderId());
     if (userModel != null) {
-      name=userModel.getName();
+      name=userModel.getName().get();
     }
  else {
       name="???";

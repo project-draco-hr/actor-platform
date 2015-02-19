@@ -1,7 +1,0 @@
-{
-  final BaseFragmentActivity a=getFragmentActivity();
-  if (a != null) {
-    this.showActionBarBackButton=showBackButton;
-    a.getActionBar().setDisplayHomeAsUpEnabled(showBackButton);
-  }
-}

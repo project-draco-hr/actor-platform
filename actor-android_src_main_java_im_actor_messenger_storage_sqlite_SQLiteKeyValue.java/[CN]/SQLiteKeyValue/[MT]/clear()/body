@@ -1,0 +1,10 @@
+{
+  db.beginTransaction();
+  try {
+    db.execSQL("DELETE FROM '" + name + "'");
+    db.setTransactionSuccessful();
+  }
+  finally {
+    db.endTransaction();
+  }
+}

@@ -1,8 +1,0 @@
-{
-  this.raw=user;
-  this.uid=user.getUid();
-  this.accessHash=user.getAccessHash();
-  this.name=new ValueModel<String>("users." + uid + ".name",raw.getName());
-  this.persistence=new ValueModel<UserPresence>("users." + uid + ".presence",new UserPresence(UserPresence.State.UNKNOWN));
-  this.avatar=new ValueModel<Avatar>("users." + uid + ".avatar",user.getAvatar());
-}

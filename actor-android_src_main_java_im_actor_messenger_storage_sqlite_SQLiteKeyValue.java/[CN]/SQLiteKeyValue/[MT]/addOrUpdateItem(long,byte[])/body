@@ -1,0 +1,13 @@
+{
+  checkInsertStatement();
+  db.beginTransaction();
+  try {
+    insertStatement.bindLong(1,id);
+    insertStatement.bindBlob(2,data);
+    insertStatement.executeInsert();
+    db.setTransactionSuccessful();
+  }
+  finally {
+    db.endTransaction();
+  }
+}

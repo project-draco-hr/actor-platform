@@ -7,9 +7,9 @@
       return getString(R.string.service_your);
     }
   }
-  UserModel u=users().get(uid);
+  UserVM u=users().get(uid);
   if (u != null) {
-    return u.getName();
+    return u.getName().get();
   }
  else {
     return "#" + uid;

@@ -1,8 +1,8 @@
 {
   if (uids.length == 1) {
-    UserModel u=users().get(uids[0]);
+    UserVM u=users().get(uids[0]);
     if (u != null) {
-      return AppContext.getContext().getString(R.string.typing_group).replace("{0}",u.getName());
+      return AppContext.getContext().getString(R.string.typing_group).replace("{0}",u.getName().get());
     }
  else {
       return AppContext.getContext().getString(R.string.typing_private);

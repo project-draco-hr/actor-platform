@@ -1,6 +1,0 @@
-{
-  final BaseFragmentActivity a=getFragmentActivity();
-  if (a != null) {
-    a.getActionBar().setTitle(title);
-  }
-}

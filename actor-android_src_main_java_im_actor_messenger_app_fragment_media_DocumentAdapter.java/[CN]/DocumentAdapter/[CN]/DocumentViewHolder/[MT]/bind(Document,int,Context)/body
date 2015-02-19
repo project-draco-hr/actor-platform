@@ -11,7 +11,7 @@
     subheaderCont.setVisibility(View.GONE);
   }
   titleView.setText(data.getFileName());
-  UserModel userModel=users().get(data.getSender());
+  UserVM userModel=users().get(data.getSender());
   if (userModel != null) {
     subtitleView.setText(Formatter.formatFileSize(data.getFileLocation().getFileSize()) + ", " + userModel.getName()+ ", "+ TextUtils.formatTime(data.getAddedTime()));
   }

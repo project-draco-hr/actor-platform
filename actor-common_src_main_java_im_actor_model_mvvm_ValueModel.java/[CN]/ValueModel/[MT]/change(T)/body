@@ -1,0 +1,7 @@
+{
+  if (this.value != null && value != null && value.equals(this.value)) {
+    return;
+  }
+  this.value=value;
+  notify(value);
+}

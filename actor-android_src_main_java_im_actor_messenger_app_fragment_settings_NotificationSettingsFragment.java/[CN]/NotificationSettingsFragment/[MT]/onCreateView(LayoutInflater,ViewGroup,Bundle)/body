@@ -1,16 +1,4 @@
 {
   View res=inflater.inflate(R.layout.fr_settings_notifications,container,false);
-  getBinder().bindChecked((CheckBox)res.findViewById(R.id.enableConversationTones),settings.inAppSoundValue());
-  getBinder().bindOnClick(res.findViewById(R.id.enableConversationTones),settings.inAppSoundValue());
-  getBinder().bindOnClick(res.findViewById(R.id.conversationTonesCont),settings.inAppSoundValue());
-  getBinder().bindChecked((CheckBox)res.findViewById(R.id.enableSound),settings.soundValue());
-  getBinder().bindOnClick(res.findViewById(R.id.enableSound),settings.soundValue());
-  getBinder().bindOnClick(res.findViewById(R.id.soundCont),settings.soundValue());
-  getBinder().bindChecked((CheckBox)res.findViewById(R.id.enableVibration),settings.vibrateValue());
-  getBinder().bindOnClick(res.findViewById(R.id.enableVibration),settings.vibrateValue());
-  getBinder().bindOnClick(res.findViewById(R.id.vibrationCont),settings.vibrateValue());
-  getBinder().bindChecked((CheckBox)res.findViewById(R.id.enableTitles),settings.showTitlesValue());
-  getBinder().bindOnClick(res.findViewById(R.id.enableTitles),settings.showTitlesValue());
-  getBinder().bindOnClick(res.findViewById(R.id.titlesCont),settings.showTitlesValue());
   return res;
 }

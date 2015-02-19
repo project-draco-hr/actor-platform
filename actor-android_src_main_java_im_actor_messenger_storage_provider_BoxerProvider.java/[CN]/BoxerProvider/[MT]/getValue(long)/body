@@ -1,3 +1,0 @@
-{
-  return boxer.load((int)id);
-}

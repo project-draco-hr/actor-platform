@@ -1,0 +1,5 @@
+{
+  cache.remove(id);
+  notifyRemove(new long[]{id});
+  collectionStorage.removeItem(id);
+}

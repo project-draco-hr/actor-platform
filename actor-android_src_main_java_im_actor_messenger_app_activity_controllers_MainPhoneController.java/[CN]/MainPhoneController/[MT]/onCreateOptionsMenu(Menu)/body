@@ -2,9 +2,12 @@
   getMenuInflater().inflate(R.menu.main,menu);
   MenuItem menuItem=menu.findItem(R.id.profile);
   final AvatarView avatarView=(AvatarView)menuItem.getActionView().findViewById(R.id.avatarView);
-  UserModel userModel=users().get(myUid());
-  if (userModel != null) {
-    avatarView.setEmptyDrawable(AvatarDrawable.create(userModel,18,getActivity()));
+  if (messenger().isLoggedIn()) {
+    UserVM userModel=users().get(myUid());
+    if (userModel != null) {
+      avatarView.setEmptyDrawable(AvatarDrawable.create(userModel,18,getActivity()));
+      getActivity().bind(avatarView,userModel.getAvatar());
+    }
   }
   menuItem.getActionView().setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

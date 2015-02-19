@@ -1,4 +1,0 @@
-{
-  this.databaseName=databaseName;
-  this.adapter=adapter;
-}

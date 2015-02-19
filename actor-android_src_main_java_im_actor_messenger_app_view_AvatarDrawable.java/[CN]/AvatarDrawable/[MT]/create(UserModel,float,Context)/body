@@ -1,3 +1,0 @@
-{
-  return new AvatarDrawable(userModel.getName(),userModel.getId(),fontSize,context);
-}

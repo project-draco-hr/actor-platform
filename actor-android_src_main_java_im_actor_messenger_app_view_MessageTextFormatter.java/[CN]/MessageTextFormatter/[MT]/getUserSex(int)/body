@@ -1,5 +1,5 @@
 {
-  UserModel u=users().get(uid);
+  UserVM u=users().get(uid);
   if (u != null) {
     return u.getSex();
   }

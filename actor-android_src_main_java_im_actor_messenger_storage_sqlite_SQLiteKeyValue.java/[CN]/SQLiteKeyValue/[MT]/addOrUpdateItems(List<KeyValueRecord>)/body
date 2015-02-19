@@ -1,0 +1,15 @@
+{
+  checkInsertStatement();
+  db.beginTransaction();
+  try {
+    for (    KeyValueRecord r : values) {
+      insertStatement.bindLong(1,r.getId());
+      insertStatement.bindBlob(2,r.getData());
+      insertStatement.executeInsert();
+    }
+    db.setTransactionSuccessful();
+  }
+  finally {
+    db.endTransaction();
+  }
+}

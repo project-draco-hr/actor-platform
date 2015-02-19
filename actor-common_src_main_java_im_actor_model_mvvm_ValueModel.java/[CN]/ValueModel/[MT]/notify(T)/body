@@ -1,0 +1,10 @@
+{
+  MVVMEngine.getMainThread().runOnUiThread(new Runnable(){
+    @Override public void run(){
+      for (      ValueChangedListener<T> listener : listeners.toArray(new ValueChangedListener[listeners.size()])) {
+        listener.onChanged(value,ValueModel.this);
+      }
+    }
+  }
+);
+}

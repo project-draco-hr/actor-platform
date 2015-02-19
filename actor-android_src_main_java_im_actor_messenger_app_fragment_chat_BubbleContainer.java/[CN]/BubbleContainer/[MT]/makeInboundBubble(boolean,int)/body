@@ -3,8 +3,8 @@
   this.showAvatar=showAvatar;
   if (showAvatar) {
     avatarView.setVisibility(VISIBLE);
-    UserModel u=users().get(uid);
-    avatarView.setEmptyDrawable(new AvatarDrawable(u.getName(),u.getId(),12,getContext()));
+    UserVM u=users().get(uid);
+    avatarView.setEmptyDrawable(new AvatarDrawable(u.getName().get(),u.getId(),12,getContext()));
     avatarView.setOnClickListener(new OnClickListener(){
       @Override public void onClick(      View v){
         if (onClickListener != null) {

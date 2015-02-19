@@ -1,9 +1,0 @@
-{
-  final Activity a=getActivity();
-  if (a == null || !(a instanceof BaseFragmentActivity)) {
-    return null;
-  }
- else {
-    return (BaseFragmentActivity)a;
-  }
-}
