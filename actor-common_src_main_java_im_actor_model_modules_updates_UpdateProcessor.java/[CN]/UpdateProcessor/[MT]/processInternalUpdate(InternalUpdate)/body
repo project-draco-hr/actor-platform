@@ -4,4 +4,10 @@
     applyRelated(dialogs.getUsers(),dialogs.getGroups(),null,false);
     messagesProcessor.onDialogsLoaded(dialogs);
   }
+ else   if (update instanceof LoggedIn) {
+    ArrayList<User> users=new ArrayList<User>();
+    users.add(((LoggedIn)update).getAuth().getUser());
+    applyRelated(users,new ArrayList<Group>(),((LoggedIn)update).getAuth().getContacts(),true);
+    modules.getConfiguration().getMainThread().runOnUiThread(((LoggedIn)update).getRunnable());
+  }
 }
