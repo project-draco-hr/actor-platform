@@ -7,6 +7,9 @@
       return;
     }
     barAvatar.setEmptyDrawable(AvatarDrawable.create(user,18,this));
+    bind(barAvatar,user.getAvatar());
+    bind(barTitle,user.getName());
+    bind(barSubtitle,barSubtitleContainer,user);
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
   }

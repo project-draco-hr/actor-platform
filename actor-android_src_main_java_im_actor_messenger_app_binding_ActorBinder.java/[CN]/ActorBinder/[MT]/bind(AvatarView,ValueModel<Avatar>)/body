@@ -1,5 +1,5 @@
 {
-  ValueChangedListener<Avatar> listener=new ValueChangedListener<Avatar>(){
+  bind(avatar,new ValueChangedListener<Avatar>(){
     @Override public void onChanged(    Avatar val,    ValueModel<Avatar> valueModel){
       if (val != null) {
         avatarView.bindAvatar(0,val);
@@ -9,7 +9,5 @@
       }
     }
   }
-;
-  avatar.subscribe(listener);
-  bindings.add(new Binding(avatar,listener));
+);
 }

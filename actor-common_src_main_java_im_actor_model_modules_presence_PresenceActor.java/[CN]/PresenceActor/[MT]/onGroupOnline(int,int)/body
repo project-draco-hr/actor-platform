@@ -1,5 +1,2 @@
 {
-  if (onlineCallback != null) {
-    onlineCallback.onGroupOnline(gid,count);
-  }
 }

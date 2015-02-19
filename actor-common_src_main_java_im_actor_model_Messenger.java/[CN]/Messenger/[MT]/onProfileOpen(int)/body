@@ -1,0 +1,3 @@
+{
+  modules.getPresenceModule().subscribe(Peer.user(uid));
+}

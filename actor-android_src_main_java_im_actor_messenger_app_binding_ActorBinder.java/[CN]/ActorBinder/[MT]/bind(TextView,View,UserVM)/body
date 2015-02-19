@@ -1,0 +1,16 @@
+{
+  bind(user.getPresence(),new ValueChangedListener<UserPresence>(){
+    @Override public void onChanged(    UserPresence val,    ValueModel<UserPresence> valueModel){
+      String s=Formatter.formatPresence(val,user.getSex());
+      if (s != null) {
+        container.setVisibility(View.VISIBLE);
+        textView.setText(s);
+      }
+ else {
+        container.setVisibility(View.GONE);
+        textView.setText("");
+      }
+    }
+  }
+);
+}
