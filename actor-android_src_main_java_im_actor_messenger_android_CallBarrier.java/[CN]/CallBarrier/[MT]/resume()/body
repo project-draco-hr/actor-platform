@@ -1,8 +1,0 @@
-{
-  checkUiThread();
-  isPaused=false;
-  for (  Runnable runnable : pendingRunnable) {
-    runnable.run();
-  }
-  pendingRunnable.clear();
-}

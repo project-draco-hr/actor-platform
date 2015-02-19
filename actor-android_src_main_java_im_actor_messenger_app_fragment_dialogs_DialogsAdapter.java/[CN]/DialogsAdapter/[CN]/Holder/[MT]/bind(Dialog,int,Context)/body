@@ -65,11 +65,9 @@
     bindedText="";
   }
   if (privateTypingListener != null) {
-    TypingModel.privateChatTyping(bindedUid).removeUiSubscriber(privateTypingListener);
     privateTypingListener=null;
   }
   if (groupTypingListener != null) {
-    TypingModel.groupChatTyping(bindedGid).removeUiSubscriber(groupTypingListener);
     groupTypingListener=null;
   }
   text.setText(bindedText);
@@ -89,7 +87,6 @@
       }
     }
 ;
-    TypingModel.privateChatTyping(bindedUid).addUiSubscriber(privateTypingListener);
   }
  else   if (data.getPeer().getPeerType() == PeerType.GROUP) {
     bindedGid=data.getPeer().getPeerId();
@@ -106,7 +103,6 @@
       }
     }
 ;
-    TypingModel.groupChatTyping(bindedGid).addUiSubscriber(groupTypingListener);
   }
  else {
     text.setText(bindedText);

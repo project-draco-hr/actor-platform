@@ -1,9 +1,0 @@
-{
-  checkUiThread();
-  if (isPaused) {
-    pendingRunnable.add(runnable);
-  }
- else {
-    runnable.run();
-  }
-}

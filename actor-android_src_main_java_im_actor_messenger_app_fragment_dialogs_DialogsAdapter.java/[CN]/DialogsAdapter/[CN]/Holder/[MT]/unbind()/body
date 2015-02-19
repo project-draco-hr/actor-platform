@@ -1,11 +1,9 @@
 {
   this.bindedItem=null;
   if (privateTypingListener != null) {
-    TypingModel.privateChatTyping(bindedUid).removeUiSubscriber(privateTypingListener);
     privateTypingListener=null;
   }
   if (groupTypingListener != null) {
-    TypingModel.groupChatTyping(bindedGid).removeUiSubscriber(groupTypingListener);
     groupTypingListener=null;
   }
   avatar.unbind();
