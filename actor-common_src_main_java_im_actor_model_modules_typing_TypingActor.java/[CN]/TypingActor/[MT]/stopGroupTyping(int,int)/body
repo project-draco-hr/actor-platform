@@ -10,8 +10,6 @@
     for (int i=0; i < ids.length; i++) {
       ids2[i]=ids[i];
     }
-    if (callback != null) {
-      callback.onGroupTyping(gid,ids2);
-    }
+    modules().getTypingModule().getGroupTyping(gid).getActive().change(ids2);
   }
 }

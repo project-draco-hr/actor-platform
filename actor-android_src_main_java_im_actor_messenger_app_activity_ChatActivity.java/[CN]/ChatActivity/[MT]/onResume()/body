@@ -10,6 +10,7 @@
     bind(barAvatar,user.getAvatar());
     bind(barTitle,user.getName());
     bind(barSubtitle,barSubtitleContainer,user);
+    bind(barTyping,barTypingContainer,barTitle,messenger().getTyping(user.getId()));
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
   }

@@ -7,9 +7,7 @@
   }
   if (!typings.contains(uid)) {
     typings.add(uid);
-    if (callback != null) {
-      callback.onTypingStart(uid);
-    }
+    modules().getTypingModule().getTyping(uid).getTyping().change(true);
   }
   self().sendOnce(new StopTyping(uid),TYPING_TEXT_TIMEOUT);
 }

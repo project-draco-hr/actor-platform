@@ -1,4 +1,3 @@
 {
   super(messenger);
-  this.callback=messenger.getConfiguration().getCallback();
 }

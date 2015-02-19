@@ -1,0 +1,3 @@
+{
+  return modules.getTypingModule().getTyping(uid);
+}

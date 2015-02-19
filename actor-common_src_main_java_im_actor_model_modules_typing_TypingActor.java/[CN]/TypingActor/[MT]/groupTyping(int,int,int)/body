@@ -9,9 +9,7 @@
     HashSet<Integer> set=new HashSet<Integer>();
     set.add(uid);
     groupTypings.put(gid,set);
-    if (callback != null) {
-      callback.onGroupTyping(gid,new int[]{uid});
-    }
+    modules().getTypingModule().getGroupTyping(gid).getActive().change(new int[uid]);
   }
  else {
     HashSet<Integer> src=groupTypings.get(gid);
@@ -22,9 +20,7 @@
       for (int i=0; i < ids.length; i++) {
         ids2[i]=ids[i];
       }
-      if (callback != null) {
-        callback.onGroupTyping(gid,ids2);
-      }
+      modules().getTypingModule().getGroupTyping(gid).getActive().change(ids2);
     }
   }
   self().sendOnce(new StopGroupTyping(gid,uid),TYPING_TEXT_TIMEOUT);
