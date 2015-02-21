@@ -1,0 +1,4 @@
+String name
+int threadsCount
+ThreadPriority priority
+ActorSystem actorSystem

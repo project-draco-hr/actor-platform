@@ -1,0 +1,6 @@
+{
+  if (map.containsKey(key)) {
+    return (byte[])map.get(key);
+  }
+  return null;
+}

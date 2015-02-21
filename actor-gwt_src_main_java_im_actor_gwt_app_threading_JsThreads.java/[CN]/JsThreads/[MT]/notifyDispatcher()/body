@@ -1,0 +1,7 @@
+{
+  if (!isSchedulled) {
+    timer.cancel();
+    Scheduler.get().scheduleIncremental(repeatingCommand);
+    isSchedulled=true;
+  }
+}

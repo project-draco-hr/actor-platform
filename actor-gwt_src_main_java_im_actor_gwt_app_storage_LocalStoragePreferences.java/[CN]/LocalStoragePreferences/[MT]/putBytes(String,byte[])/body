@@ -1,0 +1,3 @@
+{
+  storage.setItem(convertKey(key),Base64Utils.toBase64(v));
+}

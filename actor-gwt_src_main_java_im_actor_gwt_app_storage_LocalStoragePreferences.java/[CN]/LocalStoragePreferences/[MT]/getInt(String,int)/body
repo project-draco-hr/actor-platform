@@ -1,0 +1,9 @@
+{
+  String v=storage.getItem(convertKey(key));
+  if (v != null) {
+    return Integer.parseInt(v);
+  }
+ else {
+    return def;
+  }
+}

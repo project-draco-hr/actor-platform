@@ -1,0 +1,8 @@
+{
+  if (isLocalStorageSupported()) {
+    return new LocalStoragePreferences(storage);
+  }
+ else {
+    return new MemoryPreferences();
+  }
+}
