@@ -1,2 +1,4 @@
 {
+  ((Exporter)GWT.create(JsMessenger.class)).export();
+  onAppLoaded();
 }

@@ -1,0 +1,6 @@
+{
+  if (!isClosed) {
+    isClosed=true;
+    webSocket.close();
+  }
+}

@@ -1,2 +1,5 @@
 {
+  for (  KeyValueRecord r : values) {
+    addOrUpdateItem(r.getId(),r.getData());
+  }
 }

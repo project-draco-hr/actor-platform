@@ -1,0 +1,14 @@
+{
+  String url;
+  if (endpoint.getType() == ConnectionEndpoint.Type.WS) {
+    url="ws://" + endpoint.getHost() + ":"+ endpoint.getPort()+ "/";
+  }
+ else   if (endpoint.getType() == ConnectionEndpoint.Type.WS_TLS) {
+    url="wss://" + endpoint.getHost() + ":"+ endpoint.getPort()+ "/";
+  }
+ else {
+    createCallback.onConnectionCreateError();
+    return;
+  }
+  new WebSocketConnection(url,callback,createCallback);
+}

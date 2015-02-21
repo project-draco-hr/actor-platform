@@ -1,0 +1,23 @@
+{
+  try {
+    long res=Long.parseLong(phone);
+    messenger.requestSms(res).start(new CommandCallback<AuthState>(){
+      @Override public void onResult(      AuthState res){
+        callback.onResult(getAuthState());
+      }
+      @Override public void onError(      Exception e){
+        callback.onError("INTERNAL_ERROR","Internal error",false,getAuthState());
+      }
+    }
+);
+  }
+ catch (  Exception e) {
+    Log.e(TAG,e);
+    mainThread.runOnUiThread(new Runnable(){
+      @Override public void run(){
+        callback.onError("PHONE_NUMBER_INVALID","Invalid phone number",false,getAuthState());
+      }
+    }
+);
+  }
+}
