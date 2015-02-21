@@ -1,0 +1,13 @@
+{
+switch (state) {
+default :
+case AUTH_START:
+    return "start";
+case CODE_VALIDATION:
+  return "code";
+case SIGN_UP:
+return "signup";
+case LOGGED_IN:
+return "logged_in";
+}
+}
