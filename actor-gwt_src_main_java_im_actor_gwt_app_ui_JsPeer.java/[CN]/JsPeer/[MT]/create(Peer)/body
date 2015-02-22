@@ -1,0 +1,9 @@
+{
+switch (peer.getPeerType()) {
+default :
+case PRIVATE:
+    return create(0,peer.getPeerId());
+case GROUP:
+  return create(1,peer.getPeerId());
+}
+}

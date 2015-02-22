@@ -1,0 +1,9 @@
+{
+switch (getPeerType()) {
+case 0:
+default :
+    return Peer.user(getPeerId());
+case 1:
+  return Peer.group(getPeerId());
+}
+}

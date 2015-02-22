@@ -1,0 +1,3 @@
+{
+  messenger.onConversationOpen(peer.convert());
+}
