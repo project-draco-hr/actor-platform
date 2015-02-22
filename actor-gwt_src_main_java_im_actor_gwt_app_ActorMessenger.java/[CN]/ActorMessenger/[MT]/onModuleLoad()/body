@@ -1,4 +1,5 @@
 {
   ExporterUtil.exportAll();
+  GWT.create(JsDialogList.class);
   onAppLoaded();
 }

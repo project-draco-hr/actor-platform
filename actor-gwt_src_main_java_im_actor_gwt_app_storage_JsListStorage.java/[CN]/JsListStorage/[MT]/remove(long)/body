@@ -1,0 +1,13 @@
+{
+  boolean isRemoved=false;
+  for (  Index i : indexes) {
+    if (i.getId() == id) {
+      indexes.remove(i);
+      isRemoved=true;
+      break;
+    }
+  }
+  if (isRemoved) {
+    updateIndex();
+  }
+}

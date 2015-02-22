@@ -1,6 +1,6 @@
 {
-  ReadState state=readStates.getValue(peer.getUid());
-  if (state != null && sortingDate <= state.getLastReadSortingDate()) {
+  long readState=modules().getMessagesModule().loadReadState(peer);
+  if (sortingDate <= readState) {
     if (isEncrypted) {
     }
  else {

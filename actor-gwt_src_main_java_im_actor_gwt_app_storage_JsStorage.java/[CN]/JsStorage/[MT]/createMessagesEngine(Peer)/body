@@ -1,3 +1,17 @@
 {
-  return null;
+  return new JsListEngine<Message>("msg" + peer.getUid(),storage){
+    @Override protected byte[] serialize(    Message item){
+      return item.toByteArray();
+    }
+    @Override protected Message deserialize(    byte[] data){
+      try {
+        return Message.fromBytes(data);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        return null;
+      }
+    }
+  }
+;
 }

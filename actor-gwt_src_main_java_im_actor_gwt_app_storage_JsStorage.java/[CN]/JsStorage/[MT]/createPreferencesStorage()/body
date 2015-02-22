@@ -1,6 +1,6 @@
 {
   if (isLocalStorageSupported()) {
-    return new LocalStoragePreferences(storage);
+    return new JsPreferences(storage);
   }
  else {
     return new MemoryPreferences();

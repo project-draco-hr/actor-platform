@@ -1,0 +1,8 @@
+{
+  Log.d(TAG,"addOrUpdateItem");
+  cache.put(item.getListId(),item);
+  for (  JsListEngineCallback<V> callback : callbacks) {
+    callback.onItemAddedOrUpdated(item);
+  }
+  listStorage.addOrUpdateItem(item.getListId(),item.getListSortKey(),serialize(item));
+}

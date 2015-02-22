@@ -1,0 +1,8 @@
+{
+  JsArray<T> res=JavaScriptObject.createArray().cast();
+  long[] ids=engine.getOrderedIds();
+  for (  long l : ids) {
+    res.push(convert(engine.getValue(l)));
+  }
+  jsValues=res;
+}

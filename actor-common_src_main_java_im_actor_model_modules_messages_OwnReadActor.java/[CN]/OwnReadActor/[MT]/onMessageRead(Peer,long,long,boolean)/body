@@ -1,6 +1,6 @@
 {
-  ReadState readState=readStates.getValue(peer.getUid());
-  if (readState != null && sortingDate <= readState.getLastReadSortingDate()) {
+  long readState=modules().getMessagesModule().loadReadState(peer);
+  if (sortingDate <= readState) {
     return;
   }
   HashSet<UnreadMessage> unread=messagesStorage.getUnread(peer);
@@ -28,6 +28,6 @@
   if (maxPlainReadDate > 0) {
     modules().getMessagesModule().getPlainReadActor().send(new PlainReaderActor.MarkRead(peer,maxPlainReadDate));
   }
-  readStates.addOrUpdateItem(new ReadState(peer,sortingDate));
+  modules().getMessagesModule().saveReadState(peer,sortingDate);
   modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
 }

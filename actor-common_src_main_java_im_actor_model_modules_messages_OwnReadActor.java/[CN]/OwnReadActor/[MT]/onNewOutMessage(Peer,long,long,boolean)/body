@@ -12,6 +12,6 @@
   if (maxPlainReadDate > 0) {
     modules().getMessagesModule().getPlainReadActor().send(new PlainReaderActor.MarkRead(peer,maxPlainReadDate));
   }
-  readStates.addOrUpdateItem(new ReadState(peer,sortingDate));
+  modules().getMessagesModule().saveReadState(peer,sortingDate);
   modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,0));
 }

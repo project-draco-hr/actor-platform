@@ -1,6 +1,5 @@
 {
   super.preStart();
-  readStates=modules().getMessagesModule().getReadStates();
   messagesStorage=new UnreadMessagesStorage();
   byte[] st=preferences().getBytes("own_read_storage");
   if (st != null) {

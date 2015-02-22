@@ -1,0 +1,18 @@
+{
+  Collections.sort(indexes,new Comparator<Index>(){
+    @Override public int compare(    Index o1,    Index o2){
+      return -compare(o1.getSortKey(),o2.getSortKey());
+    }
+    int compare(    long x,    long y){
+      return (x < y) ? -1 : ((x == y) ? 0 : 1);
+    }
+  }
+);
+  storage.setItem(prefix + "_count","" + indexes.size());
+  DataOutput dataOutput=new DataOutput();
+  for (  Index i : indexes) {
+    dataOutput.writeLong(i.getId());
+    dataOutput.writeLong(i.getSortKey());
+  }
+  storage.setItem(prefix + "_index",Base64Utils.toBase64(dataOutput.toByteArray()));
+}

@@ -1,0 +1,4 @@
+int peerId
+int peerType
+String title
+String text

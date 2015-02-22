@@ -1,5 +1,4 @@
 {
   super(messenger);
   this.dialogs=messenger.getConfiguration().getStorage().createDialogsEngine();
-  this.readStates=messenger.getConfiguration().getStorage().createReadStateEngine();
 }
