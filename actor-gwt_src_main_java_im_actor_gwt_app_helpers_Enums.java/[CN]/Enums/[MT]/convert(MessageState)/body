@@ -1,0 +1,17 @@
+{
+switch (state) {
+default :
+case UNKNOWN:
+    return "unknown";
+case PENDING:
+  return "pending";
+case SENT:
+return "sent";
+case ERROR:
+return "error";
+case READ:
+return "read";
+case RECEIVED:
+return "received";
+}
+}

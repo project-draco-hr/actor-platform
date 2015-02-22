@@ -1,0 +1,4 @@
+{
+  int index=Math.abs(id) % 7;
+  return new String[]{"lblue","blue","purple","red","orange","yellow","green"}[index];
+}
