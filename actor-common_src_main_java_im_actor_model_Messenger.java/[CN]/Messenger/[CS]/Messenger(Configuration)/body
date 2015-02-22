@@ -20,4 +20,5 @@
   }
 );
   this.modules=new Modules(configuration);
+  this.modules.run();
 }

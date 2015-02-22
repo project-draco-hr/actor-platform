@@ -1,0 +1,3 @@
+String peerType
+int peerId
+String peerKey

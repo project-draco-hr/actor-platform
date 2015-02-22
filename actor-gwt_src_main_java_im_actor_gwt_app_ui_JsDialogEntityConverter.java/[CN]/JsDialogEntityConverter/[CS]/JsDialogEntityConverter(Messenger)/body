@@ -1,0 +1,4 @@
+{
+  this.messenger=messenger;
+  this.engine=messenger.getFormatter();
+}

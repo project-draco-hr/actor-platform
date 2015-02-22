@@ -1,0 +1,8 @@
+Networking networking
+ConnectionEndpoint[] endpoints
+Threading threading
+MainThread mainThread
+Storage storage
+LogCallback log
+boolean persistUploadingFiles
+LocaleProvider localeProvider

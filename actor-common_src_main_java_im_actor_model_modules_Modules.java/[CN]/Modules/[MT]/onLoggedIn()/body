@@ -4,6 +4,7 @@
   updates=new Updates(this);
   presence=new Presence(this);
   typing=new Typing(this);
+  filesModule=new FilesModule(this);
   messages.run();
   updates.run();
   presence.run();

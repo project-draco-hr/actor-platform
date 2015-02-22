@@ -1,0 +1,4 @@
+{
+  this.localeProvider=localeProvider;
+  return this;
+}

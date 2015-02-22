@@ -1,0 +1,5 @@
+{
+  LocaleBundle bundle=GWT.create(LocaleBundle.class);
+  applyFile(bundle.AppText().getText());
+  applyFile(bundle.Months().getText());
+}

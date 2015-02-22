@@ -1,0 +1,15 @@
+{
+  String fileName=locale.equals("En") ? name + ".properties" : name + locale + ".properties";
+  Properties properties=new Properties();
+  try {
+    properties.load(getClass().getClassLoader().getResourceAsStream(fileName));
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  for (  Object key : properties.keySet()) {
+    String sKey=(String)key;
+    String sValue=(String)properties.get(key);
+    items.put(sKey,sValue);
+  }
+}

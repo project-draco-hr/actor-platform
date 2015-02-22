@@ -1,9 +1,8 @@
 {
-switch (getPeerType()) {
-case 0:
-default :
+  if (getPeerType().equals("user")) {
     return Peer.user(getPeerId());
-case 1:
-  return Peer.group(getPeerId());
-}
+  }
+ else {
+    return Peer.group(getPeerId());
+  }
 }

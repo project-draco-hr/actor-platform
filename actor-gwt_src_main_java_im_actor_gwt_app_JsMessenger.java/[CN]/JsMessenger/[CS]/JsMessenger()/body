@@ -1,7 +1,7 @@
 {
   jsStorage=new JsStorage();
   mainThread=new JsMainThread();
-  Configuration configuration=new ConfigurationBuilder().setNetworking(new JsNetworking()).addEndpoint("wss://mtproto-api.actor.im:9082").setStorage(jsStorage).setThreading(new JsThreading()).setLog(new JsLog()).setMainThread(mainThread).setUploadFilePersist(false).build();
+  Configuration configuration=new ConfigurationBuilder().setNetworking(new JsNetworking()).addEndpoint("wss://mtproto-api.actor.im:9082").setStorage(jsStorage).setThreading(new JsThreading()).setLog(new JsLog()).setMainThread(mainThread).setUploadFilePersist(false).setLocale(new JsLocaleProvider()).build();
   messenger=new Messenger(configuration);
   Log.d(TAG,"JsMessenger created");
 }

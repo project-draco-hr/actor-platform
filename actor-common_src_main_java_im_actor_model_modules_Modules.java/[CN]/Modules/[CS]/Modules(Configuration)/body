@@ -1,5 +1,6 @@
 {
   this.configuration=configuration;
+  this.i18nEngine=new I18nEngine(configuration.getLocaleProvider());
   this.preferences=configuration.getStorage().createPreferencesStorage();
   this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallback(){
     @Override public void onAuthIdInvalidated(    long authKey){

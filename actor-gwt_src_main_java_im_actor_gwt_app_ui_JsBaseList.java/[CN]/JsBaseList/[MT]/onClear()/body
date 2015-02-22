@@ -1,4 +1,0 @@
-{
-  values.clear();
-  clear(jsValues);
-}

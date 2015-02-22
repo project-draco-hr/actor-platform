@@ -7,11 +7,4 @@
     deviceHash=RandomUtils.seed(32);
     preferences().putBytes(KEY_DEVICE_HASH,deviceHash);
   }
-  if (preferences().getBool(KEY_AUTH,false)) {
-    state=AuthState.LOGGED_IN;
-    modules.onLoggedIn();
-  }
- else {
-    state=AuthState.AUTH_START;
-  }
 }

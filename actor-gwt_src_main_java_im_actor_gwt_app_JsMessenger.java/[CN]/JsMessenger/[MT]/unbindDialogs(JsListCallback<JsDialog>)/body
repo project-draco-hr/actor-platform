@@ -1,0 +1,3 @@
+{
+  getDialogList().unsubscribe(callback);
+}

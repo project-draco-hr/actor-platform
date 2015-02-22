@@ -2,8 +2,8 @@
 switch (peer.getPeerType()) {
 default :
 case PRIVATE:
-    return create(0,peer.getPeerId());
+    return create("user",peer.getPeerId(),"u" + peer.getPeerId());
 case GROUP:
-  return create(1,peer.getPeerId());
+  return create("group",peer.getPeerId(),"g" + peer.getPeerId());
 }
 }
