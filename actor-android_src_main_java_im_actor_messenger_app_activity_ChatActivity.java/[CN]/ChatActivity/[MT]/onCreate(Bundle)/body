@@ -28,6 +28,8 @@
       }
  else       if (peer.getPeerType() == PeerType.GROUP) {
       }
+ else {
+      }
     }
   }
 );

@@ -9,6 +9,14 @@
     outPeer=new OutPeer(im.actor.model.api.PeerType.PRIVATE,user.getUid(),user.getAccessHash());
     apiPeer=new im.actor.model.api.Peer(im.actor.model.api.PeerType.PRIVATE,user.getUid());
   }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    Group group=getGroup(peer.getPeerId());
+    if (group == null) {
+      return;
+    }
+    outPeer=new OutPeer(im.actor.model.api.PeerType.GROUP,group.getGroupId(),group.getAccessHash());
+    apiPeer=new im.actor.model.api.Peer(im.actor.model.api.PeerType.GROUP,group.getGroupId());
+  }
  else {
     return;
   }

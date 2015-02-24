@@ -10,7 +10,7 @@
     bind(barAvatar,user.getAvatar());
     bind(barTitle,user.getName());
     bind(barSubtitle,barSubtitleContainer,user);
-    bind(barTyping,barTypingContainer,barTitle,messenger().getTyping(user.getId()));
+    bind(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     GroupVM group=groups().get(peer.getPeerId());
@@ -21,6 +21,8 @@
     barAvatar.setEmptyDrawable(AvatarDrawable.create(group,18,this));
     bind(barAvatar,group.getAvatar());
     bind(barTitle,group.getName());
+    barSubtitleContainer.setVisibility(View.VISIBLE);
+    bind(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
   }
   if (isCompose) {
     messageBody.requestFocus();

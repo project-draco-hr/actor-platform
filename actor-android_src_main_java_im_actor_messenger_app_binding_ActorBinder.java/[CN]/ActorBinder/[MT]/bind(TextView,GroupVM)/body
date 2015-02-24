@@ -1,0 +1,7 @@
+{
+  bind(value.getPresence(),new ValueChangedListener<Integer>(){
+    @Override public void onChanged(    Integer val,    ValueModel<Integer> valueModel){
+    }
+  }
+);
+}

@@ -9,7 +9,7 @@
     HashSet<Integer> set=new HashSet<Integer>();
     set.add(uid);
     groupTypings.put(gid,set);
-    modules().getTypingModule().getGroupTyping(gid).getActive().change(new int[uid]);
+    modules().getTypingModule().getGroupTyping(gid).getActive().change(new int[]{uid});
   }
  else {
     HashSet<Integer> src=groupTypings.get(gid);

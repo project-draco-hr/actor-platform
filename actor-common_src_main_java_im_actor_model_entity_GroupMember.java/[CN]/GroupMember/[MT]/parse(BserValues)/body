@@ -2,4 +2,5 @@
   uid=values.getInt(1);
   inviterUid=values.getInt(2);
   inviteDate=values.getLong(3);
+  isAdministrator=values.getBool(4);
 }

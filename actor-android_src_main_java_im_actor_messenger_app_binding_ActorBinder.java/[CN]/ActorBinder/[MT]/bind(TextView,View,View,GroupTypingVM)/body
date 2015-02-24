@@ -1,0 +1,16 @@
+{
+  bind(typing.getActive(),new ValueChangedListener<int[]>(){
+    @Override public void onChanged(    int[] val,    ValueModel<int[]> valueModel){
+      if (val.length == 0) {
+        container.setVisibility(View.INVISIBLE);
+        titleContainer.setVisibility(View.VISIBLE);
+      }
+ else {
+        textView.setText(Formatter.formatTyping(val));
+        container.setVisibility(View.VISIBLE);
+        titleContainer.setVisibility(View.INVISIBLE);
+      }
+    }
+  }
+);
+}

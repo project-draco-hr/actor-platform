@@ -10,4 +10,15 @@
   if (userPeers.size() > 0) {
     request(new RequestSubscribeToOnline(userPeers));
   }
+  List<GroupOutPeer> groupPeers=new ArrayList<GroupOutPeer>();
+  for (  int gid : gids) {
+    Group group=getGroup(gid);
+    if (group == null) {
+      continue;
+    }
+    groupPeers.add(new GroupOutPeer(group.getGroupId(),group.getAccessHash()));
+  }
+  if (groupPeers.size() > 0) {
+    request(new RequestSubscribeToGroupOnline(groupPeers));
+  }
 }

@@ -19,6 +19,7 @@ finish();
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
 break;
 case R.id.contact:
+startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
 break;
 case R.id.groupInfo:
 break;
