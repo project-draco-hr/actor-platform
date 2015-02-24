@@ -1,12 +1,11 @@
 {
-  checkGetStatement();
-  Cursor cursor=db.query("'" + name + "'",new String[]{"'ID'","'BYTES'"},"ID = ?",new String[]{"" + id},null,null,null);
+  Cursor cursor=db.query("\"" + name + "\"",new String[]{"\"BYTES\""},"\"ID\" = ?",new String[]{"" + id},null,null,null);
   if (cursor == null) {
     return null;
   }
   try {
     if (cursor.moveToFirst()) {
-      return cursor.getBlob(1);
+      return cursor.getBlob(0);
     }
   }
   finally {

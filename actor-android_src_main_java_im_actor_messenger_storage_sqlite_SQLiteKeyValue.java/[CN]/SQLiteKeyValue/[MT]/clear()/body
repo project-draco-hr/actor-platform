@@ -1,7 +1,7 @@
 {
   db.beginTransaction();
   try {
-    db.execSQL("DELETE FROM '" + name + "'");
+    db.execSQL("DELETE FROM \"" + name + "\"");
     db.setTransactionSuccessful();
   }
   finally {

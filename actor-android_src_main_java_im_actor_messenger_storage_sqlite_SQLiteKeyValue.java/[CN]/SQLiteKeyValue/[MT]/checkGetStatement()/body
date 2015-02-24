@@ -1,5 +1,0 @@
-{
-  if (getStatement == null) {
-    getStatement=db.compileStatement("SELECT 'ID','BYTES' FROM '" + name + "' WHERE ID=?");
-  }
-}
