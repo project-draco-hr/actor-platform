@@ -99,4 +99,28 @@
     UpdateTyping typing=(UpdateTyping)update;
     typingProcessor.onTyping(typing.getPeer(),typing.getUid(),typing.getTypingType());
   }
+ else   if (update instanceof UpdateGroupTitleChanged) {
+    UpdateGroupTitleChanged titleChanged=(UpdateGroupTitleChanged)update;
+    groupsProcessor.onTitleChanged(titleChanged.getGroupId(),titleChanged.getRid(),titleChanged.getUid(),titleChanged.getTitle(),titleChanged.getDate());
+  }
+ else   if (update instanceof UpdateGroupAvatarChanged) {
+    UpdateGroupAvatarChanged avatarChanged=(UpdateGroupAvatarChanged)update;
+    groupsProcessor.onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getRid(),avatarChanged.getUid(),EntityConverter.convert(avatarChanged.getAvatar()),avatarChanged.getDate());
+  }
+ else   if (update instanceof UpdateGroupInvite) {
+    UpdateGroupInvite groupInvite=(UpdateGroupInvite)update;
+    groupsProcessor.onGroupInvite(groupInvite.getGroupId(),groupInvite.getRid(),groupInvite.getInviteUid(),groupInvite.getDate());
+  }
+ else   if (update instanceof UpdateGroupUserLeave) {
+    UpdateGroupUserLeave leave=(UpdateGroupUserLeave)update;
+    groupsProcessor.onUserLeave(leave.getGroupId(),leave.getRid(),leave.getUid(),leave.getDate());
+  }
+ else   if (update instanceof UpdateGroupUserKick) {
+    UpdateGroupUserKick userKick=(UpdateGroupUserKick)update;
+    groupsProcessor.onUserKicked(userKick.getGroupId(),userKick.getRid(),userKick.getUid(),userKick.getKickerUid(),userKick.getDate());
+  }
+ else   if (update instanceof UpdateGroupUserAdded) {
+    UpdateGroupUserAdded userAdded=(UpdateGroupUserAdded)update;
+    groupsProcessor.onUserAdded(userAdded.getGroupId(),userAdded.getRid(),userAdded.getUid(),userAdded.getInviterUid(),userAdded.getDate());
+  }
 }

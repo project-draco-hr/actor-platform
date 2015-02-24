@@ -1,0 +1,4 @@
+int uid
+int inviterUid
+long inviteDate
+boolean isAdmin

@@ -1,0 +1,9 @@
+{
+  Group group=groups().getValue(groupId);
+  if (group == null) {
+    return;
+  }
+  groups().addOrUpdateItem(group.addMember(uid,adder,date,false));
+  Message message=new Message(rid,date,date,adder,adder == myUid() ? MessageState.SENT : MessageState.UNKNOWN,new ServiceGroupUserAdded(uid));
+  conversationActor(group.peer()).send(message);
+}

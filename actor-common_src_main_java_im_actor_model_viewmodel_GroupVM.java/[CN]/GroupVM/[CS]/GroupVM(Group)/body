@@ -6,6 +6,6 @@
   this.name=new ValueModel<String>("group." + id + ".title",rawObj.getTitle());
   this.avatar=new ValueModel<Avatar>("group." + id + ".avatar",rawObj.getAvatar());
   this.isMember=new ValueModel<Boolean>("group." + id + ".isMember",rawObj.isMember());
-  this.members=new ValueModel<List<GroupMember>>("group." + id + ".members",rawObj.getMembers());
+  this.members=new ValueModel<HashSet<GroupMember>>("group." + id + ".members",new HashSet<GroupMember>(rawObj.getMembers()));
   this.presence=new ValueModel<Integer>("group." + id + ".presence",0);
 }
