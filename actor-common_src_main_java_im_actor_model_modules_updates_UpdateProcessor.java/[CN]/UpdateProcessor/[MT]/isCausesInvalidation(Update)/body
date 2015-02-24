@@ -71,5 +71,8 @@
   if (!usersProcessor.hasUsers(users)) {
     return true;
   }
+  if (!groupsProcessor.hasGroups(groups)) {
+    return true;
+  }
   return false;
 }

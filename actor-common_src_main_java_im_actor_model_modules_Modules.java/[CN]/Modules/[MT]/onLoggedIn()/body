@@ -1,5 +1,6 @@
 {
   users=new Users(this);
+  groups=new Groups(this);
   messages=new Messages(this);
   updates=new Updates(this);
   presence=new Presence(this);

@@ -29,4 +29,8 @@
     HistoryLoaded historyLoaded=(HistoryLoaded)message;
     onHistoryLoaded(historyLoaded.getHistory());
   }
+ else   if (message instanceof GroupChanged) {
+    GroupChanged groupChanged=(GroupChanged)message;
+    onGroupChanged(groupChanged.getGroup());
+  }
 }

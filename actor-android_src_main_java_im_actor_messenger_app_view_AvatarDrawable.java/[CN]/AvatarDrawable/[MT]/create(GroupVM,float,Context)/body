@@ -1,0 +1,3 @@
+{
+  return new AvatarDrawable(groupModel.getName().get(),groupModel.getId(),fontSize,context);
+}

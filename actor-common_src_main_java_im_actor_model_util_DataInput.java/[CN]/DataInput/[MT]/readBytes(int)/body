@@ -1,6 +1,6 @@
 {
   if (offset + count > maxOffset) {
-    throw new IOException();
+    throw new IOException("Too many to read, max len: " + maxOffset + ", required len: "+ (offset + count));
   }
   byte[] res=new byte[count];
   for (int i=0; i < count; i++) {

@@ -1,0 +1,10 @@
+{
+  MVVMEngine.getMainThread().runOnUiThread(new Runnable(){
+    @Override public void run(){
+      for (      ModelChangedListener<UserVM> l : listeners.toArray(new ModelChangedListener[0])) {
+        l.onChanged(UserVM.this);
+      }
+    }
+  }
+);
+}

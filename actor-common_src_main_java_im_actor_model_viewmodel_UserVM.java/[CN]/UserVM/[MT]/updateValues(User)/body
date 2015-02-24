@@ -1,4 +1,8 @@
 {
-  name.change(rawObj.getName());
-  avatar.change(rawObj.getAvatar());
+  boolean isChanged=false;
+  isChanged|=name.change(rawObj.getName());
+  isChanged|=avatar.change(rawObj.getAvatar());
+  if (isChanged) {
+    notifyChange();
+  }
 }

@@ -27,6 +27,7 @@
   builder.setMainThread(new AndroidMainThread());
   builder.setLog(new AndroidLog());
   builder.setStorage(new AppEngineFactory());
+  builder.setLocale(new JavaLocale("En"));
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }

@@ -1,0 +1,4 @@
+{
+  boolean isChanged=false;
+  isChanged|=name.change(rawObj.getTitle());
+}

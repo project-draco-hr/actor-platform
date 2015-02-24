@@ -13,6 +13,14 @@
     bind(barTyping,barTypingContainer,barTitle,messenger().getTyping(user.getId()));
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
+    GroupVM group=groups().get(peer.getPeerId());
+    if (group == null) {
+      finish();
+      return;
+    }
+    barAvatar.setEmptyDrawable(AvatarDrawable.create(group,18,this));
+    bind(barAvatar,group.getAvatar());
+    bind(barTitle,group.getName());
   }
   if (isCompose) {
     messageBody.requestFocus();
