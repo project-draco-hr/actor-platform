@@ -27,6 +27,7 @@
         startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
       }
  else       if (peer.getPeerType() == PeerType.GROUP) {
+        startActivity(Intents.openGroup(peer.getPeerId(),ChatActivity.this));
       }
  else {
       }
@@ -35,7 +36,9 @@
 );
   setContentView(R.layout.activity_dialog);
   getWindow().setBackgroundDrawable(null);
-  getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
+  if (saveInstance == null) {
+    getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
+  }
   messageBody=(EditText)findViewById(R.id.et_message);
   messageBody.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){

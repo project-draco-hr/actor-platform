@@ -1,0 +1,18 @@
+{
+  UserVM user=users().get(data.getUid());
+  avatarView.setEmptyDrawable(AvatarDrawable.create(user,16,getActivity()));
+  Avatar avatar=user.getAvatar().get();
+  if (avatar != null) {
+    avatarView.bindAvatar(32,avatar);
+  }
+ else {
+    avatarView.unbind();
+  }
+  userName.setText(user.getName().get());
+  if (data.isAdministrator()) {
+    admin.setVisibility(View.VISIBLE);
+  }
+ else {
+    admin.setVisibility(View.GONE);
+  }
+}
