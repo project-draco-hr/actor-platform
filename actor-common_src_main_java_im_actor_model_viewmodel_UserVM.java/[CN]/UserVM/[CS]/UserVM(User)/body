@@ -7,4 +7,5 @@
   avatar=new ValueModel<Avatar>("user." + id + ".avatar",user.getAvatar());
   isContact=new ValueModel<Boolean>("user." + id + ".contact",false);
   presence=new ValueModel<UserPresence>("user." + id + ".presence",new UserPresence(UserPresence.State.UNKNOWN));
+  phones=new ValueModel<ArrayList<UserPhone>>("user." + id + ".phones",buildPhones(user.getRecords()));
 }

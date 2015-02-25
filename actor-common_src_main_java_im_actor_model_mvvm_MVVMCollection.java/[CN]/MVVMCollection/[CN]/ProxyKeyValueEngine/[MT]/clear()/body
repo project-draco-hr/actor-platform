@@ -1,7 +1,5 @@
 {
-synchronized (cache) {
-    cache.clear();
-  }
+  cache.clear();
   notifyClear();
   collectionStorage.clear();
 }

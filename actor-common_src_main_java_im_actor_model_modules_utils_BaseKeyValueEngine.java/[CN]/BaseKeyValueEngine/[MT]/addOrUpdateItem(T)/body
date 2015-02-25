@@ -1,0 +1,5 @@
+{
+  cache.put(item.getEngineId(),item);
+  byte[] data=serialize(item);
+  storage.addOrUpdateItem(item.getEngineId(),data);
+}

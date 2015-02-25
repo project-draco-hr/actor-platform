@@ -1,0 +1,6 @@
+{
+  for (  long l : ids) {
+    cache.remove(l);
+  }
+  storage.removeItems(ids);
+}

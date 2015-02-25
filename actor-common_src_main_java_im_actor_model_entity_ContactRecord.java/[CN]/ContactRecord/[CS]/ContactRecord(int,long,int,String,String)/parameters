@@ -1,5 +1,5 @@
 int id
 long accessHash
-int type
-String title
-String value
+int recordType
+String recordData
+String recordTitle

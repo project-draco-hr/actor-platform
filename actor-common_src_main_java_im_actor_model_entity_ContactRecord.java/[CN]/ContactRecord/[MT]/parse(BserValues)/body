@@ -1,0 +1,7 @@
+{
+  id=values.getInt(1);
+  accessHash=values.getLong(2);
+  recordType=values.getInt(3);
+  recordData=values.getString(4);
+  recordTitle=values.getString(5);
+}
