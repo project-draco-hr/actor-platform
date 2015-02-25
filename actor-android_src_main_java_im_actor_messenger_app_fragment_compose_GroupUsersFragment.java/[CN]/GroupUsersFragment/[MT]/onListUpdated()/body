@@ -1,2 +1,11 @@
 {
+  if (engineUiList.getUiList().getSize() == 1) {
+    Contact contact=engineUiList.getUiList().getItem(0);
+    if (!selectedUsers.contains(contact.getUid())) {
+      selectedUsers.add(contact.getUid());
+      adapter.select(contact.getUid());
+      getActivity().invalidateOptionsMenu();
+      updateEditText();
+    }
+  }
 }
