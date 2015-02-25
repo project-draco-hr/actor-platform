@@ -1,5 +1,0 @@
-{
-  super.onPause();
-  messenger().onAppHidden();
-  BINDER.unbindAll();
-}

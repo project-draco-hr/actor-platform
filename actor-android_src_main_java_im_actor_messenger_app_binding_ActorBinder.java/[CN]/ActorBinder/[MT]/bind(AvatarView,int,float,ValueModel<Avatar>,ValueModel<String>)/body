@@ -1,0 +1,14 @@
+{
+  bind(avatar,name,new DoubleValueChangedListener<Avatar,String>(){
+    @Override public void onChanged(    Avatar val,    ValueModel<Avatar> valueModel,    String val2,    ValueModel<String> valueModel2){
+      avatarView.setEmptyDrawable(new AvatarDrawable(val2,id,size,AppContext.getContext()));
+      if (val != null) {
+        avatarView.bindAvatar(0,val);
+      }
+ else {
+        avatarView.unbind();
+      }
+    }
+  }
+);
+}

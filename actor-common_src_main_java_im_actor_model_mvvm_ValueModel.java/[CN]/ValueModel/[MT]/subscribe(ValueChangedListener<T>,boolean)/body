@@ -1,0 +1,9 @@
+{
+  if (listeners.contains(listener)) {
+    return;
+  }
+  listeners.add(listener);
+  if (notify) {
+    listener.onChanged(value,this);
+  }
+}

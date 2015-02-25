@@ -5,8 +5,7 @@
   if (messenger().isLoggedIn()) {
     UserVM userModel=users().get(myUid());
     if (userModel != null) {
-      avatarView.setEmptyDrawable(AvatarDrawable.create(userModel,18,getActivity()));
-      getActivity().bind(avatarView,userModel.getAvatar());
+      getActivity().bind(avatarView,myUid(),18,userModel.getAvatar(),userModel.getName());
     }
   }
   menuItem.getActionView().setOnClickListener(new View.OnClickListener(){

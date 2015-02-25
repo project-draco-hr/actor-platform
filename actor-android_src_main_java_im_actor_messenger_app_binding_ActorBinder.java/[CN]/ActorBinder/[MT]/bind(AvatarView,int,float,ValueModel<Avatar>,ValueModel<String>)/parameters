@@ -1,0 +1,5 @@
+AvatarView avatarView
+int id
+float size
+ValueModel<Avatar> avatar
+ValueModel<String> name

@@ -6,8 +6,7 @@
       finish();
       return;
     }
-    barAvatar.setEmptyDrawable(AvatarDrawable.create(user,18,this));
-    bind(barAvatar,user.getAvatar());
+    bind(barAvatar,user.getId(),18,user.getAvatar(),user.getName());
     bind(barTitle,user.getName());
     bind(barSubtitle,barSubtitleContainer,user);
     bind(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
@@ -18,10 +17,10 @@
       finish();
       return;
     }
-    barAvatar.setEmptyDrawable(AvatarDrawable.create(group,18,this));
-    bind(barAvatar,group.getAvatar());
+    bind(barAvatar,group.getId(),18,group.getAvatar(),group.getName());
     bind(barTitle,group.getName());
     barSubtitleContainer.setVisibility(View.VISIBLE);
+    bind(barSubtitle,group);
     bind(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
   }
   if (isCompose) {
