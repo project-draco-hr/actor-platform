@@ -1,5 +1,8 @@
 {
   isSyncInProgress=false;
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Book load completed");
+  }
   ArrayList<PhoneToImport> phoneToImports=new ArrayList<PhoneToImport>();
   ArrayList<EmailToImport> emailToImports=new ArrayList<EmailToImport>();
   for (  PhoneBookContact record : phoneBook) {
@@ -14,17 +17,27 @@
       phoneToImports.add(new PhoneToImport(phone.getNumber(),record.getName()));
     }
     for (    PhoneBookEmail email : record.getEmails()) {
-      if (isImported(email.getEmail())) {
+      if (isImported(email.getEmail().toLowerCase())) {
         continue;
       }
-      if (importingEmails.contains(email.getEmail())) {
+      if (importingEmails.contains(email.getEmail().toLowerCase())) {
         continue;
       }
-      importingEmails.add(email.getEmail());
-      emailToImports.add(new EmailToImport(email.getEmail(),record.getName()));
+      importingEmails.add(email.getEmail().toLowerCase());
+      emailToImports.add(new EmailToImport(email.getEmail().toLowerCase(),record.getName()));
     }
   }
-  Log.d(TAG,"Importing contacts: " + (phoneToImports.size() + emailToImports.size()));
+  if (phoneToImports.size() == 0 && emailToImports.size() == 0) {
+    if (ENABLE_LOG) {
+      Log.d(TAG,"No new contacts found");
+    }
+    return;
+  }
+ else {
+    if (ENABLE_LOG) {
+      Log.d(TAG,"Founded new " + (phoneToImports.size() + emailToImports.size()) + " contact records");
+    }
+  }
   ArrayList<PhoneToImport> phoneToImportsPart=new ArrayList<PhoneToImport>();
   ArrayList<EmailToImport> emailToImportsPart=new ArrayList<EmailToImport>();
   int count=0;

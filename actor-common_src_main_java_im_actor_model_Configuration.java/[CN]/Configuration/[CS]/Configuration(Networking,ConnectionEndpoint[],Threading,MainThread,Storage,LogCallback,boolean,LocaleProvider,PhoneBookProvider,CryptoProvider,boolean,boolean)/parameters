@@ -8,3 +8,5 @@ boolean persistUploadingFiles
 LocaleProvider localeProvider
 PhoneBookProvider phoneBookProvider
 CryptoProvider cryptoProvider
+boolean enableContactsLogging
+boolean enableNetworkLogging

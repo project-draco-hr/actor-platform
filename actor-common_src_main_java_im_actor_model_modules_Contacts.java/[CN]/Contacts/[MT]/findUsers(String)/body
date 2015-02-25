@@ -1,0 +1,7 @@
+{
+  return new Command<User[]>(){
+    @Override public void start(    CommandCallback<User[]> callback){
+    }
+  }
+;
+}

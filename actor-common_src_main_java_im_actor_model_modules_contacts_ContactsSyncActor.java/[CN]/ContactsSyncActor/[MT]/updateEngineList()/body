@@ -1,4 +1,7 @@
 {
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Saving contact EngineList");
+  }
   ArrayList<User> userList=new ArrayList<User>();
   for (  int u : contacts) {
     userList.add(getUser(u));

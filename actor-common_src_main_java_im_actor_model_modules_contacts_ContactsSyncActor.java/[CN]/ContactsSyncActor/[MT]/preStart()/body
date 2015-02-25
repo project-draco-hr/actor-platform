@@ -1,5 +1,8 @@
 {
   super.preStart();
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Loading contacts ids from storage...");
+  }
   byte[] data=preferences().getBytes("contact_list");
   if (data != null) {
     try {

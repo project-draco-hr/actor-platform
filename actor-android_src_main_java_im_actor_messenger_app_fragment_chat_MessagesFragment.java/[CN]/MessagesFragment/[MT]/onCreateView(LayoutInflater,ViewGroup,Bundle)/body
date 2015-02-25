@@ -67,14 +67,38 @@
   addContact.setAllCaps(true);
   addContact.setTextColor(getResources().getColor(R.color.text_primary_light));
   addContact.setTextSize(14);
-  addContact.setTypeface(Fonts.load(getActivity(),"Medium"));
+  addContact.setTypeface(Fonts.medium());
   addContact.setGravity(Gravity.CENTER);
   addContact.setBackgroundResource(R.drawable.selector_add);
   addContact.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
+      execute(messenger().addContact(peer.getPeerId()),R.string.chat_add_to_contacts_progress,new CommandCallback<Boolean>(){
+        @Override public void onResult(        Boolean res){
+        }
+        @Override public void onError(        Exception e){
+        }
+      }
+);
     }
   }
 );
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    UserVM user=users().get(peer.getPeerId());
+    bind(user.isContact(),new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+        if (val) {
+          addContact.setVisibility(View.GONE);
+        }
+ else {
+          addContact.setVisibility(View.VISIBLE);
+        }
+      }
+    }
+);
+  }
+ else {
+    addContact.setVisibility(View.GONE);
+  }
   header.addView(addContact);
   listView.addHeaderView(header,null,false);
   listView.setAdapter(adapter);

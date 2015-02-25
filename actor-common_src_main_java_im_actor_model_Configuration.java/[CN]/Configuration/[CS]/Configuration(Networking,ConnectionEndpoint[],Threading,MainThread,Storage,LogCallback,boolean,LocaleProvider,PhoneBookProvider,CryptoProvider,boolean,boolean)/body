@@ -9,4 +9,6 @@
   this.localeProvider=localeProvider;
   this.phoneBookProvider=phoneBookProvider;
   this.cryptoProvider=cryptoProvider;
+  this.enableContactsLogging=enableContactsLogging;
+  this.enableNetworkLogging=enableNetworkLogging;
 }

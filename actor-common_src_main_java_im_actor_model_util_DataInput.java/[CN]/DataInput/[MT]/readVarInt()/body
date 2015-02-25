@@ -6,7 +6,7 @@
     if (offset == maxOffset) {
       throw new IOException();
     }
-    b=data[offset++];
+    b=data[offset++] & 0xFF;
     if ((b & 0x80) != 0) {
       value|=(b & 0x7F) << i;
       i+=7;

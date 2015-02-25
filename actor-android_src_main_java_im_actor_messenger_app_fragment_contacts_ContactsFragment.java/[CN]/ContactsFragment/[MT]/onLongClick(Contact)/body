@@ -4,6 +4,13 @@
       if (which == 0) {
         new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_remove_contact_text).replace("{0}",contact.getName())).setPositiveButton(R.string.alert_remove_contact_yes,new DialogInterface.OnClickListener(){
           @Override public void onClick(          DialogInterface dialog,          int which){
+            execute(messenger().removeContact(contact.getUid()),R.string.contacts_menu_remove_progress,new CommandCallback<Boolean>(){
+              @Override public void onResult(              Boolean res){
+              }
+              @Override public void onError(              Exception e){
+              }
+            }
+);
           }
         }
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);

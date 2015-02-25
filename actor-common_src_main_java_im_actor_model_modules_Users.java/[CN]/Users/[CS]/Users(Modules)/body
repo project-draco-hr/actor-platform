@@ -2,7 +2,7 @@
   super(messenger);
   this.collection=new MVVMCollection<User,UserVM>(messenger.getConfiguration().getStorage().createUsersEngine()){
     @Override protected UserVM createNew(    User raw){
-      return new UserVM(raw);
+      return new UserVM(raw,modules());
     }
     @Override protected byte[] serialize(    User raw){
       return raw.toByteArray();

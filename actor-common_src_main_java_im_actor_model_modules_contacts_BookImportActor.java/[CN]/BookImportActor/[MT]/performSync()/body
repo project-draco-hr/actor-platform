@@ -1,8 +1,17 @@
 {
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Checking sync...");
+  }
   if (isSyncInProgress) {
+    if (ENABLE_LOG) {
+      Log.d(TAG,"Sync already in progress");
+    }
     return;
   }
   isSyncInProgress=true;
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Starting book loading...");
+  }
   modules().getConfiguration().getPhoneBookProvider().loadPhoneBook(new PhoneBookProvider.Callback(){
     @Override public void onLoaded(    List<PhoneBookContact> contacts){
       self().send(new PhoneBookLoaded(contacts));

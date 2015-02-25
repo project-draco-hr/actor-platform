@@ -1,10 +1,19 @@
 {
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Checking sync");
+  }
   if (isInProgress) {
+    if (ENABLE_LOG) {
+      Log.d(TAG,"Sync in progress, invalidating current sync");
+    }
     isInvalidated=true;
     return;
   }
   isInProgress=true;
   isInvalidated=false;
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Starting sync");
+  }
   Integer[] uids=contacts.toArray(new Integer[0]);
   Arrays.sort(uids);
   String hash="";
