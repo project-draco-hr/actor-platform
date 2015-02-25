@@ -22,6 +22,7 @@ case R.id.contact:
 startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
 break;
 case R.id.groupInfo:
+startActivity(Intents.openGroup(peer.getPeerId(),ChatActivity.this));
 break;
 case R.id.files:
 break;
