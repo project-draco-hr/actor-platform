@@ -123,4 +123,20 @@
     UpdateGroupUserAdded userAdded=(UpdateGroupUserAdded)update;
     groupsProcessor.onUserAdded(userAdded.getGroupId(),userAdded.getRid(),userAdded.getUid(),userAdded.getInviterUid(),userAdded.getDate());
   }
+ else   if (update instanceof UpdateContactsAdded) {
+    UpdateContactsAdded contactsAdded=(UpdateContactsAdded)update;
+    int[] res=new int[contactsAdded.getUids().size()];
+    for (int i=0; i < res.length; i++) {
+      res[i]=contactsAdded.getUids().get(i);
+    }
+    contactsProcessor.onContactsAdded(res);
+  }
+ else   if (update instanceof UpdateContactsRemoved) {
+    UpdateContactsRemoved contactsRemoved=(UpdateContactsRemoved)update;
+    int[] res=new int[contactsRemoved.getUids().size()];
+    for (int i=0; i < res.length; i++) {
+      res[i]=contactsRemoved.getUids().get(i);
+    }
+    contactsProcessor.onContactsRemoved(res);
+  }
 }

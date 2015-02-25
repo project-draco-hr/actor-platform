@@ -1,0 +1,23 @@
+{
+  this.isBinded=true;
+  this.bindedAvatar=avatar;
+  this.bindedName=name;
+  this.bindedShowFastName=showFastName;
+  this.bindedFastName=getFastName(name);
+  this.bindedColor=PLACEHOLDERS[Math.abs(id) % PLACEHOLDERS.length];
+  if (bindedAvatarReference != null) {
+    bindedAvatarReference.release();
+    bindedAvatarReference=null;
+  }
+  AVATAR_SHADER=null;
+  receiver.clear();
+  if (avatar != null) {
+    receiver.request(new AvatarTask(AVATAR_R * 2,avatar));
+  }
+  CIRCLE_PAINT.setColor(bindedColor);
+  FAST_WIDTH=FAST_TEXT_PAINT.measureText(bindedFastName);
+  FAST_LEFT=Screen.dp(6) + (Screen.dp(40) - FAST_WIDTH) / 2.0f;
+  AVATAR_NAME_WIDTH=AVATAR_TEXT_PAINT.measureText(bindedFastName);
+  AVATAR_NAME_LEFT=Screen.dp(46) + (AVATAR_R * 2 - AVATAR_NAME_WIDTH) / 2.0f;
+  invalidateMeasure();
+}

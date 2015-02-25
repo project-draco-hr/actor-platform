@@ -1,4 +1,10 @@
 {
   super.onResume();
+  bind(users().get(uid).isContact(),new ValueChangedListener<Boolean>(){
+    @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
+      invalidateOptionsMenu();
+    }
+  }
+);
   messenger().onProfileOpen(uid);
 }

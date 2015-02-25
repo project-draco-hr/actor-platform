@@ -1,0 +1,4 @@
+{
+  this.cryptoProvider=cryptoProvider;
+  return this;
+}

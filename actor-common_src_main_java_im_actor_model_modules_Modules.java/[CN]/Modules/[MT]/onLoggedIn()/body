@@ -6,6 +6,7 @@
   presence=new Presence(this);
   typing=new Typing(this);
   filesModule=new FilesModule(this);
+  contacts=new Contacts(this);
   messages.run();
   updates.run();
   presence.run();

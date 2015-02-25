@@ -1,0 +1,4 @@
+{
+  super.preStart();
+  self().send(new PerformSync());
+}

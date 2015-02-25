@@ -10,4 +10,9 @@
     applyRelated(users,new ArrayList<Group>(),((LoggedIn)update).getAuth().getContacts(),true);
     modules.getConfiguration().getMainThread().runOnUiThread(((LoggedIn)update).getRunnable());
   }
+ else   if (update instanceof ContactsLoaded) {
+    ContactsLoaded contactsLoaded=(ContactsLoaded)update;
+    applyRelated(contactsLoaded.getContacts().getUsers(),new ArrayList<Group>(),new ArrayList<ContactRecord>(),false);
+    modules.getContactsModule().getContactSyncActor().send(new ContactsSyncActor.ContactsLoaded(contactsLoaded.getContacts()));
+  }
 }

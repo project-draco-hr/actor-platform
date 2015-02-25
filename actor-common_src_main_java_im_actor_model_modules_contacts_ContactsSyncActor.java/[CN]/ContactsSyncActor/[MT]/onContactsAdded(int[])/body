@@ -1,0 +1,7 @@
+{
+  for (  int uid : uids) {
+    contacts.add(uid);
+  }
+  saveList();
+  updateEngineList();
+}

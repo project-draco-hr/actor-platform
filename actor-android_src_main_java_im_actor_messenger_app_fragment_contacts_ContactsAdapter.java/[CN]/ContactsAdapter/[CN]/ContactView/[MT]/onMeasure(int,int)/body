@@ -1,0 +1,8 @@
+{
+  setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),HEIGHT);
+  isMeasured=true;
+  if (isNeedMeasure) {
+    measureName();
+    isNeedMeasure=false;
+  }
+}

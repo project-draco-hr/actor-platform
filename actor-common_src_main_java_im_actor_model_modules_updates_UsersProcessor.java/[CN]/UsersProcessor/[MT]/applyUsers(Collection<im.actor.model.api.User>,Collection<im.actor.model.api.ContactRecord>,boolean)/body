@@ -10,6 +10,7 @@
       batch.add(upd);
       if (!upd.getName().equals(saved.getName()) || !equalsE(upd.getAvatar(),saved.getAvatar())) {
         modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(upd));
+        modules().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(upd));
       }
     }
   }

@@ -26,6 +26,24 @@
   shadow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
   footer.addView(shadow);
   listView.addFooterView(footer,null,false);
+  adapter=new ContactsAdapter(ListEngines.getContactsUiListEngine(),getActivity(),false,new OnItemClickedListener<Contact>(){
+    @Override public void onClicked(    Contact item){
+      onClick(item);
+    }
+  }
+,new OnItemClickedListener<Contact>(){
+    @Override public void onClicked(    Contact item){
+      onLongClick(item);
+    }
+  }
+);
+  listView.setAdapter(adapter);
+  listView.setRecyclerListener(new AbsListView.RecyclerListener(){
+    @Override public void onMovedToScrapHeap(    View view){
+      adapter.onMovedToScrapHeap(view);
+    }
+  }
+);
   noContacts=res.findViewById(R.id.noContacts);
   res.findViewById(R.id.inviteButton).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
@@ -37,5 +55,7 @@
     }
   }
 );
+  goneView(noContacts);
+  showView(listView);
   return res;
 }

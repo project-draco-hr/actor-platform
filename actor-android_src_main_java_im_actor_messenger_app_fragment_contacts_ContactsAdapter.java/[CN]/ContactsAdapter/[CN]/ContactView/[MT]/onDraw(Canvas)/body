@@ -1,0 +1,20 @@
+{
+  if (isBinded) {
+    if (bindedShowFastName) {
+      canvas.drawText(bindedFastName,FAST_LEFT,FAST_TOP,FAST_TEXT_PAINT);
+    }
+    canvas.drawText(bindedName,NAME_LEFT,NAME_TOP,NAME_TEXT_PAINT);
+    if (AVATAR_SHADER != null) {
+      canvas.save();
+      canvas.translate(AVATAR_CENTER_X - AVATAR_R,AVATAR_CENTER_Y - AVATAR_R);
+      canvas.drawCircle(AVATAR_R,AVATAR_R,AVATAR_R,AVATAR_PAINT);
+      canvas.restore();
+      canvas.drawCircle(AVATAR_CENTER_X,AVATAR_CENTER_Y,AVATAR_R,CIRCLE_BORDER_PAINT);
+    }
+ else {
+      canvas.drawCircle(AVATAR_CENTER_X,AVATAR_CENTER_Y,AVATAR_R,CIRCLE_PAINT);
+      canvas.drawText(bindedFastName,AVATAR_NAME_LEFT,AVATAR_NAME_TOP,AVATAR_TEXT_PAINT);
+    }
+  }
+  canvas.drawRect(DIV_LEFT,HEIGHT - DIV_HEIGHT,getWidth(),HEIGHT,DIV_PAINT);
+}

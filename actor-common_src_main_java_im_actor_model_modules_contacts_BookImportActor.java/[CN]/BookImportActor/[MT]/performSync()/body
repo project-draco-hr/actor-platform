@@ -1,0 +1,12 @@
+{
+  if (isSyncInProgress) {
+    return;
+  }
+  isSyncInProgress=true;
+  modules().getConfiguration().getPhoneBookProvider().loadPhoneBook(new PhoneBookProvider.Callback(){
+    @Override public void onLoaded(    List<PhoneBookContact> contacts){
+      self().send(new PhoneBookLoaded(contacts));
+    }
+  }
+);
+}

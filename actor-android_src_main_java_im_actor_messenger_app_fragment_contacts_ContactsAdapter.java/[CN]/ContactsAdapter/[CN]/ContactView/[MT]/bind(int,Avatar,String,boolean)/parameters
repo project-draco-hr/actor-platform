@@ -1,0 +1,4 @@
+int id
+Avatar avatar
+String name
+boolean showFastName

@@ -1,0 +1,31 @@
+{
+  final PhoneToImport[] phones=phoneToImportsPart.toArray(new PhoneToImport[phoneToImportsPart.size()]);
+  final EmailToImport[] emailToImports=emailToImportsPart.toArray(new EmailToImport[emailToImportsPart.size()]);
+  request(new RequestImportContacts((java.util.List<PhoneToImport>)phoneToImportsPart.clone(),(java.util.List<EmailToImport>)emailToImportsPart.clone()),new RpcCallback<ResponseImportContacts>(){
+    @Override public void onResult(    ResponseImportContacts response){
+      for (      PhoneToImport phoneToImport : phones) {
+        markImported(phoneToImport.getPhoneNumber());
+        importingPhones.remove(phoneToImport.getPhoneNumber());
+      }
+      for (      EmailToImport emailToImport : emailToImports) {
+        markImported(emailToImport.getEmail());
+        importingEmails.remove(emailToImport.getEmail());
+      }
+      if (response.getUsers().size() == 0) {
+        Log.d(TAG,"Import success: empty");
+        return;
+      }
+      Log.d(TAG,"Import success: " + response.getUsers().size());
+      ArrayList<Integer> uids=new ArrayList<Integer>();
+      for (      im.actor.model.api.User u : response.getUsers()) {
+        uids.add(u.getId());
+      }
+      updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateContactsAdded.HEADER,new UpdateContactsAdded(uids).toByteArray(),response.getUsers(),new ArrayList<Group>(),new ArrayList<ContactRecord>()));
+    }
+    @Override public void onError(    RpcException e){
+      Log.d(TAG,"Import failure");
+      e.printStackTrace();
+    }
+  }
+);
+}

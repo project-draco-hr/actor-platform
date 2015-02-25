@@ -23,6 +23,7 @@
     new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.dialogs_menu_group_view),getString(R.string.dialogs_menu_group_rename),getString(R.string.dialogs_menu_group_delete)},new DialogInterface.OnClickListener(){
       @Override public void onClick(      DialogInterface dialog2,      int which){
         if (which == 0) {
+          startActivity(Intents.openGroup(dialog.getPeer().getPeerId(),getActivity()));
         }
  else         if (which == 1) {
           startActivity(Intents.editGroupTitle(dialog.getPeer().getPeerId(),getActivity()));

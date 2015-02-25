@@ -1,0 +1,18 @@
+{
+  isInProgress=false;
+  if (result.isNotChanged()) {
+    Log.d(TAG,"Sync: Not changed");
+    if (isInvalidated) {
+      performSync();
+    }
+ else {
+    }
+    return;
+  }
+  contacts.clear();
+  for (  im.actor.model.api.User u : result.getUsers()) {
+    contacts.add(u.getId());
+  }
+  saveList();
+  updateEngineList();
+}

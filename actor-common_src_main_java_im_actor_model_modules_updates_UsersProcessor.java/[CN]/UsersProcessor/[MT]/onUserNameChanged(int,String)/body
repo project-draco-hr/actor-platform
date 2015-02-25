@@ -8,6 +8,7 @@
     users().addOrUpdateItem(u);
     if (u.getLocalName() == null) {
       modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
+      modules().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(u));
     }
   }
 }

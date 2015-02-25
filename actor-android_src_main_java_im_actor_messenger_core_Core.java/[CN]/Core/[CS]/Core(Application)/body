@@ -28,6 +28,8 @@
   builder.setLog(new AndroidLog());
   builder.setStorage(new AppEngineFactory());
   builder.setLocale(new JavaLocale("En"));
+  builder.setPhoneBookProvider(new AndroidPhoneBook());
+  builder.setCryptoProvider(new AndroidCryptoProvider());
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
@@ -35,4 +37,10 @@
     builder.addEndpoint("tcp://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
   this.messenger=new im.actor.model.Messenger(builder.build());
+  AppContext.getContext().getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
+    @Override public void onChange(    boolean selfChange){
+      messenger.onPhoneBookChanged();
+    }
+  }
+);
 }

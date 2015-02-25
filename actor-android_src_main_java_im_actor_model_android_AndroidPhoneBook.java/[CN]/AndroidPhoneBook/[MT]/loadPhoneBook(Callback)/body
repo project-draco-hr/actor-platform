@@ -1,0 +1,9 @@
+{
+  new Thread(){
+    @Override public void run(){
+      ArrayList<PhoneBookContact> contacts=loadPhoneBook(AppContext.getContext(),CountryUtil.getDeviceCountry(AppContext.getContext()));
+      callback.onLoaded(contacts);
+    }
+  }
+.start();
+}

@@ -1,0 +1,7 @@
+{
+  for (  int uid : uids) {
+    contacts.remove(uid);
+  }
+  saveList();
+  updateEngineList();
+}

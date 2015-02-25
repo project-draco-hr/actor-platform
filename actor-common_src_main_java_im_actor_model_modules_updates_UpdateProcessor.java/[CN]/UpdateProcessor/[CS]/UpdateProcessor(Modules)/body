@@ -5,4 +5,5 @@
   this.groupsProcessor=new GroupsProcessor(modules);
   this.presenceProcessor=new PresenceProcessor(modules);
   this.typingProcessor=new TypingProcessor(modules);
+  this.contactsProcessor=new ContactsProcessor(modules);
 }

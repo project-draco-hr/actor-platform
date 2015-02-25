@@ -1,0 +1,7 @@
+{
+  DataOutput dataOutput=new DataOutput();
+  dataOutput.writeInt(contacts.size());
+  for (  int l : contacts) {
+    dataOutput.writeInt(l);
+  }
+}

@@ -2,12 +2,9 @@
   getMenuInflater().inflate(R.menu.chat_menu,menu);
   if (peer.getPeerType() == PeerType.PRIVATE) {
     menu.findItem(R.id.contact).setVisible(true);
-    TelephonyManager tm=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-    menu.findItem(R.id.call).setVisible(tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE);
   }
  else {
     menu.findItem(R.id.contact).setVisible(false);
-    menu.findItem(R.id.call).setVisible(false);
   }
   if (peer.getPeerType() == PeerType.GROUP) {
     menu.findItem(R.id.groupInfo).setVisible(true);

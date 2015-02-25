@@ -1,5 +1,6 @@
 {
   Environment.setThreading(configuration.getThreading());
+  CryptoUtils.init(configuration.getCryptoProvider());
   MVVMEngine.init(configuration.getMainThread());
   Log.setLog(configuration.getLog());
   ActorSystem.system().setTraceInterface(new TraceInterface(){

@@ -1,0 +1,3 @@
+{
+  return preferences().getBool("book_email_" + email.toLowerCase(),false);
+}

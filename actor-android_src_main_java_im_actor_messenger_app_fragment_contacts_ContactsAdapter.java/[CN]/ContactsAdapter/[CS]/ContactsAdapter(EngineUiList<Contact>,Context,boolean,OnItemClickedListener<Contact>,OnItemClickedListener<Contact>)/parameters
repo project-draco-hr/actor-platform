@@ -1,0 +1,5 @@
+EngineUiList<Contact> engine
+Context context
+boolean selectable
+OnItemClickedListener<Contact> onItemClickedListener
+OnItemClickedListener<Contact> onItemLongClickedListener

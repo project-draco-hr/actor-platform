@@ -1,0 +1,6 @@
+{
+  if (!contacts.contains(user.getUid())) {
+    return;
+  }
+  updateEngineList();
+}
