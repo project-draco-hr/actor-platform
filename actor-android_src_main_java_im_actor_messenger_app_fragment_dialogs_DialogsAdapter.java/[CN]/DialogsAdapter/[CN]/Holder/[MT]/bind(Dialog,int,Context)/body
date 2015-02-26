@@ -1,4 +1,16 @@
 {
+  if (binded != 0) {
+    if (data.getPeer().getUid() != binded) {
+      Log.d("ListDialogs","Bind new #" + position);
+    }
+ else {
+      Log.d("ListDialogs","Bind updated #" + position);
+    }
+  }
+ else {
+    Log.d("ListDialogs","Bind fresh #" + position);
+  }
+  binded=data.getPeer().getUid();
   if (getEngine().getListState().getValue().getState() == ListState.State.LOADED) {
     if (position > getCount() - LOAD_GAP) {
     }

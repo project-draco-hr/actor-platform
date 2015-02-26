@@ -17,18 +17,7 @@
     return;
   }
   if (list.getSize() > 0 && preSize > 0 && listView.getLastVisiblePosition() >= preSize - 1 && bottomId != list.getItem(0).getRid()) {
-    if (BuildConfig.ENABLE_CHROME) {
-      listView.smoothScrollToPosition(list.getSize());
-    }
- else {
-      listView.setSelectionFromTop(list.getSize(),-10000);
-      listView.post(new Runnable(){
-        @Override public void run(){
-          listView.setSelectionFromTop(list.getSize(),-10000);
-        }
-      }
-);
-    }
+    listView.safeSetSelectionFromTop(list.getSize(),-10000);
     return;
   }
   int newIndex=preDump[0].getIndex() + (list.getSize() - preSize) - 1;
@@ -43,5 +32,5 @@
       }
     }
   }
-  listView.setSelectionFromTop(newIndex,newTop);
+  listView.safeSetSelectionFromTop(newIndex,newTop);
 }

@@ -1,0 +1,5 @@
+{
+  this.messenger=messenger;
+  this.location=location;
+  messenger.bindFile(location,isAutostart,this);
+}

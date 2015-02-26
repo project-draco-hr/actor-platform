@@ -17,6 +17,4 @@
   tabsContainer.setLayoutParams(lp);
   ab.setCustomView(tabsContainer);
   ProfileSyncState.getSyncState().addUiSubscriber(this);
-  emptyContactsImage.setImageResource(R.drawable.contacts_empty_large);
-  emptyDialogsImage.setImageResource(R.drawable.contacts_empty_large);
 }

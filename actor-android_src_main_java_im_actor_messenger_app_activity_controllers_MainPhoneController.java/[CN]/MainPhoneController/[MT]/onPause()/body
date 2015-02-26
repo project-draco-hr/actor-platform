@@ -1,5 +1,3 @@
 {
   ProfileSyncState.getSyncState().removeUiSubscriber(this);
-  emptyContactsImage.setImageBitmap(null);
-  emptyDialogsImage.setImageBitmap(null);
 }

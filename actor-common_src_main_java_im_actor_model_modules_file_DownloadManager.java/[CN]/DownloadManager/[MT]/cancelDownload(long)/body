@@ -1,2 +1,20 @@
 {
+  Log.d(TAG,"Stopping download #" + fileId);
+  QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    Log.d(TAG,"- Not present in queue");
+  }
+ else {
+    if (queueItem.isStarted) {
+      Log.d(TAG,"- Stopping actor");
+      queueItem.taskRef.send(PoisonPill.INSTANCE);
+      queueItem.taskRef=null;
+      queueItem.isStarted=false;
+    }
+    Log.d(TAG,"- Marking as stopped");
+    queueItem.isStopped=true;
+    for (    FileCallback callback : queueItem.callbacks) {
+      callback.onNotDownloaded();
+    }
+  }
 }

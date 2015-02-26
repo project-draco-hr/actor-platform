@@ -37,22 +37,19 @@ break;
 stateIcon.setVisibility(View.GONE);
 }
 int w, h;
-FastThumb thumb;
 if (data.getContent() instanceof PhotoContent) {
 w=((PhotoContent)data.getContent()).getW();
 h=((PhotoContent)data.getContent()).getH();
-thumb=((PhotoContent)data.getContent()).getFastThumb();
 duration.setVisibility(View.GONE);
 }
  else if (data.getContent() instanceof VideoContent) {
 w=((VideoContent)data.getContent()).getW();
 h=((VideoContent)data.getContent()).getH();
-thumb=((VideoContent)data.getContent()).getFastThumb();
 duration.setVisibility(View.VISIBLE);
 duration.setText(Formatter.duration(((VideoContent)data.getContent()).getDuration()));
 }
  else {
-return;
+throw new RuntimeException("Unsupported content");
 }
 int maxHeight=context.getResources().getDisplayMetrics().heightPixels - Screen.dp(96 + 32);
 maxHeight=Math.min(Screen.dp(360),maxHeight);
@@ -65,46 +62,59 @@ imageKitView.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
 overlay.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
 time.setText(TextUtils.formatTime(data.getDate()));
 if (isUpdated) {
-if (thumb != null) {
-if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-try {
-imageKitView.setSrc(ImageLoading.loadReuse(thumb.getImage(),smallPreview).getRes());
-}
- catch (ImageLoadException e) {
-e.printStackTrace();
 imageKitView.setSrc(null);
+if (removeFileVM != null) {
+removeFileVM.detach();
+removeFileVM=null;
 }
-}
- else {
-try {
-imageKitView.setSrc(ImageLoading.loadBitmap(thumb.getImage()));
-}
- catch (ImageLoadException e) {
-e.printStackTrace();
-imageKitView.setSrc(null);
-}
-}
-}
- else {
-imageKitView.setSrc(null);
-}
-imageKitView.clear();
-isInitialBind=true;
-hideProgress(false);
-isInitialBind=false;
-}
-isInitialBind=true;
-if (fileMessage.getSource() instanceof FileLocalSource) {
-FileLocalSource localSource=(FileLocalSource)fileMessage.getSource();
-if (currentMessage.getContent() instanceof PhotoContent) {
-imageKitView.requestPhoto(localSource.getFileName());
-}
- else if (currentMessage.getContent() instanceof VideoContent) {
-imageKitView.requestVideo(localSource.getFileName());
-}
-}
- else if (fileMessage.getSource() instanceof FileRemoteSource) {
+if (fileMessage.getSource() instanceof FileRemoteSource) {
+final DocumentContent doc=fileMessage;
 FileRemoteSource remoteSource=(FileRemoteSource)fileMessage.getSource();
+removeFileVM=new FileVM(remoteSource.getFileLocation(),false,messenger()){
+private boolean isFastThumbLoaded=false;
+private void loadFastThumb(){
+if (isFastThumbLoaded) {
+return;
 }
-isInitialBind=false;
+if (doc.getFastThumb() != null) {
+try {
+post(ImageLoading.loadBitmap(doc.getFastThumb().getImage()));
+}
+ catch (ImageLoadException e) {
+e.printStackTrace();
+}
+}
+isFastThumbLoaded=true;
+}
+@Override protected void onObjectReceived(Object obj){
+if (obj instanceof Bitmap) {
+imageKitView.setSrc((Bitmap)obj);
+}
+ else if (obj instanceof DownloadProgress) {
+showProgress((int)(100 * ((DownloadProgress)obj).getProgress()));
+}
+ else if (obj instanceof DownloadStopped) {
+showIcon(R.drawable.conv_media_download);
+}
+ else if (obj instanceof DownloadCompleted) {
+hideProgress(true);
+}
+}
+@Override public void onNotDownloaded(){
+loadFastThumb();
+post(new DownloadStopped());
+}
+@Override public void onDownloading(float progress){
+loadFastThumb();
+post(new DownloadProgress(progress));
+}
+@Override public void onDownloaded(FileReference reference){
+post(new DownloadCompleted());
+}
+}
+;
+}
+}
+ else {
+}
 }

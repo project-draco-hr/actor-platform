@@ -1,0 +1,5 @@
+{
+  lockLayout=true;
+  setSelectionFromTop(index,top);
+  lockLayout=false;
+}

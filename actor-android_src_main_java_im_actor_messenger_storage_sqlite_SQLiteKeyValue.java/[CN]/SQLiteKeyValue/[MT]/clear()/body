@@ -1,4 +1,5 @@
 {
+  checkSqlite();
   db.beginTransaction();
   try {
     db.execSQL("DELETE FROM \"" + name + "\"");

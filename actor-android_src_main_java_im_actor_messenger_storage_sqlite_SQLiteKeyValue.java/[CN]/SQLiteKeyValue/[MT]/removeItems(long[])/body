@@ -1,4 +1,5 @@
 {
+  checkSqlite();
   checkDeleteStatement();
   db.beginTransaction();
   try {

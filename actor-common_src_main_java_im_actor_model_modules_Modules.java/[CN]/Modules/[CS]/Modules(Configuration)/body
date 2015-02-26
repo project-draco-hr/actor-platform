@@ -1,7 +1,11 @@
 {
   this.configuration=configuration;
+  long start=configuration.getThreading().getActorTime();
   this.i18nEngine=new I18nEngine(configuration.getLocaleProvider());
+  Log.d("CORE_INIT","Loading stage5.1 in " + (configuration.getThreading().getActorTime() - start) + " ms");
   this.preferences=configuration.getStorage().createPreferencesStorage();
+  Log.d("CORE_INIT","Loading stage5.2 in " + (configuration.getThreading().getActorTime() - start) + " ms");
+  start=configuration.getThreading().getActorTime();
   this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallback(){
     @Override public void onAuthIdInvalidated(    long authKey){
     }
@@ -20,5 +24,9 @@
     }
   }
 ,configuration.getNetworking());
+  Log.d("CORE_INIT","Loading stage5.3 in " + (configuration.getThreading().getActorTime() - start) + " ms");
+  start=configuration.getThreading().getActorTime();
   this.auth=new Auth(this);
+  Log.d("CORE_INIT","Loading stage5.4 in " + (configuration.getThreading().getActorTime() - start) + " ms");
+  start=configuration.getThreading().getActorTime();
 }

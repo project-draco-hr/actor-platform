@@ -1,0 +1,10 @@
+{
+  MVVMEngine.runOnUiThread(new Runnable(){
+    @Override public void run(){
+      if (!isDetached) {
+        onObjectReceived(obj);
+      }
+    }
+  }
+);
+}

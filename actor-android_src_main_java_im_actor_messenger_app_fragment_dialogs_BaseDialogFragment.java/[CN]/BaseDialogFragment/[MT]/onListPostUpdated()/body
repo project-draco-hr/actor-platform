@@ -40,7 +40,7 @@
       @Override public boolean onPreDraw(){
         if (listView == null)         return true;
         listView.getViewTreeObserver().removeOnPreDrawListener(this);
-        for (int i=0; i < listView.getChildCount(); i++) {
+        for (int i=1; i < listView.getChildCount() - 1; i++) {
           View view=listView.getChildAt(i);
           long id=listView.getItemIdAtPosition(listView.getFirstVisiblePosition() + i);
           if (changedIds.contains(id) && offsets.containsKey(id)) {

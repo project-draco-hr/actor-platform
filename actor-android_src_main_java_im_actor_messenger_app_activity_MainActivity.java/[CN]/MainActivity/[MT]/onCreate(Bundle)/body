@@ -6,5 +6,5 @@
     finish();
     return;
   }
-  getWindow().setBackgroundDrawable(null);
+  getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bg_light)));
 }

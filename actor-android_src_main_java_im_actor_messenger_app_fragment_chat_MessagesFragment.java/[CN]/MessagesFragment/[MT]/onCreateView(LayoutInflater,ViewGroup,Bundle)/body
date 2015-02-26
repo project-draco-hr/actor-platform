@@ -52,6 +52,7 @@
   listView.setDivider(null);
   listView.setCacheColorHint(Color.TRANSPARENT);
   listView.setScrollingCacheEnabled(false);
+  listView.setStackFromBottom(true);
   listEngine=ListEngines.getMessagesList(peer);
   list=listEngine.getUiList();
   adapter=new ChatAdapter(peer,this,getActivity());

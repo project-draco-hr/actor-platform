@@ -3,18 +3,12 @@
   Formatter.init(application);
   system().setClassLoader(AppContext.getContext().getClassLoader());
   system().addDispatcher("db",1);
-  system().addDispatcher("contacts",1);
-  system().addDispatcher("file_encryption",1);
-  system().addDispatcher("rsa",1);
-  system().addDispatcher("updates",1);
-  system().addDispatcher("push",1);
-  this.emojiProcessor=new EmojiProcessor(application);
   ActivityManager activityManager=(ActivityManager)AppContext.getContext().getSystemService(Context.ACTIVITY_SERVICE);
   int memoryInMB=Math.min(activityManager.getMemoryClass(),32);
   long totalAppHeap=memoryInMB * 1024 * 1024;
   int cacheLimit=(int)totalAppHeap / 4;
   int freeCacheLimit=cacheLimit / 2;
-  BitmapClasificator clasificator=new BitmapClasificator.Builder().startExactSize(100,100).setFreeSize(2).setLruSize(15).endFilter().startAny().useSizeInBytes().setLruSize(cacheLimit).setFreeSize(freeCacheLimit).endFilter().build();
+  BitmapClasificator clasificator=new BitmapClasificator.Builder().startExactSize(100,100).setFreeSize(2).setLruSize(15).endFilter().startLessOrEqSize(90,90).setFreeSize(10).useSizeInAmount().endFilter().startAny().useSizeInBytes().setLruSize(cacheLimit).setFreeSize(freeCacheLimit).endFilter().build();
   this.imageLoader=new ImageLoader(clasificator,application);
   this.imageLoader.getTaskResolver().register(ImagePreviewTask.class,ImagePreviewActor.class);
   this.imageLoader.getTaskResolver().register(VideoPreviewTask.class,VideoPreviewActor.class);
@@ -27,7 +21,12 @@
   builder.setMainThread(new AndroidMainThread());
   builder.setLog(new AndroidLog());
   builder.setStorage(new AppEngineFactory());
-  builder.setLocale(new JavaLocale("En"));
+  builder.setLocale(new LocaleProvider(){
+    @Override public HashMap<String,String> loadLocale(){
+      return new HashMap<String,String>();
+    }
+  }
+);
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setCryptoProvider(new AndroidCryptoProvider());
   builder.setFileSystemProvider(new AndroidFileProvider(application));

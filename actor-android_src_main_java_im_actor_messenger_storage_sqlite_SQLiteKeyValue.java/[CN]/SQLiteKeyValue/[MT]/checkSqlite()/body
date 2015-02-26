@@ -1,0 +1,8 @@
+{
+  if (!isSqliteChecked) {
+    isSqliteChecked=true;
+    if (!SQLiteHelpers.isTableExists(db,name)) {
+      db.execSQL("CREATE TABLE IF NOT EXISTS \"" + name + "\" ("+ "\"ID\" INTEGER NOT NULL,"+ "\"BYTES\" BLOB NOT NULL,"+ "PRIMARY KEY(\"ID\"));");
+    }
+  }
+}

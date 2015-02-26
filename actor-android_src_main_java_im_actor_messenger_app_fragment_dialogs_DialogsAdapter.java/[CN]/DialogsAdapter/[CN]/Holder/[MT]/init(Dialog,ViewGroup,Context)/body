@@ -6,7 +6,7 @@
   errorColor=context.getResources().getColor(R.color.chats_state_error);
   FrameLayout fl=new FrameLayout(context);
   fl.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));
-  fl.setBackgroundResource(R.drawable.selector_white);
+  fl.setBackgroundResource(R.drawable.selector);
   avatar=new AvatarView(context);
 {
     FrameLayout.LayoutParams avatarLayoutParams=new FrameLayout.LayoutParams(Screen.dp(54),Screen.dp(54));

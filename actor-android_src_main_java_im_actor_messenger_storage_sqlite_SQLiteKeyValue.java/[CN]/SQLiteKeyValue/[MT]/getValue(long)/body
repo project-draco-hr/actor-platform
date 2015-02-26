@@ -1,4 +1,5 @@
 {
+  checkSqlite();
   Cursor cursor=db.query("\"" + name + "\"",new String[]{"\"BYTES\""},"\"ID\" = ?",new String[]{"" + id},null,null,null);
   if (cursor == null) {
     return null;

@@ -29,5 +29,5 @@
       return new DownloadTask(finalPendingQueue.fileLocation,self(),modules());
     }
   }
-),"actor/download/task_" + finalPendingQueue.fileLocation.getFileId());
+),"actor/download/task_" + RandomUtils.nextRid());
 }
