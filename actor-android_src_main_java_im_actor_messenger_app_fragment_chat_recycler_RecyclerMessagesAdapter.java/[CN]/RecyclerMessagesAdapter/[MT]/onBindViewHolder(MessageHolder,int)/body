@@ -1,0 +1,18 @@
+{
+  Message prev=null;
+  Message next=null;
+  if (position > 1) {
+    next=getItem(position - 1);
+  }
+  if (position < getItemCount() - 2) {
+    prev=getItem(position + 1);
+  }
+  bubbleHolder.bindData(getItem(position),prev,next);
+  if (position > getItemCount() - LOAD_GAP) {
+    if (engine.getListState().getValue().getState() == ListState.State.LOADED) {
+    }
+ else {
+      engine.requestLoadTail();
+    }
+  }
+}

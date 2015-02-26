@@ -1,0 +1,32 @@
+{
+  if (message.getContent() instanceof ServiceUserRegistered) {
+    messageText.setText(MessageTextFormatter.joinedActorFull(getPeer().getPeerId()));
+  }
+ else   if (message.getContent() instanceof ServiceGroupCreated) {
+    messageText.setText(MessageTextFormatter.groupCreatedFull(message.getSenderId(),((ServiceGroupCreated)message.getContent()).getGroupTitle()));
+  }
+ else   if (message.getContent() instanceof ServiceGroupUserLeave) {
+    messageText.setText(MessageTextFormatter.groupLeave(message.getSenderId()));
+  }
+ else   if (message.getContent() instanceof ServiceGroupUserAdded) {
+    messageText.setText(MessageTextFormatter.groupAdd(message.getSenderId(),((ServiceGroupUserAdded)message.getContent()).getAddedUid()));
+  }
+ else   if (message.getContent() instanceof ServiceGroupUserKicked) {
+    messageText.setText(MessageTextFormatter.groupKicked(message.getSenderId(),((ServiceGroupUserKicked)message.getContent()).getKickedUid()));
+  }
+ else   if (message.getContent() instanceof ServiceGroupTitleChanged) {
+    messageText.setText(MessageTextFormatter.groupChangeTitleFull(message.getSenderId(),((ServiceGroupTitleChanged)message.getContent()).getNewTitle()));
+  }
+ else   if (message.getContent() instanceof ServiceGroupAvatarChanged) {
+    ServiceGroupAvatarChanged avatar=(ServiceGroupAvatarChanged)message.getContent();
+    if (avatar.getNewAvatar() != null) {
+      messageText.setText(MessageTextFormatter.groupChangeAvatar(message.getSenderId()));
+    }
+ else {
+      messageText.setText(MessageTextFormatter.groupRemoveAvatar(message.getSenderId()));
+    }
+  }
+ else {
+    messageText.setText("???");
+  }
+}

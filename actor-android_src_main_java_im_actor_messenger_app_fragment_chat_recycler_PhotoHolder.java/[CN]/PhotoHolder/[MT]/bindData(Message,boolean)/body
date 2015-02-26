@@ -1,0 +1,92 @@
+{
+  DocumentContent fileMessage=(DocumentContent)message.getContent();
+  if (message.getSenderId() == myUid()) {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_out);
+  }
+ else {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_in);
+  }
+  if (message.getSenderId() == myUid()) {
+    stateIcon.setVisibility(View.VISIBLE);
+switch (message.getMessageState()) {
+case ERROR:
+      stateIcon.setResource(R.drawable.msg_error);
+    stateIcon.setTint(COLOR_ERROR);
+  break;
+default :
+case PENDING:
+stateIcon.setResource(R.drawable.msg_clock);
+stateIcon.setTint(COLOR_PENDING);
+break;
+case READ:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(COLOR_READ);
+break;
+case RECEIVED:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(COLOR_RECEIVED);
+break;
+case SENT:
+stateIcon.setResource(R.drawable.msg_check_1);
+stateIcon.setTint(COLOR_SENT);
+break;
+}
+}
+ else {
+stateIcon.setVisibility(View.GONE);
+}
+time.setText(TextUtils.formatTime(message.getDate()));
+if (isNewMessage) {
+int w, h;
+if (message.getContent() instanceof PhotoContent) {
+w=((PhotoContent)message.getContent()).getW();
+h=((PhotoContent)message.getContent()).getH();
+duration.setVisibility(View.GONE);
+}
+ else if (message.getContent() instanceof VideoContent) {
+w=((VideoContent)message.getContent()).getW();
+h=((VideoContent)message.getContent()).getH();
+duration.setVisibility(View.VISIBLE);
+duration.setText(Formatter.duration(((VideoContent)message.getContent()).getDuration()));
+}
+ else {
+throw new RuntimeException("Unsupported content");
+}
+int maxHeight=context.getResources().getDisplayMetrics().heightPixels - Screen.dp(96 + 32);
+maxHeight=Math.min(Screen.dp(360),maxHeight);
+int maxWidth=context.getResources().getDisplayMetrics().widthPixels - Screen.dp(32 + 48);
+maxWidth=Math.min(Screen.dp(360),maxWidth);
+float scale=Math.min(maxWidth / (float)w,maxHeight / (float)h);
+int bubbleW=(int)(scale * w);
+int bubbleH=(int)(scale * h);
+imageKitView.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
+overlay.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
+}
+boolean needRebind=false;
+if (isNewMessage) {
+imageKitView.noRequest();
+fastThumbLoader.cancel();
+if (downloadFileVM != null) {
+downloadFileVM.detach();
+downloadFileVM=null;
+}
+needRebind=true;
+}
+ else {
+}
+if (needRebind) {
+progressContainer.setVisibility(View.GONE);
+progressView.setVisibility(View.GONE);
+progressValue.setVisibility(View.GONE);
+progressIcon.setVisibility(View.GONE);
+if (fileMessage.getSource() instanceof FileRemoteSource) {
+boolean autoDownload=fileMessage instanceof PhotoContent;
+downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileLocation(),autoDownload,new DownloadVMCallback(fileMessage));
+}
+ else if (fileMessage.getSource() instanceof FileLocalSource) {
+}
+ else {
+throw new RuntimeException("Unknown file source type: " + fileMessage.getSource());
+}
+}
+}

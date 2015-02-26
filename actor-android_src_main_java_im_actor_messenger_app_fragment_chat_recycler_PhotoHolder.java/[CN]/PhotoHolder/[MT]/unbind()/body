@@ -1,0 +1,9 @@
+{
+  super.unbind();
+  if (downloadFileVM != null) {
+    downloadFileVM.detach();
+    downloadFileVM=null;
+  }
+  fastThumbLoader.cancel();
+  imageKitView.noRequest();
+}

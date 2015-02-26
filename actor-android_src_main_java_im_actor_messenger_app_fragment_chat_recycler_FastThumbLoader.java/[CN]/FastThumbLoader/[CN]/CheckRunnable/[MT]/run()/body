@@ -1,0 +1,23 @@
+{
+  int req;
+  byte[] d;
+synchronized (LOCKER) {
+    if (!isActive) {
+      return;
+    }
+    req=currentRequest;
+    d=data;
+  }
+  try {
+    Bitmap res=ImageLoading.loadBitmap(d);
+    handler.sendMessage(handler.obtainMessage(req,res));
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+synchronized (LOCKER) {
+      if (isActive && currentRequest == req) {
+        isActive=false;
+      }
+    }
+  }
+}

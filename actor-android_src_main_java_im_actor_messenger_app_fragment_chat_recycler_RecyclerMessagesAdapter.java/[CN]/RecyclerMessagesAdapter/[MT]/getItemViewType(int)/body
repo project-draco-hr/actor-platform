@@ -1,0 +1,20 @@
+{
+  if (position == 0) {
+    return 0;
+  }
+ else {
+    AbsContent content=getItem(position - 1).getContent();
+    if (content instanceof ServiceContent) {
+      return 1;
+    }
+ else     if (content instanceof PhotoContent) {
+      return 2;
+    }
+ else     if (content instanceof VideoContent) {
+      return 2;
+    }
+ else {
+      return 3;
+    }
+  }
+}

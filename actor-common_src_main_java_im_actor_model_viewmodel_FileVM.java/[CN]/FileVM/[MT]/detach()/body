@@ -1,4 +1,4 @@
 {
   super.detach();
-  messenger.unbindFile(location.getFileId(),this,false);
+  modules.getFilesModule().unbindFile(location.getFileId(),callback,false);
 }

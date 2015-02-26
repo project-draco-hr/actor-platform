@@ -1,118 +1,31 @@
 {
   peer=Peer.fromUid(getArguments().getLong("CHAT_PEER"));
+  listEngine=ListEngines.getMessagesList(peer);
   scrollNewMessage=new TextView(getActivity());
   scrollNewMessage.setTextColor(Color.WHITE);
   scrollNewMessage.setText(R.string.chat_new_messages);
   scrollNewMessage.setBackgroundResource(R.drawable.conv_scroll_down_new);
   scrollNewMessage.setTypeface(Fonts.load(getActivity(),"Regular"));
   scrollNewMessage.setTextSize(14);
-  scrollNewMessage.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (state != STATE_BOTTOM) {
-        state=STATE_BOTTOM;
-        listEngine.scrollToStart();
-      }
- else {
-        for (int i=0; i < list.getSize(); i++) {
-          if (list.getItem(i).getRid() == newMessageId) {
-            listView.setSelectionFromTop(list.getSize() - i - 1,Screen.dp(48));
-            break;
-          }
-        }
-        newMessageId=0;
-        if (showNewMessage) {
-          showNewMessage=false;
-          goneView(scrollNewMessage);
-        }
-      }
-    }
-  }
-);
   scrollNewMessage.setVisibility(View.GONE);
   scrollUp=new ImageView(getActivity());
   scrollUp.setImageResource(R.drawable.conv_scroll_up);
-  scrollUp.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      state=STATE_TOP;
-      listEngine.scrollToEnd();
-    }
-  }
-);
   scrollDown=new ImageView(getActivity());
   scrollDown.setImageResource(R.drawable.conv_scroll_down);
-  scrollDown.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      state=STATE_BOTTOM;
-      listEngine.scrollToStart();
-    }
-  }
-);
-  listView=new ConversationListView(getActivity());
-  listView.setDividerHeight(0);
-  listView.setDivider(null);
-  listView.setCacheColorHint(Color.TRANSPARENT);
-  listView.setScrollingCacheEnabled(false);
-  listView.setStackFromBottom(true);
-  listEngine=ListEngines.getMessagesList(peer);
-  list=listEngine.getUiList();
-  adapter=new ChatAdapter(peer,this,getActivity());
-  View view=new View(getActivity());
-  view.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(10)));
-  listView.addFooterView(view,null,false);
-  FrameLayout header=new FrameLayout(getActivity());
-  header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
-  header.setPadding(0,0,0,Screen.dp(8));
-  final TextView addContact=new TextView(getActivity());
-  addContact.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(48)));
-  addContact.setText(R.string.chat_add_to_contacts);
-  addContact.setAllCaps(true);
-  addContact.setTextColor(getResources().getColor(R.color.text_primary_light));
-  addContact.setTextSize(14);
-  addContact.setTypeface(Fonts.medium());
-  addContact.setGravity(Gravity.CENTER);
-  addContact.setBackgroundResource(R.drawable.selector_add);
-  addContact.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      execute(messenger().addContact(peer.getPeerId()),R.string.chat_add_to_contacts_progress,new CommandCallback<Boolean>(){
-        @Override public void onResult(        Boolean res){
-        }
-        @Override public void onError(        Exception e){
-        }
-      }
-);
-    }
-  }
-);
-  if (peer.getPeerType() == PeerType.PRIVATE) {
-    UserVM user=users().get(peer.getPeerId());
-    bind(user.isContact(),new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
-        if (val) {
-          addContact.setVisibility(View.GONE);
-        }
- else {
-          addContact.setVisibility(View.VISIBLE);
-        }
-      }
-    }
-);
-  }
- else {
-    addContact.setVisibility(View.GONE);
-  }
-  header.addView(addContact);
-  listView.addHeaderView(header,null,false);
-  listView.setAdapter(adapter);
-  listView.setRecyclerListener(new AbsListView.RecyclerListener(){
-    @Override public void onMovedToScrapHeap(    View view){
-      adapter.onMovedToScrapHeap(view);
-    }
-  }
-);
+  messagesView=new RecyclerView(getActivity());
+  messagesView.setVerticalScrollBarEnabled(true);
+  messagesView.setHorizontalScrollBarEnabled(false);
+  messagesView.setHasFixedSize(true);
+  LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
+  linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  linearLayoutManager.setReverseLayout(true);
+  messagesView.setLayoutManager(linearLayoutManager);
+  messagesAdapter=new RecyclerMessagesAdapter(this);
+  messagesView.setAdapter(messagesAdapter);
   bg=new BackgroundView(getActivity());
   FrameLayout rootLayout=new FrameLayout(getActivity());
   rootLayout.addView(bg,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
-  rootLayout.addView(listView,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  rootLayout.addView(messagesView,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
 {
     FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT,Gravity.RIGHT | Gravity.TOP);
     params.rightMargin=Screen.dp(8);

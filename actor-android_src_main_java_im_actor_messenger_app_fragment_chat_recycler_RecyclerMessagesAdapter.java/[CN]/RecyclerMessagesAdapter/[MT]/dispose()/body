@@ -1,0 +1,3 @@
+{
+  this.uiList.removeListener(listListener);
+}

@@ -1,3 +1,0 @@
-{
-  modules.getFilesModule().unbindFile(fileId,callback,cancel);
-}

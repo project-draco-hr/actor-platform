@@ -1,0 +1,16 @@
+{
+  super(fragment,itemView,false);
+  messageBubbleContainer=(BubbleContainer)itemView;
+  messageBubble=(FrameLayout)itemView.findViewById(R.id.fl_bubble);
+  text=(TextView)itemView.findViewById(R.id.tv_text);
+  text.setTypeface(Fonts.regular());
+  time=(TextView)itemView.findViewById(R.id.tv_time);
+  time.setTypeface(Fonts.regular());
+  status=(TintImageView)itemView.findViewById(R.id.stateIcon);
+  colors=new int[]{itemView.getResources().getColor(R.color.placeholder_0),itemView.getResources().getColor(R.color.placeholder_1),itemView.getResources().getColor(R.color.placeholder_2),itemView.getResources().getColor(R.color.placeholder_3),itemView.getResources().getColor(R.color.placeholder_4),itemView.getResources().getColor(R.color.placeholder_5),itemView.getResources().getColor(R.color.placeholder_6)};
+  waitColor=itemView.getResources().getColor(R.color.conv_state_pending);
+  sentColor=itemView.getResources().getColor(R.color.conv_state_sent);
+  deliveredColor=itemView.getResources().getColor(R.color.conv_state_delivered);
+  readColor=itemView.getResources().getColor(R.color.conv_state_read);
+  errorColor=itemView.getResources().getColor(R.color.conv_state_error);
+}

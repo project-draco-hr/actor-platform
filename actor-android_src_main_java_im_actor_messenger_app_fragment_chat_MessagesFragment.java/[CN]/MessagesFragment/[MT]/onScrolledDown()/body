@@ -1,6 +1,0 @@
-{
-  goneView(scrollUp);
-  if (!showNewMessage) {
-    showView(scrollDown);
-  }
-}

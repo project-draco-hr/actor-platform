@@ -1,0 +1,13 @@
+{
+switch (viewType) {
+case 0:
+    return new FooterHolder(messagesFragment.getActivity());
+case 1:
+  return new ServiceHolder(messagesFragment,LayoutInflater.from(context).inflate(R.layout.adapter_dialog_service,viewGroup,false));
+case 2:
+return new PhotoHolder(messagesFragment,LayoutInflater.from(context).inflate(R.layout.adapter_dialog_photo,viewGroup,false));
+case 3:
+return new TextHolder(messagesFragment,LayoutInflater.from(context).inflate(R.layout.adapter_dialog_text,viewGroup,false));
+}
+throw new RuntimeException("Unknown view type");
+}

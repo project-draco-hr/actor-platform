@@ -1,4 +1,0 @@
-{
-  goneView(scrollUp);
-  goneView(scrollDown);
-}

@@ -1,15 +1,11 @@
 {
   super.onDestroyView();
-  if (adapter != null) {
-    adapter.dispose();
+  if (messagesAdapter != null) {
+    messagesAdapter.dispose();
   }
-  if (listView != null) {
-    listView.setRecyclerListener(null);
-  }
-  adapter=null;
-  listView=null;
+  messagesAdapter=null;
+  messagesView=null;
   listEngine=null;
-  list=null;
   scrollUp=null;
   scrollDown=null;
   preDump=null;

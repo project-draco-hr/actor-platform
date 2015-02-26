@@ -71,7 +71,6 @@
       }
       @Override public void onDestroyActionMode(      ActionMode mode){
         selected.clear();
-        listView.invalidateViews();
         actionMode=null;
       }
     }
