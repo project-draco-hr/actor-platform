@@ -1,0 +1,13 @@
+Networking networking
+ConnectionEndpoint[] endpoints
+Threading threading
+MainThread mainThread
+Storage storage
+LogCallback log
+boolean persistUploadingFiles
+LocaleProvider localeProvider
+PhoneBookProvider phoneBookProvider
+CryptoProvider cryptoProvider
+FileSystemProvider fileSystemProvider
+boolean enableContactsLogging
+boolean enableNetworkLogging

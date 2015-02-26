@@ -1,0 +1,3 @@
+long fileId
+int fileSize
+String descriptor

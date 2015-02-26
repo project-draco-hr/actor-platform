@@ -1,0 +1,3 @@
+int fileId
+boolean isAutocancel
+FileCallback callback

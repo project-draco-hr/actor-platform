@@ -1,0 +1,6 @@
+{
+  this.fileId=fileId;
+  this.accessHash=accessHash;
+  this.fileSize=fileSize;
+  this.fileName=fileName;
+}

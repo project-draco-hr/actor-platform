@@ -2,5 +2,5 @@
   if (avatarImage == null) {
     return null;
   }
-  return new AvatarImage(avatarImage.getWidth(),avatarImage.getHeight(),convert(avatarImage.getFileLocation(),avatarImage.getFileSize()));
+  return new AvatarImage(avatarImage.getWidth(),avatarImage.getHeight(),convert(avatarImage.getFileLocation(),"avatar.jpg",avatarImage.getFileSize()));
 }

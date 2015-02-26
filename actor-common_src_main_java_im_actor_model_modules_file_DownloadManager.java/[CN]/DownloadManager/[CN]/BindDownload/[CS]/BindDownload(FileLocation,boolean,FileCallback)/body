@@ -1,0 +1,5 @@
+{
+  this.fileLocation=fileLocation;
+  this.isAutostart=isAutostart;
+  this.callback=callback;
+}

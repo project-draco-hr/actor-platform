@@ -1,0 +1,5 @@
+{
+  this.fileId=fileId;
+  this.fileSize=fileSize;
+  this.descriptor=descriptor;
+}

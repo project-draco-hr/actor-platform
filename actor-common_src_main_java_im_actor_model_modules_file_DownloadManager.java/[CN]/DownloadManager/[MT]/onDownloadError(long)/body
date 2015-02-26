@@ -1,0 +1,13 @@
+{
+  Log.d(TAG,"onDownloadError file #" + fileId);
+  QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    return;
+  }
+  queueItem.taskRef.send(PoisonPill.INSTANCE);
+  queueItem.isStopped=true;
+  queueItem.isStarted=false;
+  for (  FileCallback fileCallback : queueItem.callbacks) {
+    fileCallback.onNotDownloaded();
+  }
+}

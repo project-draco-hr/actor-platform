@@ -5,8 +5,9 @@
   updates=new Updates(this);
   presence=new Presence(this);
   typing=new Typing(this);
-  filesModule=new FilesModule(this);
+  filesModule=new Files(this);
   contacts=new Contacts(this);
+  filesModule.run();
   messages.run();
   updates.run();
   presence.run();

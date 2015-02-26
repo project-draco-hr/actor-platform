@@ -1,0 +1,11 @@
+{
+  File externalFile=context.getExternalFilesDir(null);
+  if (externalFile == null) {
+    return;
+  }
+  String externalPath=externalFile.getAbsolutePath();
+  File dest=new File(externalPath + "/actor/tmp/");
+  if (dest.exists()) {
+    for (    File file : dest.listFiles())     file.delete();
+  }
+}

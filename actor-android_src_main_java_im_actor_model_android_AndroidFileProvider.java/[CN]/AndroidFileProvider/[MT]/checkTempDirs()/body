@@ -1,0 +1,6 @@
+{
+  if (isFirst) {
+    isFirst=false;
+    clearTempDir();
+  }
+}

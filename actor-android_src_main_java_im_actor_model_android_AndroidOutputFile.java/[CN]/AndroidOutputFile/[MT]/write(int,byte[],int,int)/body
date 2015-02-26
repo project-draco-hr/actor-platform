@@ -1,0 +1,11 @@
+{
+  try {
+    randomAccessFile.seek(fileOffset);
+    randomAccessFile.write(data,dataOffset,dataLen);
+    return true;
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return false;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  Log.d(TAG,"onDownloadProgress file #" + fileId + " "+ progress);
+  QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    return;
+  }
+  queueItem.progress=progress;
+  for (  FileCallback fileCallback : queueItem.callbacks) {
+    fileCallback.onDownloading(progress);
+  }
+}

@@ -37,7 +37,7 @@
       String mimeType=fileMessage.getMimeType();
       String name=fileMessage.getName();
       im.actor.model.entity.content.FastThumb fastThumb=convert(fileMessage.getThumb());
-      FileLocation fileLocation=new FileLocation(fileMessage.getFileId(),fileMessage.getAccessHash(),fileMessage.getFileSize());
+      FileLocation fileLocation=new FileLocation(fileMessage.getFileId(),fileMessage.getAccessHash(),fileMessage.getFileSize(),fileMessage.getName());
       FileRemoteSource source=new FileRemoteSource(fileLocation);
       if (fileMessage.getExtType() == 0x01) {
         try {

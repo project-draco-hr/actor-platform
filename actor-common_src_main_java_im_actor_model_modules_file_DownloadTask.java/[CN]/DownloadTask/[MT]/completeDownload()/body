@@ -1,0 +1,14 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  isCompleted=true;
+  Log.d(TAG,"Closing file...");
+  if (!outputFile.close()) {
+    reportError();
+    return;
+  }
+  FileReference reference=fileSystemProvider.commitTempFile(destReference,fileLocation);
+  Log.d(TAG,"Complete download {" + reference.getDescriptor() + "}");
+  manager.send(new DownloadManager.OnDownloaded(fileLocation.getFileId(),reference));
+}

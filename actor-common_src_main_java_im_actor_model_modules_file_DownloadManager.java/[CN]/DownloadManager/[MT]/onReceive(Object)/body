@@ -1,0 +1,33 @@
+{
+  if (message instanceof BindDownload) {
+    BindDownload requestDownload=(BindDownload)message;
+    bindDownload(requestDownload.getFileLocation(),requestDownload.isAutostart(),requestDownload.getCallback());
+  }
+ else   if (message instanceof CancelDownload) {
+    CancelDownload cancelDownload=(CancelDownload)message;
+    cancelDownload(cancelDownload.getFileId());
+  }
+ else   if (message instanceof UnbindDownload) {
+    UnbindDownload unbindDownload=(UnbindDownload)message;
+    unbindDownload(unbindDownload.getFileId(),unbindDownload.isAutocancel(),unbindDownload.getCallback());
+  }
+ else   if (message instanceof StartDownload) {
+    StartDownload startDownload=(StartDownload)message;
+    startDownload(startDownload.getFileLocation());
+  }
+ else   if (message instanceof OnDownloadProgress) {
+    OnDownloadProgress downloadProgress=(OnDownloadProgress)message;
+    onDownloadProgress(downloadProgress.getFileId(),downloadProgress.getProgress());
+  }
+ else   if (message instanceof OnDownloaded) {
+    OnDownloaded onDownloaded=(OnDownloaded)message;
+    onDownloaded(onDownloaded.getFileId(),onDownloaded.getReference());
+  }
+ else   if (message instanceof OnDownloadedError) {
+    OnDownloadedError error=(OnDownloadedError)message;
+    onDownloadError(error.getFileId());
+  }
+ else {
+    drop(message);
+  }
+}

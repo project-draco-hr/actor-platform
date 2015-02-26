@@ -1,0 +1,4 @@
+{
+  randomAccessFile=new RandomAccessFile(fileName,"rws");
+  randomAccessFile.setLength(size);
+}

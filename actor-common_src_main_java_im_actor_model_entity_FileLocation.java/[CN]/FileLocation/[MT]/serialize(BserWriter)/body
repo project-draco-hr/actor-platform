@@ -2,4 +2,5 @@
   writer.writeLong(1,fileId);
   writer.writeLong(2,accessHash);
   writer.writeInt(3,fileSize);
+  writer.writeString(4,fileName);
 }

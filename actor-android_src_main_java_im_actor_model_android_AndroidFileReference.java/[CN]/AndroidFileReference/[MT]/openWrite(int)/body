@@ -1,0 +1,9 @@
+{
+  try {
+    return new AndroidOutputFile(fileName,size);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return null;
+  }
+}

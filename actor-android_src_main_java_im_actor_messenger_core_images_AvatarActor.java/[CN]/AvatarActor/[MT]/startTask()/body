@@ -1,18 +1,3 @@
 {
-  FileLocation location=getTask().getAvatar().getSmallImage().getFileLocation();
-  final String smallFile="avatar:" + location.getFileId();
-  String fileName=getLoader().getInternalDiskCache().lockFile(smallFile);
-  if (fileName != null) {
-    try {
-      Bitmap res=ImageLoading.loadBitmap(fileName);
-      completeTask(res);
-      return;
-    }
- catch (    ImageLoadException e) {
-      e.printStackTrace();
-    }
- finally {
-      getLoader().getInternalDiskCache().unlockFile(smallFile);
-    }
-  }
+  messenger().bindFile(location,true,fileCallback);
 }

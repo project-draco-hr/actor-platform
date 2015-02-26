@@ -1,5 +1,0 @@
-{
-  this.fileId=fileId;
-  this.accessHash=accessHash;
-  this.fileSize=fileSize;
-}

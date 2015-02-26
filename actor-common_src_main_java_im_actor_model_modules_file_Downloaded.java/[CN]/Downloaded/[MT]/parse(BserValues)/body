@@ -1,0 +1,5 @@
+{
+  fileId=values.getLong(1);
+  fileSize=values.getInt(2);
+  descriptor=values.getString(3);
+}

@@ -1,0 +1,5 @@
+{
+  writer.writeLong(1,fileId);
+  writer.writeInt(2,fileSize);
+  writer.writeString(3,descriptor);
+}

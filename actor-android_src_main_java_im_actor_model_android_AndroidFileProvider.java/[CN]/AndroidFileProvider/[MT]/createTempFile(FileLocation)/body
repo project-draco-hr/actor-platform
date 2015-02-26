@@ -1,0 +1,8 @@
+{
+  checkTempDirs();
+  String destFile=buildTempFile();
+  if (destFile == null) {
+    return null;
+  }
+  return new AndroidFileReference(destFile);
+}

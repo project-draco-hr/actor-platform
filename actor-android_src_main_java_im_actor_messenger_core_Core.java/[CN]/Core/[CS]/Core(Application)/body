@@ -30,6 +30,7 @@
   builder.setLocale(new JavaLocale("En"));
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setCryptoProvider(new AndroidCryptoProvider());
+  builder.setFileSystemProvider(new AndroidFileProvider(application));
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
