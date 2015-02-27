@@ -1,5 +1,0 @@
-{
-  this.fragment=fragment;
-  this.peer=fragment.getPeer();
-  this.uiList=uiList;
-}

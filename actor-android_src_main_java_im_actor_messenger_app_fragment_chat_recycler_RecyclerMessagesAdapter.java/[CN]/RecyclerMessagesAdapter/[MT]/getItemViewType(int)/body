@@ -4,17 +4,21 @@
   }
  else {
     AbsContent content=getItem(position - 1).getContent();
-    if (content instanceof ServiceContent) {
+    if (content instanceof TextContent) {
       return 1;
     }
+ else     if (content instanceof ServiceContent) {
+      return 2;
+    }
  else     if (content instanceof PhotoContent) {
-      return 2;
-    }
- else     if (content instanceof VideoContent) {
-      return 2;
-    }
- else {
       return 3;
     }
+ else     if (content instanceof VideoContent) {
+      return 3;
+    }
+ else     if (content instanceof DocumentContent) {
+      return 4;
+    }
   }
+  throw new RuntimeException("Unknown view type");
 }

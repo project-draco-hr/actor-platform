@@ -17,4 +17,5 @@
     }
     promote(fileLocation.getFileId());
   }
+  checkQueue();
 }

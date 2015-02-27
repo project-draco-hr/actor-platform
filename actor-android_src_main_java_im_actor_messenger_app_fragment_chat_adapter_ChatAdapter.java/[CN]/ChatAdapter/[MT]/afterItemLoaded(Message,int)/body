@@ -1,6 +1,0 @@
-{
-  if (getEngine().getListState().getValue().getState() == ListState.State.LOADED) {
-    if (position > getCount() - LOAD_GAP) {
-    }
-  }
-}

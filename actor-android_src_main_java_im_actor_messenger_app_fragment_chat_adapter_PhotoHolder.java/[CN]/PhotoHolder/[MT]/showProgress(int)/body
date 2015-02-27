@@ -1,8 +1,0 @@
-{
-  progressView.setValue(progress);
-  progressValue.setText("" + progress);
-  showView(progressContainer);
-  showView(progressView);
-  showView(progressValue);
-  goneView(progressIcon);
-}

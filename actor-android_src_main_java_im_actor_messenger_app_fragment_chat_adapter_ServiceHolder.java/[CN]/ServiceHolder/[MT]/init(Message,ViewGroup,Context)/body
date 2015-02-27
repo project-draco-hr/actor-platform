@@ -1,7 +1,0 @@
-{
-  LayoutInflater inflater=LayoutInflater.from(context);
-  BubbleContainer v=(BubbleContainer)inflater.inflate(R.layout.adapter_dialog_service,viewGroup,false);
-  messageText=(TextView)v.findViewById(R.id.serviceMessage);
-  initBubbleHolder(v,true);
-  return v;
-}

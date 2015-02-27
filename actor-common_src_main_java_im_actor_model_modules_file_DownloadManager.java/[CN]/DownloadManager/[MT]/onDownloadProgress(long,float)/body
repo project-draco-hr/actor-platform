@@ -4,6 +4,9 @@
   if (queueItem == null) {
     return;
   }
+  if (!queueItem.isStarted) {
+    return;
+  }
   queueItem.progress=progress;
   for (  FileCallback fileCallback : queueItem.callbacks) {
     fileCallback.onDownloading(progress);

@@ -17,4 +17,5 @@
       callback.onNotDownloaded();
     }
   }
+  checkQueue();
 }

@@ -1,7 +1,0 @@
-{
-  progressIcon.setImageResource(resId);
-  showView(progressContainer,false);
-  showView(progressIcon);
-  goneView(progressView);
-  goneView(progressValue);
-}

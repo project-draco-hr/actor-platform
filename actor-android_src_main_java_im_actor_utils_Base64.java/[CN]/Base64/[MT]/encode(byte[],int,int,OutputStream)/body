@@ -1,3 +1,0 @@
-{
-  return encoder.encode(data,off,length,out);
-}

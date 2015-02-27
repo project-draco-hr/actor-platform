@@ -1,0 +1,18 @@
+{
+  super.onClick(v);
+  if (document.getSource() instanceof FileRemoteSource) {
+    FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
+    final FileLocation location=remoteSource.getFileLocation();
+    messenger().requestState(location.getFileId(),new FileCallback(){
+      @Override public void onNotDownloaded(){
+        messenger().startDownloading(location);
+      }
+      @Override public void onDownloading(      float progress){
+        messenger().cancelDownloading(location.getFileId());
+      }
+      @Override public void onDownloaded(      FileReference reference){
+      }
+    }
+);
+  }
+}

@@ -28,4 +28,5 @@
       queueItem.callbacks.remove(callback);
     }
   }
+  checkQueue();
 }

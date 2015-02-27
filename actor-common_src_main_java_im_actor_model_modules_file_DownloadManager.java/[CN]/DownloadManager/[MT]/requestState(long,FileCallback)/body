@@ -1,0 +1,32 @@
+{
+  Log.d(TAG,"Requesting state file #" + fileId);
+  Downloaded downloaded1=downloaded.getValue(fileId);
+  if (downloaded1 != null) {
+    FileSystemProvider provider=modules().getConfiguration().getFileSystemProvider();
+    FileReference reference=provider.fileFromDescriptor(downloaded1.getDescriptor());
+    if (reference.isExist() && reference.getSize() == downloaded1.getFileSize()) {
+      Log.d(TAG,"- Downloaded");
+      callback.onDownloaded(modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor()));
+      return;
+    }
+ else {
+      Log.d(TAG,"- File is corrupted");
+      downloaded.removeItem(downloaded1.getFileId());
+    }
+  }
+  QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    callback.onNotDownloaded();
+  }
+ else {
+    if (queueItem.isStarted) {
+      callback.onDownloading(queueItem.progress);
+    }
+ else     if (queueItem.isStopped) {
+      callback.onNotDownloaded();
+    }
+ else {
+      callback.onDownloading(0);
+    }
+  }
+}

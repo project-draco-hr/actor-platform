@@ -1,5 +1,5 @@
 {
-  DocumentContent document=(DocumentContent)message.getContent();
+  document=(DocumentContent)message.getContent();
   fileName.setText(document.getName());
   if (isUpdated) {
     boolean isAppliedThumb=false;
@@ -74,9 +74,19 @@ needRebind=true;
 }
  else {
 }
+if (downloadFileVM == null) {
+needRebind=true;
+}
 if (needRebind) {
 downloadIcon.setVisibility(View.GONE);
 progressView.setVisibility(View.GONE);
 progressValue.setVisibility(View.GONE);
+menu.setVisibility(View.GONE);
+status.setVisibility(View.GONE);
+if (document.getSource() instanceof FileRemoteSource) {
+FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
+boolean autoDownload=remoteSource.getFileLocation().getFileSize() <= 1024 * 1024;
+downloadFileVM=messenger().bindFile(remoteSource.getFileLocation(),autoDownload,new DownloadVMCallback());
+}
 }
 }

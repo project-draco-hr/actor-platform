@@ -1,0 +1,5 @@
+{
+  System.arraycopy(encodedState,0,xBuf,0,xBuf.length);
+  xBufOff=Pack.bigEndianToInt(encodedState,4);
+  byteCount=Pack.bigEndianToLong(encodedState,8);
+}

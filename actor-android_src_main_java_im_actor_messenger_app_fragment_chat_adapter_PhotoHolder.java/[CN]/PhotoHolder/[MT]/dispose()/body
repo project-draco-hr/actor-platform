@@ -1,6 +1,0 @@
-{
-  super.dispose();
-  imageKitView.noRequest();
-  imageKitView.setSrc(null);
-  imageKitView.close();
-}

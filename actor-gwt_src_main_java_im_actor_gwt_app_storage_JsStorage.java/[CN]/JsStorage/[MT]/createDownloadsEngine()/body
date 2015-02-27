@@ -1,0 +1,8 @@
+{
+  if (isLocalStorageSupported()) {
+    return new JsKeyValue(storage,"downloads");
+  }
+ else {
+    return new MemoryKeyValue();
+  }
+}

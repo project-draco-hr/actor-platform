@@ -1,3 +1,3 @@
 {
-  messenger().unbindFile(location.getFileId(),fileCallback,false);
+  messenger().unbindRawFile(location.getFileId(),false,fileCallback);
 }

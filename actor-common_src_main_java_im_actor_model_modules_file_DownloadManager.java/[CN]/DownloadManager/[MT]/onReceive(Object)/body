@@ -27,6 +27,10 @@
     OnDownloadedError error=(OnDownloadedError)message;
     onDownloadError(error.getFileId());
   }
+ else   if (message instanceof RequestState) {
+    RequestState requestState=(RequestState)message;
+    requestState(requestState.getFileId(),requestState.getCallback());
+  }
  else {
     drop(message);
   }

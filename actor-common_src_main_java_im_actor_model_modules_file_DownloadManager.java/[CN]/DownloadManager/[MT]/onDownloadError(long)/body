@@ -4,6 +4,9 @@
   if (queueItem == null) {
     return;
   }
+  if (!queueItem.isStarted) {
+    return;
+  }
   queueItem.taskRef.send(PoisonPill.INSTANCE);
   queueItem.isStopped=true;
   queueItem.isStarted=false;
