@@ -25,6 +25,12 @@
  else   if (message instanceof HistoryLoaded) {
     onHistoryLoaded(((HistoryLoaded)message).getMessages());
   }
+ else   if (message instanceof ClearConversation) {
+    onClearConversation();
+  }
+ else   if (message instanceof DeleteConversation) {
+    onDeleteConversation();
+  }
  else {
     drop(message);
   }

@@ -10,7 +10,7 @@
     if (!isAfterDelete && dialog.getSortDate() > message.getSortDate()) {
       return;
     }
-    builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setUnreadCount(dialog.getUnreadCount());
+    builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setUnreadCount(dialog.getUnreadCount()).setSortKey(dialog.getSortDate());
     if (!contentDescription.isSilent()) {
       builder.setSortKey(message.getSortDate());
     }

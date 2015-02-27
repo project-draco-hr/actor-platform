@@ -1,5 +1,5 @@
 {
-  historyMaxDate=preferences().getLong("dialogs_history_date",0);
-  historyLoaded=preferences().getBool("dialogs_history_loaded",false);
+  historyMaxDate=0;
+  historyLoaded=false;
   self().sendOnce(new LoadMore());
 }

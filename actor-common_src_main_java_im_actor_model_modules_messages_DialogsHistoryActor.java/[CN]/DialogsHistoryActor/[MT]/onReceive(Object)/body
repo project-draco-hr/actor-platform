@@ -4,7 +4,7 @@
   }
  else   if (message instanceof LoadedMore) {
     LoadedMore loaded=(LoadedMore)message;
-    onLoadedMore(loaded.isFinished,loaded.maxLoadedDate);
+    onLoadedMore(loaded.loaded,loaded.maxLoadedDate);
   }
  else {
     drop(message);

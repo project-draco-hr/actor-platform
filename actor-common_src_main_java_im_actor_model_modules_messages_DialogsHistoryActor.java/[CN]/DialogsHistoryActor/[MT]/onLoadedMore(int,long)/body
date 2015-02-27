@@ -1,0 +1,12 @@
+{
+  isLoading=false;
+  if (loaded < LIMIT) {
+    historyLoaded=true;
+  }
+ else {
+    historyLoaded=false;
+    historyMaxDate=maxLoadedDate;
+  }
+  preferences().putLong("dialogs_history_date",maxLoadedDate);
+  preferences().putBool("dialogs_history_loaded",historyLoaded);
+}

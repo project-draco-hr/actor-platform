@@ -1,4 +1,0 @@
-long fileId
-int fileSize
-String name
-String downloadedPath

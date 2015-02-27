@@ -1,8 +1,0 @@
-{
-  if (BuildConfig.ENABLE_CHROME) {
-    return shareVideo(downloaded);
-  }
- else {
-    return new Intent(Intent.ACTION_VIEW).setDataAndType(getDocUri(downloaded),"video/mp4");
-  }
-}

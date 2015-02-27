@@ -1,6 +1,0 @@
-long id
-FileLocation fileLocation
-String fileName
-String mimeType
-int sender
-long addedTime

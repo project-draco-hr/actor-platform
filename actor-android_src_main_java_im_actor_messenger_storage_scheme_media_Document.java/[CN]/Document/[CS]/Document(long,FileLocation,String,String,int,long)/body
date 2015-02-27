@@ -1,8 +1,0 @@
-{
-  this.id=id;
-  this.fileLocation=fileLocation;
-  this.fileName=fileName;
-  this.mimeType=mimeType;
-  this.sender=sender;
-  this.addedTime=addedTime;
-}

@@ -1,6 +1,0 @@
-{
-  this.fileId=fileId;
-  this.fileSize=fileSize;
-  this.name=name;
-  this.downloadedPath=downloadedPath;
-}

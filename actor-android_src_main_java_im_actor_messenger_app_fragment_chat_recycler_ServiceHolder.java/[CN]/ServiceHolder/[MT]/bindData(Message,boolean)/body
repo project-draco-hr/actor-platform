@@ -27,6 +27,6 @@
     }
   }
  else {
-    messageText.setText("???");
+    messageText.setText(((ServiceContent)message.getContent()).getCompatText());
   }
 }

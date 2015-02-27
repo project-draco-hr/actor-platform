@@ -1,6 +1,0 @@
-{
-  fileId=values.getLong(1);
-  fileSize=values.getInt(2);
-  downloadedPath=values.getString(3);
-  name=values.getString(4,"file.bin");
-}

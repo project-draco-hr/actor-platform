@@ -1,4 +1,4 @@
 {
   Peer peer=convert(_peer);
-  dialogsActor().send(new DialogsActor.ChatClear(peer));
+  conversationActor(peer).send(new ConversationActor.ClearConversation());
 }

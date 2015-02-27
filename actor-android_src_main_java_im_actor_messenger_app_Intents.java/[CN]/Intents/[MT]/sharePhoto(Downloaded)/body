@@ -1,3 +1,0 @@
-{
-  return new Intent(Intent.ACTION_SEND).putExtra(Intent.EXTRA_STREAM,getDocUri(downloaded)).setType("image/jpeg");
-}

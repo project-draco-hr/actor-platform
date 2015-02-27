@@ -1,7 +1,0 @@
-{
-  id=values.optLong(6);
-  fileName=values.getString(2);
-  mimeType=values.getString(3);
-  sender=values.getInt(4);
-  addedTime=values.optLong(5);
-}

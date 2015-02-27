@@ -13,6 +13,7 @@
   binded=data.getPeer().getUid();
   if (getEngine().getListState().getValue().getState() == ListState.State.LOADED) {
     if (position > getCount() - LOAD_GAP) {
+      messenger().loadMoreDialogs();
     }
   }
   this.bindedItem=data;
@@ -35,7 +36,13 @@
     left=R.drawable.dialogs_group;
   }
   title.setCompoundDrawablesWithIntrinsicBounds(left,0,right,0);
-  time.setText(Formatter.formatShortDate(data.getDate()));
+  if (data.getDate() > 0) {
+    time.setVisibility(View.VISIBLE);
+    time.setText(Formatter.formatShortDate(data.getDate()));
+  }
+ else {
+    time.setVisibility(View.GONE);
+  }
   boolean isGroup=data.getPeer().getPeerType() == PeerType.GROUP;
   if (data.getMessageType() == Dialog.ContentType.TEXT) {
     bindedText=MessageTextFormatter.textMessage(data.getSenderId(),isGroup,data.getText());
