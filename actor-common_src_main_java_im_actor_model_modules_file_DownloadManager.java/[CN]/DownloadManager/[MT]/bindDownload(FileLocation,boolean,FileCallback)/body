@@ -32,6 +32,9 @@
  else {
     Log.d(TAG,"- Promoting in queue");
     promote(fileLocation.getFileId());
+    if (!queueItem.callbacks.contains(callback)) {
+      queueItem.callbacks.add(callback);
+    }
     if (queueItem.isStopped) {
       callback.onNotDownloaded();
     }
