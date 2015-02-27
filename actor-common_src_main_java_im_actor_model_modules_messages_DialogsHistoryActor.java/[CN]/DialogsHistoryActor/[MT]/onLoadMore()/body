@@ -6,4 +6,13 @@
     return;
   }
   isLoading=true;
+  request(new RequestLoadDialogs(historyMaxDate,LIMIT),new RpcCallback<ResponseLoadDialogs>(){
+    @Override public void onResult(    ResponseLoadDialogs response){
+      updates().onUpdateReceived(new DialogHistoryLoaded(response));
+    }
+    @Override public void onError(    RpcException e){
+      e.printStackTrace();
+    }
+  }
+);
 }
