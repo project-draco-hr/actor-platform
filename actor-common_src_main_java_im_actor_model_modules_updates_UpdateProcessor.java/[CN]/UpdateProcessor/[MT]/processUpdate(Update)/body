@@ -139,4 +139,7 @@
     }
     contactsProcessor.onContactsRemoved(res);
   }
+ else   if (update instanceof UpdateGroupMembersUpdate) {
+    groupsProcessor.onMembersUpdated(((UpdateGroupMembersUpdate)update).getGroupId(),((UpdateGroupMembersUpdate)update).getMembers());
+  }
 }

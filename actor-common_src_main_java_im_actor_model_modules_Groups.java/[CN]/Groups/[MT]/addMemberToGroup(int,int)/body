@@ -2,7 +2,8 @@
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
       Group group=getGroups().getValue(gid);
-      if (group == null) {
+      User user=users().getValue(uid);
+      if (group == null || user == null) {
         runOnUiThread(new Runnable(){
           @Override public void run(){
             callback.onError(new RpcInternalException());
@@ -12,9 +13,9 @@
         return;
       }
       final long rid=RandomUtils.nextRid();
-      request(new RequestLeaveGroup(new GroupOutPeer(group.getGroupId(),group.getAccessHash()),rid),new RpcCallback<ResponseSeqDate>(){
+      request(new RequestInviteUser(new GroupOutPeer(group.getGroupId(),group.getAccessHash()),rid,new UserOutPeer(uid,user.getAccessHash())),new RpcCallback<ResponseSeqDate>(){
         @Override public void onResult(        ResponseSeqDate response){
-          SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateGroupUserLeave.HEADER,new UpdateGroupUserLeave(gid,rid,myUid(),response.getDate()).toByteArray());
+          SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateGroupUserAdded.HEADER,new UpdateGroupUserAdded(gid,rid,uid,myUid(),response.getDate()).toByteArray());
           updates().onUpdateReceived(update);
           runOnUiThread(new Runnable(){
             @Override public void run(){

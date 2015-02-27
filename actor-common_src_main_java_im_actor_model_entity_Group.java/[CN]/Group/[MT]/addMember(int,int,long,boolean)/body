@@ -1,6 +1,6 @@
 {
   ArrayList<GroupMember> nMembers=new ArrayList<GroupMember>();
-  for (  GroupMember member : nMembers) {
+  for (  GroupMember member : members) {
     if (member.getUid() != uid) {
       nMembers.add(member);
     }
