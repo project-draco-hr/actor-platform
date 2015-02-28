@@ -1,3 +1,0 @@
-{
-  return INamedConcept_Behavior.virtual_getFqName_1213877404258(thisNode);
-}

@@ -1,5 +1,0 @@
-{
-  EditorCell_Error editorCell=new EditorCell_Error(editorContext,node,"<no response>");
-  editorCell.setCellId("Error_aizlrx_a0");
-  return editorCell;
-}

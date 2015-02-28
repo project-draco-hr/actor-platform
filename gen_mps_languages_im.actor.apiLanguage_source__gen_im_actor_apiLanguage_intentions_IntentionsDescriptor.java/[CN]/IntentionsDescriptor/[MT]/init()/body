@@ -1,3 +1,0 @@
-{
-  IntentionsManager.getInstance().registerIntentionFactory(new ToggleImplements_Intention());
-}

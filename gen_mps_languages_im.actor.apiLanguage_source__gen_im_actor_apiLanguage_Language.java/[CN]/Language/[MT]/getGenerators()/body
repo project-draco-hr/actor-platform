@@ -1,3 +1,0 @@
-{
-  return TemplateUtil.<TemplateModule>asCollection(TemplateUtil.createInterpretedGenerator(this,"a548f14f-8d6e-48ab-a66b-13015fde9779(im.actor.apiLanguage#2348480312264231011)"));
-}

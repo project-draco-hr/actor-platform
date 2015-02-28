@@ -1,7 +1,0 @@
-{
-  AbstractCellListHandler handler=new UpdateBox_Editor.attributesListHandler_436jad_g0(node,"attributes",editorContext);
-  EditorCell_Collection editorCell=handler.createCells(editorContext,new CellLayout_Indent(),false);
-  editorCell.setCellId("refNodeList_attributes");
-  editorCell.setRole(handler.getElementRole());
-  return editorCell;
-}

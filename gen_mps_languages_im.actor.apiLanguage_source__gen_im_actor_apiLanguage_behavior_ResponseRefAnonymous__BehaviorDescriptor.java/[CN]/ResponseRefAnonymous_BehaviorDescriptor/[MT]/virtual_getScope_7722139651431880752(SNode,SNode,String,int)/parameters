@@ -1,4 +1,0 @@
-SNode thisNode
-SNode kind
-String role
-int index

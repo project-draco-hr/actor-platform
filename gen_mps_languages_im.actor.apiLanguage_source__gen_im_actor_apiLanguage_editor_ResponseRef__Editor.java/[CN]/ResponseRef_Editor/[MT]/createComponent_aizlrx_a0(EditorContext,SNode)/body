@@ -1,4 +1,0 @@
-{
-  EditorCell editorCell=editorContext.getCellFactory().createEditorComponentCell(node,"jetbrains.mps.lang.core.editor.alias");
-  return editorCell;
-}

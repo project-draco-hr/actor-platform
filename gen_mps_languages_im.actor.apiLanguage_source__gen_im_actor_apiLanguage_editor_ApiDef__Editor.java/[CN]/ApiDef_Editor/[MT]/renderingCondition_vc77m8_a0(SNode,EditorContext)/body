@@ -1,3 +1,0 @@
-{
-  return "ApiDef".equals(node + "");
-}

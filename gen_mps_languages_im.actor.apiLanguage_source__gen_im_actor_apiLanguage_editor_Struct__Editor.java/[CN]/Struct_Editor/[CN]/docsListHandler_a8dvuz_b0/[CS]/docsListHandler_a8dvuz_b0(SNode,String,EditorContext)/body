@@ -1,3 +1,0 @@
-{
-  super(ownerNode,childRole,context,false);
-}

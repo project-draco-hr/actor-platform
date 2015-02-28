@@ -1,3 +1,0 @@
-{
-  return "SerializableType".equals(node + "");
-}

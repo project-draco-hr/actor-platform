@@ -1,9 +1,0 @@
-{
-  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"Java Package");
-  editorCell.setCellId("Constant_h72lb9_j0");
-  Style style=new StyleImpl();
-  style.set(StyleAttributes.INDENT_LAYOUT_INDENT,0,true);
-  editorCell.getStyle().putAll(style);
-  editorCell.setDefaultText("");
-  return editorCell;
-}

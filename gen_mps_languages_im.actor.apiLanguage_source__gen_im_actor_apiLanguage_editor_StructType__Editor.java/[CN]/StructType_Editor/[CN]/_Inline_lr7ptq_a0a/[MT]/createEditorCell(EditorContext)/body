@@ -1,3 +1,0 @@
-{
-  return this.createEditorCell(editorContext,this.getSNode());
-}
