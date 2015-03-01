@@ -1,0 +1,15 @@
+{
+  writer.writeInt(1,this.id);
+  writer.writeLong(2,this.accessHash);
+  if (this.title == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.title);
+  if (this.avatar != null) {
+    writer.writeObject(4,this.avatar);
+  }
+  writer.writeBool(6,this.isMember);
+  writer.writeInt(8,this.creatorUid);
+  writer.writeRepeatedObj(9,this.members);
+  writer.writeLong(10,this.createDate);
+}

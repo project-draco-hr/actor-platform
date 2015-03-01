@@ -1,0 +1,6 @@
+{
+  String res="struct UserOutPeer{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

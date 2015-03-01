@@ -1,0 +1,8 @@
+{
+  String res="update Typing{";
+  res+="peer=" + this.peer;
+  res+=", uid=" + this.uid;
+  res+=", typingType=" + this.typingType;
+  res+="}";
+  return res;
+}

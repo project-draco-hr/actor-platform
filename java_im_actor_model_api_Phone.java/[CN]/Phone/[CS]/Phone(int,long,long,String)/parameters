@@ -1,0 +1,4 @@
+int id
+long accessHash
+long phone
+String phoneTitle

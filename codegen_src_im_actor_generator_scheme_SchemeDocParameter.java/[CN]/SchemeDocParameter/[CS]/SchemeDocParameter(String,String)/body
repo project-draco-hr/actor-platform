@@ -1,4 +1,0 @@
-{
-  this.argument=argument;
-  this.description=description.trim();
-}

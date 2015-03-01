@@ -1,0 +1,6 @@
+{
+  String res="struct FileExVoice{";
+  res+="duration=" + this.duration;
+  res+="}";
+  return res;
+}

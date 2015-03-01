@@ -1,0 +1,7 @@
+{
+  String res="rpc SendEmailCode{";
+  res+="email=" + this.email;
+  res+=", description=" + this.description;
+  res+="}";
+  return res;
+}

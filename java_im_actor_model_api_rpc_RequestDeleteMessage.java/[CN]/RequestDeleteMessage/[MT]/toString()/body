@@ -1,0 +1,7 @@
+{
+  String res="rpc DeleteMessage{";
+  res+="peer=" + this.peer;
+  res+=", rids=" + this.rids;
+  res+="}";
+  return res;
+}

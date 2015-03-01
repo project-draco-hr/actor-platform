@@ -1,0 +1,6 @@
+{
+  if (this.request == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.request);
+}

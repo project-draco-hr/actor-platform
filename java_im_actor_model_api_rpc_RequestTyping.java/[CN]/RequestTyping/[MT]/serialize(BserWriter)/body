@@ -1,0 +1,10 @@
+{
+  if (this.peer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.peer);
+  if (this.typingType == null) {
+    throw new IOException();
+  }
+  writer.writeInt(3,this.typingType.getValue());
+}

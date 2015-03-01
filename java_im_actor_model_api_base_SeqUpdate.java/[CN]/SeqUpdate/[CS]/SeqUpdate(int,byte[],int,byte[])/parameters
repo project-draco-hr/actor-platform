@@ -1,0 +1,4 @@
+int seq
+byte[] state
+int updateHeader
+byte[] update

@@ -34,7 +34,8 @@
               if (docType.equals("reference")) {
                 String arg=node.get("argument").textValue();
                 String descr=node.get("description").textValue();
-                entity.getDocs().add(new SchemeDocParameter(arg,descr));
+                String category=node.get("category").textValue();
+                entity.getDocs().add(new SchemeDocParameter(arg,descr,loadCategory(category)));
               }
             }
  else {
@@ -81,7 +82,8 @@
               if (docType.equals("reference")) {
                 String arg=node.get("argument").textValue();
                 String descr=node.get("description").textValue();
-                entity.getDocs().add(new SchemeDocParameter(arg,descr));
+                String category=node.get("category").textValue();
+                entity.getDocs().add(new SchemeDocParameter(arg,descr,loadCategory(category)));
               }
             }
  else {
@@ -109,7 +111,8 @@
               if (docType.equals("reference")) {
                 String arg=node.get("argument").textValue();
                 String descr=node.get("description").textValue();
-                entity.getDocs().add(new SchemeDocParameter(arg,descr));
+                String category=node.get("category").textValue();
+                entity.getDocs().add(new SchemeDocParameter(arg,descr,loadCategory(category)));
               }
             }
  else {
@@ -137,7 +140,8 @@
               if (docType.equals("reference")) {
                 String arg=node.get("argument").textValue();
                 String descr=node.get("description").textValue();
-                entity.getDocs().add(new SchemeDocParameter(arg,descr));
+                String category=node.get("category").textValue();
+                entity.getDocs().add(new SchemeDocParameter(arg,descr,loadCategory(category)));
               }
             }
  else {
@@ -176,7 +180,8 @@
               if (docType.equals("reference")) {
                 String arg=node.get("argument").textValue();
                 String descr=node.get("description").textValue();
-                entity.getDocs().add(new SchemeDocParameter(arg,descr));
+                String category=node.get("category").textValue();
+                entity.getDocs().add(new SchemeDocParameter(arg,descr,loadCategory(category)));
               }
             }
  else {

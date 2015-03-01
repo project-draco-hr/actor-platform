@@ -1,0 +1,4 @@
+int id
+long accessHash
+String email
+String emailTitle

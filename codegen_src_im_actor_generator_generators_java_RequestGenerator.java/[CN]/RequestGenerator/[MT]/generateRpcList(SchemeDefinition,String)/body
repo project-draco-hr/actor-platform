@@ -3,6 +3,8 @@
   new File(destFolder).mkdirs();
   FileGenerator generator=new FileGenerator(destFolder + "/ApiRequests.java");
   generator.appendLn("package " + JavaConfig.PACKAGE + ";");
+  generator.appendLn(JavaConfig.NOTICE);
+  generator.appendLn();
   for (  String im : JavaConfig.IMPORTS) {
     generator.appendLn("import " + im + ";");
   }

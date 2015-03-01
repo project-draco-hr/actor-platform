@@ -1,0 +1,11 @@
+{
+  writer.writeLong(1,this.publicKeyHash);
+  if (this.user == null) {
+    throw new IOException();
+  }
+  writer.writeObject(2,this.user);
+  if (this.config == null) {
+    throw new IOException();
+  }
+  writer.writeObject(3,this.config);
+}

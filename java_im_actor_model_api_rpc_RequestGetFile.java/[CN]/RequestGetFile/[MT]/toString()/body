@@ -1,0 +1,8 @@
+{
+  String res="rpc GetFile{";
+  res+="fileLocation=" + this.fileLocation;
+  res+=", offset=" + this.offset;
+  res+=", limit=" + this.limit;
+  res+="}";
+  return res;
+}

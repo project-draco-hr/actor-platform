@@ -1,0 +1,8 @@
+{
+  if (this.config == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.config);
+  writer.writeInt(2,this.blocksCount);
+  writer.writeLong(3,this.crc32);
+}

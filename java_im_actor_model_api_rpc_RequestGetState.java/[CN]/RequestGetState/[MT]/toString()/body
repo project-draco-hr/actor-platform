@@ -1,0 +1,5 @@
+{
+  String res="rpc GetState{";
+  res+="}";
+  return res;
+}

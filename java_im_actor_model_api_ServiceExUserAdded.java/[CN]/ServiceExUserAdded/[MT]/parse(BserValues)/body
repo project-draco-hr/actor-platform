@@ -1,0 +1,3 @@
+{
+  this.addedUid=values.getInt(1);
+}

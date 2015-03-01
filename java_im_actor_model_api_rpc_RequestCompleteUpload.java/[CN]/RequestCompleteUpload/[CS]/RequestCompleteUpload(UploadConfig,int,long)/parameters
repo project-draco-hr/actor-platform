@@ -1,0 +1,3 @@
+UploadConfig config
+int blocksCount
+long crc32

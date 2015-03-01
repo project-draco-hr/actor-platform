@@ -1,0 +1,8 @@
+{
+  writer.writeLong(1,this.date);
+  writer.writeInt(2,this.updateHeader);
+  if (this.update == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(3,this.update);
+}

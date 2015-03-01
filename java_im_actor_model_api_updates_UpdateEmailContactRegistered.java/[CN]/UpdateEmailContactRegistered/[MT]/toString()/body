@@ -1,0 +1,7 @@
+{
+  String res="update EmailContactRegistered{";
+  res+="emailId=" + this.emailId;
+  res+=", uid=" + this.uid;
+  res+="}";
+  return res;
+}

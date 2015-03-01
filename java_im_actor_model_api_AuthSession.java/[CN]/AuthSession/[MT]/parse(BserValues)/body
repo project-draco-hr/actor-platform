@@ -1,0 +1,11 @@
+{
+  this.id=values.getInt(1);
+  this.authHolder=AuthHolder.parse(values.getInt(2));
+  this.appId=values.getInt(3);
+  this.appTitle=values.getString(4);
+  this.deviceTitle=values.getString(5);
+  this.authTime=values.getInt(6);
+  this.authLocation=values.getString(7);
+  this.latitude=values.optDouble(8);
+  this.longitude=values.optDouble(9);
+}

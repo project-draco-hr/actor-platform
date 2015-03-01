@@ -1,0 +1,10 @@
+{
+  this.fileId=fileId;
+  this.accessHash=accessHash;
+  this.fileSize=fileSize;
+  this.name=name;
+  this.mimeType=mimeType;
+  this.thumb=thumb;
+  this.extType=extType;
+  this.ext=ext;
+}

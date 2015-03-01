@@ -1,0 +1,4 @@
+{
+  writer.writeRepeatedObj(1,this.phones);
+  writer.writeRepeatedObj(2,this.emails);
+}

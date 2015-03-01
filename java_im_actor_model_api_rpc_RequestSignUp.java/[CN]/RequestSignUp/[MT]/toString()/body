@@ -1,0 +1,9 @@
+{
+  String res="rpc SignUp{";
+  res+="name=" + this.name;
+  res+=", publicKey=" + byteArrayToStringCompact(this.publicKey);
+  res+=", deviceHash=" + byteArrayToString(this.deviceHash);
+  res+=", deviceTitle=" + this.deviceTitle;
+  res+="}";
+  return res;
+}

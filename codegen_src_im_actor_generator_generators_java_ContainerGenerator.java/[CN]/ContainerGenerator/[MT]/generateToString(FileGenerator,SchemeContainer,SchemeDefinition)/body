@@ -1,0 +1,49 @@
+{
+  generator.appendLn("@Override");
+  generator.appendLn("public String toString() {");
+  generator.increaseDepth();
+  generator.append("String res = \"");
+  if (container instanceof SchemeUpdate) {
+    generator.append("update " + ((SchemeUpdate)container).getName());
+  }
+ else   if (container instanceof SchemeResponse) {
+    generator.append("response " + ((SchemeResponse)container).getName());
+  }
+ else   if (container instanceof SchemeRpc) {
+    generator.append("rpc " + ((SchemeRpc)container).getName());
+  }
+ else   if (container instanceof SchemeResponseAnonymous) {
+    generator.append("tuple " + ((SchemeResponseAnonymous)container).getRpc().getName());
+  }
+ else   if (container instanceof SchemeUpdateBox) {
+    generator.append("update box " + ((SchemeUpdateBox)container).getName());
+  }
+ else   if (container instanceof SchemeStruct) {
+    generator.append("struct " + ((SchemeStruct)container).getName());
+  }
+ else {
+    throw new IOException();
+  }
+  generator.appendLn("{\";");
+  boolean isFirst=true;
+  for (  SchemeAttribute attribute : container.getAttributes()) {
+    ParameterCategory category=container.getParameterCategory(attribute.getName());
+    if (category == ParameterCategory.HIDDEN || category == ParameterCategory.DANGER) {
+      continue;
+    }
+    if (isFirst) {
+      isFirst=false;
+      generator.append("res += \"" + attribute.getName() + "=\" + ");
+    }
+ else {
+      generator.append("res += \", " + attribute.getName() + "=\" + ");
+    }
+    generateToStringAppend(generator,attribute.getName(),attribute.getType(),definition,category);
+    generator.appendLn(";");
+  }
+  generator.appendLn("res += \"}\";");
+  generator.appendLn("return res;");
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn();
+}

@@ -1,0 +1,3 @@
+PeerType type
+int id
+long accessHash

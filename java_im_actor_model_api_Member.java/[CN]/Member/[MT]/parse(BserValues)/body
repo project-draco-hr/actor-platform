@@ -1,0 +1,5 @@
+{
+  this.uid=values.getInt(1);
+  this.inviterUid=values.getInt(2);
+  this.date=values.getLong(3);
+}

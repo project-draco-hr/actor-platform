@@ -1,0 +1,8 @@
+{
+  String res="struct WrongKeysErrorData{";
+  res+="newKeys=" + this.newKeys;
+  res+=", removedKeys=" + this.removedKeys;
+  res+=", invalidKeys=" + this.invalidKeys;
+  res+="}";
+  return res;
+}

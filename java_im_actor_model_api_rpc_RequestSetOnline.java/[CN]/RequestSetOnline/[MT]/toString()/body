@@ -1,0 +1,7 @@
+{
+  String res="rpc SetOnline{";
+  res+="isOnline=" + this.isOnline;
+  res+=", timeout=" + this.timeout;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  String res="struct UploadConfig{";
+  res+="serverData=" + byteArrayToStringCompact(this.serverData);
+  res+="}";
+  return res;
+}

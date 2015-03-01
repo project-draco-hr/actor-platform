@@ -1,0 +1,7 @@
+{
+  String res="update RemovedDevice{";
+  res+="uid=" + this.uid;
+  res+=", keyHash=" + this.keyHash;
+  res+="}";
+  return res;
+}

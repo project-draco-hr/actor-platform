@@ -1,0 +1,4 @@
+{
+  this.uid=values.getInt(1);
+  this.state=UserState.parse(values.getInt(2));
+}

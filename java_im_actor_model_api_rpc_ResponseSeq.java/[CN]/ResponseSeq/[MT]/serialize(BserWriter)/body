@@ -1,0 +1,7 @@
+{
+  writer.writeInt(1,this.seq);
+  if (this.state == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.state);
+}

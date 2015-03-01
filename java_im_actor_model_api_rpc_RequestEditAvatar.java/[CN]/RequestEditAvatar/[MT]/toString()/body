@@ -1,0 +1,6 @@
+{
+  String res="rpc EditAvatar{";
+  res+="fileLocation=" + (this.fileLocation != null ? "set" : "empty");
+  res+="}";
+  return res;
+}

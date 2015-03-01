@@ -1,0 +1,6 @@
+{
+  String res="rpc GetPublicKeys{";
+  res+="keys=" + this.keys.size();
+  res+="}";
+  return res;
+}

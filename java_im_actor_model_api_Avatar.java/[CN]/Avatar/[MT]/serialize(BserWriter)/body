@@ -1,0 +1,11 @@
+{
+  if (this.smallImage != null) {
+    writer.writeObject(1,this.smallImage);
+  }
+  if (this.largeImage != null) {
+    writer.writeObject(2,this.largeImage);
+  }
+  if (this.fullImage != null) {
+    writer.writeObject(3,this.fullImage);
+  }
+}

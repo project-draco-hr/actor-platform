@@ -1,0 +1,7 @@
+{
+  String res="update UserAvatarChanged{";
+  res+="uid=" + this.uid;
+  res+=", avatar=" + (this.avatar != null ? "set" : "empty");
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  writer.writeLong(1,this.phoneNumber);
+  if (this.name != null) {
+    writer.writeString(2,this.name);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  String res="struct ServiceMessage{";
+  res+="text=" + this.text;
+  res+=", extType=" + this.extType;
+  res+=", ext=" + (this.ext != null ? "set" : "empty");
+  res+="}";
+  return res;
+}
