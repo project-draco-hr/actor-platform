@@ -1,0 +1,3 @@
+{
+  preferences().putBytes(PREFERENCES_STORAGE,pendingStorage.toByteArray());
+}

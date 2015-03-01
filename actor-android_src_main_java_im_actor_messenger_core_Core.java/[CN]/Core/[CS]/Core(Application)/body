@@ -21,14 +21,10 @@
   builder.setMainThread(new AndroidMainThread());
   builder.setLog(new AndroidLog());
   builder.setStorage(new AppEngineFactory());
-  builder.setLocale(new LocaleProvider(){
-    @Override public HashMap<String,String> loadLocale(){
-      return new HashMap<String,String>();
-    }
-  }
-);
+  builder.setLocale(new JavaLocale("En"));
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setFileSystemProvider(new AndroidFileProvider(application));
+  builder.setNotificationProvider(new AndroidNotifications());
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }

@@ -3,9 +3,9 @@
   if (peerDesc == null) {
     return;
   }
-  Dialog dialog=dialogs.getValue(peer.getUid());
-  ContentDescription contentDescription=new ContentDescription(message.getContent());
-  DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUid()).setStatus(message.getMessageState()).setSenderId(message.getSenderId());
+  Dialog dialog=dialogs.getValue(peer.getUnuqueId());
+  ContentDescription contentDescription=ContentDescription.fromContent(message.getContent());
+  DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setStatus(message.getMessageState()).setSenderId(message.getSenderId());
   if (dialog != null) {
     if (!isAfterDelete && dialog.getSortDate() > message.getSortDate()) {
       return;

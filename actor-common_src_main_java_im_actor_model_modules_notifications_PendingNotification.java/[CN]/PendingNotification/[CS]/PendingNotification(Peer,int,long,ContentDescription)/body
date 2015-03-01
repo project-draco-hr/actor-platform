@@ -1,0 +1,6 @@
+{
+  this.peer=peer;
+  this.sender=sender;
+  this.date=date;
+  this.content=content;
+}

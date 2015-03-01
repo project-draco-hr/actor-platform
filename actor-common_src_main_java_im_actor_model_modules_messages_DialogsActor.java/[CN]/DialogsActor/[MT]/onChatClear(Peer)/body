@@ -1,6 +1,6 @@
 {
-  Dialog dialog=dialogs.getValue(peer.getUid());
+  Dialog dialog=dialogs.getValue(peer.getUnuqueId());
   if (dialog != null) {
-    dialogs.addOrUpdateItem(new DialogBuilder(dialog).setMessageType(Dialog.ContentType.EMPTY).setText(null).setTime(0).setUnreadCount(0).setRid(0).createDialog());
+    dialogs.addOrUpdateItem(new DialogBuilder(dialog).setMessageType(ContentType.EMPTY).setText(null).setTime(0).setUnreadCount(0).setRid(0).createDialog());
   }
 }

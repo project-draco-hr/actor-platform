@@ -1,4 +1,4 @@
 {
   super.onResume();
-  messenger().onAppVisible();
+  stateBroker().onActivityOpen();
 }

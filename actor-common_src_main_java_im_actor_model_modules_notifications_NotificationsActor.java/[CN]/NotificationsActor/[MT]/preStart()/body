@@ -1,0 +1,12 @@
+{
+  pendingStorage=new PendingStorage();
+  byte[] storage=preferences().getBytes(PREFERENCES_STORAGE);
+  if (storage != null) {
+    try {
+      pendingStorage=PendingStorage.fromBytes(storage);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

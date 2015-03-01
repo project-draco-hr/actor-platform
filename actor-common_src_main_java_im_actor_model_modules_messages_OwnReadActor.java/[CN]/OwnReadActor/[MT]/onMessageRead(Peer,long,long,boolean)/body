@@ -30,4 +30,5 @@
   }
   modules().getMessagesModule().saveReadState(peer,sortingDate);
   modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
+  modules().getNotifications().onOwnRead(peer,sortingDate);
 }

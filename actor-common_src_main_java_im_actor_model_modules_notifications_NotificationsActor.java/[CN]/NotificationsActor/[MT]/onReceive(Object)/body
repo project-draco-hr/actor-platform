@@ -1,0 +1,19 @@
+{
+  if (message instanceof NewMessage) {
+    NewMessage newMessage=(NewMessage)message;
+    onNewMessage(newMessage.getPeer(),newMessage.getSender(),newMessage.getSortDate(),newMessage.getContentDescription());
+  }
+ else   if (message instanceof MessagesRead) {
+    MessagesRead read=(MessagesRead)message;
+    onMessagesRead(read.getPeer(),read.getFromDate());
+  }
+ else   if (message instanceof OnConversationVisible) {
+    onConversationVisible(((OnConversationVisible)message).getPeer());
+  }
+ else   if (message instanceof OnConversationHidden) {
+    onConversationHidden(((OnConversationHidden)message).getPeer());
+  }
+ else {
+    drop(message);
+  }
+}

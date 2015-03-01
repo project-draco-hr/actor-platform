@@ -19,6 +19,9 @@
   Log.d("CORE_INIT","Loading stage6.6 in " + (configuration.getThreading().getActorTime() - start) + " ms");
   start=configuration.getThreading().getActorTime();
   filesModule=new Files(this);
+  Log.d("CORE_INIT","Loading stage6.6.2 in " + (configuration.getThreading().getActorTime() - start) + " ms");
+  start=configuration.getThreading().getActorTime();
+  notifications=new Notifications(this);
   Log.d("CORE_INIT","Loading stage6.7 in " + (configuration.getThreading().getActorTime() - start) + " ms");
   start=configuration.getThreading().getActorTime();
   contacts=new Contacts(this);

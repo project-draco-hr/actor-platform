@@ -1,5 +1,5 @@
 {
   super.onPause();
-  messenger().onAppHidden();
+  stateBroker().onActivityClose();
   BINDER.unbindAll();
 }

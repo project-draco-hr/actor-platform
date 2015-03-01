@@ -1,0 +1,7 @@
+{
+  writer.writeInt(1,contentType.getValue());
+  writer.writeString(2,text);
+  writer.writeInt(3,relatedUser);
+  writer.writeBool(4,isSilent);
+  writer.writeBool(5,isEncrypted);
+}

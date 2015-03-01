@@ -1,3 +1,4 @@
 {
   modules.getPresenceModule().subscribe(peer);
+  modules.getNotifications().onConversationOpen(peer);
 }

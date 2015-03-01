@@ -1,5 +1,5 @@
 {
-  peer=Peer.fromUid(values.getLong(1));
+  peer=Peer.fromUniqueId(values.getLong(1));
   rid=values.getLong(2);
   sortDate=values.getLong(3);
   isEncrypted=values.getBool(5);

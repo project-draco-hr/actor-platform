@@ -1,5 +1,5 @@
 {
-  Dialog dialog=dialogs.getValue(group.peer().getUid());
+  Dialog dialog=dialogs.getValue(group.peer().getUnuqueId());
   if (dialog != null) {
     if (dialog.getDialogTitle().equals(group.getTitle()) && equalsE(dialog.getDialogAvatar(),group.getAvatar())) {
       return;
