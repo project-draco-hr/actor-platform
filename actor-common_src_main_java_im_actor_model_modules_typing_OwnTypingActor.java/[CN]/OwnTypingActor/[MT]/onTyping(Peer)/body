@@ -17,5 +17,5 @@
  else {
     return;
   }
-  request(new RequestTyping(outPeer,0));
+  request(new RequestTyping(outPeer,TypingType.TEXT));
 }

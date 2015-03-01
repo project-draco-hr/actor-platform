@@ -68,12 +68,12 @@
   Log.d(TAG,"Processing update: " + update);
   if (u instanceof FatSeqUpdate) {
     FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),fatSeqUpdate.getContacts(),false);
+    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),false);
   }
   processor.processUpdate(update);
   if (u instanceof FatSeqUpdate) {
     FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),fatSeqUpdate.getContacts(),true);
+    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),true);
   }
   this.seq=seq;
   this.state=state;

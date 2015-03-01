@@ -1,0 +1,12 @@
+{
+  String res="struct FileMessage{";
+  res+="fileId=" + this.fileId;
+  res+=", fileSize=" + this.fileSize;
+  res+=", name=" + this.name;
+  res+=", mimeType=" + this.mimeType;
+  res+=", thumb=" + (this.thumb != null ? "set" : "empty");
+  res+=", extType=" + this.extType;
+  res+=", ext=" + byteArrayToStringCompact(this.ext);
+  res+="}";
+  return res;
+}

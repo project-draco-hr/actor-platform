@@ -16,7 +16,8 @@
   if (this.avatar != null) {
     writer.writeObject(8,this.avatar);
   }
-  writer.writeRepeatedInt(9,this.contacts);
+  writer.writeRepeatedInt(9,this.phones);
+  writer.writeRepeatedInt(10,this.emails);
   if (this.userState == null) {
     throw new IOException();
   }

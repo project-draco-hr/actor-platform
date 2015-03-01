@@ -4,7 +4,7 @@
   this.title=title;
   this.avatar=avatar;
   this.isMember=isMember;
-  this.adminUid=adminUid;
+  this.creatorUid=creatorUid;
   this.members=members;
   this.createDate=createDate;
 }

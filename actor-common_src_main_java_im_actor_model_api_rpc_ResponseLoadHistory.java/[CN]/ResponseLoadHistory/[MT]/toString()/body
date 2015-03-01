@@ -1,0 +1,5 @@
+{
+  String res="tuple LoadHistory{";
+  res+="}";
+  return res;
+}

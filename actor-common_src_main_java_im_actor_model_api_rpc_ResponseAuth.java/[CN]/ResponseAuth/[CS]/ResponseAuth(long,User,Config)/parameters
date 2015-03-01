@@ -1,0 +1,3 @@
+long publicKeyHash
+User user
+Config config

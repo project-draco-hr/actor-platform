@@ -4,5 +4,8 @@
   }
   writer.writeObject(1,this.peer);
   writer.writeInt(2,this.uid);
-  writer.writeInt(3,this.typingType);
+  if (this.typingType == null) {
+    throw new IOException();
+  }
+  writer.writeInt(3,this.typingType.getValue());
 }

@@ -1,0 +1,6 @@
+{
+  String res="rpc SubscribeToGroupOnline{";
+  res+="groups=" + this.groups.size();
+  res+="}";
+  return res;
+}

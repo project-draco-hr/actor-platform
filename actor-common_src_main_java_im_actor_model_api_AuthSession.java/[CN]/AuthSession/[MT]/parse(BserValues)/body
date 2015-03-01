@@ -1,6 +1,6 @@
 {
   this.id=values.getInt(1);
-  this.authHolder=values.getInt(2);
+  this.authHolder=AuthHolder.parse(values.getInt(2));
   this.appId=values.getInt(3);
   this.appTitle=values.getString(4);
   this.deviceTitle=values.getString(5);

@@ -4,7 +4,6 @@
     throw new IOException();
   }
   writer.writeObject(2,this.user);
-  writer.writeRepeatedObj(4,this.contacts);
   if (this.config == null) {
     throw new IOException();
   }

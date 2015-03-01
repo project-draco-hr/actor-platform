@@ -1,2 +1,0 @@
-int contactId
-Collection<im.actor.model.api.ContactRecord> updatedContact

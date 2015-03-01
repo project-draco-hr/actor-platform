@@ -1,0 +1,7 @@
+{
+  String res="update PhoneTitleChanged{";
+  res+="phoneId=" + this.phoneId;
+  res+=", title=" + this.title;
+  res+="}";
+  return res;
+}

@@ -3,5 +3,8 @@
   this.rid=values.getLong(2);
   this.date=values.getLong(3);
   this.message=values.getObj(5,new MessageContent());
-  this.state=MessageState.parse(values.getInt(6));
+  int val_state=values.getInt(6,0);
+  if (val_state != 0) {
+    this.state=MessageState.parse(val_state);
+  }
 }

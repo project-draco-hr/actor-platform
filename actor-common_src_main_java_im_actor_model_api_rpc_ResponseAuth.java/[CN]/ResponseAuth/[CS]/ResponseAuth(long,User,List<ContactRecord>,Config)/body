@@ -1,6 +1,0 @@
-{
-  this.publicKeyHash=publicKeyHash;
-  this.user=user;
-  this.contacts=contacts;
-  this.config=config;
-}

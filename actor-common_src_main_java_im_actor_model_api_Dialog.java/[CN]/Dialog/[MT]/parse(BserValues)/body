@@ -6,7 +6,8 @@
   this.rid=values.getLong(6);
   this.date=values.getLong(7);
   this.message=values.getObj(8,new MessageContent());
-  if (values.optInt(9) != 0) {
-    this.state=MessageState.parse(values.optInt(9));
+  int val_state=values.getInt(9,0);
+  if (val_state != 0) {
+    this.state=MessageState.parse(val_state);
   }
 }

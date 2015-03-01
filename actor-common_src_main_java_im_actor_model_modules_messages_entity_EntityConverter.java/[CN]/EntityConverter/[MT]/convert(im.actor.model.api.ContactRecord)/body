@@ -1,3 +1,0 @@
-{
-  return new ContactRecord(record.getId(),record.getAccessHash(),record.getRecordType() == RecordType.PHONE ? ContactRecord.TYPE_PHONE : ContactRecord.TYPE_EMAIL,record.getRecord(),record.getTitle());
-}

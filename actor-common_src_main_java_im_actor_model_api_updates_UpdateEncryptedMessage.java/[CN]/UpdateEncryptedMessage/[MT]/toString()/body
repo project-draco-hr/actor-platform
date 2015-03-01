@@ -1,0 +1,10 @@
+{
+  String res="update EncryptedMessage{";
+  res+="peer=" + this.peer;
+  res+=", senderUid=" + this.senderUid;
+  res+=", date=" + this.date;
+  res+=", keyHash=" + this.keyHash;
+  res+=", aesEncryptedKey=" + byteArrayToStringCompact(this.aesEncryptedKey);
+  res+="}";
+  return res;
+}

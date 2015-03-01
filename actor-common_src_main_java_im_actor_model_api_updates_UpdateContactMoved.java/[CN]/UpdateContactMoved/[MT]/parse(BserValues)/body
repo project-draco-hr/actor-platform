@@ -1,5 +1,0 @@
-{
-  this.contactId=values.getInt(1);
-  this.oldUid=values.getInt(3);
-  this.uid=values.getInt(2);
-}

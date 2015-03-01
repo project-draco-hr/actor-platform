@@ -1,8 +1,0 @@
-{
-  for (  im.actor.model.api.ContactRecord contactRecord : updatedContact) {
-    if (contactRecord.getId() == contactId) {
-      return convert(contactRecord);
-    }
-  }
-  return null;
-}

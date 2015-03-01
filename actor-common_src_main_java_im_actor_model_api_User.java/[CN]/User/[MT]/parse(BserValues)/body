@@ -10,6 +10,7 @@
   this.keyHashes=values.getRepeatedLong(6);
   this.phone=values.getLong(7);
   this.avatar=values.optObj(8,new Avatar());
-  this.contacts=values.getRepeatedInt(9);
+  this.phones=values.getRepeatedInt(9);
+  this.emails=values.getRepeatedInt(10);
   this.userState=UserState.parse(values.getInt(11));
 }

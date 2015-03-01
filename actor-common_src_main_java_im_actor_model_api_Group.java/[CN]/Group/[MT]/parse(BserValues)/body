@@ -4,7 +4,7 @@
   this.title=values.getString(3);
   this.avatar=values.optObj(4,new Avatar());
   this.isMember=values.getBool(6);
-  this.adminUid=values.getInt(8);
+  this.creatorUid=values.getInt(8);
   List<Member> _members=new ArrayList<Member>();
   for (int i=0; i < values.getRepeatedCount(9); i++) {
     _members.add(new Member());

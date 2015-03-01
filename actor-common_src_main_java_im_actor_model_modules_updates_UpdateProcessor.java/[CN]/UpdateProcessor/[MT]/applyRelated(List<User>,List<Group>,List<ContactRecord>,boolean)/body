@@ -1,4 +1,0 @@
-{
-  usersProcessor.applyUsers(users,contactRecords,force);
-  groupsProcessor.applyGroups(groups,force);
-}

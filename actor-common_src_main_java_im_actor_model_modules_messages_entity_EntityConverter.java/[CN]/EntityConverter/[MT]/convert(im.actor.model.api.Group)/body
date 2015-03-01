@@ -1,3 +1,3 @@
 {
-  return new Group(group.getId(),group.getAccessHash(),group.getTitle(),convert(group.getAvatar()),convert(group.getMembers(),group.getAdminUid()),group.getAdminUid(),group.isMember());
+  return new Group(group.getId(),group.getAccessHash(),group.getTitle(),convert(group.getAvatar()),convert(group.getMembers(),group.getCreatorUid()),group.getCreatorUid(),group.isMember());
 }

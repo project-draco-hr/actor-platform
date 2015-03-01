@@ -1,5 +1,0 @@
-{
-  this.contactId=contactId;
-  this.oldUid=oldUid;
-  this.uid=uid;
-}

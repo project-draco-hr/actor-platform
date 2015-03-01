@@ -9,7 +9,7 @@
     writer.writeObject(4,this.avatar);
   }
   writer.writeBool(6,this.isMember);
-  writer.writeInt(8,this.adminUid);
+  writer.writeInt(8,this.creatorUid);
   writer.writeRepeatedObj(9,this.members);
   writer.writeLong(10,this.createDate);
 }

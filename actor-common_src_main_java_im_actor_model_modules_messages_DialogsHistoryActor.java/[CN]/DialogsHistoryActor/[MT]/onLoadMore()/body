@@ -6,8 +6,12 @@
     return;
   }
   isLoading=true;
+  Log.d(TAG,"Loading history {date=" + historyMaxDate + "}");
   request(new RequestLoadDialogs(historyMaxDate,LIMIT),new RpcCallback<ResponseLoadDialogs>(){
     @Override public void onResult(    ResponseLoadDialogs response){
+      for (      im.actor.model.api.Dialog dialog : response.getDialogs()) {
+        Log.d(TAG,"Loaded record {date=" + dialog.getDate() + " sort="+ dialog.getSortDate()+ "}");
+      }
       updates().onUpdateReceived(new DialogHistoryLoaded(response));
     }
     @Override public void onError(    RpcException e){

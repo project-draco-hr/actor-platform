@@ -3,6 +3,6 @@ long accessHash
 String title
 Avatar avatar
 boolean isMember
-int adminUid
+int creatorUid
 List<Member> members
 long createDate

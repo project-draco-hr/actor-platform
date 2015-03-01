@@ -1,6 +1,6 @@
 {
   int result=gid;
   result=31 * result + uid;
-  result=31 * result + type;
+  result=31 * result + type.getValue();
   return result;
 }

@@ -18,7 +18,7 @@
           im.actor.model.api.Group group=new im.actor.model.api.Group(response.getGroupPeer().getGroupId(),response.getGroupPeer().getAccessHash(),title,null,true,myUid(),members,response.getDate());
           ArrayList<im.actor.model.api.Group> groups=new ArrayList<im.actor.model.api.Group>();
           groups.add(group);
-          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,new UpdateGroupInvite(response.getGroupPeer().getGroupId(),rid,myUid(),response.getDate()).toByteArray(),new ArrayList<im.actor.model.api.User>(),groups,new ArrayList<ContactRecord>()));
+          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,new UpdateGroupInvite(response.getGroupPeer().getGroupId(),rid,myUid(),response.getDate()).toByteArray(),new ArrayList<im.actor.model.api.User>(),groups,new ArrayList<Phone>(),new ArrayList<Email>()));
           updates().onUpdateReceived(new GroupCreated(group,callback));
         }
         @Override public void onError(        final RpcException e){

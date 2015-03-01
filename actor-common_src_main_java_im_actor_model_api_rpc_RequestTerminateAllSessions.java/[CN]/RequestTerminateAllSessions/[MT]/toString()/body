@@ -1,0 +1,5 @@
+{
+  String res="rpc TerminateAllSessions{";
+  res+="}";
+  return res;
+}

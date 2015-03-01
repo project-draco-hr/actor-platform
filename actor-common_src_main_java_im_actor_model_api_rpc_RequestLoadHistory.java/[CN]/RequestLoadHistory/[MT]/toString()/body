@@ -1,0 +1,8 @@
+{
+  String res="rpc LoadHistory{";
+  res+="peer=" + this.peer;
+  res+=", startDate=" + this.startDate;
+  res+=", limit=" + this.limit;
+  res+="}";
+  return res;
+}

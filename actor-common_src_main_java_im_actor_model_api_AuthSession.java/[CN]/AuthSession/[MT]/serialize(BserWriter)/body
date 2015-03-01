@@ -1,6 +1,9 @@
 {
   writer.writeInt(1,this.id);
-  writer.writeInt(2,this.authHolder);
+  if (this.authHolder == null) {
+    throw new IOException();
+  }
+  writer.writeInt(2,this.authHolder.getValue());
   writer.writeInt(3,this.appId);
   if (this.appTitle == null) {
     throw new IOException();

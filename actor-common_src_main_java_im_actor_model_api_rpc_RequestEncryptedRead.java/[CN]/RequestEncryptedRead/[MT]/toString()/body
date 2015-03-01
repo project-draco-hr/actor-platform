@@ -1,0 +1,7 @@
+{
+  String res="rpc EncryptedRead{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+="}";
+  return res;
+}

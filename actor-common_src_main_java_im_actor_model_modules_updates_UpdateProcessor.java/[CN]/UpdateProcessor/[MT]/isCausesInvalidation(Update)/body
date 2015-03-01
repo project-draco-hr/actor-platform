@@ -54,16 +54,6 @@
  else   if (update instanceof UpdateContactsRemoved) {
     users.addAll(((UpdateContactsRemoved)update).getUids());
   }
- else   if (update instanceof UpdateUserContactAdded) {
-    UpdateUserContactAdded contactAdded=(UpdateUserContactAdded)update;
-    users.add(contactAdded.getUid());
-    contacts.add(contactAdded.getContactId());
-  }
- else   if (update instanceof UpdateUserContactRemoved) {
-    UpdateUserContactRemoved contactAdded=(UpdateUserContactRemoved)update;
-    users.add(contactAdded.getUid());
-    contacts.add(contactAdded.getContactId());
-  }
  else   if (update instanceof UpdateUserLocalNameChanged) {
     UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
     users.add(localNameChanged.getUid());

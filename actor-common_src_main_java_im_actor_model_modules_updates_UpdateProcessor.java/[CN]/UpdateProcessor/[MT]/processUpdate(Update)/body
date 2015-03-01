@@ -1,16 +1,6 @@
 {
   Log.d(TAG,update + "");
-  if (update instanceof UpdateUserContactAdded) {
-  }
- else   if (update instanceof UpdateUserContactRemoved) {
-  }
- else   if (update instanceof UpdateContactMoved) {
-  }
- else   if (update instanceof UpdateContactTitleChanged) {
-  }
- else   if (update instanceof UpdateUserContactsChanged) {
-  }
- else   if (update instanceof UpdateUserNameChanged) {
+  if (update instanceof UpdateUserNameChanged) {
     UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
     usersProcessor.onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());
   }

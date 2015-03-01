@@ -6,8 +6,7 @@
     throw new IOException();
   }
   writer.writeObject(5,this.message);
-  if (this.state == null) {
-    throw new IOException();
+  if (this.state != null) {
+    writer.writeInt(6,this.state.getValue());
   }
-  writer.writeInt(6,this.state.getValue());
 }

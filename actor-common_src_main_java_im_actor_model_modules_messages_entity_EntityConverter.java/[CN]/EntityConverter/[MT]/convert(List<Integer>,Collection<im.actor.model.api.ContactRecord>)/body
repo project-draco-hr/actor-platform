@@ -1,7 +1,0 @@
-{
-  ArrayList<ContactRecord> res=new ArrayList<ContactRecord>();
-  for (  Integer i : contacts) {
-    res.add(convert(i,updatedContact));
-  }
-  return res;
-}
