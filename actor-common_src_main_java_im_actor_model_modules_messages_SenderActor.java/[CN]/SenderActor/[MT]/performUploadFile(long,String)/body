@@ -1,0 +1,3 @@
+{
+  modules().getFilesModule().requestUpload(rid,descriptor,self());
+}

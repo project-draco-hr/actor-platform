@@ -1,0 +1,4 @@
+int fileOffset
+byte[] data
+int offset
+int len

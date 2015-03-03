@@ -23,5 +23,5 @@
   if (cryptoProvider == null) {
     throw new RuntimeException("Crypto Provider not set");
   }
-  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,log,isUploadFilePersist,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,enableContactsLogging,enableNetworkLogging);
+  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,enableContactsLogging,enableNetworkLogging);
 }

@@ -1,3 +1,0 @@
-long fileId
-boolean isAutoCancel
-FileCallback callback

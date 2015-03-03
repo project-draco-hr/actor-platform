@@ -1,0 +1,11 @@
+{
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    return new im.actor.model.api.Peer(im.actor.model.api.PeerType.PRIVATE,peer.getPeerId());
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    return new im.actor.model.api.Peer(im.actor.model.api.PeerType.GROUP,peer.getPeerId());
+  }
+ else {
+    return null;
+  }
+}

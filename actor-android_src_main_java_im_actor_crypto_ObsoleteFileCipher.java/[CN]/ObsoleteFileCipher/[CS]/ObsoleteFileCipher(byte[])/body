@@ -1,5 +1,0 @@
-{
-  byte[][] sKey=Utils.split(key,32,16);
-  this.cipherAesKey=sKey[0];
-  this.cipherAesIv=sKey[1];
-}

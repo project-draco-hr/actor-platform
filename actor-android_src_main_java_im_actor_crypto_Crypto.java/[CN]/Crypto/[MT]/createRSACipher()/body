@@ -1,8 +1,0 @@
-{
-  try {
-    return Cipher.getInstance("RSA/ECB/OAEPWithSHA1AndMGF1Padding");
-  }
- catch (  Exception e) {
-    throw new AssertionError(e);
-  }
-}

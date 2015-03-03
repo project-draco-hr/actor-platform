@@ -1,0 +1,7 @@
+{
+  super(modules);
+  this.rid=rid;
+  this.descriptor=descriptor;
+  this.manager=manager;
+  this.TAG="UploadTask{" + rid + "}";
+}

@@ -1,4 +1,0 @@
-{
-  this.isUploadFilePersist=isUploadFilePersist;
-  return this;
-}

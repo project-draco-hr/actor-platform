@@ -1,5 +1,5 @@
 {
-  messenger.getActorApi().request(request,new RpcCallback<T>(){
+  modules.getActorApi().request(request,new RpcCallback<T>(){
     @Override public void onResult(    final T response){
       self().send(new Runnable(){
         @Override public void run(){

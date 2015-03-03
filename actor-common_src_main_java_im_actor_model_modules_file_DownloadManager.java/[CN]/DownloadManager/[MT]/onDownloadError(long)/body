@@ -10,7 +10,7 @@
   queueItem.taskRef.send(PoisonPill.INSTANCE);
   queueItem.isStopped=true;
   queueItem.isStarted=false;
-  for (  FileCallback fileCallback : queueItem.callbacks) {
+  for (  DownloadCallback fileCallback : queueItem.callbacks) {
     fileCallback.onNotDownloaded();
   }
 }

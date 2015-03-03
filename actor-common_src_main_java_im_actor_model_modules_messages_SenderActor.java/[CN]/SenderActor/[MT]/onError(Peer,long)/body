@@ -6,4 +6,5 @@
     }
   }
   savePending();
+  getConversationActor(peer).send(new ConversationActor.MessageError(rid));
 }

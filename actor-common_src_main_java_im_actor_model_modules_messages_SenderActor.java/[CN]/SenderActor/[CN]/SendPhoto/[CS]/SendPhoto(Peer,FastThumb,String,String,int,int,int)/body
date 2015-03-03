@@ -1,0 +1,9 @@
+{
+  this.peer=peer;
+  this.fastThumb=fastThumb;
+  this.descriptor=descriptor;
+  this.fileName=fileName;
+  this.fileSize=fileSize;
+  this.w=w;
+  this.h=h;
+}

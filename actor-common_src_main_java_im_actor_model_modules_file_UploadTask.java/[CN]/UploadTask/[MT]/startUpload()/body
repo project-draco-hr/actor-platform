@@ -1,0 +1,20 @@
+{
+  blocksCount=srcReference.getSize() / blockSize;
+  if (srcReference.getSize() % blockSize != 0) {
+    blocksCount++;
+  }
+  Log.d(TAG,"Starting uploading " + blocksCount + " blocks");
+  Log.d(TAG,"Requesting upload config...");
+  request(new RequestStartUpload(),new RpcCallback<ResponseStartUpload>(){
+    @Override public void onResult(    ResponseStartUpload response){
+      Log.d(TAG,"Upload config loaded");
+      uploadConfig=response.getConfig();
+      checkQueue();
+    }
+    @Override public void onError(    RpcException e){
+      Log.d(TAG,"Upload config load error");
+      reportError();
+    }
+  }
+);
+}

@@ -5,4 +5,10 @@
     }
   }
 ),"actor/download/manager");
+  uploadManager=system().actorOf(Props.create(UploadManager.class,new ActorCreator<UploadManager>(){
+    @Override public UploadManager create(){
+      return new UploadManager(modules());
+    }
+  }
+),"actor/upload/manager");
 }

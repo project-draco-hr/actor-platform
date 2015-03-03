@@ -1,0 +1,4 @@
+{
+  this.rid=rid;
+  this.fileLocation=fileLocation;
+}

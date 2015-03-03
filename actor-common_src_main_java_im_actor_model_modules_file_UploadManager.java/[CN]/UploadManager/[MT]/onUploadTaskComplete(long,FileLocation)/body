@@ -1,0 +1,16 @@
+{
+  Log.d(TAG,"Upload #" + rid + " complete");
+  QueueItem queueItem=findItem(rid);
+  if (queueItem == null) {
+    return;
+  }
+  if (!queueItem.isStarted) {
+    return;
+  }
+  queue.remove(queueItem);
+  queueItem.taskRef.send(PoisonPill.INSTANCE);
+  for (  UploadCallback fileCallback : queueItem.callbacks) {
+    fileCallback.onUploaded();
+  }
+  queueItem.requestActor.send(new UploadCompleted(rid,fileLocation));
+}

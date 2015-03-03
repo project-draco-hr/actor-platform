@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendPhoto(peer,fastThumb,fileReference.getDescriptor(),fileName,fileReference.getSize(),w,h));
+}

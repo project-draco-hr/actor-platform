@@ -1,0 +1,5 @@
+Peer peer
+String fileName
+String mimeType
+FileReference fileReference
+FastThumb fastThumb

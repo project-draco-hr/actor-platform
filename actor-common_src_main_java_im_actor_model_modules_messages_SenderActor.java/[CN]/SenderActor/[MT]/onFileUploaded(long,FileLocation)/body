@@ -1,0 +1,24 @@
+{
+  PendingMessage msg=findPending(rid);
+  if (msg == null) {
+    return;
+  }
+  pendingMessages.getPendingMessages().remove(msg);
+  AbsContent nContent;
+  if (msg.getContent() instanceof PhotoContent) {
+    return;
+  }
+ else   if (msg.getContent() instanceof VideoContent) {
+    return;
+  }
+ else   if (msg.getContent() instanceof DocumentContent) {
+    DocumentContent baseDocContent=(DocumentContent)msg.getContent();
+    nContent=new DocumentContent(new FileRemoteSource(fileLocation),baseDocContent.getMimetype(),baseDocContent.getName(),baseDocContent.getFastThumb());
+  }
+ else {
+    return;
+  }
+  pendingMessages.getPendingMessages().add(new PendingMessage(msg.getPeer(),msg.getRid(),nContent));
+  getConversationActor(msg.getPeer()).send(new ConversationActor.MessageContentUpdated(msg.getRid(),nContent));
+  performSendContent(msg.getPeer(),rid,nContent);
+}

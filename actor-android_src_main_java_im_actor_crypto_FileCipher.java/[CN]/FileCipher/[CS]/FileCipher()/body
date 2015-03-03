@@ -1,6 +1,0 @@
-{
-  cipherKey=Crypto.generateSeed(AES_KEY_SIZE);
-  macKey=Crypto.generateSeed(MAC_KEY_SIZE);
-  cipherKeySpec=new SecretKeySpec(cipherKey,"AES");
-  macKeySpec=new SecretKeySpec(macKey,"HmacSHA256");
-}

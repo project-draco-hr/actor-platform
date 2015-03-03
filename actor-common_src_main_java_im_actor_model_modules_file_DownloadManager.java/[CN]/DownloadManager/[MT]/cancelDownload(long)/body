@@ -13,7 +13,7 @@
     }
     Log.d(TAG,"- Marking as stopped");
     queueItem.isStopped=true;
-    for (    FileCallback callback : queueItem.callbacks) {
+    for (    DownloadCallback callback : queueItem.callbacks) {
       callback.onNotDownloaded();
     }
   }

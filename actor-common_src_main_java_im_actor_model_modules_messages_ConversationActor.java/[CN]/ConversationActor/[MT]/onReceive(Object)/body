@@ -2,6 +2,10 @@
   if (message instanceof Message) {
     onInMessage((Message)message);
   }
+ else   if (message instanceof MessageContentUpdated) {
+    MessageContentUpdated contentUpdated=(MessageContentUpdated)message;
+    onMessageContentUpdated(contentUpdated.getRid(),contentUpdated.getContent());
+  }
  else   if (message instanceof MessageSent) {
     MessageSent sent=(MessageSent)message;
     onMessageSent(sent.getRid(),sent.getDate());

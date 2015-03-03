@@ -1,8 +1,0 @@
-{
-  try {
-    return Mac.getInstance("HmacSHA256");
-  }
- catch (  NoSuchAlgorithmException e) {
-    throw new AssertionError(e);
-  }
-}

@@ -2,7 +2,7 @@
   this.modules=modules;
   this.location=location;
   this.vmCallback=vmCallback;
-  this.callback=new FileCallback(){
+  this.callback=new DownloadCallback(){
     @Override public void onNotDownloaded(){
       post(new OnNotDownloaded());
     }

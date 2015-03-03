@@ -1,4 +1,6 @@
 {
   super.parse(values);
   fileName=values.getString(2);
+  size=values.getInt(3);
+  fileDescriptor=values.getString(4);
 }

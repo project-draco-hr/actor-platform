@@ -1,8 +1,0 @@
-{
-  try {
-    return SecureRandom.getInstance("SHA1PRNG");
-  }
- catch (  NoSuchAlgorithmException e) {
-    throw new AssertionError(e);
-  }
-}

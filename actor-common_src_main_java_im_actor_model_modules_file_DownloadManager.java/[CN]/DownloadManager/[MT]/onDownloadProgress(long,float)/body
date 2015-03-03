@@ -8,7 +8,7 @@
     return;
   }
   queueItem.progress=progress;
-  for (  FileCallback fileCallback : queueItem.callbacks) {
+  for (  DownloadCallback fileCallback : queueItem.callbacks) {
     fileCallback.onDownloading(progress);
   }
 }

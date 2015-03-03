@@ -1,3 +1,9 @@
 {
-  return null;
+  try {
+    return new AndroidInputFile(fileName);
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+    return null;
+  }
 }

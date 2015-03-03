@@ -11,6 +11,22 @@
     MessageError messageError=(MessageError)message;
     onError(messageError.getPeer(),messageError.getRid());
   }
+ else   if (message instanceof SendDocument) {
+    SendDocument sendDocument=(SendDocument)message;
+    doSendDocument(sendDocument.getPeer(),sendDocument.getFileName(),sendDocument.getMimeType(),sendDocument.getFileSize(),sendDocument.getFastThumb(),sendDocument.getDescriptor());
+  }
+ else   if (message instanceof UploadManager.UploadCompleted) {
+    UploadManager.UploadCompleted uploadCompleted=(UploadManager.UploadCompleted)message;
+    onFileUploaded(uploadCompleted.getRid(),uploadCompleted.getFileLocation());
+  }
+ else   if (message instanceof UploadManager.UploadError) {
+    UploadManager.UploadError uploadError=(UploadManager.UploadError)message;
+    onFileUploadError(uploadError.getRid());
+  }
+ else   if (message instanceof SendPhoto) {
+    SendPhoto sendPhoto=(SendPhoto)message;
+    doSendPhoto(sendPhoto.getPeer(),sendPhoto.getFastThumb(),sendPhoto.getDescriptor(),sendPhoto.getFileName(),sendPhoto.getFileSize(),sendPhoto.getW(),sendPhoto.getH());
+  }
  else {
     drop(message);
   }

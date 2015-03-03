@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"Upload #" + rid + " progress "+ progress);
+  QueueItem queueItem=findItem(rid);
+  if (queueItem == null) {
+    return;
+  }
+  if (!queueItem.isStarted) {
+    return;
+  }
+  queueItem.progress=progress;
+  for (  UploadCallback fileCallback : queueItem.callbacks) {
+    fileCallback.onUploading(progress);
+  }
+}

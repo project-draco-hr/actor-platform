@@ -4,5 +4,5 @@
   Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,new TextContent(text));
   getConversationActor(peer).send(message);
   pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,new TextContent(text)));
-  performTextSend(peer,rid,text);
+  performSendContent(peer,rid,new TextContent(text));
 }

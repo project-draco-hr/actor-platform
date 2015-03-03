@@ -3,7 +3,7 @@
   if (document.getSource() instanceof FileRemoteSource) {
     FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
     final FileLocation location=remoteSource.getFileLocation();
-    messenger().requestState(location.getFileId(),new FileCallback(){
+    messenger().requestState(location.getFileId(),new DownloadCallback(){
       @Override public void onNotDownloaded(){
         messenger().startDownloading(location);
       }

@@ -4,4 +4,8 @@
     downloadFileVM.detach();
     downloadFileVM=null;
   }
+  if (uploadFileVM != null) {
+    uploadFileVM.detach();
+    uploadFileVM=null;
+  }
 }

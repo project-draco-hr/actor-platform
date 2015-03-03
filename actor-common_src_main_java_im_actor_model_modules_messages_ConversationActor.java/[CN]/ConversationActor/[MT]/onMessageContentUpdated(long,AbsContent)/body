@@ -1,0 +1,4 @@
+{
+  Message message=messages.getValue(rid);
+  messages.addOrUpdateItem(message.changeContent(content));
+}

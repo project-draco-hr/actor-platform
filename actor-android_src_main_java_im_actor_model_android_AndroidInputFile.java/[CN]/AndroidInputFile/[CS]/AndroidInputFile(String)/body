@@ -1,0 +1,3 @@
+{
+  randomAccessFile=new RandomAccessFile(fileName,"r");
+}

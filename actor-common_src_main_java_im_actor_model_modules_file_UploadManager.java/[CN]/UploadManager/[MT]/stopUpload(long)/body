@@ -1,0 +1,17 @@
+{
+  Log.d(TAG,"Stopping download #" + rid);
+  QueueItem queueItem=findItem(rid);
+  if (queueItem == null) {
+    Log.d(TAG,"- Not present in queue");
+  }
+ else {
+    if (queueItem.isStarted) {
+      Log.d(TAG,"- Stopping actor");
+      queueItem.taskRef.send(PoisonPill.INSTANCE);
+      queueItem.taskRef=null;
+      queueItem.isStarted=false;
+    }
+    queue.remove(queueItem);
+  }
+  checkQueue();
+}

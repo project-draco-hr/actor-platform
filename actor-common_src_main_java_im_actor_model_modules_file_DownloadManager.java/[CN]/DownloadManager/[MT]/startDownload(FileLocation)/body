@@ -11,7 +11,7 @@
     Log.d(TAG,"- Promoting in queue");
     if (queueItem.isStopped) {
       queueItem.isStopped=false;
-      for (      FileCallback callback : queueItem.callbacks) {
+      for (      DownloadCallback callback : queueItem.callbacks) {
         callback.onDownloading(0);
       }
     }

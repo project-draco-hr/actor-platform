@@ -6,6 +6,7 @@
       }
     }
  else     if (requestCode == REQUEST_PHOTO) {
+      sendImage(fileName);
     }
  else     if (requestCode == REQUEST_VIDEO) {
     }

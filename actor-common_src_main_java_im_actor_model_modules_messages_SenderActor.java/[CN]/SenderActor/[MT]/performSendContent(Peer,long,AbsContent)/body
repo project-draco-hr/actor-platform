@@ -1,0 +1,40 @@
+{
+  final OutPeer outPeer=buidOutPeer(peer);
+  final im.actor.model.api.Peer apiPeer=buildApiPeer(peer);
+  if (outPeer == null || apiPeer == null) {
+    return;
+  }
+  MessageContent reqContent;
+  if (content instanceof TextContent) {
+    reqContent=new MessageContent(0x01,new TextMessage(((TextContent)content).getText(),0,new byte[0]).toByteArray());
+  }
+ else   if (content instanceof DocumentContent) {
+    DocumentContent documentContent=(DocumentContent)content;
+    FileRemoteSource source=(FileRemoteSource)documentContent.getSource();
+    int extType=0;
+    byte[] ext=null;
+    if (content instanceof PhotoContent) {
+      PhotoContent photoContent=(PhotoContent)content;
+      extType=1;
+      ext=new FileExPhoto(photoContent.getW(),photoContent.getH()).toByteArray();
+    }
+    im.actor.model.api.FastThumb fastThumb=null;
+    if (documentContent.getFastThumb() != null) {
+      fastThumb=new im.actor.model.api.FastThumb(documentContent.getFastThumb().getW(),documentContent.getFastThumb().getH(),documentContent.getFastThumb().getImage());
+    }
+    reqContent=new MessageContent(0x03,new FileMessage(source.getFileLocation().getFileId(),source.getFileLocation().getAccessHash(),source.getFileLocation().getFileSize(),source.getFileLocation().getFileName(),documentContent.getMimetype(),fastThumb,extType,ext).toByteArray());
+  }
+ else {
+    return;
+  }
+  request(new RequestSendMessage(outPeer,rid,reqContent),new RpcCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate response){
+      self().send(new MessageSent(peer,rid));
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));
+    }
+    @Override public void onError(    RpcException e){
+      self().send(new MessageError(peer,rid));
+    }
+  }
+);
+}

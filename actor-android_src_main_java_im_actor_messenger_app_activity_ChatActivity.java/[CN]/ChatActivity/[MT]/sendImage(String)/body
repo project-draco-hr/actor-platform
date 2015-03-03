@@ -1,0 +1,21 @@
+{
+  try {
+    ImageMetadata metadata=new FileSource(fileName).getImageMetadata();
+    Bitmap bitmap=ImageLoading.loadBitmapOptimizedHQ(fileName);
+    Bitmap optimized=ImageRotating.fixExif(bitmap,metadata.getExifOrientation());
+    Bitmap smallThumb=ImageScaling.scaleFit(optimized,90,90);
+    byte[] data=ImageLoading.saveJpeg(smallThumb,ImageLoading.JPEG_QUALITY_LOW);
+    String resultFileName=AppContext.getExternalTempFile("image","jpg");
+    if (resultFileName == null) {
+      return;
+    }
+    ImageLoading.save(optimized,resultFileName);
+    messenger.sendDocument(peer,new File(fileName).getName(),"image/jpeg",new AndroidFileReference(resultFileName),new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),data));
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+  }
+catch (  ImageSaveException e) {
+    e.printStackTrace();
+  }
+}

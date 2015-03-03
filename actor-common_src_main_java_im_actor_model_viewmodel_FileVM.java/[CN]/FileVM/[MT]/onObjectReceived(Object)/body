@@ -6,6 +6,6 @@
     vmCallback.onDownloading(((OnDownloading)obj).getProgress());
   }
  else   if (obj instanceof OnDownloaded) {
-    vmCallback.onDownloaded(((OnDownloaded)obj).fileReference);
+    vmCallback.onDownloaded(((OnDownloaded)obj).getFileReference());
   }
 }

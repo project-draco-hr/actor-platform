@@ -1,3 +1,6 @@
 {
+  if (isCompleted) {
+    return;
+  }
   manager.send(new DownloadManager.OnDownloadProgress(fileLocation.getFileId(),progress));
 }

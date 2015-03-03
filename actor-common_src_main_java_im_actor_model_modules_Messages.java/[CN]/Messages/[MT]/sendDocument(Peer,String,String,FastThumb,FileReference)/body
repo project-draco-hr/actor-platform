@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendDocument(peer,fileName,mimeType,fileReference.getSize(),fileReference.getDescriptor(),fastThumb));
+}

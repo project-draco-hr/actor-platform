@@ -36,6 +36,13 @@
           return null;
         }
       }
+      if (mimeType.startsWith("video/")) {
+      }
+ else       if (mimeType.startsWith("image/")) {
+        sendImage(picturePath);
+      }
+ else {
+      }
       return null;
     }
     @Override protected void onPostExecute(    Void aVoid){

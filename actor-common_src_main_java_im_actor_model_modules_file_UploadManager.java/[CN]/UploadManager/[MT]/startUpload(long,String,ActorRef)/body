@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"Starting upload #" + rid + " with descriptor "+ descriptor);
+  QueueItem queueItem=new QueueItem(rid,descriptor,requestActor);
+  queueItem.isStopped=false;
+  queue.add(queueItem);
+  checkQueue();
+}

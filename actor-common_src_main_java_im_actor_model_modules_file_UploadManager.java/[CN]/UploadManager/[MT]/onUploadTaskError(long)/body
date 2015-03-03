@@ -1,0 +1,18 @@
+{
+  Log.d(TAG,"Upload #" + rid + " error");
+  QueueItem queueItem=findItem(rid);
+  if (queueItem == null) {
+    Log.d(TAG,"- Nothing found");
+    return;
+  }
+  if (!queueItem.isStarted) {
+    return;
+  }
+  queueItem.taskRef.send(PoisonPill.INSTANCE);
+  queueItem.isStopped=true;
+  queueItem.isStarted=false;
+  for (  UploadCallback callback : queueItem.callbacks) {
+    callback.onNotUploading();
+  }
+  queueItem.requestActor.send(new UploadError(rid));
+}
