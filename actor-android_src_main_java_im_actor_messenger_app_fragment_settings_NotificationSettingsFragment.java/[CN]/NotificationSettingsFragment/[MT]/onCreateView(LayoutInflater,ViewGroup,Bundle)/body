@@ -1,4 +1,48 @@
 {
   View res=inflater.inflate(R.layout.fr_settings_notifications,container,false);
+  final CheckBox enableTones=(CheckBox)res.findViewById(R.id.enableConversationTones);
+  enableTones.setChecked(messenger().isConversationTonesEnabled());
+  View.OnClickListener enableTonesListener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      messenger().changeConversationTonesEnabled(!messenger().isConversationTonesEnabled());
+      enableTones.setChecked(messenger().isConversationTonesEnabled());
+    }
+  }
+;
+  enableTones.setOnClickListener(enableTonesListener);
+  res.findViewById(R.id.conversationTonesCont).setOnClickListener(enableTonesListener);
+  final CheckBox enableSound=(CheckBox)res.findViewById(R.id.enableSound);
+  enableSound.setChecked(messenger().isNotificationSoundEnabled());
+  View.OnClickListener enableSoundListener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      messenger().changeNotificationSoundEnabled(!messenger().isNotificationSoundEnabled());
+      enableSound.setChecked(messenger().isNotificationSoundEnabled());
+    }
+  }
+;
+  enableSound.setOnClickListener(enableSoundListener);
+  res.findViewById(R.id.soundCont).setOnClickListener(enableSoundListener);
+  final CheckBox enableVibration=(CheckBox)res.findViewById(R.id.enableVibration);
+  enableVibration.setChecked(messenger().isNotificationVibrationEnabled());
+  View.OnClickListener enableVibrationListener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      messenger().changeNotificationVibrationEnabled(!messenger().isNotificationVibrationEnabled());
+      enableVibration.setChecked(messenger().isNotificationVibrationEnabled());
+    }
+  }
+;
+  enableVibration.setOnClickListener(enableVibrationListener);
+  res.findViewById(R.id.vibrationCont).setOnClickListener(enableVibrationListener);
+  final CheckBox enableText=(CheckBox)res.findViewById(R.id.enableTitles);
+  enableText.setChecked(messenger().isShowNotificationsText());
+  View.OnClickListener enableTextListener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      messenger().changeShowNotificationTextEnabled(!messenger().isShowNotificationsText());
+      enableText.setChecked(messenger().isShowNotificationsText());
+    }
+  }
+;
+  enableText.setOnClickListener(enableTextListener);
+  res.findViewById(R.id.titlesCont).setOnClickListener(enableTextListener);
   return res;
 }

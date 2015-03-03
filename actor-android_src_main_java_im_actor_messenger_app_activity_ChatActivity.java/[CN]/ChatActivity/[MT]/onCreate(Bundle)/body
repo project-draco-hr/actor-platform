@@ -62,7 +62,7 @@
 );
   messageBody.setOnKeyListener(new View.OnKeyListener(){
     @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
-      if (ChatSettings.getInstance().isSendByEnter()) {
+      if (messenger().isSendByEnterEnabled()) {
         if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keycode == KeyEvent.KEYCODE_ENTER) {
           sendMessage();
           return true;
@@ -82,7 +82,7 @@
         sendMessage();
         return true;
       }
-      if (ChatSettings.getInstance().isSendByEnter()) {
+      if (messenger().isSendByEnterEnabled()) {
         if (keyEvent != null && i == EditorInfo.IME_NULL && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
           sendMessage();
           return true;

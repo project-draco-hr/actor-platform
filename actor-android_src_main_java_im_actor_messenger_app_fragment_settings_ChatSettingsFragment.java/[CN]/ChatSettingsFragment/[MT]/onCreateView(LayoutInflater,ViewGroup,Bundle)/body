@@ -1,5 +1,15 @@
 {
   View res=inflater.inflate(R.layout.fr_settings_chat,container,false);
-  chatSettings=ChatSettings.getInstance();
+  final CheckBox sendByEnter=(CheckBox)res.findViewById(R.id.sendByEnter);
+  sendByEnter.setChecked(messenger().isSendByEnterEnabled());
+  View.OnClickListener listener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      messenger().changeSendByEnter(!messenger().isSendByEnterEnabled());
+      sendByEnter.setChecked(messenger().isSendByEnterEnabled());
+    }
+  }
+;
+  sendByEnter.setOnClickListener(listener);
+  res.findViewById(R.id.sendByEnterCont).setOnClickListener(listener);
   return res;
 }

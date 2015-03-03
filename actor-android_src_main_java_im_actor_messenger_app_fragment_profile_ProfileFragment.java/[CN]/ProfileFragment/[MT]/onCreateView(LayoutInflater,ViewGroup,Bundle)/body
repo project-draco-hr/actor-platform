@@ -97,7 +97,20 @@
   }
 );
   View notificationContainter=res.findViewById(R.id.notificationsCont);
-  SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
+  final SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
+  notificationEnable.setChecked(messenger().isNotificationsEnabled(Peer.user(uid)));
+  notificationEnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+    @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
+      messenger().changeNotificationsEnabled(Peer.user(uid),isChecked);
+    }
+  }
+);
+  notificationContainter.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      notificationEnable.setChecked(!notificationEnable.isChecked());
+    }
+  }
+);
   final ScrollView scrollView=((ScrollView)res.findViewById(R.id.scrollContainer));
   scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener(){
     @Override public void onScrollChanged(){

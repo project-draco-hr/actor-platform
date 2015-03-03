@@ -1,4 +1,0 @@
-{
-  preferences=context.getSharedPreferences("chat.ini",Context.MODE_PRIVATE);
-  isSendByEnter=new PreferenceBoolean("chat.send_by_enter",preferences,BuildConfig.ENABLE_CHROME);
-}

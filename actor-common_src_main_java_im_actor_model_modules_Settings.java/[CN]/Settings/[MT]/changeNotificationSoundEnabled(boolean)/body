@@ -1,0 +1,3 @@
+{
+  preferences().putBool(KEY_NOTIFICATION_SOUND,val);
+}
