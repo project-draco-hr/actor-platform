@@ -1,0 +1,6 @@
+{
+  if (visiblePeer != null && visiblePeer.equals(peer)) {
+    hideNotifications();
+    visiblePeer=null;
+  }
+}

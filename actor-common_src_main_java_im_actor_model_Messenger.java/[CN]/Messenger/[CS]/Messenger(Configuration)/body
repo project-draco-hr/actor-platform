@@ -38,4 +38,6 @@
   this.modules.run();
   Log.d(TAG,"Loading stage6 in " + (configuration.getThreading().getActorTime() - start) + " ms");
   start=configuration.getThreading().getActorTime();
+  modules.getPresenceModule().onAppVisible();
+  modules.getNotifications().onAppVisible();
 }
