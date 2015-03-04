@@ -15,4 +15,17 @@
     }
 );
   }
+ else   if (document.getSource() instanceof FileLocalSource) {
+    messenger().requestUploadState(currentMessage.getRid(),new UploadCallback(){
+      @Override public void onNotUploading(){
+        messenger().resumeUpload(currentMessage.getRid());
+      }
+      @Override public void onUploading(      float progress){
+        messenger().pauseUpload(currentMessage.getRid());
+      }
+      @Override public void onUploaded(){
+      }
+    }
+);
+  }
 }

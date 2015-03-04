@@ -1,0 +1,14 @@
+{
+  QueueItem queueItem=findItem(rid);
+  if (queueItem == null) {
+    callback.onNotUploading();
+  }
+ else {
+    if (queueItem.isStopped) {
+      callback.onNotUploading();
+    }
+ else {
+      callback.onUploading(queueItem.progress);
+    }
+  }
+}

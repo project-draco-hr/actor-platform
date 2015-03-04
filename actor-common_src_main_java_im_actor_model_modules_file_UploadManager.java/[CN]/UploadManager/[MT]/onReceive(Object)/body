@@ -27,6 +27,18 @@
     UnbindUpload unbindUpload=(UnbindUpload)message;
     unbindUpload(unbindUpload.getRid(),unbindUpload.getCallback());
   }
+ else   if (message instanceof RequestState) {
+    RequestState requestState=(RequestState)message;
+    requestState(requestState.getRid(),requestState.getCallback());
+  }
+ else   if (message instanceof PauseUpload) {
+    PauseUpload pauseUpload=(PauseUpload)message;
+    pauseUpload(pauseUpload.getRid());
+  }
+ else   if (message instanceof ResumeUpload) {
+    ResumeUpload resumeUpload=(ResumeUpload)message;
+    resumeUpload(resumeUpload.getRid());
+  }
  else {
     drop(message);
   }
