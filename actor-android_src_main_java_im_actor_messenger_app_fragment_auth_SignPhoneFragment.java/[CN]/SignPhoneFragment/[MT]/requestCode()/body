@@ -8,5 +8,5 @@
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_phone).setPositiveButton(R.string.dialog_ok,null).show();
     return;
   }
-  execute(messenger().requestSms(Long.parseLong(rawPhoneN)));
+  executeAuth(messenger().requestSms(Long.parseLong(rawPhoneN)));
 }

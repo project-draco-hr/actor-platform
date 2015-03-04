@@ -1,9 +1,5 @@
 {
   super.onCreate(savedInstanceState);
   getSupportActionBar().setTitle(R.string.create_group_title);
-  getSupportActionBar().setDisplayShowHomeEnabled(false);
-  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-  getSupportActionBar().setDisplayShowTitleEnabled(true);
-  getSupportActionBar().setDisplayShowCustomEnabled(false);
   showFragment(new GroupNameFragment(),false,false);
 }

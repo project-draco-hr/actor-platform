@@ -1,0 +1,4 @@
+{
+  modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(descriptor,true));
+  modules().getFilesModule().requestUpload(RandomUtils.nextRid(),descriptor,self());
+}

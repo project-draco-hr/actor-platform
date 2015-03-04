@@ -9,6 +9,6 @@
       e.printStackTrace();
       return;
     }
-    execute(messenger().sendCode(code));
+    executeAuth(messenger().sendCode(code));
   }
 }

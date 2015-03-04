@@ -1,0 +1,65 @@
+{
+  if (uploadState != null && uploadState.isUploading()) {
+    if (uploadState.getDescriptor() != null) {
+      receiver.request(new RawFileTask(uploadState.getDescriptor()));
+    }
+ else {
+      receiver.clear();
+    }
+    showView(progress);
+    goneView(noPhoto);
+    isUploading=true;
+    return;
+  }
+  isUploading=false;
+  receiver.clear();
+  if (avatar == null) {
+    photoView.setImageBitmap(null);
+    showView(noPhoto);
+    goneView(progress);
+  }
+ else {
+    goneView(noPhoto);
+    String file=messenger().getDownloadedDescriptor(avatar.getFullImage().getFileLocation().getFileId());
+    if (file != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
+        photoView.setImageBitmap(bitmap);
+        photoView.setZoomable(true);
+        goneView(progress);
+        return;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+    showView(progress);
+    boolean isAppliedPreview=false;
+    String largeFile=messenger().getDownloadedDescriptor(avatar.getLargeImage().getFileLocation().getFileId());
+    if (largeFile != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(largeFile);
+        photoView.setImageBitmap(bitmap);
+        photoView.setZoomable(false);
+        isAppliedPreview=true;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+    if (!isAppliedPreview) {
+      String smallFile=messenger().getDownloadedDescriptor(avatar.getSmallImage().getFileLocation().getFileId());
+      if (smallFile != null) {
+        try {
+          Bitmap bitmap=ImageLoading.loadBitmapOptimized(smallFile);
+          photoView.setImageBitmap(bitmap);
+          photoView.setZoomable(false);
+        }
+ catch (        ImageLoadException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    receiver.request(new FullAvatarTask(avatar));
+  }
+}

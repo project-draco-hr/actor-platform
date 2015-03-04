@@ -1,0 +1,13 @@
+{
+  if (message instanceof ChangeAvatar) {
+    ChangeAvatar changeAvatar=(ChangeAvatar)message;
+    changeAvatar(changeAvatar.getDescriptor());
+  }
+ else   if (message instanceof UploadManager.UploadCompleted) {
+    UploadManager.UploadCompleted uploadCompleted=(UploadManager.UploadCompleted)message;
+    uploadCompleted(uploadCompleted.getRid(),uploadCompleted.getFileLocation());
+  }
+ else {
+    drop(message);
+  }
+}

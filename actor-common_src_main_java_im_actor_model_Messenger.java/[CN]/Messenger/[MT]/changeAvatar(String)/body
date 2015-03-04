@@ -1,0 +1,3 @@
+{
+  modules.getProfile().changeAvatar(descriptor);
+}

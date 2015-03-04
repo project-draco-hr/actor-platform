@@ -1,9 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  getSupportActionBar().setDisplayShowHomeEnabled(false);
-  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-  getSupportActionBar().setDisplayShowTitleEnabled(false);
-  getSupportActionBar().setDisplayShowCustomEnabled(false);
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
   if (savedInstanceState == null) {
     showFragment(new MyProfileFragment(),false,false);

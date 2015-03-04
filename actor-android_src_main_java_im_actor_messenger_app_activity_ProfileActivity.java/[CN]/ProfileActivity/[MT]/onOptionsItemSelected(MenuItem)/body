@@ -4,9 +4,11 @@
     return true;
   }
  else   if (item.getItemId() == R.id.add) {
+    execute(messenger().addContact(uid),R.string.profile_adding);
     return true;
   }
  else   if (item.getItemId() == R.id.remove) {
+    execute(messenger().removeContact(uid),R.string.profile_removing);
     return true;
   }
  else   if (item.getItemId() == R.id.edit) {

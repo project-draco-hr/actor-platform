@@ -1,0 +1,11 @@
+{
+  request(new RequestEditAvatar(new im.actor.model.api.FileLocation(fileLocation.getFileId(),fileLocation.getAccessHash())),new RpcCallback<ResponseEditAvatar>(){
+    @Override public void onResult(    ResponseEditAvatar response){
+      modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
+    }
+    @Override public void onError(    RpcException e){
+      modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
+    }
+  }
+);
+}

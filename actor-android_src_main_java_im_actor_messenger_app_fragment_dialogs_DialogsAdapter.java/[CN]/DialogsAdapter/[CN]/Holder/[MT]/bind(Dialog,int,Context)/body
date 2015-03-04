@@ -1,15 +1,4 @@
 {
-  if (binded != 0) {
-    if (data.getPeer().getUnuqueId() != binded) {
-      Log.d("ListDialogs","Bind new #" + position);
-    }
- else {
-      Log.d("ListDialogs","Bind updated #" + position);
-    }
-  }
- else {
-    Log.d("ListDialogs","Bind fresh #" + position);
-  }
   binded=data.getPeer().getUnuqueId();
   if (getEngine().getListState().getValue().getState() == ListState.State.LOADED) {
     if (position > getCount() - LOAD_GAP) {
@@ -36,7 +25,13 @@
     left=R.drawable.dialogs_group;
   }
   title.setCompoundDrawablesWithIntrinsicBounds(left,0,right,0);
-  time.setText(Formatter.formatShortDate(data.getSortDate()));
+  if (data.getDate() > 0) {
+    time.setVisibility(View.VISIBLE);
+    time.setText(Formatter.formatShortDate(data.getDate()));
+  }
+ else {
+    time.setVisibility(View.GONE);
+  }
   boolean isGroup=data.getPeer().getPeerType() == PeerType.GROUP;
   if (data.getMessageType() == ContentType.TEXT) {
     bindedText=MessageTextFormatter.textMessage(data.getSenderId(),isGroup,data.getText());

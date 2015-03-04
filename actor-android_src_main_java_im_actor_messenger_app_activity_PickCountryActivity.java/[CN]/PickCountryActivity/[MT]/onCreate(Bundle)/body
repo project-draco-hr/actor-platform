@@ -1,7 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  getSupportActionBar().setDisplayShowHomeEnabled(true);
-  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   getSupportActionBar().setTitle(R.string.auth_phone_country_title);
   if (savedInstanceState == null) {
     showFragment(new CountrySelectFragment(),false,false);
