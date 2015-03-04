@@ -1,3 +1,2 @@
 {
-  ProfileSyncState.getSyncState().removeUiSubscriber(this);
 }

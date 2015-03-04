@@ -1,5 +1,0 @@
-{
-  barTabs.setVisibility(View.VISIBLE);
-  emptyContactsView.setVisibility(View.GONE);
-  syncInProgressView.setVisibility(View.GONE);
-}

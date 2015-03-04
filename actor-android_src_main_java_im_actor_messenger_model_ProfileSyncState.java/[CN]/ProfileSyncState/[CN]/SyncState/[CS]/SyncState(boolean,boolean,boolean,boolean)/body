@@ -1,6 +1,0 @@
-{
-  this.isBookImported=isBookImported;
-  this.isContactsSynced=isContactsSynced;
-  this.isContactsEmpty=isContactsEmpty;
-  this.isDialogsEmpty=isDialogsEmpty;
-}

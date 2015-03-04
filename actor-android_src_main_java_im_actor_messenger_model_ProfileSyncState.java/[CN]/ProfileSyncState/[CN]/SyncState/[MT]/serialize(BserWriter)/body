@@ -1,6 +1,0 @@
-{
-  writer.writeBool(1,isBookImported);
-  writer.writeBool(2,isContactsSynced);
-  writer.writeBool(3,isContactsEmpty);
-  writer.writeBool(4,isDialogsEmpty);
-}

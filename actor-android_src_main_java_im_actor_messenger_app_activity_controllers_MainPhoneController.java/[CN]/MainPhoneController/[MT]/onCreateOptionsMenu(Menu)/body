@@ -15,7 +15,6 @@
   }
 );
   searchMenu=menu.findItem(R.id.search);
-  searchMenu.setVisible(ProfileSyncState.getSyncState().getValue() == ProfileSyncState.State.READY);
   searchView=(SearchView)searchMenu.getActionView();
   searchView.setIconifiedByDefault(true);
   return true;

@@ -1,9 +1,0 @@
-{
-  Logger.d(TAG,"onImportEnded");
-  SyncState state=persistence.getObj();
-  if (state.isBookImported) {
-    return;
-  }
-  persistence.setObj(new SyncState(true,state.isContactsSynced,state.isContactsEmpty,state.isDialogsEmpty));
-  updateState();
-}

@@ -1,4 +1,0 @@
-boolean isBookImported
-boolean isContactsSynced
-boolean isContactsEmpty
-boolean isDialogsEmpty

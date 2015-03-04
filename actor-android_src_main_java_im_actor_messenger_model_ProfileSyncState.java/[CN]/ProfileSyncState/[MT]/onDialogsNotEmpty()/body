@@ -1,9 +1,0 @@
-{
-  Logger.d(TAG,"onDialogsNotEmpty");
-  SyncState state=persistence.getObj();
-  if (!state.isDialogsEmpty) {
-    return;
-  }
-  persistence.setObj(new SyncState(state.isBookImported,state.isContactsSynced,state.isContactsEmpty,false));
-  updateState();
-}
