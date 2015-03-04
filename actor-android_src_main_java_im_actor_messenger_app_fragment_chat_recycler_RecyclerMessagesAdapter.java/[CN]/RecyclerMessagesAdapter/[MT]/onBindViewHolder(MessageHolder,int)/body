@@ -10,6 +10,7 @@
   bubbleHolder.bindData(getItem(position),prev,next);
   if (position > getItemCount() - LOAD_GAP) {
     if (engine.getListState().getValue().getState() == ListState.State.LOADED) {
+      messenger().loadMoreHistory(messagesFragment.getPeer());
     }
  else {
       engine.requestLoadTail();

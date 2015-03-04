@@ -3,18 +3,8 @@
     return;
   }
   lastTypingTime=ActorTime.currentTime();
-  OutPeer outPeer;
-  if (peer.getPeerType() == PeerType.PRIVATE) {
-    User user=getUser(peer.getPeerId());
-    if (user == null) {
-      return;
-    }
-    outPeer=new OutPeer(im.actor.model.api.PeerType.PRIVATE,user.getUid(),user.getAccessHash());
-  }
- else   if (peer.getPeerType() == PeerType.GROUP) {
-    return;
-  }
- else {
+  OutPeer outPeer=buidOutPeer(peer);
+  if (outPeer == null) {
     return;
   }
   request(new RequestTyping(outPeer,TypingType.TEXT));

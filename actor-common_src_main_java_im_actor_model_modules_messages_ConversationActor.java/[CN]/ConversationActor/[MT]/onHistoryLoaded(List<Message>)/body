@@ -1,2 +1,12 @@
 {
+  ArrayList<Message> updated=new ArrayList<Message>();
+  for (  Message historyMessage : history) {
+    if (messages.getValue(historyMessage.getListId()) != null) {
+      continue;
+    }
+    updated.add(historyMessage);
+  }
+  if (updated.size() > 0) {
+    messages.addOrUpdateItems(updated);
+  }
 }

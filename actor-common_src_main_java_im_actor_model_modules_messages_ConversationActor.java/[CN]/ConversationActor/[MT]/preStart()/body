@@ -1,7 +1,7 @@
 {
   messages=messages(peer);
   messagesStorage=new OutUnreadMessagesStorage();
-  byte[] data=preferences().getBytes("conv_pending_" + peer.getUnuqueId());
+  byte[] data=preferences().getBytes(PENDING_KEY);
   if (data != null) {
     try {
       messagesStorage=OutUnreadMessagesStorage.fromBytes(data);

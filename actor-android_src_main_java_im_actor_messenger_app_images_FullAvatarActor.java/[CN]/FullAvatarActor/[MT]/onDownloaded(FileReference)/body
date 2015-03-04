@@ -1,0 +1,13 @@
+{
+  if (isCompleted()) {
+    return;
+  }
+  AndroidFileReference fileDescriptor=(AndroidFileReference)reference;
+  try {
+    completeTask(ImageLoading.loadBitmap(fileDescriptor.getDescriptor()));
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+    error(e);
+  }
+}

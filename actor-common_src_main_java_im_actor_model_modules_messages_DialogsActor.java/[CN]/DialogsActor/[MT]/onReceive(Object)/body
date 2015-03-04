@@ -21,9 +21,9 @@
     CounterChanged counterChanged=(CounterChanged)message;
     onCounterChanged(counterChanged.getPeer(),counterChanged.getCount());
   }
- else   if (message instanceof Deleted) {
-    Deleted deleted=(Deleted)message;
-    onMessage(deleted.getPeer(),deleted.getMessage(),true);
+ else   if (message instanceof MessageDeleted) {
+    MessageDeleted deleted=(MessageDeleted)message;
+    onMessage(deleted.getPeer(),deleted.getTopMessage(),true);
   }
  else   if (message instanceof HistoryLoaded) {
     HistoryLoaded historyLoaded=(HistoryLoaded)message;
@@ -32,5 +32,16 @@
  else   if (message instanceof GroupChanged) {
     GroupChanged groupChanged=(GroupChanged)message;
     onGroupChanged(groupChanged.getGroup());
+  }
+ else   if (message instanceof MessageSent) {
+    MessageSent messageSent=(MessageSent)message;
+    onMessageSent(messageSent.getPeer(),messageSent.getRid(),messageSent.getDate());
+  }
+ else   if (message instanceof MessageContentChanged) {
+    MessageContentChanged contentChanged=(MessageContentChanged)message;
+    onMessageContentChanged(contentChanged.getPeer(),contentChanged.getRid(),contentChanged.getContent());
+  }
+ else {
+    drop(message);
   }
 }

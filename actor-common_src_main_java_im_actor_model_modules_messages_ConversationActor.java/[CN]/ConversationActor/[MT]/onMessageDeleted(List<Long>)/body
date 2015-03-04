@@ -1,7 +1,0 @@
-{
-  long[] rids2=new long[rids.size()];
-  for (int i=0; i < rids2.length; i++) {
-    rids2[i]=rids.get(i);
-  }
-  messages.removeItems(rids2);
-}

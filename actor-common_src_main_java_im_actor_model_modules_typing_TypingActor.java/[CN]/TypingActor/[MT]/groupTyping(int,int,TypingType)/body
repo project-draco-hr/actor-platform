@@ -2,6 +2,9 @@
   if (type != TypingType.TEXT) {
     return;
   }
+  if (getGroup(gid) == null) {
+    return;
+  }
   if (getUser(uid) == null) {
     return;
   }

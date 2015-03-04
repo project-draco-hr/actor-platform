@@ -4,6 +4,11 @@
     applyRelated(dialogs.getUsers(),dialogs.getGroups(),false);
     messagesProcessor.onDialogsLoaded(dialogs);
   }
+ else   if (update instanceof MessagesHistoryLoaded) {
+    MessagesHistoryLoaded historyLoaded=(MessagesHistoryLoaded)update;
+    applyRelated(historyLoaded.getLoadHistory().getUsers(),new ArrayList<Group>(),false);
+    messagesProcessor.onMessagesLoaded(historyLoaded.getPeer(),historyLoaded.getLoadHistory());
+  }
  else   if (update instanceof LoggedIn) {
     ArrayList<User> users=new ArrayList<User>();
     users.add(((LoggedIn)update).getAuth().getUser());

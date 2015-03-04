@@ -35,8 +35,8 @@
  else   if (message instanceof DeleteConversation) {
     onDeleteConversation();
   }
- else   if (message instanceof MessageDeleted) {
-    onMessageDeleted(((MessageDeleted)message).getRids());
+ else   if (message instanceof MessagesDeleted) {
+    onMessagesDeleted(((MessagesDeleted)message).getRids());
   }
  else {
     drop(message);

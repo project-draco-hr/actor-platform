@@ -6,9 +6,9 @@
       if (msg != null && (msg.getMessageState() == MessageState.SENT || msg.getMessageState() == MessageState.RECEIVED)) {
         messages.addOrUpdateItem(msg.changeState(MessageState.READ));
         dialogsActor.send(new DialogsActor.MessageStateChanged(peer,p.getRid(),MessageState.READ));
+        removed=true;
+        messagesStorage.getMessages().remove(p);
       }
-      removed=true;
-      messagesStorage.getMessages().remove(p);
     }
   }
   if (removed) {
