@@ -7,6 +7,13 @@
     UploadManager.UploadCompleted uploadCompleted=(UploadManager.UploadCompleted)message;
     uploadCompleted(uploadCompleted.getRid(),uploadCompleted.getFileLocation());
   }
+ else   if (message instanceof UploadManager.UploadError) {
+    UploadManager.UploadError uploadError=(UploadManager.UploadError)message;
+    uploadError(uploadError.getRid());
+  }
+ else   if (message instanceof RemoveAvatar) {
+    removeAvatar();
+  }
  else {
     drop(message);
   }

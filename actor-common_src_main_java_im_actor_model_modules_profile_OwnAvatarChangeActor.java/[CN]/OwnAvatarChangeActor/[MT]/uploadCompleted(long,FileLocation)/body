@@ -1,6 +1,10 @@
 {
+  if (rid != currentChangeTask) {
+    return;
+  }
   request(new RequestEditAvatar(new im.actor.model.api.FileLocation(fileLocation.getFileId(),fileLocation.getAccessHash())),new RpcCallback<ResponseEditAvatar>(){
     @Override public void onResult(    ResponseEditAvatar response){
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateUserAvatarChanged.HEADER,new UpdateUserAvatarChanged(myUid(),response.getAvatar()).toByteArray()));
       modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
     }
     @Override public void onError(    RpcException e){

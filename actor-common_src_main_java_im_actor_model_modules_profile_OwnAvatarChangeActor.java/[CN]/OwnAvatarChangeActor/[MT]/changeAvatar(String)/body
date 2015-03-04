@@ -1,4 +1,9 @@
 {
+  if (currentChangeTask != 0) {
+    modules().getFilesModule().cancelUpload(currentChangeTask);
+    currentChangeTask=0;
+  }
+  currentChangeTask=RandomUtils.nextRid();
   modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(descriptor,true));
-  modules().getFilesModule().requestUpload(RandomUtils.nextRid(),descriptor,self());
+  modules().getFilesModule().requestUpload(currentChangeTask,descriptor,self());
 }
