@@ -16,8 +16,9 @@
         preferences().putInt(KEY_SEQ,seq);
         preferences().putBytes(KEY_STATE,state);
         Log.d(TAG,"State loaded {seq=" + seq + "}");
-        self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
+        checkRunnables();
         checkFuture();
+        self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
       }
       @Override public void onError(      RpcException e){
         if (isValidated) {
@@ -54,8 +55,9 @@
         isValidated=true;
         preferences().putInt(KEY_SEQ,seq);
         preferences().putBytes(KEY_STATE,state);
-        self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
+        checkRunnables();
         checkFuture();
+        self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
         if (response.needMore()) {
           invalidate();
         }

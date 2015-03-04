@@ -32,6 +32,16 @@
     processor.processInternalUpdate((InternalUpdate)u);
     return;
   }
+ else   if (u instanceof ExecuteAfter) {
+    ExecuteAfter after=(ExecuteAfter)u;
+    if (after.getSeq() <= this.seq) {
+      after.getRunnable().run();
+    }
+ else {
+      pendingRunnables.add(after);
+    }
+    return;
+  }
  else {
     return;
   }
@@ -79,6 +89,7 @@
   this.state=state;
   preferences().putInt(KEY_SEQ,seq);
   preferences().putBytes(KEY_STATE,state);
+  checkRunnables();
   checkFuture();
   self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
 }
