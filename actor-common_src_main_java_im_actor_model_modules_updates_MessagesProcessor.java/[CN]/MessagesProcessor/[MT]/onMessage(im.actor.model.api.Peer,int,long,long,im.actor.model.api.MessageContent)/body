@@ -1,10 +1,10 @@
 {
   Peer peer=convert(_peer);
   AbsContent msgContent=convert(content);
+  boolean isOut=myUid() == senderUid;
   if (msgContent == null) {
     return;
   }
-  boolean isOut=myUid() == senderUid;
   Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
   conversationActor(peer).send(message);
   if (!isOut) {

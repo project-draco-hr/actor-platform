@@ -1,5 +1,6 @@
 int groupId
 long rid
 int uid
-int adder
+int kicker
 long date
+boolean isSilent

@@ -1,15 +1,11 @@
 {
   User u=users().getValue(uid);
   if (u != null) {
-    if (u.getLocalName() == null && name == null) {
-      return;
-    }
-    if (u.getLocalName() != null && u.getLocalName().equals(name)) {
+    if (equalsE(u.getLocalName(),name)) {
       return;
     }
     u=u.editLocalName(name);
     users().addOrUpdateItem(u);
-    modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
-    modules().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(u));
+    onUserDescChanged(u);
   }
 }

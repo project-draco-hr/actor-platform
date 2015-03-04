@@ -9,7 +9,7 @@
       Group upd=EntityConverter.convert(group);
       batch.add(upd);
       if (!equalsE(upd.getAvatar(),saved.getAvatar()) || !upd.getTitle().equals(saved.getTitle())) {
-        modules().getMessagesModule().getDialogsActor().send(new DialogsActor.GroupChanged(upd));
+        onGroupDescChanged(upd);
       }
     }
   }

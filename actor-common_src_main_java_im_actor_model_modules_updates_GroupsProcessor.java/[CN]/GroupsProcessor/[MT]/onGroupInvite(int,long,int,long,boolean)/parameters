@@ -1,5 +1,5 @@
 int groupId
 long rid
-int uid
-String title
+int inviterId
 long date
+boolean isSilent
