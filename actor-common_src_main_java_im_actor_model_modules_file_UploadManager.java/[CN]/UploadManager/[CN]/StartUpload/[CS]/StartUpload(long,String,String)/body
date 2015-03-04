@@ -1,0 +1,5 @@
+{
+  this.rid=rid;
+  this.fileDescriptor=fileDescriptor;
+  this.fileName=fileName;
+}

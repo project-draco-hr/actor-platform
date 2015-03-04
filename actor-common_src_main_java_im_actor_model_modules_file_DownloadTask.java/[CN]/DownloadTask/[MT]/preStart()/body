@@ -6,7 +6,7 @@
     Log.d(TAG,"No FileSystem available");
     return;
   }
-  destReference=fileSystemProvider.createTempFile(fileLocation);
+  destReference=fileSystemProvider.createTempFile();
   if (destReference == null) {
     reportError();
     Log.d(TAG,"Unable to create reference");

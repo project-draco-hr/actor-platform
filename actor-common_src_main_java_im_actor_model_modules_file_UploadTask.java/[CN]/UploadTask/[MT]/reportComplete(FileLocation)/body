@@ -1,7 +1,0 @@
-{
-  if (isCompleted) {
-    return;
-  }
-  isCompleted=true;
-  manager.send(new UploadManager.UploadTaskComplete(rid,location));
-}

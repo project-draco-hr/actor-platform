@@ -26,7 +26,7 @@
   final QueueItem finalPendingQueue=pendingQueue;
   pendingQueue.taskRef=system().actorOf(Props.create(UploadTask.class,new ActorCreator<UploadTask>(){
     @Override public UploadTask create(){
-      return new UploadTask(finalPendingQueue.rid,finalPendingQueue.fileDescriptor,self(),modules());
+      return new UploadTask(finalPendingQueue.rid,finalPendingQueue.fileDescriptor,finalPendingQueue.fileName,self(),modules());
     }
   }
 ),"actor/upload/task_" + RandomUtils.nextRid());

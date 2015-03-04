@@ -1,3 +1,0 @@
-long rid
-String fileDescriptor
-ActorRef requestActor

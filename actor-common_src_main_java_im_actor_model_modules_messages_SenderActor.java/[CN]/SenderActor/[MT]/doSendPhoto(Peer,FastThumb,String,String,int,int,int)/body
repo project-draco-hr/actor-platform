@@ -6,5 +6,5 @@
   getConversationActor(peer).send(message);
   pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,photoContent));
   savePending();
-  performUploadFile(rid,descriptor);
+  performUploadFile(rid,descriptor,fileName);
 }

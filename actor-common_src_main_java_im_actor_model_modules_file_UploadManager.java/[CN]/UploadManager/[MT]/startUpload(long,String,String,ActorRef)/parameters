@@ -1,0 +1,4 @@
+long rid
+String descriptor
+String fileName
+ActorRef requestActor
