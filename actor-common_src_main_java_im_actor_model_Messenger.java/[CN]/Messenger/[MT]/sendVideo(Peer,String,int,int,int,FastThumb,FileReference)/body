@@ -1,0 +1,3 @@
+{
+  modules.getMessagesModule().sendVideo(peer,fileName,w,h,duration,fastThumb,fileReference);
+}

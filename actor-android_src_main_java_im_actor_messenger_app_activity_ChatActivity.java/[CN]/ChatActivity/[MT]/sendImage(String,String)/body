@@ -10,7 +10,7 @@
       return;
     }
     ImageLoading.save(optimized,resultFileName);
-    messenger.sendDocument(peer,new File(fileName).getName(),"image/jpeg",new AndroidFileReference(resultFileName),new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),data));
+    messenger.sendPhoto(peer,new File(name).getName(),optimized.getWidth(),optimized.getHeight(),new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),data),new AndroidFileReference(resultFileName));
   }
  catch (  ImageLoadException e) {
     e.printStackTrace();

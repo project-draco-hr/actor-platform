@@ -6,10 +6,12 @@
   pendingMessages.getPendingMessages().remove(msg);
   AbsContent nContent;
   if (msg.getContent() instanceof PhotoContent) {
-    return;
+    PhotoContent basePhotoContent=(PhotoContent)msg.getContent();
+    nContent=new PhotoContent(new FileRemoteSource(fileLocation),basePhotoContent.getMimetype(),basePhotoContent.getName(),basePhotoContent.getFastThumb(),basePhotoContent.getW(),basePhotoContent.getH());
   }
  else   if (msg.getContent() instanceof VideoContent) {
-    return;
+    VideoContent baseVideoContent=(VideoContent)msg.getContent();
+    nContent=new VideoContent(new FileRemoteSource(fileLocation),baseVideoContent.getMimetype(),baseVideoContent.getName(),baseVideoContent.getFastThumb(),baseVideoContent.getDuration(),baseVideoContent.getW(),baseVideoContent.getH());
   }
  else   if (msg.getContent() instanceof DocumentContent) {
     DocumentContent baseDocContent=(DocumentContent)msg.getContent();

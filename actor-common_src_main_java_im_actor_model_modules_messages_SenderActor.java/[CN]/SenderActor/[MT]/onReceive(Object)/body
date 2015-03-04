@@ -27,6 +27,10 @@
     SendPhoto sendPhoto=(SendPhoto)message;
     doSendPhoto(sendPhoto.getPeer(),sendPhoto.getFastThumb(),sendPhoto.getDescriptor(),sendPhoto.getFileName(),sendPhoto.getFileSize(),sendPhoto.getW(),sendPhoto.getH());
   }
+ else   if (message instanceof SendVideo) {
+    SendVideo sendVideo=(SendVideo)message;
+    doSendVideo(sendVideo.getPeer(),sendVideo.getFileName(),sendVideo.getW(),sendVideo.getH(),sendVideo.getDuration(),sendVideo.getFastThumb(),sendVideo.getDescriptor(),sendVideo.getFileSize());
+  }
  else {
     drop(message);
   }

@@ -18,6 +18,11 @@
       extType=1;
       ext=new FileExPhoto(photoContent.getW(),photoContent.getH()).toByteArray();
     }
+ else     if (content instanceof VideoContent) {
+      VideoContent videoContent=(VideoContent)content;
+      extType=2;
+      ext=new FileExVideo(videoContent.getW(),videoContent.getH(),videoContent.getDuration()).toByteArray();
+    }
     im.actor.model.api.FastThumb fastThumb=null;
     if (documentContent.getFastThumb() != null) {
       fastThumb=new im.actor.model.api.FastThumb(documentContent.getFastThumb().getW(),documentContent.getFastThumb().getH(),documentContent.getFastThumb().getImage());
