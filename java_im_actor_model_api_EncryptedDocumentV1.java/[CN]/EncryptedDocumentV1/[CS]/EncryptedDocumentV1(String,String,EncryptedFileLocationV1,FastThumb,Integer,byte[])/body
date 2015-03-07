@@ -1,0 +1,8 @@
+{
+  this.name=name;
+  this.mimeType=mimeType;
+  this.fileLocation=fileLocation;
+  this.fastThumb=fastThumb;
+  this.extType=extType;
+  this.extension=extension;
+}

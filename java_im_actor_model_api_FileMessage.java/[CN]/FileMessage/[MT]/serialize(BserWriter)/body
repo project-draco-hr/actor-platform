@@ -2,6 +2,15 @@
   writer.writeLong(1,this.fileId);
   writer.writeLong(2,this.accessHash);
   writer.writeInt(3,this.fileSize);
+  if (this.encryptionType != null) {
+    writer.writeInt(9,this.encryptionType.getValue());
+  }
+  if (this.encryptionKey != null) {
+    writer.writeBytes(10,this.encryptionKey);
+  }
+  if (this.plainFileSize != null) {
+    writer.writeInt(11,this.plainFileSize);
+  }
   if (this.name == null) {
     throw new IOException();
   }

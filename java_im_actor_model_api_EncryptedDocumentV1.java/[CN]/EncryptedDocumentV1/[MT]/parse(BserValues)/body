@@ -1,0 +1,8 @@
+{
+  this.name=values.getString(1);
+  this.mimeType=values.getString(2);
+  this.fileLocation=values.getObj(3,new EncryptedFileLocationV1());
+  this.fastThumb=values.optObj(4,new FastThumb());
+  this.extType=values.optInt(5);
+  this.extension=values.optBytes(6);
+}
