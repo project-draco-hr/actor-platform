@@ -1,0 +1,5 @@
+{
+  fe_cmov.fe_cmov(t.yplusx,u.yplusx,b);
+  fe_cmov.fe_cmov(t.yminusx,u.yminusx,b);
+  fe_cmov.fe_cmov(t.xy2d,u.xy2d,b);
+}

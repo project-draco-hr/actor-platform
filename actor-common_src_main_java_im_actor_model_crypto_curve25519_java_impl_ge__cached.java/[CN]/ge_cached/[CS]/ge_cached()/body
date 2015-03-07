@@ -1,0 +1,6 @@
+{
+  YplusX=new int[10];
+  YminusX=new int[10];
+  Z=new int[10];
+  T2d=new int[10];
+}

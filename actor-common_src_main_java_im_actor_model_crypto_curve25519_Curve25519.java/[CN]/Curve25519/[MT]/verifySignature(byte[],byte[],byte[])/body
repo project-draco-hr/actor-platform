@@ -1,0 +1,3 @@
+{
+  return provider.verifySignature(publicKey,message,signature);
+}

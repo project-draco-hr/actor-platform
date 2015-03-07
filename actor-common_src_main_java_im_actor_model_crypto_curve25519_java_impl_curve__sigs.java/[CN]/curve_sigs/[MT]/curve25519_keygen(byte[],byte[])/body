@@ -1,0 +1,14 @@
+{
+  ge_p3 ed=new ge_p3();
+  int[] ed_y=new int[10];
+  int[] ed_y_plus_one=new int[10];
+  int[] one_minus_ed_y=new int[10];
+  int[] inv_one_minus_ed_y=new int[10];
+  int[] mont_x=new int[10];
+  ge_scalarmult_base.ge_scalarmult_base(ed,curve25519_privkey_in);
+  fe_add.fe_add(ed_y_plus_one,ed.Y,ed.Z);
+  fe_sub.fe_sub(one_minus_ed_y,ed.Z,ed.Y);
+  fe_invert.fe_invert(inv_one_minus_ed_y,one_minus_ed_y);
+  fe_mul.fe_mul(mont_x,ed_y_plus_one,inv_one_minus_ed_y);
+  fe_tobytes.fe_tobytes(curve25519_pubkey_out,mont_x);
+}

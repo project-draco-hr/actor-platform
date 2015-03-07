@@ -1,0 +1,4 @@
+{
+  byte[] random=CryptoUtils.randomBytes(64);
+  return provider.calculateSignature(random,privateKey,message);
+}

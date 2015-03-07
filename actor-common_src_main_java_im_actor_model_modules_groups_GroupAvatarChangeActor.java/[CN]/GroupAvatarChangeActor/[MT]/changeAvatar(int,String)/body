@@ -1,0 +1,9 @@
+{
+  if (currentTasks.containsKey(gid)) {
+    modules().getFilesModule().cancelUpload(currentTasks.get(gid));
+    currentTasks.remove(gid);
+  }
+  long rid=RandomUtils.nextRid();
+  currentTasks.put(gid,rid);
+  modules().getFilesModule().requestUpload(rid,descriptor,"avatar.jpg",self());
+}

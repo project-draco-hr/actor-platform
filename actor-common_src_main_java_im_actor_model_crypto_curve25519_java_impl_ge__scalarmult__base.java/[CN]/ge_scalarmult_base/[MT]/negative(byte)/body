@@ -1,0 +1,5 @@
+{
+  long x=b;
+  x>>>=63;
+  return (int)x;
+}

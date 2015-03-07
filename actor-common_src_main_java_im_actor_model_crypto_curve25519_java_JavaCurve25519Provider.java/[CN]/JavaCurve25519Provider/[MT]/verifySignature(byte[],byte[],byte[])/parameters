@@ -1,0 +1,3 @@
+byte[] publicKey
+byte[] message
+byte[] signature

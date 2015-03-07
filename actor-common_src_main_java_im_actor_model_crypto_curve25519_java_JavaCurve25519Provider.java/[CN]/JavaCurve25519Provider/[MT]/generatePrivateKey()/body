@@ -1,0 +1,4 @@
+{
+  byte[] random=CryptoUtils.randomBytes(PRIVATE_KEY_LEN);
+  return generatePrivateKey(random);
+}

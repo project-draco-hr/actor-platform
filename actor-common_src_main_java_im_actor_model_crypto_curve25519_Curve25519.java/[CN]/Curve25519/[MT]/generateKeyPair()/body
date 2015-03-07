@@ -1,0 +1,5 @@
+{
+  byte[] privateKey=provider.generatePrivateKey();
+  byte[] publicKey=provider.generatePublicKey(privateKey);
+  return new Curve25519KeyPair(publicKey,privateKey);
+}

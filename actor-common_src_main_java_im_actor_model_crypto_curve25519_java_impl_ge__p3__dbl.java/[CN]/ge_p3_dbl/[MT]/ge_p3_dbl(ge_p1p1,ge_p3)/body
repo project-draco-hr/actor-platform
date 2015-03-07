@@ -1,0 +1,5 @@
+{
+  ge_p2 q=new ge_p2();
+  ge_p3_to_p2.ge_p3_to_p2(q,p);
+  ge_p2_dbl.ge_p2_dbl(r,q);
+}

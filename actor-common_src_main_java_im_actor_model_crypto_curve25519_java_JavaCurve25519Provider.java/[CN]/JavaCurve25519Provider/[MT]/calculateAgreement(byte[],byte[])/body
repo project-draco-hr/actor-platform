@@ -1,0 +1,5 @@
+{
+  byte[] agreement=new byte[32];
+  scalarmult.crypto_scalarmult(agreement,ourPrivate,theirPublic);
+  return agreement;
+}
