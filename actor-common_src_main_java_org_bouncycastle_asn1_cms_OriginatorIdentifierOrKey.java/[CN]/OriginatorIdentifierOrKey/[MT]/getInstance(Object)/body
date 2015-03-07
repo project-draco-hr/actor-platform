@@ -1,0 +1,18 @@
+{
+  if (o == null || o instanceof OriginatorIdentifierOrKey) {
+    return (OriginatorIdentifierOrKey)o;
+  }
+  if (o instanceof IssuerAndSerialNumber) {
+    return new OriginatorIdentifierOrKey((IssuerAndSerialNumber)o);
+  }
+  if (o instanceof SubjectKeyIdentifier) {
+    return new OriginatorIdentifierOrKey((SubjectKeyIdentifier)o);
+  }
+  if (o instanceof OriginatorPublicKey) {
+    return new OriginatorIdentifierOrKey((OriginatorPublicKey)o);
+  }
+  if (o instanceof ASN1TaggedObject) {
+    return new OriginatorIdentifierOrKey((ASN1TaggedObject)o);
+  }
+  throw new IllegalArgumentException("Invalid OriginatorIdentifierOrKey: " + o.getClass().getName());
+}

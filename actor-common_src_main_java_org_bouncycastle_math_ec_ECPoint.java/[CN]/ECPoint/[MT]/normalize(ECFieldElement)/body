@@ -1,0 +1,20 @@
+{
+switch (this.getCurveCoordinateSystem()) {
+case ECCurve.COORD_HOMOGENEOUS:
+case ECCurve.COORD_LAMBDA_PROJECTIVE:
+{
+      return createScaledPoint(zInv,zInv);
+    }
+case ECCurve.COORD_JACOBIAN:
+case ECCurve.COORD_JACOBIAN_CHUDNOVSKY:
+case ECCurve.COORD_JACOBIAN_MODIFIED:
+{
+    ECFieldElement zInv2=zInv.square(), zInv3=zInv2.multiply(zInv);
+    return createScaledPoint(zInv2,zInv3);
+  }
+default :
+{
+  throw new IllegalStateException("not a projective coordinate system");
+}
+}
+}

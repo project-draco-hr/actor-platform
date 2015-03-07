@@ -1,0 +1,5 @@
+{
+  int[] z=Nat192.create();
+  SecP192R1Field.negate(x,z);
+  return new SecP192R1FieldElement(z);
+}

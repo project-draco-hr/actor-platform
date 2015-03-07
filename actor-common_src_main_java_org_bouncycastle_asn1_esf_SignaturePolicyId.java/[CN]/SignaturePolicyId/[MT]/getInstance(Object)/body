@@ -1,0 +1,9 @@
+{
+  if (obj instanceof SignaturePolicyId) {
+    return (SignaturePolicyId)obj;
+  }
+ else   if (obj != null) {
+    return new SignaturePolicyId(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

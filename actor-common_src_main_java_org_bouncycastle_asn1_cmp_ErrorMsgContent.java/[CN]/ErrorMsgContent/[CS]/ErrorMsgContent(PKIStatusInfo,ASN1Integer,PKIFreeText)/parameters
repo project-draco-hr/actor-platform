@@ -1,0 +1,3 @@
+PKIStatusInfo pkiStatusInfo
+ASN1Integer errorCode
+PKIFreeText errorDetails

@@ -1,0 +1,18 @@
+{
+  if (obj instanceof ResponderID) {
+    return (ResponderID)obj;
+  }
+ else   if (obj instanceof DEROctetString) {
+    return new ResponderID((DEROctetString)obj);
+  }
+ else   if (obj instanceof ASN1TaggedObject) {
+    ASN1TaggedObject o=(ASN1TaggedObject)obj;
+    if (o.getTagNo() == 1) {
+      return new ResponderID(X500Name.getInstance(o,true));
+    }
+ else {
+      return new ResponderID(ASN1OctetString.getInstance(o,true));
+    }
+  }
+  return new ResponderID(X500Name.getInstance(obj));
+}

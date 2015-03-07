@@ -23,5 +23,8 @@
   if (cryptoProvider == null) {
     throw new RuntimeException("Crypto Provider not set");
   }
-  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,enableContactsLogging,enableNetworkLogging);
+  if (apiConfiguration == null) {
+    throw new RuntimeException("Api Configuration not set");
+  }
+  return new Configuration(networking,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threading,mainThread,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging);
 }

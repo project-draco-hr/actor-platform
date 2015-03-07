@@ -1,0 +1,7 @@
+{
+  if (seq.size() != 2) {
+    throw new IllegalArgumentException("sequence wrong size for LDSVersionInfo");
+  }
+  this.ldsVersion=DERPrintableString.getInstance(seq.getObjectAt(0));
+  this.unicodeVersion=DERPrintableString.getInstance(seq.getObjectAt(1));
+}

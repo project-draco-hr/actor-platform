@@ -1,0 +1,8 @@
+{
+  if (isSignaturePolicyImplied) {
+    return DERNull.INSTANCE;
+  }
+ else {
+    return signaturePolicyId.toASN1Primitive();
+  }
+}

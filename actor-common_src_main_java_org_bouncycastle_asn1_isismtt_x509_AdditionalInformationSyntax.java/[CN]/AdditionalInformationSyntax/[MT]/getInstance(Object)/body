@@ -1,0 +1,9 @@
+{
+  if (obj instanceof AdditionalInformationSyntax) {
+    return (AdditionalInformationSyntax)obj;
+  }
+  if (obj != null) {
+    return new AdditionalInformationSyntax(DirectoryString.getInstance(obj));
+  }
+  return null;
+}

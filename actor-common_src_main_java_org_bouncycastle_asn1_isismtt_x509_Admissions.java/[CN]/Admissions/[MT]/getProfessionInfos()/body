@@ -1,0 +1,8 @@
+{
+  ProfessionInfo[] infos=new ProfessionInfo[professionInfos.size()];
+  int count=0;
+  for (Enumeration e=professionInfos.getObjects(); e.hasMoreElements(); ) {
+    infos[count++]=ProfessionInfo.getInstance(e.nextElement());
+  }
+  return infos;
+}

@@ -1,0 +1,6 @@
+{
+  int theInt=n >>> 6;
+  int theBit=n & 0x3F;
+  long tester=1L << theBit;
+  return (buf[off + theInt] & tester) != 0;
+}

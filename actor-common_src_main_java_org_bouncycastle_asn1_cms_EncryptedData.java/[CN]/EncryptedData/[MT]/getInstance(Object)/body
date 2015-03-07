@@ -1,0 +1,9 @@
+{
+  if (o instanceof EncryptedData) {
+    return (EncryptedData)o;
+  }
+  if (o != null) {
+    return new EncryptedData(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

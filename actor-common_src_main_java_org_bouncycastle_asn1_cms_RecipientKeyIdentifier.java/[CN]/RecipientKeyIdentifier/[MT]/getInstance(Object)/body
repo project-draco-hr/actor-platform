@@ -1,0 +1,9 @@
+{
+  if (obj instanceof RecipientKeyIdentifier) {
+    return (RecipientKeyIdentifier)obj;
+  }
+  if (obj != null) {
+    return new RecipientKeyIdentifier(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

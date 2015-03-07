@@ -1,0 +1,35 @@
+{
+  int len=Math.max(wnafP.length,wnafQ.length);
+  ECCurve curve=preCompP[0].getCurve();
+  ECPoint infinity=curve.getInfinity();
+  ECPoint R=infinity;
+  int zeroes=0;
+  for (int i=len - 1; i >= 0; --i) {
+    int wiP=i < wnafP.length ? wnafP[i] : 0;
+    int wiQ=i < wnafQ.length ? wnafQ[i] : 0;
+    if ((wiP | wiQ) == 0) {
+      ++zeroes;
+      continue;
+    }
+    ECPoint r=infinity;
+    if (wiP != 0) {
+      int nP=Math.abs(wiP);
+      ECPoint[] tableP=wiP < 0 ? preCompNegP : preCompP;
+      r=r.add(tableP[nP >>> 1]);
+    }
+    if (wiQ != 0) {
+      int nQ=Math.abs(wiQ);
+      ECPoint[] tableQ=wiQ < 0 ? preCompNegQ : preCompQ;
+      r=r.add(tableQ[nQ >>> 1]);
+    }
+    if (zeroes > 0) {
+      R=R.timesPow2(zeroes);
+      zeroes=0;
+    }
+    R=R.twicePlus(r);
+  }
+  if (zeroes > 0) {
+    R=R.timesPow2(zeroes);
+  }
+  return R;
+}

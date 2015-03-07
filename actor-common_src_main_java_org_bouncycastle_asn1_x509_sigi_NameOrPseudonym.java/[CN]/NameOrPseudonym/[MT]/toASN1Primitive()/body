@@ -1,0 +1,11 @@
+{
+  if (pseudonym != null) {
+    return pseudonym.toASN1Primitive();
+  }
+ else {
+    ASN1EncodableVector vec1=new ASN1EncodableVector();
+    vec1.add(surname);
+    vec1.add(givenName);
+    return new DERSequence(vec1);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  ECPoint p=createPoint(x,y,withCompression);
+  if (!p.isValid()) {
+    throw new IllegalArgumentException("Invalid point coordinates");
+  }
+  return p;
+}

@@ -1,0 +1,9 @@
+{
+  if (o instanceof ContentIdentifier) {
+    return (ContentIdentifier)o;
+  }
+ else   if (o != null) {
+    return new ContentIdentifier(ASN1OctetString.getInstance(o));
+  }
+  return null;
+}

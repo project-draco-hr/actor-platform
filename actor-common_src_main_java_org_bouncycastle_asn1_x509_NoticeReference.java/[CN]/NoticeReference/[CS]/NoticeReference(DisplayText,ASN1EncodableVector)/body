@@ -1,0 +1,4 @@
+{
+  this.organization=organization;
+  this.noticeNumbers=new DERSequence(noticeNumbers);
+}

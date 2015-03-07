@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(timeStamp);
+  if (crl != null) {
+    v.add(crl);
+  }
+  return new DERSequence(v);
+}

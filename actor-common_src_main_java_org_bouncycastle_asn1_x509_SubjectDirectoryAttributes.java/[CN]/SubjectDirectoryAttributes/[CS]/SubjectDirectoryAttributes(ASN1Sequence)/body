@@ -1,0 +1,7 @@
+{
+  Enumeration e=seq.getObjects();
+  while (e.hasMoreElements()) {
+    ASN1Sequence s=ASN1Sequence.getInstance(e.nextElement());
+    attributes.addElement(Attribute.getInstance(s));
+  }
+}

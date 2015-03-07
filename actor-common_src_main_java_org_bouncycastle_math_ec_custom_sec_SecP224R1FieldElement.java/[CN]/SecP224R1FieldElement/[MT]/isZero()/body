@@ -1,0 +1,3 @@
+{
+  return Nat224.isZero(x);
+}

@@ -1,0 +1,9 @@
+{
+  if (o instanceof ErrorMsgContent) {
+    return (ErrorMsgContent)o;
+  }
+  if (o != null) {
+    return new ErrorMsgContent(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

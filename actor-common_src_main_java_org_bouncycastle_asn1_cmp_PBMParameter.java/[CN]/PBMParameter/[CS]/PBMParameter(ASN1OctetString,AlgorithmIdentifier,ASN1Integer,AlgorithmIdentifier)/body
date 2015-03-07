@@ -1,0 +1,6 @@
+{
+  this.salt=salt;
+  this.owf=owf;
+  this.iterationCount=iterationCount;
+  this.mac=mac;
+}

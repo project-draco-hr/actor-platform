@@ -1,0 +1,7 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  for (int i=0; i < certs.length; i++) {
+    v.add(certs[i]);
+  }
+  this.certs=new DERSequence(v);
+}

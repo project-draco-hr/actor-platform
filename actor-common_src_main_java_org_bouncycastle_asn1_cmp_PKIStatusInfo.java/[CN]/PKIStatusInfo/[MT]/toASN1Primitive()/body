@@ -1,0 +1,11 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(status);
+  if (statusString != null) {
+    v.add(statusString);
+  }
+  if (failInfo != null) {
+    v.add(failInfo);
+  }
+  return new DERSequence(v);
+}

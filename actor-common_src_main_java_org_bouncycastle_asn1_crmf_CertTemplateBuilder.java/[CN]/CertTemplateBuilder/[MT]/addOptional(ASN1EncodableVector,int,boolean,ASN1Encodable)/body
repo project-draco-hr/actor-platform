@@ -1,0 +1,5 @@
+{
+  if (obj != null) {
+    v.add(new DERTaggedObject(isExplicit,tagNo,obj));
+  }
+}

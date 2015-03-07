@@ -1,0 +1,6 @@
+{
+  if (value instanceof ASN1OctetString) {
+    return new DERTaggedObject(true,2,value);
+  }
+  return new DERTaggedObject(true,1,value);
+}

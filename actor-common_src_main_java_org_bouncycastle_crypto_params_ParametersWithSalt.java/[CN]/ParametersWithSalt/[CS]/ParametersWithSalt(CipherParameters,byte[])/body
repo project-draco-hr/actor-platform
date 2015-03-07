@@ -1,0 +1,3 @@
+{
+  this(parameters,salt,0,salt.length);
+}

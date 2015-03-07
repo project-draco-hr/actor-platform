@@ -1,0 +1,23 @@
+{
+  Enumeration e=seq.getObjects();
+  octStr=(ASN1OctetString)e.nextElement();
+  iterationCount=(ASN1Integer)e.nextElement();
+  if (e.hasMoreElements()) {
+    Object o=e.nextElement();
+    if (o instanceof ASN1Integer) {
+      keyLength=ASN1Integer.getInstance(o);
+      if (e.hasMoreElements()) {
+        o=e.nextElement();
+      }
+ else {
+        o=null;
+      }
+    }
+ else {
+      keyLength=null;
+    }
+    if (o != null) {
+      prf=AlgorithmIdentifier.getInstance(o);
+    }
+  }
+}

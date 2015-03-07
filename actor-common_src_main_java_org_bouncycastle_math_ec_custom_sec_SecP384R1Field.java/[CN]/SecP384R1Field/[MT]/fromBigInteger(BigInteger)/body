@@ -1,0 +1,7 @@
+{
+  int[] z=Nat.fromBigInteger(384,x);
+  if (z[11] == P11 && Nat.gte(12,z,P)) {
+    Nat.subFrom(12,P,z);
+  }
+  return z;
+}

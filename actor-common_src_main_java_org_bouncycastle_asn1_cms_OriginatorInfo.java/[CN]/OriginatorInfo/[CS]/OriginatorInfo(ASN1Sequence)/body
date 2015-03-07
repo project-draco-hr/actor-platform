@@ -1,0 +1,25 @@
+{
+switch (seq.size()) {
+case 0:
+    break;
+case 1:
+  ASN1TaggedObject o=(ASN1TaggedObject)seq.getObjectAt(0);
+switch (o.getTagNo()) {
+case 0:
+  certs=ASN1Set.getInstance(o,false);
+break;
+case 1:
+crls=ASN1Set.getInstance(o,false);
+break;
+default :
+throw new IllegalArgumentException("Bad tag in OriginatorInfo: " + o.getTagNo());
+}
+break;
+case 2:
+certs=ASN1Set.getInstance((ASN1TaggedObject)seq.getObjectAt(0),false);
+crls=ASN1Set.getInstance((ASN1TaggedObject)seq.getObjectAt(1),false);
+break;
+default :
+throw new IllegalArgumentException("OriginatorInfo too big");
+}
+}

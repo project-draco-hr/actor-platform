@@ -1,0 +1,3 @@
+{
+  this(new GeneralName(GeneralName.uniformResourceIdentifier,(roleName == null) ? "" : roleName));
+}

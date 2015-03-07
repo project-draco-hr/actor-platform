@@ -1,0 +1,9 @@
+{
+  if (o instanceof CertRepMessage) {
+    return (CertRepMessage)o;
+  }
+  if (o != null) {
+    return new CertRepMessage(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

@@ -1,0 +1,9 @@
+{
+  int i;
+  for (i=24; i >= 0; i-=8) {
+    if (((0xFF << i) & tag) != 0) {
+      return ((~(0xFF << i)) & tag);
+    }
+  }
+  return 0;
+}

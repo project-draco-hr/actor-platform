@@ -1,0 +1,9 @@
+{
+  if (o instanceof CertOrEncCert) {
+    return (CertOrEncCert)o;
+  }
+  if (o instanceof ASN1TaggedObject) {
+    return new CertOrEncCert((ASN1TaggedObject)o);
+  }
+  return null;
+}

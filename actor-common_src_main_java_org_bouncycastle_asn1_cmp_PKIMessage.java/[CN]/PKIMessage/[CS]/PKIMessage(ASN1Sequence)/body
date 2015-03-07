@@ -1,0 +1,14 @@
+{
+  Enumeration en=seq.getObjects();
+  header=PKIHeader.getInstance(en.nextElement());
+  body=PKIBody.getInstance(en.nextElement());
+  while (en.hasMoreElements()) {
+    ASN1TaggedObject tObj=(ASN1TaggedObject)en.nextElement();
+    if (tObj.getTagNo() == 0) {
+      protection=DERBitString.getInstance(tObj,true);
+    }
+ else {
+      extraCerts=ASN1Sequence.getInstance(tObj,true);
+    }
+  }
+}

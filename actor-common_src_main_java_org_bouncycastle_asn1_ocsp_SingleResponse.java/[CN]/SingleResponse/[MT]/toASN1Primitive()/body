@@ -1,0 +1,13 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(certID);
+  v.add(certStatus);
+  v.add(thisUpdate);
+  if (nextUpdate != null) {
+    v.add(new DERTaggedObject(true,0,nextUpdate));
+  }
+  if (singleExtensions != null) {
+    v.add(new DERTaggedObject(true,1,singleExtensions));
+  }
+  return new DERSequence(v);
+}

@@ -1,0 +1,8 @@
+{
+  this.certReqId=new ASN1Integer[1];
+  this.checkAfter=new ASN1Integer[1];
+  this.reason=new PKIFreeText[1];
+  this.certReqId[0]=certReqId;
+  this.checkAfter[0]=checkAfter;
+  this.reason[0]=reason;
+}

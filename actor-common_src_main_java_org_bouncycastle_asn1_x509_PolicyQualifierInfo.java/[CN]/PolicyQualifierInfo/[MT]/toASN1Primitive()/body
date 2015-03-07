@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector dev=new ASN1EncodableVector();
+  dev.add(policyQualifierId);
+  dev.add(qualifier);
+  return new DERSequence(dev);
+}

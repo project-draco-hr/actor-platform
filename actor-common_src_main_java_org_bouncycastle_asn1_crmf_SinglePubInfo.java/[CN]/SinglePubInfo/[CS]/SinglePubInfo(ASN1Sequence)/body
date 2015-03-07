@@ -1,0 +1,6 @@
+{
+  pubMethod=ASN1Integer.getInstance(seq.getObjectAt(0));
+  if (seq.size() == 2) {
+    pubLocation=GeneralName.getInstance(seq.getObjectAt(1));
+  }
+}

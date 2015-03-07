@@ -1,0 +1,12 @@
+{
+  SecP224R1Field.multiply(e1,e0,t);
+  SecP224R1Field.multiply(t,nc,t);
+  SecP224R1Field.multiply(d1,d0,f1);
+  SecP224R1Field.add(f1,t,f1);
+  SecP224R1Field.multiply(d1,e0,t);
+  Nat224.copy(f1,d1);
+  SecP224R1Field.multiply(e1,d0,e1);
+  SecP224R1Field.add(e1,t,e1);
+  SecP224R1Field.square(e1,f1);
+  SecP224R1Field.multiply(f1,nc,f1);
+}

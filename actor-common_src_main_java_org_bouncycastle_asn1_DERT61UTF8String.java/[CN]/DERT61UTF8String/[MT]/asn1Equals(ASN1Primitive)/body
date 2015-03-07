@@ -1,0 +1,6 @@
+{
+  if (!(o instanceof DERT61UTF8String)) {
+    return false;
+  }
+  return Arrays.areEqual(string,((DERT61UTF8String)o).string);
+}

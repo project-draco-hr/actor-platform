@@ -1,0 +1,9 @@
+{
+  this.beta=beta;
+  this.lambda=lambda;
+  this.v1=v1;
+  this.v2=v2;
+  this.g1=g1;
+  this.g2=g2;
+  this.bits=bits;
+}

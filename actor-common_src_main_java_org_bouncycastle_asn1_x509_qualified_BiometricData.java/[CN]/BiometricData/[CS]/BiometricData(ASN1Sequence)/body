@@ -1,0 +1,9 @@
+{
+  Enumeration e=seq.getObjects();
+  typeOfBiometricData=TypeOfBiometricData.getInstance(e.nextElement());
+  hashAlgorithm=AlgorithmIdentifier.getInstance(e.nextElement());
+  biometricDataHash=ASN1OctetString.getInstance(e.nextElement());
+  if (e.hasMoreElements()) {
+    sourceDataUri=DERIA5String.getInstance(e.nextElement());
+  }
+}

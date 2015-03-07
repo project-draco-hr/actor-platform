@@ -1,7 +1,7 @@
 {
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
-      request(new RequestSignIn(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),code + "",RandomUtils.seed(1024),deviceHash,"ActorLib",APP_ID,APP_KEY),new RpcCallback<ResponseAuth>(){
+      request(new RequestSignIn(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),code + "",publicKey,deviceHash,apiConfiguration.getAppTitle(),apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseAuth>(){
         @Override public void onResult(        ResponseAuth response){
           preferences().putBool(KEY_AUTH,true);
           state=AuthState.LOGGED_IN;

@@ -1,0 +1,4 @@
+{
+  int rLen=reduceInPlace(buf,off,len,m,ks);
+  return new LongArray(buf,off,rLen);
+}

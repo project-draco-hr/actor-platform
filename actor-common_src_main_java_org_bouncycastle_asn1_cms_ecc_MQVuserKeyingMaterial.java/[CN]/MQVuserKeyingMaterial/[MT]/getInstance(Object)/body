@@ -1,0 +1,9 @@
+{
+  if (obj == null || obj instanceof MQVuserKeyingMaterial) {
+    return (MQVuserKeyingMaterial)obj;
+  }
+  if (obj instanceof ASN1Sequence) {
+    return new MQVuserKeyingMaterial((ASN1Sequence)obj);
+  }
+  throw new IllegalArgumentException("Invalid MQVuserKeyingMaterial: " + obj.getClass().getName());
+}

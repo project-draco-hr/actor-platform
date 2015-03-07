@@ -1,0 +1,5 @@
+{
+  Enumeration e=seq.getObjects();
+  p=(ASN1Integer)e.nextElement();
+  g=(ASN1Integer)e.nextElement();
+}

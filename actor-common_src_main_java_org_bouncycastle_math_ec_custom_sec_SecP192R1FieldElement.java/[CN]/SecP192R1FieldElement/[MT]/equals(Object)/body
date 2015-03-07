@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof SecP192R1FieldElement)) {
+    return false;
+  }
+  SecP192R1FieldElement o=(SecP192R1FieldElement)other;
+  return Nat192.eq(x,o.x);
+}

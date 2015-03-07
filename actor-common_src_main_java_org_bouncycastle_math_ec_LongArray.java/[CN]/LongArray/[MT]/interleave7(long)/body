@@ -1,0 +1,4 @@
+{
+  long z=x & (1L << 63);
+  return z | INTERLEAVE7_TABLE[(int)x & 0x1FF] | INTERLEAVE7_TABLE[(int)(x >>> 9) & 0x1FF] << 1 | INTERLEAVE7_TABLE[(int)(x >>> 18) & 0x1FF] << 2 | INTERLEAVE7_TABLE[(int)(x >>> 27) & 0x1FF] << 3 | INTERLEAVE7_TABLE[(int)(x >>> 36) & 0x1FF] << 4 | INTERLEAVE7_TABLE[(int)(x >>> 45) & 0x1FF] << 5 | INTERLEAVE7_TABLE[(int)(x >>> 54) & 0x1FF] << 6;
+}

@@ -1,0 +1,26 @@
+{
+  ECCurve c=p.getCurve();
+  WNafPreCompInfo wnafPreCompP=precompute(p,width,includeNegated);
+  ECPoint q=pointMap.map(p);
+  WNafPreCompInfo wnafPreCompQ=getWNafPreCompInfo(c.getPreCompInfo(q,PRECOMP_NAME));
+  ECPoint twiceP=wnafPreCompP.getTwice();
+  if (twiceP != null) {
+    ECPoint twiceQ=pointMap.map(twiceP);
+    wnafPreCompQ.setTwice(twiceQ);
+  }
+  ECPoint[] preCompP=wnafPreCompP.getPreComp();
+  ECPoint[] preCompQ=new ECPoint[preCompP.length];
+  for (int i=0; i < preCompP.length; ++i) {
+    preCompQ[i]=pointMap.map(preCompP[i]);
+  }
+  wnafPreCompQ.setPreComp(preCompQ);
+  if (includeNegated) {
+    ECPoint[] preCompNegQ=new ECPoint[preCompQ.length];
+    for (int i=0; i < preCompNegQ.length; ++i) {
+      preCompNegQ[i]=preCompQ[i].negate();
+    }
+    wnafPreCompQ.setPreCompNeg(preCompNegQ);
+  }
+  c.setPreCompInfo(q,PRECOMP_NAME,wnafPreCompQ);
+  return q;
+}

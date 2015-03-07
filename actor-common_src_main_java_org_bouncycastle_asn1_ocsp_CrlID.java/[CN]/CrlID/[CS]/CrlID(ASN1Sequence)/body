@@ -1,0 +1,19 @@
+{
+  Enumeration e=seq.getObjects();
+  while (e.hasMoreElements()) {
+    ASN1TaggedObject o=(ASN1TaggedObject)e.nextElement();
+switch (o.getTagNo()) {
+case 0:
+      crlUrl=DERIA5String.getInstance(o,true);
+    break;
+case 1:
+  crlNum=ASN1Integer.getInstance(o,true);
+break;
+case 2:
+crlTime=ASN1GeneralizedTime.getInstance(o,true);
+break;
+default :
+throw new IllegalArgumentException("unknown tag number: " + o.getTagNo());
+}
+}
+}

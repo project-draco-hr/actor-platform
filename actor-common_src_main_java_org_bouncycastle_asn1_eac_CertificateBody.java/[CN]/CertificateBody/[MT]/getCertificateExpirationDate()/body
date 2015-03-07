@@ -1,0 +1,6 @@
+{
+  if ((this.certificateType & CertificateBody.CExD) == CertificateBody.CExD) {
+    return new PackedDate(certificateExpirationDate.getContents());
+  }
+  throw new IOException("certificate Expiration Date not set");
+}

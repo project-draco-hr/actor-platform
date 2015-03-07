@@ -1,0 +1,9 @@
+{
+  if (o instanceof CertResponse) {
+    return (CertResponse)o;
+  }
+  if (o != null) {
+    return new CertResponse(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

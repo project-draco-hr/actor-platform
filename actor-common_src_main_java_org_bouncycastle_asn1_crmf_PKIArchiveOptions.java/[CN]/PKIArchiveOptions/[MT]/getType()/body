@@ -1,0 +1,9 @@
+{
+  if (value instanceof EncryptedKey) {
+    return encryptedPrivKey;
+  }
+  if (value instanceof ASN1OctetString) {
+    return keyGenParameters;
+  }
+  return archiveRemGenPrivKey;
+}

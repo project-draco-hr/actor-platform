@@ -1,0 +1,4 @@
+{
+  this.publicKey=PublicKeyDataObject.getInstance(publicKey);
+  this.certificateType|=PK;
+}

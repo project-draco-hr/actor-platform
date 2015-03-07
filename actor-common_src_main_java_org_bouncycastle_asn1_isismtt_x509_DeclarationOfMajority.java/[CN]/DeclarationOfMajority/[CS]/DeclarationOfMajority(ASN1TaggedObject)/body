@@ -1,0 +1,6 @@
+{
+  if (o.getTagNo() > 2) {
+    throw new IllegalArgumentException("Bad tag number: " + o.getTagNo());
+  }
+  declaration=o;
+}

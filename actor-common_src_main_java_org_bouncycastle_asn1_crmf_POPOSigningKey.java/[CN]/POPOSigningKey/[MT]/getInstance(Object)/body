@@ -1,0 +1,9 @@
+{
+  if (o instanceof POPOSigningKey) {
+    return (POPOSigningKey)o;
+  }
+  if (o != null) {
+    return new POPOSigningKey(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

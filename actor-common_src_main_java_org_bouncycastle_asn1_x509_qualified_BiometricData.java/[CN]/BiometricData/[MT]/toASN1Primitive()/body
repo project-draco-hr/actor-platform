@@ -1,0 +1,10 @@
+{
+  ASN1EncodableVector seq=new ASN1EncodableVector();
+  seq.add(typeOfBiometricData);
+  seq.add(hashAlgorithm);
+  seq.add(biometricDataHash);
+  if (sourceDataUri != null) {
+    seq.add(sourceDataUri);
+  }
+  return new DERSequence(seq);
+}

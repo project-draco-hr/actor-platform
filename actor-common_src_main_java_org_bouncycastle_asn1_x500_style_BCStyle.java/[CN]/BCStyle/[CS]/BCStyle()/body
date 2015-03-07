@@ -1,0 +1,4 @@
+{
+  defaultSymbols=copyHashTable(DefaultSymbols);
+  defaultLookUp=copyHashTable(DefaultLookUp);
+}

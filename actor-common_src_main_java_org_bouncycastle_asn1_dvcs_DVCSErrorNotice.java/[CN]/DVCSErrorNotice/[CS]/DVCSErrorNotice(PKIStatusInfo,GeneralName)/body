@@ -1,0 +1,4 @@
+{
+  this.transactionStatus=status;
+  this.transactionIdentifier=transactionIdentifier;
+}

@@ -1,0 +1,7 @@
+{
+  if (notBefore == null && notAfter == null) {
+    throw new IllegalArgumentException("at least one of notBefore/notAfter must not be null.");
+  }
+  this.notBefore=notBefore;
+  this.notAfter=notAfter;
+}

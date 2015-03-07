@@ -1,0 +1,9 @@
+{
+  if (obj instanceof ResponseData) {
+    return (ResponseData)obj;
+  }
+ else   if (obj != null) {
+    return new ResponseData(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

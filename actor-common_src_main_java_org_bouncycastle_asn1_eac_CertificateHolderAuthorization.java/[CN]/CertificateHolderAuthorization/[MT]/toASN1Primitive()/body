@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(oid);
+  v.add(accessRights);
+  return new DERApplicationSpecific(EACTags.CERTIFICATE_HOLDER_AUTHORIZATION_TEMPLATE,v);
+}

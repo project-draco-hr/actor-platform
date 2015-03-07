@@ -1,0 +1,10 @@
+{
+  String p=null;
+  for (int i=0; i < policyInformation.length; i++) {
+    if (p != null) {
+      p+=", ";
+    }
+    p+=policyInformation[i];
+  }
+  return "CertificatePolicies: " + p;
+}

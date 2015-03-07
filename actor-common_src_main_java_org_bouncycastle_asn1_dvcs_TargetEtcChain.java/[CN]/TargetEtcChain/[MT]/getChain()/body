@@ -1,0 +1,6 @@
+{
+  if (chain != null) {
+    return CertEtcToken.arrayFromSequence(chain);
+  }
+  return null;
+}

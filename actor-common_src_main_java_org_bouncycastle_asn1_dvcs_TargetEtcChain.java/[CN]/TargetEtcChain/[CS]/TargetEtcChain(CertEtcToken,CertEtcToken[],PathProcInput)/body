@@ -1,0 +1,7 @@
+{
+  this.target=target;
+  if (chain != null) {
+    this.chain=new DERSequence(chain);
+  }
+  this.pathProcInput=pathProcInput;
+}

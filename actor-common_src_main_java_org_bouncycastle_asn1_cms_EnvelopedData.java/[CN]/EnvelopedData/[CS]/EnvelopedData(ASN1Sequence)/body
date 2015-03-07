@@ -1,0 +1,14 @@
+{
+  int index=0;
+  version=(ASN1Integer)seq.getObjectAt(index++);
+  Object tmp=seq.getObjectAt(index++);
+  if (tmp instanceof ASN1TaggedObject) {
+    originatorInfo=OriginatorInfo.getInstance((ASN1TaggedObject)tmp,false);
+    tmp=seq.getObjectAt(index++);
+  }
+  recipientInfos=ASN1Set.getInstance(tmp);
+  encryptedContentInfo=EncryptedContentInfo.getInstance(seq.getObjectAt(index++));
+  if (seq.size() > index) {
+    unprotectedAttrs=ASN1Set.getInstance((ASN1TaggedObject)seq.getObjectAt(index),false);
+  }
+}

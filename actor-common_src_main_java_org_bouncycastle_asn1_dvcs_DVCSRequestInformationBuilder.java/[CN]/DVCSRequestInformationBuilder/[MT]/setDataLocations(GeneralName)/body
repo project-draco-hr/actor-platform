@@ -1,0 +1,3 @@
+{
+  this.setDataLocations(new GeneralNames(dataLocation));
+}

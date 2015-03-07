@@ -1,0 +1,4 @@
+{
+  header=PKIHeader.getInstance(seq.getObjectAt(0));
+  body=PKIBody.getInstance(seq.getObjectAt(1));
+}

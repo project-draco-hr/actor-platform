@@ -1,0 +1,5 @@
+{
+  writer.writeInt(1,messageType);
+  writer.writeBytes(2,body);
+  writer.writeLong(3,crc32);
+}

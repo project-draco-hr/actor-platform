@@ -1,0 +1,5 @@
+{
+  this.poposkInput=poposkIn;
+  this.algorithmIdentifier=aid;
+  this.signature=signature;
+}

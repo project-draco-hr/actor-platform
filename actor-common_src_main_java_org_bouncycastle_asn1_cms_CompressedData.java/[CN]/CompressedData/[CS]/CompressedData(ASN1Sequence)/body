@@ -1,0 +1,5 @@
+{
+  this.version=(ASN1Integer)seq.getObjectAt(0);
+  this.compressionAlgorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+  this.encapContentInfo=ContentInfo.getInstance(seq.getObjectAt(2));
+}

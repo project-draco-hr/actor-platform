@@ -1,0 +1,9 @@
+{
+  if (obj instanceof LDSSecurityObject) {
+    return (LDSSecurityObject)obj;
+  }
+ else   if (obj != null) {
+    return new LDSSecurityObject(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,14 @@
+{
+  int len=getUsedLength();
+  if (len == 0) {
+    return this;
+  }
+  int mLen=(m + 63) >>> 6;
+  long[] r=new long[mLen << 1];
+  System.arraycopy(m_ints,0,r,0,len);
+  while (--n >= 0) {
+    squareInPlace(r,len,m,ks);
+    len=reduceInPlace(r,0,r.length,m,ks);
+  }
+  return new LongArray(r,0,len);
+}

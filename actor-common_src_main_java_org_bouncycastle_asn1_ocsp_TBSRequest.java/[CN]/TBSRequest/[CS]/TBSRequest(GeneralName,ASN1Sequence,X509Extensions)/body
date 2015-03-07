@@ -1,0 +1,6 @@
+{
+  this.version=V1;
+  this.requestorName=requestorName;
+  this.requestList=requestList;
+  this.requestExtensions=Extensions.getInstance(requestExtensions);
+}

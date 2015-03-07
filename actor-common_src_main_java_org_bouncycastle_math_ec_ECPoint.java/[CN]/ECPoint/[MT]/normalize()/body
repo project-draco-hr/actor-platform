@@ -1,0 +1,20 @@
+{
+  if (this.isInfinity()) {
+    return this;
+  }
+switch (this.getCurveCoordinateSystem()) {
+case ECCurve.COORD_AFFINE:
+case ECCurve.COORD_LAMBDA_AFFINE:
+{
+      return this;
+    }
+default :
+{
+    ECFieldElement Z1=getZCoord(0);
+    if (Z1.isOne()) {
+      return this;
+    }
+    return normalize(Z1.invert());
+  }
+}
+}

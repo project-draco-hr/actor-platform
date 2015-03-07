@@ -1,0 +1,18 @@
+{
+  int[] c=this.x;
+  if (Nat224.isZero(c) || Nat224.isOne(c)) {
+    return this;
+  }
+  int[] nc=Nat224.create();
+  SecP224R1Field.negate(c,nc);
+  int[] r=Mod.random(SecP224R1Field.P);
+  int[] t=Nat224.create();
+  if (!isSquare(c)) {
+    return null;
+  }
+  while (!trySqrt(nc,r,t)) {
+    SecP224R1Field.addOne(r,r);
+  }
+  SecP224R1Field.square(t,r);
+  return Nat224.eq(c,r) ? new SecP224R1FieldElement(t) : null;
+}

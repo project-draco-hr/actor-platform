@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(certHash);
+  if (issuerSerial != null) {
+    v.add(issuerSerial);
+  }
+  return new DERSequence(v);
+}

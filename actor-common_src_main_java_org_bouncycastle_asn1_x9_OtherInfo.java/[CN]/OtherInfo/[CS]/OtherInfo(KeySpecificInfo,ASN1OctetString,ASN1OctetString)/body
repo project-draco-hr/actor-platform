@@ -1,0 +1,5 @@
+{
+  this.keyInfo=keyInfo;
+  this.partyAInfo=partyAInfo;
+  this.suppPubInfo=suppPubInfo;
+}

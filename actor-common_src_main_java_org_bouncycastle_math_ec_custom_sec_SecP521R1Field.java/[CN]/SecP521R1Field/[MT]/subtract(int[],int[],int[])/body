@@ -1,0 +1,8 @@
+{
+  int c=Nat.sub(16,x,y,z) + x[16] - y[16];
+  if (c < 0) {
+    c+=Nat.dec(16,z);
+    c&=P16;
+  }
+  z[16]=c;
+}

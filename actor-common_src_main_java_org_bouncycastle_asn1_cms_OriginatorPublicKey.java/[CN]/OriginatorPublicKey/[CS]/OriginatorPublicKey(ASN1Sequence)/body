@@ -1,0 +1,4 @@
+{
+  algorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
+  publicKey=(DERBitString)seq.getObjectAt(1);
+}

@@ -1,0 +1,7 @@
+{
+  certReqId=new ASN1Integer(ASN1Integer.getInstance(seq.getObjectAt(0)).getValue());
+  certTemplate=CertTemplate.getInstance(seq.getObjectAt(1));
+  if (seq.size() > 2) {
+    controls=Controls.getInstance(seq.getObjectAt(2));
+  }
+}

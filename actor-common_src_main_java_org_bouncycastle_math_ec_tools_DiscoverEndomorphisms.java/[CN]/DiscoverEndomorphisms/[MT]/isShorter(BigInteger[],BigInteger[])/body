@@ -1,0 +1,10 @@
+{
+  BigInteger u1=u[0].abs(), u2=u[1].abs(), v1=v[0].abs(), v2=v[1].abs();
+  boolean c1=u1.compareTo(v1) < 0, c2=u2.compareTo(v2) < 0;
+  if (c1 == c2) {
+    return c1;
+  }
+  BigInteger du=u1.multiply(u1).add(u2.multiply(u2));
+  BigInteger dv=v1.multiply(v1).add(v2.multiply(v2));
+  return du.compareTo(dv) < 0;
+}

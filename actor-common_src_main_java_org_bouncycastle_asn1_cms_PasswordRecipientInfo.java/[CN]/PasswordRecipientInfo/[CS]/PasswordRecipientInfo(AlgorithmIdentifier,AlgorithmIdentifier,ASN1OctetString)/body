@@ -1,0 +1,6 @@
+{
+  this.version=new ASN1Integer(0);
+  this.keyDerivationAlgorithm=keyDerivationAlgorithm;
+  this.keyEncryptionAlgorithm=keyEncryptionAlgorithm;
+  this.encryptedKey=encryptedKey;
+}

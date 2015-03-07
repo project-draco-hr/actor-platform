@@ -1,0 +1,6 @@
+{
+  if (null == this.otherHash) {
+    return this.sha1Hash.getOctets();
+  }
+  return this.otherHash.getHashValue().getOctets();
+}

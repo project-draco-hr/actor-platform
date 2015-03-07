@@ -1,0 +1,5 @@
+{
+  this.crlids=crlids;
+  this.ocspids=ocspids;
+  this.otherRev=otherRev;
+}

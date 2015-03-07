@@ -1,0 +1,7 @@
+{
+  if (!(obj instanceof DSAParameters)) {
+    return false;
+  }
+  CramerShoupParameters pm=(CramerShoupParameters)obj;
+  return (pm.getP().equals(p) && pm.getG1().equals(g1) && pm.getG2().equals(g2));
+}

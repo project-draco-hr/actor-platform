@@ -1,0 +1,9 @@
+{
+  int w=0;
+  for (; w < windowSizeCutoffs.length; ++w) {
+    if (bits < windowSizeCutoffs[w]) {
+      break;
+    }
+  }
+  return w + 2;
+}

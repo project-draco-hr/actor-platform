@@ -1,0 +1,6 @@
+{
+  if (tstEvidence != null) {
+    return new DERTaggedObject(false,0,tstEvidence);
+  }
+  return null;
+}

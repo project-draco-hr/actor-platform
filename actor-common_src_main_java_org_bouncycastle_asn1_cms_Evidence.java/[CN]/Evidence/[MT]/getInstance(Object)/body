@@ -1,0 +1,9 @@
+{
+  if (obj == null || obj instanceof Evidence) {
+    return (Evidence)obj;
+  }
+ else   if (obj instanceof ASN1TaggedObject) {
+    return new Evidence(ASN1TaggedObject.getInstance(obj));
+  }
+  throw new IllegalArgumentException("unknown object in getInstance");
+}

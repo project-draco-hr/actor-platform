@@ -1,0 +1,9 @@
+{
+  if (obj == null || obj instanceof CertStatus) {
+    return (CertStatus)obj;
+  }
+ else   if (obj instanceof ASN1TaggedObject) {
+    return new CertStatus((ASN1TaggedObject)obj);
+  }
+  throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());
+}

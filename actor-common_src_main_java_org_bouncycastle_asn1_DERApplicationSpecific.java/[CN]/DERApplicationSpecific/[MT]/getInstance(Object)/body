@@ -1,0 +1,14 @@
+{
+  if (obj == null || obj instanceof DERApplicationSpecific) {
+    return (DERApplicationSpecific)obj;
+  }
+ else   if (obj instanceof byte[]) {
+    try {
+      return DERApplicationSpecific.getInstance(ASN1Primitive.fromByteArray((byte[])obj));
+    }
+ catch (    IOException e) {
+      throw new IllegalArgumentException("failed to construct object from byte[]: " + e.getMessage());
+    }
+  }
+  throw new IllegalArgumentException("unknown object in getInstance: " + obj.getClass().getName());
+}

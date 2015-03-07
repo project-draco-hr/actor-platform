@@ -1,0 +1,9 @@
+{
+  if (obj instanceof EnvelopedData) {
+    return (EnvelopedData)obj;
+  }
+  if (obj != null) {
+    return new EnvelopedData(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,6 @@
+{
+  this.typeOfBiometricData=typeOfBiometricData;
+  this.hashAlgorithm=hashAlgorithm;
+  this.biometricDataHash=biometricDataHash;
+  this.sourceDataUri=null;
+}

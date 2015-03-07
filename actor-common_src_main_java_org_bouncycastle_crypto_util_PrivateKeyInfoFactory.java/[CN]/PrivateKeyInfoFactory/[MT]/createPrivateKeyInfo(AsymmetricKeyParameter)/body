@@ -1,0 +1,30 @@
+{
+  if (privateKey instanceof RSAKeyParameters) {
+    RSAPrivateCrtKeyParameters priv=(RSAPrivateCrtKeyParameters)privateKey;
+    return new PrivateKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption,DERNull.INSTANCE),new RSAPrivateKey(priv.getModulus(),priv.getPublicExponent(),priv.getExponent(),priv.getP(),priv.getQ(),priv.getDP(),priv.getDQ(),priv.getQInv()));
+  }
+ else   if (privateKey instanceof DSAPrivateKeyParameters) {
+    DSAPrivateKeyParameters priv=(DSAPrivateKeyParameters)privateKey;
+    DSAParameters params=priv.getParameters();
+    return new PrivateKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa,new DSAParameter(params.getP(),params.getQ(),params.getG())),new ASN1Integer(priv.getX()));
+  }
+ else   if (privateKey instanceof ECPrivateKeyParameters) {
+    ECPrivateKeyParameters priv=(ECPrivateKeyParameters)privateKey;
+    ECDomainParameters domainParams=priv.getParameters();
+    ASN1Encodable params;
+    if (domainParams == null) {
+      params=new X962Parameters(DERNull.INSTANCE);
+    }
+ else     if (domainParams instanceof ECNamedDomainParameters) {
+      params=new X962Parameters(((ECNamedDomainParameters)domainParams).getName());
+    }
+ else {
+      X9ECParameters ecP=new X9ECParameters(domainParams.getCurve(),domainParams.getG(),domainParams.getN(),domainParams.getH(),domainParams.getSeed());
+      params=new X962Parameters(ecP);
+    }
+    return new PrivateKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey,params),new ECPrivateKey(priv.getD(),params));
+  }
+ else {
+    throw new IOException("key parameters not recognised.");
+  }
+}

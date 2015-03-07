@@ -1,0 +1,6 @@
+{
+  this.revocationTime=ASN1GeneralizedTime.getInstance(seq.getObjectAt(0));
+  if (seq.size() > 1) {
+    this.revocationReason=CRLReason.getInstance(ASN1Enumerated.getInstance((ASN1TaggedObject)seq.getObjectAt(1),true));
+  }
+}

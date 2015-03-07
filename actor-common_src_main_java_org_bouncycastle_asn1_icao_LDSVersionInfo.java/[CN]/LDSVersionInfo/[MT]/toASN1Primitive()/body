@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(ldsVersion);
+  v.add(unicodeVersion);
+  return new DERSequence(v);
+}

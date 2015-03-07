@@ -1,0 +1,12 @@
+{
+  long c=0, xVal=x[xOff + xPos] & M;
+  int i=0;
+  do {
+    c+=xVal * (x[xOff + i] & M) + (z[xPos + zOff] & M);
+    z[xPos + zOff]=(int)c;
+    c>>>=32;
+    ++zOff;
+  }
+ while (++i < xPos);
+  return (int)c;
+}

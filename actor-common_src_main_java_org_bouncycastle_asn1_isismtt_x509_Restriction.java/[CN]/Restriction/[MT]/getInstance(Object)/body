@@ -1,0 +1,9 @@
+{
+  if (obj instanceof Restriction) {
+    return (Restriction)obj;
+  }
+  if (obj != null) {
+    return new Restriction(DirectoryString.getInstance(obj));
+  }
+  return null;
+}

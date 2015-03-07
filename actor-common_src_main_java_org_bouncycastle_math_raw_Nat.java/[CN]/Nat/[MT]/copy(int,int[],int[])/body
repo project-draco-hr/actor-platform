@@ -1,0 +1,3 @@
+{
+  System.arraycopy(x,0,z,0,len);
+}

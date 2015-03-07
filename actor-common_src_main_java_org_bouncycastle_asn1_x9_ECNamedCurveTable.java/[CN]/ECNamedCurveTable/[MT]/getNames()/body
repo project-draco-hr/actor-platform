@@ -1,0 +1,8 @@
+{
+  Vector v=new Vector();
+  addEnumeration(v,X962NamedCurves.getNames());
+  addEnumeration(v,SECNamedCurves.getNames());
+  addEnumeration(v,NISTNamedCurves.getNames());
+  addEnumeration(v,TeleTrusTNamedCurves.getNames());
+  return v.elements();
+}

@@ -1,0 +1,4 @@
+{
+  this.additionCoord=additionCoord;
+  this.doublingCoord=doublingCoord;
+}

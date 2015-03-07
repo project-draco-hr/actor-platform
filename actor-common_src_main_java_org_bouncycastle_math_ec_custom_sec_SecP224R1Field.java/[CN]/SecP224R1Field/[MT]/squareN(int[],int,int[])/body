@@ -1,0 +1,9 @@
+{
+  int[] tt=Nat224.createExt();
+  Nat224.square(x,tt);
+  reduce(tt,z);
+  while (--n > 0) {
+    Nat224.square(z,tt);
+    reduce(tt,z);
+  }
+}

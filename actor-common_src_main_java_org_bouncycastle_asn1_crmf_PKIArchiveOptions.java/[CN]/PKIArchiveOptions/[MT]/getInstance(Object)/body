@@ -1,0 +1,9 @@
+{
+  if (o == null || o instanceof PKIArchiveOptions) {
+    return (PKIArchiveOptions)o;
+  }
+ else   if (o instanceof ASN1TaggedObject) {
+    return new PKIArchiveOptions((ASN1TaggedObject)o);
+  }
+  throw new IllegalArgumentException("unknown object: " + o);
+}

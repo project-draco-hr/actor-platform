@@ -1,0 +1,26 @@
+{
+  long cc=0;
+  if (x != 0) {
+    long xx12=x & M;
+    cc+=(z[0] & M) + xx12;
+    z[0]=(int)cc;
+    cc>>=32;
+    cc+=(z[1] & M) - xx12;
+    z[1]=(int)cc;
+    cc>>=32;
+    if (cc != 0) {
+      cc+=(z[2] & M);
+      z[2]=(int)cc;
+      cc>>=32;
+    }
+    cc+=(z[3] & M) + xx12;
+    z[3]=(int)cc;
+    cc>>=32;
+    cc+=(z[4] & M) + xx12;
+    z[4]=(int)cc;
+    cc>>=32;
+  }
+  if ((cc != 0 && Nat.incAt(12,z,5) != 0) || (z[11] == P11 && Nat.gte(12,z,P))) {
+    addPInvTo(z);
+  }
+}

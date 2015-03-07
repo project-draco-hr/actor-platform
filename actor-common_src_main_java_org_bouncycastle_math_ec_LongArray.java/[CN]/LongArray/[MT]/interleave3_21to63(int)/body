@@ -1,0 +1,6 @@
+{
+  int r00=INTERLEAVE3_TABLE[x & 0x7F];
+  int r21=INTERLEAVE3_TABLE[(x >>> 7) & 0x7F];
+  int r42=INTERLEAVE3_TABLE[x >>> 14];
+  return (r42 & 0xFFFFFFFFL) << 42 | (r21 & 0xFFFFFFFFL) << 21 | (r00 & 0xFFFFFFFFL);
+}

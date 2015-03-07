@@ -1,0 +1,17 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(version);
+  if (originatorInfo != null) {
+    v.add(new DERTaggedObject(false,0,originatorInfo));
+  }
+  v.add(recipientInfos);
+  v.add(authEncryptedContentInfo);
+  if (authAttrs != null) {
+    v.add(new DERTaggedObject(false,1,authAttrs));
+  }
+  v.add(mac);
+  if (unauthAttrs != null) {
+    v.add(new DERTaggedObject(false,2,unauthAttrs));
+  }
+  return new BERSequence(v);
+}

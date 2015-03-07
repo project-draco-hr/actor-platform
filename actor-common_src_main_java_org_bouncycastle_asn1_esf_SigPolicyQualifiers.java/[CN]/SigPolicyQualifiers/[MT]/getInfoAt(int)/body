@@ -1,0 +1,3 @@
+{
+  return SigPolicyQualifierInfo.getInstance(qualifiers.getObjectAt(i));
+}

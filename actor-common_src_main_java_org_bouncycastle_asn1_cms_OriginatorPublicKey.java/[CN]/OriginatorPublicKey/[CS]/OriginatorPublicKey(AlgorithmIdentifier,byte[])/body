@@ -1,0 +1,4 @@
+{
+  this.algorithm=algorithm;
+  this.publicKey=new DERBitString(publicKey);
+}

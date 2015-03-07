@@ -1,0 +1,15 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(version);
+  if (dataUri != null) {
+    v.add(dataUri);
+  }
+  if (metaData != null) {
+    v.add(metaData);
+  }
+  if (content != null) {
+    v.add(content);
+  }
+  v.add(temporalEvidence);
+  return new BERSequence(v);
+}

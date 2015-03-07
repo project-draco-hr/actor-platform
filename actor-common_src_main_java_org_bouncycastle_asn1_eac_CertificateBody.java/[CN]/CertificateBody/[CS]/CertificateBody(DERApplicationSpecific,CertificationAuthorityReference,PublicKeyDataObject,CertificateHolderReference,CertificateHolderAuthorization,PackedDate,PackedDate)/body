@@ -1,0 +1,14 @@
+{
+  setCertificateProfileIdentifier(certificateProfileIdentifier);
+  setCertificationAuthorityReference(new DERApplicationSpecific(EACTags.ISSUER_IDENTIFICATION_NUMBER,certificationAuthorityReference.getEncoded()));
+  setPublicKey(publicKey);
+  setCertificateHolderReference(new DERApplicationSpecific(EACTags.CARDHOLDER_NAME,certificateHolderReference.getEncoded()));
+  setCertificateHolderAuthorization(certificateHolderAuthorization);
+  try {
+    setCertificateEffectiveDate(new DERApplicationSpecific(false,EACTags.APPLICATION_EFFECTIVE_DATE,new DEROctetString(certificateEffectiveDate.getEncoding())));
+    setCertificateExpirationDate(new DERApplicationSpecific(false,EACTags.APPLICATION_EXPIRATION_DATE,new DEROctetString(certificateExpirationDate.getEncoding())));
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("unable to encode dates: " + e.getMessage());
+  }
+}

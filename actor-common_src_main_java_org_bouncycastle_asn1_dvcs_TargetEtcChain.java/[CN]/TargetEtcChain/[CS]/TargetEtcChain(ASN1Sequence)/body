@@ -1,0 +1,27 @@
+{
+  int i=0;
+  ASN1Encodable obj=seq.getObjectAt(i++);
+  this.target=CertEtcToken.getInstance(obj);
+  try {
+    obj=seq.getObjectAt(i++);
+    this.chain=ASN1Sequence.getInstance(obj);
+  }
+ catch (  IllegalArgumentException e) {
+  }
+catch (  IndexOutOfBoundsException e) {
+    return;
+  }
+  try {
+    obj=seq.getObjectAt(i++);
+    ASN1TaggedObject tagged=ASN1TaggedObject.getInstance(obj);
+switch (tagged.getTagNo()) {
+case 0:
+      this.pathProcInput=PathProcInput.getInstance(tagged,false);
+    break;
+}
+}
+ catch (IllegalArgumentException e) {
+}
+catch (IndexOutOfBoundsException e) {
+}
+}

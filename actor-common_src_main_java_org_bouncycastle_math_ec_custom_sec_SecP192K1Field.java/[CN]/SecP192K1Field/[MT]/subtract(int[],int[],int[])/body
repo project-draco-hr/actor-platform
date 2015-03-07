@@ -1,0 +1,6 @@
+{
+  int c=Nat192.sub(x,y,z);
+  if (c != 0) {
+    Nat.sub33From(6,PInv33,z);
+  }
+}

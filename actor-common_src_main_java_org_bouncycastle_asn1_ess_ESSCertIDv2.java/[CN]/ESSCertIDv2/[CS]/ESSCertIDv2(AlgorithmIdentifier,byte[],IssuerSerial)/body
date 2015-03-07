@@ -1,0 +1,10 @@
+{
+  if (algId == null) {
+    this.hashAlgorithm=DEFAULT_ALG_ID;
+  }
+ else {
+    this.hashAlgorithm=algId;
+  }
+  this.certHash=certHash;
+  this.issuerSerial=issuerSerial;
+}

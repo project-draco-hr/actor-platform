@@ -1,0 +1,5 @@
+{
+  this.keyidentifier=(keyIdentifier != null) ? new DEROctetString(keyIdentifier) : null;
+  this.certissuer=name;
+  this.certserno=(serialNumber != null) ? new ASN1Integer(serialNumber) : null;
+}

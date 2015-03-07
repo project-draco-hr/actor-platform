@@ -1,0 +1,10 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  addOptional(v,0,intendedAlg);
+  addOptional(v,1,symmAlg);
+  addOptional(v,2,encSymmKey);
+  addOptional(v,3,keyAlg);
+  addOptional(v,4,valueHint);
+  v.add(encValue);
+  return new DERSequence(v);
+}

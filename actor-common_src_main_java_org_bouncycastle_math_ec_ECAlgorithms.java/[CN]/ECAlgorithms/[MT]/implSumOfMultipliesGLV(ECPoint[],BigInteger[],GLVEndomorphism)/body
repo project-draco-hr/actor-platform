@@ -1,0 +1,21 @@
+{
+  BigInteger n=ps[0].getCurve().getOrder();
+  int len=ps.length;
+  BigInteger[] abs=new BigInteger[len << 1];
+  for (int i=0, j=0; i < len; ++i) {
+    BigInteger[] ab=glvEndomorphism.decomposeScalar(ks[i].mod(n));
+    abs[j++]=ab[0];
+    abs[j++]=ab[1];
+  }
+  ECPointMap pointMap=glvEndomorphism.getPointMap();
+  if (glvEndomorphism.hasEfficientPointMap()) {
+    return ECAlgorithms.implSumOfMultiplies(ps,pointMap,abs);
+  }
+  ECPoint[] pqs=new ECPoint[len << 1];
+  for (int i=0, j=0; i < len; ++i) {
+    ECPoint p=ps[i], q=pointMap.map(p);
+    pqs[j++]=p;
+    pqs[j++]=q;
+  }
+  return ECAlgorithms.implSumOfMultiplies(pqs,abs);
+}

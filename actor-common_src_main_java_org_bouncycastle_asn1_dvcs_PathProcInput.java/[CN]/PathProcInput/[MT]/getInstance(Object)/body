@@ -1,0 +1,32 @@
+{
+  if (obj instanceof PathProcInput) {
+    return (PathProcInput)obj;
+  }
+ else   if (obj != null) {
+    ASN1Sequence seq=ASN1Sequence.getInstance(obj);
+    ASN1Sequence policies=ASN1Sequence.getInstance(seq.getObjectAt(0));
+    PathProcInput result=new PathProcInput(fromSequence(policies));
+    for (int i=1; i < seq.size(); i++) {
+      Object o=seq.getObjectAt(i);
+      if (o instanceof ASN1Boolean) {
+        ASN1Boolean x=ASN1Boolean.getInstance(o);
+        result.setInhibitPolicyMapping(x.isTrue());
+      }
+ else       if (o instanceof ASN1TaggedObject) {
+        ASN1TaggedObject t=ASN1TaggedObject.getInstance(o);
+        ASN1Boolean x;
+switch (t.getTagNo()) {
+case 0:
+          x=ASN1Boolean.getInstance(t,false);
+        result.setExplicitPolicyReqd(x.isTrue());
+      break;
+case 1:
+    x=ASN1Boolean.getInstance(t,false);
+  result.setInhibitAnyPolicy(x.isTrue());
+}
+}
+}
+return result;
+}
+return null;
+}

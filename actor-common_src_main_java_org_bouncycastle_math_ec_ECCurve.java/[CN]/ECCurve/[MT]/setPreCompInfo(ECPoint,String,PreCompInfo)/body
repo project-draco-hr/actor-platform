@@ -1,0 +1,10 @@
+{
+  checkPoint(point);
+synchronized (point) {
+    Hashtable table=point.preCompTable;
+    if (null == table) {
+      point.preCompTable=table=new Hashtable(4);
+    }
+    table.put(name,preCompInfo);
+  }
+}

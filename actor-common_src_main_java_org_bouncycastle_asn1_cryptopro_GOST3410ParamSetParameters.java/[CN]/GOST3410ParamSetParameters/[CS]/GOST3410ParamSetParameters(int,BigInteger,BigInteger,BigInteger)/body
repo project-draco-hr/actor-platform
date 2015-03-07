@@ -1,0 +1,6 @@
+{
+  this.keySize=keySize;
+  this.p=new ASN1Integer(p);
+  this.q=new ASN1Integer(q);
+  this.a=new ASN1Integer(a);
+}

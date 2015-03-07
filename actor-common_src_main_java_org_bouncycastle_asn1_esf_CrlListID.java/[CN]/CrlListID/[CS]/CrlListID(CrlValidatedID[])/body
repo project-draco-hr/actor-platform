@@ -1,0 +1,3 @@
+{
+  this.crls=new DERSequence(crls);
+}

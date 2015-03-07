@@ -1,0 +1,9 @@
+{
+  if (certificateProfileIdentifier.getApplicationTag() == EACTags.INTERCHANGE_PROFILE) {
+    this.certificateProfileIdentifier=certificateProfileIdentifier;
+    certificateType|=CPI;
+  }
+ else {
+    throw new IllegalArgumentException("Not an Iso7816Tags.INTERCHANGE_PROFILE tag :" + EACTags.encodeTag(certificateProfileIdentifier));
+  }
+}

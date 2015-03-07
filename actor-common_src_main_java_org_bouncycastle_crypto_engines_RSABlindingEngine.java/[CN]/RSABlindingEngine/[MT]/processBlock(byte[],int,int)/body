@@ -1,0 +1,10 @@
+{
+  BigInteger msg=core.convertInput(in,inOff,inLen);
+  if (forEncryption) {
+    msg=blindMessage(msg);
+  }
+ else {
+    msg=unblindMessage(msg);
+  }
+  return core.convertOutput(msg);
+}

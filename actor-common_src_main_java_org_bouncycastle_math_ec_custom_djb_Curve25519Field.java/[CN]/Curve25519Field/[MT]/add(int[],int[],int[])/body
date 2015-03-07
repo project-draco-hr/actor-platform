@@ -1,0 +1,6 @@
+{
+  Nat256.add(x,y,z);
+  if (Nat256.gte(z,P)) {
+    subPFrom(z);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  BigInteger blindMsg=blindingFactor;
+  blindMsg=msg.multiply(blindMsg.modPow(key.getExponent(),key.getModulus()));
+  blindMsg=blindMsg.mod(key.getModulus());
+  return blindMsg;
+}

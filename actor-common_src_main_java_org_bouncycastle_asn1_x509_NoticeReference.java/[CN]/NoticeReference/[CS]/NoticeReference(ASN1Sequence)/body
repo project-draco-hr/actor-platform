@@ -1,0 +1,7 @@
+{
+  if (as.size() != 2) {
+    throw new IllegalArgumentException("Bad sequence size: " + as.size());
+  }
+  organization=DisplayText.getInstance(as.getObjectAt(0));
+  noticeNumbers=ASN1Sequence.getInstance(as.getObjectAt(1));
+}

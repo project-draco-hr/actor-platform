@@ -1,0 +1,9 @@
+{
+  if (obj instanceof CCMParameters) {
+    return (CCMParameters)obj;
+  }
+ else   if (obj != null) {
+    return new CCMParameters(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,4 @@
+{
+  SimpleDateFormat dateF=new SimpleDateFormat("yyyyMMdd");
+  return dateF.parse("20" + toString());
+}

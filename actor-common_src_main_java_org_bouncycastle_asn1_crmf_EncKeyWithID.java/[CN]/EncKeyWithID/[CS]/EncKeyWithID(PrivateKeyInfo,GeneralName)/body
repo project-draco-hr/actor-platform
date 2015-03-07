@@ -1,0 +1,4 @@
+{
+  this.privKeyInfo=privKeyInfo;
+  this.identifier=generalName;
+}

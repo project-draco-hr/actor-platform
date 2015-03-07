@@ -1,0 +1,9 @@
+{
+  if (null != crlVals) {
+    this.crlVals=new DERSequence(crlVals);
+  }
+  if (null != ocspVals) {
+    this.ocspVals=new DERSequence(ocspVals);
+  }
+  this.otherRevVals=otherRevVals;
+}

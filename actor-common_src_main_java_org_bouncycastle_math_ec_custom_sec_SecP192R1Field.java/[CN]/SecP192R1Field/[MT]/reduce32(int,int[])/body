@@ -1,0 +1,20 @@
+{
+  long cc=0;
+  if (x != 0) {
+    long xx06=x & M;
+    cc+=(z[0] & M) + xx06;
+    z[0]=(int)cc;
+    cc>>=32;
+    if (cc != 0) {
+      cc+=(z[1] & M);
+      z[1]=(int)cc;
+      cc>>=32;
+    }
+    cc+=(z[2] & M) + xx06;
+    z[2]=(int)cc;
+    cc>>=32;
+  }
+  if ((cc != 0 && Nat.incAt(6,z,3) != 0) || (z[5] == P5 && Nat192.gte(z,P))) {
+    addPInvTo(z);
+  }
+}

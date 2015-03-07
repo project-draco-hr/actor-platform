@@ -1,0 +1,26 @@
+{
+  RsaCipher cipher=crypto().createRSAOAEPSHA1Cipher(modules().getAuthModule().getPublicKey(),modules().getAuthModule().getPrivateKey());
+  byte[] aesKey=cipher.decrypt(aesEncryptedKey);
+  if (aesKey == null) {
+    return;
+  }
+  byte[] key=substring(aesKey,aesKey.length - 16 - 32,32);
+  byte[] iv=substring(aesKey,aesKey.length - 16,16);
+  AesCipher aesCipher=crypto().createAESCBCPKS7Cipher(key,iv);
+  try {
+    byte[] decryptedRawMessage=aesCipher.decrypt(message);
+    int len=readInt(decryptedRawMessage,0);
+    byte[] res=substring(decryptedRawMessage,4,len);
+    MessageContainer container=MessageContainer.fromBytes(res);
+    if (container.getMessageType() == 1) {
+      PlainMessage plainMessage=PlainMessage.fromBytes(container.getBody());
+      if (plainMessage.getMessageType() == 1) {
+        EncryptedTextMessage encryptedTextMessage=EncryptedTextMessage.fromBytes(plainMessage.getBody());
+        onMessage(peer,senderUid,date,plainMessage.getRid(),new MessageContent(1,new TextMessage(encryptedTextMessage.getText(),0,null).toByteArray()));
+      }
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

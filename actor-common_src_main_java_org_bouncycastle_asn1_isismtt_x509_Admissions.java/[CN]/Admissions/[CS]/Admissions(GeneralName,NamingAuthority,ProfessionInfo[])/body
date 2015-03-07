@@ -1,0 +1,5 @@
+{
+  this.admissionAuthority=admissionAuthority;
+  this.namingAuthority=namingAuthority;
+  this.professionInfos=new DERSequence(professionInfos);
+}

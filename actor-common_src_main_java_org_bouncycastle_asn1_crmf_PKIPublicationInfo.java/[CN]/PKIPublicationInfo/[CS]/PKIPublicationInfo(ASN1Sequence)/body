@@ -1,0 +1,4 @@
+{
+  action=ASN1Integer.getInstance(seq.getObjectAt(0));
+  pubInfos=ASN1Sequence.getInstance(seq.getObjectAt(1));
+}

@@ -1,0 +1,15 @@
+{
+  if (obj == null || obj instanceof ASN1Boolean) {
+    return (ASN1Boolean)obj;
+  }
+  if (obj instanceof byte[]) {
+    byte[] enc=(byte[])obj;
+    try {
+      return (ASN1Boolean)fromByteArray(enc);
+    }
+ catch (    IOException e) {
+      throw new IllegalArgumentException("failed to construct boolean from byte[]: " + e.getMessage());
+    }
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

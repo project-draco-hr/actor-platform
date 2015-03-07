@@ -1,0 +1,8 @@
+{
+  if (iv != null) {
+    return iv.getOctets();
+  }
+ else {
+    return null;
+  }
+}

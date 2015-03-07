@@ -1,0 +1,10 @@
+{
+  if (null == this.ocspVals) {
+    return new BasicOCSPResponse[0];
+  }
+  BasicOCSPResponse[] result=new BasicOCSPResponse[this.ocspVals.size()];
+  for (int idx=0; idx < result.length; idx++) {
+    result[idx]=BasicOCSPResponse.getInstance(this.ocspVals.getObjectAt(idx));
+  }
+  return result;
+}

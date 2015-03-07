@@ -1,0 +1,9 @@
+{
+  if (o instanceof RevRepContent) {
+    return (RevRepContent)o;
+  }
+  if (o != null) {
+    return new RevRepContent(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

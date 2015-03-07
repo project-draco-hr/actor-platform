@@ -1,0 +1,3 @@
+{
+  return Q.hashCode() ^ Arrays.hashCode(x,0,12);
+}

@@ -1,0 +1,5 @@
+ASN1Integer version
+ResponderID responderID
+ASN1GeneralizedTime producedAt
+ASN1Sequence responses
+Extensions responseExtensions

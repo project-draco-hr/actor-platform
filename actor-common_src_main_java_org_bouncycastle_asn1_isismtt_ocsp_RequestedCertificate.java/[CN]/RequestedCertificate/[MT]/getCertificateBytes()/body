@@ -1,0 +1,14 @@
+{
+  if (cert != null) {
+    try {
+      return cert.getEncoded();
+    }
+ catch (    IOException e) {
+      throw new IllegalStateException("can't decode certificate: " + e);
+    }
+  }
+  if (publicKeyCert != null) {
+    return publicKeyCert;
+  }
+  return attributeCert;
+}

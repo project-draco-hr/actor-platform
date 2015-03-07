@@ -1,0 +1,14 @@
+{
+  ASN1EncodableVector seq=new ASN1EncodableVector();
+  if (this.semanticsIdentifier != null) {
+    seq.add(semanticsIdentifier);
+  }
+  if (this.nameRegistrationAuthorities != null) {
+    ASN1EncodableVector seqname=new ASN1EncodableVector();
+    for (int i=0; i < nameRegistrationAuthorities.length; i++) {
+      seqname.add(nameRegistrationAuthorities[i]);
+    }
+    seq.add(new DERSequence(seqname));
+  }
+  return new DERSequence(seq);
+}

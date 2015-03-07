@@ -1,0 +1,9 @@
+{
+  if (as instanceof CommitmentTypeQualifier) {
+    return (CommitmentTypeQualifier)as;
+  }
+ else   if (as != null) {
+    return new CommitmentTypeQualifier(ASN1Sequence.getInstance(as));
+  }
+  return null;
+}

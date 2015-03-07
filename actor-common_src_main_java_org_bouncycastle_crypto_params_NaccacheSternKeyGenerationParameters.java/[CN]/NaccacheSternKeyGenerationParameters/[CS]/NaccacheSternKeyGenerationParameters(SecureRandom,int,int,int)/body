@@ -1,0 +1,3 @@
+{
+  this(random,strength,certainty,cntSmallPrimes,false);
+}

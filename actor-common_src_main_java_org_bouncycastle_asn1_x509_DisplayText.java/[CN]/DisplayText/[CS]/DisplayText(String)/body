@@ -1,0 +1,7 @@
+{
+  if (text.length() > DISPLAY_TEXT_MAXIMUM_SIZE) {
+    text=text.substring(0,DISPLAY_TEXT_MAXIMUM_SIZE);
+  }
+  contentType=CONTENT_TYPE_UTF8STRING;
+  contents=new DERUTF8String(text);
+}

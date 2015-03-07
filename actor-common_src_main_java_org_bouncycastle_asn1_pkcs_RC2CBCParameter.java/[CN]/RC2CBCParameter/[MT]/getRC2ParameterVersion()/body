@@ -1,0 +1,6 @@
+{
+  if (version == null) {
+    return null;
+  }
+  return version.getValue();
+}

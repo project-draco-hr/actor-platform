@@ -1,0 +1,3 @@
+Iso4217CurrencyCode currency
+int amount
+int exponent

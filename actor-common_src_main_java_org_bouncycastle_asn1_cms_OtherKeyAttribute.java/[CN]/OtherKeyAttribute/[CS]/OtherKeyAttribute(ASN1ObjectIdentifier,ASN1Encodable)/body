@@ -1,0 +1,4 @@
+{
+  this.keyAttrId=keyAttrId;
+  this.keyAttr=keyAttr;
+}

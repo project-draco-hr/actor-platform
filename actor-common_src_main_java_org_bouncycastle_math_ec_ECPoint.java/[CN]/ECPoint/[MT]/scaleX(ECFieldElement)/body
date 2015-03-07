@@ -1,0 +1,3 @@
+{
+  return isInfinity() ? this : getCurve().createRawPoint(getRawXCoord().multiply(scale),getRawYCoord(),getRawZCoords(),this.withCompression);
+}

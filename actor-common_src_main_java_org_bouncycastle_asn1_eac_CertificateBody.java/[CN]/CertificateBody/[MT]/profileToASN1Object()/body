@@ -1,0 +1,11 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(certificateProfileIdentifier);
+  v.add(certificationAuthorityReference);
+  v.add(new DERApplicationSpecific(false,EACTags.CARDHOLDER_PUBLIC_KEY_TEMPLATE,publicKey));
+  v.add(certificateHolderReference);
+  v.add(certificateHolderAuthorization);
+  v.add(certificateEffectiveDate);
+  v.add(certificateExpirationDate);
+  return new DERApplicationSpecific(EACTags.CERTIFICATE_CONTENT_TEMPLATE,v);
+}

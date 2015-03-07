@@ -1,0 +1,11 @@
+{
+  ASN1Primitive obj;
+  while ((obj=aIS.readObject()) != null) {
+    if (obj instanceof DERApplicationSpecific) {
+      setPrivateData((DERApplicationSpecific)obj);
+    }
+ else {
+      throw new IOException("Invalid Input Stream for creating an Iso7816CertificateStructure");
+    }
+  }
+}

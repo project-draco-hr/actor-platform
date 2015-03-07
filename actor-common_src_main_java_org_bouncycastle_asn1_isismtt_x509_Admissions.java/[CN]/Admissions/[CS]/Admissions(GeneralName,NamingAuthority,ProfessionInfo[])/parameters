@@ -1,0 +1,3 @@
+GeneralName admissionAuthority
+NamingAuthority namingAuthority
+ProfessionInfo[] professionInfos

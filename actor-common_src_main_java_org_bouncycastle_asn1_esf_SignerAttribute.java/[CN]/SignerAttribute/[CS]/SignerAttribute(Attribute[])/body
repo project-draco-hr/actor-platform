@@ -1,0 +1,4 @@
+{
+  this.values=new Object[1];
+  this.values[0]=claimedAttributes;
+}

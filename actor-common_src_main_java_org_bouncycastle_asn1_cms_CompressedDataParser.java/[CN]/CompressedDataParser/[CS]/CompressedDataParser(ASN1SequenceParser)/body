@@ -1,0 +1,5 @@
+{
+  this._version=(ASN1Integer)seq.readObject();
+  this._compressionAlgorithm=AlgorithmIdentifier.getInstance(seq.readObject().toASN1Primitive());
+  this._encapContentInfo=new ContentInfoParser((ASN1SequenceParser)seq.readObject());
+}

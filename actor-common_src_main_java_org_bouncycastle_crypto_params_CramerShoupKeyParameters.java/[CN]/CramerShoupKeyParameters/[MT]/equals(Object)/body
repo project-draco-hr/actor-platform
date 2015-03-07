@@ -1,0 +1,12 @@
+{
+  if (!(obj instanceof CramerShoupKeyParameters)) {
+    return false;
+  }
+  CramerShoupKeyParameters csKey=(CramerShoupKeyParameters)obj;
+  if (params == null) {
+    return csKey.getParameters() == null;
+  }
+ else {
+    return params.equals(csKey.getParameters());
+  }
+}

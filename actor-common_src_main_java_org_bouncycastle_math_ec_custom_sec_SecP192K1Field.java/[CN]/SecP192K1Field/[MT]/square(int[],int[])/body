@@ -1,0 +1,5 @@
+{
+  int[] tt=Nat192.createExt();
+  Nat192.square(x,tt);
+  reduce(tt,z);
+}

@@ -1,0 +1,3 @@
+{
+  capabilities.add(new DERSequence(capability));
+}

@@ -1,0 +1,3 @@
+{
+  this(certOrEncCert,null,null);
+}

@@ -1,0 +1,9 @@
+{
+  if (o instanceof PKIPublicationInfo) {
+    return (PKIPublicationInfo)o;
+  }
+  if (o != null) {
+    return new PKIPublicationInfo(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

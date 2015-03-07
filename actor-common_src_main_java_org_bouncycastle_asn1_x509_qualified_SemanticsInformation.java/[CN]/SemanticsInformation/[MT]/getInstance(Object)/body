@@ -1,0 +1,9 @@
+{
+  if (obj instanceof SemanticsInformation) {
+    return (SemanticsInformation)obj;
+  }
+  if (obj != null) {
+    return new SemanticsInformation(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

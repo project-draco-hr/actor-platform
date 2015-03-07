@@ -1,0 +1,4 @@
+{
+  this.ocspIdentifier=ocspIdentifier;
+  this.ocspRepHash=ocspRepHash;
+}

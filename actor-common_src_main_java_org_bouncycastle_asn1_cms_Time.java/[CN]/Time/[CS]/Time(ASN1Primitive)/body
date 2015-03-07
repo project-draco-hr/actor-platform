@@ -1,0 +1,6 @@
+{
+  if (!(time instanceof ASN1UTCTime) && !(time instanceof ASN1GeneralizedTime)) {
+    throw new IllegalArgumentException("unknown object passed to Time");
+  }
+  this.time=time;
+}

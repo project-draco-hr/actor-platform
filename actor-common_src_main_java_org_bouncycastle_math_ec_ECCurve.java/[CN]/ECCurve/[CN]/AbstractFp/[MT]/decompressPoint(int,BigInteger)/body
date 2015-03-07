@@ -1,0 +1,12 @@
+{
+  ECFieldElement x=this.fromBigInteger(X1);
+  ECFieldElement rhs=x.square().add(a).multiply(x).add(b);
+  ECFieldElement y=rhs.sqrt();
+  if (y == null) {
+    throw new IllegalArgumentException("Invalid point compression");
+  }
+  if (y.testBitZero() != (yTilde == 1)) {
+    y=y.negate();
+  }
+  return this.createRawPoint(x,y,true);
+}

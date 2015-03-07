@@ -1,0 +1,3 @@
+CertRequest certReq
+ProofOfPossession pop
+AttributeTypeAndValue[] regInfo

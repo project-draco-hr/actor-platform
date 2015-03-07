@@ -1,0 +1,14 @@
+{
+  this.privKeyInfo=PrivateKeyInfo.getInstance(seq.getObjectAt(0));
+  if (seq.size() > 1) {
+    if (!(seq.getObjectAt(1) instanceof DERUTF8String)) {
+      this.identifier=GeneralName.getInstance(seq.getObjectAt(1));
+    }
+ else {
+      this.identifier=(ASN1Encodable)seq.getObjectAt(1);
+    }
+  }
+ else {
+    this.identifier=null;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  nameToCurve.put(name,holder);
+  nameToOID.put(name,oid);
+  oidToName.put(oid,name);
+  oidToCurve.put(oid,holder);
+}

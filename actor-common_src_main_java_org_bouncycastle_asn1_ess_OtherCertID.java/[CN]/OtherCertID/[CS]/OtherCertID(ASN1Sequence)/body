@@ -1,0 +1,14 @@
+{
+  if (seq.size() < 1 || seq.size() > 2) {
+    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
+  }
+  if (seq.getObjectAt(0).toASN1Primitive() instanceof ASN1OctetString) {
+    otherCertHash=ASN1OctetString.getInstance(seq.getObjectAt(0));
+  }
+ else {
+    otherCertHash=DigestInfo.getInstance(seq.getObjectAt(0));
+  }
+  if (seq.size() > 1) {
+    issuerSerial=IssuerSerial.getInstance(seq.getObjectAt(1));
+  }
+}

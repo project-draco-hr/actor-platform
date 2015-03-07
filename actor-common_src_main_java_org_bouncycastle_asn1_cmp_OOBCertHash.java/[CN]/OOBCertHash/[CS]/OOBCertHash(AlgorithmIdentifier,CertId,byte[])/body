@@ -1,0 +1,3 @@
+{
+  this(hashAlg,certId,new DERBitString(hashVal));
+}

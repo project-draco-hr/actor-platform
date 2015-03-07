@@ -1,0 +1,22 @@
+{
+  ECCurve curveOrig=p.getCurve();
+  ECCurve curveAdd=configureCurve(curveOrig,additionCoord);
+  ECCurve curveDouble=configureCurve(curveOrig,doublingCoord);
+  int[] naf=WNafUtil.generateCompactNaf(k);
+  ECPoint Ra=curveAdd.getInfinity();
+  ECPoint Td=curveDouble.importPoint(p);
+  int zeroes=0;
+  for (int i=0; i < naf.length; ++i) {
+    int ni=naf[i];
+    int digit=ni >> 16;
+    zeroes+=ni & 0xFFFF;
+    Td=Td.timesPow2(zeroes);
+    ECPoint Tj=curveAdd.importPoint(Td);
+    if (digit < 0) {
+      Tj=Tj.negate();
+    }
+    Ra=Ra.add(Tj);
+    zeroes=1;
+  }
+  return curveOrig.importPoint(Ra);
+}

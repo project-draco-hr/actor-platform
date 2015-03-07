@@ -1,0 +1,3 @@
+byte[] derivation
+byte[] encoding
+int macKeySize

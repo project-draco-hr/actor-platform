@@ -1,0 +1,6 @@
+{
+  if ((this.certificateType & CertificateBody.CEfD) == CertificateBody.CEfD) {
+    return new PackedDate(certificateEffectiveDate.getContents());
+  }
+  return null;
+}

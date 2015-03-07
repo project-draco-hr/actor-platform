@@ -1,0 +1,5 @@
+{
+  int[] z=Nat192.create();
+  Mod.invert(SecP192R1Field.P,x,z);
+  return new SecP192R1FieldElement(z);
+}

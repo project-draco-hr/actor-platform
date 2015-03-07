@@ -1,0 +1,11 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(status);
+  v.add(certId);
+  v.add(willBeRevokedAt);
+  v.add(badSinceDate);
+  if (crlDetails != null) {
+    v.add(crlDetails);
+  }
+  return new DERSequence(v);
+}

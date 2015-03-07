@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector vec=new ASN1EncodableVector();
+  if (admissionAuthority != null) {
+    vec.add(admissionAuthority);
+  }
+  vec.add(contentsOfAdmissions);
+  return new DERSequence(vec);
+}

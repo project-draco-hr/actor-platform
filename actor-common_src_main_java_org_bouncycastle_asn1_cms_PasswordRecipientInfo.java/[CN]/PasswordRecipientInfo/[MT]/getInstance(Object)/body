@@ -1,0 +1,9 @@
+{
+  if (obj instanceof PasswordRecipientInfo) {
+    return (PasswordRecipientInfo)obj;
+  }
+  if (obj != null) {
+    return new PasswordRecipientInfo(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,6 @@
+{
+  certificateBody=body;
+  this.signature=signature;
+  valid|=bodyValid;
+  valid|=signValid;
+}

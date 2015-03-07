@@ -1,0 +1,9 @@
+{
+  if (o instanceof CertRequest) {
+    return (CertRequest)o;
+  }
+ else   if (o != null) {
+    return new CertRequest(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

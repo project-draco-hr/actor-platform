@@ -1,0 +1,6 @@
+im.actor.model.api.Peer peer
+int senderUid
+long date
+long keyHash
+byte[] aesEncryptedKey
+byte[] message

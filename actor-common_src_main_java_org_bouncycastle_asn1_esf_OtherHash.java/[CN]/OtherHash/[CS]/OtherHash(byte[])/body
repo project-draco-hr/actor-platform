@@ -1,0 +1,3 @@
+{
+  this.sha1Hash=new DEROctetString(sha1Hash);
+}

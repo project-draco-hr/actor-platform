@@ -1,0 +1,6 @@
+{
+  if (obj == null || obj instanceof SignerLocation) {
+    return (SignerLocation)obj;
+  }
+  return new SignerLocation(ASN1Sequence.getInstance(obj));
+}

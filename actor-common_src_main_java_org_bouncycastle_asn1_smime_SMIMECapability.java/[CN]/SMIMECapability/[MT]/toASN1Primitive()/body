@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(capabilityID);
+  if (parameters != null) {
+    v.add(parameters);
+  }
+  return new DERSequence(v);
+}

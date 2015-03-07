@@ -1,0 +1,7 @@
+{
+  ESSCertID[] cs=new ESSCertID[certs.size()];
+  for (int i=0; i != certs.size(); i++) {
+    cs[i]=ESSCertID.getInstance(certs.getObjectAt(i));
+  }
+  return cs;
+}

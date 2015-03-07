@@ -1,0 +1,35 @@
+{
+  if (this.isInfinity()) {
+    return this;
+  }
+  ECFieldElement X=this.x;
+  if (X.isZero()) {
+    return this;
+  }
+switch (this.getCurveCoordinateSystem()) {
+case ECCurve.COORD_AFFINE:
+{
+      ECFieldElement Y=this.y;
+      return new ECPoint.F2m(curve,X,Y.add(X),this.withCompression);
+    }
+case ECCurve.COORD_HOMOGENEOUS:
+{
+    ECFieldElement Y=this.y, Z=this.zs[0];
+    return new ECPoint.F2m(curve,X,Y.add(X),new ECFieldElement[]{Z},this.withCompression);
+  }
+case ECCurve.COORD_LAMBDA_AFFINE:
+{
+  ECFieldElement L=this.y;
+  return new ECPoint.F2m(curve,X,L.addOne(),this.withCompression);
+}
+case ECCurve.COORD_LAMBDA_PROJECTIVE:
+{
+ECFieldElement L=this.y, Z=this.zs[0];
+return new ECPoint.F2m(curve,X,L.add(Z),new ECFieldElement[]{Z},this.withCompression);
+}
+default :
+{
+throw new IllegalStateException("unsupported coordinate system");
+}
+}
+}

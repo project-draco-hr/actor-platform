@@ -1,0 +1,7 @@
+{
+  CertStatus[] result=new CertStatus[content.size()];
+  for (int i=0; i != result.length; i++) {
+    result[i]=CertStatus.getInstance(content.getObjectAt(i));
+  }
+  return result;
+}

@@ -1,0 +1,5 @@
+{
+  this.messageType=messageType;
+  this.body=body;
+  this.crc32=crc32;
+}

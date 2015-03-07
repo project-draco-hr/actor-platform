@@ -1,0 +1,4 @@
+{
+  this.iv=new DEROctetString(iv);
+  this.keyLength=new ASN1Integer(keyLength);
+}

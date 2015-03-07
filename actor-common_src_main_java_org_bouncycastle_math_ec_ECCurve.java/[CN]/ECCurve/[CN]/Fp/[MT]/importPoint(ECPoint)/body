@@ -1,0 +1,13 @@
+{
+  if (this != p.getCurve() && this.getCoordinateSystem() == COORD_JACOBIAN && !p.isInfinity()) {
+switch (p.getCurve().getCoordinateSystem()) {
+case COORD_JACOBIAN:
+case COORD_JACOBIAN_CHUDNOVSKY:
+case COORD_JACOBIAN_MODIFIED:
+      return new ECPoint.Fp(this,fromBigInteger(p.x.toBigInteger()),fromBigInteger(p.y.toBigInteger()),new ECFieldElement[]{fromBigInteger(p.zs[0].toBigInteger())},p.withCompression);
+default :
+    break;
+}
+}
+return super.importPoint(p);
+}

@@ -1,0 +1,3 @@
+long rid
+int messageType
+byte[] body

@@ -1,0 +1,8 @@
+{
+  if (Nat224.isZero(x)) {
+    Nat224.zero(z);
+  }
+ else {
+    Nat224.sub(P,x,z);
+  }
+}

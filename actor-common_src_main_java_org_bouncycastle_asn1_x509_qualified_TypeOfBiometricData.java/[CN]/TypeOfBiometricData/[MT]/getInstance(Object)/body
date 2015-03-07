@@ -1,0 +1,15 @@
+{
+  if (obj == null || obj instanceof TypeOfBiometricData) {
+    return (TypeOfBiometricData)obj;
+  }
+  if (obj instanceof ASN1Integer) {
+    ASN1Integer predefinedBiometricTypeObj=ASN1Integer.getInstance(obj);
+    int predefinedBiometricType=predefinedBiometricTypeObj.getValue().intValue();
+    return new TypeOfBiometricData(predefinedBiometricType);
+  }
+ else   if (obj instanceof ASN1ObjectIdentifier) {
+    ASN1ObjectIdentifier BiometricDataID=ASN1ObjectIdentifier.getInstance(obj);
+    return new TypeOfBiometricData(BiometricDataID);
+  }
+  throw new IllegalArgumentException("unknown object in getInstance");
+}

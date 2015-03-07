@@ -1,0 +1,16 @@
+{
+  if (this.isInfinity()) {
+    return "INF";
+  }
+  StringBuffer sb=new StringBuffer();
+  sb.append('(');
+  sb.append(getRawXCoord());
+  sb.append(',');
+  sb.append(getRawYCoord());
+  for (int i=0; i < zs.length; ++i) {
+    sb.append(',');
+    sb.append(zs[i]);
+  }
+  sb.append(')');
+  return sb.toString();
+}

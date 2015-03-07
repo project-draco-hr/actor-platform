@@ -1,0 +1,7 @@
+ASN1Integer version
+IssuerAndSerialNumber issuerAndSerialNumber
+AlgorithmIdentifier digAlgorithm
+ASN1Set authenticatedAttributes
+AlgorithmIdentifier digEncryptionAlgorithm
+ASN1OctetString encryptedDigest
+ASN1Set unauthenticatedAttributes

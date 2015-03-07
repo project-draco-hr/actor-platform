@@ -1,0 +1,34 @@
+{
+  this.tagNo=choice.getTagNo();
+switch (tagNo) {
+case TAG_CERTIFICATE:
+    value=Certificate.getInstance(choice,false);
+  break;
+case TAG_ESSCERTID:
+value=ESSCertID.getInstance(choice.getObject());
+break;
+case TAG_PKISTATUS:
+value=PKIStatusInfo.getInstance(choice,false);
+break;
+case TAG_ASSERTION:
+value=ContentInfo.getInstance(choice.getObject());
+break;
+case TAG_CRL:
+value=CertificateList.getInstance(choice,false);
+break;
+case TAG_OCSPCERTSTATUS:
+value=CertStatus.getInstance(choice.getObject());
+break;
+case TAG_OCSPCERTID:
+value=CertID.getInstance(choice,false);
+break;
+case TAG_OCSPRESPONSE:
+value=OCSPResponse.getInstance(choice,false);
+break;
+case TAG_CAPABILITIES:
+value=SMIMECapabilities.getInstance(choice.getObject());
+break;
+default :
+throw new IllegalArgumentException("Unknown tag: " + tagNo);
+}
+}

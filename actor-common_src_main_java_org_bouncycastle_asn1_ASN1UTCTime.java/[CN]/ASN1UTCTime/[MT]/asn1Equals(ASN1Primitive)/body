@@ -1,0 +1,6 @@
+{
+  if (!(o instanceof ASN1UTCTime)) {
+    return false;
+  }
+  return Arrays.areEqual(time,((ASN1UTCTime)o).time);
+}

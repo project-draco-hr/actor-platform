@@ -1,0 +1,51 @@
+{
+  if (this == b) {
+    return threeTimes();
+  }
+  if (this.isInfinity()) {
+    return b;
+  }
+  if (b.isInfinity()) {
+    return twice();
+  }
+  ECFieldElement Y1=this.y;
+  if (Y1.isZero()) {
+    return b;
+  }
+  ECCurve curve=this.getCurve();
+  int coord=curve.getCoordinateSystem();
+switch (coord) {
+case ECCurve.COORD_AFFINE:
+{
+      ECFieldElement X1=this.x;
+      ECFieldElement X2=b.x, Y2=b.y;
+      ECFieldElement dx=X2.subtract(X1), dy=Y2.subtract(Y1);
+      if (dx.isZero()) {
+        if (dy.isZero()) {
+          return threeTimes();
+        }
+        return this;
+      }
+      ECFieldElement X=dx.square(), Y=dy.square();
+      ECFieldElement d=X.multiply(two(X1).add(X2)).subtract(Y);
+      if (d.isZero()) {
+        return curve.getInfinity();
+      }
+      ECFieldElement D=d.multiply(dx);
+      ECFieldElement I=D.invert();
+      ECFieldElement L1=d.multiply(I).multiply(dy);
+      ECFieldElement L2=two(Y1).multiply(X).multiply(dx).multiply(I).subtract(L1);
+      ECFieldElement X4=(L2.subtract(L1)).multiply(L1.add(L2)).add(X2);
+      ECFieldElement Y4=(X1.subtract(X4)).multiply(L2).subtract(Y1);
+      return new ECPoint.Fp(curve,X4,Y4,this.withCompression);
+    }
+case ECCurve.COORD_JACOBIAN_MODIFIED:
+{
+    return twiceJacobianModified(false).add(b);
+  }
+default :
+{
+  return twice().add(b);
+}
+}
+}

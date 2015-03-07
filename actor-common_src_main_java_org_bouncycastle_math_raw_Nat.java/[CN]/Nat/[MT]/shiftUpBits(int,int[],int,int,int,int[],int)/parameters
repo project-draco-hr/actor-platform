@@ -1,0 +1,7 @@
+int len
+int[] x
+int xOff
+int bits
+int c
+int[] z
+int zOff

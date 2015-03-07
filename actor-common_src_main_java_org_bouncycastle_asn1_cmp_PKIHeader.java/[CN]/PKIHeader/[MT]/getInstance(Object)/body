@@ -1,0 +1,9 @@
+{
+  if (o instanceof PKIHeader) {
+    return (PKIHeader)o;
+  }
+  if (o != null) {
+    return new PKIHeader(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

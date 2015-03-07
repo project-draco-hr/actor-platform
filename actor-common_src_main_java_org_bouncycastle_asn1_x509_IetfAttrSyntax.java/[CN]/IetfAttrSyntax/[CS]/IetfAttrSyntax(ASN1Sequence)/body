@@ -1,0 +1,38 @@
+{
+  int i=0;
+  if (seq.getObjectAt(0) instanceof ASN1TaggedObject) {
+    policyAuthority=GeneralNames.getInstance(((ASN1TaggedObject)seq.getObjectAt(0)),false);
+    i++;
+  }
+ else   if (seq.size() == 2) {
+    policyAuthority=GeneralNames.getInstance(seq.getObjectAt(0));
+    i++;
+  }
+  if (!(seq.getObjectAt(i) instanceof ASN1Sequence)) {
+    throw new IllegalArgumentException("Non-IetfAttrSyntax encoding");
+  }
+  seq=(ASN1Sequence)seq.getObjectAt(i);
+  for (Enumeration e=seq.getObjects(); e.hasMoreElements(); ) {
+    ASN1Primitive obj=(ASN1Primitive)e.nextElement();
+    int type;
+    if (obj instanceof ASN1ObjectIdentifier) {
+      type=VALUE_OID;
+    }
+ else     if (obj instanceof DERUTF8String) {
+      type=VALUE_UTF8;
+    }
+ else     if (obj instanceof DEROctetString) {
+      type=VALUE_OCTETS;
+    }
+ else {
+      throw new IllegalArgumentException("Bad value type encoding IetfAttrSyntax");
+    }
+    if (valueChoice < 0) {
+      valueChoice=type;
+    }
+    if (type != valueChoice) {
+      throw new IllegalArgumentException("Mix of value types in IetfAttrSyntax");
+    }
+    values.addElement(obj);
+  }
+}

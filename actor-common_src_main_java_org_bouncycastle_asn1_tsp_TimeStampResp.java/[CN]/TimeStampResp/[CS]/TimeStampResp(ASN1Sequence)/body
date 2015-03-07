@@ -1,0 +1,7 @@
+{
+  Enumeration e=seq.getObjects();
+  pkiStatusInfo=PKIStatusInfo.getInstance(e.nextElement());
+  if (e.hasMoreElements()) {
+    timeStampToken=ContentInfo.getInstance(e.nextElement());
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return new ECPoint.Fp(this,x,y,zs,withCompression);
+}

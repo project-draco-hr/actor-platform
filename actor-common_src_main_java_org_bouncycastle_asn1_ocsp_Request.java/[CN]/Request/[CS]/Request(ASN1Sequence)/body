@@ -1,0 +1,6 @@
+{
+  reqCert=CertID.getInstance(seq.getObjectAt(0));
+  if (seq.size() == 2) {
+    singleRequestExtensions=Extensions.getInstance((ASN1TaggedObject)seq.getObjectAt(1),true);
+  }
+}

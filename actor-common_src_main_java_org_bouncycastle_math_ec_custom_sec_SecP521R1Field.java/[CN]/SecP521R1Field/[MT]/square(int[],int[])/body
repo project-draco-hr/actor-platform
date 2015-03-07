@@ -1,0 +1,5 @@
+{
+  int[] tt=Nat.create(33);
+  implSquare(x,tt);
+  reduce(tt,z);
+}

@@ -1,0 +1,12 @@
+{
+  if (obj == null || obj instanceof RequestedCertificate) {
+    return (RequestedCertificate)obj;
+  }
+  if (obj instanceof ASN1Sequence) {
+    return new RequestedCertificate(Certificate.getInstance(obj));
+  }
+  if (obj instanceof ASN1TaggedObject) {
+    return new RequestedCertificate((ASN1TaggedObject)obj);
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

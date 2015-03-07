@@ -1,0 +1,9 @@
+{
+  if (o instanceof SignerInfo) {
+    return (SignerInfo)o;
+  }
+ else   if (o != null) {
+    return new SignerInfo(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

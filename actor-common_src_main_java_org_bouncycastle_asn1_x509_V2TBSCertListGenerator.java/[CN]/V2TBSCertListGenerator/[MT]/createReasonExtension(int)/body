@@ -1,0 +1,12 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  CRLReason crlReason=CRLReason.lookup(reasonCode);
+  try {
+    v.add(Extension.reasonCode);
+    v.add(new DEROctetString(crlReason.getEncoded()));
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("error encoding reason: " + e);
+  }
+  return new DERSequence(v);
+}

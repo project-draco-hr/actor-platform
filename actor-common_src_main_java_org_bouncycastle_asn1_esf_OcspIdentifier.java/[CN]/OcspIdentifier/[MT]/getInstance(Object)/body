@@ -1,0 +1,9 @@
+{
+  if (obj instanceof OcspIdentifier) {
+    return (OcspIdentifier)obj;
+  }
+ else   if (obj != null) {
+    return new OcspIdentifier(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

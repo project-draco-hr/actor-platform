@@ -1,0 +1,10 @@
+{
+  ASN1EncodableVector av=new ASN1EncodableVector();
+  if (noticeRef != null) {
+    av.add(noticeRef);
+  }
+  if (explicitText != null) {
+    av.add(explicitText);
+  }
+  return new DERSequence(av);
+}

@@ -1,0 +1,11 @@
+{
+  int otherUsedLen=other.getUsedLength();
+  if (otherUsedLen == 0) {
+    return;
+  }
+  int minLen=otherUsedLen + words;
+  if (minLen > m_ints.length) {
+    m_ints=resizedInts(minLen);
+  }
+  add(m_ints,words,other.m_ints,0,otherUsedLen);
+}

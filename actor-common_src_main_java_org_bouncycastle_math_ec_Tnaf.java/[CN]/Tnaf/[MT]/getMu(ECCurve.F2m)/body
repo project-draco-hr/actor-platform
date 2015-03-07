@@ -1,0 +1,9 @@
+{
+  if (!curve.isKoblitz()) {
+    throw new IllegalArgumentException("No Koblitz curve (ABC), TNAF multiplication not possible");
+  }
+  if (curve.getA().isZero()) {
+    return -1;
+  }
+  return 1;
+}

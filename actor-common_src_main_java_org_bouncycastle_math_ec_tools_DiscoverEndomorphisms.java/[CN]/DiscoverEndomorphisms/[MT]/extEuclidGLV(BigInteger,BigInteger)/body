@@ -1,0 +1,16 @@
+{
+  BigInteger r0=n, r1=lambda;
+  BigInteger t0=ECConstants.ZERO, t1=ECConstants.ONE;
+  for (; ; ) {
+    BigInteger[] qr=r0.divideAndRemainder(r1);
+    BigInteger q=qr[0], r2=qr[1];
+    BigInteger t2=t0.subtract(q.multiply(t1));
+    if (isLessThanSqrt(r1,n)) {
+      return new BigInteger[]{r0,t0,r1,t1,r2,t2};
+    }
+    r0=r1;
+    r1=r2;
+    t0=t1;
+    t1=t2;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if ((options & G) != 0) {
+    return basePointG;
+  }
+ else {
+    return null;
+  }
+}

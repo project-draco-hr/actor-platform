@@ -1,0 +1,11 @@
+{
+  xOff+=bits >>> 6;
+  bits&=0x3F;
+  if (bits == 0) {
+    add(x,xOff,y,yOff,yLen);
+  }
+ else {
+    long carry=addShiftedDown(x,xOff + 1,y,yOff,yLen,64 - bits);
+    x[xOff]^=carry;
+  }
+}

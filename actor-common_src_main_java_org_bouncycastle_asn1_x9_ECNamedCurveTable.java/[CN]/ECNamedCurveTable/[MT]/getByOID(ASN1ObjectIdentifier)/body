@@ -1,0 +1,10 @@
+{
+  X9ECParameters ecP=X962NamedCurves.getByOID(oid);
+  if (ecP == null) {
+    ecP=SECNamedCurves.getByOID(oid);
+  }
+  if (ecP == null) {
+    ecP=TeleTrusTNamedCurves.getByOID(oid);
+  }
+  return ecP;
+}

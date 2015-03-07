@@ -1,0 +1,4 @@
+{
+  this.infoType=infoType;
+  this.infoValue=null;
+}

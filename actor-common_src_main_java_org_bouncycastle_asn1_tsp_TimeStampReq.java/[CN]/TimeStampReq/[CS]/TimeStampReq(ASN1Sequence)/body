@@ -1,0 +1,25 @@
+{
+  int nbObjects=seq.size();
+  int seqStart=0;
+  version=ASN1Integer.getInstance(seq.getObjectAt(seqStart));
+  seqStart++;
+  messageImprint=MessageImprint.getInstance(seq.getObjectAt(seqStart));
+  seqStart++;
+  for (int opt=seqStart; opt < nbObjects; opt++) {
+    if (seq.getObjectAt(opt) instanceof ASN1ObjectIdentifier) {
+      tsaPolicy=ASN1ObjectIdentifier.getInstance(seq.getObjectAt(opt));
+    }
+ else     if (seq.getObjectAt(opt) instanceof ASN1Integer) {
+      nonce=ASN1Integer.getInstance(seq.getObjectAt(opt));
+    }
+ else     if (seq.getObjectAt(opt) instanceof ASN1Boolean) {
+      certReq=ASN1Boolean.getInstance(seq.getObjectAt(opt));
+    }
+ else     if (seq.getObjectAt(opt) instanceof ASN1TaggedObject) {
+      ASN1TaggedObject tagged=(ASN1TaggedObject)seq.getObjectAt(opt);
+      if (tagged.getTagNo() == 0) {
+        extensions=Extensions.getInstance(tagged,false);
+      }
+    }
+  }
+}

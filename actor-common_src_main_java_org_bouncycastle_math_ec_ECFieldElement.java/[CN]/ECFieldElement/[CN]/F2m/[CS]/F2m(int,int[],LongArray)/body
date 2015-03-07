@@ -1,0 +1,6 @@
+{
+  this.m=m;
+  this.representation=(ks.length == 1) ? TPB : PPB;
+  this.ks=ks;
+  this.x=x;
+}

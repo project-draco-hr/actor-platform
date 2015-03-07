@@ -1,0 +1,9 @@
+{
+  if ((options & G) == 0) {
+    options|=G;
+    this.basePointG=basePointG.getOctets();
+  }
+ else {
+    throw new IllegalArgumentException("Base Point G already set");
+  }
+}

@@ -1,0 +1,15 @@
+{
+  Enumeration e=seq.getObjects();
+  while (e.hasMoreElements()) {
+    ASN1Encodable object=(ASN1Encodable)e.nextElement();
+    if (object instanceof DisplayText || object instanceof ASN1String) {
+      explicitText=DisplayText.getInstance(object);
+    }
+ else     if (object instanceof NoticeReference || object instanceof ASN1Sequence) {
+      noticeRef=NoticeReference.getInstance(object);
+    }
+ else {
+      throw new IllegalArgumentException("Invalid element in 'SPUserNotice': " + object.getClass().getName());
+    }
+  }
+}

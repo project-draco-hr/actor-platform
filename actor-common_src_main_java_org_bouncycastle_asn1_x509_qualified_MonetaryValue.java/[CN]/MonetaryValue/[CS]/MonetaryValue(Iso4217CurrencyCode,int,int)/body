@@ -1,0 +1,5 @@
+{
+  this.currency=currency;
+  this.amount=new ASN1Integer(amount);
+  this.exponent=new ASN1Integer(exponent);
+}

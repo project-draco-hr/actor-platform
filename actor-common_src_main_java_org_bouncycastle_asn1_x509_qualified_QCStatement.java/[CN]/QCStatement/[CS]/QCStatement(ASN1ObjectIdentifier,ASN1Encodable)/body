@@ -1,0 +1,4 @@
+{
+  this.qcStatementId=qcStatementId;
+  this.qcStatementInfo=qcStatementInfo;
+}

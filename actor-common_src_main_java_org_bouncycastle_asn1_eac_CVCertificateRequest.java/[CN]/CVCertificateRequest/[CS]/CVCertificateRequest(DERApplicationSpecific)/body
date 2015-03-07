@@ -1,0 +1,10 @@
+{
+  if (request.getApplicationTag() == EACTags.AUTHENTIFICATION_DATA) {
+    ASN1Sequence seq=ASN1Sequence.getInstance(request.getObject(BERTags.SEQUENCE));
+    initCertBody(DERApplicationSpecific.getInstance(seq.getObjectAt(0)));
+    outerSignature=DERApplicationSpecific.getInstance(seq.getObjectAt(seq.size() - 1)).getContents();
+  }
+ else {
+    initCertBody(request);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (poposkInput != null) {
+    v.add(new DERTaggedObject(false,0,poposkInput));
+  }
+  v.add(algorithmIdentifier);
+  v.add(signature);
+  return new DERSequence(v);
+}

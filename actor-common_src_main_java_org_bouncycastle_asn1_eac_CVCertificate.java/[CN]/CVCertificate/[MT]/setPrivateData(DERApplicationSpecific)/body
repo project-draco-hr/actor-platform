@@ -1,0 +1,31 @@
+{
+  valid=0;
+  if (appSpe.getApplicationTag() == EACTags.CARDHOLDER_CERTIFICATE) {
+    ASN1InputStream content=new ASN1InputStream(appSpe.getContents());
+    ASN1Primitive tmpObj;
+    while ((tmpObj=content.readObject()) != null) {
+      DERApplicationSpecific aSpe;
+      if (tmpObj instanceof DERApplicationSpecific) {
+        aSpe=(DERApplicationSpecific)tmpObj;
+switch (aSpe.getApplicationTag()) {
+case EACTags.CERTIFICATE_CONTENT_TEMPLATE:
+          certificateBody=CertificateBody.getInstance(aSpe);
+        valid|=bodyValid;
+      break;
+case EACTags.STATIC_INTERNAL_AUTHENTIFICATION_ONE_STEP:
+    signature=aSpe.getContents();
+  valid|=signValid;
+break;
+default :
+throw new IOException("Invalid tag, not an Iso7816CertificateStructure :" + aSpe.getApplicationTag());
+}
+}
+ else {
+throw new IOException("Invalid Object, not an Iso7816CertificateStructure");
+}
+}
+}
+ else {
+throw new IOException("not a CARDHOLDER_CERTIFICATE :" + appSpe.getApplicationTag());
+}
+}

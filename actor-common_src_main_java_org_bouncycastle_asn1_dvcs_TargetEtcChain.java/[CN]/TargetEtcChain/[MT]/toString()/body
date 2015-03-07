@@ -1,0 +1,13 @@
+{
+  StringBuffer s=new StringBuffer();
+  s.append("TargetEtcChain {\n");
+  s.append("target: " + target + "\n");
+  if (chain != null) {
+    s.append("chain: " + chain + "\n");
+  }
+  if (pathProcInput != null) {
+    s.append("pathProcInput: " + pathProcInput + "\n");
+  }
+  s.append("}\n");
+  return s.toString();
+}

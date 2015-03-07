@@ -1,0 +1,28 @@
+{
+  long c=0;
+  c+=(x[xOff + 0] & M) + (y[yOff + 0] & M);
+  z[zOff + 0]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 1] & M) + (y[yOff + 1] & M);
+  z[zOff + 1]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 2] & M) + (y[yOff + 2] & M);
+  z[zOff + 2]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 3] & M) + (y[yOff + 3] & M);
+  z[zOff + 3]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 4] & M) + (y[yOff + 4] & M);
+  z[zOff + 4]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 5] & M) + (y[yOff + 5] & M);
+  z[zOff + 5]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 6] & M) + (y[yOff + 6] & M);
+  z[zOff + 6]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 7] & M) + (y[yOff + 7] & M);
+  z[zOff + 7]=(int)c;
+  c>>>=32;
+  return (int)c;
+}

@@ -1,0 +1,14 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(hashProtected);
+  if (fileName != null) {
+    v.add(fileName);
+  }
+  if (mediaType != null) {
+    v.add(mediaType);
+  }
+  if (otherMetaData != null) {
+    v.add(otherMetaData);
+  }
+  return new DERSequence(v);
+}

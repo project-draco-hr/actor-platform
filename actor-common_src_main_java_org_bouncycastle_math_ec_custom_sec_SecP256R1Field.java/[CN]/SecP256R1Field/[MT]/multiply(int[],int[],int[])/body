@@ -1,0 +1,5 @@
+{
+  int[] tt=Nat256.createExt();
+  Nat256.mul(x,y,tt);
+  reduce(tt,z);
+}

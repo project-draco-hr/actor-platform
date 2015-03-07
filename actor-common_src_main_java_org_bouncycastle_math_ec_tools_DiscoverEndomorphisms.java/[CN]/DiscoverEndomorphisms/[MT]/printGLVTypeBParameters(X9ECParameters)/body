@@ -1,0 +1,74 @@
+{
+  BigInteger n=x9.getN();
+  BigInteger[] v1=null;
+  BigInteger[] v2=null;
+  BigInteger lambda=solveQuadraticEquation(n,ECConstants.ONE,ECConstants.ONE);
+  BigInteger[] rt=extEuclidGLV(n,lambda);
+  v1=new BigInteger[]{rt[2],rt[3].negate()};
+  v2=chooseShortest(new BigInteger[]{rt[0],rt[1].negate()},new BigInteger[]{rt[4],rt[5].negate()});
+  if (!isVectorBoundedBySqrt(v2,n) && areRelativelyPrime(v1[0],v1[1])) {
+    BigInteger r=v1[0], t=v1[1], s=r.add(t.multiply(lambda)).divide(n);
+    BigInteger[] vw=extEuclidBezout(new BigInteger[]{s.abs(),t.abs()});
+    BigInteger v=vw[0], w=vw[1];
+    if (s.signum() < 0) {
+      v=v.negate();
+    }
+    if (t.signum() > 0) {
+      w=w.negate();
+    }
+    BigInteger check=s.multiply(v).subtract(t.multiply(w));
+    if (!check.equals(ECConstants.ONE)) {
+      throw new IllegalStateException();
+    }
+    BigInteger x=w.multiply(n).subtract(v.multiply(lambda));
+    BigInteger base1=v.negate();
+    BigInteger base2=x.negate();
+    BigInteger sqrtN=isqrt(n.subtract(ECConstants.ONE)).add(ECConstants.ONE);
+    BigInteger[] I1=calculateRange(base1,sqrtN,t);
+    BigInteger[] I2=calculateRange(base2,sqrtN,r);
+    BigInteger[] range=intersect(I1,I2);
+    if (range != null) {
+      for (BigInteger alpha=range[0]; alpha.compareTo(range[1]) <= 0; alpha=alpha.add(ECConstants.ONE)) {
+        BigInteger[] candidate=new BigInteger[]{x.add(alpha.multiply(r)),v.add(alpha.multiply(t))};
+        if (isShorter(candidate,v2)) {
+          v2=candidate;
+        }
+      }
+    }
+  }
+  ECFieldElement beta;
+{
+    ECPoint G=x9.getG().normalize();
+    ECPoint mapG=G.multiply(lambda).normalize();
+    if (!G.getYCoord().equals(mapG.getYCoord())) {
+      throw new IllegalStateException("Derivation of GLV Type B parameters failed unexpectedly");
+    }
+    BigInteger q=x9.getCurve().getField().getCharacteristic();
+    BigInteger e=q.divide(ECConstants.THREE);
+    SecureRandom random=new SecureRandom();
+    BigInteger b;
+    do {
+      BigInteger r=BigIntegers.createRandomInRange(ECConstants.TWO,q.subtract(ECConstants.TWO),random);
+      b=r.modPow(e,q);
+    }
+ while (b.equals(ECConstants.ONE));
+    beta=x9.getCurve().fromBigInteger(ECConstants.TWO.modPow(e,q));
+    if (!G.getXCoord().multiply(beta).equals(mapG.getXCoord())) {
+      beta=beta.square();
+      if (!G.getXCoord().multiply(beta).equals(mapG.getXCoord())) {
+        throw new IllegalStateException("Derivation of GLV Type B parameters failed unexpectedly");
+      }
+    }
+  }
+  BigInteger d=(v1[0].multiply(v2[1])).subtract(v1[1].multiply(v2[0]));
+  int bits=n.bitLength() + 16 - (n.bitLength() & 7);
+  BigInteger g1=roundQuotient(v2[1].shiftLeft(bits),d);
+  BigInteger g2=roundQuotient(v1[1].shiftLeft(bits),d).negate();
+  printProperty("Beta",beta.toBigInteger().toString(radix));
+  printProperty("Lambda",lambda.toString(radix));
+  printProperty("v1","{ " + v1[0].toString(radix) + ", "+ v1[1].toString(radix)+ " }");
+  printProperty("v2","{ " + v2[0].toString(radix) + ", "+ v2[1].toString(radix)+ " }");
+  printProperty("(OPT) g1",g1.toString(radix));
+  printProperty("(OPT) g2",g2.toString(radix));
+  printProperty("(OPT) bits",Integer.toString(bits));
+}

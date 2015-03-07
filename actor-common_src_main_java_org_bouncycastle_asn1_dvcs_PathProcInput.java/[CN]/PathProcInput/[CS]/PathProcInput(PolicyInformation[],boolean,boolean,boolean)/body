@@ -1,0 +1,6 @@
+{
+  this.acceptablePolicySet=acceptablePolicySet;
+  this.inhibitPolicyMapping=inhibitPolicyMapping;
+  this.explicitPolicyReqd=explicitPolicyReqd;
+  this.inhibitAnyPolicy=inhibitAnyPolicy;
+}

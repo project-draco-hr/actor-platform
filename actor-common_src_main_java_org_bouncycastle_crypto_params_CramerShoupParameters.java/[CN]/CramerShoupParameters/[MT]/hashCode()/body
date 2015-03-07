@@ -1,0 +1,3 @@
+{
+  return getP().hashCode() ^ getG1().hashCode() ^ getG2().hashCode();
+}

@@ -1,0 +1,6 @@
+{
+  if (initialInfo != null) {
+    throw new IllegalStateException("cannot change request time in existing DVCSRequestInformation");
+  }
+  this.requestTime=requestTime;
+}

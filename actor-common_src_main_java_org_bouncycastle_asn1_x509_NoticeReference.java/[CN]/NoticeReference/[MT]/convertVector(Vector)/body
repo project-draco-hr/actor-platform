@@ -1,0 +1,19 @@
+{
+  ASN1EncodableVector av=new ASN1EncodableVector();
+  Enumeration it=numbers.elements();
+  while (it.hasMoreElements()) {
+    Object o=it.nextElement();
+    ASN1Integer di;
+    if (o instanceof BigInteger) {
+      di=new ASN1Integer((BigInteger)o);
+    }
+ else     if (o instanceof Integer) {
+      di=new ASN1Integer(((Integer)o).intValue());
+    }
+ else {
+      throw new IllegalArgumentException();
+    }
+    av.add(di);
+  }
+  return av;
+}

@@ -1,0 +1,4 @@
+{
+  this.semanticsIdentifier=null;
+  this.nameRegistrationAuthorities=generalNames;
+}

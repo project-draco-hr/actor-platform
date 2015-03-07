@@ -1,0 +1,3 @@
+{
+  this.value=ASN1Boolean.getInstance(archiveRemGenPrivKey);
+}

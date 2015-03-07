@@ -1,0 +1,11 @@
+{
+  if (nextObject == null) {
+    nextObject=seq.readObject();
+  }
+  if (nextObject instanceof ASN1TaggedObjectParser) {
+    AlgorithmIdentifier obj=AlgorithmIdentifier.getInstance((ASN1TaggedObject)nextObject.toASN1Primitive(),false);
+    nextObject=null;
+    return obj;
+  }
+  return null;
+}

@@ -1,0 +1,5 @@
+{
+  int[] z=Nat224.create();
+  SecP224R1Field.multiply(x,((SecP224R1FieldElement)b).x,z);
+  return new SecP224R1FieldElement(z);
+}

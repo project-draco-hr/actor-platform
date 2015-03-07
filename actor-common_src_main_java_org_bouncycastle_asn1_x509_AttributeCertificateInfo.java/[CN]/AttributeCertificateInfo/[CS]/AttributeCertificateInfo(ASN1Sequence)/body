@@ -1,0 +1,29 @@
+{
+  if (seq.size() < 6 || seq.size() > 9) {
+    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
+  }
+  int start;
+  if (seq.getObjectAt(0) instanceof ASN1Integer) {
+    this.version=ASN1Integer.getInstance(seq.getObjectAt(0));
+    start=1;
+  }
+ else {
+    this.version=new ASN1Integer(0);
+    start=0;
+  }
+  this.holder=Holder.getInstance(seq.getObjectAt(start));
+  this.issuer=AttCertIssuer.getInstance(seq.getObjectAt(start + 1));
+  this.signature=AlgorithmIdentifier.getInstance(seq.getObjectAt(start + 2));
+  this.serialNumber=ASN1Integer.getInstance(seq.getObjectAt(start + 3));
+  this.attrCertValidityPeriod=AttCertValidityPeriod.getInstance(seq.getObjectAt(start + 4));
+  this.attributes=ASN1Sequence.getInstance(seq.getObjectAt(start + 5));
+  for (int i=start + 6; i < seq.size(); i++) {
+    ASN1Encodable obj=seq.getObjectAt(i);
+    if (obj instanceof DERBitString) {
+      this.issuerUniqueID=DERBitString.getInstance(seq.getObjectAt(i));
+    }
+ else     if (obj instanceof ASN1Sequence || obj instanceof Extensions) {
+      this.extensions=Extensions.getInstance(seq.getObjectAt(i));
+    }
+  }
+}

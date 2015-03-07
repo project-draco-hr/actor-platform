@@ -1,0 +1,10 @@
+{
+  ASN1EncodableVector dev=new ASN1EncodableVector();
+  for (int i=0; i != issuerDomainPolicy.length; i++) {
+    ASN1EncodableVector dv=new ASN1EncodableVector();
+    dv.add(issuerDomainPolicy[i]);
+    dv.add(subjectDomainPolicy[i]);
+    dev.add(new DERSequence(dv));
+  }
+  seq=new DERSequence(dev);
+}

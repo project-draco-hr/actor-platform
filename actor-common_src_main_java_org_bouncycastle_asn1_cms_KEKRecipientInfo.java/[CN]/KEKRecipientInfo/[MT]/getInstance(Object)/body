@@ -1,0 +1,9 @@
+{
+  if (obj instanceof KEKRecipientInfo) {
+    return (KEKRecipientInfo)obj;
+  }
+  if (obj != null) {
+    return new KEKRecipientInfo(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

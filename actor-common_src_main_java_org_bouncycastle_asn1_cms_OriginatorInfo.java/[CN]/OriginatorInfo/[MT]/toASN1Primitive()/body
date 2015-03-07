@@ -1,0 +1,10 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (certs != null) {
+    v.add(new DERTaggedObject(false,0,certs));
+  }
+  if (crls != null) {
+    v.add(new DERTaggedObject(false,1,crls));
+  }
+  return new DERSequence(v);
+}

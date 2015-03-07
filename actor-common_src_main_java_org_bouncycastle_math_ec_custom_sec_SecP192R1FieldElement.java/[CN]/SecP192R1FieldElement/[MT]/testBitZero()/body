@@ -1,0 +1,3 @@
+{
+  return Nat192.getBit(x,0) == 1;
+}

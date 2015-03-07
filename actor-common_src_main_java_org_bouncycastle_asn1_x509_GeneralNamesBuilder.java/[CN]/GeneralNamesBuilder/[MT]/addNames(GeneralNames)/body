@@ -1,0 +1,7 @@
+{
+  GeneralName[] n=names.getNames();
+  for (int i=0; i != n.length; i++) {
+    this.names.addElement(n[i]);
+  }
+  return this;
+}

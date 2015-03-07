@@ -1,0 +1,3 @@
+{
+  this.policyInformation=new PolicyInformation[]{name};
+}

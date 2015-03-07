@@ -1,0 +1,24 @@
+{
+  ASN1EncodableVector seq=new ASN1EncodableVector();
+  seq.add(version);
+  seq.add(tsaPolicyId);
+  seq.add(messageImprint);
+  seq.add(serialNumber);
+  seq.add(genTime);
+  if (accuracy != null) {
+    seq.add(accuracy);
+  }
+  if (ordering != null && ordering.isTrue()) {
+    seq.add(ordering);
+  }
+  if (nonce != null) {
+    seq.add(nonce);
+  }
+  if (tsa != null) {
+    seq.add(new DERTaggedObject(true,0,tsa));
+  }
+  if (extensions != null) {
+    seq.add(new DERTaggedObject(false,1,extensions));
+  }
+  return new DERSequence(seq);
+}

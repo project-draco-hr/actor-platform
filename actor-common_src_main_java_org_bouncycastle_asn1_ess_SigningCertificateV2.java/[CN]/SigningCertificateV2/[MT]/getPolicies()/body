@@ -1,0 +1,10 @@
+{
+  if (policies == null) {
+    return null;
+  }
+  PolicyInformation[] policyInformations=new PolicyInformation[policies.size()];
+  for (int i=0; i != policies.size(); i++) {
+    policyInformations[i]=PolicyInformation.getInstance(policies.getObjectAt(i));
+  }
+  return policyInformations;
+}

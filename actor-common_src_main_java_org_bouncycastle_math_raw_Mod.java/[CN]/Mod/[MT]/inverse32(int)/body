@@ -1,0 +1,8 @@
+{
+  int x=d;
+  x*=2 - d * x;
+  x*=2 - d * x;
+  x*=2 - d * x;
+  x*=2 - d * x;
+  return x;
+}

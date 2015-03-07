@@ -1,0 +1,7 @@
+{
+  CertResponse[] results=new CertResponse[response.size()];
+  for (int i=0; i != results.length; i++) {
+    results[i]=CertResponse.getInstance(response.getObjectAt(i));
+  }
+  return results;
+}

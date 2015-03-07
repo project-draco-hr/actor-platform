@@ -1,0 +1,19 @@
+{
+  if (encryptionCipher == null) {
+    encryptionCipher=new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESFastEngine()),new PKCS7Padding());
+    encryptionCipher.init(true,params);
+  }
+  encryptionCipher.reset();
+  byte[] buf=new byte[encryptionCipher.getOutputSize(source.length)];
+  int len=encryptionCipher.processBytes(source,0,source.length,buf,0);
+  try {
+    len+=encryptionCipher.doFinal(buf,len);
+  }
+ catch (  InvalidCipherTextException e) {
+    e.printStackTrace();
+    return null;
+  }
+  byte[] res=new byte[len];
+  System.arraycopy(buf,0,res,0,len);
+  return res;
+}

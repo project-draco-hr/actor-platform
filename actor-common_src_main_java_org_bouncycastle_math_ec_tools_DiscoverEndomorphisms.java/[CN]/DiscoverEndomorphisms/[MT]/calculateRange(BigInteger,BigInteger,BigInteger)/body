@@ -1,0 +1,5 @@
+{
+  BigInteger i1=mid.subtract(off).divide(div);
+  BigInteger i2=mid.add(off).divide(div);
+  return order(i1,i2);
+}

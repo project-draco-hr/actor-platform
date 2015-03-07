@@ -1,0 +1,8 @@
+{
+  String oidStr=oid.getId();
+  if (oidStr.startsWith(oidBase)) {
+    int index=Integer.parseInt(oidStr.substring(oidStr.length() - 1));
+    return params[index];
+  }
+  return null;
+}

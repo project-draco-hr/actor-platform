@@ -1,0 +1,10 @@
+{
+  if (this.isInfinity()) {
+    return this;
+  }
+  ECFieldElement Y1=this.y;
+  if (Y1.isZero()) {
+    return this;
+  }
+  return twiceJacobianModified(false).add(this);
+}

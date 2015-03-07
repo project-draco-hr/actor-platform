@@ -1,0 +1,3 @@
+{
+  return "DVCSRequest {\n" + "requestInformation: " + requestInformation + "\n"+ "data: "+ data+ "\n"+ (transactionIdentifier != null ? "transactionIdentifier: " + transactionIdentifier + "\n" : "")+ "}\n";
+}

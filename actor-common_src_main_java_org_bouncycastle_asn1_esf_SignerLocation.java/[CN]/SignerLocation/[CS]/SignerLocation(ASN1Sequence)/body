@@ -1,0 +1,29 @@
+{
+  Enumeration e=seq.getObjects();
+  while (e.hasMoreElements()) {
+    DERTaggedObject o=(DERTaggedObject)e.nextElement();
+switch (o.getTagNo()) {
+case 0:
+      DirectoryString countryNameDirectoryString=DirectoryString.getInstance(o,true);
+    this.countryName=new DERUTF8String(countryNameDirectoryString.getString());
+  break;
+case 1:
+DirectoryString localityNameDirectoryString=DirectoryString.getInstance(o,true);
+this.localityName=new DERUTF8String(localityNameDirectoryString.getString());
+break;
+case 2:
+if (o.isExplicit()) {
+this.postalAddress=ASN1Sequence.getInstance(o,true);
+}
+ else {
+this.postalAddress=ASN1Sequence.getInstance(o,false);
+}
+if (postalAddress != null && postalAddress.size() > 6) {
+throw new IllegalArgumentException("postal address must contain less than 6 strings");
+}
+break;
+default :
+throw new IllegalArgumentException("illegal tag");
+}
+}
+}

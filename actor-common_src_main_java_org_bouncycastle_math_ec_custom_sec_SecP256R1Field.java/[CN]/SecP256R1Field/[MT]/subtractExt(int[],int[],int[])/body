@@ -1,0 +1,6 @@
+{
+  int c=Nat.sub(16,xx,yy,zz);
+  if (c != 0) {
+    Nat.addTo(16,PExt,zz);
+  }
+}

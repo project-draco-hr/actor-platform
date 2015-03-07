@@ -1,0 +1,9 @@
+{
+  SecP224R1Field.multiply(e,d,e);
+  SecP224R1Field.twice(e,e);
+  SecP224R1Field.square(d,t);
+  SecP224R1Field.add(f,t,d);
+  SecP224R1Field.multiply(f,t,f);
+  int c=Nat.shiftUpBits(7,f,2,0);
+  SecP224R1Field.reduce32(c,f);
+}

@@ -1,0 +1,4 @@
+{
+  publicKey=spki;
+  return this;
+}

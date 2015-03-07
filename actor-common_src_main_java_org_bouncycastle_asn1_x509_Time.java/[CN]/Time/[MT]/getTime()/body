@@ -1,0 +1,8 @@
+{
+  if (time instanceof ASN1UTCTime) {
+    return ((ASN1UTCTime)time).getAdjustedTime();
+  }
+ else {
+    return ((ASN1GeneralizedTime)time).getTime();
+  }
+}

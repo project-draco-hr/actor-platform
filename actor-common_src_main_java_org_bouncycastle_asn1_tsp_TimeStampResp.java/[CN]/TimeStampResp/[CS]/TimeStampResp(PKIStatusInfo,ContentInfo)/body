@@ -1,0 +1,4 @@
+{
+  this.pkiStatusInfo=pkiStatusInfo;
+  this.timeStampToken=timeStampToken;
+}

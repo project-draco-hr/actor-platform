@@ -1,0 +1,9 @@
+{
+  if (obj instanceof OriginatorInfo) {
+    return (OriginatorInfo)obj;
+  }
+ else   if (obj != null) {
+    return new OriginatorInfo(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

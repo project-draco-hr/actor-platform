@@ -1,0 +1,11 @@
+{
+  if (bit == 0) {
+    return x[0] & 1;
+  }
+  if ((bit & 255) != bit) {
+    return 0;
+  }
+  int w=bit >>> 5;
+  int b=bit & 31;
+  return (x[w] >>> b) & 1;
+}

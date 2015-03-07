@@ -1,0 +1,9 @@
+{
+  if (o instanceof SinglePubInfo) {
+    return (SinglePubInfo)o;
+  }
+  if (o != null) {
+    return new SinglePubInfo(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

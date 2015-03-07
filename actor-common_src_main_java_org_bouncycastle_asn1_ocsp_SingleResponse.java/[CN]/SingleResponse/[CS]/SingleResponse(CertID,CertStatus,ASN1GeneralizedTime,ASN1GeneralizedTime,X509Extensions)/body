@@ -1,0 +1,3 @@
+{
+  this(certID,certStatus,thisUpdate,nextUpdate,Extensions.getInstance(singleExtensions));
+}

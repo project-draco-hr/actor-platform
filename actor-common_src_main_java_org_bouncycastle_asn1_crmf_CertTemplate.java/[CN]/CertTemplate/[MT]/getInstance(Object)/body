@@ -1,0 +1,9 @@
+{
+  if (o instanceof CertTemplate) {
+    return (CertTemplate)o;
+  }
+ else   if (o != null) {
+    return new CertTemplate(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

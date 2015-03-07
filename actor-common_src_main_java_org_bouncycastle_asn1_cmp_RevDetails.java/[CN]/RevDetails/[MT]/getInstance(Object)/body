@@ -1,0 +1,9 @@
+{
+  if (o instanceof RevDetails) {
+    return (RevDetails)o;
+  }
+  if (o != null) {
+    return new RevDetails(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

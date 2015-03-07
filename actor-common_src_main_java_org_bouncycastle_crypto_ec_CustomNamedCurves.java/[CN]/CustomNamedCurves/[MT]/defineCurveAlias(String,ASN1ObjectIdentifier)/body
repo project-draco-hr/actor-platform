@@ -1,0 +1,5 @@
+{
+  alias=Strings.toLowerCase(alias);
+  nameToOID.put(alias,oid);
+  nameToCurve.put(alias,oidToCurve.get(oid));
+}

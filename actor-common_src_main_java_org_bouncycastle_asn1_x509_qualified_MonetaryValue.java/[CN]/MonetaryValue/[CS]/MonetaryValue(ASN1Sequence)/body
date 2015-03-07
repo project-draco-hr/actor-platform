@@ -1,0 +1,6 @@
+{
+  Enumeration e=seq.getObjects();
+  currency=Iso4217CurrencyCode.getInstance(e.nextElement());
+  amount=ASN1Integer.getInstance(e.nextElement());
+  exponent=ASN1Integer.getInstance(e.nextElement());
+}

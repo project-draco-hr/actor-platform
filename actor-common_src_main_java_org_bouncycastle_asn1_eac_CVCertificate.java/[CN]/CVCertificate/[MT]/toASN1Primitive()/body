@@ -1,0 +1,14 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (valid != (signValid | bodyValid)) {
+    return null;
+  }
+  v.add(certificateBody);
+  try {
+    v.add(new DERApplicationSpecific(false,EACTags.STATIC_INTERNAL_AUTHENTIFICATION_ONE_STEP,new DEROctetString(signature)));
+  }
+ catch (  IOException e) {
+    throw new IllegalStateException("unable to convert signature!");
+  }
+  return new DERApplicationSpecific(EACTags.CARDHOLDER_CERTIFICATE,v);
+}

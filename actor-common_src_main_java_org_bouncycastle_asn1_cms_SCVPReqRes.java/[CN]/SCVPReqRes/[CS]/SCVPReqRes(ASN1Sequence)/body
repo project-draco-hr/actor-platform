@@ -1,0 +1,10 @@
+{
+  if (seq.getObjectAt(0) instanceof ASN1TaggedObject) {
+    this.request=ContentInfo.getInstance(ASN1TaggedObject.getInstance(seq.getObjectAt(0)),true);
+    this.response=ContentInfo.getInstance(seq.getObjectAt(1));
+  }
+ else {
+    this.request=null;
+    this.response=ContentInfo.getInstance(seq.getObjectAt(0));
+  }
+}

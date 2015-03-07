@@ -1,0 +1,7 @@
+{
+  this.publicKeyParamSet=(ASN1ObjectIdentifier)seq.getObjectAt(0);
+  this.digestParamSet=(ASN1ObjectIdentifier)seq.getObjectAt(1);
+  if (seq.size() > 2) {
+    this.encryptionParamSet=(ASN1ObjectIdentifier)seq.getObjectAt(2);
+  }
+}

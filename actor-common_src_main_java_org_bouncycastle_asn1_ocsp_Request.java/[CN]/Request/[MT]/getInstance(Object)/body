@@ -1,0 +1,9 @@
+{
+  if (obj instanceof Request) {
+    return (Request)obj;
+  }
+ else   if (obj != null) {
+    return new Request(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

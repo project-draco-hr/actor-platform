@@ -1,0 +1,8 @@
+{
+  if ((options & A) != 0) {
+    return firstCoefA;
+  }
+ else {
+    return null;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(this.ocspIdentifier);
+  if (null != this.ocspRepHash) {
+    v.add(this.ocspRepHash);
+  }
+  return new DERSequence(v);
+}

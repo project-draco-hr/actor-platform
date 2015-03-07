@@ -1,0 +1,3 @@
+{
+  this(Strings.toUTF8ByteArray(string));
+}

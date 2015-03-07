@@ -1,0 +1,5 @@
+{
+  this.messageType=values.getInt(1);
+  this.body=values.getBytes(2);
+  this.crc32=values.getLong(3);
+}

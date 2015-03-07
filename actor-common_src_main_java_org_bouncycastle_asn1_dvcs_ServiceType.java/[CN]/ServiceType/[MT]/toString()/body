@@ -1,0 +1,4 @@
+{
+  int num=value.getValue().intValue();
+  return "" + num + (num == CPD.getValue().intValue() ? "(CPD)" : num == VSD.getValue().intValue() ? "(VSD)" : num == VPKC.getValue().intValue() ? "(VPKC)" : num == CCPD.getValue().intValue() ? "(CCPD)" : "?");
+}

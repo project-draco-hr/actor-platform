@@ -1,0 +1,8 @@
+{
+  int index=0;
+  if (seq.size() == 3) {
+    owf=AlgorithmIdentifier.getInstance(seq.getObjectAt(index++));
+  }
+  witness=ASN1OctetString.getInstance(seq.getObjectAt(index++));
+  challenge=ASN1OctetString.getInstance(seq.getObjectAt(index));
+}

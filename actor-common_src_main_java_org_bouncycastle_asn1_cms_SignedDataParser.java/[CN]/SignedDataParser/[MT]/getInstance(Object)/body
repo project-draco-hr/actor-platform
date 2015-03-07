@@ -1,0 +1,9 @@
+{
+  if (o instanceof ASN1Sequence) {
+    return new SignedDataParser(((ASN1Sequence)o).parser());
+  }
+  if (o instanceof ASN1SequenceParser) {
+    return new SignedDataParser((ASN1SequenceParser)o);
+  }
+  throw new IOException("unknown object encountered: " + o.getClass().getName());
+}

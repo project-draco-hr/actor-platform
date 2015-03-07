@@ -1,0 +1,7 @@
+{
+  this.version=new ASN1Integer(1);
+  this.dataUri=dataUri;
+  this.metaData=metaData;
+  this.content=content;
+  this.temporalEvidence=temporalEvidence;
+}

@@ -1,0 +1,5 @@
+{
+  this.version=new ASN1Integer((unprotectedAttrs == null) ? 0 : 2);
+  this.encryptedContentInfo=encInfo;
+  this.unprotectedAttrs=unprotectedAttrs;
+}

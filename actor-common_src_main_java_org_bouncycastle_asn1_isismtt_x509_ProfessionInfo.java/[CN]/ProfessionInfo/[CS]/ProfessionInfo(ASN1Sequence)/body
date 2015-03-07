@@ -1,0 +1,51 @@
+{
+  if (seq.size() > 5) {
+    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
+  }
+  Enumeration e=seq.getObjects();
+  ASN1Encodable o=(ASN1Encodable)e.nextElement();
+  if (o instanceof ASN1TaggedObject) {
+    if (((ASN1TaggedObject)o).getTagNo() != 0) {
+      throw new IllegalArgumentException("Bad tag number: " + ((ASN1TaggedObject)o).getTagNo());
+    }
+    namingAuthority=NamingAuthority.getInstance((ASN1TaggedObject)o,true);
+    o=(ASN1Encodable)e.nextElement();
+  }
+  professionItems=ASN1Sequence.getInstance(o);
+  if (e.hasMoreElements()) {
+    o=(ASN1Encodable)e.nextElement();
+    if (o instanceof ASN1Sequence) {
+      professionOIDs=ASN1Sequence.getInstance(o);
+    }
+ else     if (o instanceof DERPrintableString) {
+      registrationNumber=DERPrintableString.getInstance(o).getString();
+    }
+ else     if (o instanceof ASN1OctetString) {
+      addProfessionInfo=ASN1OctetString.getInstance(o);
+    }
+ else {
+      throw new IllegalArgumentException("Bad object encountered: " + o.getClass());
+    }
+  }
+  if (e.hasMoreElements()) {
+    o=(ASN1Encodable)e.nextElement();
+    if (o instanceof DERPrintableString) {
+      registrationNumber=DERPrintableString.getInstance(o).getString();
+    }
+ else     if (o instanceof DEROctetString) {
+      addProfessionInfo=(DEROctetString)o;
+    }
+ else {
+      throw new IllegalArgumentException("Bad object encountered: " + o.getClass());
+    }
+  }
+  if (e.hasMoreElements()) {
+    o=(ASN1Encodable)e.nextElement();
+    if (o instanceof DEROctetString) {
+      addProfessionInfo=(DEROctetString)o;
+    }
+ else {
+      throw new IllegalArgumentException("Bad object encountered: " + o.getClass());
+    }
+  }
+}

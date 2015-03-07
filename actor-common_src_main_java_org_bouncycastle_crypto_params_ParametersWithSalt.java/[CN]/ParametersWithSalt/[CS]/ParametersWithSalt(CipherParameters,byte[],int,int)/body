@@ -1,0 +1,5 @@
+{
+  this.salt=new byte[saltLen];
+  this.parameters=parameters;
+  System.arraycopy(salt,saltOff,this.salt,0,saltLen);
+}

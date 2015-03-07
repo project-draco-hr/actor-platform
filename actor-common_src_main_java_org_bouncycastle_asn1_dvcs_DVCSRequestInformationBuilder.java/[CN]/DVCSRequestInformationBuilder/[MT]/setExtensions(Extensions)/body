@@ -1,0 +1,6 @@
+{
+  if (initialInfo != null) {
+    throw new IllegalStateException("cannot change extensions in existing DVCSRequestInformation");
+  }
+  this.extensions=extensions;
+}

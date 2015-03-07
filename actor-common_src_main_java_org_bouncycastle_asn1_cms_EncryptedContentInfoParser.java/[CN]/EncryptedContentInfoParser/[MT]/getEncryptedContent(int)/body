@@ -1,0 +1,3 @@
+{
+  return _encryptedContent.getObjectParser(tag,false);
+}

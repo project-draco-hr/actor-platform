@@ -1,0 +1,12 @@
+{
+  if (obj == null || obj instanceof NameOrPseudonym) {
+    return (NameOrPseudonym)obj;
+  }
+  if (obj instanceof ASN1String) {
+    return new NameOrPseudonym(DirectoryString.getInstance(obj));
+  }
+  if (obj instanceof ASN1Sequence) {
+    return new NameOrPseudonym((ASN1Sequence)obj);
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

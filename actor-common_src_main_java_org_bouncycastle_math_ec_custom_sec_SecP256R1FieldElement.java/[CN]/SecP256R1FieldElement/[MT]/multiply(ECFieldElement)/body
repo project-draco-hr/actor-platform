@@ -1,0 +1,5 @@
+{
+  int[] z=Nat256.create();
+  SecP256R1Field.multiply(x,((SecP256R1FieldElement)b).x,z);
+  return new SecP256R1FieldElement(z);
+}

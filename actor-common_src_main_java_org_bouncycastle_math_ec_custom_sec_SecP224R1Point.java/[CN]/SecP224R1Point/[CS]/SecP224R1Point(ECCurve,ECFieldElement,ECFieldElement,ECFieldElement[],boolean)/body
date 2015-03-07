@@ -1,0 +1,4 @@
+{
+  super(curve,x,y,zs);
+  this.withCompression=withCompression;
+}

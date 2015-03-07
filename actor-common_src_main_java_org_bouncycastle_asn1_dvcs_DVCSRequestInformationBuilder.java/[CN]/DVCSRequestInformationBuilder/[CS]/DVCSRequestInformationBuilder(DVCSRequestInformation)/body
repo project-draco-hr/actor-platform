@@ -1,0 +1,10 @@
+{
+  this.initialInfo=initialInfo;
+  this.service=initialInfo.getService();
+  this.version=initialInfo.getVersion();
+  this.nonce=initialInfo.getNonce();
+  this.requestTime=initialInfo.getRequestTime();
+  this.requestPolicy=initialInfo.getRequestPolicy();
+  this.dvcs=initialInfo.getDVCS();
+  this.dataLocations=initialInfo.getDataLocations();
+}

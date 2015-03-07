@@ -1,0 +1,17 @@
+{
+  ASN1EncodableVector vec=new ASN1EncodableVector();
+  if (namingAuthority != null) {
+    vec.add(new DERTaggedObject(true,0,namingAuthority));
+  }
+  vec.add(professionItems);
+  if (professionOIDs != null) {
+    vec.add(professionOIDs);
+  }
+  if (registrationNumber != null) {
+    vec.add(new DERPrintableString(registrationNumber,true));
+  }
+  if (addProfessionInfo != null) {
+    vec.add(addProfessionInfo);
+  }
+  return new DERSequence(vec);
+}

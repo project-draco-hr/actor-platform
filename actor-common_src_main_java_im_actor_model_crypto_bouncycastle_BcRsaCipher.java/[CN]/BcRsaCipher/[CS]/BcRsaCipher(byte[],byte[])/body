@@ -1,0 +1,13 @@
+{
+  super(publicKey);
+  try {
+    PrivateKeyInfo info=new PrivateKeyInfo(ASN1Sequence.getInstance(privateKey));
+    RSAPrivateCrtKeyParameters privateCrtKeyParameters=(RSAPrivateCrtKeyParameters)PrivateKeyFactory.createKey(info);
+    AsymmetricKeyParameter keyParameter=new RSAKeyParameters(true,privateCrtKeyParameters.getModulus(),privateCrtKeyParameters.getExponent());
+    cipher=new OAEPEncoding(new RSAEngine(),new SHA1Digest());
+    cipher.init(false,keyParameter);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

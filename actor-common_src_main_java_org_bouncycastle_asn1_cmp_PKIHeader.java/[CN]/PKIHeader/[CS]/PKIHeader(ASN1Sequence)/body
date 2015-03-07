@@ -1,0 +1,40 @@
+{
+  Enumeration en=seq.getObjects();
+  pvno=ASN1Integer.getInstance(en.nextElement());
+  sender=GeneralName.getInstance(en.nextElement());
+  recipient=GeneralName.getInstance(en.nextElement());
+  while (en.hasMoreElements()) {
+    ASN1TaggedObject tObj=(ASN1TaggedObject)en.nextElement();
+switch (tObj.getTagNo()) {
+case 0:
+      messageTime=ASN1GeneralizedTime.getInstance(tObj,true);
+    break;
+case 1:
+  protectionAlg=AlgorithmIdentifier.getInstance(tObj,true);
+break;
+case 2:
+senderKID=ASN1OctetString.getInstance(tObj,true);
+break;
+case 3:
+recipKID=ASN1OctetString.getInstance(tObj,true);
+break;
+case 4:
+transactionID=ASN1OctetString.getInstance(tObj,true);
+break;
+case 5:
+senderNonce=ASN1OctetString.getInstance(tObj,true);
+break;
+case 6:
+recipNonce=ASN1OctetString.getInstance(tObj,true);
+break;
+case 7:
+freeText=PKIFreeText.getInstance(tObj,true);
+break;
+case 8:
+generalInfo=ASN1Sequence.getInstance(tObj,true);
+break;
+default :
+throw new IllegalArgumentException("unknown tag number: " + tObj.getTagNo());
+}
+}
+}

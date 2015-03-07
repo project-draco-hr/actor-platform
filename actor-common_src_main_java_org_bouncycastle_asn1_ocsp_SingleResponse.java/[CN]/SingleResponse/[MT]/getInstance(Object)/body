@@ -1,0 +1,9 @@
+{
+  if (obj instanceof SingleResponse) {
+    return (SingleResponse)obj;
+  }
+ else   if (obj != null) {
+    return new SingleResponse(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

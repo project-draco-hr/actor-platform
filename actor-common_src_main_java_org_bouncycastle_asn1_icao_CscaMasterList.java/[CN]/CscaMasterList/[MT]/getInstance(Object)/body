@@ -1,0 +1,9 @@
+{
+  if (obj instanceof CscaMasterList) {
+    return (CscaMasterList)obj;
+  }
+ else   if (obj != null) {
+    return new CscaMasterList(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,4 @@
+DVCSRequestInformation dvReqInfo
+DigestInfo messageImprint
+ASN1Integer serialNumber
+DVCSTime responseTime

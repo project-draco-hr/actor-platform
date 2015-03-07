@@ -1,0 +1,12 @@
+{
+  if (!(obj instanceof ElGamalKeyParameters)) {
+    return false;
+  }
+  ElGamalKeyParameters dhKey=(ElGamalKeyParameters)obj;
+  if (params == null) {
+    return dhKey.getParameters() == null;
+  }
+ else {
+    return params.equals(dhKey.getParameters());
+  }
+}

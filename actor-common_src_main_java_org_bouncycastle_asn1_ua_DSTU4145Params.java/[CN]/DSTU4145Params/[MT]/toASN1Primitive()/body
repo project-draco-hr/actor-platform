@@ -1,0 +1,13 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (namedCurve != null) {
+    v.add(namedCurve);
+  }
+ else {
+    v.add(ecbinary);
+  }
+  if (!org.bouncycastle.util.Arrays.areEqual(dke,DEFAULT_DKE)) {
+    v.add(new DEROctetString(dke));
+  }
+  return new DERSequence(v);
+}

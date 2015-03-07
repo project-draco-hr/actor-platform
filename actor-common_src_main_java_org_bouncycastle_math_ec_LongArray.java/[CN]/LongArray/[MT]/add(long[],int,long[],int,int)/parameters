@@ -1,0 +1,5 @@
+long[] x
+int xOff
+long[] y
+int yOff
+int count

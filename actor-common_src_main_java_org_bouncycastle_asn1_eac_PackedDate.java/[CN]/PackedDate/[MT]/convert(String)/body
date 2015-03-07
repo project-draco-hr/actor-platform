@@ -1,0 +1,8 @@
+{
+  char[] digs=sTime.toCharArray();
+  byte[] date=new byte[6];
+  for (int i=0; i != 6; i++) {
+    date[i]=(byte)(digs[i] - '0');
+  }
+  return date;
+}

@@ -1,0 +1,4 @@
+{
+  this.version=new ASN1Integer(parameterVersion);
+  this.iv=new DEROctetString(iv);
+}

@@ -1,0 +1,10 @@
+{
+  if (regInfo == null) {
+    return null;
+  }
+  AttributeTypeAndValue[] results=new AttributeTypeAndValue[regInfo.size()];
+  for (int i=0; i != results.length; i++) {
+    results[i]=AttributeTypeAndValue.getInstance(regInfo.getObjectAt(i));
+  }
+  return results;
+}

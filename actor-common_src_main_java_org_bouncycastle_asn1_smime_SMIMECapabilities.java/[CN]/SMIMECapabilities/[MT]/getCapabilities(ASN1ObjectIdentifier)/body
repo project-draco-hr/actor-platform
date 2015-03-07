@@ -1,0 +1,19 @@
+{
+  Enumeration e=capabilities.getObjects();
+  Vector list=new Vector();
+  if (capability == null) {
+    while (e.hasMoreElements()) {
+      SMIMECapability cap=SMIMECapability.getInstance(e.nextElement());
+      list.addElement(cap);
+    }
+  }
+ else {
+    while (e.hasMoreElements()) {
+      SMIMECapability cap=SMIMECapability.getInstance(e.nextElement());
+      if (capability.equals(cap.getCapabilityID())) {
+        list.addElement(cap);
+      }
+    }
+  }
+  return list;
+}

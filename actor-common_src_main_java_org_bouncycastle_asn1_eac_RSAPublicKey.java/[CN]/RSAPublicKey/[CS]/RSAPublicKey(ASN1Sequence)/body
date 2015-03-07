@@ -1,0 +1,20 @@
+{
+  Enumeration en=seq.getObjects();
+  this.usage=ASN1ObjectIdentifier.getInstance(en.nextElement());
+  while (en.hasMoreElements()) {
+    UnsignedInteger val=UnsignedInteger.getInstance(en.nextElement());
+switch (val.getTagNo()) {
+case 0x1:
+      setModulus(val);
+    break;
+case 0x2:
+  setExponent(val);
+break;
+default :
+throw new IllegalArgumentException("Unknown DERTaggedObject :" + val.getTagNo() + "-> not an Iso7816RSAPublicKeyStructure");
+}
+}
+if (valid != 0x3) {
+throw new IllegalArgumentException("missing argument -> not an Iso7816RSAPublicKeyStructure");
+}
+}

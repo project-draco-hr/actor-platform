@@ -1,0 +1,6 @@
+{
+  this.country=country;
+  this.typeOfSubstitution=typeOfSubstitution;
+  this.thirdPerson=thirdPerson;
+  this.certRef=null;
+}

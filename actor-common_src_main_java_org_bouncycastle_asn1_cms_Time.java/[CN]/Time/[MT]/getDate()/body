@@ -1,0 +1,13 @@
+{
+  try {
+    if (time instanceof ASN1UTCTime) {
+      return ((ASN1UTCTime)time).getAdjustedDate();
+    }
+ else {
+      return ((ASN1GeneralizedTime)time).getDate();
+    }
+  }
+ catch (  ParseException e) {
+    throw new IllegalStateException("invalid date string: " + e.getMessage());
+  }
+}

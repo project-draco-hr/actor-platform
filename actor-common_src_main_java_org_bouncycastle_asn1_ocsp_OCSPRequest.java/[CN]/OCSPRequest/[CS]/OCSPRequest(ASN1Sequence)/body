@@ -1,0 +1,6 @@
+{
+  tbsRequest=TBSRequest.getInstance(seq.getObjectAt(0));
+  if (seq.size() == 2) {
+    optionalSignature=Signature.getInstance((ASN1TaggedObject)seq.getObjectAt(1),true);
+  }
+}

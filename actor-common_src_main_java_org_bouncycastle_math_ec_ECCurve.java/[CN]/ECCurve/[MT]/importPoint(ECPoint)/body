@@ -1,0 +1,10 @@
+{
+  if (this == p.getCurve()) {
+    return p;
+  }
+  if (p.isInfinity()) {
+    return getInfinity();
+  }
+  p=p.normalize();
+  return validatePoint(p.getXCoord().toBigInteger(),p.getYCoord().toBigInteger(),p.withCompression);
+}

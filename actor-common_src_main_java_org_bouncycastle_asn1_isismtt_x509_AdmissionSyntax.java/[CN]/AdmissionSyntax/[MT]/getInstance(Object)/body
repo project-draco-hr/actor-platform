@@ -1,0 +1,9 @@
+{
+  if (obj == null || obj instanceof AdmissionSyntax) {
+    return (AdmissionSyntax)obj;
+  }
+  if (obj instanceof ASN1Sequence) {
+    return new AdmissionSyntax((ASN1Sequence)obj);
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

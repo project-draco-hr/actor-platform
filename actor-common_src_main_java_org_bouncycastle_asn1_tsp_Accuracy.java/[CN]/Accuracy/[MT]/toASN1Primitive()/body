@@ -1,0 +1,13 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (seconds != null) {
+    v.add(seconds);
+  }
+  if (millis != null) {
+    v.add(new DERTaggedObject(false,0,millis));
+  }
+  if (micros != null) {
+    v.add(new DERTaggedObject(false,1,micros));
+  }
+  return new DERSequence(v);
+}

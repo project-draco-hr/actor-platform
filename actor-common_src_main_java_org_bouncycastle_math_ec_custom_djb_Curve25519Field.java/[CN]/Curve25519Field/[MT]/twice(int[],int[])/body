@@ -1,0 +1,6 @@
+{
+  Nat.shiftUpBit(8,x,0,z);
+  if (Nat256.gte(z,P)) {
+    subPFrom(z);
+  }
+}

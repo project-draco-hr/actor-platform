@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(keyAttrId);
+  v.add(keyAttr);
+  return new DERSequence(v);
+}

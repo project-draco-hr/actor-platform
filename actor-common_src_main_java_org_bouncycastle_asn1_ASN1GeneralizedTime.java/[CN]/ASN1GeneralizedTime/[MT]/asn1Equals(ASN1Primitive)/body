@@ -1,0 +1,6 @@
+{
+  if (!(o instanceof ASN1GeneralizedTime)) {
+    return false;
+  }
+  return Arrays.areEqual(time,((ASN1GeneralizedTime)o).time);
+}

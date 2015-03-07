@@ -1,0 +1,10 @@
+{
+  BigInteger g0=x.shiftRight(x.bitLength() / 2);
+  for (; ; ) {
+    BigInteger g1=g0.add(x.divide(g0)).shiftRight(1);
+    if (g1.equals(g0)) {
+      return g1;
+    }
+    g0=g1;
+  }
+}

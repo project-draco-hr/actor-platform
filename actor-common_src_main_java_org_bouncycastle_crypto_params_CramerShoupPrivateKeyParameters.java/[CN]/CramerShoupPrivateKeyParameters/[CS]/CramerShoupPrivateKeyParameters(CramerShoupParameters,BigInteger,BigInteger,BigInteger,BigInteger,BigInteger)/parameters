@@ -1,0 +1,6 @@
+CramerShoupParameters params
+BigInteger x1
+BigInteger x2
+BigInteger y1
+BigInteger y2
+BigInteger z

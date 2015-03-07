@@ -1,0 +1,6 @@
+long[] buf
+int off
+int len
+int words
+int m
+int[] ks

@@ -1,0 +1,6 @@
+{
+  commitmentTypeId=(ASN1ObjectIdentifier)seq.getObjectAt(0);
+  if (seq.size() > 1) {
+    commitmentTypeQualifier=(ASN1Sequence)seq.getObjectAt(1);
+  }
+}

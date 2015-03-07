@@ -1,0 +1,9 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(publicKeyParamSet);
+  v.add(digestParamSet);
+  if (encryptionParamSet != null) {
+    v.add(encryptionParamSet);
+  }
+  return new DERSequence(v);
+}

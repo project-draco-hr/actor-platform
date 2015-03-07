@@ -1,0 +1,9 @@
+{
+  this.version=new ASN1Integer(0);
+  this.originatorInfo=originatorInfo;
+  this.recipientInfos=recipientInfos;
+  this.authEncryptedContentInfo=authEncryptedContentInfo;
+  this.authAttrs=authAttrs;
+  this.mac=mac;
+  this.unauthAttrs=unauthAttrs;
+}

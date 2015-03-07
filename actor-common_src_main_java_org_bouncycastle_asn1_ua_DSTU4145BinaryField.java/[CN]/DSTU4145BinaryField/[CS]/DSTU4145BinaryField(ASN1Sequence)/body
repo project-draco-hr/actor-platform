@@ -1,0 +1,15 @@
+{
+  m=ASN1Integer.getInstance(seq.getObjectAt(0)).getPositiveValue().intValue();
+  if (seq.getObjectAt(1) instanceof ASN1Integer) {
+    k=((ASN1Integer)seq.getObjectAt(1)).getPositiveValue().intValue();
+  }
+ else   if (seq.getObjectAt(1) instanceof ASN1Sequence) {
+    ASN1Sequence coefs=ASN1Sequence.getInstance(seq.getObjectAt(1));
+    k=ASN1Integer.getInstance(coefs.getObjectAt(0)).getPositiveValue().intValue();
+    j=ASN1Integer.getInstance(coefs.getObjectAt(1)).getPositiveValue().intValue();
+    l=ASN1Integer.getInstance(coefs.getObjectAt(2)).getPositiveValue().intValue();
+  }
+ else {
+    throw new IllegalArgumentException("object parse error");
+  }
+}

@@ -1,0 +1,3 @@
+AlgorithmIdentifier digestAlgorithm
+ContentInfo encapContentInfo
+byte[] digest

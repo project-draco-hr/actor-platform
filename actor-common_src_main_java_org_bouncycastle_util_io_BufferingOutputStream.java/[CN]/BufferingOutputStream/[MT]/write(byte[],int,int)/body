@@ -1,0 +1,23 @@
+{
+  if (len < buf.length - bufOff) {
+    System.arraycopy(bytes,offset,buf,bufOff,len);
+    bufOff+=len;
+  }
+ else {
+    int gap=buf.length - bufOff;
+    System.arraycopy(bytes,offset,buf,bufOff,gap);
+    bufOff+=gap;
+    flush();
+    offset+=gap;
+    len-=gap;
+    while (len >= buf.length) {
+      other.write(bytes,offset,buf.length);
+      offset+=buf.length;
+      len-=buf.length;
+    }
+    if (len > 0) {
+      System.arraycopy(bytes,offset,buf,bufOff,len);
+      bufOff+=len;
+    }
+  }
+}

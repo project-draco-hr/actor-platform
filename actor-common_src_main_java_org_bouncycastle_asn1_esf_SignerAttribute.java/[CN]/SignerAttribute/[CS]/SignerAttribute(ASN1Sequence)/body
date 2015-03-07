@@ -1,0 +1,22 @@
+{
+  int index=0;
+  values=new Object[seq.size()];
+  for (Enumeration e=seq.getObjects(); e.hasMoreElements(); ) {
+    ASN1TaggedObject taggedObject=ASN1TaggedObject.getInstance(e.nextElement());
+    if (taggedObject.getTagNo() == 0) {
+      ASN1Sequence attrs=ASN1Sequence.getInstance(taggedObject,true);
+      Attribute[] attributes=new Attribute[attrs.size()];
+      for (int i=0; i != attributes.length; i++) {
+        attributes[i]=Attribute.getInstance(attrs.getObjectAt(i));
+      }
+      values[index]=attributes;
+    }
+ else     if (taggedObject.getTagNo() == 1) {
+      values[index]=AttributeCertificate.getInstance(ASN1Sequence.getInstance(taggedObject,true));
+    }
+ else {
+      throw new IllegalArgumentException("illegal tag: " + taggedObject.getTagNo());
+    }
+    index++;
+  }
+}

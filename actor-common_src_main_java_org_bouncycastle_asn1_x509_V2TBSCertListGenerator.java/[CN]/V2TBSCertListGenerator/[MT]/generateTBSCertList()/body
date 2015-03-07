@@ -1,0 +1,20 @@
+{
+  if ((signature == null) || (issuer == null) || (thisUpdate == null)) {
+    throw new IllegalStateException("Not all mandatory fields set in V2 TBSCertList generator.");
+  }
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(version);
+  v.add(signature);
+  v.add(issuer);
+  v.add(thisUpdate);
+  if (nextUpdate != null) {
+    v.add(nextUpdate);
+  }
+  if (crlentries.size() != 0) {
+    v.add(new DERSequence(crlentries));
+  }
+  if (extensions != null) {
+    v.add(new DERTaggedObject(0,extensions));
+  }
+  return new TBSCertList(new DERSequence(v));
+}

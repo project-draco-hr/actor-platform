@@ -1,0 +1,3 @@
+{
+  return prf == null || prf.equals(algid_hmacWithSHA1);
+}

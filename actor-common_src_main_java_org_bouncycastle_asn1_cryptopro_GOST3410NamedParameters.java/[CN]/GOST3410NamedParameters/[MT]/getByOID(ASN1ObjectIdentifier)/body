@@ -1,0 +1,3 @@
+{
+  return (GOST3410ParamSetParameters)params.get(oid);
+}

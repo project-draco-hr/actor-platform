@@ -1,0 +1,4 @@
+PKIHeader header
+PKIBody body
+DERBitString protection
+CMPCertificate[] extraCerts

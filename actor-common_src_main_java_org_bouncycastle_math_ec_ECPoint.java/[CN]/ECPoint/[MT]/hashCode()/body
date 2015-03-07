@@ -1,0 +1,10 @@
+{
+  ECCurve c=this.getCurve();
+  int hc=(null == c) ? 0 : ~c.hashCode();
+  if (!this.isInfinity()) {
+    ECPoint p=normalize();
+    hc^=p.getXCoord().hashCode() * 17;
+    hc^=p.getYCoord().hashCode() * 257;
+  }
+  return hc;
+}

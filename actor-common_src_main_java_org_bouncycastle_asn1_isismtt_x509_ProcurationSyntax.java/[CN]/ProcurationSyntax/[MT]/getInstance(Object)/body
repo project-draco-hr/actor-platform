@@ -1,0 +1,9 @@
+{
+  if (obj == null || obj instanceof ProcurationSyntax) {
+    return (ProcurationSyntax)obj;
+  }
+  if (obj instanceof ASN1Sequence) {
+    return new ProcurationSyntax((ASN1Sequence)obj);
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

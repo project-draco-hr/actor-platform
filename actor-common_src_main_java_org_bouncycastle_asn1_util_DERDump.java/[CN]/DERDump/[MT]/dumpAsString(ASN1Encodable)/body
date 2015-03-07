@@ -1,0 +1,5 @@
+{
+  StringBuffer buf=new StringBuffer();
+  _dumpAsString("",false,obj.toASN1Primitive(),buf);
+  return buf.toString();
+}

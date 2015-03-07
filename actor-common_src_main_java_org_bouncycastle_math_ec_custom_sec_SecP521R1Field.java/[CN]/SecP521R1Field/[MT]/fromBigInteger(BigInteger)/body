@@ -1,0 +1,7 @@
+{
+  int[] z=Nat.fromBigInteger(521,x);
+  if (Nat.eq(17,z,P)) {
+    Nat.zero(17,z);
+  }
+  return z;
+}

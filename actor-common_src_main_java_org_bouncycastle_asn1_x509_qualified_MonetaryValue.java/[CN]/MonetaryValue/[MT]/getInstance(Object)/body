@@ -1,0 +1,9 @@
+{
+  if (obj instanceof MonetaryValue) {
+    return (MonetaryValue)obj;
+  }
+  if (obj != null) {
+    return new MonetaryValue(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

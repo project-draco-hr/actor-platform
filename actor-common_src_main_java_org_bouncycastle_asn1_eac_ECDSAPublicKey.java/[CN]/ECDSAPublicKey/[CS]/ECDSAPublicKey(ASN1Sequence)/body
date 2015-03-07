@@ -1,0 +1,43 @@
+{
+  Enumeration en=seq.getObjects();
+  this.usage=ASN1ObjectIdentifier.getInstance(en.nextElement());
+  options=0;
+  while (en.hasMoreElements()) {
+    Object obj=en.nextElement();
+    if (obj instanceof ASN1TaggedObject) {
+      ASN1TaggedObject to=(ASN1TaggedObject)obj;
+switch (to.getTagNo()) {
+case 0x1:
+        setPrimeModulusP(UnsignedInteger.getInstance(to).getValue());
+      break;
+case 0x2:
+    setFirstCoefA(UnsignedInteger.getInstance(to).getValue());
+  break;
+case 0x3:
+setSecondCoefB(UnsignedInteger.getInstance(to).getValue());
+break;
+case 0x4:
+setBasePointG(ASN1OctetString.getInstance(to,false));
+break;
+case 0x5:
+setOrderOfBasePointR(UnsignedInteger.getInstance(to).getValue());
+break;
+case 0x6:
+setPublicPointY(ASN1OctetString.getInstance(to,false));
+break;
+case 0x7:
+setCofactorF(UnsignedInteger.getInstance(to).getValue());
+break;
+default :
+options=0;
+throw new IllegalArgumentException("Unknown Object Identifier!");
+}
+}
+ else {
+throw new IllegalArgumentException("Unknown Object Identifier!");
+}
+}
+if (options != 0x20 && options != 0x7F) {
+throw new IllegalArgumentException("All options must be either present or absent!");
+}
+}

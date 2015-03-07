@@ -1,0 +1,9 @@
+{
+  if (obj instanceof ASN1String) {
+    return new DisplayText((ASN1String)obj);
+  }
+ else   if (obj == null || obj instanceof DisplayText) {
+    return (DisplayText)obj;
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

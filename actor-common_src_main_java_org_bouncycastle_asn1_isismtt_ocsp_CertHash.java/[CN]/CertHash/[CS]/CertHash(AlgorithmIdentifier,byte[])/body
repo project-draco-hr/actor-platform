@@ -1,0 +1,5 @@
+{
+  this.hashAlgorithm=hashAlgorithm;
+  this.certificateHash=new byte[certificateHash.length];
+  System.arraycopy(certificateHash,0,this.certificateHash,0,certificateHash.length);
+}

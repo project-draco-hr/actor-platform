@@ -1,0 +1,12 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(certReqId);
+  v.add(status);
+  if (certifiedKeyPair != null) {
+    v.add(certifiedKeyPair);
+  }
+  if (rspInfo != null) {
+    v.add(rspInfo);
+  }
+  return new DERSequence(v);
+}

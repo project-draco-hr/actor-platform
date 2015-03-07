@@ -1,0 +1,7 @@
+{
+  boolean negative=(x.signum() != y.signum());
+  x=x.abs();
+  y=y.abs();
+  BigInteger result=x.add(y.shiftRight(1)).divide(y);
+  return negative ? result.negate() : result;
+}

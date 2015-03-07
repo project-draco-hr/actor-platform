@@ -1,0 +1,6 @@
+{
+  if (this.isInfinity()) {
+    return this;
+  }
+  return new Curve25519Point(this.getCurve(),this.x,this.y.negate(),this.zs,this.withCompression);
+}

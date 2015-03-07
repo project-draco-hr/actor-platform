@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector seq=new ASN1EncodableVector();
+  seq.add(qcStatementId);
+  if (qcStatementInfo != null) {
+    seq.add(qcStatementInfo);
+  }
+  return new DERSequence(seq);
+}

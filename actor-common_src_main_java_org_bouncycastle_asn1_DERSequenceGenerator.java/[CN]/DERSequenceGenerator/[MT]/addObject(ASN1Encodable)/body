@@ -1,0 +1,3 @@
+{
+  object.toASN1Primitive().encode(new DEROutputStream(_bOut));
+}

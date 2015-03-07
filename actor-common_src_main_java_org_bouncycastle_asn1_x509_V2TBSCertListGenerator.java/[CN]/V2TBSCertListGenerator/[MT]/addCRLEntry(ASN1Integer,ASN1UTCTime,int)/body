@@ -1,0 +1,3 @@
+{
+  addCRLEntry(userCertificate,new Time(revocationDate),reason);
+}

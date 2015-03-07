@@ -1,0 +1,2 @@
+ECPrivateKeyParameters staticPrivateKey
+ECPrivateKeyParameters ephemeralPrivateKey

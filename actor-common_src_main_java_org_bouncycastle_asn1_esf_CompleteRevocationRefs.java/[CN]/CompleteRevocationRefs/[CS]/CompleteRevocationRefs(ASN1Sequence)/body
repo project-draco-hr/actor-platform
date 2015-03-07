@@ -1,0 +1,7 @@
+{
+  Enumeration seqEnum=seq.getObjects();
+  while (seqEnum.hasMoreElements()) {
+    CrlOcspRef.getInstance(seqEnum.nextElement());
+  }
+  this.crlOcspRefs=seq;
+}

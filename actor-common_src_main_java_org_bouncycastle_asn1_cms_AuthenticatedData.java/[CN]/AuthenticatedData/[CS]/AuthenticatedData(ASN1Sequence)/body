@@ -1,0 +1,26 @@
+{
+  int index=0;
+  version=(ASN1Integer)seq.getObjectAt(index++);
+  Object tmp=seq.getObjectAt(index++);
+  if (tmp instanceof ASN1TaggedObject) {
+    originatorInfo=OriginatorInfo.getInstance((ASN1TaggedObject)tmp,false);
+    tmp=seq.getObjectAt(index++);
+  }
+  recipientInfos=ASN1Set.getInstance(tmp);
+  macAlgorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(index++));
+  tmp=seq.getObjectAt(index++);
+  if (tmp instanceof ASN1TaggedObject) {
+    digestAlgorithm=AlgorithmIdentifier.getInstance((ASN1TaggedObject)tmp,false);
+    tmp=seq.getObjectAt(index++);
+  }
+  encapsulatedContentInfo=ContentInfo.getInstance(tmp);
+  tmp=seq.getObjectAt(index++);
+  if (tmp instanceof ASN1TaggedObject) {
+    authAttrs=ASN1Set.getInstance((ASN1TaggedObject)tmp,false);
+    tmp=seq.getObjectAt(index++);
+  }
+  mac=ASN1OctetString.getInstance(tmp);
+  if (seq.size() > index) {
+    unauthAttrs=ASN1Set.getInstance((ASN1TaggedObject)seq.getObjectAt(index),false);
+  }
+}

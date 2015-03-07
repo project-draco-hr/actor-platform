@@ -1,0 +1,6 @@
+{
+  if (core == null) {
+    core=new RSACoreEngine();
+  }
+  core.init(forEncryption,param);
+}

@@ -1,0 +1,4 @@
+{
+  this.signaturePolicyId=signaturePolicyId;
+  this.isSignaturePolicyImplied=false;
+}

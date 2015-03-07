@@ -1,0 +1,13 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(version);
+  if (originatorInfo != null) {
+    v.add(new DERTaggedObject(false,0,originatorInfo));
+  }
+  v.add(recipientInfos);
+  v.add(encryptedContentInfo);
+  if (unprotectedAttrs != null) {
+    v.add(new DERTaggedObject(false,1,unprotectedAttrs));
+  }
+  return new BERSequence(v);
+}

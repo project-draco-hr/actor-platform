@@ -1,0 +1,12 @@
+{
+  try {
+    SubjectPublicKeyInfo publicKeyInfo=new SubjectPublicKeyInfo(ASN1Sequence.getInstance(publicKey));
+    AsymmetricKeyParameter param;
+    param=PublicKeyFactory.createKey(publicKeyInfo);
+    cipher=new OAEPEncoding(new RSAEngine(),new SHA1Digest());
+    cipher.init(true,param);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

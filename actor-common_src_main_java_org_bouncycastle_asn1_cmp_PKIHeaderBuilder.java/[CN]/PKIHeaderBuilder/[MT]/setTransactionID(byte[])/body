@@ -1,0 +1,3 @@
+{
+  return setTransactionID(tid == null ? null : new DEROctetString(tid));
+}

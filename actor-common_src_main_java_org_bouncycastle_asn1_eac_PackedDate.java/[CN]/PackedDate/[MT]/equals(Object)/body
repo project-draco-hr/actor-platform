@@ -1,0 +1,7 @@
+{
+  if (!(o instanceof PackedDate)) {
+    return false;
+  }
+  PackedDate other=(PackedDate)o;
+  return Arrays.areEqual(time,other.time);
+}

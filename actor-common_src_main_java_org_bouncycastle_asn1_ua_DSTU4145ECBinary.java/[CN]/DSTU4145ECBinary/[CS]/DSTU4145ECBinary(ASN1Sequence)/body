@@ -1,0 +1,22 @@
+{
+  int index=0;
+  if (seq.getObjectAt(index) instanceof ASN1TaggedObject) {
+    ASN1TaggedObject taggedVersion=(ASN1TaggedObject)seq.getObjectAt(index);
+    if (taggedVersion.isExplicit() && 0 == taggedVersion.getTagNo()) {
+      version=ASN1Integer.getInstance(taggedVersion.getLoadedObject()).getValue();
+      index++;
+    }
+ else {
+      throw new IllegalArgumentException("object parse error");
+    }
+  }
+  f=DSTU4145BinaryField.getInstance(seq.getObjectAt(index));
+  index++;
+  a=ASN1Integer.getInstance(seq.getObjectAt(index));
+  index++;
+  b=ASN1OctetString.getInstance(seq.getObjectAt(index));
+  index++;
+  n=ASN1Integer.getInstance(seq.getObjectAt(index));
+  index++;
+  bp=ASN1OctetString.getInstance(seq.getObjectAt(index));
+}

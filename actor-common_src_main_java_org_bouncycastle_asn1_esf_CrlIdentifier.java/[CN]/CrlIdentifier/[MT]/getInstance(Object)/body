@@ -1,0 +1,9 @@
+{
+  if (obj instanceof CrlIdentifier) {
+    return (CrlIdentifier)obj;
+  }
+ else   if (obj != null) {
+    return new CrlIdentifier(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

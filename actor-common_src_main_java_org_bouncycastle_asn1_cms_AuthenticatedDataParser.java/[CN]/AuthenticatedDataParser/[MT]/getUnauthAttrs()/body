@@ -1,0 +1,11 @@
+{
+  if (nextObject == null) {
+    nextObject=seq.readObject();
+  }
+  if (nextObject != null) {
+    ASN1Encodable o=nextObject;
+    nextObject=null;
+    return (ASN1SetParser)((ASN1TaggedObjectParser)o).getObjectParser(BERTags.SET,false);
+  }
+  return null;
+}

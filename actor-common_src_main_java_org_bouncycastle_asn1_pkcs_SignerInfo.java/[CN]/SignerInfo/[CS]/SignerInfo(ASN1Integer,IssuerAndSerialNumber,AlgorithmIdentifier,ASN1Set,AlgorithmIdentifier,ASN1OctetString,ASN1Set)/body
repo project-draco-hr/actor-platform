@@ -1,0 +1,9 @@
+{
+  this.version=version;
+  this.issuerAndSerialNumber=issuerAndSerialNumber;
+  this.digAlgorithm=digAlgorithm;
+  this.authenticatedAttributes=authenticatedAttributes;
+  this.digEncryptionAlgorithm=digEncryptionAlgorithm;
+  this.encryptedDigest=encryptedDigest;
+  this.unauthenticatedAttributes=unauthenticatedAttributes;
+}

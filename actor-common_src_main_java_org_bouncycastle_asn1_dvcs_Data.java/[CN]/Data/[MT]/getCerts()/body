@@ -1,0 +1,10 @@
+{
+  if (certs == null) {
+    return null;
+  }
+  TargetEtcChain[] tmp=new TargetEtcChain[certs.size()];
+  for (int i=0; i != tmp.length; i++) {
+    tmp[i]=TargetEtcChain.getInstance(certs.getObjectAt(i));
+  }
+  return tmp;
+}

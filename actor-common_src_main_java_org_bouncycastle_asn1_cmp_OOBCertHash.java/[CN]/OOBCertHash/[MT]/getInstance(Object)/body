@@ -1,0 +1,9 @@
+{
+  if (o instanceof OOBCertHash) {
+    return (OOBCertHash)o;
+  }
+  if (o != null) {
+    return new OOBCertHash(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

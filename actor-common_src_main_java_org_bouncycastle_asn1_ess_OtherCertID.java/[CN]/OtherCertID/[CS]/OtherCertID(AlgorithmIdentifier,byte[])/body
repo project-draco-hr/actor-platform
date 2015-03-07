@@ -1,0 +1,3 @@
+{
+  this.otherCertHash=new DigestInfo(algId,digest);
+}

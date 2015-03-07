@@ -1,0 +1,15 @@
+{
+  for (; ; ) {
+    BigInteger p=new BigInteger(bitlength,1,param.getRandom());
+    if (p.mod(e).equals(ONE)) {
+      continue;
+    }
+    if (!p.isProbablePrime(param.getCertainty())) {
+      continue;
+    }
+    if (!e.gcd(p.subtract(ONE)).equals(ONE)) {
+      continue;
+    }
+    return p;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (declaration.getTagNo() != 2) {
+    return null;
+  }
+  return ASN1GeneralizedTime.getInstance(declaration,false);
+}

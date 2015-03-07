@@ -1,0 +1,8 @@
+{
+  if ((options & P) != 0) {
+    return primeModulusP;
+  }
+ else {
+    return null;
+  }
+}

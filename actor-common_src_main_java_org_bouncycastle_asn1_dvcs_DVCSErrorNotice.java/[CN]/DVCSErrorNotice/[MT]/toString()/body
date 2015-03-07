@@ -1,0 +1,3 @@
+{
+  return "DVCSErrorNotice {\n" + "transactionStatus: " + transactionStatus + "\n"+ (transactionIdentifier != null ? "transactionIdentifier: " + transactionIdentifier + "\n" : "")+ "}\n";
+}

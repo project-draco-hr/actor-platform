@@ -1,0 +1,10 @@
+{
+  if (keyPairHist == null) {
+    return null;
+  }
+  CertifiedKeyPair[] results=new CertifiedKeyPair[keyPairHist.size()];
+  for (int i=0; i != results.length; i++) {
+    results[i]=CertifiedKeyPair.getInstance(keyPairHist.getObjectAt(i));
+  }
+  return results;
+}

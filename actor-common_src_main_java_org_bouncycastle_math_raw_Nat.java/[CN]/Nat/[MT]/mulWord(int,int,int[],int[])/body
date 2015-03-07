@@ -1,0 +1,11 @@
+{
+  long c=0, xVal=x & M;
+  int i=0;
+  do {
+    c+=xVal * (y[i] & M);
+    z[i]=(int)c;
+    c>>>=32;
+  }
+ while (++i < len);
+  return (int)c;
+}

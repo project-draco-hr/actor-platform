@@ -1,0 +1,5 @@
+CertID certID
+CertStatus certStatus
+ASN1GeneralizedTime thisUpdate
+ASN1GeneralizedTime nextUpdate
+X509Extensions singleExtensions

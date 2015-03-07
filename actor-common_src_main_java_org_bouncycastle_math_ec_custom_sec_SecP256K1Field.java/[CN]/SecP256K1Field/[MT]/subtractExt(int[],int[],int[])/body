@@ -1,0 +1,8 @@
+{
+  int c=Nat.sub(16,xx,yy,zz);
+  if (c != 0) {
+    if (Nat.subFrom(PExtInv.length,PExtInv,zz) != 0) {
+      Nat.decAt(16,zz,PExtInv.length);
+    }
+  }
+}

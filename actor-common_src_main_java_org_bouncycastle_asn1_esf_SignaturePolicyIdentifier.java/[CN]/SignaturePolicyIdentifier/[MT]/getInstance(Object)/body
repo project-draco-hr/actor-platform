@@ -1,0 +1,12 @@
+{
+  if (obj instanceof SignaturePolicyIdentifier) {
+    return (SignaturePolicyIdentifier)obj;
+  }
+ else   if (obj instanceof ASN1Null || hasEncodedTagValue(obj,BERTags.NULL)) {
+    return new SignaturePolicyIdentifier();
+  }
+ else   if (obj != null) {
+    return new SignaturePolicyIdentifier(SignaturePolicyId.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,6 @@
+{
+  if (initialInfo != null) {
+    throw new IllegalStateException("cannot change request policy in existing DVCSRequestInformation");
+  }
+  this.requestPolicy=requestPolicy;
+}

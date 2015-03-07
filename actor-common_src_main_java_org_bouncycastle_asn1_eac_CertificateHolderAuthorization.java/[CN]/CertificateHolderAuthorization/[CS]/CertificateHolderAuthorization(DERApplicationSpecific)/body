@@ -1,0 +1,5 @@
+{
+  if (aSpe.getApplicationTag() == EACTags.CERTIFICATE_HOLDER_AUTHORIZATION_TEMPLATE) {
+    setPrivateData(new ASN1InputStream(aSpe.getContents()));
+  }
+}

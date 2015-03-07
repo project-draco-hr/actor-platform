@@ -1,0 +1,5 @@
+{
+  this.requestInformation=requestInformation;
+  this.data=data;
+  this.transactionIdentifier=transactionIdentifier;
+}

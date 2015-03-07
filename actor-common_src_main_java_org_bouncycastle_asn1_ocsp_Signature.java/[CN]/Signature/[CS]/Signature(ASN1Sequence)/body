@@ -1,0 +1,7 @@
+{
+  signatureAlgorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
+  signature=(DERBitString)seq.getObjectAt(1);
+  if (seq.size() == 3) {
+    certs=ASN1Sequence.getInstance((ASN1TaggedObject)seq.getObjectAt(2),true);
+  }
+}

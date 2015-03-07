@@ -1,0 +1,29 @@
+{
+  boolean swap=ab[0].compareTo(ab[1]) < 0;
+  if (swap) {
+    swap(ab);
+  }
+  BigInteger r0=ab[0], r1=ab[1];
+  BigInteger s0=ECConstants.ONE, s1=ECConstants.ZERO;
+  BigInteger t0=ECConstants.ZERO, t1=ECConstants.ONE;
+  while (r1.compareTo(ECConstants.ONE) > 0) {
+    BigInteger[] qr=r0.divideAndRemainder(r1);
+    BigInteger q=qr[0], r2=qr[1];
+    BigInteger s2=s0.subtract(q.multiply(s1));
+    BigInteger t2=t0.subtract(q.multiply(t1));
+    r0=r1;
+    r1=r2;
+    s0=s1;
+    s1=s2;
+    t0=t1;
+    t1=t2;
+  }
+  if (r1.signum() <= 0) {
+    throw new IllegalStateException();
+  }
+  BigInteger[] st=new BigInteger[]{s1,t1};
+  if (swap) {
+    swap(st);
+  }
+  return st;
+}

@@ -1,0 +1,12 @@
+{
+  Enumeration en=seq.getObjects();
+  while (en.hasMoreElements()) {
+    ASN1TaggedObject tObj=(ASN1TaggedObject)en.nextElement();
+    if (tObj.getTagNo() == 0) {
+      notBefore=Time.getInstance(tObj,true);
+    }
+ else {
+      notAfter=Time.getInstance(tObj,true);
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.algId=aid;
+  this.value=value;
+}

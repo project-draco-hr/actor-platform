@@ -1,0 +1,3 @@
+{
+  super(SMIMEAttributes.encrypKeyPref,new DERSet(new DERTaggedObject(false,0,issAndSer)));
+}

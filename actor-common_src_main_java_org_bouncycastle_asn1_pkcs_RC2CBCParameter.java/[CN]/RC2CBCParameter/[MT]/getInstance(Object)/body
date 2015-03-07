@@ -1,0 +1,9 @@
+{
+  if (o instanceof RC2CBCParameter) {
+    return (RC2CBCParameter)o;
+  }
+  if (o != null) {
+    return new RC2CBCParameter(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

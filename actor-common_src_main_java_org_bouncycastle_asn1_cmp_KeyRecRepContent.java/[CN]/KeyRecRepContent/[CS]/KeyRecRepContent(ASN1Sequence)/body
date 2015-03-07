@@ -1,0 +1,20 @@
+{
+  Enumeration en=seq.getObjects();
+  status=PKIStatusInfo.getInstance(en.nextElement());
+  while (en.hasMoreElements()) {
+    ASN1TaggedObject tObj=ASN1TaggedObject.getInstance(en.nextElement());
+switch (tObj.getTagNo()) {
+case 0:
+      newSigCert=CMPCertificate.getInstance(tObj.getObject());
+    break;
+case 1:
+  caCerts=ASN1Sequence.getInstance(tObj.getObject());
+break;
+case 2:
+keyPairHist=ASN1Sequence.getInstance(tObj.getObject());
+break;
+default :
+throw new IllegalArgumentException("unknown tag number: " + tObj.getTagNo());
+}
+}
+}

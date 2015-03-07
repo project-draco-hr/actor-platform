@@ -1,0 +1,16 @@
+{
+  if (seq.size() > 3) {
+    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
+  }
+  int count=0;
+  if (seq.getObjectAt(0) instanceof ASN1OctetString) {
+    this.hashAlgorithm=DEFAULT_ALG_ID;
+  }
+ else {
+    this.hashAlgorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(count++).toASN1Primitive());
+  }
+  this.certHash=ASN1OctetString.getInstance(seq.getObjectAt(count++).toASN1Primitive()).getOctets();
+  if (seq.size() > count) {
+    this.issuerSerial=IssuerSerial.getInstance(seq.getObjectAt(count));
+  }
+}

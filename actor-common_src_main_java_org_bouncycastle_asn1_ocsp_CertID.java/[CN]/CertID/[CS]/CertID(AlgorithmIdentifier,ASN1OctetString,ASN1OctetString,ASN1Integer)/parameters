@@ -1,0 +1,4 @@
+AlgorithmIdentifier hashAlgorithm
+ASN1OctetString issuerNameHash
+ASN1OctetString issuerKeyHash
+ASN1Integer serialNumber

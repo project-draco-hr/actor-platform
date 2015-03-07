@@ -1,0 +1,3 @@
+{
+  super(SMIMEAttributes.smimeCapabilities,new DERSet(new DERSequence(capabilities.toASN1EncodableVector())));
+}

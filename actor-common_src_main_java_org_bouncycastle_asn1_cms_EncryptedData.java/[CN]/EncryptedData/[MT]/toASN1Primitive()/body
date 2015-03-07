@@ -1,0 +1,9 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(version);
+  v.add(encryptedContentInfo);
+  if (unprotectedAttrs != null) {
+    v.add(new BERTaggedObject(false,1,unprotectedAttrs));
+  }
+  return new BERSequence(v);
+}

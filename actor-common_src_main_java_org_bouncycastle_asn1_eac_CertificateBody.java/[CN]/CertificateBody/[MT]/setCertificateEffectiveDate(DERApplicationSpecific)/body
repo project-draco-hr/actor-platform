@@ -1,0 +1,9 @@
+{
+  if (ced.getApplicationTag() == EACTags.APPLICATION_EFFECTIVE_DATE) {
+    this.certificateEffectiveDate=ced;
+    certificateType|=CEfD;
+  }
+ else {
+    throw new IllegalArgumentException("Not an Iso7816Tags.APPLICATION_EFFECTIVE_DATE tag :" + EACTags.encodeTag(ced));
+  }
+}

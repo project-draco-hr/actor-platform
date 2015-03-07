@@ -1,0 +1,9 @@
+{
+  if (as instanceof NoticeReference) {
+    return (NoticeReference)as;
+  }
+ else   if (as != null) {
+    return new NoticeReference(ASN1Sequence.getInstance(as));
+  }
+  return null;
+}

@@ -1,0 +1,18 @@
+{
+  if (!curve.isKoblitz()) {
+    throw new IllegalArgumentException("si is defined for Koblitz curves only");
+  }
+  int m=curve.getM();
+  int a=curve.getA().toBigInteger().intValue();
+  byte mu=curve.getMu();
+  int shifts=getShiftsForCofactor(curve.getCofactor());
+  int index=m + 3 - a;
+  BigInteger[] ui=getLucas(mu,index,false);
+  if (mu == 1) {
+    ui[0]=ui[0].negate();
+    ui[1]=ui[1].negate();
+  }
+  BigInteger dividend0=ECConstants.ONE.add(ui[1]).shiftRight(shifts);
+  BigInteger dividend1=ECConstants.ONE.add(ui[0]).shiftRight(shifts).negate();
+  return new BigInteger[]{dividend0,dividend1};
+}

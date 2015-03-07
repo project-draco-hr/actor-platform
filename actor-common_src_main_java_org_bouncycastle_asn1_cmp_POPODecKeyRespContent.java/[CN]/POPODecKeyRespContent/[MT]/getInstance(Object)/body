@@ -1,0 +1,9 @@
+{
+  if (o instanceof POPODecKeyRespContent) {
+    return (POPODecKeyRespContent)o;
+  }
+  if (o != null) {
+    return new POPODecKeyRespContent(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

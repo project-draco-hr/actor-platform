@@ -1,0 +1,6 @@
+{
+  commitmentTypeIdentifier=(ASN1ObjectIdentifier)as.getObjectAt(0);
+  if (as.size() > 1) {
+    qualifier=as.getObjectAt(1);
+  }
+}

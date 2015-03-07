@@ -1,0 +1,9 @@
+{
+  if (obj instanceof UnsignedInteger) {
+    return (UnsignedInteger)obj;
+  }
+  if (obj != null) {
+    return new UnsignedInteger(ASN1TaggedObject.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,20 @@
+{
+  if (ki == null) {
+    throw new IllegalArgumentException("A KDF requires Ki (a seed) as input");
+  }
+  this.ki=Arrays.clone(ki);
+  if (fixedInputData == null) {
+    this.fixedInputData=new byte[0];
+  }
+ else {
+    this.fixedInputData=Arrays.clone(fixedInputData);
+  }
+  this.r=r;
+  if (iv == null) {
+    this.iv=new byte[0];
+  }
+ else {
+    this.iv=Arrays.clone(iv);
+  }
+  this.useCounter=useCounter;
+}

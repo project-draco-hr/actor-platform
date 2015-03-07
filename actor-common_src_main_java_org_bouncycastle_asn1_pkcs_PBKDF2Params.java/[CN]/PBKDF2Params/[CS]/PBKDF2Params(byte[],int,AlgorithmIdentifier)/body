@@ -1,0 +1,4 @@
+{
+  this(salt,iterationCount);
+  this.prf=prf;
+}

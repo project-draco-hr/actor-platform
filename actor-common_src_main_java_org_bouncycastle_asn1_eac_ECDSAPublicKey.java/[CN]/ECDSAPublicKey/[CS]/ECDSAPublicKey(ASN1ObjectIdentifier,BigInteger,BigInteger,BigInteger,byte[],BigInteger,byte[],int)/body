@@ -1,0 +1,10 @@
+{
+  this.usage=usage;
+  setPrimeModulusP(p);
+  setFirstCoefA(a);
+  setSecondCoefB(b);
+  setBasePointG(new DEROctetString(basePoint));
+  setOrderOfBasePointR(order);
+  setPublicPointY(new DEROctetString(publicPoint));
+  setCofactorF(BigInteger.valueOf(cofactor));
+}

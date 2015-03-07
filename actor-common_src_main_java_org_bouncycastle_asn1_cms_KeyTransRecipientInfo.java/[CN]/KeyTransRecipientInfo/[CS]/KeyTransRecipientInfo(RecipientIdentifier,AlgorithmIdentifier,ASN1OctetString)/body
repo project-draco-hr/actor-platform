@@ -1,0 +1,11 @@
+{
+  if (rid.toASN1Primitive() instanceof ASN1TaggedObject) {
+    this.version=new ASN1Integer(2);
+  }
+ else {
+    this.version=new ASN1Integer(0);
+  }
+  this.rid=rid;
+  this.keyEncryptionAlgorithm=keyEncryptionAlgorithm;
+  this.encryptedKey=encryptedKey;
+}

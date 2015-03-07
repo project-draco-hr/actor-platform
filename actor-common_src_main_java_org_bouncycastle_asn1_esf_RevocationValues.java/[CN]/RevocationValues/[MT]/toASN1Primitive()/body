@@ -1,0 +1,13 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (null != this.crlVals) {
+    v.add(new DERTaggedObject(true,0,this.crlVals));
+  }
+  if (null != this.ocspVals) {
+    v.add(new DERTaggedObject(true,1,this.ocspVals));
+  }
+  if (null != this.otherRevVals) {
+    v.add(new DERTaggedObject(true,2,this.otherRevVals.toASN1Primitive()));
+  }
+  return new DERSequence(v);
+}

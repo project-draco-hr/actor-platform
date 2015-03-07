@@ -1,0 +1,7 @@
+{
+  ASN1Integer[] tmp=new ASN1Integer[noticeNumbers.size()];
+  for (int i=0; i != noticeNumbers.size(); i++) {
+    tmp[i]=ASN1Integer.getInstance(noticeNumbers.getObjectAt(i));
+  }
+  return tmp;
+}

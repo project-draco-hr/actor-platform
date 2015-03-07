@@ -1,0 +1,4 @@
+{
+  this.seed=new byte[len];
+  System.arraycopy(seed,off,this.seed,0,len);
+}

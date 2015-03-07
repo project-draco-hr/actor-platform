@@ -1,0 +1,18 @@
+{
+  if (obj == null || obj instanceof ASN1ObjectIdentifier) {
+    return (ASN1ObjectIdentifier)obj;
+  }
+  if (obj instanceof ASN1Encodable && ((ASN1Encodable)obj).toASN1Primitive() instanceof ASN1ObjectIdentifier) {
+    return (ASN1ObjectIdentifier)((ASN1Encodable)obj).toASN1Primitive();
+  }
+  if (obj instanceof byte[]) {
+    byte[] enc=(byte[])obj;
+    try {
+      return (ASN1ObjectIdentifier)fromByteArray(enc);
+    }
+ catch (    IOException e) {
+      throw new IllegalArgumentException("failed to construct object identifier from byte[]: " + e.getMessage());
+    }
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

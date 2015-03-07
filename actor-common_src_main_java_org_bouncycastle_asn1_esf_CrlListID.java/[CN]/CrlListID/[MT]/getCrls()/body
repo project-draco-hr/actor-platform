@@ -1,0 +1,7 @@
+{
+  CrlValidatedID[] result=new CrlValidatedID[this.crls.size()];
+  for (int idx=0; idx < result.length; idx++) {
+    result[idx]=CrlValidatedID.getInstance(this.crls.getObjectAt(idx));
+  }
+  return result;
+}

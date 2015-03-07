@@ -1,0 +1,39 @@
+{
+  if (width == 2) {
+    return generateNaf(k);
+  }
+  if (width < 2 || width > 8) {
+    throw new IllegalArgumentException("'width' must be in the range [2, 8]");
+  }
+  if (k.signum() == 0) {
+    return EMPTY_BYTES;
+  }
+  byte[] wnaf=new byte[k.bitLength() + 1];
+  int pow2=1 << width;
+  int mask=pow2 - 1;
+  int sign=pow2 >>> 1;
+  boolean carry=false;
+  int length=0, pos=0;
+  while (pos <= k.bitLength()) {
+    if (k.testBit(pos) == carry) {
+      ++pos;
+      continue;
+    }
+    k=k.shiftRight(pos);
+    int digit=k.intValue() & mask;
+    if (carry) {
+      ++digit;
+    }
+    carry=(digit & sign) != 0;
+    if (carry) {
+      digit-=pow2;
+    }
+    length+=(length > 0) ? pos - 1 : pos;
+    wnaf[length++]=(byte)digit;
+    pos=width;
+  }
+  if (wnaf.length > length) {
+    wnaf=trim(wnaf,length);
+  }
+  return wnaf;
+}

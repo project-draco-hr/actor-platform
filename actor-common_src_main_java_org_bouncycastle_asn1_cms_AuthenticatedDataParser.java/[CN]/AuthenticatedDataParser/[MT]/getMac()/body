@@ -1,0 +1,8 @@
+{
+  if (nextObject == null) {
+    nextObject=seq.readObject();
+  }
+  ASN1Encodable o=nextObject;
+  nextObject=null;
+  return ASN1OctetString.getInstance(o.toASN1Primitive());
+}

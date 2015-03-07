@@ -1,0 +1,3 @@
+{
+  return Nat.toBigInteger(12,x);
+}

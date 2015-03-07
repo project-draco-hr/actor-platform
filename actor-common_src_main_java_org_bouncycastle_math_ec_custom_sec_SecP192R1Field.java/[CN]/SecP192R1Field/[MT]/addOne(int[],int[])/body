@@ -1,0 +1,6 @@
+{
+  int c=Nat.inc(6,x,z);
+  if (c != 0 || (z[5] == P5 && Nat192.gte(z,P))) {
+    addPInvTo(z);
+  }
+}

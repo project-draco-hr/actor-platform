@@ -1,0 +1,24 @@
+{
+  int index=0;
+  if (seq.getObjectAt(0) instanceof ASN1TaggedObject) {
+    ASN1TaggedObject o=(ASN1TaggedObject)seq.getObjectAt(0);
+    if (o.getTagNo() == 0) {
+      versionSet=true;
+      version=ASN1Integer.getInstance((ASN1TaggedObject)seq.getObjectAt(0),true);
+      index++;
+    }
+ else {
+      version=V1;
+    }
+  }
+ else {
+    version=V1;
+  }
+  if (seq.getObjectAt(index) instanceof ASN1TaggedObject) {
+    requestorName=GeneralName.getInstance((ASN1TaggedObject)seq.getObjectAt(index++),true);
+  }
+  requestList=(ASN1Sequence)seq.getObjectAt(index++);
+  if (seq.size() == (index + 1)) {
+    requestExtensions=Extensions.getInstance((ASN1TaggedObject)seq.getObjectAt(index),true);
+  }
+}

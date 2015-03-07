@@ -1,0 +1,3 @@
+{
+  return getOID("brainpoolP" + curvesize + (twisted ? "t" : "r")+ "1");
+}

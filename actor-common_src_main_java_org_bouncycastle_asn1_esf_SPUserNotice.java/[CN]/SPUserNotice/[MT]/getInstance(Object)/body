@@ -1,0 +1,9 @@
+{
+  if (obj instanceof SPUserNotice) {
+    return (SPUserNotice)obj;
+  }
+ else   if (obj != null) {
+    return new SPUserNotice(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

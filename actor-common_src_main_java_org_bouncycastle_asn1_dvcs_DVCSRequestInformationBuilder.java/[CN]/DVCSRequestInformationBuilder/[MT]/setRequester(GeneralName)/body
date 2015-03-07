@@ -1,0 +1,3 @@
+{
+  this.setRequester(new GeneralNames(requester));
+}

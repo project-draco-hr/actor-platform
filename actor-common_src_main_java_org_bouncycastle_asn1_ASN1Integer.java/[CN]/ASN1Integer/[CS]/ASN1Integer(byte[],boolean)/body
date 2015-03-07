@@ -1,0 +1,3 @@
+{
+  this.bytes=(clone) ? Arrays.clone(bytes) : bytes;
+}

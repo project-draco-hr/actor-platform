@@ -1,0 +1,11 @@
+{
+  if (bit == 0) {
+    return x[0] & 1;
+  }
+  int w=bit >> 5;
+  if (w < 0 || w >= 6) {
+    return 0;
+  }
+  int b=bit & 31;
+  return (x[w] >>> b) & 1;
+}

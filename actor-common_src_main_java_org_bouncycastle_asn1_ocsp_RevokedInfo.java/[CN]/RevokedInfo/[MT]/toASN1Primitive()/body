@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(revocationTime);
+  if (revocationReason != null) {
+    v.add(new DERTaggedObject(true,0,revocationReason));
+  }
+  return new DERSequence(v);
+}

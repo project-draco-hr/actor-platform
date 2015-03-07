@@ -1,0 +1,9 @@
+{
+  if (obj instanceof CertificateBody) {
+    return (CertificateBody)obj;
+  }
+ else   if (obj != null) {
+    return new CertificateBody(DERApplicationSpecific.getInstance(obj));
+  }
+  return null;
+}

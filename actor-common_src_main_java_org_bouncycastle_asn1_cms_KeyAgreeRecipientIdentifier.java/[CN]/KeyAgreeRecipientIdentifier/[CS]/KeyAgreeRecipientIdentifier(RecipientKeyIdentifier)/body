@@ -1,0 +1,4 @@
+{
+  this.issuerSerial=null;
+  this.rKeyID=rKeyID;
+}

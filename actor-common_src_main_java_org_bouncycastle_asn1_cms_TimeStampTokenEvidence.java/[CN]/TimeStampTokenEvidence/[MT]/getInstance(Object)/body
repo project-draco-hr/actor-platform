@@ -1,0 +1,9 @@
+{
+  if (obj instanceof TimeStampTokenEvidence) {
+    return (TimeStampTokenEvidence)obj;
+  }
+ else   if (obj != null) {
+    return new TimeStampTokenEvidence(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

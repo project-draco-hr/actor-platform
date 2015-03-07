@@ -1,0 +1,3 @@
+{
+  return isShorter(u,v) ? u : v;
+}

@@ -1,0 +1,6 @@
+{
+  if (null == this.otherHash) {
+    return new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1);
+  }
+  return this.otherHash.getHashAlgorithm();
+}

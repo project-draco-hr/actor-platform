@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(pubMethod);
+  if (pubLocation != null) {
+    v.add(pubLocation);
+  }
+  return new DERSequence(v);
+}

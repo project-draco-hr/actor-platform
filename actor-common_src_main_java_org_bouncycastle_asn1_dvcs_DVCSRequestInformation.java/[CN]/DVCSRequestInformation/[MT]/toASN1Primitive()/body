@@ -1,0 +1,23 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (version != DEFAULT_VERSION) {
+    v.add(new ASN1Integer(version));
+  }
+  v.add(service);
+  if (nonce != null) {
+    v.add(new ASN1Integer(nonce));
+  }
+  if (requestTime != null) {
+    v.add(requestTime);
+  }
+  int[] tags=new int[]{TAG_REQUESTER,TAG_REQUEST_POLICY,TAG_DVCS,TAG_DATA_LOCATIONS,TAG_EXTENSIONS};
+  ASN1Encodable[] taggedObjects=new ASN1Encodable[]{requester,requestPolicy,dvcs,dataLocations,extensions};
+  for (int i=0; i < tags.length; i++) {
+    int tag=tags[i];
+    ASN1Encodable taggedObject=taggedObjects[i];
+    if (taggedObject != null) {
+      v.add(new DERTaggedObject(false,tag,taggedObject));
+    }
+  }
+  return new DERSequence(v);
+}

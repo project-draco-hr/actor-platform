@@ -1,0 +1,12 @@
+{
+  if (certReqId == null) {
+    throw new IllegalArgumentException("'certReqId' cannot be null");
+  }
+  if (status == null) {
+    throw new IllegalArgumentException("'status' cannot be null");
+  }
+  this.certReqId=certReqId;
+  this.status=status;
+  this.certifiedKeyPair=certifiedKeyPair;
+  this.rspInfo=rspInfo;
+}

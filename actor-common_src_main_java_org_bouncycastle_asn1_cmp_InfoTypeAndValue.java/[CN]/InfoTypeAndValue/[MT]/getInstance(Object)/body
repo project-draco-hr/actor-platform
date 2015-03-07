@@ -1,0 +1,9 @@
+{
+  if (o instanceof InfoTypeAndValue) {
+    return (InfoTypeAndValue)o;
+  }
+  if (o != null) {
+    return new InfoTypeAndValue(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

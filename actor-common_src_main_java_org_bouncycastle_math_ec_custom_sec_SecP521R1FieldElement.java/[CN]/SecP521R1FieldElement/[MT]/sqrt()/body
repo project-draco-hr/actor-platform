@@ -1,0 +1,11 @@
+{
+  int[] x1=this.x;
+  if (Nat.isZero(17,x1) || Nat.isOne(17,x1)) {
+    return this;
+  }
+  int[] t1=Nat.create(17);
+  int[] t2=Nat.create(17);
+  SecP521R1Field.squareN(x1,519,t1);
+  SecP521R1Field.square(t1,t2);
+  return Nat.eq(17,x1,t2) ? new SecP521R1FieldElement(t1) : null;
+}

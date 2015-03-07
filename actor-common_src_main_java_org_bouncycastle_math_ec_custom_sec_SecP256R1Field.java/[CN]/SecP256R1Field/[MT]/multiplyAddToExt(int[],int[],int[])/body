@@ -1,0 +1,6 @@
+{
+  int c=Nat256.mulAddTo(x,y,zz);
+  if (c != 0 || ((zz[15] & PExt15) == PExt15 && Nat.gte(16,zz,PExt))) {
+    Nat.subFrom(16,PExt,zz);
+  }
+}

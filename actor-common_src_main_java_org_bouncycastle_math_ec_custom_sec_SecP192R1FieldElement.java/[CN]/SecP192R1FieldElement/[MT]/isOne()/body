@@ -1,0 +1,3 @@
+{
+  return Nat192.isOne(x);
+}

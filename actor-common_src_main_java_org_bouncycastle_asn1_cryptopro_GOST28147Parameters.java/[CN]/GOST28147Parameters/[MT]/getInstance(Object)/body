@@ -1,0 +1,9 @@
+{
+  if (obj instanceof GOST28147Parameters) {
+    return (GOST28147Parameters)obj;
+  }
+  if (obj != null) {
+    return new GOST28147Parameters(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

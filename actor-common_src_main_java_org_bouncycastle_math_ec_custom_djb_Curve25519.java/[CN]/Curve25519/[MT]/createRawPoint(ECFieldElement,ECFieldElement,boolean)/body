@@ -1,0 +1,3 @@
+{
+  return new Curve25519Point(this,x,y,withCompression);
+}

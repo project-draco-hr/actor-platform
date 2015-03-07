@@ -1,0 +1,6 @@
+{
+  if (obj == null || obj instanceof CommitmentTypeIndication) {
+    return (CommitmentTypeIndication)obj;
+  }
+  return new CommitmentTypeIndication(ASN1Sequence.getInstance(obj));
+}

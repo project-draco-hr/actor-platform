@@ -1,0 +1,18 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(version);
+  v.add(messageImprint);
+  if (tsaPolicy != null) {
+    v.add(tsaPolicy);
+  }
+  if (nonce != null) {
+    v.add(nonce);
+  }
+  if (certReq != null && certReq.isTrue()) {
+    v.add(certReq);
+  }
+  if (extensions != null) {
+    v.add(new DERTaggedObject(false,0,extensions));
+  }
+  return new DERSequence(v);
+}

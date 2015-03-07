@@ -1,0 +1,5 @@
+{
+  int[] z=new int[len];
+  System.arraycopy(x,0,z,0,len);
+  return z;
+}

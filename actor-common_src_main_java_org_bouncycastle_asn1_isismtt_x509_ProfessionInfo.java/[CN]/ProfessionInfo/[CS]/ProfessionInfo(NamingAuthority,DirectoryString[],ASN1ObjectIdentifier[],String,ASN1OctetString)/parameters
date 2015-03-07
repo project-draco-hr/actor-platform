@@ -1,0 +1,5 @@
+NamingAuthority namingAuthority
+DirectoryString[] professionItems
+ASN1ObjectIdentifier[] professionOIDs
+String registrationNumber
+ASN1OctetString addProfessionInfo

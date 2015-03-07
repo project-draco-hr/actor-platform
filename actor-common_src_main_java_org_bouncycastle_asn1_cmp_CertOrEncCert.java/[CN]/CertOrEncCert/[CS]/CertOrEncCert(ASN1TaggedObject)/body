@@ -1,0 +1,11 @@
+{
+  if (tagged.getTagNo() == 0) {
+    certificate=CMPCertificate.getInstance(tagged.getObject());
+  }
+ else   if (tagged.getTagNo() == 1) {
+    encryptedCert=EncryptedValue.getInstance(tagged.getObject());
+  }
+ else {
+    throw new IllegalArgumentException("unknown tag: " + tagged.getTagNo());
+  }
+}

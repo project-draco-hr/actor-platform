@@ -1,0 +1,5 @@
+{
+  this.version=new ASN1Integer(0);
+  this.compressionAlgorithm=compressionAlgorithm;
+  this.encapContentInfo=encapContentInfo;
+}

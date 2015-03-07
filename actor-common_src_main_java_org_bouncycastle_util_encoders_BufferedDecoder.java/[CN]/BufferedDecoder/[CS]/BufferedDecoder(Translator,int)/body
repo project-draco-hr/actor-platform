@@ -1,0 +1,8 @@
+{
+  this.translator=translator;
+  if ((bufSize % translator.getEncodedBlockSize()) != 0) {
+    throw new IllegalArgumentException("buffer size not multiple of input block size");
+  }
+  buf=new byte[bufSize];
+  bufOff=0;
+}

@@ -1,0 +1,28 @@
+{
+  if (seq.size() < 1 || seq.size() > 3) {
+    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
+  }
+  Enumeration e=seq.getObjects();
+  while (e.hasMoreElements()) {
+    ASN1TaggedObject o=ASN1TaggedObject.getInstance(e.nextElement());
+switch (o.getTagNo()) {
+case 1:
+      country=DERPrintableString.getInstance(o,true).getString();
+    break;
+case 2:
+  typeOfSubstitution=DirectoryString.getInstance(o,true);
+break;
+case 3:
+ASN1Encodable signingFor=o.getObject();
+if (signingFor instanceof ASN1TaggedObject) {
+thirdPerson=GeneralName.getInstance(signingFor);
+}
+ else {
+certRef=IssuerSerial.getInstance(signingFor);
+}
+break;
+default :
+throw new IllegalArgumentException("Bad tag number: " + o.getTagNo());
+}
+}
+}

@@ -1,0 +1,3 @@
+{
+  this(new AlgorithmIdentifier(CMPObjectIdentifiers.passwordBasedMac,params),value);
+}

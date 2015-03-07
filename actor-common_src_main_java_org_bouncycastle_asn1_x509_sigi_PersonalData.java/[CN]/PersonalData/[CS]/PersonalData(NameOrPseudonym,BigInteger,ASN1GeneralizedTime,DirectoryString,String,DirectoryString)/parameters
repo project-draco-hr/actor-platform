@@ -1,0 +1,6 @@
+NameOrPseudonym nameOrPseudonym
+BigInteger nameDistinguisher
+ASN1GeneralizedTime dateOfBirth
+DirectoryString placeOfBirth
+String gender
+DirectoryString postalAddress

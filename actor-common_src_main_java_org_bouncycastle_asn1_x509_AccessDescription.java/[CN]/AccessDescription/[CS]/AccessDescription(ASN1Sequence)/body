@@ -1,0 +1,7 @@
+{
+  if (seq.size() != 2) {
+    throw new IllegalArgumentException("wrong number of elements in sequence");
+  }
+  accessMethod=ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
+  accessLocation=GeneralName.getInstance(seq.getObjectAt(1));
+}

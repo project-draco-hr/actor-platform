@@ -1,0 +1,3 @@
+{
+  return new SecP192K1Point(this,x,y,zs,withCompression);
+}

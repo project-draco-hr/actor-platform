@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(this.ocspResponderID);
+  v.add(this.producedAt);
+  return new DERSequence(v);
+}

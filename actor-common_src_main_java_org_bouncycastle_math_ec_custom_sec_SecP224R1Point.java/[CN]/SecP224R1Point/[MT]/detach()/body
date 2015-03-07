@@ -1,0 +1,3 @@
+{
+  return new SecP224R1Point(null,getAffineXCoord(),getAffineYCoord());
+}

@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(commitmentTypeId);
+  if (commitmentTypeQualifier != null) {
+    v.add(commitmentTypeQualifier);
+  }
+  return new DERSequence(v);
+}

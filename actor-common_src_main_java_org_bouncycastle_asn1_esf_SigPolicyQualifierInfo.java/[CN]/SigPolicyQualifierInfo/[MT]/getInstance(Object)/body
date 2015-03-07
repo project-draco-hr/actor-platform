@@ -1,0 +1,9 @@
+{
+  if (obj instanceof SigPolicyQualifierInfo) {
+    return (SigPolicyQualifierInfo)obj;
+  }
+ else   if (obj != null) {
+    return new SigPolicyQualifierInfo(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

@@ -1,0 +1,7 @@
+{
+  int a=bytes[offset] & 0xFF;
+  int b=bytes[offset + 1] & 0xFF;
+  int c=bytes[offset + 2] & 0xFF;
+  int d=bytes[offset + 3] & 0xFF;
+  return d + (c << 8) + (b << 16)+ (a << 24);
+}

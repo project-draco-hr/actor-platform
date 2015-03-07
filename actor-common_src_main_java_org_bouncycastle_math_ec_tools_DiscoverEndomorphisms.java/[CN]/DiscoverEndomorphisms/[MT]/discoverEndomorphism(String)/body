@@ -1,0 +1,15 @@
+{
+  X9ECParameters x9=ECNamedCurveTable.getByName(curveName);
+  if (x9 == null) {
+    System.err.println("Unknown curve: " + curveName);
+    return;
+  }
+  ECCurve c=x9.getCurve();
+  if (ECAlgorithms.isFpCurve(c)) {
+    BigInteger characteristic=c.getField().getCharacteristic();
+    if (c.getA().isZero() && characteristic.mod(ECConstants.THREE).equals(ECConstants.ONE)) {
+      System.out.println("Curve '" + curveName + "' has a 'GLV Type B' endomorphism with these parameters: ");
+      printGLVTypeBParameters(x9);
+    }
+  }
+}

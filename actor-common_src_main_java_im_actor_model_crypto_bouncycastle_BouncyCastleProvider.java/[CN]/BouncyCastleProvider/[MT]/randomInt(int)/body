@@ -1,0 +1,5 @@
+{
+synchronized (RANDOM) {
+    return RANDOM.nextInt(maxValue);
+  }
+}

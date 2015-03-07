@@ -1,0 +1,10 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(tbsResponseData);
+  v.add(signatureAlgorithm);
+  v.add(signature);
+  if (certs != null) {
+    v.add(new DERTaggedObject(true,0,certs));
+  }
+  return new DERSequence(v);
+}

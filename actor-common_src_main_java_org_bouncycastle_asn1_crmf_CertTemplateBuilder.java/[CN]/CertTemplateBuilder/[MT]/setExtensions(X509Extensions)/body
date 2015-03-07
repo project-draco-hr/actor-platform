@@ -1,0 +1,3 @@
+{
+  return setExtensions(Extensions.getInstance(extens));
+}

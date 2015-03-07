@@ -1,0 +1,10 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof PrimeField)) {
+    return false;
+  }
+  PrimeField other=(PrimeField)obj;
+  return characteristic.equals(other.characteristic);
+}

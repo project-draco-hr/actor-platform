@@ -1,0 +1,10 @@
+{
+  if (extraCerts == null) {
+    return null;
+  }
+  CMPCertificate[] results=new CMPCertificate[extraCerts.size()];
+  for (int i=0; i < results.length; i++) {
+    results[i]=CMPCertificate.getInstance(extraCerts.getObjectAt(i));
+  }
+  return results;
+}

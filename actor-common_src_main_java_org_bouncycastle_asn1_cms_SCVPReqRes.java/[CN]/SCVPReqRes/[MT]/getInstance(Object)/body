@@ -1,0 +1,9 @@
+{
+  if (obj instanceof SCVPReqRes) {
+    return (SCVPReqRes)obj;
+  }
+ else   if (obj != null) {
+    return new SCVPReqRes(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

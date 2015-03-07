@@ -1,0 +1,8 @@
+{
+  if (targName != null) {
+    return new DERTaggedObject(true,0,targName);
+  }
+ else {
+    return new DERTaggedObject(true,1,targGroup);
+  }
+}

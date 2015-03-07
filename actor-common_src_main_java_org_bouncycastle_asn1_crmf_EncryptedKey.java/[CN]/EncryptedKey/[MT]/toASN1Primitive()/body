@@ -1,0 +1,6 @@
+{
+  if (encryptedValue != null) {
+    return encryptedValue.toASN1Primitive();
+  }
+  return new DERTaggedObject(false,0,envelopedData);
+}

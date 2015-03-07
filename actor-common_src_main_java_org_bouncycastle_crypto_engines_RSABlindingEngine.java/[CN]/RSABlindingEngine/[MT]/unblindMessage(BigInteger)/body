@@ -1,0 +1,8 @@
+{
+  BigInteger m=key.getModulus();
+  BigInteger msg=blindedMsg;
+  BigInteger blindFactorInverse=blindingFactor.modInverse(m);
+  msg=msg.multiply(blindFactorInverse);
+  msg=msg.mod(m);
+  return msg;
+}

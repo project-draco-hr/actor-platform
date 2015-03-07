@@ -1,0 +1,6 @@
+{
+  int c=Nat.shiftUpBit(6,x,0,z);
+  if (c != 0 || (z[5] == P5 && Nat192.gte(z,P))) {
+    addPInvTo(z);
+  }
+}

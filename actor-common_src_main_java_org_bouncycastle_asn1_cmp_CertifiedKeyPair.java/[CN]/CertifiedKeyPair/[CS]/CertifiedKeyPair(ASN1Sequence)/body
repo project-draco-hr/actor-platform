@@ -1,0 +1,18 @@
+{
+  certOrEncCert=CertOrEncCert.getInstance(seq.getObjectAt(0));
+  if (seq.size() >= 2) {
+    if (seq.size() == 2) {
+      ASN1TaggedObject tagged=ASN1TaggedObject.getInstance(seq.getObjectAt(1));
+      if (tagged.getTagNo() == 0) {
+        privateKey=EncryptedValue.getInstance(tagged.getObject());
+      }
+ else {
+        publicationInfo=PKIPublicationInfo.getInstance(tagged.getObject());
+      }
+    }
+ else {
+      privateKey=EncryptedValue.getInstance(ASN1TaggedObject.getInstance(seq.getObjectAt(1)));
+      publicationInfo=PKIPublicationInfo.getInstance(ASN1TaggedObject.getInstance(seq.getObjectAt(2)));
+    }
+  }
+}

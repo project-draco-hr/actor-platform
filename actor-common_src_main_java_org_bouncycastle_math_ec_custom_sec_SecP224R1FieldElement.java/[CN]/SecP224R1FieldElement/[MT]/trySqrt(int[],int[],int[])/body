@@ -1,0 +1,21 @@
+{
+  int[] d1=Nat224.create();
+  Nat224.copy(r,d1);
+  int[] e1=Nat224.create();
+  e1[0]=1;
+  int[] f1=Nat224.create();
+  RP(nc,d1,e1,f1,t);
+  int[] d0=Nat224.create();
+  int[] e0=Nat224.create();
+  for (int k=1; k < 96; ++k) {
+    Nat224.copy(d1,d0);
+    Nat224.copy(e1,e0);
+    RS(d1,e1,f1,t);
+    if (Nat224.isZero(d1)) {
+      Mod.invert(SecP224R1Field.P,e0,t);
+      SecP224R1Field.multiply(t,d0,t);
+      return true;
+    }
+  }
+  return false;
+}

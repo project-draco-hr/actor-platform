@@ -1,0 +1,16 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(oid);
+  if (!publicPointOnly) {
+    v.add(new UnsignedInteger(0x01,getPrimeModulusP()));
+    v.add(new UnsignedInteger(0x02,getFirstCoefA()));
+    v.add(new UnsignedInteger(0x03,getSecondCoefB()));
+    v.add(new DERTaggedObject(false,0x04,new DEROctetString(getBasePointG())));
+    v.add(new UnsignedInteger(0x05,getOrderOfBasePointR()));
+  }
+  v.add(new DERTaggedObject(false,0x06,new DEROctetString(getPublicPointY())));
+  if (!publicPointOnly) {
+    v.add(new UnsignedInteger(0x07,getCofactorF()));
+  }
+  return v;
+}

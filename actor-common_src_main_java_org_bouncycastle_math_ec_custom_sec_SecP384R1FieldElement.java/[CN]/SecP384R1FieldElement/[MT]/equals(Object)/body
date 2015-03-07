@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof SecP384R1FieldElement)) {
+    return false;
+  }
+  SecP384R1FieldElement o=(SecP384R1FieldElement)other;
+  return Nat.eq(12,x,o.x);
+}

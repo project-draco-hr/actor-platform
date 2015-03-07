@@ -1,0 +1,9 @@
+{
+  if (obj instanceof OCSPResponseStatus) {
+    return (OCSPResponseStatus)obj;
+  }
+ else   if (obj != null) {
+    return new OCSPResponseStatus(ASN1Enumerated.getInstance(obj));
+  }
+  return null;
+}

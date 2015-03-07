@@ -1,0 +1,3 @@
+{
+  super(info.getBytes(),info.getPadBits());
+}

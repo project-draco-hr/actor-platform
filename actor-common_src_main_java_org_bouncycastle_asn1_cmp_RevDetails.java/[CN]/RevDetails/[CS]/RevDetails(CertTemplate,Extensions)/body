@@ -1,0 +1,4 @@
+{
+  this.certDetails=certDetails;
+  this.crlEntryDetails=crlEntryDetails;
+}

@@ -1,0 +1,9 @@
+{
+  if (obj instanceof CrlListID) {
+    return (CrlListID)obj;
+  }
+ else   if (obj != null) {
+    return new CrlListID(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

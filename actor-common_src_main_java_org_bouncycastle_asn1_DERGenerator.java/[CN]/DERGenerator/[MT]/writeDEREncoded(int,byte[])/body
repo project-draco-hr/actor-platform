@@ -1,0 +1,22 @@
+{
+  if (_tagged) {
+    int tagNum=_tagNo | BERTags.TAGGED;
+    if (_isExplicit) {
+      int newTag=_tagNo | BERTags.CONSTRUCTED | BERTags.TAGGED;
+      ByteArrayOutputStream bOut=new ByteArrayOutputStream();
+      writeDEREncoded(bOut,tag,bytes);
+      writeDEREncoded(_out,newTag,bOut.toByteArray());
+    }
+ else {
+      if ((tag & BERTags.CONSTRUCTED) != 0) {
+        writeDEREncoded(_out,tagNum | BERTags.CONSTRUCTED,bytes);
+      }
+ else {
+        writeDEREncoded(_out,tagNum,bytes);
+      }
+    }
+  }
+ else {
+    writeDEREncoded(_out,tag,bytes);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (!(o instanceof ASN1ObjectIdentifier)) {
+    return false;
+  }
+  return identifier.equals(((ASN1ObjectIdentifier)o).identifier);
+}

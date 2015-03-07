@@ -1,0 +1,4 @@
+{
+  this.usage=usage;
+  setPublicPointY(new DEROctetString(ppY));
+}

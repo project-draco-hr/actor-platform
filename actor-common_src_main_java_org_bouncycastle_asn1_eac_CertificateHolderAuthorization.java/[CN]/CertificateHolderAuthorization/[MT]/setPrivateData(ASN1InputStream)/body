@@ -1,0 +1,17 @@
+{
+  ASN1Primitive obj;
+  obj=cha.readObject();
+  if (obj instanceof ASN1ObjectIdentifier) {
+    this.oid=(ASN1ObjectIdentifier)obj;
+  }
+ else {
+    throw new IllegalArgumentException("no Oid in CerticateHolderAuthorization");
+  }
+  obj=cha.readObject();
+  if (obj instanceof DERApplicationSpecific) {
+    this.accessRights=(DERApplicationSpecific)obj;
+  }
+ else {
+    throw new IllegalArgumentException("No access rights in CerticateHolderAuthorization");
+  }
+}

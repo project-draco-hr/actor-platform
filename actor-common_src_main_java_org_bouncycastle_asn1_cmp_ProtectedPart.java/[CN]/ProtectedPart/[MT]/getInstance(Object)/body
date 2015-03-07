@@ -1,0 +1,9 @@
+{
+  if (o instanceof ProtectedPart) {
+    return (ProtectedPart)o;
+  }
+  if (o != null) {
+    return new ProtectedPart(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

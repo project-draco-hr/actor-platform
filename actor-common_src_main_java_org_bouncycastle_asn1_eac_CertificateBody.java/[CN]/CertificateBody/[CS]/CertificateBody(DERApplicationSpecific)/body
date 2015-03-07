@@ -1,0 +1,3 @@
+{
+  setIso7816CertificateBody(obj);
+}

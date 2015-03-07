@@ -1,0 +1,4 @@
+{
+  this.otherRevRefType=otherRevRefType;
+  this.otherRevRefs=otherRevRefs;
+}

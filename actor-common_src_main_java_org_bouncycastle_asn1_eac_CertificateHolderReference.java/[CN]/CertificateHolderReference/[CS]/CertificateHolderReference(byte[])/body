@@ -1,0 +1,11 @@
+{
+  try {
+    String concat=new String(contents,ReferenceEncoding);
+    this.countryCode=concat.substring(0,2);
+    this.holderMnemonic=concat.substring(2,concat.length() - 5);
+    this.sequenceNumber=concat.substring(concat.length() - 5);
+  }
+ catch (  UnsupportedEncodingException e) {
+    throw new IllegalStateException(e.toString());
+  }
+}

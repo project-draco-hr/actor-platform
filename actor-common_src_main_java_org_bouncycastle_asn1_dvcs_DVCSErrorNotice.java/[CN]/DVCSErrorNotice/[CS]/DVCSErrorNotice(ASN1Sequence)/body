@@ -1,0 +1,6 @@
+{
+  this.transactionStatus=PKIStatusInfo.getInstance(seq.getObjectAt(0));
+  if (seq.size() > 1) {
+    this.transactionIdentifier=GeneralName.getInstance(seq.getObjectAt(1));
+  }
+}

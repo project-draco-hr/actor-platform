@@ -1,0 +1,26 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (version != DEFAULT_VERSION) {
+    v.add(new ASN1Integer(version));
+  }
+  v.add(dvReqInfo);
+  v.add(messageImprint);
+  v.add(serialNumber);
+  v.add(responseTime);
+  if (dvStatus != null) {
+    v.add(new DERTaggedObject(false,TAG_DV_STATUS,dvStatus));
+  }
+  if (policy != null) {
+    v.add(new DERTaggedObject(false,TAG_POLICY,policy));
+  }
+  if (reqSignature != null) {
+    v.add(new DERTaggedObject(false,TAG_REQ_SIGNATURE,reqSignature));
+  }
+  if (certs != null) {
+    v.add(new DERTaggedObject(false,TAG_CERTS,certs));
+  }
+  if (extensions != null) {
+    v.add(extensions);
+  }
+  return DVCSCertInfo.getInstance(new DERSequence(v));
+}

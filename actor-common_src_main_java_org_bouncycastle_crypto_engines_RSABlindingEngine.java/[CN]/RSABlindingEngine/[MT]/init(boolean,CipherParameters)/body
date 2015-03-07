@@ -1,0 +1,14 @@
+{
+  RSABlindingParameters p;
+  if (param instanceof ParametersWithRandom) {
+    ParametersWithRandom rParam=(ParametersWithRandom)param;
+    p=(RSABlindingParameters)rParam.getParameters();
+  }
+ else {
+    p=(RSABlindingParameters)param;
+  }
+  core.init(forEncryption,p.getPublicKey());
+  this.forEncryption=forEncryption;
+  this.key=p.getPublicKey();
+  this.blindingFactor=p.getBlindingFactor();
+}

@@ -1,0 +1,7 @@
+{
+  while (--bitlength >= m) {
+    if (testBit(buf,off,bitlength)) {
+      reduceBit(buf,off,bitlength,m,ks);
+    }
+  }
+}

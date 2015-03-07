@@ -1,0 +1,14 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (!version.equals(V1) || versionSet) {
+    v.add(new DERTaggedObject(true,0,version));
+  }
+  if (requestorName != null) {
+    v.add(new DERTaggedObject(true,1,requestorName));
+  }
+  v.add(requestList);
+  if (requestExtensions != null) {
+    v.add(new DERTaggedObject(true,2,requestExtensions));
+  }
+  return new DERSequence(v);
+}

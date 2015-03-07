@@ -1,0 +1,7 @@
+{
+  this.appTitle=appTitle;
+  this.appId=appId;
+  this.appKey=appKey;
+  this.deviceTitle=deviceTitle;
+  this.deviceHash=deviceHash;
+}

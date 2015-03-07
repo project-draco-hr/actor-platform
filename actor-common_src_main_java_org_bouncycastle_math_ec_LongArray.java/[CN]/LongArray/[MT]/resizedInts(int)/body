@@ -1,0 +1,5 @@
+{
+  long[] newInts=new long[newLen];
+  System.arraycopy(m_ints,0,newInts,0,Math.min(m_ints.length,newLen));
+  return newInts;
+}

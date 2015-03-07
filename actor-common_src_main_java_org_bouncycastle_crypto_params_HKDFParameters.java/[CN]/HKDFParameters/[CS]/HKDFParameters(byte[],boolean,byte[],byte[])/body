@@ -1,0 +1,19 @@
+{
+  if (ikm == null) {
+    throw new IllegalArgumentException("IKM (input keying material) should not be null");
+  }
+  this.ikm=Arrays.clone(ikm);
+  this.skipExpand=skip;
+  if (salt == null || salt.length == 0) {
+    this.salt=null;
+  }
+ else {
+    this.salt=Arrays.clone(salt);
+  }
+  if (info == null) {
+    this.info=new byte[0];
+  }
+ else {
+    this.info=Arrays.clone(info);
+  }
+}

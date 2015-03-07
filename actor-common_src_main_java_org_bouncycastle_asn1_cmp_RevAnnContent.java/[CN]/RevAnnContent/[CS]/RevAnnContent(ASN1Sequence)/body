@@ -1,0 +1,9 @@
+{
+  status=PKIStatus.getInstance(seq.getObjectAt(0));
+  certId=CertId.getInstance(seq.getObjectAt(1));
+  willBeRevokedAt=ASN1GeneralizedTime.getInstance(seq.getObjectAt(2));
+  badSinceDate=ASN1GeneralizedTime.getInstance(seq.getObjectAt(3));
+  if (seq.size() > 4) {
+    crlDetails=Extensions.getInstance(seq.getObjectAt(4));
+  }
+}

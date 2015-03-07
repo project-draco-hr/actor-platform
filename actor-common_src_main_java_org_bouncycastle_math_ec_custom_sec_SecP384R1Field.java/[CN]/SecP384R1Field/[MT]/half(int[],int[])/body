@@ -1,0 +1,9 @@
+{
+  if ((x[0] & 1) == 0) {
+    Nat.shiftDownBit(12,x,0,z);
+  }
+ else {
+    int c=Nat.add(12,x,P,z);
+    Nat.shiftDownBit(12,z,c);
+  }
+}

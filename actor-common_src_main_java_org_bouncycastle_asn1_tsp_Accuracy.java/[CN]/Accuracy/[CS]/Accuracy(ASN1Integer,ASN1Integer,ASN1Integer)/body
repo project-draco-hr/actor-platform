@@ -1,0 +1,15 @@
+{
+  this.seconds=seconds;
+  if (millis != null && (millis.getValue().intValue() < MIN_MILLIS || millis.getValue().intValue() > MAX_MILLIS)) {
+    throw new IllegalArgumentException("Invalid millis field : not in (1..999)");
+  }
+ else {
+    this.millis=millis;
+  }
+  if (micros != null && (micros.getValue().intValue() < MIN_MICROS || micros.getValue().intValue() > MAX_MICROS)) {
+    throw new IllegalArgumentException("Invalid micros field : not in (1..999)");
+  }
+ else {
+    this.micros=micros;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (o instanceof CertPolicyId) {
+    return (CertPolicyId)o;
+  }
+ else   if (o != null) {
+    return new CertPolicyId(ASN1ObjectIdentifier.getInstance(o));
+  }
+  return null;
+}

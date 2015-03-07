@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(otherRevInfoFormat);
+  v.add(otherRevInfo);
+  return new DERSequence(v);
+}

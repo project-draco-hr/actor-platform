@@ -1,0 +1,6 @@
+{
+  this.ephemeralPublicKey=OriginatorPublicKey.getInstance(seq.getObjectAt(0));
+  if (seq.size() > 1) {
+    this.addedukm=ASN1OctetString.getInstance((ASN1TaggedObject)seq.getObjectAt(1),true);
+  }
+}

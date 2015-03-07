@@ -1,0 +1,60 @@
+{
+  long y_0=y[yOff + 0] & M;
+  long y_1=y[yOff + 1] & M;
+  long y_2=y[yOff + 2] & M;
+  long y_3=y[yOff + 3] & M;
+  long y_4=y[yOff + 4] & M;
+  long y_5=y[yOff + 5] & M;
+  long y_6=y[yOff + 6] & M;
+{
+    long c=0, x_0=x[xOff + 0] & M;
+    c+=x_0 * y_0;
+    zz[zzOff + 0]=(int)c;
+    c>>>=32;
+    c+=x_0 * y_1;
+    zz[zzOff + 1]=(int)c;
+    c>>>=32;
+    c+=x_0 * y_2;
+    zz[zzOff + 2]=(int)c;
+    c>>>=32;
+    c+=x_0 * y_3;
+    zz[zzOff + 3]=(int)c;
+    c>>>=32;
+    c+=x_0 * y_4;
+    zz[zzOff + 4]=(int)c;
+    c>>>=32;
+    c+=x_0 * y_5;
+    zz[zzOff + 5]=(int)c;
+    c>>>=32;
+    c+=x_0 * y_6;
+    zz[zzOff + 6]=(int)c;
+    c>>>=32;
+    zz[zzOff + 7]=(int)c;
+  }
+  for (int i=1; i < 7; ++i) {
+    ++zzOff;
+    long c=0, x_i=x[xOff + i] & M;
+    c+=x_i * y_0 + (zz[zzOff + 0] & M);
+    zz[zzOff + 0]=(int)c;
+    c>>>=32;
+    c+=x_i * y_1 + (zz[zzOff + 1] & M);
+    zz[zzOff + 1]=(int)c;
+    c>>>=32;
+    c+=x_i * y_2 + (zz[zzOff + 2] & M);
+    zz[zzOff + 2]=(int)c;
+    c>>>=32;
+    c+=x_i * y_3 + (zz[zzOff + 3] & M);
+    zz[zzOff + 3]=(int)c;
+    c>>>=32;
+    c+=x_i * y_4 + (zz[zzOff + 4] & M);
+    zz[zzOff + 4]=(int)c;
+    c>>>=32;
+    c+=x_i * y_5 + (zz[zzOff + 5] & M);
+    zz[zzOff + 5]=(int)c;
+    c>>>=32;
+    c+=x_i * y_6 + (zz[zzOff + 6] & M);
+    zz[zzOff + 6]=(int)c;
+    c>>>=32;
+    zz[zzOff + 7]=(int)c;
+  }
+}

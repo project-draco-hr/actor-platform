@@ -1,0 +1,8 @@
+{
+switch (coord) {
+case COORD_JACOBIAN_MODIFIED:
+    return true;
+default :
+  return false;
+}
+}

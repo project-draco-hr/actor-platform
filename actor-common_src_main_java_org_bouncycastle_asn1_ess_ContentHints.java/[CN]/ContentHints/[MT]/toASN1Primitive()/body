@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (contentDescription != null) {
+    v.add(contentDescription);
+  }
+  v.add(contentType);
+  return new DERSequence(v);
+}

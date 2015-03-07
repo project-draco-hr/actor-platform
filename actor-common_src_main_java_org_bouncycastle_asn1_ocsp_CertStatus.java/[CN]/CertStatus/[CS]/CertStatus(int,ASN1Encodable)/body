@@ -1,0 +1,4 @@
+{
+  this.tagNo=tagNo;
+  this.value=value;
+}

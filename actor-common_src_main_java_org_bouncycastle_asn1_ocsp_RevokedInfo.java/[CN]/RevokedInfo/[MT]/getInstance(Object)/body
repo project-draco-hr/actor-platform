@@ -1,0 +1,9 @@
+{
+  if (obj instanceof RevokedInfo) {
+    return (RevokedInfo)obj;
+  }
+ else   if (obj != null) {
+    return new RevokedInfo(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

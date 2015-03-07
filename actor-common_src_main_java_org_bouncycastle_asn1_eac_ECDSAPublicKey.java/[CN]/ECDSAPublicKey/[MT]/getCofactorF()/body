@@ -1,0 +1,8 @@
+{
+  if ((options & F) != 0) {
+    return cofactorF;
+  }
+ else {
+    return null;
+  }
+}

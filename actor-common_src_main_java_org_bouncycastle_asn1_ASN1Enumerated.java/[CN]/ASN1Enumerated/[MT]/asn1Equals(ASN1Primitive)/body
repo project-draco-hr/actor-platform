@@ -1,0 +1,7 @@
+{
+  if (!(o instanceof ASN1Enumerated)) {
+    return false;
+  }
+  ASN1Enumerated other=(ASN1Enumerated)o;
+  return Arrays.areEqual(this.bytes,other.bytes);
+}

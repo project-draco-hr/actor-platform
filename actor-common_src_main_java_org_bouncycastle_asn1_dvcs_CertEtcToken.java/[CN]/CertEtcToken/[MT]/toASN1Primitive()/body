@@ -1,0 +1,8 @@
+{
+  if (extension == null) {
+    return new DERTaggedObject(explicit[tagNo],tagNo,value);
+  }
+ else {
+    return extension.toASN1Primitive();
+  }
+}

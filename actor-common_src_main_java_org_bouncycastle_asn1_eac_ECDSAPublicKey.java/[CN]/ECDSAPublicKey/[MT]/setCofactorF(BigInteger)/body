@@ -1,0 +1,9 @@
+{
+  if ((options & F) == 0) {
+    options|=F;
+    this.cofactorF=cofactorF;
+  }
+ else {
+    throw new IllegalArgumentException("Cofactor F already set");
+  }
+}

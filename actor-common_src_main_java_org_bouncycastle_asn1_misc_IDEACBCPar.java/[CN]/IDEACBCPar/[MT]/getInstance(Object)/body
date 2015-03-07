@@ -1,0 +1,9 @@
+{
+  if (o instanceof IDEACBCPar) {
+    return (IDEACBCPar)o;
+  }
+ else   if (o != null) {
+    return new IDEACBCPar(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

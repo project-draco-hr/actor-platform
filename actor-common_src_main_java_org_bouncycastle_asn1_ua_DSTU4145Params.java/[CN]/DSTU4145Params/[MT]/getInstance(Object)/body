@@ -1,0 +1,23 @@
+{
+  if (obj instanceof DSTU4145Params) {
+    return (DSTU4145Params)obj;
+  }
+  if (obj != null) {
+    ASN1Sequence seq=ASN1Sequence.getInstance(obj);
+    DSTU4145Params params;
+    if (seq.getObjectAt(0) instanceof ASN1ObjectIdentifier) {
+      params=new DSTU4145Params(ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0)));
+    }
+ else {
+      params=new DSTU4145Params(DSTU4145ECBinary.getInstance(seq.getObjectAt(0)));
+    }
+    if (seq.size() == 2) {
+      params.dke=ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets();
+      if (params.dke.length != DSTU4145Params.DEFAULT_DKE.length) {
+        throw new IllegalArgumentException("object parse error");
+      }
+    }
+    return params;
+  }
+  throw new IllegalArgumentException("object parse error");
+}

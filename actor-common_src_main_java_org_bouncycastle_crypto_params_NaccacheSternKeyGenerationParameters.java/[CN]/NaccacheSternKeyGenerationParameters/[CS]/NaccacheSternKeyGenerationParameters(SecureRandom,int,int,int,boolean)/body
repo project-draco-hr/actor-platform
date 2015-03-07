@@ -1,0 +1,12 @@
+{
+  super(random,strength);
+  this.certainty=certainty;
+  if (cntSmallPrimes % 2 == 1) {
+    throw new IllegalArgumentException("cntSmallPrimes must be a multiple of 2");
+  }
+  if (cntSmallPrimes < 30) {
+    throw new IllegalArgumentException("cntSmallPrimes must be >= 30 for security reasons");
+  }
+  this.cntSmallPrimes=cntSmallPrimes;
+  this.debug=debug;
+}

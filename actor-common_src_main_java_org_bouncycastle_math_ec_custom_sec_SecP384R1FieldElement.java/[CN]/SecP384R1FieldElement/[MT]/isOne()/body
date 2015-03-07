@@ -1,0 +1,3 @@
+{
+  return Nat.isOne(12,x);
+}

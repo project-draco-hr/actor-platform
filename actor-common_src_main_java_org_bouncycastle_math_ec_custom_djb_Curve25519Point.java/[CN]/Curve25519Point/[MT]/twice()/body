@@ -1,0 +1,11 @@
+{
+  if (this.isInfinity()) {
+    return this;
+  }
+  ECCurve curve=this.getCurve();
+  ECFieldElement Y1=this.y;
+  if (Y1.isZero()) {
+    return curve.getInfinity();
+  }
+  return twiceJacobianModified(true);
+}

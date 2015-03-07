@@ -1,0 +1,6 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(hashAlgorithm);
+  v.add(hashValue);
+  return new DERSequence(v);
+}

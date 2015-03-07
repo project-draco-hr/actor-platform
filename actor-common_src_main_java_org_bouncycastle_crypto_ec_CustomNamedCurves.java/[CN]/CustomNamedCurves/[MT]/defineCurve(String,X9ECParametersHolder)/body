@@ -1,0 +1,3 @@
+{
+  nameToCurve.put(name,holder);
+}

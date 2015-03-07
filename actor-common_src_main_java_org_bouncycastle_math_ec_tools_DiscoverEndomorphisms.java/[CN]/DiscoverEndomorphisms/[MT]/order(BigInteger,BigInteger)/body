@@ -1,0 +1,6 @@
+{
+  if (a.compareTo(b) <= 0) {
+    return new BigInteger[]{a,b};
+  }
+  return new BigInteger[]{b,a};
+}

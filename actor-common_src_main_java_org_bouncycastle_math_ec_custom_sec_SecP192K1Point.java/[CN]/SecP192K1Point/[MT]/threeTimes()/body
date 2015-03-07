@@ -1,0 +1,6 @@
+{
+  if (this.isInfinity() || this.y.isZero()) {
+    return this;
+  }
+  return twice().add(this);
+}

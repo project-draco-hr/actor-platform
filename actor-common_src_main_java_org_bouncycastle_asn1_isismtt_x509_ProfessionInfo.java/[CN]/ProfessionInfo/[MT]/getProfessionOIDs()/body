@@ -1,0 +1,11 @@
+{
+  if (professionOIDs == null) {
+    return new ASN1ObjectIdentifier[0];
+  }
+  ASN1ObjectIdentifier[] oids=new ASN1ObjectIdentifier[professionOIDs.size()];
+  int count=0;
+  for (Enumeration e=professionOIDs.getObjects(); e.hasMoreElements(); ) {
+    oids[count++]=ASN1ObjectIdentifier.getInstance(e.nextElement());
+  }
+  return oids;
+}

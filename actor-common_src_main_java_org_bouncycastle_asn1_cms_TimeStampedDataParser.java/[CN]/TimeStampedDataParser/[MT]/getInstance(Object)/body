@@ -1,0 +1,9 @@
+{
+  if (obj instanceof ASN1Sequence) {
+    return new TimeStampedDataParser(((ASN1Sequence)obj).parser());
+  }
+  if (obj instanceof ASN1SequenceParser) {
+    return new TimeStampedDataParser((ASN1SequenceParser)obj);
+  }
+  return null;
+}

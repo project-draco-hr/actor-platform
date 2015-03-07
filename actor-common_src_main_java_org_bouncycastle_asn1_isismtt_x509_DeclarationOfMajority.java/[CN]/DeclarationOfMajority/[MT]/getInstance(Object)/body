@@ -1,0 +1,9 @@
+{
+  if (obj == null || obj instanceof DeclarationOfMajority) {
+    return (DeclarationOfMajority)obj;
+  }
+  if (obj instanceof ASN1TaggedObject) {
+    return new DeclarationOfMajority((ASN1TaggedObject)obj);
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

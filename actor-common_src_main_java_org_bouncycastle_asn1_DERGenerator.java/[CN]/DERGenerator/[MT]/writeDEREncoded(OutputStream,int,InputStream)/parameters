@@ -1,0 +1,3 @@
+OutputStream out
+int tag
+InputStream in

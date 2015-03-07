@@ -1,0 +1,4 @@
+{
+  this.admissionAuthority=admissionAuthority;
+  this.contentsOfAdmissions=contentsOfAdmissions;
+}

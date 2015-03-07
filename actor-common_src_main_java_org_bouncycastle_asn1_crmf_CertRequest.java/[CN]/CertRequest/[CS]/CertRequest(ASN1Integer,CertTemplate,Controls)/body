@@ -1,0 +1,5 @@
+{
+  this.certReqId=certReqId;
+  this.certTemplate=certTemplate;
+  this.controls=controls;
+}

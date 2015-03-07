@@ -1,0 +1,8 @@
+{
+  LongArray x1=this.x;
+  if (x1.isOne() || x1.isZero()) {
+    return this;
+  }
+  LongArray x2=x1.modSquareN(m - 1,m,ks);
+  return new ECFieldElement.F2m(m,ks,x2);
+}

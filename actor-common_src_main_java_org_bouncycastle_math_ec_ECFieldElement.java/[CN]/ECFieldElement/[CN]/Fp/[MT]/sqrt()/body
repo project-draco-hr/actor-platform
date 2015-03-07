@@ -1,0 +1,47 @@
+{
+  if (this.isZero() || this.isOne()) {
+    return this;
+  }
+  if (!q.testBit(0)) {
+    throw new RuntimeException("not done yet");
+  }
+  if (q.testBit(1)) {
+    BigInteger e=q.shiftRight(2).add(ECConstants.ONE);
+    return checkSqrt(new Fp(q,r,x.modPow(e,q)));
+  }
+  if (q.testBit(2)) {
+    BigInteger t1=x.modPow(q.shiftRight(3),q);
+    BigInteger t2=modMult(t1,x);
+    BigInteger t3=modMult(t2,t1);
+    if (t3.equals(ECConstants.ONE)) {
+      return checkSqrt(new Fp(q,r,t2));
+    }
+    BigInteger t4=ECConstants.TWO.modPow(q.shiftRight(2),q);
+    BigInteger y=modMult(t2,t4);
+    return checkSqrt(new Fp(q,r,y));
+  }
+  BigInteger legendreExponent=q.shiftRight(1);
+  if (!(x.modPow(legendreExponent,q).equals(ECConstants.ONE))) {
+    return null;
+  }
+  BigInteger X=this.x;
+  BigInteger fourX=modDouble(modDouble(X));
+  BigInteger k=legendreExponent.add(ECConstants.ONE), qMinusOne=q.subtract(ECConstants.ONE);
+  BigInteger U, V;
+  Random rand=new Random();
+  do {
+    BigInteger P;
+    do {
+      P=new BigInteger(q.bitLength(),rand);
+    }
+ while (P.compareTo(q) >= 0 || !modReduce(P.multiply(P).subtract(fourX)).modPow(legendreExponent,q).equals(qMinusOne));
+    BigInteger[] result=lucasSequence(P,X,k);
+    U=result[0];
+    V=result[1];
+    if (modMult(V,V).equals(fourX)) {
+      return new ECFieldElement.Fp(q,r,modHalfAbs(V));
+    }
+  }
+ while (U.equals(ECConstants.ONE) || U.equals(qMinusOne));
+  return null;
+}

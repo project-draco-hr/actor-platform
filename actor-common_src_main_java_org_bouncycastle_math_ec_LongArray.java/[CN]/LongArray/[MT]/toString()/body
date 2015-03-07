@@ -1,0 +1,16 @@
+{
+  int i=getUsedLength();
+  if (i == 0) {
+    return "0";
+  }
+  StringBuffer sb=new StringBuffer(Long.toBinaryString(m_ints[--i]));
+  while (--i >= 0) {
+    String s=Long.toBinaryString(m_ints[i]);
+    int len=s.length();
+    if (len < 64) {
+      sb.append(ZEROES.substring(len));
+    }
+    sb.append(s);
+  }
+  return sb.toString();
+}

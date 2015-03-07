@@ -1,0 +1,3 @@
+{
+  return combSize > 257 ? 6 : 5;
+}

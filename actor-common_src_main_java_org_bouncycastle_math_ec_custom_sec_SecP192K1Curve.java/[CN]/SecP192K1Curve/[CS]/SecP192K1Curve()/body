@@ -1,0 +1,9 @@
+{
+  super(q);
+  this.infinity=new SecP192K1Point(this,null,null);
+  this.a=fromBigInteger(ECConstants.ZERO);
+  this.b=fromBigInteger(BigInteger.valueOf(3));
+  this.order=new BigInteger(1,Hex.decode("FFFFFFFFFFFFFFFFFFFFFFFE26F2FC170F69466A74DEFD8D"));
+  this.cofactor=BigInteger.valueOf(1);
+  this.coord=SecP192K1_DEFAULT_COORDS;
+}

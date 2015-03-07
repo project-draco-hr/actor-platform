@@ -1,0 +1,4 @@
+{
+  this.policyQualifierId=policyQualifierId;
+  this.qualifier=qualifier;
+}

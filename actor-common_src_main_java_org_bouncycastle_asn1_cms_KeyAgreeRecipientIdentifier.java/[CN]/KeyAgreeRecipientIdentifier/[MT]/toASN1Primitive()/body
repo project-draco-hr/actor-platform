@@ -1,0 +1,6 @@
+{
+  if (issuerSerial != null) {
+    return issuerSerial.toASN1Primitive();
+  }
+  return new DERTaggedObject(false,0,rKeyID);
+}

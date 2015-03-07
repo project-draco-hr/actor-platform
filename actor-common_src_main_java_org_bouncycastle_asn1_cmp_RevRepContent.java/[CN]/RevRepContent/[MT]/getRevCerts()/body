@@ -1,0 +1,10 @@
+{
+  if (revCerts == null) {
+    return null;
+  }
+  CertId[] results=new CertId[revCerts.size()];
+  for (int i=0; i != results.length; i++) {
+    results[i]=CertId.getInstance(revCerts.getObjectAt(i));
+  }
+  return results;
+}

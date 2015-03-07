@@ -1,0 +1,4 @@
+{
+  contentType=(ASN1ObjectIdentifier)seq.readObject();
+  content=(ASN1TaggedObjectParser)seq.readObject();
+}

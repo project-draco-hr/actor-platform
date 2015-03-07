@@ -1,0 +1,4 @@
+{
+  this.otherRevInfoFormat=otherRevInfoFormat;
+  this.otherRevInfo=otherRevInfo;
+}

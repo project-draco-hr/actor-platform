@@ -1,0 +1,9 @@
+ASN1ObjectIdentifier tsaPolicyId
+MessageImprint messageImprint
+ASN1Integer serialNumber
+ASN1GeneralizedTime genTime
+Accuracy accuracy
+ASN1Boolean ordering
+ASN1Integer nonce
+GeneralName tsa
+Extensions extensions

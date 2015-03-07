@@ -1,0 +1,4 @@
+{
+  this.staticPublicKey=staticPublicKey;
+  this.ephemeralPublicKey=ephemeralPublicKey;
+}

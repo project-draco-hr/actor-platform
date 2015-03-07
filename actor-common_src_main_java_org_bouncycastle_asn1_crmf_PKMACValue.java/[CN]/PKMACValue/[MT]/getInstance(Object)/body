@@ -1,0 +1,9 @@
+{
+  if (o instanceof PKMACValue) {
+    return (PKMACValue)o;
+  }
+  if (o != null) {
+    return new PKMACValue(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

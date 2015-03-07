@@ -1,0 +1,9 @@
+{
+  if (obj instanceof POPOPrivKey) {
+    return (POPOPrivKey)obj;
+  }
+  if (obj != null) {
+    return new POPOPrivKey(ASN1TaggedObject.getInstance(obj));
+  }
+  return null;
+}

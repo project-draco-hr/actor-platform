@@ -1,0 +1,16 @@
+{
+  if (this == b) {
+    return threeTimes();
+  }
+  if (this.isInfinity()) {
+    return b;
+  }
+  if (b.isInfinity()) {
+    return twice();
+  }
+  ECFieldElement Y1=this.y;
+  if (Y1.isZero()) {
+    return b;
+  }
+  return twiceJacobianModified(false).add(b);
+}

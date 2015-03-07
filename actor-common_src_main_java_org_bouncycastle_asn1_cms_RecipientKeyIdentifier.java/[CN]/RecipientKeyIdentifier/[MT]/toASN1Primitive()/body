@@ -1,0 +1,11 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(subjectKeyIdentifier);
+  if (date != null) {
+    v.add(date);
+  }
+  if (other != null) {
+    v.add(other);
+  }
+  return new DERSequence(v);
+}

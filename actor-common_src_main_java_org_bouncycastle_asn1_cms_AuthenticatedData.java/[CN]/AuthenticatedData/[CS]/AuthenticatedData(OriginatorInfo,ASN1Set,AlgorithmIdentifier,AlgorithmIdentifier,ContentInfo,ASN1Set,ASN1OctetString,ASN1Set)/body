@@ -1,0 +1,16 @@
+{
+  if (digestAlgorithm != null || authAttrs != null) {
+    if (digestAlgorithm == null || authAttrs == null) {
+      throw new IllegalArgumentException("digestAlgorithm and authAttrs must be set together");
+    }
+  }
+  version=new ASN1Integer(calculateVersion(originatorInfo));
+  this.originatorInfo=originatorInfo;
+  this.macAlgorithm=macAlgorithm;
+  this.digestAlgorithm=digestAlgorithm;
+  this.recipientInfos=recipientInfos;
+  this.encapsulatedContentInfo=encapsulatedContent;
+  this.authAttrs=authAttrs;
+  this.mac=mac;
+  this.unauthAttrs=unauthAttrs;
+}

@@ -1,0 +1,9 @@
+{
+  if (certificationAuthorityReference.getApplicationTag() == EACTags.ISSUER_IDENTIFICATION_NUMBER) {
+    this.certificationAuthorityReference=certificationAuthorityReference;
+    certificateType|=CAR;
+  }
+ else {
+    throw new IllegalArgumentException("Not an Iso7816Tags.ISSUER_IDENTIFICATION_NUMBER tag");
+  }
+}

@@ -1,0 +1,17 @@
+{
+  if (obj instanceof DERT61String) {
+    return new DERT61UTF8String(((DERT61String)obj).getOctets());
+  }
+  if (obj == null || obj instanceof DERT61UTF8String) {
+    return (DERT61UTF8String)obj;
+  }
+  if (obj instanceof byte[]) {
+    try {
+      return new DERT61UTF8String(((DERT61String)fromByteArray((byte[])obj)).getOctets());
+    }
+ catch (    Exception e) {
+      throw new IllegalArgumentException("encoding error in getInstance: " + e.toString());
+    }
+  }
+  throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
+}

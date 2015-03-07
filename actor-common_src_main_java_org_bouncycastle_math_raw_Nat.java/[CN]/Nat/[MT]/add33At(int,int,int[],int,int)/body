@@ -1,0 +1,9 @@
+{
+  long c=(z[zOff + zPos] & M) + (x & M);
+  z[zOff + zPos]=(int)c;
+  c>>>=32;
+  c+=(z[zOff + zPos + 1] & M) + 1L;
+  z[zOff + zPos + 1]=(int)c;
+  c>>>=32;
+  return c == 0 ? 0 : incAt(len,z,zOff,zPos + 2);
+}

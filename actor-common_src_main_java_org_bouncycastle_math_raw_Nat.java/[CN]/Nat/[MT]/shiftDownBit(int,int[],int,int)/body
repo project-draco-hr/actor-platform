@@ -1,0 +1,9 @@
+{
+  int i=len;
+  while (--i >= 0) {
+    int next=z[zOff + i];
+    z[zOff + i]=(next >>> 1) | (c << 31);
+    c=next;
+  }
+  return c << 31;
+}

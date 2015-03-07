@@ -1,0 +1,5 @@
+{
+  this(salt,iterationCount);
+  this.keyLength=new ASN1Integer(keyLength);
+  this.prf=prf;
+}

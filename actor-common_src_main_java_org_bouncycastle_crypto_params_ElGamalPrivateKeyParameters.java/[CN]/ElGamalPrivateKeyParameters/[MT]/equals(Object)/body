@@ -1,0 +1,10 @@
+{
+  if (!(obj instanceof ElGamalPrivateKeyParameters)) {
+    return false;
+  }
+  ElGamalPrivateKeyParameters pKey=(ElGamalPrivateKeyParameters)obj;
+  if (!pKey.getX().equals(x)) {
+    return false;
+  }
+  return super.equals(obj);
+}

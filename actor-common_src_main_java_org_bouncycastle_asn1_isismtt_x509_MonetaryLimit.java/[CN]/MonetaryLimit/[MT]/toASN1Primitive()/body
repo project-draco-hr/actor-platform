@@ -1,0 +1,7 @@
+{
+  ASN1EncodableVector seq=new ASN1EncodableVector();
+  seq.add(currency);
+  seq.add(amount);
+  seq.add(exponent);
+  return new DERSequence(seq);
+}

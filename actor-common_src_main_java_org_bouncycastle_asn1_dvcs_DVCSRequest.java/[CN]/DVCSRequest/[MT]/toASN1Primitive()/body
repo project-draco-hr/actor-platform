@@ -1,0 +1,9 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(requestInformation);
+  v.add(data);
+  if (transactionIdentifier != null) {
+    v.add(transactionIdentifier);
+  }
+  return new DERSequence(v);
+}

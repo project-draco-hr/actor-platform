@@ -1,0 +1,7 @@
+{
+  ECFieldElement W=this.zs[1];
+  if (W == null) {
+    this.zs[1]=W=calculateJacobianModifiedW(this.zs[0],null);
+  }
+  return W;
+}

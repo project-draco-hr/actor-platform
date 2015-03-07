@@ -1,0 +1,3 @@
+byte[] src
+int start
+int len

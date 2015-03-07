@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(this.crlHash.toASN1Primitive());
+  if (null != this.crlIdentifier) {
+    v.add(this.crlIdentifier.toASN1Primitive());
+  }
+  return new DERSequence(v);
+}

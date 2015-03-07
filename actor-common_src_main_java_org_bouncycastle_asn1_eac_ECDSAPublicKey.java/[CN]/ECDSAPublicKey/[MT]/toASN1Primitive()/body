@@ -1,0 +1,3 @@
+{
+  return new DERSequence(getASN1EncodableVector(usage,false));
+}

@@ -1,0 +1,15 @@
+{
+  int count=ps.length;
+  boolean[] negs=new boolean[count];
+  WNafPreCompInfo[] infos=new WNafPreCompInfo[count];
+  byte[][] wnafs=new byte[count][];
+  for (int i=0; i < count; ++i) {
+    BigInteger ki=ks[i];
+    negs[i]=ki.signum() < 0;
+    ki=ki.abs();
+    int width=Math.max(2,Math.min(16,WNafUtil.getWindowSize(ki.bitLength())));
+    infos[i]=WNafUtil.precompute(ps[i],width,true);
+    wnafs[i]=WNafUtil.generateWindowNaf(width,ki);
+  }
+  return implSumOfMultiplies(negs,infos,wnafs);
+}

@@ -1,0 +1,9 @@
+{
+  if (obj instanceof DSTU4145ECBinary) {
+    return (DSTU4145ECBinary)obj;
+  }
+  if (obj != null) {
+    return new DSTU4145ECBinary(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

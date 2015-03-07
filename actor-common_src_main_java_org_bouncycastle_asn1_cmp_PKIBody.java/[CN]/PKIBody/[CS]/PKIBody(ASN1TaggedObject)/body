@@ -1,0 +1,4 @@
+{
+  tagNo=tagged.getTagNo();
+  body=getBodyForType(tagNo,tagged.getObject());
+}

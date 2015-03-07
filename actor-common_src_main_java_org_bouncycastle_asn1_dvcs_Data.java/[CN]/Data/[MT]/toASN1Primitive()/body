@@ -1,0 +1,11 @@
+{
+  if (message != null) {
+    return message.toASN1Primitive();
+  }
+  if (messageImprint != null) {
+    return messageImprint.toASN1Primitive();
+  }
+ else {
+    return new DERTaggedObject(false,0,certs);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof Curve25519FieldElement)) {
+    return false;
+  }
+  Curve25519FieldElement o=(Curve25519FieldElement)other;
+  return Nat256.eq(x,o.x);
+}

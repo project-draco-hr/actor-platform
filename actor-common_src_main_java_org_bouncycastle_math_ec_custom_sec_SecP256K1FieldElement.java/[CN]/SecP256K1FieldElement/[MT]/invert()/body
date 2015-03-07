@@ -1,0 +1,5 @@
+{
+  int[] z=Nat256.create();
+  Mod.invert(SecP256K1Field.P,x,z);
+  return new SecP256K1FieldElement(z);
+}

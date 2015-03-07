@@ -1,0 +1,4 @@
+{
+  this.status.add(status);
+  return this;
+}

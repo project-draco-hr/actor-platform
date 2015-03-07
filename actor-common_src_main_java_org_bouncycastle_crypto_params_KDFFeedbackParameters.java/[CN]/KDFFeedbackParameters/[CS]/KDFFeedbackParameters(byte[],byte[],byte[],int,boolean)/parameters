@@ -1,0 +1,5 @@
+byte[] ki
+byte[] iv
+byte[] fixedInputData
+int r
+boolean useCounter

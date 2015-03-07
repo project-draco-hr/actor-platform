@@ -1,0 +1,4 @@
+{
+  checkNormalized();
+  return getXCoord();
+}

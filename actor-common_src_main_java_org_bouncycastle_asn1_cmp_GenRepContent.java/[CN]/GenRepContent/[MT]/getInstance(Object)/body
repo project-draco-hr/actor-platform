@@ -1,0 +1,9 @@
+{
+  if (o instanceof GenRepContent) {
+    return (GenRepContent)o;
+  }
+  if (o != null) {
+    return new GenRepContent(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

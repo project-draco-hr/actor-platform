@@ -1,0 +1,6 @@
+{
+  Nat256.mulAddTo(x,y,zz);
+  if (Nat.gte(16,zz,PExt)) {
+    subPExtFrom(zz);
+  }
+}

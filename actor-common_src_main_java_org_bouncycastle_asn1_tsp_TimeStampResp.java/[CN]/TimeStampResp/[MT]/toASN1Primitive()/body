@@ -1,0 +1,8 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(pkiStatusInfo);
+  if (timeStampToken != null) {
+    v.add(timeStampToken);
+  }
+  return new DERSequence(v);
+}

@@ -1,0 +1,15 @@
+{
+  int len=getUsedLength();
+  if (len == 0) {
+    return this;
+  }
+  int _2len=len << 1;
+  long[] r=new long[_2len];
+  int pos=0;
+  while (pos < _2len) {
+    long mi=m_ints[pos >>> 1];
+    r[pos++]=interleave2_32to64((int)mi);
+    r[pos++]=interleave2_32to64((int)(mi >>> 32));
+  }
+  return new LongArray(r,0,r.length);
+}

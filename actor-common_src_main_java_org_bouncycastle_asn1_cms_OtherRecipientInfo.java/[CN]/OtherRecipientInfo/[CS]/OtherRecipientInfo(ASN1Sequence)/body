@@ -1,0 +1,4 @@
+{
+  oriType=ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
+  oriValue=seq.getObjectAt(1);
+}

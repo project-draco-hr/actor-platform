@@ -1,0 +1,13 @@
+{
+  X9ECParameters ecP=X962NamedCurves.getByName(name);
+  if (ecP == null) {
+    ecP=SECNamedCurves.getByName(name);
+  }
+  if (ecP == null) {
+    ecP=TeleTrusTNamedCurves.getByName(name);
+  }
+  if (ecP == null) {
+    ecP=NISTNamedCurves.getByName(name);
+  }
+  return ecP;
+}

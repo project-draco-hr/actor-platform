@@ -1,0 +1,6 @@
+{
+  if (core == null) {
+    throw new IllegalStateException("RSA engine not initialised");
+  }
+  return core.convertOutput(core.processBlock(core.convertInput(in,inOff,inLen)));
+}

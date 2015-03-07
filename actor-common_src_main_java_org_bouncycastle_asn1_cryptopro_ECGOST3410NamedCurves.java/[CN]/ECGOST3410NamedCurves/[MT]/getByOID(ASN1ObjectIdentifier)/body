@@ -1,0 +1,3 @@
+{
+  return (ECDomainParameters)params.get(oid);
+}

@@ -1,0 +1,6 @@
+{
+  this.timeStamp=ContentInfo.getInstance(seq.getObjectAt(0));
+  if (seq.size() == 2) {
+    this.crl=CertificateList.getInstance(seq.getObjectAt(1));
+  }
+}

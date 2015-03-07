@@ -1,0 +1,12 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  if (0 != version.compareTo(BigInteger.valueOf(0))) {
+    v.add(new DERTaggedObject(true,0,new ASN1Integer(version)));
+  }
+  v.add(f);
+  v.add(a);
+  v.add(b);
+  v.add(n);
+  v.add(bp);
+  return new DERSequence(v);
+}

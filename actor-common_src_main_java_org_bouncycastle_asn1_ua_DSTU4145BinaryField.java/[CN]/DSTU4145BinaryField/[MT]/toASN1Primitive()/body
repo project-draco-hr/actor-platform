@@ -1,0 +1,15 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(new ASN1Integer(m));
+  if (j == 0) {
+    v.add(new ASN1Integer(k));
+  }
+ else {
+    ASN1EncodableVector coefs=new ASN1EncodableVector();
+    coefs.add(new ASN1Integer(k));
+    coefs.add(new ASN1Integer(j));
+    coefs.add(new ASN1Integer(l));
+    v.add(new DERSequence(coefs));
+  }
+  return new DERSequence(v);
+}

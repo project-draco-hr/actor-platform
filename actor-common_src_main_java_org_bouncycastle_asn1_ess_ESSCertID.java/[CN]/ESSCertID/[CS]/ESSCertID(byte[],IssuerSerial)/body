@@ -1,0 +1,4 @@
+{
+  this.certHash=new DEROctetString(hash);
+  this.issuerSerial=issuerSerial;
+}

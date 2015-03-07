@@ -1,0 +1,5 @@
+{
+  if ((size < 2) || (size > ub_DataGroups)) {
+    throw new IllegalArgumentException("wrong size in DataGroupHashValues : not in (2.." + ub_DataGroups + ")");
+  }
+}

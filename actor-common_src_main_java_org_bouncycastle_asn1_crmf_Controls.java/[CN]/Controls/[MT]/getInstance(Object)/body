@@ -1,0 +1,9 @@
+{
+  if (o instanceof Controls) {
+    return (Controls)o;
+  }
+  if (o != null) {
+    return new Controls(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

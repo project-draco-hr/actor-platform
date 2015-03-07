@@ -1,0 +1,7 @@
+{
+  ASN1EncodableVector v=new ASN1EncodableVector();
+  v.add(status);
+  addOptional(v,0,revCerts);
+  addOptional(v,1,crls);
+  return new DERSequence(v);
+}

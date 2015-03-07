@@ -1,0 +1,9 @@
+{
+  if (o instanceof TSTInfo) {
+    return (TSTInfo)o;
+  }
+ else   if (o != null) {
+    return new TSTInfo(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}

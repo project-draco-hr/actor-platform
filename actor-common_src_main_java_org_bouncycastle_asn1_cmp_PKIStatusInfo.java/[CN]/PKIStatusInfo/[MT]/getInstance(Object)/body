@@ -1,0 +1,9 @@
+{
+  if (obj instanceof PKIStatusInfo) {
+    return (PKIStatusInfo)obj;
+  }
+ else   if (obj != null) {
+    return new PKIStatusInfo(ASN1Sequence.getInstance(obj));
+  }
+  return null;
+}

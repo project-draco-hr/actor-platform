@@ -1,0 +1,4 @@
+{
+  this.commitmentTypeId=commitmentTypeId;
+  this.commitmentTypeQualifier=commitmentTypeQualifier;
+}

@@ -1,0 +1,6 @@
+{
+  if (this.multiplier == null) {
+    this.multiplier=createDefaultMultiplier();
+  }
+  return this.multiplier;
+}

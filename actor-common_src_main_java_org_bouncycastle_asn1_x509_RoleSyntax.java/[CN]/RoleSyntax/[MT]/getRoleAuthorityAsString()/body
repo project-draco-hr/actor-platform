@@ -1,0 +1,17 @@
+{
+  if (roleAuthority == null) {
+    return new String[0];
+  }
+  GeneralName[] names=roleAuthority.getNames();
+  String[] namesString=new String[names.length];
+  for (int i=0; i < names.length; i++) {
+    ASN1Encodable value=names[i].getName();
+    if (value instanceof ASN1String) {
+      namesString[i]=((ASN1String)value).getString();
+    }
+ else {
+      namesString[i]=value.toString();
+    }
+  }
+  return namesString;
+}

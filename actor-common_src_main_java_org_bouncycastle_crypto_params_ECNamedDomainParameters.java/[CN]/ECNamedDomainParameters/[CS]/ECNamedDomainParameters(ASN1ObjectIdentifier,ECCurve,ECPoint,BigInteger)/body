@@ -1,0 +1,3 @@
+{
+  this(name,curve,G,n,null,null);
+}

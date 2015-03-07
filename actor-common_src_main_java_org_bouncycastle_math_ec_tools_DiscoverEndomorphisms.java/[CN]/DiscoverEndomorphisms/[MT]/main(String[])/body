@@ -1,0 +1,9 @@
+{
+  if (args.length < 1) {
+    System.err.println("Expected a list of curve names as arguments");
+    return;
+  }
+  for (int i=0; i < args.length; ++i) {
+    discoverEndomorphism(args[i]);
+  }
+}

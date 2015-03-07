@@ -1,0 +1,8 @@
+{
+  if (this.status.size() != this.revCerts.size()) {
+    throw new IllegalStateException("status and revCerts sequence must be in common order");
+  }
+  this.status.add(status);
+  this.revCerts.add(certId);
+  return this;
+}

@@ -1,0 +1,3 @@
+byte[] certHash
+BigInteger certReqId
+PKIStatusInfo statusInfo

@@ -1,0 +1,4 @@
+{
+  BigInteger max=v[0].abs().max(v[1].abs());
+  return isLessThanSqrt(max,n);
+}

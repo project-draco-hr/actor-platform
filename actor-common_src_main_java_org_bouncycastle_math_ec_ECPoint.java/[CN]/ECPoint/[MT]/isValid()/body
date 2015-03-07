@@ -1,0 +1,15 @@
+{
+  if (isInfinity()) {
+    return true;
+  }
+  ECCurve curve=getCurve();
+  if (curve != null) {
+    if (!satisfiesCurveEquation()) {
+      return false;
+    }
+    if (!satisfiesCofactor()) {
+      return false;
+    }
+  }
+  return true;
+}

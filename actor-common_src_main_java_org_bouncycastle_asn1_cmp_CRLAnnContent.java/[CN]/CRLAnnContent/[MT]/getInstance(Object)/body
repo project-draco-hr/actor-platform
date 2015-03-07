@@ -1,0 +1,9 @@
+{
+  if (o instanceof CRLAnnContent) {
+    return (CRLAnnContent)o;
+  }
+  if (o != null) {
+    return new CRLAnnContent(ASN1Sequence.getInstance(o));
+  }
+  return null;
+}
