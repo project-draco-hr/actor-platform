@@ -1,0 +1,55 @@
+{
+  if (content instanceof TextMessage) {
+    TextMessage message=(TextMessage)content;
+    return new TextContent(message.getText());
+  }
+ else   if (content instanceof ServiceMessage) {
+    ServiceMessage message=(ServiceMessage)content;
+    ServiceEx ex=message.getExt();
+    if (ex instanceof ServiceExChangedAvatar) {
+      ServiceExChangedAvatar avatar=(ServiceExChangedAvatar)ex;
+      return new ServiceGroupAvatarChanged(convert(avatar.getAvatar()));
+    }
+ else     if (ex instanceof ServiceExChangedTitle) {
+      ServiceExChangedTitle title=(ServiceExChangedTitle)ex;
+      return new ServiceGroupTitleChanged(title.getTitle());
+    }
+ else     if (ex instanceof ServiceExUserAdded) {
+      ServiceExUserAdded userAdded=(ServiceExUserAdded)ex;
+      return new ServiceGroupUserAdded(userAdded.getAddedUid());
+    }
+ else     if (ex instanceof ServiceExUserKicked) {
+      ServiceExUserKicked exUserKicked=(ServiceExUserKicked)ex;
+      return new ServiceGroupUserKicked(exUserKicked.getKickedUid());
+    }
+ else     if (ex instanceof ServiceExUserLeft) {
+      return new ServiceGroupUserLeave();
+    }
+ else     if (ex instanceof ServiceExGroupCreated) {
+      return new ServiceGroupCreated("Group created");
+    }
+ else {
+      return new ServiceContent(message.getText());
+    }
+  }
+ else   if (content instanceof DocumentMessage) {
+    DocumentMessage documentMessage=(DocumentMessage)content;
+    String mimeType=documentMessage.getMimeType();
+    String name=documentMessage.getName();
+    im.actor.model.entity.content.FastThumb fastThumb=convert(documentMessage.getThumb());
+    FileLocation fileLocation=new FileLocation(documentMessage.getFileId(),documentMessage.getAccessHash(),documentMessage.getFileSize(),documentMessage.getName());
+    FileRemoteSource source=new FileRemoteSource(fileLocation);
+    if (documentMessage.getExt() instanceof DocumentExPhoto) {
+      DocumentExPhoto photo=(DocumentExPhoto)documentMessage.getExt();
+      return new PhotoContent(source,mimeType,name,fastThumb,photo.getW(),photo.getH());
+    }
+ else     if (documentMessage.getExt() instanceof DocumentExVideo) {
+      DocumentExVideo video=(DocumentExVideo)documentMessage.getExt();
+      return new VideoContent(source,mimeType,name,fastThumb,video.getDuration(),video.getW(),video.getH());
+    }
+ else {
+      return new DocumentContent(source,mimeType,name,fastThumb);
+    }
+  }
+  return null;
+}

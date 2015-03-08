@@ -1,0 +1,6 @@
+long fileId
+long accessHash
+int fileSize
+EncryptionType encryptionType
+Integer encryptedFileSize
+byte[] encryptionKey

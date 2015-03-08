@@ -1,0 +1,17 @@
+{
+  if (this.v1MessageType != null) {
+    writer.writeInt(1,this.v1MessageType);
+  }
+  if (this.v1Message != null) {
+    writer.writeBytes(2,this.v1Message);
+  }
+  if (this.v1Crc32 != null) {
+    writer.writeLong(3,this.v1Crc32);
+  }
+  if (this.v2Message != null) {
+    writer.writeBytes(5,this.v2Message);
+  }
+  if (this.v2HmacSha256 != null) {
+    writer.writeLong(6,this.v2HmacSha256);
+  }
+}

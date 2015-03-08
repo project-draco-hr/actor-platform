@@ -1,8 +1,0 @@
-long fileId
-long accessHash
-int fileSize
-String name
-String mimeType
-FastThumb thumb
-int extType
-byte[] ext

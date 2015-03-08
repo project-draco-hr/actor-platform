@@ -1,0 +1,7 @@
+{
+  this.v1MessageType=v1MessageType;
+  this.v1Message=v1Message;
+  this.v1Crc32=v1Crc32;
+  this.v2Message=v2Message;
+  this.v2HmacSha256=v2HmacSha256;
+}

@@ -1,0 +1,3 @@
+{
+  stream.writeBytes(raw,0,raw.length);
+}

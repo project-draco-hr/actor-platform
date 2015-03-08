@@ -16,7 +16,7 @@
       PlainMessage plainMessage=PlainMessage.fromBytes(container.getBody());
       if (plainMessage.getMessageType() == 1) {
         EncryptedTextMessage encryptedTextMessage=EncryptedTextMessage.fromBytes(plainMessage.getBody());
-        onMessage(peer,senderUid,date,plainMessage.getRid(),new MessageContent(1,new TextMessage(encryptedTextMessage.getText(),0,null).toByteArray()));
+        onMessage(peer,senderUid,date,plainMessage.getRid(),new TextMessage(encryptedTextMessage.getText(),null));
       }
     }
   }

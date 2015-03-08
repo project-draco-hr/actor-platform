@@ -1,5 +1,5 @@
 {
   this.peer=values.getObj(1,new OutPeer());
   this.rid=values.getLong(3);
-  this.message=values.getObj(4,new MessageContent());
+  this.message=Message.fromBytes(values.getBytes(4));
 }

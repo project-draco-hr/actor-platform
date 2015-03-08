@@ -1,0 +1,8 @@
+Peer peer
+int unreadCount
+long sortDate
+int senderUid
+long rid
+long date
+Message message
+MessageState state

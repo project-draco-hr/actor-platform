@@ -1,0 +1,9 @@
+{
+  this.name=values.getString(1);
+  this.mimeType=values.getString(2);
+  this.fileLocation=values.getObj(3,new EncryptedFileLocationV1());
+  this.fastThumb=values.optObj(4,new FastThumb());
+  if (values.optBytes(6) != null) {
+    this.extension=EncryptedDocumentV1Ex.fromBytes(values.getInt(5),values.getBytes(6));
+  }
+}

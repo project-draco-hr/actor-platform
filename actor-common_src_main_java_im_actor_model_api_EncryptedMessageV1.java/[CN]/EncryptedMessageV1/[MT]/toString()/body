@@ -1,0 +1,5 @@
+{
+  String res="struct EncryptedMessageV1{";
+  res+="}";
+  return res;
+}
