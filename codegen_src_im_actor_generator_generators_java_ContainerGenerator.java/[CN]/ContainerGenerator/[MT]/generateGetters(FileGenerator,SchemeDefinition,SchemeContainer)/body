@@ -1,5 +1,5 @@
 {
-  for (  SchemeAttribute attribute : container.getAttributes()) {
+  for (  SchemeAttribute attribute : container.getFilteredAttributes()) {
     String type=JavaConfig.convertType(definition,attribute.getType());
     String getter=type.equals("boolean") || type.equals("Boolean") ? JavaConfig.getBoolGetterName(attribute.getName()) : JavaConfig.getGetterName(attribute.getName());
     generator.appendLn("public " + type + " "+ getter+ "() {");

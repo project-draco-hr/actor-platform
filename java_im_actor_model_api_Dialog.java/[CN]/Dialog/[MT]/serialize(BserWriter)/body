@@ -11,7 +11,7 @@
   if (this.message == null) {
     throw new IOException();
   }
-  writer.writeObject(8,this.message);
+  writer.writeBytes(8,this.message.toByteArray());
   if (this.state != null) {
     writer.writeInt(9,this.state.getValue());
   }

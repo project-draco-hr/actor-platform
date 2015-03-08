@@ -119,7 +119,15 @@
  else     if (childType instanceof SchemeTraitType) {
       generator.appendLn("if (this." + attributeName + " != null) {");
       generator.increaseDepth();
-      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+      String traitName=((SchemeTraitType)childType).getTraitName();
+      SchemeTrait trait=definition.getTrait(traitName);
+      if (trait.isContainer()) {
+        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".toByteArray());");
+      }
+ else {
+        generator.appendLn("writer.writeInt(" + (attributeId - 1) + ", this."+ attributeName+ ".getHeader());");
+        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+      }
       generator.decreaseDepth();
       generator.appendLn("}");
     }
@@ -162,7 +170,21 @@
     }
   }
  else   if (type instanceof SchemeTraitType) {
-    generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+    String traitName=((SchemeTraitType)type).getTraitName();
+    SchemeTrait trait=definition.getTrait(traitName);
+    generator.appendLn("if (this." + attributeName + " == null) {");
+    generator.increaseDepth();
+    generator.appendLn("throw new IOException();");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+    if (trait.isContainer()) {
+      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".toByteArray());");
+    }
+ else {
+      generator.appendLn("writer.writeInt(" + (attributeId - 1) + ", this."+ attributeName+ ".getHeader());");
+      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+    }
   }
  else {
     throw new IOException();

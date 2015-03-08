@@ -1,8 +1,0 @@
-Peer peer
-int unreadCount
-long sortDate
-int senderUid
-long rid
-long date
-MessageContent message
-MessageState state

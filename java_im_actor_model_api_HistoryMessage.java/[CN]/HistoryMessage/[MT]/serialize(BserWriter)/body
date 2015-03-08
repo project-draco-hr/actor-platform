@@ -5,7 +5,7 @@
   if (this.message == null) {
     throw new IOException();
   }
-  writer.writeObject(5,this.message);
+  writer.writeBytes(5,this.message.toByteArray());
   if (this.state != null) {
     writer.writeInt(6,this.state.getValue());
   }

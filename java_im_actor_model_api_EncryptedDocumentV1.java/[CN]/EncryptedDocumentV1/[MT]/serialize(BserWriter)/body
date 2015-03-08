@@ -18,6 +18,7 @@
     writer.writeInt(5,this.extType);
   }
   if (this.extension != null) {
+    writer.writeInt(5,this.extension.getHeader());
     writer.writeBytes(6,this.extension);
   }
 }

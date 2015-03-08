@@ -1,4 +1,0 @@
-{
-  this.type=values.getInt(1);
-  this.content=values.getBytes(2);
-}

@@ -1,5 +1,0 @@
-{
-  this.rid=rid;
-  this.contentType=contentType;
-  this.content=content;
-}

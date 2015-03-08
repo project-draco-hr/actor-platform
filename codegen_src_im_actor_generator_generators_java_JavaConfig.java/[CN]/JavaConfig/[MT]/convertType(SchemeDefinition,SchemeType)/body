@@ -42,7 +42,7 @@
     return getEnumName(((SchemeEnumType)type).getName());
   }
  else   if (type instanceof SchemeTraitType) {
-    return "byte[]";
+    return getStructName(((SchemeTraitType)type).getTraitName());
   }
  else {
     throw new IOException();

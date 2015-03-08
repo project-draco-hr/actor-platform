@@ -1,6 +1,6 @@
 {
   boolean isFirst=true;
-  for (  SchemeAttribute attribute : container.getAttributes()) {
+  for (  SchemeAttribute attribute : container.getFilteredAttributes()) {
     if (isFirst) {
       isFirst=false;
     }

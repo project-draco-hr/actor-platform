@@ -1,7 +1,0 @@
-{
-  String res="struct FileExPhoto{";
-  res+="w=" + this.w;
-  res+=", h=" + this.h;
-  res+="}";
-  return res;
-}

@@ -1,0 +1,10 @@
+{
+switch (key) {
+case 1:
+    return Bser.parse(new EncryptedDocumentV1ExPhoto(),content);
+case 2:
+  return Bser.parse(new EncryptedDocumentV1VExideo(),content);
+default :
+return new EncryptedDocumentV1ExUnsupported(key,content);
+}
+}

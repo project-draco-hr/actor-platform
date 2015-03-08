@@ -1,5 +1,0 @@
-{
-  String res="struct EncryptedDocumentV1Video{";
-  res+="}";
-  return res;
-}

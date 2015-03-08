@@ -1,5 +1,7 @@
 {
   writer.writeLong(1,this.rid);
-  writer.writeInt(2,this.contentType);
-  writer.writeBytes(3,this.content);
+  if (this.content == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(3,this.content.toByteArray());
 }

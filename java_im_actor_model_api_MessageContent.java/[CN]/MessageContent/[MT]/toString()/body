@@ -1,7 +1,0 @@
-{
-  String res="struct MessageContent{";
-  res+="type=" + this.type;
-  res+=", content=" + (this.content != null ? "set" : "empty");
-  res+="}";
-  return res;
-}

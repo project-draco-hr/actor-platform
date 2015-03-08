@@ -1,0 +1,5 @@
+{
+  String res="struct EncryptedDocumentV1ExPhoto{";
+  res+="}";
+  return res;
+}
