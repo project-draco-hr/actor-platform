@@ -1,0 +1,5 @@
+{
+  this.digest=digest;
+  this.input=input;
+  this.results=results;
+}

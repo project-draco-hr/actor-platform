@@ -24,7 +24,7 @@
     if (documentContent.getFastThumb() != null) {
       fastThumb=new im.actor.model.api.FastThumb(documentContent.getFastThumb().getW(),documentContent.getFastThumb().getH(),documentContent.getFastThumb().getImage());
     }
-    message=new DocumentMessage(source.getFileLocation().getFileId(),source.getFileLocation().getAccessHash(),source.getFileLocation().getFileSize(),null,null,null,source.getFileLocation().getFileName(),documentContent.getMimetype(),fastThumb,documentEx);
+    message=new DocumentMessage(source.getFileReference().getFileId(),source.getFileReference().getAccessHash(),source.getFileReference().getFileSize(),null,null,null,source.getFileReference().getFileName(),documentContent.getMimetype(),fastThumb,documentEx);
   }
  else {
     return;

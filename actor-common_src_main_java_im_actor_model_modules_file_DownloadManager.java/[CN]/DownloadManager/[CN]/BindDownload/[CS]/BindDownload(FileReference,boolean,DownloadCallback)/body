@@ -1,0 +1,5 @@
+{
+  this.fileReference=fileReference;
+  this.isAutostart=isAutostart;
+  this.callback=callback;
+}

@@ -1,4 +1,3 @@
 {
-  long res=getLong(id,Double.doubleToLongBits(defValue));
-  return Double.longBitsToDouble(res);
+  return Double.longBitsToDouble(getLong(id,Double.doubleToLongBits(defValue)));
 }

@@ -16,7 +16,7 @@
       }
 );
     }
-    @Override public void onDownloaded(    final FileReference reference){
+    @Override public void onDownloaded(    final im.actor.model.files.FileReference reference){
       runOnUiThread(new Runnable(){
         @Override public void run(){
           callback.onDownloaded(reference);

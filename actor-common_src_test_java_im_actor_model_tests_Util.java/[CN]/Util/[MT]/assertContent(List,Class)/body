@@ -1,0 +1,10 @@
+{
+  if (list.size() == 0) {
+    return;
+  }
+  for (  Object o : list) {
+    if (o.getClass() != type) {
+      throw new AssertionError();
+    }
+  }
+}

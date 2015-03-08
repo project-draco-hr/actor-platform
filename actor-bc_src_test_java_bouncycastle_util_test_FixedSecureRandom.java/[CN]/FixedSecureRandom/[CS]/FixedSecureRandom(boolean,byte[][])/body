@@ -1,0 +1,15 @@
+{
+  ByteArrayOutputStream bOut=new ByteArrayOutputStream();
+  for (int i=0; i != values.length; i++) {
+    try {
+      bOut.write(values[i]);
+    }
+ catch (    IOException e) {
+      throw new IllegalArgumentException("can't save value array.");
+    }
+  }
+  _data=bOut.toByteArray();
+  if (intPad) {
+    _intPad=_data.length % 4;
+  }
+}

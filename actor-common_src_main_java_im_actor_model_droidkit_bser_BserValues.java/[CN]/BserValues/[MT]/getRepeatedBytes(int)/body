@@ -12,12 +12,12 @@
           res.add((byte[])val2);
         }
  else {
-          throw new IncorrectTypeException("Expected type: byte[], got " + val2.getClass().getSimpleName());
+          throw new IOException("Expected type: byte[], got " + val2.getClass().getSimpleName());
         }
       }
     }
  else {
-      throw new IncorrectTypeException("Expected type: byte[], got " + val.getClass().getSimpleName());
+      throw new IOException("Expected type: byte[], got " + val.getClass().getSimpleName());
     }
   }
   return res;

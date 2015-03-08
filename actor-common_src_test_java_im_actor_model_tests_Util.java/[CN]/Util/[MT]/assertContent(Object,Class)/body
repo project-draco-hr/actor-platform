@@ -1,0 +1,10 @@
+{
+  if (list instanceof List) {
+    assertContent((List)list,type);
+  }
+ else {
+    if (list.getClass() != type) {
+      throw new AssertionError();
+    }
+  }
+}

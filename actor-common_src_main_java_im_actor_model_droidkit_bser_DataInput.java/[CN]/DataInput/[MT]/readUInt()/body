@@ -1,5 +1,5 @@
 {
-  if (offset + 8 > maxOffset) {
+  if (offset + 4 > maxOffset) {
     throw new IOException();
   }
   long a1=data[offset + 3] & 0xFF;

@@ -1,15 +1,3 @@
 {
-  if (fields.containsKey(id)) {
-    Object res=fields.get(id);
-    if (res instanceof byte[]) {
-      try {
-        return new String((byte[])res,"UTF-8");
-      }
- catch (      UnsupportedEncodingException e) {
-        throw new RuntimeException(e);
-      }
-    }
-    return res + "";
-  }
-  return defValue;
+  return convertString(getBytes(id,defValue.getBytes("UTF-8")));
 }

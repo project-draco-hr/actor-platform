@@ -1,4 +1,5 @@
 {
+  Peer peer=convert(_peer);
   RsaCipher cipher=crypto().createRSAOAEPSHA1Cipher(modules().getAuthModule().getPublicKey(),modules().getAuthModule().getPrivateKey());
   byte[] aesKey=cipher.decrypt(aesEncryptedKey);
   if (aesKey == null) {
@@ -11,12 +12,37 @@
     byte[] decryptedRawMessage=aesCipher.decrypt(message);
     int len=readInt(decryptedRawMessage,0);
     byte[] res=substring(decryptedRawMessage,4,len);
-    MessageContainer container=MessageContainer.fromBytes(res);
-    if (container.getMessageType() == 1) {
-      PlainMessage plainMessage=PlainMessage.fromBytes(container.getBody());
-      if (plainMessage.getMessageType() == 1) {
-        EncryptedTextMessage encryptedTextMessage=EncryptedTextMessage.fromBytes(plainMessage.getBody());
-        onMessage(peer,senderUid,date,plainMessage.getRid(),new TextMessage(encryptedTextMessage.getText(),null));
+    EncryptedPackage encryptedPackage=Bser.parse(new EncryptedPackage(),res);
+    if (encryptedPackage.getV2Message() != null) {
+    }
+ else {
+      if (encryptedPackage.getV1MessageType() != 1) {
+        return;
+      }
+      EncryptedMessageV1 messageV1=Bser.parse(new EncryptedMessageV1(),encryptedPackage.getV1Message());
+      if (messageV1.getContent() instanceof EncryptedTextContentV1) {
+        EncryptedTextContentV1 text=(EncryptedTextContentV1)messageV1.getContent();
+        onMessage(peer,senderUid,date,messageV1.getRid(),new TextContent(text.getText()));
+      }
+ else       if (messageV1.getContent() instanceof EncryptedDocumentV1) {
+        EncryptedDocumentV1 document=(EncryptedDocumentV1)messageV1.getContent();
+        AbsContent content;
+        String name=document.getName();
+        String mimeType=document.getMimeType();
+        FastThumb fastThumb=EntityConverter.convert(document.getFastThumb());
+        FileRemoteSource fileRemoteSource=new FileRemoteSource(new FileReference(document.getFileLocation().getFileId(),document.getFileLocation().getAccessHash(),document.getFileLocation().getFileSize(),document.getName()));
+        if (document.getExtension() instanceof EncryptedDocumentV1ExPhoto) {
+          EncryptedDocumentV1ExPhoto photo=(EncryptedDocumentV1ExPhoto)document.getExtension();
+          content=new PhotoContent(fileRemoteSource,mimeType,name,fastThumb,photo.getWidth(),photo.getHeight());
+        }
+ else         if (document.getExtension() instanceof EncryptedDocumentV1VExideo) {
+          EncryptedDocumentV1VExideo video=(EncryptedDocumentV1VExideo)document.getExtension();
+          content=new VideoContent(fileRemoteSource,mimeType,name,fastThumb,video.getDuration(),video.getWidth(),video.getHeight());
+        }
+ else {
+          content=new DocumentContent(fileRemoteSource,mimeType,name,fastThumb);
+        }
+        onMessage(peer,senderUid,date,messageV1.getRid(),content);
       }
     }
   }

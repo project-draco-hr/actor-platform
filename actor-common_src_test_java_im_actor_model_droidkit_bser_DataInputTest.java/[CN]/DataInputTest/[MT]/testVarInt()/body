@@ -1,0 +1,38 @@
+{
+{
+    DataInput dataInput=new DataInput(fromBinary("00000001"));
+    assertEquals(1,dataInput.readVarInt());
+  }
+{
+    DataInput dataInput=new DataInput(fromBinary("1010110000000010"));
+    assertEquals(300,dataInput.readVarInt());
+  }
+{
+    DataInput dataInput=new DataInput(fromBinary("1010110000000010"));
+    assertEquals(300,dataInput.readVarInt32());
+  }
+  try {
+    byte[] data=new byte[]{(byte)0xFF,(byte)0x80};
+    DataInput dataInput=new DataInput(data);
+    dataInput.readVarInt();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+  try {
+    byte[] data=new byte[]{(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0x80};
+    DataInput dataInput=new DataInput(data);
+    dataInput.readVarInt();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+  try {
+    byte[] data=new byte[]{(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,0x00};
+    DataInput dataInput=new DataInput(data);
+    dataInput.readVarInt32();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+}

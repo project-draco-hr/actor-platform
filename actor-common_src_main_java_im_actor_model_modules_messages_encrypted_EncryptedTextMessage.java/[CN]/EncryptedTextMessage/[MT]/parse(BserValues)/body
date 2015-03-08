@@ -1,5 +1,0 @@
-{
-  text=values.getString(1);
-  extType=values.getInt(2);
-  extension=values.optBytes(3);
-}

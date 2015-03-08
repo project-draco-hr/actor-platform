@@ -1,6 +1,6 @@
 {
   int result=width;
   result=31 * result + height;
-  result=31 * result + fileLocation.hashCode();
+  result=31 * result + fileReference.hashCode();
   return result;
 }

@@ -1,0 +1,3 @@
+{
+  new MD5DigestTest().performTest();
+}

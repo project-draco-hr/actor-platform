@@ -1,0 +1,3 @@
+{
+  return failed(test,message + SEPARATOR + "Expected: "+ expected+ SEPARATOR+ "Found   : "+ found);
+}

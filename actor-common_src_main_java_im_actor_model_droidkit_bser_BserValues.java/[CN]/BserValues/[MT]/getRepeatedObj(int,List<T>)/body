@@ -1,26 +1,7 @@
 {
   ArrayList<T> res=new ArrayList<T>();
-  if (fields.containsKey(id)) {
-    Object val=fields.get(id);
-    if (val instanceof byte[]) {
-      byte[] b=(byte[])val;
-      res.add(Bser.parse(objs.remove(0),new DataInput(b,0,b.length)));
-    }
- else     if (val instanceof List) {
-      List<Object> rep=(List)val;
-      for (      Object val2 : rep) {
-        if (val2 instanceof byte[]) {
-          byte[] b=(byte[])val2;
-          res.add(Bser.parse(objs.remove(0),new DataInput(b,0,b.length)));
-        }
- else {
-          throw new IncorrectTypeException("Expected type: byte[], got " + val2.getClass().getSimpleName());
-        }
-      }
-    }
- else {
-      throw new IncorrectTypeException("Expected type: byte[], got " + val.getClass().getSimpleName());
-    }
+  for (  byte[] v : getRepeatedBytes(id)) {
+    res.add(Bser.parse(objs.remove(0),new DataInput(v,0,v.length)));
   }
   return res;
 }

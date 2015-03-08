@@ -5,25 +5,19 @@
     if (val instanceof Long) {
       res.add((Long)val);
     }
- else     if (val instanceof Integer) {
-      res.add((long)(int)(Integer)val);
-    }
  else     if (val instanceof List) {
       List<Object> rep=(List)val;
       for (      Object val2 : rep) {
         if (val2 instanceof Long) {
           res.add((Long)val2);
         }
- else         if (val2 instanceof Integer) {
-          res.add((long)(int)(Integer)val2);
-        }
  else {
-          throw new IncorrectTypeException("Expected type: long, got " + val2.getClass().getSimpleName());
+          throw new IOException("Expected type: long, got " + val2.getClass().getSimpleName());
         }
       }
     }
  else {
-      throw new IncorrectTypeException("Expected type: long, got " + val.getClass().getSimpleName());
+      throw new IOException("Expected type: long, got " + val.getClass().getSimpleName());
     }
   }
   return res;

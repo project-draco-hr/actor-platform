@@ -2,7 +2,7 @@
   super.onClick(v);
   if (document.getSource() instanceof FileRemoteSource) {
     FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
-    final FileLocation location=remoteSource.getFileLocation();
+    final FileReference location=remoteSource.getFileReference();
     messenger().requestState(location.getFileId(),new DownloadCallback(){
       @Override public void onNotDownloaded(){
         messenger().startDownloading(location);
@@ -10,7 +10,7 @@
       @Override public void onDownloading(      float progress){
         messenger().cancelDownloading(location.getFileId());
       }
-      @Override public void onDownloaded(      FileReference reference){
+      @Override public void onDownloaded(      im.actor.model.files.FileReference reference){
       }
     }
 );

@@ -1,4 +1,4 @@
 {
   super.parse(values);
-  fileLocation=FileLocation.fromBytes(values.getBytes(2));
+  fileReference=FileReference.fromBytes(values.getBytes(2));
 }

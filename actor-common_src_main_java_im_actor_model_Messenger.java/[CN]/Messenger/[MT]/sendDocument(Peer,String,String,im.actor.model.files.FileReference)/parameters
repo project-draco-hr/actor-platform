@@ -1,0 +1,4 @@
+Peer peer
+String fileName
+String mimeType
+im.actor.model.files.FileReference fileReference

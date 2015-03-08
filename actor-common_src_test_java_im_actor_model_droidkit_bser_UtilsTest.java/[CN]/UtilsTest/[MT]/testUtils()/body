@@ -1,0 +1,37 @@
+{
+  assertEquals(1,Utils.bytesToInt(Utils.intToBytes(1)));
+  assertEquals(0,Utils.bytesToInt(Utils.intToBytes(0)));
+  assertEquals(-1,Utils.bytesToInt(Utils.intToBytes(-1)));
+  assertEquals(Integer.MAX_VALUE,Utils.bytesToInt(Utils.intToBytes(Integer.MAX_VALUE)));
+  assertEquals(Integer.MIN_VALUE,Utils.bytesToInt(Utils.intToBytes(Integer.MIN_VALUE)));
+  assertEquals(Integer.MIN_VALUE / 2,Utils.bytesToInt(Utils.intToBytes(Integer.MIN_VALUE / 2)));
+  assertEquals(Integer.MAX_VALUE / 2,Utils.bytesToInt(Utils.intToBytes(Integer.MAX_VALUE / 2)));
+  assertEquals(1,Utils.bytesToLong(Utils.longToBytes(1)));
+  assertEquals(0,Utils.bytesToLong(Utils.longToBytes(0)));
+  assertEquals(-1,Utils.bytesToLong(Utils.longToBytes(-1)));
+  assertEquals(Long.MAX_VALUE,Utils.bytesToLong(Utils.longToBytes(Long.MAX_VALUE)));
+  assertEquals(Long.MIN_VALUE,Utils.bytesToLong(Utils.longToBytes(Long.MIN_VALUE)));
+  assertEquals(Long.MIN_VALUE / 2,Utils.bytesToLong(Utils.longToBytes(Long.MIN_VALUE / 2)));
+  assertEquals(Long.MAX_VALUE / 2,Utils.bytesToLong(Utils.longToBytes(Long.MAX_VALUE / 2)));
+  assertEquals("null",Utils.byteArrayToString(null));
+  assertEquals("null",Utils.byteArrayToStringCompact(null));
+  assertEquals("05a2b1",Utils.byteArrayToString(new byte[]{0x05,(byte)0xA2,(byte)0xB1}));
+  assertNotEquals("05A2B1",Utils.byteArrayToString(new byte[]{0x05,(byte)0xA2,(byte)0xB1}));
+  assertNull(Utils.convertString(null));
+  assertNotNull(Utils.convertString(new byte[0]));
+  Utils.convertInt(Integer.MAX_VALUE);
+  Utils.convertInt(Integer.MIN_VALUE);
+  Utils.convertInt(0);
+  try {
+    Utils.convertInt(Long.MAX_VALUE);
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+  try {
+    Utils.convertInt(Long.MIN_VALUE);
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+}

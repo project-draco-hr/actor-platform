@@ -1,7 +1,0 @@
-{
-  writer.writeString(1,text);
-  writer.writeInt(2,extType);
-  if (extension != null) {
-    writer.writeBytes(3,extension);
-  }
-}

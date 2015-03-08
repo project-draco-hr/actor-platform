@@ -1,7 +1,7 @@
 {
   w=avatarImage.getWidth();
   h=avatarImage.getHeight();
-  fileId=avatarImage.getFileLocation().getFileId();
-  accessHash=avatarImage.getFileLocation().getAccessHash();
-  fileSize=avatarImage.getFileLocation().getFileSize();
+  fileId=avatarImage.getFileReference().getFileId();
+  accessHash=avatarImage.getFileReference().getAccessHash();
+  fileSize=avatarImage.getFileReference().getFileSize();
 }

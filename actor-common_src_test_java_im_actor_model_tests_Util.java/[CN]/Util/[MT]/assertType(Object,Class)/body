@@ -1,0 +1,5 @@
+{
+  if (ob.getClass() != type) {
+    throw new AssertionError();
+  }
+}

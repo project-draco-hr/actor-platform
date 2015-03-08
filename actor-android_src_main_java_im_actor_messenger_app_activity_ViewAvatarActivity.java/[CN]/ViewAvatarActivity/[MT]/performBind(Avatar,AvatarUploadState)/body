@@ -20,7 +20,7 @@
   }
  else {
     goneView(noPhoto);
-    String file=messenger().getDownloadedDescriptor(avatar.getFullImage().getFileLocation().getFileId());
+    String file=messenger().getDownloadedDescriptor(avatar.getFullImage().getFileReference().getFileId());
     if (file != null) {
       try {
         Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
@@ -35,7 +35,7 @@
     }
     showView(progress);
     boolean isAppliedPreview=false;
-    String largeFile=messenger().getDownloadedDescriptor(avatar.getLargeImage().getFileLocation().getFileId());
+    String largeFile=messenger().getDownloadedDescriptor(avatar.getLargeImage().getFileReference().getFileId());
     if (largeFile != null) {
       try {
         Bitmap bitmap=ImageLoading.loadBitmapOptimized(largeFile);
@@ -48,7 +48,7 @@
       }
     }
     if (!isAppliedPreview) {
-      String smallFile=messenger().getDownloadedDescriptor(avatar.getSmallImage().getFileLocation().getFileId());
+      String smallFile=messenger().getDownloadedDescriptor(avatar.getSmallImage().getFileReference().getFileId());
       if (smallFile != null) {
         try {
           Bitmap bitmap=ImageLoading.loadBitmapOptimized(smallFile);

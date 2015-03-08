@@ -1,0 +1,6 @@
+{
+  if ((longAsString.charAt(1) == 'x') || (longAsString.charAt(1) == 'X')) {
+    return Long.parseLong(longAsString.substring(2),16);
+  }
+  return Long.parseLong(longAsString,16);
+}

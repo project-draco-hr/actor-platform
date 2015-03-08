@@ -1,5 +1,5 @@
 {
-  byte[] data=getBytes(id);
+  byte[] data=optBytes(id);
   if (data == null) {
     throw new UnknownFieldException("Unable to find field #" + id);
   }

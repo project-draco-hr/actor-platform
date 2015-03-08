@@ -1,41 +1,8 @@
 {
+  List<byte[]> src=getRepeatedBytes(id);
   ArrayList<String> res=new ArrayList<String>();
-  if (fields.containsKey(id)) {
-    Object val=fields.get(id);
-    if (val instanceof Long) {
-      res.add("" + val);
-    }
- else     if (val instanceof Integer) {
-      res.add("" + val);
-    }
- else     if (val instanceof byte[]) {
-      res.add(new String((byte[])val));
-    }
- else     if (val instanceof List) {
-      List<Object> rep=(List)val;
-      for (      Object val2 : rep) {
-        if (val2 instanceof Long) {
-          res.add("" + val2);
-        }
- else         if (val2 instanceof Integer) {
-          res.add("" + val2);
-        }
- else         if (val2 instanceof byte[]) {
-          try {
-            res.add(new String((byte[])val2,"UTF-8"));
-          }
- catch (          UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-          }
-        }
- else {
-          throw new IncorrectTypeException("Expected type: byte[], got " + val2.getClass().getSimpleName());
-        }
-      }
-    }
- else {
-      throw new IncorrectTypeException("Expected type: byte[], got " + val.getClass().getSimpleName());
-    }
+  for (  byte[] l : src) {
+    res.add(convertString(l));
   }
   return res;
 }

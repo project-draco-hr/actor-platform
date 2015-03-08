@@ -12,7 +12,7 @@
     Log.d(TAG,"Unable to create reference");
     return;
   }
-  outputFile=destReference.openWrite(fileLocation.getFileSize());
+  outputFile=destReference.openWrite(fileReference.getFileSize());
   if (outputFile == null) {
     reportError();
     Log.d(TAG,"Unable to write wile");

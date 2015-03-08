@@ -1,0 +1,72 @@
+{
+  try {
+    DataInput dataInput=new DataInput(new byte[]{0,1,2});
+    dataInput.readInt();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+{
+    DataInput dataInput=new DataInput(new byte[]{0,1,2,3});
+    dataInput.readInt();
+  }
+  try {
+    DataInput dataInput=new DataInput(new byte[]{0,1,2});
+    dataInput.readUInt();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+{
+    DataInput dataInput=new DataInput(new byte[]{0,1,2,3});
+    dataInput.readUInt();
+  }
+  try {
+    DataInput dataInput=new DataInput(new byte[]{0,1,2,3,4,5,6});
+    dataInput.readLong();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+{
+    DataInput dataInput=new DataInput(new byte[]{0,1,2,3,4,5,6,7});
+    dataInput.readLong();
+  }
+{
+    DataInput dataInput=new DataInput(new byte[]{(byte)0xA4});
+    assertEquals(0xA4,dataInput.readByte());
+  }
+  try {
+    DataInput dataInput=new DataInput(new byte[0]);
+    dataInput.readByte();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+{
+    byte[] src=new byte[]{(byte)0xA4,(byte)0xA6,(byte)0xB4,(byte)0xC1,(byte)0x04};
+    DataInput dataInput=new DataInput(src);
+    assertTrue(Arrays.equals(src,dataInput.readBytes(src.length)));
+  }
+  try {
+    DataInput dataInput=new DataInput(new byte[9]);
+    dataInput.readBytes(10);
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+  try {
+    DataInput dataInput=new DataInput(new byte[9]);
+    dataInput.readBytes(2048 * 1024);
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+  try {
+    DataInput dataInput=new DataInput(new byte[9]);
+    dataInput.readBytes(-10);
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return new FileVM(fileLocation,isAutoStart,modules,callback);
-}

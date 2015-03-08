@@ -3,5 +3,5 @@
   if (data == null) {
     return null;
   }
-  return Bser.parse(obj,new DataInput(data,0,data.length));
+  return Bser.parse(obj,data);
 }

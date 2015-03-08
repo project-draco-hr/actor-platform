@@ -1,5 +1,14 @@
 {
-  for (  long l : values) {
+  if (values == null) {
+    throw new IllegalArgumentException("Values can not be null");
+  }
+  if (values.size() > Limits.MAX_PROTO_REPEATED) {
+    throw new IllegalArgumentException("Too many values");
+  }
+  for (  Long l : values) {
+    if (l == null) {
+      throw new IllegalArgumentException("Value can not be null");
+    }
     writeVar64Field(fieldNumber,l);
   }
 }

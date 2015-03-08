@@ -21,12 +21,12 @@
     Log.d(TAG,"- No work for downloading");
     return;
   }
-  Log.d(TAG,"- Starting download file #" + pendingQueue.fileLocation.getFileId());
+  Log.d(TAG,"- Starting download file #" + pendingQueue.fileReference.getFileId());
   pendingQueue.isStarted=true;
   final QueueItem finalPendingQueue=pendingQueue;
   pendingQueue.taskRef=system().actorOf(Props.create(DownloadTask.class,new ActorCreator<DownloadTask>(){
     @Override public DownloadTask create(){
-      return new DownloadTask(finalPendingQueue.fileLocation,self(),modules());
+      return new DownloadTask(finalPendingQueue.fileReference,self(),modules());
     }
   }
 ),"actor/download/task_" + RandomUtils.nextRid());

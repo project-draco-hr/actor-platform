@@ -1,0 +1,39 @@
+{
+  SparseArray<Object> values=DEFAULT.buildArray();
+  assertEquals(11,values.size());
+  assertTrue(values.get(1) instanceof List);
+  assertContent(values.get(1),Long.class);
+  assertSize(values.get(1),5);
+  assertTrue(values.get(2) instanceof Long);
+  assertTrue(values.get(3) instanceof List);
+  assertContent(values.get(3),byte[].class);
+  assertSize(values.get(3),2);
+  assertTrue(values.get(4) instanceof Long);
+  assertTrue(values.get(5) instanceof Long);
+  try {
+    ERROR.buildArray();
+    throw new AssertionError();
+  }
+ catch (  Exception e) {
+  }
+  new MockSerialization(){
+    @Override protected void perform(    BserWriter writer) throws IOException {
+      writer.writeLong(1,-1);
+    }
+  }
+.buildArray();
+  new MockSerialization(){
+    @Override protected void perform(    BserWriter writer) throws IOException {
+      List<Boolean> b=new ArrayList<Boolean>();
+      b.add(true);
+      writer.writeRepeatedBool(1,b);
+      List<Long> l=new ArrayList<Long>();
+      l.add(0L);
+      writer.writeRepeatedLong(1,l);
+      List<Integer> i=new ArrayList<Integer>();
+      i.add(0);
+      writer.writeRepeatedInt(1,i);
+    }
+  }
+.buildArray();
+}

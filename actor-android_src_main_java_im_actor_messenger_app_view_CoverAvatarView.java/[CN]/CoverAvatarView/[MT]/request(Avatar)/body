@@ -1,9 +1,9 @@
 {
   clear();
 {
-    FileLocation fileLocation=avatar.getLargeImage().getFileLocation();
+    FileReference fileReference=avatar.getLargeImage().getFileReference();
     DiskCache diskCache=Core.getImageLoader().getInternalDiskCache();
-    String avatarKey=FileKeys.avatarKey(fileLocation.getFileId());
+    String avatarKey=FileKeys.avatarKey(fileReference.getFileId());
     String file=diskCache.lockFile(avatarKey);
     if (file != null) {
       try {
@@ -17,9 +17,9 @@
     }
   }
 {
-    FileLocation fileLocation=avatar.getSmallImage().getFileLocation();
+    FileReference fileReference=avatar.getSmallImage().getFileReference();
     DiskCache diskCache=Core.getImageLoader().getInternalDiskCache();
-    String avatarKey=FileKeys.avatarKey(fileLocation.getFileId());
+    String avatarKey=FileKeys.avatarKey(fileReference.getFileId());
     String file=diskCache.lockFile(avatarKey);
     if (file != null) {
       try {

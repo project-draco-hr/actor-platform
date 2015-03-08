@@ -1,0 +1,4 @@
+{
+  System.arraycopy(_data,_index,bytes,0,bytes.length);
+  _index+=bytes.length;
+}

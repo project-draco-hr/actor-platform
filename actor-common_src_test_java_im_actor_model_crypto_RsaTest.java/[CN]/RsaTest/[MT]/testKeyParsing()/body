@@ -1,9 +1,0 @@
-{
-  RSAKeyPairGenerator rsaKeyPairGenerator=new RSAKeyPairGenerator();
-  rsaKeyPairGenerator.init(new RSAKeyGenerationParameters(RSA_EXPONENT,new SecureRandom(),RSA_KEY_LENGTH,RSA_CERTAINITY));
-  AsymmetricCipherKeyPair bcKey=rsaKeyPairGenerator.generateKeyPair();
-  RSAPrivateCrtKeyParameters parameter=(RSAPrivateCrtKeyParameters)bcKey.getPrivate();
-  org.bouncycastle.asn1.pkcs.RSAPrivateKey pksPrivateKey=new org.bouncycastle.asn1.pkcs.RSAPrivateKey(parameter.getModulus(),ZERO,parameter.getExponent(),ZERO,ZERO,ZERO,ZERO,ZERO);
-  PrivateKeyInfo info=new PrivateKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption,DERNull.INSTANCE),pksPrivateKey.toASN1Primitive());
-  byte[] privateKey=info.getEncoded(ASN1Encoding.DER);
-}

@@ -1,0 +1,16 @@
+{
+  Log.d(TAG,"onDownloaded file #" + fileId);
+  QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    return;
+  }
+  if (!queueItem.isStarted) {
+    return;
+  }
+  downloaded.addOrUpdateItem(new Downloaded(queueItem.fileReference.getFileId(),queueItem.fileReference.getFileSize(),reference.getDescriptor()));
+  queue.remove(queueItem);
+  queueItem.taskRef.send(PoisonPill.INSTANCE);
+  for (  DownloadCallback fileCallback : queueItem.callbacks) {
+    fileCallback.onDownloaded(reference);
+  }
+}

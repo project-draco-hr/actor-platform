@@ -1,0 +1,15 @@
+{
+  byte[] resBuf=new byte[digest.getDigestSize()];
+  for (int i=0; i < input.length - 1; i++) {
+    byte[] m=toByteArray(input[i]);
+    vectorTest(digest,i,resBuf,m,Hex.decode(results[i]));
+  }
+  byte[] lastV=toByteArray(input[input.length - 1]);
+  byte[] lastDigest=Hex.decode(results[input.length - 1]);
+  vectorTest(digest,input.length - 1,resBuf,lastV,Hex.decode(results[input.length - 1]));
+  testClone(resBuf,lastV,lastDigest);
+  testMemo(resBuf,lastV,lastDigest);
+  if (digest instanceof EncodableDigest) {
+    testEncodedState(resBuf,lastV,lastDigest);
+  }
+}

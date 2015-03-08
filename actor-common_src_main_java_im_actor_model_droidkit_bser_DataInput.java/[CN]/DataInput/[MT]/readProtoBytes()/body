@@ -1,4 +1,10 @@
 {
-  int len=(int)readVarInt();
-  return readBytes(len);
+  long len=readVarInt();
+  if (len < 0) {
+    throw new IOException();
+  }
+  if (len > Limits.MAX_BLOCK_SIZE) {
+    throw new IOException();
+  }
+  return readBytes((int)len);
 }

@@ -1,3 +1,0 @@
-FileLocation fileLocation
-boolean isAutostart
-DownloadCallback callback

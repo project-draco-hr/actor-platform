@@ -1,0 +1,21 @@
+{
+  Log.d(TAG,"Starting download #" + fileReference.getFileId());
+  QueueItem queueItem=findItem(fileReference.getFileId());
+  if (queueItem == null) {
+    Log.d(TAG,"- Adding to queue");
+    queueItem=new QueueItem(fileReference);
+    queueItem.isStopped=false;
+    queue.add(0,queueItem);
+  }
+ else {
+    Log.d(TAG,"- Promoting in queue");
+    if (queueItem.isStopped) {
+      queueItem.isStopped=false;
+      for (      DownloadCallback callback : queueItem.callbacks) {
+        callback.onDownloading(0);
+      }
+    }
+    promote(fileReference.getFileId());
+  }
+  checkQueue();
+}

@@ -1,0 +1,3 @@
+FileReference fileReference
+boolean isAutoStart
+FileVMCallback callback

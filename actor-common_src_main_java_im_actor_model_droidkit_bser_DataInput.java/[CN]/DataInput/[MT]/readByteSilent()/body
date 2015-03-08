@@ -1,6 +1,0 @@
-{
-  if (offset == maxOffset) {
-    return -1;
-  }
-  return data[offset++] & 0xFF;
-}

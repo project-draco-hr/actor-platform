@@ -1,3 +1,3 @@
 {
-  return getDouble(id,0);
+  return Double.longBitsToDouble(optLong(id));
 }

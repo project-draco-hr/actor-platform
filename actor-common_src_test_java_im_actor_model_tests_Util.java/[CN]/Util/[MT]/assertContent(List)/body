@@ -1,0 +1,7 @@
+{
+  if (list.size() == 0) {
+    return;
+  }
+  Object main=list.get(0);
+  assertContent(list,list.get(0).getClass());
+}

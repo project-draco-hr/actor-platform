@@ -4,6 +4,6 @@
   AvatarImage that=(AvatarImage)o;
   if (height != that.height)   return false;
   if (width != that.width)   return false;
-  if (!fileLocation.equals(that.fileLocation))   return false;
+  if (!fileReference.equals(that.fileReference))   return false;
   return true;
 }

@@ -1,3 +1,6 @@
 {
+  if (raw == null) {
+    throw new IllegalArgumentException("Raw can not be null");
+  }
   stream.writeBytes(raw,0,raw.length);
 }

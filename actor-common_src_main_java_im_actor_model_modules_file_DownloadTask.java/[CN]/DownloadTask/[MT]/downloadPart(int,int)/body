@@ -1,5 +1,5 @@
 {
-  request(new RequestGetFile(new im.actor.model.api.FileLocation(fileLocation.getFileId(),fileLocation.getAccessHash()),fileOffset,blockSize),new RpcCallback<ResponseGetFile>(){
+  request(new RequestGetFile(new im.actor.model.api.FileLocation(fileReference.getFileId(),fileReference.getAccessHash()),fileOffset,blockSize),new RpcCallback<ResponseGetFile>(){
     @Override public void onResult(    ResponseGetFile response){
       downloaded++;
       Log.d(TAG,"Download part #" + blockIndex + " completed");

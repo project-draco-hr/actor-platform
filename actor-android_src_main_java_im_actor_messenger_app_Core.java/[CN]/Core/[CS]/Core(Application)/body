@@ -33,6 +33,7 @@
   }
   builder.setEnableContactsLogging(true);
   builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",new byte[32]));
+  builder.setCryptoProvider(new BouncyCastleProvider());
   this.messenger=new im.actor.model.Messenger(builder.build());
   AppContext.getContext().getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
     @Override public void onChange(    boolean selfChange){

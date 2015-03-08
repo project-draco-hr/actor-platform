@@ -1,7 +1,0 @@
-{
-  int differentbits=0;
-  for (int count=0; count < 32; count++) {
-    differentbits|=(x[count] ^ y[count]);
-  }
-  return differentbits;
-}

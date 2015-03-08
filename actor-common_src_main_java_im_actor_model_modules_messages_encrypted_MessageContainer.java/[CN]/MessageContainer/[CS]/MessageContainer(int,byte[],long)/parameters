@@ -1,3 +1,0 @@
-int messageType
-byte[] body
-long crc32

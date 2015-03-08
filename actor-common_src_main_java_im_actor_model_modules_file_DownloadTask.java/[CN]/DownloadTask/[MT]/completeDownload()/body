@@ -7,7 +7,7 @@
     reportError();
     return;
   }
-  FileReference reference=fileSystemProvider.commitTempFile(destReference,fileLocation);
+  im.actor.model.files.FileReference reference=fileSystemProvider.commitTempFile(destReference,fileReference);
   if (reference == null) {
     reportError();
     return;

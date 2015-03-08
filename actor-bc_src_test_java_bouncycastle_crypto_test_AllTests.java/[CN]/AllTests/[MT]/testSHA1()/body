@@ -1,0 +1,3 @@
+{
+  new SHA1DigestTest().performTest();
+}

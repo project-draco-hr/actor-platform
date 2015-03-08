@@ -3,6 +3,6 @@
     return "null";
   }
  else {
-    return Arrays.toString(data);
+    return CryptoUtils.hex(data);
   }
 }

@@ -1,7 +1,7 @@
 {
   SparseArray<Object> hashMap=new SparseArray<Object>();
-  int currentTag;
-  while ((currentTag=is.readByteSilent()) > 0) {
+  while (!is.isEOF()) {
+    int currentTag=(int)is.readVarInt32();
     int id=currentTag >> 3;
     int type=currentTag & 0x7;
     if (type == TYPE_VARINT) {

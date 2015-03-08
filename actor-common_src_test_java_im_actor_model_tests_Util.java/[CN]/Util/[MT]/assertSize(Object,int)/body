@@ -1,0 +1,12 @@
+{
+  if (ob instanceof List) {
+    if (((List)ob).size() != size) {
+      throw new AssertionError();
+    }
+  }
+ else {
+    if (size != 1) {
+      throw new AssertionError();
+    }
+  }
+}

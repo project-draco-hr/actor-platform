@@ -105,8 +105,8 @@ menu.setVisibility(View.GONE);
 status.setVisibility(View.GONE);
 if (document.getSource() instanceof FileRemoteSource) {
 FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
-boolean autoDownload=remoteSource.getFileLocation().getFileSize() <= 1024 * 1024;
-downloadFileVM=messenger().bindFile(remoteSource.getFileLocation(),autoDownload,new DownloadVMCallback());
+boolean autoDownload=remoteSource.getFileReference().getFileSize() <= 1024 * 1024;
+downloadFileVM=messenger().bindFile(remoteSource.getFileReference(),autoDownload,new DownloadVMCallback());
 }
  else if (document.getSource() instanceof FileLocalSource) {
 uploadFileVM=messenger().bindUpload(message.getRid(),new UploadVMCallback());

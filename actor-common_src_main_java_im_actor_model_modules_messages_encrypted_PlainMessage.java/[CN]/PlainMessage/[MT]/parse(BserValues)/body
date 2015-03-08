@@ -1,5 +1,0 @@
-{
-  rid=values.getLong(1);
-  messageType=values.getInt(2);
-  body=values.getBytes(3);
-}

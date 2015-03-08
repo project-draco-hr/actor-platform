@@ -1,6 +1,3 @@
 {
-  if (!fields.containsKey(id)) {
-    throw new UnknownFieldException("Unable to find field #" + id);
-  }
-  return getBool(id,false);
+  return getLong(id) != 0;
 }

@@ -1,0 +1,13 @@
+{
+  byte[] data=new byte[8];
+  int offset=0;
+  data[offset++]=(byte)((v >> 56) & 0xFF);
+  data[offset++]=(byte)((v >> 48) & 0xFF);
+  data[offset++]=(byte)((v >> 40) & 0xFF);
+  data[offset++]=(byte)((v >> 32) & 0xFF);
+  data[offset++]=(byte)((v >> 24) & 0xFF);
+  data[offset++]=(byte)((v >> 16) & 0xFF);
+  data[offset++]=(byte)((v >> 8) & 0xFF);
+  data[offset++]=(byte)(v & 0xFF);
+  return data;
+}

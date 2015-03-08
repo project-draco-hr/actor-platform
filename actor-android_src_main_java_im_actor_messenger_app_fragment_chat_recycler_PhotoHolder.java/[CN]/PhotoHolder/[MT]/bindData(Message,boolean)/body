@@ -81,7 +81,7 @@ progressValue.setVisibility(View.GONE);
 progressIcon.setVisibility(View.GONE);
 if (fileMessage.getSource() instanceof FileRemoteSource) {
 boolean autoDownload=fileMessage instanceof PhotoContent;
-downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileLocation(),autoDownload,new DownloadVMCallback(fileMessage));
+downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(fileMessage));
 }
  else if (fileMessage.getSource() instanceof FileLocalSource) {
 }

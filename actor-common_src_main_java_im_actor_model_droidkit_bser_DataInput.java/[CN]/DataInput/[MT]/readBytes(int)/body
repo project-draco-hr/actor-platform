@@ -1,4 +1,10 @@
 {
+  if (count < 0) {
+    throw new IllegalArgumentException("Count can't be negative");
+  }
+  if (count > Limits.MAX_BLOCK_SIZE) {
+    throw new IllegalArgumentException("Unable to read more than 1 MB");
+  }
   if (offset + count > maxOffset) {
     throw new IOException("Too many to read, max len: " + maxOffset + ", required len: "+ (offset + count));
   }

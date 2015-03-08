@@ -1,4 +1,4 @@
 {
   super(task,loader);
-  this.location=task.getAvatarImage().getFileLocation();
+  this.location=task.getAvatarImage().getFileReference();
 }

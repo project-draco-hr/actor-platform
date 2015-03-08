@@ -1,5 +1,0 @@
-{
-  this.rid=rid;
-  this.messageType=messageType;
-  this.body=body;
-}
