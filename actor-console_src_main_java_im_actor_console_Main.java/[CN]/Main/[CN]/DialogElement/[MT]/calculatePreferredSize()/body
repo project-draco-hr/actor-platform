@@ -1,3 +1,0 @@
-{
-  return new TerminalSize(30,4);
-}

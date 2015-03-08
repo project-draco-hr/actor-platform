@@ -1,5 +1,0 @@
-{
-  User user=messenger.getUsers().getValue(message.getSenderId());
-  addComponent(new Label(user.getName() + " says:"));
-  addComponent(new Label(((TextContent)message.getContent()).getText()));
-}

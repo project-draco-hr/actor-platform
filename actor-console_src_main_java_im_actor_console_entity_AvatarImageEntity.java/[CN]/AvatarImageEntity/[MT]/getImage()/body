@@ -1,3 +1,0 @@
-{
-  return new AvatarImage(w,h,new FileReference(fileId,accessHash,fileSize,""));
-}

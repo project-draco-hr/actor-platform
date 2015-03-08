@@ -1,0 +1,31 @@
+{
+  if (messenger != null) {
+    Log.d("ConsoleActor","Already created");
+  }
+  ConfigurationBuilder builder=new ConfigurationBuilder();
+  builder.setNetworking(new JavaNetworking());
+  builder.setPhoneBookProvider(new PhoneBookProvider(){
+    @Override public void loadPhoneBook(    Callback callback){
+    }
+  }
+);
+  builder.setApiConfiguration(new ApiConfiguration("Actor Console",1,"???","Some console",new byte[0]));
+  builder.setMainThread(new MainThread(){
+    @Override public void runOnUiThread(    Runnable runnable){
+      runnable.run();
+    }
+  }
+);
+  builder.setStorage(new TempStorage());
+  builder.setCryptoProvider(new BouncyCastleProvider());
+  builder.setLocale(new LocaleProvider(){
+    @Override public HashMap<String,String> loadLocale(){
+      return new HashMap<String,String>();
+    }
+  }
+);
+  builder.setLog(new JavaLog());
+  builder.setThreading(new JavaThreading());
+  builder.addEndpoint(url);
+  messenger=new Messenger(builder.build());
+}

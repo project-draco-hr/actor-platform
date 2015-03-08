@@ -1,5 +1,0 @@
-int w
-int h
-long fileId
-long accessHash
-int fileSize

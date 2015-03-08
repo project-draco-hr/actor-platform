@@ -1,7 +1,0 @@
-{
-  w=values.getInt(1);
-  h=values.getInt(2);
-  fileId=values.getLong(3);
-  accessHash=values.getLong(4);
-  fileSize=values.getInt(5);
-}

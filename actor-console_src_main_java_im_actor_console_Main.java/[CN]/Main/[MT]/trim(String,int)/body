@@ -1,7 +1,0 @@
-{
-  if (s.length() > len) {
-    int nLen=Math.min(len - 4,s.length());
-    return s.substring(0,nLen) + "...";
-  }
-  return s;
-}

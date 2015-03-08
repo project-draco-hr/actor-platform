@@ -33,7 +33,7 @@
         Log.w(TAG,"Package crc32 expected: " + localCrc + ", got: "+ pkgCrc);
         throw new IOException("Wrong CRC");
       }
-      callback.onMessage(pkg,0,pkgLen);
+      callback.onMessage(pkg,0,pkg.length);
     }
   }
  catch (  final Throwable e) {

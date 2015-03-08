@@ -1,5 +1,0 @@
-{
-  this.adapter=adapter;
-  this.panel=panel;
-  update(items);
-}

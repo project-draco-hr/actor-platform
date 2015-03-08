@@ -1,7 +1,0 @@
-{
-  writer.writeInt(1,w);
-  writer.writeInt(2,h);
-  writer.writeLong(3,fileId);
-  writer.writeLong(4,accessHash);
-  writer.writeInt(5,fileSize);
-}

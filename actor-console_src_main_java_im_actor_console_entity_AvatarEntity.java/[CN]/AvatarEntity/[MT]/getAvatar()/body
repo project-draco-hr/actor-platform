@@ -1,3 +1,0 @@
-{
-  return new Avatar(smallImage != null ? smallImage.getImage() : null,largeImage != null ? largeImage.getImage() : null,fullImage != null ? fullImage.getImage() : null);
-}
