@@ -1,4 +1,0 @@
-{
-  this.write("-----BEGIN " + type + "-----");
-  this.newLine();
-}

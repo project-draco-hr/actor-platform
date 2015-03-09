@@ -1,6 +1,0 @@
-{
-  buf[bufOff++]=(byte)b;
-  if (bufOff == buf.length) {
-    flush();
-  }
-}

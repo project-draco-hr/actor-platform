@@ -1,0 +1,5 @@
+{
+  DataOutput res=new DataOutput();
+  serialize(res);
+  return res.toByteArray();
+}

@@ -1,0 +1,5 @@
+{
+  dataOutput.writeByte(TAG_INTEGER);
+  dataOutput.writeASN1Length(data.length);
+  dataOutput.writeBytes(data,0,data.length);
+}

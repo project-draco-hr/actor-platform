@@ -1,0 +1,3 @@
+{
+  return readObject(new DataInput(sourceData,offset,len));
+}

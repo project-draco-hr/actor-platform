@@ -1,3 +1,0 @@
-{
-  return getHashCode(this.name) + 31 * getHashCode(this.value);
-}

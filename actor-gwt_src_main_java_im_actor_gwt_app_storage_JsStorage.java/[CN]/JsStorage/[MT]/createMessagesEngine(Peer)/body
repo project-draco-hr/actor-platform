@@ -1,5 +1,5 @@
 {
-  return new JsListEngine<Message>("msg" + peer.getUid(),storage){
+  return new JsListEngine<Message>("msg" + peer.getUnuqueId(),storage){
     @Override protected byte[] serialize(    Message item){
       return item.toByteArray();
     }

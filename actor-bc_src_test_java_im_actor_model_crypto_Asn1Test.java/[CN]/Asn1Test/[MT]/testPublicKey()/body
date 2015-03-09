@@ -1,0 +1,8 @@
+{
+  byte[] srcKey=CryptoUtils.fromHex(DEMO_KEY1);
+  X509RsaPublicKey publicKey=new X509RsaPublicKey(srcKey);
+  assertArrayEquals(srcKey,publicKey.serialize());
+  srcKey=CryptoUtils.fromHex(DEMO_KEY2);
+  publicKey=new X509RsaPublicKey(srcKey);
+  assertArrayEquals(srcKey,publicKey.serialize());
+}

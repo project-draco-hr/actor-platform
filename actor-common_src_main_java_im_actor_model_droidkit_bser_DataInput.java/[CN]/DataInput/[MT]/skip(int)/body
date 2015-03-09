@@ -1,0 +1,6 @@
+{
+  if (offset + size > maxOffset) {
+    throw new IOException();
+  }
+  offset+=size;
+}

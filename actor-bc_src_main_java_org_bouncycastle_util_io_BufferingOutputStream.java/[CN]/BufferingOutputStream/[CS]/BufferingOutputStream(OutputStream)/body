@@ -1,4 +1,0 @@
-{
-  this.other=other;
-  this.buf=new byte[4096];
-}

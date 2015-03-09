@@ -1,4 +1,0 @@
-{
-  this.input.close();
-  this.output.close();
-}
