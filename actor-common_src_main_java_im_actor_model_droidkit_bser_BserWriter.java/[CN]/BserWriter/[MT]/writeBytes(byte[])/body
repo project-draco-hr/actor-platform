@@ -1,4 +1,3 @@
 {
-  writeVarInt(data.length);
-  stream.writeBytes(data,0,data.length);
+  stream.writeProtoBytes(data,0,data.length);
 }

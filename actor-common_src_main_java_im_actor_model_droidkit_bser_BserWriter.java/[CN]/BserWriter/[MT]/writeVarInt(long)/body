@@ -1,7 +1,3 @@
 {
-  while ((value & 0xffffffffffffff80l) != 0l) {
-    stream.writeByte((byte)((value & 0x7f) | 0x80));
-    value>>>=7;
-  }
-  stream.writeByte((byte)(value & 0x7f));
+  stream.writeVarInt(value);
 }
