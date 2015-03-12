@@ -5,7 +5,6 @@
   res+=", name=" + this.name;
   res+=", mimeType=" + this.mimeType;
   res+=", thumb=" + (this.thumb != null ? "set" : "empty");
-  res+=", extType=" + this.extType;
   res+=", ext=" + (this.ext != null ? "set" : "empty");
   res+="}";
   return res;

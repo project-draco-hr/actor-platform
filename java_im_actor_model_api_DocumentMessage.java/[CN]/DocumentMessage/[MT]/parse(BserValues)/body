@@ -11,7 +11,6 @@
   this.name=values.getString(4);
   this.mimeType=values.getString(5);
   this.thumb=values.optObj(6,new FastThumb());
-  this.extType=values.getInt(7);
   if (values.optBytes(8) != null) {
     this.ext=DocumentEx.fromBytes(values.getInt(7),values.getBytes(8));
   }

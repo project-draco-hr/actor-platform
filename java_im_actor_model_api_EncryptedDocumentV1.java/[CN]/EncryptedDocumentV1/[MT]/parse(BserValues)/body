@@ -3,7 +3,6 @@
   this.mimeType=values.getString(2);
   this.fileLocation=values.getObj(3,new EncryptedFileLocationV1());
   this.fastThumb=values.optObj(4,new FastThumb());
-  this.extType=values.optInt(5);
   if (values.optBytes(6) != null) {
     this.extension=EncryptedDocumentV1Ex.fromBytes(values.getInt(5),values.getBytes(6));
   }

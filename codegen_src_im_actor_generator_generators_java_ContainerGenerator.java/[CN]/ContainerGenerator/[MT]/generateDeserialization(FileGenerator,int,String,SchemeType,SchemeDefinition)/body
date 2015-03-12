@@ -126,7 +126,7 @@
       }
  else {
         generator.appendLn("writer.writeInt(" + (attributeId - 1) + ", this."+ attributeName+ ".getHeader());");
-        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".toByteArray());");
       }
       generator.decreaseDepth();
       generator.appendLn("}");
@@ -183,7 +183,7 @@
     }
  else {
       generator.appendLn("writer.writeInt(" + (attributeId - 1) + ", this."+ attributeName+ ".getHeader());");
-      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".toByteArray());");
     }
   }
  else {

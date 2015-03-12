@@ -7,5 +7,4 @@ Integer plainFileSize
 String name
 String mimeType
 FastThumb thumb
-int extType
-byte[] ext
+DocumentEx ext

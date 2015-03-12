@@ -2,5 +2,4 @@ String name
 String mimeType
 EncryptedFileLocationV1 fileLocation
 FastThumb fastThumb
-Integer extType
-byte[] extension
+EncryptedDocumentV1Ex extension
