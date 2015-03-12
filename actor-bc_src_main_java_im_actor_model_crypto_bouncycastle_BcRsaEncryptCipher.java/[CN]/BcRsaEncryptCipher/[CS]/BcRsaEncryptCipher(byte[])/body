@@ -1,8 +1,7 @@
 {
   try {
-    SubjectPublicKeyInfo publicKeyInfo=new SubjectPublicKeyInfo(ASN1Sequence.getInstance(publicKey));
-    AsymmetricKeyParameter param;
-    param=PublicKeyFactory.createKey(publicKeyInfo);
+    X509RsaPublicKey key=new X509RsaPublicKey(publicKey);
+    RSAKeyParameters param=new RSAKeyParameters(false,key.getModulus(),key.getExponent());
     cipher=new OAEPEncoding(new RSAEngine(),new SHA1Digest());
     cipher.init(true,param);
   }
