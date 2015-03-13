@@ -9,5 +9,5 @@
   if (this.message == null) {
     throw new IOException();
   }
-  writer.writeBytes(5,this.message.toByteArray());
+  writer.writeBytes(5,this.message.buildContainer());
 }

@@ -18,5 +18,6 @@
       currentConnection=null;
       currentConnectionId=0;
     }
+    checkConnection();
   }
 }

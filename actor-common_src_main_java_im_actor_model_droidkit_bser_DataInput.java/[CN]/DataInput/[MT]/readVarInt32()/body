@@ -3,5 +3,5 @@
   if (varInt > Integer.MAX_VALUE || varInt < Integer.MIN_VALUE) {
     throw new IOException("Too big VarInt32");
   }
-  return varInt;
+  return (int)varInt;
 }

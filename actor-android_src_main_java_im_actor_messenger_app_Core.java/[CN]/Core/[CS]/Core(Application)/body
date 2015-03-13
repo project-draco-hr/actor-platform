@@ -16,6 +16,7 @@
   this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
   ConfigurationBuilder builder=new ConfigurationBuilder();
+  BouncyCastleProvider bouncyCastleProvider=new BouncyCastleProvider();
   builder.setThreading(new JavaThreading());
   builder.setNetworking(new JavaNetworking());
   builder.setMainThread(new AndroidMainThread());
@@ -32,8 +33,9 @@
     builder.addEndpoint("tcp://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
   builder.setEnableContactsLogging(true);
-  builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",new byte[32]));
-  builder.setCryptoProvider(new BouncyCastleProvider());
+  byte[] deviceHash=bouncyCastleProvider.SHA256(Base64.encode((AppContext.getContext().getPackageName() + ":" + Build.SERIAL).getBytes(),Base64.DEFAULT));
+  builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",deviceHash));
+  builder.setCryptoProvider(bouncyCastleProvider);
   this.messenger=new im.actor.model.Messenger(builder.build());
   AppContext.getContext().getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
     @Override public void onChange(    boolean selfChange){
