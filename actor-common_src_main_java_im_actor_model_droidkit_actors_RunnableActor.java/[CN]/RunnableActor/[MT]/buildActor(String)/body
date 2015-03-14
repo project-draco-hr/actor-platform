@@ -1,0 +1,8 @@
+{
+  return ActorSystem.system().actorOf(Props.create(RunnableActor.class,new ActorCreator<RunnableActor>(){
+    @Override public RunnableActor create(){
+      return new RunnableActor();
+    }
+  }
+),path);
+}

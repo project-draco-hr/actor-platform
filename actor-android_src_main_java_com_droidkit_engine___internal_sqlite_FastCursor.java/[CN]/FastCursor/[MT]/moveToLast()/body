@@ -1,9 +1,0 @@
-{
-  if (count > 0) {
-    position=count - 1;
-    return true;
-  }
- else {
-    return false;
-  }
-}

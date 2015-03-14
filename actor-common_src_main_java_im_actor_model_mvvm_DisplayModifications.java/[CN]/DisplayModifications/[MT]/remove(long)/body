@@ -1,0 +1,14 @@
+{
+  return new DisplayList.Modification<T>(){
+    @Override public void modify(    List<T> sourceList){
+      Iterator<T> iterator=sourceList.iterator();
+      while (iterator.hasNext()) {
+        ListEngineItem src=iterator.next();
+        if (src.getEngineId() == dstId) {
+          iterator.remove();
+        }
+      }
+    }
+  }
+;
+}

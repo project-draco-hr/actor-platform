@@ -1,6 +1,0 @@
-{
-  for (  BindContainer container : binds.values()) {
-    container.release();
-  }
-  binds.clear();
-}

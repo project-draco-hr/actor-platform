@@ -1,3 +1,0 @@
-{
-  return DIALOGS_ENGINE.getEngine();
-}

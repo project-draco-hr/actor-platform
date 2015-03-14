@@ -1,0 +1,21 @@
+{
+  ArrayList<ListEngineRecord> res=new ArrayList<ListEngineRecord>();
+  if (cursor != null) {
+    int idColumn=cursor.getColumnIndex("ID");
+    int sortColumn=cursor.getColumnIndex("SORT_KEY");
+    int bytesColumn=cursor.getColumnIndex("BYTES");
+    int queryColumn=cursor.getColumnIndex("QUERY");
+    try {
+      if (cursor.moveToFirst()) {
+        do {
+          res.add(new ListEngineRecord(cursor.getLong(idColumn),cursor.getLong(sortColumn),cursor.getString(queryColumn),cursor.getBlob(bytesColumn)));
+        }
+ while (cursor.moveToNext());
+      }
+    }
+  finally {
+      cursor.close();
+    }
+  }
+  return res;
+}

@@ -1,3 +1,0 @@
-{
-  database.delete(tableName,"\"ID\" = ?",new String[]{"" + key});
-}

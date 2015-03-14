@@ -1,0 +1,5 @@
+{
+  checkTable();
+  Object[] args=new Object[]{key};
+  database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"ID\"=?",args);
+}

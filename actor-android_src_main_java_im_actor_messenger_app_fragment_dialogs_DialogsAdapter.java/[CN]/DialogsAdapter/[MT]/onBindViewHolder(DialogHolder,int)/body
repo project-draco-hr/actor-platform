@@ -1,0 +1,3 @@
+{
+  dialogHolder.bind(getItem(i));
+}

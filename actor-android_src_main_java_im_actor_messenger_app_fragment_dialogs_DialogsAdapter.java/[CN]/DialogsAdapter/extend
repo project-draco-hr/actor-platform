@@ -1,1 +1,1 @@
-EngineHolderAdapter<Dialog>
+BindedListAdapter<Dialog,DialogHolder>

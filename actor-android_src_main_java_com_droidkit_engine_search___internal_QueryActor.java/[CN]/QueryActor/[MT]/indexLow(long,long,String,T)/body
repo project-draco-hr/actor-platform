@@ -1,6 +1,0 @@
-{
-  searchQuery=normalizeQuery(searchQuery);
-  searchAdapter.indexLow(new ValueContainer(key,order,searchQuery,dataAdapter.serialize(data)));
-  prevQueryValue=null;
-  prevQueryRes=null;
-}

@@ -1,7 +1,0 @@
-{
-  BindContainer container=getContainer(view);
-  if (container.enabled != null) {
-    container.enabled.release();
-    container.enabled=null;
-  }
-}

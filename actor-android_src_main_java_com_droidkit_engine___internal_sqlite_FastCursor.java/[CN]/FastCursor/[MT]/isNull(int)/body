@@ -1,3 +1,0 @@
-{
-  return window.isNull(position,columnIndex);
-}

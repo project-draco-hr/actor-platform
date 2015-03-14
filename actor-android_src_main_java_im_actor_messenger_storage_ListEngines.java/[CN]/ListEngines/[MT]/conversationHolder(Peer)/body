@@ -1,8 +1,0 @@
-{
-synchronized (CONVERSATIONS) {
-    if (CONVERSATIONS.get(peer) == null) {
-      CONVERSATIONS.put(peer,new ConversationHolder(peer));
-    }
-    return CONVERSATIONS.get(peer);
-  }
-}

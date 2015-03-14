@@ -1,0 +1,3 @@
+String query
+int limit
+ListEngineCallback<T> callback

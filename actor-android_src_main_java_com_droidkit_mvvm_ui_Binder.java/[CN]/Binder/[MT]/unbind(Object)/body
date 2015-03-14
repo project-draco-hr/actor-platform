@@ -1,4 +1,0 @@
-{
-  BindContainer container=getContainer(view);
-  container.release();
-}

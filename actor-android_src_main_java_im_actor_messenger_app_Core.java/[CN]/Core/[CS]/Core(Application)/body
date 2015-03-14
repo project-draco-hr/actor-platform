@@ -21,7 +21,7 @@
   builder.setNetworking(new JavaNetworking());
   builder.setMainThread(new AndroidMainThread());
   builder.setLog(new AndroidLog());
-  builder.setStorage(new AppEngineFactory());
+  builder.setStorage(new AndroidStorage());
   builder.setLocale(new JavaLocale("En"));
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setFileSystemProvider(new AndroidFileProvider(application));

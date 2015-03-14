@@ -37,7 +37,7 @@
               return lhs < rhs ? -1 : (lhs == rhs ? 0 : 1);
             }
             @Override public int compare(            Message lhs,            Message rhs){
-              return compare(lhs.getListSortKey(),rhs.getListSortKey());
+              return compare(lhs.getEngineSort(),rhs.getEngineSort());
             }
           }
 );

@@ -1,6 +1,0 @@
-{
-  TAG=logTag;
-  for (int i=0; i < SIZES.length; i++) {
-    fastBuffers.put(SIZES[i],new HashSet<byte[]>());
-  }
-}

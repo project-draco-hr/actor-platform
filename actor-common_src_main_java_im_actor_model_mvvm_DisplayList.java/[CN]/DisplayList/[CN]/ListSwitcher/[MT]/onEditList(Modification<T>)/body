@@ -1,0 +1,12 @@
+{
+  if (isLocked) {
+    pending.add(modification);
+    return;
+  }
+  ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
+  modification.modify(backgroundList);
+  if (displayList.hook != null) {
+    displayList.hook.beforeDisplay(backgroundList);
+  }
+  requestListSwitch(new Modification[]{modification});
+}

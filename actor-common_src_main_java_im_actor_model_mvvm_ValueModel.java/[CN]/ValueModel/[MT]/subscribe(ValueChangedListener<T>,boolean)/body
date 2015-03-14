@@ -1,4 +1,5 @@
 {
+  MVVMEngine.checkMainThread();
   if (listeners.contains(listener)) {
     return;
   }

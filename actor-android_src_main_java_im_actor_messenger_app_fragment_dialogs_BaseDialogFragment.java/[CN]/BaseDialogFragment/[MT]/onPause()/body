@@ -1,7 +1,5 @@
 {
   super.onPause();
-  ListEngines.getChatsUiListEngine().getUiList().removeExListener(this);
   adapter.pause();
-  dialogsEmptyImage.setImageBitmap(null);
   messenger().onDialogsClosed();
 }

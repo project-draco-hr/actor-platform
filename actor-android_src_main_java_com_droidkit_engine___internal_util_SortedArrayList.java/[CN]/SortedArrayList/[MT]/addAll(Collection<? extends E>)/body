@@ -1,5 +1,0 @@
-{
-  super.addAll(c);
-  sort();
-  return true;
-}

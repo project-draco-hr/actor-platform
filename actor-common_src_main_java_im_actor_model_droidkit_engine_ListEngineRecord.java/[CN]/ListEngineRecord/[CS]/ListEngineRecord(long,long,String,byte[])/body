@@ -1,0 +1,6 @@
+{
+  this.key=key;
+  this.order=order;
+  this.query=query;
+  this.data=data;
+}

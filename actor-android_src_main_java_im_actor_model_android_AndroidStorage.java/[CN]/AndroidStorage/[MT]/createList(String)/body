@@ -1,0 +1,3 @@
+{
+  return new SQLiteList(SQLiteProvider.db(),"ls_" + name);
+}

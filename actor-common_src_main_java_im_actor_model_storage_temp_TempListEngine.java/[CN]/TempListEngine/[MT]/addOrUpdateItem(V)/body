@@ -1,4 +1,0 @@
-{
-  items.put(item.getListId(),item);
-  updateSort();
-}

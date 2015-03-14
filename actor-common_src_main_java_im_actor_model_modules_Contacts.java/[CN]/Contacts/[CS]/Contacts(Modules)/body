@@ -1,6 +1,6 @@
 {
   super(modules);
-  contacts=modules.getConfiguration().getStorage().createContactsEngine();
+  contacts=new SyncListEngine<Contact>(modules.getConfiguration().getStorage().createList(STORAGE_CONTACTS),Contact.CREATOR);
   bookImportActor=system().actorOf(Props.create(BookImportActor.class,new ActorCreator<BookImportActor>(){
     @Override public BookImportActor create(){
       return new BookImportActor(modules);

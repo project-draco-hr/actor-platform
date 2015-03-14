@@ -1,3 +1,0 @@
-{
-  return new File(context.getFilesDir().getPath() + "/random_" + random.nextLong()+ ".tmp");
-}

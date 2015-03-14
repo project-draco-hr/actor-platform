@@ -1,4 +1,0 @@
-{
-  super(name,preferences.getBoolean(name,initialValue));
-  this.preferences=preferences;
-}

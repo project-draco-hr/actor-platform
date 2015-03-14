@@ -1,6 +1,0 @@
-{
-  super.change(value);
-  if (this.preferences != null) {
-    this.preferences.edit().putBoolean(getName(),value).commit();
-  }
-}

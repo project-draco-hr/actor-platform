@@ -1,6 +1,0 @@
-{
-synchronized (LOCK) {
-    resultList.editList(Modifications.clear());
-    currentRequest=REQ_ID.incrementAndGet();
-  }
-}

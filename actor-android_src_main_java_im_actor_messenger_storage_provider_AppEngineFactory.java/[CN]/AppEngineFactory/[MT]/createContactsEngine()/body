@@ -1,3 +1,0 @@
-{
-  return new ListProvider<Contact>(ListEngines.getContactsListEngine());
-}

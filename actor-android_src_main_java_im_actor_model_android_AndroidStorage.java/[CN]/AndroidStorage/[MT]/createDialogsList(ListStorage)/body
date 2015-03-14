@@ -1,0 +1,3 @@
+{
+  return new SyncListEngine<Dialog>(storage,Dialog.CREATOR);
+}

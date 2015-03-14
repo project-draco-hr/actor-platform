@@ -1,6 +1,0 @@
-{
-  if (items.containsKey(key)) {
-    return (byte[])items.get(key);
-  }
-  return null;
-}

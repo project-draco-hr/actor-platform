@@ -1,0 +1,3 @@
+String query
+Long sortingKey
+int limit

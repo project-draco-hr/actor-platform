@@ -1,0 +1,4 @@
+{
+  checkTable();
+  return null;
+}

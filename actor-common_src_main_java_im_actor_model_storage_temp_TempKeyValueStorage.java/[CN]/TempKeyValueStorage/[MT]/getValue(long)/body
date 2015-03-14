@@ -1,8 +1,0 @@
-{
-  if (items.containsKey(id)) {
-    return items.get(id);
-  }
- else {
-    return null;
-  }
-}

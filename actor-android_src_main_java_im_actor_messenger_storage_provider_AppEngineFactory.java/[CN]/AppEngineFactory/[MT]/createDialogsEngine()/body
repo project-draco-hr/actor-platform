@@ -1,3 +1,0 @@
-{
-  return new ListProvider<Dialog>(ListEngines.getChatsListEngine());
-}

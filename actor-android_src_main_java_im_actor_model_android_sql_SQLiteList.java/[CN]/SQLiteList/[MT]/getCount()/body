@@ -1,0 +1,16 @@
+{
+  checkTable();
+  Cursor mCount=null;
+  try {
+    mCount=database.rawQuery("SELECT COUNT(*) FROM \"" + tableName + "\"",null);
+    if (mCount.moveToFirst()) {
+      return mCount.getInt(0);
+    }
+  }
+  finally {
+    if (mCount != null) {
+      mCount.close();
+    }
+  }
+  return 0;
+}

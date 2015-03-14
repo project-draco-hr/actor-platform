@@ -1,9 +1,0 @@
-{
-  try {
-    return Message.fromBytes(item);
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-    return null;
-  }
-}

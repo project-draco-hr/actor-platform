@@ -1,0 +1,4 @@
+{
+  isTailLoaded=true;
+  currentTail=null;
+}

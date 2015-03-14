@@ -1,0 +1,3 @@
+{
+  displayList.addListener(listener);
+}

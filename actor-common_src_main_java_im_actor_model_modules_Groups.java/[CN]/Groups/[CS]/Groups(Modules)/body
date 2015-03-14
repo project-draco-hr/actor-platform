@@ -1,6 +1,6 @@
 {
   super(modules);
-  collection=new MVVMCollection<Group,GroupVM>(modules.getConfiguration().getStorage().createGroupsEngine()){
+  collection=new MVVMCollection<Group,GroupVM>(modules.getConfiguration().getStorage().createKeyValue(STORAGE_GROUPS)){
     @Override protected GroupVM createNew(    Group raw){
       return new GroupVM(raw);
     }

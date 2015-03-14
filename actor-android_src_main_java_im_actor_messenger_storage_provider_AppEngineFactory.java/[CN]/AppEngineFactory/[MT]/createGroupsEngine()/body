@@ -1,3 +1,0 @@
-{
-  return new SQLiteKeyValue(SQLiteProvider.db(),"actor_groups");
-}

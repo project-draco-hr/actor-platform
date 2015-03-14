@@ -1,4 +1,0 @@
-{
-  super(name,preferences.getFloat(name,initialValue));
-  this.preferences=preferences;
-}

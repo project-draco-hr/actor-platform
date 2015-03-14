@@ -1,0 +1,13 @@
+{
+  this.displayList=displayList;
+  setHasStableIds(true);
+  listener=new DisplayList.Listener(){
+    @Override public void onCollectionChanged(){
+      notifyDataSetChanged();
+    }
+  }
+;
+  if (autoConnect) {
+    resume();
+  }
+}

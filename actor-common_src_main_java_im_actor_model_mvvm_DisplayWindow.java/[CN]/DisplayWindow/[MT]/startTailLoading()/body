@@ -1,0 +1,13 @@
+{
+  if (!isInited) {
+    return false;
+  }
+  if (isTailLoaded) {
+    return false;
+  }
+  if (isTailLoading) {
+    return false;
+  }
+  isTailLoading=true;
+  return true;
+}

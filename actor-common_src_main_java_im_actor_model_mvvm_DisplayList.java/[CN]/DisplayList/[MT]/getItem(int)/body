@@ -1,0 +1,4 @@
+{
+  MVVMEngine.checkMainThread();
+  return lists[currentList].get(index);
+}

@@ -1,6 +1,0 @@
-{
-  if (!binds.containsKey(view)) {
-    binds.put(view,new BindContainer());
-  }
-  return binds.get(view);
-}

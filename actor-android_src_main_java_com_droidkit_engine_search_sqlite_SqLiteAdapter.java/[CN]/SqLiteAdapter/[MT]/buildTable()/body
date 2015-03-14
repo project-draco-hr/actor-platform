@@ -1,3 +1,0 @@
-{
-  database.execSQL("CREATE TABLE IF NOT EXISTS \"" + tableName + "\" ("+ "\"ID\" INTEGER NOT NULL,"+ "\"ORDER\" INTEGER NOT NULL,"+ "\"QUERY\" TEXT NOT NULL,"+ "\"BYTES\" BLOB NOT NULL,"+ "PRIMARY KEY(\"ID\"));");
-}

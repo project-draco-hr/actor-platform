@@ -1,0 +1,19 @@
+{
+  if (res.size() == 0) {
+    callback.onLoaded(res,0,0);
+  }
+ else {
+    long topSort, bottomSort;
+    topSort=bottomSort=res.get(0).getEngineSort();
+    for (    T t : res) {
+      long sort=t.getEngineSort();
+      if (topSort < sort) {
+        topSort=sort;
+      }
+      if (bottomSort > sort) {
+        bottomSort=sort;
+      }
+    }
+    callback.onLoaded(res,topSort,bottomSort);
+  }
+}

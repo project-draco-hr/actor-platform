@@ -1,0 +1,13 @@
+{
+  isLocked=true;
+  MVVMEngine.runOnUiThread(new Runnable(){
+    @Override public void run(){
+      displayList.currentList=(displayList.currentList + 1) % 2;
+      for (      Listener l : displayList.listeners) {
+        l.onCollectionChanged();
+      }
+      self().send(new ListSwitched<T>(modifications));
+    }
+  }
+);
+}

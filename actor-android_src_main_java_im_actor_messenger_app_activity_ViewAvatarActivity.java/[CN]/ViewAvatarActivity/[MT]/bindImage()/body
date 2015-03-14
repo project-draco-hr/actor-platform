@@ -1,6 +1,6 @@
 {
   if (peer.getPeerType() == PeerType.PRIVATE && peer.getPeerId() == myUid()) {
-    bind(getAvatar(),messenger().getOwnAvatarVM().getUploadState(),new DoubleValueChangedListener<Avatar,AvatarUploadState>(){
+    bind(getAvatar(),messenger().getOwnAvatarVM().getUploadState(),new ValueDoubleChangedListener<Avatar,AvatarUploadState>(){
       @Override public void onChanged(      Avatar val,      ValueModel<Avatar> valueModel,      AvatarUploadState val2,      ValueModel<AvatarUploadState> valueModel2){
         performBind(val,val2);
       }

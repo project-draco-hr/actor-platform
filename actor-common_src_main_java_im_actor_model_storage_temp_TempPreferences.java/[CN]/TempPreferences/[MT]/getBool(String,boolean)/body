@@ -1,6 +1,0 @@
-{
-  if (items.containsKey(key)) {
-    return (Boolean)items.get(key);
-  }
-  return def;
-}

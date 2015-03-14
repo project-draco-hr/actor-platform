@@ -1,3 +1,0 @@
-{
-  queryActor.indexLow(key,order,searchQuery,data);
-}

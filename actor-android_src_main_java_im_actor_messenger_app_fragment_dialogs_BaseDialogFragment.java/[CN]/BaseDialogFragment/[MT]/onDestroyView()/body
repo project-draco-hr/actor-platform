@@ -1,10 +1,9 @@
 {
   super.onDestroyView();
   if (adapter != null) {
-    adapter.dispose();
+    adapter.pause();
     adapter=null;
   }
-  listView=null;
   noMessages=null;
   adapter=null;
 }

@@ -1,0 +1,18 @@
+{
+synchronized (LOCK) {
+    List<ListEngineRecord> records=storage.loadAfter(0L,1);
+    if (records.size() != 1) {
+      return null;
+    }
+    ListEngineRecord record=records.get(0);
+    try {
+      T res=Bser.parse(creator.createInstance(),record.getData());
+      cache.onObjectLoaded(res.getEngineId(),res);
+      return res;
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+}

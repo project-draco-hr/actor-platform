@@ -1,0 +1,13 @@
+{
+  if (!isInited) {
+    return false;
+  }
+  if (isHeadLoaded) {
+    return false;
+  }
+  if (isHeadLoading) {
+    return false;
+  }
+  isHeadLoading=true;
+  return true;
+}

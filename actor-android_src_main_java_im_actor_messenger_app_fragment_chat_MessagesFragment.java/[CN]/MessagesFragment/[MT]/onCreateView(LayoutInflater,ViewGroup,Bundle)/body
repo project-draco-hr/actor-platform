@@ -1,6 +1,5 @@
 {
   peer=Peer.fromUniqueId(getArguments().getLong("CHAT_PEER"));
-  listEngine=ListEngines.getMessagesList(peer);
   scrollNewMessage=new TextView(getActivity());
   scrollNewMessage.setTextColor(Color.WHITE);
   scrollNewMessage.setText(R.string.chat_new_messages);

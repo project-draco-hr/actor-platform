@@ -1,0 +1,7 @@
+{
+  ArrayList<T> res;
+synchronized (LOCK) {
+    res=convertList(storage.loadBefore(0L,limit));
+  }
+  callCallback(callback,res);
+}

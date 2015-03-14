@@ -1,0 +1,11 @@
+{
+  if (message instanceof ListSwitched) {
+    onListSwitched(((ListSwitched)message).modifications);
+  }
+ else   if (message instanceof EditList) {
+    onEditList(((EditList)message).modification);
+  }
+ else {
+    drop(message);
+  }
+}

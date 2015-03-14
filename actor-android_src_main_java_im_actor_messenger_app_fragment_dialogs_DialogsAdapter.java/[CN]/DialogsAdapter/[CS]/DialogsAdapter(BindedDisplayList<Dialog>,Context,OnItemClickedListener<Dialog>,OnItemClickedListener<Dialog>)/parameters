@@ -1,0 +1,4 @@
+BindedDisplayList<Dialog> displayList
+Context context
+OnItemClickedListener<Dialog> itemClicked
+OnItemClickedListener<Dialog> itemLongClicked

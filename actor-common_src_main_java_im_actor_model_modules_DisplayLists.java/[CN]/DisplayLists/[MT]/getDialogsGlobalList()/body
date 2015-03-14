@@ -1,0 +1,7 @@
+{
+  MVVMEngine.checkMainThread();
+  if (dialogGlobalList == null) {
+    dialogGlobalList=buildNewDialogsList();
+  }
+  return dialogGlobalList;
+}

@@ -1,6 +1,6 @@
 {
   super(modules);
-  downloadedEngine=new BaseKeyValueEngine<Downloaded>(modules.getConfiguration().getStorage().createDownloadsEngine()){
+  downloadedEngine=new BaseKeyValueEngine<Downloaded>(modules.getConfiguration().getStorage().createKeyValue(STORAGE_DOWNLOADS)){
     @Override protected byte[] serialize(    Downloaded value){
       return value.toByteArray();
     }

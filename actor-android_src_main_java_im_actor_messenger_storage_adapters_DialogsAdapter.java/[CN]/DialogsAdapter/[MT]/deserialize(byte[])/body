@@ -1,9 +1,0 @@
-{
-  try {
-    return Dialog.fromBytes(item);
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-    return null;
-  }
-}

@@ -1,7 +1,5 @@
 {
   super.onResume();
-  ListEngines.getChatsUiListEngine().getUiList().addExListener(this);
   adapter.resume();
-  dialogsEmptyImage.setImageResource(R.drawable.dialogs_empty_large);
   messenger().onDialogsOpen();
 }

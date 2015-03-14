@@ -1,0 +1,14 @@
+{
+  checkTable();
+  database.beginTransaction();
+  try {
+    for (    long key : keys) {
+      Object[] args=new Object[]{key};
+      database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"ID\"=?",args);
+    }
+    database.setTransactionSuccessful();
+  }
+  finally {
+    database.beginTransaction();
+  }
+}

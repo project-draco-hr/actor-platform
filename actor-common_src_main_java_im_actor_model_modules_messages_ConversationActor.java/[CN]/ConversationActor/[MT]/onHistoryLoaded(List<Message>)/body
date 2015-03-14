@@ -2,7 +2,7 @@
   ArrayList<Message> updated=new ArrayList<Message>();
   boolean isPendingChanged=false;
   for (  Message historyMessage : history) {
-    if (messages.getValue(historyMessage.getListId()) != null) {
+    if (messages.getValue(historyMessage.getEngineId()) != null) {
       continue;
     }
     updated.add(historyMessage);

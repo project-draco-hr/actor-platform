@@ -1,0 +1,6 @@
+{
+synchronized (LOCK) {
+    cache.onObjectUpdated(item.getEngineId(),item);
+    storage.updateOrAdd(new ListEngineRecord(item.getEngineId(),item.getEngineSort(),null,item.toByteArray()));
+  }
+}

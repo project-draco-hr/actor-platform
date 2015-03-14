@@ -1,5 +1,5 @@
 {
-  bind(value.getPresence(),value.getMembers(),new DoubleValueChangedListener<Integer,HashSet<GroupMember>>(){
+  bind(value.getPresence(),value.getMembers(),new ValueDoubleChangedListener<Integer,HashSet<GroupMember>>(){
     @Override public void onChanged(    Integer online,    ValueModel<Integer> onlineModel,    HashSet<GroupMember> members,    ValueModel<HashSet<GroupMember>> membersModel){
       if (online <= 0) {
         SpannableStringBuilder builder=new SpannableStringBuilder(AppContext.getContext().getString(R.string.chat_group_members).replace("{0}",members.size() + ""));
