@@ -1,6 +1,6 @@
 {
 synchronized (LOCK) {
-    List<ListEngineRecord> records=storage.loadAfter(0L,1);
+    List<ListEngineRecord> records=storage.loadForward(0L,1);
     if (records.size() != 1) {
       return null;
     }

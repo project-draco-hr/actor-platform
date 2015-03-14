@@ -1,0 +1,13 @@
+{
+  super(new Hook<T>(){
+    @Override public void beforeDisplay(    List<T> list){
+      Collections.sort(list,COMPARATOR);
+    }
+  }
+);
+  this.engineListener=new EngineListener();
+  this.blockDisposal=blockDisposal;
+  this.listEngine=listEngine;
+  this.window=new DisplayWindow();
+  listEngine.subscribe(engineListener);
+}

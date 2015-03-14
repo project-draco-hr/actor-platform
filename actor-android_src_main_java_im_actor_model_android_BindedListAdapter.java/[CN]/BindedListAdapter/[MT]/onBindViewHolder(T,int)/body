@@ -1,0 +1,9 @@
+{
+  if (i > getItemCount() - 20) {
+    displayList.loadMoreForward();
+  }
+  if (i < 20) {
+    displayList.loadMoreBackward();
+  }
+  onBindViewHolder(dialogHolder,i,getItem(i));
+}

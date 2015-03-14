@@ -25,22 +25,6 @@
   View header=new View(getActivity());
   header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
   listView.addHeaderView(header,null,false);
-  adapter=new ContactsAdapter(engineUiList,getActivity(),true,new OnItemClickedListener<Contact>(){
-    @Override public void onClicked(    Contact contact){
-      if (selectedUsers.contains(contact.getUid())) {
-        selectedUsers.remove((Integer)contact.getUid());
-        adapter.unselect(contact.getUid());
-      }
- else {
-        selectedUsers.add(contact.getUid());
-        adapter.select(contact.getUid());
-      }
-      getActivity().invalidateOptionsMenu();
-      updateEditText();
-    }
-  }
-,null);
-  listView.setAdapter(adapter);
   engineUiList.getUiList().addListener(this);
   return res;
 }

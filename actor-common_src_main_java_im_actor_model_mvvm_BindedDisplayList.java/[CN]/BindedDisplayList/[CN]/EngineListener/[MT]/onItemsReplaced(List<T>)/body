@@ -1,0 +1,4 @@
+{
+  editList((Modification)DisplayModifications.clear());
+  editList(DisplayModifications.addOrUpdate(items));
+}

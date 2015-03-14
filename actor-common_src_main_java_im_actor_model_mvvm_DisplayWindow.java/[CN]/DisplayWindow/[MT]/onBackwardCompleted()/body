@@ -1,0 +1,4 @@
+{
+  isBackwardLoaded=true;
+  currentBackwardHead=null;
+}

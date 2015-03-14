@@ -1,13 +1,8 @@
 {
   super.onDestroyView();
   if (adapter != null) {
-    adapter.dispose();
+    adapter.pause();
     adapter=null;
   }
-  if (engineUiList != null) {
-    engineUiList.release();
-    engineUiList=null;
-  }
-  listView=null;
   emptyView=null;
 }

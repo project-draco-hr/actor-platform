@@ -1,1 +1,1 @@
-EngineHolderAdapter<Contact>
+BindedListAdapter<Contact,ContactHolder>

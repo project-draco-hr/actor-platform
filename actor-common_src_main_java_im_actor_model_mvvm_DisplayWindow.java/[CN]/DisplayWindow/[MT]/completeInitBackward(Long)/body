@@ -1,0 +1,4 @@
+{
+  isInited=true;
+  currentBackwardHead=head;
+}

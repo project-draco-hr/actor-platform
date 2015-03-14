@@ -1,0 +1,10 @@
+{
+  MVVMEngine.checkMainThread();
+  ListEngine<Dialog> dialogsEngine=modules().getMessagesModule().getDialogsEngine();
+  if (!(dialogsEngine instanceof ListEngineDisplayExt)) {
+    throw new RuntimeException("Dialogs ListEngine must implement ListEngineDisplayExt for using global list");
+  }
+  BindedDisplayList<Dialog> displayList=new BindedDisplayList<Dialog>((ListEngineDisplayExt<Dialog>)dialogsEngine,disableDispose);
+  displayList.initTop(true);
+  return displayList;
+}

@@ -1,0 +1,7 @@
+{
+  MVVMEngine.checkMainThread();
+  if (blockDisposal) {
+    throw new RuntimeException("This display list can't be disposed");
+  }
+  listEngine.unsubscribe(engineListener);
+}

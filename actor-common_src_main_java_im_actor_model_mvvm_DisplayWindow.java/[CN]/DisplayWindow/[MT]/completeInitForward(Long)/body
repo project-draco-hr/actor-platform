@@ -1,0 +1,4 @@
+{
+  isInited=true;
+  currentForwardHead=tail;
+}

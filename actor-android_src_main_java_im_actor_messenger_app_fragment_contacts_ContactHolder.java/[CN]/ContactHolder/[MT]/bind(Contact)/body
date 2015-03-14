@@ -1,0 +1,13 @@
+{
+  String shortName=getFastName(data.getName());
+  fastTitle.setVisibility(View.VISIBLE);
+  fastTitle.setText(shortName);
+  avatar.setEmptyDrawable(new AvatarDrawable(data.getName(),data.getUid(),24,context));
+  if (data.getAvatar() != null) {
+    avatar.bindAvatar(Screen.dp(54),data.getAvatar());
+  }
+ else {
+    avatar.unbind();
+  }
+  title.setText(data.getName());
+}

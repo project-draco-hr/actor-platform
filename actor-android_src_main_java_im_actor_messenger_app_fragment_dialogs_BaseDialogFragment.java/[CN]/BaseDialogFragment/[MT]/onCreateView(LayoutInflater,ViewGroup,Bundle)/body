@@ -3,27 +3,30 @@
   loadingProgress=res.findViewById(R.id.loadingProgress);
   noMessages=res.findViewById(R.id.noMessages);
   dialogsEmptyImage=(ImageView)res.findViewById(R.id.emptyDialogsImage);
-  adapter=new DialogsAdapter(messenger().getDialogsGlobalList(),getActivity(),new OnItemClickedListener<Dialog>(){
+  adapter=new DialogsAdapter(messenger().getDialogsGlobalList(),getActivity());
+  adapter.setItemClicked(new OnItemClickedListener<Dialog>(){
     @Override public void onClicked(    Dialog item){
       onItemClick(item);
     }
   }
-,supportLongClick() ? new OnItemClickedListener<Dialog>(){
-    @Override public void onClicked(    final Dialog dialog){
-      onItemLongClick(dialog);
+);
+  if (supportLongClick()) {
+    adapter.setItemLongClicked(new OnItemClickedListener<Dialog>(){
+      @Override public void onClicked(      Dialog item){
+        onItemLongClick(item);
+      }
     }
+);
   }
- : null);
-  RecyclerView messagesView=new RecyclerView(getActivity());
-  messagesView.setVerticalScrollBarEnabled(true);
-  messagesView.setHorizontalScrollBarEnabled(false);
+  RecyclerView messagesView=(RecyclerView)res.findViewById(R.id.collection);
   messagesView.setHasFixedSize(true);
+  messagesView.setItemViewCacheSize(10);
   LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   linearLayoutManager.setReverseLayout(false);
+  linearLayoutManager.setSmoothScrollbarEnabled(true);
   messagesView.setLayoutManager(linearLayoutManager);
   messagesView.setAdapter(adapter);
-  ((LinearLayout)res.findViewById(R.id.collectionContainer)).addView(messagesView,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
   loadingProgress.setVisibility(View.GONE);
   noMessages.setVisibility(View.GONE);
   return res;

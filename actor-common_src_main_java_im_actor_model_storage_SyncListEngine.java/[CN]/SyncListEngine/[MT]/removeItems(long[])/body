@@ -4,5 +4,8 @@ synchronized (LOCK) {
       cache.removeObject(key);
     }
     storage.delete(keys);
+    for (    ListEngineDisplayListener<T> l : listeners) {
+      l.onItemsRemoved(keys);
+    }
   }
 }

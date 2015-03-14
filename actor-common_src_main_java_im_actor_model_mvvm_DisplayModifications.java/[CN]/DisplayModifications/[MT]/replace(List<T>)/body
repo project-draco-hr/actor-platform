@@ -1,0 +1,9 @@
+{
+  return new DisplayList.Modification<T>(){
+    @Override public void modify(    List<T> sourceList){
+      sourceList.clear();
+      sourceList.addAll(items);
+    }
+  }
+;
+}

@@ -1,0 +1,7 @@
+{
+  MVVMEngine.checkMainThread();
+  if (contactsGlobalList == null) {
+    contactsGlobalList=buildNewContactList(true);
+  }
+  return contactsGlobalList;
+}

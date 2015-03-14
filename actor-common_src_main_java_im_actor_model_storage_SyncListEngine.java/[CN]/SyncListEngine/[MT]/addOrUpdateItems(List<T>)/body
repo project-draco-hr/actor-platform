@@ -3,8 +3,11 @@ synchronized (LOCK) {
     List<ListEngineRecord> updated=new ArrayList<ListEngineRecord>();
     for (    T i : items) {
       cache.onObjectUpdated(i.getEngineId(),i);
-      updated.add(new ListEngineRecord(i.getEngineId(),i.getEngineSort(),null,i.toByteArray()));
+      updated.add(new ListEngineRecord(i.getEngineId(),i.getEngineSort(),i.getEngineSearch(),i.toByteArray()));
     }
     storage.updateOrAdd(updated);
+    for (    ListEngineDisplayListener<T> l : listeners) {
+      l.addOrUpdate(items);
+    }
   }
 }

@@ -1,0 +1,5 @@
+{
+  isInited=true;
+  currentForwardHead=forwardHead;
+  currentBackwardHead=backwardHead;
+}

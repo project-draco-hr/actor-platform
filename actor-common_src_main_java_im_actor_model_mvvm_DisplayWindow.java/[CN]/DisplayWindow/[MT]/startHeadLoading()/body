@@ -2,12 +2,12 @@
   if (!isInited) {
     return false;
   }
-  if (isHeadLoaded) {
+  if (isBackwardLoaded) {
     return false;
   }
-  if (isHeadLoading) {
+  if (isBackwardLoading) {
     return false;
   }
-  isHeadLoading=true;
+  isBackwardLoading=true;
   return true;
 }

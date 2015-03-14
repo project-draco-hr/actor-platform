@@ -1,0 +1,3 @@
+{
+  editList(DisplayModifications.addOrUpdate(items));
+}

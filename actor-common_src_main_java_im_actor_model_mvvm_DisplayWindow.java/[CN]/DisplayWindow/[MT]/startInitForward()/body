@@ -1,9 +1,9 @@
 {
   isInited=false;
-  isTailLoaded=false;
-  isTailLoading=false;
-  isHeadLoading=false;
-  isHeadLoaded=true;
-  currentHead=null;
-  currentTail=null;
+  isForwardCompleted=false;
+  isForwardLoading=false;
+  isBackwardLoading=false;
+  isBackwardLoaded=true;
+  currentBackwardHead=null;
+  currentForwardHead=null;
 }

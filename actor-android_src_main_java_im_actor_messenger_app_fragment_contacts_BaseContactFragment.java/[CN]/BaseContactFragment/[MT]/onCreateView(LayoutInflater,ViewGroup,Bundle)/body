@@ -2,9 +2,16 @@
   View res=inflater.inflate(R.layout.fragment_base_contacts,container,false);
   emptyView=res.findViewById(R.id.notingFound);
   emptyView.setVisibility(View.GONE);
-  listView=(ListView)res.findViewById(R.id.contactsList);
-  View header=new View(getActivity());
-  header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
-  listView.addHeaderView(header,null,false);
+  RecyclerView recyclerView=(RecyclerView)res.findViewById(R.id.collection);
+  recyclerView.setHasFixedSize(true);
+  recyclerView.setItemViewCacheSize(10);
+  LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
+  linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  linearLayoutManager.setReverseLayout(false);
+  linearLayoutManager.setSmoothScrollbarEnabled(true);
+  recyclerView.setLayoutManager(linearLayoutManager);
+  contactDisplayList=messenger().getContactsGlobalList();
+  adapter=new ContactsAdapter(contactDisplayList,getActivity(),false);
+  recyclerView.setAdapter(adapter);
   return res;
 }
