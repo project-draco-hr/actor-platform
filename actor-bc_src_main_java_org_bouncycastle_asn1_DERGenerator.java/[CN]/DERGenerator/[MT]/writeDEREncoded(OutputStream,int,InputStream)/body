@@ -1,3 +1,0 @@
-{
-  writeDEREncoded(out,tag,Streams.readAll(in));
-}

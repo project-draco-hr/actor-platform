@@ -1,7 +1,0 @@
-{
-  OcspResponsesID[] result=new OcspResponsesID[this.ocspResponses.size()];
-  for (int idx=0; idx < result.length; idx++) {
-    result[idx]=OcspResponsesID.getInstance(this.ocspResponses.getObjectAt(idx));
-  }
-  return result;
-}

@@ -1,4 +1,0 @@
-{
-  subject=name;
-  return this;
-}

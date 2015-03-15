@@ -1,9 +1,0 @@
-{
-  if (o instanceof ESSCertIDv2) {
-    return (ESSCertIDv2)o;
-  }
- else   if (o != null) {
-    return new ESSCertIDv2(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

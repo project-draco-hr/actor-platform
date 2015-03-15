@@ -1,4 +1,0 @@
-{
-  ASN1Encodable encObj=(ASN1Encodable)e.nextElement();
-  return encObj;
-}

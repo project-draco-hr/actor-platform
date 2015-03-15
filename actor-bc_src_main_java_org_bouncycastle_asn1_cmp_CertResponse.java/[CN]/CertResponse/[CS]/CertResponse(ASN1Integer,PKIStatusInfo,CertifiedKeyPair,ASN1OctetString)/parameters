@@ -1,4 +1,0 @@
-ASN1Integer certReqId
-PKIStatusInfo status
-CertifiedKeyPair certifiedKeyPair
-ASN1OctetString rspInfo

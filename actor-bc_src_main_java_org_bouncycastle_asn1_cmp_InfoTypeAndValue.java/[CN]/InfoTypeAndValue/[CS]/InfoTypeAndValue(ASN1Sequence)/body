@@ -1,6 +1,0 @@
-{
-  infoType=ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
-  if (seq.size() > 1) {
-    infoValue=(ASN1Encodable)seq.getObjectAt(1);
-  }
-}

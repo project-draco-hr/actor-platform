@@ -1,6 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(this.otherRevRefType);
-  v.add(this.otherRevRefs);
-  return new DERSequence(v);
-}

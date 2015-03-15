@@ -1,4 +1,0 @@
-{
-  this.tagNo=obj.getTagNo();
-  this.value=new BigInteger(1,ASN1OctetString.getInstance(obj,false).getOctets());
-}

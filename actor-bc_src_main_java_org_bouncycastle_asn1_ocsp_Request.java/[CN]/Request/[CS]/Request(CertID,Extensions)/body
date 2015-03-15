@@ -1,4 +1,0 @@
-{
-  this.reqCert=reqCert;
-  this.singleRequestExtensions=singleRequestExtensions;
-}

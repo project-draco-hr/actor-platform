@@ -1,4 +1,0 @@
-{
-  this.noticeRef=noticeRef;
-  this.explicitText=explicitText;
-}

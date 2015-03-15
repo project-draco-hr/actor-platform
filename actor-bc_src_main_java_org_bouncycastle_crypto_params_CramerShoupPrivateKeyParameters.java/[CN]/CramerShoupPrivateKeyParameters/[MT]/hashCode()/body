@@ -1,3 +1,0 @@
-{
-  return x1.hashCode() ^ x2.hashCode() ^ y1.hashCode()^ y2.hashCode()^ z.hashCode()^ super.hashCode();
-}

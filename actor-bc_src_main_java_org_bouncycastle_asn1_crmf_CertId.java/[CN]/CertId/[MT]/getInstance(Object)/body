@@ -1,9 +1,0 @@
-{
-  if (o instanceof CertId) {
-    return (CertId)o;
-  }
-  if (o != null) {
-    return new CertId(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

@@ -1,3 +1,0 @@
-{
-  return StreamUtil.calculateTagLength(tag) + StreamUtil.calculateBodyLength(octets.length) + octets.length;
-}

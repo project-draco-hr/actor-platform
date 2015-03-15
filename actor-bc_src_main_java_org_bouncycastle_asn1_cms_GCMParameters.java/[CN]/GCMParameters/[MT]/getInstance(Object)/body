@@ -1,9 +1,0 @@
-{
-  if (obj instanceof GCMParameters) {
-    return (GCMParameters)obj;
-  }
- else   if (obj != null) {
-    return new GCMParameters(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

@@ -1,3 +1,0 @@
-{
-  this(oids,values,new X509DefaultEntryConverter());
-}

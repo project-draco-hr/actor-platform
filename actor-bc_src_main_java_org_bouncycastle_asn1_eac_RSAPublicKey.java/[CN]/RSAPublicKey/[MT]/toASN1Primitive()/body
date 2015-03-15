@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(usage);
-  v.add(new UnsignedInteger(0x01,getModulus()));
-  v.add(new UnsignedInteger(0x02,getPublicExponent()));
-  return new DERSequence(v);
-}

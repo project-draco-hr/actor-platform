@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(policyIdentifier);
-  if (policyQualifiers != null) {
-    v.add(policyQualifiers);
-  }
-  return new DERSequence(v);
-}

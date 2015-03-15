@@ -1,4 +1,0 @@
-{
-  this.crlHash=crlHash;
-  this.crlIdentifier=crlIdentifier;
-}

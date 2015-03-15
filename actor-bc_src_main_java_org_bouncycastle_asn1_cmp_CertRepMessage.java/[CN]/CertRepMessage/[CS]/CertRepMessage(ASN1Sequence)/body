@@ -1,7 +1,0 @@
-{
-  int index=0;
-  if (seq.size() > 1) {
-    caPubs=ASN1Sequence.getInstance((ASN1TaggedObject)seq.getObjectAt(index++),true);
-  }
-  response=ASN1Sequence.getInstance(seq.getObjectAt(index));
-}

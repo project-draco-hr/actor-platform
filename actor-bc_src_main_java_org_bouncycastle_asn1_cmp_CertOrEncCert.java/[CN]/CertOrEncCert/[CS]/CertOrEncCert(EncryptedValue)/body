@@ -1,6 +1,0 @@
-{
-  if (encryptedCert == null) {
-    throw new IllegalArgumentException("'encryptedCert' cannot be null");
-  }
-  this.encryptedCert=encryptedCert;
-}

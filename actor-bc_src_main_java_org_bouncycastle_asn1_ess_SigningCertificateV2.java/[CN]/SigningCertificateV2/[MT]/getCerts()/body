@@ -1,7 +1,0 @@
-{
-  ESSCertIDv2[] certIds=new ESSCertIDv2[certs.size()];
-  for (int i=0; i != certs.size(); i++) {
-    certIds[i]=ESSCertIDv2.getInstance(certs.getObjectAt(i));
-  }
-  return certIds;
-}

@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(status);
-  addOptional(v,0,newSigCert);
-  addOptional(v,1,caCerts);
-  addOptional(v,2,keyPairHist);
-  return new DERSequence(v);
-}

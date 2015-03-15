@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(oldWithNew);
-  v.add(newWithOld);
-  v.add(newWithNew);
-  return new DERSequence(v);
-}

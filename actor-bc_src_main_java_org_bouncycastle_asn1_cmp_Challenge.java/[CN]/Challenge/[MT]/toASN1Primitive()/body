@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  addOptional(v,owf);
-  v.add(witness);
-  v.add(challenge);
-  return new DERSequence(v);
-}

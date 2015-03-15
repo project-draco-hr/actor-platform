@@ -1,9 +1,0 @@
-{
-  if (obj instanceof Attributes) {
-    return (Attributes)obj;
-  }
- else   if (obj != null) {
-    return new Attributes(ASN1Set.getInstance(obj));
-  }
-  return null;
-}

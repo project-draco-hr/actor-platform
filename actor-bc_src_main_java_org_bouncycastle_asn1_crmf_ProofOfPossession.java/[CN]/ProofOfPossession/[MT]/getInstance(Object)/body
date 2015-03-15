@@ -1,9 +1,0 @@
-{
-  if (o == null || o instanceof ProofOfPossession) {
-    return (ProofOfPossession)o;
-  }
-  if (o instanceof ASN1TaggedObject) {
-    return new ProofOfPossession((ASN1TaggedObject)o);
-  }
-  throw new IllegalArgumentException("Invalid object: " + o.getClass().getName());
-}

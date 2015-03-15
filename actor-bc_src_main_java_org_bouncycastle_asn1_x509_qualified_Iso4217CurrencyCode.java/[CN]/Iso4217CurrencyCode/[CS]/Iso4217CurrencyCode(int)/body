@@ -1,6 +1,0 @@
-{
-  if (numeric > NUMERIC_MAXSIZE || numeric < NUMERIC_MINSIZE) {
-    throw new IllegalArgumentException("wrong size in numeric code : not in (" + NUMERIC_MINSIZE + ".."+ NUMERIC_MAXSIZE+ ")");
-  }
-  obj=new ASN1Integer(numeric);
-}

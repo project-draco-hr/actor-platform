@@ -1,4 +1,0 @@
-{
-  super(random,params.getP().bitLength() - 1);
-  this.params=params;
-}

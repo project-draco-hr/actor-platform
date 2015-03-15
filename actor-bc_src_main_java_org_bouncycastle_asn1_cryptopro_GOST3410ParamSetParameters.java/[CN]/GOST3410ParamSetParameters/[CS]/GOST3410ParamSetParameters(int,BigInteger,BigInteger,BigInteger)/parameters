@@ -1,4 +1,0 @@
-int keySize
-BigInteger p
-BigInteger q
-BigInteger a

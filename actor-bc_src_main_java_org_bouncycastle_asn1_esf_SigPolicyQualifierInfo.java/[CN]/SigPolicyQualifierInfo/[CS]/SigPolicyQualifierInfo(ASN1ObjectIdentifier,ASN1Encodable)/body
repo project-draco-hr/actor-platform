@@ -1,4 +1,0 @@
-{
-  this.sigPolicyQualifierId=sigPolicyQualifierId;
-  this.sigQualifier=sigQualifier;
-}

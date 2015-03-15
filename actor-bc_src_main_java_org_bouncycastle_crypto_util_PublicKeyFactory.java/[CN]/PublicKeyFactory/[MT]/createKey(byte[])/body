@@ -1,3 +1,0 @@
-{
-  return createKey(SubjectPublicKeyInfo.getInstance(ASN1Primitive.fromByteArray(keyInfoData)));
-}

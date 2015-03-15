@@ -1,7 +1,0 @@
-{
-  int code=isPrivate() ? 0 : 1;
-  if (params != null) {
-    code^=params.hashCode();
-  }
-  return code;
-}

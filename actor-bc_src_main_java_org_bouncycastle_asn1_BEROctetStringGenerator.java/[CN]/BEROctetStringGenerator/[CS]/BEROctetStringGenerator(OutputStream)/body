@@ -1,4 +1,0 @@
-{
-  super(out);
-  writeBERHeader(BERTags.CONSTRUCTED | BERTags.OCTET_STRING);
-}

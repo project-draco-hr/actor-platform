@@ -1,3 +1,0 @@
-{
-  out.writeEncoded(BERTags.UNIVERSAL_STRING,this.getOctets());
-}

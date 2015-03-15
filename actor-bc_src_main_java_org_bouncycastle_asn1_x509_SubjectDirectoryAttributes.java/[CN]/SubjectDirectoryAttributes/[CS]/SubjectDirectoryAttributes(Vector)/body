@@ -1,6 +1,0 @@
-{
-  Enumeration e=attributes.elements();
-  while (e.hasMoreElements()) {
-    this.attributes.addElement(e.nextElement());
-  }
-}

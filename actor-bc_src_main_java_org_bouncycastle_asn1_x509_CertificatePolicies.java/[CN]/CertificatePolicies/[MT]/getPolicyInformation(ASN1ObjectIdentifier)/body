@@ -1,8 +1,0 @@
-{
-  for (int i=0; i != policyInformation.length; i++) {
-    if (policyIdentifier.equals(policyInformation[i].getPolicyIdentifier())) {
-      return policyInformation[i];
-    }
-  }
-  return null;
-}

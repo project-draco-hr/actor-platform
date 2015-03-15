@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(issuer);
-  if (locator != null) {
-    v.add(locator);
-  }
-  return new DERSequence(v);
-}

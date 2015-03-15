@@ -1,4 +1,0 @@
-{
-  this.func=keyDevFunc;
-  this.scheme=encScheme;
-}

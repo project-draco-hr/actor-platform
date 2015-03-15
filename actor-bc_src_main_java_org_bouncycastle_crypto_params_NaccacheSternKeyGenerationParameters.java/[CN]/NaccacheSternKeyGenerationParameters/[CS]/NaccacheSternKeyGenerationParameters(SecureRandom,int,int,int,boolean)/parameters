@@ -1,5 +1,0 @@
-SecureRandom random
-int strength
-int certainty
-int cntSmallPrimes
-boolean debug

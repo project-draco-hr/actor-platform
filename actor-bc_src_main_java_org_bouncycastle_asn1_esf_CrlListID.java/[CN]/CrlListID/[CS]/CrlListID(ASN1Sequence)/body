@@ -1,7 +1,0 @@
-{
-  this.crls=(ASN1Sequence)seq.getObjectAt(0);
-  Enumeration e=this.crls.getObjects();
-  while (e.hasMoreElements()) {
-    CrlValidatedID.getInstance(e.nextElement());
-  }
-}

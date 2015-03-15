@@ -1,3 +1,0 @@
-{
-  return dataGroupNumber.getValue().intValue();
-}

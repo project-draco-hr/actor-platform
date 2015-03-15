@@ -1,3 +1,0 @@
-{
-  return setSenderKID(kid == null ? null : new DEROctetString(kid));
-}

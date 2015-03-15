@@ -1,7 +1,0 @@
-{
-  OtherCertID[] cs=new OtherCertID[certs.size()];
-  for (int i=0; i != certs.size(); i++) {
-    cs[i]=OtherCertID.getInstance(certs.getObjectAt(i));
-  }
-  return cs;
-}

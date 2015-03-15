@@ -1,8 +1,0 @@
-{
-  if (dvCertInfo != null) {
-    return dvCertInfo.toASN1Primitive();
-  }
- else {
-    return new DERTaggedObject(0,dvErrorNote);
-  }
-}

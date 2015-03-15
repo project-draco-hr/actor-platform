@@ -1,9 +1,0 @@
-{
-  if (obj == null || obj instanceof MonetaryLimit) {
-    return (MonetaryLimit)obj;
-  }
-  if (obj instanceof ASN1Sequence) {
-    return new MonetaryLimit(ASN1Sequence.getInstance(obj));
-  }
-  throw new IllegalArgumentException("unknown object in getInstance");
-}

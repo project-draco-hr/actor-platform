@@ -1,3 +1,0 @@
-{
-  this(Strings.toByteArray(string));
-}

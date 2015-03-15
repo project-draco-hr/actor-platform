@@ -1,6 +1,0 @@
-{
-  this.version=V1;
-  this.requestorName=requestorName;
-  this.requestList=requestList;
-  this.requestExtensions=requestExtensions;
-}

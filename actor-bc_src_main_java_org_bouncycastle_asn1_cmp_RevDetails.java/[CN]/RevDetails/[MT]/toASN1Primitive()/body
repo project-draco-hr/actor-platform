@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(certDetails);
-  if (crlEntryDetails != null) {
-    v.add(crlEntryDetails);
-  }
-  return new DERSequence(v);
-}

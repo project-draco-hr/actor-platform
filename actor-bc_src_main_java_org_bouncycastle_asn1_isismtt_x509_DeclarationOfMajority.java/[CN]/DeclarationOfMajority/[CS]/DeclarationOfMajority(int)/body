@@ -1,3 +1,0 @@
-{
-  declaration=new DERTaggedObject(false,0,new ASN1Integer(notYoungerThan));
-}

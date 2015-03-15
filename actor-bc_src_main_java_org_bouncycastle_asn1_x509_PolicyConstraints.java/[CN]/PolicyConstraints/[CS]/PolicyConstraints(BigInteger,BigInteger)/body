@@ -1,4 +1,0 @@
-{
-  this.requireExplicitPolicyMapping=requireExplicitPolicyMapping;
-  this.inhibitPolicyMapping=inhibitPolicyMapping;
-}

@@ -1,4 +1,0 @@
-boolean privateKey
-BigInteger g
-BigInteger n
-int lowerSigmaBound

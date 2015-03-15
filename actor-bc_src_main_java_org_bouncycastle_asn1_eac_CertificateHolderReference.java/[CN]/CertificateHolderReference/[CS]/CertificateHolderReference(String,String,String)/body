@@ -1,5 +1,0 @@
-{
-  this.countryCode=countryCode;
-  this.holderMnemonic=holderMnemonic;
-  this.sequenceNumber=sequenceNumber;
-}

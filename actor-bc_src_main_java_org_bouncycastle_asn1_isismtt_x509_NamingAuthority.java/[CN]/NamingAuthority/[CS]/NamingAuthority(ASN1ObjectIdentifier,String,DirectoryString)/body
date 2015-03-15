@@ -1,5 +1,0 @@
-{
-  this.namingAuthorityId=namingAuthorityId;
-  this.namingAuthorityUrl=namingAuthorityUrl;
-  this.namingAuthorityText=namingAuthorityText;
-}

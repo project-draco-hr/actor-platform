@@ -1,3 +1,0 @@
-{
-  certHash=new DEROctetString(hash);
-}

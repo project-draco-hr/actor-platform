@@ -1,5 +1,0 @@
-{
-  Enumeration e=seq.getObjects();
-  iv=(ASN1OctetString)e.nextElement();
-  paramSet=(ASN1ObjectIdentifier)e.nextElement();
-}

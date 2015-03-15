@@ -1,3 +1,0 @@
-{
-  value=new ASN1Enumerated(reason);
-}

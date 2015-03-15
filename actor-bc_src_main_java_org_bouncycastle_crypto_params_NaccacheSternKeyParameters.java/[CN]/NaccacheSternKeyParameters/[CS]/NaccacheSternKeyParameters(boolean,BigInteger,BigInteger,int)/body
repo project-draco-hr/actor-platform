@@ -1,6 +1,0 @@
-{
-  super(privateKey);
-  this.g=g;
-  this.n=n;
-  this.lowerSigmaBound=lowerSigmaBound;
-}

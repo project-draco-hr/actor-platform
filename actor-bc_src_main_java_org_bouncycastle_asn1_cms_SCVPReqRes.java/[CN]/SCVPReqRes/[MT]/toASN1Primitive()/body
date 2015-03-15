@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  if (request != null) {
-    v.add(new DERTaggedObject(true,0,request));
-  }
-  v.add(response);
-  return new DERSequence(v);
-}

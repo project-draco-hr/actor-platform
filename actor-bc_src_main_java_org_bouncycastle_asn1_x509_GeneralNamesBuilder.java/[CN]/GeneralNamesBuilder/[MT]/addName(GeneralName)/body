@@ -1,4 +1,0 @@
-{
-  names.addElement(name);
-  return this;
-}

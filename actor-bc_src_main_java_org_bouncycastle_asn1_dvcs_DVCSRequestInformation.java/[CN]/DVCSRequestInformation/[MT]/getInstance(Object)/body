@@ -1,9 +1,0 @@
-{
-  if (obj instanceof DVCSRequestInformation) {
-    return (DVCSRequestInformation)obj;
-  }
- else   if (obj != null) {
-    return new DVCSRequestInformation(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

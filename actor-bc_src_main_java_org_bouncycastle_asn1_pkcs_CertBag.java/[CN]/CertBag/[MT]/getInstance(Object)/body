@@ -1,9 +1,0 @@
-{
-  if (o instanceof CertBag) {
-    return (CertBag)o;
-  }
- else   if (o != null) {
-    return new CertBag(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

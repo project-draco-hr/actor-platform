@@ -1,9 +1,0 @@
-{
-  if (o instanceof ElGamalParameter) {
-    return (ElGamalParameter)o;
-  }
- else   if (o != null) {
-    return new ElGamalParameter(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

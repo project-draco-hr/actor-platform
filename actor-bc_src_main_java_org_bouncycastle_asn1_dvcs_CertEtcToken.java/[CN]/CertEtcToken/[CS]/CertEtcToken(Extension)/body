@@ -1,4 +1,0 @@
-{
-  this.tagNo=-1;
-  this.extension=extension;
-}

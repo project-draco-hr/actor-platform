@@ -1,5 +1,0 @@
-{
-  StringBuffer buf=new StringBuffer();
-  _dumpAsString("",false,obj,buf);
-  return buf.toString();
-}

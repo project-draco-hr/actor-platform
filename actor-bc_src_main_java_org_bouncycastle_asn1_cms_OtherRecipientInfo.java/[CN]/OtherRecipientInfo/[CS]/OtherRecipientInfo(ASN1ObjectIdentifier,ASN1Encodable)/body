@@ -1,4 +1,0 @@
-{
-  this.oriType=oriType;
-  this.oriValue=oriValue;
-}

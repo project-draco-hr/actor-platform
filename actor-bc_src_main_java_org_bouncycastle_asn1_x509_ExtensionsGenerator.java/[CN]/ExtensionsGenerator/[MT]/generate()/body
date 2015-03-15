@@ -1,7 +1,0 @@
-{
-  Extension[] exts=new Extension[extOrdering.size()];
-  for (int i=0; i != extOrdering.size(); i++) {
-    exts[i]=(Extension)extensions.get(extOrdering.elementAt(i));
-  }
-  return new Extensions(exts);
-}

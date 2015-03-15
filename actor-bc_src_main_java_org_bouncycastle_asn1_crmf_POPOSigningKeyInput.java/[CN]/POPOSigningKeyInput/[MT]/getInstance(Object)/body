@@ -1,9 +1,0 @@
-{
-  if (o instanceof POPOSigningKeyInput) {
-    return (POPOSigningKeyInput)o;
-  }
-  if (o != null) {
-    return new POPOSigningKeyInput(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

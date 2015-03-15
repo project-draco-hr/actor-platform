@@ -1,5 +1,0 @@
-{
-  this.signatureAlgorithm=signatureAlgorithm;
-  this.signature=signature;
-  this.certs=certs;
-}

@@ -1,6 +1,0 @@
-{
-  if ((this.certificateType & CertificateBody.CAR) == CertificateBody.CAR) {
-    return new CertificationAuthorityReference(certificationAuthorityReference.getContents());
-  }
-  throw new IOException("Certification authority reference not set");
-}

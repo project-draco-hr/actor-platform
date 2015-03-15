@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(version);
-  v.add(rid);
-  v.add(keyEncryptionAlgorithm);
-  v.add(encryptedKey);
-  return new DERSequence(v);
-}

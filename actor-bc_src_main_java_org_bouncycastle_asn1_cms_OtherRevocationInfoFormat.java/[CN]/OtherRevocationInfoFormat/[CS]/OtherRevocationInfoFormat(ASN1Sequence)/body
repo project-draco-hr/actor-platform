@@ -1,4 +1,0 @@
-{
-  otherRevInfoFormat=ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
-  otherRevInfo=seq.getObjectAt(1);
-}

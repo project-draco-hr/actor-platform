@@ -1,9 +1,0 @@
-{
-  if (o instanceof PKIMessage) {
-    return (PKIMessage)o;
-  }
- else   if (o != null) {
-    return new PKIMessage(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

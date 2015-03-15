@@ -1,9 +1,0 @@
-{
-  if (obj instanceof DigestInfo) {
-    return (DigestInfo)obj;
-  }
- else   if (obj != null) {
-    return new DigestInfo(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

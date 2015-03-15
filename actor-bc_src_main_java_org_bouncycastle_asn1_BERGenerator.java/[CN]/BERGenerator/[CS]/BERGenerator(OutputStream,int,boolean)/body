@@ -1,6 +1,0 @@
-{
-  super(out);
-  _tagged=true;
-  _isExplicit=isExplicit;
-  _tagNo=tagNo;
-}

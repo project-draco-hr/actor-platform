@@ -1,9 +1,0 @@
-{
-  if (o instanceof CAST5CBCParameters) {
-    return (CAST5CBCParameters)o;
-  }
- else   if (o != null) {
-    return new CAST5CBCParameters(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

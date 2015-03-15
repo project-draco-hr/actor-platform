@@ -1,5 +1,0 @@
-ASN1ObjectIdentifier name
-ECCurve curve
-ECPoint G
-BigInteger n
-BigInteger h

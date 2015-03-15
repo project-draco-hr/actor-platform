@@ -1,5 +1,0 @@
-{
-  Object o=nextObj;
-  nextObj=readObject();
-  return o;
-}

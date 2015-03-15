@@ -1,6 +1,0 @@
-{
-  if (certs != null) {
-    return TargetEtcChain.arrayFromSequence(certs);
-  }
-  return null;
-}

@@ -1,8 +1,0 @@
-ASN1ObjectIdentifier usage
-BigInteger p
-BigInteger a
-BigInteger b
-byte[] basePoint
-BigInteger order
-byte[] publicPoint
-int cofactor

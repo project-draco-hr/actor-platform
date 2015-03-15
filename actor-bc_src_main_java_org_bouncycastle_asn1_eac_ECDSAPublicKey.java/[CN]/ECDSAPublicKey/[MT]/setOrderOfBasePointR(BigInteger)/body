@@ -1,9 +1,0 @@
-{
-  if ((options & R) == 0) {
-    options|=R;
-    this.orderOfBasePointR=orderOfBasePointR;
-  }
- else {
-    throw new IllegalArgumentException("Order of base point R already set");
-  }
-}

@@ -1,4 +1,0 @@
-{
-  X9ECParametersHolder holder=(X9ECParametersHolder)oidToCurve.get(oid);
-  return holder == null ? null : holder.getParameters();
-}

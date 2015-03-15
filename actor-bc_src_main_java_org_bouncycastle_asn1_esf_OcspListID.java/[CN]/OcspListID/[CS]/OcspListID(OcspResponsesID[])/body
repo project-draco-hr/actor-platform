@@ -1,3 +1,0 @@
-{
-  this.ocspResponses=new DERSequence(ocspResponses);
-}

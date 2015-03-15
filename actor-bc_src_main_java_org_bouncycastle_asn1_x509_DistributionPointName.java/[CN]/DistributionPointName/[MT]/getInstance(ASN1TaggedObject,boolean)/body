@@ -1,3 +1,0 @@
-{
-  return getInstance(ASN1TaggedObject.getInstance(obj,true));
-}

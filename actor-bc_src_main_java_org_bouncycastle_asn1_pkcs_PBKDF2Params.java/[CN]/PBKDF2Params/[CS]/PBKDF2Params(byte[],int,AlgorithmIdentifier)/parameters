@@ -1,3 +1,0 @@
-byte[] salt
-int iterationCount
-AlgorithmIdentifier prf

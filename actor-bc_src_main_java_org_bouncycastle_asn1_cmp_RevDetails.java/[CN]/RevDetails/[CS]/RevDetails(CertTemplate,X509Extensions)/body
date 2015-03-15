@@ -1,4 +1,0 @@
-{
-  this.certDetails=certDetails;
-  this.crlEntryDetails=Extensions.getInstance(crlEntryDetails.toASN1Primitive());
-}

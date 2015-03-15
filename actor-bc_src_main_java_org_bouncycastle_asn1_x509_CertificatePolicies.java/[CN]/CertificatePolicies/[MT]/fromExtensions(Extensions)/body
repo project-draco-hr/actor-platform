@@ -1,3 +1,0 @@
-{
-  return CertificatePolicies.getInstance(extensions.getExtensionParsedValue(Extension.certificatePolicies));
-}

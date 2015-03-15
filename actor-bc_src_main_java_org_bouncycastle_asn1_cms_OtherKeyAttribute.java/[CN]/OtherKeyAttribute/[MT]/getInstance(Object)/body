@@ -1,9 +1,0 @@
-{
-  if (o instanceof OtherKeyAttribute) {
-    return (OtherKeyAttribute)o;
-  }
-  if (o != null) {
-    return new OtherKeyAttribute(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

@@ -5,15 +5,6 @@
   RSAKeyParameters rsaPublicKey=(RSAKeyParameters)res.getPublic();
   byte[] publicKey=new X509RsaPublicKey(rsaPublicKey.getModulus(),rsaPublicKey.getExponent()).serialize();
   RSAPrivateCrtKeyParameters parameter=(RSAPrivateCrtKeyParameters)res.getPrivate();
-  org.bouncycastle.asn1.pkcs.RSAPrivateKey pksPrivateKey=new org.bouncycastle.asn1.pkcs.RSAPrivateKey(parameter.getModulus(),ZERO,parameter.getExponent(),ZERO,ZERO,ZERO,ZERO,ZERO);
-  byte[] privateKey;
-  try {
-    PrivateKeyInfo info=new PrivateKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption,DERNull.INSTANCE),pksPrivateKey.toASN1Primitive());
-    privateKey=info.getEncoded(ASN1Encoding.DER);
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-    return null;
-  }
+  byte[] privateKey=new PKS8RsaPrivateKey(parameter.getModulus(),parameter.getExponent()).serialize();
   return new CryptoKeyPair(publicKey,privateKey);
 }

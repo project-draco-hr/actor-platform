@@ -1,5 +1,0 @@
-{
-  ASN1Set derSet=new DLSet();
-  derSet.set=this.set;
-  return derSet;
-}

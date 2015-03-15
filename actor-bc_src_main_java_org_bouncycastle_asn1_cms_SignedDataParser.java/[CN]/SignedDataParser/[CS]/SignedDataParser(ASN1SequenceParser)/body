@@ -1,4 +1,0 @@
-{
-  this._seq=seq;
-  this._version=(ASN1Integer)seq.readObject();
-}

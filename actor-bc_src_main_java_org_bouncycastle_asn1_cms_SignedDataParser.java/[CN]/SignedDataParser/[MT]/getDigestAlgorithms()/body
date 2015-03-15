@@ -1,7 +1,0 @@
-{
-  Object o=_seq.readObject();
-  if (o instanceof ASN1Set) {
-    return ((ASN1Set)o).parser();
-  }
-  return (ASN1SetParser)o;
-}

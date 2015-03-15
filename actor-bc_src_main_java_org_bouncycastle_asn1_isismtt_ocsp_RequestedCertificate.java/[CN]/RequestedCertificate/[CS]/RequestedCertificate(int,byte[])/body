@@ -1,3 +1,0 @@
-{
-  this(new DERTaggedObject(type,new DEROctetString(certificateOctets)));
-}

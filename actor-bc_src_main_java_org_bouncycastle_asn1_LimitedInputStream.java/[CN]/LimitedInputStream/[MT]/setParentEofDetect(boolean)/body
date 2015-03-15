@@ -1,5 +1,0 @@
-{
-  if (_in instanceof IndefiniteLengthInputStream) {
-    ((IndefiniteLengthInputStream)_in).setEofOn00(on);
-  }
-}

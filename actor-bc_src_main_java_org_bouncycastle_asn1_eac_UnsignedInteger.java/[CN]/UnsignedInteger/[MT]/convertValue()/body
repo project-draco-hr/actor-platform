@@ -1,9 +1,0 @@
-{
-  byte[] v=value.toByteArray();
-  if (v[0] == 0) {
-    byte[] tmp=new byte[v.length - 1];
-    System.arraycopy(v,1,tmp,0,tmp.length);
-    return tmp;
-  }
-  return v;
-}

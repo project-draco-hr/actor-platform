@@ -1,9 +1,0 @@
-{
-  if (obj instanceof PolicyQualifierInfo) {
-    return (PolicyQualifierInfo)obj;
-  }
- else   if (obj != null) {
-    return new PolicyQualifierInfo(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

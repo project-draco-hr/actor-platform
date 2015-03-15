@@ -1,9 +1,0 @@
-{
-  if (certificateHolderReference.getApplicationTag() == EACTags.CARDHOLDER_NAME) {
-    this.certificateHolderReference=certificateHolderReference;
-    certificateType|=CHR;
-  }
- else {
-    throw new IllegalArgumentException("Not an Iso7816Tags.CARDHOLDER_NAME tag");
-  }
-}

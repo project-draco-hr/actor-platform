@@ -1,6 +1,0 @@
-{
-  if (certificate == null) {
-    throw new IllegalArgumentException("'certificate' cannot be null");
-  }
-  this.certificate=certificate;
-}

@@ -1,4 +1,0 @@
-{
-  this.keyData=new DERBitString(publicKey);
-  this.algId=algId;
-}

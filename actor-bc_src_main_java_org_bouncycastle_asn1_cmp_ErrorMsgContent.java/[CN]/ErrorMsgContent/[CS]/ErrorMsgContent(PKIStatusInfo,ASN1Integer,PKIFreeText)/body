@@ -1,8 +1,0 @@
-{
-  if (pkiStatusInfo == null) {
-    throw new IllegalArgumentException("'pkiStatusInfo' cannot be null");
-  }
-  this.pkiStatusInfo=pkiStatusInfo;
-  this.errorCode=errorCode;
-  this.errorDetails=errorDetails;
-}

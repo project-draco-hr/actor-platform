@@ -1,3 +1,0 @@
-{
-  return (params instanceof ASN1ObjectIdentifier);
-}

@@ -1,7 +1,0 @@
-{
-  Integer i=(Integer)AuthorizationRole.getReverse(description);
-  if (i == null) {
-    throw new IllegalArgumentException("Unknown value " + description);
-  }
-  return i.intValue();
-}

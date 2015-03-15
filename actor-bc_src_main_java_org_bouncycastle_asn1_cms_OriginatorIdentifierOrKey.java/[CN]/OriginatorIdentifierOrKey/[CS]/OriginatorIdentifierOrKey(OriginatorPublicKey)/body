@@ -1,3 +1,0 @@
-{
-  this.id=new DERTaggedObject(false,1,id);
-}

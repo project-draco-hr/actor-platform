@@ -1,3 +1,0 @@
-{
-  return information.toASN1Primitive();
-}

@@ -1,3 +1,0 @@
-{
-  return isWeakKey(key,offset,key.length - offset);
-}

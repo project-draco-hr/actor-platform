@@ -1,4 +1,0 @@
-{
-  H.reset();
-  return H;
-}

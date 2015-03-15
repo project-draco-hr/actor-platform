@@ -1,7 +1,0 @@
-{
-  if (!(obj instanceof CramerShoupPrivateKeyParameters)) {
-    return false;
-  }
-  CramerShoupPrivateKeyParameters other=(CramerShoupPrivateKeyParameters)obj;
-  return other.getX1().equals(this.x1) && other.getX2().equals(this.x2) && other.getY1().equals(this.y1)&& other.getY2().equals(this.y2)&& other.getZ().equals(this.z)&& super.equals(obj);
-}

@@ -1,6 +1,0 @@
-{
-  if (lParam == 0) {
-    return DEFAULT_MINIMUM_LENGTH;
-  }
-  return lParam < DEFAULT_MINIMUM_LENGTH ? lParam : DEFAULT_MINIMUM_LENGTH;
-}

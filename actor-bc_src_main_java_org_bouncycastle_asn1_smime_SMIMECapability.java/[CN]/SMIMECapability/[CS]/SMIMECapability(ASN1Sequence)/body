@@ -1,6 +1,0 @@
-{
-  capabilityID=(ASN1ObjectIdentifier)seq.getObjectAt(0);
-  if (seq.size() > 1) {
-    parameters=(ASN1Primitive)seq.getObjectAt(1);
-  }
-}

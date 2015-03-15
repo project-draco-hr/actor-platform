@@ -1,7 +1,0 @@
-{
-  if (!(obj instanceof ElGamalPublicKeyParameters)) {
-    return false;
-  }
-  ElGamalPublicKeyParameters other=(ElGamalPublicKeyParameters)obj;
-  return other.getY().equals(y) && super.equals(obj);
-}

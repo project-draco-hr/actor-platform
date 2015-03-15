@@ -1,4 +1,0 @@
-{
-  this.certificateHolderAuthorization=cha;
-  certificateType|=CHA;
-}

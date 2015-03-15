@@ -1,7 +1,0 @@
-{
-  int code=tagNo;
-  if (obj != null) {
-    code^=obj.hashCode();
-  }
-  return code;
-}

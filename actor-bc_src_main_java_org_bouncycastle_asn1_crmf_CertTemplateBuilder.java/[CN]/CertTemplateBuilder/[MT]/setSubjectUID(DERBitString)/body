@@ -1,4 +1,0 @@
-{
-  subjectUID=uid;
-  return this;
-}

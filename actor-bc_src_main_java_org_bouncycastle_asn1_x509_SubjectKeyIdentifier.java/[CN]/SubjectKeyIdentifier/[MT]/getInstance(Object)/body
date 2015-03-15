@@ -1,9 +1,0 @@
-{
-  if (obj instanceof SubjectKeyIdentifier) {
-    return (SubjectKeyIdentifier)obj;
-  }
- else   if (obj != null) {
-    return new SubjectKeyIdentifier(ASN1OctetString.getInstance(obj));
-  }
-  return null;
-}

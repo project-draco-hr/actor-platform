@@ -1,9 +1,0 @@
-{
-  if (o instanceof EncKeyWithID) {
-    return (EncKeyWithID)o;
-  }
- else   if (o != null) {
-    return new EncKeyWithID(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

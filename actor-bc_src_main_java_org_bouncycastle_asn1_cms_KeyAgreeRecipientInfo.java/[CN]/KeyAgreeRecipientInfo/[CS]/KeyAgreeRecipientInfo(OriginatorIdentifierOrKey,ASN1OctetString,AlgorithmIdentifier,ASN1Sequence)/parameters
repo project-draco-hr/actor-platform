@@ -1,4 +1,0 @@
-OriginatorIdentifierOrKey originator
-ASN1OctetString ukm
-AlgorithmIdentifier keyEncryptionAlgorithm
-ASN1Sequence recipientEncryptedKeys

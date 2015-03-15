@@ -1,3 +1,0 @@
-{
-  out.writeEncoded(BERTags.OCTET_STRING,string);
-}

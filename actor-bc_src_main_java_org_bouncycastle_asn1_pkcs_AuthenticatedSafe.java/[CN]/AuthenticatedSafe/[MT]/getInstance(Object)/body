@@ -1,9 +1,0 @@
-{
-  if (o instanceof AuthenticatedSafe) {
-    return (AuthenticatedSafe)o;
-  }
-  if (o != null) {
-    return new AuthenticatedSafe(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

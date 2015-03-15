@@ -1,3 +1,0 @@
-{
-  this(new DEROctetString(salt),owf,new ASN1Integer(iterationCount),mac);
-}

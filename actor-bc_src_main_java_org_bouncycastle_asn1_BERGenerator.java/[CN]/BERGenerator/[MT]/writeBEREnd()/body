@@ -1,8 +1,0 @@
-{
-  _out.write(0x00);
-  _out.write(0x00);
-  if (_tagged && _isExplicit) {
-    _out.write(0x00);
-    _out.write(0x00);
-  }
-}

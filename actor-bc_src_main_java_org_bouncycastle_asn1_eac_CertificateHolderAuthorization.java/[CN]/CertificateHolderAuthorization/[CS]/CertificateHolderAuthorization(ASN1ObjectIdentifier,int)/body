@@ -1,4 +1,0 @@
-{
-  setOid(oid);
-  setAccessRights((byte)rights);
-}

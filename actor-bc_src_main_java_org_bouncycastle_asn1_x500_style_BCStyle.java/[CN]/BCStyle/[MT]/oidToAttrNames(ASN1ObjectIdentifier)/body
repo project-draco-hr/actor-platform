@@ -1,3 +1,0 @@
-{
-  return IETFUtils.findAttrNamesForOID(oid,defaultLookUp);
-}

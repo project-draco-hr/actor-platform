@@ -1,3 +1,0 @@
-{
-  this(new GeneralNames(new GeneralName(issuer)),new ASN1Integer(serial));
-}

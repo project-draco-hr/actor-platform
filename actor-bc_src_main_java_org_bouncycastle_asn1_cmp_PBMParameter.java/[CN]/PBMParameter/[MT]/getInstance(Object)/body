@@ -1,9 +1,0 @@
-{
-  if (o instanceof PBMParameter) {
-    return (PBMParameter)o;
-  }
-  if (o != null) {
-    return new PBMParameter(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

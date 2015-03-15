@@ -1,7 +1,0 @@
-{
-  if (!(o instanceof ASN1Integer)) {
-    return false;
-  }
-  ASN1Integer other=(ASN1Integer)o;
-  return Arrays.areEqual(bytes,other.bytes);
-}

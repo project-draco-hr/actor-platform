@@ -1,9 +1,0 @@
-{
-  if (obj instanceof AuthorityInformationAccess) {
-    return (AuthorityInformationAccess)obj;
-  }
-  if (obj != null) {
-    return new AuthorityInformationAccess(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

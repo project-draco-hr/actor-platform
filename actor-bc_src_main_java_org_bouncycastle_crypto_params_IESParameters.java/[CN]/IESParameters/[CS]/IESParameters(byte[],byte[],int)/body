@@ -1,5 +1,0 @@
-{
-  this.derivation=derivation;
-  this.encoding=encoding;
-  this.macKeySize=macKeySize;
-}

@@ -1,3 +1,0 @@
-{
-  setExtensions(Extensions.getInstance(extensions));
-}

@@ -1,5 +1,0 @@
-{
-  this.bagId=oid;
-  this.bagValue=obj;
-  this.bagAttributes=null;
-}

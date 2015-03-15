@@ -1,5 +1,0 @@
-{
-  this.subjectKeyIdentifier=subjectKeyIdentifier;
-  this.date=date;
-  this.other=other;
-}

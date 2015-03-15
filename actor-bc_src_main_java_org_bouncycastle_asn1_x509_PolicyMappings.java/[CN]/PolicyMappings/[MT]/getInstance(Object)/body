@@ -1,9 +1,0 @@
-{
-  if (obj instanceof PolicyMappings) {
-    return (PolicyMappings)obj;
-  }
-  if (obj != null) {
-    return new PolicyMappings(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

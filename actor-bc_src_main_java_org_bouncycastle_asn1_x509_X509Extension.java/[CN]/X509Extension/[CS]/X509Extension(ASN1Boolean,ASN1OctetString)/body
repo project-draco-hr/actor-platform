@@ -1,4 +1,0 @@
-{
-  this.critical=critical.isTrue();
-  this.value=value;
-}

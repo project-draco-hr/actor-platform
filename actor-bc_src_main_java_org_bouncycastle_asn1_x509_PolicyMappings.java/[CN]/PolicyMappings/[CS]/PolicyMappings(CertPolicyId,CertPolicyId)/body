@@ -1,6 +1,0 @@
-{
-  ASN1EncodableVector dv=new ASN1EncodableVector();
-  dv.add(issuerDomainPolicy);
-  dv.add(subjectDomainPolicy);
-  seq=new DERSequence(new DERSequence(dv));
-}

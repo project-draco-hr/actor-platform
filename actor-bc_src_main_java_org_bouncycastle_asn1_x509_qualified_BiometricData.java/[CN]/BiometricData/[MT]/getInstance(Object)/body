@@ -1,9 +1,0 @@
-{
-  if (obj instanceof BiometricData) {
-    return (BiometricData)obj;
-  }
-  if (obj != null) {
-    return new BiometricData(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

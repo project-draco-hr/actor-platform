@@ -1,9 +1,0 @@
-{
-  if (obj instanceof ServiceType) {
-    return (ServiceType)obj;
-  }
- else   if (obj != null) {
-    return new ServiceType(ASN1Enumerated.getInstance(obj));
-  }
-  return null;
-}

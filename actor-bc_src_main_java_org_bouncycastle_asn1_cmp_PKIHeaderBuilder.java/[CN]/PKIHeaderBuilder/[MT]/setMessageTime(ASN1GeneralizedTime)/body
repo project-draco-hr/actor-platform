@@ -1,4 +1,0 @@
-{
-  messageTime=time;
-  return this;
-}

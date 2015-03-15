@@ -1,6 +1,0 @@
-{
-  this.hashAlgorithm=hashAlgorithm;
-  this.issuerNameHash=issuerNameHash;
-  this.issuerKeyHash=issuerKeyHash;
-  this.serialNumber=serialNumber;
-}

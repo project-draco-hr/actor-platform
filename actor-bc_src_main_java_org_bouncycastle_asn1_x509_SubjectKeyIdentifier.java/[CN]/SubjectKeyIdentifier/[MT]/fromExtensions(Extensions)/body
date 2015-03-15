@@ -1,3 +1,0 @@
-{
-  return SubjectKeyIdentifier.getInstance(extensions.getExtensionParsedValue(Extension.subjectKeyIdentifier));
-}

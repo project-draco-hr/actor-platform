@@ -1,9 +1,0 @@
-{
-  if (o instanceof TimeStampResp) {
-    return (TimeStampResp)o;
-  }
- else   if (o != null) {
-    return new TimeStampResp(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

@@ -1,4 +1,0 @@
-{
-  keyAttrId=(ASN1ObjectIdentifier)seq.getObjectAt(0);
-  keyAttr=seq.getObjectAt(1);
-}

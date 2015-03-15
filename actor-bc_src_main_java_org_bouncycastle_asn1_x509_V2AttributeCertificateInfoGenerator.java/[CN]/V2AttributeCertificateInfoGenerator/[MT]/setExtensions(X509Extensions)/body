@@ -1,3 +1,0 @@
-{
-  this.extensions=Extensions.getInstance(extensions.toASN1Primitive());
-}

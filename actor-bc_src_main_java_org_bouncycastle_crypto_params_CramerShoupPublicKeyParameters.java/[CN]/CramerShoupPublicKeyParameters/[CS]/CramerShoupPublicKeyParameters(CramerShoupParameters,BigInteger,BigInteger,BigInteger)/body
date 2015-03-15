@@ -1,6 +1,0 @@
-{
-  super(false,params);
-  this.c=c;
-  this.d=d;
-  this.h=h;
-}

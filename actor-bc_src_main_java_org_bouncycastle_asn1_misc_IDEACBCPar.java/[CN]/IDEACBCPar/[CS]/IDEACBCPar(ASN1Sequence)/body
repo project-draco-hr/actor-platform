@@ -1,8 +1,0 @@
-{
-  if (seq.size() == 1) {
-    iv=(ASN1OctetString)seq.getObjectAt(0);
-  }
- else {
-    iv=null;
-  }
-}

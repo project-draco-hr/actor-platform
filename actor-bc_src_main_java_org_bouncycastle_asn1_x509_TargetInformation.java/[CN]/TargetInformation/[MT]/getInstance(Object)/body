@@ -1,9 +1,0 @@
-{
-  if (obj instanceof TargetInformation) {
-    return (TargetInformation)obj;
-  }
- else   if (obj != null) {
-    return new TargetInformation(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

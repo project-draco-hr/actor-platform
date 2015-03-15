@@ -1,3 +1,0 @@
-{
-  this.bitString=new DERBitString(usage);
-}

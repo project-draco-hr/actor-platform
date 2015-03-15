@@ -1,8 +1,0 @@
-OriginatorInfo originatorInfo
-ASN1Set recipientInfos
-AlgorithmIdentifier macAlgorithm
-AlgorithmIdentifier digestAlgorithm
-ContentInfo encapsulatedContent
-ASN1Set authAttrs
-ASN1OctetString mac
-ASN1Set unauthAttrs

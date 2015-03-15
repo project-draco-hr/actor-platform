@@ -1,9 +1,0 @@
-{
-  if (o == null || o instanceof SigningCertificateV2) {
-    return (SigningCertificateV2)o;
-  }
- else   if (o instanceof ASN1Sequence) {
-    return new SigningCertificateV2((ASN1Sequence)o);
-  }
-  return null;
-}

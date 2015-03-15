@@ -1,8 +1,0 @@
-{
-  if (o.isExplicit()) {
-    return KEKRecipientInfo.getInstance(o,true);
-  }
- else {
-    return KEKRecipientInfo.getInstance(o,false);
-  }
-}

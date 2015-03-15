@@ -1,6 +1,0 @@
-{
-  this.dvReqInfo=dvReqInfo;
-  this.messageImprint=messageImprint;
-  this.serialNumber=serialNumber;
-  this.responseTime=responseTime;
-}

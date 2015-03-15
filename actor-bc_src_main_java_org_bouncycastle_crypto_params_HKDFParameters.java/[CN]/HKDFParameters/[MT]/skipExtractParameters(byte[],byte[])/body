@@ -1,3 +1,0 @@
-{
-  return new HKDFParameters(ikm,true,null,info);
-}

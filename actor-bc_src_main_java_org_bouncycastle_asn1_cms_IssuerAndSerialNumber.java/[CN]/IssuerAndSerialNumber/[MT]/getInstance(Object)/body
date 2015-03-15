@@ -1,9 +1,0 @@
-{
-  if (obj instanceof IssuerAndSerialNumber) {
-    return (IssuerAndSerialNumber)obj;
-  }
- else   if (obj != null) {
-    return new IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

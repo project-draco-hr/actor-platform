@@ -1,5 +1,0 @@
-{
-  pkacSeq=seq;
-  spki=SubjectPublicKeyInfo.getInstance(seq.getObjectAt(0));
-  challenge=DERIA5String.getInstance(seq.getObjectAt(1));
-}

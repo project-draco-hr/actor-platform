@@ -1,4 +1,0 @@
-{
-  this.capabilityID=capabilityID;
-  this.parameters=parameters;
-}

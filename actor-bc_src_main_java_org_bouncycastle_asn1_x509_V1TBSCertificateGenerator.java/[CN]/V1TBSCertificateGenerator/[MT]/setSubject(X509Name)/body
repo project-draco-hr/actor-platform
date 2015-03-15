@@ -1,3 +1,0 @@
-{
-  this.subject=X500Name.getInstance(subject.toASN1Primitive());
-}

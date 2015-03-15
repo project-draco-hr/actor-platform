@@ -1,9 +1,0 @@
-{
-  if (pathLenConstraint == null) {
-    if (cA == null) {
-      return "BasicConstraints: isCa(false)";
-    }
-    return "BasicConstraints: isCa(" + this.isCA() + ")";
-  }
-  return "BasicConstraints: isCa(" + this.isCA() + "), pathLenConstraint = "+ pathLenConstraint.getValue();
-}

@@ -1,4 +1,0 @@
-{
-  this.name=certificate.getIssuer();
-  this.serialNumber=certificate.getSerialNumber();
-}

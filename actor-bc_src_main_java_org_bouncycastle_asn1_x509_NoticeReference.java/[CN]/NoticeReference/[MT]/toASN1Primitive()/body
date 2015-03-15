@@ -1,6 +1,0 @@
-{
-  ASN1EncodableVector av=new ASN1EncodableVector();
-  av.add(organization);
-  av.add(noticeNumbers);
-  return new DERSequence(av);
-}

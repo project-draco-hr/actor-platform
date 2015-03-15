@@ -1,4 +1,0 @@
-{
-  this.tagNo=subsequentMessage;
-  this.obj=msg;
-}

@@ -1,3 +1,0 @@
-{
-  return AuthorityKeyIdentifier.getInstance(extensions.getExtensionParsedValue(Extension.authorityKeyIdentifier));
-}

@@ -1,6 +1,0 @@
-{
-  this.hashProtected=hashProtected;
-  this.fileName=fileName;
-  this.mediaType=mediaType;
-  this.otherMetaData=otherMetaData;
-}

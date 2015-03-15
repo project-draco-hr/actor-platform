@@ -1,8 +1,0 @@
-{
-  BigInteger det=r.multiply(r).subtract(s.shiftLeft(2)).mod(n);
-  BigInteger root=new ECFieldElement.Fp(n,det).sqrt().toBigInteger();
-  if (!root.testBit(0)) {
-    root=n.subtract(root);
-  }
-  return root.shiftRight(1);
-}

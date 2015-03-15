@@ -1,6 +1,0 @@
-{
-  if (null == this.crlNumber) {
-    return null;
-  }
-  return this.crlNumber.getValue();
-}

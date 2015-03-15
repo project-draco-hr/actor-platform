@@ -1,6 +1,0 @@
-{
-  if (id instanceof ASN1TaggedObject && ((ASN1TaggedObject)id).getTagNo() == 1) {
-    return OriginatorPublicKey.getInstance((ASN1TaggedObject)id,false);
-  }
-  return null;
-}

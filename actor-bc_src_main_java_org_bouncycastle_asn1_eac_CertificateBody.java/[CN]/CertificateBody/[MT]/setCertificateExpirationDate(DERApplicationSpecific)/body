@@ -1,9 +1,0 @@
-{
-  if (ced.getApplicationTag() == EACTags.APPLICATION_EXPIRATION_DATE) {
-    this.certificateExpirationDate=ced;
-    certificateType|=CExD;
-  }
- else {
-    throw new IllegalArgumentException("Not an Iso7816Tags.APPLICATION_EXPIRATION_DATE tag");
-  }
-}

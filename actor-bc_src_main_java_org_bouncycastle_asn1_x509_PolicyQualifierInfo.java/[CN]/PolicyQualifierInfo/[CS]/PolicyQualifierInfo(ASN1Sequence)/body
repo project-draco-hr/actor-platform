@@ -1,7 +1,0 @@
-{
-  if (as.size() != 2) {
-    throw new IllegalArgumentException("Bad sequence size: " + as.size());
-  }
-  policyQualifierId=ASN1ObjectIdentifier.getInstance(as.getObjectAt(0));
-  qualifier=as.getObjectAt(1);
-}

@@ -1,4 +1,0 @@
-{
-  this.notBeforeTime=notBeforeTime;
-  this.notAfterTime=notAfterTime;
-}

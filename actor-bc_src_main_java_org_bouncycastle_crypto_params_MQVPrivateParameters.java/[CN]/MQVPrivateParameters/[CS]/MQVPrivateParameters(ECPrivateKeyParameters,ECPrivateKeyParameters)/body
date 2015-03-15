@@ -1,3 +1,0 @@
-{
-  this(staticPrivateKey,ephemeralPrivateKey,null);
-}

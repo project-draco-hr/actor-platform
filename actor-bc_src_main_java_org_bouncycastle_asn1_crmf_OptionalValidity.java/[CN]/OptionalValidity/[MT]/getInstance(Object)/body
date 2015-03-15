@@ -1,9 +1,0 @@
-{
-  if (o instanceof OptionalValidity) {
-    return (OptionalValidity)o;
-  }
-  if (o != null) {
-    return new OptionalValidity(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

@@ -1,9 +1,0 @@
-{
-  if (obj instanceof PolicyConstraints) {
-    return (PolicyConstraints)obj;
-  }
-  if (obj != null) {
-    return new PolicyConstraints(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

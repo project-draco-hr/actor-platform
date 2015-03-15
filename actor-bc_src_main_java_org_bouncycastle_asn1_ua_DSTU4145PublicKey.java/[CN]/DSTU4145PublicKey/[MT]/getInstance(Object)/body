@@ -1,9 +1,0 @@
-{
-  if (obj instanceof DSTU4145PublicKey) {
-    return (DSTU4145PublicKey)obj;
-  }
-  if (obj != null) {
-    return new DSTU4145PublicKey(ASN1OctetString.getInstance(obj));
-  }
-  return null;
-}

@@ -1,5 +1,0 @@
-MessageImprint messageImprint
-ASN1ObjectIdentifier tsaPolicy
-ASN1Integer nonce
-ASN1Boolean certReq
-Extensions extensions

@@ -1,4 +1,0 @@
-byte[] salt
-AlgorithmIdentifier owf
-int iterationCount
-AlgorithmIdentifier mac

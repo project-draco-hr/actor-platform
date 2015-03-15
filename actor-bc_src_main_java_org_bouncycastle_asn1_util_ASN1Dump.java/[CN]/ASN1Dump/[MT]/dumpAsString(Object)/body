@@ -1,3 +1,0 @@
-{
-  return dumpAsString(obj,false);
-}

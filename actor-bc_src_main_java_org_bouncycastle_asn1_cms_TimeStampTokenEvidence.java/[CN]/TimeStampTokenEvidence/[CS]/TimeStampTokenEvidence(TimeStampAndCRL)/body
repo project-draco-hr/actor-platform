@@ -1,4 +1,0 @@
-{
-  this.timeStampAndCRLs=new TimeStampAndCRL[1];
-  timeStampAndCRLs[0]=timeStampAndCRL;
-}

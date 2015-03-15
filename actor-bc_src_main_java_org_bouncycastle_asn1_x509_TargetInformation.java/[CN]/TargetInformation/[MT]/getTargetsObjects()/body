@@ -1,8 +1,0 @@
-{
-  Targets[] copy=new Targets[targets.size()];
-  int count=0;
-  for (Enumeration e=targets.getObjects(); e.hasMoreElements(); ) {
-    copy[count++]=Targets.getInstance(e.nextElement());
-  }
-  return copy;
-}

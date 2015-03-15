@@ -1,9 +1,0 @@
-{
-  if (First) {
-    First=false;
-  }
- else {
-    b.append(mSeparator);
-  }
-  b.append(str);
-}

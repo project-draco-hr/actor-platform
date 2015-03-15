@@ -1,5 +1,0 @@
-{
-  this.currency=new DERPrintableString(currency,true);
-  this.amount=new ASN1Integer(amount);
-  this.exponent=new ASN1Integer(exponent);
-}

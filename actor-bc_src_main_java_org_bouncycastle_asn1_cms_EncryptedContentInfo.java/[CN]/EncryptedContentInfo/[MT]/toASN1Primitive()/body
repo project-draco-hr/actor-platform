@@ -1,9 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(contentType);
-  v.add(contentEncryptionAlgorithm);
-  if (encryptedContent != null) {
-    v.add(new BERTaggedObject(false,0,encryptedContent));
-  }
-  return new BERSequence(v);
-}

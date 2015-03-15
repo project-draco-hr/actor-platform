@@ -1,5 +1,0 @@
-{
-  this.sigPolicyId=sigPolicyId;
-  this.sigPolicyHash=sigPolicyHash;
-  this.sigPolicyQualifiers=sigPolicyQualifiers;
-}

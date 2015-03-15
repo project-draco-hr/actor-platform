@@ -1,6 +1,0 @@
-{
-  ASN1EncodableVector seq=new ASN1EncodableVector();
-  seq.add(dataGroupNumber);
-  seq.add(dataGroupHashValue);
-  return new DERSequence(seq);
-}

@@ -1,5 +1,0 @@
-CertID certID
-CertStatus certStatus
-ASN1GeneralizedTime thisUpdate
-ASN1GeneralizedTime nextUpdate
-Extensions singleExtensions

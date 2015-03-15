@@ -1,3 +1,0 @@
-{
-  return getOctetOutputStream(new byte[1000]);
-}

@@ -1,4 +1,0 @@
-{
-  algId=AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-  value=DERBitString.getInstance(seq.getObjectAt(1));
-}

@@ -1,7 +1,0 @@
-{
-  this.version=new ASN1Integer(1);
-  this.digestAlgorithmIdentifier=digestAlgorithmIdentifier;
-  this.datagroupHash=datagroupHash;
-  this.versionInfo=versionInfo;
-  checkDatagroupHashSeqSize(datagroupHash.length);
-}

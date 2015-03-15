@@ -1,3 +1,0 @@
-{
-  writeDEREncoded(BERTags.CONSTRUCTED | BERTags.SEQUENCE,_bOut.toByteArray());
-}

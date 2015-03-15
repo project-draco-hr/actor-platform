@@ -1,4 +1,0 @@
-{
-  responseType=(ASN1ObjectIdentifier)seq.getObjectAt(0);
-  response=(ASN1OctetString)seq.getObjectAt(1);
-}

@@ -1,4 +1,0 @@
-{
-  this.responseStatus=responseStatus;
-  this.responseBytes=responseBytes;
-}

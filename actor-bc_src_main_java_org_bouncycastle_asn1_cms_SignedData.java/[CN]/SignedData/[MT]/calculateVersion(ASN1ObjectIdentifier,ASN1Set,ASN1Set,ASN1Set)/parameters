@@ -1,4 +1,0 @@
-ASN1ObjectIdentifier contentOid
-ASN1Set certs
-ASN1Set crls
-ASN1Set signerInfs

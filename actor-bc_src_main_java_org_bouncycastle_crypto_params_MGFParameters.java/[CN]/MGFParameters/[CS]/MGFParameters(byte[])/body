@@ -1,3 +1,0 @@
-{
-  this(seed,0,seed.length);
-}

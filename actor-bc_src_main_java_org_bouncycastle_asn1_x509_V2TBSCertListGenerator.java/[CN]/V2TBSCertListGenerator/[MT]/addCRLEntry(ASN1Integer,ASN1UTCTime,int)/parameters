@@ -1,3 +1,0 @@
-ASN1Integer userCertificate
-ASN1UTCTime revocationDate
-int reason

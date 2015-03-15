@@ -1,9 +1,8 @@
 {
   super(publicKey);
   try {
-    PrivateKeyInfo info=new PrivateKeyInfo(ASN1Sequence.getInstance(privateKey));
-    RSAPrivateCrtKeyParameters privateCrtKeyParameters=(RSAPrivateCrtKeyParameters)PrivateKeyFactory.createKey(info);
-    AsymmetricKeyParameter keyParameter=new RSAKeyParameters(true,privateCrtKeyParameters.getModulus(),privateCrtKeyParameters.getExponent());
+    PKS8RsaPrivateKey pks8RsaPrivateKey=new PKS8RsaPrivateKey(privateKey);
+    AsymmetricKeyParameter keyParameter=new RSAKeyParameters(true,pks8RsaPrivateKey.getModulus(),pks8RsaPrivateKey.getExponent());
     cipher=new OAEPEncoding(new RSAEngine(),new SHA1Digest());
     cipher.init(false,keyParameter);
   }

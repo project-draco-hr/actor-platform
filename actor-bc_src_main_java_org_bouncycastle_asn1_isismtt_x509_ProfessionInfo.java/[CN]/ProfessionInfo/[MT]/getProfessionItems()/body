@@ -1,8 +1,0 @@
-{
-  DirectoryString[] items=new DirectoryString[professionItems.size()];
-  int count=0;
-  for (Enumeration e=professionItems.getObjects(); e.hasMoreElements(); ) {
-    items[count++]=DirectoryString.getInstance(e.nextElement());
-  }
-  return items;
-}

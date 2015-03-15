@@ -1,9 +1,0 @@
-{
-  if (obj instanceof OtherRevVals) {
-    return (OtherRevVals)obj;
-  }
-  if (obj != null) {
-    return new OtherRevVals(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

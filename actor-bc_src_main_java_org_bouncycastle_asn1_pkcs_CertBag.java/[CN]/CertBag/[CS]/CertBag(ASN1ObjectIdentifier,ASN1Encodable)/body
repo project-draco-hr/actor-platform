@@ -1,4 +1,0 @@
-{
-  this.certId=certId;
-  this.certValue=certValue;
-}

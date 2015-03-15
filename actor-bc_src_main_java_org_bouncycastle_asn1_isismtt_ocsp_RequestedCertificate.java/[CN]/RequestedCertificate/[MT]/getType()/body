@@ -1,9 +1,0 @@
-{
-  if (cert != null) {
-    return certificate;
-  }
-  if (publicKeyCert != null) {
-    return publicKeyCertificate;
-  }
-  return attributeCertificate;
-}

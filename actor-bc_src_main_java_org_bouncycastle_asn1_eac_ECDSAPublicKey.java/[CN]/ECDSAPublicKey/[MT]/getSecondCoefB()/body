@@ -1,8 +1,0 @@
-{
-  if ((options & B) != 0) {
-    return secondCoefB;
-  }
- else {
-    return null;
-  }
-}

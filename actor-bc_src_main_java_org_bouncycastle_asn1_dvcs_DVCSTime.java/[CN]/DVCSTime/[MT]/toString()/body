@@ -1,9 +1,0 @@
-{
-  if (genTime != null) {
-    return genTime.toString();
-  }
-  if (timeStampToken != null) {
-    return timeStampToken.toString();
-  }
-  return null;
-}

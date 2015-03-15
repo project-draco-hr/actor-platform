@@ -1,4 +1,0 @@
-{
-  issuer=GeneralName.getInstance(seq.getObjectAt(0));
-  serialNumber=ASN1Integer.getInstance(seq.getObjectAt(1));
-}

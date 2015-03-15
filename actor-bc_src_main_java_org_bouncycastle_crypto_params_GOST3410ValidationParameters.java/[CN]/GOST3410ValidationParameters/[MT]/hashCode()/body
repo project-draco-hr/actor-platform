@@ -1,3 +1,0 @@
-{
-  return x0 ^ c ^ (int)x0L^ (int)(x0L >> 32)^ (int)cL^ (int)(cL >> 32);
-}

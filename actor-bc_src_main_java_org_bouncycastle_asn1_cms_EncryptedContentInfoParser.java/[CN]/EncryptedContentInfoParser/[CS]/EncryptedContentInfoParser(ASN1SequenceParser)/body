@@ -1,5 +1,0 @@
-{
-  _contentType=(ASN1ObjectIdentifier)seq.readObject();
-  _contentEncryptionAlgorithm=AlgorithmIdentifier.getInstance(seq.readObject().toASN1Primitive());
-  _encryptedContent=(ASN1TaggedObjectParser)seq.readObject();
-}

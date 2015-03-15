@@ -1,7 +1,0 @@
-{
-  if (this.value instanceof ASN1OctetString) {
-    ASN1OctetString octetString=(ASN1OctetString)this.value;
-    return octetString.getOctets();
-  }
-  return null;
-}

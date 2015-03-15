@@ -1,5 +1,0 @@
-{
-  if (tagged.getTagNo() == 0) {
-    this.tstEvidence=TimeStampTokenEvidence.getInstance(tagged,false);
-  }
-}

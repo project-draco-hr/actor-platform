@@ -1,4 +1,0 @@
-{
-  this.revocationTime=revocationTime;
-  this.revocationReason=revocationReason;
-}

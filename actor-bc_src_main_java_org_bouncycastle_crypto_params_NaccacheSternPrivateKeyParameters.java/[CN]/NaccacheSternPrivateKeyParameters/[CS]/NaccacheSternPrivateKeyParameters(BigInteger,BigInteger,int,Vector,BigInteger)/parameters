@@ -1,5 +1,0 @@
-BigInteger g
-BigInteger n
-int lowerSigmaBound
-Vector smallPrimes
-BigInteger phi_n

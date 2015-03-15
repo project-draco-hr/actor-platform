@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(infoType);
-  if (infoValue != null) {
-    v.add(infoValue);
-  }
-  return new DERSequence(v);
-}

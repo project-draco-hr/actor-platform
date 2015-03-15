@@ -1,3 +1,0 @@
-{
-  return getInstance(ASN1OctetString.getInstance(obj,explicit));
-}

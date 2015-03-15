@@ -1,4 +1,0 @@
-byte[] derivation
-byte[] encoding
-int macKeySize
-int cipherKeySize

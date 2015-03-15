@@ -1,8 +1,0 @@
-{
-  if (encoded != null) {
-    out.writeEncoded(BERTags.SEQUENCE | BERTags.CONSTRUCTED,encoded);
-  }
- else {
-    super.toDLObject().encode(out);
-  }
-}

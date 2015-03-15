@@ -1,6 +1,0 @@
-{
-  ASN1EncodableVector accessDescription=new ASN1EncodableVector();
-  accessDescription.add(accessMethod);
-  accessDescription.add(accessLocation);
-  return new DERSequence(accessDescription);
-}

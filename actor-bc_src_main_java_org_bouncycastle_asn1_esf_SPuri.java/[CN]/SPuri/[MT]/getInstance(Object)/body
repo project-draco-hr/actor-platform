@@ -1,9 +1,0 @@
-{
-  if (obj instanceof SPuri) {
-    return (SPuri)obj;
-  }
- else   if (obj instanceof DERIA5String) {
-    return new SPuri(DERIA5String.getInstance(obj));
-  }
-  return null;
-}

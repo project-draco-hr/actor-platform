@@ -1,3 +1,0 @@
-{
-  this.nextUpdate=new Time(nextUpdate);
-}

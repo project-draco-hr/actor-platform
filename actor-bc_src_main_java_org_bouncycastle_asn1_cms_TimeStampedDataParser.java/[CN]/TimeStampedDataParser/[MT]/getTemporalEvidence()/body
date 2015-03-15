@@ -1,6 +1,0 @@
-{
-  if (temporalEvidence == null) {
-    temporalEvidence=Evidence.getInstance(parser.readObject().toASN1Primitive());
-  }
-  return temporalEvidence;
-}

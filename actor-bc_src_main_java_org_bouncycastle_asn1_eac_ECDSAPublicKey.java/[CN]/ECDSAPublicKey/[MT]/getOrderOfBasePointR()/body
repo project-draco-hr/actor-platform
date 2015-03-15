@@ -1,8 +1,0 @@
-{
-  if ((options & R) != 0) {
-    return orderOfBasePointR;
-  }
- else {
-    return null;
-  }
-}

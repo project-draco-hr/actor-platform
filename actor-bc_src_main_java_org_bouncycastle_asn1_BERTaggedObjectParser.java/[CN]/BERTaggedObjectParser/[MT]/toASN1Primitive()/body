@@ -1,8 +1,0 @@
-{
-  try {
-    return this.getLoadedObject();
-  }
- catch (  IOException e) {
-    throw new ASN1ParsingException(e.getMessage());
-  }
-}

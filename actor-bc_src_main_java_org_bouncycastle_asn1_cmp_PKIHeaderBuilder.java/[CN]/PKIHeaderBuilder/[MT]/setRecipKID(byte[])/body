@@ -1,3 +1,0 @@
-{
-  return setRecipKID(kid == null ? null : new DEROctetString(kid));
-}

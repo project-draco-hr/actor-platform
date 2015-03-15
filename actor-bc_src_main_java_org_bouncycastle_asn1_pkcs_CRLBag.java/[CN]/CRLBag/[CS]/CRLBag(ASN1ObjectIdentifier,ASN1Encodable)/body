@@ -1,4 +1,0 @@
-{
-  this.crlId=crlId;
-  this.crlValue=crlValue;
-}

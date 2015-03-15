@@ -1,6 +1,0 @@
-{
-  if (content != null) {
-    return content.getObjectParser(tag,true);
-  }
-  return null;
-}

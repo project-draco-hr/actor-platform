@@ -1,9 +1,0 @@
-{
-  if (value instanceof EncryptedKey) {
-    return new DERTaggedObject(true,encryptedPrivKey,value);
-  }
-  if (value instanceof ASN1OctetString) {
-    return new DERTaggedObject(false,keyGenParameters,value);
-  }
-  return new DERTaggedObject(false,archiveRemGenPrivKey,value);
-}

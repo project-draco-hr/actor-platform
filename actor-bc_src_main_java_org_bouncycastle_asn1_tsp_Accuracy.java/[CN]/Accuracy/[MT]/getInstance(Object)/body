@@ -1,9 +1,0 @@
-{
-  if (o instanceof Accuracy) {
-    return (Accuracy)o;
-  }
-  if (o != null) {
-    return new Accuracy(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

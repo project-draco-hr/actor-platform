@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(hashAlgorithm);
-  v.add(issuerNameHash);
-  v.add(issuerKeyHash);
-  v.add(serialNumber);
-  return new DERSequence(v);
-}

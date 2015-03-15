@@ -1,3 +1,0 @@
-{
-  this(name,curve,G,n,h,null);
-}

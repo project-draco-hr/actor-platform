@@ -1,9 +1,0 @@
-{
-  if (o instanceof GenMsgContent) {
-    return (GenMsgContent)o;
-  }
-  if (o != null) {
-    return new GenMsgContent(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

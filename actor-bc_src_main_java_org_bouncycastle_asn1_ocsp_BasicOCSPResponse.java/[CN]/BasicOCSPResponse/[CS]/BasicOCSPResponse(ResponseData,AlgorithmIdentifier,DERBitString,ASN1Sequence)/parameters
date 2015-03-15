@@ -1,4 +1,0 @@
-ResponseData tbsResponseData
-AlgorithmIdentifier signatureAlgorithm
-DERBitString signature
-ASN1Sequence certs

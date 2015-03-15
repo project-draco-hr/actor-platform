@@ -1,9 +1,0 @@
-{
-  if (o instanceof KeyPurposeId) {
-    return (KeyPurposeId)o;
-  }
- else   if (o != null) {
-    return new KeyPurposeId(ASN1ObjectIdentifier.getInstance(o));
-  }
-  return null;
-}

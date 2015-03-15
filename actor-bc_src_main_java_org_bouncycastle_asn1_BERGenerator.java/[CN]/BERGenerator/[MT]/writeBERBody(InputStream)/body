@@ -1,6 +1,0 @@
-{
-  int ch;
-  while ((ch=contentStream.read()) >= 0) {
-    _out.write(ch);
-  }
-}

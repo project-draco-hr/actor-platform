@@ -1,8 +1,0 @@
-{
-  DirectoryString[] items=new DirectoryString[givenName.size()];
-  int count=0;
-  for (Enumeration e=givenName.getObjects(); e.hasMoreElements(); ) {
-    items[count++]=DirectoryString.getInstance(e.nextElement());
-  }
-  return items;
-}

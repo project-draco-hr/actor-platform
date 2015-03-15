@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof DERVisibleString)) {
-    return false;
-  }
-  return Arrays.areEqual(string,((DERVisibleString)o).string);
-}

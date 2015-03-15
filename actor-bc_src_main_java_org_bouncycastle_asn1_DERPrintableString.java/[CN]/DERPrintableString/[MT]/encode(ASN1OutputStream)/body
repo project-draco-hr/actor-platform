@@ -1,3 +1,0 @@
-{
-  out.writeEncoded(BERTags.PRINTABLE_STRING,string);
-}

@@ -1,3 +1,0 @@
-{
-  this.endDate=new Time(endDate);
-}

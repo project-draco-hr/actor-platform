@@ -1,3 +1,0 @@
-{
-  return (DERUTF8String)strings.getObjectAt(i);
-}

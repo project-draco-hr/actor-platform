@@ -1,9 +1,0 @@
-{
-  if (obj instanceof AttributeCertificate) {
-    return (AttributeCertificate)obj;
-  }
- else   if (obj != null) {
-    return new AttributeCertificate(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

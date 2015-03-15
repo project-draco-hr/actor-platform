@@ -1,3 +1,0 @@
-{
-  this(ASN1Set.getInstance(attrs.toASN1Primitive()));
-}

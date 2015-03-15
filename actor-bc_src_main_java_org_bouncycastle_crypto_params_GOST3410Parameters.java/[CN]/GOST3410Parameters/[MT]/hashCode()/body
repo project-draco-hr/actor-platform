@@ -1,3 +1,0 @@
-{
-  return p.hashCode() ^ q.hashCode() ^ a.hashCode();
-}

@@ -1,4 +1,0 @@
-{
-  this.publicKeyMAC=pkmac;
-  this.publicKey=spki;
-}

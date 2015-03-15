@@ -1,4 +1,0 @@
-{
-  this.forward=forward;
-  this.reverse=reverse;
-}

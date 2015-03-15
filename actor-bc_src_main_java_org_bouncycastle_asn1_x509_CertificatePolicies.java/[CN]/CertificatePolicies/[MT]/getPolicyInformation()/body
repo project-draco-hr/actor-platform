@@ -1,5 +1,0 @@
-{
-  PolicyInformation[] tmp=new PolicyInformation[policyInformation.length];
-  System.arraycopy(policyInformation,0,tmp,0,policyInformation.length);
-  return tmp;
-}

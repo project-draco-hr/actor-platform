@@ -1,3 +1,0 @@
-{
-  out.writeEncoded(BERTags.IA5_STRING,string);
-}

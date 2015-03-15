@@ -1,9 +1,0 @@
-{
-  if (oid.equals(dc)) {
-    return new DERIA5String(value);
-  }
- else   if (oid.equals(c) || oid.equals(serialNumber) || oid.equals(dnQualifier)|| oid.equals(telephoneNumber)) {
-    return new DERPrintableString(value);
-  }
-  return super.encodeStringValue(oid,value);
-}

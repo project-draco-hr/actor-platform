@@ -1,3 +1,0 @@
-RecipientIdentifier rid
-AlgorithmIdentifier keyEncryptionAlgorithm
-ASN1OctetString encryptedKey

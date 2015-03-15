@@ -1,3 +1,0 @@
-AlgorithmIdentifier hashAlg
-CertId certId
-byte[] hashVal

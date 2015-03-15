@@ -1,7 +1,0 @@
-{
-  this.certID=certID;
-  this.certStatus=certStatus;
-  this.thisUpdate=thisUpdate;
-  this.nextUpdate=nextUpdate;
-  this.singleExtensions=singleExtensions;
-}

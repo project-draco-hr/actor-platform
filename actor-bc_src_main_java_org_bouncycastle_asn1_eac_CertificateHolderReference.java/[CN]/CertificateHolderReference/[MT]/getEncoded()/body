@@ -1,9 +1,0 @@
-{
-  String ref=countryCode + holderMnemonic + sequenceNumber;
-  try {
-    return ref.getBytes(ReferenceEncoding);
-  }
- catch (  UnsupportedEncodingException e) {
-    throw new IllegalStateException(e.toString());
-  }
-}

@@ -1,8 +1,0 @@
-{
-  if (tag == directoryName) {
-    return new DERTaggedObject(true,tag,obj);
-  }
- else {
-    return new DERTaggedObject(false,tag,obj);
-  }
-}

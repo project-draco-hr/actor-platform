@@ -1,9 +1,0 @@
-{
-  if (obj instanceof X9ECParameters) {
-    return (X9ECParameters)obj;
-  }
-  if (obj != null) {
-    return new X9ECParameters(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

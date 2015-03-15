@@ -1,6 +1,0 @@
-{
-  if (declaration.getTagNo() != 1) {
-    return null;
-  }
-  return ASN1Sequence.getInstance(declaration,false);
-}

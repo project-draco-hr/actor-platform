@@ -1,3 +1,0 @@
-{
-  this.algId=AlgorithmIdentifier.getInstance(seq);
-}

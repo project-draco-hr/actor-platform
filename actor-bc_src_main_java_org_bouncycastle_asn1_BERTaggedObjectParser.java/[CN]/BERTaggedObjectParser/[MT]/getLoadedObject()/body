@@ -1,3 +1,0 @@
-{
-  return _parser.readTaggedObject(_constructed,_tagNumber);
-}

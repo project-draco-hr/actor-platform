@@ -1,4 +1,0 @@
-KeyParameter key
-int macSize
-byte[] nonce
-byte[] associatedText

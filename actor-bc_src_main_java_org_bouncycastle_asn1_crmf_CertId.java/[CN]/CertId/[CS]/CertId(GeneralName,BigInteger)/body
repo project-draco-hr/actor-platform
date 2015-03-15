@@ -1,3 +1,0 @@
-{
-  this(issuer,new ASN1Integer(serialNumber));
-}

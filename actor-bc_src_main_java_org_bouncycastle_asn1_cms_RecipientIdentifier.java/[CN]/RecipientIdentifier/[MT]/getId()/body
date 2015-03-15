@@ -1,6 +1,0 @@
-{
-  if (id instanceof ASN1TaggedObject) {
-    return ASN1OctetString.getInstance((ASN1TaggedObject)id,false);
-  }
-  return IssuerAndSerialNumber.getInstance(id);
-}

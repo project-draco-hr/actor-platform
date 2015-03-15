@@ -1,6 +1,0 @@
-OriginatorInfo originatorInfo
-ASN1Set recipientInfos
-EncryptedContentInfo authEncryptedContentInfo
-ASN1Set authAttrs
-ASN1OctetString mac
-ASN1Set unauthAttrs

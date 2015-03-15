@@ -1,3 +1,0 @@
-{
-  return createKey(PrivateKeyInfo.getInstance(new ASN1InputStream(inStr).readObject()));
-}

@@ -1,7 +1,0 @@
-{
-  ECFieldElement t=fe;
-  for (int i=1; i < fe.getFieldSize(); ++i) {
-    t=t.square().add(fe);
-  }
-  return t;
-}

@@ -1,7 +1,0 @@
-{
-  Vector v=new Vector();
-  for (int i=0; i != ordering.size(); i++) {
-    v.addElement(ordering.elementAt(i));
-  }
-  return v;
-}

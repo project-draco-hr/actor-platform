@@ -1,9 +1,0 @@
-{
-  if (o instanceof PollReqContent) {
-    return (PollReqContent)o;
-  }
-  if (o != null) {
-    return new PollReqContent(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

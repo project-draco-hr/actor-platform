@@ -1,4 +1,0 @@
-{
-  this.baseCertificateID=baseCertificateID;
-  this.version=version;
-}

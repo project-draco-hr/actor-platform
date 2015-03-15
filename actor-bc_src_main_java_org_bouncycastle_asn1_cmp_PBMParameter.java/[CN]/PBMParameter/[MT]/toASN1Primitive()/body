@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(salt);
-  v.add(owf);
-  v.add(iterationCount);
-  v.add(mac);
-  return new DERSequence(v);
-}

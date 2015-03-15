@@ -1,9 +1,0 @@
-{
-  if (obj instanceof QCStatement) {
-    return (QCStatement)obj;
-  }
-  if (obj != null) {
-    return new QCStatement(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

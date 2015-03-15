@@ -1,6 +1,0 @@
-{
-  if (x509v2AttrCert != null) {
-    return new DERTaggedObject(true,1,x509v2AttrCert);
-  }
-  return x509v3PKCert.toASN1Primitive();
-}

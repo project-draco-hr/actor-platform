@@ -1,9 +1,0 @@
-{
-  if (obj instanceof RoleSyntax) {
-    return (RoleSyntax)obj;
-  }
- else   if (obj != null) {
-    return new RoleSyntax(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

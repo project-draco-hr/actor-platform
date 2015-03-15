@@ -1,9 +1,0 @@
-{
-  if (obj instanceof UserNotice) {
-    return (UserNotice)obj;
-  }
-  if (obj != null) {
-    return new UserNotice(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

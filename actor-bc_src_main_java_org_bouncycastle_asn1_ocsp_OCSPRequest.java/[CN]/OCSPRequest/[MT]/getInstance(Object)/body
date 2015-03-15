@@ -1,9 +1,0 @@
-{
-  if (obj instanceof OCSPRequest) {
-    return (OCSPRequest)obj;
-  }
- else   if (obj != null) {
-    return new OCSPRequest(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

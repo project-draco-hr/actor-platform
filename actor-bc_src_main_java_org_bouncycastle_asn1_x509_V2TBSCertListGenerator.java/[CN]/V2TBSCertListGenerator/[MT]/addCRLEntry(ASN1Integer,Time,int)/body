@@ -1,3 +1,0 @@
-{
-  addCRLEntry(userCertificate,revocationDate,reason,null);
-}

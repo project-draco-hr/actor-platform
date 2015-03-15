@@ -1,3 +1,0 @@
-{
-  return PolicyConstraints.getInstance(extensions.getExtensionParsedValue(Extension.policyConstraints));
-}

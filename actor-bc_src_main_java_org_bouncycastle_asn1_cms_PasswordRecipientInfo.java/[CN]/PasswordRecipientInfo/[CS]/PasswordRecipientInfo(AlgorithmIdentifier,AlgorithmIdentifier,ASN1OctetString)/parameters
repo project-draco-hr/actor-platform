@@ -1,3 +1,0 @@
-AlgorithmIdentifier keyDerivationAlgorithm
-AlgorithmIdentifier keyEncryptionAlgorithm
-ASN1OctetString encryptedKey

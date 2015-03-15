@@ -1,7 +1,0 @@
-{
-  PKIStatusInfo[] results=new PKIStatusInfo[status.size()];
-  for (int i=0; i != results.length; i++) {
-    results[i]=PKIStatusInfo.getInstance(status.getObjectAt(i));
-  }
-  return results;
-}

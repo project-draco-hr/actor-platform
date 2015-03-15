@@ -1,9 +1,0 @@
-{
-  if (o instanceof RevAnnContent) {
-    return (RevAnnContent)o;
-  }
-  if (o != null) {
-    return new RevAnnContent(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

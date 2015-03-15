@@ -1,9 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(sigPolicyId);
-  v.add(sigPolicyHash);
-  if (sigPolicyQualifiers != null) {
-    v.add(sigPolicyQualifiers);
-  }
-  return new DERSequence(v);
-}

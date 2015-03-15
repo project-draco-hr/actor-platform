@@ -1,9 +1,0 @@
-{
-  if (obj instanceof DVCSCertInfo) {
-    return (DVCSCertInfo)obj;
-  }
- else   if (obj != null) {
-    return new DVCSCertInfo(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

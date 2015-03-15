@@ -1,6 +1,0 @@
-{
-  if (initialInfo != null) {
-    throw new IllegalStateException("cannot change version in existing DVCSRequestInformation");
-  }
-  this.version=version;
-}

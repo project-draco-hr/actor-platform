@@ -1,3 +1,0 @@
-{
-  this(V1,responderID,ASN1GeneralizedTime.getInstance(producedAt),responses,Extensions.getInstance(responseExtensions));
-}

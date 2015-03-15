@@ -1,9 +1,0 @@
-{
-  if ((valid & exponentValid) == 0) {
-    valid|=exponentValid;
-    this.exponent=exponent.getValue();
-  }
- else {
-    throw new IllegalArgumentException("Exponent already set");
-  }
-}

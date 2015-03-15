@@ -1,9 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(keyInfo);
-  if (partyAInfo != null) {
-    v.add(new DERTaggedObject(0,partyAInfo));
-  }
-  v.add(new DERTaggedObject(2,suppPubInfo));
-  return new DERSequence(v);
-}

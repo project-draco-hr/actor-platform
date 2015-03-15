@@ -1,4 +1,0 @@
-{
-  issuerUID=uid;
-  return this;
-}

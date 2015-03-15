@@ -1,3 +1,0 @@
-{
-  return ExtendedKeyUsage.getInstance(extensions.getExtensionParsedValue(Extension.extendedKeyUsage));
-}

@@ -1,4 +1,0 @@
-{
-  this.ocspResponderID=ocspResponderID;
-  this.producedAt=producedAt;
-}

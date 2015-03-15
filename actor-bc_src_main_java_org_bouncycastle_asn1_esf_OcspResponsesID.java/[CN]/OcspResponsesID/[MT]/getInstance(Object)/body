@@ -1,9 +1,0 @@
-{
-  if (obj instanceof OcspResponsesID) {
-    return (OcspResponsesID)obj;
-  }
- else   if (obj != null) {
-    return new OcspResponsesID(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

@@ -1,8 +1,0 @@
-{
-  if (obj != null) {
-    obj.encode(new ImplicitOutputStream(os));
-  }
- else {
-    throw new IOException("null object detected");
-  }
-}

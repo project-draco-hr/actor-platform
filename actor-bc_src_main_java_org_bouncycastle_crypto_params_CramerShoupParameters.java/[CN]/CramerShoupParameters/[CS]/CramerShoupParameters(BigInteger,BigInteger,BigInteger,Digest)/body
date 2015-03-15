@@ -1,6 +1,0 @@
-{
-  this.p=p;
-  this.g1=g1;
-  this.g2=g2;
-  this.H=H;
-}

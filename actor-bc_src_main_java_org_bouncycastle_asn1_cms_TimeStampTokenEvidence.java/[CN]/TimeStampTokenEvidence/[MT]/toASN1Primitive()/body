@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  for (int i=0; i != timeStampAndCRLs.length; i++) {
-    v.add(timeStampAndCRLs[i]);
-  }
-  return new DERSequence(v);
-}

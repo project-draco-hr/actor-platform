@@ -1,9 +1,0 @@
-{
-  if ((valid & modulusValid) == 0) {
-    valid|=modulusValid;
-    this.modulus=modulus.getValue();
-  }
- else {
-    throw new IllegalArgumentException("Modulus already set");
-  }
-}

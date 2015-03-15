@@ -1,4 +1,0 @@
-{
-  int rights=certificateBody.getCertificateHolderAuthorization().getAccessRights();
-  return rights & 0xC0;
-}

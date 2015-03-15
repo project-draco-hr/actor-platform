@@ -1,9 +1,0 @@
-{
-  if (obj instanceof TimeStampAndCRL) {
-    return (TimeStampAndCRL)obj;
-  }
- else   if (obj != null) {
-    return new TimeStampAndCRL(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

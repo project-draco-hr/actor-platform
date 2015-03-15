@@ -1,9 +1,0 @@
-{
-  if (o instanceof OtherSigningCertificate) {
-    return (OtherSigningCertificate)o;
-  }
- else   if (o != null) {
-    return new OtherSigningCertificate(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

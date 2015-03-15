@@ -1,5 +1,0 @@
-{
-  this.pvno=pvno;
-  this.sender=sender;
-  this.recipient=recipient;
-}

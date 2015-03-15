@@ -1,6 +1,0 @@
-{
-  certDetails=CertTemplate.getInstance(seq.getObjectAt(0));
-  if (seq.size() > 1) {
-    crlEntryDetails=Extensions.getInstance(seq.getObjectAt(1));
-  }
-}

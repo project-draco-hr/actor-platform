@@ -1,9 +1,0 @@
-{
-  if (obj == null || obj instanceof Target) {
-    return (Target)obj;
-  }
- else   if (obj instanceof ASN1TaggedObject) {
-    return new Target((ASN1TaggedObject)obj);
-  }
-  throw new IllegalArgumentException("unknown object in factory: " + obj.getClass());
-}

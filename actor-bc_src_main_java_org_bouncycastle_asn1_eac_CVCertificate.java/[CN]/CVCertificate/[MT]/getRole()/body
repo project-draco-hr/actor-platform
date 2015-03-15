@@ -1,4 +1,0 @@
-{
-  CertificateHolderAuthorization cha=certificateBody.getCertificateHolderAuthorization();
-  return cha.getAccessRights();
-}

@@ -1,9 +1,0 @@
-{
-  Hashtable newTable=new Hashtable();
-  Enumeration keys=paramsMap.keys();
-  while (keys.hasMoreElements()) {
-    Object key=keys.nextElement();
-    newTable.put(key,paramsMap.get(key));
-  }
-  return newTable;
-}

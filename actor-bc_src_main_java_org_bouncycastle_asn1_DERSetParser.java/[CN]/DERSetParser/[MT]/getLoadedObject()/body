@@ -1,3 +1,0 @@
-{
-  return new DERSet(_parser.readVector(),false);
-}

@@ -1,3 +1,0 @@
-{
-  return setGeneralInfo(makeGeneralInfoSeq(genInfo));
-}

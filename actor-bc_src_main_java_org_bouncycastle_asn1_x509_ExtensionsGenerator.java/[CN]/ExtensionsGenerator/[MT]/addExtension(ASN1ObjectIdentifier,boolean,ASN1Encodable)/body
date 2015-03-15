@@ -1,3 +1,0 @@
-{
-  this.addExtension(oid,critical,value.toASN1Primitive().getEncoded(ASN1Encoding.DER));
-}

@@ -1,5 +1,0 @@
-{
-  BigInteger tmp=ab[0];
-  ab[0]=ab[1];
-  ab[1]=tmp;
-}

@@ -1,4 +1,0 @@
-{
-  tagNo=type;
-  body=getBodyForType(type,content);
-}

@@ -1,9 +1,0 @@
-{
-  if (obj instanceof LDSVersionInfo) {
-    return (LDSVersionInfo)obj;
-  }
- else   if (obj != null) {
-    return new LDSVersionInfo(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

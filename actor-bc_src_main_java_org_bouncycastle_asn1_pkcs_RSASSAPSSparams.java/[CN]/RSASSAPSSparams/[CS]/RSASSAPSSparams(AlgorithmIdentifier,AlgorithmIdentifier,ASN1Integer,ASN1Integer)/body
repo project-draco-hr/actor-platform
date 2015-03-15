@@ -1,6 +1,0 @@
-{
-  this.hashAlgorithm=hashAlgorithm;
-  this.maskGenAlgorithm=maskGenAlgorithm;
-  this.saltLength=saltLength;
-  this.trailerField=trailerField;
-}

@@ -1,3 +1,0 @@
-{
-  return setSenderNonce(nonce == null ? null : new DEROctetString(nonce));
-}

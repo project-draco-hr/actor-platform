@@ -1,3 +1,0 @@
-{
-  return Strings.fromUTF8ByteArray(string);
-}

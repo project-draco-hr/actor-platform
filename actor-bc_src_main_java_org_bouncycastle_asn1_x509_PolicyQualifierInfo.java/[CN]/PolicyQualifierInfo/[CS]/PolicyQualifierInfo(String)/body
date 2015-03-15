@@ -1,4 +1,0 @@
-{
-  policyQualifierId=PolicyQualifierId.id_qt_cps;
-  qualifier=new DERIA5String(cps);
-}

@@ -1,3 +1,0 @@
-TypeOfBiometricData typeOfBiometricData
-AlgorithmIdentifier hashAlgorithm
-ASN1OctetString biometricDataHash

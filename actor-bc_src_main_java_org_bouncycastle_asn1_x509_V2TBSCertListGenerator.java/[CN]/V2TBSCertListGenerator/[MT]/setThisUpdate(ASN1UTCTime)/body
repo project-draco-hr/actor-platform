@@ -1,3 +1,0 @@
-{
-  this.thisUpdate=new Time(thisUpdate);
-}

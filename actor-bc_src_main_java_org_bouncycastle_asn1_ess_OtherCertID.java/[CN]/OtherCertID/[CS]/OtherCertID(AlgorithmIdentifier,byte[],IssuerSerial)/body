@@ -1,4 +1,0 @@
-{
-  this.otherCertHash=new DigestInfo(algId,digest);
-  this.issuerSerial=issuerSerial;
-}

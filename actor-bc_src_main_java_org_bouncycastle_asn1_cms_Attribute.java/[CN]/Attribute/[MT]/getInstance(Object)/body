@@ -1,9 +1,0 @@
-{
-  if (o instanceof Attribute) {
-    return (Attribute)o;
-  }
-  if (o != null) {
-    return new Attribute(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

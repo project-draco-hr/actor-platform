@@ -1,9 +1,0 @@
-{
-  if (obj instanceof BasicOCSPResponse) {
-    return (BasicOCSPResponse)obj;
-  }
- else   if (obj != null) {
-    return new BasicOCSPResponse(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

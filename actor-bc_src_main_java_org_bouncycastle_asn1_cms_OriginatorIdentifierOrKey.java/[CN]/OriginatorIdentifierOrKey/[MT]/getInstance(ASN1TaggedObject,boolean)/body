@@ -1,6 +1,0 @@
-{
-  if (!explicit) {
-    throw new IllegalArgumentException("Can't implicitly tag OriginatorIdentifierOrKey");
-  }
-  return getInstance(o.getObject());
-}

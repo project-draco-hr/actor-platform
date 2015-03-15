@@ -1,8 +1,0 @@
-{
-  BigInteger min=ab[0].max(cd[0]);
-  BigInteger max=ab[1].min(cd[1]);
-  if (min.compareTo(max) > 0) {
-    return null;
-  }
-  return new BigInteger[]{min,max};
-}

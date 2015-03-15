@@ -1,3 +1,0 @@
-{
-  return obj.toASN1Primitive();
-}

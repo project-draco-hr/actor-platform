@@ -1,9 +1,0 @@
-{
-  if (obj instanceof CertificatePolicies) {
-    return (CertificatePolicies)obj;
-  }
-  if (obj != null) {
-    return new CertificatePolicies(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

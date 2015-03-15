@@ -1,6 +1,0 @@
-{
-  this.version=(ASN1Integer)seq.getObjectAt(0);
-  this.digestAlgorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
-  this.encapContentInfo=ContentInfo.getInstance(seq.getObjectAt(2));
-  this.digest=ASN1OctetString.getInstance(seq.getObjectAt(3));
-}

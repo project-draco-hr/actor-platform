@@ -1,9 +1,0 @@
-{
-  if (obj == null || obj instanceof SMIMECapability) {
-    return (SMIMECapability)obj;
-  }
-  if (obj instanceof ASN1Sequence) {
-    return new SMIMECapability((ASN1Sequence)obj);
-  }
-  throw new IllegalArgumentException("Invalid SMIMECapability");
-}

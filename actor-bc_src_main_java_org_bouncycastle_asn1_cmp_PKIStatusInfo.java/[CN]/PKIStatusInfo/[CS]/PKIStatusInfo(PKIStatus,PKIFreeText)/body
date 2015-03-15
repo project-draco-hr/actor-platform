@@ -1,4 +1,0 @@
-{
-  this.status=ASN1Integer.getInstance(status.toASN1Primitive());
-  this.statusString=statusString;
-}

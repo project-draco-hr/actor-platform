@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(reqCert);
-  if (singleRequestExtensions != null) {
-    v.add(new DERTaggedObject(true,0,singleRequestExtensions));
-  }
-  return new DERSequence(v);
-}

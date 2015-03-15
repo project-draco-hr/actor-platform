@@ -1,3 +1,0 @@
-{
-  this.string=new DERUTF8String(string);
-}

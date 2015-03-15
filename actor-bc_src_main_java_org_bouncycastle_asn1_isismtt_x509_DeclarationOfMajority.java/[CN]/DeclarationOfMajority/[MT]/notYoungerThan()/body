@@ -1,6 +1,0 @@
-{
-  if (declaration.getTagNo() != 0) {
-    return -1;
-  }
-  return ASN1Integer.getInstance(declaration,false).getValue().intValue();
-}

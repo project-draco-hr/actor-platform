@@ -1,9 +1,0 @@
-{
-  if (o instanceof PKIStatus) {
-    return (PKIStatus)o;
-  }
-  if (o != null) {
-    return new PKIStatus(ASN1Integer.getInstance(o));
-  }
-  return null;
-}

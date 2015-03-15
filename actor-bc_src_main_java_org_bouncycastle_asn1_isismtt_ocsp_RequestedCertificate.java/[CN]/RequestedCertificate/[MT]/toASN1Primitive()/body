@@ -1,9 +1,0 @@
-{
-  if (publicKeyCert != null) {
-    return new DERTaggedObject(0,new DEROctetString(publicKeyCert));
-  }
-  if (attributeCert != null) {
-    return new DERTaggedObject(1,new DEROctetString(attributeCert));
-  }
-  return cert.toASN1Primitive();
-}

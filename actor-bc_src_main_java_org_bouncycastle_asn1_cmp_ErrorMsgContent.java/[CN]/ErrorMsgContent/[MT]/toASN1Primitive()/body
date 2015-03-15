@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(pkiStatusInfo);
-  addOptional(v,errorCode);
-  addOptional(v,errorDetails);
-  return new DERSequence(v);
-}

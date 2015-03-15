@@ -1,7 +1,0 @@
-BigInteger p
-BigInteger g
-BigInteger q
-int m
-int l
-BigInteger j
-DHValidationParameters validation

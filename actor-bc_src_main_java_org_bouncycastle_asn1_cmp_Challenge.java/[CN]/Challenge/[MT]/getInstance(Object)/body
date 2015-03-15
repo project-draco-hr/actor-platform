@@ -1,9 +1,0 @@
-{
-  if (o instanceof Challenge) {
-    return (Challenge)o;
-  }
-  if (o != null) {
-    return new Challenge(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

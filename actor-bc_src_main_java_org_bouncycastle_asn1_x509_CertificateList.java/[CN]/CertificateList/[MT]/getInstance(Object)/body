@@ -1,9 +1,0 @@
-{
-  if (obj instanceof CertificateList) {
-    return (CertificateList)obj;
-  }
- else   if (obj != null) {
-    return new CertificateList(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

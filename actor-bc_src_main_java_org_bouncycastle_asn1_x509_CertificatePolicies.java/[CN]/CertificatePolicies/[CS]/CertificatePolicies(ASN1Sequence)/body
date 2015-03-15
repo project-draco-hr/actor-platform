@@ -1,6 +1,0 @@
-{
-  this.policyInformation=new PolicyInformation[seq.size()];
-  for (int i=0; i != seq.size(); i++) {
-    policyInformation[i]=PolicyInformation.getInstance(seq.getObjectAt(i));
-  }
-}

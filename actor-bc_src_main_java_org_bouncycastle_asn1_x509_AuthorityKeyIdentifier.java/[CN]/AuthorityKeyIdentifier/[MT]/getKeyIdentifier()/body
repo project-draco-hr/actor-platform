@@ -1,6 +1,0 @@
-{
-  if (keyidentifier != null) {
-    return keyidentifier.getOctets();
-  }
-  return null;
-}

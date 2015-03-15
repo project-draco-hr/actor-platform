@@ -1,9 +1,0 @@
-{
-  if (obj instanceof ContentInfo) {
-    return (ContentInfo)obj;
-  }
- else   if (obj != null) {
-    return new ContentInfo(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

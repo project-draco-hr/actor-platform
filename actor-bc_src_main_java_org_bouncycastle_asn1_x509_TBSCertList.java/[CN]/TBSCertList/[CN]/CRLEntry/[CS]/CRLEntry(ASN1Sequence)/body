@@ -1,6 +1,0 @@
-{
-  if (seq.size() < 2 || seq.size() > 3) {
-    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
-  }
-  this.seq=seq;
-}

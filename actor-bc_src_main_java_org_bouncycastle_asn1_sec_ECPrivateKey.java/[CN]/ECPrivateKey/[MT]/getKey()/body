@@ -1,4 +1,0 @@
-{
-  ASN1OctetString octs=(ASN1OctetString)seq.getObjectAt(1);
-  return new BigInteger(1,octs.getOctets());
-}

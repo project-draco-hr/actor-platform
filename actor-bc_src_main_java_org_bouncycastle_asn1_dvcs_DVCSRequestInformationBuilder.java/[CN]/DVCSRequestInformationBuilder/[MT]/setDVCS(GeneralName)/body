@@ -1,3 +1,0 @@
-{
-  this.setDVCS(new GeneralNames(dvcs));
-}

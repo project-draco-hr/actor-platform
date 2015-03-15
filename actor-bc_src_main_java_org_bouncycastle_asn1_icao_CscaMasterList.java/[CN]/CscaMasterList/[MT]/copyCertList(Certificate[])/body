@@ -1,7 +1,0 @@
-{
-  Certificate[] certs=new Certificate[orig.length];
-  for (int i=0; i != certs.length; i++) {
-    certs[i]=orig[i];
-  }
-  return certs;
-}

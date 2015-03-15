@@ -1,4 +1,0 @@
-{
-  this.policyIdentifier=policyIdentifier;
-  this.policyQualifiers=policyQualifiers;
-}

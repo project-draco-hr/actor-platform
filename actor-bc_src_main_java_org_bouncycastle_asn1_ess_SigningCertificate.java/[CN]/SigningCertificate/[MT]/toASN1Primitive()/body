@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(certs);
-  if (policies != null) {
-    v.add(policies);
-  }
-  return new DERSequence(v);
-}

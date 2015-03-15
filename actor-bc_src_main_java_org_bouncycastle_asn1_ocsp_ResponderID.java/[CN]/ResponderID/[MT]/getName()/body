@@ -1,6 +1,0 @@
-{
-  if (this.value instanceof ASN1OctetString) {
-    return null;
-  }
-  return X500Name.getInstance(value);
-}

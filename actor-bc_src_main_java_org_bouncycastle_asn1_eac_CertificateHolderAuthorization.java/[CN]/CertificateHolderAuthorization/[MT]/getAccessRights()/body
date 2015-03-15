@@ -1,3 +1,0 @@
-{
-  return accessRights.getContents()[0] & 0xff;
-}

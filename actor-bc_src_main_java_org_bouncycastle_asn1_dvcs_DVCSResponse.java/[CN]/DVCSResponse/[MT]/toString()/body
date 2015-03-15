@@ -1,9 +1,0 @@
-{
-  if (dvCertInfo != null) {
-    return "DVCSResponse {\ndvCertInfo: " + dvCertInfo.toString() + "}\n";
-  }
-  if (dvErrorNote != null) {
-    return "DVCSResponse {\ndvErrorNote: " + dvErrorNote.toString() + "}\n";
-  }
-  return null;
-}

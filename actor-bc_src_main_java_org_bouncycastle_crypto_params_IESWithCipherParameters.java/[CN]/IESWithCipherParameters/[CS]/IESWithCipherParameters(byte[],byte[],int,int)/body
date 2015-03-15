@@ -1,4 +1,0 @@
-{
-  super(derivation,encoding,macKeySize);
-  this.cipherKeySize=cipherKeySize;
-}

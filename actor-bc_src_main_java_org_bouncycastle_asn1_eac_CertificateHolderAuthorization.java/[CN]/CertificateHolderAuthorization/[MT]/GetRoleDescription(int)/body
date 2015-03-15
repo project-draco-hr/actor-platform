@@ -1,3 +1,0 @@
-{
-  return (String)AuthorizationRole.get(Integers.valueOf(i));
-}

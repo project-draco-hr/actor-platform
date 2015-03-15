@@ -1,9 +1,0 @@
-{
-  if (o == null || o instanceof PKIBody) {
-    return (PKIBody)o;
-  }
-  if (o instanceof ASN1TaggedObject) {
-    return new PKIBody((ASN1TaggedObject)o);
-  }
-  throw new IllegalArgumentException("Invalid object: " + o.getClass().getName());
-}

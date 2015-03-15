@@ -1,9 +1,0 @@
-{
-  if ((options & P) == 0) {
-    options|=P;
-    this.primeModulusP=primeModulusP;
-  }
- else {
-    throw new IllegalArgumentException("Prime Modulus P already set");
-  }
-}

@@ -1,9 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(certReqId);
-  v.add(certTemplate);
-  if (controls != null) {
-    v.add(controls);
-  }
-  return new DERSequence(v);
-}

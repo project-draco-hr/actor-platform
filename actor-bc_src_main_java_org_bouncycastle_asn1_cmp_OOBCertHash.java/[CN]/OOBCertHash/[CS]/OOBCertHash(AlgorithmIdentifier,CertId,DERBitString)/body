@@ -1,5 +1,0 @@
-{
-  this.hashAlg=hashAlg;
-  this.certId=certId;
-  this.hashVal=hashVal;
-}

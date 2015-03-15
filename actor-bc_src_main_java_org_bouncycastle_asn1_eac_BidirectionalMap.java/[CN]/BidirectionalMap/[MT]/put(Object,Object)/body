@@ -1,4 +1,0 @@
-{
-  reverseMap.put(o,key);
-  return super.put(key,o);
-}

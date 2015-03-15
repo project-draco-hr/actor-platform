@@ -1,3 +1,0 @@
-{
-  this.certs=new DERSequence(certs);
-}

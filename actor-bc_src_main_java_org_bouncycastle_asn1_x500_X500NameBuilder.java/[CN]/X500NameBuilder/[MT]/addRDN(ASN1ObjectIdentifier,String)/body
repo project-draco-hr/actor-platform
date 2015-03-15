@@ -1,4 +1,0 @@
-{
-  this.addRDN(oid,template.stringToValue(oid,value));
-  return this;
-}

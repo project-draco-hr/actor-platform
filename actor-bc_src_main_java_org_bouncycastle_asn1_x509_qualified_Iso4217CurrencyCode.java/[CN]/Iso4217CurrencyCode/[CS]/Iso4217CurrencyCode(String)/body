@@ -1,6 +1,0 @@
-{
-  if (alphabetic.length() > ALPHABETIC_MAXSIZE) {
-    throw new IllegalArgumentException("wrong size in alphabetic code : max size is " + ALPHABETIC_MAXSIZE);
-  }
-  obj=new DERPrintableString(alphabetic);
-}

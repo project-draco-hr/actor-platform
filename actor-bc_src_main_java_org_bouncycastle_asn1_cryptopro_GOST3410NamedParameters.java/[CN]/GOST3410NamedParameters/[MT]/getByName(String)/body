@@ -1,7 +1,0 @@
-{
-  ASN1ObjectIdentifier oid=(ASN1ObjectIdentifier)objIds.get(name);
-  if (oid != null) {
-    return (GOST3410ParamSetParameters)params.get(oid);
-  }
-  return null;
-}

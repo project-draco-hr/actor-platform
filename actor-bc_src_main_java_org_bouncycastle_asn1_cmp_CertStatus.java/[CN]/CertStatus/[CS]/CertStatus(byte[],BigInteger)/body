@@ -1,4 +1,0 @@
-{
-  this.certHash=new DEROctetString(certHash);
-  this.certReqId=new ASN1Integer(certReqId);
-}

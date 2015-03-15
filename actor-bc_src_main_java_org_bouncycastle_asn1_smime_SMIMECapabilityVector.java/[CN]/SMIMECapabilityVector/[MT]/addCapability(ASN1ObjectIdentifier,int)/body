@@ -1,6 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(capability);
-  v.add(new ASN1Integer(value));
-  capabilities.add(new DERSequence(v));
-}

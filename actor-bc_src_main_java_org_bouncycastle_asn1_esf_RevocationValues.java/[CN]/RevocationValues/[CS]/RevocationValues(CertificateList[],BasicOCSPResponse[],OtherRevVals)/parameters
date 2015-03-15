@@ -1,3 +1,0 @@
-CertificateList[] crlVals
-BasicOCSPResponse[] ocspVals
-OtherRevVals otherRevVals

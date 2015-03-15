@@ -1,3 +1,0 @@
-{
-  return c.configure().setEndomorphism(new GLVTypeBEndomorphism(c,p)).create();
-}

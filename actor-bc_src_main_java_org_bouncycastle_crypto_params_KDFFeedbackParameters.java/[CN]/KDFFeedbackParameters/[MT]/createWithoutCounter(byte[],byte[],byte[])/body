@@ -1,3 +1,0 @@
-{
-  return new KDFFeedbackParameters(ki,iv,fixedInputData,UNUSED_R,false);
-}

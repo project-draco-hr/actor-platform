@@ -1,7 +1,0 @@
-{
-  if (seq.size() != 2) {
-    throw new IllegalArgumentException("Bad sequence size: " + seq.size());
-  }
-  hashAlgorithm=AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-  certificateHash=DEROctetString.getInstance(seq.getObjectAt(1)).getOctets();
-}

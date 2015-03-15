@@ -1,3 +1,0 @@
-{
-  return "PKIFailureInfo: 0x" + Integer.toHexString(this.intValue());
-}

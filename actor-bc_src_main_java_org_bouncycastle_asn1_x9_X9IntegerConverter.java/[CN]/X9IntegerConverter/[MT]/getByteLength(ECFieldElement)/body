@@ -1,3 +1,0 @@
-{
-  return (fe.getFieldSize() + 7) / 8;
-}

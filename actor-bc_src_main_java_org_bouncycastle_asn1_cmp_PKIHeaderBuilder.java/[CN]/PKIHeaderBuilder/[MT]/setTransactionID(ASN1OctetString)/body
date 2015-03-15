@@ -1,4 +1,0 @@
-{
-  transactionID=tid;
-  return this;
-}

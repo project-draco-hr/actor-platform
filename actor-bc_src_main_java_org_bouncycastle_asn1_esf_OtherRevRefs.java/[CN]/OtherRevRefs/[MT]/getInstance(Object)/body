@@ -1,9 +1,0 @@
-{
-  if (obj instanceof OtherRevRefs) {
-    return (OtherRevRefs)obj;
-  }
- else   if (obj != null) {
-    return new OtherRevRefs(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

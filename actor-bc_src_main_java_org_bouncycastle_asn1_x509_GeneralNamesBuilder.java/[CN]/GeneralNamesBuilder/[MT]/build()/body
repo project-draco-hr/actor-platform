@@ -1,7 +1,0 @@
-{
-  GeneralName[] tmp=new GeneralName[names.size()];
-  for (int i=0; i != tmp.length; i++) {
-    tmp[i]=(GeneralName)names.elementAt(i);
-  }
-  return new GeneralNames(tmp);
-}

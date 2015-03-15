@@ -1,4 +1,0 @@
-ResponderID responderID
-ASN1GeneralizedTime producedAt
-ASN1Sequence responses
-X509Extensions responseExtensions

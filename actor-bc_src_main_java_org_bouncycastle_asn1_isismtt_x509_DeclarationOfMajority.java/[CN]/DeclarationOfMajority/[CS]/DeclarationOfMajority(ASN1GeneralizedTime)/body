@@ -1,3 +1,0 @@
-{
-  declaration=new DERTaggedObject(false,2,dateOfBirth);
-}

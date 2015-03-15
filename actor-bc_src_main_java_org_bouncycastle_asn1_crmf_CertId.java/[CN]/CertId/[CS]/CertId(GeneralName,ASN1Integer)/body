@@ -1,4 +1,0 @@
-{
-  this.issuer=issuer;
-  this.serialNumber=serialNumber;
-}

@@ -1,4 +1,0 @@
-{
-  senderKID=kid;
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  return e.hasMoreElements() ? (ASN1Encodable)e.nextElement() : null;
-}

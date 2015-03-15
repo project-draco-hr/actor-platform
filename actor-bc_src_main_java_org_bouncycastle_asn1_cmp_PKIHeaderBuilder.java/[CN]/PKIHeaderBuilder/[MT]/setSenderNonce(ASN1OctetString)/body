@@ -1,4 +1,0 @@
-{
-  senderNonce=nonce;
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  return (String)oidToName.get(oid);
-}

@@ -1,4 +1,0 @@
-{
-  this.commitmentTypeIdentifier=commitmentTypeIdentifier;
-  this.qualifier=qualifier;
-}

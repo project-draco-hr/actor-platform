@@ -1,3 +1,0 @@
-{
-  return new BERSequence(_parser.readVector());
-}

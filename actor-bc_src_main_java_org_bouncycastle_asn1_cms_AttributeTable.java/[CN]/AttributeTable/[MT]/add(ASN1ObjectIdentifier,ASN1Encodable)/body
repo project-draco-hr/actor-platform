@@ -1,5 +1,0 @@
-{
-  AttributeTable newTable=new AttributeTable(attributes);
-  newTable.addAttribute(attrType,new Attribute(attrType,new DERSet(attrValue)));
-  return newTable;
-}

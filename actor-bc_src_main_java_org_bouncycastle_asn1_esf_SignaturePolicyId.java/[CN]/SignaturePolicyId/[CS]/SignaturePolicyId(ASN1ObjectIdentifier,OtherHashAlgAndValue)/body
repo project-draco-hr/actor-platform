@@ -1,3 +1,0 @@
-{
-  this(sigPolicyIdentifier,sigPolicyHash,null);
-}

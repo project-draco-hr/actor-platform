@@ -1,4 +1,0 @@
-{
-  issuer=name;
-  return this;
-}

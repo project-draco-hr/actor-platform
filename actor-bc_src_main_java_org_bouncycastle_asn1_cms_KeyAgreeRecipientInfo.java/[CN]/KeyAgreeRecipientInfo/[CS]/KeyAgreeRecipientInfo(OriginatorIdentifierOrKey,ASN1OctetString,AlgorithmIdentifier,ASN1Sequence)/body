@@ -1,7 +1,0 @@
-{
-  this.version=new ASN1Integer(3);
-  this.originator=originator;
-  this.ukm=ukm;
-  this.keyEncryptionAlgorithm=keyEncryptionAlgorithm;
-  this.recipientEncryptedKeys=recipientEncryptedKeys;
-}

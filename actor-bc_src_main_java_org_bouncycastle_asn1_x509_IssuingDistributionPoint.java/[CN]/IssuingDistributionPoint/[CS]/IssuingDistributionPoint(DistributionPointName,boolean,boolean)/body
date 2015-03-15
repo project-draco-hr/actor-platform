@@ -1,3 +1,0 @@
-{
-  this(distributionPoint,false,false,null,indirectCRL,onlyContainsAttributeCerts);
-}

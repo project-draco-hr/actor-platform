@@ -1,9 +1,0 @@
-{
-  if (obj instanceof DataGroupHash) {
-    return (DataGroupHash)obj;
-  }
- else   if (obj != null) {
-    return new DataGroupHash(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

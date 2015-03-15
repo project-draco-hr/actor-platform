@@ -1,6 +1,0 @@
-{
-  if (null == this.otherHash) {
-    return this.sha1Hash;
-  }
-  return this.otherHash.toASN1Primitive();
-}

@@ -1,9 +1,0 @@
-{
-  if (o instanceof CertifiedKeyPair) {
-    return (CertifiedKeyPair)o;
-  }
-  if (o != null) {
-    return new CertifiedKeyPair(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

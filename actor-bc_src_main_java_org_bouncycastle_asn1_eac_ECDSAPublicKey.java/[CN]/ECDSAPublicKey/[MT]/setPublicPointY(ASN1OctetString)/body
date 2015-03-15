@@ -1,9 +1,0 @@
-{
-  if ((options & Y) == 0) {
-    options|=Y;
-    this.publicPointY=publicPointY.getOctets();
-  }
- else {
-    throw new IllegalArgumentException("Public Point Y already set");
-  }
-}

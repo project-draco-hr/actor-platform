@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(tbsRequest);
-  if (optionalSignature != null) {
-    v.add(new DERTaggedObject(true,0,optionalSignature));
-  }
-  return new DERSequence(v);
-}

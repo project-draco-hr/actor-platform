@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(privKeyInfo);
-  if (identifier != null) {
-    v.add(identifier);
-  }
-  return new DERSequence(v);
-}

@@ -1,4 +1,0 @@
-{
-  this.nonce=Arrays.clone(nonce);
-  this.icvLen=icvLen;
-}

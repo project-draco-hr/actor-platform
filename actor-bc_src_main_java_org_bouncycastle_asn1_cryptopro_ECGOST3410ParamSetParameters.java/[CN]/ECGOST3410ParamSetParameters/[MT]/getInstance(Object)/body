@@ -1,9 +1,0 @@
-{
-  if (obj == null || obj instanceof ECGOST3410ParamSetParameters) {
-    return (ECGOST3410ParamSetParameters)obj;
-  }
-  if (obj instanceof ASN1Sequence) {
-    return new ECGOST3410ParamSetParameters((ASN1Sequence)obj);
-  }
-  throw new IllegalArgumentException("Invalid GOST3410Parameter: " + obj.getClass().getName());
-}

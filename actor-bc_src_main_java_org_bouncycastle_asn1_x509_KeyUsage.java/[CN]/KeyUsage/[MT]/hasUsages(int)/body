@@ -1,3 +1,0 @@
-{
-  return (bitString.intValue() & usages) == usages;
-}

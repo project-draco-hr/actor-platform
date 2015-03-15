@@ -1,8 +1,0 @@
-{
-  if (otherCertHash.toASN1Primitive() instanceof ASN1OctetString) {
-    return ((ASN1OctetString)otherCertHash.toASN1Primitive()).getOctets();
-  }
- else {
-    return DigestInfo.getInstance(otherCertHash).getDigest();
-  }
-}

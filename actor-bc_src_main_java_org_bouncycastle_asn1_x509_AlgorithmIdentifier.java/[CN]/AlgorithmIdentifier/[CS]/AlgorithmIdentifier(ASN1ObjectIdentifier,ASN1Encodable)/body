@@ -1,5 +1,0 @@
-{
-  parametersDefined=true;
-  this.objectId=objectId;
-  this.parameters=parameters;
-}

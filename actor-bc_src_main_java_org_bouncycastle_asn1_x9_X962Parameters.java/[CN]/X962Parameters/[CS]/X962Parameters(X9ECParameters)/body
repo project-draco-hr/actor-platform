@@ -1,3 +1,0 @@
-{
-  this.params=ecParameters.toASN1Primitive();
-}

@@ -1,6 +1,0 @@
-{
-  if (o instanceof ASN1Boolean) {
-    return (value[0] == ((ASN1Boolean)o).value[0]);
-  }
-  return false;
-}

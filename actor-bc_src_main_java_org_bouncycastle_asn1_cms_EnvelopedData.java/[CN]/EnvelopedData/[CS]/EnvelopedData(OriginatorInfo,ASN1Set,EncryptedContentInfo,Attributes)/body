@@ -1,7 +1,0 @@
-{
-  version=new ASN1Integer(calculateVersion(originatorInfo,recipientInfos,ASN1Set.getInstance(unprotectedAttrs)));
-  this.originatorInfo=originatorInfo;
-  this.recipientInfos=recipientInfos;
-  this.encryptedContentInfo=encryptedContentInfo;
-  this.unprotectedAttrs=ASN1Set.getInstance(unprotectedAttrs);
-}

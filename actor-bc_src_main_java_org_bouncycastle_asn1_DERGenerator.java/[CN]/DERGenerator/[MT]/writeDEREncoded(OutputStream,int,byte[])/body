@@ -1,5 +1,0 @@
-{
-  out.write(tag);
-  writeLength(out,bytes.length);
-  out.write(bytes);
-}

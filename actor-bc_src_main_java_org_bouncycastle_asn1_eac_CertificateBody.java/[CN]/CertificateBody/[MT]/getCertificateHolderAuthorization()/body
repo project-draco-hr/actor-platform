@@ -1,6 +1,0 @@
-{
-  if ((this.certificateType & CertificateBody.CHA) == CertificateBody.CHA) {
-    return certificateHolderAuthorization;
-  }
-  throw new IOException("Certificate Holder Authorisation not set");
-}

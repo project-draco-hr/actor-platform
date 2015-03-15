@@ -1,4 +1,0 @@
-{
-  this.hashAlgorithm=hashAlgorithm;
-  this.hashedMessage=hashedMessage;
-}

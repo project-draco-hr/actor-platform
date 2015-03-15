@@ -1,3 +1,0 @@
-{
-  return a.gcd(b).equals(ECConstants.ONE);
-}

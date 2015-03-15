@@ -1,3 +1,0 @@
-{
-  return new DERTaggedObject(false,tagNo,new DEROctetString(convertValue()));
-}

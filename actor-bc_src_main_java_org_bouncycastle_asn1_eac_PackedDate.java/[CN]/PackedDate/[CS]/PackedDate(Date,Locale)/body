@@ -1,5 +1,0 @@
-{
-  SimpleDateFormat dateF=new SimpleDateFormat("yyMMdd'Z'",locale);
-  dateF.setTimeZone(new SimpleTimeZone(0,"Z"));
-  this.time=convert(dateF.format(time));
-}

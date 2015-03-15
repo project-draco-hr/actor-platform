@@ -1,5 +1,0 @@
-{
-  super(true,g,n,lowerSigmaBound);
-  this.smallPrimes=smallPrimes;
-  this.phi_n=phi_n;
-}

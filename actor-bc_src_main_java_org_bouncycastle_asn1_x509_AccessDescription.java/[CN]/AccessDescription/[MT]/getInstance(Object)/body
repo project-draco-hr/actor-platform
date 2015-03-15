@@ -1,9 +1,0 @@
-{
-  if (obj instanceof AccessDescription) {
-    return (AccessDescription)obj;
-  }
- else   if (obj != null) {
-    return new AccessDescription(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

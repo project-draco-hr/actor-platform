@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(header);
-  v.add(body);
-  addOptional(v,0,protection);
-  addOptional(v,1,extraCerts);
-  return new DERSequence(v);
-}

@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(certReq);
-  addOptional(v,pop);
-  addOptional(v,regInfo);
-  return new DERSequence(v);
-}

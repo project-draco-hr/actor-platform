@@ -1,9 +1,0 @@
-{
-  if (obj instanceof IetfAttrSyntax) {
-    return (IetfAttrSyntax)obj;
-  }
-  if (obj != null) {
-    return new IetfAttrSyntax(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

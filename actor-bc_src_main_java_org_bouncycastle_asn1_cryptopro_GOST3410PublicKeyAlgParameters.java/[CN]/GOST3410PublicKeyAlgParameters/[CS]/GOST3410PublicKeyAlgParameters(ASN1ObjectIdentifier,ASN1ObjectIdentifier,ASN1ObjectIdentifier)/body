@@ -1,5 +1,0 @@
-{
-  this.publicKeyParamSet=publicKeyParamSet;
-  this.digestParamSet=digestParamSet;
-  this.encryptionParamSet=encryptionParamSet;
-}

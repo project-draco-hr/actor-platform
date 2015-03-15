@@ -1,7 +1,0 @@
-{
-  this.timeStampAndCRLs=new TimeStampAndCRL[seq.size()];
-  int count=0;
-  for (Enumeration en=seq.getObjects(); en.hasMoreElements(); ) {
-    timeStampAndCRLs[count++]=TimeStampAndCRL.getInstance(en.nextElement());
-  }
-}

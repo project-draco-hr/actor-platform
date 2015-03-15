@@ -1,6 +1,0 @@
-{
-  if (!explicit) {
-    throw new IllegalArgumentException("choice item must be explicitly tagged");
-  }
-  return getInstance(o.getObject());
-}

@@ -1,6 +1,0 @@
-{
-  if (x509v3PKCert.getVersionNumber() != 3) {
-    throw new IllegalArgumentException("only version 3 certificates allowed");
-  }
-  this.x509v3PKCert=x509v3PKCert;
-}

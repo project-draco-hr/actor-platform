@@ -1,9 +1,0 @@
-{
-  if (o instanceof CertConfirmContent) {
-    return (CertConfirmContent)o;
-  }
-  if (o != null) {
-    return new CertConfirmContent(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

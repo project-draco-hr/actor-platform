@@ -1,6 +1,0 @@
-{
-  a=a.abs();
-  b=b.abs();
-  int target=b.bitLength(), maxBits=a.bitLength() * 2, minBits=maxBits - 1;
-  return minBits <= target && (maxBits < target || a.multiply(a).compareTo(b) < 0);
-}

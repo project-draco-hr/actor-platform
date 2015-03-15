@@ -1,5 +1,0 @@
-{
-  this.contentType=contentType;
-  this.contentEncryptionAlgorithm=contentEncryptionAlgorithm;
-  this.encryptedContent=encryptedContent;
-}

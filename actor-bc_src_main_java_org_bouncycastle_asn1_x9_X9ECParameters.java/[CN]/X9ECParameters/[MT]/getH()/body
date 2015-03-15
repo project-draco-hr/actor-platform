@@ -1,6 +1,0 @@
-{
-  if (h == null) {
-    return ONE;
-  }
-  return h;
-}

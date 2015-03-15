@@ -1,9 +1,0 @@
-{
-  if (o instanceof AttributeTypeAndValue) {
-    return (AttributeTypeAndValue)o;
-  }
-  if (o != null) {
-    return new AttributeTypeAndValue(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

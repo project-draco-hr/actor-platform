@@ -1,3 +1,0 @@
-{
-  this.iv=new DEROctetString(iv);
-}

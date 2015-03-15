@@ -1,7 +1,0 @@
-{
-  CrlOcspRef[] result=new CrlOcspRef[this.crlOcspRefs.size()];
-  for (int idx=0; idx < result.length; idx++) {
-    result[idx]=CrlOcspRef.getInstance(this.crlOcspRefs.getObjectAt(idx));
-  }
-  return result;
-}

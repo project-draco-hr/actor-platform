@@ -1,9 +1,0 @@
-{
-  if (obj instanceof IssuingDistributionPoint) {
-    return (IssuingDistributionPoint)obj;
-  }
- else   if (obj != null) {
-    return new IssuingDistributionPoint(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

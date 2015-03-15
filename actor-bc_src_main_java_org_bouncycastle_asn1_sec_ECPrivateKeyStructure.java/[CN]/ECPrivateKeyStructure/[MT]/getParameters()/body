@@ -1,3 +1,0 @@
-{
-  return getObjectInTag(0);
-}

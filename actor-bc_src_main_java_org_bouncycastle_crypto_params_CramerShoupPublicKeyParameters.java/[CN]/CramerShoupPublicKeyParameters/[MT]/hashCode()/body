@@ -1,3 +1,0 @@
-{
-  return c.hashCode() ^ d.hashCode() ^ h.hashCode()^ super.hashCode();
-}

@@ -1,4 +1,0 @@
-ASN1OctetString salt
-AlgorithmIdentifier owf
-ASN1Integer iterationCount
-AlgorithmIdentifier mac

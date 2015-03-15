@@ -1,9 +1,0 @@
-{
-  if (obj instanceof PrivateKeyUsagePeriod) {
-    return (PrivateKeyUsagePeriod)obj;
-  }
-  if (obj != null) {
-    return new PrivateKeyUsagePeriod(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

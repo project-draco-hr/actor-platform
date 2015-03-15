@@ -1,9 +1,0 @@
-{
-  if (o instanceof ContentHints) {
-    return (ContentHints)o;
-  }
- else   if (o != null) {
-    return new ContentHints(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

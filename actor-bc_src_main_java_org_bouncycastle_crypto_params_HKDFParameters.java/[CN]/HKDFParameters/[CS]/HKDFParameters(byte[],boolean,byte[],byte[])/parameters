@@ -1,4 +1,0 @@
-byte[] ikm
-boolean skip
-byte[] salt
-byte[] info

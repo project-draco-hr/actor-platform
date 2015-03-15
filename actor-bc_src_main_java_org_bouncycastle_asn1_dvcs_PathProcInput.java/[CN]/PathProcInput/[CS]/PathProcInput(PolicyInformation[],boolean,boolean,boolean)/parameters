@@ -1,4 +1,0 @@
-PolicyInformation[] acceptablePolicySet
-boolean inhibitPolicyMapping
-boolean explicitPolicyReqd
-boolean inhibitAnyPolicy

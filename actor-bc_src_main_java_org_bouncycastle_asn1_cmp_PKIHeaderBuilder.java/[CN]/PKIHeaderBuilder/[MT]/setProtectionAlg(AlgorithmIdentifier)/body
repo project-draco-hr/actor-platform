@@ -1,4 +1,0 @@
-{
-  protectionAlg=aid;
-  return this;
-}

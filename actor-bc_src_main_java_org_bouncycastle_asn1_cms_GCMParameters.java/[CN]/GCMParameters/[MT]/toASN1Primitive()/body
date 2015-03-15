@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(new DEROctetString(nonce));
-  if (icvLen != 12) {
-    v.add(new ASN1Integer(icvLen));
-  }
-  return new DERSequence(v);
-}

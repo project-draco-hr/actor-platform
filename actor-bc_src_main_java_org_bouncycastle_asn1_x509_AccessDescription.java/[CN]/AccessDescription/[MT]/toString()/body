@@ -1,3 +1,0 @@
-{
-  return ("AccessDescription: Oid(" + this.accessMethod.getId() + ")");
-}

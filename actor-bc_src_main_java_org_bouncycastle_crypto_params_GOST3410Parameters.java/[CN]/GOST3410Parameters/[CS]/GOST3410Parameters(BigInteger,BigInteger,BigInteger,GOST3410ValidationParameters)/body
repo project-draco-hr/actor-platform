@@ -1,6 +1,0 @@
-{
-  this.a=a;
-  this.p=p;
-  this.q=q;
-  this.validation=params;
-}

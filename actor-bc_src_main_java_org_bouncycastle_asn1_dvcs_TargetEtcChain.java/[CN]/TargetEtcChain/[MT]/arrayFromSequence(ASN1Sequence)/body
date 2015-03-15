@@ -1,7 +1,0 @@
-{
-  TargetEtcChain[] tmp=new TargetEtcChain[seq.size()];
-  for (int i=0; i != tmp.length; i++) {
-    tmp[i]=TargetEtcChain.getInstance(seq.getObjectAt(i));
-  }
-  return tmp;
-}

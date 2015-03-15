@@ -1,4 +1,0 @@
-{
-  this.ldsVersion=new DERPrintableString(ldsVersion);
-  this.unicodeVersion=new DERPrintableString(unicodeVersion);
-}

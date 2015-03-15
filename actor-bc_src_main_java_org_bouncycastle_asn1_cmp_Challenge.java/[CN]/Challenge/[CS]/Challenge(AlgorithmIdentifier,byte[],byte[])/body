@@ -1,5 +1,0 @@
-{
-  this.owf=owf;
-  this.witness=new DEROctetString(witness);
-  this.challenge=new DEROctetString(challenge);
-}

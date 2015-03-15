@@ -1,9 +1,0 @@
-{
-  if (o instanceof MessageImprint) {
-    return (MessageImprint)o;
-  }
-  if (o != null) {
-    return new MessageImprint(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

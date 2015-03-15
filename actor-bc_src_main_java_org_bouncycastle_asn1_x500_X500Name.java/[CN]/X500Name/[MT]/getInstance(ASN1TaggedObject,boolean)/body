@@ -1,3 +1,0 @@
-{
-  return getInstance(ASN1Sequence.getInstance(obj,true));
-}

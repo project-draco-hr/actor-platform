@@ -1,4 +1,0 @@
-{
-  this.semanticsIdentifier=semanticsIdentifier;
-  this.nameRegistrationAuthorities=null;
-}

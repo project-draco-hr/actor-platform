@@ -1,4 +1,0 @@
-{
-  signingAlg=aid;
-  return this;
-}

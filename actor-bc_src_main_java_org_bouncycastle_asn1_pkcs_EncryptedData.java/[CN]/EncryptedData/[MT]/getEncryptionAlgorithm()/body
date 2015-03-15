@@ -1,3 +1,0 @@
-{
-  return AlgorithmIdentifier.getInstance(data.getObjectAt(1));
-}

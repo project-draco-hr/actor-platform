@@ -1,4 +1,0 @@
-{
-  this.dataGroupNumber=new ASN1Integer(dataGroupNumber);
-  this.dataGroupHashValue=dataGroupHashValue;
-}

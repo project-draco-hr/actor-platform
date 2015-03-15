@@ -1,9 +1,0 @@
-{
-  if (o instanceof CertReqMessages) {
-    return (CertReqMessages)o;
-  }
-  if (o != null) {
-    return new CertReqMessages(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

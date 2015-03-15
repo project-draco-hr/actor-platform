@@ -1,7 +1,0 @@
-{
-  PKIMessage[] result=new PKIMessage[content.size()];
-  for (int i=0; i != result.length; i++) {
-    result[i]=PKIMessage.getInstance(content.getObjectAt(i));
-  }
-  return result;
-}

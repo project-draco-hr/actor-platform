@@ -1,9 +1,0 @@
-{
-  Enumeration e=seq.getObjects();
-  while (e.hasMoreElements()) {
-    if (!(e.nextElement() instanceof DERUTF8String)) {
-      throw new IllegalArgumentException("attempt to insert non UTF8 STRING into PKIFreeText");
-    }
-  }
-  strings=seq;
-}

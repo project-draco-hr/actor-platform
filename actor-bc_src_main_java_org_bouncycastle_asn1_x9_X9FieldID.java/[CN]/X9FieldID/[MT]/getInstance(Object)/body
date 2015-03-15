@@ -1,9 +1,0 @@
-{
-  if (obj instanceof X9FieldID) {
-    return (X9FieldID)obj;
-  }
-  if (obj != null) {
-    return new X9FieldID(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

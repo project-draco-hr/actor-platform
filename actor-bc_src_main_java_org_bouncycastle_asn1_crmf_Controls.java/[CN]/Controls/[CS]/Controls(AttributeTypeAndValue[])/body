@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  for (int i=0; i < atvs.length; i++) {
-    v.add(atvs[i]);
-  }
-  content=new DERSequence(v);
-}

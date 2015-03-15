@@ -1,6 +1,0 @@
-{
-  if (encryptedValue != null) {
-    return encryptedValue;
-  }
-  return envelopedData;
-}

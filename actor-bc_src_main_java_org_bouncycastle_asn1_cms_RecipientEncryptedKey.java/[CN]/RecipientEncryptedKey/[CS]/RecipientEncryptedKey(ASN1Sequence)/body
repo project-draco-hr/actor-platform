@@ -1,4 +1,0 @@
-{
-  identifier=KeyAgreeRecipientIdentifier.getInstance(seq.getObjectAt(0));
-  encryptedKey=(ASN1OctetString)seq.getObjectAt(1);
-}

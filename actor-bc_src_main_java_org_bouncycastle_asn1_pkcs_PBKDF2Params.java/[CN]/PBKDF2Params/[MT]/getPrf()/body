@@ -1,6 +1,0 @@
-{
-  if (prf != null) {
-    return prf;
-  }
-  return algid_hmacWithSHA1;
-}

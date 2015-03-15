@@ -1,6 +1,0 @@
-{
-  if (obj == null || obj instanceof TimeStampedData) {
-    return (TimeStampedData)obj;
-  }
-  return new TimeStampedData(ASN1Sequence.getInstance(obj));
-}

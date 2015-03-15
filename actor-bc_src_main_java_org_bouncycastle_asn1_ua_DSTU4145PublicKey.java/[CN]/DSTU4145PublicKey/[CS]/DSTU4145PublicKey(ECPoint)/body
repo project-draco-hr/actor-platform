@@ -1,3 +1,0 @@
-{
-  this.pubKey=new DEROctetString(DSTU4145PointEncoder.encodePoint(pubKey));
-}

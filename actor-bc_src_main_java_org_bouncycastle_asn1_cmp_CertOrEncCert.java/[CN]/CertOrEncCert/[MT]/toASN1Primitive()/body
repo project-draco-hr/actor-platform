@@ -1,6 +1,0 @@
-{
-  if (certificate != null) {
-    return new DERTaggedObject(true,0,certificate);
-  }
-  return new DERTaggedObject(true,1,encryptedCert);
-}

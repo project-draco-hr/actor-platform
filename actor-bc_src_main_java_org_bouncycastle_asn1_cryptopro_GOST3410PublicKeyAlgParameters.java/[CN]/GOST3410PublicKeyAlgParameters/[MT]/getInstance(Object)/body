@@ -1,9 +1,0 @@
-{
-  if (obj instanceof GOST3410PublicKeyAlgParameters) {
-    return (GOST3410PublicKeyAlgParameters)obj;
-  }
-  if (obj != null) {
-    return new GOST3410PublicKeyAlgParameters(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

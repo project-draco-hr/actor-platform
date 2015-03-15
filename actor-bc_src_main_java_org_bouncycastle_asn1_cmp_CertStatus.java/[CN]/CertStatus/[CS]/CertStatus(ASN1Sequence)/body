@@ -1,7 +1,0 @@
-{
-  certHash=ASN1OctetString.getInstance(seq.getObjectAt(0));
-  certReqId=ASN1Integer.getInstance(seq.getObjectAt(1));
-  if (seq.size() > 2) {
-    statusInfo=PKIStatusInfo.getInstance(seq.getObjectAt(2));
-  }
-}

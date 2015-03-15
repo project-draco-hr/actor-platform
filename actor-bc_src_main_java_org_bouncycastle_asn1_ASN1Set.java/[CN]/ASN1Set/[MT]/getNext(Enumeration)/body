@@ -1,7 +1,0 @@
-{
-  ASN1Encodable encObj=(ASN1Encodable)e.nextElement();
-  if (encObj == null) {
-    return DERNull.INSTANCE;
-  }
-  return encObj;
-}

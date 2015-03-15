@@ -1,9 +1,0 @@
-{
-  if (o instanceof CAKeyUpdAnnContent) {
-    return (CAKeyUpdAnnContent)o;
-  }
-  if (o != null) {
-    return new CAKeyUpdAnnContent(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

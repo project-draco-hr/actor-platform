@@ -1,4 +1,0 @@
-{
-  version=new ASN1Integer(ver);
-  return this;
-}

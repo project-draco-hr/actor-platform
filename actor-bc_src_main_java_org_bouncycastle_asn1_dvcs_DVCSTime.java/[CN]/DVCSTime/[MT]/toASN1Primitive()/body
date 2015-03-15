@@ -1,9 +1,0 @@
-{
-  if (genTime != null) {
-    return genTime;
-  }
-  if (timeStampToken != null) {
-    return timeStampToken.toASN1Primitive();
-  }
-  return null;
-}

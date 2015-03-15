@@ -1,3 +1,0 @@
-{
-  super(toByteArray(obj));
-}

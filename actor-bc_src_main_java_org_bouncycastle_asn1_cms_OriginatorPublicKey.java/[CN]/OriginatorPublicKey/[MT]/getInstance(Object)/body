@@ -1,9 +1,0 @@
-{
-  if (obj instanceof OriginatorPublicKey) {
-    return (OriginatorPublicKey)obj;
-  }
-  if (obj != null) {
-    return new OriginatorPublicKey(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

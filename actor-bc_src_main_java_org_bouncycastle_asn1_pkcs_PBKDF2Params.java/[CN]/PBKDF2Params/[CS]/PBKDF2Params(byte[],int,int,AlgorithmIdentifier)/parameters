@@ -1,4 +1,0 @@
-byte[] salt
-int iterationCount
-int keyLength
-AlgorithmIdentifier prf

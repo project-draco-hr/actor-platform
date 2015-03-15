@@ -1,7 +1,0 @@
-{
-  this.version=ASN1Integer.getInstance(seq.getObjectAt(0));
-  this.encryptedContentInfo=EncryptedContentInfo.getInstance(seq.getObjectAt(1));
-  if (seq.size() == 3) {
-    this.unprotectedAttrs=ASN1Set.getInstance(seq.getObjectAt(2));
-  }
-}

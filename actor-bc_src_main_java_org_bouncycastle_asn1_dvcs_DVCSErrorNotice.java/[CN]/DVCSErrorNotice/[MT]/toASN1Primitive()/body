@@ -1,8 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(transactionStatus);
-  if (transactionIdentifier != null) {
-    v.add(transactionIdentifier);
-  }
-  return new DERSequence(v);
-}

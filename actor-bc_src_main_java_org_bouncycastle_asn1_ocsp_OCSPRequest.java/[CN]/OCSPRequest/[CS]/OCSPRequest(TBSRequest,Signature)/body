@@ -1,4 +1,0 @@
-{
-  this.tbsRequest=tbsRequest;
-  this.optionalSignature=optionalSignature;
-}

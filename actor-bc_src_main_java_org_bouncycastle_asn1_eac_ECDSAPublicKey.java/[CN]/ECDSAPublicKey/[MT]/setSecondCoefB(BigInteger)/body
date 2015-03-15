@@ -1,9 +1,0 @@
-{
-  if ((options & B) == 0) {
-    options|=B;
-    this.secondCoefB=secondCoefB;
-  }
- else {
-    throw new IllegalArgumentException("Second Coef B already set");
-  }
-}

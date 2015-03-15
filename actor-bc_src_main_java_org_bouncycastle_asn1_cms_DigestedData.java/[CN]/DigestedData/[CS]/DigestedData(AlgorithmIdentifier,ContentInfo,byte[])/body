@@ -1,6 +1,0 @@
-{
-  this.version=new ASN1Integer(0);
-  this.digestAlgorithm=digestAlgorithm;
-  this.encapContentInfo=encapContentInfo;
-  this.digest=new DEROctetString(digest);
-}

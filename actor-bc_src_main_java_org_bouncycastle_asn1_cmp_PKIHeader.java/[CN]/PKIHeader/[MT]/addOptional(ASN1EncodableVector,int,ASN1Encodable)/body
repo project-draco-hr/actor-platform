@@ -1,5 +1,0 @@
-{
-  if (obj != null) {
-    v.add(new DERTaggedObject(true,tagNo,obj));
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return (cA != null) && cA.isTrue();
-}

@@ -1,9 +1,0 @@
-{
-  if (o instanceof KeyRecRepContent) {
-    return (KeyRecRepContent)o;
-  }
-  if (o != null) {
-    return new KeyRecRepContent(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

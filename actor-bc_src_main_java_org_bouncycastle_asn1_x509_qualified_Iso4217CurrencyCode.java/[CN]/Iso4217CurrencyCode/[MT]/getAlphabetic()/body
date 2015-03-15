@@ -1,3 +1,0 @@
-{
-  return ((DERPrintableString)obj).getString();
-}

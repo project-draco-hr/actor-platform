@@ -1,5 +1,0 @@
-{
-  this.subjectKeyIdentifier=new DEROctetString(subjectKeyIdentifier);
-  this.date=date;
-  this.other=other;
-}

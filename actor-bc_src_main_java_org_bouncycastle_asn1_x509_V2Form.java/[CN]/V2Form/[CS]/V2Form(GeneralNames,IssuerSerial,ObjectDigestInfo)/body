@@ -1,5 +1,0 @@
-{
-  this.issuerName=issuerName;
-  this.baseCertificateID=baseCertificateID;
-  this.objectDigestInfo=objectDigestInfo;
-}

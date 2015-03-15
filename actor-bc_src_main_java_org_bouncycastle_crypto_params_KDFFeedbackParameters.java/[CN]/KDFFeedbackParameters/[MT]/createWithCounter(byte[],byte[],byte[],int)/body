@@ -1,6 +1,0 @@
-{
-  if (r != 8 && r != 16 && r != 24 && r != 32) {
-    throw new IllegalArgumentException("Length of counter should be 8, 16, 24 or 32");
-  }
-  return new KDFFeedbackParameters(ki,iv,fixedInputData,r,true);
-}

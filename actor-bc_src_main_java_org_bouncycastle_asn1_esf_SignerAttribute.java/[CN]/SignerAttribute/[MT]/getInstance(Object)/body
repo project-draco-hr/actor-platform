@@ -1,9 +1,0 @@
-{
-  if (o instanceof SignerAttribute) {
-    return (SignerAttribute)o;
-  }
- else   if (o != null) {
-    return new SignerAttribute(ASN1Sequence.getInstance(o));
-  }
-  return null;
-}

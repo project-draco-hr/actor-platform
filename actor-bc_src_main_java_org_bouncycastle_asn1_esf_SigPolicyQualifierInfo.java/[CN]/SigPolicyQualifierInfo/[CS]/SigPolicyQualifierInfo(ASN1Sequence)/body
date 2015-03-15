@@ -1,4 +1,0 @@
-{
-  sigPolicyQualifierId=ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
-  sigQualifier=seq.getObjectAt(1);
-}

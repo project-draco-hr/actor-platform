@@ -1,3 +1,0 @@
-{
-  this(extnId,critical.isTrue(),value);
-}

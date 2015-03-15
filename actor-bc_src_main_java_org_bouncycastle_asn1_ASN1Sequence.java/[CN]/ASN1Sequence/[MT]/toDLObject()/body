@@ -1,5 +1,0 @@
-{
-  ASN1Sequence dlSeq=new DLSequence();
-  dlSeq.seq=this.seq;
-  return dlSeq;
-}

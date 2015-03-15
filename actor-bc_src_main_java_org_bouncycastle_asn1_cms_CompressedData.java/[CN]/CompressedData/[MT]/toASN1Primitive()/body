@@ -1,7 +1,0 @@
-{
-  ASN1EncodableVector v=new ASN1EncodableVector();
-  v.add(version);
-  v.add(compressionAlgorithm);
-  v.add(encapContentInfo);
-  return new BERSequence(v);
-}

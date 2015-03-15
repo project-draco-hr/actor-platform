@@ -1,3 +1,0 @@
-{
-  return "VerisignCzagExtension: " + this.getString();
-}

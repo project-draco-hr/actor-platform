@@ -1,4 +1,0 @@
-{
-  super(curve,G,n,h,seed);
-  this.name=name;
-}

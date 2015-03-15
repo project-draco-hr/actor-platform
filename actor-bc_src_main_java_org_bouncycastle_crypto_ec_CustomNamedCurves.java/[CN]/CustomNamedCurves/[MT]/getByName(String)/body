@@ -1,4 +1,0 @@
-{
-  X9ECParametersHolder holder=(X9ECParametersHolder)nameToCurve.get(Strings.toLowerCase(name));
-  return holder == null ? null : holder.getParameters();
-}

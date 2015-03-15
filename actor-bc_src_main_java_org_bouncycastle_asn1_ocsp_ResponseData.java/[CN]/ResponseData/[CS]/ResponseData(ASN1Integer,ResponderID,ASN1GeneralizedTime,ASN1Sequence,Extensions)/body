@@ -1,7 +1,0 @@
-{
-  this.version=version;
-  this.responderID=responderID;
-  this.producedAt=producedAt;
-  this.responses=responses;
-  this.responseExtensions=responseExtensions;
-}

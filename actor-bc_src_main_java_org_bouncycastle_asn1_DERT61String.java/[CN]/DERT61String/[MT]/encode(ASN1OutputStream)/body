@@ -1,3 +1,0 @@
-{
-  out.writeEncoded(BERTags.T61_STRING,string);
-}

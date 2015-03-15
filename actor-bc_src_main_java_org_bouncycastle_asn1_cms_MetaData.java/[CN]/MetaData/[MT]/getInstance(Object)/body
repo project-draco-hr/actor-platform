@@ -1,9 +1,0 @@
-{
-  if (obj instanceof MetaData) {
-    return (MetaData)obj;
-  }
- else   if (obj != null) {
-    return new MetaData(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

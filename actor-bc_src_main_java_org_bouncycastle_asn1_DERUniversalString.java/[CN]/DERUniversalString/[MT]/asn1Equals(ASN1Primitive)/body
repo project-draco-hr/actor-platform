@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof DERUniversalString)) {
-    return false;
-  }
-  return Arrays.areEqual(string,((DERUniversalString)o).string);
-}

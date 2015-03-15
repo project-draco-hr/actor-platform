@@ -1,4 +1,0 @@
-{
-  this.certs=certs;
-  this.crls=crls;
-}

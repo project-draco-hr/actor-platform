@@ -1,4 +1,0 @@
-{
-  ASN1String str=(ASN1String)this.roleName.getName();
-  return str.getString();
-}

@@ -1,3 +1,0 @@
-{
-  this.algId=new AlgorithmIdentifier(objectId,parameters);
-}

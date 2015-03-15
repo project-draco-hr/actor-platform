@@ -1,8 +1,0 @@
-{
-  if ((options & Y) != 0) {
-    return publicPointY;
-  }
- else {
-    return null;
-  }
-}

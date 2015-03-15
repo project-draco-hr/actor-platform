@@ -1,9 +1,0 @@
-{
-  if (obj instanceof RecipientEncryptedKey) {
-    return (RecipientEncryptedKey)obj;
-  }
-  if (obj != null) {
-    return new RecipientEncryptedKey(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

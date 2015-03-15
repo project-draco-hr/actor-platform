@@ -1,7 +1,0 @@
-{
-  if (extensions.containsKey(oid)) {
-    throw new IllegalArgumentException("extension " + oid + " already added");
-  }
-  extOrdering.addElement(oid);
-  extensions.put(oid,new Extension(oid,critical,new DEROctetString(value)));
-}

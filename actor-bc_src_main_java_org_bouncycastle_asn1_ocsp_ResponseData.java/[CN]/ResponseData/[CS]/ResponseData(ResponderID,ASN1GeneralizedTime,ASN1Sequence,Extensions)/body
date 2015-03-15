@@ -1,3 +1,0 @@
-{
-  this(V1,responderID,producedAt,responses,responseExtensions);
-}

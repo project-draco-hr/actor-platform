@@ -1,5 +1,0 @@
-{
-  Enumeration e=seq.getObjects();
-  dataGroupNumber=ASN1Integer.getInstance(e.nextElement());
-  dataGroupHashValue=ASN1OctetString.getInstance(e.nextElement());
-}

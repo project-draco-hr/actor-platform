@@ -1,9 +1,0 @@
-{
-  if (obj instanceof V2Form) {
-    return (V2Form)obj;
-  }
- else   if (obj != null) {
-    return new V2Form(ASN1Sequence.getInstance(obj));
-  }
-  return null;
-}

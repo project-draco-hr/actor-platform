@@ -1,6 +1,0 @@
-{
-  if (this.isCritical()) {
-    return this.getExtnValue().hashCode() ^ this.getExtnId().hashCode();
-  }
-  return ~(this.getExtnValue().hashCode() ^ this.getExtnId().hashCode());
-}

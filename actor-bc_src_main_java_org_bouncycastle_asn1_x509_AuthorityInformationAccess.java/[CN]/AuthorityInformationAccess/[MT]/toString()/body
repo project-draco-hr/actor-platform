@@ -1,3 +1,0 @@
-{
-  return ("AuthorityInformationAccess: Oid(" + this.descriptions[0].getAccessMethod().getId() + ")");
-}

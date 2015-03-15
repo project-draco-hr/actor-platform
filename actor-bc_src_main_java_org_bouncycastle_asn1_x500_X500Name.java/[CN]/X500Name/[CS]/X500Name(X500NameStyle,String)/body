@@ -1,4 +1,0 @@
-{
-  this(style.fromString(dirName));
-  this.style=style;
-}

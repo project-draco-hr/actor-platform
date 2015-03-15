@@ -1,8 +1,0 @@
-{
-  this.nameOrPseudonym=nameOrPseudonym;
-  this.dateOfBirth=dateOfBirth;
-  this.gender=gender;
-  this.nameDistinguisher=nameDistinguisher;
-  this.postalAddress=postalAddress;
-  this.placeOfBirth=placeOfBirth;
-}

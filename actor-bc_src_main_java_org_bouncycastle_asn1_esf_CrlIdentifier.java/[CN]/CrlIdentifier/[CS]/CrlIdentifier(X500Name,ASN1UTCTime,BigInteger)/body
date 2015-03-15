@@ -1,7 +1,0 @@
-{
-  this.crlIssuer=crlIssuer;
-  this.crlIssuedTime=crlIssuedTime;
-  if (null != crlNumber) {
-    this.crlNumber=new ASN1Integer(crlNumber);
-  }
-}

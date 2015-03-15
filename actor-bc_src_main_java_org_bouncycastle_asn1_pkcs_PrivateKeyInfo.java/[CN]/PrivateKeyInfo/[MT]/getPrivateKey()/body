@@ -1,8 +1,0 @@
-{
-  try {
-    return parsePrivateKey().toASN1Primitive();
-  }
- catch (  IOException e) {
-    throw new IllegalStateException("unable to parse private key");
-  }
-}

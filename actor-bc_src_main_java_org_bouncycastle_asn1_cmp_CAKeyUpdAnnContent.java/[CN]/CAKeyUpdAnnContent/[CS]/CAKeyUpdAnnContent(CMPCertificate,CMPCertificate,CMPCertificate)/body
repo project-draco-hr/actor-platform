@@ -1,5 +1,0 @@
-{
-  this.oldWithNew=oldWithNew;
-  this.newWithOld=newWithOld;
-  this.newWithNew=newWithNew;
-}

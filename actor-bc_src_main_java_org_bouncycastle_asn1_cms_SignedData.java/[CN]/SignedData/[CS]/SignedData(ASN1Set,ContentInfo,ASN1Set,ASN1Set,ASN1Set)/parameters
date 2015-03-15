@@ -1,5 +1,0 @@
-ASN1Set digestAlgorithms
-ContentInfo contentInfo
-ASN1Set certificates
-ASN1Set crls
-ASN1Set signerInfos

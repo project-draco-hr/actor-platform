@@ -1,5 +1,0 @@
-{
-  Enumeration e=seq.getObjects();
-  algorithm=(ASN1ObjectIdentifier)e.nextElement();
-  counter=(ASN1OctetString)e.nextElement();
-}

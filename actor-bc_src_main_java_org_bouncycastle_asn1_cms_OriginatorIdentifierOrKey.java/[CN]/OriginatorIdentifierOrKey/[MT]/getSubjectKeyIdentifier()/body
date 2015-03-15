@@ -1,6 +1,0 @@
-{
-  if (id instanceof ASN1TaggedObject && ((ASN1TaggedObject)id).getTagNo() == 0) {
-    return SubjectKeyIdentifier.getInstance((ASN1TaggedObject)id,false);
-  }
-  return null;
-}
