@@ -1,0 +1,7 @@
+{
+  if (mWrappedAdapter != null && mWrappedAdapter.getItemCount() > 0) {
+    notifyItemRangeRemoved(getHeaderCount(),mWrappedAdapter.getItemCount());
+  }
+  setWrappedAdapter(adapter);
+  notifyItemRangeInserted(getHeaderCount(),mWrappedAdapter.getItemCount());
+}

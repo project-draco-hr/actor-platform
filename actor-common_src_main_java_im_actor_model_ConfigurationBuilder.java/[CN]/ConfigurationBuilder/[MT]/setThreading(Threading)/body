@@ -1,4 +1,0 @@
-{
-  this.threading=threading;
-  return this;
-}

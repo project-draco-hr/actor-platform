@@ -1,6 +1,6 @@
 {
-  if (threading == null) {
+  if (threadingProvider == null) {
     throw new RuntimeException("Environment is not inited!");
   }
-  return threading.getActorTime();
+  return threadingProvider.getActorTime();
 }

@@ -1,4 +1,0 @@
-{
-  this.networking=networking;
-  return this;
-}

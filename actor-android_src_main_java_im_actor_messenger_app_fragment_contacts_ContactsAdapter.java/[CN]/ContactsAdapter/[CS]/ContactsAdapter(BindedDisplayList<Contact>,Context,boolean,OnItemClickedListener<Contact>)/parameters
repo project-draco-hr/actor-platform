@@ -1,0 +1,4 @@
+BindedDisplayList<Contact> displayList
+Context context
+boolean selectable
+OnItemClickedListener<Contact> onItemClickedListener

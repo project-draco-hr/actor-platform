@@ -1,0 +1,4 @@
+{
+  this.useCompactVersion=useCompactVersion;
+  this.userSearch=userSearch;
+}

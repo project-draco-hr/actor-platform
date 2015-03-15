@@ -1,5 +1,0 @@
-long authId
-long sessionId
-Endpoints endpoints
-MTProtoCallback callback
-Networking networking

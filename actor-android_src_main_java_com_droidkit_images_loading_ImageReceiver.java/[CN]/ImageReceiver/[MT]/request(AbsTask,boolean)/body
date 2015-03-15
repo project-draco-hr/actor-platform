@@ -15,6 +15,5 @@
   }
   currentTask=TASK_ID.getAndIncrement();
   currentTaskKey=task.getKey();
-  requestStart=System.currentTimeMillis();
   receiver.send(new TaskRequest(currentTask,task));
 }

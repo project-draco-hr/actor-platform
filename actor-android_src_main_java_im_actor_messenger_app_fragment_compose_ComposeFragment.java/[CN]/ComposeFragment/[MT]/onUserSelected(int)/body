@@ -1,3 +1,0 @@
-{
-  getActivity().startActivity(Intents.openPrivateDialog(uid,true,getActivity()));
-}

@@ -1,6 +1,0 @@
-{
-  super.onPause();
-  if (adapter != null) {
-    adapter.pause();
-  }
-}

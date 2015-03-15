@@ -1,9 +1,0 @@
-{
-  super.onDestroyView();
-  if (adapter != null) {
-    adapter.pause();
-    adapter=null;
-  }
-  noMessages=null;
-  adapter=null;
-}

@@ -1,6 +1,0 @@
-{
-  if (!(adapter instanceof StickAdapter)) {
-    throw new IllegalArgumentException("Adapter must implement StickAdapter");
-  }
-  super.setAdapter(adapter);
-}

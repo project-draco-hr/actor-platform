@@ -1,1 +1,1 @@
-BaseFragment
+DisplayListFragment<Contact,ContactHolder>

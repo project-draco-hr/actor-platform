@@ -1,5 +1,4 @@
 {
-  Logger.d("AvatarView","Receiver: onImageLoaded");
   if (!UiUtil.isMainThread()) {
     loaded.getReference().release();
     throw new RuntimeException("Operations allowed only on UI thread");

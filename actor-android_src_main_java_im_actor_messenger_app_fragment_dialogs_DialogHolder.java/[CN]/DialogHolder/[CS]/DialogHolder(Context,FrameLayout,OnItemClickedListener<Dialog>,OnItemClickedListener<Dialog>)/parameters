@@ -1,0 +1,4 @@
+Context context
+FrameLayout fl
+OnItemClickedListener<Dialog> onClickListener
+OnItemClickedListener<Dialog> onLongClickListener

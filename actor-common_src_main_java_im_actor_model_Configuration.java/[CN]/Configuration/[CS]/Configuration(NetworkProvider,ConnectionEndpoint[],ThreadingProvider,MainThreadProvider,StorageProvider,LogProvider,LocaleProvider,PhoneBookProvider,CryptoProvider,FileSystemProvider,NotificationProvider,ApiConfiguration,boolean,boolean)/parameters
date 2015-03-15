@@ -1,0 +1,14 @@
+NetworkProvider networkProvider
+ConnectionEndpoint[] endpoints
+ThreadingProvider threadingProvider
+MainThreadProvider mainThreadProvider
+StorageProvider storageProvider
+LogProvider log
+LocaleProvider localeProvider
+PhoneBookProvider phoneBookProvider
+CryptoProvider cryptoProvider
+FileSystemProvider fileSystemProvider
+NotificationProvider notificationProvider
+ApiConfiguration apiConfiguration
+boolean enableContactsLogging
+boolean enableNetworkLogging

@@ -1,4 +1,0 @@
-{
-  this.mainThread=mainThread;
-  return this;
-}

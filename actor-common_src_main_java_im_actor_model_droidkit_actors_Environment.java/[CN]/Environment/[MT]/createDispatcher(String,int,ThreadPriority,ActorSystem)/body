@@ -1,6 +1,6 @@
 {
-  if (threading == null) {
+  if (threadingProvider == null) {
     throw new RuntimeException("Environment is not inited!");
   }
-  return threading.createDispatcher(name,threadsCount,priority,actorSystem);
+  return threadingProvider.createDispatcher(name,threadsCount,priority,actorSystem);
 }

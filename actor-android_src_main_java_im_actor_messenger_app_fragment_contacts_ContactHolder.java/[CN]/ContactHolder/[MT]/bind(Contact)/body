@@ -10,4 +10,16 @@
     avatar.unbind();
   }
   title.setText(data.getName());
+  cont.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onItemClickedListener.onClicked(data);
+    }
+  }
+);
+  cont.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      return onItemClickedListener.onLongClicked(data);
+    }
+  }
+);
 }

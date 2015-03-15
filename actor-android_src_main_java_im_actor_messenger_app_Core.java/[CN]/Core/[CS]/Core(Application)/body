@@ -17,11 +17,11 @@
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
   ConfigurationBuilder builder=new ConfigurationBuilder();
   BouncyCastleProvider bouncyCastleProvider=new BouncyCastleProvider();
-  builder.setThreading(new JavaThreading());
-  builder.setNetworking(new JavaNetworking());
-  builder.setMainThread(new AndroidMainThread());
+  builder.setThreadingProvider(new JavaThreadingProvider());
+  builder.setNetworkProvider(new JavaNetworkProvider());
+  builder.setMainThreadProvider(new AndroidMainThreadProvider());
   builder.setLog(new AndroidLog());
-  builder.setStorage(new AndroidStorage());
+  builder.setStorage(new AndroidStorageProvider());
   builder.setLocale(new JavaLocale("En"));
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setFileSystemProvider(new AndroidFileProvider(application));

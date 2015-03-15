@@ -1,0 +1,11 @@
+{
+  return new ContactsAdapter(displayList,activity,false,new OnItemClickedListener<Contact>(){
+    @Override public void onClicked(    Contact item){
+      onItemClicked(item);
+    }
+    @Override public boolean onLongClicked(    Contact item){
+      return onItemLongClicked(item);
+    }
+  }
+);
+}

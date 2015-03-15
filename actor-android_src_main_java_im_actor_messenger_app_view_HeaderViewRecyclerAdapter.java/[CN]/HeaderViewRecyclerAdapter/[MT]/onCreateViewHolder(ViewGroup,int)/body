@@ -1,0 +1,7 @@
+{
+  if (viewType < HEADERS_START + getHeaderCount())   return new StaticViewHolder(mHeaderViews.get(viewType - HEADERS_START));
+ else   if (viewType < FOOTERS_START + getFooterCount())   return new StaticViewHolder(mFooterViews.get(viewType - FOOTERS_START));
+ else {
+    return mWrappedAdapter.onCreateViewHolder(viewGroup,viewType - getAdapterTypeOffset());
+  }
+}

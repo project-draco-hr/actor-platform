@@ -1,0 +1,6 @@
+{
+  mHeaderViews=new ArrayList<View>();
+  mFooterViews=new ArrayList<View>();
+  mItemTypesOffset=new HashMap<Class,Integer>();
+  setWrappedAdapter(adapter);
+}
