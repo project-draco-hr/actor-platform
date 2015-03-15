@@ -1,4 +1,4 @@
 {
   checkTempDirs();
-  return new AndroidFileReference(descriptor);
+  return new AndroidFileSystemReference(descriptor);
 }

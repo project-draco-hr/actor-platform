@@ -1,3 +1,0 @@
-{
-  modules.getMessagesModule().sendPhoto(peer,fileName,w,h,fastThumb,fileReference);
-}

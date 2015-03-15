@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendVideo(peer,fileName,w,h,duration,fastThumb,fileSystemReference.getDescriptor(),fileSystemReference.getSize()));
+}

@@ -13,7 +13,7 @@
       @Override public void onResult(      ResponseCompleteUpload response){
         Log.d(TAG,"Upload completed...");
         FileReference location=EntityConverter.convert(response.getLocation(),fileName,srcReference.getSize());
-        im.actor.model.files.FileReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
+        FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
         reportComplete(location,reference);
       }
       @Override public void onError(      RpcException e){

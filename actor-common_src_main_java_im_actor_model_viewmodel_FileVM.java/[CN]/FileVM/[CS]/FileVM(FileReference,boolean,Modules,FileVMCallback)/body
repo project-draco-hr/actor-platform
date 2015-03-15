@@ -9,7 +9,7 @@
     @Override public void onDownloading(    float progress){
       post(new OnDownloading(progress));
     }
-    @Override public void onDownloaded(    im.actor.model.files.FileReference reference){
+    @Override public void onDownloaded(    FileSystemReference reference){
       post(new OnDownloaded(reference));
     }
   }

@@ -4,5 +4,5 @@
   if (destFile == null) {
     return null;
   }
-  return new AndroidFileReference(destFile);
+  return new AndroidFileSystemReference(destFile);
 }

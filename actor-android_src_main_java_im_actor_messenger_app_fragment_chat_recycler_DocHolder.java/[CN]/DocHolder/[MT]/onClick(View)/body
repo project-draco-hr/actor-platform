@@ -10,7 +10,7 @@
       @Override public void onDownloading(      float progress){
         messenger().cancelDownloading(location.getFileId());
       }
-      @Override public void onDownloaded(      im.actor.model.files.FileReference reference){
+      @Override public void onDownloaded(      FileSystemReference reference){
       }
     }
 );
