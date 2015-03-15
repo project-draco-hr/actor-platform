@@ -1,0 +1,5 @@
+{
+  super(messenger);
+  this.cursorId=cursorId;
+  this.keyValue=messenger.getMessagesModule().getCursorStorage();
+}

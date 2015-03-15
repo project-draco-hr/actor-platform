@@ -1,7 +1,7 @@
 {
   super.preStart();
   messagesStorage=new UnreadMessagesStorage();
-  byte[] st=preferences().getBytes("own_read_storage");
+  byte[] st=syncKeyValue.get(CURSOR_OWN_READ);
   if (st != null) {
     try {
       messagesStorage=UnreadMessagesStorage.fromBytes(st);

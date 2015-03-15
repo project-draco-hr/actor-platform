@@ -1,4 +1,0 @@
-{
-  super(messenger);
-  this.preferenceName=preferenceName;
-}

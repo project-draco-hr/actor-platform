@@ -1,7 +1,7 @@
 {
   super.preStart();
   plainCursorsStorage=new PlainCursorsStorage();
-  byte[] data=preferences().getBytes(preferenceName);
+  byte[] data=keyValue.get(cursorId);
   if (data != null) {
     try {
       plainCursorsStorage=PlainCursorsStorage.fromBytes(data);

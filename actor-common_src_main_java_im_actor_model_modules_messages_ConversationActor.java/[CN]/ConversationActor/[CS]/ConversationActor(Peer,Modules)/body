@@ -1,5 +1,5 @@
 {
   super(messenger);
-  PENDING_KEY="conv_pending_" + peer.getUnuqueId();
   this.peer=peer;
+  this.pendingKeyValue=messenger.getMessagesModule().getConversationPending();
 }

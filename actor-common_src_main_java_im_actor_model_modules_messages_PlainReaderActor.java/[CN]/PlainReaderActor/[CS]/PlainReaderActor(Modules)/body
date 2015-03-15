@@ -1,3 +1,3 @@
 {
-  super(PREFERENCE,messenger);
+  super(CURSOR_READ,messenger);
 }

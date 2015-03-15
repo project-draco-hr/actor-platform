@@ -2,7 +2,7 @@
   new Thread(){
     @Override public void run(){
       try {
-        Thread.sleep(3000);
+        Thread.sleep(PRELOAD_DELAY);
       }
  catch (      InterruptedException e) {
         e.printStackTrace();

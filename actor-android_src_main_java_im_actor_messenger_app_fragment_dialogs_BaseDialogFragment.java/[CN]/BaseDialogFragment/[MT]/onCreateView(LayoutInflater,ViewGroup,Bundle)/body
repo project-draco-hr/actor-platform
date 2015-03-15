@@ -19,12 +19,8 @@
 );
   }
   RecyclerView messagesView=(RecyclerView)res.findViewById(R.id.collection);
-  messagesView.setHasFixedSize(true);
-  messagesView.setItemViewCacheSize(10);
   LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-  linearLayoutManager.setReverseLayout(false);
-  linearLayoutManager.setSmoothScrollbarEnabled(true);
   messagesView.setLayoutManager(linearLayoutManager);
   messagesView.setAdapter(adapter);
   loadingProgress.setVisibility(View.GONE);

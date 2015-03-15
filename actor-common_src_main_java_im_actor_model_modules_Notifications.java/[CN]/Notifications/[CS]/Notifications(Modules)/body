@@ -1,5 +1,6 @@
 {
   super(modules);
+  notificationsStorage=new SyncKeyValue(storage().createKeyValue(STORAGE_NOTIFICATIONS));
   this.notificationsActor=system().actorOf(Props.create(NotificationsActor.class,new ActorCreator<NotificationsActor>(){
     @Override public NotificationsActor create(){
       return new NotificationsActor(modules);

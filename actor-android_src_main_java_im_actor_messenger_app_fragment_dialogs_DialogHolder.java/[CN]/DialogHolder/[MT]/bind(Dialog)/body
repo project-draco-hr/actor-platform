@@ -7,7 +7,7 @@
     avatar.bindAvatar(54,data.getDialogAvatar());
   }
   if (data.getUnreadCount() > 0) {
-    counter.setText("" + data.getUnreadCount());
+    counter.setText(Integer.toString(data.getUnreadCount()));
     counter.setVisibility(View.VISIBLE);
   }
  else {
