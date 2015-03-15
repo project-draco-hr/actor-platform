@@ -1,0 +1,15 @@
+{
+  List<ListEngineRecord> records=storage.loadForward(null,1);
+  if (records.size() != 1) {
+    callback.onLoaded(null);
+    return;
+  }
+  ListEngineRecord record=records.get(0);
+  try {
+    callback.onLoaded(Bser.parse(creator.createInstance(),record.getData()));
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    callback.onLoaded(null);
+  }
+}

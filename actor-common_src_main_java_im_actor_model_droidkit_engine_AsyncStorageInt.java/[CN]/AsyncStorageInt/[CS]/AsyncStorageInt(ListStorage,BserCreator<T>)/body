@@ -1,0 +1,8 @@
+{
+  storageActor=system().actorOf(Props.create(AsyncStorageActor.class,new ActorCreator<AsyncStorageActor>(){
+    @Override public AsyncStorageActor<T> create(){
+      return new AsyncStorageActor<T>(storage,creator);
+    }
+  }
+),"list_engine/" + NEXT_ID++);
+}

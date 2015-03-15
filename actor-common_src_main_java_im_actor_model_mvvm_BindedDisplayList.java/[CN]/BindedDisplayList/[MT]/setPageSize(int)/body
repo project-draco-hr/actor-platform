@@ -1,6 +1,3 @@
 {
-  if (isInited) {
-    throw new RuntimeException("Unable to change page size after initialization");
-  }
   this.pageSize=pageSize;
 }

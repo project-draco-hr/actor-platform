@@ -1,0 +1,16 @@
+{
+  ListEngineRecord record=storage.loadItem(key);
+  if (record != null) {
+    try {
+      T res=Bser.parse(creator.createInstance(),record.getData());
+      callback.onLoaded(res);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      callback.onLoaded(null);
+    }
+  }
+ else {
+    callback.onLoaded(null);
+  }
+}

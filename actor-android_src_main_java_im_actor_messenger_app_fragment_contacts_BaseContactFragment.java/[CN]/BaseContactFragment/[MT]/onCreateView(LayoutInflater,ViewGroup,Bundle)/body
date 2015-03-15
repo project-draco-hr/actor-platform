@@ -10,7 +10,7 @@
   linearLayoutManager.setReverseLayout(false);
   linearLayoutManager.setSmoothScrollbarEnabled(true);
   recyclerView.setLayoutManager(linearLayoutManager);
-  contactDisplayList=messenger().getContactsGlobalList();
+  contactDisplayList=messenger().buildContactDisplayList();
   adapter=new ContactsAdapter(contactDisplayList,getActivity(),false);
   recyclerView.setAdapter(adapter);
   return res;

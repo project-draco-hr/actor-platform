@@ -1,0 +1,8 @@
+{
+  if (keys.length == 1) {
+    storage.delete(keys[0]);
+  }
+ else   if (keys.length > 0) {
+    storage.delete(keys);
+  }
+}

@@ -1,0 +1,15 @@
+{
+synchronized (LOCK) {
+    T res=cache.lookup(key);
+    if (res != null) {
+      return res;
+    }
+  }
+  T res=asyncStorageInt.getValue(key);
+  if (res != null) {
+synchronized (LOCK) {
+      cache.onObjectLoaded(key,res);
+    }
+  }
+  return res;
+}

@@ -1,0 +1,32 @@
+{
+  if (message instanceof AddOrUpdate) {
+    addOrUpdate(((AddOrUpdate)message).getItems());
+  }
+ else   if (message instanceof Remove) {
+    remove(((Remove)message).getKeys());
+  }
+ else   if (message instanceof Clear) {
+    clear();
+  }
+ else   if (message instanceof Replace) {
+    replace(((Replace)message).getItems());
+  }
+ else   if (message instanceof LoadItem) {
+    loadItem(((LoadItem)message).getKey(),((LoadItem)message).getCallback());
+  }
+ else   if (message instanceof LoadCount) {
+    loadCount(((LoadCount)message).getCallback());
+  }
+ else   if (message instanceof LoadHead) {
+    loadHead(((LoadHead)message).getCallback());
+  }
+ else   if (message instanceof LoadForward) {
+    loadForward(((LoadForward)message).getQuery(),((LoadForward)message).getTopSortKey(),((LoadForward)message).getLimit(),((LoadForward)message).getCallback());
+  }
+ else   if (message instanceof LoadBackward) {
+    loadBackward(((LoadBackward)message).getQuery(),((LoadBackward)message).getTopSortKey(),((LoadBackward)message).getLimit(),((LoadBackward)message).getCallback());
+  }
+ else {
+    drop(message);
+  }
+}

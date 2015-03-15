@@ -6,8 +6,9 @@
   }
 );
   this.engineListener=new EngineListener();
-  this.blockDisposal=blockDisposal;
+  this.isGlobalList=isGlobalList;
   this.listEngine=listEngine;
   this.window=new DisplayWindow();
+  this.stateModel=new ValueModel<State>("display_list.state",State.LOADING_EMPTY);
   listEngine.subscribe(engineListener);
 }

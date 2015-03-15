@@ -1,0 +1,12 @@
+{
+synchronized (LOCK) {
+    cache.clear();
+    for (    T i : items) {
+      cache.onObjectUpdated(i.getEngineId(),i);
+    }
+    asyncStorageInt.replaceItems(items);
+    for (    ListEngineDisplayListener<T> l : listeners) {
+      l.onItemsReplaced(items);
+    }
+  }
+}

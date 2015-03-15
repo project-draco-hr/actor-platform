@@ -1,3 +1,4 @@
 {
   displayList.addListener(listener);
+  notifyDataSetChanged();
 }

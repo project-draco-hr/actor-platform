@@ -1,0 +1,8 @@
+{
+  List<ListEngineRecord> updated=new ArrayList<ListEngineRecord>();
+  for (  T i : items) {
+    updated.add(new ListEngineRecord(i.getEngineId(),i.getEngineSort(),i.getEngineSearch(),i.toByteArray()));
+  }
+  storage.clear();
+  storage.updateOrAdd(updated);
+}

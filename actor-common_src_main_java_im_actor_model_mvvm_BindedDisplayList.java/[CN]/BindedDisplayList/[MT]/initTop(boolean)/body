@@ -8,6 +8,7 @@
   if (refresh) {
     editList((Modification)DisplayModifications.clear());
   }
+  stateModel.change(State.LOADING_EMPTY);
   currentGeneration++;
   window.startInitForward();
   listEngine.loadForward(pageSize,cover(new ListEngineCallback<T>(){

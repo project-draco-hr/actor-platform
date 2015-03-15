@@ -1,9 +1,0 @@
-{
-synchronized (LOCK) {
-    cache.clear();
-    storage.clear();
-    for (    ListEngineDisplayListener<T> l : listeners) {
-      l.onListClear();
-    }
-  }
-}

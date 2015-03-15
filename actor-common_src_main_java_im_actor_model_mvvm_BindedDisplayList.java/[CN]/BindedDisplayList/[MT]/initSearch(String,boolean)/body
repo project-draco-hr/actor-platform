@@ -1,5 +1,8 @@
 {
   MVVMEngine.checkMainThread();
+  if (isGlobalList) {
+    throw new RuntimeException("Global DisplayList can't perform search");
+  }
   if (query == null || query.trim().length() == 0) {
     throw new RuntimeException("Query can't be null or empty");
   }
@@ -11,6 +14,7 @@
   if (refresh) {
     editList((Modification)DisplayModifications.clear());
   }
+  stateModel.change(State.LOADING_EMPTY);
   currentGeneration++;
   window.startInitForward();
   listEngine.loadForward(query,pageSize,cover(new ListEngineCallback<T>(){

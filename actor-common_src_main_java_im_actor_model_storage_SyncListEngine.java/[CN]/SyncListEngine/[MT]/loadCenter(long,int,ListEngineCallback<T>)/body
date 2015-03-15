@@ -1,3 +1,0 @@
-{
-  throw new RuntimeException("I Don't care");
-}

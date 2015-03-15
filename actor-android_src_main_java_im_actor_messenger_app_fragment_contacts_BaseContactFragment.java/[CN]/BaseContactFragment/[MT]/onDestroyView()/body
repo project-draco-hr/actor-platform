@@ -1,8 +1,12 @@
 {
   super.onDestroyView();
   if (adapter != null) {
-    adapter.pause();
+    adapter.dispose();
     adapter=null;
+  }
+  if (contactDisplayList != null) {
+    contactDisplayList.dispose();
+    contactDisplayList=null;
   }
   emptyView=null;
 }

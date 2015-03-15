@@ -1,0 +1,3 @@
+{
+  storageActor.send(new AsyncStorageActor.Replace<T>(items));
+}

@@ -5,6 +5,6 @@
     throw new RuntimeException("Contacts ListEngine must implement ListEngineDisplayExt for using global list");
   }
   BindedDisplayList<Contact> contactList=new BindedDisplayList<Contact>((ListEngineDisplayExt<Contact>)contactsEngine,disableDispose);
-  contactList.initTop(true);
+  contactList.initTop(false);
   return contactList;
 }

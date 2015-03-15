@@ -1,0 +1,3 @@
+{
+  asyncStorageInt.loadBackward(query,null,limit,cover(callback));
+}

@@ -1,9 +1,0 @@
-{
-synchronized (LOCK) {
-    cache.onObjectUpdated(item.getEngineId(),item);
-    storage.updateOrAdd(new ListEngineRecord(item.getEngineId(),item.getEngineSort(),item.getEngineSearch(),item.toByteArray()));
-    for (    ListEngineDisplayListener<T> l : listeners) {
-      l.addOrUpdate(item);
-    }
-  }
-}

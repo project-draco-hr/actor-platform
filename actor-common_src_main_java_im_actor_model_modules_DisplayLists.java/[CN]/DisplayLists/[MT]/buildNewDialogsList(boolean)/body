@@ -5,6 +5,6 @@
     throw new RuntimeException("Dialogs ListEngine must implement ListEngineDisplayExt for using global list");
   }
   BindedDisplayList<Dialog> displayList=new BindedDisplayList<Dialog>((ListEngineDisplayExt<Dialog>)dialogsEngine,disableDispose);
-  displayList.initTop(true);
+  displayList.initTop(false);
   return displayList;
 }

@@ -1,5 +1,8 @@
 {
   MVVMEngine.checkMainThread();
+  if (isGlobalList) {
+    throw new RuntimeException("Global DisplayList can't grow from bottom");
+  }
   if (mode != null && mode == ListMode.BACKWARD) {
     return;
   }
@@ -7,6 +10,7 @@
   if (refresh) {
     editList((Modification)DisplayModifications.clear());
   }
+  stateModel.change(State.LOADING_EMPTY);
   currentGeneration++;
   window.startInitBackward();
   listEngine.loadBackward(pageSize,cover(new ListEngineCallback<T>(){

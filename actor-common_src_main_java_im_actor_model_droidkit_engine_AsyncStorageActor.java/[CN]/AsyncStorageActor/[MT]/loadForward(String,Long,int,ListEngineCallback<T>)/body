@@ -1,0 +1,10 @@
+{
+  ArrayList<T> res;
+  if (query == null) {
+    res=convertList(storage.loadForward(topSortKey,limit));
+  }
+ else {
+    res=convertList(storage.loadForward(query,topSortKey,limit));
+  }
+  callCallback(callback,res);
+}

@@ -1,7 +1,0 @@
-{
-  ArrayList<T> res;
-synchronized (LOCK) {
-    res=convertList(storage.loadBackward(beforeSortKey,limit));
-  }
-  callCallback(callback,res);
-}

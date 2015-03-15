@@ -1,0 +1,9 @@
+{
+  T res=asyncStorageInt.getHeadValue();
+  if (res != null) {
+synchronized (LOCK) {
+      cache.onObjectLoaded(res.getEngineId(),res);
+    }
+  }
+  return res;
+}

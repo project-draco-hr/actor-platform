@@ -1,0 +1,6 @@
+{
+  this.query=query;
+  this.topSortKey=topSortKey;
+  this.limit=limit;
+  this.callback=callback;
+}

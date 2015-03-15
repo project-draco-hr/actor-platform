@@ -1,0 +1,3 @@
+{
+  asyncStorageInt.loadBackward(null,beforeSortKey,limit,cover(callback));
+}

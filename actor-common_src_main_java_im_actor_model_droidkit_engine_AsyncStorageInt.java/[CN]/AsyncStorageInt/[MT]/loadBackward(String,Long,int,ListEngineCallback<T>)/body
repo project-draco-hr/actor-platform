@@ -1,0 +1,3 @@
+{
+  storageActor.send(new AsyncStorageActor.LoadBackward<T>(query,beforeSortKey,limit,callback));
+}

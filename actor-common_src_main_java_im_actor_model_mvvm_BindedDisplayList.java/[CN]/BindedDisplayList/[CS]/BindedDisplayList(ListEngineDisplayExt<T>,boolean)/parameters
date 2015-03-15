@@ -1,2 +1,2 @@
 ListEngineDisplayExt<T> listEngine
-boolean blockDisposal
+boolean isGlobalList

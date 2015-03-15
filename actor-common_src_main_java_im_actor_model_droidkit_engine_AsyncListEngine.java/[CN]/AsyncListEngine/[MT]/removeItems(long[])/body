@@ -1,0 +1,11 @@
+{
+synchronized (LOCK) {
+    for (    long key : keys) {
+      cache.removeObject(key);
+    }
+    asyncStorageInt.remove(keys);
+    for (    ListEngineDisplayListener<T> l : listeners) {
+      l.onItemsRemoved(keys);
+    }
+  }
+}

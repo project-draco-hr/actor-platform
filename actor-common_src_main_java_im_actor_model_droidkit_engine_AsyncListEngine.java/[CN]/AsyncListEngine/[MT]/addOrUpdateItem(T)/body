@@ -1,0 +1,11 @@
+{
+synchronized (LOCK) {
+    cache.onObjectUpdated(item.getEngineId(),item);
+    List<T> items=new ArrayList<T>();
+    items.add(item);
+    asyncStorageInt.addOrUpdateItems(items);
+    for (    ListEngineDisplayListener<T> l : listeners) {
+      l.addOrUpdate(item);
+    }
+  }
+}
