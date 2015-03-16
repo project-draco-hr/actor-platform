@@ -1,8 +1,13 @@
 {
   MVVMEngine.checkMainThread();
+  if (isLoadMoreForwardRequested) {
+    return;
+  }
+  isLoadMoreForwardRequested=true;
   if (!window.startForwardLoading()) {
     return;
   }
+  final int gen=currentGeneration;
   ListEngineCallback<T> callback=cover(new ListEngineCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
       MVVMEngine.checkMainThread();
@@ -13,7 +18,14 @@
  else {
         window.onForwardSliceLoaded(bottomSortKey);
       }
-      editList(DisplayModifications.addOrUpdate(items));
+      editList(DisplayModifications.addOrUpdate(items),new Runnable(){
+        @Override public void run(){
+          if (gen == currentGeneration) {
+            isLoadMoreForwardRequested=false;
+          }
+        }
+      }
+);
     }
   }
 ,currentGeneration);

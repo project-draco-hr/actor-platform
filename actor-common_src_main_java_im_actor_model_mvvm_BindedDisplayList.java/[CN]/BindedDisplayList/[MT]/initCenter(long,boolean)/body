@@ -8,6 +8,8 @@
     editList((Modification)DisplayModifications.clear());
   }
   stateModel.change(State.LOADING_EMPTY);
+  isLoadMoreBackwardRequested=false;
+  isLoadMoreBackwardRequested=false;
   currentGeneration++;
   window.startInitCenter();
   listEngine.loadCenter(centerSortKey,pageSize,cover(new ListEngineCallback<T>(){

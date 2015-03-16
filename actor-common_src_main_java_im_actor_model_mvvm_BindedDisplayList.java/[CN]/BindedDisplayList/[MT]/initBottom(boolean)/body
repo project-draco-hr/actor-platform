@@ -11,6 +11,8 @@
     editList((Modification)DisplayModifications.clear());
   }
   stateModel.change(State.LOADING_EMPTY);
+  isLoadMoreBackwardRequested=false;
+  isLoadMoreBackwardRequested=false;
   currentGeneration++;
   window.startInitBackward();
   listEngine.loadBackward(pageSize,cover(new ListEngineCallback<T>(){

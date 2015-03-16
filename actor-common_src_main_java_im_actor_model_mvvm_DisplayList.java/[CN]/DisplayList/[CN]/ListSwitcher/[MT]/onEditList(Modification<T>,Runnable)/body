@@ -1,6 +1,7 @@
 {
+  ModificationHolder<T> holder=new ModificationHolder<T>(modification,runnable);
   if (isLocked) {
-    pending.add(modification);
+    pending.add(holder);
     return;
   }
   ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
@@ -8,5 +9,5 @@
   if (displayList.hook != null) {
     displayList.hook.beforeDisplay(backgroundList);
   }
-  requestListSwitch(new Modification[]{modification});
+  requestListSwitch(new ModificationHolder[]{holder});
 }

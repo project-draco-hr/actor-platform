@@ -6,6 +6,11 @@
       for (      Listener l : displayList.listeners) {
         l.onCollectionChanged();
       }
+      for (      ModificationHolder m : modifications) {
+        if (m.executeAfter != null) {
+          m.executeAfter.run();
+        }
+      }
       self().send(new ListSwitched<T>(modifications));
     }
   }
