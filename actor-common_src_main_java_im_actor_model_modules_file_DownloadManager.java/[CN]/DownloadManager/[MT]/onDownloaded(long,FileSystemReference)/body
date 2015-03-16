@@ -13,4 +13,5 @@
   for (  DownloadCallback fileCallback : queueItem.callbacks) {
     fileCallback.onDownloaded(reference);
   }
+  checkQueue();
 }

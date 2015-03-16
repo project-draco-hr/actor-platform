@@ -1,3 +1,5 @@
 {
-  modules.getNotifications().onDialogsClosed();
+  if (modules.getNotifications() != null) {
+    modules.getNotifications().onDialogsClosed();
+  }
 }

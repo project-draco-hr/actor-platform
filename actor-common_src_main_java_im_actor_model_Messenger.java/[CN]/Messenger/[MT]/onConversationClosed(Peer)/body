@@ -1,3 +1,5 @@
 {
-  modules.getNotifications().onConversationClose(peer);
+  if (modules.getPresenceModule() != null) {
+    modules.getNotifications().onConversationClose(peer);
+  }
 }

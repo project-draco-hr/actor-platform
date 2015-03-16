@@ -1,3 +1,8 @@
 {
-  return modules.getDisplayLists().getDialogsGlobalList();
+  if (modules.getDisplayLists() != null) {
+    return modules.getDisplayLists().getDialogsGlobalList();
+  }
+ else {
+    return null;
+  }
 }
