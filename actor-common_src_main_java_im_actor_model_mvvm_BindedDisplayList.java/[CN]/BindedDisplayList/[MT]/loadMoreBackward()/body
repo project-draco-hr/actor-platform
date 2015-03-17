@@ -18,7 +18,7 @@
       }
  else {
         window.onBackwardSliceLoaded(bottomSortKey);
-        editList(DisplayModifications.addOrUpdate(items),new Runnable(){
+        editList(DisplayModifications.addOnly(items),new Runnable(){
           @Override public void run(){
             if (gen == currentGeneration) {
               isLoadMoreBackwardRequested=false;

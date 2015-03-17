@@ -18,7 +18,7 @@
       }
  else {
         window.onForwardSliceLoaded(bottomSortKey);
-        editList(DisplayModifications.addOrUpdate(items),new Runnable(){
+        editList(DisplayModifications.addOnly(items),new Runnable(){
           @Override public void run(){
             if (gen == currentGeneration) {
               isLoadMoreForwardRequested=false;
