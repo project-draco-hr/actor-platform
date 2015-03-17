@@ -15,4 +15,5 @@
     callback.onNotUploading();
   }
   queueItem.requestActor.send(new UploadError(rid));
+  checkQueue();
 }

@@ -14,4 +14,5 @@
     fileCallback.onUploaded();
   }
   queueItem.requestActor.send(new UploadCompleted(rid,fileReference));
+  checkQueue();
 }

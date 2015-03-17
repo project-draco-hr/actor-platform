@@ -1,3 +1,8 @@
 {
-  return modules.getDisplayLists().getContactsGlobalList();
+  if (modules.getDisplayLists() != null) {
+    return modules.getDisplayLists().getContactsGlobalList();
+  }
+ else {
+    return null;
+  }
 }

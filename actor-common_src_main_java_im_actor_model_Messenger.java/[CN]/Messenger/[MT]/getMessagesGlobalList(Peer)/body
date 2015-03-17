@@ -1,6 +1,6 @@
 {
   if (modules.getDisplayLists() != null) {
-    return modules.getDisplayLists().buildNewContactList(false);
+    return modules.getDisplayLists().getMessagesGlobalList(peer);
   }
  else {
     return null;

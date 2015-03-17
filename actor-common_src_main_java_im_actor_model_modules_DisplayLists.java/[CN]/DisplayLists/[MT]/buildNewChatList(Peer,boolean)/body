@@ -1,0 +1,10 @@
+{
+  MVVMEngine.checkMainThread();
+  ListEngine<Message> messagesEngine=modules().getMessagesModule().getConversationEngine(peer);
+  if (!(messagesEngine instanceof ListEngineDisplayExt)) {
+    throw new RuntimeException("Conversation ListEngine must implement ListEngineDisplayExt for using global list");
+  }
+  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,LOAD_PAGE,LOAD_GAP);
+  chatList.initTop(false);
+  return chatList;
+}
