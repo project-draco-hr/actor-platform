@@ -3,10 +3,10 @@
   if (isLoadMoreBackwardRequested) {
     return;
   }
-  isLoadMoreBackwardRequested=true;
   if (!window.startBackwardLoading()) {
     return;
   }
+  isLoadMoreBackwardRequested=true;
   final int gen=currentGeneration;
   ListEngineCallback<T> callback=cover(new ListEngineCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
