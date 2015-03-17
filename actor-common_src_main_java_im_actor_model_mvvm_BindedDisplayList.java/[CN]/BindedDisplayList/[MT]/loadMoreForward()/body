@@ -1,16 +1,20 @@
 {
   MVVMEngine.checkMainThread();
+  Log.d(TAG,"Requesting loading more...");
   if (isLoadMoreForwardRequested) {
+    Log.d(TAG,"Already requested");
     return;
   }
   isLoadMoreForwardRequested=true;
   if (!window.startForwardLoading()) {
+    Log.d(TAG,"Already started forward loading");
     return;
   }
   final int gen=currentGeneration;
   ListEngineCallback<T> callback=cover(new ListEngineCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
       MVVMEngine.checkMainThread();
+      Log.d(TAG,"Loaded more at generation " + gen + " with items "+ items.size());
       window.completeForwardLoading();
       if (items.size() == 0) {
         window.onForwardCompleted();
@@ -30,9 +34,11 @@
   }
 ,currentGeneration);
   if (mode != ListMode.SEARCH) {
+    Log.d(TAG,"Loading more search...");
     listEngine.loadForward(window.getCurrentForwardHead(),pageSize,callback);
   }
  else {
+    Log.d(TAG,"Loading more...");
     listEngine.loadForward(query,window.getCurrentForwardHead(),pageSize,callback);
   }
 }
