@@ -1,6 +1,6 @@
 {
   MVVMEngine.checkMainThread();
-  if (index > getSize() - loadGap) {
+  if (index >= getSize() - loadGap) {
     loadMoreForward();
   }
   if (index < loadGap) {
