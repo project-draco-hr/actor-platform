@@ -1,3 +1,0 @@
-{
-  return getUidString(ids,uid).replace("{0}",v1 + "");
-}

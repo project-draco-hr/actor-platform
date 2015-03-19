@@ -1,5 +1,0 @@
-{
-  Sex sex=getUserSex(uid);
-  int id=uid == myUid() ? ids[0] : sex == Sex.UNKNOWN ? ids[1] : sex == Sex.MALE ? ids[2] : ids[3];
-  return getString(id);
-}

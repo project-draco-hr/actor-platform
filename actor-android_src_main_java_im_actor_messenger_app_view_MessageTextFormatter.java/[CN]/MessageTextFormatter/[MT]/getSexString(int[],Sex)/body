@@ -1,4 +1,0 @@
-{
-  int id=sex == Sex.UNKNOWN ? ids[0] : sex == Sex.MALE ? ids[1] : ids[2];
-  return getString(id);
-}

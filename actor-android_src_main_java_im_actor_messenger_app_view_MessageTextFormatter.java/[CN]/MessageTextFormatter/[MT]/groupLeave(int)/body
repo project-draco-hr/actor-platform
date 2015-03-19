@@ -1,3 +1,0 @@
-{
-  return getUidString(GROUP_LEAVE,uid,getUserName(uid,true));
-}

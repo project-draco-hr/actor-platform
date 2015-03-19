@@ -1,3 +1,0 @@
-{
-  return getString(id).replace("{0}",v1 + "");
-}

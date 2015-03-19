@@ -1,0 +1,4 @@
+int senderId
+ContentType contentType
+String text
+int relatedUid

@@ -1,3 +1,0 @@
-{
-  return getSexString(JOINED_FULL,getUserSex(uid),getUserName(uid,true));
-}

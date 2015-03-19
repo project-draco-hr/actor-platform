@@ -1,3 +1,0 @@
-{
-  return getUidString(GROUP_CHANGE_AVATAR,uid,getUserName(uid,true));
-}

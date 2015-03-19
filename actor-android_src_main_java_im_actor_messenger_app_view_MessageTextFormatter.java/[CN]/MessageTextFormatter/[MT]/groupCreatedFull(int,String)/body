@@ -1,3 +1,0 @@
-{
-  return getUidString(GROUP_CREATED_FULL,uid,getUserName(uid,true),groupTitle);
-}

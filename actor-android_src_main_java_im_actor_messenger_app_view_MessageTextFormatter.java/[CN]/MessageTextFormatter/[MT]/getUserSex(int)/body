@@ -1,9 +1,0 @@
-{
-  UserVM u=users().get(uid);
-  if (u != null) {
-    return u.getSex();
-  }
- else {
-    return Sex.UNKNOWN;
-  }
-}

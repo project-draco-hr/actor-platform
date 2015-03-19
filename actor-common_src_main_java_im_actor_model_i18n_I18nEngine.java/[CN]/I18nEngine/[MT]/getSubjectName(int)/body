@@ -1,0 +1,8 @@
+{
+  if (uid == modules.getAuthModule().myUid()) {
+    return locale.get("Thee");
+  }
+ else {
+    return getUser(uid).getName();
+  }
+}

@@ -27,45 +27,17 @@
  else {
     time.setVisibility(View.GONE);
   }
-  boolean isGroup=data.getPeer().getPeerType() == PeerType.GROUP;
-  if (data.getMessageType() == ContentType.TEXT) {
-    bindedText=MessageTextFormatter.textMessage(data.getSenderId(),isGroup,data.getText());
-  }
- else   if (data.getMessageType() == ContentType.DOCUMENT_PHOTO) {
-    bindedText=MessageTextFormatter.photoMessage(data.getSenderId(),isGroup);
-  }
- else   if (data.getMessageType() == ContentType.DOCUMENT_VIDEO) {
-    bindedText=MessageTextFormatter.videoMessage(data.getSenderId(),isGroup);
-  }
- else   if (data.getMessageType() == ContentType.DOCUMENT) {
-    bindedText=MessageTextFormatter.documentMessage(data.getSenderId(),isGroup);
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_REGISTERED) {
-    bindedText=MessageTextFormatter.joinedActor(data.getSenderId());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_CREATED) {
-    bindedText=MessageTextFormatter.groupCreated(data.getSenderId());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_LEAVE) {
-    bindedText=MessageTextFormatter.groupLeave(data.getSenderId());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_ADD) {
-    bindedText=MessageTextFormatter.groupAdd(data.getSenderId(),data.getRelatedUid());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_KICK) {
-    bindedText=MessageTextFormatter.groupKicked(data.getSenderId(),data.getRelatedUid());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_TITLE) {
-    bindedText=MessageTextFormatter.groupChangeTitle(data.getSenderId());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_AVATAR) {
-    bindedText=MessageTextFormatter.groupChangeAvatar(data.getSenderId());
-  }
- else   if (data.getMessageType() == ContentType.SERVICE_AVATAR_REMOVED) {
-    bindedText=MessageTextFormatter.groupRemoveAvatar(data.getSenderId());
+  String contentText=messenger().getFormatter().formatContentDialogText(data.getSenderId(),data.getMessageType(),data.getText(),data.getRelatedUid());
+  if (messenger().getFormatter().isLargeDialogMessage(data.getMessageType())) {
+    bindedText=contentText;
   }
  else {
-    bindedText="";
+    if (data.getPeer().getPeerType() == PeerType.GROUP) {
+      bindedText=messenger().getFormatter().formatPerformerName(data.getSenderId()) + ": " + contentText;
+    }
+ else {
+      bindedText=contentText;
+    }
   }
   if (privateTypingListener != null) {
     privateTypingListener=null;

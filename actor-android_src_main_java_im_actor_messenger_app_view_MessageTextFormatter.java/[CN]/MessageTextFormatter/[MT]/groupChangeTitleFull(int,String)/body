@@ -1,3 +1,0 @@
-{
-  return getUidString(GROUP_CHANGE_TITLE_FULL,uid,getUserName(uid,true),title);
-}
