@@ -1,6 +1,5 @@
 {
   AppContext.setContext(application);
-  Formatter.init(application);
   system().setClassLoader(AppContext.getContext().getClassLoader());
   system().addDispatcher("db",1);
   ActivityManager activityManager=(ActivityManager)AppContext.getContext().getSystemService(Context.ACTIVITY_SERVICE);

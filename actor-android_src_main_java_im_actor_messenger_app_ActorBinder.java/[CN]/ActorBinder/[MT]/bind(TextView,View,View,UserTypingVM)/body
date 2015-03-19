@@ -2,7 +2,7 @@
   bind(typing.getTyping(),new ValueChangedListener<Boolean>(){
     @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
       if (val) {
-        textView.setText(R.string.typing_private);
+        textView.setText(messenger().getFormatter().formatTyping());
         container.setVisibility(View.VISIBLE);
         titleContainer.setVisibility(View.INVISIBLE);
       }

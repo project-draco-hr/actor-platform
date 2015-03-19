@@ -1,11 +1,15 @@
 {
   if (v < 0) {
-    return "" + v;
+    return "00";
   }
  else   if (v < 10) {
     return "0" + v;
   }
- else {
+ else   if (v < 100) {
     return "" + v;
+  }
+ else {
+    String res="" + v;
+    return res.substring(res.length() - 2);
   }
 }

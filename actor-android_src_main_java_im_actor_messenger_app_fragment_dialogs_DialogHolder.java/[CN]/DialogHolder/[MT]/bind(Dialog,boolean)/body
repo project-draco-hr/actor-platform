@@ -22,7 +22,7 @@
   title.setCompoundDrawablesWithIntrinsicBounds(left,0,0,0);
   if (data.getDate() > 0) {
     time.setVisibility(View.VISIBLE);
-    time.setText(Formatter.formatShortDate(data.getDate()));
+    time.setText(messenger().getFormatter().formatShortDate(data.getDate()));
   }
  else {
     time.setVisibility(View.GONE);
@@ -80,7 +80,7 @@
     privateTypingListener=new ValueChangeListener<Boolean>(){
       @Override public void onChanged(      Boolean value){
         if (value) {
-          text.setText(R.string.typing_private);
+          text.setText(messenger().getFormatter().formatTyping());
           text.setTextColor(context.getResources().getColor(R.color.primary));
         }
  else {
@@ -96,7 +96,12 @@
     groupTypingListener=new ValueChangeListener<int[]>(){
       @Override public void onChanged(      int[] value){
         if (value.length != 0) {
-          text.setText(Formatter.formatTyping(value));
+          if (value.length == 1) {
+            text.setText(messenger().getFormatter().formatTyping(users().get(value[0]).getName().get()));
+          }
+ else {
+            text.setText(messenger().getFormatter().formatTyping(value.length));
+          }
           text.setTextColor(context.getResources().getColor(R.color.primary));
         }
  else {

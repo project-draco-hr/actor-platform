@@ -1,7 +1,7 @@
 {
   document=(DocumentContent)message.getContent();
   fileName.setText(document.getName());
-  fileSize.setText(Formatter.formatFileSize(document.getSource().getSize()) + " " + document.getExt().toUpperCase());
+  fileSize.setText(messenger().getFormatter().formatFileSize(document.getSource().getSize()) + " " + document.getExt().toUpperCase());
   if (isUpdated) {
     boolean isAppliedThumb=false;
     if (document.getFastThumb() != null) {

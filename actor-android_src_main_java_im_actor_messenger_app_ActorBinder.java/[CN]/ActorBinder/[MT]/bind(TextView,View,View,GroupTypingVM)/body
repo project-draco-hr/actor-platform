@@ -6,7 +6,12 @@
         titleContainer.setVisibility(View.VISIBLE);
       }
  else {
-        textView.setText(Formatter.formatTyping(val));
+        if (val.length == 1) {
+          textView.setText(messenger().getFormatter().formatTyping(users().get(val[0]).getName().get()));
+        }
+ else {
+          textView.setText(messenger().getFormatter().formatTyping(val.length));
+        }
         container.setVisibility(View.VISIBLE);
         titleContainer.setVisibility(View.INVISIBLE);
       }

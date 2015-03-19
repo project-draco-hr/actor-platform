@@ -47,7 +47,7 @@ duration.setVisibility(View.GONE);
 w=((VideoContent)message.getContent()).getW();
 h=((VideoContent)message.getContent()).getH();
 duration.setVisibility(View.VISIBLE);
-duration.setText(Formatter.duration(((VideoContent)message.getContent()).getDuration()));
+duration.setText(messenger().getFormatter().formatDuration(((VideoContent)message.getContent()).getDuration()));
 }
  else {
 throw new RuntimeException("Unsupported content");

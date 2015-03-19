@@ -2,14 +2,14 @@
   bind(value.getPresence(),value.getMembers(),new ValueDoubleChangedListener<Integer,HashSet<GroupMember>>(){
     @Override public void onChanged(    Integer online,    ValueModel<Integer> onlineModel,    HashSet<GroupMember> members,    ValueModel<HashSet<GroupMember>> membersModel){
       if (online <= 0) {
-        SpannableStringBuilder builder=new SpannableStringBuilder(AppContext.getContext().getString(R.string.chat_group_members).replace("{0}",members.size() + ""));
+        SpannableStringBuilder builder=new SpannableStringBuilder(messenger().getFormatter().formatGroupMembers(members.size()));
         builder.setSpan(new ForegroundColorSpan(0xB7ffffff),0,builder.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         textView.setText(builder);
       }
  else {
-        SpannableStringBuilder builder=new SpannableStringBuilder(AppContext.getContext().getString(R.string.chat_group_members).replace("{0}",members.size() + "") + ", ");
+        SpannableStringBuilder builder=new SpannableStringBuilder(messenger().getFormatter().formatGroupMembers(members.size()) + ", ");
         builder.setSpan(new ForegroundColorSpan(0xB7ffffff),0,builder.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        builder.append(AppContext.getContext().getString(R.string.chat_group_members_online).replace("{0}",online + ""));
+        builder.append(messenger().getFormatter().formatGroupOnline(online));
         textView.setText(builder);
       }
     }
