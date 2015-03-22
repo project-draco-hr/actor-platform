@@ -1,7 +1,9 @@
 {
   if (currentConnection != null && currentConnection.isClosed()) {
     currentConnection=null;
+    Log.d(TAG,"Set connection #" + 0);
     currentConnectionId=0;
+    checkConnection();
   }
   if (currentConnection != null) {
     DataOutput bos=new DataOutput();

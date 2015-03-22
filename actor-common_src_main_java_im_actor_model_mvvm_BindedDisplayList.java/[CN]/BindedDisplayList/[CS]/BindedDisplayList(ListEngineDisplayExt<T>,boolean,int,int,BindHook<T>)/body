@@ -5,6 +5,7 @@
     }
   }
 );
+  this.bindHook=bindHook;
   this.isGlobalList=isGlobalList;
   this.pageSize=pageSize;
   this.loadGap=loadGap;

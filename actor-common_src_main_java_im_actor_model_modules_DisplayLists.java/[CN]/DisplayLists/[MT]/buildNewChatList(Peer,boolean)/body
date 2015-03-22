@@ -4,7 +4,18 @@
   if (!(messagesEngine instanceof ListEngineDisplayExt)) {
     throw new RuntimeException("Conversation ListEngine must implement ListEngineDisplayExt for using global list");
   }
-  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,LOAD_PAGE,LOAD_GAP);
+  BindedDisplayList.BindHook<Message> hook=null;
+  if (isGlobalList) {
+    hook=new BindedDisplayList.BindHook<Message>(){
+      @Override public void onScrolledToEnd(){
+        modules().getMessagesModule().loadMoreHistory(peer);
+      }
+      @Override public void onItemTouched(      Message item){
+      }
+    }
+;
+  }
+  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,hook);
   chatList.initTop(false);
   return chatList;
 }

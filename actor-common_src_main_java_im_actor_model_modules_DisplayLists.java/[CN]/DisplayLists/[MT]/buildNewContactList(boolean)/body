@@ -4,7 +4,7 @@
   if (!(contactsEngine instanceof ListEngineDisplayExt)) {
     throw new RuntimeException("Contacts ListEngine must implement ListEngineDisplayExt for using global list");
   }
-  BindedDisplayList<Contact> contactList=new BindedDisplayList<Contact>((ListEngineDisplayExt<Contact>)contactsEngine,isGlobalList,LOAD_PAGE,LOAD_GAP);
+  BindedDisplayList<Contact> contactList=new BindedDisplayList<Contact>((ListEngineDisplayExt<Contact>)contactsEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,null);
   contactList.initTop(false);
   return contactList;
 }

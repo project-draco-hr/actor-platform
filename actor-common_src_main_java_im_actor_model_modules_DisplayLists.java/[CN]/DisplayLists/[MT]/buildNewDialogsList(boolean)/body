@@ -4,7 +4,18 @@
   if (!(dialogsEngine instanceof ListEngineDisplayExt)) {
     throw new RuntimeException("Dialogs ListEngine must implement ListEngineDisplayExt for using global list");
   }
-  BindedDisplayList<Dialog> displayList=new BindedDisplayList<Dialog>((ListEngineDisplayExt<Dialog>)dialogsEngine,isGlobalList,LOAD_PAGE,LOAD_GAP);
+  BindedDisplayList.BindHook<Dialog> hook=null;
+  if (isGlobalList) {
+    hook=new BindedDisplayList.BindHook<Dialog>(){
+      @Override public void onScrolledToEnd(){
+        modules().getMessagesModule().loadMoreDialogs();
+      }
+      @Override public void onItemTouched(      Dialog item){
+      }
+    }
+;
+  }
+  BindedDisplayList<Dialog> displayList=new BindedDisplayList<Dialog>((ListEngineDisplayExt<Dialog>)dialogsEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,hook);
   displayList.initTop(false);
   return displayList;
 }

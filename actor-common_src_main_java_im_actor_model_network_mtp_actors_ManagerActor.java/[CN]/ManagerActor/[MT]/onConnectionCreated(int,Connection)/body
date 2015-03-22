@@ -10,8 +10,10 @@
   }
   if (currentConnection != null) {
     currentConnection.close();
+    Log.d(TAG,"Set connection #" + 0);
     currentConnectionId=0;
   }
+  Log.d(TAG,"Set connection #" + id);
   currentConnectionId=id;
   currentConnection=connection;
   backoff.onSuccess();
