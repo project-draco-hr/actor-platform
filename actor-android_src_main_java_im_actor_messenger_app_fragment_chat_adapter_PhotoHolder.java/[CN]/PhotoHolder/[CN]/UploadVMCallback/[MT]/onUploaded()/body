@@ -1,5 +1,4 @@
 {
-  imageKitView.requestPhoto(reference.getDescriptor());
   progressValue.setText(100 + "");
   progressView.setValue(100);
   goneView(progressContainer);

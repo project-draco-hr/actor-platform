@@ -70,9 +70,11 @@ if (downloadFileVM != null) {
 downloadFileVM.detach();
 downloadFileVM=null;
 }
-needRebind=true;
+if (uploadFileVM != null) {
+uploadFileVM.detach();
+uploadFileVM=null;
 }
- else {
+needRebind=true;
 }
 if (needRebind) {
 progressContainer.setVisibility(View.GONE);
@@ -84,15 +86,8 @@ boolean autoDownload=fileMessage instanceof PhotoContent;
 downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(fileMessage));
 }
  else if (fileMessage.getSource() instanceof FileLocalSource) {
-messenger().bindUpload(message.getRid(),new UploadFileVMCallback(){
-@Override public void onNotUploaded(){
-}
-@Override public void onUploading(float progress){
-}
-@Override public void onUploaded(){
-}
-}
-);
+uploadFileVM=messenger().bindUpload(message.getRid(),new UploadVMCallback());
+imageKitView.requestPhoto(((FileLocalSource)fileMessage.getSource()).getFileDescriptor());
 }
  else {
 throw new RuntimeException("Unknown file source type: " + fileMessage.getSource());
