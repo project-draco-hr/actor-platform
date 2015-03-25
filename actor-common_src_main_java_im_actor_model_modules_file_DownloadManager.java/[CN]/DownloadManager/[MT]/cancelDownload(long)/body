@@ -13,8 +13,13 @@
     }
     Log.d(TAG,"- Marking as stopped");
     queueItem.isStopped=true;
-    for (    DownloadCallback callback : queueItem.callbacks) {
-      callback.onNotDownloaded();
+    for (    final DownloadCallback callback : queueItem.callbacks) {
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotDownloaded();
+        }
+      }
+);
     }
   }
   checkQueue();

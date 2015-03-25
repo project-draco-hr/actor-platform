@@ -1,0 +1,17 @@
+{
+  try {
+    MediaMetadataRetriever retriever=new MediaMetadataRetriever();
+    retriever.setDataSource(fullFilePath);
+    int duration=(int)(Long.parseLong(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)) / 1000L);
+    Bitmap img=retriever.getFrameAtTime(0);
+    int width=img.getWidth();
+    int height=img.getHeight();
+    Bitmap smallThumb=ImageScaling.scaleFit(img,90,90);
+    byte[] smallThumbData=ImageLoading.saveJpeg(smallThumb,ImageLoading.JPEG_QUALITY_LOW);
+    FastThumb thumb=new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),smallThumbData);
+    sendVideo(peer,fileName,width,height,duration,thumb,new AndroidFileSystemReference(fullFilePath));
+  }
+ catch (  Throwable e) {
+    e.printStackTrace();
+  }
+}

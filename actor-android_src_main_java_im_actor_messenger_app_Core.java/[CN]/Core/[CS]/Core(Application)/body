@@ -25,6 +25,7 @@
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setFileSystemProvider(new AndroidFileProvider(application));
   builder.setNotificationProvider(new AndroidNotifications());
+  builder.setDispatcherProvider(new AndroidCallbackDispatcher());
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
@@ -32,10 +33,11 @@
     builder.addEndpoint("tcp://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
   builder.setEnableContactsLogging(true);
+  builder.setEnableNetworkLogging(true);
   byte[] deviceHash=bouncyCastleProvider.SHA256(Base64.encode((AppContext.getContext().getPackageName() + ":" + Build.SERIAL).getBytes(),Base64.DEFAULT));
   builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",deviceHash));
   builder.setCryptoProvider(bouncyCastleProvider);
-  this.messenger=new im.actor.model.Messenger(builder.build());
+  this.messenger=new im.actor.model.android.AndroidMessenger(builder.build());
   AppContext.getContext().getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
     @Override public void onChange(    boolean selfChange){
       messenger.onPhoneBookChanged();

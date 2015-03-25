@@ -2,5 +2,5 @@
   if (modules.getTypingModule() == null) {
     return null;
   }
-  return modules.getTypingModule().getGroupTyping(gid);
+  return modules.getTypingModule().getGroupTyping(gid).getActive();
 }

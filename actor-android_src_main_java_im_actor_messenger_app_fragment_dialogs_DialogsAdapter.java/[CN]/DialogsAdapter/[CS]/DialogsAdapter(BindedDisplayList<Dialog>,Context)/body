@@ -1,4 +1,0 @@
-{
-  super(displayList);
-  this.context=context;
-}

@@ -1,0 +1,65 @@
+{
+  if (actionMode == null) {
+    messagesAdapter.clearSelection();
+    messagesAdapter.setSelected(message,true);
+    actionMode=((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback(){
+      @Override public boolean onCreateActionMode(      ActionMode actionMode,      Menu menu){
+        getActivity().getMenuInflater().inflate(R.menu.messages_context,menu);
+        return true;
+      }
+      @Override public boolean onPrepareActionMode(      ActionMode actionMode,      Menu menu){
+        Message[] selected=messagesAdapter.getSelected();
+        if (selected.length > 0) {
+          actionMode.setTitle("" + selected.length);
+        }
+        boolean isAllText=true;
+        for (        Message k : selected) {
+          if (!(k.getContent() instanceof TextContent)) {
+            isAllText=false;
+            break;
+          }
+        }
+        menu.findItem(R.id.copy).setVisible(isAllText);
+        return false;
+      }
+      @Override public boolean onActionItemClicked(      ActionMode actionMode,      MenuItem menuItem){
+        if (menuItem.getItemId() == R.id.delete) {
+          actionMode.finish();
+          return true;
+        }
+ else         if (menuItem.getItemId() == R.id.copy) {
+          String text=messenger().getFormatter().formatMessages(messagesAdapter.getSelected());
+          android.content.ClipboardManager clipboard=(android.content.ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+          android.content.ClipData clip=android.content.ClipData.newPlainText("Messages",text);
+          clipboard.setPrimaryClip(clip);
+          Toast.makeText(getActivity(),R.string.toast_messages_copied,Toast.LENGTH_SHORT).show();
+          actionMode.finish();
+          return true;
+        }
+        return false;
+      }
+      @Override public void onDestroyActionMode(      ActionMode actionMode){
+        BaseMessagesFragment.this.actionMode=null;
+        messagesAdapter.clearSelection();
+      }
+    }
+);
+  }
+ else {
+    if (messagesAdapter.isSelected(message)) {
+      messagesAdapter.setSelected(message,false);
+      if (messagesAdapter.getSelectedCount() == 0) {
+        actionMode.finish();
+        actionMode=null;
+      }
+ else {
+        actionMode.invalidate();
+      }
+    }
+ else {
+      messagesAdapter.setSelected(message,true);
+      actionMode.invalidate();
+    }
+  }
+  return true;
+}

@@ -1,24 +1,11 @@
 {
-  DialogsAdapter adapter=new DialogsAdapter(displayList,activity);
-  adapter.setItemClicked(new OnItemClickedListener<Dialog>(){
+  return new DialogsAdapter(displayList,new OnItemClickedListener<Dialog>(){
     @Override public void onClicked(    Dialog item){
       onItemClick(item);
     }
     @Override public boolean onLongClicked(    Dialog item){
-      return false;
+      return onItemLongClick(item);
     }
   }
-);
-  if (supportLongClick()) {
-    adapter.setItemLongClicked(new OnItemClickedListener<Dialog>(){
-      @Override public void onClicked(      Dialog item){
-        onItemLongClick(item);
-      }
-      @Override public boolean onLongClicked(      Dialog item){
-        return false;
-      }
-    }
-);
-  }
-  return adapter;
+,activity);
 }

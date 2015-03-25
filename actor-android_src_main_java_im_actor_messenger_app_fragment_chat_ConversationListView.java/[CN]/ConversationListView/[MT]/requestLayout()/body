@@ -1,5 +1,0 @@
-{
-  if (!lockLayout) {
-    super.requestLayout();
-  }
-}

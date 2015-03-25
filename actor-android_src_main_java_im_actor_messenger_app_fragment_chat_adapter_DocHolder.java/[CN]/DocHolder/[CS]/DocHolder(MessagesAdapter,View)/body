@@ -1,0 +1,28 @@
+{
+  super(fragment,itemView,false);
+  bubbleView=itemView.findViewById(R.id.bubbleContainer);
+  bubbleView.setBackgroundResource(R.drawable.conv_bubble_media_in);
+  menu=itemView.findViewById(R.id.menu);
+  menu.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      PopupMenu popup=new PopupMenu(fragment.getMessagesFragment().getActivity(),v);
+      popup.getMenuInflater().inflate(R.menu.doc_popup,popup.getMenu());
+      popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+        @Override public boolean onMenuItemClick(        MenuItem item){
+          return true;
+        }
+      }
+);
+      popup.show();
+    }
+  }
+);
+  fileName=(TextView)itemView.findViewById(R.id.fileName);
+  fileSize=(TextView)itemView.findViewById(R.id.fileSize);
+  status=(TextView)itemView.findViewById(R.id.status);
+  fileIcon=(ImageView)itemView.findViewById(R.id.icon);
+  downloadIcon=(TintImageView)itemView.findViewById(R.id.downloading);
+  progressView=(CircularView)itemView.findViewById(R.id.progressView);
+  progressView.setColor(fragment.getMessagesFragment().getActivity().getResources().getColor(R.color.primary));
+  progressValue=(TextView)itemView.findViewById(R.id.progressValue);
+}

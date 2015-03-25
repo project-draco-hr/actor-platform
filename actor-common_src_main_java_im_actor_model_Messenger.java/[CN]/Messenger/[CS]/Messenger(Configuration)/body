@@ -2,6 +2,7 @@
   Log.setLog(configuration.getLog());
   long start=configuration.getThreadingProvider().getActorTime();
   Environment.setThreadingProvider(configuration.getThreadingProvider());
+  Environment.setDispatcherProvider(configuration.getDispatcherProvider());
   Log.d(TAG,"Loading stage1 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
   start=configuration.getThreadingProvider().getActorTime();
   CryptoUtils.init(configuration.getCryptoProvider());

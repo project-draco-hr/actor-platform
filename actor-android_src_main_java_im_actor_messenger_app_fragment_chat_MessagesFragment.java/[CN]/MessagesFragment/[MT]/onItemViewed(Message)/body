@@ -1,5 +1,0 @@
-{
-  if (messageModel.getSenderId() != myUid()) {
-    messenger().onInMessageShown(peer,messageModel.getRid(),messageModel.getSortDate(),false);
-  }
-}

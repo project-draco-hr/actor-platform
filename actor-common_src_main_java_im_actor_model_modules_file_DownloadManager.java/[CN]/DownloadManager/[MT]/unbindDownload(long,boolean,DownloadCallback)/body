@@ -15,9 +15,14 @@
       if (!queueItem.isStopped) {
         Log.d(TAG,"- Marking as stopped");
         queueItem.isStopped=true;
-        for (        DownloadCallback c : queueItem.callbacks) {
+        for (        final DownloadCallback c : queueItem.callbacks) {
           if (c != callback) {
-            c.onNotDownloaded();
+            Environment.dispatchCallback(new Runnable(){
+              @Override public void run(){
+                c.onNotDownloaded();
+              }
+            }
+);
           }
         }
       }

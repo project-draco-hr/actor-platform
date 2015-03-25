@@ -1,0 +1,40 @@
+{
+  super.onResume();
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    final UserVM user=users().get(peer.getPeerId());
+    if (user == null) {
+      finish();
+      return;
+    }
+    bind(barAvatar,user.getId(),18,user.getAvatar(),user.getName());
+    bind(barTitle,user.getName());
+    bind(barSubtitle,barSubtitleContainer,user);
+    bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    GroupVM group=groups().get(peer.getPeerId());
+    if (group == null) {
+      finish();
+      return;
+    }
+    bind(barAvatar,group.getId(),18,group.getAvatar(),group.getName());
+    bind(barTitle,group.getName());
+    barSubtitleContainer.setVisibility(View.VISIBLE);
+    bind(barSubtitle,group);
+    bindGroupTyping(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
+  }
+  if (isCompose) {
+    messageBody.requestFocus();
+    keyboardUtils.setImeVisibility(messageBody,true);
+  }
+  isCompose=false;
+  isTypingDisabled=true;
+  String text=messenger().loadDraft(peer);
+  if (text != null) {
+    messageBody.setText(text);
+  }
+ else {
+    messageBody.setText("");
+  }
+  isTypingDisabled=false;
+}

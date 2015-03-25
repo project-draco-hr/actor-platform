@@ -1,0 +1,3 @@
+BindedDisplayList<Dialog> displayList
+OnItemClickedListener<Dialog> itemClicked
+Context context

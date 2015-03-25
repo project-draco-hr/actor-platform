@@ -1,9 +1,0 @@
-{
-  super.onResume();
-  if (isFirst) {
-    isFirst=false;
-    initUnreadLocation();
-  }
-  scrollUp.setVisibility(View.GONE);
-  scrollDown.setVisibility(View.GONE);
-}

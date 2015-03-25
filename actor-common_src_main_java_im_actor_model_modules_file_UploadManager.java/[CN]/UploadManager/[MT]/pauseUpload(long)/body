@@ -7,8 +7,13 @@
       queueItem.isStarted=false;
     }
     queueItem.isStopped=true;
-    for (    UploadCallback callback : queueItem.callbacks) {
-      callback.onNotUploading();
+    for (    final UploadCallback callback : queueItem.callbacks) {
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotUploading();
+        }
+      }
+);
     }
   }
 }

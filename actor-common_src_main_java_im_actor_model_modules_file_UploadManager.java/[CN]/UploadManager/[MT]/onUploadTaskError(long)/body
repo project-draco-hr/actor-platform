@@ -11,8 +11,13 @@
   queueItem.taskRef.send(PoisonPill.INSTANCE);
   queueItem.isStopped=true;
   queueItem.isStarted=false;
-  for (  UploadCallback callback : queueItem.callbacks) {
-    callback.onNotUploading();
+  for (  final UploadCallback callback : queueItem.callbacks) {
+    Environment.dispatchCallback(new Runnable(){
+      @Override public void run(){
+        callback.onNotUploading();
+      }
+    }
+);
   }
   queueItem.requestActor.send(new UploadError(rid));
   checkQueue();

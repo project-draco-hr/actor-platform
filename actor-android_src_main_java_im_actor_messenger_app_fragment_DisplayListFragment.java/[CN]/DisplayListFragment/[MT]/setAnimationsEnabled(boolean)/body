@@ -1,0 +1,8 @@
+{
+  if (isEnabled) {
+    collection.setItemAnimator(new DefaultItemAnimator());
+  }
+ else {
+    collection.setItemAnimator(null);
+  }
+}

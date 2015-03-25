@@ -11,8 +11,13 @@
     Log.d(TAG,"- Promoting in queue");
     if (queueItem.isStopped) {
       queueItem.isStopped=false;
-      for (      DownloadCallback callback : queueItem.callbacks) {
-        callback.onDownloading(0);
+      for (      final DownloadCallback callback : queueItem.callbacks) {
+        Environment.dispatchCallback(new Runnable(){
+          @Override public void run(){
+            callback.onDownloading(0);
+          }
+        }
+);
       }
     }
     promote(fileReference.getFileId());

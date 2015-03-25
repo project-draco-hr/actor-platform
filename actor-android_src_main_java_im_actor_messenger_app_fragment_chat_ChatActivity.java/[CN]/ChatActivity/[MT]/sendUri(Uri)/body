@@ -1,0 +1,57 @@
+{
+  new AsyncTask<Void,Void,Void>(){
+    private ProgressDialog progressDialog;
+    @Override protected void onPreExecute(){
+      progressDialog=new ProgressDialog(ChatActivity.this);
+      progressDialog.setMessage(getString(R.string.pick_downloading));
+      progressDialog.setCancelable(false);
+      progressDialog.show();
+    }
+    @Override protected Void doInBackground(    Void... params){
+      String[] filePathColumn={MediaStore.Images.Media.DATA,MediaStore.Video.Media.MIME_TYPE,MediaStore.Video.Media.TITLE};
+      Cursor cursor=getContentResolver().query(uri,filePathColumn,null,null,null);
+      cursor.moveToFirst();
+      String picturePath=cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
+      String mimeType=cursor.getString(cursor.getColumnIndex(filePathColumn[1]));
+      String fileName=cursor.getString(cursor.getColumnIndex(filePathColumn[2]));
+      if (mimeType == null) {
+        mimeType="?/?";
+      }
+      cursor.close();
+      if (picturePath == null || !uri.getScheme().equals("file")) {
+        File externalFile=AppContext.getContext().getExternalFilesDir(null);
+        if (externalFile == null) {
+          return null;
+        }
+        String externalPath=externalFile.getAbsolutePath();
+        File dest=new File(externalPath + "/Actor/");
+        dest.mkdirs();
+        File outputFile=new File(dest,"upload_" + RandomUtil.randomId() + ".jpg");
+        picturePath=outputFile.getAbsolutePath();
+        try {
+          IOUtils.copy(getContentResolver().openInputStream(uri),new File(picturePath));
+        }
+ catch (        IOException e) {
+          e.printStackTrace();
+          return null;
+        }
+      }
+      if (fileName == null) {
+        fileName=picturePath;
+      }
+      if (mimeType.startsWith("video/")) {
+        messenger().sendVideo(peer,picturePath,fileName);
+      }
+ else       if (mimeType.startsWith("image/")) {
+        messenger().sendPhoto(peer,picturePath,new File(fileName).getName());
+      }
+ else {
+      }
+      return null;
+    }
+    @Override protected void onPostExecute(    Void aVoid){
+      progressDialog.dismiss();
+    }
+  }
+.execute();
+}

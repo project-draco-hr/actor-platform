@@ -1,4 +1,0 @@
-{
-  super.configureRecyclerView(recyclerView);
-  recyclerView.setItemAnimator(null);
-}

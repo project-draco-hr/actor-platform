@@ -8,7 +8,12 @@
     return;
   }
   queueItem.progress=progress;
-  for (  UploadCallback fileCallback : queueItem.callbacks) {
-    fileCallback.onUploading(progress);
+  for (  final UploadCallback fileCallback : queueItem.callbacks) {
+    Environment.dispatchCallback(new Runnable(){
+      @Override public void run(){
+        fileCallback.onUploading(progress);
+      }
+    }
+);
   }
 }

@@ -1,6 +1,0 @@
-{
-  super.onPause();
-  if (actionMode != null) {
-    actionMode.finish();
-  }
-}

@@ -1,10 +1,9 @@
 {
-  binded=data.getPeer().getUnuqueId();
+  this.binded=data.getPeer().getUnuqueId();
   this.bindedItem=data;
   avatar.unbind();
   avatar.setEmptyDrawable(AvatarDrawable.create(data,24,context));
   if (data.getDialogAvatar() != null && data.getDialogAvatar().getSmallImage() != null) {
-    Log.d("DialogHolder","Bind avatar: " + data.getEngineId() + " @ "+ data.getDialogAvatar().getSmallImage().getFileReference().getFileId());
     avatar.bindAvatar(54,data.getDialogAvatar());
   }
   if (data.getUnreadCount() > 0) {
@@ -40,18 +39,18 @@
     }
   }
   if (privateTypingListener != null) {
+    messenger().getTyping(bindedUid).unsubscribe(privateTypingListener);
     privateTypingListener=null;
   }
   if (groupTypingListener != null) {
+    messenger().getGroupTyping(bindedGid).unsubscribe(groupTypingListener);
     groupTypingListener=null;
   }
-  text.setText(bindedText);
-  text.setTextColor(context.getResources().getColor(R.color.text_primary));
   if (data.getPeer().getPeerType() == PeerType.PRIVATE) {
     bindedUid=data.getPeer().getPeerId();
-    privateTypingListener=new ValueChangeListener<Boolean>(){
-      @Override public void onChanged(      Boolean value){
-        if (value) {
+    privateTypingListener=new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+        if (val) {
           text.setText(messenger().getFormatter().formatTyping());
           text.setTextColor(context.getResources().getColor(R.color.primary));
         }
@@ -62,17 +61,18 @@
       }
     }
 ;
+    messenger().getTyping(bindedUid).subscribe(privateTypingListener);
   }
  else   if (data.getPeer().getPeerType() == PeerType.GROUP) {
     bindedGid=data.getPeer().getPeerId();
-    groupTypingListener=new ValueChangeListener<int[]>(){
-      @Override public void onChanged(      int[] value){
-        if (value.length != 0) {
-          if (value.length == 1) {
-            text.setText(messenger().getFormatter().formatTyping(users().get(value[0]).getName().get()));
+    groupTypingListener=new ValueChangedListener<int[]>(){
+      @Override public void onChanged(      int[] val,      ValueModel<int[]> valueModel){
+        if (val.length != 0) {
+          if (val.length == 1) {
+            text.setText(messenger().getFormatter().formatTyping(messenger().getUsers().get(val[0]).getName().get()));
           }
  else {
-            text.setText(messenger().getFormatter().formatTyping(value.length));
+            text.setText(messenger().getFormatter().formatTyping(val.length));
           }
           text.setTextColor(context.getResources().getColor(R.color.primary));
         }
@@ -83,6 +83,7 @@
       }
     }
 ;
+    messenger().getGroupTyping(bindedGid).subscribe(groupTypingListener);
   }
  else {
     text.setText(bindedText);

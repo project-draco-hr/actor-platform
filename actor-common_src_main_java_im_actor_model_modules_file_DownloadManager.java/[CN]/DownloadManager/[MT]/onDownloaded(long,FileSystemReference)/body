@@ -10,8 +10,13 @@
   downloaded.addOrUpdateItem(new Downloaded(queueItem.fileReference.getFileId(),queueItem.fileReference.getFileSize(),reference.getDescriptor()));
   queue.remove(queueItem);
   queueItem.taskRef.send(PoisonPill.INSTANCE);
-  for (  DownloadCallback fileCallback : queueItem.callbacks) {
-    fileCallback.onDownloaded(reference);
+  for (  final DownloadCallback fileCallback : queueItem.callbacks) {
+    Environment.dispatchCallback(new Runnable(){
+      @Override public void run(){
+        fileCallback.onDownloaded(reference);
+      }
+    }
+);
   }
   checkQueue();
 }

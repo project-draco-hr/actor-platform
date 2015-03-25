@@ -1,7 +1,3 @@
 {
-  Bundle bundle=new Bundle();
-  bundle.putLong("CHAT_PEER",peer.getUnuqueId());
-  MessagesFragment res=new MessagesFragment();
-  res.setArguments(bundle);
-  return res;
+  return new MessagesFragment(peer);
 }

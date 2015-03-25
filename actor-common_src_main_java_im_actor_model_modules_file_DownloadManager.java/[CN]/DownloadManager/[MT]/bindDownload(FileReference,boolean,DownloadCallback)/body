@@ -8,7 +8,13 @@
     int fileSize=reference.getSize();
     if (isExist && fileSize == downloaded1.getFileSize()) {
       Log.d(TAG,"- Downloaded");
-      callback.onDownloaded(modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor()));
+      final FileSystemReference fileSystemReference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor());
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloaded(fileSystemReference);
+        }
+      }
+);
       return;
     }
  else {
@@ -29,11 +35,21 @@
     queueItem.callbacks.add(callback);
     if (autoStart) {
       queueItem.isStopped=false;
-      callback.onDownloading(0);
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloading(0);
+        }
+      }
+);
     }
  else {
       queueItem.isStopped=true;
-      callback.onNotDownloaded();
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotDownloaded();
+        }
+      }
+);
     }
     queue.add(0,queueItem);
   }
@@ -44,14 +60,30 @@
       queueItem.callbacks.add(callback);
     }
     if (queueItem.isStopped) {
-      callback.onNotDownloaded();
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotDownloaded();
+        }
+      }
+);
     }
  else {
       if (queueItem.isStarted) {
-        callback.onDownloading(queueItem.progress);
+        final float progress=queueItem.progress;
+        Environment.dispatchCallback(new Runnable(){
+          @Override public void run(){
+            callback.onDownloading(progress);
+          }
+        }
+);
       }
  else {
-        callback.onDownloading(0);
+        Environment.dispatchCallback(new Runnable(){
+          @Override public void run(){
+            callback.onDownloading(0);
+          }
+        }
+);
       }
     }
   }

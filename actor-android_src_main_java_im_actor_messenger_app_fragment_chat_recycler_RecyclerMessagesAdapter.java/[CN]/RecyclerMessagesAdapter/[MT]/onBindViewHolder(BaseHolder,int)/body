@@ -1,5 +1,0 @@
-{
-  if (baseHolder instanceof MessageHolder) {
-    onBindViewHolder((MessageHolder)baseHolder,i - 1);
-  }
-}

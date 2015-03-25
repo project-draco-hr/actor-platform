@@ -8,7 +8,13 @@
     int fileSize=reference.getSize();
     if (isExist && fileSize == downloaded1.getFileSize()) {
       Log.d(TAG,"- Downloaded");
-      callback.onDownloaded(modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor()));
+      final FileSystemReference fileSystemReference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor());
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloaded(fileSystemReference);
+        }
+      }
+);
       return;
     }
  else {
@@ -22,19 +28,40 @@
       downloaded.removeItem(downloaded1.getFileId());
     }
   }
-  QueueItem queueItem=findItem(fileId);
+  final QueueItem queueItem=findItem(fileId);
   if (queueItem == null) {
-    callback.onNotDownloaded();
+    Environment.dispatchCallback(new Runnable(){
+      @Override public void run(){
+        callback.onNotDownloaded();
+      }
+    }
+);
   }
  else {
     if (queueItem.isStarted) {
-      callback.onDownloading(queueItem.progress);
+      final float progress=queueItem.progress;
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloading(progress);
+        }
+      }
+);
     }
  else     if (queueItem.isStopped) {
-      callback.onNotDownloaded();
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotDownloaded();
+        }
+      }
+);
     }
  else {
-      callback.onDownloading(0);
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloading(0);
+        }
+      }
+);
     }
   }
 }

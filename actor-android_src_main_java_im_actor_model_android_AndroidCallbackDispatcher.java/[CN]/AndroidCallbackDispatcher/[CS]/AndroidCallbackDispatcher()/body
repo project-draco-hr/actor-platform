@@ -1,0 +1,9 @@
+{
+  handlerThread=new HandlerThread("CallbacksThread",Thread.MIN_PRIORITY){
+    @Override protected void onLooperPrepared(){
+      handler=new Handler(getLooper());
+    }
+  }
+;
+  handlerThread.start();
+}

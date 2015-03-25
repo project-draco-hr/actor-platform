@@ -1,5 +1,0 @@
-{
-  setOnScrollListener(new ScrollListener());
-  ACTIVATE_DELTA_DP=getPx(ACTIVATE_DELTA);
-  SWITCH_DELTA_DP=getPx(SWITCH_DELTA);
-}

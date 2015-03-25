@@ -19,6 +19,7 @@
       }
     }
 ).show();
+    return true;
   }
  else   if (dialog.getPeer().getPeerType() == PeerType.GROUP) {
     GroupVM groupVM=groups().get(dialog.getPeer().getPeerId());
@@ -52,5 +53,7 @@
       }
     }
 ).show();
+    return true;
   }
+  return false;
 }
