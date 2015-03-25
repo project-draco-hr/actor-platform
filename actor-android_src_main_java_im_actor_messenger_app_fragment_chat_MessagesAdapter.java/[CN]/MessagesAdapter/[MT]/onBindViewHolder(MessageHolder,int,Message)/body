@@ -7,7 +7,5 @@
   if (index < getItemCount() - 1) {
     prev=getItem(index + 1);
   }
-  if (dialogHolder instanceof MessageHolder) {
-    ((MessageHolder)dialogHolder).bindData(item,prev,next);
-  }
+  dialogHolder.bindData(item,prev,next);
 }

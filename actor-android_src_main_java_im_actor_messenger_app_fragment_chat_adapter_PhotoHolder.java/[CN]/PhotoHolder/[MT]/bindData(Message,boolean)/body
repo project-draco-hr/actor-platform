@@ -84,6 +84,15 @@ boolean autoDownload=fileMessage instanceof PhotoContent;
 downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(fileMessage));
 }
  else if (fileMessage.getSource() instanceof FileLocalSource) {
+messenger().bindUpload(message.getRid(),new UploadFileVMCallback(){
+@Override public void onNotUploaded(){
+}
+@Override public void onUploading(float progress){
+}
+@Override public void onUploaded(){
+}
+}
+);
 }
  else {
 throw new RuntimeException("Unknown file source type: " + fileMessage.getSource());

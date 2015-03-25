@@ -1,5 +1,4 @@
 {
-  Log.d("TextHolder","bindData " + hashCode() + " #"+ message.getEngineId()+ " "+ isUpdated);
   if (message.getSenderId() == myUid()) {
     messageBubbleContainer.makeOutboundBubble();
     messageBubble.setBackgroundResource(R.drawable.bubble_text_out);

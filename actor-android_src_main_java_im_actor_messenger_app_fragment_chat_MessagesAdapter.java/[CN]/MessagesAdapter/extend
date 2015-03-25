@@ -1,1 +1,1 @@
-BindedListAdapter<Message,BaseHolder>
+BindedListAdapter<Message,MessageHolder>

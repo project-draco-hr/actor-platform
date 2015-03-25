@@ -1,5 +1,0 @@
-{
-  if (holder instanceof MessageHolder) {
-    ((MessageHolder)holder).unbind();
-  }
-}
