@@ -1,0 +1,4 @@
+{
+  writer.writeObject(1,peer);
+  writer.writeRepeatedLong(2,rids);
+}

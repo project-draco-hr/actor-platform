@@ -1,3 +1,0 @@
-{
-  return readUInt(src,0);
-}

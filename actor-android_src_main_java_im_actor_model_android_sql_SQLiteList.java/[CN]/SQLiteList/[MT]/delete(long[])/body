@@ -9,6 +9,6 @@
     database.setTransactionSuccessful();
   }
   finally {
-    database.beginTransaction();
+    database.endTransaction();
   }
 }

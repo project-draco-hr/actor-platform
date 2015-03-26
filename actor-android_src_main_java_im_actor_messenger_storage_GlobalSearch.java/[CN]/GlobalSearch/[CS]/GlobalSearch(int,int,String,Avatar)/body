@@ -1,6 +1,0 @@
-{
-  this.contType=contType;
-  this.contId=contId;
-  this.title=title;
-  this.avatar=avatar;
-}

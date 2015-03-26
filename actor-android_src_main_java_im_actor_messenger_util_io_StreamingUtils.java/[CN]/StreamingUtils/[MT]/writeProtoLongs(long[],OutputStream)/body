@@ -1,6 +1,0 @@
-{
-  writeVarInt(values.length,stream);
-  for (  long l : values) {
-    writeLong(l,stream);
-  }
-}

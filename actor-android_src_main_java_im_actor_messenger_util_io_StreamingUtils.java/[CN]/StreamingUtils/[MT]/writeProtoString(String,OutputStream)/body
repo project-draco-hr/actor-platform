@@ -1,4 +1,0 @@
-{
-  byte[] data=value.getBytes("UTF-8");
-  writeProtoBytes(data,stream);
-}

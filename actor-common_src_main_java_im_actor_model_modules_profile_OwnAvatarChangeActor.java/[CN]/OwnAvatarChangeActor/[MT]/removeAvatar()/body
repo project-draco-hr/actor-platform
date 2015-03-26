@@ -7,7 +7,12 @@
   request(new RequestRemoveAvatar(),new RpcCallback<ResponseSeq>(){
     @Override public void onResult(    ResponseSeq response){
       updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateUserAvatarChanged.HEADER,new UpdateUserAvatarChanged(myUid(),null).toByteArray()));
-      modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
+      updates().onUpdateReceived(new ExecuteAfter(response.getSeq(),new Runnable(){
+        @Override public void run(){
+          modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
+        }
+      }
+));
     }
     @Override public void onError(    RpcException e){
       modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));

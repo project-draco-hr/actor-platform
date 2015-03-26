@@ -1,0 +1,13 @@
+{
+  if (message instanceof DeleteMessage) {
+    DeleteMessage deleteMessage=(DeleteMessage)message;
+    ArrayList<Long> rids=new ArrayList<Long>();
+    for (    long l : deleteMessage.getRids()) {
+      rids.add(l);
+    }
+    onDeleteMessage(deleteMessage.getPeer(),rids);
+  }
+ else {
+    drop(message);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  syncKeyValue.put(CURSOR_DELETE,deleteStorage.toByteArray());
+}

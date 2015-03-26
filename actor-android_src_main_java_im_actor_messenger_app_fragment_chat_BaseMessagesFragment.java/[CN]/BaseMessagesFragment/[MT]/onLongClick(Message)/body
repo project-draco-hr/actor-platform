@@ -22,9 +22,20 @@
         menu.findItem(R.id.copy).setVisible(isAllText);
         return false;
       }
-      @Override public boolean onActionItemClicked(      ActionMode actionMode,      MenuItem menuItem){
+      @Override public boolean onActionItemClicked(      final ActionMode actionMode,      MenuItem menuItem){
         if (menuItem.getItemId() == R.id.delete) {
-          actionMode.finish();
+          Message[] selected=messagesAdapter.getSelected();
+          final long[] rids=new long[selected.length];
+          for (int i=0; i < rids.length; i++) {
+            rids[i]=selected[i].getRid();
+          }
+          new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_delete_messages_text).replace("{0}","" + rids.length)).setPositiveButton(R.string.alert_delete_messages_yes,new DialogInterface.OnClickListener(){
+            @Override public void onClick(            DialogInterface dialog,            int which){
+              messenger().deleteMessages(peer,rids);
+              actionMode.finish();
+            }
+          }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
           return true;
         }
  else         if (menuItem.getItemId() == R.id.copy) {

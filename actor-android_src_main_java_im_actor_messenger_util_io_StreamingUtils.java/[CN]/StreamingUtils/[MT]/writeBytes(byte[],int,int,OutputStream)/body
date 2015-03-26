@@ -1,3 +1,0 @@
-{
-  stream.write(data,offset,len);
-}
