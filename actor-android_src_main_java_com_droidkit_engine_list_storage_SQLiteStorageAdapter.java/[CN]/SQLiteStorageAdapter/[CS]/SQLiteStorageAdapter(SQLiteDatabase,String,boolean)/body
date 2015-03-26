@@ -1,3 +1,0 @@
-{
-  this(database,listEngineName,0,enableSearch);
-}

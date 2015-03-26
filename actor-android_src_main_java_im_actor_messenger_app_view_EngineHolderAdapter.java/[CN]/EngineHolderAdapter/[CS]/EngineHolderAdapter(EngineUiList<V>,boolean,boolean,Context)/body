@@ -1,4 +1,0 @@
-{
-  super(engine,stackFromBottom,autoLoad);
-  this.context=context;
-}

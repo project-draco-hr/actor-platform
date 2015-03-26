@@ -1,4 +1,0 @@
-{
-  GlobalSearch search=getItem(position);
-  return 0;
-}

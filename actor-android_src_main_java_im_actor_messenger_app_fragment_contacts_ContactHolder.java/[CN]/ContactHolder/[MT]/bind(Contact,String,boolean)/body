@@ -1,0 +1,34 @@
+{
+  String shortName=getFastName(data.getName());
+  fastTitle.setVisibility(View.VISIBLE);
+  fastTitle.setText(shortName);
+  avatar.setEmptyDrawable(new AvatarDrawable(data.getName(),data.getUid(),24,context));
+  if (data.getAvatar() != null) {
+    avatar.bindAvatar(Screen.dp(54),data.getAvatar());
+  }
+ else {
+    avatar.unbind();
+  }
+  title.setText(data.getName());
+  if (query.length() > 0) {
+    title.setText(SearchHighlight.highlightQuery(data.getName(),query,0xff0277bd));
+  }
+ else {
+    title.setText(data.getName());
+  }
+  if (isSelectable) {
+    isSelected.setChecked(selected);
+  }
+  cont.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onItemClickedListener.onClicked(data);
+    }
+  }
+);
+  cont.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      return onItemClickedListener.onLongClicked(data);
+    }
+  }
+);
+}

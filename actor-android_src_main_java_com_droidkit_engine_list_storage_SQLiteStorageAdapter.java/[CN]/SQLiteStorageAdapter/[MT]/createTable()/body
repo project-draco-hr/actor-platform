@@ -1,8 +1,0 @@
-{
-  database.execSQL("CREATE TABLE IF NOT EXISTS \"" + tableName + "\" ("+ "\"LIST_ID\" INTEGER NOT NULL,"+ "\"ID\" INTEGER NOT NULL,"+ "\"SORT_KEY\" INTEGER NOT NULL,"+ (enableSearch ? "\"QUERY\" TEXT NOT NULL," : "")+ "\"BYTES\" BLOB NOT NULL,"+ "PRIMARY KEY(\"LIST_ID\", \"ID\"));");
-  database.execSQL("PRAGMA synchronous = NORMAL;");
-  if (enableSearch) {
-    database.execSQL("CREATE INDEX IF NOT EXISTS IDX_ID_QUERY_SORT ON \"" + tableName + "\" (\"LIST_ID\",\"QUERY\", \"SORT_KEY\");");
-  }
-  database.execSQL("CREATE INDEX IF NOT EXISTS IDX_ID_SORT ON \"" + tableName + "\" (\"LIST_ID\", \"SORT_KEY\");");
-}

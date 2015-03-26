@@ -1,7 +1,0 @@
-{
-  this.database=database;
-  this.tableId=listEngineId;
-  this.tableName=listEngineName;
-  this.enableSearch=enableSearch;
-  createTable();
-}

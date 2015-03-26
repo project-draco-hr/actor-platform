@@ -1,5 +1,5 @@
 {
-  return new ContactsAdapter(displayList,activity,false,new OnItemClickedListener<Contact>(){
+  return new ContactsAdapter(displayList,activity,useSelection,new OnItemClickedListener<Contact>(){
     @Override public void onClicked(    Contact item){
       onItemClicked(item);
     }

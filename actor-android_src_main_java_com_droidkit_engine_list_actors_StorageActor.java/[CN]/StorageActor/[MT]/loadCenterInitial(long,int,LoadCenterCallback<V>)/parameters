@@ -1,3 +1,0 @@
-long centerKey
-int limit
-LoadCenterCallback<V> callback

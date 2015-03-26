@@ -1,3 +1,0 @@
-{
-  bgNotificator.unsubscribe(sub);
-}

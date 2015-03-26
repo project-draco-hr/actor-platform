@@ -1,4 +1,0 @@
-{
-  uiNotificator.subscribe(sub);
-  sub.onChanged(value);
-}

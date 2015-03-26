@@ -1,8 +1,0 @@
-{
-  return new ListModification<V>(){
-    @Override public void modify(    List<V> arrayList,    boolean isLast){
-      arrayList.add(toAdd);
-    }
-  }
-;
-}

@@ -1,3 +1,3 @@
-ContactHolder dialogHolder
+ContactHolder contactHolder
 int index
 Contact item

@@ -1,3 +1,0 @@
-{
-  this(engine,stackFromBottom,DEFAULT_LOAD_GAP,true);
-}

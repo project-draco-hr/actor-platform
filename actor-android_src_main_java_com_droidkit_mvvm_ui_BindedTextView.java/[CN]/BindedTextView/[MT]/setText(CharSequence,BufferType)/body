@@ -1,4 +1,0 @@
-{
-  unbind();
-  super.setText(text,type);
-}

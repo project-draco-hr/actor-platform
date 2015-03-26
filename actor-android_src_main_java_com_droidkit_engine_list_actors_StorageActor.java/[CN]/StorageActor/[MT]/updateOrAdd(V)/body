@@ -1,3 +1,0 @@
-{
-  adapter.updateOrAdd(buildContainer(value));
-}

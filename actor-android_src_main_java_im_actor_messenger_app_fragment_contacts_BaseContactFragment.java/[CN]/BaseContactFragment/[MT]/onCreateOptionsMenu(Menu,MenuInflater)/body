@@ -8,14 +8,7 @@
         return false;
       }
       @Override public boolean onQueryTextChange(      String newText){
-        String normalized=newText.trim();
-        if (normalized.length() == 0) {
-          getDisplayList().initTop(false);
-        }
- else {
-          getDisplayList().initSearch(normalized,false);
-        }
-        ((ContactsAdapter)getAdapter()).setQuery(normalized.toLowerCase());
+        filter(newText);
         return true;
       }
     }

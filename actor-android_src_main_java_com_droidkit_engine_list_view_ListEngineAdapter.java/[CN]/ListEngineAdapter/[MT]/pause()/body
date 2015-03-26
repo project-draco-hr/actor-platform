@@ -1,5 +1,0 @@
-{
-  if (autoUpdate) {
-    uiList.removeListener(listListener);
-  }
-}

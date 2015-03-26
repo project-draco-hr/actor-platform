@@ -1,4 +1,0 @@
-EngineUiList<V> engine
-boolean stackFromBottom
-int loadGap
-boolean autoUpdate

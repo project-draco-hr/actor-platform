@@ -1,8 +1,0 @@
-{
-  if (stackFromBottom) {
-    return getItemId(getItem(getCount() - position - 1));
-  }
- else {
-    return getItemId(getItem(position));
-  }
-}

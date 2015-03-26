@@ -1,3 +1,0 @@
-{
-  listEditActor.send(new UiListActor.EditList(System.currentTimeMillis(),modification,null));
-}

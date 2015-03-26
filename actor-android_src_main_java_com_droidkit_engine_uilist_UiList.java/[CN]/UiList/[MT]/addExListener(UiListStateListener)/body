@@ -1,8 +1,0 @@
-{
-  if (!Utils.isUIThread()) {
-    throw new RuntimeException("Can read from list only in UI Thread");
-  }
-  if (!exListeners.contains(listListener)) {
-    exListeners.add(listListener);
-  }
-}

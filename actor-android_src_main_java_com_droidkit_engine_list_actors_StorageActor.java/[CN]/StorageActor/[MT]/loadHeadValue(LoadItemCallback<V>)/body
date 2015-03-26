@@ -1,9 +1,0 @@
-{
-  SliceResult<ValueContainer> sliceResult=adapter.loadTail(null,1);
-  if (sliceResult.getValues().size() == 1) {
-    callback.onLoaded(unpack(sliceResult.getValues().get(0)));
-  }
- else {
-    callback.onLoaded(null);
-  }
-}

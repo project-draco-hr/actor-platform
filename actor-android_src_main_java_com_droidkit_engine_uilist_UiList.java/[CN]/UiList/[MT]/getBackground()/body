@@ -1,3 +1,0 @@
-{
-  return lists[(currentList + 1) % 2];
-}

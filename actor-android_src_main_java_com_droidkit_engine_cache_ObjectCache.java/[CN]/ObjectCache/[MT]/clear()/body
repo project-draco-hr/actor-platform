@@ -1,4 +1,0 @@
-{
-  memoryCache.clear();
-  removedItems.clear();
-}

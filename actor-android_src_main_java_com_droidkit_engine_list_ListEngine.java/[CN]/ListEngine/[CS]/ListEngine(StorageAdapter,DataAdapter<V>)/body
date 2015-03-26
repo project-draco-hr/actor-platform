@@ -1,7 +1,0 @@
-{
-  this.dbRawActor=ActorSystem.system().actorOf(StorageActor.storage(NEXT_ID.getAndIncrement(),storageAdapter,dataAdapter));
-  this.dbActor=TypedCreator.typed(dbRawActor,StorageActorInt.class);
-  this.cache=new ObjectCache<Long,V>();
-  this.dataAdapter=dataAdapter;
-  this.listeners=new CopyOnWriteArrayList<ListEngineCallback<V>>();
-}

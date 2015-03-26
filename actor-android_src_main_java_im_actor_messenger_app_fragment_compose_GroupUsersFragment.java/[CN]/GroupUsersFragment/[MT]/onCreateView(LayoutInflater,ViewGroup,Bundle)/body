@@ -1,9 +1,7 @@
 {
   title=getArguments().getString("title");
   avatarPath=getArguments().getString("avatarPath");
-  View res=inflater.inflate(R.layout.fragment_create_group_participants,container,false);
-  progressView=res.findViewById(R.id.progress);
-  progressView.setVisibility(View.GONE);
+  View res=onCreateContactsView(R.layout.fragment_create_group_participants,inflater,container,savedInstanceState);
   searchField=(EditText)res.findViewById(R.id.searchField);
   textWatcher=new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
@@ -16,15 +14,9 @@
       while (filter.length() > 0 && filter.charAt(0) == '!') {
         filter=filter.substring(1);
       }
-      engineUiList.filter(filter);
-      adapter.setQuery(filter);
+      filter(filter);
     }
   }
 ;
-  listView=(ListView)res.findViewById(R.id.contactsList);
-  View header=new View(getActivity());
-  header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
-  listView.addHeaderView(header,null,false);
-  engineUiList.getUiList().addListener(this);
   return res;
 }

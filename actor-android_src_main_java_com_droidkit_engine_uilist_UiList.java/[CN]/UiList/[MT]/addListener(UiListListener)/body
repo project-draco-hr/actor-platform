@@ -1,5 +1,0 @@
-{
-  if (!listeners.contains(listListener)) {
-    listeners.add(listListener);
-  }
-}

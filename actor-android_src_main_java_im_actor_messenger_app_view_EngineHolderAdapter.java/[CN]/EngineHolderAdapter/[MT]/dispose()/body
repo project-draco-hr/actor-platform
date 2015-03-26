@@ -1,7 +1,0 @@
-{
-  super.dispose();
-  for (  ViewHolder holder : holders) {
-    holder.dispose();
-  }
-  holders.clear();
-}

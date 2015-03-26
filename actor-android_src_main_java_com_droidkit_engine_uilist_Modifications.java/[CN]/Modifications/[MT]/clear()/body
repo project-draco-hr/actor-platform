@@ -1,8 +1,0 @@
-{
-  return new ListModification(){
-    @Override public void modify(    List arrayList,    boolean isLast){
-      arrayList.clear();
-    }
-  }
-;
-}

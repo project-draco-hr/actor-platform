@@ -1,6 +1,0 @@
-{
-  if (this.valueViewModel != null) {
-    this.valueViewModel.removeUiSubscriber(valueListener);
-  }
-  this.valueViewModel=null;
-}

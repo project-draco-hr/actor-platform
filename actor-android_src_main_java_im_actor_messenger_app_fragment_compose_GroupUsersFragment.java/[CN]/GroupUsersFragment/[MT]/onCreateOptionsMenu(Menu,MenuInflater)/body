@@ -1,11 +1,5 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.create_group,menu);
-  if (isInProgress) {
-    menu.findItem(R.id.done).setVisible(false);
-  }
- else {
-    menu.findItem(R.id.done).setVisible(true);
-    menu.findItem(R.id.done).setEnabled(selectedUsers.size() > 0);
-  }
+  menu.findItem(R.id.done).setEnabled(getSelectedCount() > 0);
 }

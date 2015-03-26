@@ -1,4 +1,0 @@
-{
-  this.dataAdapter=dataAdapter;
-  this.tableName=tableName;
-}

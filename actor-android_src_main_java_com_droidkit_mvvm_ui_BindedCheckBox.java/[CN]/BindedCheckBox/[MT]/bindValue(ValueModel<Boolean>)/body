@@ -1,8 +1,0 @@
-{
-  if (this.valueViewModel == value) {
-    return;
-  }
-  unbindValue();
-  this.valueViewModel=value;
-  this.valueViewModel.addUiSubscriber(valueListener);
-}

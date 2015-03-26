@@ -1,5 +1,0 @@
-{
-  this.values=values;
-  this.bottomKey=bottomKey;
-  this.topKey=topKey;
-}

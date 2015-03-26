@@ -1,6 +1,0 @@
-{
-  if (autoUpdate) {
-    uiList.addListener(listListener);
-  }
-  notifyDataSetInvalidated();
-}

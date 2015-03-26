@@ -1,0 +1,10 @@
+{
+  if (isSelected(contact.getUid())) {
+    unselect(contact.getUid());
+  }
+ else {
+    select(contact.getUid());
+  }
+  getActivity().invalidateOptionsMenu();
+  updateEditText();
+}

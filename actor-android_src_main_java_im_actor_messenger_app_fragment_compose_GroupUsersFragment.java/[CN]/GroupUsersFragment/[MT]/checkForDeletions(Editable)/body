@@ -1,7 +1,8 @@
 {
+  Integer[] selected=getSelected();
   boolean hasDeletions=false;
   UserSpan[] spans=editable.getSpans(0,editable.length(),UserSpan.class);
-  for (  Integer u : selectedUsers) {
+  for (  Integer u : selected) {
     boolean founded=false;
     for (    UserSpan span : spans) {
       if (span.getUser().getId() == u) {
@@ -16,11 +17,11 @@
     }
     if (!founded) {
       hasDeletions=true;
-      selectedUsers.remove(u);
+      unselect(u);
     }
   }
   if (hasDeletions) {
     getActivity().invalidateOptionsMenu();
-    listView.invalidateViews();
+    getAdapter().notifyDataSetChanged();
   }
 }

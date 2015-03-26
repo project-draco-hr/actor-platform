@@ -3,6 +3,7 @@
   this.onItemClickedListener=onItemClickedListener;
   this.context=context;
   this.isSelectable=isSelectable;
+  int padding=Screen.dp(16);
   fl.setBackgroundColor(context.getResources().getColor(R.color.bg_light));
   cont=new FrameLayout(context);
 {

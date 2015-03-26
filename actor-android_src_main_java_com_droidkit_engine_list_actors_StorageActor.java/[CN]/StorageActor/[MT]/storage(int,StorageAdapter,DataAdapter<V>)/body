@@ -1,8 +1,0 @@
-{
-  return new ActorSelection(Props.create(StorageActor.class,new ActorCreator<StorageActor>(){
-    @Override public StorageActor create(){
-      return new StorageActor(adapter,dataAdapter);
-    }
-  }
-).changeDispatcher("db"),"storage_" + listEngineId);
-}

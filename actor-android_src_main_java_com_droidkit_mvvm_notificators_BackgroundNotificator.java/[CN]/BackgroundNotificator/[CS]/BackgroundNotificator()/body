@@ -1,3 +1,0 @@
-{
-  notificator=system().actorOf(RunnableActor.class,"mvvm_notificator");
-}

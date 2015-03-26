@@ -1,7 +1,0 @@
-{
-  ArrayList<V> res=new ArrayList<V>();
-  for (  ValueContainer container : containers) {
-    res.add(dataAdapter.deserialize(container.getData()));
-  }
-  return res;
-}

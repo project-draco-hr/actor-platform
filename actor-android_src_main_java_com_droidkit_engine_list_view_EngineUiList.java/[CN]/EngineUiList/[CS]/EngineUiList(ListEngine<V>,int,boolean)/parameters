@@ -1,3 +1,0 @@
-ListEngine<V> listEngine
-int loadLimit
-boolean autoLoad

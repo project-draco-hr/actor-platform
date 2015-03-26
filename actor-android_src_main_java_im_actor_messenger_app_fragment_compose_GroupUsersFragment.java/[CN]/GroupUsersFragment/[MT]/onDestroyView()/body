@@ -1,9 +1,5 @@
 {
   super.onDestroyView();
-  engineUiList.getUiList().removeListener(this);
-  if (adapter != null) {
-    adapter.pause();
-    adapter=null;
-  }
-  listView=null;
+  textWatcher=null;
+  searchField=null;
 }

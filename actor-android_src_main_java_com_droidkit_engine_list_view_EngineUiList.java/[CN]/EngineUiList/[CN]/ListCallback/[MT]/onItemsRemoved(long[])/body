@@ -1,3 +1,0 @@
-{
-  uiList.editList(listMods.remove(id));
-}

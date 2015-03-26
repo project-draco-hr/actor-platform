@@ -1,9 +1,0 @@
-{
-synchronized (LOCK) {
-    cache.removeObject(key);
-    dbActor.delete(key);
-    for (    ListEngineCallback<V> callback : listeners) {
-      callback.onItemRemoved(key);
-    }
-  }
-}

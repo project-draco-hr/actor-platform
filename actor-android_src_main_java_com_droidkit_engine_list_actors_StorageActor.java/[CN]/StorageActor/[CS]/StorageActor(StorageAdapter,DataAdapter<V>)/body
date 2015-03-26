@@ -1,5 +1,0 @@
-{
-  super(StorageActorInt.class);
-  this.dataAdapter=dataAdapter;
-  this.adapter=adapter;
-}

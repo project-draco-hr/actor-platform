@@ -1,6 +1,0 @@
-{
-  if (container == null) {
-    return null;
-  }
-  return dataAdapter.deserialize(container.getData());
-}

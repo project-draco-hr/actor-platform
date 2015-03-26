@@ -1,7 +1,0 @@
-{
-  String filter=null;
-  if (dataAdapter instanceof FilterableDataAdapter) {
-    filter=((FilterableDataAdapter)dataAdapter).getFilterValue(value);
-  }
-  return new ValueContainer(dataAdapter.getId(value),dataAdapter.getSortKey(value),filter,dataAdapter.serialize(value));
-}

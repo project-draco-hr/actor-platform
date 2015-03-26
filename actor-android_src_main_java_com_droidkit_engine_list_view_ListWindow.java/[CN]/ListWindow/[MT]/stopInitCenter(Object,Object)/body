@@ -1,5 +1,0 @@
-{
-  isInited=true;
-  currentTail=tail;
-  currentHead=head;
-}

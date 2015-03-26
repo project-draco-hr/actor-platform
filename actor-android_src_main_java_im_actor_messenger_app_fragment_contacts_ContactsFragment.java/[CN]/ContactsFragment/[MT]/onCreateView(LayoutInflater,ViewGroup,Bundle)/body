@@ -1,4 +1,0 @@
-{
-  View res=super.onCreateView(inflater,container,savedInstanceState);
-  return res;
-}
