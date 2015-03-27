@@ -1,0 +1,3 @@
+List<Notification> topNotifications
+int messagesCount
+int conversationsCount
