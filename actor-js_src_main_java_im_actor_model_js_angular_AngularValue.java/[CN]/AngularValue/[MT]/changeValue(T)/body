@@ -1,0 +1,6 @@
+{
+  this.value=value;
+  for (  AngularValueCallback callback : callbacks) {
+    callback.onChanged(value);
+  }
+}

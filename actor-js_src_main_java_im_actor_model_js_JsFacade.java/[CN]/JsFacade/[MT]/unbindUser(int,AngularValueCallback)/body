@@ -1,0 +1,3 @@
+{
+  messenger.getUser(uid).unsubscribe(callback);
+}

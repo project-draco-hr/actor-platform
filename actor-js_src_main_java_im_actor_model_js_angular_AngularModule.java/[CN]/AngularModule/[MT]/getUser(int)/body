@@ -1,0 +1,14 @@
+{
+  if (!users.containsKey(uid)) {
+    UserVM userVM=modules().getUsersModule().getUsersCollection().get(uid);
+    final AngularValue<JsUser> value=new AngularValue<JsUser>(JsUser.fromUserVM(userVM));
+    userVM.subscribe(new ModelChangedListener<UserVM>(){
+      @Override public void onChanged(      UserVM model){
+        value.changeValue(JsUser.fromUserVM(model));
+      }
+    }
+);
+    users.put(uid,value);
+  }
+  return users.get(uid);
+}
