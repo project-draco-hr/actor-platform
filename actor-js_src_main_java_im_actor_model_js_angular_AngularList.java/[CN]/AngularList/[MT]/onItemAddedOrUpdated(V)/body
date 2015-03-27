@@ -12,12 +12,12 @@
     for (int i=0; i < values.size(); i++) {
       if (values.get(i).getEngineSort() < sortKey) {
         values.add(i,item);
-        insert(jsValues,i,entityConverter.convert(item,formatter));
+        insert(jsValues,i,entityConverter.convert(item,messenger));
         return;
       }
     }
     values.add(item);
-    jsValues.push(entityConverter.convert(item,formatter));
+    jsValues.push(entityConverter.convert(item,messenger));
   }
   finally {
     notifySubscribers();

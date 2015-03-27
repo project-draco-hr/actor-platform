@@ -7,7 +7,10 @@
   int minWeight=strength >>> 2;
   e=param.getPublicExponent();
   p=chooseRandomPrime(pBitlength,e);
+  int iteration=0;
   for (; ; ) {
+    iteration++;
+    Log.d("RSA","Iteration #" + iteration);
     q=chooseRandomPrime(qBitlength,e);
     BigInteger diff=q.subtract(p).abs();
     if (diff.bitLength() < mindiffbits) {

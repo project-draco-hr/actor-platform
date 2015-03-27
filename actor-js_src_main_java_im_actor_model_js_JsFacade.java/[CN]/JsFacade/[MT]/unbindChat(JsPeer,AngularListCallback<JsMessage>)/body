@@ -1,0 +1,3 @@
+{
+  messenger.getConversationList(peer.convert()).subscribe(callback);
+}

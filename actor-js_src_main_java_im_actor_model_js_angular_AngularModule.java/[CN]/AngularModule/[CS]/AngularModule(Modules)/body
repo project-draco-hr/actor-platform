@@ -1,4 +1,0 @@
-{
-  super(modules);
-  users=new HashMap<Integer,AngularValue<JsUser>>();
-}

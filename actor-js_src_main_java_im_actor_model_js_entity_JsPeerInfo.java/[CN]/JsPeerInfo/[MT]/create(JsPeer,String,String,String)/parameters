@@ -1,0 +1,4 @@
+JsPeer peer
+String title
+String avatar
+String placeholder

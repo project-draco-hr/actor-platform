@@ -1,5 +1,8 @@
 {
+  int iteration=0;
   for (; ; ) {
+    iteration++;
+    Log.d("RSA","chooseRandomPrime #" + iteration);
     BigInteger p=param.getRandom().generateBigInteger(bitlength,1);
     if (p.mod(e).equals(ONE)) {
       continue;

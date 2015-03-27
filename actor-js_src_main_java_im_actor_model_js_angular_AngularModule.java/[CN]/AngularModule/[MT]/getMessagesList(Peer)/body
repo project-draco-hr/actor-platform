@@ -1,0 +1,6 @@
+{
+  if (!messagesList.containsKey(peer)) {
+    messagesList.put(peer,new AngularList<JsMessage,Message>((JsListEngine<Message>)modules().getMessagesModule().getConversationEngine(peer),JsMessage.CONVERTER,messenger));
+  }
+  return messagesList.get(peer);
+}

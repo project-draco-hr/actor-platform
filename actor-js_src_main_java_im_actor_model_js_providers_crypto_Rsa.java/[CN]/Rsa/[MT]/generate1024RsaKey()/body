@@ -1,0 +1,4 @@
+{
+  RsaKey rsaKey=generate1024RsaKeyJs();
+  return new CryptoKeyPair(Base64Utils.fromBase64(rsaKey.getPublicKey()),Base64Utils.fromBase64(rsaKey.getPrivateKey()));
+}

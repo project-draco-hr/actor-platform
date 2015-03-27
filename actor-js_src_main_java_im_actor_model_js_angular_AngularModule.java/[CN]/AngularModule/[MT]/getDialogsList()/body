@@ -1,6 +1,6 @@
 {
   if (dialogsList == null) {
-    dialogsList=new AngularList<JsDialog,Dialog>((JsListEngine<Dialog>)modules().getMessagesModule().getDialogsEngine(),JsDialog.CONVERTER,modules().getI18nEngine());
+    dialogsList=new AngularList<JsDialog,Dialog>((JsListEngine<Dialog>)modules().getMessagesModule().getDialogsEngine(),JsDialog.CONVERTER,messenger);
   }
   return dialogsList;
 }
