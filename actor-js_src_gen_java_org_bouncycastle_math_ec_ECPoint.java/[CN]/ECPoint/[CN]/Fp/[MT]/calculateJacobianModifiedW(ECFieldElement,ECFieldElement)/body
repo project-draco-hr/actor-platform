@@ -1,0 +1,18 @@
+{
+  ECFieldElement a4=this.getCurve().getA();
+  if (a4.isZero() || Z.isOne()) {
+    return a4;
+  }
+  if (ZSquared == null) {
+    ZSquared=Z.square();
+  }
+  ECFieldElement W=ZSquared.square();
+  ECFieldElement a4Neg=a4.negate();
+  if (a4Neg.bitLength() < a4.bitLength()) {
+    W=W.multiply(a4Neg).negate();
+  }
+ else {
+    W=W.multiply(a4);
+  }
+  return W;
+}

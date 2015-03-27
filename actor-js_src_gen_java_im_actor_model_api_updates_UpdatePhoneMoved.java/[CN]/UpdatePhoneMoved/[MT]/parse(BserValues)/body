@@ -1,0 +1,4 @@
+{
+  this.phoneId=values.getInt(1);
+  this.uid=values.getInt(2);
+}

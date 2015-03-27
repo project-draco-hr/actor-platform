@@ -1,0 +1,4 @@
+{
+  this.paddingBit=paddingBit;
+  this.content=content;
+}

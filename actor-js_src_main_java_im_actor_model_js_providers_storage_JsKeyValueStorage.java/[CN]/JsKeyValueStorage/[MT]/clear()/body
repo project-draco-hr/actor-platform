@@ -1,0 +1,7 @@
+{
+  for (  long id : items) {
+    storage.removeItem(getId(id));
+  }
+  storage.removeItem("kv_" + prefix + "_index");
+  items.clear();
+}

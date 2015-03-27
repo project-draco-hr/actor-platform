@@ -1,5 +1,0 @@
-{
-  Nat512.mul(x,y,zz);
-  int x16=x[16], y16=y[16];
-  zz[32]=Nat.mul31BothAdd(16,x16,y,y16,x,zz,16) + (x16 * y16);
-}

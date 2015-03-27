@@ -1,0 +1,7 @@
+{
+  String res="rpc UploadPart{";
+  res+="blockIndex=" + this.blockIndex;
+  res+=", payload=" + byteArrayToStringCompact(this.payload);
+  res+="}";
+  return res;
+}

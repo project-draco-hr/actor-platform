@@ -1,0 +1,25 @@
+{
+  long c=cIn & M;
+  c+=(x[xOff + 0] & M) + (z[zOff + 0] & M);
+  z[zOff + 0]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 1] & M) + (z[zOff + 1] & M);
+  z[zOff + 1]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 2] & M) + (z[zOff + 2] & M);
+  z[zOff + 2]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 3] & M) + (z[zOff + 3] & M);
+  z[zOff + 3]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 4] & M) + (z[zOff + 4] & M);
+  z[zOff + 4]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 5] & M) + (z[zOff + 5] & M);
+  z[zOff + 5]=(int)c;
+  c>>>=32;
+  c+=(x[xOff + 6] & M) + (z[zOff + 6] & M);
+  z[zOff + 6]=(int)c;
+  c>>>=32;
+  return (int)c;
+}

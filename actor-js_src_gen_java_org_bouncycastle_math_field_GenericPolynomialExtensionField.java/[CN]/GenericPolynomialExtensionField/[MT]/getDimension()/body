@@ -1,0 +1,3 @@
+{
+  return subfield.getDimension() * minimalPolynomial.getDegree();
+}

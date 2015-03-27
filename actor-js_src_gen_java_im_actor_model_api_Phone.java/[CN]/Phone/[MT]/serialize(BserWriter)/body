@@ -1,0 +1,9 @@
+{
+  writer.writeInt(1,this.id);
+  writer.writeLong(2,this.accessHash);
+  writer.writeLong(3,this.phone);
+  if (this.phoneTitle == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.phoneTitle);
+}

@@ -1,0 +1,5 @@
+long a
+long[] b
+int bLen
+long[] c
+int cOff

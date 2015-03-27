@@ -1,0 +1,15 @@
+{
+  Set<UnreadMessage> unread=messagesStorage.getUnread(peer);
+  boolean isRemoved=false;
+  for (  UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+    if (rids.contains(u.getRid())) {
+      unread.remove(u);
+      isRemoved=true;
+    }
+  }
+  if (!isRemoved) {
+    return;
+  }
+  saveStorage();
+  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
+}

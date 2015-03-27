@@ -1,0 +1,8 @@
+{
+  AskContainer container=asks.remove(taskTimeout.getRequestId());
+  if (container != null) {
+    container.future.onTimeout();
+    return true;
+  }
+  return false;
+}

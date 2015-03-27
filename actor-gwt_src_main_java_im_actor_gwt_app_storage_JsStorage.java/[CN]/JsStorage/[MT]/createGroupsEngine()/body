@@ -1,8 +1,0 @@
-{
-  if (isLocalStorageSupported()) {
-    return new JsKeyValue(storage,"group");
-  }
- else {
-    return new MemoryKeyValue();
-  }
-}

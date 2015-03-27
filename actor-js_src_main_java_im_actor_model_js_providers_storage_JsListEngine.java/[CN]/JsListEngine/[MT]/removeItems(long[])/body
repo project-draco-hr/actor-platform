@@ -1,0 +1,11 @@
+{
+  for (  long key : keys) {
+    cache.remove(key);
+  }
+  storage.delete(keys);
+  for (  long key : keys) {
+    for (    JsListEngineCallback<T> callback : callbacks) {
+      callback.onItemRemoved(key);
+    }
+  }
+}

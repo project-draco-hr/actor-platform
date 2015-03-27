@@ -1,0 +1,5 @@
+{
+  this.uid=values.getInt(1);
+  this.phones=values.getRepeatedInt(2);
+  this.emails=values.getRepeatedInt(3);
+}

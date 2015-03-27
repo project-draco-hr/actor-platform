@@ -1,0 +1,9 @@
+{
+  String v=storage.getItem(convertKey(key));
+  if (v != null) {
+    return fromBase64(v);
+  }
+ else {
+    return null;
+  }
+}

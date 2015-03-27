@@ -1,5 +1,0 @@
-{
-  int x16=x[16];
-  int c=Nat.shiftUpBit(16,x,x16 << 23,z) | (x16 << 1);
-  z[16]=c & P16;
-}

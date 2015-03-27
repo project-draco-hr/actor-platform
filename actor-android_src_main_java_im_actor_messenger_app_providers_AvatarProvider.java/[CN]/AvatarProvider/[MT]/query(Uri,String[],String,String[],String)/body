@@ -1,8 +1,0 @@
-{
-  if (BuildConfig.ENABLE_CHROME) {
-    MatrixCursor matrixCursor=new MatrixCursor(new String[]{"_data"},1);
-    matrixCursor.addRow(new Object[]{"image.jpg"});
-    return matrixCursor;
-  }
-  return null;
-}

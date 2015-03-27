@@ -1,0 +1,21 @@
+{
+  if (this.name == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.name);
+  if (this.mimeType == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.mimeType);
+  if (this.fileLocation == null) {
+    throw new IOException();
+  }
+  writer.writeObject(3,this.fileLocation);
+  if (this.fastThumb != null) {
+    writer.writeObject(4,this.fastThumb);
+  }
+  if (this.extension != null) {
+    writer.writeInt(5,this.extension.getHeader());
+    writer.writeBytes(6,this.extension.toByteArray());
+  }
+}

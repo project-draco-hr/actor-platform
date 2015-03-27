@@ -1,0 +1,23 @@
+{
+  if (message instanceof RequestAuthId) {
+    requestAuthId();
+  }
+ else   if (message instanceof InitMTProto) {
+    createMtProto(((InitMTProto)message).getAuthId());
+  }
+ else   if (message instanceof PerformRequest) {
+    performRequest(NEXT_RPC_ID.getAndIncrement(),((PerformRequest)message).getMessage(),((PerformRequest)message).getCallback());
+  }
+ else   if (message instanceof CancelRequest) {
+    cancelRequest(((CancelRequest)message).getRandomId());
+  }
+ else   if (message instanceof ProtoResponse) {
+    processResponse(((ProtoResponse)message).getResponseId(),((ProtoResponse)message).getData());
+  }
+ else   if (message instanceof ForceResend) {
+    forceResend(((ForceResend)message).id);
+  }
+ else   if (message instanceof ProtoUpdate) {
+    processUpdate(((ProtoUpdate)message).getData());
+  }
+}

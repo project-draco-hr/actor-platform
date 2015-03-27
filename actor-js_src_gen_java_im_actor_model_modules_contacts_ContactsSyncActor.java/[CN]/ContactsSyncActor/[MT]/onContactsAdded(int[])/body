@@ -1,0 +1,16 @@
+{
+  if (ENABLE_LOG) {
+    Log.d(TAG,"OnContactsAdded received");
+  }
+  for (  int uid : uids) {
+    if (ENABLE_LOG) {
+      Log.d(TAG,"Adding: #" + uid);
+    }
+    contacts.add(uid);
+    modules().getContactsModule().markContact(uid);
+    getUserVM(uid).isContact().change(true);
+  }
+  saveList();
+  updateEngineList();
+  self().send(new PerformSync());
+}

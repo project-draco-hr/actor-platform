@@ -1,0 +1,27 @@
+{
+  ProtoStruct protoStruct;
+  try {
+    protoStruct=ProtoSerializer.readUpdate(content);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    Log.w(TAG,"Broken mt update");
+    return;
+  }
+  if (protoStruct instanceof Push) {
+    int type=((Push)protoStruct).updateType;
+    byte[] body=((Push)protoStruct).body;
+    RpcScope updateBox;
+    try {
+      updateBox=new RpcParser().read(type,body);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      Log.w(TAG,"Broken update box");
+      return;
+    }
+    callback.onUpdateReceived(updateBox);
+  }
+ else {
+  }
+}

@@ -1,0 +1,4 @@
+{
+  messages.clear();
+  dialogsActor.send(new DialogsActor.ChatClear(peer));
+}

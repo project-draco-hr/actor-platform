@@ -1,6 +1,0 @@
-{
-  Nat.inc(8,x,z);
-  if (Nat256.gte(z,P)) {
-    subPFrom(z);
-  }
-}

@@ -1,0 +1,10 @@
+{
+  MVVMEngine.getMainThreadProvider().runOnUiThread(new Runnable(){
+    @Override public void run(){
+      for (      ModelChangedListener<GroupVM> l : listeners.toArray(new ModelChangedListener[0])) {
+        l.onChanged(GroupVM.this);
+      }
+    }
+  }
+);
+}

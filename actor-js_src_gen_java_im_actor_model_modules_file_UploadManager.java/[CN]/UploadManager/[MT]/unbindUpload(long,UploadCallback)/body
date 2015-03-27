@@ -1,0 +1,6 @@
+{
+  QueueItem queueItem=findItem(rid);
+  if (queueItem != null) {
+    queueItem.callbacks.remove(callback);
+  }
+}

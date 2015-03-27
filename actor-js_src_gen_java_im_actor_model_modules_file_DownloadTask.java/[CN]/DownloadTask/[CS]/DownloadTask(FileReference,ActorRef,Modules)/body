@@ -1,0 +1,6 @@
+{
+  super(messenger);
+  this.TAG="DownloadTask{" + fileReference.getFileId() + "}";
+  this.fileReference=fileReference;
+  this.manager=manager;
+}

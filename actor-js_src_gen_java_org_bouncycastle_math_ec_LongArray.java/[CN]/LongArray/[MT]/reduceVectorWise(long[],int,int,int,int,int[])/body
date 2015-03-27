@@ -1,0 +1,8 @@
+{
+  int baseBit=(words << 6) - m;
+  int j=ks.length;
+  while (--j >= 0) {
+    flipVector(buf,off,buf,off + words,len - words,baseBit + ks[j]);
+  }
+  flipVector(buf,off,buf,off + words,len - words,baseBit);
+}

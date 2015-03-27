@@ -1,0 +1,3 @@
+{
+  presence.send(new PresenceActor.Subscribe(peer));
+}

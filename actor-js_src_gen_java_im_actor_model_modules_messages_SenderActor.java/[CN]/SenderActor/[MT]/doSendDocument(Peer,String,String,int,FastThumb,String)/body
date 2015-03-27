@@ -1,0 +1,10 @@
+{
+  long rid=RandomUtils.nextRid();
+  long date=System.currentTimeMillis();
+  DocumentContent documentContent=new DocumentContent(new FileLocalSource(fileName,fileSize,descriptor),mimeType,fileName,fastThumb);
+  Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,documentContent);
+  getConversationActor(peer).send(message);
+  pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,documentContent));
+  savePending();
+  performUploadFile(rid,descriptor,fileName);
+}

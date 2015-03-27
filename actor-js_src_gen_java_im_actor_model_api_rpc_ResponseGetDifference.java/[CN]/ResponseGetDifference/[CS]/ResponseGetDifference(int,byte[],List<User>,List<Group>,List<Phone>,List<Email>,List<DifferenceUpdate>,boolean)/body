@@ -1,0 +1,10 @@
+{
+  this.seq=seq;
+  this.state=state;
+  this.users=users;
+  this.groups=groups;
+  this.phones=phones;
+  this.emails=emails;
+  this.updates=updates;
+  this.needMore=needMore;
+}

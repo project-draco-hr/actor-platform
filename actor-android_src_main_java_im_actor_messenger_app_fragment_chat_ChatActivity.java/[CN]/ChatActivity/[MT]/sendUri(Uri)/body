@@ -46,6 +46,7 @@
         messenger().sendPhoto(peer,picturePath,new File(fileName).getName());
       }
  else {
+        messenger().sendDocument(peer,picturePath,new File(fileName).getName());
       }
       return null;
     }

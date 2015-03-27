@@ -1,0 +1,28 @@
+{
+  if (message instanceof DeadLetter) {
+    if (onDeadLetter((DeadLetter)message)) {
+      return true;
+    }
+  }
+ else   if (message instanceof TaskResult) {
+    if (onTaskResult((TaskResult)message)) {
+      return true;
+    }
+  }
+ else   if (message instanceof TaskTimeout) {
+    if (onTaskTimeout((TaskTimeout)message)) {
+      return true;
+    }
+  }
+ else   if (message instanceof TaskError) {
+    if (onTaskError((TaskError)message)) {
+      return true;
+    }
+  }
+ else   if (message instanceof TaskProgress) {
+    if (onTaskProgress((TaskProgress)message)) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,9 +1,0 @@
-{
-  String item=storage.getItem(prefix + "_i_" + id);
-  if (item != null) {
-    return Base64Utils.fromBase64(item);
-  }
- else {
-    return null;
-  }
-}

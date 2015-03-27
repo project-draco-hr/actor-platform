@@ -1,0 +1,20 @@
+{
+  request(new RequestGetFile(new im.actor.model.api.FileLocation(fileReference.getFileId(),fileReference.getAccessHash()),fileOffset,blockSize),new RpcCallback<ResponseGetFile>(){
+    @Override public void onResult(    ResponseGetFile response){
+      downloaded++;
+      Log.d(TAG,"Download part #" + blockIndex + " completed");
+      if (!outputFile.write(fileOffset,response.getPayload(),0,response.getPayload().length)) {
+        reportError();
+        return;
+      }
+      currentDownloads--;
+      reportProgress(downloaded / (float)blocksCount);
+      checkQueue();
+    }
+    @Override public void onError(    RpcException e){
+      Log.d(TAG,"Download part #" + blockIndex + " failure");
+      reportError();
+    }
+  }
+);
+}

@@ -1,0 +1,51 @@
+{
+  ECCurve curve=this.getCurve();
+  ECFieldElement X=this.x, A=curve.getA(), B=curve.getB();
+  int coord=curve.getCoordinateSystem();
+  if (coord == ECCurve.COORD_LAMBDA_PROJECTIVE) {
+    ECFieldElement Z=this.zs[0];
+    boolean ZIsOne=Z.isOne();
+    if (X.isZero()) {
+      ECFieldElement Y=this.y;
+      ECFieldElement lhs=Y.square(), rhs=B;
+      if (!ZIsOne) {
+        rhs=rhs.multiply(Z.square());
+      }
+      return lhs.equals(rhs);
+    }
+    ECFieldElement L=this.y, X2=X.square();
+    ECFieldElement lhs, rhs;
+    if (ZIsOne) {
+      lhs=L.square().add(L).add(A);
+      rhs=X2.square().add(B);
+    }
+ else {
+      ECFieldElement Z2=Z.square(), Z4=Z2.square();
+      lhs=L.add(Z).multiplyPlusProduct(L,A,Z2);
+      rhs=X2.squarePlusProduct(B,Z4);
+    }
+    lhs=lhs.multiply(X2);
+    return lhs.equals(rhs);
+  }
+  ECFieldElement Y=this.y;
+  ECFieldElement lhs=Y.add(X).multiply(Y);
+switch (coord) {
+case ECCurve.COORD_AFFINE:
+    break;
+case ECCurve.COORD_HOMOGENEOUS:
+{
+    ECFieldElement Z=this.zs[0];
+    if (!Z.isOne()) {
+      ECFieldElement Z2=Z.square(), Z3=Z.multiply(Z2);
+      lhs=lhs.multiply(Z);
+      A=A.multiply(Z);
+      B=B.multiply(Z3);
+    }
+    break;
+  }
+default :
+throw new IllegalStateException("unsupported coordinate system");
+}
+ECFieldElement rhs=X.add(A).multiply(X.square()).add(B);
+return lhs.equals(rhs);
+}

@@ -1,0 +1,7 @@
+{
+  String res="rpc MessageReceived{";
+  res+="peer=" + this.peer;
+  res+=", date=" + this.date;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,3 @@
+{
+  modules.getSettings().changeNotificationsEnabled(peer,val);
+}

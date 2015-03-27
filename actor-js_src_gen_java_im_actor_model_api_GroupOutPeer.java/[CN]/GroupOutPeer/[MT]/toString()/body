@@ -1,0 +1,6 @@
+{
+  String res="struct GroupOutPeer{";
+  res+="groupId=" + this.groupId;
+  res+="}";
+  return res;
+}

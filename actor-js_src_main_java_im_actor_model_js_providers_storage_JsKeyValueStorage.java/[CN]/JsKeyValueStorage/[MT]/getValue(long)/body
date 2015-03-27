@@ -1,0 +1,9 @@
+{
+  String res=storage.getItem(getId(id));
+  if (res == null) {
+    return null;
+  }
+ else {
+    return fromBase64(res);
+  }
+}

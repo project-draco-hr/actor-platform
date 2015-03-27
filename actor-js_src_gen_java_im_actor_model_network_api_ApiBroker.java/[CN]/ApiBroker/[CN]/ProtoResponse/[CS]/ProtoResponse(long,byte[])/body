@@ -1,0 +1,4 @@
+{
+  this.responseId=responseId;
+  this.data=data;
+}

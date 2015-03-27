@@ -1,0 +1,15 @@
+{
+  Group group=groups().getValue(groupId);
+  if (group != null) {
+    if (uid == myUid()) {
+      groups().addOrUpdateItem(group.clearMembers().changeMember(false));
+    }
+ else {
+      groups().addOrUpdateItem(group.removeMember(uid));
+    }
+    if (!isSilent) {
+      Message message=new Message(rid,date,date,kicker,kicker == myUid() ? MessageState.SENT : MessageState.UNKNOWN,new ServiceGroupUserKicked(uid));
+      conversationActor(group.peer()).send(message);
+    }
+  }
+}

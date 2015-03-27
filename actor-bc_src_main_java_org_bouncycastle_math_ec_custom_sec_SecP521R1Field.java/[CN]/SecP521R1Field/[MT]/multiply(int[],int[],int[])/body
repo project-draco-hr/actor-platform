@@ -1,5 +1,0 @@
-{
-  int[] tt=Nat.create(33);
-  implMultiply(x,y,tt);
-  reduce(tt,z);
-}

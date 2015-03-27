@@ -1,6 +1,0 @@
-{
-  int c=Nat256.sub(x,y,z);
-  if (c != 0) {
-    addPTo(z);
-  }
-}

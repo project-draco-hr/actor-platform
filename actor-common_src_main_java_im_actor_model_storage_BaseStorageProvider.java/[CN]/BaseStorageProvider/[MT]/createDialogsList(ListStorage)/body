@@ -1,3 +1,0 @@
-{
-  return new AsyncListEngine<Dialog>(storage,Dialog.CREATOR);
-}

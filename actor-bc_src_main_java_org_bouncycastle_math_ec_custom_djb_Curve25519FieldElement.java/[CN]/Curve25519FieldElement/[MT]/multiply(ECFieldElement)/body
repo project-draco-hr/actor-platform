@@ -1,5 +1,0 @@
-{
-  int[] z=Nat256.create();
-  Curve25519Field.multiply(x,((Curve25519FieldElement)b).x,z);
-  return new Curve25519FieldElement(z);
-}

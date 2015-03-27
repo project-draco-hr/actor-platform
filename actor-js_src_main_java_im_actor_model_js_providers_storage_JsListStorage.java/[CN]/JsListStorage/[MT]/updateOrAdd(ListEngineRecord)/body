@@ -1,0 +1,11 @@
+{
+  for (  Index i : index) {
+    if (i.getId() == record.getKey()) {
+      index.remove(i);
+      break;
+    }
+  }
+  index.add(new Index(record.getKey(),record.getKey()));
+  updateIndex();
+  storage.setItem(getId(record.getKey()),toBase64(record.getData()));
+}

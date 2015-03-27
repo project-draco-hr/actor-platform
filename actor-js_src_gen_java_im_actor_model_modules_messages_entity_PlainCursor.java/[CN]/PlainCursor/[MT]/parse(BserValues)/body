@@ -1,0 +1,5 @@
+{
+  peer=Peer.fromUniqueId(values.getLong(1));
+  sortDate=values.getLong(2);
+  pendingSortDate=values.getLong(3);
+}

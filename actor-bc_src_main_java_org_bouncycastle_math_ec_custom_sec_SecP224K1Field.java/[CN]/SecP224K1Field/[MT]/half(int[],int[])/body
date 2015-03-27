@@ -1,9 +1,0 @@
-{
-  if ((x[0] & 1) == 0) {
-    Nat.shiftDownBit(7,x,0,z);
-  }
- else {
-    int c=Nat224.add(x,P,z);
-    Nat.shiftDownBit(7,z,c);
-  }
-}

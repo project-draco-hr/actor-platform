@@ -1,0 +1,4 @@
+{
+  writeTag(fieldNumber,WireTypes.TYPE_32BIT);
+  writeInt(value);
+}

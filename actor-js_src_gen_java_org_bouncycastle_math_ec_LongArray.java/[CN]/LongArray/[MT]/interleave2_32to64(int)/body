@@ -1,0 +1,5 @@
+{
+  int r00=INTERLEAVE2_TABLE[x & 0xFF] | INTERLEAVE2_TABLE[(x >>> 8) & 0xFF] << 16;
+  int r32=INTERLEAVE2_TABLE[(x >>> 16) & 0xFF] | INTERLEAVE2_TABLE[x >>> 24] << 16;
+  return (r32 & 0xFFFFFFFFL) << 32 | (r00 & 0xFFFFFFFFL);
+}

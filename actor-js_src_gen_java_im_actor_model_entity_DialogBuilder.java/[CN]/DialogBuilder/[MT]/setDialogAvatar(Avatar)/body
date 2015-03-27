@@ -1,0 +1,4 @@
+{
+  this.dialogAvatar=avatar;
+  return this;
+}

@@ -14,6 +14,7 @@
       }
     }
  else     if (peer.getPeerType() == PeerType.GROUP) {
+      messenger().changeGroupAvatar(peer.getPeerId(),avatarPath);
     }
   }
 }

@@ -1,0 +1,3 @@
+{
+  return new F2m(m,ks,x.modMultiply(((F2m)b).x,m,ks));
+}

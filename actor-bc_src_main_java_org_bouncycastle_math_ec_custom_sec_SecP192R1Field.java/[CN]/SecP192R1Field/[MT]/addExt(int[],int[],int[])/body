@@ -1,8 +1,0 @@
-{
-  int c=Nat.add(12,xx,yy,zz);
-  if (c != 0 || (zz[11] == PExt11 && Nat.gte(12,zz,PExt))) {
-    if (Nat.addTo(PExtInv.length,PExtInv,zz) != 0) {
-      Nat.incAt(12,zz,PExtInv.length);
-    }
-  }
-}

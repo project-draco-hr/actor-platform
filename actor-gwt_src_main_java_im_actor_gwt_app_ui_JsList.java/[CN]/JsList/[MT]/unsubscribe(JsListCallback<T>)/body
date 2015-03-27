@@ -1,3 +1,0 @@
-{
-  simpleCallbacks.remove(callback);
-}

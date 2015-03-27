@@ -1,8 +1,0 @@
-{
-  if (db.exists(key)) {
-    return db.getAtomicLong(key).get();
-  }
- else {
-    return def;
-  }
-}

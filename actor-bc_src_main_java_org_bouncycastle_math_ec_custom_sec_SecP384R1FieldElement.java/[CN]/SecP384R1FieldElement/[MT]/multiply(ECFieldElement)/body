@@ -1,5 +1,0 @@
-{
-  int[] z=Nat.create(12);
-  SecP384R1Field.multiply(x,((SecP384R1FieldElement)b).x,z);
-  return new SecP384R1FieldElement(z);
-}

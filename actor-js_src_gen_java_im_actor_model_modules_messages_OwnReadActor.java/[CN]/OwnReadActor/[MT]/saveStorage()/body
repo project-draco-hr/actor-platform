@@ -1,0 +1,3 @@
+{
+  syncKeyValue.put(CURSOR_OWN_READ,messagesStorage.toByteArray());
+}

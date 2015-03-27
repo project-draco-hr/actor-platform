@@ -1,0 +1,3 @@
+{
+  return actorOf(selection.getProps(),selection.getPath());
+}

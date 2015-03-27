@@ -1,0 +1,8 @@
+{
+  String res="update EncryptedRead{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", readDate=" + this.readDate;
+  res+="}";
+  return res;
+}

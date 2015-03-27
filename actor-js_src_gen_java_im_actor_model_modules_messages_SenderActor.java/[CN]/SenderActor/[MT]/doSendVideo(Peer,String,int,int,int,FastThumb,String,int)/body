@@ -1,0 +1,10 @@
+{
+  long rid=RandomUtils.nextRid();
+  long date=System.currentTimeMillis();
+  VideoContent videoContent=new VideoContent(new FileLocalSource(fileName,fileSize,descriptor),"video/mp4",fileName,fastThumb,duration,w,h);
+  Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,videoContent);
+  getConversationActor(peer).send(message);
+  pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,videoContent));
+  savePending();
+  performUploadFile(rid,descriptor,fileName);
+}

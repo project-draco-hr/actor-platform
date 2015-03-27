@@ -1,0 +1,14 @@
+{
+  messages=messages(peer);
+  messagesStorage=new OutUnreadMessagesStorage();
+  byte[] data=pendingKeyValue.get(peer.getUnuqueId());
+  if (data != null) {
+    try {
+      messagesStorage=OutUnreadMessagesStorage.fromBytes(data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  dialogsActor=modules().getMessagesModule().getDialogsActor();
+}

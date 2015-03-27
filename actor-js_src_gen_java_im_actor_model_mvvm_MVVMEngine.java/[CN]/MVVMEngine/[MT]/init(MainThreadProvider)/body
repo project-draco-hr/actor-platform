@@ -1,0 +1,3 @@
+{
+  MVVMEngine.mainThreadProvider=mainThreadProvider;
+}

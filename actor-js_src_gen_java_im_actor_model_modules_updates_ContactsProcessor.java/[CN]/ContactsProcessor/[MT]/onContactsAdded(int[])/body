@@ -1,0 +1,3 @@
+{
+  contactsSyncActor.send(new ContactsSyncActor.ContactsAdded(uid));
+}

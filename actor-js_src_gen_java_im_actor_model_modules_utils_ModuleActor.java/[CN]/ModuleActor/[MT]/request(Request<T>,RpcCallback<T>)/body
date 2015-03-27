@@ -1,0 +1,21 @@
+{
+  modules.getActorApi().request(request,new RpcCallback<T>(){
+    @Override public void onResult(    final T response){
+      self().send(new Runnable(){
+        @Override public void run(){
+          callback.onResult(response);
+        }
+      }
+);
+    }
+    @Override public void onError(    final RpcException e){
+      self().send(new Runnable(){
+        @Override public void run(){
+          callback.onError(e);
+        }
+      }
+);
+    }
+  }
+);
+}

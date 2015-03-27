@@ -1,0 +1,7 @@
+{
+  this.contentType=contentType;
+  this.text=text;
+  this.relatedUser=relatedUser;
+  this.isSilent=isSilent;
+  this.isEncrypted=false;
+}

@@ -1,0 +1,3 @@
+{
+  return new Fp(q,r,modMult(x,modInverse(b.toBigInteger())));
+}

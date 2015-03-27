@@ -1,0 +1,6 @@
+{
+  if (!fields.containsKey(id)) {
+    throw new UnknownFieldException("Unable to find field #" + id);
+  }
+  return getBytes(id,null);
+}

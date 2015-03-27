@@ -1,0 +1,7 @@
+{
+  long[] res=new long[index.size()];
+  for (int i=0; i < res.length; i++) {
+    res[i]=index.get(i).getId();
+  }
+  return res;
+}

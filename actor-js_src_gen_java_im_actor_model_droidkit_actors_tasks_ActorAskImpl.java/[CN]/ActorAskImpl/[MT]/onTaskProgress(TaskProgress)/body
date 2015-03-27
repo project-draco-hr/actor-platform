@@ -1,0 +1,8 @@
+{
+  AskContainer container=asks.get(progress.getRequestId());
+  if (container != null) {
+    container.future.onProgress(progress.getProgress());
+    return true;
+  }
+  return false;
+}

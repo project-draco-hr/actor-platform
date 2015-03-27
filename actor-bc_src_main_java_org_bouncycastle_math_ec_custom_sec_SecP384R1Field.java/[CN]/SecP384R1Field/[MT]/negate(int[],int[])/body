@@ -1,8 +1,0 @@
-{
-  if (Nat.isZero(12,x)) {
-    Nat.zero(12,z);
-  }
- else {
-    Nat.sub(12,P,x,z);
-  }
-}

@@ -1,0 +1,15 @@
+{
+  for (  ListEngineRecord record : items) {
+    for (    Index i : index) {
+      if (i.getId() == record.getKey()) {
+        index.remove(i);
+        break;
+      }
+    }
+    index.add(new Index(record.getKey(),record.getKey()));
+  }
+  updateIndex();
+  for (  ListEngineRecord record : items) {
+    storage.setItem(getId(record.getKey()),toBase64(record.getData()));
+  }
+}

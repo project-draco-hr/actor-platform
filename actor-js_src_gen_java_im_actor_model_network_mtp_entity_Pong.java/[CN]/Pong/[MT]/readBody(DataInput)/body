@@ -1,0 +1,3 @@
+{
+  randomId=bs.readLong();
+}

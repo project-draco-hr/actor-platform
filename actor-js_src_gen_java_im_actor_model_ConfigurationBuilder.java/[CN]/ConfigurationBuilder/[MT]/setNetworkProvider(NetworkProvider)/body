@@ -1,0 +1,4 @@
+{
+  this.networkProvider=networkProvider;
+  return this;
+}

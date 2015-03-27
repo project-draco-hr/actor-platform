@@ -1,0 +1,6 @@
+{
+  int theInt=n >>> 6;
+  int theBit=n & 0x3F;
+  long flipper=1L << theBit;
+  buf[off + theInt]^=flipper;
+}

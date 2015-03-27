@@ -1,0 +1,3 @@
+boolean[] negs
+WNafPreCompInfo[] infos
+byte[][] wnafs

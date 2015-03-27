@@ -1,0 +1,9 @@
+{
+  Downloaded downloaded=downloadedEngine.getValue(fileId);
+  if (downloaded == null) {
+    return null;
+  }
+ else {
+    return downloaded.getDescriptor();
+  }
+}

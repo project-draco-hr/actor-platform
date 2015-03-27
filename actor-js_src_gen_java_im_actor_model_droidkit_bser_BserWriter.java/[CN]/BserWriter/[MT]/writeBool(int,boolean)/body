@@ -1,0 +1,3 @@
+{
+  writeVarIntField(fieldNumber,value ? 1 : 0);
+}

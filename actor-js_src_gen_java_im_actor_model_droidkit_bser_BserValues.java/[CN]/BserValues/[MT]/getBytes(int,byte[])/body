@@ -1,0 +1,10 @@
+{
+  if (fields.containsKey(id)) {
+    Object obj=fields.get(id);
+    if (obj instanceof byte[]) {
+      return (byte[])obj;
+    }
+    throw new IncorrectTypeException("Expected type: byte[], got " + obj.getClass().getSimpleName());
+  }
+  return defValue;
+}

@@ -1,7 +1,0 @@
-{
-  byte[] bs=new byte[BUFFER_SIZE];
-  int numRead;
-  while ((numRead=inStr.read(bs,0,bs.length)) >= 0) {
-    outStr.write(bs,0,numRead);
-  }
-}

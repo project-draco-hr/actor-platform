@@ -1,0 +1,3 @@
+{
+  return readUpdate(new DataInput(bs,0,bs.length));
+}

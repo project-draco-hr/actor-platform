@@ -1,0 +1,8 @@
+{
+  MVVMEngine.runOnUiThread(new Runnable(){
+    @Override public void run(){
+      values.clear();
+    }
+  }
+);
+}

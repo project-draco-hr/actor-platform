@@ -1,0 +1,67 @@
+{
+  Log.d(TAG,"Requesting state file #" + fileId);
+  Downloaded downloaded1=downloaded.getValue(fileId);
+  if (downloaded1 != null) {
+    FileSystemProvider provider=modules().getConfiguration().getFileSystemProvider();
+    FileSystemReference reference=provider.fileFromDescriptor(downloaded1.getDescriptor());
+    boolean isExist=reference.isExist();
+    int fileSize=reference.getSize();
+    if (isExist && fileSize == downloaded1.getFileSize()) {
+      Log.d(TAG,"- Downloaded");
+      final FileSystemReference fileSystemReference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor());
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloaded(fileSystemReference);
+        }
+      }
+);
+      return;
+    }
+ else {
+      Log.d(TAG,"- File is corrupted");
+      if (!isExist) {
+        Log.d(TAG,"- File not found");
+      }
+      if (fileSize != downloaded1.getFileSize()) {
+        Log.d(TAG,"- Incorrect file size. Expected: " + downloaded1.getFileSize() + ", got: "+ fileSize);
+      }
+      downloaded.removeItem(downloaded1.getFileId());
+    }
+  }
+  final QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    Environment.dispatchCallback(new Runnable(){
+      @Override public void run(){
+        callback.onNotDownloaded();
+      }
+    }
+);
+  }
+ else {
+    if (queueItem.isStarted) {
+      final float progress=queueItem.progress;
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloading(progress);
+        }
+      }
+);
+    }
+ else     if (queueItem.isStopped) {
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotDownloaded();
+        }
+      }
+);
+    }
+ else {
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onDownloading(0);
+        }
+      }
+);
+    }
+  }
+}

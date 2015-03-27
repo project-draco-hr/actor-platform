@@ -1,0 +1,14 @@
+{
+  byte[] small=values.optBytes(1);
+  if (small != null) {
+    smallImage=AvatarImage.fromBytes(small);
+  }
+  byte[] large=values.optBytes(2);
+  if (large != null) {
+    largeImage=AvatarImage.fromBytes(large);
+  }
+  byte[] full=values.optBytes(3);
+  if (full != null) {
+    fullImage=AvatarImage.fromBytes(full);
+  }
+}

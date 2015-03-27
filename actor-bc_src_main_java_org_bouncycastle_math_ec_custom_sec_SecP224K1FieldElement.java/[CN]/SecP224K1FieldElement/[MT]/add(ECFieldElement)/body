@@ -1,5 +1,0 @@
-{
-  int[] z=Nat224.create();
-  SecP224K1Field.add(x,((SecP224K1FieldElement)b).x,z);
-  return new SecP224K1FieldElement(z);
-}

@@ -1,3 +1,0 @@
-{
-  return JsDialog.create(JsPeer.create(src.getPeer()),src.getDialogTitle(),null,Placeholders.getPlaceholder(src.getPeer().getPeerId()),engine.formatShortDate(src.getDate()),"<SENDER>",false,src.getText(),false,Enums.convert(src.getStatus()));
-}

@@ -1,8 +1,0 @@
-{
-  Log.d(TAG,"removeItem");
-  cache.remove(id);
-  for (  JsListEngineCallback<V> callback : callbacks) {
-    callback.onItemRemoved(id);
-  }
-  listStorage.remove(id);
-}

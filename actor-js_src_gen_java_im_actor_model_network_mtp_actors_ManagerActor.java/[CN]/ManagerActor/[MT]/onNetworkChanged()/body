@@ -1,0 +1,5 @@
+{
+  Log.w(TAG,"Network configuration changed");
+  backoff.reset();
+  checkConnection();
+}

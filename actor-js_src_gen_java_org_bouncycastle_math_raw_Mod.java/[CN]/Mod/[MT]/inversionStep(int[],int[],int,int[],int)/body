@@ -1,0 +1,27 @@
+{
+  int len=p.length;
+  int count=0;
+  while (u[0] == 0) {
+    Nat.shiftDownWord(uLen,u,0);
+    count+=32;
+  }
+{
+    int zeroes=getTrailingZeroes(u[0]);
+    if (zeroes > 0) {
+      Nat.shiftDownBits(uLen,u,zeroes,0);
+      count+=zeroes;
+    }
+  }
+  for (int i=0; i < count; ++i) {
+    if ((x[0] & 1) != 0) {
+      if (xc < 0) {
+        xc+=Nat.addTo(len,p,x);
+      }
+ else {
+        xc+=Nat.subFrom(len,p,x);
+      }
+    }
+    Nat.shiftDownBit(len,x,xc);
+  }
+  return xc;
+}

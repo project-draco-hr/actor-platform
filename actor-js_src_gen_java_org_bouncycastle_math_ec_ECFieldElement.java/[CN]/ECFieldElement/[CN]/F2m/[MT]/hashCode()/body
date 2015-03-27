@@ -1,0 +1,3 @@
+{
+  return x.hashCode() ^ m ^ Arrays.hashCode(ks);
+}

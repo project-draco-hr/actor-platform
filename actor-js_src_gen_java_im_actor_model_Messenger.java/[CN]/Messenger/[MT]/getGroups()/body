@@ -1,0 +1,6 @@
+{
+  if (modules.getGroupsModule() == null) {
+    return null;
+  }
+  return modules.getGroupsModule().getGroupsCollection();
+}

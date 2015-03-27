@@ -1,0 +1,4 @@
+{
+  this.gid=gid;
+  this.rid=rid;
+}

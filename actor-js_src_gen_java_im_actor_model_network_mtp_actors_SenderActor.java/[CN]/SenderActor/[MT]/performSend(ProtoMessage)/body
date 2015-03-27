@@ -1,0 +1,4 @@
+{
+  byte[] data=message.toByteArray();
+  manager.send(new ManagerActor.OutMessage(data,0,data.length));
+}

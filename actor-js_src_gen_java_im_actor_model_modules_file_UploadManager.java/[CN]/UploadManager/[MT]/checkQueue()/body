@@ -1,0 +1,33 @@
+{
+  Log.d(TAG,"- Checking queue");
+  int activeUploads=0;
+  for (  QueueItem queueItem : queue) {
+    if (queueItem.isStarted) {
+      activeUploads++;
+    }
+  }
+  if (activeUploads >= SIM_MAX_UPLOADS) {
+    Log.d(TAG,"- Already have max number of simultaneous uploads");
+    return;
+  }
+  QueueItem pendingQueue=null;
+  for (  QueueItem queueItem : queue) {
+    if (!queueItem.isStarted && !queueItem.isStopped) {
+      pendingQueue=queueItem;
+      break;
+    }
+  }
+  if (pendingQueue == null) {
+    Log.d(TAG,"- No work for downloading");
+    return;
+  }
+  Log.d(TAG,"- Starting upload file #" + pendingQueue.fileDescriptor);
+  pendingQueue.isStarted=true;
+  final QueueItem finalPendingQueue=pendingQueue;
+  pendingQueue.taskRef=system().actorOf(Props.create(UploadTask.class,new ActorCreator<UploadTask>(){
+    @Override public UploadTask create(){
+      return new UploadTask(finalPendingQueue.rid,finalPendingQueue.fileDescriptor,finalPendingQueue.fileName,self(),modules());
+    }
+  }
+),"actor/upload/task_" + RandomUtils.nextRid());
+}

@@ -1,0 +1,4 @@
+{
+  this.enableContactsLogging=enableContactsLogging;
+  return this;
+}

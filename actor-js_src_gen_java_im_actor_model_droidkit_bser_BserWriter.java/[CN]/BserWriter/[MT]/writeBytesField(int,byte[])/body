@@ -1,0 +1,4 @@
+{
+  writeTag(fieldNumber,WireTypes.TYPE_LENGTH_DELIMITED);
+  writeBytes(value);
+}

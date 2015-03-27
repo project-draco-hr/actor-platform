@@ -1,0 +1,14 @@
+{
+  this.peer=peer;
+  this.dialogTitle=dialogTitle;
+  this.dialogAvatar=dialogAvatar;
+  this.unreadCount=unreadCount;
+  this.rid=rid;
+  this.sortDate=sortKey;
+  this.senderId=senderId;
+  this.date=date;
+  this.messageType=messageType;
+  this.text=text;
+  this.status=status;
+  this.relatedUid=relatedUid;
+}

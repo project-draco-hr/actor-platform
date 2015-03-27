@@ -1,0 +1,3 @@
+{
+  dialogsHistoryActor.send(new DialogsHistoryActor.LoadMore());
+}

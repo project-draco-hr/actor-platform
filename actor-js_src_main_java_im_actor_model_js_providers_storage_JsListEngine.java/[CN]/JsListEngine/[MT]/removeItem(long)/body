@@ -1,0 +1,7 @@
+{
+  cache.remove(key);
+  storage.delete(key);
+  for (  JsListEngineCallback<T> callback : callbacks) {
+    callback.onItemRemoved(key);
+  }
+}

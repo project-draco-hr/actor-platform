@@ -1,0 +1,10 @@
+{
+  boolean isChanged=false;
+  isChanged|=name.change(rawObj.getTitle());
+  isChanged|=avatar.change(rawObj.getAvatar());
+  isChanged|=isMember.change(rawObj.isMember());
+  isChanged|=members.change(new HashSet<GroupMember>(rawObj.getMembers()));
+  if (isChanged) {
+    notifyChange();
+  }
+}

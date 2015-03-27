@@ -1,0 +1,6 @@
+{
+  super.serialize(writer);
+  writer.writeString(2,fileName);
+  writer.writeInt(3,size);
+  writer.writeString(4,fileDescriptor);
+}

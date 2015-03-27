@@ -1,0 +1,7 @@
+{
+  Dialog dialog=dialogs.getValue(peer.getUnuqueId());
+  if (dialog != null && dialog.getRid() == rid) {
+    ContentDescription description=ContentDescription.fromContent(content);
+    dialogs.addOrUpdateItem(new DialogBuilder(dialog).setText(description.getText()).setRelatedUid(description.getRelatedUser()).setMessageType(description.getContentType()).createDialog());
+  }
+}

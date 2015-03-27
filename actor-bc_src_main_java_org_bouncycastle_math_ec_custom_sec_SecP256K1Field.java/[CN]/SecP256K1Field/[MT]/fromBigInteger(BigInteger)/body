@@ -1,7 +1,0 @@
-{
-  int[] z=Nat256.fromBigInteger(x);
-  if (z[7] == P7 && Nat256.gte(z,P)) {
-    Nat256.subFrom(P,z);
-  }
-  return z;
-}

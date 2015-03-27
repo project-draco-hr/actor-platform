@@ -1,0 +1,16 @@
+{
+  ECFieldElement[] c=new ECFieldElement[len];
+  c[0]=zs[off];
+  int i=0;
+  while (++i < len) {
+    c[i]=c[i - 1].multiply(zs[off + i]);
+  }
+  ECFieldElement u=c[--i].invert();
+  while (i > 0) {
+    int j=off + i--;
+    ECFieldElement tmp=zs[j];
+    zs[j]=c[i].multiply(u);
+    u=u.multiply(tmp);
+  }
+  zs[off]=u;
+}

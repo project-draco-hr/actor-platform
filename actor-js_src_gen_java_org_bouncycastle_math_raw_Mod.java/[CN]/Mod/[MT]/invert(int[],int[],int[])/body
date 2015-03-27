@@ -1,0 +1,48 @@
+{
+  int len=p.length;
+  if (Nat.isZero(len,x)) {
+    throw new IllegalArgumentException("'x' cannot be 0");
+  }
+  if (Nat.isOne(len,x)) {
+    System.arraycopy(x,0,z,0,len);
+    return;
+  }
+  int[] u=Nat.copy(len,x);
+  int[] a=Nat.create(len);
+  a[0]=1;
+  int ac=0;
+  if ((u[0] & 1) == 0) {
+    ac=inversionStep(p,u,len,a,ac);
+  }
+  if (Nat.isOne(len,u)) {
+    inversionResult(p,ac,a,z);
+    return;
+  }
+  int[] v=Nat.copy(len,p);
+  int[] b=Nat.create(len);
+  int bc=0;
+  int uvLen=len;
+  for (; ; ) {
+    while (u[uvLen - 1] == 0 && v[uvLen - 1] == 0) {
+      --uvLen;
+    }
+    if (Nat.gte(uvLen,u,v)) {
+      Nat.subFrom(uvLen,v,u);
+      ac+=Nat.subFrom(len,b,a) - bc;
+      ac=inversionStep(p,u,uvLen,a,ac);
+      if (Nat.isOne(uvLen,u)) {
+        inversionResult(p,ac,a,z);
+        return;
+      }
+    }
+ else {
+      Nat.subFrom(uvLen,u,v);
+      bc+=Nat.subFrom(len,a,b) - ac;
+      bc=inversionStep(p,v,uvLen,b,bc);
+      if (Nat.isOne(uvLen,v)) {
+        inversionResult(p,bc,b,z);
+        return;
+      }
+    }
+  }
+}

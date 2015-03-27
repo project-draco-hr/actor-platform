@@ -1,0 +1,6 @@
+int[] x
+int xOff
+int[] y
+int yOff
+int[] z
+int zOff

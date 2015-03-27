@@ -1,3 +1,0 @@
-{
-  this.listStorage=new JsListStorage(prefix,storage);
-}

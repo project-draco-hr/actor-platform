@@ -1,6 +1,0 @@
-{
-  int c=Nat256.add(x,y,z);
-  if (c != 0 || (z[7] == P7 && Nat256.gte(z,P))) {
-    Nat.add33To(8,PInv33,z);
-  }
-}

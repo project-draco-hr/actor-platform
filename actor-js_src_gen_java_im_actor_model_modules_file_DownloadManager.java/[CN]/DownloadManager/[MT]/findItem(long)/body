@@ -1,0 +1,8 @@
+{
+  for (  QueueItem q : queue) {
+    if (q.fileReference.getFileId() == id) {
+      return q;
+    }
+  }
+  return null;
+}

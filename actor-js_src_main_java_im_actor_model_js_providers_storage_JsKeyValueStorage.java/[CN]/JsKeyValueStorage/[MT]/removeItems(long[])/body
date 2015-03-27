@@ -1,0 +1,13 @@
+{
+  boolean isRemoved=false;
+  for (  long id : ids) {
+    if (items.contains(id)) {
+      storage.removeItem(getId(id));
+      items.remove(id);
+      isRemoved=true;
+    }
+  }
+  if (isRemoved) {
+    saveIndex();
+  }
+}

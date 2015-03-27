@@ -1,0 +1,11 @@
+{
+  if (obj instanceof OnNotDownloaded) {
+    vmCallback.onNotDownloaded();
+  }
+ else   if (obj instanceof OnDownloading) {
+    vmCallback.onDownloading(((OnDownloading)obj).getProgress());
+  }
+ else   if (obj instanceof OnDownloaded) {
+    vmCallback.onDownloaded(((OnDownloaded)obj).getFileSystemReference());
+  }
+}

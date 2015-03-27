@@ -1,0 +1,3 @@
+UploadConfig config
+int blockIndex
+byte[] payload

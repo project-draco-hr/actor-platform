@@ -1,0 +1,11 @@
+{
+  setThreadingProvider(new JsThreadingProvider());
+  setNetworkProvider(new JsNetworkProvider());
+  setLog(new JsLogProvider());
+  setMainThreadProvider(new JsMainThreadProvider());
+  setLocale(new JsLocaleProvider());
+  setCryptoProvider(new JsCryptoProvider());
+  setDispatcherProvider(new JsDispatcherProvider());
+  setPhoneBookProvider(new JsPhoneBookProvider());
+  setStorage(new JsStorageProvider());
+}

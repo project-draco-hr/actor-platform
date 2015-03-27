@@ -1,0 +1,6 @@
+{
+  this.sequence=new ArrayList<ASN1Primitive>();
+  for (  ASN1Primitive p : sequence) {
+    this.sequence.add(p);
+  }
+}

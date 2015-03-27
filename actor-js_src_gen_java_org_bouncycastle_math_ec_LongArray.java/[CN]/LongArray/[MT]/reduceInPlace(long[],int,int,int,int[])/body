@@ -1,0 +1,31 @@
+{
+  int mLen=(m + 63) >>> 6;
+  if (len < mLen) {
+    return len;
+  }
+  int numBits=Math.min(len << 6,(m << 1) - 1);
+  int excessBits=(len << 6) - numBits;
+  while (excessBits >= 64) {
+    --len;
+    excessBits-=64;
+  }
+  int kLen=ks.length, kMax=ks[kLen - 1], kNext=kLen > 1 ? ks[kLen - 2] : 0;
+  int wordWiseLimit=Math.max(m,kMax + 64);
+  int vectorableWords=(excessBits + Math.min(numBits - wordWiseLimit,m - kNext)) >> 6;
+  if (vectorableWords > 1) {
+    int vectorWiseWords=len - vectorableWords;
+    reduceVectorWise(buf,off,len,vectorWiseWords,m,ks);
+    while (len > vectorWiseWords) {
+      buf[off + --len]=0L;
+    }
+    numBits=vectorWiseWords << 6;
+  }
+  if (numBits > wordWiseLimit) {
+    reduceWordWise(buf,off,len,wordWiseLimit,m,ks);
+    numBits=wordWiseLimit;
+  }
+  if (numBits > m) {
+    reduceBitWise(buf,off,numBits,m,ks);
+  }
+  return mLen;
+}

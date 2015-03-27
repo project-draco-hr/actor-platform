@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.phoneId);
+  writer.writeInt(2,this.uid);
+}

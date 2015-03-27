@@ -1,0 +1,3 @@
+{
+  messenger.getDialogsList().unsubscribe(callback);
+}

@@ -1,0 +1,17 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  Log.d(TAG,"Closing file...");
+  if (!outputFile.close()) {
+    reportError();
+    return;
+  }
+  FileSystemReference reference=fileSystemProvider.commitTempFile(destReference,fileReference);
+  if (reference == null) {
+    reportError();
+    return;
+  }
+  Log.d(TAG,"Complete download {" + reference.getDescriptor() + "}");
+  reportComplete(reference);
+}

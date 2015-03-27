@@ -1,0 +1,4 @@
+int uid
+long sortKey
+Avatar avatar
+String name

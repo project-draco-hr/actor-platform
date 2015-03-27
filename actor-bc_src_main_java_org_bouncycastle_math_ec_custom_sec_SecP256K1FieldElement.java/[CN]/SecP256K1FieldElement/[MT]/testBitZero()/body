@@ -1,3 +1,0 @@
-{
-  return Nat256.getBit(x,0) == 1;
-}

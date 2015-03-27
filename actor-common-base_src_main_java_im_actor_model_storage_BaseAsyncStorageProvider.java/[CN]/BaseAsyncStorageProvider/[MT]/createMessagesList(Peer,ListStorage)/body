@@ -1,0 +1,6 @@
+{
+  if (!(storage instanceof ListStorageDisplayEx)) {
+    throw new RuntimeException("Storage MUST implement ListStorageDisplayEx");
+  }
+  return new AsyncListEngine<Message>((ListStorageDisplayEx)storage,Message.CREATOR);
+}

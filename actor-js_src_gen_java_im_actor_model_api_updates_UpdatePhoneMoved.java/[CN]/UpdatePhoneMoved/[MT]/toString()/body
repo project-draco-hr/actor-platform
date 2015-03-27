@@ -1,0 +1,7 @@
+{
+  String res="update PhoneMoved{";
+  res+="phoneId=" + this.phoneId;
+  res+=", uid=" + this.uid;
+  res+="}";
+  return res;
+}

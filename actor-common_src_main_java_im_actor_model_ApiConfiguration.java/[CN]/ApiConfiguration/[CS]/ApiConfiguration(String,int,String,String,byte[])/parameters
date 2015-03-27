@@ -1,5 +1,0 @@
-String appTitle
-int appId
-String appKey
-String deviceTitle
-byte[] deviceHash

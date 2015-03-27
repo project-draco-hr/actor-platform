@@ -1,0 +1,11 @@
+{
+  long c=0, aVal=a & M, bVal=b & M;
+  int i=0;
+  do {
+    c+=aVal * (x[i] & M) + bVal * (y[i] & M) + (z[zOff + i] & M);
+    z[zOff + i]=(int)c;
+    c>>>=32;
+  }
+ while (++i < len);
+  return (int)c;
+}

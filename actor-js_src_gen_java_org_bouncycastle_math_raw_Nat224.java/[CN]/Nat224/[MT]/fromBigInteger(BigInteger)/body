@@ -1,0 +1,12 @@
+{
+  if (x.signum() < 0 || x.bitLength() > 224) {
+    throw new IllegalArgumentException();
+  }
+  int[] z=create();
+  int i=0;
+  while (x.signum() != 0) {
+    z[i++]=x.intValue();
+    x=x.shiftRight(32);
+  }
+  return z;
+}

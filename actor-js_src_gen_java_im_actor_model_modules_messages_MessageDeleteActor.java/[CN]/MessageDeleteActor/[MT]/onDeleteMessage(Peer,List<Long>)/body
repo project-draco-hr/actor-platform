@@ -1,0 +1,8 @@
+{
+  if (!deleteStorage.getPendingDeletions().containsKey(peer)) {
+    deleteStorage.getPendingDeletions().put(peer,new Delete(peer,new ArrayList<Long>()));
+  }
+  deleteStorage.getPendingDeletions().get(peer).getRids().addAll(rids);
+  saveStorage();
+  performDelete(peer,rids);
+}

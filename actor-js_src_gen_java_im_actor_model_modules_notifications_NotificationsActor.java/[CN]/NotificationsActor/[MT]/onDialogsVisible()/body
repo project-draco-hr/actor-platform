@@ -1,0 +1,6 @@
+{
+  isDialogsVisible=true;
+  if (config().getNotificationProvider() != null) {
+    config().getNotificationProvider().onDialogsOpen();
+  }
+}

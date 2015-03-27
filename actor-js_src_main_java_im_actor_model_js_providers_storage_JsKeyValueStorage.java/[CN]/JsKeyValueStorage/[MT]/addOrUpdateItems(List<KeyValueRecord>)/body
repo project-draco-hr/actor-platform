@@ -1,0 +1,14 @@
+{
+  boolean isAdded=false;
+  for (  KeyValueRecord record : values) {
+    long id=record.getId();
+    storage.setItem(getId(id),toBase64(record.getData()));
+    if (!items.contains(id)) {
+      items.add(id);
+      isAdded=true;
+    }
+  }
+  if (isAdded) {
+    saveIndex();
+  }
+}

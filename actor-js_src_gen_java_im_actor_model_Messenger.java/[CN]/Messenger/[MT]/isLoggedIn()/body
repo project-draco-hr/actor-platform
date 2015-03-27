@@ -1,0 +1,3 @@
+{
+  return getAuthState() == AuthState.LOGGED_IN;
+}

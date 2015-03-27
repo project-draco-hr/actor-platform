@@ -1,0 +1,17 @@
+{
+  List<UserKey> _newKeys=new ArrayList<UserKey>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _newKeys.add(new UserKey());
+  }
+  this.newKeys=values.getRepeatedObj(1,_newKeys);
+  List<UserKey> _removedKeys=new ArrayList<UserKey>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _removedKeys.add(new UserKey());
+  }
+  this.removedKeys=values.getRepeatedObj(2,_removedKeys);
+  List<UserKey> _invalidKeys=new ArrayList<UserKey>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _invalidKeys.add(new UserKey());
+  }
+  this.invalidKeys=values.getRepeatedObj(3,_invalidKeys);
+}

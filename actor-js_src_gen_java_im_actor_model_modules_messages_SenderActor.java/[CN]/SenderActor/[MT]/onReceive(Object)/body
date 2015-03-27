@@ -1,0 +1,37 @@
+{
+  if (message instanceof SendText) {
+    SendText sendText=(SendText)message;
+    doSendText(sendText.getPeer(),sendText.getText());
+  }
+ else   if (message instanceof MessageSent) {
+    MessageSent messageSent=(MessageSent)message;
+    onSent(messageSent.getPeer(),messageSent.getRid());
+  }
+ else   if (message instanceof MessageError) {
+    MessageError messageError=(MessageError)message;
+    onError(messageError.getPeer(),messageError.getRid());
+  }
+ else   if (message instanceof SendDocument) {
+    SendDocument sendDocument=(SendDocument)message;
+    doSendDocument(sendDocument.getPeer(),sendDocument.getFileName(),sendDocument.getMimeType(),sendDocument.getFileSize(),sendDocument.getFastThumb(),sendDocument.getDescriptor());
+  }
+ else   if (message instanceof UploadManager.UploadCompleted) {
+    UploadManager.UploadCompleted uploadCompleted=(UploadManager.UploadCompleted)message;
+    onFileUploaded(uploadCompleted.getRid(),uploadCompleted.getFileReference());
+  }
+ else   if (message instanceof UploadManager.UploadError) {
+    UploadManager.UploadError uploadError=(UploadManager.UploadError)message;
+    onFileUploadError(uploadError.getRid());
+  }
+ else   if (message instanceof SendPhoto) {
+    SendPhoto sendPhoto=(SendPhoto)message;
+    doSendPhoto(sendPhoto.getPeer(),sendPhoto.getFastThumb(),sendPhoto.getDescriptor(),sendPhoto.getFileName(),sendPhoto.getFileSize(),sendPhoto.getW(),sendPhoto.getH());
+  }
+ else   if (message instanceof SendVideo) {
+    SendVideo sendVideo=(SendVideo)message;
+    doSendVideo(sendVideo.getPeer(),sendVideo.getFileName(),sendVideo.getW(),sendVideo.getH(),sendVideo.getDuration(),sendVideo.getFastThumb(),sendVideo.getDescriptor(),sendVideo.getFileSize());
+  }
+ else {
+    drop(message);
+  }
+}

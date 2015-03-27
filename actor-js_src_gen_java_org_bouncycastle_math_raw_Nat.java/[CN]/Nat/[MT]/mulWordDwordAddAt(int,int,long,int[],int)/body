@@ -1,0 +1,13 @@
+{
+  long c=0, xVal=x & M;
+  c+=xVal * (y & M) + (z[zPos + 0] & M);
+  z[zPos + 0]=(int)c;
+  c>>>=32;
+  c+=xVal * (y >>> 32) + (z[zPos + 1] & M);
+  z[zPos + 1]=(int)c;
+  c>>>=32;
+  c+=(z[zPos + 2] & M);
+  z[zPos + 2]=(int)c;
+  c>>>=32;
+  return c == 0 ? 0 : incAt(len,z,zPos + 3);
+}

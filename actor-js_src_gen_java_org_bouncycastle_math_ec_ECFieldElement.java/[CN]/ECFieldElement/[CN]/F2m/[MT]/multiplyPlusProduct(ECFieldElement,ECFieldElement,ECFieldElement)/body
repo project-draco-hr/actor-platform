@@ -1,0 +1,11 @@
+{
+  LongArray ax=this.x, bx=((F2m)b).x, xx=((F2m)x).x, yx=((F2m)y).x;
+  LongArray ab=ax.multiply(bx,m,ks);
+  LongArray xy=xx.multiply(yx,m,ks);
+  if (ab == ax || ab == bx) {
+    ab=(LongArray)ab.clone();
+  }
+  ab.addShiftedByWords(xy,0);
+  ab.reduce(m,ks);
+  return new F2m(m,ks,ab);
+}

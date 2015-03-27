@@ -1,0 +1,4 @@
+{
+  setCryptoProvider(new JavaCryptoProvider());
+  setThreadingProvider(new JavaThreadingProvider());
+}

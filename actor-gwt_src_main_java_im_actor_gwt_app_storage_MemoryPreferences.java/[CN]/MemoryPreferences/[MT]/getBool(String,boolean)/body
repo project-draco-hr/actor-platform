@@ -1,6 +1,0 @@
-{
-  if (map.containsKey(key)) {
-    return (Boolean)map.get(key);
-  }
-  return def;
-}

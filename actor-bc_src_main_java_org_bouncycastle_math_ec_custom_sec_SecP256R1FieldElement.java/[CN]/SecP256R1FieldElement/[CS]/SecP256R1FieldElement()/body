@@ -1,3 +1,0 @@
-{
-  this.x=Nat256.create();
-}

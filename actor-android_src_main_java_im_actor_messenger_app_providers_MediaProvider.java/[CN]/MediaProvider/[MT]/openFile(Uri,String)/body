@@ -1,7 +1,0 @@
-{
-  if (!Core.messenger().isLoggedIn()) {
-    throw new IllegalArgumentException();
-  }
-  long id=Long.parseLong(uri.getLastPathSegment());
-  throw new IllegalArgumentException();
-}

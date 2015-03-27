@@ -1,0 +1,47 @@
+{
+  if (message instanceof InMessage) {
+    InMessage inMessage=(InMessage)message;
+    onMessage(inMessage.getPeer(),inMessage.getMessage(),false);
+  }
+ else   if (message instanceof UserChanged) {
+    UserChanged userChanged=(UserChanged)message;
+    onUserChanged(userChanged.getUser());
+  }
+ else   if (message instanceof ChatClear) {
+    onChatClear(((ChatClear)message).getPeer());
+  }
+ else   if (message instanceof ChatDelete) {
+    onChatDeleted(((ChatDelete)message).getPeer());
+  }
+ else   if (message instanceof MessageStateChanged) {
+    MessageStateChanged messageStateChanged=(MessageStateChanged)message;
+    onMessageStatusChanged(messageStateChanged.getPeer(),messageStateChanged.getRid(),messageStateChanged.getState());
+  }
+ else   if (message instanceof CounterChanged) {
+    CounterChanged counterChanged=(CounterChanged)message;
+    onCounterChanged(counterChanged.getPeer(),counterChanged.getCount());
+  }
+ else   if (message instanceof MessageDeleted) {
+    MessageDeleted deleted=(MessageDeleted)message;
+    onMessage(deleted.getPeer(),deleted.getTopMessage(),true);
+  }
+ else   if (message instanceof HistoryLoaded) {
+    HistoryLoaded historyLoaded=(HistoryLoaded)message;
+    onHistoryLoaded(historyLoaded.getHistory());
+  }
+ else   if (message instanceof GroupChanged) {
+    GroupChanged groupChanged=(GroupChanged)message;
+    onGroupChanged(groupChanged.getGroup());
+  }
+ else   if (message instanceof MessageSent) {
+    MessageSent messageSent=(MessageSent)message;
+    onMessageSent(messageSent.getPeer(),messageSent.getRid(),messageSent.getDate());
+  }
+ else   if (message instanceof MessageContentChanged) {
+    MessageContentChanged contentChanged=(MessageContentChanged)message;
+    onMessageContentChanged(contentChanged.getPeer(),contentChanged.getRid(),contentChanged.getContent());
+  }
+ else {
+    drop(message);
+  }
+}

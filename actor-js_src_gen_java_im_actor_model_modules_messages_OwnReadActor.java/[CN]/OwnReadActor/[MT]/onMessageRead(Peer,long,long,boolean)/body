@@ -1,0 +1,34 @@
+{
+  long readState=modules().getMessagesModule().loadReadState(peer);
+  if (sortingDate <= readState) {
+    return;
+  }
+  HashSet<UnreadMessage> unread=messagesStorage.getUnread(peer);
+  long maxPlainReadDate=0;
+  if (!isEncrypted) {
+    maxPlainReadDate=sortingDate;
+  }
+  boolean removed=false;
+  for (  UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+    if (u.getSortDate() <= sortingDate) {
+      if (u.isEncrypted()) {
+      }
+ else {
+        maxPlainReadDate=Math.max(u.getSortDate(),maxPlainReadDate);
+      }
+      removed=true;
+      unread.remove(u);
+    }
+  }
+  if (removed) {
+    saveStorage();
+  }
+  if (isEncrypted) {
+  }
+  if (maxPlainReadDate > 0) {
+    modules().getMessagesModule().getPlainReadActor().send(new PlainReaderActor.MarkRead(peer,maxPlainReadDate));
+  }
+  modules().getMessagesModule().saveReadState(peer,sortingDate);
+  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
+  modules().getNotifications().onOwnRead(peer,sortingDate);
+}

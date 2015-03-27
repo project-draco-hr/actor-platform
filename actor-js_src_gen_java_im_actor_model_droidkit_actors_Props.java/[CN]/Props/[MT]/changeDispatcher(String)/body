@@ -1,0 +1,3 @@
+{
+  return new Props<T>(aClass,args,type,dispatcher,creator,mailboxCreator);
+}

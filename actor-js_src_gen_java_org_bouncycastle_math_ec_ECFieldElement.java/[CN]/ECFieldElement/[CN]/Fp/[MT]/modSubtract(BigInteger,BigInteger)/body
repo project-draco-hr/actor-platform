@@ -1,0 +1,7 @@
+{
+  BigInteger x3=x1.subtract(x2);
+  if (x3.signum() < 0) {
+    x3=x3.add(q);
+  }
+  return x3;
+}

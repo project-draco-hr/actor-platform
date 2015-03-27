@@ -1,0 +1,3 @@
+ActorRef ref
+long timeout
+AskCallback<T> callback

@@ -1,0 +1,10 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof GenericPolynomialExtensionField)) {
+    return false;
+  }
+  GenericPolynomialExtensionField other=(GenericPolynomialExtensionField)obj;
+  return subfield.equals(other.subfield) && minimalPolynomial.equals(other.minimalPolynomial);
+}

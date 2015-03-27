@@ -1,0 +1,3 @@
+im.actor.model.api.Peer _peer
+long rid
+long receivedDate

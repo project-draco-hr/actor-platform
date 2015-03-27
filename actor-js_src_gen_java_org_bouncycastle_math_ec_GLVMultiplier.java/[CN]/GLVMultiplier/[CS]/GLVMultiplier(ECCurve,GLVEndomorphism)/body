@@ -1,0 +1,7 @@
+{
+  if (curve == null || curve.getOrder() == null) {
+    throw new IllegalArgumentException("Need curve with known group order");
+  }
+  this.curve=curve;
+  this.glvEndomorphism=glvEndomorphism;
+}

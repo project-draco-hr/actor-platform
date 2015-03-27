@@ -1,0 +1,7 @@
+{
+  Message msg=messages.getValue(rid);
+  if (msg != null && msg.getMessageState() == MessageState.SENT) {
+    messages.addOrUpdateItem(msg.changeState(MessageState.RECEIVED));
+    dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.RECEIVED));
+  }
+}

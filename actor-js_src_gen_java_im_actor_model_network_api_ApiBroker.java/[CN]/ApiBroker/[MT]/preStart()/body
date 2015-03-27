@@ -1,0 +1,8 @@
+{
+  if (keyStorage.getAuthKey() == 0) {
+    self().send(new RequestAuthId());
+  }
+ else {
+    self().send(new InitMTProto(keyStorage.getAuthKey()));
+  }
+}

@@ -1,0 +1,5 @@
+{
+  this.fileId=fileId;
+  this.isAutocancel=isAutocancel;
+  this.callback=callback;
+}

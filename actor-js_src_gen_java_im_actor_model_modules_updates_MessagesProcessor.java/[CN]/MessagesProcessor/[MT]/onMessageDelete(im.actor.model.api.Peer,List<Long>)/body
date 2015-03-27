@@ -1,0 +1,5 @@
+{
+  Peer peer=convert(_peer);
+  conversationActor(peer).send(new ConversationActor.MessagesDeleted(rids));
+  ownReadActor().send(new OwnReadActor.MessageDeleted(peer,rids));
+}

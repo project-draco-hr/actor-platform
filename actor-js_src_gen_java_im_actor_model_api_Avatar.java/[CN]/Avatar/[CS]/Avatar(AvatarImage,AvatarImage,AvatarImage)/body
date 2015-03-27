@@ -1,0 +1,5 @@
+{
+  this.smallImage=smallImage;
+  this.largeImage=largeImage;
+  this.fullImage=fullImage;
+}

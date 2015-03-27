@@ -1,0 +1,5 @@
+Integer v1MessageType
+byte[] v1Message
+Long v1Crc32
+byte[] v2Message
+Long v2HmacSha256

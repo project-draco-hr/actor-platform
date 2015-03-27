@@ -1,5 +1,0 @@
-{
-  int[] z=Nat.create(12);
-  Mod.invert(SecP384R1Field.P,x,z);
-  return new SecP384R1FieldElement(z);
-}

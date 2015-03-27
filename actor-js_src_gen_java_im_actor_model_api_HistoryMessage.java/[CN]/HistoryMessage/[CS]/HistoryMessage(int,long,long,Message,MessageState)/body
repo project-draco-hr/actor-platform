@@ -1,0 +1,7 @@
+{
+  this.senderUid=senderUid;
+  this.rid=rid;
+  this.date=date;
+  this.message=message;
+  this.state=state;
+}

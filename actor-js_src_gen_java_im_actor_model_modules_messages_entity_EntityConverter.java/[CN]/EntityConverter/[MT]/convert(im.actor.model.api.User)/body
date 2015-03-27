@@ -1,0 +1,5 @@
+{
+  ArrayList<ContactRecord> res=new ArrayList<ContactRecord>();
+  res.add(new ContactRecord(0,0,ContactRecord.TYPE_PHONE,"" + user.getPhone(),"Mobile"));
+  return new User(user.getId(),user.getAccessHash(),user.getName(),user.getLocalName(),convert(user.getAvatar()),convert(user.getSex()),res);
+}

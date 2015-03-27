@@ -1,0 +1,4 @@
+{
+  writer.writeRepeatedObj(1,this.history);
+  writer.writeRepeatedObj(2,this.users);
+}

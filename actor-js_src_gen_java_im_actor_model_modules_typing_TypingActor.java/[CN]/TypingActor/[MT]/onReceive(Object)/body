@@ -1,0 +1,21 @@
+{
+  if (message instanceof PrivateTyping) {
+    PrivateTyping typing=(PrivateTyping)message;
+    privateTyping(typing.getUid(),typing.getType());
+  }
+ else   if (message instanceof GroupTyping) {
+    GroupTyping typing=(GroupTyping)message;
+    groupTyping(typing.getGid(),typing.getUid(),typing.getType());
+  }
+ else   if (message instanceof StopTyping) {
+    StopTyping typing=(StopTyping)message;
+    stopPrivateTyping(typing.getUid());
+  }
+ else   if (message instanceof StopGroupTyping) {
+    StopGroupTyping typing=(StopGroupTyping)message;
+    stopGroupTyping(typing.getGid(),typing.getUid());
+  }
+ else {
+    drop(message);
+  }
+}

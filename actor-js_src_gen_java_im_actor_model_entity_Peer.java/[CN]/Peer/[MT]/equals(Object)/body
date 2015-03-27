@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  Peer peer=(Peer)o;
+  if (peerId != peer.peerId)   return false;
+  if (peerType != peer.peerType)   return false;
+  return true;
+}

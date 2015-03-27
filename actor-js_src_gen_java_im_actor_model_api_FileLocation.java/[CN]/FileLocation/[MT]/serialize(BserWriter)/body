@@ -1,0 +1,4 @@
+{
+  writer.writeLong(1,this.fileId);
+  writer.writeLong(2,this.accessHash);
+}

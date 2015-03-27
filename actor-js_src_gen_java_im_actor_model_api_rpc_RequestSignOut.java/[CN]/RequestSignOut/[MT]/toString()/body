@@ -1,0 +1,5 @@
+{
+  String res="rpc SignOut{";
+  res+="}";
+  return res;
+}

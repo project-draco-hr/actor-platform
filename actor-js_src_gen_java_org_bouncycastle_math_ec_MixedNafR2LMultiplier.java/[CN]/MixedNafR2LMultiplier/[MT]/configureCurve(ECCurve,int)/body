@@ -1,0 +1,9 @@
+{
+  if (c.getCoordinateSystem() == coord) {
+    return c;
+  }
+  if (!c.supportsCoordinateSystem(coord)) {
+    throw new IllegalArgumentException("Coordinate system " + coord + " not supported by this curve");
+  }
+  return c.configure().setCoordinateSystem(coord).create();
+}

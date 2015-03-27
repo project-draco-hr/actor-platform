@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,uid);
+  writer.writeInt(2,inviterUid);
+  writer.writeLong(3,inviteDate);
+  writer.writeBool(4,isAdministrator);
+}

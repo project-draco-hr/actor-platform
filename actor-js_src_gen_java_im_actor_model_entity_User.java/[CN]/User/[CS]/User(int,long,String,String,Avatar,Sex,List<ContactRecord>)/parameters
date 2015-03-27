@@ -1,0 +1,7 @@
+int uid
+long accessHash
+String name
+String localName
+Avatar avatar
+Sex sex
+List<ContactRecord> records

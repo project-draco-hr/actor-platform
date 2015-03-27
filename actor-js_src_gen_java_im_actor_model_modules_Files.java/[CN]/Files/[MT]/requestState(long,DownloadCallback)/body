@@ -1,0 +1,29 @@
+{
+  downloadManager.send(new DownloadManager.RequestState(fileId,new DownloadCallback(){
+    @Override public void onNotDownloaded(){
+      runOnUiThread(new Runnable(){
+        @Override public void run(){
+          callback.onNotDownloaded();
+        }
+      }
+);
+    }
+    @Override public void onDownloading(    final float progress){
+      runOnUiThread(new Runnable(){
+        @Override public void run(){
+          callback.onDownloading(progress);
+        }
+      }
+);
+    }
+    @Override public void onDownloaded(    final FileSystemReference reference){
+      runOnUiThread(new Runnable(){
+        @Override public void run(){
+          callback.onDownloaded(reference);
+        }
+      }
+);
+    }
+  }
+));
+}

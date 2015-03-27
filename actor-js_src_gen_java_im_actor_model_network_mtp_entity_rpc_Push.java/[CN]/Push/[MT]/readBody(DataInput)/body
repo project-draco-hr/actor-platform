@@ -1,0 +1,4 @@
+{
+  updateType=bs.readInt();
+  body=bs.readProtoBytes();
+}

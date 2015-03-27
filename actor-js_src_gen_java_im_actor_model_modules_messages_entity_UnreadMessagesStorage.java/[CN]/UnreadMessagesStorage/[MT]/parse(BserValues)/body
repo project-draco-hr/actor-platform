@@ -1,0 +1,12 @@
+{
+  List<byte[]> data=values.getRepeatedBytes(1);
+  for (  byte[] d : data) {
+    try {
+      UnreadMessage u=UnreadMessage.fromBytes(d);
+      getUnread(u.getPeer()).add(u);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

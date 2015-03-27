@@ -1,0 +1,10 @@
+{
+  if (fields.containsKey(id)) {
+    Object obj=fields.get(id);
+    if (obj instanceof Long) {
+      return (Long)obj;
+    }
+    throw new IncorrectTypeException("Expected type: long, got " + obj.getClass().getSimpleName());
+  }
+  return defValue;
+}

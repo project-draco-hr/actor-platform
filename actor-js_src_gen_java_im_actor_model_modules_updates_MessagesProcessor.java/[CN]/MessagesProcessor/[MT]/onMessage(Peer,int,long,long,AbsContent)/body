@@ -1,0 +1,13 @@
+{
+  boolean isOut=myUid() == senderUid;
+  Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  conversationActor(peer).send(message);
+  if (!isOut) {
+    ownReadActor().send(new OwnReadActor.NewMessage(peer,rid,date,false));
+    modules().getNotifications().onInMessage(peer,senderUid,date,ContentDescription.fromContent(message.getContent()));
+    plainReceiveActor().send(new PlainReceiverActor.MarkReceived(peer,date));
+  }
+ else {
+    ownReadActor().send(new OwnReadActor.NewOutMessage(peer,rid,date,false));
+  }
+}

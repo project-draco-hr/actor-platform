@@ -1,0 +1,7 @@
+{
+  UserVM vm=getUserVM(uid);
+  if (vm != null) {
+    vm.getPresence().change(new UserPresence(UserPresence.State.ONLINE));
+  }
+  self().sendOnce(new UserOffline(uid),ONLINE_TIMEOUT);
+}

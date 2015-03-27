@@ -1,0 +1,8 @@
+{
+  Peer peer=convert(_peer);
+  AbsContent msgContent=convert(content);
+  if (msgContent == null) {
+    return;
+  }
+  onMessage(peer,senderUid,date,rid,msgContent);
+}

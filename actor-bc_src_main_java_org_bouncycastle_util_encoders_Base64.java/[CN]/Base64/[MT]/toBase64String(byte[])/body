@@ -1,3 +1,0 @@
-{
-  return toBase64String(data,0,data.length);
-}

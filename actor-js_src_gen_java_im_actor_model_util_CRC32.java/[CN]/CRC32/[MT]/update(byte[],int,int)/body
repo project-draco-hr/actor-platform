@@ -1,0 +1,5 @@
+{
+  int c=~crc;
+  while (--len >= 0)   c=crc_table[(c ^ buf[off++]) & 0xff] ^ (c >>> 8);
+  crc=~c;
+}

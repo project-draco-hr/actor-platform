@@ -1,0 +1,3 @@
+{
+  return BigIntegers.asUnsignedByteArray((getFieldSize() + 7) / 8,toBigInteger());
+}

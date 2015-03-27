@@ -1,0 +1,39 @@
+{
+  MVVMEngine.checkMainThread();
+  if (isLoadMoreForwardRequested) {
+    return;
+  }
+  if (!window.startForwardLoading()) {
+    return;
+  }
+  isLoadMoreForwardRequested=true;
+  final int gen=currentGeneration;
+  ListEngineDisplayLoadCallback<T> callback=cover(new ListEngineDisplayLoadCallback<T>(){
+    @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
+      MVVMEngine.checkMainThread();
+      window.completeForwardLoading();
+      if (items.size() == 0) {
+        window.onForwardCompleted();
+        isLoadMoreForwardRequested=false;
+      }
+ else {
+        window.onForwardSliceLoaded(bottomSortKey);
+        editList(DisplayModifications.addOnly(items),new Runnable(){
+          @Override public void run(){
+            if (gen == currentGeneration) {
+              isLoadMoreForwardRequested=false;
+            }
+          }
+        }
+);
+      }
+    }
+  }
+,currentGeneration);
+  if (mode != ListMode.SEARCH) {
+    listEngine.loadForward(window.getCurrentForwardHead(),pageSize,callback);
+  }
+ else {
+    listEngine.loadForward(query,window.getCurrentForwardHead(),pageSize,callback);
+  }
+}

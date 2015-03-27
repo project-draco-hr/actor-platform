@@ -1,0 +1,11 @@
+{
+  DataOutput outputStream=new DataOutput();
+  BserWriter writer=new BserWriter(outputStream);
+  try {
+    serialize(writer);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException("Unexpected IO exception");
+  }
+  return outputStream.toByteArray();
+}

@@ -1,0 +1,11 @@
+{
+  for (  QueueItem q : queue) {
+    if (q.fileReference.getFileId() == id) {
+      if (!q.isStarted) {
+        queue.remove(q);
+        queue.add(0,q);
+      }
+      return;
+    }
+  }
+}

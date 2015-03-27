@@ -1,0 +1,18 @@
+{
+  if (currentConnection != null && currentConnection.isClosed()) {
+    currentConnection=null;
+    Log.d(TAG,"Set connection #" + 0);
+    currentConnectionId=0;
+    checkConnection();
+  }
+  if (currentConnection != null) {
+    DataOutput bos=new DataOutput();
+    bos.writeLong(authId);
+    bos.writeLong(sessionId);
+    bos.writeBytes(data,offset,len);
+    byte[] pkg=bos.toByteArray();
+    currentConnection.post(pkg,0,pkg.length);
+  }
+ else {
+  }
+}

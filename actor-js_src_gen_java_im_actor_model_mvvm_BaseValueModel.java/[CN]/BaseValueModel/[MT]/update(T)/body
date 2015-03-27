@@ -1,0 +1,4 @@
+{
+  this.rawObj=rawObj;
+  updateValues(rawObj);
+}

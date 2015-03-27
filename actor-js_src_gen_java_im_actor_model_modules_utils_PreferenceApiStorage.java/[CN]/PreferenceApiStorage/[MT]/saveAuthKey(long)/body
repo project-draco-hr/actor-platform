@@ -1,0 +1,3 @@
+{
+  preferencesStorage.putLong("auth_id",key);
+}

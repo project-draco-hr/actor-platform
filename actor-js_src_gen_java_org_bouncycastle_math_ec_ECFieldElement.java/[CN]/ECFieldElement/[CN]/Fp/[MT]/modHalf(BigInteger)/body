@@ -1,0 +1,6 @@
+{
+  if (x.testBit(0)) {
+    x=q.add(x);
+  }
+  return x.shiftRight(1);
+}

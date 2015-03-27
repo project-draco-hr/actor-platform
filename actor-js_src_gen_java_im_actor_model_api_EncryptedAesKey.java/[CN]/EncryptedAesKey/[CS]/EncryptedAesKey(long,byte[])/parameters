@@ -1,0 +1,2 @@
+long keyHash
+byte[] aesEncryptedKey

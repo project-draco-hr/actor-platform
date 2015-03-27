@@ -1,0 +1,9 @@
+{
+  int i=len;
+  while (--i >= 0) {
+    int next=x[i];
+    z[i]=(next >>> bits) | (c << -bits);
+    c=next;
+  }
+  return c << -bits;
+}

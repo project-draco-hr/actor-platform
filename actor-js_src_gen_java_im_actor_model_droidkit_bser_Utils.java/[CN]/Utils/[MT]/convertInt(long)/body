@@ -1,0 +1,9 @@
+{
+  if (val < Integer.MIN_VALUE) {
+    throw new IOException("Too small value");
+  }
+ else   if (val > Integer.MAX_VALUE) {
+    throw new IOException("Too big value");
+  }
+  return (int)val;
+}

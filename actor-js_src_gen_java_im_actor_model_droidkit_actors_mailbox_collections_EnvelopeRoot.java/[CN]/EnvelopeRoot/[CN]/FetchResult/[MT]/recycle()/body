@@ -1,0 +1,3 @@
+{
+  RESULT_CACHE.set(this);
+}

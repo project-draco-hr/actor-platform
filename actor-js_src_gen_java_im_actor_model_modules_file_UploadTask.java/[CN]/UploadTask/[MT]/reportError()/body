@@ -1,0 +1,7 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  isCompleted=true;
+  manager.send(new UploadManager.UploadTaskError(rid));
+}

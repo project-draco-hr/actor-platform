@@ -1,0 +1,6 @@
+{
+  if (avatar == null) {
+    return null;
+  }
+  return new Avatar(convert(avatar.getSmallImage()),convert(avatar.getLargeImage()),convert(avatar.getFullImage()));
+}

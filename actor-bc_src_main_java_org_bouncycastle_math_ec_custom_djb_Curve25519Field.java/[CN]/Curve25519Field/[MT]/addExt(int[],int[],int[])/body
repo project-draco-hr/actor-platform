@@ -1,6 +1,0 @@
-{
-  Nat.add(16,xx,yy,zz);
-  if (Nat.gte(16,zz,PExt)) {
-    subPExtFrom(zz);
-  }
-}

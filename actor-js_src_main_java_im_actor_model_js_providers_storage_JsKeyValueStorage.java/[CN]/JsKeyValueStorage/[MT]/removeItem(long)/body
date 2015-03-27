@@ -1,0 +1,8 @@
+{
+  if (!items.contains(id)) {
+    return;
+  }
+  storage.removeItem(getId(id));
+  items.remove(id);
+  saveIndex();
+}

@@ -1,0 +1,3 @@
+{
+  return new ASN1Integer(dataInput.readBytes(dataInput.getRemaining()));
+}

@@ -1,0 +1,71 @@
+{
+  int aDeg=degree();
+  if (aDeg == 0) {
+    return this;
+  }
+  int bDeg=other.degree();
+  if (bDeg == 0) {
+    return other;
+  }
+  LongArray A=this, B=other;
+  if (aDeg > bDeg) {
+    A=other;
+    B=this;
+    int tmp=aDeg;
+    aDeg=bDeg;
+    bDeg=tmp;
+  }
+  int aLen=(aDeg + 63) >>> 6;
+  int bLen=(bDeg + 63) >>> 6;
+  int cLen=(aDeg + bDeg + 62) >>> 6;
+  if (aLen == 1) {
+    long a0=A.m_ints[0];
+    if (a0 == 1L) {
+      return B;
+    }
+    long[] c0=new long[cLen];
+    multiplyWord(a0,B.m_ints,bLen,c0,0);
+    return reduceResult(c0,0,cLen,m,ks);
+  }
+  int bMax=(bDeg + 7 + 63) >>> 6;
+  int[] ti=new int[16];
+  long[] T0=new long[bMax << 4];
+  int tOff=bMax;
+  ti[1]=tOff;
+  System.arraycopy(B.m_ints,0,T0,tOff,bLen);
+  for (int i=2; i < 16; ++i) {
+    ti[i]=(tOff+=bMax);
+    if ((i & 1) == 0) {
+      shiftUp(T0,tOff >>> 1,T0,tOff,bMax,1);
+    }
+ else {
+      add(T0,bMax,T0,tOff - bMax,T0,tOff,bMax);
+    }
+  }
+  long[] T1=new long[T0.length];
+  shiftUp(T0,0,T1,0,T0.length,4);
+  long[] a=A.m_ints;
+  long[] c=new long[cLen];
+  int MASK=0xF;
+  for (int k=56; k >= 0; k-=8) {
+    for (int j=1; j < aLen; j+=2) {
+      int aVal=(int)(a[j] >>> k);
+      int u=aVal & MASK;
+      int v=(aVal >>> 4) & MASK;
+      addBoth(c,j - 1,T0,ti[u],T1,ti[v],bMax);
+    }
+    shiftUp(c,0,cLen,8);
+  }
+  for (int k=56; k >= 0; k-=8) {
+    for (int j=0; j < aLen; j+=2) {
+      int aVal=(int)(a[j] >>> k);
+      int u=aVal & MASK;
+      int v=(aVal >>> 4) & MASK;
+      addBoth(c,j,T0,ti[u],T1,ti[v],bMax);
+    }
+    if (k > 0) {
+      shiftUp(c,0,cLen,8);
+    }
+  }
+  return reduceResult(c,0,cLen,m,ks);
+}

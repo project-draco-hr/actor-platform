@@ -1,0 +1,2 @@
+ValueChangedListener<T> listener
+boolean notify

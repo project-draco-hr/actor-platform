@@ -1,5 +1,0 @@
-{
-  int[] z=Nat224.create();
-  SecP224R1Field.addOne(x,z);
-  return new SecP224R1FieldElement(z);
-}

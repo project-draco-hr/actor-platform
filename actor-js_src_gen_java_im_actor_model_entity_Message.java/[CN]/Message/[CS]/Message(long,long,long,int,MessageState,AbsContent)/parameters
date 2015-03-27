@@ -1,0 +1,6 @@
+long rid
+long sortDate
+long date
+int senderId
+MessageState messageState
+AbsContent content

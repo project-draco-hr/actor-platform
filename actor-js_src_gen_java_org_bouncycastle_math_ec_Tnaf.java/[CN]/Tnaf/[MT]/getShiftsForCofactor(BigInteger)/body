@@ -1,0 +1,11 @@
+{
+  if (h != null) {
+    if (h.equals(ECConstants.TWO)) {
+      return 1;
+    }
+    if (h.equals(ECConstants.FOUR)) {
+      return 2;
+    }
+  }
+  throw new IllegalArgumentException("h (Cofactor) must be 2 or 4");
+}

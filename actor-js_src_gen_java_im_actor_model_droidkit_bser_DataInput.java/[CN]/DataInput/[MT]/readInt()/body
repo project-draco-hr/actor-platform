@@ -1,0 +1,8 @@
+{
+  if (offset + 4 > maxOffset) {
+    throw new IOException();
+  }
+  int res=(data[offset + 3] & 0xFF) + ((data[offset + 2] & 0xFF) << 8) + ((data[offset + 1] & 0xFF) << 16)+ ((data[offset] & 0xFF) << 24);
+  offset+=4;
+  return res;
+}

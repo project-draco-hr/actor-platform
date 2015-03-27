@@ -1,0 +1,5 @@
+{
+  writer.writeInt(1,w);
+  writer.writeInt(2,h);
+  writer.writeBytes(3,image);
+}

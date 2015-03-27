@@ -1,5 +1,0 @@
-{
-  int[] z=Nat192.create();
-  SecP192R1Field.subtract(x,((SecP192R1FieldElement)b).x,z);
-  return new SecP192R1FieldElement(z);
-}

@@ -1,6 +1,0 @@
-{
-  if (dialogList == null) {
-    dialogList=new JsList<JsDialog,Dialog>((im.actor.gwt.app.storage.JsListEngine<Dialog>)messenger.getDialogs(),new JsDialogEntityConverter(messenger));
-  }
-  return dialogList;
-}

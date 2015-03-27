@@ -1,5 +1,0 @@
-{
-  for (  JsListCallback<T> callback : simpleCallbacks) {
-    callback.onCollectionChanged(jsValues);
-  }
-}

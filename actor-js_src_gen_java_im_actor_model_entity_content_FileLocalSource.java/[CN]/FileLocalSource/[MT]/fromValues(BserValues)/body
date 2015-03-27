@@ -1,0 +1,5 @@
+{
+  FileLocalSource fileLocalSource=new FileLocalSource();
+  fileLocalSource.parse(reader);
+  return fileLocalSource;
+}

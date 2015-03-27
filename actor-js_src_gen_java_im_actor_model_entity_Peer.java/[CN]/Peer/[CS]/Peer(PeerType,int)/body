@@ -1,0 +1,4 @@
+{
+  this.peerType=peerType;
+  this.peerId=peerId;
+}

@@ -1,0 +1,6 @@
+int len
+int[] x
+int xOff
+int c
+int[] z
+int zOff

@@ -1,8 +1,0 @@
-{
-  int c=Nat.add(24,xx,yy,zz);
-  if (c != 0 || (zz[23] == PExt23 && Nat.gte(24,zz,PExt))) {
-    if (Nat.addTo(PExtInv.length,PExtInv,zz) != 0) {
-      Nat.incAt(24,zz,PExtInv.length);
-    }
-  }
-}

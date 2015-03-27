@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  UserOffline that=(UserOffline)o;
+  if (uid != that.uid)   return false;
+  return true;
+}

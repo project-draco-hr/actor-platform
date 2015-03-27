@@ -1,0 +1,4 @@
+{
+  bs.writeInt(updateType);
+  bs.writeProtoBytes(body,0,body.length);
+}

@@ -1,0 +1,6 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Stream can not be null");
+  }
+  this.stream=stream;
+}

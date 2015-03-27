@@ -1,0 +1,3 @@
+{
+  return this.getCurve().getMultiplier().multiply(this,k);
+}

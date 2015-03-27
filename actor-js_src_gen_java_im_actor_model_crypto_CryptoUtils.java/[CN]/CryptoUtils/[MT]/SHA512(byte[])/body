@@ -1,0 +1,3 @@
+{
+  return provider.SHA512(data);
+}

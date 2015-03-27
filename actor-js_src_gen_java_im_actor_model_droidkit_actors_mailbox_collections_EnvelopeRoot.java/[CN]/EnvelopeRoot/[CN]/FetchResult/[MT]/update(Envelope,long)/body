@@ -1,0 +1,4 @@
+{
+  this.envelope=envelope;
+  this.delay=delay;
+}

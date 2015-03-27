@@ -1,9 +1,0 @@
-{
-  int resultLen=0;
-  buf[bufOff++]=in;
-  if (bufOff == buf.length) {
-    resultLen=translator.decode(buf,0,buf.length,out,outOff);
-    bufOff=0;
-  }
-  return resultLen;
-}

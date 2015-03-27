@@ -1,0 +1,22 @@
+{
+  int halfCount=ps.length, fullCount=halfCount << 1;
+  boolean[] negs=new boolean[fullCount];
+  WNafPreCompInfo[] infos=new WNafPreCompInfo[fullCount];
+  byte[][] wnafs=new byte[fullCount][];
+  for (int i=0; i < halfCount; ++i) {
+    int j0=i << 1, j1=j0 + 1;
+    BigInteger kj0=ks[j0];
+    negs[j0]=kj0.signum() < 0;
+    kj0=kj0.abs();
+    BigInteger kj1=ks[j1];
+    negs[j1]=kj1.signum() < 0;
+    kj1=kj1.abs();
+    int width=Math.max(2,Math.min(16,WNafUtil.getWindowSize(Math.max(kj0.bitLength(),kj1.bitLength()))));
+    ECPoint P=ps[i], Q=WNafUtil.mapPointWithPrecomp(P,width,true,pointMap);
+    infos[j0]=WNafUtil.getWNafPreCompInfo(P);
+    infos[j1]=WNafUtil.getWNafPreCompInfo(Q);
+    wnafs[j0]=WNafUtil.generateWindowNaf(width,kj0);
+    wnafs[j1]=WNafUtil.generateWindowNaf(width,kj1);
+  }
+  return implSumOfMultiplies(negs,infos,wnafs);
+}

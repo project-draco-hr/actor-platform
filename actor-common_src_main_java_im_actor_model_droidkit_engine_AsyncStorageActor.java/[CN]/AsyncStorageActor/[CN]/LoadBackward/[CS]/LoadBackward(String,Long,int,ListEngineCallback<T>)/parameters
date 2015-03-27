@@ -1,4 +1,0 @@
-String query
-Long topSortKey
-int limit
-ListEngineCallback<T> callback

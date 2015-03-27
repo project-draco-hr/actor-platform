@@ -1,0 +1,26 @@
+{
+  if (message instanceof ConnectionCreated) {
+    ConnectionCreated c=(ConnectionCreated)message;
+    onConnectionCreated(c.connectionId,c.connection);
+  }
+ else   if (message instanceof ConnectionCreateFailure) {
+    onConnectionCreateFailure();
+  }
+ else   if (message instanceof ConnectionDie) {
+    onConnectionDie(((ConnectionDie)message).connectionId);
+  }
+ else   if (message instanceof PerformConnectionCheck) {
+    checkConnection();
+  }
+ else   if (message instanceof NetworkChanged) {
+    onNetworkChanged();
+  }
+ else   if (message instanceof OutMessage) {
+    OutMessage m=(OutMessage)message;
+    onOutMessage(m.message,m.offset,m.len);
+  }
+ else   if (message instanceof InMessage) {
+    InMessage m=(InMessage)message;
+    onInMessage(m.data,m.offset,m.len);
+  }
+}

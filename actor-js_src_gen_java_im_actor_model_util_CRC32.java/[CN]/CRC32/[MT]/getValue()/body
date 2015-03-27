@@ -1,0 +1,3 @@
+{
+  return (long)crc & 0xffffffffL;
+}

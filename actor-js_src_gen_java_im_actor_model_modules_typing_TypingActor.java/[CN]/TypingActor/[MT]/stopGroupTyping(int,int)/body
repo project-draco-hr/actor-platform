@@ -1,0 +1,15 @@
+{
+  if (!groupTypings.containsKey(gid)) {
+    return;
+  }
+  HashSet<Integer> set=groupTypings.get(gid);
+  if (set.contains(uid)) {
+    set.remove(uid);
+    Integer[] ids=set.toArray(new Integer[set.size()]);
+    int[] ids2=new int[ids.length];
+    for (int i=0; i < ids.length; i++) {
+      ids2[i]=ids[i];
+    }
+    modules().getTypingModule().getGroupTyping(gid).getActive().change(ids2);
+  }
+}

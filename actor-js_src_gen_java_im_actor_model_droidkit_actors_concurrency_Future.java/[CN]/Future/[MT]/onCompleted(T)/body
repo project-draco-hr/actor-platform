@@ -1,0 +1,13 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  isCompleted=true;
+  isCanceled=false;
+  isError=false;
+  error=null;
+  result=res;
+  for (  FutureCallback<T> callback : callbacks) {
+    callback.onResult(res);
+  }
+}

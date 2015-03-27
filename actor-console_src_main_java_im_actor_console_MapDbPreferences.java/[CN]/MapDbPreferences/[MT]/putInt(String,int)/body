@@ -1,9 +1,0 @@
-{
-  if (db.exists(key)) {
-    db.getAtomicInteger(key).set(v);
-  }
- else {
-    db.createAtomicInteger(key,v);
-  }
-  db.commit();
-}

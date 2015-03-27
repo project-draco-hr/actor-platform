@@ -1,0 +1,9 @@
+{
+  boolean isChanged=false;
+  isChanged|=name.change(rawObj.getName());
+  isChanged|=avatar.change(rawObj.getAvatar());
+  isChanged|=phones.change(buildPhones(rawObj.getRecords()));
+  if (isChanged) {
+    notifyChange();
+  }
+}

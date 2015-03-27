@@ -1,0 +1,6 @@
+{
+  if (index == 1 && ECCurve.COORD_JACOBIAN_MODIFIED == this.getCurveCoordinateSystem()) {
+    return getJacobianModifiedW();
+  }
+  return super.getZCoord(index);
+}

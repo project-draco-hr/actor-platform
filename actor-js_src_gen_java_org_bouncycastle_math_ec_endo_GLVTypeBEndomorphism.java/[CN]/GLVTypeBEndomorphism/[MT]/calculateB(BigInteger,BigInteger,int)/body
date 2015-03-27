@@ -1,0 +1,10 @@
+{
+  boolean negative=(g.signum() < 0);
+  BigInteger b=k.multiply(g.abs());
+  boolean extra=b.testBit(t - 1);
+  b=b.shiftRight(t);
+  if (extra) {
+    b=b.add(ECConstants.ONE);
+  }
+  return negative ? b.negate() : b;
+}

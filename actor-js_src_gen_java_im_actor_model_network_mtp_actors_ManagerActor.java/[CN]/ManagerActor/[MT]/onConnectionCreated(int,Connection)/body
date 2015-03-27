@@ -1,0 +1,23 @@
+{
+  Log.d(TAG,"Connection #" + id + " created");
+  if (connection.isClosed()) {
+    Log.w(TAG,"Unable to register connection #" + id + ": already closed");
+    return;
+  }
+  if (currentConnectionId == id) {
+    Log.w(TAG,"Unable to register connection #" + id + ": already have connection");
+    return;
+  }
+  if (currentConnection != null) {
+    currentConnection.close();
+    Log.d(TAG,"Set connection #" + 0);
+    currentConnectionId=0;
+  }
+  Log.d(TAG,"Set connection #" + id);
+  currentConnectionId=id;
+  currentConnection=connection;
+  backoff.onSuccess();
+  isCheckingConnections=false;
+  requestCheckConnection();
+  sender.send(new SenderActor.ConnectionCreated());
+}

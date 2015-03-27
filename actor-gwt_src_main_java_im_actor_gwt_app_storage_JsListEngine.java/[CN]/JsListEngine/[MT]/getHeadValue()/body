@@ -1,8 +1,0 @@
-{
-  Log.d(TAG,"getHeadValue");
-  long[] orderedIds=listStorage.getOrderedIds();
-  if (orderedIds.length > 0) {
-    return getValue(orderedIds[0]);
-  }
-  return null;
-}

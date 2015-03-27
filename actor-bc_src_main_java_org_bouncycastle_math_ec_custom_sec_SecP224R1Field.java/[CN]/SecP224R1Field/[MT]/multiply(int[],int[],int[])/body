@@ -1,5 +1,0 @@
-{
-  int[] tt=Nat224.createExt();
-  Nat224.mul(x,y,tt);
-  reduce(tt,z);
-}

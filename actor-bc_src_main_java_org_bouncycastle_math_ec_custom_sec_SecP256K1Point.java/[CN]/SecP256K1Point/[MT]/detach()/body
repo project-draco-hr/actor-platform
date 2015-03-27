@@ -1,3 +1,0 @@
-{
-  return new SecP256K1Point(null,getAffineXCoord(),getAffineYCoord());
-}

@@ -1,0 +1,6 @@
+{
+  super.parse(values);
+  duration=values.getInt(10);
+  w=values.getInt(11);
+  h=values.getInt(12);
+}

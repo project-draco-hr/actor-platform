@@ -1,0 +1,6 @@
+int groupId
+long rid
+int uid
+String title
+long date
+boolean isSilent

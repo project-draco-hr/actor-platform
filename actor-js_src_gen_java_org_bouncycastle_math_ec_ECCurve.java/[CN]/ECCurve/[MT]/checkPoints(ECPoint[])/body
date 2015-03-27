@@ -1,0 +1,11 @@
+{
+  if (points == null) {
+    throw new IllegalArgumentException("'points' cannot be null");
+  }
+  for (int i=0; i < points.length; ++i) {
+    ECPoint point=points[i];
+    if (null != point && this != point.getCurve()) {
+      throw new IllegalArgumentException("'points' entries must be null or on this curve");
+    }
+  }
+}

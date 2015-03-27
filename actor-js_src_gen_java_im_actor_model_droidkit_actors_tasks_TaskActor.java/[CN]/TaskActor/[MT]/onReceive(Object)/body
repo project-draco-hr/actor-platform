@@ -1,0 +1,62 @@
+{
+  if (message instanceof TaskStart) {
+    startTask();
+  }
+ else   if (message instanceof Obsolete) {
+    onTaskObsolete();
+    context().stopSelf();
+  }
+ else   if (message instanceof TaskRequest) {
+    TaskRequest request=(TaskRequest)message;
+    if (isCompleted) {
+      if (isCompletedSuccess) {
+        reply(result);
+      }
+    }
+ else {
+      TaskListener listener=new TaskListener(request.getRequestId(),sender());
+      requests.add(listener);
+    }
+  }
+ else   if (message instanceof TaskCancel) {
+    TaskCancel cancel=(TaskCancel)message;
+    if (isCompleted) {
+      return;
+    }
+    TaskListener listener=new TaskListener(cancel.getRequestId(),sender());
+    requests.remove(listener);
+    if (requests.size() == 0) {
+      self().sendOnce(new Obsolete(),dieTimeout);
+    }
+  }
+ else   if (message instanceof Progress) {
+    Progress progress=(Progress)message;
+    if (!isCompleted) {
+      for (      TaskListener request : requests) {
+        request.getSender().send(new TaskProgress(request.getRequestId(),progress.progress));
+      }
+    }
+  }
+ else   if (message instanceof Result) {
+    if (!isCompleted) {
+      Result res=(Result)message;
+      isCompleted=true;
+      isCompletedSuccess=true;
+      result=(T)res.getRes();
+      for (      TaskListener request : requests) {
+        request.getSender().send(new TaskResult<T>(request.getRequestId(),result));
+      }
+      self().send(PoisonPill.INSTANCE,dieTimeout);
+    }
+  }
+ else   if (message instanceof Error) {
+    if (!isCompleted) {
+      isCompleted=true;
+      Error error=(Error)message;
+      for (      TaskListener request : requests) {
+        request.getSender().send(new TaskError(request.getRequestId(),error.getError()));
+      }
+      context().stopSelf();
+    }
+  }
+}

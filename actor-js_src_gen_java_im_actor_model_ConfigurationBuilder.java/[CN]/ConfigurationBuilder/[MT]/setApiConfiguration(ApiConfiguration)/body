@@ -1,0 +1,4 @@
+{
+  this.apiConfiguration=apiConfiguration;
+  return this;
+}

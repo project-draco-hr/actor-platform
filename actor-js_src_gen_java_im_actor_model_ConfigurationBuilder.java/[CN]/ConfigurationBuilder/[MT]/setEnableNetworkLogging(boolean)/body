@@ -1,0 +1,4 @@
+{
+  this.enableNetworkLogging=enableNetworkLogging;
+  return this;
+}

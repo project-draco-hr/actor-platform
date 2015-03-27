@@ -1,0 +1,6 @@
+{
+  this.contactId=contactId;
+  this.name=name;
+  this.phones=phones;
+  this.emails=emails;
+}

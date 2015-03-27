@@ -1,0 +1,12 @@
+{
+  if (lockLoading) {
+    return;
+  }
+  if (removedItems.contains(key)) {
+    return;
+  }
+  if (memoryCache.containsKey(key)) {
+    return;
+  }
+  memoryCache.put(key,value);
+}

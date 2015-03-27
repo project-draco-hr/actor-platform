@@ -1,0 +1,37 @@
+{
+  Log.d(TAG,"Unbind file #" + fileId);
+  QueueItem queueItem=findItem(fileId);
+  if (queueItem == null) {
+    Log.d(TAG,"- Not present in queue");
+  }
+ else {
+    if (autoCancel) {
+      if (queueItem.isStarted) {
+        Log.d(TAG,"- Stopping actor");
+        queueItem.taskRef.send(PoisonPill.INSTANCE);
+        queueItem.taskRef=null;
+        queueItem.isStarted=false;
+      }
+      if (!queueItem.isStopped) {
+        Log.d(TAG,"- Marking as stopped");
+        queueItem.isStopped=true;
+        for (        final DownloadCallback c : queueItem.callbacks) {
+          if (c != callback) {
+            Environment.dispatchCallback(new Runnable(){
+              @Override public void run(){
+                c.onNotDownloaded();
+              }
+            }
+);
+          }
+        }
+      }
+      queue.remove(queueItem);
+    }
+ else {
+      Log.d(TAG,"- Removing callback");
+      queueItem.callbacks.remove(callback);
+    }
+  }
+  checkQueue();
+}

@@ -1,6 +1,0 @@
-{
-  if (BuildConfig.ENABLE_CHROME) {
-    long id=Long.parseLong(uri.getLastPathSegment());
-  }
-  return null;
-}

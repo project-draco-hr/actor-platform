@@ -1,0 +1,17 @@
+{
+  if (k.signum() == 0) {
+    return EMPTY_BYTES;
+  }
+  BigInteger _3k=k.shiftLeft(1).add(k);
+  int digits=_3k.bitLength() - 1;
+  byte[] naf=new byte[digits];
+  BigInteger diff=_3k.xor(k);
+  for (int i=1; i < digits; ++i) {
+    if (diff.testBit(i)) {
+      naf[i - 1]=(byte)(k.testBit(i) ? -1 : 1);
+      ++i;
+    }
+  }
+  naf[digits - 1]=1;
+  return naf;
+}

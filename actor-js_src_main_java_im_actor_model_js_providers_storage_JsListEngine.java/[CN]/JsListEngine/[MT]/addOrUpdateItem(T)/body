@@ -1,0 +1,7 @@
+{
+  cache.put(item.getEngineId(),item);
+  storage.updateOrAdd(new ListEngineRecord(item.getEngineId(),item.getEngineSort(),item.getEngineSearch(),item.toByteArray()));
+  for (  JsListEngineCallback<T> callback : callbacks) {
+    callback.onItemAddedOrUpdated(item);
+  }
+}

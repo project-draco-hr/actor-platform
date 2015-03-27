@@ -1,0 +1,51 @@
+{
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Sync result received");
+  }
+  isInProgress=false;
+  if (result.isNotChanged()) {
+    Log.d(TAG,"Sync: Not changed");
+    if (isInvalidated) {
+      performSync();
+    }
+ else {
+    }
+    return;
+  }
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Sync received " + result.getUsers().size() + " contacts");
+  }
+  outer:   for (  Integer uid : contacts.toArray(new Integer[contacts.size()])) {
+    for (    im.actor.model.api.User u : result.getUsers()) {
+      if (u.getId() == uid) {
+        continue outer;
+      }
+    }
+    if (ENABLE_LOG) {
+      Log.d(TAG,"Removing: #" + uid);
+    }
+    contacts.remove((Integer)uid);
+    if (getUser(uid) != null) {
+      getUserVM(uid).isContact().change(false);
+    }
+    modules().getContactsModule().markNonContact(uid);
+  }
+  for (  im.actor.model.api.User u : result.getUsers()) {
+    if (contacts.contains(u.getId())) {
+      continue;
+    }
+    if (ENABLE_LOG) {
+      Log.d(TAG,"Adding: #" + u.getId());
+    }
+    contacts.add(u.getId());
+    if (getUser(u.getId()) != null) {
+      getUserVM(u.getId()).isContact().change(true);
+    }
+    modules().getContactsModule().markContact(u.getId());
+  }
+  saveList();
+  updateEngineList();
+  if (isInvalidated) {
+    self().send(new PerformSync());
+  }
+}

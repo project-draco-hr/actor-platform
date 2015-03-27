@@ -1,0 +1,45 @@
+{
+  if (message instanceof StartUpload) {
+    StartUpload startUpload=(StartUpload)message;
+    startUpload(startUpload.getRid(),startUpload.getFileDescriptor(),startUpload.getFileName(),sender());
+  }
+ else   if (message instanceof StopUpload) {
+    StopUpload cancelUpload=(StopUpload)message;
+    stopUpload(cancelUpload.getRid());
+  }
+ else   if (message instanceof UploadTaskError) {
+    UploadTaskError uploadTaskError=(UploadTaskError)message;
+    onUploadTaskError(uploadTaskError.getRid());
+  }
+ else   if (message instanceof UploadTaskProgress) {
+    UploadTaskProgress taskProgress=(UploadTaskProgress)message;
+    onUploadTaskProgress(taskProgress.getRid(),taskProgress.getProgress());
+  }
+ else   if (message instanceof UploadTaskComplete) {
+    UploadTaskComplete taskComplete=(UploadTaskComplete)message;
+    onUploadTaskComplete(taskComplete.getRid(),taskComplete.getLocation(),taskComplete.getReference());
+  }
+ else   if (message instanceof BindUpload) {
+    BindUpload bindUpload=(BindUpload)message;
+    bindUpload(bindUpload.getRid(),bindUpload.getCallback());
+  }
+ else   if (message instanceof UnbindUpload) {
+    UnbindUpload unbindUpload=(UnbindUpload)message;
+    unbindUpload(unbindUpload.getRid(),unbindUpload.getCallback());
+  }
+ else   if (message instanceof RequestState) {
+    RequestState requestState=(RequestState)message;
+    requestState(requestState.getRid(),requestState.getCallback());
+  }
+ else   if (message instanceof PauseUpload) {
+    PauseUpload pauseUpload=(PauseUpload)message;
+    pauseUpload(pauseUpload.getRid());
+  }
+ else   if (message instanceof ResumeUpload) {
+    ResumeUpload resumeUpload=(ResumeUpload)message;
+    resumeUpload(resumeUpload.getRid());
+  }
+ else {
+    drop(message);
+  }
+}

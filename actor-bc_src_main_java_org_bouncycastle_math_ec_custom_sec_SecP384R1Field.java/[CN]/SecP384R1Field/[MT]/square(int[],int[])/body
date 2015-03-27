@@ -1,5 +1,0 @@
-{
-  int[] tt=Nat.create(24);
-  Nat384.square(x,tt);
-  reduce(tt,z);
-}

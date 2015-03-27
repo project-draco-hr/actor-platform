@@ -1,0 +1,28 @@
+{
+  if (r != null) {
+    boolean negative=x.signum() < 0;
+    if (negative) {
+      x=x.abs();
+    }
+    int qLen=q.bitLength();
+    boolean rIsOne=r.equals(ECConstants.ONE);
+    while (x.bitLength() > (qLen + 1)) {
+      BigInteger u=x.shiftRight(qLen);
+      BigInteger v=x.subtract(u.shiftLeft(qLen));
+      if (!rIsOne) {
+        u=u.multiply(r);
+      }
+      x=u.add(v);
+    }
+    while (x.compareTo(q) >= 0) {
+      x=x.subtract(q);
+    }
+    if (negative && x.signum() != 0) {
+      x=q.subtract(x);
+    }
+  }
+ else {
+    x=x.mod(q);
+  }
+  return x;
+}

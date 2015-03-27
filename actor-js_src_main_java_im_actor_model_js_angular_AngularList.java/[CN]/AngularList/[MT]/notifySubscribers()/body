@@ -1,0 +1,5 @@
+{
+  for (  AngularListCallback<T> callback : callbacks) {
+    callback.onCollectionChanged(jsValues);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  super(modules);
+  this.peer=peer;
+  this.KEY_LOADED_DATE="conv_" + peer + "_history_date";
+  this.KEY_LOADED="conv_" + peer + "_history_loaded";
+  this.KEY_LOADED_INIT="conv_" + peer + "_history_inited";
+}

@@ -1,0 +1,5 @@
+{
+  this.coord=coord;
+  this.endomorphism=endomorphism;
+  this.multiplier=multiplier;
+}

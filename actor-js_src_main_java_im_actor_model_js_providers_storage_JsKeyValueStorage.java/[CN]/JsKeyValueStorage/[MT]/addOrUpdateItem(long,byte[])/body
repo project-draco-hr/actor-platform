@@ -1,0 +1,7 @@
+{
+  storage.setItem(getId(id),toBase64(data));
+  if (!items.contains(id)) {
+    items.add(id);
+    saveIndex();
+  }
+}

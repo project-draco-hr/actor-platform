@@ -1,7 +1,0 @@
-{
-  int[] z=Nat192.fromBigInteger(x);
-  if (z[5] == P5 && Nat192.gte(z,P)) {
-    Nat192.subFrom(P,z);
-  }
-  return z;
-}

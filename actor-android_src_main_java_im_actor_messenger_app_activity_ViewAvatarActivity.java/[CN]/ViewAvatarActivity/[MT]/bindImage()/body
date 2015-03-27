@@ -7,6 +7,14 @@
     }
 );
   }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    bind(getAvatar(),messenger().getGroupAvatarVM(peer.getPeerId()).getUploadState(),new ValueDoubleChangedListener<Avatar,AvatarUploadState>(){
+      @Override public void onChanged(      Avatar val,      ValueModel<Avatar> valueModel,      AvatarUploadState val2,      ValueModel<AvatarUploadState> valueModel2){
+        performBind(val,val2);
+      }
+    }
+);
+  }
  else {
     bind(getAvatar(),new ValueChangedListener<Avatar>(){
       @Override public void onChanged(      Avatar val,      ValueModel<Avatar> valueModel){

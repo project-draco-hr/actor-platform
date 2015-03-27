@@ -1,0 +1,10 @@
+{
+  this.queue=queue;
+  this.dispatch=dispatch;
+  this.queue.setListener(new QueueListener(){
+    @Override public void onQueueChanged(){
+      notifyDispatcher();
+    }
+  }
+);
+}

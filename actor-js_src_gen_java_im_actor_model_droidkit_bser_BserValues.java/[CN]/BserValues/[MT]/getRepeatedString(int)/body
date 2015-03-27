@@ -1,0 +1,8 @@
+{
+  List<byte[]> src=getRepeatedBytes(id);
+  ArrayList<String> res=new ArrayList<String>();
+  for (  byte[] l : src) {
+    res.add(convertString(l));
+  }
+  return res;
+}

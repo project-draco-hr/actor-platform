@@ -1,3 +1,0 @@
-{
-  connect("tcp://mtproto-api.actor.im:8080");
-}

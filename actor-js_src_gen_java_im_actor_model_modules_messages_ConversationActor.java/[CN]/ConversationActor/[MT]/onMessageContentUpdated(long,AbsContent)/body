@@ -1,0 +1,8 @@
+{
+  Message message=messages.getValue(rid);
+  if (message == null) {
+    return;
+  }
+  messages.addOrUpdateItem(message.changeContent(content));
+  dialogsActor.send(new DialogsActor.MessageContentChanged(peer,rid,content));
+}

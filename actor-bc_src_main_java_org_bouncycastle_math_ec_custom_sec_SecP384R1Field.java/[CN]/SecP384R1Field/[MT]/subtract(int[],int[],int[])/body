@@ -1,6 +1,0 @@
-{
-  int c=Nat.sub(12,x,y,z);
-  if (c != 0) {
-    subPInvFrom(z);
-  }
-}

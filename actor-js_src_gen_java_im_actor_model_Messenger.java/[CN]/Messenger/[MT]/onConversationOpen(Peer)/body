@@ -1,0 +1,7 @@
+{
+  if (modules.getPresenceModule() != null) {
+    modules.getPresenceModule().subscribe(peer);
+    modules.getNotifications().onConversationOpen(peer);
+    modules.getMessagesModule().onConversationOpen(peer);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return this == other || (null != other && getField().equals(other.getField()) && getA().toBigInteger().equals(other.getA().toBigInteger()) && getB().toBigInteger().equals(other.getB().toBigInteger()));
+}

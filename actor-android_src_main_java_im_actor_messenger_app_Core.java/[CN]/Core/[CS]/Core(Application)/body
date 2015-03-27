@@ -1,7 +1,6 @@
 {
   AppContext.setContext(application);
   system().setClassLoader(AppContext.getContext().getClassLoader());
-  system().addDispatcher("db",1);
   ActivityManager activityManager=(ActivityManager)AppContext.getContext().getSystemService(Context.ACTIVITY_SERVICE);
   int memoryInMB=Math.min(activityManager.getMemoryClass(),32);
   long totalAppHeap=memoryInMB * 1024 * 1024;
@@ -14,18 +13,7 @@
   this.imageLoader.getTaskResolver().register(VideoTask.class,VideoActor.class);
   this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
-  ConfigurationBuilder builder=new ConfigurationBuilder();
-  BouncyCastleProvider bouncyCastleProvider=new BouncyCastleProvider();
-  builder.setThreadingProvider(new JavaThreadingProvider());
-  builder.setNetworkProvider(new JavaNetworkProvider());
-  builder.setMainThreadProvider(new AndroidMainThreadProvider());
-  builder.setLog(new AndroidLog());
-  builder.setStorage(new AndroidStorageProvider());
-  builder.setLocale(new JavaLocale("En"));
-  builder.setPhoneBookProvider(new AndroidPhoneBook());
-  builder.setFileSystemProvider(new AndroidFileProvider(application));
-  builder.setNotificationProvider(new AndroidNotifications());
-  builder.setDispatcherProvider(new AndroidCallbackDispatcher());
+  AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application);
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
   }
@@ -34,9 +22,7 @@
   }
   builder.setEnableContactsLogging(true);
   builder.setEnableNetworkLogging(true);
-  byte[] deviceHash=bouncyCastleProvider.SHA256(Base64.encode((AppContext.getContext().getPackageName() + ":" + Build.SERIAL).getBytes(),Base64.DEFAULT));
-  builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",deviceHash));
-  builder.setCryptoProvider(bouncyCastleProvider);
+  builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new im.actor.model.android.AndroidMessenger(builder.build());
   AppContext.getContext().getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
     @Override public void onChange(    boolean selfChange){

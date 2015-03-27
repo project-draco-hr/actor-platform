@@ -1,0 +1,5 @@
+{
+  this.config=config;
+  this.blockIndex=blockIndex;
+  this.payload=payload;
+}

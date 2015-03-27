@@ -1,0 +1,33 @@
+{
+  if (networkProvider == null) {
+    throw new RuntimeException("Networking is not set");
+  }
+  if (threadingProvider == null) {
+    throw new RuntimeException("Threading is not set");
+  }
+  if (mainThreadProvider == null) {
+    throw new RuntimeException("Main Thread is not set");
+  }
+  if (enginesFactory == null) {
+    throw new RuntimeException("Storage not set");
+  }
+  if (endpoints.size() == 0) {
+    throw new RuntimeException("Endpoints not set");
+  }
+  if (localeProvider == null) {
+    throw new RuntimeException("Locale Provider not set");
+  }
+  if (phoneBookProvider == null) {
+    throw new RuntimeException("Phonebook Provider not set");
+  }
+  if (cryptoProvider == null) {
+    throw new RuntimeException("Crypto Provider not set");
+  }
+  if (apiConfiguration == null) {
+    throw new RuntimeException("Api Configuration not set");
+  }
+  if (dispatcherProvider == null) {
+    throw new RuntimeException("Dispatcher Provider not set");
+  }
+  return new Configuration(networkProvider,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threadingProvider,mainThreadProvider,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,dispatcherProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging);
+}

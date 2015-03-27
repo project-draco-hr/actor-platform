@@ -1,8 +1,0 @@
-{
-  Storage.getLocalStorageIfSupported().clear();
-  jsStorage=new JsStorage();
-  mainThread=new JsMainThread();
-  Configuration configuration=new ConfigurationBuilder().setNetworking(new JsNetworking()).addEndpoint("wss://mtproto-api.actor.im:9082").setStorage(jsStorage).setThreading(new JsThreading()).setLog(new JsLog()).setMainThread(mainThread).setCryptoProvider(new BouncyCastleProvider()).setLocale(new JsLocaleProvider()).setPhoneBookProvider(new JsPhoneBookProvider()).build();
-  messenger=new Messenger(configuration);
-  Log.d(TAG,"JsMessenger created");
-}

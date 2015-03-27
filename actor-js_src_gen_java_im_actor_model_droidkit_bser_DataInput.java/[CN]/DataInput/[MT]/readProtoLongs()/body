@@ -1,0 +1,14 @@
+{
+  long len=readVarInt();
+  if (len < 0) {
+    throw new IOException();
+  }
+  if (len > Limits.MAX_PROTO_REPEATED) {
+    throw new IOException();
+  }
+  long[] res=new long[(int)len];
+  for (int i=0; i < res.length; i++) {
+    res[i]=readLong();
+  }
+  return res;
+}

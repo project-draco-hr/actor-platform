@@ -1,0 +1,4 @@
+{
+  int coord=this.getCurveCoordinateSystem();
+  return coord == ECCurve.COORD_AFFINE || coord == ECCurve.COORD_LAMBDA_AFFINE || isInfinity() || zs[0].isOne();
+}

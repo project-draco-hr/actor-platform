@@ -1,0 +1,3 @@
+{
+  return new ECFieldElement.F2m(this.m,this.ks,this.x.modInverse(m,ks));
+}

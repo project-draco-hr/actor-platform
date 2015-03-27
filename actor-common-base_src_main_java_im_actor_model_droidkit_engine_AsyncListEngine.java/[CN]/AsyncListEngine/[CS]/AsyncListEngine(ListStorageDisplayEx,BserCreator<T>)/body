@@ -1,0 +1,3 @@
+{
+  this.asyncStorageInt=new AsyncStorageInt<T>(storage,creator);
+}

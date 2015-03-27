@@ -1,0 +1,13 @@
+{
+  if (this.peer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.peer);
+  writer.writeLong(3,this.rid);
+  if (this.encryptedMessage == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(4,this.encryptedMessage);
+  writer.writeRepeatedObj(5,this.keys);
+  writer.writeRepeatedObj(6,this.ownKeys);
+}

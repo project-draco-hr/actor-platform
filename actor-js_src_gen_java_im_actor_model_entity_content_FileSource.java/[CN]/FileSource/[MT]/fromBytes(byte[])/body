@@ -1,0 +1,12 @@
+{
+  BserValues reader=new BserValues(BserParser.deserialize(new DataInput(data,0,data.length)));
+  int type=reader.getInt(1);
+switch (type) {
+case 1:
+    return FileLocalSource.fromValues(reader);
+case 2:
+  return FileRemoteSource.fromValues(reader);
+default :
+throw new IOException("Invalid source type");
+}
+}

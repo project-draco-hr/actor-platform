@@ -1,0 +1,6 @@
+{
+  this.visiblePeer=peer;
+  if (config().getNotificationProvider() != null) {
+    config().getNotificationProvider().onChatOpen(peer);
+  }
+}

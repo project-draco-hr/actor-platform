@@ -1,6 +1,0 @@
-{
-  int c=Nat.shiftUpBit(7,x,0,z);
-  if (c != 0 || (z[6] == P6 && Nat224.gte(z,P))) {
-    Nat.add33To(7,PInv33,z);
-  }
-}

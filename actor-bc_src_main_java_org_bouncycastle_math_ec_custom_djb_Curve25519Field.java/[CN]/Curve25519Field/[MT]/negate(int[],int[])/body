@@ -1,8 +1,0 @@
-{
-  if (Nat256.isZero(x)) {
-    Nat256.zero(z);
-  }
- else {
-    Nat256.sub(P,x,z);
-  }
-}

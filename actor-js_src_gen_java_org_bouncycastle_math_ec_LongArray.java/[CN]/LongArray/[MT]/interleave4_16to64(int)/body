@@ -1,0 +1,5 @@
+{
+  int r00=INTERLEAVE4_TABLE[x & 0xFF];
+  int r32=INTERLEAVE4_TABLE[x >>> 8];
+  return (r32 & 0xFFFFFFFFL) << 32 | (r00 & 0xFFFFFFFFL);
+}

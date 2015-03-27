@@ -1,0 +1,3 @@
+{
+  return locale.get("TypingMultiple").replace("{count}",String.valueOf(count));
+}

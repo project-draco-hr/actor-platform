@@ -1,5 +1,0 @@
-{
-  int x16=x[16];
-  int c=Nat.shiftDownBit(16,x,x16,z);
-  z[16]=(x16 >>> 1) | (c >>> 23);
-}

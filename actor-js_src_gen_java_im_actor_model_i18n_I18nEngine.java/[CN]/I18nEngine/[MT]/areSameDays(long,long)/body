@@ -1,0 +1,11 @@
+{
+  Date date1=new Date(a);
+  int y1=date1.getYear();
+  int m1=date1.getMonth();
+  int d1=date1.getDate();
+  Date date2=new Date(b);
+  int y2=date2.getYear();
+  int m2=date2.getMonth();
+  int d2=date2.getDate();
+  return y1 == y2 && m1 == m2 && d1 == d2;
+}

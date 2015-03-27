@@ -1,0 +1,10 @@
+{
+  for (  byte[] data : values.getRepeatedBytes(1)) {
+    try {
+      pendingMessages.add(PendingMessage.fromBytes(data));
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

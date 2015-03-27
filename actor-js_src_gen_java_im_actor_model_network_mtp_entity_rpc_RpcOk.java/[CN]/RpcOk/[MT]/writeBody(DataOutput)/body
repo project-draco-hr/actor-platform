@@ -1,0 +1,4 @@
+{
+  bs.writeInt(responseType);
+  bs.writeProtoBytes(payload,0,payload.length);
+}

@@ -1,5 +1,0 @@
-{
-  int[] tt=Nat256.createExt();
-  Nat256.square(x,tt);
-  reduce(tt,z);
-}

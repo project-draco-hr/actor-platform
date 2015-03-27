@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.email);
+  writer.writeLong(2,this.accessHash);
+}

@@ -1,0 +1,4 @@
+{
+  canTryAgain=bs.readProtoBool();
+  tryAgainDelay=bs.readInt();
+}

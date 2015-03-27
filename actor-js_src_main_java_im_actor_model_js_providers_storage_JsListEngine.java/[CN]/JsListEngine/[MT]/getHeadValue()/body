@@ -1,0 +1,7 @@
+{
+  Long id=storage.getHeadId();
+  if (id != null) {
+    return getValue(id);
+  }
+  return null;
+}

@@ -1,0 +1,31 @@
+{
+  QueueItem queueItem=findItem(rid);
+  if (queueItem == null) {
+    Environment.dispatchCallback(new Runnable(){
+      @Override public void run(){
+        callback.onNotUploading();
+      }
+    }
+);
+  }
+ else {
+    if (queueItem.isStopped) {
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onNotUploading();
+        }
+      }
+);
+    }
+ else {
+      final float progress=queueItem.progress;
+      Environment.dispatchCallback(new Runnable(){
+        @Override public void run(){
+          callback.onUploading(progress);
+        }
+      }
+);
+    }
+    queueItem.callbacks.add(callback);
+  }
+}

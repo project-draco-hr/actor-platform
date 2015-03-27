@@ -1,0 +1,4 @@
+{
+  MVVMEngine.checkMainThread();
+  subscribe(listener,true);
+}

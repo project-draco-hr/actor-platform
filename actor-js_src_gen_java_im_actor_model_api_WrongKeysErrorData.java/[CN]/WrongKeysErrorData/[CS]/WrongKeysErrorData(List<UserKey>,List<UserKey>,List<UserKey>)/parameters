@@ -1,0 +1,3 @@
+List<UserKey> newKeys
+List<UserKey> removedKeys
+List<UserKey> invalidKeys

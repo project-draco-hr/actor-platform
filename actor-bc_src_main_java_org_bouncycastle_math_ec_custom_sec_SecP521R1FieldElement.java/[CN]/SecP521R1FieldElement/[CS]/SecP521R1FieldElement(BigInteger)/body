@@ -1,6 +1,0 @@
-{
-  if (x == null || x.signum() < 0 || x.compareTo(Q) >= 0) {
-    throw new IllegalArgumentException("x value invalid for SecP521R1FieldElement");
-  }
-  this.x=SecP521R1Field.fromBigInteger(x);
-}

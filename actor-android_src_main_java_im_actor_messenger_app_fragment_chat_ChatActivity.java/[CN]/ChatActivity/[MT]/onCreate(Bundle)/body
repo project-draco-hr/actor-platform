@@ -93,7 +93,17 @@
   }
 );
   kicked=findViewById(R.id.kickedFromChat);
-  kicked.setVisibility(View.GONE);
+  if (peer.getPeerType() == PeerType.GROUP) {
+    bind(messenger().getGroups().get(peer.getPeerId()).isMember(),new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+        kicked.setVisibility(val ? View.GONE : View.VISIBLE);
+      }
+    }
+);
+  }
+ else {
+    kicked.setVisibility(View.GONE);
+  }
   sendButton=(TintImageView)findViewById(R.id.ib_send);
   sendButton.setResource(R.drawable.conv_send);
   sendButton.setOnClickListener(new View.OnClickListener(){

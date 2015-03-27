@@ -1,0 +1,11 @@
+{
+  String res="struct DocumentMessage{";
+  res+="fileId=" + this.fileId;
+  res+=", fileSize=" + this.fileSize;
+  res+=", name=" + this.name;
+  res+=", mimeType=" + this.mimeType;
+  res+=", thumb=" + (this.thumb != null ? "set" : "empty");
+  res+=", ext=" + (this.ext != null ? "set" : "empty");
+  res+="}";
+  return res;
+}

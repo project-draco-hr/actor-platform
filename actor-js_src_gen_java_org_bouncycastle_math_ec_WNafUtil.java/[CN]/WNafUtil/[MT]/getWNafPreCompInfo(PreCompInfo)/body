@@ -1,0 +1,6 @@
+{
+  if ((preCompInfo != null) && (preCompInfo instanceof WNafPreCompInfo)) {
+    return (WNafPreCompInfo)preCompInfo;
+  }
+  return new WNafPreCompInfo();
+}

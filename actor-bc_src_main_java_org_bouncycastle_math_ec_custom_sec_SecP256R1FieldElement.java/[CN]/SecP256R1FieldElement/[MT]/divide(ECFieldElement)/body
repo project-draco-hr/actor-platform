@@ -1,6 +1,0 @@
-{
-  int[] z=Nat256.create();
-  Mod.invert(SecP256R1Field.P,((SecP256R1FieldElement)b).x,z);
-  SecP256R1Field.multiply(z,x,z);
-  return new SecP256R1FieldElement(z);
-}

@@ -1,0 +1,5 @@
+{
+  int result=peer.hashCode();
+  result=31 * result + (int)(rid ^ (rid >>> 32));
+  return result;
+}

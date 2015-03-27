@@ -1,0 +1,8 @@
+{
+synchronized (uids) {
+    if (!uids.containsKey(uid)) {
+      uids.put(uid,new UserTypingVM(uid));
+    }
+    return uids.get(uid);
+  }
+}

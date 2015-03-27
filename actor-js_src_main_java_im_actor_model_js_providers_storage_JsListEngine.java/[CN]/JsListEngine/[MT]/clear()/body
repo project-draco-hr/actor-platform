@@ -1,0 +1,7 @@
+{
+  cache.clear();
+  storage.clear();
+  for (  JsListEngineCallback<T> callback : callbacks) {
+    callback.onClear();
+  }
+}

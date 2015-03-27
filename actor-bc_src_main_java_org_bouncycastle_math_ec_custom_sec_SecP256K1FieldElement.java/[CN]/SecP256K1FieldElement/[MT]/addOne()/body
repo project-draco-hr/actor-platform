@@ -1,5 +1,0 @@
-{
-  int[] z=Nat256.create();
-  SecP256K1Field.addOne(x,z);
-  return new SecP256K1FieldElement(z);
-}

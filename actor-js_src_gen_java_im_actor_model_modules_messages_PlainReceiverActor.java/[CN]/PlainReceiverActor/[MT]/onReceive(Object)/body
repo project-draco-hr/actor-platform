@@ -1,0 +1,9 @@
+{
+  if (message instanceof MarkReceived) {
+    MarkReceived received=(MarkReceived)message;
+    moveCursor(received.getPeer(),received.getDate());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

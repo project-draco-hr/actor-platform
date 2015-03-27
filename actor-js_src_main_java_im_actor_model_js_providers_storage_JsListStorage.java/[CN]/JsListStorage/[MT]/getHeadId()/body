@@ -1,0 +1,8 @@
+{
+  if (index.size() > 0) {
+    return index.get(0).getId();
+  }
+ else {
+    return null;
+  }
+}

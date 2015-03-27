@@ -1,0 +1,8 @@
+{
+  DataOutput dataOutput=new DataOutput();
+  dataOutput.writeInt(items.size());
+  for (  long l : items) {
+    dataOutput.writeLong(l);
+  }
+  storage.setItem("kv_" + prefix + "_index",toBase64(dataOutput.toByteArray()));
+}

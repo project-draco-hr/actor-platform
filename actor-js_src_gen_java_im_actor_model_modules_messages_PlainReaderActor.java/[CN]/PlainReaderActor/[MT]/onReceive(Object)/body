@@ -1,0 +1,9 @@
+{
+  if (message instanceof MarkRead) {
+    MarkRead markRead=(MarkRead)message;
+    moveCursor(markRead.getPeer(),markRead.getDate());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

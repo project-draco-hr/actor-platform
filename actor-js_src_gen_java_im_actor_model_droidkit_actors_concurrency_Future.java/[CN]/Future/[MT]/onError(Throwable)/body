@@ -1,0 +1,13 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  isCompleted=true;
+  isCanceled=false;
+  isError=true;
+  error=throwable;
+  result=null;
+  for (  FutureCallback callback : callbacks) {
+    callback.onError(throwable);
+  }
+}

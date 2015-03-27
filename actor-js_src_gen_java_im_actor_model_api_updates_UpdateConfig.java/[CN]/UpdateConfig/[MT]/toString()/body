@@ -1,0 +1,6 @@
+{
+  String res="update Config{";
+  res+="config=" + this.config;
+  res+="}";
+  return res;
+}

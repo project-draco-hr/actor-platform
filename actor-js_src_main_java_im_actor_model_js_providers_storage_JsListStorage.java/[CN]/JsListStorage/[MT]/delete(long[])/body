@@ -1,0 +1,12 @@
+{
+  for (  long key : keys) {
+    for (    Index i : index) {
+      if (i.getId() == key) {
+        index.remove(i);
+        storage.removeItem(getId(key));
+        updateIndex();
+        break;
+      }
+    }
+  }
+}

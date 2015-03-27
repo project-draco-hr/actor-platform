@@ -1,0 +1,3 @@
+{
+  return new JsKeyValueStorage(name,storage);
+}

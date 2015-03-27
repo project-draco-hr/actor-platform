@@ -1,0 +1,8 @@
+{
+  if (this.fileLocation == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.fileLocation);
+  writer.writeInt(2,this.offset);
+  writer.writeInt(3,this.limit);
+}

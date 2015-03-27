@@ -1,0 +1,5 @@
+{
+  this.uid=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  this.keyHash=values.getLong(3);
+}

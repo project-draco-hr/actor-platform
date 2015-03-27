@@ -1,0 +1,33 @@
+{
+  PeerDesc peerDesc=buildPeerDesc(peer);
+  if (peerDesc == null) {
+    return;
+  }
+  if (message == null) {
+    if (!forceWrite) {
+      return;
+    }
+    onChatClear(peer);
+  }
+ else {
+    Dialog dialog=dialogs.getValue(peer.getUnuqueId());
+    ContentDescription contentDescription=ContentDescription.fromContent(message.getContent());
+    DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setStatus(message.getMessageState()).setSenderId(message.getSenderId());
+    if (dialog != null) {
+      if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {
+        return;
+      }
+      builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setUnreadCount(dialog.getUnreadCount()).setSortKey(dialog.getSortDate());
+      if (!contentDescription.isSilent()) {
+        builder.setSortKey(message.getSortDate());
+      }
+    }
+ else {
+      if (contentDescription.isSilent()) {
+        return;
+      }
+      builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setUnreadCount(0).setSortKey(message.getSortDate());
+    }
+    dialogs.addOrUpdateItem(builder.createDialog());
+  }
+}

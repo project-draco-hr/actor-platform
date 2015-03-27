@@ -1,8 +1,0 @@
-{
-  int c=Nat.add(16,x,y,z) + x[16] + y[16];
-  if (c > P16 || (c == P16 && Nat.eq(16,z,P))) {
-    c+=Nat.inc(16,z);
-    c&=P16;
-  }
-  z[16]=c;
-}

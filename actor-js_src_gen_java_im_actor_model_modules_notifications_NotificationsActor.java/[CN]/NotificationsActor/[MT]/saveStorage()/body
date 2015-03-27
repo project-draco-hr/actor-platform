@@ -1,0 +1,3 @@
+{
+  this.storage.put(0,pendingStorage.toByteArray());
+}

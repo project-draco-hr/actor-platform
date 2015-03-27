@@ -1,0 +1,6 @@
+{
+  if (modules.getTypingModule() == null) {
+    return null;
+  }
+  return modules.getTypingModule().getTyping(uid).getTyping();
+}

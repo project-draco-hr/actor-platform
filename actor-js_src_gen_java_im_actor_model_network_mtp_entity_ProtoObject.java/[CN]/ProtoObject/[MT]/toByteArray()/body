@@ -1,0 +1,10 @@
+{
+  DataOutput outputStream=new DataOutput();
+  try {
+    writeObject(outputStream);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return outputStream.toByteArray();
+}

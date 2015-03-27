@@ -1,0 +1,3 @@
+{
+  modules.getSettings().changeNotificationVibrationEnabled(val);
+}

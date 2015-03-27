@@ -1,6 +1,0 @@
-{
-  int[] z=Nat.create(17);
-  Mod.invert(SecP521R1Field.P,((SecP521R1FieldElement)b).x,z);
-  SecP521R1Field.multiply(z,x,z);
-  return new SecP521R1FieldElement(z);
-}

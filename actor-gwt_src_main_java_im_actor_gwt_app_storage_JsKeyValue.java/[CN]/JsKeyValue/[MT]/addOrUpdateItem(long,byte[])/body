@@ -1,3 +1,0 @@
-{
-  storage.setItem(getId(id),toBase64(data));
-}

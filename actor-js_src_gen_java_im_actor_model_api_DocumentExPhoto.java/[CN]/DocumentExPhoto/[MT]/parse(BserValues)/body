@@ -1,0 +1,4 @@
+{
+  this.w=values.getInt(1);
+  this.h=values.getInt(2);
+}

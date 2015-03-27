@@ -1,0 +1,8 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  isCompleted=true;
+  isError=false;
+  isCanceled=true;
+}

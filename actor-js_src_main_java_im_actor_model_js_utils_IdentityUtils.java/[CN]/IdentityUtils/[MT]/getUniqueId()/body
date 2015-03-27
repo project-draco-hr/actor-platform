@@ -1,0 +1,14 @@
+{
+  Storage storage=Storage.getLocalStorageIfSupported();
+  String id=storage.getItem("tech_unique_id");
+  if (id != null) {
+    return id;
+  }
+  Random rnd=new Random();
+  id="";
+  for (int i=0; i < 128; i++) {
+    id+=((char)('a' + rnd.nextInt('z' - 'a')));
+  }
+  storage.setItem("tech_unique_id",id);
+  return id;
+}

@@ -1,0 +1,6 @@
+{
+  if (!callbacks.contains(callback)) {
+    callbacks.add(callback);
+  }
+  callback.onCollectionChanged(jsValues);
+}

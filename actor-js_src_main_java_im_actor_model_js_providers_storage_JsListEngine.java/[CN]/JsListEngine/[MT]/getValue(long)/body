@@ -1,0 +1,15 @@
+{
+  if (cache.containsKey(key)) {
+    return cache.get(key);
+  }
+  ListEngineRecord record=storage.loadItem(key);
+  if (record != null) {
+    try {
+      return Bser.parse(creator.createInstance(),record.getData());
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  return null;
+}

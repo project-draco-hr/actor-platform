@@ -1,0 +1,23 @@
+{
+  try {
+    int res=Integer.parseInt(code);
+    messenger.sendCode(res).start(new CommandCallback<AuthState>(){
+      @Override public void onResult(      AuthState res){
+        success.onResult(Enums.convert(res));
+      }
+      @Override public void onError(      Exception e){
+        error.onError("INTERNAL_ERROR","Internal error",false,getAuthState());
+      }
+    }
+);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    MVVMEngine.runOnUiThread(new Runnable(){
+      @Override public void run(){
+        error.onError("PHONE_CODE_INVALID","Invalid code number",false,getAuthState());
+      }
+    }
+);
+  }
+}

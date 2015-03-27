@@ -1,0 +1,12 @@
+{
+  int dot=fileName.indexOf('.');
+  String mimeType=null;
+  if (dot >= 0) {
+    String ext=fileName.substring(dot + 1);
+    mimeType=MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext);
+  }
+  if (mimeType == null) {
+    mimeType="application/octet-stream";
+  }
+  sendDocument(peer,fileName,mimeType,new AndroidFileSystemReference(fullFilePath));
+}

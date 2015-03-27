@@ -1,0 +1,6 @@
+{
+  this.seq=seq;
+  this.state=state;
+  this.updateHeader=updateHeader;
+  this.update=update;
+}

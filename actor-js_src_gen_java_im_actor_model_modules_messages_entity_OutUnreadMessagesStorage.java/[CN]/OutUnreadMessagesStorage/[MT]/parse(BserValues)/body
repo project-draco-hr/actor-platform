@@ -1,0 +1,9 @@
+{
+  messages.clear();
+  int count=values.getRepeatedCount(1);
+  List<OutUnreadMessage> tmp=new ArrayList<OutUnreadMessage>();
+  for (int i=0; i < count; i++) {
+    tmp.add(new OutUnreadMessage());
+  }
+  messages.addAll(values.getRepeatedObj(1,tmp));
+}

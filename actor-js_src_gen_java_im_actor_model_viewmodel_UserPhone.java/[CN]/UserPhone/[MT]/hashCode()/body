@@ -1,0 +1,3 @@
+{
+  return (int)(phone ^ (phone >>> 32));
+}

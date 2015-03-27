@@ -1,0 +1,6 @@
+{
+  writer.writeLong(1,peer.getUnuqueId());
+  writer.writeInt(2,sender);
+  writer.writeLong(4,date);
+  writer.writeObject(5,content);
+}

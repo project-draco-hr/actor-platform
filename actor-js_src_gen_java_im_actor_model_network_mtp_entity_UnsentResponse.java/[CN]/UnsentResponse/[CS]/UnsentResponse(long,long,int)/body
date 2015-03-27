@@ -1,0 +1,5 @@
+{
+  this.messageId=messageId;
+  this.responseMessageId=responseMessageId;
+  this.len=len;
+}

@@ -1,0 +1,6 @@
+{
+  String res="update UserOnline{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

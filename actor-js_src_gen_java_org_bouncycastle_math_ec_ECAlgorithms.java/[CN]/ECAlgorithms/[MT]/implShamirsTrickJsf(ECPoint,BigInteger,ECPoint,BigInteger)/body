@@ -1,0 +1,19 @@
+{
+  ECCurve curve=P.getCurve();
+  ECPoint infinity=curve.getInfinity();
+  ECPoint PaddQ=P.add(Q);
+  ECPoint PsubQ=P.subtract(Q);
+  ECPoint[] points=new ECPoint[]{Q,PsubQ,P,PaddQ};
+  curve.normalizeAll(points);
+  ECPoint[] table=new ECPoint[]{points[3].negate(),points[2].negate(),points[1].negate(),points[0].negate(),infinity,points[0],points[1],points[2],points[3]};
+  byte[] jsf=WNafUtil.generateJSF(k,l);
+  ECPoint R=infinity;
+  int i=jsf.length;
+  while (--i >= 0) {
+    int jsfi=jsf[i];
+    int kDigit=((jsfi << 24) >> 28), lDigit=((jsfi << 28) >> 28);
+    int index=4 + (kDigit * 3) + lDigit;
+    R=R.twicePlus(table[index]);
+  }
+  return R;
+}

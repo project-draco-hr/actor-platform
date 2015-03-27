@@ -1,6 +1,0 @@
-{
-  int c=Nat.inc(7,x,z);
-  if (c != 0 || (z[6] == P6 && Nat224.gte(z,P))) {
-    addPInvTo(z);
-  }
-}

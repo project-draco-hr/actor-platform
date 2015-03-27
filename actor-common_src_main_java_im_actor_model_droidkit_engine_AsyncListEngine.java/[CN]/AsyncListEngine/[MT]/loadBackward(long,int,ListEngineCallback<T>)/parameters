@@ -1,3 +1,0 @@
-long beforeSortKey
-int limit
-ListEngineCallback<T> callback

@@ -1,6 +1,0 @@
-{
-  if (this.isInfinity()) {
-    return this;
-  }
-  return new SecP192K1Point(curve,this.x,this.y.negate(),this.zs,this.withCompression);
-}

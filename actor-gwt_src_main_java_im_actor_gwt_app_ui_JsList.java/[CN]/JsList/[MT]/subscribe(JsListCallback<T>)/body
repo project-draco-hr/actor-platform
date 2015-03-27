@@ -1,6 +1,0 @@
-{
-  if (!simpleCallbacks.contains(callback)) {
-    simpleCallbacks.add(callback);
-  }
-  callback.onCollectionChanged(jsValues);
-}

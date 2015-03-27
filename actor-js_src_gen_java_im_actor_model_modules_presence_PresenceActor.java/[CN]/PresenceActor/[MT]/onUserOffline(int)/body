@@ -1,0 +1,6 @@
+{
+  UserVM vm=getUserVM(uid);
+  if (vm != null) {
+    vm.getPresence().change(new UserPresence(UserPresence.State.OFFLINE));
+  }
+}

@@ -1,0 +1,6 @@
+{
+  zz[len]=mulWord(len,x[0],y,zz);
+  for (int i=1; i < len; ++i) {
+    zz[i + len]=mulWordAddTo(len,x[i],y,0,zz,i);
+  }
+}

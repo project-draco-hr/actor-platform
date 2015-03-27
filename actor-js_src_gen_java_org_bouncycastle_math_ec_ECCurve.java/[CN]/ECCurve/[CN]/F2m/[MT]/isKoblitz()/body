@@ -1,0 +1,3 @@
+{
+  return order != null && cofactor != null && b.isOne() && (a.isZero() || a.isOne());
+}

@@ -1,8 +1,0 @@
-{
-  if (Nat192.isZero(x)) {
-    Nat192.zero(z);
-  }
- else {
-    Nat192.sub(P,x,z);
-  }
-}

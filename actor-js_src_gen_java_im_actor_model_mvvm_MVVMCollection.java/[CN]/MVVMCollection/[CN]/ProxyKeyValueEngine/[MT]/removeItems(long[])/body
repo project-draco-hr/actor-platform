@@ -1,0 +1,7 @@
+{
+  for (  long l : ids) {
+    cache.remove(l);
+  }
+  notifyRemove(ids);
+  collectionStorage.removeItems(ids);
+}

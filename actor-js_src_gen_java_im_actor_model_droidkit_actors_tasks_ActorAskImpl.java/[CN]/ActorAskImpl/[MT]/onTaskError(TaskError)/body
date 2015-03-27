@@ -1,0 +1,8 @@
+{
+  AskContainer container=asks.remove(error.getRequestId());
+  if (container != null) {
+    container.future.onError(error.getThrowable());
+    return true;
+  }
+  return false;
+}

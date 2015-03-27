@@ -1,0 +1,3 @@
+{
+  return getLong(id,defValue ? 1 : 0) != 0;
+}

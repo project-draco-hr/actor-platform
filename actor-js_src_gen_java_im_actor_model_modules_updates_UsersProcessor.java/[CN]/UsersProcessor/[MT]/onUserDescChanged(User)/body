@@ -1,0 +1,4 @@
+{
+  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
+  modules().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(u));
+}

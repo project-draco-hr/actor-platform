@@ -1,4 +1,0 @@
-{
-  this.storage=storage;
-  this.prefix=prefix;
-}

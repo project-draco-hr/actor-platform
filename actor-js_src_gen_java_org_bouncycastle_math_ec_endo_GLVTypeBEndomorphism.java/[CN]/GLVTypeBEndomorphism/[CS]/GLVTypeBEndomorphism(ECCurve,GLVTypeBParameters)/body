@@ -1,0 +1,5 @@
+{
+  this.curve=curve;
+  this.parameters=parameters;
+  this.pointMap=new ScaleXPointMap(curve.fromBigInteger(parameters.getBeta()));
+}

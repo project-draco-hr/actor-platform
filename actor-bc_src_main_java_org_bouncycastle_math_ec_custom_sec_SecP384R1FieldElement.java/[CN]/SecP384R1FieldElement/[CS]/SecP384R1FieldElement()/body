@@ -1,3 +1,0 @@
-{
-  this.x=Nat.create(12);
-}

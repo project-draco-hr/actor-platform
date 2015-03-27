@@ -1,0 +1,7 @@
+{
+  String res="rpc ImportContacts{";
+  res+="phones=" + this.phones.size();
+  res+=", emails=" + this.emails.size();
+  res+="}";
+  return res;
+}

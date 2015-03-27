@@ -1,0 +1,5 @@
+{
+  for (  PlainCursor cursor : cursors.values()) {
+    writer.writeObject(1,cursor);
+  }
+}

@@ -1,0 +1,4 @@
+ECPoint P
+BigInteger k
+ECPointMap pointMapQ
+BigInteger l

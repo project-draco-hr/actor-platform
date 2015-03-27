@@ -1,8 +1,0 @@
-{
-switch (coord) {
-case COORD_JACOBIAN:
-    return true;
-default :
-  return false;
-}
-}

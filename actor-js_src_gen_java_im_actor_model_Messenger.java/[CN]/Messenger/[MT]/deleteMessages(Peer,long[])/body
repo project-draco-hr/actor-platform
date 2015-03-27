@@ -1,0 +1,3 @@
+{
+  modules.getMessagesModule().deleteMessages(peer,rids);
+}

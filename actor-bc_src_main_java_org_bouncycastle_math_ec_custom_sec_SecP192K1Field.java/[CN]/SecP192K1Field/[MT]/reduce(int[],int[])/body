@@ -1,7 +1,0 @@
-{
-  long cc=Nat192.mul33Add(PInv33,xx,6,xx,0,z,0);
-  int c=Nat192.mul33DWordAdd(PInv33,cc,z,0);
-  if (c != 0 || (z[5] == P5 && Nat192.gte(z,P))) {
-    Nat.add33To(6,PInv33,z);
-  }
-}

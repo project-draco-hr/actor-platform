@@ -1,6 +1,0 @@
-{
-  if (x == null || x.signum() < 0 || x.compareTo(Q) >= 0) {
-    throw new IllegalArgumentException("x value invalid for Curve25519FieldElement");
-  }
-  this.x=Curve25519Field.fromBigInteger(x);
-}

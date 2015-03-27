@@ -1,3 +1,0 @@
-{
-  this(intPad,new byte[][]{value});
-}

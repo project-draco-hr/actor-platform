@@ -1,3 +1,0 @@
-{
-  return new SecP224R1Point(this,x,y,withCompression);
-}

@@ -1,0 +1,5 @@
+String appTitle
+int appId
+String appKey
+String deviceTitle
+String deviceString

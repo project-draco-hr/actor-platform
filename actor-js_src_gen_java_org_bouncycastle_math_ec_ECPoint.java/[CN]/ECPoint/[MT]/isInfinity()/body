@@ -1,0 +1,3 @@
+{
+  return x == null || y == null || (zs.length > 0 && zs[0].isZero());
+}

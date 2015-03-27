@@ -19,6 +19,7 @@
         ArrayList<String> files=data.getStringArrayListExtra("picked");
         if (files != null) {
           for (          String s : files) {
+            messenger().sendDocument(peer,s);
           }
         }
       }

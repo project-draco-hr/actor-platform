@@ -1,6 +1,0 @@
-{
-  int c=Nat.add(16,xx,yy,zz);
-  if (c != 0 || ((zz[15] & PExt15) == PExt15 && Nat.gte(16,zz,PExt))) {
-    Nat.subFrom(16,PExt,zz);
-  }
-}

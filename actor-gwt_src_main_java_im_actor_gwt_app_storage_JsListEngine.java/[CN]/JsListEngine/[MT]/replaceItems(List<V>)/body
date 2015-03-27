@@ -1,8 +1,0 @@
-{
-  cache.clear();
-  for (  JsListEngineCallback<V> callback : callbacks) {
-    callback.onClear();
-  }
-  listStorage.clear();
-  addOrUpdateItems(values);
-}
