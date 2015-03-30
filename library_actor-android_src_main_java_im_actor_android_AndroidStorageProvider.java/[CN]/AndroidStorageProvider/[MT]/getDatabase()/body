@@ -1,0 +1,7 @@
+{
+  if (database == null) {
+    NoOpOpenHelper helper=new NoOpOpenHelper(context,DB);
+    database=helper.getWritableDatabase();
+  }
+  return database;
+}

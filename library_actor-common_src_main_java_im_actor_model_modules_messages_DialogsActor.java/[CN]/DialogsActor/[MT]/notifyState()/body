@@ -1,0 +1,5 @@
+{
+  boolean isEmpty=this.dialogs.isEmpty();
+  Log.d("NOTIFY_DIALOGS","isEmpty: " + isEmpty);
+  modules().getAppStateModule().onDialogsUpdate(isEmpty);
+}

@@ -1,0 +1,6 @@
+{
+  if (isFixApplied) {
+    isFixApplied=true;
+    PRNGFixes.apply();
+  }
+}

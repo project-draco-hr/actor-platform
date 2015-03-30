@@ -1,0 +1,3 @@
+{
+  return new SQLiteList(getDatabase(),"ls_" + name);
+}

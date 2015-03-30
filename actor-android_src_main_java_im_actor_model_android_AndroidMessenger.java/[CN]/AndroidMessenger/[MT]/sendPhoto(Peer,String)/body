@@ -1,3 +1,0 @@
-{
-  sendPhoto(peer,fullFilePath,new File(fullFilePath).getName());
-}

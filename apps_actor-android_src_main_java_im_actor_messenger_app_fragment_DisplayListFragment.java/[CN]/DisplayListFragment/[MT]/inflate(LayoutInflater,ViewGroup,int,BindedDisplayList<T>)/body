@@ -1,0 +1,19 @@
+{
+  View res=inflater.inflate(resource,container,false);
+  collection=(RecyclerView)res.findViewById(R.id.collection);
+  if (displayList.getSize() == 0) {
+    collection.setVisibility(View.INVISIBLE);
+  }
+ else {
+    collection.setVisibility(View.VISIBLE);
+  }
+  configureRecyclerView(collection);
+  emptyCollection=res.findViewById(R.id.emptyCollection);
+  this.displayList=displayList;
+  adapter=onCreateAdapter(displayList,getActivity());
+  collection.setAdapter(adapter);
+  if (emptyCollection != null) {
+    emptyCollection.setVisibility(View.GONE);
+  }
+  return res;
+}

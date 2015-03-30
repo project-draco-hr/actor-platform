@@ -1,4 +1,0 @@
-{
-  super(messenger);
-  ENABLE_LOG=messenger.getConfiguration().isEnableContactsLogging();
-}

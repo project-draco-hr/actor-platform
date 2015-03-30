@@ -1,0 +1,123 @@
+{
+  this.binded=data.getPeer().getUnuqueId();
+  this.bindedItem=data;
+  avatar.getHierarchy().setPlaceholderImage(AvatarDrawable.create(data,24,context));
+  if (data.getUnreadCount() > 0) {
+    counter.setText(Integer.toString(data.getUnreadCount()));
+    counter.setVisibility(View.VISIBLE);
+  }
+ else {
+    counter.setVisibility(View.GONE);
+  }
+  title.setText(data.getDialogTitle());
+  int left=0;
+  if (data.getPeer().getPeerType() == PeerType.GROUP) {
+    left=R.drawable.dialogs_group;
+  }
+  title.setCompoundDrawablesWithIntrinsicBounds(left,0,0,0);
+  if (data.getDate() > 0) {
+    time.setVisibility(View.VISIBLE);
+    time.setText(messenger().getFormatter().formatShortDate(data.getDate()));
+  }
+ else {
+    time.setVisibility(View.GONE);
+  }
+  String contentText=messenger().getFormatter().formatContentDialogText(data.getSenderId(),data.getMessageType(),data.getText(),data.getRelatedUid());
+  if (messenger().getFormatter().isLargeDialogMessage(data.getMessageType())) {
+    bindedText=contentText;
+  }
+ else {
+    if (data.getPeer().getPeerType() == PeerType.GROUP) {
+      bindedText=messenger().getFormatter().formatPerformerName(data.getSenderId()) + ": " + contentText;
+    }
+ else {
+      bindedText=contentText;
+    }
+  }
+  if (privateTypingListener != null) {
+    messenger().getTyping(bindedUid).unsubscribe(privateTypingListener);
+    privateTypingListener=null;
+  }
+  if (groupTypingListener != null) {
+    messenger().getGroupTyping(bindedGid).unsubscribe(groupTypingListener);
+    groupTypingListener=null;
+  }
+  if (data.getPeer().getPeerType() == PeerType.PRIVATE) {
+    bindedUid=data.getPeer().getPeerId();
+    privateTypingListener=new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+        if (val) {
+          text.setText(messenger().getFormatter().formatTyping());
+          text.setTextColor(context.getResources().getColor(R.color.primary));
+        }
+ else {
+          text.setText(bindedText);
+          text.setTextColor(context.getResources().getColor(R.color.text_primary));
+        }
+      }
+    }
+;
+    messenger().getTyping(bindedUid).subscribe(privateTypingListener);
+  }
+ else   if (data.getPeer().getPeerType() == PeerType.GROUP) {
+    bindedGid=data.getPeer().getPeerId();
+    groupTypingListener=new ValueChangedListener<int[]>(){
+      @Override public void onChanged(      int[] val,      ValueModel<int[]> valueModel){
+        if (val.length != 0) {
+          if (val.length == 1) {
+            text.setText(messenger().getFormatter().formatTyping(messenger().getUsers().get(val[0]).getName().get()));
+          }
+ else {
+            text.setText(messenger().getFormatter().formatTyping(val.length));
+          }
+          text.setTextColor(context.getResources().getColor(R.color.primary));
+        }
+ else {
+          text.setText(bindedText);
+          text.setTextColor(context.getResources().getColor(R.color.text_primary));
+        }
+      }
+    }
+;
+    messenger().getGroupTyping(bindedGid).subscribe(groupTypingListener);
+  }
+ else {
+    text.setText(bindedText);
+    text.setTextColor(context.getResources().getColor(R.color.text_primary));
+  }
+  if (data.getSenderId() != myUid()) {
+    state.setVisibility(View.GONE);
+  }
+ else {
+switch (data.getStatus()) {
+default :
+case PENDING:
+      state.setResource(R.drawable.msg_clock);
+    state.setTint(pendingColor);
+  break;
+case SENT:
+state.setResource(R.drawable.msg_check_1);
+state.setTint(sentColor);
+break;
+case RECEIVED:
+state.setResource(R.drawable.msg_check_2);
+state.setTint(receivedColor);
+break;
+case READ:
+state.setResource(R.drawable.msg_check_2);
+state.setTint(readColor);
+break;
+case ERROR:
+state.setResource(R.drawable.msg_error);
+state.setTint(errorColor);
+break;
+}
+state.setVisibility(View.VISIBLE);
+}
+if (isLast) {
+separator.setVisibility(View.GONE);
+}
+ else {
+separator.setVisibility(View.VISIBLE);
+}
+}

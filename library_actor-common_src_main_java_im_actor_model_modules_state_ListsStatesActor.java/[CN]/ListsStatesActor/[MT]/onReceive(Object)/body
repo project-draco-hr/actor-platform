@@ -1,0 +1,11 @@
+{
+  if (message instanceof OnContactsChanged) {
+    onContactsChanged(((OnContactsChanged)message).isEmpty());
+  }
+ else   if (message instanceof OnDialogsChanged) {
+    onDialogsChanged(((OnDialogsChanged)message).isEmpty());
+  }
+ else {
+    drop(message);
+  }
+}

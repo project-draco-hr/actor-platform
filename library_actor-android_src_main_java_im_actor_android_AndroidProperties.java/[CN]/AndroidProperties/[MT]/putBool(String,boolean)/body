@@ -1,0 +1,3 @@
+{
+  preference.edit().putBoolean(key,v).commit();
+}

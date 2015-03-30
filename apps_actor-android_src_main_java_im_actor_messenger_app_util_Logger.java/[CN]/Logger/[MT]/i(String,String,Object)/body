@@ -1,0 +1,4 @@
+{
+  msg=format(msg,args);
+  print(Log.INFO,tag,msg);
+}

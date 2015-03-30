@@ -1,0 +1,11 @@
+{
+  super.onDestroyView();
+  if (adapter != null) {
+    if (!adapter.isGlobalList()) {
+      adapter.dispose();
+    }
+    adapter=null;
+  }
+  emptyCollection=null;
+  collection=null;
+}

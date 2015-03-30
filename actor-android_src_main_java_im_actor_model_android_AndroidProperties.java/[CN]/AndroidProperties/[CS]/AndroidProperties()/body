@@ -1,3 +1,0 @@
-{
-  this.preference=AppContext.getContext().getSharedPreferences("properties.ini",Context.MODE_PRIVATE);
-}

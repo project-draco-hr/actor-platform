@@ -1,0 +1,3 @@
+{
+  return new SQLiteKeyValue(getDatabase(),"kv_" + name);
+}

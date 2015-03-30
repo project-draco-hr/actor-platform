@@ -1,0 +1,8 @@
+{
+  listStatesActor=system().actorOf(Props.create(ListsStatesActor.class,new ActorCreator<ListsStatesActor>(){
+    @Override public ListsStatesActor create(){
+      return new ListsStatesActor(modules());
+    }
+  }
+),"actor/app/state");
+}

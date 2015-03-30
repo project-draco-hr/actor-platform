@@ -1,0 +1,7 @@
+{
+  View res=((Activity)context).getLayoutInflater().inflate(R.layout.fragment_group_item,viewGroup,false);
+  userName=(TextView)res.findViewById(R.id.name);
+  avatarView=(AvatarView)res.findViewById(R.id.avatar);
+  admin=res.findViewById(R.id.adminFlag);
+  return res;
+}

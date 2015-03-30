@@ -1,0 +1,6 @@
+{
+  this.modules=modules;
+  this.isDialogsEmpty=new ValueModel<Boolean>("app.dialogs.empty",modules.getPreferences().getBool("app.dialogs.empty",true));
+  this.isContactsEmpty=new ValueModel<Boolean>("app.contacts.empty",modules.getPreferences().getBool("app.contacts.empty",true));
+  this.appState=new ValueModel<AppState>("app.state",AppState.READY);
+}

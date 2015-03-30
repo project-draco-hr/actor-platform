@@ -1,0 +1,17 @@
+{
+  StringBuilder result=new StringBuilder();
+  String fingerprint=Build.FINGERPRINT;
+  if (fingerprint != null) {
+    result.append(fingerprint);
+  }
+  String serial=getDeviceSerialNumber();
+  if (serial != null) {
+    result.append(serial);
+  }
+  try {
+    return result.toString().getBytes("UTF-8");
+  }
+ catch (  UnsupportedEncodingException e) {
+    throw new RuntimeException("UTF-8 encoding not supported");
+  }
+}

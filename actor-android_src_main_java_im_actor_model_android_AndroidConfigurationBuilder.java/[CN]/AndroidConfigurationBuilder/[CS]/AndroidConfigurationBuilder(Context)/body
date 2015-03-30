@@ -1,9 +1,0 @@
-{
-  setMainThreadProvider(new AndroidMainThreadProvider());
-  setLog(new AndroidLog());
-  setPhoneBookProvider(new AndroidPhoneBook());
-  setStorage(new AndroidStorageProvider());
-  setNotificationProvider(new AndroidNotifications());
-  setDispatcherProvider(new AndroidCallbackDispatcher());
-  setFileSystemProvider(new AndroidFileProvider(context));
-}

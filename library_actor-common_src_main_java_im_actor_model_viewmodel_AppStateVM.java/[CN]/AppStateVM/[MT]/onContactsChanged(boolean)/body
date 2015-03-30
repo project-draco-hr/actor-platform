@@ -1,0 +1,6 @@
+{
+  if (isDialogsEmpty.get() != isEmpty) {
+    modules.getPreferences().putBool("app.contacts.empty",isEmpty);
+    isDialogsEmpty.change(isEmpty);
+  }
+}

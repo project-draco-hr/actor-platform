@@ -1,8 +1,0 @@
-{
-synchronized (sLock) {
-    if (sUrandomOut == null) {
-      sUrandomOut=new FileOutputStream(URANDOM_FILE);
-    }
-    return sUrandomOut;
-  }
-}

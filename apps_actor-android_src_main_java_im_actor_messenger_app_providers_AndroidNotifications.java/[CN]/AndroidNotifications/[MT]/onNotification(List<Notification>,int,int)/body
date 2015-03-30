@@ -1,0 +1,56 @@
+{
+  NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+  builder.setAutoCancel(true);
+  builder.setSmallIcon(R.drawable.ic_app_notify);
+  builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+  builder.setCategory(NotificationCompat.CATEGORY_MESSAGE);
+  int defaults=NotificationCompat.DEFAULT_LIGHTS;
+  if (messenger().isNotificationSoundEnabled()) {
+    defaults|=NotificationCompat.DEFAULT_SOUND;
+  }
+  if (messenger().isNotificationVibrationEnabled()) {
+    defaults|=NotificationCompat.DEFAULT_VIBRATE;
+  }
+  builder.setDefaults(defaults);
+  Notification topNotification=topNotifications.get(0);
+  builder.setTicker(getNotificationTextFull(topNotification));
+  android.app.Notification result;
+  if (messagesCount == 1) {
+    String sender=getNotificationSender(topNotification);
+    CharSequence text=getNotificationText(topNotification);
+    visiblePeer=topNotification.getPeer();
+    result=builder.setContentTitle(sender).setContentText(text).setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_ONE_SHOT)).setStyle(new NotificationCompat.BigTextStyle().bigText(text)).build();
+  }
+ else   if (conversationsCount == 1) {
+    String sender=getNotificationSender(topNotification);
+    builder.setContentTitle(sender);
+    builder.setContentText(messagesCount + " messages");
+    visiblePeer=topNotification.getPeer();
+    builder.setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_ONE_SHOT));
+    NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
+    for (    Notification n : topNotifications) {
+      if (topNotification.getPeer().getPeerType() == PeerType.GROUP) {
+        inboxStyle.addLine(getNotificationTextFull(n));
+      }
+ else {
+        inboxStyle.addLine(getNotificationText(n));
+      }
+    }
+    inboxStyle.setSummaryText(messagesCount + " messages");
+    result=builder.setStyle(inboxStyle).build();
+  }
+ else {
+    builder.setContentTitle(context.getString(R.string.app_name));
+    builder.setContentText(messagesCount + " messages in " + conversationsCount+ " chats");
+    visiblePeer=null;
+    builder.setContentIntent(PendingIntent.getActivity(context,0,new Intent(context,MainActivity.class),PendingIntent.FLAG_ONE_SHOT));
+    NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
+    for (    Notification n : topNotifications) {
+      inboxStyle.addLine(getNotificationTextFull(n));
+    }
+    inboxStyle.setSummaryText(messagesCount + " messages in " + conversationsCount+ " chats");
+    result=builder.setStyle(inboxStyle).build();
+  }
+  NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+  manager.notify(NOTIFICATION_ID,result);
+}

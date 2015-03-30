@@ -1,0 +1,12 @@
+{
+  Cursor cursor=database.rawQuery("EXISTS (SELECT * FROM \"" + tableName + "\");",null);
+  if (cursor != null) {
+    try {
+      return cursor.getInt(0) > 0;
+    }
+  finally {
+      cursor.close();
+    }
+  }
+  return false;
+}

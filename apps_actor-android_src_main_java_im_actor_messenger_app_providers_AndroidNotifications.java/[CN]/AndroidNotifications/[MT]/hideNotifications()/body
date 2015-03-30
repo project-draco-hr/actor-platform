@@ -1,0 +1,4 @@
+{
+  NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+  manager.cancel(NOTIFICATION_ID);
+}

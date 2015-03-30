@@ -1,3 +1,0 @@
-{
-  sendDocument(peer,fullFilePath,new File(fullFilePath).getName());
-}

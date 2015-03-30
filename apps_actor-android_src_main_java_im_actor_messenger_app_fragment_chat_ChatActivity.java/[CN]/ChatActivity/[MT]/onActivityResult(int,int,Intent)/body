@@ -1,0 +1,25 @@
+{
+  if (resultCode == RESULT_OK) {
+    if (requestCode == REQUEST_GALLERY) {
+      if (data.getData() != null) {
+        sendUri(data.getData());
+      }
+    }
+ else     if (requestCode == REQUEST_PHOTO) {
+    }
+ else     if (requestCode == REQUEST_VIDEO) {
+    }
+ else     if (requestCode == REQUEST_DOC) {
+      if (data.getData() != null) {
+        sendUri(data.getData());
+      }
+ else       if (data.hasExtra("picked")) {
+        ArrayList<String> files=data.getStringArrayListExtra("picked");
+        if (files != null) {
+          for (          String s : files) {
+          }
+        }
+      }
+    }
+  }
+}

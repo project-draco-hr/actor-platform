@@ -1,0 +1,21 @@
+{
+  super.preStart();
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Loading contacts ids from storage...");
+  }
+  byte[] data=preferences().getBytes("contact_list");
+  if (data != null) {
+    try {
+      DataInput dataInput=new DataInput(data,0,data.length);
+      int count=dataInput.readInt();
+      for (int i=0; i < count; i++) {
+        contacts.add(dataInput.readInt());
+      }
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  notifyState();
+  self().send(new PerformSync());
+}
