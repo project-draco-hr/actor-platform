@@ -1,0 +1,26 @@
+{
+  BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inJustDecodeBounds=true;
+  BitmapFactory.decodeFile(fileName,o);
+  if (o.outWidth == 0 || o.outHeight == 0) {
+    return null;
+  }
+  int w=o.outWidth;
+  int h=o.outHeight;
+  ExifInterface exif=null;
+  int orientationTag=0;
+  try {
+    exif=new ExifInterface(fileName);
+    String exifOrientation=exif.getAttribute(ExifInterface.TAG_ORIENTATION);
+    if (exifOrientation != null) {
+      if (exifOrientation.equals("5") || exifOrientation.equals("6") || exifOrientation.equals("7")|| exifOrientation.equals("8")) {
+        w=o.outHeight;
+        h=o.outWidth;
+      }
+      orientationTag=Integer.parseInt(exifOrientation);
+    }
+  }
+ catch (  IOException e) {
+  }
+  return new BitmapSize(w,h);
+}

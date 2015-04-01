@@ -1,0 +1,12 @@
+{
+  if (!tasksMap.containsKey(rid)) {
+    return;
+  }
+  final int gid=tasksMap.get(rid);
+  if (currentTasks.get(gid) != rid) {
+    return;
+  }
+  currentTasks.remove(gid);
+  tasksMap.remove(rid);
+  modules().getGroupsModule().getAvatarVM(gid).getUploadState().change(new AvatarUploadState(null,false));
+}

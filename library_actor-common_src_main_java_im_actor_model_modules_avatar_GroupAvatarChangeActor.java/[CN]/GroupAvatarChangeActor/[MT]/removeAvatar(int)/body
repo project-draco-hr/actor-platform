@@ -1,0 +1,34 @@
+{
+  if (currentTasks.containsKey(gid)) {
+    modules().getFilesModule().cancelUpload(currentTasks.get(gid));
+    currentTasks.remove(gid);
+  }
+  final long rid=RandomUtils.nextRid();
+  currentTasks.put(gid,rid);
+  tasksMap.put(rid,gid);
+  modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,true));
+  request(new RequestRemoveAvatar(),new RpcCallback<ResponseSeq>(){
+    @Override public void onResult(    ResponseSeq response){
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateUserAvatarChanged.HEADER,new UpdateUserAvatarChanged(myUid(),null).toByteArray()));
+      updates().onUpdateReceived(new ExecuteAfter(response.getSeq(),new Runnable(){
+        @Override public void run(){
+          self().send(new AvatarChanged(gid,rid));
+        }
+      }
+));
+    }
+    @Override public void onError(    RpcException e){
+      if (!tasksMap.containsKey(rid)) {
+        return;
+      }
+      final int gid=tasksMap.get(rid);
+      if (currentTasks.get(gid) != rid) {
+        return;
+      }
+      currentTasks.remove(gid);
+      tasksMap.remove(rid);
+      modules().getGroupsModule().getAvatarVM(gid).getUploadState().change(new AvatarUploadState(null,false));
+    }
+  }
+);
+}

@@ -6,8 +6,10 @@
       }
     }
  else     if (requestCode == REQUEST_PHOTO) {
+      messenger().sendPhoto(peer,fileName);
     }
  else     if (requestCode == REQUEST_VIDEO) {
+      messenger().sendVideo(peer,fileName);
     }
  else     if (requestCode == REQUEST_DOC) {
       if (data.getData() != null) {
@@ -17,6 +19,7 @@
         ArrayList<String> files=data.getStringArrayListExtra("picked");
         if (files != null) {
           for (          String s : files) {
+            messenger().sendDocument(peer,s);
           }
         }
       }

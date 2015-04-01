@@ -14,7 +14,7 @@
       final long rid=RandomUtils.nextRid();
       request(new RequestEditGroupTitle(new GroupOutPeer(group.getGroupId(),group.getAccessHash()),rid,name),new RpcCallback<ResponseSeqDate>(){
         @Override public void onResult(        ResponseSeqDate response){
-          SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateUserLocalNameChanged.HEADER,new UpdateGroupTitleChanged(gid,rid,myUid(),name,response.getDate()).toByteArray());
+          SeqUpdate update=new SeqUpdate(response.getSeq(),response.getState(),UpdateGroupTitleChanged.HEADER,new UpdateGroupTitleChanged(gid,rid,myUid(),name,response.getDate()).toByteArray());
           updates().onUpdateReceived(update);
           runOnUiThread(new Runnable(){
             @Override public void run(){

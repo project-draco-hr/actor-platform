@@ -1,10 +1,10 @@
 {
   if (uploadState != null && uploadState.isUploading()) {
     if (uploadState.getDescriptor() != null) {
-      receiver.request(new RawFileTask(uploadState.getDescriptor()));
+      photoView.setImageURI(Uri.fromFile(new File(uploadState.getDescriptor())));
     }
  else {
-      receiver.clear();
+      photoView.setImageURI(null);
     }
     showView(progress);
     goneView(noPhoto);

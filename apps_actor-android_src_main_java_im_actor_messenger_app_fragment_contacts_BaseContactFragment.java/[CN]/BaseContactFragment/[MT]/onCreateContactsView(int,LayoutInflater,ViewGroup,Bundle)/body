@@ -38,12 +38,13 @@
   }
   bind(messenger().getAppState().getIsContactsEmpty(),new ValueChangedListener<Boolean>(){
     @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
-      Log.d("BaseContactFragment","isContactsEmpty: " + val);
-      if (val) {
-        emptyView.setVisibility(View.VISIBLE);
-      }
+      if (emptyView != null) {
+        if (val) {
+          emptyView.setVisibility(View.VISIBLE);
+        }
  else {
-        emptyView.setVisibility(View.GONE);
+          emptyView.setVisibility(View.GONE);
+        }
       }
     }
   }

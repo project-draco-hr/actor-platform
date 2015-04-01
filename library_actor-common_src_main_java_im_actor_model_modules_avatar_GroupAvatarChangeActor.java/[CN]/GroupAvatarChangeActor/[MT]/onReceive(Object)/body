@@ -11,6 +11,14 @@
     AvatarChanged avatarChanged=(AvatarChanged)message;
     avatarChanged(avatarChanged.getGid(),avatarChanged.getRid());
   }
+ else   if (message instanceof UploadManager.UploadError) {
+    UploadManager.UploadError uploadError=(UploadManager.UploadError)message;
+    uploadError(uploadError.getRid());
+  }
+ else   if (message instanceof RemoveAvatar) {
+    RemoveAvatar removeAvatar=(RemoveAvatar)message;
+    removeAvatar(removeAvatar.getGid());
+  }
  else {
     drop(message);
   }

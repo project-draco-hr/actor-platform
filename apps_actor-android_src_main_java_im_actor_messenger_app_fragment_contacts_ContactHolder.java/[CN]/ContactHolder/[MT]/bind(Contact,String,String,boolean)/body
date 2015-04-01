@@ -1,0 +1,32 @@
+{
+  if (shortName == null) {
+    fastTitle.setVisibility(View.GONE);
+  }
+ else {
+    fastTitle.setVisibility(View.VISIBLE);
+    fastTitle.setText(shortName);
+  }
+  avatar.bind(data);
+  title.setText(data.getName());
+  if (query.length() > 0) {
+    title.setText(SearchHighlight.highlightQuery(data.getName(),query,0xff0277bd));
+  }
+ else {
+    title.setText(data.getName());
+  }
+  if (isSelectable) {
+    isSelected.setChecked(selected);
+  }
+  cont.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onItemClickedListener.onClicked(data);
+    }
+  }
+);
+  cont.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      return onItemClickedListener.onLongClicked(data);
+    }
+  }
+);
+}

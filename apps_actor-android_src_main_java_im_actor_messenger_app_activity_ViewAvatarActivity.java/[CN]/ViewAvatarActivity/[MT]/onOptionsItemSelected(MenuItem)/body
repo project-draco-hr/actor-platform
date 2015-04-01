@@ -29,6 +29,7 @@
             }
           }
  else           if (peer.getPeerType() == PeerType.GROUP) {
+            messenger().removeGroupAvatar(peer.getPeerId());
           }
         }
       }

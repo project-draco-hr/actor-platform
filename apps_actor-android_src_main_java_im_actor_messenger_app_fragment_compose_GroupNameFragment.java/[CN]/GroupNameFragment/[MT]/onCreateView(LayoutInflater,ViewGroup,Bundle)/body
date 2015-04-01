@@ -14,6 +14,8 @@
 );
   avatarView=(AvatarView)res.findViewById(R.id.avatar);
   avatarView.init(Screen.dp(96),24);
+  avatarView.getHierarchy().setPlaceholderImage(R.drawable.circle_placeholder);
+  avatarView.setImageURI(null);
   res.findViewById(R.id.pickAvatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
       startActivityForResult(Intents.pickAvatar(avatarPath != null,getActivity()),REQUEST_AVATAR);
