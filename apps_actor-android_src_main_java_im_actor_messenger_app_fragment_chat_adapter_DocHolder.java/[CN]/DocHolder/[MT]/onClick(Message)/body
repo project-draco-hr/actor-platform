@@ -1,5 +1,4 @@
 {
-  super.onClick(v);
   if (document.getSource() instanceof FileRemoteSource) {
     FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
     final FileReference location=remoteSource.getFileReference();
@@ -10,7 +9,14 @@
       @Override public void onDownloading(      float progress){
         messenger().cancelDownloading(location.getFileId());
       }
-      @Override public void onDownloaded(      FileSystemReference reference){
+      @Override public void onDownloaded(      final FileSystemReference reference){
+        MVVMEngine.runOnUiThread(new Runnable(){
+          @Override public void run(){
+            Activity activity=getAdapter().getMessagesFragment().getActivity();
+            activity.startActivity(Intents.openDoc(document.getName(),reference.getDescriptor()));
+          }
+        }
+);
       }
     }
 );

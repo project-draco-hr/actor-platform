@@ -1,0 +1,38 @@
+{
+  final DocumentContent document=(DocumentContent)currentMessage.getContent();
+  if (document.getSource() instanceof FileRemoteSource) {
+    FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
+    final FileReference location=remoteSource.getFileReference();
+    messenger().requestState(location.getFileId(),new DownloadCallback(){
+      @Override public void onNotDownloaded(){
+        messenger().startDownloading(location);
+      }
+      @Override public void onDownloading(      float progress){
+        messenger().cancelDownloading(location.getFileId());
+      }
+      @Override public void onDownloaded(      final FileSystemReference reference){
+        MVVMEngine.runOnUiThread(new Runnable(){
+          @Override public void run(){
+            Activity activity=getAdapter().getMessagesFragment().getActivity();
+            activity.startActivity(Intents.openDoc(document.getName(),reference.getDescriptor()));
+          }
+        }
+);
+      }
+    }
+);
+  }
+ else   if (document.getSource() instanceof FileLocalSource) {
+    messenger().requestUploadState(currentMessage.getRid(),new UploadCallback(){
+      @Override public void onNotUploading(){
+        messenger().resumeUpload(currentMessage.getRid());
+      }
+      @Override public void onUploading(      float progress){
+        messenger().pauseUpload(currentMessage.getRid());
+      }
+      @Override public void onUploaded(){
+      }
+    }
+);
+  }
+}
