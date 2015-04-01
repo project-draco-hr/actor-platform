@@ -5,6 +5,7 @@
   getSupportActionBar().setDisplayShowTitleEnabled(false);
   getSupportActionBar().setDisplayShowCustomEnabled(false);
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+  getSupportActionBar().setTitle(null);
   uid=getIntent().getIntExtra(Intents.EXTRA_UID,0);
   if (savedInstanceState == null) {
     showFragment(ProfileFragment.create(uid),false,false);

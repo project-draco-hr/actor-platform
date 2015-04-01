@@ -5,6 +5,15 @@
  else   if (message instanceof OnDialogsChanged) {
     onDialogsChanged(((OnDialogsChanged)message).isEmpty());
   }
+ else   if (message instanceof OnBookImported) {
+    onBookImported();
+  }
+ else   if (message instanceof OnContactsLoaded) {
+    onContactsLoaded();
+  }
+ else   if (message instanceof OnDialogsLoaded) {
+    onDialogsLoaded();
+  }
  else {
     drop(message);
   }

@@ -14,6 +14,9 @@
         markImported(emailToImport.getEmail());
         importingEmails.remove(emailToImport.getEmail());
       }
+      if (importingEmails.size() == 0 && importingPhones.size() == 0) {
+        markImported();
+      }
       if (response.getUsers().size() == 0) {
         if (ENABLE_LOG) {
           Log.d(TAG,"Import success, but no new contacts found");

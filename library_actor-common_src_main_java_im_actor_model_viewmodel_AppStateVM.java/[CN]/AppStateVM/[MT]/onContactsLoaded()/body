@@ -1,0 +1,9 @@
+{
+  Log.d("AppStateVM","onContactsLoaded");
+  if (!isContactsLoaded) {
+    Log.d("AppStateVM","onContactsLoaded:apply");
+    isContactsLoaded=true;
+    modules.getPreferences().putBool("app.contacts.loaded",true);
+    updateLoaded();
+  }
+}

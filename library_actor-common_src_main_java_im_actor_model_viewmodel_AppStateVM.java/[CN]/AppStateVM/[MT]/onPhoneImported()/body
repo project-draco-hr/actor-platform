@@ -1,0 +1,9 @@
+{
+  Log.d("AppStateVM","onPhoneImported");
+  if (!isBookImported) {
+    Log.d("AppStateVM","onPhoneImported:apply");
+    isBookImported=true;
+    modules.getPreferences().putBool("app.contacts.imported",true);
+    updateLoaded();
+  }
+}

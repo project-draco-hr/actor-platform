@@ -13,5 +13,8 @@
   if (dialogs.size() > 0) {
     dialogsActor().send(new DialogsActor.HistoryLoaded(dialogs));
   }
+ else {
+    modules().getAppStateModule().onDialogsLoaded();
+  }
   dialogsHistoryActor().send(new DialogsHistoryActor.LoadedMore(dialogsResponse.getDialogs().size(),maxLoadedDate));
 }

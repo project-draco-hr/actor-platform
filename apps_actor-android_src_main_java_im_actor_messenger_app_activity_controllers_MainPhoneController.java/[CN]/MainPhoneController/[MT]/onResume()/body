@@ -21,4 +21,29 @@
   barTabs.setVisibility(View.VISIBLE);
   emptyContactsView.setVisibility(View.GONE);
   syncInProgressView.setVisibility(View.GONE);
+  getActivity().bind(messenger().getAppState().getIsAppLoaded(),messenger().getAppState().getIsAppEmpty(),new ValueDoubleChangedListener<Boolean,Boolean>(){
+    @Override public void onChanged(    Boolean isAppLoaded,    ValueModel<Boolean> valueModel,    Boolean isAppEmpty,    ValueModel<Boolean> valueModel2){
+      if (isAppEmpty) {
+        if (isAppLoaded) {
+          barTabs.setVisibility(View.GONE);
+          emptyContactsView.setVisibility(View.VISIBLE);
+          syncInProgressView.setVisibility(View.GONE);
+          getActivity().invalidateOptionsMenu();
+        }
+ else {
+          barTabs.setVisibility(View.GONE);
+          emptyContactsView.setVisibility(View.GONE);
+          syncInProgressView.setVisibility(View.VISIBLE);
+          getActivity().invalidateOptionsMenu();
+        }
+      }
+ else {
+        barTabs.setVisibility(View.VISIBLE);
+        emptyContactsView.setVisibility(View.GONE);
+        syncInProgressView.setVisibility(View.GONE);
+        getActivity().invalidateOptionsMenu();
+      }
+    }
+  }
+);
 }

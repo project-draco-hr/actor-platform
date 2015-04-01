@@ -1,12 +1,5 @@
 {
   getMenuInflater().inflate(R.menu.main,menu);
-  Log.d("MainPhoneController","onCreateOptionsMenu called");
-  try {
-    throw new Exception();
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
   MenuItem menuItem=menu.findItem(R.id.profile);
   final AvatarView avatarView=(AvatarView)menuItem.getActionView().findViewById(R.id.avatarView);
   avatarView.init(Screen.dp(40),18);
@@ -23,6 +16,12 @@
   }
 );
   searchMenu=menu.findItem(R.id.search);
+  if (messenger().getAppState().getIsAppEmpty().get()) {
+    searchMenu.setVisible(false);
+  }
+ else {
+    searchMenu.setVisible(true);
+  }
   searchView=(SearchView)searchMenu.getActionView();
   searchView.setIconifiedByDefault(true);
   return true;

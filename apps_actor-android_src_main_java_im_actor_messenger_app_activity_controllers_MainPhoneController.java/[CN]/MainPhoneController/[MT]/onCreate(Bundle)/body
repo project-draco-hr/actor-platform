@@ -3,8 +3,6 @@
   getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));
   syncInProgressView=findViewById(R.id.syncInProgress);
   emptyContactsView=findViewById(R.id.emptyContacts);
-  emptyContactsImage=(ImageView)findViewById(R.id.emptyContactsImage);
-  emptyDialogsImage=(ImageView)findViewById(R.id.emptyDialogsImage);
   ((TextView)findViewById(R.id.addContactButtonText)).setTypeface(Fonts.medium());
   ((TextView)findViewById(R.id.inviteButtonText)).setTypeface(Fonts.medium());
   isFabVisible=false;

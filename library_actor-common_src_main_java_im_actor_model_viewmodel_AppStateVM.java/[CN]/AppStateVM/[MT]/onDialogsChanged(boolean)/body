@@ -1,8 +1,12 @@
 {
-  Log.d("AppStateVM","onDialogsChanged:" + isEmpty);
   if (isDialogsEmpty.get() != isEmpty) {
-    Log.d("AppStateVM","onDialogsChanged:" + isEmpty + ": apply");
     modules.getPreferences().putBool("app.dialogs.empty",isEmpty);
     isDialogsEmpty.change(isEmpty);
+  }
+  if (!isEmpty) {
+    if (isAppEmpty.get()) {
+      modules.getPreferences().putBool("app.empty",false);
+      isAppEmpty.change(false);
+    }
   }
 }

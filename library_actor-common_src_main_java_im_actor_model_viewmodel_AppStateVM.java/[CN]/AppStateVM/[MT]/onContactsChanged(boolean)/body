@@ -1,8 +1,12 @@
 {
-  Log.d("AppStateVM","onContactsChanged:" + isEmpty);
   if (isContactsEmpty.get() != isEmpty) {
-    Log.d("AppStateVM","onContactsChanged:" + isEmpty + ": apply");
     modules.getPreferences().putBool("app.contacts.empty",isEmpty);
     isContactsEmpty.change(isEmpty);
+  }
+  if (!isEmpty) {
+    if (isAppEmpty.get()) {
+      modules.getPreferences().putBool("app.empty",false);
+      isAppEmpty.change(false);
+    }
   }
 }

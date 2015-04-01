@@ -1,6 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+  getSupportActionBar().setTitle(null);
   if (savedInstanceState == null) {
     showFragment(new MyProfileFragment(),false,false);
   }
