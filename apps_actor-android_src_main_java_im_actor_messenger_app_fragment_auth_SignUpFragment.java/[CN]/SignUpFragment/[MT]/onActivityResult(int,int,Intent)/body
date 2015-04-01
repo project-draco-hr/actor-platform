@@ -3,7 +3,7 @@
     int res=data.getIntExtra(Intents.EXTRA_RESULT,Intents.RESULT_IMAGE);
     if (res == Intents.RESULT_IMAGE) {
       avatarPath=data.getStringExtra(Intents.EXTRA_IMAGE);
-      avatarView.bindUploading(avatarPath);
+      avatarView.bindRaw(avatarPath);
     }
  else     if (res == Intents.RESULT_DELETE) {
       avatarPath=null;

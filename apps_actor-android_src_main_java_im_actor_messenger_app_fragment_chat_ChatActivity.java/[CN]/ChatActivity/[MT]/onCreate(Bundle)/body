@@ -19,6 +19,7 @@
   barTypingContainer=barView.findViewById(R.id.typingContainer);
   barTypingContainer.setVisibility(View.INVISIBLE);
   barAvatar=(AvatarView)barView.findViewById(R.id.avatarPreview);
+  barAvatar.init(Screen.dp(32),18);
   ActionBar.LayoutParams layout=new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,ActionBar.LayoutParams.MATCH_PARENT);
   getSupportActionBar().setCustomView(barView,layout);
   barView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){

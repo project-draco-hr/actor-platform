@@ -14,7 +14,7 @@
   this.imageLoader.getTaskResolver().register(AvatarTask.class,AvatarActor.class);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
   AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application);
-  builder.setPhoneBookProvider(new AndroidPhoneBook());
+  builder.setPhoneBookProvider(new EmptyPhoneProvider());
   builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
   if (BuildConfig.API_SSL) {
     builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);

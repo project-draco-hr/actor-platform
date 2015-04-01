@@ -13,6 +13,7 @@
   }
   cont.setBackgroundResource(R.drawable.selector);
   avatar=new AvatarView(context);
+  avatar.init(52,24);
 {
     FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(Screen.dp(52),Screen.dp(52));
     layoutParams.leftMargin=Screen.dp(6);

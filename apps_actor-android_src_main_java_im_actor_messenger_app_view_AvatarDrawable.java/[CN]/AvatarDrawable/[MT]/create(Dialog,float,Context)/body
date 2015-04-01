@@ -1,3 +1,0 @@
-{
-  return new AvatarDrawable(dialogItem.getDialogTitle(),dialogItem.getPeer().getPeerId(),fontSize,context);
-}

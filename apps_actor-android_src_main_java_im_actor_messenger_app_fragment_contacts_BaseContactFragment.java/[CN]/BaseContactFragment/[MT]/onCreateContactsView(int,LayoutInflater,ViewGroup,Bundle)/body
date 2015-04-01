@@ -1,30 +1,27 @@
 {
   View res=inflate(inflater,container,layoutId,messenger().buildContactDisplayList());
+  emptyView=res.findViewById(R.id.emptyCollection);
+  View headerPadding=new View(getActivity());
+  headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_light));
+  headerPadding.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+  addHeaderView(headerPadding);
   if (useCompactVersion) {
-    View header=new View(getActivity());
-    header.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
-    addHeaderView(header);
     View footer=new View(getActivity());
     footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
     addFooterView(footer);
   }
  else {
-    TextView header=new TextView(getActivity());
-    header.setBackgroundColor(getResources().getColor(R.color.bg_grey));
-    header.setText(R.string.contacts_title);
-    header.setTypeface(Fonts.bold());
-    header.setPadding(Screen.dp(16),0,0,0);
-    header.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-    header.setTextSize(16);
-    header.setTextColor(getResources().getColor(R.color.text_subheader));
-    LinearLayout headerCont=new LinearLayout(getActivity());
-    headerCont.setBackgroundColor(getResources().getColor(R.color.bg_light));
-    headerCont.setOrientation(LinearLayout.VERTICAL);
-    headerCont.addView(header,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(48)));
-    headerCont.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
-    addHeaderView(headerCont);
+    addFooterAction(R.drawable.ic_share_white_24dp,"Tell friends about Actor",false,new Runnable(){
+      @Override public void run(){
+      }
+    }
+);
+    addFooterAction(R.drawable.ic_person_add_white_24dp,"Add friend...",true,new Runnable(){
+      @Override public void run(){
+      }
+    }
+);
     FrameLayout footer=new FrameLayout(getActivity());
-    footer.setBackgroundColor(getResources().getColor(R.color.bg_grey));
     footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(112)));
     ImageView shadow=new ImageView(getActivity());
     shadow.setImageResource(R.drawable.card_shadow_bottom);
@@ -33,5 +30,17 @@
     footer.addView(shadow);
     addFooterView(footer);
   }
+  bind(messenger().getAppState().getIsContactsEmpty(),new ValueChangedListener<Boolean>(){
+    @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
+      Log.d("BaseContactFragment","isContactsEmpty: " + val);
+      if (val) {
+        emptyView.setVisibility(View.VISIBLE);
+      }
+ else {
+        emptyView.setVisibility(View.GONE);
+      }
+    }
+  }
+);
   return res;
 }

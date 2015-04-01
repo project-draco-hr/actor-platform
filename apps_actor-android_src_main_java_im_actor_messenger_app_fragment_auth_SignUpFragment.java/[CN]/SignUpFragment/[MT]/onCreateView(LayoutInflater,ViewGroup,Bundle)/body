@@ -2,10 +2,7 @@
   View v=inflater.inflate(R.layout.fragment_sign_up,container,false);
   keyboardHelper=new KeyboardHelper(getActivity());
   avatarView=(AvatarView)v.findViewById(R.id.avatar);
-  avatarView.setEmptyDrawable(new AvatarDrawable("?",0,0,getActivity()));
-  if (avatarPath != null) {
-    avatarView.bindUploading(avatarPath);
-  }
+  avatarView.init(Screen.dp(96),24);
   ((TextView)v.findViewById(R.id.button_confirm_sms_code_text)).setTypeface(Fonts.medium());
   firstNameEditText=(EditText)v.findViewById(R.id.et_first_name_enter);
   final View sendConfirmCodeButton=v.findViewById(R.id.button_confirm_sms_code);

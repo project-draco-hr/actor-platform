@@ -6,7 +6,7 @@
       finish();
       return;
     }
-    bind(barAvatar,user.getId(),18,user.getAvatar(),user.getName());
+    bind(barAvatar,user.getId(),user.getAvatar(),user.getName());
     bind(barTitle,user.getName());
     bind(barSubtitle,barSubtitleContainer,user);
     bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
@@ -17,7 +17,7 @@
       finish();
       return;
     }
-    bind(barAvatar,group.getId(),18,group.getAvatar(),group.getName());
+    bind(barAvatar,group.getId(),group.getAvatar(),group.getName());
     bind(barTitle,group.getName());
     barSubtitleContainer.setVisibility(View.VISIBLE);
     bind(barSubtitle,group);

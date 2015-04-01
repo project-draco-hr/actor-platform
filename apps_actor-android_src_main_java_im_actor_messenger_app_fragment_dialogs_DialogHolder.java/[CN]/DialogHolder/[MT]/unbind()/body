@@ -1,5 +1,6 @@
 {
   this.bindedItem=null;
+  this.avatar.unbind();
   if (privateTypingListener != null) {
     messenger().getTyping(bindedUid).unsubscribe(privateTypingListener);
     privateTypingListener=null;

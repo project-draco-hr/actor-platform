@@ -1,6 +1,0 @@
-{
-  if (receiver != null) {
-    receiver.request(new RawFileTask(fileName));
-    invalidate();
-  }
-}

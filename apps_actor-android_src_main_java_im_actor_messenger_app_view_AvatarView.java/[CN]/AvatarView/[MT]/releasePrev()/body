@@ -1,6 +1,0 @@
-{
-  if (prevDrawable != null && prevDrawable instanceof ReferenceDrawable) {
-    ((ReferenceDrawable)prevDrawable).release();
-  }
-  prevDrawable=null;
-}

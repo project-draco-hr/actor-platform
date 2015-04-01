@@ -13,7 +13,7 @@
   }
 );
   avatarView=(AvatarView)res.findViewById(R.id.avatar);
-  avatarView.setEmptyDrawable(new AvatarDrawable("",0,0,getActivity()));
+  avatarView.init(Screen.dp(96),24);
   res.findViewById(R.id.pickAvatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
       startActivityForResult(Intents.pickAvatar(avatarPath != null,getActivity()),REQUEST_AVATAR);

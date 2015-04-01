@@ -35,7 +35,6 @@
   }
   addView(unreadDiv,new MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
   avatarView=new AvatarView(getContext());
-  avatarView.setEmptyDrawable(new AvatarDrawable("??",1,12,getContext()));
-  avatarView.unbind();
+  avatarView.init(Screen.dp(42),12);
   addView(avatarView,new MarginLayoutParams(Screen.dp(42),Screen.dp(42)));
 }

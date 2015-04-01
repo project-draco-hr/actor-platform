@@ -15,6 +15,7 @@
             }
           }
 ));
+          modules().getProfile().changeAvatar(avatarPath);
         }
         @Override public void onError(        final RpcException e){
           if ("PHONE_CODE_EXPIRED".equals(e.getTag())) {

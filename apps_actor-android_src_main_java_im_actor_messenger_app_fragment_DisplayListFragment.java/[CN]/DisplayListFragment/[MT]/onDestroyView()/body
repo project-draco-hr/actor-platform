@@ -6,6 +6,5 @@
     }
     adapter=null;
   }
-  emptyCollection=null;
   collection=null;
 }

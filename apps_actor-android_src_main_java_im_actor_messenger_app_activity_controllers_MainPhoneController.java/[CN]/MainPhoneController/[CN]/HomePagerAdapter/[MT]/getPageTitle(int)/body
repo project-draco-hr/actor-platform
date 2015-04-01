@@ -1,0 +1,9 @@
+{
+switch (position) {
+default :
+case 0:
+    return "Chats";
+case 1:
+  return "Contacts";
+}
+}

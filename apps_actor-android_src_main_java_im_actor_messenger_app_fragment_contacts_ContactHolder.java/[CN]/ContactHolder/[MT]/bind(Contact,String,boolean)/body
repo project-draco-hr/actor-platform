@@ -2,13 +2,7 @@
   String shortName=getFastName(data.getName());
   fastTitle.setVisibility(View.VISIBLE);
   fastTitle.setText(shortName);
-  avatar.setEmptyDrawable(new AvatarDrawable(data.getName(),data.getUid(),24,context));
-  if (data.getAvatar() != null) {
-    avatar.bindAvatar(Screen.dp(54),data.getAvatar());
-  }
- else {
-    avatar.unbind();
-  }
+  avatar.bind(data);
   title.setText(data.getName());
   if (query.length() > 0) {
     title.setText(SearchHighlight.highlightQuery(data.getName(),query,0xff0277bd));

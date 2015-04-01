@@ -1,11 +1,7 @@
 {
-  if (receiver != null) {
-    receiver.clear();
-    releasePrev();
-    release();
-    transitionStart=0;
-    drawable=emptyDrawable;
-    isNewDrawn=false;
-    invalidate();
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
   }
+  setImageURI(null);
 }

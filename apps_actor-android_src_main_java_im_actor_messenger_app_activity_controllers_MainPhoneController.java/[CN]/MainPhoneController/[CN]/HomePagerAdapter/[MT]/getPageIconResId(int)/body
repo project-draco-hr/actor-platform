@@ -1,9 +1,0 @@
-{
-switch (position) {
-default :
-case 0:
-    return R.drawable.main_bar_recent_selector;
-case 1:
-  return R.drawable.main_bar_contacts_selector;
-}
-}

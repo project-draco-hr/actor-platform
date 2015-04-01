@@ -1,6 +1,8 @@
 {
   super(fl);
   this.context=context;
+  final int paddingH=Screen.dp(10);
+  final int paddingV=Screen.dp(9);
   pendingColor=context.getResources().getColor(R.color.chats_state_pending);
   sentColor=context.getResources().getColor(R.color.chats_state_sent);
   receivedColor=context.getResources().getColor(R.color.chats_state_delivered);
@@ -8,7 +10,8 @@
   errorColor=context.getResources().getColor(R.color.chats_state_error);
   fl.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));
   fl.setBackgroundResource(R.drawable.selector_white);
-  avatar=new SimpleDraweeView(context);
+  avatar=new AvatarView(context);
+  avatar.init(Screen.dp(54),24);
 {
     FrameLayout.LayoutParams avatarLayoutParams=new FrameLayout.LayoutParams(Screen.dp(54),Screen.dp(54));
     avatarLayoutParams.gravity=Gravity.CENTER_VERTICAL | Gravity.LEFT;

@@ -1,7 +1,0 @@
-{
-  Logger.d("AvatarView","Request avatar");
-  if (receiver != null) {
-    receiver.request(new AvatarTask(Screen.dp(size),avatar));
-    invalidate();
-  }
-}

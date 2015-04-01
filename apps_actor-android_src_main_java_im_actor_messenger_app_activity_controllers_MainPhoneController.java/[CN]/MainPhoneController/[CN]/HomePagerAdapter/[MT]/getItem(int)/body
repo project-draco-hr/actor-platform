@@ -2,8 +2,12 @@
 switch (position) {
 default :
 case 0:
-    return new DialogsFragment();
+    DialogsFragment res=new DialogsFragment();
+  res.setHasOptionsMenu(false);
+return res;
 case 1:
-  return new ContactsFragment();
+ContactsFragment res2=new ContactsFragment();
+res2.setHasOptionsMenu(false);
+return res2;
 }
 }

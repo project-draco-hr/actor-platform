@@ -20,6 +20,12 @@
           if ("PHONE_CODE_EXPIRED".equals(e.getTag())) {
             resetAuth();
           }
+ else           if ("PHONE_NUMBER_UNOCCUPIED".equals(e.getTag())) {
+            preferences().putInt(KEY_SMS_CODE,code);
+            state=AuthState.SIGN_UP;
+            callback.onResult(AuthState.SIGN_UP);
+            return;
+          }
           runOnUiThread(new Runnable(){
             @Override public void run(){
               callback.onError(e);

@@ -10,10 +10,12 @@
   barTabs.setIndicatorColorResource(R.color.main_tab_selected);
   barTabs.setIndicatorHeight(Screen.dp(4));
   barTabs.setDividerColorResource(R.color.main_tab_divider);
+  barTabs.setTextColorResource(R.color.text_primary_light);
   barTabs.setUnderlineHeight(0);
   barTabs.setViewPager(pager);
-  tabsContainer.addView(barTabs,new FrameLayout.LayoutParams(Screen.dp(72 * 2),Screen.dp(56)));
-  Toolbar.LayoutParams lp=new Toolbar.LayoutParams(Screen.dp(72 * 2),Screen.dp(56));
+  int width=Screen.dp(120 * 2);
+  tabsContainer.addView(barTabs,new FrameLayout.LayoutParams(width,Screen.dp(56)));
+  Toolbar.LayoutParams lp=new Toolbar.LayoutParams(width,Screen.dp(56));
   tabsContainer.setLayoutParams(lp);
   ab.setCustomView(tabsContainer);
   barTabs.setVisibility(View.VISIBLE);

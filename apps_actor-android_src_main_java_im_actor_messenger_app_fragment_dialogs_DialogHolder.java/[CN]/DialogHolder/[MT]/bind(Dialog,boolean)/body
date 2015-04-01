@@ -1,7 +1,7 @@
 {
   this.binded=data.getPeer().getUnuqueId();
   this.bindedItem=data;
-  avatar.getHierarchy().setPlaceholderImage(AvatarDrawable.create(data,24,context));
+  avatar.bind(data);
   if (data.getUnreadCount() > 0) {
     counter.setText(Integer.toString(data.getUnreadCount()));
     counter.setVisibility(View.VISIBLE);

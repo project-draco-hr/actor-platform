@@ -1,11 +1,19 @@
 {
   getMenuInflater().inflate(R.menu.main,menu);
+  Log.d("MainPhoneController","onCreateOptionsMenu called");
+  try {
+    throw new Exception();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
   MenuItem menuItem=menu.findItem(R.id.profile);
   final AvatarView avatarView=(AvatarView)menuItem.getActionView().findViewById(R.id.avatarView);
+  avatarView.init(Screen.dp(40),18);
   if (messenger().isLoggedIn()) {
     UserVM userModel=users().get(myUid());
     if (userModel != null) {
-      getActivity().bind(avatarView,myUid(),18,userModel.getAvatar(),userModel.getName());
+      getActivity().bind(avatarView,myUid(),userModel.getAvatar(),userModel.getName());
     }
   }
   menuItem.getActionView().setOnClickListener(new View.OnClickListener(){

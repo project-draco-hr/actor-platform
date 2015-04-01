@@ -2,16 +2,9 @@
   mode=MODE_LEFT;
   this.showAvatar=showAvatar;
   if (showAvatar) {
-    avatarView.setVisibility(VISIBLE);
     UserVM u=users().get(uid);
-    avatarView.setEmptyDrawable(new AvatarDrawable(u.getName().get(),u.getId(),12,getContext()));
-    Avatar avatar=u.getAvatar().get();
-    if (avatar != null) {
-      avatarView.bindAvatar(0,avatar);
-    }
- else {
-      avatarView.unbind();
-    }
+    avatarView.setVisibility(VISIBLE);
+    avatarView.bind(u);
     avatarView.setOnClickListener(new OnClickListener(){
       @Override public void onClick(      View v){
         if (onClickListener != null) {
