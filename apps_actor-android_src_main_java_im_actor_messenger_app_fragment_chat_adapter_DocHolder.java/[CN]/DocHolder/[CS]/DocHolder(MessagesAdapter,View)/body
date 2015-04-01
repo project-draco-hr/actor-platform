@@ -1,6 +1,6 @@
 {
   super(fragment,itemView,false);
-  bubbleView=itemView.findViewById(R.id.bubbleContainer);
+  View bubbleView=itemView.findViewById(R.id.bubbleContainer);
   bubbleView.setBackgroundResource(R.drawable.conv_bubble_media_in);
   menu=itemView.findViewById(R.id.menu);
   menu.setOnClickListener(new View.OnClickListener(){
@@ -9,6 +9,23 @@
       popup.getMenuInflater().inflate(R.menu.doc_popup,popup.getMenu());
       popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
         @Override public boolean onMenuItemClick(        MenuItem item){
+          if (currentMessage != null && currentMessage.getContent() instanceof DocumentContent) {
+            final DocumentContent documentContent=(DocumentContent)currentMessage.getContent();
+            if (documentContent.getSource() instanceof FileRemoteSource) {
+              FileRemoteSource remoteSource=(FileRemoteSource)documentContent.getSource();
+              messenger().requestState(remoteSource.getFileReference().getFileId(),new DownloadCallback(){
+                @Override public void onNotDownloaded(){
+                }
+                @Override public void onDownloading(                float progress){
+                }
+                @Override public void onDownloaded(                FileSystemReference reference){
+                  Activity activity=getAdapter().getMessagesFragment().getActivity();
+                  activity.startActivity(Intents.shareDoc(documentContent.getName(),reference.getDescriptor()));
+                }
+              }
+);
+            }
+          }
           return true;
         }
       }
