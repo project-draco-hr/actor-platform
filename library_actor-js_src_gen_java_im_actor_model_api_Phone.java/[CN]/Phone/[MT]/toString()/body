@@ -1,8 +1,0 @@
-{
-  String res="struct Phone{";
-  res+="id=" + this.id;
-  res+=", phone=" + this.phone;
-  res+=", phoneTitle=" + this.phoneTitle;
-  res+="}";
-  return res;
-}

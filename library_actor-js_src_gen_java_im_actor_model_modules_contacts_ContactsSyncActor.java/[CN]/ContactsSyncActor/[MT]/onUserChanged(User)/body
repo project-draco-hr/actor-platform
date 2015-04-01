@@ -1,9 +1,0 @@
-{
-  if (ENABLE_LOG) {
-    Log.d(TAG,"OnUserChanged #" + user.getUid() + " received");
-  }
-  if (!contacts.contains(user.getUid())) {
-    return;
-  }
-  updateEngineList();
-}

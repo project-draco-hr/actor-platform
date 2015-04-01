@@ -1,3 +1,0 @@
-{
-  return "Conatiner[" + messages.length + " items]";
-}

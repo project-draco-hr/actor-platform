@@ -1,8 +1,0 @@
-{
-  int z=x;
-  z*=2 - x * z;
-  z*=2 - x * z;
-  z*=2 - x * z;
-  z*=2 - x * z;
-  return z;
-}

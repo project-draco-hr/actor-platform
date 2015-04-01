@@ -1,6 +1,0 @@
-{
-  if (!cursors.containsKey(peer)) {
-    cursors.put(peer,new PlainCursor(peer,0,0));
-  }
-  return cursors.get(peer);
-}

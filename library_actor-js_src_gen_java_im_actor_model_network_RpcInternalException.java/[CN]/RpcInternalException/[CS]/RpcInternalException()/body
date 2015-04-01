@@ -1,3 +1,0 @@
-{
-  super("INTERNAL_ERROR",500,"Internal server error",true,null);
-}

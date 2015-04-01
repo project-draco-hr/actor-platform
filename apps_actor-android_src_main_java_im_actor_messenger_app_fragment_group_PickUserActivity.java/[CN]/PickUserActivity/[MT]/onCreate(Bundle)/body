@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  getSupportActionBar().setTitle(R.string.pick_user_title);
-  showFragment(new PickUserFragment(),false,false);
-}

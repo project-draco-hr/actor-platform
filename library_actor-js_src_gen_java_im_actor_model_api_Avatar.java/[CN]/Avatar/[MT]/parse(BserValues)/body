@@ -1,5 +1,0 @@
-{
-  this.smallImage=values.optObj(1,new AvatarImage());
-  this.largeImage=values.optObj(2,new AvatarImage());
-  this.fullImage=values.optObj(3,new AvatarImage());
-}

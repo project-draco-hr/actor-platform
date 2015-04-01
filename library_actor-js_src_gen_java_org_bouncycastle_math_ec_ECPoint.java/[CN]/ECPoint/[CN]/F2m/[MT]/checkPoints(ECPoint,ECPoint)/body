@@ -1,5 +1,0 @@
-{
-  if (a.curve != b.curve) {
-    throw new IllegalArgumentException("Only points on the same " + "curve can be added or subtracted");
-  }
-}

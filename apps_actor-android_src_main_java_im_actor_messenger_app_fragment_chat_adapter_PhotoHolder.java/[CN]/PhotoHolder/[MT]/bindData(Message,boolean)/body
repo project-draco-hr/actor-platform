@@ -41,11 +41,13 @@ int w, h;
 if (message.getContent() instanceof PhotoContent) {
 w=((PhotoContent)message.getContent()).getW();
 h=((PhotoContent)message.getContent()).getH();
+isPhoto=true;
 duration.setVisibility(View.GONE);
 }
  else if (message.getContent() instanceof VideoContent) {
 w=((VideoContent)message.getContent()).getW();
 h=((VideoContent)message.getContent()).getH();
+isPhoto=false;
 duration.setVisibility(View.VISIBLE);
 duration.setText(messenger().getFormatter().formatDuration(((VideoContent)message.getContent()).getDuration()));
 }
@@ -59,12 +61,11 @@ maxWidth=Math.min(Screen.dp(360),maxWidth);
 float scale=Math.min(maxWidth / (float)w,maxHeight / (float)h);
 int bubbleW=(int)(scale * w);
 int bubbleH=(int)(scale * h);
-imageKitView.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
+previewView.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
 overlay.setLayoutParams(new FrameLayout.LayoutParams(bubbleW,bubbleH));
 }
 boolean needRebind=false;
 if (isNewMessage) {
-imageKitView.noRequest();
 fastThumbLoader.cancel();
 if (downloadFileVM != null) {
 downloadFileVM.detach();
@@ -83,11 +84,14 @@ progressValue.setVisibility(View.GONE);
 progressIcon.setVisibility(View.GONE);
 if (fileMessage.getSource() instanceof FileRemoteSource) {
 boolean autoDownload=fileMessage instanceof PhotoContent;
+previewView.setImageURI(null);
 downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(fileMessage));
 }
  else if (fileMessage.getSource() instanceof FileLocalSource) {
 uploadFileVM=messenger().bindUpload(message.getRid(),new UploadVMCallback());
-imageKitView.requestPhoto(((FileLocalSource)fileMessage.getSource()).getFileDescriptor());
+if (isPhoto) {
+previewView.setImageURI(Uri.fromFile(new File(((FileLocalSource)fileMessage.getSource()).getFileDescriptor())));
+}
 }
  else {
 throw new RuntimeException("Unknown file source type: " + fileMessage.getSource());

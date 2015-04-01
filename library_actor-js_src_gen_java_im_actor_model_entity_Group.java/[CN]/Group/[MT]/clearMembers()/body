@@ -1,3 +1,0 @@
-{
-  return new Group(groupId,accessHash,title,avatar,new ArrayList<GroupMember>(),adminId,isMember);
-}

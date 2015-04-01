@@ -1,5 +1,0 @@
-{
-  long mtId=MTUids.nextId();
-  sender.send(new SenderActor.SendMessage(mtId,new MTRpcRequest(protoStruct.toByteArray()).toByteArray()));
-  return mtId;
-}

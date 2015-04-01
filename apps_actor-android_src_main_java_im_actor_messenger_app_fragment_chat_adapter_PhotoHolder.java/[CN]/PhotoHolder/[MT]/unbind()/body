@@ -9,5 +9,5 @@
     uploadFileVM=null;
   }
   fastThumbLoader.cancel();
-  imageKitView.noRequest();
+  previewView.setImageURI(null);
 }

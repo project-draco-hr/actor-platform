@@ -1,8 +1,0 @@
-{
-  String res="struct Member{";
-  res+="uid=" + this.uid;
-  res+=", inviterUid=" + this.inviterUid;
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

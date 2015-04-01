@@ -1,7 +1,0 @@
-{
-  String res="struct EmailToImport{";
-  res+="email=" + this.email;
-  res+=", name=" + this.name;
-  res+="}";
-  return res;
-}

@@ -1,7 +1,0 @@
-{
-  byte header=getHeader();
-  if (header != 0) {
-    bs.writeByte(header);
-  }
-  writeBody(bs);
-}

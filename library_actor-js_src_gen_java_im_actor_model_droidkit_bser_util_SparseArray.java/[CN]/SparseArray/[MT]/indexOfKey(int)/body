@@ -1,6 +1,0 @@
-{
-  if (mGarbage) {
-    gc();
-  }
-  return ContainerHelpers.binarySearch(mKeys,mSize,key);
-}

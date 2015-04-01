@@ -1,5 +1,0 @@
-String tag
-int code
-String message
-boolean canTryAgain
-byte[] relatedData

@@ -1,4 +1,0 @@
-{
-  this.gid=gid;
-  this.active=new ValueModel<int[]>("groups." + gid + ".typing",new int[0]);
-}

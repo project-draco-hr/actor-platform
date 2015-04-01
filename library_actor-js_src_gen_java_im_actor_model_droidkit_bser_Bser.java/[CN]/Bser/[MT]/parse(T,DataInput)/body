@@ -1,5 +1,0 @@
-{
-  BserValues reader=new BserValues(BserParser.deserialize(inputStream));
-  res.parse(reader);
-  return res;
-}

@@ -1,5 +1,0 @@
-{
-  super(isPrivate);
-  this.modulus=modulus;
-  this.exponent=exponent;
-}

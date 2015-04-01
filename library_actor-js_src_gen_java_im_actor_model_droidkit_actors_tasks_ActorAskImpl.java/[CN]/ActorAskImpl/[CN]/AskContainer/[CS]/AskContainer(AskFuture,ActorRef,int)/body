@@ -1,5 +1,0 @@
-{
-  this.future=future;
-  this.ref=ref;
-  this.requestId=requestId;
-}

@@ -1,6 +1,0 @@
-{
-  if (isCompleted) {
-    return;
-  }
-  manager.send(new UploadManager.UploadTaskProgress(rid,progress));
-}

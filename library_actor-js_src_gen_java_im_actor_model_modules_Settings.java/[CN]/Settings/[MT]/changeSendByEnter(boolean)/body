@@ -1,3 +1,0 @@
-{
-  preferences().putBool(KEY_CHAT_SEND_BY_ENTER,val);
-}

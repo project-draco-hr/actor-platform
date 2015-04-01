@@ -9,7 +9,7 @@
     return true;
   }
  else   if (item.getItemId() == R.id.addMember) {
-    startActivityForResult(Intents.pickUser(getActivity()),0);
+    startActivity(new Intent(getActivity(),AddMemberActivity.class).putExtra("GROUP_ID",chatId));
   }
  else   if (item.getItemId() == R.id.editTitle) {
     startActivity(Intents.editGroupTitle(chatId,getActivity()));

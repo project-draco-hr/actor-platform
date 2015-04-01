@@ -1,9 +1,0 @@
-{
-  if (value == null) {
-    throw new IllegalArgumentException("Value can not be null");
-  }
-  if (value.length > Limits.MAX_BLOCK_SIZE) {
-    throw new IllegalArgumentException("Unable to write more than 1 MB");
-  }
-  writeBytesField(fieldNumber,value);
-}

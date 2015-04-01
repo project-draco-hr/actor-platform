@@ -1,4 +1,0 @@
-{
-  cache.remove(id);
-  storage.removeItem(id);
-}

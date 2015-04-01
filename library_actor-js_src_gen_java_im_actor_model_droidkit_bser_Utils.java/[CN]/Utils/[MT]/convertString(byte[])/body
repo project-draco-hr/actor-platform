@@ -1,8 +1,0 @@
-{
-  if (data == null) {
-    return null;
-  }
- else {
-    return new String(data,"utf-8");
-  }
-}

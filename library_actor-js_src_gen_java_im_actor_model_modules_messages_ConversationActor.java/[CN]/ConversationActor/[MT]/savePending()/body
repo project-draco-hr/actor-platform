@@ -1,3 +1,0 @@
-{
-  pendingKeyValue.put(peer.getUnuqueId(),messagesStorage.toByteArray());
-}

@@ -1,5 +1,0 @@
-{
-  SHA1Digest d=(SHA1Digest)other;
-  super.copyIn(d);
-  copyIn(d);
-}

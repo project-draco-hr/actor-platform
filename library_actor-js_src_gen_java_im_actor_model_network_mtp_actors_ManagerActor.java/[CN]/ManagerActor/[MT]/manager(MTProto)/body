@@ -1,8 +1,0 @@
-{
-  return ActorSystem.system().actorOf(new ActorSelection(Props.create(ManagerActor.class,new ActorCreator<ManagerActor>(){
-    @Override public ManagerActor create(){
-      return new ManagerActor(mtProto);
-    }
-  }
-),mtProto.getActorPath() + "/manager"));
-}

@@ -1,8 +1,0 @@
-{
-  String res="struct Email{";
-  res+="id=" + this.id;
-  res+=", email=" + this.email;
-  res+=", emailTitle=" + this.emailTitle;
-  res+="}";
-  return res;
-}

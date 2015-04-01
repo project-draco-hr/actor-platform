@@ -1,5 +1,0 @@
-{
-  messageId=bs.readLong();
-  responseMessageId=bs.readLong();
-  len=bs.readInt();
-}

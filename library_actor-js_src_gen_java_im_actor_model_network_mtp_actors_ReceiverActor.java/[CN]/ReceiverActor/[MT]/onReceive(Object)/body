@@ -1,8 +1,0 @@
-{
-  if (message instanceof ProtoMessage) {
-    onReceive((ProtoMessage)message);
-  }
- else {
-    drop(message);
-  }
-}

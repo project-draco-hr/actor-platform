@@ -1,5 +1,0 @@
-{
-  this.proto=proto;
-  this.unsentPackages=new HashMap<Long,ProtoMessage>();
-  this.confirm=new HashSet<Long>();
-}

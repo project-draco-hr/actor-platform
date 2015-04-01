@@ -1,5 +1,0 @@
-{
-  this.config=config;
-  this.blocksCount=blocksCount;
-  this.crc32=crc32;
-}

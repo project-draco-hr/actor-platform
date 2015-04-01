@@ -1,5 +1,0 @@
-int groupId
-long rid
-int inviterId
-long date
-boolean isSilent

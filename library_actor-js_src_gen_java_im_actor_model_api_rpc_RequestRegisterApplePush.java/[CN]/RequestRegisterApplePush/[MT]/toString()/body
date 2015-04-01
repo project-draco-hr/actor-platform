@@ -1,5 +1,0 @@
-{
-  String res="rpc RegisterApplePush{";
-  res+="}";
-  return res;
-}

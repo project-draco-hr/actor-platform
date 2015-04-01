@@ -1,5 +1,0 @@
-{
-  this.src=src;
-  bindShader(src);
-  invalidate();
-}

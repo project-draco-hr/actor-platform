@@ -1,5 +1,0 @@
-{
-  bs.writeLong(messageId);
-  bs.writeLong(responseMessageId);
-  bs.writeInt(len);
-}

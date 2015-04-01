@@ -1,4 +1,0 @@
-{
-  this.isOnline=isOnline;
-  this.timeout=timeout;
-}

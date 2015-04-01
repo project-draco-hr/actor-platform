@@ -1,3 +1,0 @@
-{
-  modules.getFilesModule().requestState(fileId,callback);
-}

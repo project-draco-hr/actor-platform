@@ -1,4 +1,0 @@
-{
-  sessionId=bs.readLong();
-  messageId=bs.readLong();
-}

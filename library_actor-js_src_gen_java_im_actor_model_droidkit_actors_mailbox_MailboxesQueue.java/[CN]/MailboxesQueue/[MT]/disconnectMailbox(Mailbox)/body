@@ -1,3 +1,0 @@
-{
-  envelopeRoot.detachCollection(mailbox.getEnvelopes());
-}

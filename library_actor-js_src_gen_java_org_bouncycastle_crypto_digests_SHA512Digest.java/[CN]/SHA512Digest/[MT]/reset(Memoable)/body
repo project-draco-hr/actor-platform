@@ -1,4 +1,0 @@
-{
-  SHA512Digest d=(SHA512Digest)other;
-  copyIn(d);
-}

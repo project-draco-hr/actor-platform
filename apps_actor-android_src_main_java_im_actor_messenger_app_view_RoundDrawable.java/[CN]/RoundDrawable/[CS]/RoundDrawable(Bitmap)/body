@@ -1,5 +1,0 @@
-{
-  this.bitmap=bitmap;
-  this.shader=new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
-  this.shaderMatrix=new Matrix();
-}

@@ -1,8 +1,0 @@
-{
-  String res="struct FastThumb{";
-  res+="w=" + this.w;
-  res+=", h=" + this.h;
-  res+=", thumb=" + byteArrayToStringCompact(this.thumb);
-  res+="}";
-  return res;
-}

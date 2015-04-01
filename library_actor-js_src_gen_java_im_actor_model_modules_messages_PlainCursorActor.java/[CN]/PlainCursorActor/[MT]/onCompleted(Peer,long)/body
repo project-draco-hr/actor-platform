@@ -1,3 +1,0 @@
-{
-  self().send(new OnCompleted(peer,date));
-}

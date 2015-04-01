@@ -1,3 +1,0 @@
-{
-  modules.getFilesModule().bindUploadFile(rid,callback);
-}

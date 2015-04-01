@@ -1,5 +1,0 @@
-{
-  this.isResult=isResult;
-  this.res=res;
-  this.delay=delay;
-}

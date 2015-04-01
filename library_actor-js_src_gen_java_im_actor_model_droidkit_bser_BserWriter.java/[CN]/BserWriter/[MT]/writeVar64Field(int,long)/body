@@ -1,4 +1,0 @@
-{
-  writeTag(fieldNumber,WireTypes.TYPE_64BIT);
-  writeLong(value);
-}

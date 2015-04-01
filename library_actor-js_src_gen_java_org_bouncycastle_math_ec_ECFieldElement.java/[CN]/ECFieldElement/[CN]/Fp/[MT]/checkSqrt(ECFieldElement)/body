@@ -1,3 +1,0 @@
-{
-  return z.square().equals(this) ? z : null;
-}

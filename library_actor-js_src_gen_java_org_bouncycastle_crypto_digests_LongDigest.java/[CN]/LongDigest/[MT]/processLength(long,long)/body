@@ -1,7 +1,0 @@
-{
-  if (wOff > 14) {
-    processBlock();
-  }
-  W[14]=hiW;
-  W[15]=lowW;
-}

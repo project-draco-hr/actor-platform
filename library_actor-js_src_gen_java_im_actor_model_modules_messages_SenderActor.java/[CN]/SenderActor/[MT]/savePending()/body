@@ -1,3 +1,0 @@
-{
-  preferences().putBytes(PREFERENCES,pendingMessages.toByteArray());
-}

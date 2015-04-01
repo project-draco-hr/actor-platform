@@ -1,4 +1,0 @@
-{
-  this.relatedUid=relatedUid;
-  return this;
-}

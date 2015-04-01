@@ -1,5 +1,0 @@
-{
-  super(messenger);
-  this.peer=peer;
-  this.pendingKeyValue=messenger.getMessagesModule().getConversationPending();
-}

@@ -1,3 +1,0 @@
-{
-  writer.writeInt(1,this.duration);
-}

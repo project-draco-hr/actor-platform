@@ -1,4 +1,0 @@
-{
-  this.conversationActor=conversationActor;
-  this.historyActor=historyActor;
-}

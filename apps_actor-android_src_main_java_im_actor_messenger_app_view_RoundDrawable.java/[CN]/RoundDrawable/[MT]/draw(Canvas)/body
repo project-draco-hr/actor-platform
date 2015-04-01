@@ -1,7 +1,0 @@
-{
-  shaderMatrix.reset();
-  shaderMatrix.postScale(getBounds().width() / (float)bitmap.getWidth(),getBounds().height() / (float)bitmap.getHeight());
-  shader.setLocalMatrix(shaderMatrix);
-  paint.setShader(shader);
-  canvas.drawCircle(getBounds().centerX(),getBounds().centerY(),getBounds().width() / 2,paint);
-}

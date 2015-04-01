@@ -1,4 +1,0 @@
-ECFieldElement x
-ECFieldElement y
-ECFieldElement[] zs
-boolean withCompression

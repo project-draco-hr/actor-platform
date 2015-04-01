@@ -1,3 +1,0 @@
-{
-  super("TIMEOUT",500,"Request timeout",true,null);
-}

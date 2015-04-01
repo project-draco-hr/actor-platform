@@ -1,7 +1,0 @@
-{
-  for (int i=0; i < count; ++i) {
-    long v=x[src + i];
-    x[dst1 + i]^=v;
-    x[dst2 + i]^=v;
-  }
-}

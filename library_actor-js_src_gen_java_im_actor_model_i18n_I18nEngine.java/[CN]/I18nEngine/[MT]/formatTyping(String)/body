@@ -1,3 +1,0 @@
-{
-  return locale.get("TypingUser").replace("{user}",name);
-}

@@ -1,6 +1,0 @@
-{
-  String res="struct DocumentExVoice{";
-  res+="duration=" + this.duration;
-  res+="}";
-  return res;
-}

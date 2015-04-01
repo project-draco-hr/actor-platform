@@ -1,3 +1,0 @@
-{
-  update(buf,0,buf.length);
-}

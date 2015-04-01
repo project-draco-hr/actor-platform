@@ -1,3 +1,0 @@
-{
-  uploadState=new ValueModel<AvatarUploadState>("avatar.group." + gid,new AvatarUploadState(null,false));
-}

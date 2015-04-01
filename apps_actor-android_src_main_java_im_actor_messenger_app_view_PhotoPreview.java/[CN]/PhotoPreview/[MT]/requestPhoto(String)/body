@@ -1,3 +1,0 @@
-{
-  requestSwitch(new RawFileTask(fileName));
-}

@@ -1,5 +1,0 @@
-{
-  if (addDefaultDispatcher) {
-    addDispatcher(DEFAULT_DISPATCHER);
-  }
-}

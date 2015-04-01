@@ -1,7 +1,0 @@
-{
-  if (fieldNumber <= 0) {
-    throw new IllegalArgumentException("fieldNumber can't be less or eq to zero");
-  }
-  long tag=((long)(fieldNumber << 3) | wireType);
-  stream.writeVarInt(tag);
-}

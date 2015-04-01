@@ -1,3 +1,0 @@
-{
-  modules().getAppStateModule().onDialogsUpdate(this.dialogs.isEmpty());
-}

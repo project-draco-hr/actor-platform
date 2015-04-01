@@ -1,3 +1,0 @@
-{
-  this.duration=values.getInt(1);
-}

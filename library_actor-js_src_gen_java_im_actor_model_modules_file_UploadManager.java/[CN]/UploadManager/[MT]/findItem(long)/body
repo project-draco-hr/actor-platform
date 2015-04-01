@@ -1,8 +1,0 @@
-{
-  for (  QueueItem q : queue) {
-    if (q.rid == rid) {
-      return q;
-    }
-  }
-  return null;
-}

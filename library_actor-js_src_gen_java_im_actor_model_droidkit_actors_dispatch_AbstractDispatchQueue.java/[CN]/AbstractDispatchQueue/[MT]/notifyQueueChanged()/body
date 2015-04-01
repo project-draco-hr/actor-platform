@@ -1,6 +1,0 @@
-{
-  QueueListener lListener=listener;
-  if (lListener != null) {
-    lListener.onQueueChanged();
-  }
-}

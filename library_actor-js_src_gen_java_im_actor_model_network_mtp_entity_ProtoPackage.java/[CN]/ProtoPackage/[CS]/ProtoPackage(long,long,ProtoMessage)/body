@@ -1,5 +1,0 @@
-{
-  this.authId=authId;
-  this.sessionId=sessionId;
-  this.payload=payload;
-}

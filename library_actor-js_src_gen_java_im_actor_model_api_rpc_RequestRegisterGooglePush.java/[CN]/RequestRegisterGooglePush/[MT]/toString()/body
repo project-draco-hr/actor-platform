@@ -1,5 +1,0 @@
-{
-  String res="rpc RegisterGooglePush{";
-  res+="}";
-  return res;
-}

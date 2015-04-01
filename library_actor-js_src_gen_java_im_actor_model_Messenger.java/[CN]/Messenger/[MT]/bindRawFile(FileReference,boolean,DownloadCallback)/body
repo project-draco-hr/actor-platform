@@ -1,3 +1,0 @@
-{
-  modules.getFilesModule().bindFile(fileReference,isAutoStart,callback);
-}

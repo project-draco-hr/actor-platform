@@ -1,9 +1,0 @@
-{
-  if (other == this) {
-    return true;
-  }
-  if (!(other instanceof ECPoint)) {
-    return false;
-  }
-  return equals((ECPoint)other);
-}

@@ -1,5 +1,0 @@
-{
-  this.peer=peer;
-  this.uid=uid;
-  this.typingType=typingType;
-}

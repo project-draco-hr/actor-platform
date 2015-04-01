@@ -1,5 +1,0 @@
-{
-  this.date=values.getLong(1);
-  this.updateHeader=values.getInt(2);
-  this.update=values.getBytes(3);
-}

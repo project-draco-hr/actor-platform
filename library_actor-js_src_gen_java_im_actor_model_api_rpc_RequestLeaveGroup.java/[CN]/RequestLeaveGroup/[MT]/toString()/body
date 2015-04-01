@@ -1,7 +1,0 @@
-{
-  String res="rpc LeaveGroup{";
-  res+="groupPeer=" + this.groupPeer;
-  res+=", rid=" + this.rid;
-  res+="}";
-  return res;
-}

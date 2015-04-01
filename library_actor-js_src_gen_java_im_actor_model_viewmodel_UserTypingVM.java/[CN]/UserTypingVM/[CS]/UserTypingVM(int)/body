@@ -1,4 +1,0 @@
-{
-  this.uid=uid;
-  this.userTyping=new ValueModel<Boolean>("user." + uid + ".typing",false);
-}

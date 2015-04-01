@@ -1,3 +1,0 @@
-{
-  bookImportActor.send(new BookImportActor.PerformSync());
-}

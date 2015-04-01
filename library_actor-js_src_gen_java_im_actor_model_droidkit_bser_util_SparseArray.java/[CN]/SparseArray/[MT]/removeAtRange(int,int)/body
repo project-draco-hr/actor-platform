@@ -1,6 +1,0 @@
-{
-  final int end=Math.min(mSize,index + size);
-  for (int i=index; i < end; i++) {
-    removeAt(i);
-  }
-}

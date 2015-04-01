@@ -1,8 +1,0 @@
-{
-  rid=values.getLong(1);
-  sortDate=values.getLong(2);
-  date=values.getLong(3);
-  senderId=values.getInt(4);
-  messageState=MessageState.fromValue(values.getInt(5));
-  content=AbsContent.contentFromBytes(values.getBytes(6));
-}

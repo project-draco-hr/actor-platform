@@ -1,3 +1,0 @@
-{
-  return new ASN1OctetString(dataInput.readBytes(dataInput.getRemaining()));
-}

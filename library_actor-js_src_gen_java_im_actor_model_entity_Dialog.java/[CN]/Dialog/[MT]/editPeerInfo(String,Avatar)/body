@@ -1,3 +1,0 @@
-{
-  return new Dialog(peer,sortDate,title,dialogAvatar,unreadCount,rid,messageType,text,status,senderId,date,relatedUid);
-}

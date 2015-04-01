@@ -1,4 +1,0 @@
-{
-  this.notificationProvider=notificationProvider;
-  return this;
-}

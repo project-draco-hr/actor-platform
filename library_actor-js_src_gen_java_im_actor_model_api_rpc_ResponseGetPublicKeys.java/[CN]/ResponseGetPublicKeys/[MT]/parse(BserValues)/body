@@ -1,7 +1,0 @@
-{
-  List<PublicKey> _keys=new ArrayList<PublicKey>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _keys.add(new PublicKey());
-  }
-  this.keys=values.getRepeatedObj(1,_keys);
-}

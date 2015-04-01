@@ -1,5 +1,0 @@
-{
-  if (visiblePeer != null && visiblePeer.equals(peer)) {
-    this.visiblePeer=null;
-  }
-}

@@ -1,5 +1,7 @@
 {
-  imageKitView.requestPhoto(reference.getDescriptor());
+  if (isPhoto) {
+    previewView.setImageURI(Uri.fromFile(new File(reference.getDescriptor())));
+  }
   progressValue.setText(100 + "");
   progressView.setValue(100);
   goneView(progressContainer);

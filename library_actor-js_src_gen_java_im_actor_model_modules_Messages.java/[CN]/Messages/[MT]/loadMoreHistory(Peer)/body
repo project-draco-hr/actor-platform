@@ -1,3 +1,0 @@
-{
-  getConversationHistoryActor(peer).send(new ConversationHistoryActor.LoadMore());
-}

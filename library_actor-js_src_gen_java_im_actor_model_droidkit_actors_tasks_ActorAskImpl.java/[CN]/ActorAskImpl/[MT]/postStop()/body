@@ -1,5 +1,0 @@
-{
-  for (  AskContainer container : asks.values().toArray(new AskContainer[0])) {
-    container.future.cancel();
-  }
-}

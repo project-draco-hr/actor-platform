@@ -1,4 +1,0 @@
-{
-  bs.writeLong(messageId);
-  bs.writeProtoString(message);
-}

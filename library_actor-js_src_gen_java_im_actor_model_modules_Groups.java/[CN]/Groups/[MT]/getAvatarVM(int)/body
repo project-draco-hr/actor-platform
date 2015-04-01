@@ -1,8 +1,0 @@
-{
-synchronized (avatarVMs) {
-    if (!avatarVMs.containsKey(gid)) {
-      avatarVMs.put(gid,new GroupAvatarVM(gid));
-    }
-    return avatarVMs.get(gid);
-  }
-}

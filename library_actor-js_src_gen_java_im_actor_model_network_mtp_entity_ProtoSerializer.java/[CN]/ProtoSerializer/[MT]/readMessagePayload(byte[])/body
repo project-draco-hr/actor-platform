@@ -1,3 +1,0 @@
-{
-  return readMessagePayload(new DataInput(bs,0,bs.length));
-}

@@ -1,3 +1,0 @@
-{
-  return locale.get("GroupOnline").replace("{count}","" + count);
-}

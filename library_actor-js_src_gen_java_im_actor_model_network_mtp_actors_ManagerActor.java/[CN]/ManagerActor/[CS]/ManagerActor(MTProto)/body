@@ -1,6 +1,0 @@
-{
-  this.mtProto=mtProto;
-  this.endpoints=mtProto.getEndpoints();
-  this.authId=mtProto.getAuthId();
-  this.sessionId=mtProto.getSessionId();
-}

@@ -1,7 +1,0 @@
-{
-  this.scope=scope;
-  this.message=message;
-  this.sender=sender;
-  this.mailbox=mailbox;
-  this.sendTime=ActorTime.currentTime();
-}

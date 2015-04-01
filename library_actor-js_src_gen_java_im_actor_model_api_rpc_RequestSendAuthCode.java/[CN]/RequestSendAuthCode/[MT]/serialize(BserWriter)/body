@@ -1,8 +1,0 @@
-{
-  writer.writeLong(1,this.phoneNumber);
-  writer.writeInt(2,this.appId);
-  if (this.apiKey == null) {
-    throw new IOException();
-  }
-  writer.writeString(3,this.apiKey);
-}

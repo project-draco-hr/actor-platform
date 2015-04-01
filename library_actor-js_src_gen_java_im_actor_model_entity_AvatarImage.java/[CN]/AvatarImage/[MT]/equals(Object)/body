@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  AvatarImage that=(AvatarImage)o;
-  if (height != that.height)   return false;
-  if (width != that.width)   return false;
-  if (!fileReference.equals(that.fileReference))   return false;
-  return true;
-}

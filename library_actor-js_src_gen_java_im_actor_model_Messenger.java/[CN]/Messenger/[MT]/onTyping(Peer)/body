@@ -1,3 +1,0 @@
-{
-  modules.getTypingModule().onTyping(peer);
-}

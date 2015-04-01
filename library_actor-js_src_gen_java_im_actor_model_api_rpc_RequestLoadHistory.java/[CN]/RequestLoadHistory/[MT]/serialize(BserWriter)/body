@@ -1,8 +1,0 @@
-{
-  if (this.peer == null) {
-    throw new IOException();
-  }
-  writer.writeObject(1,this.peer);
-  writer.writeLong(3,this.startDate);
-  writer.writeInt(4,this.limit);
-}

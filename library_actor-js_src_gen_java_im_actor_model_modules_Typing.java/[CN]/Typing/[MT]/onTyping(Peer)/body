@@ -1,3 +1,0 @@
-{
-  ownTypingActor.send(new OwnTypingActor.Typing(peer));
-}

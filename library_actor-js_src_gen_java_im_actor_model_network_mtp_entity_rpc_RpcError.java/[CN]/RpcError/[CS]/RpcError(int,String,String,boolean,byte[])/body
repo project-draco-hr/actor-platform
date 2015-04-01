@@ -1,7 +1,0 @@
-{
-  this.errorCode=errorCode;
-  this.errorTag=errorTag;
-  this.userMessage=userMessage;
-  this.canTryAgain=canTryAgain;
-  this.relatedData=relatedData;
-}

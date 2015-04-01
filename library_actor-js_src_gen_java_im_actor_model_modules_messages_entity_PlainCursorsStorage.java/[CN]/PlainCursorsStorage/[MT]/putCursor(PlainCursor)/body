@@ -1,3 +1,0 @@
-{
-  cursors.put(cursor.getPeer(),cursor);
-}

@@ -2,7 +2,7 @@
   super.onDestroyView();
   groupUserAdapter=null;
   if (avatarView != null) {
-    avatarView.clear();
+    avatarView.unbind();
     avatarView=null;
   }
 }

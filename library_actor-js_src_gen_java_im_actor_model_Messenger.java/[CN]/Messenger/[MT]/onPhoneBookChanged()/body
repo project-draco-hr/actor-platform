@@ -1,5 +1,0 @@
-{
-  if (modules.getContactsModule() != null) {
-    modules.getContactsModule().onPhoneBookChanged();
-  }
-}

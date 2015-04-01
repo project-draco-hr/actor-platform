@@ -1,3 +1,0 @@
-{
-  return preferences().getBool("contact_" + uid,false);
-}

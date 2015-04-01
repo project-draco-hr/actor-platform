@@ -1,8 +1,0 @@
-{
-  for (  PendingMessage message : pendingMessages.getPendingMessages()) {
-    if (message.getRid() == rid) {
-      return message;
-    }
-  }
-  return null;
-}

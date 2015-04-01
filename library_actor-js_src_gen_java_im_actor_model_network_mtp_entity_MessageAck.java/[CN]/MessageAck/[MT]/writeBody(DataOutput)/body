@@ -1,3 +1,0 @@
-{
-  bs.writeProtoLongs(messagesIds);
-}

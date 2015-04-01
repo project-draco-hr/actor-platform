@@ -1,3 +1,0 @@
-{
-  return new UploadFileVM(rid,callback,modules);
-}

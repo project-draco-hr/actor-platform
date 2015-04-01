@@ -1,6 +1,0 @@
-{
-  if (this.dispatcher != null) {
-    throw new RuntimeException("Double dispatcher init");
-  }
-  this.dispatcher=dispatcher;
-}

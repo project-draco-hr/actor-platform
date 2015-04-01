@@ -1,5 +1,0 @@
-{
-  cache.clear();
-  notifyClear();
-  collectionStorage.clear();
-}

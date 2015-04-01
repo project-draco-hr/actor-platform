@@ -1,4 +1,3 @@
 {
-  this.offset=offset;
-  invalidate();
+  setScrollY(-offset / 2);
 }

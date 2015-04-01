@@ -1,3 +1,0 @@
-{
-  this.kickedUid=values.getInt(1);
-}

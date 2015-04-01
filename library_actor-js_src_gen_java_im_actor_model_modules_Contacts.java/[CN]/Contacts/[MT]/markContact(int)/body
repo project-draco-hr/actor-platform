@@ -1,3 +1,0 @@
-{
-  preferences().putBool("contact_" + uid,true);
-}

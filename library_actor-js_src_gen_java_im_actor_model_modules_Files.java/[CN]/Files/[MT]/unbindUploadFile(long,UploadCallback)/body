@@ -1,3 +1,0 @@
-{
-  uploadManager.send(new UploadManager.UnbindUpload(rid,callback));
-}

@@ -1,3 +1,0 @@
-{
-  preferences().putString("draft_" + peer.getUnuqueId(),draft.trim());
-}

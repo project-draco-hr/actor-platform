@@ -1,8 +1,0 @@
-{
-  for (  Integer uid : gids) {
-    if (groups().getValue(uid) == null) {
-      return false;
-    }
-  }
-  return true;
-}

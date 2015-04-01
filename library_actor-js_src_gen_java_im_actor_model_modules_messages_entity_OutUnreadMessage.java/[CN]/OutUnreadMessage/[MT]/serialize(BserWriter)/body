@@ -1,4 +1,0 @@
-{
-  writer.writeLong(1,rid);
-  writer.writeLong(2,date);
-}

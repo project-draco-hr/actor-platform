@@ -1,5 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   getSupportActionBar().setTitle(R.string.settings_chat_title);
-  showFragment(new ChatSettingsFragment(),false,false);
+  if (savedInstanceState == null) {
+    showFragment(new ChatSettingsFragment(),false,false);
+  }
 }

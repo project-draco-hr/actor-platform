@@ -1,3 +1,0 @@
-{
-  super(curve,x,y,zs);
-}

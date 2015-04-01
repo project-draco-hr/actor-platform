@@ -1,4 +1,0 @@
-{
-  super(modules);
-  this.presenceActor=PresenceActor.get(modules);
-}

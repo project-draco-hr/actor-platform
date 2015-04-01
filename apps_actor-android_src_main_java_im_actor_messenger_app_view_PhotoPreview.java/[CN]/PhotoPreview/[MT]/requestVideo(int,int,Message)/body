@@ -1,3 +1,0 @@
-{
-  requestSwitch(new VideoPreviewTask(type,id,message));
-}

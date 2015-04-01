@@ -1,5 +1,0 @@
-{
-  this.phoneNumber=values.getLong(1);
-  this.appId=values.getInt(2);
-  this.apiKey=values.getString(3);
-}

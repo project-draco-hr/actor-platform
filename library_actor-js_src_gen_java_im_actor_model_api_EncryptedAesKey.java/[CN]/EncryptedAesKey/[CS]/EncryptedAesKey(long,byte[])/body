@@ -1,4 +1,0 @@
-{
-  this.keyHash=keyHash;
-  this.aesEncryptedKey=aesEncryptedKey;
-}

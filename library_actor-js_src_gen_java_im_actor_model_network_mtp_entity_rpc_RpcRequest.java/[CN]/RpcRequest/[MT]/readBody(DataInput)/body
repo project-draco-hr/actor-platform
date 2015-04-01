@@ -1,4 +1,0 @@
-{
-  requestType=bs.readInt();
-  payload=bs.readProtoBytes();
-}

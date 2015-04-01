@@ -1,3 +1,0 @@
-{
-  writeVar64Field(fieldNumber,Double.doubleToLongBits(value));
-}

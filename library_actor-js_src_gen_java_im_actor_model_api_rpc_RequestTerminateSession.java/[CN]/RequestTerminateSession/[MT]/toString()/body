@@ -1,6 +1,0 @@
-{
-  String res="rpc TerminateSession{";
-  res+="id=" + this.id;
-  res+="}";
-  return res;
-}

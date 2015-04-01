@@ -1,7 +1,0 @@
-{
-  List<UserOutPeer> _users=new ArrayList<UserOutPeer>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _users.add(new UserOutPeer());
-  }
-  this.users=values.getRepeatedObj(1,_users);
-}

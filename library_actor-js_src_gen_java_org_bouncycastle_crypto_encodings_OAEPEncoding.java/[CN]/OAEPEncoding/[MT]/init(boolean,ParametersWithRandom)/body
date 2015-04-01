@@ -1,5 +1,0 @@
-{
-  this.random=param.getRandom();
-  engine.init(forEncryption,param);
-  this.forEncryption=forEncryption;
-}

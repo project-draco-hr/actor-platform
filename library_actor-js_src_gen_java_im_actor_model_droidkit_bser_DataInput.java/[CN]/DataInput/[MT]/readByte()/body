@@ -1,6 +1,0 @@
-{
-  if (offset == maxOffset) {
-    throw new IOException();
-  }
-  return data[offset++] & 0xFF;
-}

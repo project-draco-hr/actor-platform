@@ -1,8 +1,0 @@
-{
-  byte[] mag=buf;
-  if (off != 0 || length != buf.length) {
-    mag=new byte[length];
-    System.arraycopy(buf,off,mag,0,length);
-  }
-  return new BigInteger(1,mag);
-}

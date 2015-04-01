@@ -1,4 +1,0 @@
-{
-  memoryCache.remove(key);
-  removedItems.add(key);
-}

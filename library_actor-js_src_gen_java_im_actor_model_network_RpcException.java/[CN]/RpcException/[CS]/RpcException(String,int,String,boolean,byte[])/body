@@ -1,7 +1,0 @@
-{
-  this.tag=tag;
-  this.code=code;
-  this.message=message;
-  this.canTryAgain=canTryAgain;
-  this.relatedData=relatedData;
-}

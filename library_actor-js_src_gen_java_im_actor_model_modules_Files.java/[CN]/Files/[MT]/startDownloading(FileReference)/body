@@ -1,3 +1,0 @@
-{
-  downloadManager.send(new DownloadManager.StartDownload(location));
-}

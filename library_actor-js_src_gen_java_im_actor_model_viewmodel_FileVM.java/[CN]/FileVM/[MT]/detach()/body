@@ -1,4 +1,0 @@
-{
-  super.detach();
-  modules.getFilesModule().unbindFile(location.getFileId(),callback,false);
-}

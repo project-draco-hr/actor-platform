@@ -1,4 +1,0 @@
-ContentType contentType
-String text
-int relatedUser
-boolean isSilent

@@ -1,5 +1,0 @@
-{
-  messageId=bs.readLong();
-  payload=bs.readProtoBytes();
-  return this;
-}

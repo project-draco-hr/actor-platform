@@ -1,6 +1,0 @@
-{
-  if (data.length <= offset + 1) {
-    expand(offset + 1);
-  }
-  data[offset++]=v;
-}

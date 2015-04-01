@@ -1,8 +1,0 @@
-{
-  this.path=path;
-  this.context=context;
-  this.mailbox=mailbox;
-  this.askPattern=new ActorAskImpl(self());
-  this.extensions.add(askPattern);
-  this.extensions.add(new RunnableExtension());
-}

@@ -1,3 +1,0 @@
-{
-  return a.add(b).square().subtract(aSquared).subtract(bSquared);
-}

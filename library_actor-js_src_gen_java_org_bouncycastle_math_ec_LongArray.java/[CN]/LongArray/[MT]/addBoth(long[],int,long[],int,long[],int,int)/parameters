@@ -1,7 +1,0 @@
-long[] x
-int xOff
-long[] y1
-int y1Off
-long[] y2
-int y2Off
-int count

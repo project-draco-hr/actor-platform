@@ -1,9 +1,0 @@
-{
-  String res=preferences().getString("draft_" + peer.getUnuqueId());
-  if (res == null) {
-    return "";
-  }
- else {
-    return res;
-  }
-}

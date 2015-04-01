@@ -1,7 +1,0 @@
-{
-  String res="struct OutPeer{";
-  res+="type=" + this.type;
-  res+=", id=" + this.id;
-  res+="}";
-  return res;
-}

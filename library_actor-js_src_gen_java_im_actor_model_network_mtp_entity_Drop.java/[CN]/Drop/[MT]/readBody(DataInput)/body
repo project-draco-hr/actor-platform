@@ -1,4 +1,0 @@
-{
-  messageId=bs.readLong();
-  message=bs.readProtoString();
-}

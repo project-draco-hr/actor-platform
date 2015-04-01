@@ -1,3 +1,0 @@
-{
-  modules.getGroupsModule().changeAvatar(gid,descriptor);
-}

@@ -1,3 +1,0 @@
-{
-  return new Fp(q,r,modSubtract(x,b.toBigInteger()));
-}

@@ -1,6 +1,0 @@
-{
-  this.rid=rid;
-  this.fileDescriptor=fileDescriptor;
-  this.requestActor=requestActor;
-  this.fileName=fileName;
-}

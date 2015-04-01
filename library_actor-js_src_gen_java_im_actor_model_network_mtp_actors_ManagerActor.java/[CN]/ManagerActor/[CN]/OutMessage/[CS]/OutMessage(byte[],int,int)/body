@@ -1,5 +1,0 @@
-{
-  this.message=message;
-  this.offset=offset;
-  this.len=len;
-}

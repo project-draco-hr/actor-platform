@@ -1,3 +1,0 @@
-{
-  uploadManager.send(new UploadManager.RequestState(rid,callback));
-}

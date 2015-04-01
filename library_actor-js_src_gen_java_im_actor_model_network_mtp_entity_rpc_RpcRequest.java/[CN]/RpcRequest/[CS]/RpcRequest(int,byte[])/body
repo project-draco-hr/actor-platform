@@ -1,4 +1,0 @@
-{
-  this.requestType=requestType;
-  this.payload=payload;
-}

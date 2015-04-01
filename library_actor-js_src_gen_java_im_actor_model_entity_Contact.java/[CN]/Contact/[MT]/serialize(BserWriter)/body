@@ -1,8 +1,0 @@
-{
-  writer.writeInt(1,uid);
-  writer.writeLong(2,sortKey);
-  writer.writeString(3,name);
-  if (avatar != null) {
-    writer.writeObject(4,avatar);
-  }
-}

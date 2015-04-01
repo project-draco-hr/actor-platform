@@ -1,4 +1,0 @@
-{
-  this.rid=rid;
-  return this;
-}

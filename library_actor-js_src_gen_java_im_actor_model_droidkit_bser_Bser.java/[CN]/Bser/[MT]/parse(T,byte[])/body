@@ -1,3 +1,0 @@
-{
-  return parse(res,new DataInput(data,0,data.length));
-}

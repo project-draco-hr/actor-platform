@@ -1,6 +1,0 @@
-{
-  W[wOff]=Pack.bigEndianToLong(in,inOff);
-  if (++wOff == 16) {
-    processBlock();
-  }
-}

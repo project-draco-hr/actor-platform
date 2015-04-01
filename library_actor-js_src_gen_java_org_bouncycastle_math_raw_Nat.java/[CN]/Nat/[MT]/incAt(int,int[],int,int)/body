@@ -1,8 +1,0 @@
-{
-  for (int i=zPos; i < len; ++i) {
-    if (++z[zOff + i] != 0) {
-      return 0;
-    }
-  }
-  return 1;
-}

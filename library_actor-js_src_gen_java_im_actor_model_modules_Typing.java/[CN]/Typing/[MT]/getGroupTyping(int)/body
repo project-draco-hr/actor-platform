@@ -1,8 +1,0 @@
-{
-synchronized (groups) {
-    if (!groups.containsKey(gid)) {
-      groups.put(gid,new GroupTypingVM(gid));
-    }
-    return groups.get(gid);
-  }
-}

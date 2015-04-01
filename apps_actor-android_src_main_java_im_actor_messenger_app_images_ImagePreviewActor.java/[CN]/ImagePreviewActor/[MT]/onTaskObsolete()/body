@@ -1,3 +1,0 @@
-{
-  Logger.d(TAG,getPath() + "|Task obsolete");
-}

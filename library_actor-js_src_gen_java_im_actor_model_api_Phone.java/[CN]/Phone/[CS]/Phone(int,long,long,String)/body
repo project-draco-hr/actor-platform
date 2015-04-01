@@ -1,6 +1,0 @@
-{
-  this.id=id;
-  this.accessHash=accessHash;
-  this.phone=phone;
-  this.phoneTitle=phoneTitle;
-}

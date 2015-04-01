@@ -1,5 +1,0 @@
-{
-  int c=~crc;
-  c=crc_table[(c ^ bval) & 0xff] ^ (c >>> 8);
-  crc=~c;
-}

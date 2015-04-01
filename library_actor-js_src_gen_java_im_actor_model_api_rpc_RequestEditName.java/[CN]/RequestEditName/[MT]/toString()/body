@@ -1,6 +1,0 @@
-{
-  String res="rpc EditName{";
-  res+="name=" + this.name;
-  res+="}";
-  return res;
-}

@@ -1,7 +1,0 @@
-{
-  SHA256Digest digest=new SHA256Digest();
-  digest.update(data,0,data.length);
-  byte[] res=new byte[32];
-  digest.doFinal(res,0);
-  return res;
-}

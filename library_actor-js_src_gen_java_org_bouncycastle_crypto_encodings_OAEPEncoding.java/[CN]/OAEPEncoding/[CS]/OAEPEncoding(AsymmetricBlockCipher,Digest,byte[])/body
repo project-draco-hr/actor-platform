@@ -1,3 +1,0 @@
-{
-  this(cipher,hash,hash,encodingParams);
-}

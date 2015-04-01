@@ -1,4 +1,0 @@
-{
-  writer.writeLong(1,peer.getUnuqueId());
-  writer.writeLong(2,lastReadSortingDate);
-}

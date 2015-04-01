@@ -1,5 +1,0 @@
-{
-  if (modules.getNotifications() != null) {
-    modules.getNotifications().onDialogsOpen();
-  }
-}

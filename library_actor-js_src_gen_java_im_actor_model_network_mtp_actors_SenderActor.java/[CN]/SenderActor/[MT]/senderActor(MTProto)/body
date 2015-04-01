@@ -1,8 +1,0 @@
-{
-  return ActorSystem.system().actorOf(new ActorSelection(Props.create(SenderActor.class,new ActorCreator<SenderActor>(){
-    @Override public SenderActor create(){
-      return new SenderActor(proto);
-    }
-  }
-),proto.getActorPath() + "/sender"));
-}

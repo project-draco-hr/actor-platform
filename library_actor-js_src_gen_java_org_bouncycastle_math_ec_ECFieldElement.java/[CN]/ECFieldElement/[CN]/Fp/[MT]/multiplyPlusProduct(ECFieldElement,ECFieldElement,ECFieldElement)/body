@@ -1,6 +1,0 @@
-{
-  BigInteger ax=this.x, bx=b.toBigInteger(), xx=x.toBigInteger(), yx=y.toBigInteger();
-  BigInteger ab=ax.multiply(bx);
-  BigInteger xy=xx.multiply(yx);
-  return new Fp(q,r,modReduce(ab.add(xy)));
-}

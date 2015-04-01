@@ -4,6 +4,5 @@ synchronized (LOCKER) {
     this.data=data;
     this.isActive=true;
   }
-  preview.setSrc(null);
   executor.execute(new CheckRunnable());
 }

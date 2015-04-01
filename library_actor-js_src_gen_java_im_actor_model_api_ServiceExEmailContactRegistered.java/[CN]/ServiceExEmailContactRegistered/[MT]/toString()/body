@@ -1,6 +1,0 @@
-{
-  String res="struct ServiceExEmailContactRegistered{";
-  res+="uid=" + this.uid;
-  res+="}";
-  return res;
-}

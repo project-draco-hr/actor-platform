@@ -1,4 +1,0 @@
-{
-  writeVarInt(len);
-  writeBytes(v,ofs,len);
-}

@@ -1,6 +1,0 @@
-{
-  this.uid=uid;
-  this.sortKey=sortKey;
-  this.avatar=avatar;
-  this.name=name;
-}

@@ -1,3 +1,0 @@
-{
-  stream.writeProtoBytes(data,0,data.length);
-}

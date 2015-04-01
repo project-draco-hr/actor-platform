@@ -4,5 +4,4 @@ synchronized (LOCKER) {
     this.data=null;
     this.isActive=false;
   }
-  preview.setSrc(null);
 }

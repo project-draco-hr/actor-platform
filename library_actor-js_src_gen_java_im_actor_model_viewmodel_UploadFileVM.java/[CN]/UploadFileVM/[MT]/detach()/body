@@ -1,4 +1,0 @@
-{
-  super.detach();
-  modules.getFilesModule().unbindUploadFile(rid,callback);
-}

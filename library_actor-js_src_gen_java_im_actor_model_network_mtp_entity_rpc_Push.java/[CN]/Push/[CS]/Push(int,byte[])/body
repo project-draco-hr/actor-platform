@@ -1,4 +1,0 @@
-{
-  this.updateType=updateType;
-  this.body=body;
-}

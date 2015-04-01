@@ -1,3 +1,0 @@
-{
-  preferences().putBool("book_phone_" + phone,true);
-}

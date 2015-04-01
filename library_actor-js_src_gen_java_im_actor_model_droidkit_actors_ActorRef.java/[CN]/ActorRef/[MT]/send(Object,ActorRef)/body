@@ -1,3 +1,0 @@
-{
-  send(message,0,sender);
-}

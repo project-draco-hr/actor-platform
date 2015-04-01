@@ -1,8 +1,0 @@
-{
-  String res="struct PublicKey{";
-  res+="uid=" + this.uid;
-  res+=", keyHash=" + this.keyHash;
-  res+=", key=" + byteArrayToStringCompact(this.key);
-  res+="}";
-  return res;
-}

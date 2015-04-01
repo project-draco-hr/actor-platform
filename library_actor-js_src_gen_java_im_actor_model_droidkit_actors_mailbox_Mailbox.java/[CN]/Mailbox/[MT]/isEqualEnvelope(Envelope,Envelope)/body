@@ -1,3 +1,0 @@
-{
-  return a.getMessage().getClass() == b.getMessage().getClass();
-}

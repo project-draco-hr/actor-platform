@@ -1,4 +1,0 @@
-{
-  super(task,loader);
-  fileLocation=((VideoContent)task.getMessage().getContent()).getSource();
-}

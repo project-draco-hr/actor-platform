@@ -1,3 +1,0 @@
-{
-  uploadManager.send(new UploadManager.ResumeUpload(rid));
-}

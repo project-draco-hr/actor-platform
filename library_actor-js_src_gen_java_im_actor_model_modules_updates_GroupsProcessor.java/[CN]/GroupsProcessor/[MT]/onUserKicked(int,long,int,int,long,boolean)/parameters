@@ -1,6 +1,0 @@
-int groupId
-long rid
-int uid
-int kicker
-long date
-boolean isSilent

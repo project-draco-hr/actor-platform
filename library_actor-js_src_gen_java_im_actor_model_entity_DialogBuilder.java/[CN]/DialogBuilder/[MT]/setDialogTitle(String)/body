@@ -1,4 +1,0 @@
-{
-  this.dialogTitle=dialogTitle;
-  return this;
-}

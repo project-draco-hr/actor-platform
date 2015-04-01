@@ -1,7 +1,0 @@
-{
-  String res="update UserLocalNameChanged{";
-  res+="uid=" + this.uid;
-  res+=", localName=" + this.localName;
-  res+="}";
-  return res;
-}

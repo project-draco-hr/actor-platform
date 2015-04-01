@@ -1,9 +1,0 @@
-{
-synchronized (dispatchers) {
-    if (dispatchers.containsKey(dispatcherId)) {
-      return;
-    }
-    ActorDispatcher dispatcher=Environment.createDefaultDispatcher(dispatcherId,ThreadPriority.LOW,this);
-    addDispatcher(dispatcherId,dispatcher);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (this.serverData == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(1,this.serverData);
-}

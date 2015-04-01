@@ -1,5 +1,0 @@
-{
-  byte[] encoded=new byte[getEncodedStateSize()];
-  super.populateState(encoded);
-  return encoded;
-}

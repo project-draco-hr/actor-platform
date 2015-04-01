@@ -1,4 +1,0 @@
-{
-  this.canTryAgain=canTryAgain;
-  this.tryAgainDelay=tryAgainDelay;
-}

@@ -1,7 +1,0 @@
-{
-  String res="struct Peer{";
-  res+="type=" + this.type;
-  res+=", id=" + this.id;
-  res+="}";
-  return res;
-}

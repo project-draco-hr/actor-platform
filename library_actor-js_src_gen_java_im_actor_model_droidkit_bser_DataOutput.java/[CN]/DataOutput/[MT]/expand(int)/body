@@ -1,7 +1,0 @@
-{
-  byte[] nData=new byte[size];
-  for (int i=0; i < offset; i++) {
-    nData[i]=data[i];
-  }
-  data=nData;
-}

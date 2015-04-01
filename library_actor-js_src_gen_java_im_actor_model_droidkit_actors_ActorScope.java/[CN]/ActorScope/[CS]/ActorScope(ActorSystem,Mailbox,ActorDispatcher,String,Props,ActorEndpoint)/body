@@ -1,9 +1,0 @@
-{
-  this.actorSystem=actorSystem;
-  this.mailbox=mailbox;
-  this.actorRef=new ActorRef(endpoint,actorSystem,dispatcher,path);
-  this.dispatcher=dispatcher;
-  this.path=path;
-  this.props=props;
-  this.endpoint=endpoint;
-}

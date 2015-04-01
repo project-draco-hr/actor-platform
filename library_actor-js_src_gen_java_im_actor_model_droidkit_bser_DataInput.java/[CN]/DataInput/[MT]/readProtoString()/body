@@ -1,4 +1,0 @@
-{
-  byte[] data=readProtoBytes();
-  return new String(data,"UTF-8");
-}

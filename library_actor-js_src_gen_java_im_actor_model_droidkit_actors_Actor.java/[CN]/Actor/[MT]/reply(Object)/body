@@ -1,5 +1,0 @@
-{
-  if (context.sender() != null) {
-    context.sender().send(message,self());
-  }
-}

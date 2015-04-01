@@ -1,7 +1,0 @@
-{
-  errorCode=bs.readInt();
-  errorTag=bs.readProtoString();
-  userMessage=bs.readProtoString();
-  canTryAgain=bs.readProtoBool();
-  relatedData=bs.readProtoBytes();
-}

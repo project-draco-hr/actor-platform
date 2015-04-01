@@ -1,6 +1,0 @@
-{
-  if (system().getTraceInterface() != null) {
-    system().getTraceInterface().onDrop(sender(),message,this);
-  }
-  reply(new DeadLetter(message));
-}

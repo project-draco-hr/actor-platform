@@ -1,3 +1,0 @@
-{
-  this.exponents=Arrays.clone(exponents);
-}

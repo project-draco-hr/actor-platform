@@ -1,4 +1,0 @@
-{
-  this.senderId=senderId;
-  return this;
-}

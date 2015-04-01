@@ -1,6 +1,0 @@
-{
-  if (!unreadMessages.containsKey(peer)) {
-    unreadMessages.put(peer,new HashSet<UnreadMessage>());
-  }
-  return unreadMessages.get(peer);
-}

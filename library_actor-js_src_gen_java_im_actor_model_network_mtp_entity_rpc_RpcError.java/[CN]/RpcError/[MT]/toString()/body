@@ -1,3 +1,0 @@
-{
-  return "RpcError [#" + errorCode + " "+ errorTag+ "]";
-}

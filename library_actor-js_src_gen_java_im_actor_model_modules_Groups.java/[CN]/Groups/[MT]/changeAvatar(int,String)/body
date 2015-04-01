@@ -1,3 +1,0 @@
-{
-  avatarChangeActor.send(new GroupAvatarChangeActor.ChangeAvatar(gid,descriptor));
-}

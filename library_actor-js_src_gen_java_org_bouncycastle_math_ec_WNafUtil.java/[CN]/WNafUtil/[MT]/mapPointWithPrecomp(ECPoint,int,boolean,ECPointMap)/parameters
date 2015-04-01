@@ -1,4 +1,0 @@
-ECPoint p
-int width
-boolean includeNegated
-ECPointMap pointMap

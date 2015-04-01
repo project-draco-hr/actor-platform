@@ -1,7 +1,0 @@
-{
-  String res="rpc RemoveGroupAvatar{";
-  res+="groupPeer=" + this.groupPeer;
-  res+=", rid=" + this.rid;
-  res+="}";
-  return res;
-}

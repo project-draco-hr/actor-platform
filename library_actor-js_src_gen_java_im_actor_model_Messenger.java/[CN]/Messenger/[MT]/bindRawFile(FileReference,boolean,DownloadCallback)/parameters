@@ -1,3 +1,0 @@
-FileReference fileReference
-boolean isAutoStart
-DownloadCallback callback

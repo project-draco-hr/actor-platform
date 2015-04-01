@@ -1,4 +1,0 @@
-{
-  this.phoneBookProvider=phoneBookProvider;
-  return this;
-}

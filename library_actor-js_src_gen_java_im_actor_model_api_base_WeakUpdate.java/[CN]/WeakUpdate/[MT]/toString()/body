@@ -1,8 +1,0 @@
-{
-  String res="update box WeakUpdate{";
-  res+="date=" + this.date;
-  res+=", updateHeader=" + this.updateHeader;
-  res+=", update=" + byteArrayToStringCompact(this.update);
-  res+="}";
-  return res;
-}

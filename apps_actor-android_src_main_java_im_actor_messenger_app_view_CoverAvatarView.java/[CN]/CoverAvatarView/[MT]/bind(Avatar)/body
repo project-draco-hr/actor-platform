@@ -1,0 +1,38 @@
+{
+  if (fileVM != null) {
+    fileVM.detach();
+    fileVM=null;
+  }
+  if (fullFileVM != null) {
+    fullFileVM.detach();
+    fullFileVM=null;
+  }
+  isLoaded=false;
+  if (avatar != null && avatar.getSmallImage() != null) {
+    fileVM=messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+      @Override public void onNotDownloaded(){
+      }
+      @Override public void onDownloading(      float progress){
+      }
+      @Override public void onDownloaded(      FileSystemReference reference){
+        if (!isLoaded) {
+          setImageURI(Uri.fromFile(new File(reference.getDescriptor())));
+        }
+      }
+    }
+);
+    if (avatar.getFullImage() != null) {
+      fullFileVM=messenger().bindFile(avatar.getFullImage().getFileReference(),true,new FileVMCallback(){
+        @Override public void onNotDownloaded(){
+        }
+        @Override public void onDownloading(        float progress){
+        }
+        @Override public void onDownloaded(        FileSystemReference reference){
+          isLoaded=true;
+          setImageURI(Uri.fromFile(new File(reference.getDescriptor())));
+        }
+      }
+);
+    }
+  }
+}

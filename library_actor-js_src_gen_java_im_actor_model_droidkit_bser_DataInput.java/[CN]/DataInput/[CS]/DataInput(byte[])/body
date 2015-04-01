@@ -1,8 +1,0 @@
-{
-  if (data == null) {
-    throw new IllegalArgumentException("data can't be null");
-  }
-  this.data=data;
-  this.offset=0;
-  this.maxOffset=data.length;
-}

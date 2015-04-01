@@ -1,6 +1,0 @@
-{
-  if ((preCompInfo != null) && (preCompInfo instanceof FixedPointPreCompInfo)) {
-    return (FixedPointPreCompInfo)preCompInfo;
-  }
-  return new FixedPointPreCompInfo();
-}

@@ -1,3 +1,0 @@
-{
-  return new PlainCursor(peer,sortDate,pendingDate);
-}

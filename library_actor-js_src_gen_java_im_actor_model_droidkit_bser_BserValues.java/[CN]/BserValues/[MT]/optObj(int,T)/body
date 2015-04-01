@@ -1,7 +1,0 @@
-{
-  byte[] data=optBytes(id);
-  if (data == null) {
-    return null;
-  }
-  return Bser.parse(obj,data);
-}

@@ -1,3 +1,0 @@
-{
-  return preferences().getBool(KEY_NOTIFICATION_TEXT,true);
-}

@@ -1,6 +1,0 @@
-{
-  final int val=currentFailureCount.incrementAndGet();
-  if (val > 50) {
-    currentFailureCount.compareAndSet(val,MAX_FAILURE_COUNT);
-  }
-}

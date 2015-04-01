@@ -1,4 +1,0 @@
-{
-  this.bitmap=bitmap;
-  postInvalidate();
-}

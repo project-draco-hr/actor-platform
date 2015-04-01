@@ -1,7 +1,0 @@
-{
-  String res="response Seq{";
-  res+="seq=" + this.seq;
-  res+=", state=" + byteArrayToString(this.state);
-  res+="}";
-  return res;
-}

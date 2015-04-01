@@ -1,4 +1,0 @@
-{
-  bs.writeInt(requestType);
-  bs.writeProtoBytes(payload,0,payload.length);
-}

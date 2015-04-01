@@ -1,3 +1,0 @@
-{
-  return askPattern.ask(system().actorOf(selection),0,callback);
-}

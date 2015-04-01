@@ -1,5 +1,0 @@
-int errorCode
-String errorTag
-String userMessage
-boolean canTryAgain
-byte[] relatedData

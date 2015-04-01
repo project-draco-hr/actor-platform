@@ -1,6 +1,0 @@
-{
-  int result=smallImage != null ? smallImage.hashCode() : 0;
-  result=31 * result + (largeImage != null ? largeImage.hashCode() : 0);
-  result=31 * result + (fullImage != null ? fullImage.hashCode() : 0);
-  return result;
-}

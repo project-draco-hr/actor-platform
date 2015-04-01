@@ -8,8 +8,11 @@
   COLOR_ERROR=context.getResources().getColor(R.color.conv_media_state_error);
   messageBubble=(FrameLayout)itemView.findViewById(R.id.bubbleContainer);
   overlay=itemView.findViewById(R.id.photoOverlay);
-  imageKitView=(PhotoPreview)itemView.findViewById(R.id.image);
-  fastThumbLoader=new FastThumbLoader(imageKitView);
+  previewView=(SimpleDraweeView)itemView.findViewById(R.id.image);
+  GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(context.getResources());
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setRoundingParams(new RoundingParams().setCornersRadius(Screen.dp(2)).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
+  previewView.setHierarchy(hierarchy);
+  fastThumbLoader=new FastThumbLoader(previewView);
   time=(TextView)itemView.findViewById(R.id.time);
   duration=(TextView)itemView.findViewById(R.id.duration);
   stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);

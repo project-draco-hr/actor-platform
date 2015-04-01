@@ -1,4 +1,0 @@
-FileReference location
-boolean isAutostart
-Modules modules
-FileVMCallback vmCallback

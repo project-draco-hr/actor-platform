@@ -1,6 +1,0 @@
-{
-  this.seq=values.getInt(1);
-  this.state=values.getBytes(2);
-  this.updateHeader=values.getInt(3);
-  this.update=values.getBytes(4);
-}

@@ -1,3 +1,0 @@
-{
-  return preferencesStorage.getLong("auth_id",0);
-}

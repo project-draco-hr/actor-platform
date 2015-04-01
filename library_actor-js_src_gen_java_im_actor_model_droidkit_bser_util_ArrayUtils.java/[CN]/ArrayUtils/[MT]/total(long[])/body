@@ -1,7 +1,0 @@
-{
-  long total=0;
-  for (  long value : array) {
-    total+=value;
-  }
-  return total;
-}

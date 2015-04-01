@@ -1,4 +1,0 @@
-{
-  super(modules);
-  contacts=modules.getConfiguration().getStorageProvider().createContactsList(modules.getConfiguration().getStorageProvider().createList(STORAGE_CONTACTS));
-}

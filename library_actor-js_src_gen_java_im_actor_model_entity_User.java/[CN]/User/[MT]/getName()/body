@@ -1,8 +1,0 @@
-{
-  if (localName == null) {
-    return name;
-  }
- else {
-    return localName;
-  }
-}

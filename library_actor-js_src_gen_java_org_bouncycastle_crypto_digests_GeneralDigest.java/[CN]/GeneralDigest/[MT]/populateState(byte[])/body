@@ -1,5 +1,0 @@
-{
-  System.arraycopy(xBuf,0,state,0,xBufOff);
-  Pack.intToBigEndian(xBufOff,state,4);
-  Pack.longToBigEndian(byteCount,state,8);
-}

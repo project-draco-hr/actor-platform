@@ -1,3 +1,0 @@
-{
-  return getTemplate(senderId,baseString).replace("{name}",formatPerformerName(senderId));
-}

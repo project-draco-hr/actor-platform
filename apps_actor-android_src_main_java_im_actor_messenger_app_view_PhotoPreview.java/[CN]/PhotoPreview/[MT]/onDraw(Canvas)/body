@@ -1,8 +1,0 @@
-{
-  if (shader != null) {
-    MATRIX.reset();
-    MATRIX.postScale(getWidth() / (float)shaderW,getHeight() / (float)shaderH);
-    shader.setLocalMatrix(MATRIX);
-    canvas.drawRoundRect(new RectF(0,0,getWidth(),getHeight()),Screen.dp(2),Screen.dp(2),PAINT);
-  }
-}

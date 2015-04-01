@@ -1,7 +1,0 @@
-{
-  if (this.peer == null) {
-    throw new IOException();
-  }
-  writer.writeObject(1,this.peer);
-  writer.writeRepeatedLong(3,this.rids);
-}

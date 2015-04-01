@@ -1,8 +1,0 @@
-{
-  String res="response SeqDate{";
-  res+="seq=" + this.seq;
-  res+=", state=" + byteArrayToString(this.state);
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

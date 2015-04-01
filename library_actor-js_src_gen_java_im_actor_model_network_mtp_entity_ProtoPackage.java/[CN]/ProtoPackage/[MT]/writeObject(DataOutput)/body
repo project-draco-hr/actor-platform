@@ -1,5 +1,0 @@
-{
-  bs.writeLong(authId);
-  bs.writeLong(sessionId);
-  payload.writeObject(bs);
-}

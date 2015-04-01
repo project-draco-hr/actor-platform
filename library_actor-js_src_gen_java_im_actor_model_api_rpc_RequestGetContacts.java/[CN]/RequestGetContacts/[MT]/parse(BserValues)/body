@@ -1,3 +1,0 @@
-{
-  this.contactsHash=values.getString(1);
-}

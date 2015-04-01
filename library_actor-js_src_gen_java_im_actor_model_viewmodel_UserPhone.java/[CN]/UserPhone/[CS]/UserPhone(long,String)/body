@@ -1,4 +1,0 @@
-{
-  this.phone=phone;
-  this.title=title;
-}

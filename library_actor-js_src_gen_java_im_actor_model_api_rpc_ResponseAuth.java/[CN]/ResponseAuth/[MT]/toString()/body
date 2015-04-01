@@ -1,7 +1,0 @@
-{
-  String res="response Auth{";
-  res+="user=" + (this.user != null ? "set" : "empty");
-  res+=", config=" + this.config;
-  res+="}";
-  return res;
-}

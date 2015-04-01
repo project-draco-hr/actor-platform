@@ -1,7 +1,0 @@
-{
-  if (this.type == null) {
-    throw new IOException();
-  }
-  writer.writeInt(1,this.type.getValue());
-  writer.writeInt(2,this.id);
-}

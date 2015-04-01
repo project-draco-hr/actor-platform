@@ -1,7 +1,0 @@
-{
-  BigInteger _2x=x.shiftLeft(1);
-  if (_2x.compareTo(q) >= 0) {
-    _2x=_2x.subtract(q);
-  }
-  return _2x;
-}

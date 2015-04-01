@@ -1,7 +1,0 @@
-{
-  ArrayList<T> res=new ArrayList<T>();
-  for (  byte[] v : getRepeatedBytes(id)) {
-    res.add(Bser.parse(objs.remove(0),new DataInput(v,0,v.length)));
-  }
-  return res;
-}

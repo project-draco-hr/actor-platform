@@ -1,6 +1,0 @@
-{
-  this.text=values.getString(1);
-  if (values.optBytes(3) != null) {
-    this.ext=TextMessageEx.fromBytes(values.getInt(2),values.getBytes(3));
-  }
-}

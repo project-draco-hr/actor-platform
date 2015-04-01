@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  PrivateTyping that=(PrivateTyping)o;
-  if (type != that.type)   return false;
-  if (uid != that.uid)   return false;
-  return true;
-}

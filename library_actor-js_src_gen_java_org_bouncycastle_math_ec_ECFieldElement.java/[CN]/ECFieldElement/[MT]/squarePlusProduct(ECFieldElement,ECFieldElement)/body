@@ -1,3 +1,0 @@
-{
-  return square().add(x.multiply(y));
-}

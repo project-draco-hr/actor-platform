@@ -1,6 +1,0 @@
-{
-  LongArray iarrClone=(LongArray)this.x.clone();
-  F2m bF2m=(F2m)b;
-  iarrClone.addShiftedByWords(bF2m.x,0);
-  return new F2m(m,ks,iarrClone);
-}

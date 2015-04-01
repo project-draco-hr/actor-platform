@@ -1,3 +1,0 @@
-{
-  return this.ks.length >= 3 ? this.ks[2] : 0;
-}

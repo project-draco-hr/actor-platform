@@ -1,8 +1,0 @@
-{
-  int count=s.length();
-  for (int i=0; i < count; ++i) {
-    char c=s.charAt(i);
-    buf[off + i]=(byte)c;
-  }
-  return count;
-}

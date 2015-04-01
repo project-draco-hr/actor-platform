@@ -1,3 +1,0 @@
-{
-  preferences().putLong("read_state_" + peer.getUnuqueId(),lastReadDate);
-}

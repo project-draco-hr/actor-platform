@@ -1,3 +1,0 @@
-{
-  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.GroupChanged(group));
-}

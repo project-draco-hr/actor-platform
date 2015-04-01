@@ -1,4 +1,0 @@
-{
-  writer.writeBool(1,this.isOnline);
-  writer.writeLong(2,this.timeout);
-}

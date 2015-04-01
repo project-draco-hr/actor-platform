@@ -1,5 +1,0 @@
-{
-  String res="tuple EditGroupAvatar{";
-  res+="}";
-  return res;
-}

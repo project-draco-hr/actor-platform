@@ -1,8 +1,0 @@
-{
-  if (x == null || x.signum() < 0 || x.compareTo(q) >= 0) {
-    throw new IllegalArgumentException("x value invalid in Fp field element");
-  }
-  this.q=q;
-  this.r=r;
-  this.x=x;
-}

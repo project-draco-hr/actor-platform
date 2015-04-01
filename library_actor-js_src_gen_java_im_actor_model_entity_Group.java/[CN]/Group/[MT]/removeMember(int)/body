@@ -1,9 +1,0 @@
-{
-  ArrayList<GroupMember> nMembers=new ArrayList<GroupMember>();
-  for (  GroupMember member : members) {
-    if (member.getUid() != uid) {
-      nMembers.add(member);
-    }
-  }
-  return new Group(groupId,accessHash,title,avatar,nMembers,adminId,isMember);
-}

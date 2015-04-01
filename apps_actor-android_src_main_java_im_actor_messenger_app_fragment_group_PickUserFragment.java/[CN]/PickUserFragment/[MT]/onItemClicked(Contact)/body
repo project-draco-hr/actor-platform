@@ -1,4 +1,0 @@
-{
-  getActivity().setResult(Activity.RESULT_OK,new Intent().putExtra(Intents.EXTRA_UID,contact.getUid()));
-  getActivity().finish();
-}

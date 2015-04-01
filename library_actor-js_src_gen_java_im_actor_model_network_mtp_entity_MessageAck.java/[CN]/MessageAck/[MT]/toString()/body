@@ -1,3 +1,0 @@
-{
-  return "Ack " + Arrays.toString(messagesIds) + "";
-}

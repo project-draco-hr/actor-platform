@@ -1,4 +1,5 @@
 {
-  bottomShadow=getResources().getDrawable(R.drawable.profile_avatar_bottom_shadow);
-  background=((BitmapDrawable)getResources().getDrawable(R.drawable.img_profile_avatar_default)).getBitmap();
+  GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(getResources());
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(160).setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP).setBackground(getResources().getDrawable(R.drawable.img_profile_avatar_default)).setOverlay(new CoverOverlayDrawable(getContext())).build();
+  setHierarchy(hierarchy);
 }

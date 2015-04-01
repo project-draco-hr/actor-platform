@@ -1,3 +1,0 @@
-{
-  return multiply(b).subtract(x.multiply(y));
-}

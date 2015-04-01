@@ -1,3 +1,0 @@
-{
-  return "ProtoPackage[" + authId + "|"+ sessionId+ "]";
-}

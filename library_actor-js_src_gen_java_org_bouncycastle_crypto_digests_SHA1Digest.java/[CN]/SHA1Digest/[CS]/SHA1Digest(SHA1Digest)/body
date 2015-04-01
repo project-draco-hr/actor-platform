@@ -1,4 +1,0 @@
-{
-  super(t);
-  copyIn(t);
-}

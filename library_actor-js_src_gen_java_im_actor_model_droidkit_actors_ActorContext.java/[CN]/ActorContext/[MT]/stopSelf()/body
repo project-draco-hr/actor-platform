@@ -1,8 +1,0 @@
-{
-  try {
-    actorScope.getDispatcher().killGracefully(actorScope);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

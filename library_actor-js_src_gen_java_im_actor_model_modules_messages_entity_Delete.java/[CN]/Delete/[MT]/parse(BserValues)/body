@@ -1,4 +1,0 @@
-{
-  peer=Peer.fromBytes(values.getBytes(1));
-  rids=values.getRepeatedLong(2);
-}
