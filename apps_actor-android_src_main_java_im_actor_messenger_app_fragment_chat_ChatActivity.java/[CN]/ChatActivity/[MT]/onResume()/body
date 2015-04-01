@@ -19,8 +19,7 @@
     }
     bind(barAvatar,group.getId(),group.getAvatar(),group.getName());
     bind(barTitle,group.getName());
-    barSubtitleContainer.setVisibility(View.VISIBLE);
-    bind(barSubtitle,group);
+    bind(barSubtitle,barSubtitleContainer,group);
     bindGroupTyping(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
   }
   if (isCompose) {

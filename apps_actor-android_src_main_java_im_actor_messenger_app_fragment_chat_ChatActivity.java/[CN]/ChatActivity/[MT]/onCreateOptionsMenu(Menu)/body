@@ -7,8 +7,14 @@
     menu.findItem(R.id.contact).setVisible(false);
   }
   if (peer.getPeerType() == PeerType.GROUP) {
-    menu.findItem(R.id.groupInfo).setVisible(true);
-    menu.findItem(R.id.leaveGroup).setVisible(true);
+    if (groups().get(peer.getPeerId()).isMember().get()) {
+      menu.findItem(R.id.leaveGroup).setVisible(true);
+      menu.findItem(R.id.groupInfo).setVisible(true);
+    }
+ else {
+      menu.findItem(R.id.leaveGroup).setVisible(false);
+      menu.findItem(R.id.groupInfo).setVisible(false);
+    }
   }
  else {
     menu.findItem(R.id.groupInfo).setVisible(false);

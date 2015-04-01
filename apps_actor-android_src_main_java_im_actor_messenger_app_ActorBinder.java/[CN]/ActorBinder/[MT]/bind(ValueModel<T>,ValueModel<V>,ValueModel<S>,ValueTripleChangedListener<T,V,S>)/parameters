@@ -1,0 +1,4 @@
+ValueModel<T> value1
+ValueModel<V> value2
+ValueModel<S> value3
+ValueTripleChangedListener<T,V,S> listener
