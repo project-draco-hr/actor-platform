@@ -27,6 +27,7 @@
   Log.d("CORE_INIT","Loading stage5.3 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
   start=configuration.getThreadingProvider().getActorTime();
   this.auth=new Auth(this);
+  this.pushes=new Pushes(this);
   Log.d("CORE_INIT","Loading stage5.4 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
   start=configuration.getThreadingProvider().getActorTime();
   this.appStateModule=new AppStateModule(this);

@@ -1,0 +1,22 @@
+{
+  Log.d(TAG,"Received push");
+  GoogleCloudMessaging gcm=GoogleCloudMessaging.getInstance(context);
+  Bundle extras=intent.getExtras();
+  String messageType=gcm.getMessageType(intent);
+  if (!extras.isEmpty()) {
+    if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
+      if (extras.containsKey("seq")) {
+        int seq=Integer.parseInt(extras.getString("seq"));
+        Log.d(TAG,"Received seq: " + seq);
+        messenger().onPushReceived(seq);
+      }
+ else {
+        Log.w(TAG,"Unknown message");
+      }
+    }
+  }
+ else {
+    Log.w(TAG,"Message with null extras: ignoring");
+  }
+  setResultCode(Activity.RESULT_OK);
+}

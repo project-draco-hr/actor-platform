@@ -1,0 +1,4 @@
+{
+  super(context,configuration);
+  pushModule=new PushModule(context,modules);
+}

@@ -1,3 +1,0 @@
-{
-  return ActorSystem.system().actorOf(Props.create(GooglePushActor.class).changeDispatcher("im/actor/messenger/core/actors/push"),"google_push");
-}

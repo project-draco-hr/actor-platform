@@ -1,0 +1,16 @@
+{
+  if (preferences().getBool("push.google",false)) {
+    if (!preferences().getBool("push.google.registered",false)) {
+      long projectId=preferences().getLong("push.google.id",0);
+      String token=preferences().getString("push.google.token");
+      registerGooglePush(projectId,token);
+    }
+  }
+  if (preferences().getBool("push.apple",false)) {
+    if (!preferences().getBool("push.apple.registered",false)) {
+      int apnsId=preferences().getInt("push.apple.id",0);
+      String token=preferences().getString("push.apple.token");
+      registerApplePush(apnsId,token);
+    }
+  }
+}

@@ -42,6 +42,17 @@
     }
     return;
   }
+ else   if (u instanceof PushSeq) {
+    PushSeq pushSeq=(PushSeq)u;
+    if (pushSeq.seq <= this.seq) {
+      Log.d(TAG,"Ignored PushSeq {seq:" + pushSeq.seq + "}");
+    }
+ else {
+      Log.w(TAG,"External Out of sequence: starting timer for invalidation");
+      self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+    }
+    return;
+  }
  else {
     return;
   }

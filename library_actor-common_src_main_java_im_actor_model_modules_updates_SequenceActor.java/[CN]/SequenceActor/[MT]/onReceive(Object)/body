@@ -17,6 +17,9 @@
  else   if (message instanceof ExecuteAfter) {
     onUpdateReceived(message);
   }
+ else   if (message instanceof PushSeq) {
+    onUpdateReceived(message);
+  }
  else {
     drop(message);
   }

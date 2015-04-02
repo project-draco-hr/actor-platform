@@ -25,5 +25,6 @@
       return getTemplateNamed(senderId,"ServiceGroupAvatarRemoved");
     }
   }
+  Log.w("i18NEngine","Unknown service content: " + content);
   return content.getCompatText();
 }

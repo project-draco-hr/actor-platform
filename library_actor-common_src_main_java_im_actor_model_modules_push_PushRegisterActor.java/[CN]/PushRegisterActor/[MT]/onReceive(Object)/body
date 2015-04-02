@@ -1,0 +1,13 @@
+{
+  if (message instanceof RegisterGooglePush) {
+    RegisterGooglePush registerGooglePush=(RegisterGooglePush)message;
+    registerGooglePush(registerGooglePush.getProjectId(),registerGooglePush.getToken());
+  }
+ else   if (message instanceof RegisterApplePush) {
+    RegisterApplePush applePush=(RegisterApplePush)message;
+    registerApplePush(applePush.getApnsKey(),applePush.getToken());
+  }
+ else {
+    drop(message);
+  }
+}
