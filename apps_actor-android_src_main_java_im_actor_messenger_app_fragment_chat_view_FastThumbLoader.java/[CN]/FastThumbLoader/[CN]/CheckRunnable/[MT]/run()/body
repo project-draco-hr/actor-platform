@@ -1,5 +1,5 @@
 {
-  int req;
+  final int req;
   byte[] d;
 synchronized (LOCKER) {
     if (!isActive) {
@@ -9,8 +9,24 @@ synchronized (LOCKER) {
     d=data;
   }
   try {
-    Bitmap res=ImageLoading.loadBitmap(d);
-    handler.sendMessage(handler.obtainMessage(req,res));
+    final Bitmap res=ImageLoading.loadBitmap(d);
+    MVVMEngine.runOnUiThread(new Runnable(){
+      @Override public void run(){
+synchronized (LOCKER) {
+          if (!isActive) {
+            return;
+          }
+          if (req == currentRequest) {
+            preview.getHierarchy().setPlaceholderImage(new FastBitmapDrawable(res));
+            isActive=false;
+          }
+ else {
+            return;
+          }
+        }
+      }
+    }
+);
   }
  catch (  ImageLoadException e) {
     e.printStackTrace();

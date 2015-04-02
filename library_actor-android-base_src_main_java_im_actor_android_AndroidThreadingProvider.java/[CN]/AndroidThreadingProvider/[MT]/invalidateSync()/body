@@ -1,0 +1,14 @@
+{
+  Log.d("AndroidClockSync","Starting sync...");
+  new Thread(){
+    @Override public void run(){
+      SntpClient client=new SntpClient();
+      while (!client.requestTime(serverHost,10000)) {
+      }
+      syncDelta=client.getClockOffset();
+      preference.edit().putLong("delta",syncDelta).commit();
+      Log.d("AndroidClockSync","Synced. Time delta: " + syncDelta + " ms");
+    }
+  }
+.start();
+}

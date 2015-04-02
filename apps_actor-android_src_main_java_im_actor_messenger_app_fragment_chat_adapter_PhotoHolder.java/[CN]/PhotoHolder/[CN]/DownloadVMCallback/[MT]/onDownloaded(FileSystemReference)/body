@@ -2,6 +2,9 @@
   if (isPhoto) {
     previewView.setImageURI(Uri.fromFile(new File(reference.getDescriptor())));
   }
+ else {
+    checkFastThumb();
+  }
   progressValue.setText(100 + "");
   progressView.setValue(100);
   goneView(progressContainer);
