@@ -1,3 +1,0 @@
-{
-  return new ConversationVM(peer,callback,modules,displayLists);
-}

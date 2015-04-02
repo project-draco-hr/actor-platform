@@ -1,2 +1,3 @@
 Peer peer
+BindedDisplayList<Message> displayList
 ConversationVMCallback callback

@@ -12,18 +12,16 @@
   View header=new View(getActivity());
   header.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(64)));
   addFooterView(header);
-  conversationVM=messenger().buildConversationVM(peer,new ConversationVMCallback(){
+  conversationVM=messenger().buildConversationVM(peer,getDisplayList(),new ConversationVMCallback(){
     @Override public void onLoaded(    long unreadId,    final int index){
       if (messagesAdapter != null) {
         messagesAdapter.setFirstUnread(unreadId);
       }
-      if (linearLayoutManager != null) {
-        if (index > 0) {
-          linearLayoutManager.scrollToPosition(index + 1);
-        }
+      if (index > 0) {
+        linearLayoutManager.scrollToPositionWithOffset(index + 1,Screen.dp(64));
+      }
  else {
-          linearLayoutManager.scrollToPosition(0);
-        }
+        getCollection().scrollToPosition(0);
       }
     }
   }

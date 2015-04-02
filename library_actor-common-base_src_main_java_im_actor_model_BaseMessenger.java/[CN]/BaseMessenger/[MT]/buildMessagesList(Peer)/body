@@ -1,0 +1,3 @@
+{
+  return displayLists.buildNewChatList(peer,false);
+}
