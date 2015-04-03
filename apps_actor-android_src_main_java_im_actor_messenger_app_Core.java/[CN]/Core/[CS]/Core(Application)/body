@@ -1,6 +1,10 @@
 {
+  if (BuildConfig.MINT != null) {
+    Mint.initAndStartSession(application,BuildConfig.MINT);
+  }
+  Fresco.initialize(application);
+  application.startService(new Intent(application,KeepAliveService.class));
   AppContext.setContext(application);
-  system().setClassLoader(AppContext.getContext().getClassLoader());
   ActivityManager activityManager=(ActivityManager)AppContext.getContext().getSystemService(Context.ACTIVITY_SERVICE);
   int memoryInMB=Math.min(activityManager.getMemoryClass(),32);
   long totalAppHeap=memoryInMB * 1024 * 1024;
@@ -10,16 +14,16 @@
   this.imageLoader=new ImageLoader(clasificator,application);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
   AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application);
-  builder.setPhoneBookProvider(new EmptyPhoneProvider());
-  builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
-  if (BuildConfig.API_SSL) {
-    builder.addEndpoint("tls://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
+  if (BuildConfig.ENABLE_PHONE_BOOK) {
+    builder.setPhoneBookProvider(new AndroidPhoneBook());
   }
  else {
-    builder.addEndpoint("tcp://" + BuildConfig.API_HOST + ":"+ BuildConfig.API_PORT);
+    builder.setPhoneBookProvider(new EmptyPhoneProvider());
   }
+  builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
+  builder.addEndpoint(BuildConfig.API_URL);
   builder.setEnableContactsLogging(true);
   builder.setEnableNetworkLogging(true);
-  builder.setApiConfiguration(new ApiConfiguration("Actor Android v0.1",1,"??","Android Device",AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
+  builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,BuildConfig.API_ID,BuildConfig.API_KEY,"Android Device",AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
 }

@@ -1,7 +1,4 @@
 {
   super.onCreate();
-  Mint.initAndStartSession(this,"4345135a");
-  Fresco.initialize(this);
   Core.init(this);
-  startService(new Intent(this,KeepAliveService.class));
 }

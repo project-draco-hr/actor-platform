@@ -1,5 +1,5 @@
 {
-  if (BuildConfig.ENABLE_CHROME) {
+  if (BuildConfig.IS_CHROME_BUILD) {
     return new Intent(Intent.ACTION_PICK).setType("*/*");
   }
  else {
