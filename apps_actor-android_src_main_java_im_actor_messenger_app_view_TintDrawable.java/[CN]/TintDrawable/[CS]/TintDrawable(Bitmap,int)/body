@@ -1,0 +1,4 @@
+{
+  this.src=src;
+  PAINT.setColorFilter(new PorterDuffColorFilter(color,PorterDuff.Mode.SRC_IN));
+}

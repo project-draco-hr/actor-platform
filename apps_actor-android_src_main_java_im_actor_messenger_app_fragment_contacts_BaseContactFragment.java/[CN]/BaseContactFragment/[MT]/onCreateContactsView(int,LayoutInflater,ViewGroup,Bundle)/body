@@ -2,7 +2,7 @@
   View res=inflate(inflater,container,layoutId,messenger().buildContactDisplayList());
   emptyView=res.findViewById(R.id.emptyCollection);
   View headerPadding=new View(getActivity());
-  headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_light));
+  headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_main));
   headerPadding.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
   addHeaderView(headerPadding);
   if (useCompactVersion) {

@@ -10,11 +10,11 @@
     counter.setVisibility(View.GONE);
   }
   title.setText(data.getDialogTitle());
-  int left=0;
+  Drawable left=null;
   if (data.getPeer().getPeerType() == PeerType.GROUP) {
-    left=R.drawable.dialogs_group;
+    left=new TintDrawable(R.drawable.dialogs_group,R.color.chats_title,context);
   }
-  title.setCompoundDrawablesWithIntrinsicBounds(left,0,0,0);
+  title.setCompoundDrawablesWithIntrinsicBounds(left,null,null,null);
   if (data.getDate() > 0) {
     time.setVisibility(View.VISIBLE);
     time.setText(messenger().getFormatter().formatShortDate(data.getDate()));
@@ -48,11 +48,11 @@
       @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
         if (val) {
           text.setText(messenger().getFormatter().formatTyping());
-          text.setTextColor(context.getResources().getColor(R.color.primary));
+          text.setTextColor(context.getResources().getColor(R.color.chats_typing));
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(context.getResources().getColor(R.color.text_primary));
+          text.setTextColor(context.getResources().getColor(R.color.chats_text));
         }
       }
     }
@@ -70,11 +70,11 @@
  else {
             text.setText(messenger().getFormatter().formatTyping(val.length));
           }
-          text.setTextColor(context.getResources().getColor(R.color.primary));
+          text.setTextColor(context.getResources().getColor(R.color.chats_typing));
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(context.getResources().getColor(R.color.text_primary));
+          text.setTextColor(context.getResources().getColor(R.color.chats_text));
         }
       }
     }
@@ -83,7 +83,7 @@
   }
  else {
     text.setText(bindedText);
-    text.setTextColor(context.getResources().getColor(R.color.text_primary));
+    text.setTextColor(context.getResources().getColor(R.color.chats_text));
   }
   if (data.getSenderId() != myUid()) {
     state.setVisibility(View.GONE);
