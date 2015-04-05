@@ -3,6 +3,10 @@
     OnDialogsUpdated onDialogsUpdated=(OnDialogsUpdated)message;
     onDialogsUpdated(onDialogsUpdated.getDialogs());
   }
+ else   if (message instanceof OnContactsUpdated) {
+    OnContactsUpdated contactsUpdated=(OnContactsUpdated)message;
+    onContactsUpdated(contactsUpdated.getContactsList());
+  }
  else {
     drop(message);
   }
