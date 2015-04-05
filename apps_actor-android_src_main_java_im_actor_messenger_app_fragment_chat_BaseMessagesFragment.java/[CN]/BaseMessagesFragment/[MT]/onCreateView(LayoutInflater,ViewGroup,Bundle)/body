@@ -7,10 +7,10 @@
   }
   View res=inflate(inflater,container,R.layout.fragment_messages,messenger().getMessagesGlobalList(peer));
   View footer=new View(getActivity());
-  footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(8)));
+  footer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(8)));
   addHeaderView(footer);
   View header=new View(getActivity());
-  header.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(64)));
+  header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(64)));
   addFooterView(header);
   conversationVM=messenger().buildConversationVM(peer,getDisplayList(),new ConversationVMCallback(){
     @Override public void onLoaded(    long unreadId,    final int index){

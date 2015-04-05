@@ -3,11 +3,11 @@
   emptyView=res.findViewById(R.id.emptyCollection);
   View headerPadding=new View(getActivity());
   headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_main));
-  headerPadding.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+  headerPadding.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
   addHeaderView(headerPadding);
   if (useCompactVersion) {
     View footer=new View(getActivity());
-    footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+    footer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
     addFooterView(footer);
   }
  else {
@@ -28,7 +28,7 @@
     }
 );
     FrameLayout footer=new FrameLayout(getActivity());
-    footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(112)));
+    footer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(112)));
     ImageView shadow=new ImageView(getActivity());
     shadow.setImageResource(R.drawable.card_shadow_bottom);
     shadow.setScaleType(ImageView.ScaleType.FIT_XY);

@@ -4,6 +4,7 @@
   for (  im.actor.model.api.Dialog dialog : dialogsResponse.getDialogs()) {
     maxLoadedDate=Math.min(dialog.getSortDate(),maxLoadedDate);
     Peer peer=convert(dialog.getPeer());
+    Log.d("MessagesProcessor","HistoryDialog: " + peer);
     AbsContent msgContent=convert(dialog.getMessage());
     if (msgContent == null) {
       continue;
