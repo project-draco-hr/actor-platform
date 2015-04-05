@@ -1,8 +1,12 @@
 {
-  Log.d(TAG,"Upload #" + rid + " error");
+  if (LOG) {
+    Log.d(TAG,"Upload #" + rid + " error");
+  }
   QueueItem queueItem=findItem(rid);
   if (queueItem == null) {
-    Log.d(TAG,"- Nothing found");
+    if (LOG) {
+      Log.d(TAG,"- Nothing found");
+    }
     return;
   }
   if (!queueItem.isStarted) {

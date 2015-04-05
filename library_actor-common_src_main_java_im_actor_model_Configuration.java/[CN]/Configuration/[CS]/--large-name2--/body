@@ -11,6 +11,7 @@
   this.fileSystemProvider=fileSystemProvider;
   this.enableContactsLogging=enableContactsLogging;
   this.enableNetworkLogging=enableNetworkLogging;
+  this.enableFilesLogging=enableFilesLogging;
   this.notificationProvider=notificationProvider;
   this.apiConfiguration=apiConfiguration;
   this.dispatcherProvider=dispatcherProvider;

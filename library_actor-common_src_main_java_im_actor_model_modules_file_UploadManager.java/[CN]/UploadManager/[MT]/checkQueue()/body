@@ -1,5 +1,7 @@
 {
-  Log.d(TAG,"- Checking queue");
+  if (LOG) {
+    Log.d(TAG,"- Checking queue");
+  }
   int activeUploads=0;
   for (  QueueItem queueItem : queue) {
     if (queueItem.isStarted) {
@@ -7,7 +9,9 @@
     }
   }
   if (activeUploads >= SIM_MAX_UPLOADS) {
-    Log.d(TAG,"- Already have max number of simultaneous uploads");
+    if (LOG) {
+      Log.d(TAG,"- Already have max number of simultaneous uploads");
+    }
     return;
   }
   QueueItem pendingQueue=null;
@@ -18,10 +22,14 @@
     }
   }
   if (pendingQueue == null) {
-    Log.d(TAG,"- No work for downloading");
+    if (LOG) {
+      Log.d(TAG,"- No work for downloading");
+    }
     return;
   }
-  Log.d(TAG,"- Starting upload file #" + pendingQueue.fileDescriptor);
+  if (LOG) {
+    Log.d(TAG,"- Starting upload file #" + pendingQueue.fileDescriptor);
+  }
   pendingQueue.isStarted=true;
   final QueueItem finalPendingQueue=pendingQueue;
   pendingQueue.taskRef=system().actorOf(Props.create(UploadTask.class,new ActorCreator<UploadTask>(){

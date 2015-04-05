@@ -1,5 +1,5 @@
 {
-  loading.setText("Unable to load. Press to try again.");
+  loading.setText("Loading...");
   loading.setClickable(true);
   showView(loading,false);
   executeSilent(messenger().loadSessions(),new CommandCallback<List<AuthSession>>(){

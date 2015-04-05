@@ -3,21 +3,29 @@
     return;
   }
   if (nextBlock == blocksCount && uploadCount == 0) {
-    Log.d(TAG,"Completing...");
+    if (LOG) {
+      Log.d(TAG,"Completing...");
+    }
     long crc=crc32.getValue();
-    Log.d(TAG,"Src #" + crc);
-    Log.d(TAG,"Closing files...");
+    if (LOG) {
+      Log.d(TAG,"Src #" + crc);
+      Log.d(TAG,"Closing files...");
+    }
     inputFile.close();
     outputFile.close();
     request(new RequestCompleteUpload(uploadConfig,blocksCount,crc),new RpcCallback<ResponseCompleteUpload>(){
       @Override public void onResult(      ResponseCompleteUpload response){
-        Log.d(TAG,"Upload completed...");
+        if (LOG) {
+          Log.d(TAG,"Upload completed...");
+        }
         FileReference location=EntityConverter.convert(response.getLocation(),fileName,srcReference.getSize());
         FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
         reportComplete(location,reference);
       }
       @Override public void onError(      RpcException e){
-        Log.d(TAG,"Upload complete error");
+        if (LOG) {
+          Log.d(TAG,"Upload complete error");
+        }
         reportError();
       }
     }
@@ -33,22 +41,30 @@
     }
     byte[] data=new byte[size];
     if (!inputFile.read(fileOffset,data,0,size)) {
-      Log.d(TAG,"read #" + blockIndex + " error");
+      if (LOG) {
+        Log.d(TAG,"read #" + blockIndex + " error");
+      }
       reportError();
       return;
     }
     if (!outputFile.write(fileOffset,data,0,size)) {
-      Log.d(TAG,"write #" + blockIndex + " error");
+      if (LOG) {
+        Log.d(TAG,"write #" + blockIndex + " error");
+      }
       reportError();
       return;
     }
     crc32.update(data,0,size);
-    Log.d(TAG,"Starting block upload #" + blockIndex);
+    if (LOG) {
+      Log.d(TAG,"Starting block upload #" + blockIndex);
+    }
     uploadCount++;
     uploadPart(blockIndex,fileOffset,data);
     checkQueue();
   }
  else {
-    Log.d(TAG,"Nothing to do");
+    if (LOG) {
+      Log.d(TAG,"Nothing to do");
+    }
   }
 }

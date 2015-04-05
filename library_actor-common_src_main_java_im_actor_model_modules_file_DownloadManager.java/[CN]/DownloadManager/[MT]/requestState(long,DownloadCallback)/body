@@ -1,5 +1,7 @@
 {
-  Log.d(TAG,"Requesting state file #" + fileId);
+  if (LOG) {
+    Log.d(TAG,"Requesting state file #" + fileId);
+  }
   Downloaded downloaded1=downloaded.getValue(fileId);
   if (downloaded1 != null) {
     FileSystemProvider provider=modules().getConfiguration().getFileSystemProvider();
@@ -7,7 +9,9 @@
     boolean isExist=reference.isExist();
     int fileSize=reference.getSize();
     if (isExist && fileSize == downloaded1.getFileSize()) {
-      Log.d(TAG,"- Downloaded");
+      if (LOG) {
+        Log.d(TAG,"- Downloaded");
+      }
       final FileSystemReference fileSystemReference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(downloaded1.getDescriptor());
       Environment.dispatchCallback(new Runnable(){
         @Override public void run(){
@@ -18,12 +22,14 @@
       return;
     }
  else {
-      Log.d(TAG,"- File is corrupted");
-      if (!isExist) {
-        Log.d(TAG,"- File not found");
-      }
-      if (fileSize != downloaded1.getFileSize()) {
-        Log.d(TAG,"- Incorrect file size. Expected: " + downloaded1.getFileSize() + ", got: "+ fileSize);
+      if (LOG) {
+        Log.d(TAG,"- File is corrupted");
+        if (!isExist) {
+          Log.d(TAG,"- File not found");
+        }
+        if (fileSize != downloaded1.getFileSize()) {
+          Log.d(TAG,"- Incorrect file size. Expected: " + downloaded1.getFileSize() + ", got: "+ fileSize);
+        }
       }
       downloaded.removeItem(downloaded1.getFileId());
     }

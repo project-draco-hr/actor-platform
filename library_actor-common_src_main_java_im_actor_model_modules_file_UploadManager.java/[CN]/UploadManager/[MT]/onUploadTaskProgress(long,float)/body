@@ -1,5 +1,7 @@
 {
-  Log.d(TAG,"Upload #" + rid + " progress "+ progress);
+  if (LOG) {
+    Log.d(TAG,"Upload #" + rid + " progress "+ progress);
+  }
   QueueItem queueItem=findItem(rid);
   if (queueItem == null) {
     return;

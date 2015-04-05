@@ -2,7 +2,9 @@
   if (isCompleted) {
     return;
   }
-  Log.d(TAG,"Closing file...");
+  if (LOG) {
+    Log.d(TAG,"Closing file...");
+  }
   if (!outputFile.close()) {
     reportError();
     return;
@@ -12,6 +14,8 @@
     reportError();
     return;
   }
-  Log.d(TAG,"Complete download {" + reference.getDescriptor() + "}");
+  if (LOG) {
+    Log.d(TAG,"Complete download {" + reference.getDescriptor() + "}");
+  }
   reportComplete(reference);
 }

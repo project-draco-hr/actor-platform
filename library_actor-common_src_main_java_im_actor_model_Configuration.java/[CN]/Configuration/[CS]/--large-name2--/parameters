@@ -13,3 +13,4 @@ DispatcherProvider dispatcherProvider
 ApiConfiguration apiConfiguration
 boolean enableContactsLogging
 boolean enableNetworkLogging
+boolean enableFilesLogging

@@ -3,6 +3,8 @@
   if (fileReference.getFileSize() % blockSize != 0) {
     blocksCount++;
   }
-  Log.d(TAG,"Starting downloading " + blocksCount + " blocks");
+  if (LOG) {
+    Log.d(TAG,"Starting downloading " + blocksCount + " blocks");
+  }
   checkQueue();
 }

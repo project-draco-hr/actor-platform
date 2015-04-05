@@ -1,5 +1,6 @@
 {
   super(modules);
+  this.LOG=modules.getConfiguration().isEnableFilesLogging();
   this.rid=rid;
   this.fileName=fileName;
   this.descriptor=descriptor;

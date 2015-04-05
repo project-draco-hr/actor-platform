@@ -1,21 +1,29 @@
 {
-  Log.d(TAG,"Creating file...");
+  if (LOG) {
+    Log.d(TAG,"Creating file...");
+  }
   fileSystemProvider=modules().getConfiguration().getFileSystemProvider();
   if (fileSystemProvider == null) {
     reportError();
-    Log.d(TAG,"No FileSystem available");
+    if (LOG) {
+      Log.d(TAG,"No FileSystem available");
+    }
     return;
   }
   destReference=fileSystemProvider.createTempFile();
   if (destReference == null) {
     reportError();
-    Log.d(TAG,"Unable to create reference");
+    if (LOG) {
+      Log.d(TAG,"Unable to create reference");
+    }
     return;
   }
   outputFile=destReference.openWrite(fileReference.getFileSize());
   if (outputFile == null) {
     reportError();
-    Log.d(TAG,"Unable to write wile");
+    if (LOG) {
+      Log.d(TAG,"Unable to write wile");
+    }
     return;
   }
   startDownload();

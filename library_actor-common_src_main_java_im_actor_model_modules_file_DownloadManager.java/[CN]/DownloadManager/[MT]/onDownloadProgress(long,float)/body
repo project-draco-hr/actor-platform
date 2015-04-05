@@ -1,5 +1,7 @@
 {
-  Log.d(TAG,"onDownloadProgress file #" + fileId + " "+ progress);
+  if (LOG) {
+    Log.d(TAG,"onDownloadProgress file #" + fileId + " "+ progress);
+  }
   QueueItem queueItem=findItem(fileId);
   if (queueItem == null) {
     return;

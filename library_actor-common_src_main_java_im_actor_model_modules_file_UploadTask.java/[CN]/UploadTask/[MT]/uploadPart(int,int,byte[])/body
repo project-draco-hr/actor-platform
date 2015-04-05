@@ -1,7 +1,9 @@
 {
   request(new RequestUploadPart(uploadConfig,offset,data),new RpcCallback<ResponseVoid>(){
     @Override public void onResult(    ResponseVoid response){
-      Log.d(TAG,"Block #" + blockIndex + " uploaded");
+      if (LOG) {
+        Log.d(TAG,"Block #" + blockIndex + " uploaded");
+      }
       uploadCount--;
       uploaded++;
       reportProgress(uploaded / (float)blocksCount);

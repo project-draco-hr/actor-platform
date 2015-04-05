@@ -1,5 +1,7 @@
 {
-  Log.d(TAG,"- Checking queue");
+  if (LOG) {
+    Log.d(TAG,"- Checking queue");
+  }
   int activeDownloads=0;
   for (  QueueItem queueItem : queue) {
     if (queueItem.isStarted) {
@@ -7,7 +9,9 @@
     }
   }
   if (activeDownloads >= SIM_MAX_DOWNLOADS) {
-    Log.d(TAG,"- Already have max number of simultaneous downloads");
+    if (LOG) {
+      Log.d(TAG,"- Already have max number of simultaneous downloads");
+    }
     return;
   }
   QueueItem pendingQueue=null;
@@ -18,10 +22,14 @@
     }
   }
   if (pendingQueue == null) {
-    Log.d(TAG,"- No work for downloading");
+    if (LOG) {
+      Log.d(TAG,"- No work for downloading");
+    }
     return;
   }
-  Log.d(TAG,"- Starting download file #" + pendingQueue.fileReference.getFileId());
+  if (LOG) {
+    Log.d(TAG,"- Starting download file #" + pendingQueue.fileReference.getFileId());
+  }
   pendingQueue.isStarted=true;
   final QueueItem finalPendingQueue=pendingQueue;
   pendingQueue.taskRef=system().actorOf(Props.create(DownloadTask.class,new ActorCreator<DownloadTask>(){

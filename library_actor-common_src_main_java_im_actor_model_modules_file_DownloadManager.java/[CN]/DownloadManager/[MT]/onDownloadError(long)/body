@@ -1,5 +1,7 @@
 {
-  Log.d(TAG,"onDownloadError file #" + fileId);
+  if (LOG) {
+    Log.d(TAG,"onDownloadError file #" + fileId);
+  }
   QueueItem queueItem=findItem(fileId);
   if (queueItem == null) {
     return;

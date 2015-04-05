@@ -1,6 +1,7 @@
 {
   super(messenger);
   this.TAG="DownloadTask{" + fileReference.getFileId() + "}";
+  this.LOG=messenger.getConfiguration().isEnableFilesLogging();
   this.fileReference=fileReference;
   this.manager=manager;
 }

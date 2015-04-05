@@ -1,0 +1,4 @@
+{
+  this.enableFilesLogging=enableFilesLogging;
+  return this;
+}
