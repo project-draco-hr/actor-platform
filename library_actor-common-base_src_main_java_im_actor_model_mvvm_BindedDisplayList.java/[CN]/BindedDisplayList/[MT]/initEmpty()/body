@@ -1,0 +1,9 @@
+{
+  MVVMEngine.checkMainThread();
+  mode=ListMode.FORWARD;
+  query=null;
+  editList((Modification)DisplayModifications.clear());
+  stateModel.change(State.LOADING_EMPTY);
+  currentGeneration++;
+  window.emptyInit();
+}

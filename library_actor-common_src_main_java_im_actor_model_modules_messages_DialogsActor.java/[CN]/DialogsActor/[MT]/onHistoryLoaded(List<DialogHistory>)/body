@@ -12,7 +12,7 @@
     ContentDescription description=ContentDescription.fromContent(dialogHistory.getContent());
     updated.add(new Dialog(dialogHistory.getPeer(),dialogHistory.getSortDate(),peerDesc.getTitle(),peerDesc.getAvatar(),dialogHistory.getUnreadCount(),dialogHistory.getRid(),description.getContentType(),description.getText(),dialogHistory.getStatus(),dialogHistory.getSenderId(),dialogHistory.getDate(),description.getRelatedUser()));
   }
-  dialogs.addOrUpdateItems(updated);
+  addOrUpdateItems(updated);
   modules().getAppStateModule().onDialogsLoaded();
   notifyState();
 }

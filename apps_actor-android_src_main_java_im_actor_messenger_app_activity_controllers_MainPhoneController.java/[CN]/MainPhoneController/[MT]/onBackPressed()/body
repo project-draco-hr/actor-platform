@@ -3,11 +3,9 @@
     goneFab();
     return true;
   }
-  if (searchMenu != null) {
-    if (searchMenu.isActionViewExpanded()) {
-      searchMenu.collapseActionView();
-      return true;
-    }
+  if (isSearchVisible) {
+    hideSearch();
+    return true;
   }
   return false;
 }

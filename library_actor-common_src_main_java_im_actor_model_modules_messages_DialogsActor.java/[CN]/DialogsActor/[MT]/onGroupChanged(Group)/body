@@ -4,6 +4,6 @@
     if (dialog.getDialogTitle().equals(group.getTitle()) && equalsE(dialog.getDialogAvatar(),group.getAvatar())) {
       return;
     }
-    dialogs.addOrUpdateItem(dialog.editPeerInfo(group.getTitle(),group.getAvatar()));
+    addOrUpdateItem(dialog.editPeerInfo(group.getTitle(),group.getAvatar()));
   }
 }

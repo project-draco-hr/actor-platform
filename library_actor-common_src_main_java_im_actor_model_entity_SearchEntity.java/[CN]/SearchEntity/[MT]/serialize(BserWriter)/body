@@ -1,0 +1,8 @@
+{
+  writer.writeObject(1,peer);
+  writer.writeLong(2,order);
+  if (avatar != null) {
+    writer.writeObject(3,avatar);
+  }
+  writer.writeString(4,title);
+}

@@ -20,10 +20,13 @@
     }
   }
 );
-  searchList=(ListView)findViewById(R.id.searchList);
+  searchList=(RecyclerView)findViewById(R.id.searchList);
+  searchList.setLayoutManager(new LinearLayoutManager(getActivity()));
   searchContainer=findViewById(R.id.searchCont);
   searchEmptyView=findViewById(R.id.empty);
   searchHintView=findViewById(R.id.searchHint);
+  searchHintView.setVisibility(View.GONE);
+  searchEmptyView.setVisibility(View.GONE);
   pager=(ViewPager)findViewById(R.id.vp_pager);
   homePagerAdapter=new HomePagerAdapter(getFragmentManager());
   pager.setAdapter(homePagerAdapter);

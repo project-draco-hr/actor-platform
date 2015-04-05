@@ -1,0 +1,9 @@
+{
+  isInited=true;
+  currentBackwardHead=null;
+  currentForwardHead=null;
+  isForwardCompleted=true;
+  isForwardLoading=false;
+  isBackwardLoaded=true;
+  isBackwardLoading=false;
+}

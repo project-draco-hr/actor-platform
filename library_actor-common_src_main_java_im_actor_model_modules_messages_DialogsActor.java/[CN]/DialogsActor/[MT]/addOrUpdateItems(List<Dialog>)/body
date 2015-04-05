@@ -1,0 +1,4 @@
+{
+  dialogs.addOrUpdateItems(updated);
+  modules().getSearch().onDialogsChanged(updated);
+}

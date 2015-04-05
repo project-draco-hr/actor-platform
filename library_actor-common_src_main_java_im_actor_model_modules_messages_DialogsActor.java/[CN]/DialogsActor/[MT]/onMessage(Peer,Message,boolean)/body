@@ -28,7 +28,7 @@
       }
       builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setUnreadCount(0).setSortKey(message.getSortDate());
     }
-    dialogs.addOrUpdateItem(builder.createDialog());
+    addOrUpdateItem(builder.createDialog());
     notifyState();
   }
 }

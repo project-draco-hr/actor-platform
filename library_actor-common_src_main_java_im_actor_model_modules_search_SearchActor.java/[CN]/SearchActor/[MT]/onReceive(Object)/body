@@ -1,0 +1,9 @@
+{
+  if (message instanceof OnDialogsUpdated) {
+    OnDialogsUpdated onDialogsUpdated=(OnDialogsUpdated)message;
+    onDialogsUpdated(onDialogsUpdated.getDialogs());
+  }
+ else {
+    drop(message);
+  }
+}

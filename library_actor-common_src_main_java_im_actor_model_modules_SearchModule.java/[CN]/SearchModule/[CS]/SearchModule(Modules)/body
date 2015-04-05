@@ -1,0 +1,4 @@
+{
+  super(modules);
+  searchList=storage().createSearchList(storage().createList(STORAGE_SEARCH));
+}
