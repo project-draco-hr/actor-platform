@@ -2,6 +2,6 @@
   this.size=size;
   this.placeholderTextSize=placeholderTextSize;
   GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(getResources());
-  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setRoundingParams(new RoundingParams().setRoundAsCircle(true).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).setOverlay(new AvatarBorderDrawable()).build();
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setRoundingParams(new RoundingParams().setRoundAsCircle(true).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
   setHierarchy(hierarchy);
 }

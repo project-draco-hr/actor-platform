@@ -8,17 +8,24 @@
  else {
     title=title.substring(0,1).toUpperCase();
   }
-  int[] colors=new int[]{context.getResources().getColor(R.color.placeholder_0),context.getResources().getColor(R.color.placeholder_1),context.getResources().getColor(R.color.placeholder_2),context.getResources().getColor(R.color.placeholder_3),context.getResources().getColor(R.color.placeholder_4),context.getResources().getColor(R.color.placeholder_5),context.getResources().getColor(R.color.placeholder_6)};
-  int color=colors[Math.abs(id) % colors.length];
+  if (COLORS == null) {
+    COLORS=new int[]{context.getResources().getColor(R.color.placeholder_0),context.getResources().getColor(R.color.placeholder_1),context.getResources().getColor(R.color.placeholder_2),context.getResources().getColor(R.color.placeholder_3),context.getResources().getColor(R.color.placeholder_4),context.getResources().getColor(R.color.placeholder_5),context.getResources().getColor(R.color.placeholder_6)};
+  }
+  if (CIRCLE_PAINT == null) {
+    CIRCLE_PAINT=new Paint(Paint.ANTI_ALIAS_FLAG);
+    CIRCLE_PAINT.setStyle(Paint.Style.FILL);
+  }
+  if (TEXT_PAINT == null) {
+    TEXT_PAINT=new TextPaint(Paint.ANTI_ALIAS_FLAG);
+    TEXT_PAINT.setTypeface(Fonts.regular());
+    TEXT_PAINT.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,fontSize,context.getResources().getDisplayMetrics()));
+    TEXT_PAINT.setColor(Color.WHITE);
+  }
   if (id == 0) {
-    color=context.getResources().getColor(R.color.placeholder_empty);
+    this.color=context.getResources().getColor(R.color.placeholder_empty);
+  }
+ else {
+    this.color=COLORS[Math.abs(id) % COLORS.length];
   }
   this.title=title;
-  textPaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
-  textPaint.setTypeface(Fonts.load(context,"Regular"));
-  textPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,fontSize,context.getResources().getDisplayMetrics()));
-  textPaint.setColor(Color.WHITE);
-  circlePaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-  circlePaint.setColor(color);
-  circlePaint.setStyle(Paint.Style.FILL);
 }

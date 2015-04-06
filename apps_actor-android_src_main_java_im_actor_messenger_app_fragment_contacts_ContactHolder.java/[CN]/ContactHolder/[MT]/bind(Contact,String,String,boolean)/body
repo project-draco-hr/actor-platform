@@ -7,7 +7,6 @@
     fastTitle.setText(shortName);
   }
   avatar.bind(data);
-  title.setText(data.getName());
   if (query.length() > 0) {
     title.setText(SearchHighlight.highlightQuery(data.getName(),query,0xff0277bd));
   }

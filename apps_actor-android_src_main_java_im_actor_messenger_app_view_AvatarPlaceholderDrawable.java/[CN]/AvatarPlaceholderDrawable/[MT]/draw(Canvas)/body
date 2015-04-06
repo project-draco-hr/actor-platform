@@ -1,5 +1,6 @@
 {
   Rect bounds=getBounds();
-  canvas.drawCircle(bounds.centerX(),bounds.centerY(),bounds.width() / 2,circlePaint);
-  canvas.drawText(title,textX,textY,textPaint);
+  CIRCLE_PAINT.setColor(color);
+  canvas.drawCircle(bounds.centerX(),bounds.centerY(),bounds.width() / 2,CIRCLE_PAINT);
+  canvas.drawText(title,textX,textY,TEXT_PAINT);
 }

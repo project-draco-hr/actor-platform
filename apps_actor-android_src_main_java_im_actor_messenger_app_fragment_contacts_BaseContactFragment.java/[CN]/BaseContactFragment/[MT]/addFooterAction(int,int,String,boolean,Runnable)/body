@@ -19,7 +19,7 @@
     container.addView(invitePanel);
   }
   TintImageView inviteIcon=new TintImageView(getActivity());
-  inviteIcon.setTint(getResources().getColor(R.color.contacts_action));
+  inviteIcon.setTint(getResources().getColor(color));
   inviteIcon.setResource(icon);
 {
     FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(Screen.dp(52),Screen.dp(52));
@@ -31,7 +31,7 @@
   }
   TextView inviteText=new TextView(getActivity());
   inviteText.setText(text);
-  inviteText.setTextColor(getResources().getColor(R.color.contacts_action));
+  inviteText.setTextColor(getResources().getColor(color));
   inviteText.setPadding(Screen.dp(72),0,Screen.dp(8),0);
   inviteText.setTextSize(16);
   inviteText.setSingleLine(true);
@@ -46,7 +46,7 @@
   }
   if (!isLast) {
     View div=new View(getActivity());
-    div.setBackgroundColor(getResources().getColor(R.color.divider));
+    div.setBackgroundColor(getResources().getColor(R.color.contacts_divider));
 {
       FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,getResources().getDimensionPixelSize(R.dimen.div_size));
       layoutParams.gravity=Gravity.BOTTOM;
