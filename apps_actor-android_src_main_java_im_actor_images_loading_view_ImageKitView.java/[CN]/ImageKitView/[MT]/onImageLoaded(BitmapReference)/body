@@ -4,4 +4,7 @@
     setImageBitmap(bitmap.getBitmap());
     isInternal=false;
   }
+  if (extraReceiver != null) {
+    extraReceiver.onImageLoaded(bitmap);
+  }
 }

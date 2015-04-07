@@ -1,0 +1,14 @@
+{
+  getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+  transitionView.request(new RawFileTask(path));
+  transitionView.setAlpha(1f);
+  transitionView.setVisibility(View.VISIBLE);
+  MediaActivity.MediaFullscreenAnimationUtils.animateBack(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight);
+  MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundBack(backgroundView);
+  transitionView.postDelayed(new Runnable(){
+    @Override public void run(){
+      superFinish();
+    }
+  }
+,300 * MediaActivity.MediaFullscreenAnimationUtils.animationMultiplier);
+}

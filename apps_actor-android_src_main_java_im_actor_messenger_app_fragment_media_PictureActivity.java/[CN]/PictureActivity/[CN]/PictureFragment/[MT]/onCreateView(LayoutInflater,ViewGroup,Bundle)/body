@@ -1,0 +1,68 @@
+{
+  View rootView=inflater.inflate(R.layout.fragment_media_picture,container,false);
+  final Bundle bundle=getArguments();
+  String path=bundle.getString(ARG_PATH);
+  int sender=bundle.getInt(ARG_OWNER,0);
+  imageView=(ImageKitView)rootView.findViewById(R.id.image);
+  imageView.setExtraReceiverCallback(new ReceiverCallback(){
+    @Override public void onImageLoaded(    BitmapReference bitmap){
+      attacher=new PhotoViewAttacher(imageView);
+      attacher.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener(){
+        @Override public boolean onSingleTapConfirmed(        MotionEvent e){
+          if (!uiIsHidden) {
+            hideSystemUi();
+          }
+ else {
+            showSystemUi();
+          }
+          return false;
+        }
+        @Override public boolean onDoubleTap(        MotionEvent e){
+          if (!uiIsHidden)           hideSystemUi();
+          return true;
+        }
+        @Override public boolean onDoubleTapEvent(        MotionEvent e){
+          return true;
+        }
+      }
+);
+    }
+    @Override public void onImageCleared(){
+    }
+    @Override public void onImageError(){
+    }
+  }
+);
+  imageView.request(new RawFileTask(path));
+  ownerAvatarView=(AvatarView)rootView.findViewById(R.id.avatar);
+  ownerNameView=(TextView)rootView.findViewById(R.id.name);
+  ownerContainer=rootView.findViewById(R.id.ownerContainer);
+  if (Build.VERSION.SDK_INT >= 19) {
+    ownerContainer.setPadding(0,0,0,Screen.getNavbarHeight());
+  }
+  UserVM owner=users().get(sender);
+  ownerNameView.setText(owner.getName().get());
+  View backgroundView=null;
+  Activity activity=getActivity();
+  if (activity instanceof PictureActivity) {
+    backgroundView=((PictureActivity)activity).backgroundView;
+  }
+ else {
+    if (activity instanceof MediaActivity) {
+      backgroundView=((MediaActivity)activity).transitionBackgroundView;
+    }
+  }
+  if (backgroundView != null)   backgroundView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (!uiIsHidden) {
+        hideSystemUi();
+      }
+ else {
+        showSystemUi();
+      }
+    }
+  }
+);
+  ownerContainer.setVisibility(View.GONE);
+  return rootView;
+}

@@ -1,0 +1,54 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_picture);
+  toolbar=(Toolbar)findViewById(R.id.toolbar);
+  setSupportActionBar(toolbar);
+  ActionBar actionBar=getSupportActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayShowHomeEnabled(false);
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayShowTitleEnabled(true);
+  actionBar.setDisplayShowCustomEnabled(false);
+  getSupportActionBar().setTitle("Picture");
+  int statbarHeight=Screen.getStatusBarHeight();
+  if (Build.VERSION.SDK_INT >= 19) {
+    toolbar.setPadding(0,statbarHeight,0,0);
+  }
+  final Bundle bundle=getIntent().getExtras();
+  path=bundle.getString(ARG_PATH);
+  int sender=bundle.getInt(ARG_OWNER,0);
+  toolbar.setVisibility(View.GONE);
+  transitionTop=bundle.getInt(ARG_IMAGE_TOP,0);
+  transitionLeft=bundle.getInt(ARG_IMAGE_LEFT,0);
+  transitionWidth=bundle.getInt(ARG_IMAGE_WIDTH,0);
+  transitionHeight=bundle.getInt(ARG_IMAGE_HEIGHT,0);
+  transitionView=(ImageKitView)findViewById(R.id.transition);
+  backgroundView=findViewById(R.id.background);
+  transitionView.setExtraReceiverCallback(new ReceiverCallback(){
+    @Override public void onImageLoaded(    BitmapReference bitmapRef){
+      bitmap=bitmapRef.getBitmap();
+      transitionView.postDelayed(new Runnable(){
+        @Override public void run(){
+          if (savedInstanceState == null) {
+            fragment=new PictureFragment();
+            fragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().add(R.id.container,fragment).commit();
+          }
+          transitionView.setExtraReceiverCallback(null);
+          transitionView.clear();
+          transitionView.setAlpha(0f);
+          transitionView.setVisibility(View.GONE);
+        }
+      }
+,450 * MediaActivity.MediaFullscreenAnimationUtils.animationMultiplier + MediaActivity.MediaFullscreenAnimationUtils.startDelay * 2);
+      MediaActivity.MediaFullscreenAnimationUtils.animateForward(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight);
+      MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundForward(backgroundView);
+    }
+    @Override public void onImageCleared(){
+    }
+    @Override public void onImageError(){
+    }
+  }
+);
+  transitionView.request(new RawFileTask(path));
+}

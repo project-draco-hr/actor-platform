@@ -1,0 +1,13 @@
+{
+  Intent intent=new Intent(activity,PictureActivity.class);
+  intent.putExtra(ARG_PATH,path);
+  intent.putExtra(ARG_OWNER,senderId);
+  int[] location=new int[2];
+  transitionView.getLocationInWindow(location);
+  intent.putExtra(ARG_IMAGE_TOP,location[1]);
+  intent.putExtra(ARG_IMAGE_LEFT,location[0]);
+  intent.putExtra(ARG_IMAGE_WIDTH,transitionView.getWidth());
+  intent.putExtra(ARG_IMAGE_HEIGHT,transitionView.getHeight());
+  activity.startActivity(intent);
+  activity.overridePendingTransition(0,0);
+}

@@ -1,0 +1,40 @@
+{
+  float bitmapWidth=bitmap.getWidth();
+  float bitmapHeight=bitmap.getHeight();
+  float screenWidth=Screen.getWidth();
+  float screenHeight=Screen.getHeight() + (Build.VERSION.SDK_INT >= 19 ? Screen.getNavbarHeight() : 0);
+  if (bitmapHeight > screenHeight || bitmapWidth > screenWidth) {
+    if (bitmapWidth / screenWidth < bitmapHeight / screenHeight) {
+      bitmapWidth=bitmapWidth * (screenHeight / bitmapHeight);
+      bitmapHeight=screenHeight;
+    }
+ else {
+      bitmapHeight=bitmapHeight * (screenWidth / bitmapWidth);
+      bitmapWidth=screenWidth;
+    }
+  }
+  final float finishScaleWidth=(float)transitionWidth / bitmapWidth;
+  final float finishScaleHeight=(float)transitionHeight / bitmapHeight;
+  float endScale=1;
+  float xPadding=0;
+  float yPadding=0;
+  if (bitmapWidth / screenWidth > bitmapHeight / screenHeight) {
+    endScale=screenWidth / bitmapWidth;
+    xPadding=(bitmapWidth * (endScale - 1) / 2);
+    yPadding=screenHeight / 2 - (bitmapHeight / 2);
+  }
+ else {
+    endScale=screenHeight / bitmapHeight;
+    xPadding=screenWidth / 2 - (bitmapWidth / 2);
+    yPadding=(bitmapHeight * (endScale - 1)) / 2;
+  }
+  transitionView.animate().setInterpolator(new MaterialInterpolator()).setStartDelay(0).setDuration(0).setInterpolator(new MaterialInterpolator()).x(xPadding).y(yPadding).scaleX(endScale).scaleY(endScale).start();
+  final float finalBitmapWidth=bitmapWidth;
+  final float finalBitmapHeight=bitmapHeight;
+  transitionView.post(new Runnable(){
+    @Override public void run(){
+      transitionView.animate().setStartDelay(startDelay).setInterpolator(new MaterialInterpolator()).setDuration(300 * animationMultiplier).x(transitionLeft + (finalBitmapWidth * (finishScaleWidth - 1) / 2)).y(transitionTop + (finalBitmapHeight * (finishScaleHeight - 1) / 2)).scaleX(finishScaleWidth).scaleY(finishScaleHeight).start();
+    }
+  }
+);
+}
