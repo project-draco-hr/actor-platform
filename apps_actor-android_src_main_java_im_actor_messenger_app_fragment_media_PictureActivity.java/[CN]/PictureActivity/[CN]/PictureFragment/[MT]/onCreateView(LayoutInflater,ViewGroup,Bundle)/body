@@ -41,6 +41,8 @@
     ownerContainer.setPadding(0,0,0,Screen.getNavbarHeight());
   }
   UserVM owner=users().get(sender);
+  ownerAvatarView.init(Screen.dp(48),18);
+  ownerAvatarView.bind(owner);
   ownerNameView.setText(owner.getName().get());
   View backgroundView=null;
   Activity activity=getActivity();

@@ -5,7 +5,7 @@
     return true;
   }
  else   if (i == R.id.share) {
-    startActivity(new Intent(Intent.ACTION_VIEW).setDataAndType(Uri.parse(path),"image/jpeg"));
+    startActivity(Intents.shareDoc("picture.jpeg",path));
     return true;
   }
  else   if (i == R.id.save) {
