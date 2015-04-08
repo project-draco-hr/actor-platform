@@ -5,7 +5,7 @@
       break;
     }
   }
-  index.add(new Index(record.getKey(),record.getKey()));
+  index.add(new Index(record.getKey(),record.getOrder()));
   updateIndex();
   storage.setItem(getId(record.getKey()),toBase64(record.getData()));
 }
