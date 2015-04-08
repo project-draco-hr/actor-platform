@@ -1,0 +1,22 @@
+{
+  if (shader != null) {
+    try {
+      Field fieldA=BitmapShader.class.getDeclaredField("mBitmap");
+      fieldA.setAccessible(true);
+      fieldA.set(shader,null);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+    this.shader=null;
+  }
+  if (bmp == null) {
+    this.PAINT.setShader(null);
+  }
+ else {
+    this.shader=new BitmapShader(bmp,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+    this.shaderW=bmp.getWidth();
+    this.shaderH=bmp.getHeight();
+    this.PAINT.setShader(shader);
+  }
+}

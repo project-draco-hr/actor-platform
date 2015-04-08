@@ -3,6 +3,13 @@
     return;
   }
   messages.addOrUpdateItem(message);
+  if (message.getContent() instanceof PhotoContent || message.getContent() instanceof VideoContent) {
+    media.addOrUpdateItem(message);
+  }
+ else {
+    if (message.getContent() instanceof DocumentContent) {
+    }
+  }
   dialogsActor.send(new DialogsActor.InMessage(peer,message));
   if (message.getSenderId() == myUid()) {
     messagesStorage.getMessages().add(new OutUnreadMessage(message.getRid(),message.getDate()));

@@ -1,0 +1,30 @@
+{
+  getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
+  emptyView.setAlpha(1);
+  listView.setAlpha(1);
+  goneView(emptyView,false);
+  showView(listView,false);
+  chatType=activityIntent.getIntExtra(ARG_CHAT_TYPE,0);
+  chatId=activityIntent.getIntExtra(ARG_CHAT_ID,0);
+  peer=Peer.fromUniqueId(activityIntent.getLongExtra(EXTRA_PEER_UNIQ_ID,0));
+  setGridActionbar();
+  emptyView.setVisibility(View.GONE);
+  BindedDisplayList<Message> displayList=messenger().buildMediaList(peer);
+  adapter=new MediaAdapter(displayList,new OnItemClickedListener<Message>(){
+    @Override public void onClicked(    Message item){
+    }
+    @Override public boolean onLongClicked(    Message item){
+      return false;
+    }
+  }
+,this);
+  toolbar.post(new Runnable(){
+    @Override public void run(){
+      int toolbarHeight=toolbar.getHeight();
+      listView.setPadding(0,toolbarHeight,0,Screen.getNavbarHeight());
+    }
+  }
+);
+  listView.setLayoutManager(new GridLayoutManager(this,getResources().getInteger(R.integer.gallery_items_count)));
+  listView.setAdapter(adapter);
+}

@@ -1,0 +1,4 @@
+{
+  setTitle(R.string.media_picture);
+  invalidateOptionsMenu();
+}

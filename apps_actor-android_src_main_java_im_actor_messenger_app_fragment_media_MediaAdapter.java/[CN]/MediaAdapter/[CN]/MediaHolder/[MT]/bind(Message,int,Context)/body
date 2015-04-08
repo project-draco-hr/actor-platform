@@ -1,0 +1,20 @@
+{
+  Bitmap img=null;
+  if (!(message.getContent() instanceof DocumentContent)) {
+    previewView.setImageBitmap(null);
+    return;
+  }
+  DocumentContent media=((DocumentContent)message.getContent());
+  if (media.getFastThumb() != null)   fastThumbLoader.request(media.getFastThumb().getImage());
+  if (media instanceof VideoContent) {
+    durationView.setText(messenger().getFormatter().formatDuration(((VideoContent)media).getDuration()));
+    videoIndicator.setVisibility(View.VISIBLE);
+    durationView.setVisibility(View.VISIBLE);
+  }
+ else {
+    videoIndicator.setVisibility(View.GONE);
+    durationView.setVisibility(View.GONE);
+  }
+  if (media.getSource() instanceof FileLocalSource) {
+  }
+}

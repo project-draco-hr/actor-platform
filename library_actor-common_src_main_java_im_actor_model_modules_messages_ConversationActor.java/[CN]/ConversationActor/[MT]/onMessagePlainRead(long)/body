@@ -4,7 +4,15 @@
     if (p.getDate() <= date) {
       Message msg=messages.getValue(p.getRid());
       if (msg != null && (msg.getMessageState() == MessageState.SENT || msg.getMessageState() == MessageState.RECEIVED)) {
-        messages.addOrUpdateItem(msg.changeState(MessageState.READ));
+        Message updatedMsg=msg.changeState(MessageState.READ);
+        messages.addOrUpdateItem(updatedMsg);
+        if (updatedMsg.getContent() instanceof PhotoContent || updatedMsg.getContent() instanceof VideoContent) {
+          media.addOrUpdateItem(updatedMsg);
+        }
+ else {
+          if (updatedMsg.getContent() instanceof DocumentContent) {
+          }
+        }
         dialogsActor.send(new DialogsActor.MessageStateChanged(peer,p.getRid(),MessageState.READ));
         removed=true;
         messagesStorage.getMessages().remove(p);

@@ -1,4 +1,5 @@
 {
   messages.clear();
+  media.clear();
   dialogsActor.send(new DialogsActor.ChatClear(peer));
 }

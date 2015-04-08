@@ -62,7 +62,9 @@
 );
     ((TextView)header.findViewById(R.id.docCount)).setText("" + docsCount);
   }
-  int mediaCount=10;
+  Peer peer=Peer.group(groupInfo.getId());
+  ListEngine<Message> media=messenger().getMedia(peer);
+  int mediaCount=media.getCount();
   if (mediaCount == 0) {
     header.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
   }
@@ -70,7 +72,7 @@
     header.findViewById(R.id.sharedContainer).setVisibility(View.VISIBLE);
     header.findViewById(R.id.mediaContainer).setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
-        startActivity(Intents.openDocs(Peer.group(groupInfo.getId()),getActivity()));
+        startActivity(Intents.openMedias(Peer.group(groupInfo.getId()),getActivity()));
       }
     }
 );
