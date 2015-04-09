@@ -1,30 +1,81 @@
 {
   getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
   emptyView.setAlpha(1);
-  listView.setAlpha(1);
+  recyclerView.setAlpha(1);
   goneView(emptyView,false);
-  showView(listView,false);
+  showView(recyclerView,false);
   chatType=activityIntent.getIntExtra(ARG_CHAT_TYPE,0);
   chatId=activityIntent.getIntExtra(ARG_CHAT_ID,0);
   peer=Peer.fromUniqueId(activityIntent.getLongExtra(EXTRA_PEER_UNIQ_ID,0));
   setGridActionbar();
   emptyView.setVisibility(View.GONE);
-  BindedDisplayList<Message> displayList=messenger().buildMediaList(peer);
-  adapter=new MediaAdapter(displayList,new OnItemClickedListener<Message>(){
-    @Override public void onClicked(    Message item){
-    }
-    @Override public boolean onLongClicked(    Message item){
-      return false;
+  displayList=messenger().buildMediaList(peer);
+  adapter=new MediaAdapter(displayList,new OnMediaClickListener(){
+    @Override public void onClick(    final MediaAdapter.MediaHolder holder,    Message item){
+      final View view=holder.itemView;
+      transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
+        @Override public void onImageLoaded(        BitmapReference bitmapRef){
+          Bitmap bitmap=bitmapRef.getBitmap();
+          int[] location=new int[2];
+          view.getLocationInWindow(location);
+          MediaFullscreenAnimationUtils.animateForward(transitionImageView,bitmap,location[0],location[1],view.getWidth(),view.getHeight());
+          MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView);
+          transitionImageView.postDelayed(new Runnable(){
+            @Override public void run(){
+              selectedIndex=holder.getPosition();
+              showPager();
+            }
+          }
+,450 * MediaFullscreenAnimationUtils.animationMultiplier + MediaFullscreenAnimationUtils.startDelay);
+        }
+        @Override public void onImageCleared(){
+        }
+        @Override public void onImageError(){
+        }
+      }
+);
+      final DocumentContent document=(DocumentContent)item.getContent();
+      if (document.getSource() instanceof FileRemoteSource) {
+        FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
+        final FileReference location=remoteSource.getFileReference();
+        messenger().requestState(location.getFileId(),new DownloadCallback(){
+          @Override public void onNotDownloaded(){
+            messenger().startDownloading(location);
+          }
+          @Override public void onDownloading(          float progress){
+            messenger().cancelDownloading(location.getFileId());
+          }
+          @Override public void onDownloaded(          final FileSystemReference reference){
+            MVVMEngine.runOnUiThread(new Runnable(){
+              @Override public void run(){
+                transitionImageView.post(new Runnable(){
+                  @Override public void run(){
+                    transitionImageView.request(new RawFileTask(reference.getDescriptor()));
+                  }
+                }
+);
+              }
+            }
+);
+          }
+        }
+);
+        Logger.d("MediaActivity","Remote =(");
+      }
+ else       if (document.getSource() instanceof FileLocalSource) {
+        final String path=((FileLocalSource)document.getSource()).getFileDescriptor();
+      }
     }
   }
 ,this);
   toolbar.post(new Runnable(){
     @Override public void run(){
       int toolbarHeight=toolbar.getHeight();
-      listView.setPadding(0,toolbarHeight,0,Screen.getNavbarHeight());
+      recyclerView.setPadding(0,toolbarHeight,0,Screen.getNavbarHeight());
     }
   }
 );
-  listView.setLayoutManager(new GridLayoutManager(this,getResources().getInteger(R.integer.gallery_items_count)));
-  listView.setAdapter(adapter);
+  recyclerView.setLayoutManager(new GridLayoutManager(this,getResources().getInteger(R.integer.gallery_items_count)));
+  recyclerView.setAdapter(adapter);
+  viewPager.setAdapter(new MediaPagerAdapter(displayList,this));
 }

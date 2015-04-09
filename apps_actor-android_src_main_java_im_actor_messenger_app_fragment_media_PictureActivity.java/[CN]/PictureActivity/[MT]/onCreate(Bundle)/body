@@ -15,7 +15,7 @@
     toolbar.setPadding(0,statbarHeight,0,0);
   }
   final Bundle bundle=getIntent().getExtras();
-  path=bundle.getString(ARG_PATH);
+  path=bundle.getString(ARG_FILE_PATH);
   int sender=bundle.getInt(ARG_OWNER,0);
   toolbar.setVisibility(View.GONE);
   transitionTop=bundle.getInt(ARG_IMAGE_TOP,0);

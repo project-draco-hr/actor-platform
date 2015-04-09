@@ -1,6 +1,6 @@
 {
   Intent intent=new Intent(activity,PictureActivity.class);
-  intent.putExtra(ARG_PATH,path);
+  intent.putExtra(ARG_FILE_PATH,path);
   intent.putExtra(ARG_OWNER,senderId);
   int[] location=new int[2];
   transitionView.getLocationInWindow(location);

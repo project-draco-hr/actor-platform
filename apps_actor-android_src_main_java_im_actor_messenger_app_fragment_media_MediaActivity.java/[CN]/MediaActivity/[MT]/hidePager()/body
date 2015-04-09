@@ -1,0 +1,63 @@
+{
+  Message media=displayList.getItem(selectedIndex);
+  transitionImageView.setAlpha(1f);
+  transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
+    @Override public void onImageLoaded(    BitmapReference bitmap){
+      toolbar.setTitle("Media");
+      showingPager=false;
+      viewPager.setAlpha(0);
+      viewPager.setVisibility(View.GONE);
+      int firstVisiblePosition=((GridLayoutManager)recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+      View selectedView=recyclerView.getChildAt(selectedIndex - firstVisiblePosition);
+      int[] location=new int[2];
+      selectedView.getLocationInWindow(location);
+      transitionImageView.setExtraReceiverCallback(null);
+      MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap.getBitmap(),location[0],location[1],selectedView.getWidth(),selectedView.getHeight());
+      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView);
+      viewPager.setAlpha(0);
+      goneView(viewPager,false);
+      transitionImageView.postDelayed(new Runnable(){
+        @Override public void run(){
+          transitionImageView.clear();
+          transitionImageView.setAlpha(0f);
+        }
+      }
+,300 * MediaFullscreenAnimationUtils.animationMultiplier);
+    }
+    @Override public void onImageCleared(){
+    }
+    @Override public void onImageError(){
+    }
+  }
+);
+  final DocumentContent document=(DocumentContent)media.getContent();
+  if (document.getSource() instanceof FileRemoteSource) {
+    FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
+    final FileReference location=remoteSource.getFileReference();
+    messenger().requestState(location.getFileId(),new DownloadCallback(){
+      @Override public void onNotDownloaded(){
+      }
+      @Override public void onDownloading(      float progress){
+      }
+      @Override public void onDownloaded(      final FileSystemReference reference){
+        MVVMEngine.runOnUiThread(new Runnable(){
+          @Override public void run(){
+            transitionImageView.request(new RawFileTask(reference.getDescriptor()));
+            transitionImageView.post(new Runnable(){
+              @Override public void run(){
+              }
+            }
+);
+          }
+        }
+);
+      }
+    }
+);
+    Logger.d("MediaActivity","Remote =(");
+  }
+ else   if (document.getSource() instanceof FileLocalSource) {
+    final String path=((FileLocalSource)document.getSource()).getFileDescriptor();
+    transitionImageView.request(new RawFileTask(path));
+  }
+}

@@ -22,7 +22,7 @@
   transitionImageView=(ImageKitView)findViewById(R.id.image);
   ownerAvatarView=(AvatarView)findViewById(R.id.avatar);
   ownerNameView=(TextView)findViewById(R.id.name);
-  listView=(RecyclerView)findViewById(R.id.mediaList);
+  recyclerView=(RecyclerView)findViewById(R.id.mediaList);
   emptyView=findViewById(R.id.noMedia);
   viewPager=(ViewPager)findViewById(R.id.pager);
   showGrid();

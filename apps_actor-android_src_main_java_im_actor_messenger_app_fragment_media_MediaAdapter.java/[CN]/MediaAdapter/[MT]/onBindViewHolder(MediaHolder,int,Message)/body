@@ -2,13 +2,7 @@
   mediaHolder.bind(item,index,context);
   mediaHolder.itemView.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      onItemClickListener.onClicked(item);
-    }
-  }
-);
-  mediaHolder.itemView.setOnLongClickListener(new View.OnLongClickListener(){
-    @Override public boolean onLongClick(    View v){
-      return onItemClickListener.onLongClicked(item);
+      onItemClickListener.onClick(mediaHolder,item);
     }
   }
 );
