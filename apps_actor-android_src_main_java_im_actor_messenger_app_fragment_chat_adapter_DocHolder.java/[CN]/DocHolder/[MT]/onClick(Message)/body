@@ -2,7 +2,7 @@
   if (document.getSource() instanceof FileRemoteSource) {
     FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
     final FileReference location=remoteSource.getFileReference();
-    messenger().requestState(location.getFileId(),new DownloadCallback(){
+    messenger().requestState(location.getFileId(),new FileCallback(){
       @Override public void onNotDownloaded(){
         messenger().startDownloading(location);
       }
@@ -22,7 +22,7 @@
 );
   }
  else   if (document.getSource() instanceof FileLocalSource) {
-    messenger().requestUploadState(currentMessage.getRid(),new UploadCallback(){
+    messenger().requestUploadState(currentMessage.getRid(),new UploadFileCallback(){
       @Override public void onNotUploading(){
         messenger().resumeUpload(currentMessage.getRid());
       }

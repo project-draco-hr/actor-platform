@@ -10,7 +10,7 @@
     return;
   }
   queueItem.progress=progress;
-  for (  final DownloadCallback fileCallback : queueItem.callbacks) {
+  for (  final FileCallback fileCallback : queueItem.callbacks) {
     Environment.dispatchCallback(new Runnable(){
       @Override public void run(){
         fileCallback.onDownloading(progress);

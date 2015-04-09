@@ -7,5 +7,4 @@
   this.isDialogsLoaded=modules.getPreferences().getBool("app.dialogs.loaded",false);
   this.isContactsLoaded=modules.getPreferences().getBool("app.contacts.loaded",false);
   this.isAppLoaded=new ValueModel<Boolean>("app.loaded",isBookImported && isDialogsLoaded && isContactsLoaded);
-  Log.d("AppStateVM","init: " + isBookImported);
 }

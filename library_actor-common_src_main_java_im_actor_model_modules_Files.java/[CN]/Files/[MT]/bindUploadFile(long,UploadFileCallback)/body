@@ -1,0 +1,3 @@
+{
+  uploadManager.send(new UploadManager.BindUpload(rid,uploadFileCallback));
+}

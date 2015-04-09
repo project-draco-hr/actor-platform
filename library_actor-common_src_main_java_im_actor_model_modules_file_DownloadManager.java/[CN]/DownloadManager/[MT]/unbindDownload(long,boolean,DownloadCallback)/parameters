@@ -1,3 +1,0 @@
-long fileId
-boolean autoCancel
-DownloadCallback callback

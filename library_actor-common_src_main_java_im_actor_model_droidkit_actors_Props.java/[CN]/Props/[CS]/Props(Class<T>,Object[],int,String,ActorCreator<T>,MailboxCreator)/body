@@ -1,8 +1,0 @@
-{
-  this.aClass=aClass;
-  this.args=args;
-  this.type=type;
-  this.creator=creator;
-  this.mailboxCreator=mailboxCreator;
-  this.dispatcher=dispatcher;
-}

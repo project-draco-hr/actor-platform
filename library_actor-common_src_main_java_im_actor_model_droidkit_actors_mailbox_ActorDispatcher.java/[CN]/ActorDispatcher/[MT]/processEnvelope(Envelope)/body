@@ -12,9 +12,6 @@
     try {
       Actor actor=scope.getProps().create();
       actor.initActor(scope.getPath(),new ActorContext(scope),scope.getMailbox());
-      for (      ActorExtension e : actor.getExtensions()) {
-        e.preStart();
-      }
       actor.preStart();
       scope.onActorCreated(actor);
     }
@@ -30,14 +27,8 @@
     if (envelope.getMessage() == StartActor.INSTANCE) {
       return;
     }
- else     if (envelope.getMessage() == Ping.INSTANCE) {
-      return;
-    }
  else     if (envelope.getMessage() == PoisonPill.INSTANCE) {
       isDisconnected=true;
-      for (      ActorExtension e : scope.getActor().getExtensions()) {
-        e.postStop();
-      }
       scope.getActor().postStop();
       scope.onActorDie();
       for (      Envelope e : scope.getMailbox().allEnvelopes()) {
@@ -54,10 +45,9 @@ synchronized (LOCK) {
     }
  else {
       scope.setSender(envelope.getSender());
-      for (      ActorExtension e : scope.getActor().getExtensions()) {
-        if (e.onReceive(envelope.getMessage())) {
-          return;
-        }
+      if (envelope.getMessage() instanceof Runnable) {
+        ((Runnable)envelope.getMessage()).run();
+        return;
       }
       scope.getActor().onReceive(envelope.getMessage());
     }

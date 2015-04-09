@@ -21,7 +21,7 @@
       Log.d(TAG,"- Marking as stopped");
     }
     queueItem.isStopped=true;
-    for (    final DownloadCallback callback : queueItem.callbacks) {
+    for (    final FileCallback callback : queueItem.callbacks) {
       Environment.dispatchCallback(new Runnable(){
         @Override public void run(){
           callback.onNotDownloaded();

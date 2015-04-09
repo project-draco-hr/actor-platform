@@ -1,8 +1,0 @@
-{
-  AskContainer container=asks.remove(reqId);
-  if (container != null) {
-    container.ref.send(new TaskCancel(reqId),self);
-    return true;
-  }
-  return false;
-}

@@ -18,7 +18,7 @@
       queueItem.isStarted=false;
     }
     queue.remove(queueItem);
-    for (    final UploadCallback callback : queueItem.callbacks) {
+    for (    final UploadFileCallback callback : queueItem.callbacks) {
       Environment.dispatchCallback(new Runnable(){
         @Override public void run(){
           callback.onNotUploading();

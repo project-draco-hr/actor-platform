@@ -1,8 +1,0 @@
-{
-  AskContainer container=asks.remove(result.getRequestId());
-  if (container != null) {
-    container.future.onResult(result.getRes());
-    return true;
-  }
-  return false;
-}

@@ -1,3 +1,0 @@
-long fileId
-DownloadCallback callback
-boolean cancel
