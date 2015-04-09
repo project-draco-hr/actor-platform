@@ -1,5 +1,5 @@
 {
   setLog(new JavaLog());
   setNetworkProvider(new JavaNetworkProvider());
-  setLocale(new JavaLocale("En"));
+  setLocale(new JavaLocale(locale));
 }
