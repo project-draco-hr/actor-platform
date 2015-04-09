@@ -1,0 +1,4 @@
+{
+  Log.w(TAG,"Die: " + e);
+  e.printStackTrace();
+}

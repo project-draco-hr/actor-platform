@@ -1,0 +1,5 @@
+{
+  if (updates != null) {
+    updates.onUpdateReceived(obj);
+  }
+}

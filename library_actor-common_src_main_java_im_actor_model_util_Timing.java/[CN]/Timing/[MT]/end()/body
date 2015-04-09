@@ -1,0 +1,6 @@
+{
+  if (this.sectionName != null) {
+    Log.d(TAG,"" + this.sectionName + " loaded in "+ (sectionStart - ActorTime.currentTime())+ " ms");
+    this.sectionName=null;
+  }
+}
