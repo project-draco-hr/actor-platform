@@ -1,4 +1,5 @@
 {
+  transitionImageView.setExtraReceiverCallback(null);
   transitionImageView.clear();
   transitionImageView.setAlpha(0f);
   showingPager=true;

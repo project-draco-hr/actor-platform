@@ -1,9 +1,12 @@
 {
+  if (transitionBackgroundView != null) {
+    transitionBackgroundView.setOnClickListener(null);
+  }
   Message media=displayList.getItem(selectedIndex);
   transitionImageView.setAlpha(1f);
   transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
     @Override public void onImageLoaded(    BitmapReference bitmap){
-      toolbar.setTitle("Media");
+      toolbar.setTitle(R.string.media);
       showingPager=false;
       viewPager.setAlpha(0);
       viewPager.setVisibility(View.GONE);
@@ -18,15 +21,21 @@
       goneView(viewPager,false);
       transitionImageView.postDelayed(new Runnable(){
         @Override public void run(){
+          invalidateOptionsMenu();
           transitionImageView.clear();
           transitionImageView.setAlpha(0f);
+          transitionBackgroundView.setAlpha(0f);
+          transitionBackgroundView.setOnClickListener(null);
+          viewPager.setAdapter(null);
         }
       }
 ,300 * MediaFullscreenAnimationUtils.animationMultiplier);
     }
     @Override public void onImageCleared(){
+      Log.d("Media Activity","cleared");
     }
     @Override public void onImageError(){
+      Log.d("Media Activity","error");
     }
   }
 );
@@ -42,9 +51,9 @@
       @Override public void onDownloaded(      final FileSystemReference reference){
         MVVMEngine.runOnUiThread(new Runnable(){
           @Override public void run(){
-            transitionImageView.request(new RawFileTask(reference.getDescriptor()));
             transitionImageView.post(new Runnable(){
               @Override public void run(){
+                transitionImageView.request(new RawFileTask(reference.getDescriptor()));
               }
             }
 );

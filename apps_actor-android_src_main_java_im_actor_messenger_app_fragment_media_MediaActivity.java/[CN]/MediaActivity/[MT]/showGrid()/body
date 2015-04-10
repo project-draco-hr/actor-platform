@@ -12,6 +12,7 @@
   displayList=messenger().buildMediaList(peer);
   adapter=new MediaAdapter(displayList,new OnMediaClickListener(){
     @Override public void onClick(    final MediaAdapter.MediaHolder holder,    Message item){
+      viewPager.setAdapter(pagerAdapter);
       final View view=holder.itemView;
       transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
         @Override public void onImageLoaded(        BitmapReference bitmapRef){
@@ -68,6 +69,7 @@
     }
   }
 ,this);
+  pagerAdapter=new MediaPagerAdapter(displayList,this);
   toolbar.post(new Runnable(){
     @Override public void run(){
       int toolbarHeight=toolbar.getHeight();
@@ -77,5 +79,5 @@
 );
   recyclerView.setLayoutManager(new GridLayoutManager(this,getResources().getInteger(R.integer.gallery_items_count)));
   recyclerView.setAdapter(adapter);
-  viewPager.setAdapter(new MediaPagerAdapter(displayList,this));
+  viewPager.setAdapter(pagerAdapter);
 }
