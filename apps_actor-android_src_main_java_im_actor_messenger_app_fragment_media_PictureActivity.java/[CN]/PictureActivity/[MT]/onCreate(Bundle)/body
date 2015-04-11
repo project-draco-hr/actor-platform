@@ -24,6 +24,7 @@
   transitionHeight=bundle.getInt(ARG_IMAGE_HEIGHT,0);
   transitionView=(ImageKitView)findViewById(R.id.transition);
   backgroundView=findViewById(R.id.background);
+  containerView=findViewById(R.id.container);
   transitionView.setExtraReceiverCallback(new ReceiverCallback(){
     @Override public void onImageLoaded(    BitmapReference bitmapRef){
       bitmap=bitmapRef.getBitmap();
@@ -33,9 +34,6 @@
           fragment.setArguments(bundle);
           getSupportFragmentManager().beginTransaction().add(R.id.container,fragment).commit();
           transitionView.setExtraReceiverCallback(null);
-          transitionView.clear();
-          transitionView.setAlpha(0f);
-          transitionView.setVisibility(View.GONE);
         }
       }
 );

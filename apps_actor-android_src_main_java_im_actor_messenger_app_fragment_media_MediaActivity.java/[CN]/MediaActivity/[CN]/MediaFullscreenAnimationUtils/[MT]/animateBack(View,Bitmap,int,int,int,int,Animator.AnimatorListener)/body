@@ -1,4 +1,5 @@
 {
+  transitionView.clearAnimation();
   float bitmapWidth=bitmap.getWidth();
   float bitmapHeight=bitmap.getHeight();
   float screenWidth=Screen.getWidth();
