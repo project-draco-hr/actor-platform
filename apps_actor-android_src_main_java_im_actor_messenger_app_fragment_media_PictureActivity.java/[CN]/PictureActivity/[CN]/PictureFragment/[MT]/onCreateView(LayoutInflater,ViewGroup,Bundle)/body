@@ -70,14 +70,7 @@
   ownerNameView.setText(owner.getName().get());
   backgroundView=null;
   Activity activity=getActivity();
-  if (activity instanceof PictureActivity) {
-    backgroundView=((PictureActivity)activity).backgroundView;
-  }
- else {
-    if (activity instanceof MediaActivity) {
-      backgroundView=((MediaActivity)activity).transitionBackgroundView;
-    }
-  }
+  backgroundView=rootView.findViewById(R.id.background);
   if (backgroundView != null)   backgroundView.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (!uiIsHidden) {

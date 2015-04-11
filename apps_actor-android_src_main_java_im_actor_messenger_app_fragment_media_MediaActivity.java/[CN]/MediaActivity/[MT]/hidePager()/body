@@ -1,7 +1,4 @@
 {
-  if (transitionBackgroundView != null) {
-    transitionBackgroundView.setOnClickListener(null);
-  }
   Message media=displayList.getItem(selectedIndex);
   transitionImageView.setAlpha(1f);
   transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){

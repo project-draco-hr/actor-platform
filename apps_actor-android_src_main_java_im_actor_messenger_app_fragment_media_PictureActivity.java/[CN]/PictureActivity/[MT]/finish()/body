@@ -1,19 +1,17 @@
 {
-  transitionView.setVisibility(View.VISIBLE);
-  transitionView.setAlpha(1f);
-  transitionView.request(new RawFileTask(path));
-  transitionView.post(new Runnable(){
+  transitionView.animate().setStartDelay(0).setDuration(0).alpha(1).start();
+  transitionView.postDelayed(new Runnable(){
     @Override public void run(){
       getSupportFragmentManager().beginTransaction().remove(fragment).commit();
       containerView.setVisibility(View.GONE);
       MediaActivity.MediaFullscreenAnimationUtils.animateBack(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
         @Override public void onAnimationEnd(        Animator animation){
-          superFinish();
+          PictureActivity.super.finish();
         }
       }
 );
       MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundBack(backgroundView);
     }
   }
-);
+,50);
 }
