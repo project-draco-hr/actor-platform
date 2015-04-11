@@ -28,17 +28,15 @@
     xPadding=screenWidth / 2 - (bitmapWidth / 2);
     yPadding=(bitmapHeight * (endScale - 1)) / 2;
   }
+  transitionView.animate().setInterpolator(new MaterialInterpolator()).setStartDelay(0).setDuration(0).setInterpolator(new MaterialInterpolator()).x(xPadding).y(yPadding).scaleX(endScale).scaleY(endScale).start();
   final float finalBitmapWidth=bitmapWidth;
   final float finalBitmapHeight=bitmapHeight;
   final float finalXPadding=xPadding;
   final float finalYPadding=yPadding;
-  AnimationSet animation=new AnimationSet(true);
-  animation.setStartOffset(startDelay);
-  animation.setInterpolator(new MaterialInterpolator());
-  animation.setDuration(300 * animationMultiplier);
-  TranslateAnimation translateAnimation=new TranslateAnimation(finalXPadding,transitionLeft + (finalBitmapWidth * (finishScaleWidth - 1) / 2),finalYPadding,transitionTop + (finalBitmapHeight * (finishScaleHeight - 1) / 2));
-  ScaleAnimation scaleAnimation=new ScaleAnimation(endScale,finishScaleWidth,endScale,finishScaleHeight);
-  animation.addAnimation(translateAnimation);
-  animation.addAnimation(scaleAnimation);
-  transitionView.startAnimation(animation);
+  transitionView.post(new Runnable(){
+    @Override public void run(){
+      transitionView.animate().setStartDelay(startDelay).setInterpolator(new MaterialInterpolator()).setDuration(300 * animationMultiplier).x(transitionLeft + (finalBitmapWidth * (finishScaleWidth - 1) / 2)).y(transitionTop + (finalBitmapHeight * (finishScaleHeight - 1) / 2)).scaleX(finishScaleWidth).scaleY(finishScaleHeight).setListener(listener).start();
+    }
+  }
+);
 }

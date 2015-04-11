@@ -19,15 +19,14 @@
           Bitmap bitmap=bitmapRef.getBitmap();
           int[] location=new int[2];
           view.getLocationInWindow(location);
-          MediaFullscreenAnimationUtils.animateForward(transitionImageView,bitmap,location[0],location[1],view.getWidth(),view.getHeight());
-          MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView);
-          transitionImageView.postDelayed(new Runnable(){
-            @Override public void run(){
+          MediaFullscreenAnimationUtils.animateForward(transitionImageView,bitmap,location[0],location[1],view.getWidth(),view.getHeight(),new AnimatorListenerAdapter(){
+            @Override public void onAnimationEnd(            Animator animation){
               selectedIndex=holder.getPosition();
               showPager();
             }
           }
-,450 * MediaFullscreenAnimationUtils.animationMultiplier + MediaFullscreenAnimationUtils.startDelay);
+);
+          MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView);
         }
         @Override public void onImageCleared(){
         }

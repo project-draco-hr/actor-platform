@@ -15,12 +15,8 @@
       int[] location=new int[2];
       selectedView.getLocationInWindow(location);
       transitionImageView.setExtraReceiverCallback(null);
-      MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap.getBitmap(),location[0],location[1],selectedView.getWidth(),selectedView.getHeight());
-      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView);
-      viewPager.setAlpha(0);
-      goneView(viewPager,false);
-      transitionImageView.postDelayed(new Runnable(){
-        @Override public void run(){
+      MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap.getBitmap(),location[0],location[1],selectedView.getWidth(),selectedView.getHeight(),new AnimatorListenerAdapter(){
+        @Override public void onAnimationEnd(        Animator animation){
           invalidateOptionsMenu();
           transitionImageView.clear();
           transitionImageView.setAlpha(0f);
@@ -29,7 +25,10 @@
           viewPager.setAdapter(null);
         }
       }
-,300 * MediaFullscreenAnimationUtils.animationMultiplier);
+);
+      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView);
+      viewPager.setAlpha(0);
+      goneView(viewPager,false);
     }
     @Override public void onImageCleared(){
       Log.d("Media Activity","cleared");

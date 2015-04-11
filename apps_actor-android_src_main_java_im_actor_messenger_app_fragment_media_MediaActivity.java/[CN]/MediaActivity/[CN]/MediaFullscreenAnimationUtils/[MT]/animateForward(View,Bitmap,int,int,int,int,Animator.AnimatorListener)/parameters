@@ -4,3 +4,4 @@ int transitionLeft
 int transitionTop
 int transitionWidth
 int transitionHeight
+Animator.AnimatorListener listener

@@ -27,21 +27,18 @@
   transitionView.setExtraReceiverCallback(new ReceiverCallback(){
     @Override public void onImageLoaded(    BitmapReference bitmapRef){
       bitmap=bitmapRef.getBitmap();
-      transitionView.postDelayed(new Runnable(){
-        @Override public void run(){
-          if (savedInstanceState == null) {
-            fragment=new PictureFragment();
-            fragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().add(R.id.container,fragment).commit();
-          }
+      MediaActivity.MediaFullscreenAnimationUtils.animateForward(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
+        @Override public void onAnimationEnd(        Animator animation){
+          fragment=new PictureFragment();
+          fragment.setArguments(bundle);
+          getSupportFragmentManager().beginTransaction().add(R.id.container,fragment).commit();
           transitionView.setExtraReceiverCallback(null);
           transitionView.clear();
           transitionView.setAlpha(0f);
           transitionView.setVisibility(View.GONE);
         }
       }
-,450 * MediaActivity.MediaFullscreenAnimationUtils.animationMultiplier + MediaActivity.MediaFullscreenAnimationUtils.startDelay * 2);
-      MediaActivity.MediaFullscreenAnimationUtils.animateForward(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight);
+);
       MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundForward(backgroundView);
     }
     @Override public void onImageCleared(){
