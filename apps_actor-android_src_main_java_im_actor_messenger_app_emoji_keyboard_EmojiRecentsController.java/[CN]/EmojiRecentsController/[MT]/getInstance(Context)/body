@@ -1,0 +1,10 @@
+{
+  if (sInstance == null) {
+synchronized (LOCK) {
+      if (sInstance == null) {
+        sInstance=new EmojiRecentsController(context);
+      }
+    }
+  }
+  return sInstance;
+}

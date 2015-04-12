@@ -1,0 +1,6 @@
+Context context
+EmojiProcessor processor
+long[] smileyIds
+int smileysInRow
+int smileySize
+int smileyPadding

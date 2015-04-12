@@ -1,0 +1,4 @@
+{
+  if (isSoftwareKeyBoardOpen())   showAtBottom();
+ else   pendingOpen=true;
+}
