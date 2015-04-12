@@ -131,4 +131,23 @@
     }
   }
 );
+  if (Build.VERSION.SDK_INT >= 19) {
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    contentTopPadding=Screen.getStatusBarHeight();
+    RelativeLayout.LayoutParams params=(RelativeLayout.LayoutParams)findViewById(R.id.pager_container).getLayoutParams();
+    params.topMargin=contentTopPadding;
+    findViewById(R.id.pager_container).setLayoutParams(params);
+    params=(RelativeLayout.LayoutParams)backToTopArrow.getLayoutParams();
+    params.topMargin=contentTopPadding + params.topMargin;
+    backToTopArrow.setLayoutParams(params);
+    params=(RelativeLayout.LayoutParams)welcomeImage.getLayoutParams();
+    params.topMargin=contentTopPadding + params.topMargin;
+    welcomeImage.setLayoutParams(params);
+    params=(RelativeLayout.LayoutParams)welcomeText.getLayoutParams();
+    params.topMargin=contentTopPadding + params.topMargin;
+    welcomeText.setLayoutParams(params);
+    params=(RelativeLayout.LayoutParams)backToTopText.getLayoutParams();
+    params.topMargin=contentTopPadding + params.topMargin;
+    backToTopText.setLayoutParams(params);
+  }
 }

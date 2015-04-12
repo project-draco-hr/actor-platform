@@ -1,0 +1,6 @@
+{
+  View itemView=LayoutInflater.from(context).inflate(R.layout.adapter_sticker,parent,false);
+  return new RecyclerView.ViewHolder(itemView){
+  }
+;
+}

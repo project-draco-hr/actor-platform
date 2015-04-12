@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(context,MediaActivity.class);
+  intent.putExtra(ARG_CHAT_TYPE,chatType);
+  intent.putExtra(ARG_CHAT_ID,chatId);
+  intent.putExtra(ARG_VIEW_TYPE,VIEW_TYPE_GRID);
+  return intent;
+}

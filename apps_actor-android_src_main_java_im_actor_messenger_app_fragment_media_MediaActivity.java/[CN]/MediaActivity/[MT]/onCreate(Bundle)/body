@@ -1,0 +1,29 @@
+{
+  super.onCreate(savedInstanceState);
+  if (Build.VERSION.SDK_INT >= 19) {
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  }
+  setContentView(R.layout.activity_media);
+  activityIntent=getIntent();
+  toolbar=(Toolbar)findViewById(R.id.toolbar);
+  setSupportActionBar(toolbar);
+  actionBar=getSupportActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayShowHomeEnabled(false);
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayShowTitleEnabled(true);
+  actionBar.setDisplayShowCustomEnabled(false);
+  getSupportActionBar().setTitle(R.string.media);
+  int statbarHeight=Screen.getStatusBarHeight();
+  if (Build.VERSION.SDK_INT >= 19) {
+    toolbar.setPadding(0,statbarHeight,0,0);
+  }
+  transitionBackgroundView=findViewById(R.id.fullscreenBackground);
+  transitionImageView=(ImageKitView)findViewById(R.id.image);
+  ownerAvatarView=(AvatarView)findViewById(R.id.avatar);
+  ownerNameView=(TextView)findViewById(R.id.name);
+  recyclerView=(RecyclerView)findViewById(R.id.mediaList);
+  emptyView=findViewById(R.id.noMedia);
+  viewPager=(ViewPager)findViewById(R.id.pager);
+  showGrid();
+}

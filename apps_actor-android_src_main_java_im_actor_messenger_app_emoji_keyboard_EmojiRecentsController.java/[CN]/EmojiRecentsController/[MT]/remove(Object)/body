@@ -1,0 +1,4 @@
+{
+  boolean ret=super.remove(object);
+  return ret;
+}

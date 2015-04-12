@@ -1,0 +1,76 @@
+{
+  Message media=displayList.getItem(selectedIndex);
+  transitionImageView.setVisibility(View.VISIBLE);
+  transitionImageView.animate().setStartDelay(0).setDuration(0).alpha(1).setListener(null).start();
+  transitionBackgroundView.setVisibility(View.VISIBLE);
+  transitionBackgroundView.setAlpha(1);
+  transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
+    @Override public void onImageLoaded(    final BitmapReference bitmap){
+      toolbar.setTitle(R.string.media);
+      showingPager=false;
+      viewPager.setAdapter(null);
+      viewPager.setAlpha(0);
+      viewPager.setVisibility(View.GONE);
+      int firstVisiblePosition=((GridLayoutManager)recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+      final View selectedView=recyclerView.getChildAt(selectedIndex - firstVisiblePosition);
+      final int[] location=new int[2];
+      selectedView.getLocationInWindow(location);
+      transitionImageView.setExtraReceiverCallback(null);
+      MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap.getBitmap(),location[0],location[1],selectedView.getWidth(),selectedView.getHeight(),new AnimatorListenerAdapter(){
+        @Override public void onAnimationEnd(        Animator animation){
+          invalidateOptionsMenu();
+          toolbar.setTitle(R.string.media);
+          transitionImageView.clear();
+          transitionImageView.setAlpha(0f);
+          transitionBackgroundView.setAlpha(0f);
+          transitionBackgroundView.setOnClickListener(null);
+          transitionBackgroundView.setVisibility(View.GONE);
+        }
+      }
+);
+      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView,null);
+    }
+    @Override public void onImageCleared(){
+      Log.d("Media Activity","cleared");
+    }
+    @Override public void onImageError(){
+      Log.d("Media Activity","error");
+    }
+  }
+);
+  final DocumentContent document=(DocumentContent)media.getContent();
+  if (document.getSource() instanceof FileRemoteSource) {
+    FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
+    final FileReference location=remoteSource.getFileReference();
+    messenger().requestState(location.getFileId(),new FileCallback(){
+      @Override public void onNotDownloaded(){
+      }
+      @Override public void onDownloading(      float progress){
+      }
+      @Override public void onDownloaded(      final FileSystemReference reference){
+        MVVMEngine.runOnUiThread(new Runnable(){
+          @Override public void run(){
+            transitionImageView.postDelayed(new Runnable(){
+              @Override public void run(){
+                transitionImageView.request(new RawFileTask(reference.getDescriptor()));
+              }
+            }
+,50);
+          }
+        }
+);
+      }
+    }
+);
+    Logger.d("MediaActivity","Remote =(");
+  }
+ else   if (document.getSource() instanceof FileLocalSource) {
+    final String path=((FileLocalSource)document.getSource()).getFileDescriptor();
+    transitionImageView.postDelayed(new Runnable(){
+      @Override public void run(){
+        transitionImageView.request(new RawFileTask(path));
+      }
+    }
+,50);
+  }
+}

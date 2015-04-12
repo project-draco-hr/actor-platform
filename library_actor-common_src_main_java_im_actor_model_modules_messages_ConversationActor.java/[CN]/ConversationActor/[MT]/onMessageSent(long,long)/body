@@ -9,7 +9,15 @@
       }
     }
     savePending();
-    messages.addOrUpdateItem(msg.changeDate(date).changeState(MessageState.SENT));
+    Message updatedMsg=msg.changeDate(date).changeState(MessageState.SENT);
+    messages.addOrUpdateItem(updatedMsg);
+    if (updatedMsg.getContent() instanceof PhotoContent || updatedMsg.getContent() instanceof VideoContent) {
+      media.addOrUpdateItem(updatedMsg);
+    }
+ else {
+      if (updatedMsg.getContent() instanceof DocumentContent) {
+      }
+    }
     dialogsActor.send(new DialogsActor.MessageSent(peer,rid,date));
   }
 }

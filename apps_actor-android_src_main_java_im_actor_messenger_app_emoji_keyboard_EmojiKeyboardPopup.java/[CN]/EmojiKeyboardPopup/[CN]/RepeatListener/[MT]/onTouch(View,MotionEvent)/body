@@ -1,0 +1,17 @@
+{
+switch (motionEvent.getAction()) {
+case MotionEvent.ACTION_DOWN:
+    downView=view;
+  handler.removeCallbacks(handlerRunnable);
+handler.postAtTime(handlerRunnable,downView,SystemClock.uptimeMillis() + initialInterval);
+clickListener.onClick(view);
+return true;
+case MotionEvent.ACTION_UP:
+case MotionEvent.ACTION_CANCEL:
+case MotionEvent.ACTION_OUTSIDE:
+handler.removeCallbacksAndMessages(downView);
+downView=null;
+return true;
+}
+return false;
+}

@@ -1,5 +1,6 @@
 {
   messages=messages(peer);
+  media=media(peer);
   messagesStorage=new OutUnreadMessagesStorage();
   byte[] data=pendingKeyValue.get(peer.getUnuqueId());
   if (data != null) {

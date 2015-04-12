@@ -1,0 +1,3 @@
+{
+  return getPreferences().getInt(PREF_PAGE,0);
+}

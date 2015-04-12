@@ -1,7 +1,15 @@
 {
   Message msg=messages.getValue(rid);
   if (msg != null && (msg.getMessageState() == MessageState.PENDING || msg.getMessageState() == MessageState.SENT)) {
-    messages.addOrUpdateItem(msg.changeState(MessageState.ERROR));
+    Message updatedMsg=msg.changeState(MessageState.ERROR);
+    messages.addOrUpdateItem(updatedMsg);
+    if (updatedMsg.getContent() instanceof PhotoContent || updatedMsg.getContent() instanceof VideoContent) {
+      media.addOrUpdateItem(updatedMsg);
+    }
+ else {
+      if (updatedMsg.getContent() instanceof DocumentContent) {
+      }
+    }
     dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
   }
 }

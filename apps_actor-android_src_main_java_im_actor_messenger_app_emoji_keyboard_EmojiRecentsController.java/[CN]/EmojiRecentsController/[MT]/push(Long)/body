@@ -1,0 +1,6 @@
+{
+  if (contains(object)) {
+    super.remove(object);
+  }
+  add(0,object);
+}

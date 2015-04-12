@@ -1,0 +1,5 @@
+{
+  Intent intent=new Intent(context,MediaActivity.class);
+  intent.putExtra(EXTRA_PEER_UNIQ_ID,peer.getUnuqueId());
+  return intent;
+}

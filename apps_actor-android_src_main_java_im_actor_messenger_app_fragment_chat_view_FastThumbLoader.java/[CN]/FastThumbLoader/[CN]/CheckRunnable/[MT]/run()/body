@@ -9,7 +9,7 @@ synchronized (LOCKER) {
     d=data;
   }
   try {
-    final Bitmap res=ImageLoading.loadBitmap(d);
+    final Bitmap res=blur ? BitmapUtil.fastBlur(ImageLoading.loadBitmap(d),blurRadius) : ImageLoading.loadBitmap(d);
     MVVMEngine.runOnUiThread(new Runnable(){
       @Override public void run(){
 synchronized (LOCKER) {

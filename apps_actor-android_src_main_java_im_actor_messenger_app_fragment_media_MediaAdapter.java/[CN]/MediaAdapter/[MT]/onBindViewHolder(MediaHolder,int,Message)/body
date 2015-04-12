@@ -1,0 +1,9 @@
+{
+  mediaHolder.bind(item,index,context);
+  mediaHolder.itemView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onItemClickListener.onClick(mediaHolder,item);
+    }
+  }
+);
+}

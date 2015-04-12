@@ -1,0 +1,17 @@
+{
+  transitionView.setAlpha(1f);
+  transitionView.postDelayed(new Runnable(){
+    @Override public void run(){
+      getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+      containerView.setVisibility(View.GONE);
+      MediaActivity.MediaFullscreenAnimationUtils.animateBack(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
+        @Override public void onAnimationEnd(        Animator animation){
+          PictureActivity.super.finish();
+        }
+      }
+);
+      MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundBack(backgroundView,null);
+    }
+  }
+,50);
+}

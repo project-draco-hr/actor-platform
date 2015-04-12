@@ -1,0 +1,87 @@
+{
+  View rootView=inflater.inflate(R.layout.fragment_media_picture,container,false);
+  final Bundle bundle=getArguments();
+  path=bundle.getString(ARG_FILE_PATH);
+  fileId=bundle.getLong(ARG_FILE_ID);
+  int sender=bundle.getInt(ARG_OWNER,0);
+  circularView=(CircularView)rootView.findViewById(R.id.progress);
+  circularView.setValue(50);
+  imageView=(ImageKitView)rootView.findViewById(R.id.image);
+  imageView.setExtraReceiverCallback(new ReceiverCallback(){
+    @Override public void onImageLoaded(    BitmapReference bitmap){
+      attacher=new PhotoViewAttacher(imageView);
+      attacher.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener(){
+        @Override public boolean onSingleTapConfirmed(        MotionEvent e){
+          if (!uiIsHidden) {
+            hideSystemUi();
+          }
+ else {
+            showSystemUi();
+          }
+          return false;
+        }
+        @Override public boolean onDoubleTap(        MotionEvent e){
+          if (!uiIsHidden)           hideSystemUi();
+          return true;
+        }
+        @Override public boolean onDoubleTapEvent(        MotionEvent e){
+          return true;
+        }
+      }
+);
+    }
+    @Override public void onImageCleared(){
+    }
+    @Override public void onImageError(){
+    }
+  }
+);
+  if (path == null) {
+    messenger().requestState(fileId,new FileCallback(){
+      @Override public void onNotDownloaded(){
+        Toast.makeText(getActivity(),"File is not loaded :O",Toast.LENGTH_SHORT).show();
+      }
+      @Override public void onDownloading(      float progress){
+      }
+      @Override public void onDownloaded(      final FileSystemReference reference){
+        MVVMEngine.runOnUiThread(new Runnable(){
+          @Override public void run(){
+            path=reference.getDescriptor();
+            imageView.request(new RawFileTask(path));
+          }
+        }
+);
+      }
+    }
+);
+  }
+ else {
+    imageView.request(new RawFileTask(path));
+  }
+  ownerAvatarView=(AvatarView)rootView.findViewById(R.id.avatar);
+  ownerNameView=(TextView)rootView.findViewById(R.id.name);
+  ownerContainer=rootView.findViewById(R.id.ownerContainer);
+  if (Build.VERSION.SDK_INT >= 19) {
+    ownerContainer.setPadding(0,0,0,Screen.getNavbarHeight());
+  }
+  UserVM owner=users().get(sender);
+  ownerAvatarView.init(Screen.dp(48),18);
+  ownerAvatarView.bind(owner);
+  ownerNameView.setText(owner.getName().get());
+  backgroundView=null;
+  Activity activity=getActivity();
+  backgroundView=rootView.findViewById(R.id.background);
+  if (backgroundView != null)   backgroundView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (!uiIsHidden) {
+        hideSystemUi();
+      }
+ else {
+        showSystemUi();
+      }
+    }
+  }
+);
+  ownerContainer.setVisibility(View.GONE);
+  return rootView;
+}

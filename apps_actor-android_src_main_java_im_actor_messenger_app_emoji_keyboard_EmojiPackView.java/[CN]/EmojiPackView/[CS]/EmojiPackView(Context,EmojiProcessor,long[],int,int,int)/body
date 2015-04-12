@@ -1,0 +1,20 @@
+{
+  super(context);
+  this.rowCount=(int)Math.ceil((float)smileyIds.length / smileysInRow);
+  this.processor=processor;
+  this.smileyIds=smileyIds;
+  this.countInRow=smileysInRow;
+  this.smileySize=smileySize;
+  this.smileyPadding=smileyPadding;
+  this.smileySrcSize=processor.getRectSize();
+  smileysSections=new int[smileyIds.length];
+  smileysX=new int[smileyIds.length];
+  smileysY=new int[smileyIds.length];
+  for (int i=0; i < smileyIds.length; i++) {
+    smileysSections[i]=processor.getSectionIndex(smileyIds[i]);
+    smileysX[i]=processor.getSectionX(smileyIds[i]);
+    smileysY[i]=processor.getSectionY(smileyIds[i]);
+  }
+  this.paint.setAntiAlias(true);
+  this.paint.setFlags(Paint.FILTER_BITMAP_FLAG);
+}
