@@ -1,4 +1,0 @@
-{
-  backgroundView.setAlpha(0);
-  backgroundView.animate().setDuration(450 * animationMultiplier).setInterpolator(new MaterialInterpolator()).alpha(1).start();
-}

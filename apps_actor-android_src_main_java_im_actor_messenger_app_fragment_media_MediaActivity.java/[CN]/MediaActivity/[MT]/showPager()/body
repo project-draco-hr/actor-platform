@@ -1,7 +1,8 @@
 {
-  transitionImageView.setExtraReceiverCallback(null);
   transitionImageView.clear();
   transitionImageView.setAlpha(0f);
+  transitionBackgroundView.setAlpha(0f);
+  transitionBackgroundView.setVisibility(View.GONE);
   showingPager=true;
   viewPager.setVisibility(View.VISIBLE);
   viewPager.setAlpha(1);

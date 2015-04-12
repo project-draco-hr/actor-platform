@@ -29,7 +29,7 @@
     xPadding=screenWidth / 2 - (bitmapWidth / 2);
     yPadding=(bitmapHeight * (endScale - 1)) / 2;
   }
-  transitionView.animate().setInterpolator(new MaterialInterpolator()).setStartDelay(0).setDuration(0).setInterpolator(new MaterialInterpolator()).x(xPadding).y(yPadding).scaleX(endScale).scaleY(endScale).start();
+  transitionView.animate().setInterpolator(new MaterialInterpolator()).setStartDelay(0).setDuration(0).setInterpolator(new MaterialInterpolator()).x(xPadding).y(yPadding).scaleX(endScale).scaleY(endScale).setListener(null).start();
   final float finalBitmapWidth=bitmapWidth;
   final float finalBitmapHeight=bitmapHeight;
   final float finalXPadding=xPadding;

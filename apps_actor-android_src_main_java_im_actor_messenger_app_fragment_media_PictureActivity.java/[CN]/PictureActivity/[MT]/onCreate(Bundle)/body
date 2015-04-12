@@ -40,7 +40,7 @@
         }
       }
 );
-      MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundForward(backgroundView);
+      MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundForward(backgroundView,null);
     }
     @Override public void onImageCleared(){
     }

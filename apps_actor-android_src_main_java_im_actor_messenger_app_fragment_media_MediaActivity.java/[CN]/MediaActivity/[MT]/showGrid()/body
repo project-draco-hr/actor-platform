@@ -13,11 +13,16 @@
   adapter=new MediaAdapter(displayList,new OnMediaClickListener(){
     @Override public void onClick(    final MediaAdapter.MediaHolder holder,    Message item){
       viewPager.setAdapter(pagerAdapter);
+      viewPager.setVisibility(View.VISIBLE);
+      viewPager.setAlpha(0);
+      transitionBackgroundView.setVisibility(View.VISIBLE);
+      transitionBackgroundView.setAlpha(0);
       final View view=holder.itemView;
       transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
         @Override public void onImageLoaded(        BitmapReference bitmapRef){
           Bitmap bitmap=bitmapRef.getBitmap();
           int[] location=new int[2];
+          transitionImageView.setExtraReceiverCallback(null);
           view.getLocationInWindow(location);
           MediaFullscreenAnimationUtils.animateForward(transitionImageView,bitmap,location[0],location[1],view.getWidth(),view.getHeight(),new AnimatorListenerAdapter(){
             @Override public void onAnimationEnd(            Animator animation){
@@ -26,7 +31,12 @@
             }
           }
 );
-          MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView);
+          transitionBackgroundView.postDelayed(new Runnable(){
+            @Override public void run(){
+              MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView,null);
+            }
+          }
+,50);
         }
         @Override public void onImageCleared(){
         }
@@ -78,5 +88,4 @@
 );
   recyclerView.setLayoutManager(new GridLayoutManager(this,getResources().getInteger(R.integer.gallery_items_count)));
   recyclerView.setAdapter(adapter);
-  viewPager.setAdapter(pagerAdapter);
 }

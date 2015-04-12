@@ -13,7 +13,7 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setDisplayShowTitleEnabled(true);
   actionBar.setDisplayShowCustomEnabled(false);
-  getSupportActionBar().setTitle("Media");
+  getSupportActionBar().setTitle(R.string.media);
   int statbarHeight=Screen.getStatusBarHeight();
   if (Build.VERSION.SDK_INT >= 19) {
     toolbar.setPadding(0,statbarHeight,0,0);

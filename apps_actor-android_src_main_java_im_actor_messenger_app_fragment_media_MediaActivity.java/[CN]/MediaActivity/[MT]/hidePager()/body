@@ -1,31 +1,34 @@
 {
   Message media=displayList.getItem(selectedIndex);
-  transitionImageView.setAlpha(1f);
+  transitionImageView.setVisibility(View.VISIBLE);
+  transitionImageView.animate().setStartDelay(0).setDuration(0).alpha(1).setListener(null).start();
+  transitionBackgroundView.setVisibility(View.VISIBLE);
+  transitionBackgroundView.setAlpha(1);
   transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
-    @Override public void onImageLoaded(    BitmapReference bitmap){
+    @Override public void onImageLoaded(    final BitmapReference bitmap){
       toolbar.setTitle(R.string.media);
       showingPager=false;
+      viewPager.setAdapter(null);
       viewPager.setAlpha(0);
       viewPager.setVisibility(View.GONE);
       int firstVisiblePosition=((GridLayoutManager)recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-      View selectedView=recyclerView.getChildAt(selectedIndex - firstVisiblePosition);
-      int[] location=new int[2];
+      final View selectedView=recyclerView.getChildAt(selectedIndex - firstVisiblePosition);
+      final int[] location=new int[2];
       selectedView.getLocationInWindow(location);
       transitionImageView.setExtraReceiverCallback(null);
       MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap.getBitmap(),location[0],location[1],selectedView.getWidth(),selectedView.getHeight(),new AnimatorListenerAdapter(){
         @Override public void onAnimationEnd(        Animator animation){
           invalidateOptionsMenu();
+          toolbar.setTitle(R.string.media);
           transitionImageView.clear();
           transitionImageView.setAlpha(0f);
           transitionBackgroundView.setAlpha(0f);
           transitionBackgroundView.setOnClickListener(null);
-          viewPager.setAdapter(null);
+          transitionBackgroundView.setVisibility(View.GONE);
         }
       }
 );
-      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView);
-      viewPager.setAlpha(0);
-      goneView(viewPager,false);
+      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView,null);
     }
     @Override public void onImageCleared(){
       Log.d("Media Activity","cleared");
@@ -47,12 +50,12 @@
       @Override public void onDownloaded(      final FileSystemReference reference){
         MVVMEngine.runOnUiThread(new Runnable(){
           @Override public void run(){
-            transitionImageView.post(new Runnable(){
+            transitionImageView.postDelayed(new Runnable(){
               @Override public void run(){
                 transitionImageView.request(new RawFileTask(reference.getDescriptor()));
               }
             }
-);
+,50);
           }
         }
 );
@@ -63,6 +66,11 @@
   }
  else   if (document.getSource() instanceof FileLocalSource) {
     final String path=((FileLocalSource)document.getSource()).getFileDescriptor();
-    transitionImageView.request(new RawFileTask(path));
+    transitionImageView.postDelayed(new Runnable(){
+      @Override public void run(){
+        transitionImageView.request(new RawFileTask(path));
+      }
+    }
+,50);
   }
 }

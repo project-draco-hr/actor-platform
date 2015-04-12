@@ -1,5 +1,5 @@
 {
-  transitionView.animate().setStartDelay(0).setDuration(0).alpha(1).start();
+  transitionView.setAlpha(1f);
   transitionView.postDelayed(new Runnable(){
     @Override public void run(){
       getSupportFragmentManager().beginTransaction().remove(fragment).commit();
@@ -10,7 +10,7 @@
         }
       }
 );
-      MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundBack(backgroundView);
+      MediaActivity.MediaFullscreenAnimationUtils.animateBackgroundBack(backgroundView,null);
     }
   }
 ,50);
