@@ -1,0 +1,3 @@
+{
+  getPreferences().edit().putInt(PREF_PAGE,page).commit();
+}

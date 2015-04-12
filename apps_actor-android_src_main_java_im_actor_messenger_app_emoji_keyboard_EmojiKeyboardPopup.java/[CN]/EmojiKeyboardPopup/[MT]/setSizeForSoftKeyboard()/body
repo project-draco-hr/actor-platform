@@ -1,0 +1,41 @@
+{
+  rootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener(){
+    @Override public void onGlobalLayout(){
+      Rect r=new Rect();
+      rootView.getWindowVisibleDisplayFrame(r);
+      int screenHeight=rootView.getRootView().getHeight();
+      int heightDifference=screenHeight - (r.bottom - r.top);
+      int resourceId=mContext.getResources().getIdentifier("status_bar_height","dimen","android");
+      if (resourceId > 0) {
+        heightDifference-=mContext.getResources().getDimensionPixelSize(resourceId);
+      }
+      int orientation=mContext.getResources().getConfiguration().orientation;
+      int id=mContext.getResources().getIdentifier("config_showNavigationBar","bool","android");
+      if (id > 0) {
+        if (mContext.getResources().getBoolean(id)) {
+          int navbarResId=mContext.getResources().getIdentifier(orientation == Configuration.ORIENTATION_PORTRAIT ? "navigation_bar_height" : "navigation_bar_height_landscape","dimen","android");
+          if (navbarResId > 0) {
+            heightDifference-=mContext.getResources().getDimensionPixelSize(navbarResId);
+          }
+        }
+      }
+      if (heightDifference > 100) {
+        keyBoardHeight=heightDifference;
+        setSize(LayoutParams.MATCH_PARENT,keyBoardHeight);
+        if (isOpened == false) {
+          if (onSoftKeyboardOpenCloseListener != null)           onSoftKeyboardOpenCloseListener.onKeyboardOpen(keyBoardHeight);
+        }
+        isOpened=true;
+        if (pendingOpen) {
+          showAtBottom();
+          pendingOpen=false;
+        }
+      }
+ else {
+        isOpened=false;
+        if (onSoftKeyboardOpenCloseListener != null)         onSoftKeyboardOpenCloseListener.onKeyboardClose();
+      }
+    }
+  }
+);
+}

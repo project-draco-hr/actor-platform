@@ -1,0 +1,3 @@
+{
+  ((ImageView)holder.itemView).setImageResource(stickerPack[position]);
+}

@@ -1,0 +1,5 @@
+{
+  if (onStickerClickListener != null) {
+    onStickerClickListener.onStickerClick(packId,stickerId);
+  }
+}

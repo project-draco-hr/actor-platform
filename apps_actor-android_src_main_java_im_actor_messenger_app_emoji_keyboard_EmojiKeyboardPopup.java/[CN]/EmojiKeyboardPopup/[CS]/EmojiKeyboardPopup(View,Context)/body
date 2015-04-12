@@ -1,0 +1,12 @@
+{
+  super(mContext);
+  this.mContext=mContext;
+  this.rootView=rootView;
+  setBackgroundDrawable(null);
+  if (Build.VERSION.SDK_INT >= 21) {
+    setElevation(0);
+  }
+  setContentView(createView());
+  setSoftInputMode(LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+  setSize((int)mContext.getResources().getDimension(R.dimen.keyboard_height),LayoutParams.MATCH_PARENT);
+}
