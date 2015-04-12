@@ -1,4 +1,5 @@
 {
+  fieldNumber=(fieldNumber & 0xFFFF);
   if (fieldNumber <= 0) {
     throw new IllegalArgumentException("fieldNumber can't be less or eq to zero");
   }

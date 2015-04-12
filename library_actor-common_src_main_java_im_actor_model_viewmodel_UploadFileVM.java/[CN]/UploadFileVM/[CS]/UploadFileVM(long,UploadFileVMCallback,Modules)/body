@@ -2,7 +2,7 @@
   this.rid=rid;
   this.modules=modules;
   this.vmCallback=vmCallback;
-  this.callback=new UploadCallback(){
+  this.callback=new UploadFileCallback(){
     @Override public void onNotUploading(){
       post(new NotUploading());
     }

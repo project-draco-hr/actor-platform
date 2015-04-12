@@ -1,3 +1,0 @@
-{
-  return askPattern.ask(ref,timeout,callback);
-}

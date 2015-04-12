@@ -42,7 +42,7 @@
   if (document.getSource() instanceof FileRemoteSource) {
     FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
     final FileReference location=remoteSource.getFileReference();
-    messenger().requestState(location.getFileId(),new DownloadCallback(){
+    messenger().requestState(location.getFileId(),new FileCallback(){
       @Override public void onNotDownloaded(){
       }
       @Override public void onDownloading(      float progress){

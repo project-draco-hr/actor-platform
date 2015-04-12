@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  TaskListener that=(TaskListener)o;
-  if (requestId != that.requestId)   return false;
-  if (!sender.equals(that.sender))   return false;
-  return true;
-}

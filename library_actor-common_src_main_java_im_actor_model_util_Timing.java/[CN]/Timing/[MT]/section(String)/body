@@ -1,0 +1,5 @@
+{
+  end();
+  this.sectionName=sectionName;
+  this.sectionStart=ActorTime.currentTime();
+}

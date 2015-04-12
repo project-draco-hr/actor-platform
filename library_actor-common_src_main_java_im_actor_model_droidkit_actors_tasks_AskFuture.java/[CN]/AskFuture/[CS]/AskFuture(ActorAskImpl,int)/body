@@ -1,4 +1,0 @@
-{
-  this.askImpl=askImpl;
-  this.reqId=reqId;
-}

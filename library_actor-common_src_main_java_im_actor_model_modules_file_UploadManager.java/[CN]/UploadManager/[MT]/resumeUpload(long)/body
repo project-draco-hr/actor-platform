@@ -8,7 +8,7 @@
       queueItem.isStopped=false;
     }
     queueItem.progress=0;
-    for (    final UploadCallback callback : queueItem.callbacks) {
+    for (    final UploadFileCallback callback : queueItem.callbacks) {
       Environment.dispatchCallback(new Runnable(){
         @Override public void run(){
           callback.onUploading(0);

@@ -12,7 +12,7 @@
   queue.remove(queueItem);
   queueItem.taskRef.send(PoisonPill.INSTANCE);
   modules().getFilesModule().getDownloadedEngine().addOrUpdateItem(new Downloaded(fileReference.getFileId(),fileReference.getFileSize(),reference.getDescriptor()));
-  for (  final UploadCallback fileCallback : queueItem.callbacks) {
+  for (  final UploadFileCallback fileCallback : queueItem.callbacks) {
     Environment.dispatchCallback(new Runnable(){
       @Override public void run(){
         fileCallback.onUploaded();

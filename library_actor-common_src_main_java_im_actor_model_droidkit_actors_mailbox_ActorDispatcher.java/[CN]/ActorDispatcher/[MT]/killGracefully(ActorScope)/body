@@ -1,7 +1,4 @@
 {
-  for (  ActorExtension e : scope.getActor().getExtensions()) {
-    e.postStop();
-  }
   scope.getActor().postStop();
   scope.onActorDie();
   for (  Envelope e : scope.getMailbox().allEnvelopes()) {

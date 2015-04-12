@@ -13,7 +13,7 @@
             final DocumentContent documentContent=(DocumentContent)currentMessage.getContent();
             if (documentContent.getSource() instanceof FileRemoteSource) {
               FileRemoteSource remoteSource=(FileRemoteSource)documentContent.getSource();
-              messenger().requestState(remoteSource.getFileReference().getFileId(),new DownloadCallback(){
+              messenger().requestState(remoteSource.getFileReference().getFileId(),new FileCallback(){
                 @Override public void onNotDownloaded(){
                 }
                 @Override public void onDownloading(                float progress){

@@ -1,0 +1,3 @@
+{
+  return new JsListEngine<SearchEntity>((JsListStorage)storage,SearchEntity.CREATOR);
+}

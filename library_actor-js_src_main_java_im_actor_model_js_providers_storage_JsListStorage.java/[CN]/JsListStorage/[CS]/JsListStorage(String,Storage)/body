@@ -8,11 +8,14 @@
       DataInput dataInput=new DataInput(data,0,data.length);
       int count=dataInput.readInt();
       for (int i=0; i < count; i++) {
-        index.add(new Index(dataInput.readLong(),dataInput.readLong()));
+        long id=dataInput.readLong();
+        long order=dataInput.readLong();
+        index.add(new Index(id,order));
       }
     }
  catch (    Exception e) {
       e.printStackTrace();
     }
   }
+  updateIndex();
 }

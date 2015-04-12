@@ -5,7 +5,9 @@
   ListEngineRecord record=storage.loadItem(key);
   if (record != null) {
     try {
-      return Bser.parse(creator.createInstance(),record.getData());
+      T res=Bser.parse(creator.createInstance(),record.getData());
+      cache.put(key,res);
+      return res;
     }
  catch (    IOException e) {
       e.printStackTrace();

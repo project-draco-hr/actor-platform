@@ -15,7 +15,7 @@
   this.emojiProcessor.loadEmoji();
   this.imageLoader=new ImageLoader(clasificator,application);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
-  AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application);
+  AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application.getResources().getString(R.string.app_locale),application);
   if (BuildConfig.ENABLE_PHONE_BOOK) {
     builder.setPhoneBookProvider(new AndroidPhoneBook());
   }

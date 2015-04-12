@@ -1,0 +1,4 @@
+JsListEngine<V> listEngine
+boolean isInverted
+JsEntityConverter<V,T> entityConverter
+JsMessenger messenger

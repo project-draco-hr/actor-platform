@@ -1,34 +1,17 @@
 {
   this.configuration=configuration;
-  long start=configuration.getThreadingProvider().getActorTime();
+  Timing timing=new Timing("MODULES_INIT");
+  timing.section("I18N");
   this.i18nEngine=new I18nEngine(configuration.getLocaleProvider(),this);
-  Log.d("CORE_INIT","Loading stage5.1 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
+  timing.section("Preferences");
   this.preferences=configuration.getStorageProvider().createPreferencesStorage();
-  Log.d("CORE_INIT","Loading stage5.2 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
-  start=configuration.getThreadingProvider().getActorTime();
-  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallback(){
-    @Override public void onAuthIdInvalidated(    long authKey){
-    }
-    @Override public void onNewSessionCreated(){
-      if (updates != null) {
-        updates.onNewSessionCreated();
-      }
-      if (presence != null) {
-        presence.onNewSessionCreated();
-      }
-    }
-    @Override public void onUpdateReceived(    Object obj){
-      if (updates != null) {
-        updates.onUpdateReceived(obj);
-      }
-    }
-  }
-,configuration.getNetworkProvider());
-  Log.d("CORE_INIT","Loading stage5.3 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
-  start=configuration.getThreadingProvider().getActorTime();
+  timing.section("API");
+  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.getNetworkProvider());
+  timing.section("Auth");
   this.auth=new Auth(this);
+  timing.section("Pushes");
   this.pushes=new Pushes(this);
-  Log.d("CORE_INIT","Loading stage5.4 in " + (configuration.getThreadingProvider().getActorTime() - start) + " ms");
-  start=configuration.getThreadingProvider().getActorTime();
+  timing.section("App State");
   this.appStateModule=new AppStateModule(this);
+  timing.end();
 }

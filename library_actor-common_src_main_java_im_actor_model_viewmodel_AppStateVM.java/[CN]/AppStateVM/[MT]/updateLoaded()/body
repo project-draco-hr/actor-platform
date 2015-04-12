@@ -1,8 +1,6 @@
 {
-  Log.d("AppStateVM","updateLoaded");
   boolean val=isBookImported && isDialogsLoaded && isContactsLoaded;
   if (isAppLoaded.get() != val) {
-    Log.d("AppStateVM","updateLoaded:apply");
     this.isAppLoaded.change(val);
   }
 }

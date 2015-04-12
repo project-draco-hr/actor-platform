@@ -1,7 +1,5 @@
 {
-  Log.d("AppStateVM","onDialogsLoaded");
   if (!isDialogsLoaded) {
-    Log.d("AppStateVM","onDialogsLoaded:apply");
     isDialogsLoaded=true;
     modules.getPreferences().putBool("app.dialogs.loaded",true);
     updateLoaded();
