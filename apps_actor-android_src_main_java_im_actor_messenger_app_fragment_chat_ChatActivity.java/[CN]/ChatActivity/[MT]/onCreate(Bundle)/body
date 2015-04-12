@@ -178,7 +178,7 @@
   View rootView=findViewById(R.id.root);
   final TintImageView emojiButton=(TintImageView)findViewById(R.id.ib_emoji);
   final EmojiKeyboardPopup emojiKeyboard=new EmojiKeyboardPopup(rootView,this);
-  emojiKeyboard.setOnEmojiClickedListener(new EmojiPackView.OnEmojiClickedListener(){
+  emojiKeyboard.setOnEmojiClickListener(new OnEmojiClickListener(){
     @Override public void onEmojiClicked(    long smileId){
       String smile=null;
       char a=(char)(smileId & 0xFFFFFFFF);

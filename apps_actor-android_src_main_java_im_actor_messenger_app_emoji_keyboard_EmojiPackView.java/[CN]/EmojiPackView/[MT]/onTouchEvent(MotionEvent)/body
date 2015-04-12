@@ -13,9 +13,9 @@ int row=(int)(touchY / smileySize);
 int col=(int)((touchX - offsetLeft) / smileySize);
 int index=row * countInRow + col;
 if (index >= 0 && index < smileyIds.length) {
-  if (onEmojiClickedListener != null) {
+  if (onEmojiClickListener != null) {
     playSoundEffect(SoundEffectConstants.CLICK);
-    onEmojiClickedListener.onEmojiClicked(smileyIds[index]);
+    onEmojiClickListener.onEmojiClicked(smileyIds[index]);
   }
 }
 }

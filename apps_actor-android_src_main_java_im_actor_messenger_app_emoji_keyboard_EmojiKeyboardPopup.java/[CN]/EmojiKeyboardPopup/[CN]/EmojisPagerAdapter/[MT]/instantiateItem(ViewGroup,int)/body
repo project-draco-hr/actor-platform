@@ -1,18 +1,27 @@
 {
-  View itemView=LayoutInflater.from(mContext).inflate(R.layout.emoji_page,null);
-  ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojimapcontainer);
-  long[] emojiPack=emojiPacks.get(position);
-  int emojisRowCount=Screen.getWidth() / Screen.dp(34);
-  EmojiPackView emojiPackView=new EmojiPackView(mContext,core().getEmojiProcessor(),emojiPack,emojisRowCount,Screen.dp(34),Screen.dp(4));
-  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(emojisRowCount * Screen.dp(34),ViewGroup.LayoutParams.WRAP_CONTENT);
-  params.gravity=Gravity.CENTER;
-  emojicontainer.addView(emojiPackView,params);
-  emojiPackView.setOnEmojiClickedListener(new EmojiPackView.OnEmojiClickedListener(){
-    @Override public void onEmojiClicked(    long smileId){
-      if (onEmojiClickedListener != null)       onEmojiClickedListener.onEmojiClicked(smileId);
+  View itemView=null;
+  if (position == 0) {
+    itemView=LayoutInflater.from(mContext).inflate(R.layout.emoji_page,null);
+    ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojimapcontainer);
+    long[] emojiPack=EmojiPack.ALL_SMILEYS;
+    int emojisRowCount=Screen.getWidth() / Screen.dp(34);
+    EmojiPackView emojiPackView=new EmojiPackView(mContext,core().getEmojiProcessor(),emojiPack,emojisRowCount,Screen.dp(34),Screen.dp(4));
+    FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(emojisRowCount * Screen.dp(34),ViewGroup.LayoutParams.WRAP_CONTENT);
+    params.gravity=Gravity.CENTER;
+    emojicontainer.addView(emojiPackView,params);
+    emojiPackView.setOnEmojiClickListener(new OnEmojiClickListener(){
+      @Override public void onEmojiClicked(      long smileId){
+        if (onEmojiClickListener != null)         onEmojiClickListener.onEmojiClicked(smileId);
+      }
     }
-  }
 );
+  }
+ else {
+    RecyclerView recycler=(RecyclerView)LayoutInflater.from(mContext).inflate(R.layout.sticker_page,null);
+    itemView=recycler;
+    recycler.setLayoutManager(new GridLayoutManager(mContext,Screen.getWidth() / Screen.dp(90)));
+    recycler.setAdapter(new StickersAdapter(mContext,EmojiKeyboardPopup.this,Stickers.animalPack));
+  }
   ((ViewPager)container).addView(itemView,0);
   return itemView;
 }
