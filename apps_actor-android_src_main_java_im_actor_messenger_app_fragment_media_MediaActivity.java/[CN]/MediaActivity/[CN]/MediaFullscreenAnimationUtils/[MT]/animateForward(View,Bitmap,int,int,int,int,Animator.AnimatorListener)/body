@@ -35,7 +35,7 @@
   final float finalYPadding=yPadding;
   transitionView.post(new Runnable(){
     @Override public void run(){
-      transitionView.animate().setInterpolator(new MaterialInterpolator()).setStartDelay(startDelay).setDuration(450 * animationMultiplier).setInterpolator(new MaterialInterpolator()).x(finalXPadding).y(finalYPadding).scaleX(finalEndScale).scaleY(finalEndScale).setListener(listener).start();
+      transitionView.animate().setInterpolator(new MaterialInterpolator()).setStartDelay(startDelay).setDuration(300 * animationMultiplier).setInterpolator(new MaterialInterpolator()).x(finalXPadding).y(finalYPadding).scaleX(finalEndScale).scaleY(finalEndScale).setListener(listener).start();
     }
   }
 );
