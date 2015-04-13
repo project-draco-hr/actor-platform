@@ -1,0 +1,31 @@
+{
+  if (isClosed) {
+    return;
+  }
+  isClosed=true;
+  try {
+    readerThread.interrupt();
+  }
+ catch (  Exception e) {
+    Log.e(TAG,e);
+  }
+  try {
+    writerThread.interrupt();
+  }
+ catch (  Exception e) {
+    Log.e(TAG,e);
+  }
+  try {
+    socket.close();
+  }
+ catch (  IOException e) {
+    Log.e(TAG,e);
+  }
+  callback.onConnectionDie();
+synchronized (packageTimers) {
+    for (    Integer id : packageTimers.keySet()) {
+      packageTimers.get(id).cancel();
+    }
+    packageTimers.clear();
+  }
+}

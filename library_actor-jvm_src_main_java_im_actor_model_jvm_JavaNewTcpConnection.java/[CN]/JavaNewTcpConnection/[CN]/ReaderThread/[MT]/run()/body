@@ -1,0 +1,69 @@
+{
+  try {
+    while (!isClosed()) {
+      if (socket.isClosed()) {
+        throw new IOException("Socket is closed");
+      }
+      if (!socket.isConnected()) {
+        throw new IOException("Socket is not connected");
+      }
+      Log.d(TAG,"Waiting for frame header...");
+      byte[] packageHeader=readBytes(9);
+      DataInput dataInput=new DataInput(packageHeader);
+      int receivedPackageIndex=dataInput.readInt();
+      if (receivedPackageIndex != receivedPackets) {
+        throw new IOException("Received frame with incorrect index. " + "Expected: " + receivedPackets + ", got: "+ receivedPackageIndex);
+      }
+      receivedPackets++;
+      int header=dataInput.readByte();
+      int size=dataInput.readInt();
+      Log.d(TAG,"Reading frame body...");
+      byte[] body=readBytes(size + 4);
+      dataInput=new DataInput(body);
+      byte[] contents=dataInput.readBytes(size);
+      long crc32=dataInput.readUInt();
+      crc32Engine.reset();
+      crc32Engine.update(contents);
+      long localCrc32=crc32Engine.getValue();
+      if (localCrc32 != crc32) {
+        throw new IOException("Received frame contents with incorrect crc32");
+      }
+      if (header == HEADER_PROTO) {
+        Log.d(TAG,"Received proto frame");
+        callback.onMessage(contents,0,contents.length);
+        DataOutput ackPackage=new DataOutput();
+        ackPackage.writeInt(receivedPackageIndex);
+        post(HEADER_ACK,ackPackage.toByteArray());
+      }
+ else       if (header == HEADER_PING) {
+        Log.d(TAG,"Received ping frame");
+        post(HEADER_PONG,contents);
+      }
+ else       if (header == HEADER_PONG) {
+        Log.d(TAG,"Received pong frame");
+      }
+ else       if (header == HEADER_ACK) {
+        Log.d(TAG,"Received ack frame");
+        DataInput ackContent=new DataInput(contents);
+        int frameId=ackContent.readInt();
+        onServerAck(frameId);
+      }
+ else       if (header == HEADER_DROP) {
+        DataInput drop=new DataInput(contents);
+        long messageId=drop.readLong();
+        int errorCode=drop.readByte();
+        int messageLen=drop.readInt();
+        String message=new String(drop.readBytes(messageLen),"UTF-8");
+        Log.d(TAG,"Received drop frame: " + message);
+        throw new IOException("Received drop frame: " + message);
+      }
+ else {
+        Log.w(TAG,"Received unknown frame #" + header);
+      }
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    close();
+  }
+}

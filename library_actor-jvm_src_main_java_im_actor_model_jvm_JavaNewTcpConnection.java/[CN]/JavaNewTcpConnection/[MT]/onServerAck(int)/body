@@ -1,0 +1,14 @@
+{
+synchronized (packageTimers) {
+    TimerTask task=packageTimers.remove(packageId);
+    if (task == null) {
+      return;
+    }
+    task.cancel();
+    for (    Integer id : packageTimers.keySet()) {
+      TimerTask task1=packageTimers.get(id);
+      task1.cancel();
+      DIE_TIMER.schedule(task1,RESPONSE_TIMEOUT);
+    }
+  }
+}

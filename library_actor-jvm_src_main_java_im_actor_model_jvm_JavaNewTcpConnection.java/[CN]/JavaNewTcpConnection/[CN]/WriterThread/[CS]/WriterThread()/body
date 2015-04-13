@@ -1,0 +1,3 @@
+{
+  setName(TAG + "#Writer" + hashCode());
+}

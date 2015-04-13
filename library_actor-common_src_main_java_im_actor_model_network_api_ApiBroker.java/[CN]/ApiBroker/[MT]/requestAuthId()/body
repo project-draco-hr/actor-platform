@@ -7,7 +7,10 @@
     }
     @Override public void onFailure(){
       Log.d(TAG,"Key creation failure");
-      self().send(new RequestAuthId());
+      authIdBackOff.onFailure();
+      long delay=authIdBackOff.exponentialWait();
+      Log.d(TAG,"Key creation delay in " + delay + " ms");
+      self().send(new RequestAuthId(),delay);
     }
   }
 );
