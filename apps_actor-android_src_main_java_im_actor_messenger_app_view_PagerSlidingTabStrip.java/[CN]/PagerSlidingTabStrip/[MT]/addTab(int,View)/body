@@ -6,6 +6,6 @@
     }
   }
 );
-  tab.setPadding(tabPadding,0,tabPadding,0);
+  if (tabPadding > 0)   tab.setPadding(tabPadding,0,tabPadding,0);
   tabsContainer.addView(tab,position,expandedTabLayoutParams);
 }

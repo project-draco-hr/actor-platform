@@ -17,10 +17,11 @@
 );
   }
  else {
+    StickersPack stickersPack=Stickers.getPacks()[position - 1];
     RecyclerView recycler=(RecyclerView)LayoutInflater.from(mContext).inflate(R.layout.sticker_page,null);
     itemView=recycler;
     recycler.setLayoutManager(new GridLayoutManager(mContext,Screen.getWidth() / Screen.dp(90)));
-    recycler.setAdapter(new StickersAdapter(mContext,EmojiKeyboardPopup.this,Stickers.animalPack));
+    recycler.setAdapter(new StickersAdapter(mContext,EmojiKeyboardPopup.this,stickersPack));
   }
   ((ViewPager)container).addView(itemView,0);
   return itemView;

@@ -1,3 +1,12 @@
 {
-  ((ImageView)holder.itemView).setImageResource(stickerPack[position]);
+  final String packId=stickerPack.getId();
+  final String stickerId=stickerPack.getStickerId(position);
+  Uri uri=Uri.parse("file://" + Stickers.getFile(packId,stickerId));
+  ((ImageView)holder.itemView).setImageURI(uri);
+  holder.itemView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onStickerClickListener.onStickerClick(packId,stickerId);
+    }
+  }
+);
 }

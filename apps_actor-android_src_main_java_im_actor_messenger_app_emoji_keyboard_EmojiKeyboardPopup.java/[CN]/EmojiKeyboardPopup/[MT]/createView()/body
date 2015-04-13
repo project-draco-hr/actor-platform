@@ -3,11 +3,12 @@
   ViewPager emojiPager=(ViewPager)keyboardView.findViewById(R.id.emoji_pager);
   PagerSlidingTabStrip emojiPagerIndicator=(PagerSlidingTabStrip)keyboardView.findViewById(R.id.emoji_pager_indicator);
   View backspace=keyboardView.findViewById(R.id.backspace);
-  emojiPagerIndicator.setTabBackground(R.drawable.selector_bar);
+  emojiPagerIndicator.setTabBackground(R.drawable.md_btn_selector_ripple);
   emojiPagerIndicator.setIndicatorColorResource(R.color.main_tab_selected);
   emojiPagerIndicator.setIndicatorHeight(Screen.dp(4));
   emojiPagerIndicator.setDividerColorResource(R.color.main_tab_divider);
   emojiPagerIndicator.setUnderlineHeight(0);
+  emojiPagerIndicator.setTabPaddingLeftRight(0);
   backspace.setOnTouchListener(new RepeatListener(500,100,new OnClickListener(){
     @Override public void onClick(    View v){
       if (onEmojiconBackspaceClickedListener != null)       onEmojiconBackspaceClickedListener.onClick(v);
