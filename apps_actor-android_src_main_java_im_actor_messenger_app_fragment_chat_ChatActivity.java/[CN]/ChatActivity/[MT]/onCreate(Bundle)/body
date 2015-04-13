@@ -178,6 +178,12 @@
   View rootView=findViewById(R.id.root);
   final TintImageView emojiButton=(TintImageView)findViewById(R.id.ib_emoji);
   final EmojiKeyboardPopup emojiKeyboard=new EmojiKeyboardPopup(rootView,this);
+  emojiKeyboard.setOnStickerClickListener(new OnStickerClickListener(){
+    @Override public void onStickerClick(    String packId,    String stickerId){
+      messenger().sendPhoto(peer,Stickers.getFile(packId,stickerId));
+    }
+  }
+);
   emojiKeyboard.setOnEmojiClickListener(new OnEmojiClickListener(){
     @Override public void onEmojiClicked(    long smileId){
       String smile=null;

@@ -5,6 +5,9 @@
     if (pager.getAdapter() instanceof IconTabProvider) {
       addIconTab(i,((IconTabProvider)pager.getAdapter()).getPageIconResId(i));
     }
+ else     if (pager.getAdapter() instanceof TabProvider) {
+      addTab(i,((TabProvider)pager.getAdapter()).getTab(i));
+    }
  else {
       addTextTab(i,pager.getAdapter().getPageTitle(i).toString());
     }

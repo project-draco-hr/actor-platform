@@ -1,5 +1,8 @@
 {
-  View itemView=LayoutInflater.from(context).inflate(R.layout.adapter_sticker,parent,false);
+  SimpleDraweeView itemView=new SimpleDraweeView(context);
+  itemView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  itemView.setAdjustViewBounds(true);
+  itemView.setBackgroundResource(R.drawable.md_btn_selector_ripple);
   return new RecyclerView.ViewHolder(itemView){
   }
 ;

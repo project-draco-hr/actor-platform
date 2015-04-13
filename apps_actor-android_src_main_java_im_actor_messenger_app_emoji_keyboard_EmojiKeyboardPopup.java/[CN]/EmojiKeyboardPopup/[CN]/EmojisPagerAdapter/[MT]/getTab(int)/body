@@ -1,0 +1,14 @@
+{
+  ImageButton tabView=new ImageButton(mContext);
+  if (position == 0) {
+    tabView.setImageResource(R.drawable.button_emoji);
+    tabView.setPadding(24,0,24,0);
+  }
+ else {
+    tabView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+    tabView.setAdjustViewBounds(true);
+    StickersPack pack=Stickers.getPacks()[position - 1];
+    tabView.setImageURI(Uri.parse(Stickers.getFile(pack.getId(),pack.getLogoStickerId())));
+  }
+  return tabView;
+}
