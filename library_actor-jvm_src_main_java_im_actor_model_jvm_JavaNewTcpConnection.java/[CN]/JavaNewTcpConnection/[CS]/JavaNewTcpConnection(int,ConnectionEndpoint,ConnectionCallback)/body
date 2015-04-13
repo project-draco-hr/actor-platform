@@ -63,4 +63,6 @@ readerThread=new ReaderThread();
 writerThread=new WriterThread();
 readerThread.start();
 writerThread.start();
+pingTask=new PingTask();
+DIE_TIMER.schedule(pingTask,PING_TIMEOUT);
 }

@@ -17,7 +17,7 @@
       receivedPackets++;
       int header=dataInput.readByte();
       int size=dataInput.readInt();
-      Log.d(TAG,"Reading frame body...");
+      Log.d(TAG,"Reading frame body for #" + receivedPackageIndex);
       byte[] body=readBytes(size + 4);
       dataInput=new DataInput(body);
       byte[] contents=dataInput.readBytes(size);
@@ -41,6 +41,13 @@
       }
  else       if (header == HEADER_PONG) {
         Log.d(TAG,"Received pong frame");
+        DataInput pongInput=new DataInput(contents);
+        int pongLen=pongInput.readInt();
+        if (pongLen != 8) {
+          Log.w(TAG,"Pong invalid content length, got: " + pongLen);
+          continue;
+        }
+        onServerPong(pongInput.readLong());
       }
  else       if (header == HEADER_ACK) {
         Log.d(TAG,"Received ack frame");

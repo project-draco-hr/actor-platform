@@ -1,6 +1,6 @@
 {
 synchronized (packageTimers) {
-    TimerTask task=packageTimers.remove(packageId);
+    TimerTask task=schedulledPings.remove(pingId);
     if (task == null) {
       return;
     }
