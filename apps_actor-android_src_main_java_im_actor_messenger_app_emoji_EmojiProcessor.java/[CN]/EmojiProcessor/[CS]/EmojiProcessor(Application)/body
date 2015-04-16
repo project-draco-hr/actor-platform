@@ -1,6 +1,7 @@
 {
   long start=System.currentTimeMillis();
   this.application=application;
+  processor=this;
   density=application.getResources().getDisplayMetrics().density;
   emojiSideSize=(int)(density * 20);
   Logger.d(TAG,"Emoji phase 0 in " + (System.currentTimeMillis() - start) + " ms");
