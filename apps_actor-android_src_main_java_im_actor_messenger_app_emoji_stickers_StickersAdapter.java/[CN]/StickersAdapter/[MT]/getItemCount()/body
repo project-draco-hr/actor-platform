@@ -1,3 +1,7 @@
 {
-  return stickerPack.size();
+  int offset=page * 8;
+  if (stickerPack.size() < offset + 8) {
+    return stickerPack.size() - offset;
+  }
+  return 8;
 }

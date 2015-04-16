@@ -1,9 +1,8 @@
 {
-  SimpleDraweeView itemView=new SimpleDraweeView(context);
-  itemView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-  itemView.setAdjustViewBounds(true);
-  itemView.setBackgroundResource(R.drawable.md_btn_selector_ripple);
-  return new RecyclerView.ViewHolder(itemView){
+  SimpleDraweeView drawee=new SimpleDraweeView(context);
+  drawee.setAdjustViewBounds(true);
+  drawee.setBackgroundResource(R.drawable.clickable_background);
+  return new RecyclerView.ViewHolder(drawee){
   }
 ;
 }

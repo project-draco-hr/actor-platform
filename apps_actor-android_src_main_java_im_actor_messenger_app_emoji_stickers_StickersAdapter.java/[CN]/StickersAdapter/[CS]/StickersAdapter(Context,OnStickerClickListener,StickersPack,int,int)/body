@@ -2,4 +2,6 @@
   this.context=context;
   this.onStickerClickListener=onStickerClickListener;
   this.stickerPack=stickerPack;
+  this.page=page;
+  this.itemHeight=itemHeight;
 }

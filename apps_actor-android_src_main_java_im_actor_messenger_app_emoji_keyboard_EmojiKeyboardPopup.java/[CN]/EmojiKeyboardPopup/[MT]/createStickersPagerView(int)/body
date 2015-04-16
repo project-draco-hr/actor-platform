@@ -1,0 +1,7 @@
+{
+  View stickerPagerView=LayoutInflater.from(activity).inflate(R.layout.sticker_container_page,null);
+  ViewPager stickerPager=(ViewPager)stickerPagerView.findViewById(R.id.sticker_pager);
+  SitckersPagerAdapter stickersPager=new SitckersPagerAdapter(Stickers.getPacks()[packId]);
+  stickerPager.setAdapter(stickersPager);
+  return stickerPagerView;
+}

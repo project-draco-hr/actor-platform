@@ -1,0 +1,8 @@
+{
+  int pages=0;
+  pages=stickersPack.size() / 8;
+  if (stickersPack.size() % 8 > 0) {
+    pages++;
+  }
+  return pages;
+}
