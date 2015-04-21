@@ -1,7 +1,0 @@
-{
-  writer.writeInt(1,this.groupId);
-  writer.writeLong(5,this.rid);
-  writer.writeInt(2,this.uid);
-  writer.writeInt(3,this.inviterUid);
-  writer.writeLong(4,this.date);
-}

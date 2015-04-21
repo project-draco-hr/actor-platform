@@ -1,3 +1,0 @@
-{
-  this.avatar=values.optObj(1,new Avatar());
-}

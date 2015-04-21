@@ -1,7 +1,0 @@
-{
-  List<AuthSession> _userAuths=new ArrayList<AuthSession>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _userAuths.add(new AuthSession());
-  }
-  this.userAuths=values.getRepeatedObj(1,_userAuths);
-}

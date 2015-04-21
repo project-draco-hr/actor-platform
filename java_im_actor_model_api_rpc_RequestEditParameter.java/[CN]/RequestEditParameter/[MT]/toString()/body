@@ -1,5 +1,0 @@
-{
-  String res="rpc EditParameter{";
-  res+="}";
-  return res;
-}

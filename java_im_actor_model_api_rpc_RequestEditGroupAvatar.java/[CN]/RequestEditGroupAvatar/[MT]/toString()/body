@@ -1,8 +1,0 @@
-{
-  String res="rpc EditGroupAvatar{";
-  res+="groupPeer=" + this.groupPeer;
-  res+=", rid=" + this.rid;
-  res+=", fileLocation=" + (this.fileLocation != null ? "set" : "empty");
-  res+="}";
-  return res;
-}

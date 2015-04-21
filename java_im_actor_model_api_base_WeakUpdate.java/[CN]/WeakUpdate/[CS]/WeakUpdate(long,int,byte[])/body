@@ -1,5 +1,0 @@
-{
-  this.date=date;
-  this.updateHeader=updateHeader;
-  this.update=update;
-}

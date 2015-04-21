@@ -1,6 +1,0 @@
-{
-  String res="struct FileLocation{";
-  res+="fileId=" + this.fileId;
-  res+="}";
-  return res;
-}

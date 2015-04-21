@@ -1,8 +1,0 @@
-{
-  String res="update MessageSent{";
-  res+="peer=" + this.peer;
-  res+=", rid=" + this.rid;
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

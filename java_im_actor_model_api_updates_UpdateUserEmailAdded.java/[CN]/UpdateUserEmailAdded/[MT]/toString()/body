@@ -1,7 +1,0 @@
-{
-  String res="update UserEmailAdded{";
-  res+="uid=" + this.uid;
-  res+=", emailId=" + this.emailId;
-  res+="}";
-  return res;
-}

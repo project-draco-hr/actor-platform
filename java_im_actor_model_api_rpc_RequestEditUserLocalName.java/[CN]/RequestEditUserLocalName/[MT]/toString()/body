@@ -1,7 +1,0 @@
-{
-  String res="rpc EditUserLocalName{";
-  res+="uid=" + this.uid;
-  res+=", name=" + this.name;
-  res+="}";
-  return res;
-}

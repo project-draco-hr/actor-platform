@@ -1,7 +1,0 @@
-{
-  String res="rpc MessageRead{";
-  res+="peer=" + this.peer;
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

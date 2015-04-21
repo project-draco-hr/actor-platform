@@ -1,5 +1,0 @@
-{
-  this.seq=values.getInt(1);
-  this.state=values.getBytes(2);
-  this.date=values.getLong(3);
-}

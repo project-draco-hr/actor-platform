@@ -1,8 +1,0 @@
-{
-  String res="struct Avatar{";
-  res+="smallImage=" + (this.smallImage != null ? "set" : "empty");
-  res+=", largeImage=" + (this.largeImage != null ? "set" : "empty");
-  res+=", fullImage=" + (this.fullImage != null ? "set" : "empty");
-  res+="}";
-  return res;
-}

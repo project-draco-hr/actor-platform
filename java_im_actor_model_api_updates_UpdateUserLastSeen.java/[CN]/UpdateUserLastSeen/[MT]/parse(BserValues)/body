@@ -1,4 +1,0 @@
-{
-  this.uid=values.getInt(1);
-  this.date=values.getLong(2);
-}

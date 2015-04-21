@@ -1,3 +1,0 @@
-{
-  this.uploadKey=values.getBytes(1);
-}

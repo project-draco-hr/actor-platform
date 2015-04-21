@@ -1,4 +1,0 @@
-{
-  this.fileId=values.getLong(1);
-  this.accessHash=values.getLong(2);
-}

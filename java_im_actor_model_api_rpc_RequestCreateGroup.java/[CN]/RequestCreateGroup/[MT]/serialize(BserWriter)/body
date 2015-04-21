@@ -1,8 +1,0 @@
-{
-  writer.writeLong(1,this.rid);
-  if (this.title == null) {
-    throw new IOException();
-  }
-  writer.writeString(2,this.title);
-  writer.writeRepeatedObj(3,this.users);
-}

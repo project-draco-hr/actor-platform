@@ -1,6 +1,0 @@
-{
-  String res="struct Config{";
-  res+="maxGroupSize=" + this.maxGroupSize;
-  res+="}";
-  return res;
-}

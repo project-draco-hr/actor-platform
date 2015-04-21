@@ -1,8 +1,0 @@
-{
-  String res="update ContactRegistered{";
-  res+="uid=" + this.uid;
-  res+=", isSilent=" + this.isSilent;
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

@@ -1,9 +1,0 @@
-{
-  if (this.key == null) {
-    throw new IOException();
-  }
-  writer.writeString(1,this.key);
-  if (this.value != null) {
-    writer.writeString(2,this.value);
-  }
-}

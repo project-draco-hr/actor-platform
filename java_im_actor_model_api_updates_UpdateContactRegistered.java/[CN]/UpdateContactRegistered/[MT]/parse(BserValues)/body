@@ -1,5 +1,0 @@
-{
-  this.uid=values.getInt(1);
-  this.isSilent=values.getBool(2);
-  this.date=values.getLong(3);
-}

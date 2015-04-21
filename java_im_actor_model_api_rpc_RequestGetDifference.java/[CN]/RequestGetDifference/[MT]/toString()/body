@@ -1,7 +1,0 @@
-{
-  String res="rpc GetDifference{";
-  res+="seq=" + this.seq;
-  res+=", state=" + byteArrayToStringCompact(this.state);
-  res+="}";
-  return res;
-}

@@ -1,7 +1,0 @@
-{
-  String res="struct ServiceMessage{";
-  res+="text=" + this.text;
-  res+=", ext=" + (this.ext != null ? "set" : "empty");
-  res+="}";
-  return res;
-}

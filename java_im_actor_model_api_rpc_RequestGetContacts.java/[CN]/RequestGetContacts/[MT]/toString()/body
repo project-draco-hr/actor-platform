@@ -1,6 +1,0 @@
-{
-  String res="rpc GetContacts{";
-  res+="contactsHash=" + this.contactsHash;
-  res+="}";
-  return res;
-}

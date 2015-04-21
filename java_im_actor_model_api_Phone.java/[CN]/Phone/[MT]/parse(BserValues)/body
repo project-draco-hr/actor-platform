@@ -1,6 +1,0 @@
-{
-  this.id=values.getInt(1);
-  this.accessHash=values.getLong(2);
-  this.phone=values.getLong(3);
-  this.phoneTitle=values.getString(4);
-}

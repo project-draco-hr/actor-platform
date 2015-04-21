@@ -1,8 +1,0 @@
-{
-  writer.writeInt(1,this.partNumber);
-  writer.writeInt(2,this.partSize);
-  if (this.uploadKey == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(3,this.uploadKey);
-}

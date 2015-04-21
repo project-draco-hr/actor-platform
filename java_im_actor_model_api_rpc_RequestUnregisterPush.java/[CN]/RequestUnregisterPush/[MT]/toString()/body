@@ -1,5 +1,0 @@
-{
-  String res="rpc UnregisterPush{";
-  res+="}";
-  return res;
-}

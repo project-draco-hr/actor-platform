@@ -1,6 +1,0 @@
-{
-  if (this.file == null) {
-    throw new IOException();
-  }
-  writer.writeObject(1,this.file);
-}

@@ -1,4 +1,0 @@
-{
-  this.apnsKey=values.getInt(1);
-  this.token=values.getString(2);
-}

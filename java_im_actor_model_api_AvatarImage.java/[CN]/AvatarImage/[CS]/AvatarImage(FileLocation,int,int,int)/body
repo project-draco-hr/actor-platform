@@ -1,6 +1,0 @@
-{
-  this.fileLocation=fileLocation;
-  this.width=width;
-  this.height=height;
-  this.fileSize=fileSize;
-}

@@ -1,6 +1,0 @@
-{
-  String res="struct ServiceExUserKicked{";
-  res+="kickedUid=" + this.kickedUid;
-  res+="}";
-  return res;
-}

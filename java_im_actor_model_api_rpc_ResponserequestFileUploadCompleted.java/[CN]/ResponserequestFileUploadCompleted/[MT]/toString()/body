@@ -1,5 +1,0 @@
-{
-  String res="tuple requestFileUploadCompleted{";
-  res+="}";
-  return res;
-}

@@ -1,5 +1,0 @@
-{
-  String res="struct Parameter{";
-  res+="}";
-  return res;
-}

@@ -1,4 +1,0 @@
-{
-  this.minDate=minDate;
-  this.limit=limit;
-}

@@ -1,6 +1,0 @@
-{
-  String res="rpc requestFileUploadPart{";
-  res+="uploadKey=" + byteArrayToStringCompact(this.uploadKey);
-  res+="}";
-  return res;
-}

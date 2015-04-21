@@ -1,9 +1,0 @@
-{
-  String res="struct AvatarImage{";
-  res+="fileLocation=" + this.fileLocation;
-  res+=", width=" + this.width;
-  res+=", height=" + this.height;
-  res+=", fileSize=" + this.fileSize;
-  res+="}";
-  return res;
-}
