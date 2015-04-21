@@ -1,0 +1,10 @@
+{
+synchronized (packageTimers) {
+    TimerTask task=packageTimers.remove(packageId);
+    if (task == null) {
+      return;
+    }
+    task.cancel();
+    refreshTimeouts();
+  }
+}

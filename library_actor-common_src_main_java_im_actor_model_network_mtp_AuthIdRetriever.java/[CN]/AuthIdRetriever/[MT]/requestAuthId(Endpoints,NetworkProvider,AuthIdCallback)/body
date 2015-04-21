@@ -1,6 +1,7 @@
 {
   Log.d(TAG,"Requesting AuthId");
   final boolean[] isFinished=new boolean[1];
+  final ExponentialBackoff backoff=new ExponentialBackoff();
   isFinished[0]=false;
   networkProvider.createConnection(0,endpoints.fetchEndpoint(),new ConnectionCallback(){
     @Override public void onMessage(    byte[] data,    int offset,    int len){
@@ -43,6 +44,7 @@
         return;
       }
       Log.d(TAG,"Connection created");
+      backoff.onSuccess();
       try {
         DataOutput output=new DataOutput();
         output.writeLong(0);

@@ -1,43 +1,84 @@
 {
   try {
-    while (!isClosed && !isInterrupted()) {
+    while (!isClosed()) {
       if (socket.isClosed()) {
-        Log.d(TAG,"Socket is closed");
         throw new IOException("Socket is closed");
       }
       if (!socket.isConnected()) {
-        Log.d(TAG,"Socket is not connected");
         throw new IOException("Socket is not connected");
       }
-      InputStream stream=socket.getInputStream();
-      long start=System.currentTimeMillis();
-      int pkgLen=readInt(stream);
-      if (pkgLen < 0 || pkgLen > MAX_PACKAGE_SIZE) {
-        Log.w(TAG,"Invalid package size: " + pkgLen);
-        throw new IOException("Invalid package size");
+      Log.d(TAG,"Waiting for frame header...");
+      byte[] packageHeader=readBytes(9);
+      DataInput dataInput=new DataInput(packageHeader);
+      int receivedPackageIndex=dataInput.readInt();
+      if (receivedPackageIndex != receivedPackets) {
+        throw new IOException("Received frame with incorrect index. " + "Expected: " + receivedPackets + ", got: "+ receivedPackageIndex);
       }
-      int pkgIndex=readInt(stream);
-      int expectedIndex=receivedPackets++;
-      if (pkgIndex != expectedIndex) {
-        Log.w(TAG,"Wrong seq. Expected " + expectedIndex + ", got "+ pkgIndex);
-        throw new IOException("Wrong number of received packets");
+      receivedPackets++;
+      int header=dataInput.readByte();
+      int size=dataInput.readInt();
+      Log.d(TAG,"Reading frame body for #" + receivedPackageIndex);
+      byte[] body=readBytes(size + 4);
+      dataInput=new DataInput(body);
+      byte[] contents=dataInput.readBytes(size);
+      long crc32=dataInput.readUInt();
+      crc32Engine.reset();
+      crc32Engine.update(contents);
+      long localCrc32=crc32Engine.getValue();
+      if (localCrc32 != crc32) {
+        throw new IOException("Received frame contents with incorrect crc32");
       }
-      byte[] pkg=readBytes(pkgLen - 8,stream);
-      int pkgCrc=readInt(stream);
-      CRC32 crc32=new CRC32();
-      crc32.update(intToBytes(pkgLen));
-      crc32.update(intToBytes(pkgIndex));
-      crc32.update(pkg);
-      int localCrc=(int)crc32.getValue();
-      if (localCrc != pkgCrc) {
-        Log.w(TAG,"Package crc32 expected: " + localCrc + ", got: "+ pkgCrc);
-        throw new IOException("Wrong CRC");
+      if (header == HEADER_PROTO) {
+        Log.d(TAG,"Received proto frame");
+        callback.onMessage(contents,0,contents.length);
+        DataOutput ackPackage=new DataOutput();
+        ackPackage.writeInt(receivedPackageIndex);
+        post(HEADER_ACK,ackPackage.toByteArray());
       }
-      callback.onMessage(pkg,0,pkg.length);
+ else       if (header == HEADER_PING) {
+        Log.d(TAG,"Received ping frame");
+        post(HEADER_PONG,contents);
+      }
+ else       if (header == HEADER_PONG) {
+        Log.d(TAG,"Received pong frame");
+        DataInput pongInput=new DataInput(contents);
+        int pongLen=pongInput.readInt();
+        if (pongLen != 8) {
+          Log.w(TAG,"Pong invalid content length, got: " + pongLen);
+          continue;
+        }
+        onServerPong(pongInput.readLong());
+      }
+ else       if (header == HEADER_ACK) {
+        Log.d(TAG,"Received ack frame");
+        DataInput ackContent=new DataInput(contents);
+        int frameId=ackContent.readInt();
+        onServerAck(frameId);
+      }
+ else       if (header == HEADER_REDIRECT) {
+        DataInput redirectContent=new DataInput(contents);
+        int hostLen=redirectContent.readInt();
+        String host=new String(redirectContent.readBytes(hostLen),"UTF-8");
+        int port=redirectContent.readInt();
+        int timeout=redirectContent.readInt();
+        throw new IOException("Received redirect frame: " + host + ":"+ port+ " with timeout "+ timeout+ " sec");
+      }
+ else       if (header == HEADER_DROP) {
+        DataInput drop=new DataInput(contents);
+        long messageId=drop.readLong();
+        int errorCode=drop.readByte();
+        int messageLen=drop.readInt();
+        String message=new String(drop.readBytes(messageLen),"UTF-8");
+        Log.d(TAG,"Received drop frame: " + message);
+        throw new IOException("Received drop frame: " + message);
+      }
+ else {
+        Log.w(TAG,"Received unknown frame #" + header);
+      }
     }
   }
- catch (  final Throwable e) {
-    Log.e(TAG,e);
-    breakConnection();
+ catch (  IOException e) {
+    e.printStackTrace();
+    close();
   }
 }

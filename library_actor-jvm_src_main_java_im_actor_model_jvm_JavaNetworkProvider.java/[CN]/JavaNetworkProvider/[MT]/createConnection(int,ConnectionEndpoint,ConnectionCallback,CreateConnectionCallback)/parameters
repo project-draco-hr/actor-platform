@@ -1,4 +1,0 @@
-int connectionId
-ConnectionEndpoint endpoint
-ConnectionCallback callback
-CreateConnectionCallback createCallback

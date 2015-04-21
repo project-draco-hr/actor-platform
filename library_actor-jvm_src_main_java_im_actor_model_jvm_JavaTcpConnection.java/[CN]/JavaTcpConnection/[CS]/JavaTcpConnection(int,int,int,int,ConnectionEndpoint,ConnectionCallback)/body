@@ -1,0 +1,66 @@
+{
+  this.TAG="Connection#" + id;
+  this.callback=callback;
+  this.isClosed=false;
+  this.sentPackets=0;
+  this.receivedPackets=0;
+  Log.d(TAG,"Creating socket...");
+switch (endpoint.getType()) {
+case TCP:
+    socket=new Socket();
+  break;
+case TCP_TLS:
+socket=SSLSocketFactory.getDefault().createSocket();
+break;
+default :
+throw new IOException("Unsupported endpoint type: " + endpoint.getType());
+}
+this.socket.setKeepAlive(false);
+this.socket.setTcpNoDelay(true);
+Log.d(TAG,"Connecting socket...");
+this.socket.connect(new InetSocketAddress(endpoint.getHost(),endpoint.getPort()),CONNECTION_TIMEOUT);
+Log.d(TAG,"Performing handshake...");
+inputStream=this.socket.getInputStream();
+outputStream=this.socket.getOutputStream();
+DataOutput handshakeRequest=new DataOutput();
+handshakeRequest.writeByte(mtprotoVersion);
+handshakeRequest.writeByte(apiMajorVersion);
+handshakeRequest.writeByte(apiMinorVersion);
+byte[] randomData=new byte[32];
+synchronized (RANDOM) {
+RANDOM.nextBytes(randomData);
+}
+handshakeRequest.writeInt(randomData.length);
+handshakeRequest.writeBytes(randomData,0,randomData.length);
+outputStream.write(handshakeRequest.toByteArray());
+outputStream.flush();
+Log.d(TAG,"Reading handshake response...");
+socket.setSoTimeout(HANDSHAKE_TIMEOUT);
+byte[] data=readBytes(3 + 32);
+socket.setSoTimeout(0);
+DataInput handshakeResponse=new DataInput(data);
+int protoVersion=handshakeResponse.readByte();
+int apiMajor=handshakeResponse.readByte();
+int apiMinor=handshakeResponse.readByte();
+byte[] sha256=handshakeResponse.readBytes(32);
+byte[] localSha256=CryptoUtils.SHA256(randomData);
+if (!Arrays.equals(sha256,localSha256)) {
+throw new IOException("SHA 256 is incorrect");
+}
+if (protoVersion != 1) {
+throw new IOException("Incorrect Proto Version, expected: 1, got " + protoVersion + ";");
+}
+if (apiMajor != 1) {
+throw new IOException("Incorrect Api Major Version, expected: 1, got " + apiMajor + ";");
+}
+if (apiMinor != 0) {
+throw new IOException("Incorrect Api Minor Version, expected: 0, got " + apiMinor + ";");
+}
+Log.d(TAG,"Handshake completed.");
+readerThread=new ReaderThread();
+writerThread=new WriterThread();
+readerThread.start();
+writerThread.start();
+pingTask=new PingTask();
+DIE_TIMER.schedule(pingTask,PING_TIMEOUT);
+}
