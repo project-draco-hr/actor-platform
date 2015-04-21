@@ -1,3 +1,4 @@
 {
-  writer.writeRaw(content);
+  writer.writeInt(1,key);
+  writer.writeBytes(2,content);
 }
