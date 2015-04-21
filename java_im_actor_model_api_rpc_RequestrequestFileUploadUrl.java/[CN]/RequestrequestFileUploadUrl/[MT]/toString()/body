@@ -1,0 +1,6 @@
+{
+  String res="rpc requestFileUploadUrl{";
+  res+="expectedSize=" + this.expectedSize;
+  res+="}";
+  return res;
+}

@@ -1,5 +1,0 @@
-{
-  writer.writeRepeatedObj(1,this.newKeys);
-  writer.writeRepeatedObj(2,this.removedKeys);
-  writer.writeRepeatedObj(3,this.invalidKeys);
-}

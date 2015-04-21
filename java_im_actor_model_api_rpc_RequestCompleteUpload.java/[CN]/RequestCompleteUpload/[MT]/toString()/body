@@ -1,8 +1,0 @@
-{
-  String res="rpc CompleteUpload{";
-  res+="config=" + this.config;
-  res+=", blocksCount=" + this.blocksCount;
-  res+=", crc32=" + this.crc32;
-  res+="}";
-  return res;
-}

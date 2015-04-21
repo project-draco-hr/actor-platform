@@ -1,6 +1,0 @@
-{
-  if (this.payload == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(1,this.payload);
-}

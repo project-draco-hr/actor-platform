@@ -1,0 +1,3 @@
+{
+  this.url=values.getString(1);
+}

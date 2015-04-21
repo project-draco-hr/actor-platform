@@ -3,6 +3,6 @@
     throw new IOException();
   }
   writer.writeObject(1,this.peer);
-  writer.writeLong(3,this.startDate);
+  writer.writeLong(3,this.minDate);
   writer.writeInt(4,this.limit);
 }

@@ -12,10 +12,6 @@
     throw new IOException();
   }
   writer.writeString(4,this.name);
-  if (this.publicKey == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(6,this.publicKey);
   if (this.deviceHash == null) {
     throw new IOException();
   }

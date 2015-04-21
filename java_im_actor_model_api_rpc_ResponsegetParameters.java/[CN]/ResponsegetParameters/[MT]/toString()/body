@@ -1,0 +1,5 @@
+{
+  String res="tuple getParameters{";
+  res+="}";
+  return res;
+}

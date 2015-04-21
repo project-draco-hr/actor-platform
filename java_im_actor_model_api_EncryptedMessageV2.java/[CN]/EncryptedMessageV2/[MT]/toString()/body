@@ -1,7 +1,0 @@
-{
-  String res="struct EncryptedMessageV2{";
-  res+="rid=" + this.rid;
-  res+=", content=" + this.content;
-  res+="}";
-  return res;
-}

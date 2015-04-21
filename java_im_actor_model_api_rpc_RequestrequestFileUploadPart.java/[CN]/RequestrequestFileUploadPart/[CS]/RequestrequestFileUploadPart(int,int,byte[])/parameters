@@ -1,0 +1,3 @@
+int partNumber
+int partSize
+byte[] uploadKey
