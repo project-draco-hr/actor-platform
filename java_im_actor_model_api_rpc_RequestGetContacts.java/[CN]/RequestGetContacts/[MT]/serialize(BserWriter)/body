@@ -1,0 +1,6 @@
+{
+  if (this.contactsHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.contactsHash);
+}

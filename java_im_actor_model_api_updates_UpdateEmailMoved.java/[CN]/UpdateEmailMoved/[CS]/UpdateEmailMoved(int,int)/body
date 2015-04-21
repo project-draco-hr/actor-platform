@@ -1,0 +1,4 @@
+{
+  this.emailId=emailId;
+  this.uid=uid;
+}

@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,this.uid);
+  if (this.avatar != null) {
+    writer.writeObject(2,this.avatar);
+  }
+}

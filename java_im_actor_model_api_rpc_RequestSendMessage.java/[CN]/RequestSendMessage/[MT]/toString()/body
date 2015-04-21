@@ -1,0 +1,8 @@
+{
+  String res="rpc SendMessage{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", message=" + this.message;
+  res+="}";
+  return res;
+}

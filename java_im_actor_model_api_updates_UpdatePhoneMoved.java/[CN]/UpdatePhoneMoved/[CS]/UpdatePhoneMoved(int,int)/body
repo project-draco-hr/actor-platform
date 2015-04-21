@@ -1,0 +1,4 @@
+{
+  this.phoneId=phoneId;
+  this.uid=uid;
+}

@@ -1,0 +1,5 @@
+int senderUid
+long rid
+long date
+Message message
+MessageState state

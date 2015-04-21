@@ -1,0 +1,3 @@
+{
+  this.maxGroupSize=values.getInt(1);
+}

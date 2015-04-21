@@ -1,0 +1,7 @@
+{
+  String res="update UserLastSeen{";
+  res+="uid=" + this.uid;
+  res+=", date=" + this.date;
+  res+="}";
+  return res;
+}

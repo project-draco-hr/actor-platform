@@ -1,0 +1,12 @@
+{
+  writer.writeLong(1,this.phoneNumber);
+  if (this.smsHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.smsHash);
+  writer.writeInt(3,this.appId);
+  if (this.apiKey == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.apiKey);
+}

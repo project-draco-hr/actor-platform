@@ -1,0 +1,9 @@
+{
+  if (this.text == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.text);
+  if (this.ext != null) {
+    writer.writeBytes(3,this.ext.buildContainer());
+  }
+}

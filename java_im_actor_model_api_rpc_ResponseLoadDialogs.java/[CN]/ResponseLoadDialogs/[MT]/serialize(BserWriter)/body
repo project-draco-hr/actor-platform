@@ -1,0 +1,5 @@
+{
+  writer.writeRepeatedObj(1,this.groups);
+  writer.writeRepeatedObj(2,this.users);
+  writer.writeRepeatedObj(3,this.dialogs);
+}

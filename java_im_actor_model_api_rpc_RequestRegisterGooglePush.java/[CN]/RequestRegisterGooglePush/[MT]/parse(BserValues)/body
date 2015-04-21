@@ -1,0 +1,4 @@
+{
+  this.projectId=values.getLong(1);
+  this.token=values.getString(2);
+}

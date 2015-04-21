@@ -1,0 +1,6 @@
+{
+  String res="rpc SendAuthCall{";
+  res+="phoneNumber=" + this.phoneNumber;
+  res+="}";
+  return res;
+}

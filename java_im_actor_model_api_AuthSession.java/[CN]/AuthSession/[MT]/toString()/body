@@ -1,0 +1,11 @@
+{
+  String res="struct AuthSession{";
+  res+="id=" + this.id;
+  res+=", authHolder=" + this.authHolder;
+  res+=", appId=" + this.appId;
+  res+=", appTitle=" + this.appTitle;
+  res+=", deviceTitle=" + this.deviceTitle;
+  res+=", authTime=" + this.authTime;
+  res+="}";
+  return res;
+}

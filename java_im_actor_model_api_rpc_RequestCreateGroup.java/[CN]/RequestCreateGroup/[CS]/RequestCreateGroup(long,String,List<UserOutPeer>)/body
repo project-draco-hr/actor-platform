@@ -1,0 +1,5 @@
+{
+  this.rid=rid;
+  this.title=title;
+  this.users=users;
+}

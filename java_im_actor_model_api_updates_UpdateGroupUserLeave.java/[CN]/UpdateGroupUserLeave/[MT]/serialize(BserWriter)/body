@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,this.groupId);
+  writer.writeLong(4,this.rid);
+  writer.writeInt(2,this.uid);
+  writer.writeLong(3,this.date);
+}

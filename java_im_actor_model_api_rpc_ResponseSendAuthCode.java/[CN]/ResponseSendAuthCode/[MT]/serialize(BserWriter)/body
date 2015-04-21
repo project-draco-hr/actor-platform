@@ -1,0 +1,7 @@
+{
+  if (this.smsHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.smsHash);
+  writer.writeBool(2,this.isRegistered);
+}

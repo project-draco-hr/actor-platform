@@ -1,0 +1,5 @@
+{
+  this.avatar=values.getObj(1,new Avatar());
+  this.seq=values.getInt(2);
+  this.state=values.getBytes(3);
+}

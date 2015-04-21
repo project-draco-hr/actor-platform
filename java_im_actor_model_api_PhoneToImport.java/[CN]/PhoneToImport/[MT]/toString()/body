@@ -1,0 +1,7 @@
+{
+  String res="struct PhoneToImport{";
+  res+="phoneNumber=" + this.phoneNumber;
+  res+=", name=" + this.name;
+  res+="}";
+  return res;
+}

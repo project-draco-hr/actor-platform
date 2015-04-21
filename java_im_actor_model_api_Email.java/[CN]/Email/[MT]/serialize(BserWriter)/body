@@ -1,0 +1,12 @@
+{
+  writer.writeInt(1,this.id);
+  writer.writeLong(2,this.accessHash);
+  if (this.email == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.email);
+  if (this.emailTitle == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.emailTitle);
+}

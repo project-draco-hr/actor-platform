@@ -1,0 +1,4 @@
+{
+  this.updateHeader=values.getInt(1);
+  this.update=values.getBytes(2);
+}

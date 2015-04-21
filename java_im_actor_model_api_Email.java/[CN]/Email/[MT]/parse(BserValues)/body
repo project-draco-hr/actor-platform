@@ -1,0 +1,6 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  this.email=values.getString(3);
+  this.emailTitle=values.getString(4);
+}

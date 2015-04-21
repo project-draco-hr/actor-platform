@@ -1,0 +1,7 @@
+{
+  String res="rpc SignIn{";
+  res+="deviceHash=" + byteArrayToString(this.deviceHash);
+  res+=", deviceTitle=" + this.deviceTitle;
+  res+="}";
+  return res;
+}

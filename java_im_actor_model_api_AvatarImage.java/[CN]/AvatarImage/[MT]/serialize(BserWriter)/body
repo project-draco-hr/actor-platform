@@ -1,0 +1,9 @@
+{
+  if (this.fileLocation == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.fileLocation);
+  writer.writeInt(2,this.width);
+  writer.writeInt(3,this.height);
+  writer.writeInt(4,this.fileSize);
+}

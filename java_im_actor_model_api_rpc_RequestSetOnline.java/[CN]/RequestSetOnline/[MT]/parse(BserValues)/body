@@ -1,0 +1,4 @@
+{
+  this.isOnline=values.getBool(1);
+  this.timeout=values.getLong(2);
+}

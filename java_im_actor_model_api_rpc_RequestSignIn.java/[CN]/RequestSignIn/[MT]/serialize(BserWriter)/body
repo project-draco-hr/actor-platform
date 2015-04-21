@@ -1,0 +1,24 @@
+{
+  writer.writeLong(1,this.phoneNumber);
+  if (this.smsHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.smsHash);
+  if (this.smsCode == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.smsCode);
+  if (this.deviceHash == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(5,this.deviceHash);
+  if (this.deviceTitle == null) {
+    throw new IOException();
+  }
+  writer.writeString(6,this.deviceTitle);
+  writer.writeInt(7,this.appId);
+  if (this.appKey == null) {
+    throw new IOException();
+  }
+  writer.writeString(8,this.appKey);
+}

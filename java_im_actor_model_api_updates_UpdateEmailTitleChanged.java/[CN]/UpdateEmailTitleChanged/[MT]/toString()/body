@@ -1,0 +1,7 @@
+{
+  String res="update EmailTitleChanged{";
+  res+="emailId=" + this.emailId;
+  res+=", title=" + this.title;
+  res+="}";
+  return res;
+}

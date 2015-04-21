@@ -1,0 +1,4 @@
+{
+  this.emailId=values.getInt(1);
+  this.uid=values.getInt(2);
+}
