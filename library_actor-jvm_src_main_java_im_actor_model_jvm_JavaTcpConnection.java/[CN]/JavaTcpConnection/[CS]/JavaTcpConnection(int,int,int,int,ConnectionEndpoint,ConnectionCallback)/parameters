@@ -1,3 +1,6 @@
 int id
+int mtprotoVersion
+int apiMajorVersion
+int apiMinorVersion
 ConnectionEndpoint endpoint
 ConnectionCallback callback

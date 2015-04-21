@@ -1,7 +1,5 @@
 {
-  this.id=id;
   this.TAG="Connection#" + id;
-  this.endpoint=endpoint;
   this.callback=callback;
   this.isClosed=false;
   this.sentPackets=0;
@@ -25,9 +23,9 @@ Log.d(TAG,"Performing handshake...");
 inputStream=this.socket.getInputStream();
 outputStream=this.socket.getOutputStream();
 DataOutput handshakeRequest=new DataOutput();
-handshakeRequest.writeByte(1);
-handshakeRequest.writeByte(1);
-handshakeRequest.writeByte(0);
+handshakeRequest.writeByte(mtprotoVersion);
+handshakeRequest.writeByte(apiMajorVersion);
+handshakeRequest.writeByte(apiMinorVersion);
 byte[] randomData=new byte[32];
 synchronized (RANDOM) {
 RANDOM.nextBytes(randomData);
