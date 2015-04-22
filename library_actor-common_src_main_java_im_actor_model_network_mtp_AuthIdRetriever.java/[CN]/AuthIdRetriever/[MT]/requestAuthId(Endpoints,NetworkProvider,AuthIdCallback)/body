@@ -1,8 +1,16 @@
 {
   Log.d(TAG,"Requesting AuthId");
   final boolean[] isFinished=new boolean[1];
+  final ExponentialBackoff backoff=new ExponentialBackoff();
   isFinished[0]=false;
-  networkProvider.createConnection(0,endpoints.fetchEndpoint(),new ConnectionCallback(){
+  networkProvider.createConnection(0,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(),new ConnectionCallback(){
+    @Override public void onConnectionRedirect(    String host,    int port,    int timeout){
+      if (!isFinished[0]) {
+        isFinished[0]=true;
+        callback.onFailure();
+        Log.d(TAG,"Unable to create connection");
+      }
+    }
     @Override public void onMessage(    byte[] data,    int offset,    int len){
       if (isFinished[0]) {
         return;
@@ -43,6 +51,7 @@
         return;
       }
       Log.d(TAG,"Connection created");
+      backoff.onSuccess();
       try {
         DataOutput output=new DataOutput();
         output.writeLong(0);

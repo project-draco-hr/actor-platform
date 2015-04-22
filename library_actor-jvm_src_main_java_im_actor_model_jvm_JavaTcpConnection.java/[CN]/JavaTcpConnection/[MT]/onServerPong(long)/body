@@ -1,0 +1,10 @@
+{
+synchronized (packageTimers) {
+    TimerTask task=schedulledPings.remove(pingId);
+    if (task == null) {
+      return;
+    }
+    task.cancel();
+    refreshTimeouts();
+  }
+}

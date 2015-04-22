@@ -10,7 +10,7 @@
   imageView.setExtraReceiverCallback(new ReceiverCallback(){
     @Override public void onImageLoaded(    BitmapReference bitmap){
       attacher=new PhotoViewAttacher(imageView);
-      attacher.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener(){
+      attacher.setOnDoubleTapListener(new DefaultOnDoubleTapListener(attacher){
         @Override public boolean onSingleTapConfirmed(        MotionEvent e){
           if (!uiIsHidden) {
             hideSystemUi();
@@ -18,14 +18,14 @@
  else {
             showSystemUi();
           }
-          return false;
+          return super.onSingleTapConfirmed(e);
         }
         @Override public boolean onDoubleTap(        MotionEvent e){
           if (!uiIsHidden)           hideSystemUi();
-          return true;
+          return super.onDoubleTap(e);
         }
         @Override public boolean onDoubleTapEvent(        MotionEvent e){
-          return true;
+          return super.onDoubleTapEvent(e);
         }
       }
 );

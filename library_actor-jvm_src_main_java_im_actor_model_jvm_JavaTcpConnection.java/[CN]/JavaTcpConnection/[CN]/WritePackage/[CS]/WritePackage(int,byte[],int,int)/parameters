@@ -1,0 +1,4 @@
+int header
+byte[] content
+int offset
+int len

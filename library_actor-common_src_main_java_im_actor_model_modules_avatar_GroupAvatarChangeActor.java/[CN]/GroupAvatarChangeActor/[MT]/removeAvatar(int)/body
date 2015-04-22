@@ -9,7 +9,7 @@
   modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,true));
   request(new RequestRemoveAvatar(),new RpcCallback<ResponseSeq>(){
     @Override public void onResult(    ResponseSeq response){
-      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateUserAvatarChanged.HEADER,new UpdateUserAvatarChanged(myUid(),null).toByteArray()));
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateGroupAvatarChanged.HEADER,new UpdateGroupAvatarChanged(gid,rid,myUid(),null,System.currentTimeMillis()).toByteArray()));
       updates().onUpdateReceived(new ExecuteAfter(response.getSeq(),new Runnable(){
         @Override public void run(){
           self().send(new AvatarChanged(gid,rid));
