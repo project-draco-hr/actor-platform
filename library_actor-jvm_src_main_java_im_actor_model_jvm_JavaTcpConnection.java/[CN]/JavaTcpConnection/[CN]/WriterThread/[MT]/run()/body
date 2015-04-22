@@ -17,7 +17,6 @@ synchronized (packages) {
       if (p == null) {
         continue;
       }
-      Log.d(TAG,"Sending frame #" + sentPackets);
       final int packageId=sentPackets++;
       DataOutput dataOutput=new DataOutput();
       dataOutput.writeInt(packageId);
@@ -32,7 +31,6 @@ synchronized (packages) {
 synchronized (packageTimers) {
           TimerTask timeoutTask=new TimerTask(){
             @Override public void run(){
-              Log.d(TAG,"Response #" + packageId + " not received in time");
               close();
             }
           }

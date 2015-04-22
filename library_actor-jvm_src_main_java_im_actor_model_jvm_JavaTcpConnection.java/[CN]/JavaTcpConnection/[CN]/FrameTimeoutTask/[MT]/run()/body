@@ -1,4 +1,3 @@
 {
-  Log.d(TAG,"Response #" + frameId + " not received in time");
   close();
 }
