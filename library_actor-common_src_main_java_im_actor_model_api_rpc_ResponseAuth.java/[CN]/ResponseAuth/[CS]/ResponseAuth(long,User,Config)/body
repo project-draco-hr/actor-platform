@@ -1,5 +1,4 @@
 {
-  this.publicKeyHash=publicKeyHash;
   this.user=user;
   this.config=config;
 }
