@@ -1,0 +1,24 @@
+{
+  this.TAG="Connection#" + id;
+  this.endpoint=_endpoint;
+  this.callback=_callback;
+switch (endpoint.getType()) {
+case TCP:
+    socket=new Socket();
+  break;
+case TCP_TLS:
+socket=SSLSocketFactory.getDefault().createSocket();
+break;
+default :
+throw new IOException("Unsupported endpoint type: " + endpoint.getType());
+}
+this.socket.setKeepAlive(true);
+this.socket.setTcpNoDelay(true);
+this.socket.connect(new InetSocketAddress(endpoint.getHost(),endpoint.getPort()),CONNECTION_TIMEOUT);
+this.socket.getInputStream();
+this.socket.getOutputStream();
+readerThread=new ReaderThread();
+writerThread=new WriterThread();
+readerThread.start();
+writerThread.start();
+}
