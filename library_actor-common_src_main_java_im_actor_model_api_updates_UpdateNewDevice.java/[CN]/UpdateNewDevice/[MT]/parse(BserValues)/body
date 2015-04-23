@@ -1,6 +1,0 @@
-{
-  this.uid=values.getInt(1);
-  this.keyHash=values.getLong(2);
-  this.key=values.optBytes(3);
-  this.date=values.getLong(4);
-}

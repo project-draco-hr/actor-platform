@@ -1,0 +1,10 @@
+int id
+long accessHash
+String name
+String localName
+Sex sex
+List<Long> keyHashes
+long phone
+Avatar avatar
+List<Integer> phones
+List<Integer> emails

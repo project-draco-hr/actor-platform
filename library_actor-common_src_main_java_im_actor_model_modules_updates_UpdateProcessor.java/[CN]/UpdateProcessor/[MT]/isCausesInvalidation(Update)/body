@@ -1,19 +1,8 @@
 {
   HashSet<Integer> users=new HashSet<Integer>();
   HashSet<Integer> groups=new HashSet<Integer>();
-  HashSet<Integer> contacts=new HashSet<Integer>();
   if (update instanceof UpdateMessage) {
     UpdateMessage updateMessage=(UpdateMessage)update;
-    users.add(updateMessage.getSenderUid());
-    if (updateMessage.getPeer().getType() == PeerType.GROUP) {
-      groups.add(updateMessage.getPeer().getId());
-    }
-    if (updateMessage.getPeer().getType() == PeerType.PRIVATE) {
-      users.add(updateMessage.getPeer().getId());
-    }
-  }
- else   if (update instanceof UpdateEncryptedMessage) {
-    UpdateEncryptedMessage updateMessage=(UpdateEncryptedMessage)update;
     users.add(updateMessage.getSenderUid());
     if (updateMessage.getPeer().getType() == PeerType.GROUP) {
       groups.add(updateMessage.getPeer().getId());

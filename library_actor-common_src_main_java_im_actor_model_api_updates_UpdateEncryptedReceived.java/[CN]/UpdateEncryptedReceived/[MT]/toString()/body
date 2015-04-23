@@ -1,8 +1,0 @@
-{
-  String res="update EncryptedReceived{";
-  res+="peer=" + this.peer;
-  res+=", rid=" + this.rid;
-  res+=", receivedDate=" + this.receivedDate;
-  res+="}";
-  return res;
-}

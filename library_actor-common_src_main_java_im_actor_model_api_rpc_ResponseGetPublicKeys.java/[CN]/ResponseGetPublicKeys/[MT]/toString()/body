@@ -1,5 +1,0 @@
-{
-  String res="tuple GetPublicKeys{";
-  res+="}";
-  return res;
-}

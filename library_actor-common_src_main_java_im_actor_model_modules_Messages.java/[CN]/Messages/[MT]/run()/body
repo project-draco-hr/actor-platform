@@ -17,15 +17,15 @@
     }
   }
 ),"actor/read/own");
-  this.plainReadActor=system().actorOf(Props.create(PlainReaderActor.class,new ActorCreator<PlainReaderActor>(){
-    @Override public PlainReaderActor create(){
-      return new PlainReaderActor(modules());
+  this.plainReadActor=system().actorOf(Props.create(CursorReaderActor.class,new ActorCreator<CursorReaderActor>(){
+    @Override public CursorReaderActor create(){
+      return new CursorReaderActor(modules());
     }
   }
 ),"actor/plain/read");
-  this.plainReceiverActor=system().actorOf(Props.create(PlainReceiverActor.class,new ActorCreator<PlainReceiverActor>(){
-    @Override public PlainReceiverActor create(){
-      return new PlainReceiverActor(modules());
+  this.plainReceiverActor=system().actorOf(Props.create(CursorReceiverActor.class,new ActorCreator<CursorReceiverActor>(){
+    @Override public CursorReceiverActor create(){
+      return new CursorReceiverActor(modules());
     }
   }
 ),"actor/plain/receive");

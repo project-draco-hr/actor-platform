@@ -1,8 +1,0 @@
-{
-  this.peer=values.getObj(1,new Peer());
-  this.senderUid=values.getInt(2);
-  this.date=values.getLong(6);
-  this.keyHash=values.getLong(3);
-  this.aesEncryptedKey=values.getBytes(4);
-  this.message=values.getBytes(5);
-}

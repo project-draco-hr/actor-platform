@@ -1,23 +1,33 @@
 {
-  request(new RequestGetFile(new im.actor.model.api.FileLocation(fileReference.getFileId(),fileReference.getAccessHash()),fileOffset,blockSize),new RpcCallback<ResponseGetFile>(){
-    @Override public void onResult(    ResponseGetFile response){
-      downloaded++;
-      if (LOG) {
-        Log.d(TAG,"Download part #" + blockIndex + " completed");
+  downloaderProvider.downloadPart(fileUrl,fileOffset,blockSize,new FileDownloadCallback(){
+    @Override public void onDownloaded(    final byte[] data){
+      self().send(new Runnable(){
+        @Override public void run(){
+          downloaded++;
+          if (LOG) {
+            Log.d(TAG,"Download part #" + blockIndex + " completed");
+          }
+          if (!outputFile.write(fileOffset,data,0,data.length)) {
+            reportError();
+            return;
+          }
+          currentDownloads--;
+          reportProgress(downloaded / (float)blocksCount);
+          checkQueue();
+        }
       }
-      if (!outputFile.write(fileOffset,response.getPayload(),0,response.getPayload().length)) {
-        reportError();
-        return;
-      }
-      currentDownloads--;
-      reportProgress(downloaded / (float)blocksCount);
-      checkQueue();
+);
     }
-    @Override public void onError(    RpcException e){
-      if (LOG) {
-        Log.d(TAG,"Download part #" + blockIndex + " failure");
+    @Override public void onDownloadFailure(){
+      self().send(new Runnable(){
+        @Override public void run(){
+          if (LOG) {
+            Log.d(TAG,"Download part #" + blockIndex + " failure");
+          }
+          reportError();
+        }
       }
-      reportError();
+);
     }
   }
 );

@@ -1,5 +1,0 @@
-OutPeer peer
-long rid
-byte[] encryptedMessage
-List<EncryptedAesKey> keys
-List<EncryptedAesKey> ownKeys

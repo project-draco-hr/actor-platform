@@ -1,7 +1,0 @@
-{
-  writer.writeLong(1,this.rid);
-  if (this.content == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(3,this.content.buildContainer());
-}

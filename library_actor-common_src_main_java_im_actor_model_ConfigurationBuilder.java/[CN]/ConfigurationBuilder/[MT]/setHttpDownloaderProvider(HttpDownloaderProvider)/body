@@ -1,0 +1,4 @@
+{
+  this.httpDownloaderProvider=httpDownloaderProvider;
+  return this;
+}

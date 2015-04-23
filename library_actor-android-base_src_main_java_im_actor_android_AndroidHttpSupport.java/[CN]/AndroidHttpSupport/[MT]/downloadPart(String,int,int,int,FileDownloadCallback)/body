@@ -1,0 +1,17 @@
+{
+  Request request=new Request.Builder().url(url).addHeader("Content-Range","bytes " + startOffset + "-"+ (startOffset + size)+ "/"+ totalSize).build();
+  client.newCall(request).enqueue(new Callback(){
+    @Override public void onFailure(    Request request,    IOException e){
+      callback.onDownloadFailure();
+    }
+    @Override public void onResponse(    Response response) throws IOException {
+      if (response.code() == 200) {
+        callback.onDownloaded(response.body().bytes());
+      }
+ else {
+        callback.onDownloadFailure();
+      }
+    }
+  }
+);
+}
