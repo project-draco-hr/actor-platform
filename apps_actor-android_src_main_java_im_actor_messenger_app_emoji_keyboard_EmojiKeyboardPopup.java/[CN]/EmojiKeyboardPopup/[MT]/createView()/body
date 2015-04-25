@@ -52,5 +52,10 @@
     }
   }
 );
+  emojiPagerIndicator.setIndicatorColorResource(R.color.main_tab_selected);
+  emojiPagerIndicator.setIndicatorHeight(Screen.dp(4));
+  emojiPagerIndicator.setDividerColorResource(R.color.main_tab_divider);
+  emojiPagerIndicator.setUnderlineHeight(0);
+  emojiPagerIndicator.setTabPaddingLeftRight(0);
   return keyboardView;
 }
