@@ -1,2 +1,56 @@
 {
+  View keyboardView=LayoutInflater.from(activity).inflate(R.layout.emoji_keyboard,null);
+  final FrameLayout emojiContainer=(FrameLayout)keyboardView.findViewById(R.id.emojiContainer);
+  emojiContainer.addView(createEmojiPagerView());
+  RecyclerView recyclerView=(RecyclerView)keyboardView.findViewById(R.id.indicator);
+  recyclerView.setHasFixedSize(true);
+  recyclerView.setLayoutManager(new LinearLayoutManager(activity,OrientationHelper.HORIZONTAL,false));
+  recyclerView.setAdapter(new RecyclerView.Adapter(){
+    public int selected=0;
+    @Override public RecyclerView.ViewHolder onCreateViewHolder(    ViewGroup parent,    int viewType){
+      SimpleDraweeView imageView=new SimpleDraweeView(activity);
+      imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+      imageView.setLayoutParams(new RecyclerView.LayoutParams(Screen.dp(50),Screen.dp(50)));
+      imageView.setBackgroundResource(R.drawable.clickable_background);
+      return new RecyclerView.ViewHolder(imageView){
+      }
+;
+    }
+    @Override public void onBindViewHolder(    RecyclerView.ViewHolder holder,    final int position){
+      holder.itemView.setSelected(position == selected);
+      holder.itemView.setOnClickListener(new OnClickListener(){
+        @Override public void onClick(        View v){
+          v.setSelected(true);
+          int oldSelected=selected;
+          selected=position;
+          notifyItemChanged(oldSelected);
+          View view=null;
+          if (position == 0) {
+            view=createEmojiPagerView();
+          }
+ else {
+            view=createStickersPagerView(position - 1);
+          }
+          emojiContainer.removeAllViews();
+          emojiContainer.addView(view);
+        }
+      }
+);
+      SimpleDraweeView packImageView=(SimpleDraweeView)holder.itemView;
+      if (position == 0) {
+        packImageView.setImageResource(R.drawable.button_emoji);
+        packImageView.setPadding(0,0,0,0);
+      }
+ else {
+        StickersPack pack=Stickers.getPacks()[position - 1];
+        packImageView.setImageURI(Uri.parse("file://" + Stickers.getFile(pack.getId(),pack.getLogoStickerId())));
+        packImageView.setPadding(Screen.dp(5),Screen.dp(5),Screen.dp(5),Screen.dp(5));
+      }
+    }
+    @Override public int getItemCount(){
+      return 3;
+    }
+  }
+);
+  return keyboardView;
 }
