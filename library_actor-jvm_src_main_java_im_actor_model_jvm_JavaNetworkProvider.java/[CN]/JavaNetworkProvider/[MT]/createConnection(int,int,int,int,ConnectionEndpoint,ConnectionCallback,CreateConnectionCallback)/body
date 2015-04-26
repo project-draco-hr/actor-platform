@@ -2,7 +2,7 @@
   new Thread(){
     @Override public void run(){
       try {
-        createCallback.onConnectionCreated(new JavaTcpConnection(connectionId,mtprotoVersion,apiMajorVersion,apiMinorVersion,endpoint,callback));
+        createCallback.onConnectionCreated(new JavaOldTcpConnection(connectionId,endpoint,callback));
       }
  catch (      Exception e) {
         e.printStackTrace();
