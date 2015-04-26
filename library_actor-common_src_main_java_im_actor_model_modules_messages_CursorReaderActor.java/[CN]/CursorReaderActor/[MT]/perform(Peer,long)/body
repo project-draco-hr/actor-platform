@@ -1,0 +1,15 @@
+{
+  OutPeer outPeer=buidOutPeer(peer);
+  if (outPeer == null) {
+    return;
+  }
+  request(new RequestMessageRead(outPeer,date),new RpcCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid response){
+      onCompleted(peer,date);
+    }
+    @Override public void onError(    RpcException e){
+      CursorReaderActor.this.onError(peer,date);
+    }
+  }
+);
+}

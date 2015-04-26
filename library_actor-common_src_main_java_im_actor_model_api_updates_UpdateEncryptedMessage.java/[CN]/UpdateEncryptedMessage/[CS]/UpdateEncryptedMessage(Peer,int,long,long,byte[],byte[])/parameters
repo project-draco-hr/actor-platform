@@ -1,6 +1,0 @@
-Peer peer
-int senderUid
-long date
-long keyHash
-byte[] aesEncryptedKey
-byte[] message

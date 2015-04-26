@@ -1,4 +1,0 @@
-{
-  this.rid=values.getLong(1);
-  this.content=EncryptedContentV1.fromBytes(values.getInt(2),values.getBytes(3));
-}

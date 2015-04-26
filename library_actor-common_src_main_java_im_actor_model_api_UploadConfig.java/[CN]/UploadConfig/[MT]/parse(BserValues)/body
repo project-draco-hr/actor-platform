@@ -1,3 +1,0 @@
-{
-  this.serverData=values.getBytes(1);
-}

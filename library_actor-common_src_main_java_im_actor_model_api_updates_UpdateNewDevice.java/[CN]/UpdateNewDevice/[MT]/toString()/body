@@ -1,9 +1,0 @@
-{
-  String res="update NewDevice{";
-  res+="uid=" + this.uid;
-  res+=", keyHash=" + this.keyHash;
-  res+=", key=" + byteArrayToStringCompact(this.key);
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

@@ -1,0 +1,10 @@
+{
+  if (this.url == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.url);
+  if (this.uploadKey == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.uploadKey);
+}

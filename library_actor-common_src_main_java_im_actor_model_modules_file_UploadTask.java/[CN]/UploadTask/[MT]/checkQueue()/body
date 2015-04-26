@@ -13,12 +13,12 @@
     }
     inputFile.close();
     outputFile.close();
-    request(new RequestCompleteUpload(uploadConfig,blocksCount,crc),new RpcCallback<ResponseCompleteUpload>(){
-      @Override public void onResult(      ResponseCompleteUpload response){
+    request(new RequestCommitFileUpload(uploadConfig),new RpcCallback<ResponseCommitFileUpload>(){
+      @Override public void onResult(      ResponseCommitFileUpload response){
         if (LOG) {
           Log.d(TAG,"Upload completed...");
         }
-        FileReference location=EntityConverter.convert(response.getLocation(),fileName,srcReference.getSize());
+        FileReference location=EntityConverter.convert(response.getUploadedFileLocation(),fileName,srcReference.getSize());
         FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
         reportComplete(location,reference);
       }

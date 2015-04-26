@@ -1,6 +1,6 @@
 {
   String res="rpc LoadDialogs{";
-  res+="startDate=" + this.startDate;
+  res+="minDate=" + this.minDate;
   res+=", limit=" + this.limit;
   res+="}";
   return res;

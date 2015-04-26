@@ -1,4 +1,0 @@
-{
-  this.width=values.getInt(1);
-  this.height=values.getInt(2);
-}

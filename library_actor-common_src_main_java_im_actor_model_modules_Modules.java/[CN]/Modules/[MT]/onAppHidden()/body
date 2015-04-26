@@ -1,0 +1,7 @@
+{
+  isAppVisible=false;
+  if (getPresenceModule() != null) {
+    getPresenceModule().onAppHidden();
+    getNotifications().onAppHidden();
+  }
+}

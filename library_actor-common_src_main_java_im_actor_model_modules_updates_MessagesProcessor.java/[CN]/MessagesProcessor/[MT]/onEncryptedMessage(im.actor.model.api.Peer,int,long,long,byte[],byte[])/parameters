@@ -1,6 +1,0 @@
-im.actor.model.api.Peer _peer
-int senderUid
-long date
-long keyHash
-byte[] aesEncryptedKey
-byte[] message

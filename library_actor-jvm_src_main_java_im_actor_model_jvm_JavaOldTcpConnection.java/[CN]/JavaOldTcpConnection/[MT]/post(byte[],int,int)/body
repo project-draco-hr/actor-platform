@@ -1,3 +1,0 @@
-{
-  writerThread.pushPackage(new Package(data));
-}

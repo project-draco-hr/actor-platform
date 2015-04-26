@@ -1,5 +1,0 @@
-{
-  String res="tuple StartUpload{";
-  res+="}";
-  return res;
-}

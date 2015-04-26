@@ -1,5 +1,0 @@
-{
-  writer.writeInt(1,this.width);
-  writer.writeInt(2,this.height);
-  writer.writeInt(3,this.duration);
-}

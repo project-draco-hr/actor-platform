@@ -8,10 +8,6 @@
     throw new IOException();
   }
   writer.writeString(3,this.smsCode);
-  if (this.publicKey == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(4,this.publicKey);
   if (this.deviceHash == null) {
     throw new IOException();
   }

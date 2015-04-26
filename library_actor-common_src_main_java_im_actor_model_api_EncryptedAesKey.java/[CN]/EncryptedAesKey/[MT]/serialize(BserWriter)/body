@@ -1,7 +1,0 @@
-{
-  writer.writeLong(1,this.keyHash);
-  if (this.aesEncryptedKey == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(2,this.aesEncryptedKey);
-}
