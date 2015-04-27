@@ -114,4 +114,6 @@
  else   if (update instanceof UpdateGroupMembersUpdate) {
     groupsProcessor.onMembersUpdated(((UpdateGroupMembersUpdate)update).getGroupId(),((UpdateGroupMembersUpdate)update).getMembers());
   }
+ else   if (update instanceof UpdateParameterChanged) {
+  }
 }
