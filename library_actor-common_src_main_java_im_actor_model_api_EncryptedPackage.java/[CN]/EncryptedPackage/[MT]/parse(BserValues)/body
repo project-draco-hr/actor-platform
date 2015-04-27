@@ -1,7 +1,0 @@
-{
-  this.v1MessageType=values.optInt(1);
-  this.v1Message=values.optBytes(2);
-  this.v1Crc32=values.optLong(3);
-  this.v2Message=values.optBytes(5);
-  this.v2HmacSha256=values.optLong(6);
-}

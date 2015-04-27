@@ -1,0 +1,17 @@
+{
+  Request request=new Request.Builder().url(url).method("PUT",RequestBody.create(MEDIA_TYPE,contents)).build();
+  client.newCall(request).enqueue(new Callback(){
+    @Override public void onFailure(    Request request,    IOException e){
+      callback.onUploadFailure();
+    }
+    @Override public void onResponse(    Response response) throws IOException {
+      if (response.code() == 200) {
+        callback.onUploadFailure();
+      }
+ else {
+        callback.onUploaded();
+      }
+    }
+  }
+);
+}

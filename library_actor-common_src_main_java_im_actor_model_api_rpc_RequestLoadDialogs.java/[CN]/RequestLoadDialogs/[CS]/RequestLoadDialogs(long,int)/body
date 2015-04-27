@@ -1,4 +1,4 @@
 {
-  this.startDate=startDate;
+  this.minDate=minDate;
   this.limit=limit;
 }

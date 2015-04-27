@@ -1,8 +1,0 @@
-{
-  String res="struct PublicKeyRequest{";
-  res+="uid=" + this.uid;
-  res+=", accessHash=" + this.accessHash;
-  res+=", keyHash=" + this.keyHash;
-  res+="}";
-  return res;
-}

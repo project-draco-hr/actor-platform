@@ -23,7 +23,6 @@
     writer.writeObject(6,this.thumb);
   }
   if (this.ext != null) {
-    writer.writeInt(7,this.ext.getHeader());
-    writer.writeBytes(8,this.ext.toByteArray());
+    writer.writeBytes(8,this.ext.buildContainer());
   }
 }

@@ -1,4 +1,4 @@
 {
-  writer.writeLong(1,this.startDate);
+  writer.writeLong(1,this.minDate);
   writer.writeInt(2,this.limit);
 }

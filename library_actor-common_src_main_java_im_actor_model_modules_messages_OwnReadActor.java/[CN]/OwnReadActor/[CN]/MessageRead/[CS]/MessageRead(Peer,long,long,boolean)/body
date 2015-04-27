@@ -1,6 +1,0 @@
-{
-  this.peer=peer;
-  this.rid=rid;
-  this.sortingDate=sortingDate;
-  this.isEncrypted=isEncrypted;
-}

@@ -1,7 +1,6 @@
 {
   String res="rpc SignIn{";
-  res+="publicKey=" + byteArrayToStringCompact(this.publicKey);
-  res+=", deviceHash=" + byteArrayToString(this.deviceHash);
+  res+="deviceHash=" + byteArrayToString(this.deviceHash);
   res+=", deviceTitle=" + this.deviceTitle;
   res+="}";
   return res;

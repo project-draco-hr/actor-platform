@@ -1,5 +1,0 @@
-{
-  String res="struct EncryptedFileLocationV1{";
-  res+="}";
-  return res;
-}

@@ -1,3 +1,3 @@
 OutPeer peer
-long startDate
+long minDate
 int limit

@@ -1,5 +1,4 @@
 {
-  writer.writeLong(1,this.publicKeyHash);
   if (this.user == null) {
     throw new IOException();
   }

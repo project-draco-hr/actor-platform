@@ -1,4 +1,0 @@
-{
-  this.rid=values.getLong(1);
-  this.content=Message.fromBytes(values.getBytes(3));
-}

@@ -1,5 +1,0 @@
-{
-  String res="tuple GetFile{";
-  res+="}";
-  return res;
-}

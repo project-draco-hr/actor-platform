@@ -1,5 +1,21 @@
 {
-  srcReference=config().getFileSystemProvider().fileFromDescriptor(descriptor);
+  fileSystemProvider=config().getFileSystemProvider();
+  if (fileSystemProvider == null) {
+    if (LOG) {
+      Log.d(TAG,"File system is not available");
+    }
+    reportError();
+    return;
+  }
+  downloaderProvider=config().getHttpDownloaderProvider();
+  if (downloaderProvider == null) {
+    if (LOG) {
+      Log.d(TAG,"HTTP support is not available");
+    }
+    reportError();
+    return;
+  }
+  srcReference=fileSystemProvider.fileFromDescriptor(descriptor);
   if (srcReference == null) {
     if (LOG) {
       Log.d(TAG,"Error during file reference creating");
@@ -7,7 +23,7 @@
     reportError();
     return;
   }
-  destReference=config().getFileSystemProvider().createTempFile();
+  destReference=fileSystemProvider.createTempFile();
   if (destReference == null) {
     if (LOG) {
       Log.d(TAG,"Error during file dest reference creating");

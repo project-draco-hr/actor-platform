@@ -1,8 +1,0 @@
-long phoneNumber
-String smsHash
-String smsCode
-byte[] publicKey
-byte[] deviceHash
-String deviceTitle
-int appId
-String appKey

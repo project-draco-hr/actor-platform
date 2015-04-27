@@ -1,6 +1,0 @@
-{
-switch (key) {
-default :
-    return new TextMessageExUnsupported(key,content);
-}
-}

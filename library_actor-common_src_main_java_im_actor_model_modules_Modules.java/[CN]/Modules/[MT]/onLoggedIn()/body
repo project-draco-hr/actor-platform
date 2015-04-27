@@ -45,6 +45,11 @@
   timing.section("Presence");
   presence.run();
   timing.end();
-  presence.onAppVisible();
-  notifications.onAppVisible();
+  if (isAppVisible) {
+    presence.onAppVisible();
+    notifications.onAppVisible();
+  }
+ else {
+    notifications.onAppHidden();
+  }
 }

@@ -1,5 +1,0 @@
-{
-  this.newKeys=newKeys;
-  this.removedKeys=removedKeys;
-  this.invalidKeys=invalidKeys;
-}

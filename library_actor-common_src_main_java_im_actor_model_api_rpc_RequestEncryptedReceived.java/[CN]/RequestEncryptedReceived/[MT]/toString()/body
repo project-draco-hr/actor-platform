@@ -1,7 +1,0 @@
-{
-  String res="rpc EncryptedReceived{";
-  res+="peer=" + this.peer;
-  res+=", rid=" + this.rid;
-  res+="}";
-  return res;
-}
