@@ -1,0 +1,4 @@
+{
+  setPriority(Thread.MIN_PRIORITY);
+  setName(TAG + "#Reader" + hashCode());
+}
