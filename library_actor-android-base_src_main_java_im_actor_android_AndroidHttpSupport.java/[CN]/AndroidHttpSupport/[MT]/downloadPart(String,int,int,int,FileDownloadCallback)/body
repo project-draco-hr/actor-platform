@@ -1,5 +1,5 @@
 {
-  Request request=new Request.Builder().url(url).addHeader("Content-Range","bytes " + startOffset + "-"+ (startOffset + size)+ "/"+ totalSize).build();
+  Request request=new Request.Builder().url(url).addHeader("Range","bytes=" + startOffset + "-"+ (startOffset + size)).build();
   client.newCall(request).enqueue(new Callback(){
     @Override public void onFailure(    Request request,    IOException e){
       callback.onDownloadFailure();
