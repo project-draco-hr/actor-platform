@@ -1,0 +1,5 @@
+{
+  for (  SettingsSyncAction action : pendingActions) {
+    writer.writeObject(1,action);
+  }
+}

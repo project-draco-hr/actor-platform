@@ -1,0 +1,6 @@
+{
+  writer.writeString(1,key);
+  if (value != null) {
+    writer.writeString(2,value);
+  }
+}
