@@ -1,6 +1,6 @@
 {
   ImageButton tabView=new ImageButton(activity);
-  tabView.setImageResource(R.drawable.button_emoji);
+  tabView.setImageResource(R.drawable.ic_emoji);
   tabView.setPadding(24,0,24,0);
   return tabView;
 }

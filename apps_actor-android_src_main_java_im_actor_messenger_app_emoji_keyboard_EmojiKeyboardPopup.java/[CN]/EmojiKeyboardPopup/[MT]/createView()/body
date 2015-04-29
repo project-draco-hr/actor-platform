@@ -1,7 +1,7 @@
 {
   View keyboardView=LayoutInflater.from(activity).inflate(R.layout.emoji_keyboard,null);
   final FrameLayout emojiContainer=(FrameLayout)keyboardView.findViewById(R.id.emojiContainer);
-  emojiContainer.addView(createEmojiPagerView());
+  emojiContainer.addView(createSmilesPager());
   RecyclerView recyclerView=(RecyclerView)keyboardView.findViewById(R.id.indicator);
   recyclerView.setHasFixedSize(true);
   recyclerView.setLayoutManager(new LinearLayoutManager(activity,OrientationHelper.HORIZONTAL,false));
@@ -26,7 +26,7 @@
           notifyItemChanged(oldSelected);
           View view=null;
           if (position == 0) {
-            view=createEmojiPagerView();
+            view=createSmilesPager();
           }
  else {
             view=createStickersPagerView(position - 1);
@@ -38,7 +38,7 @@
 );
       SimpleDraweeView packImageView=(SimpleDraweeView)holder.itemView;
       if (position == 0) {
-        packImageView.setImageResource(R.drawable.button_emoji);
+        packImageView.setImageResource(R.drawable.ic_emoji);
         packImageView.setPadding(0,0,0,0);
       }
  else {

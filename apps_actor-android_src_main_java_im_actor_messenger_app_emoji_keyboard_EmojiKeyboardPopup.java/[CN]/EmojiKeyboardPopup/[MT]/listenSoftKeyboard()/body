@@ -1,9 +1,12 @@
 {
-  rootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener(){
+  decorView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener(){
     @Override public void onGlobalLayout(){
+      if (!softKeyboardListeningEnabled) {
+        return;
+      }
       Rect r=new Rect();
-      rootView.getWindowVisibleDisplayFrame(r);
-      int screenHeight=rootView.getRootView().getHeight();
+      decorView.getWindowVisibleDisplayFrame(r);
+      int screenHeight=decorView.getRootView().getHeight();
       int heightDifference=screenHeight - (r.bottom - r.top);
       int resourceId=activity.getResources().getIdentifier("status_bar_height","dimen","android");
       if (resourceId > 0) {
@@ -26,14 +29,11 @@
           if (onSoftKeyboardOpenCloseListener != null)           onSoftKeyboardOpenCloseListener.onKeyboardOpen(keyBoardHeight);
         }
         isOpened=true;
-        if (pendingOpen) {
-          showAtBottom();
-          pendingOpen=false;
-        }
       }
  else {
         isOpened=false;
         if (onSoftKeyboardOpenCloseListener != null)         onSoftKeyboardOpenCloseListener.onKeyboardClose();
+        if (isShowing())         dismiss();
       }
     }
   }

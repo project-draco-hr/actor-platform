@@ -1,0 +1,12 @@
+{
+  if (keyboard) {
+    softKeyboardListeningEnabled=false;
+    decorView.invalidate();
+    decorView.requestLayout();
+  }
+ else {
+    if (!softKeyboardListeningEnabled) {
+      softKeyboardListeningEnabled=true;
+    }
+  }
+}

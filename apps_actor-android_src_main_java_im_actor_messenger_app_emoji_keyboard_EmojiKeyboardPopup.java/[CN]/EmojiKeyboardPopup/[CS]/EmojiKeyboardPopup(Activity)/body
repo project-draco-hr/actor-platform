@@ -1,0 +1,12 @@
+{
+  super(activity);
+  this.activity=activity;
+  decorView=activity.getWindow().getDecorView();
+  setBackgroundDrawable(null);
+  if (Build.VERSION.SDK_INT >= 21) {
+    setElevation(0);
+  }
+  setContentView(createView());
+  listenSoftKeyboard();
+  setSize(LayoutParams.MATCH_PARENT,(int)activity.getResources().getDimension(R.dimen.keyboard_height));
+}

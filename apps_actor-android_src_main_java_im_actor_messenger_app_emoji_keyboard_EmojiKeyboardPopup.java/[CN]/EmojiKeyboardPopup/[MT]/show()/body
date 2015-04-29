@@ -1,0 +1,9 @@
+{
+  if (isSoftwareKeyBoardOpened()) {
+    showAtLocation(decorView,Gravity.BOTTOM,0,0);
+  }
+ else {
+    resizeWindow(true);
+    showAtLocation(decorView,Gravity.BOTTOM,0,0);
+  }
+}

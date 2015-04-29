@@ -1,4 +1,6 @@
 {
   super.dismiss();
-  EmojiRecentsController.getInstance(activity).saveRecents();
+  if (!isSoftwareKeyBoardOpened()) {
+    resizeWindow(false);
+  }
 }

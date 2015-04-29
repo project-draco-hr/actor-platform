@@ -1,5 +1,5 @@
 {
-  View itemView=LayoutInflater.from(container.getContext()).inflate(R.layout.emoji_item_page,null);
+  View itemView=LayoutInflater.from(container.getContext()).inflate(R.layout.emoji_smiles_page,null);
   ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojiPackContainer);
   long[] emojiPack=new long[0];
 switch (position) {
@@ -27,8 +27,8 @@ FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutPar
 params.gravity=Gravity.CENTER;
 emojicontainer.addView(emojiPackView,params);
 emojiPackView.setOnEmojiClickListener(new OnEmojiClickListener(){
-@Override public void onEmojiClicked(long smileId){
-if (onEmojiClickListener != null) onEmojiClickListener.onEmojiClicked(smileId);
+@Override public void onEmojiClicked(String smile){
+if (onEmojiClickListener != null) onEmojiClickListener.onEmojiClicked(smile);
 }
 }
 );
