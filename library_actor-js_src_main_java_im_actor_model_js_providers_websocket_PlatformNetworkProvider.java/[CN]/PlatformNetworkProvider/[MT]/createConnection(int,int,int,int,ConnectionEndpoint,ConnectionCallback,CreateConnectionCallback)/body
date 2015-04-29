@@ -1,0 +1,20 @@
+{
+  final PlatformConnection platformConnection=new PlatformConnection(connectionId,mtprotoVersion,apiMajorVersion,apiMinorVersion,endpoint,callback,new PlatformConnectionCreateCallback(){
+    @Override public void onConnectionCreated(    PlatformConnection connection){
+      createCallback.onConnectionCreated(connection);
+synchronized (pendingConnections) {
+        pendingConnections.remove(connection);
+      }
+    }
+    @Override public void onConnectionCreateError(    PlatformConnection connection){
+      createCallback.onConnectionCreateError();
+synchronized (pendingConnections) {
+        pendingConnections.remove(connection);
+      }
+    }
+  }
+,factory);
+synchronized (pendingConnections) {
+    pendingConnections.add(platformConnection);
+  }
+}

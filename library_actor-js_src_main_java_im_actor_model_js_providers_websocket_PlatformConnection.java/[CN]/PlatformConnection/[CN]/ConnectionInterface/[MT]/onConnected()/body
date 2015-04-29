@@ -1,0 +1,3 @@
+{
+  PlatformConnection.this.onConnected();
+}

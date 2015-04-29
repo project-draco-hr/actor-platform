@@ -1,0 +1,21 @@
+{
+  if (isClosed) {
+    return;
+  }
+  if (!isOpened) {
+    return;
+  }
+  isOpened=true;
+  Log.d(TAG,"Starting handshake");
+  DataOutput handshakeRequest=new DataOutput();
+  handshakeRequest.writeByte(mtprotoVersion);
+  handshakeRequest.writeByte(apiMajorVersion);
+  handshakeRequest.writeByte(apiMinorVersion);
+  handshakeRandomData=new byte[32];
+synchronized (RANDOM) {
+    RANDOM.nextBytes(handshakeRandomData);
+  }
+  handshakeRequest.writeInt(handshakeRandomData.length);
+  handshakeRequest.writeBytes(handshakeRandomData,0,handshakeRandomData.length);
+  rawConnection.doSend(handshakeRequest.toByteArray());
+}
