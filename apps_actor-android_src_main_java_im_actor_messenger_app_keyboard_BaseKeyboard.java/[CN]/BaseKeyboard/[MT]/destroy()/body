@@ -1,0 +1,3 @@
+{
+  if (emojiKeyboardView != null)   windowManager.removeView(emojiKeyboardView);
+}
