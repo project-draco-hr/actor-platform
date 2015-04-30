@@ -23,6 +23,7 @@
       if (apiMinor != 0) {
         throw new IOException("Incorrect Api Minor Version, expected: 0, got " + apiMinor + ";");
       }
+      Log.d(TAG,"Handshake successful");
       isHandshakePerformed=true;
       factoryCallback.onConnectionCreated(this);
     }
@@ -32,5 +33,6 @@
     }
   }
  else {
+    Log.d(TAG,"Reading full package");
   }
 }

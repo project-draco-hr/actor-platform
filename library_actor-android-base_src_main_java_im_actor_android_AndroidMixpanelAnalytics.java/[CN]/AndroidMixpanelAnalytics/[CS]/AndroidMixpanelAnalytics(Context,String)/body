@@ -1,0 +1,3 @@
+{
+  this.mixpanel=MixpanelAPI.getInstance(context,token);
+}

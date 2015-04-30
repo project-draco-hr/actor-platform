@@ -1,0 +1,10 @@
+{
+  try {
+    JSONObject deviceProperties=new JSONObject();
+    deviceProperties.put("deviceId",deviceId);
+    mixpanel.registerSuperProperties(deviceProperties);
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
+}

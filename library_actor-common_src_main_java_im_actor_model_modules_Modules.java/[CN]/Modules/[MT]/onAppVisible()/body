@@ -1,5 +1,6 @@
 {
   isAppVisible=true;
+  analytics.trackAppVisible();
   if (getPresenceModule() != null) {
     getPresenceModule().onAppVisible();
     getNotifications().onAppVisible();

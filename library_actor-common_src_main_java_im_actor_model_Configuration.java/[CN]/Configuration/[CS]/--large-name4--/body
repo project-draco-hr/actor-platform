@@ -16,4 +16,5 @@
   this.apiConfiguration=apiConfiguration;
   this.dispatcherProvider=dispatcherProvider;
   this.httpDownloaderProvider=httpDownloaderProvider;
+  this.analyticsProvider=analyticsProvider;
 }

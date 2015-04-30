@@ -1,0 +1,4 @@
+{
+  super(modules);
+  analyticsProvider=modules.getConfiguration().getAnalyticsProvider();
+}

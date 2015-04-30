@@ -1,0 +1,2 @@
+CommandCallback<AuthState> callback
+ResponseAuth response

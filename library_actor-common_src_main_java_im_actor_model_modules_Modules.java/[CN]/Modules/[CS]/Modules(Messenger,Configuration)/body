@@ -6,6 +6,8 @@
   this.i18nEngine=new I18nEngine(configuration.getLocaleProvider(),this);
   timing.section("Preferences");
   this.preferences=configuration.getStorageProvider().createPreferencesStorage();
+  timing.section("Analytics");
+  this.analytics=new Analytics(this);
   timing.section("API");
   this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.getNetworkProvider());
   timing.section("Auth");

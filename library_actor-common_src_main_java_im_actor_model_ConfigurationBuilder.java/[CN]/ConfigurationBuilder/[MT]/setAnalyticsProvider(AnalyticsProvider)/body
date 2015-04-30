@@ -1,0 +1,4 @@
+{
+  this.analyticsProvider=analyticsProvider;
+  return this;
+}

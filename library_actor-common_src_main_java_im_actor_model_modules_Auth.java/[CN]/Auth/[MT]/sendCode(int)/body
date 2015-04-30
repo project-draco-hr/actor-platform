@@ -3,18 +3,7 @@
     @Override public void start(    final CommandCallback<AuthState> callback){
       request(new RequestSignIn(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),code + "",deviceHash,apiConfiguration.getAppTitle(),apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseAuth>(){
         @Override public void onResult(        ResponseAuth response){
-          preferences().putBool(KEY_AUTH,true);
-          state=AuthState.LOGGED_IN;
-          myUid=response.getUser().getId();
-          preferences().putInt(KEY_AUTH_UID,myUid);
-          modules().onLoggedIn();
-          updates().onUpdateReceived(new LoggedIn(response,new Runnable(){
-            @Override public void run(){
-              state=AuthState.LOGGED_IN;
-              callback.onResult(state);
-            }
-          }
-));
+          onLoggedIn(callback,response);
         }
         @Override public void onError(        final RpcException e){
           if ("PHONE_CODE_EXPIRED".equals(e.getTag())) {
