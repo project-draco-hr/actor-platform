@@ -1,6 +1,7 @@
 {
   if (preferences().getBool(KEY_AUTH,false)) {
     state=AuthState.LOGGED_IN;
+    modules().onLoggedIn();
     User user=modules().getUsersModule().getUsers().getValue(myUid);
     ArrayList<Long> records=new ArrayList<Long>();
     for (    ContactRecord contactRecord : user.getRecords()) {
@@ -9,7 +10,6 @@
       }
     }
     modules().getAnalytics().onLoggedIn(CryptoUtils.hex(deviceHash),user.getUid(),records.toArray(new Long[0]),user.getName());
-    modules().onLoggedIn();
   }
  else {
     state=AuthState.AUTH_START;
