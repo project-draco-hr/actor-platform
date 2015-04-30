@@ -1,0 +1,6 @@
+{
+  this.context=context;
+  this.onStickerClickListener=onStickerClickListener;
+  this.stickerPack=stickerPack;
+  this.itemHeight=itemHeight;
+}

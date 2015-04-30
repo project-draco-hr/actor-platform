@@ -4,6 +4,13 @@
   emojiPager.setAdapter(new EmojiPagerAdapter());
   emojiPager.addView(createSmilesPager());
   PagerSlidingTabStrip indicator=(PagerSlidingTabStrip)keyboardView.findViewById(R.id.indicator);
+  indicator.setTabBackground(R.drawable.clickable_background);
+  indicator.setIndicatorColorResource(R.color.primary);
+  indicator.setIndicatorHeight(Screen.dp(2));
+  indicator.setDividerColor(0x00000000);
+  indicator.setUnderlineHeight(0);
+  indicator.setTabPaddingLeftRight(0);
+  indicator.setTabLayoutParams(new LinearLayout.LayoutParams(Screen.dp(50),Screen.dp(50)));
   indicator.setViewPager(emojiPager);
   return keyboardView;
 }

@@ -1,8 +1,0 @@
-{
-  SimpleDraweeView drawee=new SimpleDraweeView(context);
-  drawee.setAdjustViewBounds(true);
-  drawee.setBackgroundResource(R.drawable.clickable_background);
-  return new RecyclerView.ViewHolder(drawee){
-  }
-;
-}

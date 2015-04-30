@@ -1,0 +1,8 @@
+{
+  SimpleDraweeView drawee=new SimpleDraweeView(context,new GenericDraweeHierarchyBuilder(context.getResources()).setActualImageScaleType(ScalingUtils.ScaleType.CENTER_INSIDE).build());
+  drawee.setAdjustViewBounds(true);
+  drawee.setBackgroundResource(R.drawable.clickable_background);
+  return new RecyclerView.ViewHolder(drawee){
+  }
+;
+}

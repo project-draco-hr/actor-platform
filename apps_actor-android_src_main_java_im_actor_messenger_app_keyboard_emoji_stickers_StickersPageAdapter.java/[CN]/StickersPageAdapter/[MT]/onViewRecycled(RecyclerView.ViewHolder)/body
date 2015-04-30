@@ -1,0 +1,3 @@
+{
+  ((SimpleDraweeView)holder.itemView).setImageURI(null);
+}

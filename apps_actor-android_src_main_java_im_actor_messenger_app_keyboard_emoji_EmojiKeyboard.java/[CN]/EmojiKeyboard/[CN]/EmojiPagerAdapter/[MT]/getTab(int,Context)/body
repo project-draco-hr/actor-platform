@@ -1,7 +1,6 @@
 {
   SimpleDraweeView tabView=new SimpleDraweeView(context);
   tabView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-  tabView.setLayoutParams(new RecyclerView.LayoutParams(Screen.dp(50),Screen.dp(50)));
   tabView.setBackgroundResource(R.drawable.clickable_background);
   if (position == 0) {
     tabView.setImageResource(R.drawable.ic_emoji);

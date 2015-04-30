@@ -1,0 +1,4 @@
+Context context
+OnStickerClickListener onStickerClickListener
+StickersPack stickerPack
+int itemHeight
