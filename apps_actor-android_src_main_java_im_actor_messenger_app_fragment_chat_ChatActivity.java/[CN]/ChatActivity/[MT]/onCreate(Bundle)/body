@@ -176,46 +176,19 @@
   }
 );
   final ImageView emojiButton=(ImageView)findViewById(R.id.ib_emoji);
-  emojiKeyboard=new EmojiKeyboardPopup(this);
-  emojiKeyboard.setOnStickerClickListener(new OnStickerClickListener(){
-    @Override public void onStickerClick(    String packId,    String stickerId){
-      messenger().sendPhoto(peer,Stickers.getFile(packId,stickerId));
-    }
-  }
-);
-  emojiKeyboard.setOnEmojiClickListener(new OnEmojiClickListener(){
-    @Override public void onEmojiClicked(    String smile){
-      int selectionEnd=messageBody.getSelectionEnd();
-      if (selectionEnd < 0) {
-        selectionEnd=messageBody.getText().length();
-      }
-      CharSequence appendString=core().getEmojiProcessor().processEmojiMutable(smile,EmojiProcessor.CONFIGURATION_BUBBLES);
-      messageBody.getText().insert(selectionEnd,appendString);
-    }
-  }
-);
-  emojiKeyboard.setOnEmojiconBackspaceClickedListener(new EmojiKeyboardPopup.OnEmojiconBackspaceClickedListener(){
-    @Override public void onClick(    View v){
-      KeyEvent event=new KeyEvent(0,0,0,KeyEvent.KEYCODE_DEL,0,0,0,0,KeyEvent.KEYCODE_ENDCALL);
-      messageBody.dispatchKeyEvent(event);
-    }
-  }
-);
-  emojiKeyboard.setOnDismissListener(new PopupWindow.OnDismissListener(){
+  emojiKeyboard=new BaseKeyboard(this);
+  emojiKeyboard.setKeyboardStatusListener(new KeyboardStatusListener(){
     @Override public void onDismiss(){
-      changeEmojiKeyboardIcon(emojiButton,R.drawable.ic_emoji);
+      emojiButton.setImageResource(R.drawable.ic_emoji);
+    }
+    @Override public void onShow(){
+      emojiButton.setImageResource(R.drawable.ic_keyboard);
     }
   }
 );
   emojiButton.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      if (!emojiKeyboard.isShowing()) {
-        emojiKeyboard.show();
-        changeEmojiKeyboardIcon(emojiButton,R.drawable.ic_keyboard);
-      }
- else {
-        emojiKeyboard.dismiss();
-      }
+      emojiKeyboard.toggle(messageBody);
     }
   }
 );

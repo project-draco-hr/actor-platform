@@ -1,6 +1,0 @@
-{
-  super.dismiss();
-  if (!isSoftwareKeyBoardOpened()) {
-    resizeWindow(false);
-  }
-}

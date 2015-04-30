@@ -27,21 +27,21 @@
   }
   if (emoji().containsEmoji(spannedText)) {
     if (emoji().isLoaded()) {
-      spannedText=emoji().processEmojiCompatMutable(spannedText,EmojiProcessor.CONFIGURATION_BUBBLES);
+      spannedText=emoji().processEmojiCompatMutable(spannedText,SmileProcessor.CONFIGURATION_BUBBLES);
     }
  else {
       final CharSequence finalSpannedText=spannedText;
-      if (emojiListener != null) {
-        emoji().unregisterListener(emojiListener);
+      if (smilesListener != null) {
+        emoji().unregisterListener(smilesListener);
       }
-      emojiListener=new EmojiListener(){
+      smilesListener=new SmilesListener(){
         @Override public void onEmojiUpdated(        boolean completed){
-          text.setText(emoji().processEmojiCompatMutable(finalSpannedText,EmojiProcessor.CONFIGURATION_BUBBLES));
+          text.setText(emoji().processEmojiCompatMutable(finalSpannedText,SmileProcessor.CONFIGURATION_BUBBLES));
           emoji().unregisterListener(this);
         }
       }
 ;
-      emoji().registerListener(emojiListener);
+      emoji().registerListener(smilesListener);
     }
   }
   text.setText(spannedText);

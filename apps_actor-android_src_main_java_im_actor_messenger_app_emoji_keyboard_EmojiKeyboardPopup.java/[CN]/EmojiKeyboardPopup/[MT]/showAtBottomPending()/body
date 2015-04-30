@@ -1,4 +1,0 @@
-{
-  if (isSoftwareKeyBoardOpened())   show();
- else   pendingOpen=true;
-}

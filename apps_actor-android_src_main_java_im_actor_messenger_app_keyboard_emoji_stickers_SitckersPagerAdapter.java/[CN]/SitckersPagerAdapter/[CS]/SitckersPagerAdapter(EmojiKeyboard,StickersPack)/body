@@ -1,0 +1,4 @@
+{
+  this.emojiKeyboard=emojiKeyboard;
+  this.stickersPack=stickersPack;
+}

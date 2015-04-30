@@ -34,15 +34,15 @@
       bindedText=contentText;
     }
   }
-  if (EmojiProcessor.containsEmoji(bindedText)) {
+  if (SmileProcessor.containsEmoji(bindedText)) {
     if (emoji().isLoaded()) {
-      bindedText=emoji().processEmojiCompatMutable(bindedText,EmojiProcessor.CONFIGURATION_BUBBLES);
+      bindedText=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_BUBBLES);
       ;
     }
  else {
-      emoji().registerListener(new EmojiListener(){
+      emoji().registerListener(new SmilesListener(){
         @Override public void onEmojiUpdated(        boolean completed){
-          CharSequence emojiProcessed=emoji().processEmojiCompatMutable(bindedText,EmojiProcessor.CONFIGURATION_DIALOGS);
+          CharSequence emojiProcessed=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_DIALOGS);
           if (text.getText().equals(bindedText)) {
             text.setText(emojiProcessed);
           }

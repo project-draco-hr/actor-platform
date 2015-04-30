@@ -1,0 +1,112 @@
+{
+  if (isLoaded) {
+    return;
+  }
+  if (isLoading) {
+    return;
+  }
+  isLoading=true;
+  new Thread(){
+    @Override public void run(){
+      Process.setThreadPriority(Process.THREAD_PRIORITY_LOWEST);
+      long start=System.currentTimeMillis();
+      Logger.d(TAG,"emoji loading start");
+      try {
+        boolean useScale=false;
+        String fileName=null;
+        String fileNameAlpha=null;
+switch (layoutType) {
+default :
+case LAYOUT_1X:
+          fileName="emoji_c_1.jpg";
+        fileNameAlpha="emoji_a_1.jpg";
+      useScale=false;
+    break;
+case LAYOUT_15X_1:
+  fileName="emoji_c_15.jpg";
+fileNameAlpha="emoji_a_15.jpg";
+useScale=false;
+break;
+case LAYOUT_15X_2:
+fileName="emoji_c_15.jpg";
+fileNameAlpha="emoji_a_15.jpg";
+useScale=true;
+break;
+case LAYOUT_2X_1:
+fileName="emoji_c_2.jpg";
+fileNameAlpha="emoji_a_2.jpg";
+useScale=false;
+break;
+case LAYOUT_2X_2:
+fileName="emoji_c_2.jpg";
+fileNameAlpha="emoji_a_2.jpg";
+useScale=true;
+break;
+}
+File sourceFile=application.getFileStreamPath(fileName);
+if (!sourceFile.exists()) {
+InputStream colorsIs=SmileProcessor.this.application.getAssets().open(fileName);
+IOUtils.copy(colorsIs,sourceFile);
+colorsIs.close();
+}
+File sourceAlphaFile=application.getFileStreamPath(fileNameAlpha);
+if (!sourceAlphaFile.exists()) {
+InputStream colorsIs=SmileProcessor.this.application.getAssets().open(fileNameAlpha);
+IOUtils.copy(colorsIs,sourceAlphaFile);
+colorsIs.close();
+}
+ImageMetadata metadata=new FileSource(sourceFile.getAbsolutePath()).getImageMetadata();
+int w=useScale ? metadata.getW() / 2 : metadata.getW();
+int h=useScale ? metadata.getH() / 2 : metadata.getH();
+Bitmap colorsBitmap;
+Bitmap alphaBitmap;
+if (useScale) {
+colorsBitmap=ImageLoading.loadBitmap(sourceFile.getAbsolutePath(),2);
+alphaBitmap=ImageLoading.loadBitmap(sourceAlphaFile.getAbsolutePath(),2);
+}
+ else {
+colorsBitmap=ImageLoading.loadBitmap(sourceFile.getAbsolutePath(),1);
+alphaBitmap=ImageLoading.loadBitmap(sourceAlphaFile.getAbsolutePath(),1);
+}
+Logger.d(TAG,"emoji pre-loaded in " + (System.currentTimeMillis() - start) + " ms");
+int[] resultColors=new int[rectSize * SECTION_SIDE * rectSize* SECTION_SIDE];
+int[] tmpColors=new int[rectSize * SECTION_SIDE * rectSize* SECTION_SIDE];
+int[] order=new int[]{8,9,10,11,4,5,6,7,0,1,2,3,12,13,14,15};
+int stride=rectSize * SECTION_SIDE;
+for (int ordinal : order) {
+int col=ordinal % SECTION_COL_COUNT;
+int row=ordinal / SECTION_COL_COUNT;
+int leftOffset=col * stride;
+int topOffset=row * stride;
+int width=stride;
+int height=stride;
+if (row == SECTION_ROW_COUNT - 1) {
+height=colorsBitmap.getHeight() - topOffset;
+}
+colorsBitmap.getPixels(tmpColors,0,stride,leftOffset,topOffset,width,height);
+for (int ind=0; ind < resultColors.length; ind++) {
+resultColors[ind]=0xFFFFFF & tmpColors[ind];
+}
+alphaBitmap.getPixels(tmpColors,0,stride,leftOffset,topOffset,width,height);
+for (int ind=0; ind < resultColors.length; ind++) {
+resultColors[ind]=resultColors[ind] | ((tmpColors[ind] & 0xFF) << 24);
+}
+Bitmap section=Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
+section.setPixels(resultColors,0,stride,0,0,width,height);
+emojiMap.put(ordinal,section);
+Logger.d(TAG,"emoji region loaded in " + (System.currentTimeMillis() - start) + " ms");
+}
+isLoaded=true;
+notifyEmojiUpdated(true);
+Logger.d(TAG,"emoji loaded in " + (System.currentTimeMillis() - start) + " ms");
+}
+ catch (Throwable t) {
+t.printStackTrace();
+Logger.d(TAG,"emoji loading error");
+isLoaded=false;
+isLoading=false;
+}
+}
+}
+.start();
+}

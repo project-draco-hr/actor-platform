@@ -1,3 +1,0 @@
-{
-  iconToBeChanged.setImageResource(drawableResourceId);
-}

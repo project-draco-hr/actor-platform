@@ -1,0 +1,7 @@
+{
+  if (dismissed && emojiKeyboardView != null) {
+    windowManager.removeView(emojiKeyboardView);
+    emojiKeyboardView=null;
+    if (keyboardStatusListener != null)     keyboardStatusListener.onDismiss();
+  }
+}
