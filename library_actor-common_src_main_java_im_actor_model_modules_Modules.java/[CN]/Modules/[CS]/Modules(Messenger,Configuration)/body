@@ -1,4 +1,5 @@
 {
+  this.messenger=messenger;
   this.configuration=configuration;
   Timing timing=new Timing("MODULES_INIT");
   timing.section("I18N");
