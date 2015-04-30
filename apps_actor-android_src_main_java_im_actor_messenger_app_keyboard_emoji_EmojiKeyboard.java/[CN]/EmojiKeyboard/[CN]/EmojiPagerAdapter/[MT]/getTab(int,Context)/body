@@ -1,0 +1,16 @@
+{
+  SimpleDraweeView tabView=new SimpleDraweeView(context);
+  tabView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  tabView.setLayoutParams(new RecyclerView.LayoutParams(Screen.dp(50),Screen.dp(50)));
+  tabView.setBackgroundResource(R.drawable.clickable_background);
+  if (position == 0) {
+    tabView.setImageResource(R.drawable.ic_emoji);
+    tabView.setPadding(0,0,0,0);
+  }
+ else {
+    StickersPack pack=Stickers.getPacks()[position - 1];
+    tabView.setImageURI(Uri.parse("file://" + Stickers.getFile(pack.getId(),pack.getLogoStickerId())));
+    tabView.setPadding(Screen.dp(5),Screen.dp(5),Screen.dp(5),Screen.dp(5));
+  }
+  return tabView;
+}

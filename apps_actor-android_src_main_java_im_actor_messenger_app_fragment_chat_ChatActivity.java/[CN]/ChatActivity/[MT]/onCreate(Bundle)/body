@@ -176,7 +176,13 @@
   }
 );
   final ImageView emojiButton=(ImageView)findViewById(R.id.ib_emoji);
-  emojiKeyboard=new BaseKeyboard(this);
+  emojiKeyboard=new EmojiKeyboard(this);
+  emojiKeyboard.setOnStickerClickListener(new OnStickerClickListener(){
+    @Override public void onStickerClick(    String packId,    String stickerId){
+      messenger().sendPhoto(peer,Stickers.getFile(packId,stickerId));
+    }
+  }
+);
   emojiKeyboard.setKeyboardStatusListener(new KeyboardStatusListener(){
     @Override public void onDismiss(){
       emojiButton.setImageResource(R.drawable.ic_emoji);

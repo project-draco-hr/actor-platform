@@ -1,0 +1,11 @@
+{
+  View item=null;
+  if (position == 0) {
+    item=createSmilesPager();
+  }
+ else {
+    item=createStickersPagerView(position - 1);
+  }
+  container.addView(item,0);
+  return item;
+}
