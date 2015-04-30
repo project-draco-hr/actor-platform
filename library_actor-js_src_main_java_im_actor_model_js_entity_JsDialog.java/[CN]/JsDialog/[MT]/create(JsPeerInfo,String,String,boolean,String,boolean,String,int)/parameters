@@ -5,3 +5,4 @@ boolean showSender
 String text
 boolean isHighlighted
 String state
+int counter
