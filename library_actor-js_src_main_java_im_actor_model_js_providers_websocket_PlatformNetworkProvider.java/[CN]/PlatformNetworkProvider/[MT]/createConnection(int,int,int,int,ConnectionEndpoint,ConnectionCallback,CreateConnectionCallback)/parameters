@@ -1,7 +1,0 @@
-int connectionId
-int mtprotoVersion
-int apiMajorVersion
-int apiMinorVersion
-ConnectionEndpoint endpoint
-ConnectionCallback callback
-CreateConnectionCallback createCallback

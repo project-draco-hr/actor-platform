@@ -1,0 +1,33 @@
+{
+  Log.d(TAG,"Handshake response received");
+  DataInput handshakeResponse=new DataInput(data);
+  int protoVersion=handshakeResponse.readByte();
+  int apiMajor=handshakeResponse.readByte();
+  int apiMinor=handshakeResponse.readByte();
+  byte[] sha256=handshakeResponse.readBytes(32);
+  byte[] localSha256=CryptoUtils.SHA256(handshakeRandomData);
+  if (!Arrays.equals(sha256,localSha256)) {
+    Log.d(TAG,"SHA 256 is incorrect");
+    Log.d(TAG,"Random data: " + CryptoUtils.hex(handshakeRandomData));
+    Log.d(TAG,"Remote SHA256: " + CryptoUtils.hex(sha256));
+    Log.d(TAG,"Local SHA256: " + CryptoUtils.hex(localSha256));
+    throw new IOException("SHA 256 is incorrect");
+  }
+  if (protoVersion != 1) {
+    Log.d(TAG,"Incorrect Proto Version, expected: 1, got " + protoVersion + ";");
+    throw new IOException("Incorrect Proto Version, expected: 1, got " + protoVersion + ";");
+  }
+  if (apiMajor != 1) {
+    Log.d(TAG,"Incorrect Api Major Version, expected: 1, got " + apiMajor + ";");
+    throw new IOException("Incorrect Api Major Version, expected: 1, got " + apiMajor + ";");
+  }
+  if (apiMinor != 0) {
+    Log.d(TAG,"Incorrect Api Minor Version, expected: 0, got " + apiMinor + ";");
+    throw new IOException("Incorrect Api Minor Version, expected: 0, got " + apiMinor + ";");
+  }
+  Log.d(TAG,"Handshake successful");
+  isHandshakePerformed=true;
+  factoryCallback.onConnectionCreated(this);
+  handshakeTimeout.cancel();
+  pingTask.schedule(PING_TIMEOUT);
+}

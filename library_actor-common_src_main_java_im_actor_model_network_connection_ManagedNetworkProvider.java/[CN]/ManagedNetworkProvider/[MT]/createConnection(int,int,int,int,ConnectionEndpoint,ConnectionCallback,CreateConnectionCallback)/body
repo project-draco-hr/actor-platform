@@ -1,0 +1,20 @@
+{
+  final ManagedConnection managedConnection=new ManagedConnection(connectionId,mtprotoVersion,apiMajorVersion,apiMinorVersion,endpoint,callback,new ManagedConnectionCreateCallback(){
+    @Override public void onConnectionCreated(    ManagedConnection connection){
+      createCallback.onConnectionCreated(connection);
+synchronized (pendingConnections) {
+        pendingConnections.remove(connection);
+      }
+    }
+    @Override public void onConnectionCreateError(    ManagedConnection connection){
+      createCallback.onConnectionCreateError();
+synchronized (pendingConnections) {
+        pendingConnections.remove(connection);
+      }
+    }
+  }
+,factory);
+synchronized (pendingConnections) {
+    pendingConnections.add(managedConnection);
+  }
+}

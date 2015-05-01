@@ -1,4 +1,0 @@
-{
-  Log.d("WS","onOpen");
-  callback.onOpen();
-}

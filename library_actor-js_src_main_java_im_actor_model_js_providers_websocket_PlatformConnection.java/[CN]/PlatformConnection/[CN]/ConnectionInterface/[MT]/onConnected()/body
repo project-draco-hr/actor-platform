@@ -1,3 +1,0 @@
-{
-  PlatformConnection.this.onRawConnected();
-}

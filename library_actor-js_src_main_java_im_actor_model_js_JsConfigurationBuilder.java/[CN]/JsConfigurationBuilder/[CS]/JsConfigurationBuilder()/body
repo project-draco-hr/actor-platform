@@ -1,6 +1,6 @@
 {
   setThreadingProvider(new JsThreadingProvider());
-  setNetworkProvider(new PlatformNetworkProvider(new WebSocketAsyncConnectionFactory()));
+  setNetworkProvider(new JsNetworkingProvider());
   setLog(new JsLogProvider());
   setMainThreadProvider(new JsMainThreadProvider());
   setLocale(new JsLocaleProvider());

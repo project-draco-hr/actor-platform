@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"onConnected");
+  if (isClosed) {
+    Log.d(TAG,"onConnected:isClosed");
+    return;
+  }
+  if (isOpened) {
+    Log.d(TAG,"onConnected:isOpened");
+    return;
+  }
+  isOpened=true;
+  connectionTimeout.cancel();
+  sendHandshakeRequest();
+}
