@@ -1,4 +1,5 @@
 {
+  Log.w(TAG,"rawPost");
   int packageId=sentPackages++;
   DataOutput dataOutput=new DataOutput();
   dataOutput.writeInt(packageId);

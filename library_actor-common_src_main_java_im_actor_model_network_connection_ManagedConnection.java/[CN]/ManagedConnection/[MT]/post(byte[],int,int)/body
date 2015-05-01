@@ -1,4 +1,5 @@
 {
+  Log.w(TAG,"post");
   if (isClosed) {
     return;
   }

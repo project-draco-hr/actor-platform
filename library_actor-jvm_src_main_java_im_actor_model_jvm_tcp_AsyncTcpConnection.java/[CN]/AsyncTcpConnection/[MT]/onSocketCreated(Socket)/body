@@ -1,0 +1,16 @@
+{
+  if (isClosed) {
+    Log.w(TAG,"Socket created after external close: disposing");
+    throw new IOException("Socket created after external close: disposing");
+  }
+  this.socket=socket;
+  this.inputStream=socket.getInputStream();
+  this.outputStream=socket.getOutputStream();
+  this.isClosed=false;
+  this.isConnected=true;
+  this.readerThread=new ReaderThread();
+  this.readerThread.start();
+  this.writerThread=new WriterThread();
+  this.writerThread.start();
+  onConnected();
+}

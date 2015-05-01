@@ -1,4 +1,0 @@
-int header
-byte[] data
-int offset
-int len

@@ -1,4 +1,5 @@
 {
+  Log.w(TAG,"close");
   if (isClosed) {
     return;
   }

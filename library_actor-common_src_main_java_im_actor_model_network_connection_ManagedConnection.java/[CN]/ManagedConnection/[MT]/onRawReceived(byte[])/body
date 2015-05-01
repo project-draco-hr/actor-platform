@@ -57,4 +57,5 @@
     e.printStackTrace();
     close();
   }
+  Log.w(TAG,"onRawReceived:end");
 }

@@ -1,6 +1,0 @@
-{
-  this.header=header;
-  this.content=content;
-  this.offset=offset;
-  this.len=len;
-}

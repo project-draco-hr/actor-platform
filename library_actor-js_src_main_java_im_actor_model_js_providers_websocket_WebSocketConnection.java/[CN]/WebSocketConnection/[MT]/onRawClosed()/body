@@ -1,4 +1,5 @@
 {
   Log.d("WS","Closed");
+  isClosed=true;
   onClosed();
 }

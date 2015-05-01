@@ -1,3 +1,4 @@
 {
+  isClosed=true;
   close();
 }

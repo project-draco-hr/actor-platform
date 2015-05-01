@@ -1,0 +1,20 @@
+{
+  try {
+    while (isConnected) {
+      byte[] header=readBytes(9);
+      DataInput dataInput=new DataInput(header);
+      int receivedPackageIndex=dataInput.readInt();
+      int headerValue=dataInput.readByte();
+      int size=dataInput.readInt();
+      byte[] body=readBytes(size + 4);
+      DataOutput dataOutput=new DataOutput();
+      dataOutput.writeBytes(header);
+      dataOutput.writeBytes(body);
+      onRawReceived(dataOutput.toByteArray());
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    crashConnection();
+  }
+}

@@ -1,4 +1,7 @@
 {
+  if (isClosed) {
+    return;
+  }
   Uint8Array push=TypedArrays.createUint8Array(data.length);
   for (int i=0; i < data.length; i++) {
     push.set(i,data[i]);

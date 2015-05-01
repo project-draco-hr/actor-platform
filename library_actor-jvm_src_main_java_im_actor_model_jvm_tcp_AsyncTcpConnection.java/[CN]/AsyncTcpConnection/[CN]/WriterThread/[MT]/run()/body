@@ -1,0 +1,28 @@
+{
+  try {
+    while (isConnected) {
+      byte[] p;
+synchronized (packages) {
+        p=packages.poll();
+        if (p == null) {
+          try {
+            packages.wait();
+          }
+ catch (          final InterruptedException e) {
+            return;
+          }
+          p=packages.poll();
+        }
+      }
+      if (p == null) {
+        continue;
+      }
+      outputStream.write(p);
+      outputStream.flush();
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    crashConnection();
+  }
+}

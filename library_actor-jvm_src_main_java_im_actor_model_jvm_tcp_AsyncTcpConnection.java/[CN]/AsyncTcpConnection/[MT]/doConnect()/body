@@ -1,0 +1,31 @@
+{
+  connectExecutor.submit(new Runnable(){
+    @Override public void run(){
+      try {
+        Socket socket;
+        ConnectionEndpoint endpoint=getEndpoint();
+switch (endpoint.getType()) {
+case TCP:
+          socket=new Socket();
+        break;
+case TCP_TLS:
+      socket=SSLSocketFactory.getDefault().createSocket();
+    break;
+default :
+  throw new RuntimeException("Unsupported endpoint type: " + endpoint.getType());
+}
+socket.setKeepAlive(false);
+socket.setTcpNoDelay(true);
+socket.connect(new InetSocketAddress(endpoint.getHost(),endpoint.getPort()),ManagedConnection.CONNECTION_TIMEOUT);
+socket.getInputStream();
+socket.getOutputStream();
+onSocketCreated(socket);
+}
+ catch (Exception e) {
+e.printStackTrace();
+crashConnection();
+}
+}
+}
+);
+}

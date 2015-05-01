@@ -1,4 +1,5 @@
 {
   Log.d("WS","Connected");
+  isClosed=false;
   onConnected();
 }
