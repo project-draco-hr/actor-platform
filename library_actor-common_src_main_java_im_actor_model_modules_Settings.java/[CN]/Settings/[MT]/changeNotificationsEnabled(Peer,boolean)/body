@@ -1,3 +1,3 @@
 {
-  preferences().putBool(KEY_NOTIFICATION_CHAT + peer.getUnuqueId(),val);
+  saveValue(KEY_NOTIFICATION_CHAT + getChatKey(peer) + ".enabled",val);
 }

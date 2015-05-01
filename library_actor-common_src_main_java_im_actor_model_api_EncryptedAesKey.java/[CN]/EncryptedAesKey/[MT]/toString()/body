@@ -1,7 +1,0 @@
-{
-  String res="struct EncryptedAesKey{";
-  res+="keyHash=" + this.keyHash;
-  res+=", aesEncryptedKey=" + byteArrayToStringCompact(this.aesEncryptedKey);
-  res+="}";
-  return res;
-}

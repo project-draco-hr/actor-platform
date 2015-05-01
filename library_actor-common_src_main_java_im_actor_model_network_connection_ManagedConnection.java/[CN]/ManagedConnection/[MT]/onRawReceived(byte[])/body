@@ -1,0 +1,60 @@
+{
+  if (isClosed) {
+    return;
+  }
+  Log.w(TAG,"onRawReceived");
+  try {
+    DataInput dataInput=new DataInput(data);
+    int packageIndex=dataInput.readInt();
+    if (receivedPackages != packageIndex) {
+      Log.w(TAG,"Invalid package index. Expected: " + receivedPackages + ", got: "+ packageIndex);
+      throw new IOException("Invalid package index. Expected: " + receivedPackages + ", got: "+ packageIndex);
+    }
+    receivedPackages++;
+    int header=dataInput.readByte();
+    int dataLength=dataInput.readInt();
+    byte[] content=dataInput.readBytes(dataLength);
+    int crc32=dataInput.readInt();
+    CRC32_ENGINE.reset();
+    CRC32_ENGINE.update(content);
+    if (((int)CRC32_ENGINE.getValue()) != crc32) {
+      Log.w(TAG,"Incorrect CRC32");
+      throw new IOException("Incorrect CRC32");
+    }
+    Log.w(TAG,"Received package: " + header);
+    if (header == HEADER_HANDSHAKE_RESPONSE) {
+      if (isHandshakePerformed) {
+        throw new IOException("Double Handshake");
+      }
+      onHandshakePackage(content);
+    }
+ else {
+      if (!isHandshakePerformed) {
+        throw new IOException("Package before Handshake");
+      }
+      if (header == HEADER_PROTO) {
+        onProtoPackage(content);
+        sendAckPackage(packageIndex);
+      }
+ else       if (header == HEADER_PING) {
+        onPingPackage(content);
+      }
+ else       if (header == HEADER_PONG) {
+        onPongPackage(content);
+      }
+ else       if (header == HEADER_DROP) {
+        onDropPackage(content);
+      }
+ else       if (header == HEADER_ACK) {
+        onAckPackage(content);
+      }
+ else {
+        Log.w(TAG,"Received unknown package #" + header);
+      }
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    close();
+  }
+}

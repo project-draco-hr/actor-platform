@@ -12,5 +12,4 @@
   this.avatar=values.optObj(8,new Avatar());
   this.phones=values.getRepeatedInt(9);
   this.emails=values.getRepeatedInt(10);
-  this.userState=UserState.parse(values.getInt(11));
 }

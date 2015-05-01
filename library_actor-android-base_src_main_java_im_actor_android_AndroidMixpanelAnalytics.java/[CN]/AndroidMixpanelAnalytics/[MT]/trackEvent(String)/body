@@ -1,0 +1,4 @@
+{
+  JSONObject props=new JSONObject();
+  mixpanel.track(event,props);
+}

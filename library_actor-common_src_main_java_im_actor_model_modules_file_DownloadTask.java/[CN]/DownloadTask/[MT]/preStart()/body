@@ -10,6 +10,14 @@
     }
     return;
   }
+  downloaderProvider=modules().getConfiguration().getHttpDownloaderProvider();
+  if (downloaderProvider == null) {
+    reportError();
+    if (LOG) {
+      Log.d(TAG,"No HTTP Support available");
+    }
+    return;
+  }
   destReference=fileSystemProvider.createTempFile();
   if (destReference == null) {
     reportError();
@@ -26,5 +34,5 @@
     }
     return;
   }
-  startDownload();
+  requestUrl();
 }

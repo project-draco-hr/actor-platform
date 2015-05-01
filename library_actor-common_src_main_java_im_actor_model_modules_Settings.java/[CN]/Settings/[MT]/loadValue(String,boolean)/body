@@ -1,0 +1,12 @@
+{
+  String sValue=preferences().getString(key);
+  if ("true".equals(sValue)) {
+    return true;
+  }
+ else   if ("false".equals(sValue)) {
+    return true;
+  }
+ else {
+    return defaultVal;
+  }
+}

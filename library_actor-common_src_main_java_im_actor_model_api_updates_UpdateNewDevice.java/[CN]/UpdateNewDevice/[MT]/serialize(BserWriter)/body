@@ -1,8 +1,0 @@
-{
-  writer.writeInt(1,this.uid);
-  writer.writeLong(2,this.keyHash);
-  if (this.key != null) {
-    writer.writeBytes(3,this.key);
-  }
-  writer.writeLong(4,this.date);
-}

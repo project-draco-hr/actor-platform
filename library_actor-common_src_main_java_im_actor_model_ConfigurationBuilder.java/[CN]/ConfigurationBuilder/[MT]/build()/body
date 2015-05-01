@@ -29,5 +29,5 @@
   if (dispatcherProvider == null) {
     throw new RuntimeException("Dispatcher Provider not set");
   }
-  return new Configuration(networkProvider,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threadingProvider,mainThreadProvider,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,dispatcherProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging);
+  return new Configuration(networkProvider,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threadingProvider,mainThreadProvider,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,dispatcherProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,httpDownloaderProvider,analyticsProvider);
 }

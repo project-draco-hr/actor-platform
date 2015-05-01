@@ -1,0 +1,8 @@
+{
+  isAppVisible=false;
+  analytics.trackAppHidden();
+  if (getPresenceModule() != null) {
+    getPresenceModule().onAppHidden();
+    getNotifications().onAppHidden();
+  }
+}

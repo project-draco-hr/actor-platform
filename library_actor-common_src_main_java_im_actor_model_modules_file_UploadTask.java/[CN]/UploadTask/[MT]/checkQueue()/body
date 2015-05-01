@@ -13,18 +13,18 @@
     }
     inputFile.close();
     outputFile.close();
-    request(new RequestCompleteUpload(uploadConfig,blocksCount,crc),new RpcCallback<ResponseCompleteUpload>(){
-      @Override public void onResult(      ResponseCompleteUpload response){
+    request(new RequestCommitFileUpload(uploadConfig),new RpcCallback<ResponseCommitFileUpload>(){
+      @Override public void onResult(      ResponseCommitFileUpload response){
         if (LOG) {
           Log.d(TAG,"Upload completed...");
         }
-        FileReference location=EntityConverter.convert(response.getLocation(),fileName,srcReference.getSize());
+        FileReference location=EntityConverter.convert(response.getUploadedFileLocation(),fileName,srcReference.getSize());
         FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
         reportComplete(location,reference);
       }
       @Override public void onError(      RpcException e){
         if (LOG) {
-          Log.d(TAG,"Upload complete error");
+          Log.w(TAG,"Upload complete error");
         }
         reportError();
       }
@@ -42,14 +42,14 @@
     byte[] data=new byte[size];
     if (!inputFile.read(fileOffset,data,0,size)) {
       if (LOG) {
-        Log.d(TAG,"read #" + blockIndex + " error");
+        Log.w(TAG,"read #" + blockIndex + " error");
       }
       reportError();
       return;
     }
     if (!outputFile.write(fileOffset,data,0,size)) {
       if (LOG) {
-        Log.d(TAG,"write #" + blockIndex + " error");
+        Log.w(TAG,"write #" + blockIndex + " error");
       }
       reportError();
       return;

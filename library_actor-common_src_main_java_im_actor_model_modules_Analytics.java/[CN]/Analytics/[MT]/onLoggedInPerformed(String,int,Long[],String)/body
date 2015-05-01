@@ -1,0 +1,5 @@
+{
+  if (analyticsProvider != null) {
+    analyticsProvider.onLoggedInPerformed(deviceId,uid,phoneNumber[0],userName);
+  }
+}

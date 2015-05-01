@@ -4,7 +4,6 @@
   }
   writer.writeString(1,this.text);
   if (this.ext != null) {
-    writer.writeInt(2,this.ext.getHeader());
-    writer.writeBytes(3,this.ext.toByteArray());
+    writer.writeBytes(3,this.ext.buildContainer());
   }
 }

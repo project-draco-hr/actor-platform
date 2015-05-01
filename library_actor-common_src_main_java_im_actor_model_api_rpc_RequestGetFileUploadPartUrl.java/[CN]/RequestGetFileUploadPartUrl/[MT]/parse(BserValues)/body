@@ -1,0 +1,5 @@
+{
+  this.partNumber=values.getInt(1);
+  this.partSize=values.getInt(2);
+  this.uploadKey=values.getBytes(3);
+}

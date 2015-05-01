@@ -1,27 +1,10 @@
 {
   super(modules);
-  long start=modules.getConfiguration().getThreadingProvider().getActorTime();
-  this.mainThreadProvider=modules.getConfiguration().getMainThreadProvider();
-  Log.d("CORE_INIT","Loading stage5.3.1 in " + (modules.getConfiguration().getThreadingProvider().getActorTime() - start) + " ms");
-  start=modules.getConfiguration().getThreadingProvider().getActorTime();
   this.myUid=preferences().getInt(KEY_AUTH_UID,0);
-  Log.d("CORE_INIT","Loading stage5.3.2 in " + (modules.getConfiguration().getThreadingProvider().getActorTime() - start) + " ms");
-  start=modules.getConfiguration().getThreadingProvider().getActorTime();
   deviceHash=preferences().getBytes(KEY_DEVICE_HASH);
   if (deviceHash == null) {
     deviceHash=CryptoUtils.SHA256(modules.getConfiguration().getApiConfiguration().getDeviceString().getBytes());
     preferences().putBytes(KEY_DEVICE_HASH,deviceHash);
   }
-  publicKey=preferences().getBytes(KEY_PUBLIC_KEY);
-  privateKey=preferences().getBytes(KEY_PRIVATE_KEY);
-  if (publicKey == null || privateKey == null) {
-    CryptoKeyPair keyPair=CryptoUtils.generateRSA1024KeyPair();
-    publicKey=keyPair.getPublicKey();
-    privateKey=keyPair.getPrivateKey();
-    preferences().putBytes(KEY_PUBLIC_KEY,publicKey);
-    preferences().putBytes(KEY_PRIVATE_KEY,privateKey);
-  }
   apiConfiguration=modules.getConfiguration().getApiConfiguration();
-  Log.d("CORE_INIT","Loading stage5.3.3 in " + (modules.getConfiguration().getThreadingProvider().getActorTime() - start) + " ms");
-  start=modules.getConfiguration().getThreadingProvider().getActorTime();
 }

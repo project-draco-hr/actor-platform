@@ -1,8 +1,0 @@
-{
-  writer.writeInt(1,this.uid);
-  writer.writeLong(2,this.keyHash);
-  if (this.key == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(3,this.key);
-}

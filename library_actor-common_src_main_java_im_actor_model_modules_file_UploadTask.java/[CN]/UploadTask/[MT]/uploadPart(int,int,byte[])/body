@@ -1,15 +1,39 @@
 {
-  request(new RequestUploadPart(uploadConfig,offset,data),new RpcCallback<ResponseVoid>(){
-    @Override public void onResult(    ResponseVoid response){
-      if (LOG) {
-        Log.d(TAG,"Block #" + blockIndex + " uploaded");
+  request(new RequestGetFileUploadPartUrl(blockIndex,blockSize,uploadConfig),new RpcCallback<ResponseGetFileUploadPartUrl>(){
+    @Override public void onResult(    ResponseGetFileUploadPartUrl response){
+      downloaderProvider.uploadPart(response.getUrl(),data,new FileUploadCallback(){
+        @Override public void onUploaded(){
+          self().send(new Runnable(){
+            @Override public void run(){
+              if (LOG) {
+                Log.d(TAG,"Block #" + blockIndex + " uploaded");
+              }
+              uploadCount--;
+              uploaded++;
+              reportProgress(uploaded / (float)blocksCount);
+              checkQueue();
+            }
+          }
+);
+        }
+        @Override public void onUploadFailure(){
+          self().send(new Runnable(){
+            @Override public void run(){
+              if (LOG) {
+                Log.w(TAG,"Block #" + blockIndex + " upload failure");
+              }
+              reportError();
+            }
+          }
+);
+        }
       }
-      uploadCount--;
-      uploaded++;
-      reportProgress(uploaded / (float)blocksCount);
-      checkQueue();
+);
     }
     @Override public void onError(    RpcException e){
+      if (LOG) {
+        Log.w(TAG,"Get Block #" + blockIndex + " url failure");
+      }
       reportError();
     }
   }

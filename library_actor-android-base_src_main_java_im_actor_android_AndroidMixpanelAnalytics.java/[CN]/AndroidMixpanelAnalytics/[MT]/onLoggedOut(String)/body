@@ -1,0 +1,4 @@
+{
+  saveDeviceId(deviceId);
+  mixpanel.identify("device:" + deviceId);
+}

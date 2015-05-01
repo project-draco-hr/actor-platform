@@ -1,3 +1,3 @@
 {
-  info("[V]" + tag + ":"+ message);
+  info(formatTime() + "[V] " + tag+ ":"+ message);
 }

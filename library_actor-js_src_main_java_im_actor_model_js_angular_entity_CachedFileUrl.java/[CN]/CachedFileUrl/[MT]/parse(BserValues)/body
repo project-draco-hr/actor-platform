@@ -1,0 +1,4 @@
+{
+  fid=values.getInt(1);
+  url=values.getString(2);
+}

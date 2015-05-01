@@ -28,6 +28,8 @@
   profile=new Profile(this);
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
+  timing.section("Settings");
+  settings.run();
   timing.section("Files");
   filesModule.run();
   timing.section("Search");
@@ -45,6 +47,11 @@
   timing.section("Presence");
   presence.run();
   timing.end();
-  presence.onAppVisible();
-  notifications.onAppVisible();
+  if (isAppVisible) {
+    presence.onAppVisible();
+    notifications.onAppVisible();
+  }
+ else {
+    notifications.onAppHidden();
+  }
 }

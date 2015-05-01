@@ -1,6 +1,3 @@
 {
-  if (modules.getPresenceModule() != null) {
-    modules.getPresenceModule().onAppVisible();
-    modules.getNotifications().onAppVisible();
-  }
+  modules.onAppVisible();
 }

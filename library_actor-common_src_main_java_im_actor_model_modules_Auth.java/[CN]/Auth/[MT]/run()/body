@@ -2,8 +2,17 @@
   if (preferences().getBool(KEY_AUTH,false)) {
     state=AuthState.LOGGED_IN;
     modules().onLoggedIn();
+    User user=modules().getUsersModule().getUsers().getValue(myUid);
+    ArrayList<Long> records=new ArrayList<Long>();
+    for (    ContactRecord contactRecord : user.getRecords()) {
+      if (contactRecord.getRecordType() == 0) {
+        records.add(Long.parseLong(contactRecord.getRecordData()));
+      }
+    }
+    modules().getAnalytics().onLoggedIn(CryptoUtils.hex(deviceHash),user.getUid(),records.toArray(new Long[0]),user.getName());
   }
  else {
     state=AuthState.AUTH_START;
+    modules().getAnalytics().onLoggedOut(CryptoUtils.hex(deviceHash));
   }
 }

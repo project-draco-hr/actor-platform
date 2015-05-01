@@ -3,7 +3,6 @@
   this.smsHash=values.getString(2);
   this.smsCode=values.getString(3);
   this.name=values.getString(4);
-  this.publicKey=values.getBytes(6);
   this.deviceHash=values.getBytes(7);
   this.deviceTitle=values.getString(8);
   this.appId=values.getInt(9);

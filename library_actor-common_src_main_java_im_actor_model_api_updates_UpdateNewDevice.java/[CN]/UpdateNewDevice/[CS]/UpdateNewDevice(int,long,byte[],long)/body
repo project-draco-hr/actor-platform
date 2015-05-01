@@ -1,6 +1,0 @@
-{
-  this.uid=uid;
-  this.keyHash=keyHash;
-  this.key=key;
-  this.date=date;
-}

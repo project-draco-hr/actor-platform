@@ -1,4 +1,0 @@
-{
-  Notification notification=topNotifications.get(0);
-  showNotification("???",notification.getContentDescription().getText());
-}

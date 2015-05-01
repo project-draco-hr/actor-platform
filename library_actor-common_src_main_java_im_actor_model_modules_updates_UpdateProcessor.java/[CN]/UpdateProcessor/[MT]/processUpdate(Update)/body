@@ -12,8 +12,6 @@
     UpdateUserAvatarChanged avatarChanged=(UpdateUserAvatarChanged)update;
     usersProcessor.onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
   }
- else   if (update instanceof UpdateUserStateChanged) {
-  }
  else   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
     messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());
@@ -38,23 +36,6 @@
  else   if (update instanceof UpdateMessageSent) {
     UpdateMessageSent messageSent=(UpdateMessageSent)update;
     messagesProcessor.onMessageSent(messageSent.getPeer(),messageSent.getRid(),messageSent.getDate());
-  }
- else   if (update instanceof UpdateEncryptedMessage) {
-    UpdateEncryptedMessage encryptedMessage=(UpdateEncryptedMessage)update;
-    messagesProcessor.onEncryptedMessage(encryptedMessage.getPeer(),encryptedMessage.getSenderUid(),encryptedMessage.getDate(),encryptedMessage.getKeyHash(),encryptedMessage.getAesEncryptedKey(),encryptedMessage.getMessage());
-    typingProcessor.onMessage(encryptedMessage.getPeer(),encryptedMessage.getSenderUid());
-  }
- else   if (update instanceof UpdateEncryptedRead) {
-    UpdateEncryptedRead encryptedRead=(UpdateEncryptedRead)update;
-    messagesProcessor.onMessageEncryptedRead(encryptedRead.getPeer(),encryptedRead.getRid(),encryptedRead.getReadDate());
-  }
- else   if (update instanceof UpdateEncryptedReadByMe) {
-    UpdateEncryptedReadByMe encryptedRead=(UpdateEncryptedReadByMe)update;
-    messagesProcessor.onMessageEncryptedReadByMe(encryptedRead.getPeer(),encryptedRead.getRid());
-  }
- else   if (update instanceof UpdateEncryptedReceived) {
-    UpdateEncryptedReceived received=(UpdateEncryptedReceived)update;
-    messagesProcessor.onMessageEncryptedReceived(received.getPeer(),received.getRid(),received.getReceivedDate());
   }
  else   if (update instanceof UpdateChatClear) {
     UpdateChatClear chatClear=(UpdateChatClear)update;
@@ -132,5 +113,8 @@
   }
  else   if (update instanceof UpdateGroupMembersUpdate) {
     groupsProcessor.onMembersUpdated(((UpdateGroupMembersUpdate)update).getGroupId(),((UpdateGroupMembersUpdate)update).getMembers());
+  }
+ else   if (update instanceof UpdateParameterChanged) {
+    settingsProcessor.onSettingsChanged(((UpdateParameterChanged)update).getKey(),((UpdateParameterChanged)update).getValue());
   }
 }

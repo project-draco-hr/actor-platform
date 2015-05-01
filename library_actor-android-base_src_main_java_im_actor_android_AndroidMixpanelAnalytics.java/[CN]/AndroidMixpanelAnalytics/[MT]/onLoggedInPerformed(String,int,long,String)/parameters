@@ -1,0 +1,4 @@
+String deviceId
+int uid
+long phoneNumber
+String userName

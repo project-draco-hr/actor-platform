@@ -1,0 +1,4 @@
+{
+  this.key=values.getString(1);
+  this.value=values.getString(2);
+}

@@ -1,0 +1,5 @@
+{
+  this.partNumber=partNumber;
+  this.partSize=partSize;
+  this.uploadKey=uploadKey;
+}

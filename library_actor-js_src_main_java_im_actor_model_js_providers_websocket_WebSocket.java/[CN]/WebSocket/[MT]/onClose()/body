@@ -1,4 +1,0 @@
-{
-  Log.d("WS","onClose");
-  callback.onClose();
-}
