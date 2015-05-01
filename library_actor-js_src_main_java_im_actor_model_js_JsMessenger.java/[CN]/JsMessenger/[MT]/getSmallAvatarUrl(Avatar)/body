@@ -1,0 +1,6 @@
+{
+  if (avatar != null && avatar.getSmallImage() != null) {
+    return getFileUrl(avatar.getSmallImage().getFileReference());
+  }
+  return null;
+}

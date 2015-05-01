@@ -1,0 +1,3 @@
+{
+  return angularFilesModule.getFileUrl(fileReference.getFileId(),fileReference.getAccessHash());
+}

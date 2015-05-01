@@ -1,0 +1,14 @@
+{
+  if (!groups.containsKey(gid)) {
+    GroupVM groupVM=modules().getGroupsModule().getGroupsCollection().get(gid);
+    final AngularValue<JsGroup> value=new AngularValue<>(JsGroup.fromGroupVM(groupVM));
+    groupVM.subscribe(new ModelChangedListener<GroupVM>(){
+      @Override public void onChanged(      GroupVM model){
+        value.changeValue(JsGroup.fromGroupVM(model));
+      }
+    }
+);
+    groups.put(gid,value);
+  }
+  return groups.get(gid);
+}

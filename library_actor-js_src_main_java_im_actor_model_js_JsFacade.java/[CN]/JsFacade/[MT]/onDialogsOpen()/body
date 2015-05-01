@@ -1,0 +1,4 @@
+{
+  Log.d("JsFacade","On dialogs open");
+  messenger.onDialogsOpen();
+}
