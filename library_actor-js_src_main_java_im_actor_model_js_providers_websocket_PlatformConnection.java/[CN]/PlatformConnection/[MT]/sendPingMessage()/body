@@ -1,0 +1,16 @@
+{
+  if (isClosed) {
+    return;
+  }
+  final long pingId=RANDOM.nextLong();
+  DataOutput dataOutput=new DataOutput();
+  dataOutput.writeInt(8);
+synchronized (RANDOM) {
+    dataOutput.writeLong(pingId);
+  }
+  TimerCompat pingTimeoutTask=new TimerCompat(new TimeoutRunnable());
+  schedulledPings.put(pingId,pingTimeoutTask);
+  pingTimeoutTask.schedule(RESPONSE_TIMEOUT);
+  Log.d(TAG,"Performing ping #" + pingId + "... "+ pingTimeoutTask);
+  rawPost(HEADER_PING,dataOutput.toByteArray());
+}

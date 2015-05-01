@@ -9,4 +9,6 @@
   this.rawConnection=connectionFactory.createConnection(endpoint,connectionInterface);
   Log.d(TAG,"Starting connection");
   this.rawConnection.doConnect();
+  pingTask=new TimerCompat(new PingRunnable());
+  pingTask.schedule(PING_TIMEOUT);
 }

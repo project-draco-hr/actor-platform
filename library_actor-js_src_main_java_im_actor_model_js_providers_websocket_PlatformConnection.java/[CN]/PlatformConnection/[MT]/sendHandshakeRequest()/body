@@ -1,14 +1,4 @@
 {
-  Log.d(TAG,"onConnected");
-  if (isClosed) {
-    Log.d(TAG,"onConnected:isClosed");
-    return;
-  }
-  if (isOpened) {
-    Log.d(TAG,"onConnected:isOpened");
-    return;
-  }
-  isOpened=true;
   Log.d(TAG,"Starting handshake");
   DataOutput handshakeRequest=new DataOutput();
   handshakeRequest.writeByte(mtprotoVersion);
@@ -20,5 +10,5 @@ synchronized (RANDOM) {
   }
   handshakeRequest.writeInt(handshakeRandomData.length);
   handshakeRequest.writeBytes(handshakeRandomData,0,handshakeRandomData.length);
-  rawConnection.doSend(handshakeRequest.toByteArray());
+  rawPost(HEADER_HANDSHAKE_REQUEST,handshakeRequest.toByteArray());
 }

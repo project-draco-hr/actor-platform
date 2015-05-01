@@ -1,0 +1,9 @@
+{
+  DataInput drop=new DataInput(data);
+  long messageId=drop.readLong();
+  int errorCode=drop.readByte();
+  int messageLen=drop.readInt();
+  String message=new String(drop.readBytes(messageLen),"UTF-8");
+  Log.d(TAG,"Drop received: " + message);
+  throw new IOException("Drop received: " + message);
+}

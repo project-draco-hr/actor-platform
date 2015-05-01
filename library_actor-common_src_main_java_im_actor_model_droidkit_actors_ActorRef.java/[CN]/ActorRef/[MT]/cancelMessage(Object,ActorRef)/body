@@ -1,0 +1,3 @@
+{
+  dispatcher.cancelSend(endpoint,message,sender);
+}

@@ -1,0 +1,4 @@
+{
+  callback.onMessage(data,0,data.length);
+  refreshTimeouts();
+}
