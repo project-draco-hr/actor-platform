@@ -8,13 +8,13 @@
   if (config().getNotificationProvider() != null) {
     if (visiblePeer != null && visiblePeer.equals(peer)) {
       if (modules().getSettings().isConversationTonesEnabled()) {
-        config().getNotificationProvider().onMessageArriveInApp();
+        config().getNotificationProvider().onMessageArriveInApp(modules().getMessenger());
       }
       return;
     }
     if (isDialogsVisible) {
       if (modules().getSettings().isConversationTonesEnabled()) {
-        config().getNotificationProvider().onMessageArriveInApp();
+        config().getNotificationProvider().onMessageArriveInApp(modules().getMessenger());
       }
       return;
     }
@@ -44,6 +44,6 @@
       peers.add(p.getPeer());
     }
     int chatsCount=peers.size();
-    config().getNotificationProvider().onNotification(res,messagesCount,chatsCount);
+    config().getNotificationProvider().onNotification(modules().getMessenger(),res,messagesCount,chatsCount);
   }
 }

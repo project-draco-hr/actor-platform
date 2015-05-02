@@ -1,0 +1,12 @@
+{
+  request(new RequestEditParameter(action.getKey(),action.getValue()),new RpcCallback<ResponseSeq>(){
+    @Override public void onResult(    ResponseSeq response){
+      syncState.getPendingActions().remove(action);
+      saveState();
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateParameterChanged.HEADER,new UpdateParameterChanged(action.getKey(),action.getValue()).toByteArray()));
+    }
+    @Override public void onError(    RpcException e){
+    }
+  }
+);
+}

@@ -19,6 +19,9 @@
         @Override public void onUploadFailure(){
           self().send(new Runnable(){
             @Override public void run(){
+              if (LOG) {
+                Log.w(TAG,"Block #" + blockIndex + " upload failure");
+              }
               reportError();
             }
           }
@@ -28,6 +31,9 @@
 );
     }
     @Override public void onError(    RpcException e){
+      if (LOG) {
+        Log.w(TAG,"Get Block #" + blockIndex + " url failure");
+      }
       reportError();
     }
   }

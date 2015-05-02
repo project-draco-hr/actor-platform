@@ -1,4 +1,7 @@
 {
+  if (LOG) {
+    Log.d(TAG,"Reporting error");
+  }
   if (isCompleted) {
     return;
   }

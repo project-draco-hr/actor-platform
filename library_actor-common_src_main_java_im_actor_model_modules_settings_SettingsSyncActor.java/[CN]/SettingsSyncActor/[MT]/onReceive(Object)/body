@@ -1,0 +1,12 @@
+{
+  if (message instanceof ChangeSettings) {
+    ChangeSettings changeSettings=(ChangeSettings)message;
+    SettingsSyncAction action=new SettingsSyncAction(changeSettings.getKey(),changeSettings.getValue());
+    syncState.getPendingActions().add(action);
+    saveState();
+    performSync(action);
+  }
+ else {
+    drop(message);
+  }
+}

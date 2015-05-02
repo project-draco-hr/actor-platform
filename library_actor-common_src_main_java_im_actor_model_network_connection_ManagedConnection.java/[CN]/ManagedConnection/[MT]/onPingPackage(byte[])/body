@@ -1,0 +1,4 @@
+{
+  rawPost(HEADER_PONG,data);
+  refreshTimeouts();
+}

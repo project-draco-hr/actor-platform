@@ -1,0 +1,11 @@
+{
+  messenger.deleteChat(peer.convert()).start(new CommandCallback<Boolean>(){
+    @Override public void onResult(    Boolean res){
+      success.callback();
+    }
+    @Override public void onError(    Exception e){
+      error.callback();
+    }
+  }
+);
+}

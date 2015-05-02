@@ -1,0 +1,10 @@
+{
+  DataInput ackContent=new DataInput(data);
+  int frameId=ackContent.readInt();
+  TimerCompat timerCompat=packageTimers.remove(frameId);
+  if (timerCompat == null) {
+    return;
+  }
+  timerCompat.cancel();
+  refreshTimeouts();
+}

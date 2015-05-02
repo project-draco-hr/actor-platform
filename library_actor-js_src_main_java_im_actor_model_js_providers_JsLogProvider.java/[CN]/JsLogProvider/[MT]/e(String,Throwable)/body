@@ -1,3 +1,3 @@
 {
-  error("[E]" + tag + ":"+ throwable);
+  error(formatTime() + "[E] " + tag+ ":"+ throwable);
 }

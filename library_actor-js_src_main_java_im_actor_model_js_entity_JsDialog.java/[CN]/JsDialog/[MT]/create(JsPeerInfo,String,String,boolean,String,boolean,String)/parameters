@@ -1,7 +1,0 @@
-JsPeerInfo peer
-String date
-String sender
-boolean showSender
-String text
-boolean isHighlighted
-String state

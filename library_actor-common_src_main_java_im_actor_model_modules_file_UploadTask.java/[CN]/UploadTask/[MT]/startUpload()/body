@@ -17,7 +17,7 @@
     }
     @Override public void onError(    RpcException e){
       if (LOG) {
-        Log.d(TAG,"Upload config load error");
+        Log.w(TAG,"Upload config load error");
       }
       reportError();
     }

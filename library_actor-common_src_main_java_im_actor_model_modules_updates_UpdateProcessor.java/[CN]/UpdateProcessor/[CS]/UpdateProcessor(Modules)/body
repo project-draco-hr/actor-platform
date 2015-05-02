@@ -1,5 +1,6 @@
 {
   super(modules);
+  this.settingsProcessor=new SettingsProcessor(modules);
   this.usersProcessor=new UsersProcessor(modules);
   this.messagesProcessor=new MessagesProcessor(modules);
   this.groupsProcessor=new GroupsProcessor(modules);

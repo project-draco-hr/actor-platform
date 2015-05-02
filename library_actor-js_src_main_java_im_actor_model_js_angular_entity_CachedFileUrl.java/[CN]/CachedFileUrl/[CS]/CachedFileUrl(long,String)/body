@@ -1,0 +1,4 @@
+{
+  this.fid=fid;
+  this.url=url;
+}

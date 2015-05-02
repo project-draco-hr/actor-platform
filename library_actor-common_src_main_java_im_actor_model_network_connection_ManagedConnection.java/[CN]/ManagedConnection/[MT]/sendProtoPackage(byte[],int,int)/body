@@ -1,0 +1,6 @@
+{
+  if (isClosed) {
+    return;
+  }
+  rawPost(HEADER_PROTO,data,offset,len);
+}

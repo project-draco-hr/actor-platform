@@ -24,7 +24,7 @@
       }
       @Override public void onError(      RpcException e){
         if (LOG) {
-          Log.d(TAG,"Upload complete error");
+          Log.w(TAG,"Upload complete error");
         }
         reportError();
       }
@@ -42,14 +42,14 @@
     byte[] data=new byte[size];
     if (!inputFile.read(fileOffset,data,0,size)) {
       if (LOG) {
-        Log.d(TAG,"read #" + blockIndex + " error");
+        Log.w(TAG,"read #" + blockIndex + " error");
       }
       reportError();
       return;
     }
     if (!outputFile.write(fileOffset,data,0,size)) {
       if (LOG) {
-        Log.d(TAG,"write #" + blockIndex + " error");
+        Log.w(TAG,"write #" + blockIndex + " error");
       }
       reportError();
       return;

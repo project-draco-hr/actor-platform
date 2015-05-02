@@ -1,3 +1,0 @@
-{
-  post(HEADER_PROTO,data,offset,len);
-}

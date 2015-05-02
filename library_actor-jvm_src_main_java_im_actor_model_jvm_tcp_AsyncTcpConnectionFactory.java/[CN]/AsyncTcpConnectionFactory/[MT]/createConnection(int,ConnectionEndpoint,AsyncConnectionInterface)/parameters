@@ -1,0 +1,3 @@
+int connectionId
+ConnectionEndpoint endpoint
+AsyncConnectionInterface connectionInterface

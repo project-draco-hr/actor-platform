@@ -1,3 +1,0 @@
-{
-  setName(TAG + "#Reader" + hashCode());
-}

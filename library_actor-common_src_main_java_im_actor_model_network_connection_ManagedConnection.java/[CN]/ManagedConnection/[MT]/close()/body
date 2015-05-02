@@ -1,0 +1,27 @@
+{
+  Log.w(TAG,"close");
+  if (isClosed) {
+    return;
+  }
+  isClosed=true;
+  rawConnection.doClose();
+synchronized (packageTimers) {
+    for (    Integer id : packageTimers.keySet()) {
+      packageTimers.get(id).cancel();
+    }
+    for (    Long ping : schedulledPings.keySet()) {
+      schedulledPings.get(ping).cancel();
+    }
+    schedulledPings.clear();
+    packageTimers.clear();
+  }
+  pingTask.cancel();
+  connectionTimeout.cancel();
+  handshakeTimeout.cancel();
+  if (!isOpened || !isHandshakePerformed) {
+    factoryCallback.onConnectionCreateError(this);
+  }
+ else {
+    callback.onConnectionDie();
+  }
+}

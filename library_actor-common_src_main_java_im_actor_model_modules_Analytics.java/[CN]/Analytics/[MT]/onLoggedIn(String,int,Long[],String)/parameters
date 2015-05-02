@@ -1,0 +1,4 @@
+String deviceId
+int uid
+Long[] phoneNumbers
+String userName

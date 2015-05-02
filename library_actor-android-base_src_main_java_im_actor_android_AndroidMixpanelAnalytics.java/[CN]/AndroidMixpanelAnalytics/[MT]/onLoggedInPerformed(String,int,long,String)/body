@@ -1,0 +1,8 @@
+{
+  saveDeviceId(deviceId);
+  mixpanel.alias("uid:" + uid,"device:" + deviceId);
+  mixpanel.identify("uid:" + uid);
+  mixpanel.getPeople().identify("uid:" + uid);
+  mixpanel.getPeople().set("PhoneNumber",phoneNumber);
+  mixpanel.getPeople().set("Name",userName);
+}

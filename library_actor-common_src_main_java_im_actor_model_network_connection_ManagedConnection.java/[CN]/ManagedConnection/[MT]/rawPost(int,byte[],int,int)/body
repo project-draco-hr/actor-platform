@@ -1,0 +1,18 @@
+{
+  Log.w(TAG,"rawPost");
+  int packageId=sentPackages++;
+  DataOutput dataOutput=new DataOutput();
+  dataOutput.writeInt(packageId);
+  dataOutput.writeByte(header);
+  dataOutput.writeInt(data.length);
+  dataOutput.writeBytes(data,offset,len);
+  CRC32_ENGINE.reset();
+  CRC32_ENGINE.update(data,offset,len);
+  dataOutput.writeInt((int)CRC32_ENGINE.getValue());
+  if (header == HEADER_PROTO) {
+    TimerCompat timeoutTask=new TimerCompat(new TimeoutRunnable());
+    packageTimers.put(packageId,timeoutTask);
+    timeoutTask.schedule(RESPONSE_TIMEOUT);
+  }
+  rawConnection.doSend(dataOutput.toByteArray());
+}

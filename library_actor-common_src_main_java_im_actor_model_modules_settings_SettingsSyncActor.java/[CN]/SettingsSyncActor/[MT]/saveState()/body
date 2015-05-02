@@ -1,0 +1,3 @@
+{
+  preferences().putBytes(SYNC_STATE,syncState.toByteArray());
+}

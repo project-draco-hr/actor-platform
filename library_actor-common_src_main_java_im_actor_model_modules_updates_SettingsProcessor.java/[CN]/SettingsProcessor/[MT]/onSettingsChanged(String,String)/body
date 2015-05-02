@@ -1,0 +1,3 @@
+{
+  modules().getPreferences().putString(key,value);
+}

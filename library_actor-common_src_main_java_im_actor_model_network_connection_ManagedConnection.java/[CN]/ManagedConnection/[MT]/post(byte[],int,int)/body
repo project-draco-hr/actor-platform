@@ -1,0 +1,13 @@
+{
+  Log.w(TAG,"post");
+  if (isClosed) {
+    return;
+  }
+  try {
+    sendProtoPackage(data,offset,len);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    close();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (isClosed) {
+    return;
+  }
+  Uint8Array array=TypedArrays.createUint8Array(message);
+  byte[] res=new byte[array.length()];
+  for (int i=0; i < res.length; i++) {
+    res[i]=(byte)(array.get(i));
+  }
+  onReceived(res);
+}

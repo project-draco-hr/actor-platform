@@ -1,0 +1,3 @@
+{
+  track(CHAT_CLOSED,"Type",peer.getPeerType().toString(),"Id",peer.getPeerId() + "");
+}

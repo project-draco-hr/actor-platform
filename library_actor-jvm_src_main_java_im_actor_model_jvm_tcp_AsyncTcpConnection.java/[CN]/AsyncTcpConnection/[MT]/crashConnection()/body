@@ -1,0 +1,44 @@
+{
+  Log.d(TAG,"Crashing Connection");
+  if (isClosed) {
+    return;
+  }
+  isClosed=true;
+  isConnected=false;
+  if (writerThread != null) {
+    writerThread.interrupt();
+  }
+  if (readerThread != null) {
+    readerThread.interrupt();
+  }
+  writerThread=null;
+  readerThread=null;
+  if (socket != null) {
+    try {
+      socket.close();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  if (inputStream != null) {
+    try {
+      inputStream.close();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  if (outputStream != null) {
+    try {
+      outputStream.close();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  socket=null;
+  inputStream=null;
+  outputStream=null;
+  onClosed();
+}
