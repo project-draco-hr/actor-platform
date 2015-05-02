@@ -1,7 +1,7 @@
 {
   if (processor.isLoaded()) {
     int offsetLeft=(getWidth() - countInRow * smileySize) / 2;
-    for (int i=0; i < smileyIds.length; i++) {
+    for (int i=0; i < smileyIds.size(); i++) {
       int row=i / countInRow;
       int col=i % countInRow;
       rect.set(col * smileySize + smileyPadding + offsetLeft,row * smileySize + smileyPadding,(col + 1) * smileySize - smileyPadding + offsetLeft,(row + 1) * smileySize - smileyPadding);

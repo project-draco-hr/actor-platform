@@ -1,13 +1,15 @@
 {
+  long timer=System.currentTimeMillis();
   Context context=AppContext.getContext();
   File sourceFile=context.getFileStreamPath("sticker_" + packId + "_"+ stickerId+ ".png");
   try {
-    InputStream fileIS=AppContext.getContext().getAssets().open("stickers_pack_" + packId + "/sticker_"+ stickerId+ ".png");
+    InputStream fileIS=AppContext.getContext().getAssets().open("stickers_" + packId + "/"+ stickerId+ ".png");
     IOUtils.copy(fileIS,sourceFile);
     fileIS.close();
   }
  catch (  IOException e) {
     e.printStackTrace();
   }
+  Log.d("Sticker saving","Starting time: " + (System.currentTimeMillis() - timer));
   return sourceFile.getAbsolutePath();
 }

@@ -1,6 +1,6 @@
 Context context
 SmileProcessor processor
-long[] smileyIds
+ArrayList<Long> smileyIds
 int smileysInRow
 int smileySize
 int smileyPadding
