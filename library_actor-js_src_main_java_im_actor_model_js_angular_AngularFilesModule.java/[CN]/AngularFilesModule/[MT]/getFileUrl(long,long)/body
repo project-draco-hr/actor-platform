@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"Get file url for #" + id);
   CachedFileUrl cachedFileUrl=keyValueStorage.getValue(id);
   if (cachedFileUrl != null) {
     return cachedFileUrl.getUrl();

@@ -3,15 +3,16 @@
     return;
   }
   requestedFiles.add(id);
-  Log.d(TAG,"Loading file #" + id + " url...");
   request(new RequestGetFileUrl(new FileLocation(id,accessHash)),new RpcCallback<ResponseGetFileUrl>(){
     @Override public void onResult(    ResponseGetFileUrl response){
       requestedFiles.remove(id);
-      Log.d(TAG,"File #" + id + " url loaded: "+ response.getUrl());
+      keyValueStorage.addOrUpdateItem(new CachedFileUrl(id,response.getUrl()));
+      for (      AngularFileLoadedListener listener : listeners) {
+        listener.onFileLoaded(id);
+      }
     }
     @Override public void onError(    RpcException e){
       requestedFiles.remove(id);
-      Log.d(TAG,"File #" + id + " url load error");
     }
   }
 );

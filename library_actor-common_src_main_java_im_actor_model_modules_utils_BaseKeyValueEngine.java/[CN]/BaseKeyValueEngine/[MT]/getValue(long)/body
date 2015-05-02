@@ -5,10 +5,10 @@
   byte[] data=storage.getValue(id);
   if (data != null) {
     T res=deserialize(data);
-    cache.put(res.getEngineId(),res);
-    return res;
+    if (res != null) {
+      cache.put(res.getEngineId(),res);
+      return res;
+    }
   }
- else {
-    return null;
-  }
+  return null;
 }

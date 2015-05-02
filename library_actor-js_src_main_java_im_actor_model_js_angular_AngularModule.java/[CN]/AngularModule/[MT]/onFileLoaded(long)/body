@@ -1,0 +1,13 @@
+{
+  boolean founded=false;
+  for (  Dialog dialog : getDialogsList().getRawItems()) {
+    Avatar avatar=dialog.getDialogAvatar();
+    if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == fileId) {
+      founded=true;
+      break;
+    }
+  }
+  if (founded) {
+    getDialogsList().forceReconvert();
+  }
+}
