@@ -1,6 +1,4 @@
 {
   super(modules);
   this.messenger=messenger;
-  users=new HashMap<Integer,AngularValue<JsUser>>();
-  groups=new HashMap<Integer,AngularValue<JsGroup>>();
 }
