@@ -1,5 +1,3 @@
 {
-  if (analyticsProvider != null) {
-    analyticsProvider.trackEvent(EVENT_APP_HIDDEN);
-  }
+  track(EVENT_APP_HIDDEN);
 }

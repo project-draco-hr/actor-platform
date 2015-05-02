@@ -8,14 +8,17 @@
   command.start(new CommandCallback<AuthState>(){
     @Override public void onResult(    final AuthState res){
       dismissProgress();
+      messenger().trackActionSuccess(action);
       updateState(res);
     }
     @Override public void onError(    final Exception e){
       dismissProgress();
       boolean canTryAgain=false;
       String message=getString(R.string.error_unknown);
+      String tag="UNKNOWN";
       if (e instanceof RpcException) {
         RpcException re=(RpcException)e;
+        tag=re.getTag();
         if (re instanceof RpcInternalException) {
           message=getString(R.string.error_unknown);
           canTryAgain=true;
@@ -39,15 +42,18 @@
           }
         }
       }
+      messenger().trackActionError(action,tag,message);
       if (canTryAgain) {
         new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_try_again,new DialogInterface.OnClickListener(){
           @Override public void onClick(          DialogInterface dialog,          int which){
+            messenger().trackActionTryAgain(action);
             dismissAlert();
-            execute(command);
+            executeAuth(command,action);
           }
         }
 ).setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
           @Override public void onClick(          DialogInterface dialog,          int which){
+            messenger().trackActionCancel(action);
             dismissAlert();
             updateState(messenger().getAuthState());
           }
@@ -57,6 +63,7 @@
  else {
         new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
           @Override public void onClick(          DialogInterface dialog,          int which){
+            messenger().trackActionCancel(action);
             dismissAlert();
             updateState(messenger().getAuthState());
           }

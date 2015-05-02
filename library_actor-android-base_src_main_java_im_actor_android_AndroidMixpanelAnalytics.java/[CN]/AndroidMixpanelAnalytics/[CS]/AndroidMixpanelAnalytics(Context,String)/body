@@ -1,3 +1,11 @@
 {
   this.mixpanel=MixpanelAPI.getInstance(context,token);
+  try {
+    JSONObject deviceProperties=new JSONObject();
+    deviceProperties.put("app","android");
+    mixpanel.registerSuperProperties(deviceProperties);
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
 }

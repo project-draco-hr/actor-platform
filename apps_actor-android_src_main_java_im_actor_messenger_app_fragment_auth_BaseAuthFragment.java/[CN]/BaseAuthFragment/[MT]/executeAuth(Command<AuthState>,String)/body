@@ -1,0 +1,3 @@
+{
+  ((AuthActivity)getActivity()).executeAuth(command,action);
+}

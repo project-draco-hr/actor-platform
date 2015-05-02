@@ -1,5 +1,6 @@
 {
   super.onResume();
+  messenger().trackAuthPhoneOpen();
   setTitle(R.string.auth_phone_title);
   if (TextUtils.isEmpty(countryCodeEditText.getText())) {
     focusCode();
