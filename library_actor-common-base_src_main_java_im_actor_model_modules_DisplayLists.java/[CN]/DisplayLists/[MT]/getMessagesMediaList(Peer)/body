@@ -1,0 +1,7 @@
+{
+  MVVMEngine.checkMainThread();
+  if (!chatMediaGlobalLists.containsKey(peer)) {
+    chatMediaGlobalLists.put(peer,buildMediaList(peer,true));
+  }
+  return chatMediaGlobalLists.get(peer);
+}

@@ -9,7 +9,7 @@
   peer=Peer.fromUniqueId(activityIntent.getLongExtra(EXTRA_PEER_UNIQ_ID,0));
   setGridActionbar();
   emptyView.setVisibility(View.GONE);
-  displayList=messenger().buildMediaList(peer);
+  displayList=messenger().getMediaGlobalList(peer);
   adapter=new MediaAdapter(displayList,new OnMediaClickListener(){
     @Override public void onClick(    final MediaAdapter.MediaHolder holder,    Message item){
       viewPager.setAdapter(pagerAdapter);

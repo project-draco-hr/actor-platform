@@ -1,0 +1,3 @@
+{
+  return displayLists.getMediaCount(peer);
+}
