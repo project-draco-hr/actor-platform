@@ -1,4 +1,3 @@
 {
-  Log.d("JsFacade","On chat open: " + peer.getPeerType() + " : "+ peer.getPeerId());
   messenger.onConversationOpen(peer.convert());
 }

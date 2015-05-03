@@ -6,8 +6,6 @@
         return;
       }
       String rawData=thumb.substring(index + "base64,".length());
-      Log.d(TAG,"Data: " + thumb);
-      Log.d(TAG,"Raw: " + rawData);
       byte[] thumbData=Base64Utils.fromBase64(rawData);
       String descriptor=provider.registerUploadFile(file);
       messenger.sendPhoto(peer.convert(),file.getName(),fullW,fullH,new FastThumb(thumbW,thumbH,thumbData),provider.fileFromDescriptor(descriptor));
