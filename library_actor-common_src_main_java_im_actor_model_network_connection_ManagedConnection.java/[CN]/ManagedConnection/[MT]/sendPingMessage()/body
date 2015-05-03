@@ -11,6 +11,5 @@ synchronized (RANDOM) {
   TimerCompat pingTimeoutTask=new TimerCompat(new TimeoutRunnable());
   schedulledPings.put(pingId,pingTimeoutTask);
   pingTimeoutTask.schedule(RESPONSE_TIMEOUT);
-  Log.d(TAG,"Performing ping #" + pingId + "... "+ pingTimeoutTask);
   rawPost(HEADER_PING,dataOutput.toByteArray());
 }

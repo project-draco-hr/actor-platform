@@ -1,5 +1,5 @@
-int gid
-String title
+int id
+String name
 String avatar
 String placeholder
 int adminId

@@ -1,4 +1,3 @@
 {
-  Log.w(TAG,"Received closed event");
   close();
 }
