@@ -2,8 +2,7 @@
   if (dialogsList != null) {
     boolean founded=false;
     for (    Dialog dialog : dialogsList.getRawItems()) {
-      Avatar avatar=dialog.getDialogAvatar();
-      if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == fileId) {
+      if (checkAvatar(dialog.getDialogAvatar(),fileId)) {
         founded=true;
         break;
       }
@@ -16,8 +15,7 @@
     boolean founded=false;
     for (    Message message : messageList.getRawItems()) {
       UserVM user=modules().getUsersModule().getUsersCollection().get(message.getSenderId());
-      Avatar avatar=user.getAvatar().get();
-      if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == fileId) {
+      if (checkAvatar(user.getAvatar().get(),fileId)) {
         founded=true;
         break;
       }
@@ -33,6 +31,20 @@
     }
     if (founded) {
       messageList.forceReconvert();
+    }
+  }
+  for (  AngularValue<JsUser> u : users.values()) {
+    int uid=u.get().getUid();
+    UserVM userVM=modules().getUsersModule().getUsersCollection().get(uid);
+    if (checkAvatar(userVM.getAvatar().get(),fileId)) {
+      u.changeValue(JsUser.fromUserVM(userVM,messenger));
+    }
+  }
+  for (  AngularValue<JsGroup> g : groups.values()) {
+    int gid=g.get().getGid();
+    GroupVM groupVM=modules().getGroupsModule().getGroupsCollection().get(gid);
+    if (checkAvatar(groupVM.getAvatar().get(),fileId)) {
+      g.changeValue(JsGroup.fromGroupVM(groupVM,messenger));
     }
   }
 }

@@ -1,0 +1,6 @@
+int uid
+String name
+String avatar
+String placeholder
+boolean isContact
+String presence

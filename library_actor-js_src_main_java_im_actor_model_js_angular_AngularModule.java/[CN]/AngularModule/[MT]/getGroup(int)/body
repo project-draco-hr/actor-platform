@@ -1,10 +1,16 @@
 {
   if (!groups.containsKey(gid)) {
-    GroupVM groupVM=modules().getGroupsModule().getGroupsCollection().get(gid);
-    final AngularValue<JsGroup> value=new AngularValue<>(JsGroup.fromGroupVM(groupVM));
+    final GroupVM groupVM=modules().getGroupsModule().getGroupsCollection().get(gid);
+    final AngularValue<JsGroup> value=new AngularValue<>(JsGroup.fromGroupVM(groupVM,messenger));
     groupVM.subscribe(new ModelChangedListener<GroupVM>(){
       @Override public void onChanged(      GroupVM model){
-        value.changeValue(JsGroup.fromGroupVM(model));
+        value.changeValue(JsGroup.fromGroupVM(groupVM,messenger));
+      }
+    }
+);
+    groupVM.getPresence().subscribe(new ValueChangedListener<Integer>(){
+      @Override public void onChanged(      Integer val,      ValueModel<Integer> valueModel){
+        value.changeValue(JsGroup.fromGroupVM(groupVM,messenger));
       }
     }
 );

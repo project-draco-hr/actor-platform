@@ -1,0 +1,6 @@
+int gid
+String title
+String avatar
+String placeholder
+int adminId
+String presence
