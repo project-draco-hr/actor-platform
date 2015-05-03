@@ -1,6 +1,7 @@
 {
   JsXmlHttpRequest request=JsXmlHttpRequest.create();
   request.open("PUT",url);
+  request.setRequestHeader("Content-Type","application/octet-stream");
   request.setOnLoadHandler(new JsXmlHttpRequestHandler(){
     @Override public void onStateChanged(    JsXmlHttpRequest request){
       if (request.getReadyState() == 4) {
