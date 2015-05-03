@@ -1,9 +1,9 @@
 {
-  JsXmlHttpRequest request=JsXmlHttpRequest.create();
+  JsHttpRequest request=JsHttpRequest.create();
   request.open("PUT",url);
   request.setRequestHeader("Content-Type","application/octet-stream");
-  request.setOnLoadHandler(new JsXmlHttpRequestHandler(){
-    @Override public void onStateChanged(    JsXmlHttpRequest request){
+  request.setOnLoadHandler(new JsHttpRequestHandler(){
+    @Override public void onStateChanged(    JsHttpRequest request){
       if (request.getReadyState() == 4) {
         if (request.getStatus() == 200) {
           callback.onUploaded();
