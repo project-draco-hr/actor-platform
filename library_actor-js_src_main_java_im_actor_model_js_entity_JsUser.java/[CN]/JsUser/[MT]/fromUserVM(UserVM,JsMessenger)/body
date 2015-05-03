@@ -1,0 +1,10 @@
+{
+  UserPresence presence=userVM.getPresence().get();
+  String presenceString=messenger.getFormatter().formatPresence(presence,userVM.getSex());
+  String fileUrl=null;
+  Avatar avatar=userVM.getAvatar().get();
+  if (avatar != null && avatar.getSmallImage() != null) {
+    fileUrl=messenger.getFileUrl(avatar.getSmallImage().getFileReference());
+  }
+  return create(userVM.getId(),userVM.getName().get(),fileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),presenceString);
+}

@@ -1,10 +1,16 @@
 {
   if (!users.containsKey(uid)) {
-    UserVM userVM=modules().getUsersModule().getUsersCollection().get(uid);
-    final AngularValue<JsUser> value=new AngularValue<JsUser>(JsUser.fromUserVM(userVM));
+    final UserVM userVM=modules().getUsersModule().getUsersCollection().get(uid);
+    final AngularValue<JsUser> value=new AngularValue<JsUser>(JsUser.fromUserVM(userVM,messenger));
     userVM.subscribe(new ModelChangedListener<UserVM>(){
       @Override public void onChanged(      UserVM model){
-        value.changeValue(JsUser.fromUserVM(model));
+        value.changeValue(JsUser.fromUserVM(userVM,messenger));
+      }
+    }
+);
+    userVM.getPresence().subscribe(new ValueChangedListener<UserPresence>(){
+      @Override public void onChanged(      UserPresence val,      ValueModel<UserPresence> valueModel){
+        value.changeValue(JsUser.fromUserVM(userVM,messenger));
       }
     }
 );

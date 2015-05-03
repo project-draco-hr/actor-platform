@@ -1,0 +1,13 @@
+{
+  int online=groupVM.getPresence().get();
+  String presence=messenger.getFormatter().formatGroupMembers(groupVM.getMembersCount());
+  if (online > 0) {
+    presence=", " + messenger.getFormatter().formatGroupOnline(online);
+  }
+  String fileUrl=null;
+  Avatar avatar=groupVM.getAvatar().get();
+  if (avatar != null && avatar.getSmallImage() != null) {
+    fileUrl=messenger.getFileUrl(avatar.getSmallImage().getFileReference());
+  }
+  return create(groupVM.getId(),groupVM.getName().get(),fileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence);
+}
