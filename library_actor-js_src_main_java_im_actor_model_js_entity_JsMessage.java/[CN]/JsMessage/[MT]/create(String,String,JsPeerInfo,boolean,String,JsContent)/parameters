@@ -1,4 +1,5 @@
 String rid
+String sortKey
 JsPeerInfo sender
 boolean isOut
 String date
