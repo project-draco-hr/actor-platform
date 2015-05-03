@@ -1,11 +1,8 @@
 {
-  Log.d("JsHttpProvider","Uploading file: " + url);
   JsXmlHttpRequest request=JsXmlHttpRequest.create();
   request.open("PUT",url);
-  request.setRequestHeader("Content-Type","application/octet-stream");
   request.setOnLoadHandler(new JsXmlHttpRequestHandler(){
     @Override public void onStateChanged(    JsXmlHttpRequest request){
-      Log.d("JsHttpProvider","Upload progress: " + request.getReadyState() + " "+ request.getStatus());
       if (request.getReadyState() == 4) {
         if (request.getStatus() == 200) {
           callback.onUploaded();
@@ -21,6 +18,5 @@
   for (int i=0; i < contents.length; i++) {
     push.set(i,contents[i]);
   }
-  Log.d("JsHttpProvider",CryptoUtils.hex(contents));
   request.send(push.buffer());
 }
