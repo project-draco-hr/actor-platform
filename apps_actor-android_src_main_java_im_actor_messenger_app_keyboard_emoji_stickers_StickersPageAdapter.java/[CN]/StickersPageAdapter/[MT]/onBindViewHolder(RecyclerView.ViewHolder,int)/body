@@ -1,8 +1,7 @@
 {
   final String packId=stickerPack.getId();
   final String stickerId=stickerPack.getStickerId(position + this.page * 8);
-  Uri uri=Uri.parse("file://" + Stickers.getFile(packId,stickerId));
-  ((SimpleDraweeView)holder.itemView).setImageURI(uri);
+  getStickerProcessor().bindSticker((SimpleDraweeView)holder.itemView,packId,stickerId);
   holder.itemView.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       onStickerClickListener.onStickerClick(packId,stickerId);

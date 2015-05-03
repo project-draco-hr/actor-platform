@@ -1,0 +1,4 @@
+String packId
+String packTitle
+String logoId
+String[] order

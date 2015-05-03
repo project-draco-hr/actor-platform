@@ -1,3 +1,0 @@
-{
-  return new StickersPack[]{animalPack,steewiePack,giraffePack};
-}

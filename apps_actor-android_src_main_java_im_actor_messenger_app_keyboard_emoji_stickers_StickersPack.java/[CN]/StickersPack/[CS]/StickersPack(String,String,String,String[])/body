@@ -1,5 +1,6 @@
 {
-  this.idsOrder=idsOrder;
+  this.order=order;
   this.packId=packId;
   this.logoId=logoId;
+  this.title=packTitle;
 }

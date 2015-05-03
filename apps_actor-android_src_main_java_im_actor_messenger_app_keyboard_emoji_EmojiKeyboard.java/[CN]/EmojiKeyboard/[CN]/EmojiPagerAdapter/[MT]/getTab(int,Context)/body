@@ -1,5 +1,5 @@
 {
-  SimpleDraweeView tabView=new SimpleDraweeView(context);
+  final SimpleDraweeView tabView=new SimpleDraweeView(context);
   tabView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   tabView.setBackgroundResource(R.drawable.clickable_background);
   if (position == 0) {
@@ -7,8 +7,10 @@
     tabView.setPadding(0,0,0,0);
   }
  else {
-    StickersPack pack=Stickers.getPacks()[position - 1];
-    tabView.setImageURI(Uri.parse("file://" + Stickers.getFile(pack.getId(),pack.getLogoStickerId())));
+    StickersPack pack=getStickerProcessor().getPacks().get(position - 1);
+    String packId=pack.getId();
+    final String packLogoId=pack.getLogoStickerId();
+    getStickerProcessor().bindSticker(tabView,packId,packLogoId);
     tabView.setPadding(Screen.dp(5),Screen.dp(5),Screen.dp(5),Screen.dp(5));
   }
   return tabView;

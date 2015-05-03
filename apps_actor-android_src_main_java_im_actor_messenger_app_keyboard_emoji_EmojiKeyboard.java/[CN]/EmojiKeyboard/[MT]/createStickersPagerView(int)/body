@@ -1,6 +1,6 @@
 {
   RecyclerView recyclerView=new RecyclerView(activity);
   recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,OrientationHelper.VERTICAL));
-  recyclerView.setAdapter(new StickersFullpackAdapter(activity,this,Stickers.getPacks()[packId],0));
+  recyclerView.setAdapter(new StickersFullpackAdapter(activity,this,getStickerProcessor().getPacks().get(packIndex),0));
   return recyclerView;
 }
