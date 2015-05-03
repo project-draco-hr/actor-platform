@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"Starting handshake");
   DataOutput handshakeRequest=new DataOutput();
   handshakeRequest.writeByte(mtprotoVersion);
   handshakeRequest.writeByte(apiMajorVersion);

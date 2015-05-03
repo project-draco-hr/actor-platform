@@ -2,11 +2,10 @@
   DataInput dataInput=new DataInput(data);
   int size=dataInput.readInt();
   if (size != 8) {
-    Log.d(TAG,"Received incorrect pong");
+    Log.w(TAG,"Received incorrect pong");
     throw new IOException("Incorrect pong payload size");
   }
   long pingId=dataInput.readLong();
-  Log.d(TAG,"Received pong #" + pingId + "...");
   TimerCompat timeoutTask=schedulledPings.remove(pingId);
   if (timeoutTask == null) {
     return;

@@ -1,0 +1,7 @@
+{
+  Audio audio=Audio.createIfSupported();
+  if (audio != null) {
+    audio.setSrc("assets/sound/notification.mp3");
+    audio.play();
+  }
+}
