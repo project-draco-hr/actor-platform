@@ -1,12 +1,4 @@
 {
-  Log.d(TAG,"send file: " + file.getSize() + ", slice: "+ file.slice(0,10));
-  reader=JsFileReader.create();
-  loadedClosure=new JsFileLoadedClosure(){
-    @Override public void onLoaded(){
-      Log.d(TAG,"Slice loaded");
-    }
-  }
-;
-  reader.setOnLoaded(loadedClosure);
-  reader.readAsArrayBuffer(file.slice(0,10));
+  String descriptor=provider.registerUploadFile(file);
+  messenger.sendDocument(peer.convert(),"sample.txt","application/octet-stream",provider.fileFromDescriptor(descriptor));
 }

@@ -1,0 +1,15 @@
+{
+  JsFileReader fileReader=JsFileReader.create();
+  fileReader.setOnLoaded(new JsFileLoadedClosure(){
+    @Override public void onLoaded(    ArrayBuffer message){
+      Uint8Array array=TypedArrays.createUint8Array(message);
+      byte[] res=new byte[array.length()];
+      for (int i=0; i < res.length; i++) {
+        res[offset + i]=(byte)(array.get(i));
+      }
+      callback.onFileRead(fileOffset,data,offset,len);
+    }
+  }
+);
+  fileReader.readAsArrayBuffer(jsFile.slice(fileOffset,len));
+}

@@ -1,0 +1,6 @@
+{
+  if (files.containsKey(descriptor)) {
+    return new JsFileSystemReference(files.get(descriptor),descriptor);
+  }
+  return null;
+}

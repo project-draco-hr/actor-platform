@@ -1,0 +1,29 @@
+{
+  Log.d("JsHttpProvider","Uploading file: " + url);
+  RequestBuilder builder=new RequestBuilder(RequestBuilder.PUT,url);
+  builder.setHeader("Content-Type","application/octet-stream");
+  builder.setRequestData(new String(contents));
+  builder.setTimeoutMillis(15000);
+  builder.setCallback(new RequestCallback(){
+    @Override public void onResponseReceived(    Request request,    Response response){
+      Log.d("JsHttpProvider","Uploading success #" + response.getStatusCode() + " "+ url);
+      if (response.getStatusCode() == 200) {
+        callback.onUploaded();
+      }
+ else {
+        callback.onUploadFailure();
+      }
+    }
+    @Override public void onError(    Request request,    Throwable exception){
+      Log.d("JsHttpProvider","Uploading failure " + url);
+      callback.onUploadFailure();
+    }
+  }
+);
+  try {
+    builder.send();
+  }
+ catch (  RequestException e) {
+    e.printStackTrace();
+  }
+}
