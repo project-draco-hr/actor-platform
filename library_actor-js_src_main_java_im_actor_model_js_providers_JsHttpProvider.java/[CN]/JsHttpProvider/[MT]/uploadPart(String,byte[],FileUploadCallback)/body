@@ -1,29 +1,26 @@
 {
   Log.d("JsHttpProvider","Uploading file: " + url);
-  RequestBuilder builder=new RequestBuilder(RequestBuilder.PUT,url);
-  builder.setHeader("Content-Type","application/octet-stream");
-  builder.setRequestData(new String(contents));
-  builder.setTimeoutMillis(15000);
-  builder.setCallback(new RequestCallback(){
-    @Override public void onResponseReceived(    Request request,    Response response){
-      Log.d("JsHttpProvider","Uploading success #" + response.getStatusCode() + " "+ url);
-      if (response.getStatusCode() == 200) {
-        callback.onUploaded();
-      }
+  JsXmlHttpRequest request=JsXmlHttpRequest.create();
+  request.open("PUT",url);
+  request.setRequestHeader("Content-Type","application/octet-stream");
+  request.setOnLoadHandler(new JsXmlHttpRequestHandler(){
+    @Override public void onStateChanged(    JsXmlHttpRequest request){
+      Log.d("JsHttpProvider","Upload progress: " + request.getReadyState() + " "+ request.getStatus());
+      if (request.getReadyState() == 4) {
+        if (request.getStatus() == 200) {
+          callback.onUploaded();
+        }
  else {
-        callback.onUploadFailure();
+          callback.onUploadFailure();
+        }
       }
-    }
-    @Override public void onError(    Request request,    Throwable exception){
-      Log.d("JsHttpProvider","Uploading failure " + url);
-      callback.onUploadFailure();
     }
   }
 );
-  try {
-    builder.send();
+  Uint8Array push=TypedArrays.createUint8Array(contents.length);
+  for (int i=0; i < contents.length; i++) {
+    push.set(i,contents[i]);
   }
- catch (  RequestException e) {
-    e.printStackTrace();
-  }
+  Log.d("JsHttpProvider",CryptoUtils.hex(contents));
+  request.send(push.buffer());
 }
