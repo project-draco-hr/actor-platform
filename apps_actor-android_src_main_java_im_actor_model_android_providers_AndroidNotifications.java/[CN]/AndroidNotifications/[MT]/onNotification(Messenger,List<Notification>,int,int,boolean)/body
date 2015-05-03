@@ -11,9 +11,14 @@
   if (messenger().isNotificationVibrationEnabled()) {
     defaults|=NotificationCompat.DEFAULT_VIBRATE;
   }
+  if (silentUpdate) {
+    defaults=0;
+  }
   builder.setDefaults(defaults);
   Notification topNotification=topNotifications.get(0);
-  builder.setTicker(getNotificationTextFull(topNotification));
+  if (!silentUpdate) {
+    builder.setTicker(getNotificationTextFull(topNotification));
+  }
   android.app.Notification result;
   if (messagesCount == 1) {
     String sender=getNotificationSender(topNotification);

@@ -2,3 +2,4 @@ Messenger messenger
 List<Notification> topNotifications
 int messagesCount
 int conversationsCount
+boolean silentUpdate
