@@ -1,3 +1,0 @@
-{
-  track(CHAT_OPEN,"Type",peer.getPeerType().toString(),"Id",peer.getPeerId() + "");
-}

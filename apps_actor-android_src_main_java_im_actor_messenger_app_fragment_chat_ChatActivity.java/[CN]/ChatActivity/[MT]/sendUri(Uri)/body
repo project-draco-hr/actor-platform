@@ -41,12 +41,15 @@
       }
       if (mimeType.startsWith("video/")) {
         messenger().sendVideo(peer,picturePath,fileName);
+        messenger().trackVideoSend(peer);
       }
  else       if (mimeType.startsWith("image/")) {
         messenger().sendPhoto(peer,picturePath,new File(fileName).getName());
+        messenger().trackPhotoSend(peer);
       }
  else {
         messenger().sendDocument(peer,picturePath,new File(fileName).getName());
+        messenger().trackDocumentSend(peer);
       }
       return null;
     }

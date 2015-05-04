@@ -1,3 +1,3 @@
 {
-  modules.getAnalytics().onProfileClosed(uid);
+  modules.getAnalytics().trackProfileClosed(uid);
 }

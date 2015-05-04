@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstance);
   checkForUpdates();
-  if (Core.messenger().getAuthState() != AuthState.LOGGED_IN) {
+  if (messenger().getAuthState() != AuthState.LOGGED_IN) {
     startActivity(new Intent(this,TourActivity.class));
     finish();
     return;

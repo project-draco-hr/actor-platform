@@ -1,0 +1,3 @@
+{
+  track("Chat Open","Type",peer.getPeerType().toString(),"Id",peer.getPeerId() + "");
+}
