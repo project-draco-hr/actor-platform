@@ -1,8 +1,3 @@
 {
-  if (BuildConfig.IS_CHROME_BUILD) {
-    return shareAvatar(location);
-  }
- else {
-    return new Intent(Intent.ACTION_VIEW).setDataAndType(getAvatarUri(location),"image/jpeg");
-  }
+  return new Intent(Intent.ACTION_VIEW).setDataAndType(getAvatarUri(location),"image/jpeg");
 }
