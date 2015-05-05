@@ -7,8 +7,19 @@
   ((TextView)v.findViewById(R.id.button_confirm_sms_code_text)).setTypeface(Fonts.medium());
   firstNameEditText=(EditText)v.findViewById(R.id.et_first_name_enter);
   final View sendConfirmCodeButton=v.findViewById(R.id.button_confirm_sms_code);
+  firstNameEditText.addTextChangedListener(new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      messenger().trackAuthSignupClosedNameType(s.toString());
+    }
+  }
+);
   v.findViewById(R.id.pickAvatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
+      messenger().trackAuthSignupPressedAvatar();
       startActivityForResult(Intents.pickAvatar(avatarPath != null,getActivity()),REQUEST_AVATAR);
     }
   }

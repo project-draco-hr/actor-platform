@@ -1,4 +1,5 @@
 {
   super.onResume();
+  messenger().trackOwnProfileOpen();
   bind(avatar,users().get(myUid()).getAvatar());
 }

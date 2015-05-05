@@ -8,4 +8,5 @@
     keyboardUtils.setImeVisibility(messageBody,false);
   }
   messenger().sendMessage(peer,text);
+  messenger().trackTextSend(peer);
 }

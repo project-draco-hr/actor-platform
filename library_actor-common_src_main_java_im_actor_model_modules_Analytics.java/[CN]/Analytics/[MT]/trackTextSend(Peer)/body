@@ -1,0 +1,3 @@
+{
+  track("Text Send","Type",peer.getPeerType().toString(),"Id",peer.getPeerId() + "");
+}

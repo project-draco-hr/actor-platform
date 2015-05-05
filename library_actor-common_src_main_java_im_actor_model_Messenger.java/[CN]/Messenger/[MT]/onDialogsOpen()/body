@@ -1,5 +1,4 @@
 {
-  modules.getAnalytics().onDialogsOpen();
   if (modules.getNotifications() != null) {
     modules.getNotifications().onDialogsOpen();
   }
