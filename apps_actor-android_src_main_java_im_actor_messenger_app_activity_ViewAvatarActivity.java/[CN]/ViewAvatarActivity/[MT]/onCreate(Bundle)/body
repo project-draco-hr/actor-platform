@@ -5,6 +5,10 @@
   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   getSupportActionBar().setDisplayShowTitleEnabled(true);
   getSupportActionBar().setDisplayShowCustomEnabled(false);
+  if (savedInstanceState != null) {
+    externalFile=savedInstanceState.getString("externalFile",null);
+    avatarPath=savedInstanceState.getString("avatarPath",null);
+  }
   if (peer.getPeerType() == PeerType.PRIVATE) {
     if (peer.getPeerId() == myUid()) {
       getSupportActionBar().setTitle(R.string.avatar_title_your);

@@ -1,3 +1,0 @@
-{
-  return create(userVM.getId(),userVM.getName().get(),userVM.isContact().get());
-}

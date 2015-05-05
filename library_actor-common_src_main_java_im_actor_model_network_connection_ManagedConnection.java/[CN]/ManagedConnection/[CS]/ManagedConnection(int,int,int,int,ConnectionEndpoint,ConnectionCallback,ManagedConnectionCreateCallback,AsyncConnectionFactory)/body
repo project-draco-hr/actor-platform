@@ -7,7 +7,6 @@
   this.callback=callback;
   this.factoryCallback=factoryCallback;
   this.rawConnection=connectionFactory.createConnection(connectionId,endpoint,connectionInterface);
-  Log.d(TAG,"Starting connection");
   handshakeTimeout=new TimerCompat(new TimeoutRunnable());
   pingTask=new TimerCompat(new PingRunnable());
   connectionTimeout=new TimerCompat(new TimeoutRunnable());

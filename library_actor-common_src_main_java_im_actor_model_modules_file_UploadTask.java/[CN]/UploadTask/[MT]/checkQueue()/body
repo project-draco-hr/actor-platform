@@ -12,15 +12,22 @@
       Log.d(TAG,"Closing files...");
     }
     inputFile.close();
-    outputFile.close();
+    if (isWriteToDestProvider) {
+      outputFile.close();
+    }
     request(new RequestCommitFileUpload(uploadConfig),new RpcCallback<ResponseCommitFileUpload>(){
       @Override public void onResult(      ResponseCommitFileUpload response){
         if (LOG) {
           Log.d(TAG,"Upload completed...");
         }
         FileReference location=EntityConverter.convert(response.getUploadedFileLocation(),fileName,srcReference.getSize());
-        FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
-        reportComplete(location,reference);
+        if (isWriteToDestProvider) {
+          FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
+          reportComplete(location,reference);
+        }
+ else {
+          reportComplete(location,srcReference);
+        }
       }
       @Override public void onError(      RpcException e){
         if (LOG) {
@@ -33,38 +40,6 @@
     return;
   }
   if (nextBlock < blocksCount && uploadCount < SIM_BLOCKS_COUNT) {
-    final int blockIndex=nextBlock++;
-    int size=blockSize;
-    int fileOffset=blockIndex * blockSize;
-    if ((blockIndex + 1) * blockSize > srcReference.getSize()) {
-      size=srcReference.getSize() - blockIndex * blockSize;
-    }
-    byte[] data=new byte[size];
-    if (!inputFile.read(fileOffset,data,0,size)) {
-      if (LOG) {
-        Log.w(TAG,"read #" + blockIndex + " error");
-      }
-      reportError();
-      return;
-    }
-    if (!outputFile.write(fileOffset,data,0,size)) {
-      if (LOG) {
-        Log.w(TAG,"write #" + blockIndex + " error");
-      }
-      reportError();
-      return;
-    }
-    crc32.update(data,0,size);
-    if (LOG) {
-      Log.d(TAG,"Starting block upload #" + blockIndex);
-    }
-    uploadCount++;
-    uploadPart(blockIndex,fileOffset,data);
-    checkQueue();
-  }
- else {
-    if (LOG) {
-      Log.d(TAG,"Nothing to do");
-    }
+    loadPart(nextBlock++);
   }
 }

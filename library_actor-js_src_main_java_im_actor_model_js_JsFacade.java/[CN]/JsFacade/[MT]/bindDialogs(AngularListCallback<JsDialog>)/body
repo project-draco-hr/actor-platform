@@ -1,3 +1,6 @@
 {
+  if (callback == null) {
+    return;
+  }
   messenger.getDialogsList().subscribe(callback);
 }

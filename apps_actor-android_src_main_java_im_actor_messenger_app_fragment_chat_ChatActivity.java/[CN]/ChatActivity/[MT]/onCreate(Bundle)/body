@@ -1,5 +1,8 @@
 {
   super.onCreate(saveInstance);
+  if (saveInstance != null) {
+    fileName=saveInstance.getString("pending_file_name",null);
+  }
   keyboardUtils=new KeyboardHelper(this);
   peer=Peer.fromUniqueId(getIntent().getExtras().getLong(Intents.EXTRA_CHAT_PEER));
   isCompose=saveInstance == null && getIntent().getExtras().getBoolean(Intents.EXTRA_CHAT_COMPOSE,false);
@@ -123,12 +126,7 @@
  catch (      Exception e) {
         e.printStackTrace();
       }
-      if (BuildConfig.IS_CHROME_BUILD) {
-        popup.getMenuInflater().inflate(R.menu.attach_popup_chrome,popup.getMenu());
-      }
- else {
-        popup.getMenuInflater().inflate(R.menu.attach_popup,popup.getMenu());
-      }
+      popup.getMenuInflater().inflate(R.menu.attach_popup,popup.getMenu());
       popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
         @Override public boolean onMenuItemClick(        MenuItem item){
           if (item.getItemId() == R.id.gallery) {

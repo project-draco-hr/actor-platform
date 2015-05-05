@@ -1,4 +1,6 @@
 {
-  Log.d("JsFacade","UnBind chat: " + peer.getPeerType() + " : "+ peer.getPeerId());
+  if (callback == null) {
+    return;
+  }
   messenger.getConversationList(peer.convert()).subscribe(callback);
 }

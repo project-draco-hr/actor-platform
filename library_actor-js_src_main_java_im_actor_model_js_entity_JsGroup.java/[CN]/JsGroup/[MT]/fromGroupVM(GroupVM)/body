@@ -1,3 +1,0 @@
-{
-  return create(groupVM.getId(),groupVM.getName().get(),groupVM.getCreatorId());
-}

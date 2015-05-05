@@ -21,29 +21,6 @@
     if (!isEnabled) {
       return;
     }
-    List<PendingNotification> destNotifications;
-    if (allPending.size() <= MAX_NOTIFICATION_COUNT) {
-      destNotifications=new ArrayList<PendingNotification>();
-      for (int i=0; i < allPending.size(); i++) {
-        destNotifications.add(allPending.get(allPending.size() - 1 - i));
-      }
-    }
- else {
-      destNotifications=new ArrayList<PendingNotification>();
-      for (int i=0; i < MAX_NOTIFICATION_COUNT; i++) {
-        destNotifications.add(allPending.get(allPending.size() - 1 - i));
-      }
-    }
-    List<Notification> res=new ArrayList<Notification>();
-    for (    PendingNotification p : destNotifications) {
-      res.add(new Notification(p.getPeer(),p.getSender(),p.getContent()));
-    }
-    int messagesCount=allPending.size();
-    HashSet<Peer> peers=new HashSet<Peer>();
-    for (    PendingNotification p : allPending) {
-      peers.add(p.getPeer());
-    }
-    int chatsCount=peers.size();
-    config().getNotificationProvider().onNotification(modules().getMessenger(),res,messagesCount,chatsCount);
+    performNotification(false);
   }
 }

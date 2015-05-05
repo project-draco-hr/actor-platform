@@ -7,6 +7,7 @@
     reportError();
     return;
   }
+  isWriteToDestProvider=fileSystemProvider.isFsPersistent();
   downloaderProvider=config().getHttpDownloaderProvider();
   if (downloaderProvider == null) {
     if (LOG) {
@@ -23,13 +24,15 @@
     reportError();
     return;
   }
-  destReference=fileSystemProvider.createTempFile();
-  if (destReference == null) {
-    if (LOG) {
-      Log.w(TAG,"Error during file dest reference creating");
+  if (isWriteToDestProvider) {
+    destReference=fileSystemProvider.createTempFile();
+    if (destReference == null) {
+      if (LOG) {
+        Log.w(TAG,"Error during file dest reference creating");
+      }
+      reportError();
+      return;
     }
-    reportError();
-    return;
   }
   inputFile=srcReference.openRead();
   if (inputFile == null) {
@@ -39,14 +42,16 @@
     reportError();
     return;
   }
-  outputFile=destReference.openWrite(srcReference.getSize());
-  if (outputFile == null) {
-    inputFile.close();
-    if (LOG) {
-      Log.w(TAG,"Error during dest file open");
+  if (isWriteToDestProvider) {
+    outputFile=destReference.openWrite(srcReference.getSize());
+    if (outputFile == null) {
+      inputFile.close();
+      if (LOG) {
+        Log.w(TAG,"Error during dest file open");
+      }
+      reportError();
+      return;
     }
-    reportError();
-    return;
   }
   crc32=new CRC32();
   startUpload();

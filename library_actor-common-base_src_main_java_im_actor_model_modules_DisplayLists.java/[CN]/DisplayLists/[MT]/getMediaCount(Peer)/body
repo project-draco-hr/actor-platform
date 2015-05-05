@@ -1,0 +1,4 @@
+{
+  ListEngine<Message> mediaEngine=modules().getMessagesModule().getMediaEngine(peer);
+  return mediaEngine.getCount();
+}

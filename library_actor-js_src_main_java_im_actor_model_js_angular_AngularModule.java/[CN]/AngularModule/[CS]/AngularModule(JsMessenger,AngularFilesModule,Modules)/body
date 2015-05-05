@@ -1,0 +1,6 @@
+{
+  super(modules);
+  this.filesModule=filesModule;
+  this.messenger=messenger;
+  this.filesModule.registerListener(this);
+}

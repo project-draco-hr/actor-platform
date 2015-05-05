@@ -2,7 +2,6 @@
   if (isClosed) {
     return;
   }
-  Log.w(TAG,"onRawReceived");
   try {
     DataInput dataInput=new DataInput(data);
     int packageIndex=dataInput.readInt();
@@ -21,7 +20,6 @@
       Log.w(TAG,"Incorrect CRC32");
       throw new IOException("Incorrect CRC32");
     }
-    Log.w(TAG,"Received package: " + header);
     if (header == HEADER_HANDSHAKE_RESPONSE) {
       if (isHandshakePerformed) {
         throw new IOException("Double Handshake");
@@ -57,5 +55,4 @@
     e.printStackTrace();
     close();
   }
-  Log.w(TAG,"onRawReceived:end");
 }

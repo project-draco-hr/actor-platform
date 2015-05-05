@@ -1,0 +1,3 @@
+{
+  messenger.getTyping(peer.convert()).unsubscribe(callback);
+}

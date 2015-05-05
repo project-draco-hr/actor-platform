@@ -8,5 +8,6 @@
   }
   if (isChanged) {
     saveStorage();
+    performNotification(true);
   }
 }

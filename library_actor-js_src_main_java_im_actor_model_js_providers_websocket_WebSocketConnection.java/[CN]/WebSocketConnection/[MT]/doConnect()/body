@@ -10,6 +10,5 @@
  else {
     throw new RuntimeException();
   }
-  Log.d("WS","Connecting to " + url);
   this.jsWebSocket=createJSWebSocket(url,this);
 }

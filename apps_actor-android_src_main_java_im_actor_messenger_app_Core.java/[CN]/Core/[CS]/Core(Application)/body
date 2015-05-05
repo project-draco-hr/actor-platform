@@ -26,7 +26,9 @@
     builder.setPhoneBookProvider(new EmptyPhoneProvider());
   }
   builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
-  builder.addEndpoint(BuildConfig.API_URL);
+  for (  String url : BuildConfig.API_URL) {
+    builder.addEndpoint(url);
+  }
   builder.setEnableContactsLogging(true);
   builder.setEnableNetworkLogging(true);
   builder.setEnableFilesLogging(true);
