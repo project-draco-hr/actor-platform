@@ -18,9 +18,8 @@
         }
  else {
           StickersPack pack=getStickerProcessor().getPacks().get(position - 2);
-          String packId=pack.getId();
-          final String packLogoId=pack.getLogoStickerId();
-          getStickerProcessor().bindSticker(tabView,packId,packLogoId);
+          final Sticker packLogo=pack.getLogoStickerId();
+          getStickerProcessor().bindSticker(tabView,packLogo);
           tabView.setPadding(Screen.dp(5),Screen.dp(5),Screen.dp(5),Screen.dp(5));
         }
         Log.d(TAG,"Tab postCreated in " + (System.currentTimeMillis() - startTime));

@@ -1,0 +1,6 @@
+{
+  if (onStickerClickListener != null) {
+    getStickerProcessor().upRecentSticker(sticker);
+    onStickerClickListener.onStickerClick(sticker);
+  }
+}

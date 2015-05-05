@@ -30,4 +30,5 @@
   emojiKeyboardView.setTranslationY(140);
   emojiKeyboardView.animate().y(0).setDuration(200).setStartDelay(0).setInterpolator(new DecelerateInterpolator(1.4f)).start();
   if (keyboardStatusListener != null)   keyboardStatusListener.onShow();
+  onShow();
 }

@@ -5,7 +5,7 @@
   }
  else {
     if (position == 1) {
-      item=new View(activity);
+      item=createStickersRecentPagerView();
     }
  else {
       item=createStickersPagerView(position - 2);

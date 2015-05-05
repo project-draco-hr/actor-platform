@@ -1,0 +1,6 @@
+{
+  SmilesPack.upRecent(smileId);
+  if (smilesRecentListener != null) {
+    smilesRecentListener.onSmilesUpdated();
+  }
+}

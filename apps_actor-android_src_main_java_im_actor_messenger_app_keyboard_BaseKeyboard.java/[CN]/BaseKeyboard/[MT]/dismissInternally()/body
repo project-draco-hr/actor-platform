@@ -8,7 +8,9 @@
       }
     }
 ).start();
+    showing=false;
     emojiKeyboardView=null;
     if (keyboardStatusListener != null)     keyboardStatusListener.onDismiss();
+    onDismiss();
   }
 }

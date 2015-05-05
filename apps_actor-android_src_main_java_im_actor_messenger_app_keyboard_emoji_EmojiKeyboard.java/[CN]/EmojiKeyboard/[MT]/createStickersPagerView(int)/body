@@ -5,7 +5,14 @@
     @Override public void run(){
       recyclerView.setAlpha(0f);
       animateView(recyclerView);
-      recyclerView.setAdapter(new StickersFullpackAdapter(activity,EmojiKeyboard.this,getStickerProcessor().getPacks().get(packIndex),0));
+      StickersPack pack;
+      if (packIndex == -1) {
+        pack=getStickerProcessor().getRecentController().getPack();
+      }
+ else {
+        pack=getStickerProcessor().getPacks().get(packIndex);
+      }
+      recyclerView.setAdapter(new StickersFullpackAdapter(activity,EmojiKeyboard.this,pack,0));
     }
   }
 ,BINDING_DELAY);

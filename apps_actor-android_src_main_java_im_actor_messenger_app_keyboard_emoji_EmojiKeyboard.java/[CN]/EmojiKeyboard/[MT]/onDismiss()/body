@@ -1,0 +1,4 @@
+{
+  getSmileProcessor().getRecentController().saveRecents();
+  getStickerProcessor().getRecentController().saveRecents();
+}

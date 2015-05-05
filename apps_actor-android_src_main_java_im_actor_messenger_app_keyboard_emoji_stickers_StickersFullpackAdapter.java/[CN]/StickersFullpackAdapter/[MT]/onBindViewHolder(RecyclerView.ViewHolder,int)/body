@@ -1,10 +1,9 @@
 {
-  final String packId=stickerPack.getId();
-  final String stickerId=stickerPack.getStickerId(position);
-  getStickerProcessor().bindSticker((SimpleDraweeView)holder.itemView,packId,stickerId);
+  final Sticker sticker=stickerPack.get(position);
+  getStickerProcessor().bindSticker((SimpleDraweeView)holder.itemView,sticker);
   holder.itemView.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      onStickerClickListener.onStickerClick(packId,stickerId);
+      onStickerClickListener.onStickerClick(sticker);
     }
   }
 );

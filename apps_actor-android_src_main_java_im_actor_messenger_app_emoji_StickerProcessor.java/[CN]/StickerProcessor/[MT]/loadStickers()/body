@@ -16,9 +16,9 @@
         for (        String stickersPackId : stickersPacks) {
           String[] files=assetsManager.list("stickers/" + stickersPackId);
           String packTitle=stickersPackId;
-          String packLogo=null;
-          String[] order=null;
-          ArrayList<String> stickers=new ArrayList<String>();
+          Sticker packLogo=null;
+          Sticker[] order=null;
+          ArrayList<Sticker> stickers=new ArrayList<Sticker>();
           File sourceFileDir=new File(application.getFilesDir() + "/stickers/" + stickersPackId);
           sourceFileDir.mkdirs();
           for (          String fileName : files) {
@@ -26,14 +26,12 @@
               stickersCount++;
               try {
                 File sourceFile=new File(sourceFileDir,fileName);
-                if (sourceFile.exists()) {
-                  stickers.add(fileName.replace(".png",""));
-                  continue;
+                if (!sourceFile.exists()) {
+                  InputStream fileIS=assetsManager.open("stickers/" + stickersPackId + "/"+ fileName);
+                  IOUtils.copy(fileIS,sourceFile);
+                  fileIS.close();
                 }
-                InputStream fileIS=assetsManager.open("stickers/" + stickersPackId + "/"+ fileName);
-                IOUtils.copy(fileIS,sourceFile);
-                fileIS.close();
-                stickers.add(fileName.replace(".png",""));
+                stickers.add(new Sticker(fileName.replace(".png",""),stickersPackId));
               }
  catch (              Exception ex) {
                 Log.e(TAG,"Eror reading sticker",ex);
@@ -51,11 +49,11 @@
                   String total=IOUtils.toString(new FileInputStream(sourceFile));
                   JSONObject jObj=new JSONObject(total);
                   packTitle=jObj.optString("title");
-                  packLogo=jObj.optString("logo");
+                  packLogo=new Sticker(jObj.optString("logo"),stickersPackId);
                   JSONArray jOrder=jObj.optJSONArray("order");
-                  order=new String[jOrder.length()];
+                  order=new Sticker[jOrder.length()];
                   for (int i=0; i < jOrder.length(); i++) {
-                    order[i]=jOrder.optString(i);
+                    order[i]=new Sticker(jOrder.optString(i),stickersPackId);
                   }
                 }
  catch (                Exception exp) {
@@ -68,7 +66,7 @@
             continue;
           }
           if (order == null) {
-            order=new String[stickers.size()];
+            order=new Sticker[stickers.size()];
             order=stickers.toArray(order);
           }
           if (packLogo == null) {
@@ -82,6 +80,7 @@
  catch (      IOException e) {
         e.printStackTrace();
       }
+      recentController=StickerRecentController.getInstance();
       handler.post(new Runnable(){
         @Override public void run(){
           for (          ValueModel valueModel : mvvmCollection.values()) {

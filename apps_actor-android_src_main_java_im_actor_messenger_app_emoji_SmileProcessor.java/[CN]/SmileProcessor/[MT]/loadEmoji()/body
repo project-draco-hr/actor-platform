@@ -96,6 +96,7 @@ section.setPixels(resultColors,0,stride,0,0,width,height);
 emojiMap.put(ordinal,section);
 Logger.d(TAG,"emoji region loaded in " + (System.currentTimeMillis() - start) + " ms");
 }
+recentController=SmilesRecentsController.getInstance(application);
 isLoaded=true;
 notifyEmojiUpdated(true);
 Logger.d(TAG,"emoji loaded in " + (System.currentTimeMillis() - start) + " ms");

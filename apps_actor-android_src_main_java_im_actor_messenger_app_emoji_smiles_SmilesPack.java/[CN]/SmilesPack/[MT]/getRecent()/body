@@ -1,6 +1,3 @@
 {
-  if (recent.isEmpty()) {
-    recent.addAll(Arrays.asList(RECENT_DEFAULT));
-  }
-  return recent;
+  return SmilesRecentsController.getInstance();
 }
