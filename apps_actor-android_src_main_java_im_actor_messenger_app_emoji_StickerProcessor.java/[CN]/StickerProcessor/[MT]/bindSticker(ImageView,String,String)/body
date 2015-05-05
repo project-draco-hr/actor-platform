@@ -4,7 +4,7 @@
     return;
   }
   String bindingId="stickers." + packId + "."+ stickerId;
-  ValueModel<Object> vm=mvvmCollection.get(bindingId);
+  ValueModel vm=mvvmCollection.get(bindingId);
   if (vm == null) {
     vm=new ValueModel<Object>(bindingId,null);
     mvvmCollection.put(bindingId,vm);

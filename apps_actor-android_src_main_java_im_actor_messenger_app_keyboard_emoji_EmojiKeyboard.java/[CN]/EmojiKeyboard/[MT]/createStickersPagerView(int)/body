@@ -1,6 +1,13 @@
 {
-  RecyclerView recyclerView=new RecyclerView(activity);
+  final RecyclerView recyclerView=new RecyclerView(activity);
   recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,OrientationHelper.VERTICAL));
-  recyclerView.setAdapter(new StickersFullpackAdapter(activity,this,getStickerProcessor().getPacks().get(packIndex),0));
+  recyclerView.postDelayed(new Runnable(){
+    @Override public void run(){
+      recyclerView.setAlpha(0f);
+      animateView(recyclerView);
+      recyclerView.setAdapter(new StickersFullpackAdapter(activity,EmojiKeyboard.this,getStickerProcessor().getPacks().get(packIndex),0));
+    }
+  }
+,BINDING_DELAY);
   return recyclerView;
 }

@@ -3,6 +3,7 @@
     final View emojiKeyboardViewCopy=emojiKeyboardView;
     emojiKeyboardView.animate().y(140).alpha(0.2f).setDuration(200).setStartDelay(0).setInterpolator(new AccelerateInterpolator(1.5f)).setListener(new AnimatorListenerAdapter(){
       @Override public void onAnimationEnd(      Animator animation){
+        emojiKeyboardViewCopy.setVisibility(View.GONE);
         windowManager.removeView(emojiKeyboardViewCopy);
       }
     }

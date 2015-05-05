@@ -2,7 +2,6 @@
   View keyboardView=LayoutInflater.from(activity).inflate(R.layout.emoji_keyboard,null);
   final ViewPager emojiPager=(ViewPager)keyboardView.findViewById(R.id.emojiContainer);
   emojiPager.setAdapter(new EmojiPagerAdapter());
-  emojiPager.addView(createSmilesPager());
   PagerSlidingTabStrip indicator=(PagerSlidingTabStrip)keyboardView.findViewById(R.id.indicator);
   indicator.setTabBackground(R.drawable.clickable_background);
   indicator.setIndicatorColorResource(R.color.primary);

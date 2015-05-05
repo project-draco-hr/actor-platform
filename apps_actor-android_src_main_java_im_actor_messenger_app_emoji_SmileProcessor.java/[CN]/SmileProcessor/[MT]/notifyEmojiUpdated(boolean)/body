@@ -3,7 +3,7 @@
     @Override public void run(){
       Logger.d(TAG,"notify");
       for (      SmilesListener listener : listeners) {
-        listener.onEmojiUpdated(completed);
+        listener.onSmilesUpdated(completed);
       }
     }
   }

@@ -1,17 +1,33 @@
 {
+  final long startTime=System.currentTimeMillis();
   final SimpleDraweeView tabView=new SimpleDraweeView(context);
-  tabView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-  tabView.setBackgroundResource(R.drawable.clickable_background);
-  if (position == 0) {
-    tabView.setImageResource(R.drawable.ic_emoji);
-    tabView.setPadding(0,0,0,0);
-  }
+  tabView.postDelayed(new Runnable(){
+    @Override public void run(){
+      tabView.setAlpha(0f);
+      animateView(tabView);
+      tabView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+      tabView.setBackgroundResource(R.drawable.clickable_background);
+      if (position == 0) {
+        tabView.setImageResource(R.drawable.ic_smiles_smile);
+        tabView.setPadding(0,0,0,0);
+      }
  else {
-    StickersPack pack=getStickerProcessor().getPacks().get(position - 1);
-    String packId=pack.getId();
-    final String packLogoId=pack.getLogoStickerId();
-    getStickerProcessor().bindSticker(tabView,packId,packLogoId);
-    tabView.setPadding(Screen.dp(5),Screen.dp(5),Screen.dp(5),Screen.dp(5));
+        if (position == 1) {
+          tabView.setImageResource(R.drawable.ic_smiles_recent);
+          tabView.setPadding(0,0,0,0);
+        }
+ else {
+          StickersPack pack=getStickerProcessor().getPacks().get(position - 2);
+          String packId=pack.getId();
+          final String packLogoId=pack.getLogoStickerId();
+          getStickerProcessor().bindSticker(tabView,packId,packLogoId);
+          tabView.setPadding(Screen.dp(5),Screen.dp(5),Screen.dp(5),Screen.dp(5));
+        }
+        Log.d(TAG,"Tab postCreated in " + (System.currentTimeMillis() - startTime));
+      }
+    }
   }
+,BINDING_DELAY);
+  Log.d(TAG,"Tab created in " + (System.currentTimeMillis() - startTime));
   return tabView;
 }

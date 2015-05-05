@@ -1,5 +1,5 @@
 {
-  Log.d("EmojiKeyboard","onGlobalLayout");
+  Log.d(TAG,"onGlobalLayout");
   if (!softKeyboardListeningEnabled) {
     return;
   }
@@ -22,15 +22,15 @@
     }
   }
   if (heightDifference > 100) {
-    Log.d("EmojiKeyboard","onGlobalLayout: " + heightDifference);
+    Log.d(TAG,"onGlobalLayout: " + heightDifference);
     softwareKeyboardShowing=true;
     keyboardHeight=heightDifference;
-    Log.d("EmojiKeyboard","onGlobalLayout: " + "showing");
+    Log.d(TAG,"onGlobalLayout: " + "showing");
     showInternal();
   }
  else {
-    Log.d("EmojiKeyboard","onGlobalLayout: " + heightDifference);
-    Log.d("EmojiKeyboard","onGlobalLayout: " + "dismiss?");
+    Log.d(TAG,"onGlobalLayout: " + heightDifference);
+    Log.d(TAG,"onGlobalLayout: " + "dismiss?");
     softwareKeyboardShowing=false;
     dismissed=true;
     dismissInternally();

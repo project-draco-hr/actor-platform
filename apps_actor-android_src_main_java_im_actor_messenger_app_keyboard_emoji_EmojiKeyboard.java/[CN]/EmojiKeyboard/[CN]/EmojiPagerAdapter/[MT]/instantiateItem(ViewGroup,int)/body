@@ -4,7 +4,12 @@
     item=createSmilesPager();
   }
  else {
-    item=createStickersPagerView(position - 1);
+    if (position == 1) {
+      item=new View(activity);
+    }
+ else {
+      item=createStickersPagerView(position - 2);
+    }
   }
   container.addView(item,0);
   return item;

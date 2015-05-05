@@ -14,13 +14,13 @@
       animation.setStartOffset(0);
       animation.setAnimationListener(new Animation.AnimationListener(){
         @Override public void onAnimationStart(        Animation animation){
-          Log.d("BaseKeyboard","onAnimationStart");
+          Log.d(TAG,"onAnimationStart");
         }
         @Override public void onAnimationEnd(        Animation animation){
-          Log.d("BaseKeyboard","onAnimationEnd");
+          Log.d(TAG,"onAnimationEnd");
         }
         @Override public void onAnimationRepeat(        Animation animation){
-          Log.d("BaseKeyboard","onAnimationReset");
+          Log.d(TAG,"onAnimationReset");
         }
       }
 );

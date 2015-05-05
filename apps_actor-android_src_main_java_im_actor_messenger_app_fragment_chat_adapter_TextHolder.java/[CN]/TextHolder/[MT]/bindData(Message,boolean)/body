@@ -35,7 +35,7 @@
         emoji().unregisterListener(smilesListener);
       }
       smilesListener=new SmilesListener(){
-        @Override public void onEmojiUpdated(        boolean completed){
+        @Override public void onSmilesUpdated(        boolean completed){
           text.setText(emoji().processEmojiCompatMutable(finalSpannedText,SmileProcessor.CONFIGURATION_BUBBLES));
           emoji().unregisterListener(this);
         }

@@ -31,7 +31,7 @@ params.gravity=Gravity.CENTER;
 emojicontainer.addView(smilesPackView,params);
 if (!getSmileProcessor().isLoaded()) {
 getSmileProcessor().registerListener(new SmilesListener(){
-@Override public void onEmojiUpdated(boolean completed){
+@Override public void onSmilesUpdated(boolean completed){
 smilesPackView.update();
 getSmileProcessor().unregisterListener(this);
 }
