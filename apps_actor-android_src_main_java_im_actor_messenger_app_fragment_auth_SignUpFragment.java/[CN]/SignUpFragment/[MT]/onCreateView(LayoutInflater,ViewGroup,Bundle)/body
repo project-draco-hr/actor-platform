@@ -1,5 +1,8 @@
 {
   View v=inflater.inflate(R.layout.fragment_sign_up,container,false);
+  if (savedInstanceState != null) {
+    avatarPath=savedInstanceState.getString("avatarPath",null);
+  }
   keyboardHelper=new KeyboardHelper(getActivity());
   avatarView=(AvatarView)v.findViewById(R.id.avatar);
   avatarView.init(Screen.dp(96),24);
@@ -30,5 +33,8 @@
     }
   }
 );
+  if (avatarPath != null) {
+    avatarView.bindRaw(avatarPath);
+  }
   return v;
 }
