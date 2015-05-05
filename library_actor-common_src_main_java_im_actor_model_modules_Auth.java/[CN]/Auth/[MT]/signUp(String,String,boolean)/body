@@ -4,7 +4,9 @@
       request(new RequestSignUp(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),preferences().getInt(KEY_SMS_CODE,0) + "",firstName,deviceHash,apiConfiguration.getAppTitle(),apiConfiguration.getAppId(),apiConfiguration.getAppKey(),isSilent),new RpcCallback<ResponseAuth>(){
         @Override public void onResult(        ResponseAuth response){
           onLoggedIn(callback,response);
-          modules().getProfile().changeAvatar(avatarPath);
+          if (avatarPath != null) {
+            modules().getProfile().changeAvatar(avatarPath);
+          }
         }
         @Override public void onError(        final RpcException e){
           if ("PHONE_CODE_EXPIRED".equals(e.getTag())) {
