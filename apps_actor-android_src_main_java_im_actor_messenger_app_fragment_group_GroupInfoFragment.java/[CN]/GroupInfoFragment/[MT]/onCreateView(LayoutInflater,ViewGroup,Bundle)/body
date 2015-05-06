@@ -48,7 +48,7 @@
     }
   }
 );
-  int docsCount=10;
+  int docsCount=0;
   if (docsCount == 0) {
     header.findViewById(R.id.docsContainer).setVisibility(View.GONE);
   }
