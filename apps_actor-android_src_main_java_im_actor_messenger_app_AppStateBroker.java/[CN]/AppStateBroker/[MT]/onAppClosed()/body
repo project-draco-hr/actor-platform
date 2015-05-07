@@ -1,6 +1,4 @@
 {
   Logger.d(TAG,"App closed");
-  if (Core.messenger().getAuthState() == AuthState.LOGGED_IN) {
-    Core.messenger().onAppHidden();
-  }
+  Core.messenger().onAppHidden();
 }

@@ -1,9 +1,4 @@
 {
   Modification<T> modification=DisplayModifications.clear();
-  if (window.isInited()) {
-    editList(modification);
-  }
- else {
-    pendingModifications.add(modification);
-  }
+  applyModification(modification);
 }

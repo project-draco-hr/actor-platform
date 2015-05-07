@@ -1,9 +1,4 @@
 {
-  Modification<T> modification=DisplayModifications.remove(id);
-  if (window.isInited()) {
-    editList(modification);
-  }
- else {
-    pendingModifications.add(modification);
-  }
+  final Modification<T> modification=DisplayModifications.remove(id);
+  applyModification(modification);
 }
