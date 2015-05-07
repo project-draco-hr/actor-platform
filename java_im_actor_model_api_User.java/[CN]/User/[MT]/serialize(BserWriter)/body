@@ -18,8 +18,4 @@
   }
   writer.writeRepeatedInt(9,this.phones);
   writer.writeRepeatedInt(10,this.emails);
-  if (this.userState == null) {
-    throw new IOException();
-  }
-  writer.writeInt(11,this.userState.getValue());
 }

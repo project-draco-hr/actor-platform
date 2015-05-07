@@ -3,4 +3,8 @@
     throw new IOException();
   }
   writer.writeBytes(1,this.uploadKey);
+  if (this.fileName == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.fileName);
 }

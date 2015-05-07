@@ -8,4 +8,3 @@ long phone
 Avatar avatar
 List<Integer> phones
 List<Integer> emails
-UserState userState

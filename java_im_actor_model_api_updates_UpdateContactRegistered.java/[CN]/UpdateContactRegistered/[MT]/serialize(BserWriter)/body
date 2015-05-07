@@ -2,4 +2,5 @@
   writer.writeInt(1,this.uid);
   writer.writeBool(2,this.isSilent);
   writer.writeLong(3,this.date);
+  writer.writeLong(4,this.rid);
 }

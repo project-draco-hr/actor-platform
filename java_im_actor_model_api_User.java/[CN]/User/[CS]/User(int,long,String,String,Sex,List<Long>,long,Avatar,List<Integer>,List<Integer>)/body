@@ -9,5 +9,4 @@
   this.avatar=avatar;
   this.phones=phones;
   this.emails=emails;
-  this.userState=userState;
 }
