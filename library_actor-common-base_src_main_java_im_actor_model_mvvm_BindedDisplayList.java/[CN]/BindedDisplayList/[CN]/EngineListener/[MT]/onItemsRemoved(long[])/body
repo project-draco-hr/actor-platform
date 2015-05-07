@@ -1,3 +1,9 @@
 {
-  editList((Modification)DisplayModifications.remove(ids));
+  Modification<T> modification=DisplayModifications.remove(ids);
+  if (window.isInited()) {
+    editList(modification);
+  }
+ else {
+    pendingModifications.add(modification);
+  }
 }

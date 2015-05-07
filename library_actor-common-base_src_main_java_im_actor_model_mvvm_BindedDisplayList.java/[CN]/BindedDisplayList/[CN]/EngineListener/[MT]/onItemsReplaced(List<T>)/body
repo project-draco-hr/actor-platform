@@ -1,4 +1,9 @@
 {
-  editList((Modification)DisplayModifications.clear());
-  editList(DisplayModifications.addOrUpdate(items));
+  Modification<T> modification=DisplayModifications.replace(items);
+  if (window.isInited()) {
+    editList(modification);
+  }
+ else {
+    pendingModifications.add(modification);
+  }
 }

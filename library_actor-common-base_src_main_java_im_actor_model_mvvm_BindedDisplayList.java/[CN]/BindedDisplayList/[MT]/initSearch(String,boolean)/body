@@ -19,6 +19,7 @@
   isLoadMoreBackwardRequested=false;
   currentGeneration++;
   window.startInitForward();
+  pendingModifications.clear();
   listEngine.loadForward(query,pageSize,cover(new ListEngineDisplayLoadCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
       MVVMEngine.checkMainThread();
@@ -27,6 +28,10 @@
       if (items.size() == 0) {
         window.onForwardCompleted();
       }
+      for (      Modification<T> m : pendingModifications) {
+        editList(m);
+      }
+      pendingModifications.clear();
     }
   }
 ,currentGeneration));

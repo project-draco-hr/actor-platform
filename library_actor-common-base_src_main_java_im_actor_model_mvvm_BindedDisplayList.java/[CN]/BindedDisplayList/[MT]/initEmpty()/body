@@ -1,5 +1,6 @@
 {
   MVVMEngine.checkMainThread();
+  pendingModifications.clear();
   mode=ListMode.FORWARD;
   query=null;
   editList((Modification)DisplayModifications.clear());
