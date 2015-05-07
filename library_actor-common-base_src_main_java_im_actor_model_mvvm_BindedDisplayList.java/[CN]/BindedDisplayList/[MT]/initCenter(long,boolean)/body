@@ -12,6 +12,7 @@
   isLoadMoreBackwardRequested=false;
   currentGeneration++;
   window.startInitCenter();
+  pendingModifications.clear();
   listEngine.loadCenter(centerSortKey,pageSize,cover(new ListEngineDisplayLoadCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
       MVVMEngine.checkMainThread();
@@ -23,6 +24,10 @@
         window.onForwardCompleted();
         window.onBackwardCompleted();
       }
+      for (      Modification<T> m : pendingModifications) {
+        editList(m);
+      }
+      pendingModifications.clear();
     }
   }
 ,currentGeneration));

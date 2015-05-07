@@ -1,5 +1,5 @@
 {
   super.onPause();
-  stateBroker().onActivityClose();
   BINDER.unbindAll();
+  notifyOnPause();
 }

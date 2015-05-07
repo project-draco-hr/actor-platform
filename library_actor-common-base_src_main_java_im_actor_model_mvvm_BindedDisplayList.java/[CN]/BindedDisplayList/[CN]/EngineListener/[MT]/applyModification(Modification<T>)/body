@@ -1,0 +1,13 @@
+{
+  MVVMEngine.runOnUiThread(new Runnable(){
+    @Override public void run(){
+      if (window.isInited()) {
+        editList(modification);
+      }
+ else {
+        pendingModifications.add(modification);
+      }
+    }
+  }
+);
+}
