@@ -1,5 +1,7 @@
 {
   super(configuration);
+  fileSystemProvider=(JsFileSystemProvider)configuration.getFileSystemProvider();
+  replacer=new Replacer(this);
   angularFilesModule=new AngularFilesModule(modules);
   angularModule=new AngularModule(this,angularFilesModule,modules);
 }

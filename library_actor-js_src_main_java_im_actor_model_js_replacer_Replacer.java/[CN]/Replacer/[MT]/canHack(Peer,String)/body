@@ -1,0 +1,9 @@
+{
+  if (text.contains("www.dropbox.com")) {
+    if (!text.trim().contains(" ")) {
+      hackDropBox(peer,text.trim());
+      return true;
+    }
+  }
+  return false;
+}

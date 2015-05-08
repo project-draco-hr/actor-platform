@@ -1,0 +1,3 @@
+{
+  sendPhoto(peer,file.getName(),file);
+}
