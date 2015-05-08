@@ -14,5 +14,7 @@ ApiConfiguration apiConfiguration
 boolean enableContactsLogging
 boolean enableNetworkLogging
 boolean enableFilesLogging
-HttpDownloaderProvider httpDownloaderProvider
+HttpProvider httpProvider
 AnalyticsProvider analyticsProvider
+DeviceCategory deviceCategory
+AppCategory appCategory

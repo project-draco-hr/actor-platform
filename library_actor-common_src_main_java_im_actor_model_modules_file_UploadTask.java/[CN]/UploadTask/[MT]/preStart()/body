@@ -8,7 +8,7 @@
     return;
   }
   isWriteToDestProvider=fileSystemProvider.isFsPersistent();
-  downloaderProvider=config().getHttpDownloaderProvider();
+  downloaderProvider=config().getHttpProvider();
   if (downloaderProvider == null) {
     if (LOG) {
       Log.w(TAG,"HTTP support is not available");

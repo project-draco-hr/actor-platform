@@ -1,0 +1,4 @@
+{
+  this.httpProvider=httpProvider;
+  return this;
+}

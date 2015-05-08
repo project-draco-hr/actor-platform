@@ -1,3 +1,3 @@
 {
-  return loadValue(KEY_NOTIFICATION_CHAT + getChatKey(peer) + ".enabled",true);
+  return loadValue(KEY_NOTIFICATION_CHAT_PREFIX + getChatKey(peer) + ".enabled",true);
 }

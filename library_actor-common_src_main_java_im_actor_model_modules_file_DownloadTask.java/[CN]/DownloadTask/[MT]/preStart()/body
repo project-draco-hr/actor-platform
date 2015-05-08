@@ -10,7 +10,7 @@
     }
     return;
   }
-  downloaderProvider=modules().getConfiguration().getHttpDownloaderProvider();
+  downloaderProvider=modules().getConfiguration().getHttpProvider();
   if (downloaderProvider == null) {
     reportError();
     if (LOG) {
