@@ -1,3 +1,4 @@
 {
-  editList((Modification)DisplayModifications.remove(ids));
+  Modification<T> modification=DisplayModifications.remove(ids);
+  applyModification(modification);
 }

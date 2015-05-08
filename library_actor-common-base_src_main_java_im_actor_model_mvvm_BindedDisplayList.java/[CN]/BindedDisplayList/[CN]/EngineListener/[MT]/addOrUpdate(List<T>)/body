@@ -1,3 +1,4 @@
 {
-  editList(DisplayModifications.addOrUpdate(items));
+  Modification<T> modification=DisplayModifications.addOrUpdate(items);
+  applyModification(modification);
 }

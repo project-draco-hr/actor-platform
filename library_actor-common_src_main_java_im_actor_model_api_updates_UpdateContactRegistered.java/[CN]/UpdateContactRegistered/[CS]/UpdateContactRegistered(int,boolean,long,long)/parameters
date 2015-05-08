@@ -1,3 +1,4 @@
 int uid
 boolean isSilent
 long date
+long rid
