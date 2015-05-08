@@ -11,6 +11,7 @@
   stateModel.change(State.LOADING_EMPTY);
   currentGeneration++;
   window.startInitForward();
+  pendingModifications.clear();
   listEngine.loadForward(pageSize,cover(new ListEngineDisplayLoadCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
       MVVMEngine.checkMainThread();
@@ -21,6 +22,10 @@
  else {
         window.onForwardCompleted();
       }
+      for (      Modification<T> m : pendingModifications) {
+        editList(m);
+      }
+      pendingModifications.clear();
     }
   }
 ,currentGeneration));

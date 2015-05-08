@@ -1,0 +1,9 @@
+{
+  super.onSaveInstanceState(outState,outPersistentState);
+  if (avatarPath != null) {
+    outState.putString("avatarPath",avatarPath);
+  }
+  if (externalFile != null) {
+    outState.putString("externalFile",externalFile);
+  }
+}

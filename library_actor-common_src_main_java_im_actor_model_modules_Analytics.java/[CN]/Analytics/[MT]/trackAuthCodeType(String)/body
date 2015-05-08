@@ -1,3 +1,3 @@
 {
-  track("Auth: Code Typed: " + newValue);
+  track("Auth: Code Typed","Value",newValue);
 }

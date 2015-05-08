@@ -1,5 +1,8 @@
 {
   super.onCreate(saveInstance);
+  if (saveInstance != null) {
+    fileName=saveInstance.getString("pending_file_name",null);
+  }
   keyboardUtils=new KeyboardHelper(this);
   peer=Peer.fromUniqueId(getIntent().getExtras().getLong(Intents.EXTRA_CHAT_PEER));
   isCompose=saveInstance == null && getIntent().getExtras().getBoolean(Intents.EXTRA_CHAT_COMPOSE,false);

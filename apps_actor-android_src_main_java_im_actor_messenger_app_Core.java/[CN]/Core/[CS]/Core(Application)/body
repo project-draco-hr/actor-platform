@@ -33,4 +33,24 @@
   builder.setAnalyticsProvider(new AndroidMixpanelAnalytics(AppContext.getContext(),"b2b7a96c3f1e131cf170029f97b2c7c2"));
   builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,BuildConfig.API_ID,BuildConfig.API_KEY,"Android Device",AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
+  IntentFilter screenFilter=new IntentFilter();
+  screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
+  screenFilter.addAction(Intent.ACTION_SCREEN_ON);
+  application.registerReceiver(new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+        AppStateBroker.stateBroker().onScreenOn();
+      }
+ else       if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+        AppStateBroker.stateBroker().onScreenOff();
+      }
+    }
+  }
+,screenFilter);
+  if (isScreenOn(application)) {
+    AppStateBroker.stateBroker().onScreenOn();
+  }
+ else {
+    AppStateBroker.stateBroker().onScreenOff();
+  }
 }

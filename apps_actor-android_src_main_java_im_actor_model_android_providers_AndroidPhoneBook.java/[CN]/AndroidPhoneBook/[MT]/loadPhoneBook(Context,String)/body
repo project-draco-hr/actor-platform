@@ -18,13 +18,16 @@
   }
   int idIndex=cur.getColumnIndex(ContactsContract.Contacts._ID);
   int nameIndex=cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+  int index=0;
   while (cur.moveToNext()) {
-    if (READ_ITEM_DELAY > 0) {
-      try {
-        Thread.sleep(READ_ITEM_DELAY);
-      }
- catch (      InterruptedException e) {
-        e.printStackTrace();
+    if (index++ == READ_ITEM_DELAY_BATCH) {
+      if (READ_ITEM_DELAY > 0) {
+        try {
+          Thread.sleep(READ_ITEM_DELAY);
+        }
+ catch (        InterruptedException e) {
+          e.printStackTrace();
+        }
       }
     }
     long id=cur.getLong(idIndex);
@@ -44,12 +47,14 @@
   final int idPhoneIndex=cur.getColumnIndex(ContactsContract.CommonDataKinds.Phone._ID);
   final int idNumberIndex=cur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
   while (cur.moveToNext()) {
-    if (READ_ITEM_DELAY > 0) {
-      try {
-        Thread.sleep(READ_ITEM_DELAY);
-      }
- catch (      InterruptedException e) {
-        e.printStackTrace();
+    if (index++ == READ_ITEM_DELAY_BATCH) {
+      if (READ_ITEM_DELAY > 0) {
+        try {
+          Thread.sleep(READ_ITEM_DELAY);
+        }
+ catch (        InterruptedException e) {
+          e.printStackTrace();
+        }
       }
     }
     long contactId=cur.getLong(idContactIndex);
@@ -89,12 +94,14 @@
   final int idEmailIdIndex=cur.getColumnIndex(ContactsContract.CommonDataKinds.Email._ID);
   final int idEmailIndex=cur.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
   while (cur.moveToNext()) {
-    if (READ_ITEM_DELAY > 0) {
-      try {
-        Thread.sleep(READ_ITEM_DELAY);
-      }
- catch (      InterruptedException e) {
-        e.printStackTrace();
+    if (index++ == READ_ITEM_DELAY_BATCH) {
+      if (READ_ITEM_DELAY > 0) {
+        try {
+          Thread.sleep(READ_ITEM_DELAY);
+        }
+ catch (        InterruptedException e) {
+          e.printStackTrace();
+        }
       }
     }
     long contactId=cur.getLong(idEmailContactIndex);
@@ -121,6 +128,6 @@
       res.add(rec);
     }
   }
-  Logger.d(TAG,"Phone book loaded in " + (SystemClock.uptimeMillis() - start) + " ms");
+  Logger.d(TAG,"Phone book loaded in " + (SystemClock.uptimeMillis() - start) + " ms in "+ (index)+ " iterations");
   return res;
 }

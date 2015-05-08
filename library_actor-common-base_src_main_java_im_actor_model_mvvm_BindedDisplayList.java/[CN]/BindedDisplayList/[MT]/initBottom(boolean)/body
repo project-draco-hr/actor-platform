@@ -15,6 +15,7 @@
   isLoadMoreBackwardRequested=false;
   currentGeneration++;
   window.startInitBackward();
+  pendingModifications.clear();
   listEngine.loadBackward(pageSize,cover(new ListEngineDisplayLoadCallback<T>(){
     @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
       MVVMEngine.checkMainThread();
@@ -25,6 +26,10 @@
  else {
         window.onBackwardCompleted();
       }
+      for (      Modification<T> m : pendingModifications) {
+        editList(m);
+      }
+      pendingModifications.clear();
     }
   }
 ,currentGeneration));
