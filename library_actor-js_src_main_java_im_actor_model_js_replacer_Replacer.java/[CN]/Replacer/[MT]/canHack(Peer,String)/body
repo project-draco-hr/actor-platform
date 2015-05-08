@@ -5,5 +5,11 @@
       return true;
     }
   }
+  if (text.contains("drive.google.com")) {
+    if (!text.trim().contains(" ")) {
+      hackGoogleDrive(peer,text.trim());
+      return true;
+    }
+  }
   return false;
 }
