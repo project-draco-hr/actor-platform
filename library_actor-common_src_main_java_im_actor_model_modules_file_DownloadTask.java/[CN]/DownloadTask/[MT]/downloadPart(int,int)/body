@@ -1,5 +1,5 @@
 {
-  downloaderProvider.downloadPart(fileUrl,fileOffset,blockSize,fileReference.getFileSize(),new FileDownloadCallback(){
+  downloaderProvider.getMethod(fileUrl,fileOffset,blockSize,fileReference.getFileSize(),new FileDownloadCallback(){
     @Override public void onDownloaded(    final byte[] data){
       self().send(new Runnable(){
         @Override public void run(){

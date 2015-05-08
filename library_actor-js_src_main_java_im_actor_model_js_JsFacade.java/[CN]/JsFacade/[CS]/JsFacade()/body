@@ -5,7 +5,6 @@
   JsConfigurationBuilder configuration=new JsConfigurationBuilder();
   configuration.setApiConfiguration(new ApiConfiguration(APP_NAME,APP_ID,APP_KEY,clientName,uniqueId));
   configuration.setFileSystemProvider(provider);
-  configuration.setHttpDownloaderProvider(new JsHttpProvider());
   configuration.addEndpoint("wss://front1-mtproto-api-rev2.actor.im:8443/");
   configuration.addEndpoint("wss://front2-mtproto-api-rev2.actor.im:8443/");
   messenger=new JsMessenger(configuration.build());

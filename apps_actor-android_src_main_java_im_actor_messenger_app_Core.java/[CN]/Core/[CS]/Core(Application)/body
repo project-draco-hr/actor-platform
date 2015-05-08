@@ -31,6 +31,8 @@
   builder.setEnableNetworkLogging(true);
   builder.setEnableFilesLogging(true);
   builder.setAnalyticsProvider(new AndroidMixpanelAnalytics(AppContext.getContext(),"b2b7a96c3f1e131cf170029f97b2c7c2"));
+  builder.setDeviceCategory(DeviceCategory.MOBILE);
+  builder.setAppCategory(AppCategory.ANDROID);
   builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,BuildConfig.API_ID,BuildConfig.API_KEY,"Android Device",AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
   IntentFilter screenFilter=new IntentFilter();

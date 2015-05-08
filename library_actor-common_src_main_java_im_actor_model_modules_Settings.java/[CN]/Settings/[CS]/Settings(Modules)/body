@@ -1,3 +1,38 @@
 {
   super(modules);
+  String configKey;
+switch (modules.getConfiguration().getAppCategory()) {
+case ANDROID:
+    configKey="android";
+  break;
+case IOS:
+configKey="ios";
+break;
+case WEB:
+configKey="web";
+break;
+default :
+case GENERIC:
+configKey="generic";
+break;
+}
+String deviceTypeKey;
+switch (modules.getConfiguration().getDeviceCategory()) {
+case DESKTOP:
+deviceTypeKey="desktop";
+break;
+case MOBILE:
+deviceTypeKey="mobile";
+break;
+default :
+case UNKNOWN:
+deviceTypeKey="generic";
+break;
+}
+KEY_NOTIFICATION_TONES="app." + configKey + ".tones_enabled";
+KEY_CHAT_SEND_BY_ENTER="app." + configKey + ".send_by_enter";
+KEY_NOTIFICATION_SOUND="category." + deviceTypeKey + ".notification.sound.enabled";
+KEY_NOTIFICATION_VIBRATION="category." + deviceTypeKey + ".notification.vibration.enabled";
+KEY_NOTIFICATION_TEXT="category." + deviceTypeKey + ".notification.show_text";
+KEY_NOTIFICATION_CHAT_PREFIX="category." + deviceTypeKey + ".notification.chat.";
 }
