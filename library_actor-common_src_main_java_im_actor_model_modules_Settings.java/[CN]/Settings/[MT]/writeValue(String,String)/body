@@ -1,0 +1,3 @@
+{
+  preferences().putString(STORAGE_PREFIX + key,val);
+}

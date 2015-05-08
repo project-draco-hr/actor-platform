@@ -15,6 +15,8 @@
   this.notificationProvider=notificationProvider;
   this.apiConfiguration=apiConfiguration;
   this.dispatcherProvider=dispatcherProvider;
-  this.httpDownloaderProvider=httpDownloaderProvider;
+  this.httpProvider=httpProvider;
   this.analyticsProvider=analyticsProvider;
+  this.deviceCategory=deviceCategory;
+  this.appCategory=appCategory;
 }

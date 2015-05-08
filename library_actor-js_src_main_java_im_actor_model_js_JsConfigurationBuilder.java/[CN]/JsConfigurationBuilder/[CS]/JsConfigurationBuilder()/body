@@ -9,4 +9,7 @@
   setPhoneBookProvider(new JsPhoneBookProvider());
   setStorage(new JsStorageProvider());
   setNotificationProvider(new JsNotificationsProvider());
+  setHttpProvider(new JsHttpProvider());
+  setAppCategory(AppCategory.WEB);
+  setDeviceCategory(DeviceCategory.DESKTOP);
 }

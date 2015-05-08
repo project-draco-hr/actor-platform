@@ -1,7 +1,7 @@
 {
   request(new RequestGetFileUploadPartUrl(blockIndex,blockSize,uploadConfig),new RpcCallback<ResponseGetFileUploadPartUrl>(){
     @Override public void onResult(    ResponseGetFileUploadPartUrl response){
-      downloaderProvider.uploadPart(response.getUrl(),data,new FileUploadCallback(){
+      downloaderProvider.putMethod(response.getUrl(),data,new FileUploadCallback(){
         @Override public void onUploaded(){
           self().send(new Runnable(){
             @Override public void run(){
