@@ -1,10 +1,10 @@
 {
-  String sValue=preferences().getString(key);
+  String sValue=readValue(key);
   if ("true".equals(sValue)) {
     return true;
   }
  else   if ("false".equals(sValue)) {
-    return true;
+    return false;
   }
  else {
     return defaultVal;

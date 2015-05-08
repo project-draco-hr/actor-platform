@@ -1,0 +1,4 @@
+{
+  this.deviceCategory=deviceCategory;
+  return this;
+}
