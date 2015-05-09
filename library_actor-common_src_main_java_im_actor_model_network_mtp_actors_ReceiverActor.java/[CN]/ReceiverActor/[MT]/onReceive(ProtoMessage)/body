@@ -19,7 +19,8 @@
       return;
     }
     if (obj instanceof NewSessionCreated) {
-      sender.send(new SenderActor.NewSession());
+      NewSessionCreated newSessionCreated=(NewSessionCreated)obj;
+      sender.send(new SenderActor.NewSession(newSessionCreated.getMessageId()));
       proto.getCallback().onSessionCreated();
     }
  else     if (obj instanceof Container) {
@@ -27,6 +28,9 @@
       for (      ProtoMessage m : container.getMessages()) {
         self().send(m,sender());
       }
+    }
+ else     if (obj instanceof SessionLost) {
+      sender.send(new SenderActor.SessionLost());
     }
  else     if (obj instanceof MTRpcResponse) {
       MTRpcResponse responseBox=(MTRpcResponse)obj;
