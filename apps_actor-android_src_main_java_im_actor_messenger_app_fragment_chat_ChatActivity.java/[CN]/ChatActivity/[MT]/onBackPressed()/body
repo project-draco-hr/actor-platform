@@ -1,0 +1,8 @@
+{
+  if (emojiKeyboard.isShowing()) {
+    emojiKeyboard.dismiss();
+  }
+ else {
+    super.onBackPressed();
+  }
+}

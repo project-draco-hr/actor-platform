@@ -1,0 +1,3 @@
+{
+  return application.getFilesDir().getAbsolutePath() + "/stickers/" + sticker.getPackId()+ "/"+ sticker.getId()+ ".png";
+}

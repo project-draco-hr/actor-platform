@@ -12,6 +12,36 @@
   displayList=messenger().getMediaGlobalList(peer);
   adapter=new MediaAdapter(displayList,new OnMediaClickListener(){
     @Override public void onClick(    final MediaAdapter.MediaHolder holder,    Message item){
+      final TransitionAnimation animation=new TransitionAnimation(){
+        @Override public Runnable runnable(        final View view,        final Bitmap bitmap){
+          return new Runnable(){
+            @Override public void run(){
+              int[] location=new int[2];
+              transitionImageView.setExtraReceiverCallback(null);
+              if (!skipAnimation) {
+                view.getLocationInWindow(location);
+                MediaFullscreenAnimationUtils.animateForward(transitionImageView,bitmap,location[0],location[1],view.getWidth(),view.getHeight(),new AnimatorListenerAdapter(){
+                  @Override public void onAnimationEnd(                  Animator animation){
+                    showPager();
+                  }
+                }
+);
+                transitionBackgroundView.postDelayed(new Runnable(){
+                  @Override public void run(){
+                    MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView,null);
+                  }
+                }
+,50);
+              }
+ else {
+                showPager();
+              }
+            }
+          }
+;
+        }
+      }
+;
       viewPager.setAdapter(pagerAdapter);
       viewPager.setVisibility(View.VISIBLE);
       viewPager.setAlpha(0);
@@ -21,22 +51,8 @@
       transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
         @Override public void onImageLoaded(        BitmapReference bitmapRef){
           Bitmap bitmap=bitmapRef.getBitmap();
-          int[] location=new int[2];
-          transitionImageView.setExtraReceiverCallback(null);
-          view.getLocationInWindow(location);
-          MediaFullscreenAnimationUtils.animateForward(transitionImageView,bitmap,location[0],location[1],view.getWidth(),view.getHeight(),new AnimatorListenerAdapter(){
-            @Override public void onAnimationEnd(            Animator animation){
-              selectedIndex=holder.getPosition();
-              showPager();
-            }
-          }
-);
-          transitionBackgroundView.postDelayed(new Runnable(){
-            @Override public void run(){
-              MediaFullscreenAnimationUtils.animateBackgroundForward(transitionBackgroundView,null);
-            }
-          }
-,50);
+          selectedIndex=holder.getPosition();
+          holder.itemView.post(animation.runnable(holder.itemView,bitmap));
         }
         @Override public void onImageCleared(){
         }
@@ -50,10 +66,11 @@
         final FileReference location=remoteSource.getFileReference();
         messenger().requestState(location.getFileId(),new FileCallback(){
           @Override public void onNotDownloaded(){
-            messenger().startDownloading(location);
+            selectedIndex=holder.getPosition();
+            animation.skipAnimation();
+            animation.runnable(null,null).run();
           }
           @Override public void onDownloading(          float progress){
-            messenger().cancelDownloading(location.getFileId());
           }
           @Override public void onDownloaded(          final FileSystemReference reference){
             MVVMEngine.runOnUiThread(new Runnable(){
@@ -70,7 +87,7 @@
           }
         }
 );
-        Logger.d("MediaActivity","Remote =(");
+        Logger.d(TAG,"Remote =(");
       }
  else       if (document.getSource() instanceof FileLocalSource) {
         final String path=((FileLocalSource)document.getSource()).getFileDescriptor();

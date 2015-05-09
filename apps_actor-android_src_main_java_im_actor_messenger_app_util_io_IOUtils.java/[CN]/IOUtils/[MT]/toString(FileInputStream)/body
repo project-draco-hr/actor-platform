@@ -1,0 +1,9 @@
+{
+  BufferedReader r=new BufferedReader(new InputStreamReader(fileInputStream));
+  StringBuilder total=new StringBuilder();
+  String line;
+  while ((line=r.readLine()) != null) {
+    total.append(line);
+  }
+  return total.toString();
+}

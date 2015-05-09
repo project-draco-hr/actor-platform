@@ -1,4 +1,4 @@
 {
   super.onDestroyView();
-  attacher.cleanup();
+  if (attacher != null)   attacher.cleanup();
 }

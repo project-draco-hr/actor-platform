@@ -22,7 +22,7 @@
  else {
     time.setVisibility(View.GONE);
   }
-  String contentText=messenger().getFormatter().formatContentDialogText(data.getSenderId(),data.getMessageType(),data.getText(),data.getRelatedUid());
+  CharSequence contentText=messenger().getFormatter().formatContentDialogText(data.getSenderId(),data.getMessageType(),data.getText(),data.getRelatedUid());
   if (messenger().getFormatter().isLargeDialogMessage(data.getMessageType())) {
     bindedText=contentText;
   }
@@ -32,6 +32,24 @@
     }
  else {
       bindedText=contentText;
+    }
+  }
+  if (SmileProcessor.containsEmoji(bindedText)) {
+    if (emoji().isLoaded()) {
+      bindedText=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_BUBBLES);
+      ;
+    }
+ else {
+      emoji().registerListener(new SmilesListener(){
+        @Override public void onSmilesUpdated(        boolean completed){
+          CharSequence emojiProcessed=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_DIALOGS);
+          if (text.getText().equals(bindedText)) {
+            text.setText(emojiProcessed);
+          }
+          bindedText=emojiProcessed;
+        }
+      }
+);
     }
   }
   if (privateTypingListener != null) {
