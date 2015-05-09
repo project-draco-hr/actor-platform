@@ -1,0 +1,3 @@
+{
+  return createBlob(Conversion.convertBytes(data));
+}

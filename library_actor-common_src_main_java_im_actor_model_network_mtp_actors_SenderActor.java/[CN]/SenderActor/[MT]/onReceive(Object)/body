@@ -13,7 +13,15 @@
       Log.d(TAG,"ReSending #" + unsentPackage.getMessageId());
       toSend.add(unsentPackage);
     }
+    if (toSend.size() == 0) {
+      Log.d(TAG,"Sending SessionHello");
+      toSend.add(new ProtoMessage(MTUids.nextId(),new SessionHello().toByteArray()));
+    }
     doSend(toSend);
+  }
+ else   if (message instanceof SessionLost) {
+    Log.d(TAG,"Sending SessionHello");
+    doSend(new ProtoMessage(MTUids.nextId(),new SessionHello().toByteArray()));
   }
  else   if (message instanceof ForgetMessage) {
     Log.d(TAG,"Received ForgetMessage #" + ((ForgetMessage)message).mid);
@@ -47,10 +55,13 @@
   }
  else   if (message instanceof NewSession) {
     Log.w(TAG,"Received NewSessionCreated");
+    NewSession newSession=(NewSession)message;
     ArrayList<ProtoMessage> toSend=new ArrayList<ProtoMessage>();
     for (    ProtoMessage unsentPackage : unsentPackages.values()) {
-      Log.d(TAG,"ReSending #" + unsentPackage.getMessageId());
-      toSend.add(unsentPackage);
+      if (unsentPackage.getMessageId() < newSession.getMessageId()) {
+        Log.d(TAG,"ReSending #" + unsentPackage.getMessageId());
+        toSend.add(unsentPackage);
+      }
     }
     doSend(toSend);
   }

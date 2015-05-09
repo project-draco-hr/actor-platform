@@ -1,0 +1,5 @@
+{
+  String res="file://" + CryptoUtils.hex(CryptoUtils.randomBytes(16));
+  files.put(res,file);
+  return res;
+}

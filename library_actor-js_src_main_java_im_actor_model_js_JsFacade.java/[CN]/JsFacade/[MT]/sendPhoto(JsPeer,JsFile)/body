@@ -1,15 +1,3 @@
 {
-  JsImageResize.resize(file,new JsResizeListener(){
-    @Override public void onResized(    String thumb,    int thumbW,    int thumbH,    int fullW,    int fullH){
-      int index=thumb.indexOf("base64,");
-      if (index < 0) {
-        return;
-      }
-      String rawData=thumb.substring(index + "base64,".length());
-      byte[] thumbData=Base64Utils.fromBase64(rawData);
-      String descriptor=provider.registerUploadFile(file);
-      messenger.sendPhoto(peer.convert(),file.getName(),fullW,fullH,new FastThumb(thumbW,thumbH,thumbData),provider.fileFromDescriptor(descriptor));
-    }
-  }
-);
+  messenger.sendPhoto(peer.convert(),file);
 }

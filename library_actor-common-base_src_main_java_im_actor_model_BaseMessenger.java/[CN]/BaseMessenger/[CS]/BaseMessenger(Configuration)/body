@@ -1,4 +1,5 @@
 {
   super(configuration);
+  ActorSystem.system().addDispatcher("db",1);
   displayLists=new DisplayLists(modules);
 }

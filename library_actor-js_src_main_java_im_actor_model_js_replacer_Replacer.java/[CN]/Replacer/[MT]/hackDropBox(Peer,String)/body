@@ -1,0 +1,4 @@
+{
+  String url=text.replace("www.dropbox.com","dl.dropboxusercontent.com");
+  hackImageUrl(peer,url,text);
+}
