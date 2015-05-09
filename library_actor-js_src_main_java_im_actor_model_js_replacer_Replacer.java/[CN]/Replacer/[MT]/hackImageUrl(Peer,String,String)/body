@@ -1,0 +1,19 @@
+{
+  JsHttpRequest request=JsHttpRequest.create();
+  request.setResponseType("blob");
+  request.open("GET",url);
+  request.setOnLoadHandler(new JsHttpRequestHandler(){
+    @Override public void onStateChanged(    JsHttpRequest request){
+      if (request.getReadyState() == 4) {
+        if (request.getStatus() == 200) {
+          messenger.sendPhoto(peer,"screenshot.png",request.getResponseBlob());
+        }
+ else {
+          messenger.sendNoHack(peer,baseText);
+        }
+      }
+    }
+  }
+);
+  request.send();
+}
