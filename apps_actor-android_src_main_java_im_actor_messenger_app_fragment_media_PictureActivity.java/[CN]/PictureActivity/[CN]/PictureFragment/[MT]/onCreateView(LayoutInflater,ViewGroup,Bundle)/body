@@ -3,12 +3,16 @@
   final Bundle bundle=getArguments();
   path=bundle.getString(ARG_FILE_PATH);
   fileId=bundle.getLong(ARG_FILE_ID);
+  accessHash=bundle.getLong(ARG_FILE_ACCESS_HASH);
+  fileSize=bundle.getInt(ARG_FILE_SIZE);
+  fileName=bundle.getString(ARG_FILE_NAME);
   int sender=bundle.getInt(ARG_OWNER,0);
   circularView=(CircularView)rootView.findViewById(R.id.progress);
   circularView.setValue(50);
   imageView=(ImageKitView)rootView.findViewById(R.id.image);
   imageView.setExtraReceiverCallback(new ReceiverCallback(){
     @Override public void onImageLoaded(    BitmapReference bitmap){
+      goneView(circularView);
       attacher=new PhotoViewAttacher(imageView);
       attacher.setOnDoubleTapListener(new DefaultOnDoubleTapListener(attacher){
         @Override public boolean onSingleTapConfirmed(        MotionEvent e){
@@ -39,7 +43,26 @@
   if (path == null) {
     messenger().requestState(fileId,new FileCallback(){
       @Override public void onNotDownloaded(){
-        Toast.makeText(getActivity(),"File is not loaded :O",Toast.LENGTH_SHORT).show();
+        final FileReference location=new FileReference(fileId,accessHash,fileSize,fileName);
+        messenger().bindFile(location,true,new FileVMCallback(){
+          @Override public void onNotDownloaded(){
+            messenger().startDownloading(location);
+          }
+          @Override public void onDownloading(          float progress){
+            circularView.setValue((int)progress);
+          }
+          @Override public void onDownloaded(          final FileSystemReference reference){
+            MVVMEngine.runOnUiThread(new Runnable(){
+              @Override public void run(){
+                path=reference.getDescriptor();
+                imageView.request(new RawFileTask(path));
+              }
+            }
+);
+          }
+        }
+);
+        circularView.setVisibility(View.VISIBLE);
       }
       @Override public void onDownloading(      float progress){
       }

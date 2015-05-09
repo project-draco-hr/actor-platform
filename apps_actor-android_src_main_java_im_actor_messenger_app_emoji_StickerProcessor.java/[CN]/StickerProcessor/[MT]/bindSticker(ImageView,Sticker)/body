@@ -1,0 +1,21 @@
+{
+  String stickerId=sticker.getId();
+  String packId=sticker.getPackId();
+  if (isLoaded()) {
+    tabView.setImageURI(Uri.parse("file://" + getStickerPath(sticker)));
+    return;
+  }
+  String bindingId="stickers." + packId + "."+ stickerId;
+  ValueModel vm=mvvmCollection.get(bindingId);
+  if (vm == null) {
+    vm=new ValueModel<Object>(bindingId,null);
+    mvvmCollection.put(bindingId,vm);
+  }
+  BINDER.bind(vm,new ValueChangedListener<Object>(){
+    @Override public void onChanged(    Object val,    ValueModel<Object> valueModel){
+      tabView.setImageURI(Uri.parse("file://" + getStickerPath(sticker)));
+      valueModel.unsubscribe(this);
+    }
+  }
+);
+}

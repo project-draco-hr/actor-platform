@@ -1,3 +1,0 @@
-{
-  showAtLocation(rootView,Gravity.BOTTOM,0,0);
-}

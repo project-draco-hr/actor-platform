@@ -3,7 +3,7 @@
   float bitmapWidth=bitmap.getWidth();
   float bitmapHeight=bitmap.getHeight();
   float screenWidth=Screen.getWidth();
-  float screenHeight=Screen.getHeight() + (Build.VERSION.SDK_INT >= 19 ? Screen.getNavbarHeight() : 0);
+  float screenHeight=Screen.getHeight() + (Build.VERSION.SDK_INT >= 21 ? Screen.getNavbarHeight() : 0);
   if (bitmapHeight > screenHeight || bitmapWidth > screenWidth) {
     if (bitmapWidth / screenWidth < bitmapHeight / screenHeight) {
       bitmapWidth=bitmapWidth * (screenHeight / bitmapHeight);

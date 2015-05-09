@@ -2,7 +2,7 @@
   if (actionMode == null) {
     messagesAdapter.clearSelection();
     messagesAdapter.setSelected(message,true);
-    actionMode=((ActionBarActivity)getActivity()).startSupportActionMode(new ActionMode.Callback(){
+    actionMode=((AppCompatActivity)getActivity()).startSupportActionMode(new ActionMode.Callback(){
       @Override public boolean onCreateActionMode(      ActionMode actionMode,      Menu menu){
         getActivity().getMenuInflater().inflate(R.menu.messages_context,menu);
         return true;

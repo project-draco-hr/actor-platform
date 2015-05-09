@@ -1,0 +1,25 @@
+{
+  ImageButton tabView=new ImageButton(context);
+  int icon;
+switch (position) {
+case 0:
+    icon=R.drawable.ic_smiles_recent;
+  break;
+case 1:
+icon=R.drawable.ic_smiles_smile;
+break;
+case 2:
+icon=R.drawable.ic_smiles_bell;
+break;
+case 3:
+icon=R.drawable.ic_smiles_car;
+break;
+case 4:
+icon=R.drawable.ic_smiles_grid;
+break;
+default :
+icon=R.drawable.ic_smiles_smile;
+}
+tabView.setImageResource(icon);
+return tabView;
+}

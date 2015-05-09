@@ -1,0 +1,5 @@
+{
+  dismissed=true;
+  showing=false;
+  dismissInternally();
+}

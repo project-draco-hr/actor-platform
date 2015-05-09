@@ -1,0 +1,11 @@
+{
+  if (messageBody == null) {
+    return;
+  }
+  int selectionEnd=messageBody.getSelectionEnd();
+  if (selectionEnd < 0) {
+    selectionEnd=messageBody.getText().length();
+  }
+  CharSequence appendString=getSmileProcessor().processEmojiMutable(smile,SmileProcessor.CONFIGURATION_BUBBLES);
+  messageBody.getText().insert(selectionEnd,appendString);
+}

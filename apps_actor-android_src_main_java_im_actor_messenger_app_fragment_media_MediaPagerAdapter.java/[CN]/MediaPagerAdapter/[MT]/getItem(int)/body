@@ -6,7 +6,7 @@
   if (document.getSource() instanceof FileRemoteSource) {
     FileRemoteSource remoteSource=(FileRemoteSource)document.getSource();
     final FileReference location=remoteSource.getFileReference();
-    fragment=PictureActivity.PictureFragment.getInstance(location.getFileId(),senderId);
+    fragment=PictureActivity.PictureFragment.getInstance(location,senderId);
   }
  else   if (document.getSource() instanceof FileLocalSource) {
     final String path=((FileLocalSource)document.getSource()).getFileDescriptor();
