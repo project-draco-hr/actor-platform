@@ -1,26 +1,31 @@
 {
-  boolean isEnabled=modules().getSettings().isNotificationsEnabled(peer);
+  boolean isPeerEnabled=modules().getSettings().isNotificationsEnabled(peer);
+  boolean isEnabled=modules().getSettings().isNotificationsEnabled() && isPeerEnabled;
   List<PendingNotification> allPending=getNotifications();
-  if (isEnabled) {
-    allPending.add(new PendingNotification(peer,sender,date,description));
-    saveStorage();
-  }
+  allPending.add(new PendingNotification(peer,sender,date,description));
+  saveStorage();
   if (config().getNotificationProvider() != null) {
-    if (visiblePeer != null && visiblePeer.equals(peer)) {
-      if (modules().getSettings().isConversationTonesEnabled()) {
-        config().getNotificationProvider().onMessageArriveInApp(modules().getMessenger());
+    if (isAppVisible) {
+      if (visiblePeer != null && visiblePeer.equals(peer)) {
+        if (modules().getSettings().isConversationTonesEnabled()) {
+          config().getNotificationProvider().onMessageArriveInApp(modules().getMessenger());
+        }
       }
-      return;
-    }
-    if (isDialogsVisible) {
-      if (modules().getSettings().isConversationTonesEnabled()) {
-        config().getNotificationProvider().onMessageArriveInApp(modules().getMessenger());
+ else       if (isDialogsVisible) {
+        if (modules().getSettings().isConversationTonesEnabled()) {
+          config().getNotificationProvider().onMessageArriveInApp(modules().getMessenger());
+        }
       }
-      return;
+ else       if (modules().getSettings().isInAppEnabled()) {
+        if (isPeerEnabled) {
+          performNotification(false);
+        }
+      }
     }
-    if (!isEnabled) {
-      return;
+ else {
+      if (isEnabled) {
+        performNotification(false);
+      }
     }
-    performNotification(false);
   }
 }

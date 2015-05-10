@@ -1,0 +1,3 @@
+{
+  return loadValue(KEY_NOTIFICATION_IN_APP_VIBRATION,true);
+}

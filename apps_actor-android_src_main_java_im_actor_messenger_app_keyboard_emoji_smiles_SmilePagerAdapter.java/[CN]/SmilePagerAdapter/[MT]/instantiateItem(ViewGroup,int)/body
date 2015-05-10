@@ -1,0 +1,55 @@
+{
+  View itemView=LayoutInflater.from(container.getContext()).inflate(R.layout.emoji_smiles_page,null);
+  ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojiPackContainer);
+  ArrayList<Long> emojiPack=new ArrayList<Long>();
+switch (position) {
+case 0:
+    emojiPack=SmilesPack.getRecent();
+  break;
+case 1:
+emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.STANDART));
+break;
+case 2:
+emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.NATURE));
+break;
+case 3:
+emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.TRANSPORT));
+break;
+case 4:
+emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.UNSORTED));
+break;
+}
+int emojisMaxRowCount=8;
+int emojiSize=Screen.dp(45);
+int emojiPadding=emojiSize / 5;
+if (Screen.getWidth() / emojiSize < emojisMaxRowCount) {
+emojisMaxRowCount=Screen.getWidth() / emojiSize;
+}
+final SmilesPackView smilesPackView=new SmilesPackView(container.getContext(),getSmileProcessor(),emojiPack,emojisMaxRowCount,emojiSize,emojiPadding);
+FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+params.gravity=Gravity.CENTER;
+emojicontainer.addView(smilesPackView,params);
+if (!getSmileProcessor().isLoaded()) {
+getSmileProcessor().registerListener(new SmilesListener(){
+@Override public void onSmilesUpdated(boolean completed){
+smilesPackView.update();
+getSmileProcessor().unregisterListener(this);
+}
+}
+);
+}
+smilesPackView.setOnSmileClickListener(new OnSmileClickListener(){
+@Override public void onEmojiClicked(String smile){
+emojiKeyboard.onEmojiClicked(smile);
+}
+}
+);
+SmilesPack.setOnRecentChangeListener(new OnRecentChangeListener(){
+@Override public void onRecentChange(){
+smilesPackView.update();
+}
+}
+);
+container.addView(itemView,0);
+return itemView;
+}

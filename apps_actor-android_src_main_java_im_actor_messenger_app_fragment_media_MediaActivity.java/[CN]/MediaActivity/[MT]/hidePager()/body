@@ -4,31 +4,48 @@
   transitionImageView.animate().setStartDelay(0).setDuration(0).alpha(1).setListener(null).start();
   transitionBackgroundView.setVisibility(View.VISIBLE);
   transitionBackgroundView.setAlpha(1);
-  transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
-    @Override public void onImageLoaded(    final BitmapReference bitmap){
-      toolbar.setTitle(R.string.media);
-      showingPager=false;
-      viewPager.setAdapter(null);
-      viewPager.setAlpha(0);
-      viewPager.setVisibility(View.GONE);
-      int firstVisiblePosition=((GridLayoutManager)recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-      final View selectedView=recyclerView.getChildAt(selectedIndex - firstVisiblePosition);
-      final int[] location=new int[2];
-      selectedView.getLocationInWindow(location);
-      transitionImageView.setExtraReceiverCallback(null);
-      MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap.getBitmap(),location[0],location[1],selectedView.getWidth(),selectedView.getHeight(),new AnimatorListenerAdapter(){
-        @Override public void onAnimationEnd(        Animator animation){
-          invalidateOptionsMenu();
+  final TransitionAnimation transitionAnimation=new TransitionAnimation(){
+    @Override public Runnable runnable(    View view,    final Bitmap bitmap){
+      return new Runnable(){
+        @Override public void run(){
           toolbar.setTitle(R.string.media);
-          transitionImageView.clear();
-          transitionImageView.setAlpha(0f);
-          transitionBackgroundView.setAlpha(0f);
-          transitionBackgroundView.setOnClickListener(null);
-          transitionBackgroundView.setVisibility(View.GONE);
+          showingPager=false;
+          viewPager.setAdapter(null);
+          viewPager.setAlpha(0);
+          viewPager.setVisibility(View.GONE);
+          transitionImageView.setExtraReceiverCallback(null);
+          Animator.AnimatorListener listener=new AnimatorListenerAdapter(){
+            @Override public void onAnimationEnd(            Animator animation){
+              invalidateOptionsMenu();
+              toolbar.setTitle(R.string.media);
+              transitionImageView.clear();
+              transitionImageView.setAlpha(0f);
+              transitionBackgroundView.setAlpha(0f);
+              transitionBackgroundView.setOnClickListener(null);
+              transitionBackgroundView.setVisibility(View.GONE);
+            }
+          }
+;
+          if (!skipAnimation) {
+            int firstVisiblePosition=((GridLayoutManager)recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+            final View selectedView=recyclerView.getChildAt(selectedIndex - firstVisiblePosition);
+            final int[] location=new int[2];
+            selectedView.getLocationInWindow(location);
+            MediaFullscreenAnimationUtils.animateBack(transitionImageView,bitmap,location[0],location[1],selectedView.getWidth(),selectedView.getHeight(),listener);
+            MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView,null);
+          }
+ else {
+            listener.onAnimationEnd(null);
+          }
         }
       }
-);
-      MediaFullscreenAnimationUtils.animateBackgroundBack(transitionBackgroundView,null);
+;
+    }
+  }
+;
+  transitionImageView.setExtraReceiverCallback(new ReceiverCallback(){
+    @Override public void onImageLoaded(    final BitmapReference bitmap){
+      transitionImageView.post(transitionAnimation.runnable(transitionImageView,bitmap.getBitmap()));
     }
     @Override public void onImageCleared(){
       Log.d("Media Activity","cleared");
@@ -44,6 +61,8 @@
     final FileReference location=remoteSource.getFileReference();
     messenger().requestState(location.getFileId(),new FileCallback(){
       @Override public void onNotDownloaded(){
+        transitionAnimation.skipAnimation();
+        transitionAnimation.runnable(null,null).run();
       }
       @Override public void onDownloading(      float progress){
       }
@@ -62,7 +81,7 @@
       }
     }
 );
-    Logger.d("MediaActivity","Remote =(");
+    Logger.d(TAG,"Remote =(");
   }
  else   if (document.getSource() instanceof FileLocalSource) {
     final String path=((FileLocalSource)document.getSource()).getFileDescriptor();

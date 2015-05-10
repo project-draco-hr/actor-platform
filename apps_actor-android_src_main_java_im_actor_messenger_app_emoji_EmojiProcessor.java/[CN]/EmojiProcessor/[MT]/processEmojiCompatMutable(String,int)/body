@@ -1,8 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-    return processEmojiMutable(s,mode);
-  }
- else {
-    return processEmojiCutMutable(s,mode);
-  }
-}

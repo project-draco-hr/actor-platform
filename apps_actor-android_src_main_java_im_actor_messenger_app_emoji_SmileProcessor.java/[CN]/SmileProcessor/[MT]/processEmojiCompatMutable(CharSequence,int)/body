@@ -1,0 +1,3 @@
+{
+  return processEmojiMutable(s,mode);
+}

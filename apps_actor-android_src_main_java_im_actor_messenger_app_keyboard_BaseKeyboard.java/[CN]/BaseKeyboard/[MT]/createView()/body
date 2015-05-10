@@ -1,0 +1,7 @@
+{
+  TextView view=new TextView(activity);
+  view.setText("Example of keyboard");
+  view.setGravity(Gravity.CENTER);
+  view.setBackgroundColor(0xffdadddf);
+  return view;
+}

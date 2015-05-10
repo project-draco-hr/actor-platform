@@ -1,5 +1,4 @@
 {
   String sVal=val ? "true" : "false";
-  writeValue(key,sVal);
-  settingsSync.send(new SettingsSyncActor.ChangeSettings(key,sVal));
+  changeValue(key,sVal);
 }
