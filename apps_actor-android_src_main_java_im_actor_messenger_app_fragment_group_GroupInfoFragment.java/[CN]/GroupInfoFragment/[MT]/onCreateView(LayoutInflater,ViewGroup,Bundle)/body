@@ -63,7 +63,7 @@
     ((TextView)header.findViewById(R.id.docCount)).setText("" + docsCount);
   }
   Peer peer=Peer.group(groupInfo.getId());
-  int mediaCount=messenger().getMediaCount(peer);
+  int mediaCount=0;
   if (mediaCount == 0) {
     header.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
   }
