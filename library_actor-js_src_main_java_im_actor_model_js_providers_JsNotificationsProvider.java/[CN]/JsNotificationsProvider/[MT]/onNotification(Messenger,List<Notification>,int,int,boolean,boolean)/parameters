@@ -3,3 +3,4 @@ List<Notification> topNotifications
 int messagesCount
 int conversationsCount
 boolean silentUpdate
+boolean isInApp
