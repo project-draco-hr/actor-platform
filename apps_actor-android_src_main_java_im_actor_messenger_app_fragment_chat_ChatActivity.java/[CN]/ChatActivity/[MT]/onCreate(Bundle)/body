@@ -154,7 +154,7 @@
             }
             String externalPath=externalFile.getAbsolutePath();
             new File(externalPath + "/actor/").mkdirs();
-            fileName=externalPath + "/actor/capture_" + RandomUtil.randomId()+ ".jpg";
+            fileName=externalPath + "/actor/capture_" + RandomUtil.randomId()+ ".mp4";
             Intent i=new Intent(MediaStore.ACTION_VIDEO_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(fileName)));
             startActivityForResult(i,REQUEST_VIDEO);
             return true;
