@@ -1,0 +1,12 @@
+{
+  smileysSections=new int[smileyIds.size()];
+  smileysX=new int[smileyIds.size()];
+  smileysY=new int[smileyIds.size()];
+  for (int i=0; i < smileyIds.size(); i++) {
+    smileysSections[i]=processor.getSectionIndex(smileyIds.get(i));
+    smileysX[i]=processor.getSectionX(smileyIds.get(i));
+    smileysY[i]=processor.getSectionY(smileyIds.get(i));
+  }
+  this.paint.setAntiAlias(true);
+  this.paint.setFlags(Paint.FILTER_BITMAP_FLAG);
+}

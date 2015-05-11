@@ -1,0 +1,4 @@
+{
+  boolean ret=super.add(object);
+  return ret;
+}

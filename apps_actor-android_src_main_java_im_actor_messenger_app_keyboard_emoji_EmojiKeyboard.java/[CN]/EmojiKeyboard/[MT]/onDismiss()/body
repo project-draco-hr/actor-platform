@@ -1,0 +1,3 @@
+{
+  getSmileProcessor().getRecentController().saveRecents();
+}

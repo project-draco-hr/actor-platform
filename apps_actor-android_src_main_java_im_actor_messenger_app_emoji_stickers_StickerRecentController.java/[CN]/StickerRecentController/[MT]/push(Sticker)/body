@@ -1,0 +1,9 @@
+{
+  if (contains(object)) {
+    super.remove(object);
+  }
+  add(0,object);
+  while (size() > 32) {
+    remove(32);
+  }
+}
