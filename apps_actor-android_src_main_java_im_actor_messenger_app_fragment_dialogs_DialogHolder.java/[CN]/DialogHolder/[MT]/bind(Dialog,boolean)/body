@@ -22,16 +22,21 @@
  else {
     time.setVisibility(View.GONE);
   }
-  CharSequence contentText=messenger().getFormatter().formatContentDialogText(data.getSenderId(),data.getMessageType(),data.getText(),data.getRelatedUid());
-  if (messenger().getFormatter().isLargeDialogMessage(data.getMessageType())) {
-    bindedText=contentText;
+  if (data.getSenderId() == 0) {
+    bindedText="";
   }
  else {
-    if (data.getPeer().getPeerType() == PeerType.GROUP) {
-      bindedText=messenger().getFormatter().formatPerformerName(data.getSenderId()) + ": " + contentText;
+    CharSequence contentText=messenger().getFormatter().formatContentDialogText(data.getSenderId(),data.getMessageType(),data.getText(),data.getRelatedUid());
+    if (messenger().getFormatter().isLargeDialogMessage(data.getMessageType())) {
+      bindedText=contentText;
     }
  else {
-      bindedText=contentText;
+      if (data.getPeer().getPeerType() == PeerType.GROUP) {
+        bindedText=messenger().getFormatter().formatPerformerName(data.getSenderId()) + ": " + contentText;
+      }
+ else {
+        bindedText=contentText;
+      }
     }
   }
   if (SmileProcessor.containsEmoji(bindedText)) {
