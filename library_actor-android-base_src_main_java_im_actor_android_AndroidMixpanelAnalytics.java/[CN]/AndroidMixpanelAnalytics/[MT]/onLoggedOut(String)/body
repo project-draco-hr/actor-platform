@@ -1,4 +1,5 @@
 {
   saveDeviceId(deviceId);
   mixpanel.identify("device:" + deviceId);
+  mixpanel.getPeople().identify("device:" + deviceId);
 }

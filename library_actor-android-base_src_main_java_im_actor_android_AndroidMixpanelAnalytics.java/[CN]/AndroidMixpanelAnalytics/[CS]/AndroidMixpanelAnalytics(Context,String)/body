@@ -1,5 +1,5 @@
 {
-  this.mixpanel=MixpanelAPI.getInstance(context,token);
+  mixpanel=MixpanelAPI.getInstance(context,token);
   try {
     JSONObject deviceProperties=new JSONObject();
     deviceProperties.put("app","android");
