@@ -1,0 +1,3 @@
+String name
+JsAuthSuccessClosure success
+JsAuthErrorClosure error
