@@ -52,7 +52,17 @@
     }
     return true;
   }
-  anchorInfo.mLayoutFromEnd=mShouldReverseLayout;
-  anchorInfo.mCoordinate=mOrientationHelper.getStartAfterPadding() + mPendingScrollPositionOffset;
+  anchorInfo.mLayoutFromEnd=scrollToPositionWithOffsetCalled ? false : mShouldReverseLayout;
+  if (scrollToPositionWithOffsetCalled) {
+    anchorInfo.mLayoutFromEnd=false;
+    anchorInfo.mCoordinate=mOrientationHelper.getStartAfterPadding() + mPendingScrollPositionOffset;
+    scrollToPositionWithOffsetCalled=false;
+  }
+ else   if (mShouldReverseLayout) {
+    anchorInfo.mCoordinate=mOrientationHelper.getEndAfterPadding() - mPendingScrollPositionOffset;
+  }
+ else {
+    anchorInfo.mCoordinate=mOrientationHelper.getStartAfterPadding() + mPendingScrollPositionOffset;
+  }
   return true;
 }

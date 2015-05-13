@@ -1,4 +1,5 @@
 {
+  scrollToPositionWithOffsetCalled=true;
   mPendingScrollPosition=position;
   mPendingScrollPositionOffset=offset;
   if (mPendingSavedState != null) {
