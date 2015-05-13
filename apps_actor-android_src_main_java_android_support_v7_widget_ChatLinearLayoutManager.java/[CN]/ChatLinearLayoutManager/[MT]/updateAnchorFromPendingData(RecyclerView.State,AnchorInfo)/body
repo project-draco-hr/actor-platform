@@ -53,11 +53,6 @@
     return true;
   }
   anchorInfo.mLayoutFromEnd=mShouldReverseLayout;
-  if (mShouldReverseLayout) {
-    anchorInfo.mCoordinate=mOrientationHelper.getEndAfterPadding() - mPendingScrollPositionOffset;
-  }
- else {
-    anchorInfo.mCoordinate=mOrientationHelper.getStartAfterPadding() + mPendingScrollPositionOffset;
-  }
+  anchorInfo.mCoordinate=mOrientationHelper.getStartAfterPadding() + mPendingScrollPositionOffset;
   return true;
 }
