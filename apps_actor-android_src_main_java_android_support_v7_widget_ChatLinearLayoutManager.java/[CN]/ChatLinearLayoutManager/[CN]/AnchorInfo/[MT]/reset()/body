@@ -1,0 +1,5 @@
+{
+  mPosition=NO_POSITION;
+  mCoordinate=INVALID_OFFSET;
+  mLayoutFromEnd=false;
+}

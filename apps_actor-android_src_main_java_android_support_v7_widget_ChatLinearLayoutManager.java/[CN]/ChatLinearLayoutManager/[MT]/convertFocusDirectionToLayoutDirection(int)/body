@@ -1,0 +1,21 @@
+{
+switch (focusDirection) {
+case View.FOCUS_BACKWARD:
+    return LayoutState.LAYOUT_START;
+case View.FOCUS_FORWARD:
+  return LayoutState.LAYOUT_END;
+case View.FOCUS_UP:
+return mOrientation == VERTICAL ? LayoutState.LAYOUT_START : LayoutState.INVALID_LAYOUT;
+case View.FOCUS_DOWN:
+return mOrientation == VERTICAL ? LayoutState.LAYOUT_END : LayoutState.INVALID_LAYOUT;
+case View.FOCUS_LEFT:
+return mOrientation == HORIZONTAL ? LayoutState.LAYOUT_START : LayoutState.INVALID_LAYOUT;
+case View.FOCUS_RIGHT:
+return mOrientation == HORIZONTAL ? LayoutState.LAYOUT_END : LayoutState.INVALID_LAYOUT;
+default :
+if (DEBUG) {
+Log.d(TAG,"Unknown focus request:" + focusDirection);
+}
+return LayoutState.INVALID_LAYOUT;
+}
+}

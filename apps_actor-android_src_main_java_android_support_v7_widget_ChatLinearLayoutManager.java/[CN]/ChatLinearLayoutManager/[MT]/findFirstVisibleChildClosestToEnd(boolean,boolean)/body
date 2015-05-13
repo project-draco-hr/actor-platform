@@ -1,0 +1,8 @@
+{
+  if (mShouldReverseLayout) {
+    return findOneVisibleChild(0,getChildCount(),completelyVisible,acceptPartiallyVisible);
+  }
+ else {
+    return findOneVisibleChild(getChildCount() - 1,-1,completelyVisible,acceptPartiallyVisible);
+  }
+}

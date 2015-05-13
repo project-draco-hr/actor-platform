@@ -1,0 +1,4 @@
+int layoutDirection
+int requiredSpace
+boolean canUseExistingSpace
+RecyclerView.State state
