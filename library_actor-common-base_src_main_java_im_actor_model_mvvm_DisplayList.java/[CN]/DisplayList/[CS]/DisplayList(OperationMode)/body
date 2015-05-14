@@ -1,3 +1,0 @@
-{
-  this(operationMode,new ArrayList<T>());
-}

@@ -1,0 +1,13 @@
+{
+  items.add(item);
+  len++;
+  if (operation == Operation.ADD) {
+    operation=Operation.ADD_RANGE;
+  }
+ else   if (operation == Operation.REMOVE) {
+    operation=Operation.REMOVE_RANGE;
+  }
+ else   if (operation == Operation.UPDATE) {
+    operation=Operation.UPDATE_RANGE;
+  }
+}

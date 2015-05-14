@@ -1,0 +1,36 @@
+{
+  adapter.startUpdates(modification);
+  DefferedListModification<T> currentChange;
+  while ((currentChange=modification.next()) != null) {
+switch (currentChange.getOperation()) {
+case ADD:
+      adapter.notifyItemInserted(currentChange.getIndex());
+    break;
+case ADD_RANGE:
+  adapter.notifyItemRangeInserted(currentChange.getIndex(),currentChange.getLength());
+break;
+case UPDATE:
+adapter.notifyItemChanged(currentChange.getIndex());
+break;
+case UPDATE_RANGE:
+adapter.notifyItemRangeChanged(currentChange.getIndex(),currentChange.getLength());
+break;
+case REMOVE:
+adapter.notifyItemRemoved(currentChange.getIndex());
+break;
+case REMOVE_RANGE:
+adapter.notifyItemRangeRemoved(currentChange.getIndex(),currentChange.getDestIndex());
+break;
+case MOVE:
+adapter.notifyItemMoved(currentChange.getIndex(),currentChange.getDestIndex());
+break;
+}
+}
+adapter.stopUpdates();
+if (displayList.getSize() == 0) {
+hideView(collection);
+}
+ else {
+showView(collection);
+}
+}
