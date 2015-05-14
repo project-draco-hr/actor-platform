@@ -1,0 +1,5 @@
+{
+  values.clear();
+  clear(jsValues);
+  onItemsAddedOrUpdated(items);
+}
