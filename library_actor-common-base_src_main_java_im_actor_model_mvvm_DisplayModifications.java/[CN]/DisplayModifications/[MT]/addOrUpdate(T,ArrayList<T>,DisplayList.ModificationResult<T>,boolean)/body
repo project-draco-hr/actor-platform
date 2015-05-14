@@ -38,8 +38,8 @@
     result.appendUpdate(addedIndex,item);
   }
  else   if (removedIndex >= 0) {
-    result.appendUpdate(removedIndex,item);
     result.appendMove(removedIndex,addedIndex);
+    result.appendUpdate(addedIndex,item);
   }
  else {
     result.appendAdd(addedIndex,item);

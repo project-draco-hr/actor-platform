@@ -1,0 +1,5 @@
+{
+  items=new ArrayList<T>();
+  items.add(item);
+  len=1;
+}
