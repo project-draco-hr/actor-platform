@@ -92,6 +92,12 @@ uploadFileVM=messenger().bindUpload(message.getRid(),new UploadVMCallback());
 if (isPhoto) {
 previewView.setImageURI(Uri.fromFile(new File(((FileLocalSource)fileMessage.getSource()).getFileDescriptor())));
 }
+ else {
+previewView.setImageURI(null);
+if (fileMessage.getFastThumb() != null) {
+fastThumbLoader.request(fileMessage.getFastThumb().getImage());
+}
+}
 }
  else {
 throw new RuntimeException("Unknown file source type: " + fileMessage.getSource());
