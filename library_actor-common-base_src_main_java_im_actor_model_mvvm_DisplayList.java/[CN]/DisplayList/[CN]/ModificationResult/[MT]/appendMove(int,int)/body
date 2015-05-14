@@ -1,0 +1,3 @@
+{
+  operations.add(new Operation(OperationType.MOVE,index,destIndex,1));
+}

@@ -1,18 +1,11 @@
 {
   return new DisplayList.Modification<T>(){
-    @Override public void modify(    List<T> sourceList){
-      HashSet<Long> keys=new HashSet<Long>();
-      for (      ListEngineItem i : items) {
-        keys.add(i.getEngineId());
+    @Override public DisplayList.ModificationResult<T> modify(    ArrayList<T> sourceList){
+      DisplayList.ModificationResult<T> res=new DisplayList.ModificationResult<T>();
+      for (      T toAdd : items) {
+        addOrUpdate(toAdd,sourceList,res,false);
       }
-      Iterator<T> iterator=sourceList.iterator();
-      while (iterator.hasNext()) {
-        T src=iterator.next();
-        if (keys.contains(src.getEngineId())) {
-          iterator.remove();
-        }
-      }
-      sourceList.addAll(items);
+      return res;
     }
   }
 ;

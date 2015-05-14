@@ -5,9 +5,12 @@
     records.add(new ListEngineRecord(t.getEngineId(),t.getEngineSort(),t.getEngineSearch(),t.toByteArray()));
   }
   storage.updateOrAdd(records);
-  for (  T t : items) {
-    for (    JsListEngineCallback<T> callback : callbacks) {
-      callback.onItemAddedOrUpdated(t);
+  for (  JsListEngineCallback<T> callback : callbacks) {
+    try {
+      callback.onItemsAddedOrUpdated(items);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
     }
   }
 }

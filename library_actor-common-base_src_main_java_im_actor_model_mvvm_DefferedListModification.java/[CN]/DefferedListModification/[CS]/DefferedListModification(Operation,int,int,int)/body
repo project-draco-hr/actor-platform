@@ -1,0 +1,6 @@
+{
+  this.operation=operation;
+  this.index=index;
+  this.len=len;
+  this.destIndex=destIndex;
+}
