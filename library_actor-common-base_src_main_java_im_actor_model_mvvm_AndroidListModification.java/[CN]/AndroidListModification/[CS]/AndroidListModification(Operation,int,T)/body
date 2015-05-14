@@ -1,0 +1,7 @@
+{
+  this.operation=operation;
+  this.index=index;
+  this.items=new ArrayList<T>();
+  this.items.add(item);
+  this.len=1;
+}

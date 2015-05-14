@@ -1,0 +1,2 @@
+ArrayList<DisplayList.ModificationResult<T>> modificationResults
+ArrayList<T> initialList

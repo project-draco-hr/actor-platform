@@ -2,14 +2,9 @@
   isLocked=false;
   ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
   for (  ModificationHolder m : modifications) {
-    ModificationResult<T> res=m.modification.modify(backgroundList);
+    m.modification.modify(backgroundList);
   }
   if (pending.size() > 0) {
-    ModificationHolder[] dest=pending.toArray(new ModificationHolder[pending.size()]);
-    pending.clear();
-    for (    ModificationHolder m : dest) {
-      ModificationResult<T> res=m.modification.modify(backgroundList);
-    }
-    requestListSwitch(dest);
+    self().send(new EditList<T>(null,null));
   }
 }

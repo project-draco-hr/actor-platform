@@ -4,7 +4,20 @@
     pending.add(holder);
     return;
   }
+  if (modification != null) {
+    pending.add(new ModificationHolder<T>(modification,runnable));
+  }
+  if (pending.size() == 0) {
+    return;
+  }
   ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
-  ModificationResult<T> res=modification.modify(backgroundList);
-  requestListSwitch(new ModificationHolder[]{holder});
+  ArrayList<T> initialList=new ArrayList<T>(backgroundList);
+  ModificationHolder<T>[] dest=pending.toArray(new ModificationHolder[pending.size()]);
+  pending.clear();
+  ArrayList<ModificationResult<T>> modRes=new ArrayList<ModificationResult<T>>();
+  for (  ModificationHolder<T> m : dest) {
+    ModificationResult<T> res2=m.modification.modify(backgroundList);
+    modRes.add(res2);
+  }
+  requestListSwitch(dest,initialList,modRes);
 }

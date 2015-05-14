@@ -3,6 +3,10 @@
   MVVMEngine.runOnUiThread(new Runnable(){
     @Override public void run(){
       displayList.currentList=(displayList.currentList + 1) % 2;
+      for (      AndroidListener<T> l : displayList.androidListeners) {
+        AndroidListChange<T> aListChange=AndroidListChange.buildAndroidListChange(modRes,new ArrayList<T>(initialList));
+        l.onCollectionChanged(aListChange);
+      }
       for (      Listener l : displayList.listeners) {
         l.onCollectionChanged();
       }
