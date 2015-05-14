@@ -1,0 +1,6 @@
+{
+  this.type=type;
+  this.index=index;
+  this.item=item;
+  this.length=1;
+}

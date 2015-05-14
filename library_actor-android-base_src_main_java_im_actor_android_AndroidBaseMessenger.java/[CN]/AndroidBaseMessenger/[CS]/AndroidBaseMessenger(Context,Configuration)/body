@@ -1,5 +1,5 @@
 {
-  super(configuration);
+  super(MessengerEnvironment.ANDROID,configuration);
   this.context=context;
   context.getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
     @Override public void onChange(    boolean selfChange){

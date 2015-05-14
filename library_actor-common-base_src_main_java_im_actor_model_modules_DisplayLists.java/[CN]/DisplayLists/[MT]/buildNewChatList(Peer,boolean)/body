@@ -18,7 +18,7 @@
     }
 ;
   }
-  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,hook);
+  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>(operationMode,(ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,hook);
   chatList.initTop(false);
   return chatList;
 }

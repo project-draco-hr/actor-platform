@@ -1,16 +1,5 @@
 {
-  return new DisplayList.Modification<T>(){
-    @Override public void modify(    List<T> sourceList){
-      long dstId=item.getEngineId();
-      Iterator<T> iterator=sourceList.iterator();
-      while (iterator.hasNext()) {
-        T src=iterator.next();
-        if (src.getEngineId() == dstId) {
-          iterator.remove();
-        }
-      }
-      sourceList.add(item);
-    }
-  }
-;
+  ArrayList<T> res=new ArrayList<T>();
+  res.add(item);
+  return addOrUpdate(res);
 }
