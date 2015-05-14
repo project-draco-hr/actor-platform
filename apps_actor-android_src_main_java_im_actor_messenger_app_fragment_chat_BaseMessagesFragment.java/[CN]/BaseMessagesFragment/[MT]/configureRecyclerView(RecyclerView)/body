@@ -1,6 +1,5 @@
 {
   recyclerView.setHasFixedSize(true);
   linearLayoutManager=new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,true);
-  linearLayoutManager.setStackFromEnd(true);
   recyclerView.setLayoutManager(linearLayoutManager);
 }

@@ -1,7 +1,7 @@
 {
   super.onResume();
   adapter.resume();
-  displayList.addDifferedListener(this);
+  displayList.addListener(this);
   if (displayList.getSize() == 0) {
     hideView(collection,false);
   }

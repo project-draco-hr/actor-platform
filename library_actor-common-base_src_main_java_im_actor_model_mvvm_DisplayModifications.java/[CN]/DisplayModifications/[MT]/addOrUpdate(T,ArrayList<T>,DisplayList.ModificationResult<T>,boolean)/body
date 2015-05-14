@@ -10,7 +10,12 @@
         return;
       }
       sourceList.remove(i);
-      removedIndex=i;
+      if (addedIndex >= 0) {
+        removedIndex=i - 1;
+      }
+ else {
+        removedIndex=i;
+      }
       i--;
       continue;
     }
