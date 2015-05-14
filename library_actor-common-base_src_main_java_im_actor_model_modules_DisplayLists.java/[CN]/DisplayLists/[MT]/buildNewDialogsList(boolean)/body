@@ -15,7 +15,7 @@
     }
 ;
   }
-  BindedDisplayList<Dialog> displayList=new BindedDisplayList<Dialog>(operationMode,(ListEngineDisplayExt<Dialog>)dialogsEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,hook);
+  BindedDisplayList<Dialog> displayList=new BindedDisplayList<Dialog>((ListEngineDisplayExt<Dialog>)dialogsEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,hook);
   displayList.initTop(false);
   return displayList;
 }
