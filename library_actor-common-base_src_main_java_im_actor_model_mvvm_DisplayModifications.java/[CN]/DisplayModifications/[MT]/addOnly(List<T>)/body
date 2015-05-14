@@ -1,16 +1,11 @@
 {
   return new DisplayList.Modification<T>(){
-    @Override public void modify(    List<T> sourceList){
-      ArrayList<T> toAdd=new ArrayList<T>();
-      outer:       for (      T t : items) {
-        for (        T srcT : sourceList) {
-          if (srcT.getEngineId() == t.getEngineId()) {
-            continue outer;
-          }
-        }
-        toAdd.add(t);
+    @Override public DisplayList.ModificationResult<T> modify(    ArrayList<T> sourceList){
+      DisplayList.ModificationResult<T> res=new DisplayList.ModificationResult<T>();
+      for (      T toAdd : items) {
+        addOrUpdate(toAdd,sourceList,res,true);
       }
-      sourceList.addAll(toAdd);
+      return res;
     }
   }
 ;

@@ -1,3 +1,0 @@
-{
-  this(hook,new ArrayList<T>());
-}

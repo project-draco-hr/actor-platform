@@ -1,13 +1,41 @@
 {
   this.displayList=displayList;
-  setHasStableIds(true);
-  listener=new DisplayList.Listener(){
-    @Override public void onCollectionChanged(){
-      notifyDataSetChanged();
-    }
-  }
+  setHasStableIds(false);
+  listener=new DisplayList.DifferedChangeListener<V>(){
+    @Override public void onCollectionChanged(    DefferedListChange<V> modification){
+      startUpdates(modification);
+      DefferedListModification<V> currentChange;
+      while ((currentChange=modification.next()) != null) {
+switch (currentChange.getOperation()) {
+case ADD:
+          notifyItemInserted(currentChange.getIndex());
+        break;
+case ADD_RANGE:
+      notifyItemRangeInserted(currentChange.getIndex(),currentChange.getLength());
+    break;
+case UPDATE:
+  notifyItemChanged(currentChange.getIndex());
+break;
+case UPDATE_RANGE:
+notifyItemRangeChanged(currentChange.getIndex(),currentChange.getLength());
+break;
+case REMOVE:
+notifyItemRemoved(currentChange.getIndex());
+break;
+case REMOVE_RANGE:
+notifyItemRangeRemoved(currentChange.getIndex(),currentChange.getDestIndex());
+break;
+case MOVE:
+notifyItemMoved(currentChange.getIndex(),currentChange.getDestIndex());
+notifyItemChanged(currentChange.getIndex());
+break;
+}
+}
+stopUpdates();
+}
+}
 ;
-  if (autoConnect) {
-    resume();
-  }
+if (autoConnect) {
+resume();
+}
 }

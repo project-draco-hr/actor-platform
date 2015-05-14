@@ -1,6 +1,11 @@
 {
   if (isEnabled) {
-    collection.setItemAnimator(new DefaultItemAnimator());
+    DefaultItemAnimator itemAnimator=new DefaultItemAnimator();
+    itemAnimator.setSupportsChangeAnimations(false);
+    itemAnimator.setMoveDuration(200);
+    itemAnimator.setAddDuration(150);
+    itemAnimator.setRemoveDuration(200);
+    collection.setItemAnimator(itemAnimator);
   }
  else {
     collection.setItemAnimator(null);

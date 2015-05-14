@@ -1,0 +1,6 @@
+{
+  for (  V item : items) {
+    addItemOrUpdateImpl(item);
+  }
+  notifySubscribers();
+}

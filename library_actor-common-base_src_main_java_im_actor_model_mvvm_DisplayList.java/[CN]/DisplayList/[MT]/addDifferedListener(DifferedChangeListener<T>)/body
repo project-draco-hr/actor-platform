@@ -1,0 +1,6 @@
+{
+  MVVMEngine.checkMainThread();
+  if (!differedListeners.contains(listener)) {
+    differedListeners.add(listener);
+  }
+}
