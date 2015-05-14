@@ -13,6 +13,9 @@
             if (regId != null) {
               Log.d(TAG,"Token loaded");
               self().send(new PushRegistered(regId));
+              if (AndroidMixpanelAnalytics.getRegisteredApi() != null) {
+                AndroidMixpanelAnalytics.getRegisteredApi().getPeople().setPushRegistrationId(regId);
+              }
               return;
             }
  else {

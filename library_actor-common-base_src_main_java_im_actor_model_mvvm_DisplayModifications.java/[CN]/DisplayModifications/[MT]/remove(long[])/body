@@ -1,17 +1,19 @@
 {
   return new DisplayList.Modification<T>(){
-    @Override public void modify(    List<T> sourceList){
-      Iterator<T> it=sourceList.iterator();
-      while (it.hasNext()) {
-        T value=it.next();
-        long srcId=value.getEngineId();
-        for (        long dstId : dstIds) {
-          if (dstId == srcId) {
-            it.remove();
+    @Override public DisplayList.ModificationResult<T> modify(    ArrayList<T> sourceList){
+      DisplayList.ModificationResult<T> res=new DisplayList.ModificationResult<T>();
+      for (int i=0; i < sourceList.size(); i++) {
+        ListEngineItem src=sourceList.get(i);
+        for (        long aDstId : dstIds) {
+          if (src.getEngineId() == aDstId) {
+            sourceList.remove(i);
+            res.appendOperation(new DisplayList.ModificationResult.Operation(DisplayList.ModificationResult.OperationType.REMOVE,i));
+            i--;
             break;
           }
         }
       }
+      return res;
     }
   }
 ;

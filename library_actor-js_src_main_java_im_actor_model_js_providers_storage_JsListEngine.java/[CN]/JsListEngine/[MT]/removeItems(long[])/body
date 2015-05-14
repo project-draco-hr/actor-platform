@@ -3,9 +3,12 @@
     cache.remove(key);
   }
   storage.delete(keys);
-  for (  long key : keys) {
-    for (    JsListEngineCallback<T> callback : callbacks) {
-      callback.onItemRemoved(key);
+  for (  JsListEngineCallback<T> callback : callbacks) {
+    try {
+      callback.onItemsRemoved(keys);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
     }
   }
 }

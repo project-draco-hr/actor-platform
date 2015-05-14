@@ -1,4 +1,4 @@
 {
-  displayList.addListener(listener);
+  displayList.addDifferedListener(listener);
   notifyDataSetChanged();
 }

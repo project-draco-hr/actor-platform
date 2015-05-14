@@ -4,10 +4,20 @@
     pending.add(holder);
     return;
   }
-  ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
-  modification.modify(backgroundList);
-  if (displayList.hook != null) {
-    displayList.hook.beforeDisplay(backgroundList);
+  if (modification != null) {
+    pending.add(new ModificationHolder<T>(modification,runnable));
   }
-  requestListSwitch(new ModificationHolder[]{holder});
+  if (pending.size() == 0) {
+    return;
+  }
+  ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
+  ArrayList<T> initialList=new ArrayList<T>(backgroundList);
+  ModificationHolder<T>[] dest=pending.toArray(new ModificationHolder[pending.size()]);
+  pending.clear();
+  ArrayList<ModificationResult<T>> modRes=new ArrayList<ModificationResult<T>>();
+  for (  ModificationHolder<T> m : dest) {
+    ModificationResult<T> res2=m.modification.modify(backgroundList);
+    modRes.add(res2);
+  }
+  requestListSwitch(dest,initialList,modRes);
 }
