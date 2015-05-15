@@ -1,0 +1,12 @@
+{
+  ArrayList<Integer> workList=prepareList(10);
+  ArrayList<Integer> resultList=prepareList(10);
+  resultList.add(4,10);
+  resultList.add(4,11);
+  ArrayList<ChangeDescription<Integer>> operations=new ArrayList<ChangeDescription<Integer>>();
+  operations.add(ChangeDescription.add(4,10));
+  operations.add(ChangeDescription.add(4,11));
+  ArrayList<ChangeDescription<Integer>> res=ChangeBuilder.processAppleModifications(operations,workList);
+  assertHasOperation(ChangeDescription.add(4,10),res);
+  assertHasOperation(ChangeDescription.add(5,11),res);
+}

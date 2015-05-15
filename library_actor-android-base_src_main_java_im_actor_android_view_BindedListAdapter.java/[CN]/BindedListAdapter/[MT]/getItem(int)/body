@@ -1,6 +1,6 @@
 {
-  if (currentChange != null) {
-    return currentChange.getItem(position);
+  if (currentUpdate != null) {
+    return currentUpdate.getItem(position);
   }
   return displayList.getItem(position);
 }

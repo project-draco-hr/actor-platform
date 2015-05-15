@@ -14,10 +14,12 @@
   ArrayList<T> initialList=new ArrayList<T>(backgroundList);
   ModificationHolder<T>[] dest=pending.toArray(new ModificationHolder[pending.size()]);
   pending.clear();
-  ArrayList<ModificationResult<T>> modRes=new ArrayList<ModificationResult<T>>();
+  ArrayList<ChangeDescription<T>> modRes=new ArrayList<ChangeDescription<T>>();
   for (  ModificationHolder<T> m : dest) {
-    ModificationResult<T> res2=m.modification.modify(backgroundList);
-    modRes.add(res2);
+    List<ChangeDescription<T>> changes=m.modification.modify(backgroundList);
+    modRes.addAll(changes);
   }
-  requestListSwitch(dest,initialList,modRes);
+  ArrayList<ChangeDescription<T>> androidChanges=ChangeBuilder.processAndroidModifications(modRes,initialList);
+  ArrayList<ChangeDescription<T>> appleChanges=ChangeBuilder.processAppleModifications(modRes,initialList);
+  requestListSwitch(dest,initialList,androidChanges,appleChanges);
 }

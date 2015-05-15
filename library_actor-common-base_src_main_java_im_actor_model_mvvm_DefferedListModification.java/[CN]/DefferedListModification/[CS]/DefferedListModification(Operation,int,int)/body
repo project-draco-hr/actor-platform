@@ -1,5 +1,0 @@
-{
-  this.operation=operation;
-  this.index=index;
-  this.len=len;
-}

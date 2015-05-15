@@ -1,0 +1,5 @@
+{
+  ArrayList<T> items=new ArrayList<T>();
+  items.add(item);
+  return add(index,items);
+}

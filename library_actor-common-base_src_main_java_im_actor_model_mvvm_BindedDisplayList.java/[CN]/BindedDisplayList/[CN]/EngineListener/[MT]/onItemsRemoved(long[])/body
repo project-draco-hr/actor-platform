@@ -1,4 +1,4 @@
 {
-  Modification<T> modification=DisplayModifications.remove(ids);
+  Modification<T> modification=Modifications.remove(ids);
   applyModification(modification);
 }

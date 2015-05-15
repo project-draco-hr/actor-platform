@@ -1,4 +1,0 @@
-T item
-ArrayList<T> sourceList
-DisplayList.ModificationResult<T> result
-boolean isAddOnly

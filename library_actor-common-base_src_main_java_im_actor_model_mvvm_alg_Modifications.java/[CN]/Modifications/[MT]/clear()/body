@@ -1,0 +1,13 @@
+{
+  return new Modification<T>(){
+    @Override public List<ChangeDescription<T>> modify(    ArrayList<T> sourceList){
+      ArrayList<ChangeDescription<T>> res=new ArrayList<ChangeDescription<T>>();
+      if (sourceList.size() != 0) {
+        sourceList.clear();
+        res.add(ChangeDescription.<T>remove(0,sourceList.size()));
+      }
+      return res;
+    }
+  }
+;
+}
