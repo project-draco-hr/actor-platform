@@ -6,6 +6,9 @@
       for (      AndroidChangeListener<T> l : displayList.androidListeners) {
         l.onCollectionChanged(new AndroidListUpdate<T>(initialList,androidChanges));
       }
+      for (      AppleChangeListener<T> l : displayList.appleListeners) {
+        l.onCollectionChanged(new AppleListUpdate<T>(appleChanges));
+      }
       for (      Listener l : displayList.listeners) {
         l.onCollectionChanged();
       }
