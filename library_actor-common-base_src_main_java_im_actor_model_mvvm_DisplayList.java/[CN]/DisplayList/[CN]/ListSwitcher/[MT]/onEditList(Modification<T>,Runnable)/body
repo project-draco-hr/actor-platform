@@ -1,11 +1,10 @@
 {
   ModificationHolder<T> holder=new ModificationHolder<T>(modification,runnable);
-  if (isLocked) {
-    pending.add(holder);
-    return;
-  }
   if (modification != null) {
-    pending.add(new ModificationHolder<T>(modification,runnable));
+    pending.add(holder);
+  }
+  if (isLocked) {
+    return;
   }
   if (pending.size() == 0) {
     return;
