@@ -1,6 +1,5 @@
 {
   View res=inflate(inflater,container,R.layout.fragment_dialogs,messenger().getDialogsGlobalList());
-  setAnimationsEnabled(false);
   FrameLayout footer=new FrameLayout(getActivity());
   footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(160)));
   ImageView shadow=new ImageView(getActivity());

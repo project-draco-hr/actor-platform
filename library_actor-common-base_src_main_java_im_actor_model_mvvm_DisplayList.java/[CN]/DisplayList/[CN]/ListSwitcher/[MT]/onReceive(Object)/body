@@ -1,9 +1,9 @@
 {
   if (message instanceof ListSwitched) {
-    onListSwitched(((ListSwitched)message).modifications);
+    onListSwitched(((ListSwitched<T>)message).modifications);
   }
  else   if (message instanceof EditList) {
-    onEditList(((EditList)message).modification,((EditList)message).executeAfter);
+    onEditList(((EditList<T>)message).modification,((EditList)message).executeAfter);
   }
  else {
     drop(message);

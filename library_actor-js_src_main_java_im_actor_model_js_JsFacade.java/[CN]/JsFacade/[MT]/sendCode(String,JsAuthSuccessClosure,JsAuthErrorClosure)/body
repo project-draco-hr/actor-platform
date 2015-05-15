@@ -6,7 +6,15 @@
         success.onResult(Enums.convert(res));
       }
       @Override public void onError(      Exception e){
-        error.onError("INTERNAL_ERROR","Internal error",false,getAuthState());
+        String tag="INTERNAL_ERROR";
+        String message="Internal error";
+        boolean canTryAgain=false;
+        if (e instanceof RpcException) {
+          tag=((RpcException)e).getTag();
+          message=e.getMessage();
+          canTryAgain=((RpcException)e).isCanTryAgain();
+        }
+        error.onError(tag,message,canTryAgain,getAuthState());
       }
     }
 );

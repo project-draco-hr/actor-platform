@@ -1,0 +1,5 @@
+{
+  ArrayList<T> res=new ArrayList<T>();
+  res.add(item);
+  return addOrUpdate(res);
+}

@@ -1,13 +1,31 @@
 {
   this.displayList=displayList;
-  setHasStableIds(true);
-  listener=new DisplayList.Listener(){
-    @Override public void onCollectionChanged(){
-      notifyDataSetChanged();
-    }
-  }
+  setHasStableIds(false);
+  listener=new DisplayList.AndroidChangeListener<V>(){
+    @Override public void onCollectionChanged(    AndroidListUpdate<V> modification){
+      currentUpdate=modification;
+      ChangeDescription<V> currentChange;
+      while ((currentChange=modification.next()) != null) {
+switch (currentChange.getOperationType()) {
+case ADD:
+          notifyItemRangeInserted(currentChange.getIndex(),currentChange.getLength());
+        break;
+case UPDATE:
+      notifyItemRangeChanged(currentChange.getIndex(),currentChange.getLength());
+    break;
+case MOVE:
+  notifyItemMoved(currentChange.getIndex(),currentChange.getDestIndex());
+break;
+case REMOVE:
+notifyItemRangeRemoved(currentChange.getIndex(),currentChange.getLength());
+break;
+}
+}
+currentUpdate=null;
+}
+}
 ;
-  if (autoConnect) {
-    resume();
-  }
+if (autoConnect) {
+resume();
+}
 }

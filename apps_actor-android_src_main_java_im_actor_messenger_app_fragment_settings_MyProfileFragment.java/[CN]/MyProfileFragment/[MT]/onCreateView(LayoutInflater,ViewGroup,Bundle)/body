@@ -106,6 +106,21 @@
     }
   }
 );
+  view.findViewById(R.id.askQuestion).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      execute(messenger().findUsers("75551234567"),R.string.progress_common,new CommandCallback<UserVM[]>(){
+        @Override public void onResult(        UserVM[] res){
+          if (res.length >= 1) {
+            startActivity(Intents.openPrivateDialog(res[0].getId(),true,getActivity()));
+          }
+        }
+        @Override public void onError(        Exception e){
+        }
+      }
+);
+    }
+  }
+);
   avatar=(CoverAvatarView)view.findViewById(R.id.avatar);
   view.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

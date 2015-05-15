@@ -1,0 +1,3 @@
+{
+  return new ChangeDescription<T>(OperationType.ADD,index,0,items.size(),new ArrayList<T>(items));
+}
