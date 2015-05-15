@@ -3,9 +3,14 @@
   Cursor cursor;
   if (centerSortKey == null) {
     cursor=database.query("\"" + tableName + "\"",new String[]{"\"LIST_ID\"","\"ID\"","\"SORT_KEY\"","\"QUERY\"","\"BYTES\""},null,null,null,null,"\"SORT_KEY\" DESC",String.valueOf(limit));
+    return loadSlice(cursor);
   }
  else {
-    cursor=database.query("\"" + tableName + "\"",new String[]{"\"ID\"","\"SORT_KEY\"","\"QUERY\"","\"BYTES\""},"\"SORT_KEY\" >= ?",new String[]{String.valueOf(centerSortKey)},null,null,"\"SORT_KEY\" ASC",String.valueOf(limit));
+    ListEngineRecord centerItem=loadItemBySortKey(centerSortKey);
+    ArrayList<ListEngineRecord> ret=new ArrayList<ListEngineRecord>();
+    ret.addAll(loadBackward(centerSortKey,limit));
+    if (centerItem != null)     ret.add(centerItem);
+    ret.addAll(loadForward(centerSortKey,limit));
+    return ret;
   }
-  return loadSlice(cursor);
 }
