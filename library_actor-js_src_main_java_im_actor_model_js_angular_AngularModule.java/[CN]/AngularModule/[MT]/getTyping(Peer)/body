@@ -22,7 +22,7 @@
         @Override public void onChanged(        int[] val,        ValueModel<int[]> valueModel){
           String typingValue=null;
           if (val.length == 1) {
-            typingValue=messenger.getFormatter().formatTyping(modules().getUsersModule().getUsersCollection().get(peer.getPeerId()).getName().get());
+            typingValue=messenger.getFormatter().formatTyping(modules().getUsersModule().getUsersCollection().get(val[0]).getName().get());
           }
  else           if (val.length > 1) {
             typingValue=messenger.getFormatter().formatTyping(val.length);
