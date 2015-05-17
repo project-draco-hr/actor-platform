@@ -3,7 +3,7 @@
   database.beginTransaction();
   try {
     for (    ListEngineRecord record : items) {
-      Object[] args=new Object[]{record.getKey(),record.getQuery(),record.getOrder(),record.getData()};
+      Object[] args=new Object[]{record.getKey(),record.getQuery().toLowerCase(),record.getOrder(),record.getData()};
       database.execSQL("REPLACE INTO \"" + tableName + "\" (\"ID\",\"QUERY\",\"SORT_KEY\",\"BYTES\") VALUES (?,?,?,?)",args);
     }
     database.setTransactionSuccessful();
