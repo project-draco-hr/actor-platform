@@ -1,7 +1,6 @@
 {
   ArrayList<User> batch=new ArrayList<User>();
   for (  im.actor.model.api.User u : updated) {
-    Log.d("UsersProcessor","UserUpdated: " + u.getId());
     User saved=users().getValue(u.getId());
     if (saved == null) {
       batch.add(EntityConverter.convert(u));

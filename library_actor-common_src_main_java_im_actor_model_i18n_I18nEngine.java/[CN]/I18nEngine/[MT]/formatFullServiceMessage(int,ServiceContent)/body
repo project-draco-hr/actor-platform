@@ -1,6 +1,6 @@
 {
   if (content instanceof ServiceUserRegistered) {
-    return getTemplate(senderId,"ServiceRegisteredFull");
+    return getTemplateNamed(senderId,"ServiceRegisteredFull");
   }
  else   if (content instanceof ServiceGroupCreated) {
     return getTemplateNamed(senderId,"ServiceGroupCreatedFull").replace("{title}",((ServiceGroupCreated)content).getGroupTitle());
