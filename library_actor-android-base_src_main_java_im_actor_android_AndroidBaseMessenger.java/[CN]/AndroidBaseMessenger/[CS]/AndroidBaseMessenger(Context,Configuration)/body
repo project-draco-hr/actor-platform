@@ -7,4 +7,10 @@
     }
   }
 );
+  context.registerReceiver(new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      onNetworkChanged();
+    }
+  }
+,new IntentFilter(android.net.ConnectivityManager.CONNECTIVITY_ACTION));
 }
