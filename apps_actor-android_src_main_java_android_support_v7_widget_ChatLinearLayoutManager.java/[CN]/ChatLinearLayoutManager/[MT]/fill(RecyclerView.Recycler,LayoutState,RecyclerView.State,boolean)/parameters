@@ -1,0 +1,4 @@
+RecyclerView.Recycler recycler
+LayoutState layoutState
+RecyclerView.State state
+boolean stopOnFocusable
