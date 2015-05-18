@@ -1,0 +1,6 @@
+{
+  Log.d(TAG,"Call started: " + callId);
+  if (callId.equals(ongoingCallId)) {
+    callModule.onCallStarted(ongoingCallKey);
+  }
+}

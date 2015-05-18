@@ -1,0 +1,3 @@
+{
+  currentCall.change(new CurrentCall(rid,uid,CallState.RINGING_INCOMING));
+}

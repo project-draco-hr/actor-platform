@@ -1,0 +1,6 @@
+{
+  super.onLoggedIn();
+  if (callModule != null) {
+    callModule.onLoggedIn();
+  }
+}

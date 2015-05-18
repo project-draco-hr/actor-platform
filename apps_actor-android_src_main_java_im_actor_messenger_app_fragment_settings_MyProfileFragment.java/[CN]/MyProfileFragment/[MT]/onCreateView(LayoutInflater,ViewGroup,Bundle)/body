@@ -68,8 +68,8 @@
                     startActivity(new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT,getString(R.string.settings_share_text).replace("{0}",phoneNumber).replace("{1}",userModel.getName().get())));
                   }
  else                   if (which == 3) {
-                    android.content.ClipboardManager clipboard=(android.content.ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                    android.content.ClipData clip=android.content.ClipData.newPlainText("Phone number",phoneNumber);
+                    ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip=ClipData.newPlainText("Phone number",phoneNumber);
                     clipboard.setPrimaryClip(clip);
                     Toast.makeText(getActivity(),R.string.toast_phone_copied,Toast.LENGTH_SHORT).show();
                   }

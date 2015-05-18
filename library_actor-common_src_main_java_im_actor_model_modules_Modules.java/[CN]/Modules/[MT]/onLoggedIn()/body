@@ -54,4 +54,5 @@
  else {
     notifications.onAppHidden();
   }
+  messenger.onLoggedIn();
 }
