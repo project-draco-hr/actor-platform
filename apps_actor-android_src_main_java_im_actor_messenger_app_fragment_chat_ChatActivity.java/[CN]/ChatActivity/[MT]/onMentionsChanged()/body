@@ -1,0 +1,8 @@
+{
+  if (mentionsDisplay.getSize() == 0) {
+    showView(mentionsEmptyView);
+  }
+ else {
+    goneView(mentionsEmptyView);
+  }
+}

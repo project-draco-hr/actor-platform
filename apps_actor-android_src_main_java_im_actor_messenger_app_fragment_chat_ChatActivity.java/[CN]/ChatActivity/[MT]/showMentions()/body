@@ -1,0 +1,31 @@
+{
+  if (isMentionsVisible) {
+    mentionsDisplay.initBottom(false);
+    return;
+  }
+  isMentionsVisible=true;
+  mentionsDisplay=messenger().buildSearchList();
+  mentionsAdapter=new SearchAdapter(this,mentionsDisplay,new OnItemClickedListener<SearchEntity>(){
+    @Override public void onClicked(    SearchEntity item){
+    }
+    @Override public boolean onLongClicked(    SearchEntity item){
+      return false;
+    }
+  }
+);
+  HeaderViewRecyclerAdapter recyclerAdapter=new HeaderViewRecyclerAdapter(mentionsAdapter);
+  View header=new View(this);
+  header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+  header.setBackgroundColor(getResources().getColor(R.color.bg_main));
+  recyclerAdapter.addHeaderView(header);
+  mentionsList.setAdapter(recyclerAdapter);
+  mentionsDisplay.addListener(new DisplayList.Listener(){
+    @Override public void onCollectionChanged(){
+      onMentionsChanged();
+    }
+  }
+);
+  mentionsDisplay.initBottom(false);
+  goneView(mentionsEmptyView,false);
+  showView(mentionsContainer);
+}
