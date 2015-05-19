@@ -72,7 +72,6 @@
         }
  else         if (mentionsAdapter != null) {
           mentionsAdapter.setQuery(mentionSearchString.trim().toLowerCase());
-          onMentionsChanged();
         }
       }
     }

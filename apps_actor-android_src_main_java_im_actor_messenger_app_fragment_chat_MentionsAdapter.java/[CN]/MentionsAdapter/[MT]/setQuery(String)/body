@@ -1,4 +1,5 @@
 {
+  int oldRowsCount=new Integer(membersToShow.length);
   if (q.isEmpty()) {
     this.membersToShow=members.toArray(new GroupMember[0]);
   }
@@ -9,5 +10,7 @@
     }
     this.membersToShow=foundMembers.toArray(new GroupMember[0]);
   }
+  int newRowsCount=new Integer(membersToShow.length);
+  updatedCallback.onMentionsUpdated(oldRowsCount,newRowsCount);
   notifyDataSetChanged();
 }

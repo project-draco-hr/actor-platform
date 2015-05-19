@@ -17,9 +17,13 @@
       return false;
     }
   }
+,new MentionsAdapter.MentionsUpdatedCallback(){
+    @Override public void onMentionsUpdated(    int oldRowsCount,    int newRowsCount){
+      onMentionsChanged(oldRowsCount,newRowsCount);
+    }
+  }
 );
   mentionsList.setAdapter(mentionsAdapter);
-  mentionsList.setStackFromBottom(true);
-  onMentionsChanged();
+  onMentionsChanged(0,mentionsAdapter.getCount());
   goneView(mentionsEmptyView,false);
 }

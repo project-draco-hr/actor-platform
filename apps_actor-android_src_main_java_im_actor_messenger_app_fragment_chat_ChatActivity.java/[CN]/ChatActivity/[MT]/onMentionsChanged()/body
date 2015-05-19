@@ -1,8 +1,0 @@
-{
-  if (mentionsAdapter != null)   if (mentionsAdapter.getCount() == 0) {
-    goneView(mentionsContainer);
-  }
- else {
-    showView(mentionsContainer);
-  }
-}

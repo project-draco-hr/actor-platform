@@ -3,7 +3,7 @@
     return;
   }
   isMentionsVisible=false;
+  expandMentions(mentionsList,mentionsAdapter.getCount(),0);
   mentionsAdapter=null;
   mentionsList.setAdapter(null);
-  goneView(mentionsContainer);
 }
