@@ -1,4 +1,0 @@
-{
-  x=Math.abs(x - 1f);
-  return (float)(6 * Math.pow(x,2) - 8 * Math.pow(x,3) + 3 * Math.pow(x,4));
-}
