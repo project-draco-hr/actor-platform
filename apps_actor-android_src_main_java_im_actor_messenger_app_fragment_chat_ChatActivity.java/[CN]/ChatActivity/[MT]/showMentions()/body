@@ -1,0 +1,29 @@
+{
+  if (isMentionsVisible) {
+    return;
+  }
+  isMentionsVisible=true;
+  GroupVM groupInfo=groups().get(peer.getPeerId());
+  mentionsAdapter=new MentionsAdapter(groupInfo.getMembers().get(),this,new OnItemClickedListener<GroupMember>(){
+    @Override public void onClicked(    GroupMember item){
+      String name=users().get(item.getUid()).getName().get();
+      if (mentionStart != -1 && mentionStart + mentionSearchString.length() <= messageBody.getText().length()) {
+        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,new String("@").concat(name)));
+        messageBody.setSelection(mentionStart + name.length() + 1);
+      }
+      hideMentions();
+    }
+    @Override public boolean onLongClicked(    GroupMember item){
+      return false;
+    }
+  }
+,new MentionsAdapter.MentionsUpdatedCallback(){
+    @Override public void onMentionsUpdated(    int oldRowsCount,    int newRowsCount){
+      onMentionsChanged(oldRowsCount,newRowsCount);
+    }
+  }
+);
+  mentionsList.setAdapter(mentionsAdapter);
+  onMentionsChanged(0,mentionsAdapter.getCount());
+  goneView(mentionsEmptyView,false);
+}

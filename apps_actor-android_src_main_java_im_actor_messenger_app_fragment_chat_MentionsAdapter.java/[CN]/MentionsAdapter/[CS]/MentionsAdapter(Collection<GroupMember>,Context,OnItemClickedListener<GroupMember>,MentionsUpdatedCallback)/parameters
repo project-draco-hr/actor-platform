@@ -1,0 +1,4 @@
+Collection<GroupMember> members
+Context context
+OnItemClickedListener<GroupMember> onItemClickedListener
+MentionsUpdatedCallback updatedCallback

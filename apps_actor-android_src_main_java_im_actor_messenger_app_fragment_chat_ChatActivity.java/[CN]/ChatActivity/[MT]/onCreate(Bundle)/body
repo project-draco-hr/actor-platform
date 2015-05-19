@@ -49,8 +49,31 @@
       if (after > count && !isTypingDisabled) {
         messenger.onTyping(peer);
       }
+      if (isMentionsVisible && after < count && s.charAt(start) == '@') {
+        hideMentions();
+      }
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+      String str=s.toString();
+      String firstPeace=str.substring(0,start + count);
+      if ((count == 1 && s.charAt(start) == '@') || (start > 0 && s.charAt(start - 1) == '@')) {
+        if (peer.getPeerType() == PeerType.GROUP)         showMentions();
+      }
+      if (s.length() != count) {
+        mentionStart=firstPeace.lastIndexOf("@");
+        if (firstPeace.contains("@") && mentionStart + 1 < firstPeace.length()) {
+          mentionSearchString=firstPeace.substring(mentionStart + 1,firstPeace.length());
+        }
+ else {
+          mentionSearchString="";
+        }
+        if (mentionSearchString.equals(" ")) {
+          hideMentions();
+        }
+ else         if (mentionsAdapter != null) {
+          mentionsAdapter.setQuery(mentionSearchString.trim().toLowerCase());
+        }
+      }
     }
     @Override public void afterTextChanged(    Editable s){
       if (s.length() > 0) {
@@ -190,4 +213,8 @@
     }
   }
 );
+  mentionsList=(ListView)findViewById(R.id.mentionsList);
+  mentionsContainer=(FrameLayout)findViewById(R.id.mentionsContainer);
+  mentionsEmptyView=(TextView)findViewById(R.id.mentionsEmpty);
+  mentionsEmptyView.setVisibility(View.GONE);
 }

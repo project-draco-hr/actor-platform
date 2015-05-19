@@ -1,0 +1,5 @@
+{
+  UserVM user=users().get(data.getUid());
+  avatarView.bind(user);
+  userName.setText(user.getName().get());
+}
