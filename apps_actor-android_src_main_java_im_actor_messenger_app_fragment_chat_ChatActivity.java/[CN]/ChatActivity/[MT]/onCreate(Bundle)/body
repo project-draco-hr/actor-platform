@@ -67,12 +67,12 @@
  else {
           mentionSearchString="";
         }
-        if (mentionsAdapter != null) {
+        if (mentionSearchString.equals(" ")) {
+          hideMentions();
+        }
+ else         if (mentionsAdapter != null) {
           mentionsAdapter.setQuery(mentionSearchString.trim().toLowerCase());
           onMentionsChanged();
-        }
- else         if (mentionSearchString.equals(" ")) {
-          hideMentions();
         }
       }
     }

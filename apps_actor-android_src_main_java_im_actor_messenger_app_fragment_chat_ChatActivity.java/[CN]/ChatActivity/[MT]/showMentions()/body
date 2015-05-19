@@ -19,6 +19,7 @@
   }
 );
   mentionsList.setAdapter(mentionsAdapter);
+  mentionsList.setStackFromBottom(true);
   onMentionsChanged();
   goneView(mentionsEmptyView,false);
 }
