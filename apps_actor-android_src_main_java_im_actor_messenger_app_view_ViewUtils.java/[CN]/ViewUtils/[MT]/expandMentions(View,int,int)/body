@@ -10,11 +10,11 @@
   Animation a=new Animation(){
     @Override protected void applyTransformation(    float interpolatedTime,    Transformation t){
       if (newRowsCount > oldRowsCount) {
-        v.getLayoutParams().height=interpolatedTime == 1 ? targetHeight : (int)(((targetHeight * interpolatedTime) - initialHeight * interpolatedTime) + initialHeight);
+        v.getLayoutParams().height=interpolatedTime == 1 ? targetHeight : (int)((targetHeight * interpolatedTime) - initialHeight * interpolatedTime + initialHeight);
         v.requestLayout();
       }
  else {
-        v.getLayoutParams().height=interpolatedTime == 1 ? targetHeight : (int)(initialHeight - (initialHeight * interpolatedTime) + targetHeight - targetHeight * Math.abs(interpolatedTime - 1f));
+        v.getLayoutParams().height=interpolatedTime == 1 ? targetHeight : (int)(initialHeight - (initialHeight * interpolatedTime) + targetHeight - targetHeight * (1f - interpolatedTime));
         v.requestLayout();
       }
     }
