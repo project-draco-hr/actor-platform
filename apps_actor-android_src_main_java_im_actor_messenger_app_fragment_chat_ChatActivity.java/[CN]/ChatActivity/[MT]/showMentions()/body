@@ -1,38 +1,24 @@
 {
   if (isMentionsVisible) {
-    mentionsDisplay.initBottom(false);
     return;
   }
   isMentionsVisible=true;
-  mentionsDisplay=messenger().buildSearchList();
-  mentionsAdapter=new SearchAdapter(this,mentionsDisplay,new OnItemClickedListener<SearchEntity>(){
-    @Override public void onClicked(    SearchEntity item){
+  GroupVM groupInfo=groups().get(peer.getPeerId());
+  mentionsAdapter=new MentionsAdapter(groupInfo.getMembers().get(),this,new OnItemClickedListener<GroupMember>(){
+    @Override public void onClicked(    GroupMember item){
+      String name=users().get(item.getUid()).getName().get();
       if (mentionStart != -1 && mentionStart + mentionSearchString.length() <= messageBody.getText().length()) {
-        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,new String("@").concat(item.getTitle())));
-        messageBody.setSelection(mentionStart + item.getTitle().length() + 1);
-      }
- else {
-        Toast.makeText(ChatActivity.this,"bug here ",Toast.LENGTH_SHORT).show();
+        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,new String("@").concat(name)));
+        messageBody.setSelection(mentionStart + name.length() + 1);
       }
       hideMentions();
     }
-    @Override public boolean onLongClicked(    SearchEntity item){
+    @Override public boolean onLongClicked(    GroupMember item){
       return false;
     }
   }
 );
-  HeaderViewRecyclerAdapter recyclerAdapter=new HeaderViewRecyclerAdapter(mentionsAdapter);
-  View header=new View(this);
-  header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
-  header.setBackgroundColor(getResources().getColor(R.color.bg_main));
-  recyclerAdapter.addHeaderView(header);
-  mentionsList.setAdapter(recyclerAdapter);
-  mentionsDisplay.addListener(new DisplayList.Listener(){
-    @Override public void onCollectionChanged(){
-      onMentionsChanged();
-    }
-  }
-);
-  mentionsDisplay.initBottom(false);
+  mentionsList.setAdapter(mentionsAdapter);
+  onMentionsChanged();
   goneView(mentionsEmptyView,false);
 }

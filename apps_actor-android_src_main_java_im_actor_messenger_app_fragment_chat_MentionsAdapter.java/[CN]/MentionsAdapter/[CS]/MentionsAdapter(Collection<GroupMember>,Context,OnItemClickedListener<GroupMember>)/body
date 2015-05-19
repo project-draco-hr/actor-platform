@@ -1,0 +1,18 @@
+{
+  super(context);
+  this.members=members;
+  this.membersToShow=members.toArray(new GroupMember[0]);
+  searchMap=new HashMap<String,GroupMember>();
+  this.onItemClickedListener=onItemClickedListener;
+  String userName;
+  for (  GroupMember m : members) {
+    userName=users().get(m.getUid()).getName().get();
+    String[] userNameSplit=userName.split("\\s+");
+    String initials="";
+    for (int i=0; i < userNameSplit.length; i++) {
+      initials+=userNameSplit[i].charAt(0);
+    }
+    searchMap.put(initials.toLowerCase(),m);
+    searchMap.put(userName.toLowerCase(),m);
+  }
+}

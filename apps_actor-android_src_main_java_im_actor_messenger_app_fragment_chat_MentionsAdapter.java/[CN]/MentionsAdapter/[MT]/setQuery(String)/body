@@ -1,0 +1,13 @@
+{
+  if (q.isEmpty()) {
+    this.membersToShow=members.toArray(new GroupMember[0]);
+  }
+ else {
+    HashSet<GroupMember> foundMembers=new HashSet<GroupMember>();
+    for (    String s : searchMap.keySet()) {
+      if (s.startsWith(q))       foundMembers.add(searchMap.get(s));
+    }
+    this.membersToShow=foundMembers.toArray(new GroupMember[0]);
+  }
+  notifyDataSetChanged();
+}

@@ -3,10 +3,6 @@
     return;
   }
   isMentionsVisible=false;
-  if (mentionsDisplay != null) {
-    mentionsDisplay.dispose();
-    mentionsDisplay=null;
-  }
   mentionsAdapter=null;
   mentionsList.setAdapter(null);
   goneView(mentionsContainer);

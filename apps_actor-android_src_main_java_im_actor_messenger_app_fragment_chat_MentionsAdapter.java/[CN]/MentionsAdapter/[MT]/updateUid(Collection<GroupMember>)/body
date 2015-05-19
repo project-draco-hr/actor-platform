@@ -1,0 +1,4 @@
+{
+  this.membersToShow=members.toArray(new GroupMember[0]);
+  notifyDataSetChanged();
+}

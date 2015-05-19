@@ -57,7 +57,7 @@
       String str=s.toString();
       String firstPeace=str.substring(0,start + count);
       if ((count == 1 && s.charAt(start) == '@') || (start > 0 && s.charAt(start - 1) == '@')) {
-        showMentions();
+        if (peer.getPeerType() == PeerType.GROUP)         showMentions();
       }
       if (s.length() != count) {
         mentionStart=firstPeace.lastIndexOf("@");
@@ -67,9 +67,9 @@
  else {
           mentionSearchString="";
         }
-        if (mentionsDisplay != null && !mentionSearchString.trim().isEmpty()) {
-          mentionsDisplay.initSearch(mentionSearchString,false);
+        if (mentionsAdapter != null) {
           mentionsAdapter.setQuery(mentionSearchString.trim().toLowerCase());
+          onMentionsChanged();
         }
  else         if (mentionSearchString.equals(" ")) {
           hideMentions();
@@ -214,9 +214,8 @@
     }
   }
 );
-  mentionsList=(RecyclerView)findViewById(R.id.mentionsList);
+  mentionsList=(ListView)findViewById(R.id.mentionsList);
   mentionsContainer=(FrameLayout)findViewById(R.id.mentionsContainer);
   mentionsEmptyView=(TextView)findViewById(R.id.mentionsEmpty);
   mentionsEmptyView.setVisibility(View.GONE);
-  mentionsList.setLayoutManager(new CustomLinearLayoutManager(this));
 }

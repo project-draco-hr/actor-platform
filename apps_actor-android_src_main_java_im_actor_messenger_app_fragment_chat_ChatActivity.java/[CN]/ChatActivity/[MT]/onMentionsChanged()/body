@@ -1,5 +1,5 @@
 {
-  if (mentionsDisplay != null)   if (mentionsDisplay.getSize() == 0) {
+  if (mentionsAdapter != null)   if (mentionsAdapter.getCount() == 0) {
     goneView(mentionsContainer);
   }
  else {
