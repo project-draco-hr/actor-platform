@@ -1,5 +1,8 @@
 {
   Log.d(TAG,"Call connected: " + callId);
+  if (callId.equals(ongoingCallId)) {
+    callModule.onCallStarted(ongoingCallKey);
+  }
   if (callId.equals(pendingCallId)) {
     callStarted();
   }

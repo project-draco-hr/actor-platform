@@ -3,4 +3,7 @@
   if (callId.equals(pendingCallId)) {
     cancelPending();
   }
+  if (callId.equals(ongoingCallId)) {
+    cancelOngoing();
+  }
 }
