@@ -1,8 +1,8 @@
 {
-  if (mentionsDisplay.getSize() == 0) {
-    showView(mentionsEmptyView);
+  if (mentionsDisplay != null)   if (mentionsDisplay.getSize() == 0) {
+    goneView(mentionsContainer);
   }
  else {
-    goneView(mentionsEmptyView);
+    showView(mentionsContainer);
   }
 }

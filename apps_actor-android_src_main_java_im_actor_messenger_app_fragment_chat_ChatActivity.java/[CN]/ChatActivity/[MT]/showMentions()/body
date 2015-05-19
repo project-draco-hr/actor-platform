@@ -7,6 +7,14 @@
   mentionsDisplay=messenger().buildSearchList();
   mentionsAdapter=new SearchAdapter(this,mentionsDisplay,new OnItemClickedListener<SearchEntity>(){
     @Override public void onClicked(    SearchEntity item){
+      if (mentionStart != -1 && mentionStart + mentionSearchString.length() <= messageBody.getText().length()) {
+        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,new String("@").concat(item.getTitle())));
+        messageBody.setSelection(mentionStart + item.getTitle().length() + 1);
+      }
+ else {
+        Toast.makeText(ChatActivity.this,"bug here ",Toast.LENGTH_SHORT).show();
+      }
+      hideMentions();
     }
     @Override public boolean onLongClicked(    SearchEntity item){
       return false;
@@ -27,5 +35,4 @@
 );
   mentionsDisplay.initBottom(false);
   goneView(mentionsEmptyView,false);
-  showView(mentionsContainer);
 }
