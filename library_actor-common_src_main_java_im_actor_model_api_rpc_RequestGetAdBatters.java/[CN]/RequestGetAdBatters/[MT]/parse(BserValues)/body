@@ -1,0 +1,5 @@
+{
+  this.maxBannerWidth=values.getInt(1);
+  this.maxBannerHeight=values.getInt(2);
+  this.screenDensity=values.getDouble(3);
+}

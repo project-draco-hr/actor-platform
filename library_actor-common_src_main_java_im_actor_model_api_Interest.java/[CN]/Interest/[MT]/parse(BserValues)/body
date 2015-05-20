@@ -1,0 +1,10 @@
+{
+  this.id=values.getInt(1);
+  this.title=values.getString(2);
+  this.isSelected=values.getBool(4);
+  List<Interest> _childInterests=new ArrayList<Interest>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _childInterests.add(new Interest());
+  }
+  this.childInterests=values.getRepeatedObj(3,_childInterests);
+}

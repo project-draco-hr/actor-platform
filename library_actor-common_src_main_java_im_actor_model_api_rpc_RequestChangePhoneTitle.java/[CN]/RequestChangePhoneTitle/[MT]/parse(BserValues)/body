@@ -1,4 +1,0 @@
-{
-  this.phoneId=values.getInt(1);
-  this.title=values.getString(2);
-}

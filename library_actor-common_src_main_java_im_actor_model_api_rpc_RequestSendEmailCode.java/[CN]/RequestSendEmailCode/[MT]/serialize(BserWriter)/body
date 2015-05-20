@@ -1,9 +1,0 @@
-{
-  if (this.email == null) {
-    throw new IOException();
-  }
-  writer.writeString(1,this.email);
-  if (this.description != null) {
-    writer.writeString(2,this.description);
-  }
-}

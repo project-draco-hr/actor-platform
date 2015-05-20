@@ -3,6 +3,7 @@
     throw new IOException();
   }
   writer.writeString(1,this.text);
+  writer.writeRepeatedInt(2,this.mentions);
   if (this.ext != null) {
     writer.writeBytes(3,this.ext.buildContainer());
   }
