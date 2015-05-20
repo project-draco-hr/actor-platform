@@ -44,6 +44,7 @@
     getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
   }
   messageBody=(EditText)findViewById(R.id.et_message);
+  messageBody.setMovementMethod(LinkMovementMethod.getInstance());
   messageBody.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
       if (after > count && !isTypingDisabled) {

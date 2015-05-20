@@ -8,8 +8,9 @@
     @Override public void onClicked(    GroupMember item){
       String name=users().get(item.getUid()).getName().get();
       if (mentionStart != -1 && mentionStart + mentionSearchString.length() <= messageBody.getText().length()) {
-        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,new String("@").concat(name).concat(new String(" "))));
-        messageBody.setSelection(mentionStart + name.length() + 2);
+        String mention=new String("@").concat(name).concat(" ");
+        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,mention));
+        messageBody.setSelection(mentionStart + mention.length());
       }
       hideMentions();
     }
