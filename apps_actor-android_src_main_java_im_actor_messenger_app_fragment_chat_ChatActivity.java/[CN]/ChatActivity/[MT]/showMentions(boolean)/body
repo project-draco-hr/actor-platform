@@ -22,7 +22,7 @@
       onMentionsChanged(oldRowsCount,newRowsCount);
     }
   }
-);
+,initEmpty);
   mentionsList.setAdapter(mentionsAdapter);
-  onMentionsChanged(0,mentionsAdapter.getCount());
+  expandMentions(mentionsList,0,mentionsList.getCount());
 }
