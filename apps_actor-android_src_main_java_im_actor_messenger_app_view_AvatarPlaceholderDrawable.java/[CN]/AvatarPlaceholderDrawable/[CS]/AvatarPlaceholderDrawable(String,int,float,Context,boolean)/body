@@ -1,4 +1,5 @@
 {
+  this.forceNewTextSize=forceNewTextSize;
   if (title == null) {
     title="";
   }
@@ -20,6 +21,12 @@
     TEXT_PAINT.setTypeface(Fonts.regular());
     TEXT_PAINT.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,fontSize,context.getResources().getDisplayMetrics()));
     TEXT_PAINT.setColor(Color.WHITE);
+  }
+  if (forceNewTextSize) {
+    if (FORCED_SIZE_TEXT_PAINT == null) {
+      FORCED_SIZE_TEXT_PAINT=new TextPaint(TEXT_PAINT);
+    }
+    FORCED_SIZE_TEXT_PAINT.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,fontSize,context.getResources().getDisplayMetrics()));
   }
   if (id == 0) {
     this.color=context.getResources().getColor(R.color.placeholder_empty);

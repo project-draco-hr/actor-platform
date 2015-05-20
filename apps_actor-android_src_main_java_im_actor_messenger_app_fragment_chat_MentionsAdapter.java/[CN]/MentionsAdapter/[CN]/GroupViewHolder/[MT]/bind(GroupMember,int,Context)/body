@@ -1,5 +1,6 @@
 {
   UserVM user=users().get(data.getUid());
-  avatarView.bind(user);
+  groupMember=data;
+  avatarView.bind(user,true);
   userName.setText(user.getName().get());
 }

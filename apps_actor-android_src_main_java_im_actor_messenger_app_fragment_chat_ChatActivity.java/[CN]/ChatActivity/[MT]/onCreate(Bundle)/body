@@ -71,7 +71,7 @@
           hideMentions();
         }
  else         if (mentionsAdapter != null) {
-          mentionsAdapter.setQuery(mentionSearchString.trim().toLowerCase());
+          mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
         }
       }
     }
@@ -214,7 +214,4 @@
   }
 );
   mentionsList=(ListView)findViewById(R.id.mentionsList);
-  mentionsContainer=(FrameLayout)findViewById(R.id.mentionsContainer);
-  mentionsEmptyView=(TextView)findViewById(R.id.mentionsEmpty);
-  mentionsEmptyView.setVisibility(View.GONE);
 }

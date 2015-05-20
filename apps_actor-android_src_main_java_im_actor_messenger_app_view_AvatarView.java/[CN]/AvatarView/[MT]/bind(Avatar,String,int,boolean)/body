@@ -1,5 +1,5 @@
 {
-  getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext()));
+  getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext(),forceNewTextSize));
   if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == id) {
     return;
   }
