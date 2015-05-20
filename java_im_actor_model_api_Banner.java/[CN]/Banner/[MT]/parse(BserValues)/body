@@ -1,0 +1,8 @@
+{
+  this.id=values.getInt(1);
+  this.width=values.getInt(2);
+  this.height=values.getInt(3);
+  this.bannerUrl=values.getString(4);
+  this.adUrl=values.getString(5);
+  this.adCost=values.getInt(6);
+}

@@ -1,0 +1,7 @@
+{
+  List<Banner> _banners=new ArrayList<Banner>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _banners.add(new Banner());
+  }
+  this.banners=values.getRepeatedObj(1,_banners);
+}

@@ -1,0 +1,5 @@
+{
+  this.maxBannerWidth=maxBannerWidth;
+  this.maxBannerHeight=maxBannerHeight;
+  this.screenDensity=screenDensity;
+}

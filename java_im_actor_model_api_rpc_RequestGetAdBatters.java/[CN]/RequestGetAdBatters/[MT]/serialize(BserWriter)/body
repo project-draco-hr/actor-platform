@@ -1,0 +1,5 @@
+{
+  writer.writeInt(1,this.maxBannerWidth);
+  writer.writeInt(2,this.maxBannerHeight);
+  writer.writeDouble(3,this.screenDensity);
+}
