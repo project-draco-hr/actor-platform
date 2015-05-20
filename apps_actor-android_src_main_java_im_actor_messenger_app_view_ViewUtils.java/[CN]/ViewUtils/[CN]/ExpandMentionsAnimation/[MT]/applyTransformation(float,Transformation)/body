@@ -1,0 +1,10 @@
+{
+  if (targetHeight > initialHeight) {
+    currentHeight=(int)((targetHeight * interpolatedTime) - initialHeight * interpolatedTime + initialHeight);
+  }
+ else {
+    currentHeight=(int)(initialHeight - (initialHeight * interpolatedTime) - targetHeight * (1f - interpolatedTime) + targetHeight);
+  }
+  v.getLayoutParams().height=currentHeight;
+  v.requestLayout();
+}

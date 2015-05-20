@@ -49,9 +49,6 @@
       if (after > count && !isTypingDisabled) {
         messenger.onTyping(peer);
       }
-      if (isMentionsVisible && after < count && s.charAt(start) == '@') {
-        hideMentions();
-      }
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       String str=s.toString();
@@ -62,6 +59,9 @@
         }
  else         if (firstPeace.contains("@")) {
           showMentions(true);
+        }
+ else {
+          hideMentions();
         }
         if (s.length() != count) {
           mentionStart=firstPeace.lastIndexOf("@");
