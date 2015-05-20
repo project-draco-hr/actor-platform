@@ -4,10 +4,9 @@
   res+=", name=" + this.name;
   res+=", localName=" + this.localName;
   res+=", sex=" + this.sex;
-  res+=", keyHashes=" + this.keyHashes.size();
   res+=", avatar=" + (this.avatar != null ? "set" : "empty");
-  res+=", phones=" + this.phones.size();
-  res+=", emails=" + this.emails.size();
+  res+=", contactInfo=" + this.contactInfo.size();
+  res+=", isBot=" + this.isBot;
   res+="}";
   return res;
 }

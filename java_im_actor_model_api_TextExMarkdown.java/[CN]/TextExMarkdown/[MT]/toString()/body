@@ -1,0 +1,6 @@
+{
+  String res="struct TextExMarkdown{";
+  res+="markdown=" + this.markdown;
+  res+="}";
+  return res;
+}

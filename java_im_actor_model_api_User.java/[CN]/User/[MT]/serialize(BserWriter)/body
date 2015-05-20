@@ -11,11 +11,11 @@
   if (this.sex != null) {
     writer.writeInt(5,this.sex.getValue());
   }
-  writer.writeRepeatedLong(6,this.keyHashes);
-  writer.writeLong(7,this.phone);
   if (this.avatar != null) {
     writer.writeObject(8,this.avatar);
   }
-  writer.writeRepeatedInt(9,this.phones);
-  writer.writeRepeatedInt(10,this.emails);
+  writer.writeRepeatedObj(12,this.contactInfo);
+  if (this.isBot != null) {
+    writer.writeBool(11,this.isBot);
+  }
 }

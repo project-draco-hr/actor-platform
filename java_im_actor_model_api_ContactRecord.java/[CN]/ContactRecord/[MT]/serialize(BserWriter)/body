@@ -1,0 +1,18 @@
+{
+  if (this.type == null) {
+    throw new IOException();
+  }
+  writer.writeInt(1,this.type.getValue());
+  if (this.stringValue != null) {
+    writer.writeString(2,this.stringValue);
+  }
+  if (this.longValue != null) {
+    writer.writeLong(3,this.longValue);
+  }
+  if (this.title != null) {
+    writer.writeString(4,this.title);
+  }
+  if (this.subtitle != null) {
+    writer.writeString(5,this.subtitle);
+  }
+}

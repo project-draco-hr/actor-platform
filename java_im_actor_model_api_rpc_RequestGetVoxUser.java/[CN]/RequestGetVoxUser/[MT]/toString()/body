@@ -1,0 +1,6 @@
+{
+  String res="rpc GetVoxUser{";
+  res+="userPeer=" + this.userPeer;
+  res+="}";
+  return res;
+}

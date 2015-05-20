@@ -1,4 +1,0 @@
-{
-  writer.writeInt(1,this.emailId);
-  writer.writeInt(2,this.uid);
-}

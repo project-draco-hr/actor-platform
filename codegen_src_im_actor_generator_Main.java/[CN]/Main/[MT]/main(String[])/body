@@ -7,8 +7,6 @@
   System.out.println("Reading schema from file...");
   String workingDir=new File(args[0]).getParent();
   SchemeDefinition definition=SchemeFactory.fromFile(args[0]);
-  System.out.println("Generating protobuf file...");
-  ProtoBufGenerator.generate(definition,workingDir + "/actor.proto");
   System.out.println("Generating java files...");
   String destJava=workingDir + "/java/";
   FileUtils.forceDelete(new File(destJava));
@@ -20,5 +18,6 @@
   RequestGenerator.generate(definition,destJava);
   RequestGenerator.generateParser(definition,destJava);
   UpdateBoxGenerator.generate(definition,destJava);
+  MetaGenerator.generate(definition,destJava);
   System.out.println("Success");
 }

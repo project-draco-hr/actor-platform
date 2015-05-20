@@ -1,0 +1,6 @@
+{
+  if (this.markdown == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.markdown);
+}
