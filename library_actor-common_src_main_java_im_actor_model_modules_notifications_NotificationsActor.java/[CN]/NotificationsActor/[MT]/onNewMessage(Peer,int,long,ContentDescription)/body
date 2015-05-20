@@ -1,4 +1,7 @@
 {
+  if (date <= modules().getMessagesModule().loadReadState(peer)) {
+    return;
+  }
   boolean isPeerEnabled=modules().getSettings().isNotificationsEnabled(peer);
   boolean isEnabled=modules().getSettings().isNotificationsEnabled() && isPeerEnabled;
   List<PendingNotification> allPending=getNotifications();
