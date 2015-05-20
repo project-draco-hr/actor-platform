@@ -1,3 +1,8 @@
 {
-  if (mentionsAdapter != null)   expandMentions(mentionsList,oldRowsCount,newRowsCount);
+  if (mentionsAdapter != null)   if (newRowsCount == 1 && !isEarse) {
+    mentionsAdapter.getView(0,null,null).callOnClick();
+  }
+ else {
+    expandMentions(mentionsList,oldRowsCount,newRowsCount);
+  }
 }

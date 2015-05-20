@@ -49,6 +49,7 @@
       if (after > count && !isTypingDisabled) {
         messenger.onTyping(peer);
       }
+      isEarse=after < count;
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       String str=s.toString();
