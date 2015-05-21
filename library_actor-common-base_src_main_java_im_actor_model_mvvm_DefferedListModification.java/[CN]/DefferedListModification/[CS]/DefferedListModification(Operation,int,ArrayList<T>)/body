@@ -1,6 +1,0 @@
-{
-  this.operation=operation;
-  this.index=index;
-  this.items=items;
-  this.len=items.size();
-}

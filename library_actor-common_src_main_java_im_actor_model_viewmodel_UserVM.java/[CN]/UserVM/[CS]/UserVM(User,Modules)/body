@@ -3,6 +3,7 @@
   id=user.getUid();
   hash=user.getAccessHash();
   sex=user.getSex();
+  isBot=user.isBot();
   name=new ValueModel<String>("user." + id + ".name",user.getName());
   avatar=new ValueModel<Avatar>("user." + id + ".avatar",user.getAvatar());
   isContact=new ValueModel<Boolean>("user." + id + ".contact",modules.getContactsModule().isUserContact(id));

@@ -67,9 +67,15 @@
     return;
   }
   if (!isValidSeq(seq)) {
-    Log.w(TAG,"Out of sequence: starting timer for invalidation");
     further.put(seq,u);
-    self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+    if (isTimerStarted) {
+      Log.w(TAG,"Out of sequence: timer already started");
+    }
+ else {
+      Log.w(TAG,"Out of sequence: starting timer for invalidation");
+      self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+      isTimerStarted=true;
+    }
     return;
   }
   Update update;
@@ -102,5 +108,6 @@
   preferences().putBytes(KEY_STATE,state);
   checkRunnables();
   checkFuture();
+  isTimerStarted=false;
   self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
 }

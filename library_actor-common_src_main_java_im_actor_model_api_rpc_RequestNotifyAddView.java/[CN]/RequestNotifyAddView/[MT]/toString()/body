@@ -1,0 +1,7 @@
+{
+  String res="rpc NotifyAddView{";
+  res+="bannerId=" + this.bannerId;
+  res+=", viewDuration=" + this.viewDuration;
+  res+="}";
+  return res;
+}

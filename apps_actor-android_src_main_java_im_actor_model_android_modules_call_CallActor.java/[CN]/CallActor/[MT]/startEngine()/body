@@ -1,0 +1,7 @@
+{
+  if (isStarted) {
+    return;
+  }
+  isStarted=true;
+  self().send(new TryConnect());
+}

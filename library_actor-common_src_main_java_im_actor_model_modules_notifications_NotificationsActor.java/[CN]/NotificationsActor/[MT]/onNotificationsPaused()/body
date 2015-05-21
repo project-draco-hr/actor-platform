@@ -1,0 +1,4 @@
+{
+  notificationsDuringPause.clear();
+  isNotificationsPaused=true;
+}

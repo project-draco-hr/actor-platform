@@ -1,3 +1,6 @@
 {
-  return new Group(groupId,accessHash,title,avatar,members,adminId,isMember);
+  im.actor.model.api.Group w=getWrapped();
+  im.actor.model.api.Group res=new im.actor.model.api.Group(w.getId(),w.getAccessHash(),title,w.getAvatar(),w.isMember(),w.getCreatorUid(),w.getMembers(),w.getCreateDate());
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return new Group(res);
 }

@@ -1,0 +1,6 @@
+{
+  this.id=id;
+  this.title=title;
+  this.isSelected=isSelected;
+  this.childInterests=childInterests;
+}

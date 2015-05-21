@@ -20,7 +20,7 @@
         if (LOG) {
           Log.d(TAG,"Upload completed...");
         }
-        FileReference location=EntityConverter.convert(response.getUploadedFileLocation(),fileName,srcReference.getSize());
+        FileReference location=new FileReference(response.getUploadedFileLocation(),fileName,srcReference.getSize());
         if (isWriteToDestProvider) {
           FileSystemReference reference=config().getFileSystemProvider().commitTempFile(destReference,location);
           reportComplete(location,reference);

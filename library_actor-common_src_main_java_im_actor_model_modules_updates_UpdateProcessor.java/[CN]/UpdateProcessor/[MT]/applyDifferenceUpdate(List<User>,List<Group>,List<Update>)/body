@@ -1,0 +1,9 @@
+{
+  modules().getNotifications().pauseNotifications();
+  applyRelated(users,groups,false);
+  for (  Update u : updates) {
+    processUpdate(u);
+  }
+  applyRelated(users,groups,true);
+  modules().getNotifications().resumeNotifications();
+}

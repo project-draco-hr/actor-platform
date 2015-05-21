@@ -25,6 +25,12 @@
  else   if (message instanceof OnDialogsHidden) {
     onDialogsHidden();
   }
+ else   if (message instanceof PauseNotifications) {
+    onNotificationsPaused();
+  }
+ else   if (message instanceof ResumeNotifications) {
+    onNotificationsResumed();
+  }
  else {
     drop(message);
   }

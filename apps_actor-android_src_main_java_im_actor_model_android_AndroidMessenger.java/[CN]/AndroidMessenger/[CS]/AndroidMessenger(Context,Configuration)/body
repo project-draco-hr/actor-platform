@@ -1,4 +1,8 @@
 {
   super(context,configuration);
   pushModule=new PushModule(context,modules);
+  callModule=new CallModule(modules);
+  if (isLoggedIn()) {
+    callModule.onLoggedIn();
+  }
 }

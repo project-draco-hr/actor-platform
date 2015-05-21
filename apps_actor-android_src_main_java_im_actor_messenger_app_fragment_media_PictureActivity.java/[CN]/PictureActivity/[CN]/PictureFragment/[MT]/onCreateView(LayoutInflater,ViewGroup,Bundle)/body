@@ -43,7 +43,7 @@
   if (path == null) {
     messenger().requestState(fileId,new FileCallback(){
       @Override public void onNotDownloaded(){
-        final FileReference location=new FileReference(fileId,accessHash,fileSize,fileName);
+        final FileReference location=new FileReference(new FileLocation(fileId,accessHash),fileName,fileSize);
         messenger().bindFile(location,true,new FileVMCallback(){
           @Override public void onNotDownloaded(){
             messenger().startDownloading(location);

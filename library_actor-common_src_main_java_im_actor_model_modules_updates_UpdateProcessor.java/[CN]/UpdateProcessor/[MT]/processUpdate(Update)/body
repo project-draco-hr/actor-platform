@@ -77,7 +77,7 @@
   }
  else   if (update instanceof UpdateGroupAvatarChanged) {
     UpdateGroupAvatarChanged avatarChanged=(UpdateGroupAvatarChanged)update;
-    groupsProcessor.onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getRid(),avatarChanged.getUid(),EntityConverter.convert(avatarChanged.getAvatar()),avatarChanged.getDate(),false);
+    groupsProcessor.onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getRid(),avatarChanged.getUid(),avatarChanged.getAvatar(),avatarChanged.getDate(),false);
   }
  else   if (update instanceof UpdateGroupInvite) {
     UpdateGroupInvite groupInvite=(UpdateGroupInvite)update;

@@ -20,4 +20,7 @@
  else   if (message instanceof ProtoUpdate) {
     processUpdate(((ProtoUpdate)message).getData());
   }
+ else   if (message instanceof NetworkChanged) {
+    onNetworkChanged();
+  }
 }

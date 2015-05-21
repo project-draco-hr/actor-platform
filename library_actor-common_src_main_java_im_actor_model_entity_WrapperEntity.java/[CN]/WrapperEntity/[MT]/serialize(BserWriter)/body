@@ -1,0 +1,5 @@
+{
+  if (wrapped != null) {
+    writer.writeBytes(recordField,wrapped.toByteArray());
+  }
+}

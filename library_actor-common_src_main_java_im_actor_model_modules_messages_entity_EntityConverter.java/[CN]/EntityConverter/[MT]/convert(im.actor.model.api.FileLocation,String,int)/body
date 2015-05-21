@@ -1,3 +1,0 @@
-{
-  return new FileReference(location.getFileId(),location.getAccessHash(),size,fileName);
-}

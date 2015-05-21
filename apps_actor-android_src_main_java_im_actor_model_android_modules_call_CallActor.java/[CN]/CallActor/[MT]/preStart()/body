@@ -1,0 +1,6 @@
+{
+  super.preStart();
+  voxImplantClient=VoxImplantClient.instance();
+  voxImplantClient.setAndroidContext(AppContext.getContext());
+  voxImplantClient.setCallback(callback);
+}

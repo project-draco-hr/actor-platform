@@ -1,7 +1,0 @@
-{
-  String res="rpc ChangePhoneTitle{";
-  res+="phoneId=" + this.phoneId;
-  res+=", title=" + this.title;
-  res+="}";
-  return res;
-}

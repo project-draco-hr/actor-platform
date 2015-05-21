@@ -1,0 +1,7 @@
+{
+  this.operationType=operationType;
+  this.index=index;
+  this.destIndex=destIndex;
+  this.length=length;
+  this.item=item;
+}

@@ -1,6 +1,6 @@
 {
-  if (currentChange != null) {
-    return currentChange.getCount();
+  if (currentUpdate != null) {
+    return currentUpdate.getSize();
   }
   return displayList.getSize();
 }

@@ -1,4 +1,4 @@
 {
-  Modification<T> modification=DisplayModifications.replace(items);
+  Modification<T> modification=Modifications.replace(items);
   applyModification(modification);
 }

@@ -1,3 +1,4 @@
 {
   this.visiblePeer=peer;
+  performNotification(true);
 }

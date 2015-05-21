@@ -1,0 +1,17 @@
+{
+  this.groupId=wrapped.getId();
+  this.accessHash=wrapped.getAccessHash();
+  this.title=wrapped.getTitle();
+  if (wrapped.getAvatar() != null) {
+    this.avatar=new Avatar(wrapped.getAvatar());
+  }
+ else {
+    avatar=new Avatar();
+  }
+  this.adminId=wrapped.getCreatorUid();
+  this.members=new ArrayList<GroupMember>();
+  for (  Member m : wrapped.getMembers()) {
+    this.members.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate(),m.getUid() == this.adminId));
+  }
+  this.isMember=wrapped.isMember();
+}

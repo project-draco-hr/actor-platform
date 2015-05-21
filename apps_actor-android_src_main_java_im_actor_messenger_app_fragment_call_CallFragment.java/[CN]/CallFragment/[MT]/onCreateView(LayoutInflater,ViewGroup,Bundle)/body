@@ -1,0 +1,23 @@
+{
+  View res=inflater.inflate(R.layout.fragment_call,container,false);
+  textView=(TextView)res.findViewById(R.id.phoneState);
+  res.findViewById(R.id.cancelCall).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      CurrentCall currentCall=messenger().getCurrentCall().get();
+      if (currentCall != null) {
+        messenger().endCall(currentCall.getRid());
+      }
+    }
+  }
+);
+  res.findViewById(R.id.answerCall).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      CurrentCall currentCall=messenger().getCurrentCall().get();
+      if (currentCall != null) {
+        messenger().answerCall(currentCall.getRid());
+      }
+    }
+  }
+);
+  return res;
+}

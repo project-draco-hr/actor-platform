@@ -1,0 +1,11 @@
+{
+  String res="struct Banner{";
+  res+="id=" + this.id;
+  res+=", width=" + this.width;
+  res+=", height=" + this.height;
+  res+=", bannerUrl=" + this.bannerUrl;
+  res+=", adUrl=" + this.adUrl;
+  res+=", adCost=" + this.adCost;
+  res+="}";
+  return res;
+}

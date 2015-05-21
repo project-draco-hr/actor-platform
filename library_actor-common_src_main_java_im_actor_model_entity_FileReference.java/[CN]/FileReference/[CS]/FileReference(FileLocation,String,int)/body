@@ -1,0 +1,5 @@
+{
+  super(RECORD_ID,fileLocation);
+  this.fileSize=fileSize;
+  this.fileName=fileName;
+}

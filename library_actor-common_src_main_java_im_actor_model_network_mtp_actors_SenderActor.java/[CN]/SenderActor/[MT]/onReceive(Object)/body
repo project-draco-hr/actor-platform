@@ -41,14 +41,6 @@
     if (confirm.size() == 0) {
       return;
     }
-    String acks="";
-    for (    Long l : confirm) {
-      if (acks.length() != 0) {
-        acks+=",";
-      }
-      acks+="#" + l;
-    }
-    Log.d(TAG,"Sending acks " + acks);
     MessageAck messageAck=buildAck();
     confirm.clear();
     doSend(new ProtoMessage(MTUids.nextId(),messageAck.toByteArray()));

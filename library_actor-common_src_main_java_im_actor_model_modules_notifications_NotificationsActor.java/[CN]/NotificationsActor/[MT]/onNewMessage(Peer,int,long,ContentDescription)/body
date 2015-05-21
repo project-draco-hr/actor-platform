@@ -1,12 +1,17 @@
 {
-  if (date <= modules().getMessagesModule().loadReadState(peer)) {
-    return;
-  }
   boolean isPeerEnabled=modules().getSettings().isNotificationsEnabled(peer);
   boolean isEnabled=modules().getSettings().isNotificationsEnabled() && isPeerEnabled;
-  List<PendingNotification> allPending=getNotifications();
-  allPending.add(new PendingNotification(peer,sender,date,description));
-  saveStorage();
+  if (isEnabled) {
+    List<PendingNotification> allPending=getNotifications();
+    allPending.add(new PendingNotification(peer,sender,date,description));
+    saveStorage();
+  }
+  if (isNotificationsPaused) {
+    if (isEnabled) {
+      notificationsDuringPause.add(peer);
+    }
+    return;
+  }
   if (config().getNotificationProvider() != null) {
     if (isAppVisible) {
       if (visiblePeer != null && visiblePeer.equals(peer)) {

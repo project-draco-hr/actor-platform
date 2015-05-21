@@ -1,4 +1,0 @@
-{
-  this.email=values.getInt(1);
-  this.accessHash=values.getLong(2);
-}

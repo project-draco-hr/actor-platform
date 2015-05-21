@@ -1,0 +1,8 @@
+{
+  this.id=id;
+  this.width=width;
+  this.height=height;
+  this.bannerUrl=bannerUrl;
+  this.adUrl=adUrl;
+  this.adCost=adCost;
+}

@@ -5,5 +5,6 @@
   if (value.length > Limits.MAX_BLOCK_SIZE) {
     throw new IllegalArgumentException("Unable to write more than 1 MB");
   }
+  writtenFields.put(fieldNumber,true);
   writeBytesField(fieldNumber,value);
 }

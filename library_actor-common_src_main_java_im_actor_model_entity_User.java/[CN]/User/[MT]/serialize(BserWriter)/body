@@ -1,13 +1,4 @@
 {
-  writer.writeInt(1,uid);
-  writer.writeLong(2,accessHash);
-  writer.writeString(3,name);
-  if (localName != null) {
-    writer.writeString(4,localName);
-  }
-  if (avatar != null) {
-    writer.writeObject(5,avatar);
-  }
-  writer.writeInt(6,sex.getValue());
-  writer.writeRepeatedObj(7,records);
+  writer.writeBool(8,true);
+  super.serialize(writer);
 }

@@ -1,3 +1,6 @@
 {
   this.avatar=values.optObj(1,new Avatar());
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

@@ -1,0 +1,6 @@
+int seq
+byte[] state
+List<User> users
+List<Group> groups
+List<DifferenceUpdate> updates
+boolean needMore
