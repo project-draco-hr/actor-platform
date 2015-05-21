@@ -1,6 +1,0 @@
-{
-  if (avatarImage == null) {
-    return null;
-  }
-  return new AvatarImage(avatarImage);
-}

@@ -3,10 +3,10 @@
   for (  im.actor.model.api.User u : updated) {
     User saved=users().getValue(u.getId());
     if (saved == null) {
-      batch.add(EntityConverter.convert(u));
+      batch.add(new User(u));
     }
  else     if (forced) {
-      User upd=EntityConverter.convert(u);
+      User upd=new User(u);
       batch.add(upd);
       if (!upd.getName().equals(saved.getName()) || !equalsE(upd.getAvatar(),saved.getAvatar())) {
         onUserDescChanged(upd);
