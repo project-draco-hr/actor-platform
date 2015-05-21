@@ -1,8 +1,5 @@
 {
-  if (isMentionsVisible) {
-    hideMentions();
-  }
- else   if (emojiKeyboard.isShowing()) {
+  if (emojiKeyboard.isShowing()) {
     emojiKeyboard.dismiss();
   }
  else {
