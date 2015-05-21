@@ -1,11 +1,4 @@
 {
-  writer.writeInt(1,groupId);
-  writer.writeLong(2,accessHash);
-  writer.writeString(3,title);
-  if (avatar != null) {
-    writer.writeObject(4,avatar);
-  }
-  writer.writeInt(5,adminId);
-  writer.writeRepeatedObj(6,members);
-  writer.writeBool(7,isMember);
+  writer.writeBool(9,true);
+  super.serialize(writer);
 }

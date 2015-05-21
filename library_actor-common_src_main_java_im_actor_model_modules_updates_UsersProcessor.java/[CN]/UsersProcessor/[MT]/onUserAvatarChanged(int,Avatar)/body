@@ -1,9 +1,6 @@
 {
   User u=users().getValue(uid);
   if (u != null) {
-    if (equalsE(u.getAvatar(),avatar)) {
-      return;
-    }
     u=u.editAvatar(avatar);
     users().addOrUpdateItem(u);
     onUserDescChanged(u);

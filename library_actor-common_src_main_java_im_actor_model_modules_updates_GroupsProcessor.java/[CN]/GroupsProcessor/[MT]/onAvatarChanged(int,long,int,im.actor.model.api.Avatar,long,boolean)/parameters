@@ -1,6 +1,6 @@
 int groupId
 long rid
 int uid
-Avatar avatar
+im.actor.model.api.Avatar avatar
 long date
 boolean isSilent

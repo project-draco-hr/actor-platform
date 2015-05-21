@@ -1,0 +1,12 @@
+{
+  Group group=groups().getValue(groupId);
+  if (group != null) {
+    Group upd=group.editAvatar(avatar);
+    groups().addOrUpdateItem(upd);
+    onGroupDescChanged(upd);
+    if (!isSilent) {
+      Message message=new Message(rid,date,date,uid,uid == myUid() ? MessageState.SENT : MessageState.UNKNOWN,new ServiceGroupAvatarChanged(new Avatar(avatar)));
+      conversationActor(group.peer()).send(message);
+    }
+  }
+}
