@@ -6,6 +6,7 @@
     messageBubble.setBackgroundResource(R.drawable.bubble_text_in);
   }
   CharSequence spannedText;
+  Bypass bypass=new Bypass();
   if (getPeer().getPeerType() == PeerType.GROUP && message.getSenderId() != myUid()) {
     String name;
     UserVM userModel=users().get(message.getSenderId());
@@ -19,11 +20,11 @@
     builder.append(name);
     builder.setSpan(new ForegroundColorSpan(colors[Math.abs(message.getSenderId()) % colors.length]),0,name.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     builder.append("\n");
-    builder.append(((TextContent)message.getContent()).getText());
+    builder.append(bypass.markdownToSpannable(((TextContent)message.getContent()).getText()));
     spannedText=builder;
   }
  else {
-    spannedText=((TextContent)message.getContent()).getText();
+    spannedText=bypass.markdownToSpannable(((TextContent)message.getContent()).getText());
   }
   if (emoji().containsEmoji(spannedText)) {
     if (emoji().isLoaded()) {
@@ -45,6 +46,7 @@
     }
   }
   text.setText(spannedText);
+  text.setMovementMethod(LinkMovementMethod.getInstance());
   Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
   if (message.getSenderId() == myUid()) {
     status.setVisibility(View.VISIBLE);
