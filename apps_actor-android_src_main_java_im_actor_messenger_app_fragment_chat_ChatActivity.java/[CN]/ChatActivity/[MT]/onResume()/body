@@ -37,7 +37,7 @@
   isTypingDisabled=true;
   String text=messenger().loadDraft(peer);
   if (text != null) {
-    messageBody.setText((emoji().processEmojiCompatMutable(text,SmileProcessor.CONFIGURATION_BUBBLES)));
+    messageBody.setText((emoji().processEmojiCompatMutable(bypass.markdownToSpannable(text),SmileProcessor.CONFIGURATION_BUBBLES)));
   }
  else {
     messageBody.setText("");
