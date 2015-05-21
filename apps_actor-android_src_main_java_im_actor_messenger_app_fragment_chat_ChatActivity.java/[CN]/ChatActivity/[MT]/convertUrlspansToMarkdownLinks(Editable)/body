@@ -1,0 +1,19 @@
+{
+  int start;
+  int end;
+  String url;
+  String urlTitle;
+  String mdUrl;
+  URLSpan[] spans=messageBody.getText().getSpans(0,text.length(),URLSpan.class);
+  for (  URLSpan span : spans) {
+    start=text.getSpanStart(span);
+    end=text.getSpanEnd(span);
+    if (start != -1 && end <= text.length()) {
+      url=span.getURL();
+      urlTitle=text.toString().substring(start,end);
+      if (Uri.parse(url).getScheme().equals("people") && !urlTitle.startsWith("@"))       urlTitle=new String("@").concat(urlTitle);
+      mdUrl=new String("[").concat(urlTitle).concat("](").concat(url).concat(")");
+      text.replace(start,end,mdUrl);
+    }
+  }
+}

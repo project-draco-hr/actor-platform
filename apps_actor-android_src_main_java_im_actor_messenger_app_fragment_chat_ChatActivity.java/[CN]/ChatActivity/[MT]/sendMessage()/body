@@ -1,12 +1,15 @@
 {
-  final String text=messageBody.getText().toString().trim();
+  Editable text=messageBody.getText();
+  convertUrlspansToMarkdownLinks(text);
+  final String textString=text.toString().trim();
   messageBody.setText("");
-  if (text.length() == 0) {
+  mentionSearchString="";
+  if (textString.length() == 0) {
     return;
   }
   if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
     keyboardUtils.setImeVisibility(messageBody,false);
   }
-  messenger().sendMessage(peer,text);
+  messenger().sendMessage(peer,textString);
   messenger().trackTextSend(peer);
 }

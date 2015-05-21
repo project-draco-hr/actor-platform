@@ -65,8 +65,8 @@
  else {
           hideMentions();
         }
+        mentionStart=firstPeace.lastIndexOf("@");
         if (s.length() != count) {
-          mentionStart=firstPeace.lastIndexOf("@");
           if (firstPeace.contains("@") && mentionStart + 1 < firstPeace.length()) {
             mentionSearchString=firstPeace.substring(mentionStart + 1,firstPeace.length());
           }

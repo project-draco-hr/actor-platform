@@ -6,11 +6,14 @@
   GroupVM groupInfo=groups().get(peer.getPeerId());
   mentionsAdapter=new MentionsAdapter(groupInfo.getMembers().get(),this,new OnItemClickedListener<GroupMember>(){
     @Override public void onClicked(    GroupMember item){
-      String name=users().get(item.getUid()).getName().get();
-      if (mentionStart != -1 && mentionStart + mentionSearchString.length() <= messageBody.getText().length()) {
-        String mention=new String("@").concat(name).concat(" ");
-        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,mention));
-        messageBody.setSelection(mentionStart + mention.length());
+      UserVM user=users().get(item.getUid());
+      String name=user.getName().get();
+      int id=user.getId();
+      if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
+        String mention=new String("[").concat("@").concat(name).concat("](people://").concat(Integer.toString(id)).concat(") ");
+        CharSequence spannedMention=bypass.markdownToSpannable(mention);
+        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention));
+        messageBody.setSelection(mentionStart,mentionStart + spannedMention.length() - 1);
       }
       hideMentions();
     }
