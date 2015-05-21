@@ -32,8 +32,8 @@
     generator.appendLn("}");
     generator.appendLn();
     ContainerGenerator.generateGetters(generator,definition,u);
-    ContainerGenerator.generateSerialization(generator,u,definition);
     ContainerGenerator.generateDeserialization(generator,u,definition);
+    ContainerGenerator.generateSerialization(generator,u,definition);
     ContainerGenerator.generateToString(generator,u,definition);
     generator.appendLn("@Override");
     generator.appendLn("public int getHeaderKey() {");

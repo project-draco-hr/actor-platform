@@ -14,4 +14,7 @@
   }
   this.contactInfo=values.getRepeatedObj(12,_contactInfo);
   this.isBot=values.optBool(11);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

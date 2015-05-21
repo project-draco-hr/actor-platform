@@ -8,4 +8,7 @@
   if (values.optBytes(8) != null) {
     this.ext=DocumentEx.fromBytes(values.getBytes(8));
   }
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

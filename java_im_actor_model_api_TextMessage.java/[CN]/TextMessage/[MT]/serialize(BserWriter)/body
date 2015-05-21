@@ -7,4 +7,11 @@
   if (this.ext != null) {
     writer.writeBytes(3,this.ext.buildContainer());
   }
+  if (this.getUnmappedObjects() != null) {
+    SparseArray<Object> unmapped=this.getUnmappedObjects();
+    for (int i=0; i < unmapped.size(); i++) {
+      int key=unmapped.keyAt(i);
+      writer.writeUnmapped(key,unmapped.get(key));
+    }
+  }
 }

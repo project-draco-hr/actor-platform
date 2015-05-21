@@ -3,33 +3,53 @@
   if (type instanceof SchemePrimitiveType) {
     SchemePrimitiveType primitiveType=(SchemePrimitiveType)type;
     if (primitiveType.getName().equals("int32")) {
-      generator.appendLn("this." + attributeName + " = values.getInt("+ attributeId+ ");");
+      generator.appendLn("writer.writeInt(" + attributeId + ", this."+ attributeName+ ");");
     }
  else     if (primitiveType.getName().equals("int64")) {
-      generator.appendLn("this." + attributeName + " = values.getLong("+ attributeId+ ");");
+      generator.appendLn("writer.writeLong(" + attributeId + ", this."+ attributeName+ ");");
     }
  else     if (primitiveType.getName().equals("bool")) {
-      generator.appendLn("this." + attributeName + " = values.getBool("+ attributeId+ ");");
+      generator.appendLn("writer.writeBool(" + attributeId + ", this."+ attributeName+ ");");
     }
  else     if (primitiveType.getName().equals("bytes")) {
-      generator.appendLn("this." + attributeName + " = values.getBytes("+ attributeId+ ");");
+      generator.appendLn("if (this." + attributeName + " == null) {");
+      generator.increaseDepth();
+      generator.appendLn("throw new IOException();");
+      generator.decreaseDepth();
+      generator.appendLn("}");
+      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
     }
  else     if (primitiveType.getName().equals("string")) {
-      generator.appendLn("this." + attributeName + " = values.getString("+ attributeId+ ");");
+      generator.appendLn("if (this." + attributeName + " == null) {");
+      generator.increaseDepth();
+      generator.appendLn("throw new IOException();");
+      generator.decreaseDepth();
+      generator.appendLn("}");
+      generator.appendLn("writer.writeString(" + attributeId + ", this."+ attributeName+ ");");
     }
  else     if (primitiveType.getName().equals("double")) {
-      generator.appendLn("this." + attributeName + " = values.getDouble("+ attributeId+ ");");
+      generator.appendLn("writer.writeDouble(" + attributeId + ", this."+ attributeName+ ");");
     }
  else {
       throw new IOException();
     }
   }
  else   if (type instanceof SchemeStructType) {
-    generator.appendLn("this." + attributeName + " = values.getObj("+ attributeId+ ", "+ "new "+ JavaConfig.getStructName(((SchemeStructType)type).getType())+ "());");
+    generator.appendLn("if (this." + attributeName + " == null) {");
+    generator.increaseDepth();
+    generator.appendLn("throw new IOException();");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn("writer.writeObject(" + attributeId + ", this."+ attributeName+ ");");
   }
  else   if (type instanceof SchemeEnumType) {
     SchemeEnumType e=(SchemeEnumType)type;
-    generator.appendLn("this." + attributeName + " = "+ JavaConfig.getEnumName(e.getName())+ ".parse(values.getInt("+ attributeId+ "));");
+    generator.appendLn("if (this." + attributeName + " == null) {");
+    generator.increaseDepth();
+    generator.appendLn("throw new IOException();");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn("writer.writeInt(" + attributeId + ", this."+ attributeName+ ".getValue());");
   }
  else   if (type instanceof SchemeOptionalType) {
     SchemeOptionalType optType=(SchemeOptionalType)type;
@@ -37,48 +57,76 @@
     if (childType instanceof SchemePrimitiveType) {
       SchemePrimitiveType primitiveType=(SchemePrimitiveType)childType;
       if (primitiveType.getName().equals("int32")) {
-        generator.appendLn("this." + attributeName + " = values.optInt("+ attributeId+ ");");
+        generator.appendLn("if (this." + attributeName + " != null) {");
+        generator.increaseDepth();
+        generator.appendLn("writer.writeInt(" + attributeId + ", this."+ attributeName+ ");");
+        generator.decreaseDepth();
+        generator.appendLn("}");
       }
  else       if (primitiveType.getName().equals("int64")) {
-        generator.appendLn("this." + attributeName + " = values.optLong("+ attributeId+ ");");
+        generator.appendLn("if (this." + attributeName + " != null) {");
+        generator.increaseDepth();
+        generator.appendLn("writer.writeLong(" + attributeId + ", this."+ attributeName+ ");");
+        generator.decreaseDepth();
+        generator.appendLn("}");
       }
  else       if (primitiveType.getName().equals("bool")) {
-        generator.appendLn("this." + attributeName + " = values.optBool("+ attributeId+ ");");
+        generator.appendLn("if (this." + attributeName + " != null) {");
+        generator.increaseDepth();
+        generator.appendLn("writer.writeBool(" + attributeId + ", this."+ attributeName+ ");");
+        generator.decreaseDepth();
+        generator.appendLn("}");
       }
  else       if (primitiveType.getName().equals("bytes")) {
-        generator.appendLn("this." + attributeName + " = values.optBytes("+ attributeId+ ");");
+        generator.appendLn("if (this." + attributeName + " != null) {");
+        generator.increaseDepth();
+        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ");");
+        generator.decreaseDepth();
+        generator.appendLn("}");
       }
  else       if (primitiveType.getName().equals("string")) {
-        generator.appendLn("this." + attributeName + " = values.optString("+ attributeId+ ");");
+        generator.appendLn("if (this." + attributeName + " != null) {");
+        generator.increaseDepth();
+        generator.appendLn("writer.writeString(" + attributeId + ", this."+ attributeName+ ");");
+        generator.decreaseDepth();
+        generator.appendLn("}");
       }
  else       if (primitiveType.getName().equals("double")) {
-        generator.appendLn("this." + attributeName + " = values.optDouble("+ attributeId+ ");");
+        generator.appendLn("if (this." + attributeName + " != null) {");
+        generator.increaseDepth();
+        generator.appendLn("writer.writeDouble(" + attributeId + ", this."+ attributeName+ ");");
+        generator.decreaseDepth();
+        generator.appendLn("}");
       }
  else {
         throw new IOException();
       }
     }
  else     if (childType instanceof SchemeStructType) {
-      generator.appendLn("this." + attributeName + " = values.optObj("+ attributeId+ ", "+ "new "+ JavaConfig.getStructName(((SchemeStructType)childType).getType())+ "());");
+      generator.appendLn("if (this." + attributeName + " != null) {");
+      generator.increaseDepth();
+      generator.appendLn("writer.writeObject(" + attributeId + ", this."+ attributeName+ ");");
+      generator.decreaseDepth();
+      generator.appendLn("}");
     }
  else     if (childType instanceof SchemeEnumType) {
-      generator.appendLn("int val_" + attributeName + " = values.getInt("+ attributeId+ ", 0);");
-      generator.appendLn("if (val_" + attributeName + " != 0) {");
+      generator.appendLn("if (this." + attributeName + " != null) {");
       generator.increaseDepth();
-      generator.appendLn("this." + attributeName + " = "+ JavaConfig.getEnumName(((SchemeEnumType)childType).getName())+ ".parse(val_"+ attributeName+ ");");
+      generator.appendLn("writer.writeInt(" + attributeId + ", this."+ attributeName+ ".getValue());");
       generator.decreaseDepth();
       generator.appendLn("}");
     }
  else     if (childType instanceof SchemeTraitType) {
-      generator.appendLn("if (values.optBytes(" + attributeId + ") != null) {");
+      generator.appendLn("if (this." + attributeName + " != null) {");
       generator.increaseDepth();
       String traitName=((SchemeTraitType)childType).getTraitName();
       SchemeTrait trait=definition.getTrait(traitName);
       if (trait.isContainer()) {
-        generator.appendLn("this." + attributeName + " = "+ JavaConfig.getStructName(traitName)+ ".fromBytes(values.getBytes("+ attributeId+ "));");
+        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".buildContainer());");
       }
  else {
-        generator.appendLn("this." + attributeName + " = "+ JavaConfig.getStructName(traitName)+ ".fromBytes(values.getInt("+ (attributeId - 1)+ "), values.getBytes("+ attributeId+ "));");
+        generator.appendLn("writer.writeInt(" + (attributeId - 1) + ", this."+ attributeName+ ".getHeader());");
+        generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".toByteArray());");
       }
       generator.decreaseDepth();
       generator.appendLn("}");
@@ -93,36 +141,29 @@
     if (childType instanceof SchemePrimitiveType) {
       SchemePrimitiveType primitiveType=(SchemePrimitiveType)childType;
       if (primitiveType.getName().equals("int32")) {
-        generator.appendLn("this." + attributeName + " = values.getRepeatedInt("+ attributeId+ ");");
+        generator.appendLn("writer.writeRepeatedInt(" + attributeId + ", this."+ attributeName+ ");");
       }
  else       if (primitiveType.getName().equals("int64")) {
-        generator.appendLn("this." + attributeName + " = values.getRepeatedLong("+ attributeId+ ");");
+        generator.appendLn("writer.writeRepeatedLong(" + attributeId + ", this."+ attributeName+ ");");
       }
  else       if (primitiveType.getName().equals("bool")) {
-        generator.appendLn("this." + attributeName + " = values.getRepeatedBool("+ attributeId+ ");");
+        generator.appendLn("writer.writeRepeatedBool(" + attributeId + ", this."+ attributeName+ ");");
       }
  else       if (primitiveType.getName().equals("bytes")) {
-        generator.appendLn("this." + attributeName + " = values.getRepeatedBytes("+ attributeId+ ");");
+        generator.appendLn("writer.writeRepeatedBytes(" + attributeId + ", this."+ attributeName+ ");");
       }
  else       if (primitiveType.getName().equals("string")) {
-        generator.appendLn("this." + attributeName + " = values.getRepeatedString("+ attributeId+ ");");
+        generator.appendLn("writer.writeRepeatedString(" + attributeId + ", this."+ attributeName+ ");");
       }
  else       if (primitiveType.getName().equals("double")) {
-        generator.appendLn("this." + attributeName + " = values.getRepeatedDouble("+ attributeId+ ");");
+        generator.appendLn("writer.writeRepeatedDouble(" + attributeId + ", this."+ attributeName+ ");");
       }
  else {
         throw new IOException();
       }
     }
  else     if (childType instanceof SchemeStructType) {
-      String typeName=JavaConfig.getStructName(((SchemeStructType)childType).getType());
-      generator.appendLn("List<" + typeName + "> _"+ attributeName+ " = new ArrayList<"+ typeName+ ">();");
-      generator.appendLn("for (int i = 0; i < values.getRepeatedCount(" + attributeId + "); i ++) {");
-      generator.increaseDepth();
-      generator.appendLn("_" + attributeName + ".add(new "+ typeName+ "());");
-      generator.decreaseDepth();
-      generator.appendLn("}");
-      generator.appendLn("this." + attributeName + " = values.getRepeatedObj("+ attributeId+ ", "+ "_"+ attributeName+ ");");
+      generator.appendLn("writer.writeRepeatedObj(" + attributeId + ", this."+ attributeName+ ");");
     }
  else {
       throw new IOException();
@@ -131,11 +172,18 @@
  else   if (type instanceof SchemeTraitType) {
     String traitName=((SchemeTraitType)type).getTraitName();
     SchemeTrait trait=definition.getTrait(traitName);
+    generator.appendLn("if (this." + attributeName + " == null) {");
+    generator.increaseDepth();
+    generator.appendLn("throw new IOException();");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
     if (trait.isContainer()) {
-      generator.appendLn("this." + attributeName + " = "+ JavaConfig.getStructName(traitName)+ ".fromBytes(values.getBytes("+ attributeId+ "));");
+      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".buildContainer());");
     }
  else {
-      generator.appendLn("this." + attributeName + " = "+ JavaConfig.getStructName(traitName)+ ".fromBytes(values.getInt("+ (attributeId - 1)+ "), values.getBytes("+ attributeId+ "));");
+      generator.appendLn("writer.writeInt(" + (attributeId - 1) + ", this."+ attributeName+ ".getHeader());");
+      generator.appendLn("writer.writeBytes(" + attributeId + ", this."+ attributeName+ ".toByteArray());");
     }
   }
  else {

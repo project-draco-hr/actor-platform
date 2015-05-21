@@ -1,0 +1,5 @@
+{
+  String res="tuple GetAdBanners{";
+  res+="}";
+  return res;
+}
