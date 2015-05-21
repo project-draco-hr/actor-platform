@@ -42,5 +42,6 @@
  else {
     messageBody.setText("");
   }
+  messageBody.setSelection(messageBody.getText().length());
   isTypingDisabled=false;
 }

@@ -10,10 +10,10 @@
       String name=user.getName().get();
       int id=user.getId();
       if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
-        String mention=new String("[").concat("@").concat(name).concat("](people://").concat(Integer.toString(id)).concat(") ");
+        String mention="[".concat("@").concat(name).concat("\u200b](people://").concat(Integer.toString(id)).concat(") ");
         CharSequence spannedMention=bypass.markdownToSpannable(mention);
         messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention));
-        messageBody.setSelection(mentionStart,mentionStart + spannedMention.length() - 1);
+        messageBody.setSelection(mentionStart + 1,mentionStart + spannedMention.length() - 2);
       }
       hideMentions();
     }
