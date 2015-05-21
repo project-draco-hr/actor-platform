@@ -89,7 +89,7 @@
   }
   UserVM owner=users().get(sender);
   ownerAvatarView.init(Screen.dp(48),18);
-  ownerAvatarView.bind(owner);
+  ownerAvatarView.bind(owner,false);
   ownerNameView.setText(owner.getName().get());
   backgroundView=null;
   Activity activity=getActivity();
