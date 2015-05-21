@@ -1,0 +1,18 @@
+{
+  boolean oldItem=false;
+  if (changeInfo.newHolder == item) {
+    changeInfo.newHolder=null;
+  }
+ else   if (changeInfo.oldHolder == item) {
+    changeInfo.oldHolder=null;
+    oldItem=true;
+  }
+ else {
+    return false;
+  }
+  ViewCompat.setAlpha(item.itemView,1);
+  ViewCompat.setTranslationX(item.itemView,0);
+  ViewCompat.setTranslationY(item.itemView,0);
+  dispatchChangeFinished(item,oldItem);
+  return true;
+}

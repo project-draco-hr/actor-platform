@@ -1,0 +1,20 @@
+{
+  final View view=holder.itemView;
+  final ViewPropertyAnimatorCompat animation=ViewCompat.animate(view);
+  mAddAnimations.add(holder);
+  animation.alpha(1).setDuration(getAddDuration()).setListener(new VpaListenerAdapter(){
+    @Override public void onAnimationStart(    View view){
+      dispatchAddStarting(holder);
+    }
+    @Override public void onAnimationCancel(    View view){
+      ViewCompat.setAlpha(view,1);
+    }
+    @Override public void onAnimationEnd(    View view){
+      animation.setListener(null);
+      dispatchAddFinished(holder);
+      mAddAnimations.remove(holder);
+      dispatchFinishedWhenDone();
+    }
+  }
+).start();
+}
