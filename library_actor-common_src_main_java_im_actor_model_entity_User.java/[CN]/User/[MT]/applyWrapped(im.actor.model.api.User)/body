@@ -3,6 +3,10 @@
   this.accessHash=wrapped.getAccessHash();
   this.name=wrapped.getName();
   this.localName=wrapped.getLocalName();
+  this.isBot=false;
+  if (wrapped.isBot() != null) {
+    this.isBot=wrapped.isBot();
+  }
   this.sex=Sex.UNKNOWN;
   if (wrapped.getSex() != null) {
 switch (wrapped.getSex()) {
