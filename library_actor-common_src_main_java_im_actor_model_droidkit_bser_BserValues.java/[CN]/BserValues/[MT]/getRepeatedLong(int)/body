@@ -1,6 +1,7 @@
 {
   ArrayList<Long> res=new ArrayList<Long>();
   if (fields.containsKey(id)) {
+    touched.put(id,true);
     Object val=fields.get(id);
     if (val instanceof Long) {
       res.add((Long)val);

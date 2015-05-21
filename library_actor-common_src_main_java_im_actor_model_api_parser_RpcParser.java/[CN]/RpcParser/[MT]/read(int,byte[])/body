@@ -87,7 +87,7 @@ return RequestEnableInterests.fromBytes(payload);
 case 158:
 return RequestDisableInterests.fromBytes(payload);
 case 159:
-return RequestGetAdBatters.fromBytes(payload);
+return RequestGetAdBanners.fromBytes(payload);
 case 162:
 return RequestNotifyAddView.fromBytes(payload);
 case 134:
@@ -149,7 +149,7 @@ return ResponseGetVoxUser.fromBytes(payload);
 case 153:
 return ResponseGetAvailableInterests.fromBytes(payload);
 case 161:
-return ResponseGetAdBatters.fromBytes(payload);
+return ResponseGetAdBanners.fromBytes(payload);
 case 135:
 return ResponseGetParameters.fromBytes(payload);
 case 12:

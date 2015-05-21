@@ -1,0 +1,10 @@
+{
+  SparseArray<Object> res=new SparseArray<Object>();
+  for (int i=0; i < fields.size(); i++) {
+    int key=fields.keyAt(i);
+    if (!touched.get(key,false)) {
+      res.put(key,fields.get(key));
+    }
+  }
+  return res;
+}

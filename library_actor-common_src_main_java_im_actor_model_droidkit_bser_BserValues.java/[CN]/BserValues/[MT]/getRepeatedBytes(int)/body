@@ -1,6 +1,7 @@
 {
   ArrayList<byte[]> res=new ArrayList<byte[]>();
   if (fields.containsKey(id)) {
+    touched.put(id,true);
     Object val=fields.get(id);
     if (val instanceof byte[]) {
       res.add((byte[])val);

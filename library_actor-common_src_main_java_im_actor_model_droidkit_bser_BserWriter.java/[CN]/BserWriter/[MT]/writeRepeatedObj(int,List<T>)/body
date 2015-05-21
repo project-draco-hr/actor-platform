@@ -5,6 +5,7 @@
   if (values.size() > Limits.MAX_PROTO_REPEATED) {
     throw new IllegalArgumentException("Too many values");
   }
+  writtenFields.put(fieldNumber,true);
   for (  T l : values) {
     if (l == null) {
       throw new IllegalArgumentException("Value can not be null");

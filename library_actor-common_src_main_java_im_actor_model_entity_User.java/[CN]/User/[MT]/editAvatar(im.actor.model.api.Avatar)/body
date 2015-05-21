@@ -1,0 +1,6 @@
+{
+  im.actor.model.api.User w=getWrapped();
+  User res=new User(new im.actor.model.api.User(w.getId(),w.getAccessHash(),w.getName(),w.getLocalName(),w.getSex(),avatar,w.getContactInfo(),w.isBot()));
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return res;
+}

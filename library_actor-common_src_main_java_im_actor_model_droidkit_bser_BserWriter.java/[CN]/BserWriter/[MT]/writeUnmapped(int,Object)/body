@@ -1,0 +1,27 @@
+{
+  if (writtenFields.get(fieldNumber,false)) {
+    return;
+  }
+  if (value instanceof Long) {
+    writeLong(fieldNumber,(Long)value);
+  }
+ else   if (value instanceof byte[]) {
+    writeBytes(fieldNumber,(byte[])value);
+  }
+ else   if (value instanceof List) {
+    for (    Object o : (List)value) {
+      if (o instanceof Long) {
+        writeLong(fieldNumber,(Long)o);
+      }
+ else       if (o instanceof byte[]) {
+        writeBytes(fieldNumber,(byte[])o);
+      }
+ else {
+        throw new IOException("Incorrect unmapped value in List");
+      }
+    }
+  }
+ else {
+    throw new IOException("Incorrect unmapped value");
+  }
+}

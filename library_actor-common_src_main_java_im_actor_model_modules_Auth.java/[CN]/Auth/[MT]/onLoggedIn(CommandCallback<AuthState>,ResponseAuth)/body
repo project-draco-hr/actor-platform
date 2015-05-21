@@ -11,7 +11,7 @@
       User user=modules().getUsersModule().getUsers().getValue(myUid);
       ArrayList<Long> records=new ArrayList<Long>();
       for (      ContactRecord contactRecord : user.getRecords()) {
-        if (contactRecord.getRecordType() == 0) {
+        if (contactRecord.getRecordType() == ContactRecordType.PHONE) {
           records.add(Long.parseLong(contactRecord.getRecordData()));
         }
       }

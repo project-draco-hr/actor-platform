@@ -1,0 +1,5 @@
+{
+  this(recordField);
+  this.wrapped=wrapped;
+  applyWrapped(wrapped);
+}

@@ -37,7 +37,7 @@
     String mimeType=documentMessage.getMimeType();
     String name=documentMessage.getName();
     im.actor.model.entity.content.FastThumb fastThumb=convert(documentMessage.getThumb());
-    FileReference fileReference=new FileReference(documentMessage.getFileId(),documentMessage.getAccessHash(),documentMessage.getFileSize(),documentMessage.getName());
+    FileReference fileReference=new FileReference(new FileLocation(documentMessage.getFileId(),documentMessage.getAccessHash()),documentMessage.getName(),documentMessage.getFileSize());
     FileRemoteSource source=new FileRemoteSource(fileReference);
     if (documentMessage.getExt() instanceof DocumentExPhoto) {
       DocumentExPhoto photo=(DocumentExPhoto)documentMessage.getExt();

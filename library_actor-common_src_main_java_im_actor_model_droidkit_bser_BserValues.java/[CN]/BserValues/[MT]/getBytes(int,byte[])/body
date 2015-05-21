@@ -1,5 +1,6 @@
 {
   if (fields.containsKey(id)) {
+    touched.put(id,true);
     Object obj=fields.get(id);
     if (obj instanceof byte[]) {
       return (byte[])obj;

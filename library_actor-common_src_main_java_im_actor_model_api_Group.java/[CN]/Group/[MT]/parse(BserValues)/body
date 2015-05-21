@@ -11,4 +11,7 @@
   }
   this.members=values.getRepeatedObj(9,_members);
   this.createDate=values.getLong(10);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

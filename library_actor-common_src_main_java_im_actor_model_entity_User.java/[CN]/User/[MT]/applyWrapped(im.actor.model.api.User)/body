@@ -1,0 +1,22 @@
+{
+  this.uid=wrapped.getId();
+  this.accessHash=wrapped.getAccessHash();
+  this.name=wrapped.getName();
+  this.localName=wrapped.getLocalName();
+  this.sex=EntityConverter.convert(wrapped.getSex());
+  this.records=new ArrayList<ContactRecord>();
+  for (  im.actor.model.api.ContactRecord record : wrapped.getContactInfo()) {
+    if (record.getType() == ContactType.PHONE) {
+      this.records.add(new ContactRecord(ContactRecordType.PHONE,"" + record.getLongValue(),record.getTitle()));
+    }
+ else     if (record.getType() == ContactType.EMAIL) {
+      this.records.add(new ContactRecord(ContactRecordType.EMAIL,record.getStringValue(),record.getTitle()));
+    }
+  }
+  if (wrapped.getAvatar() != null) {
+    this.avatar=new Avatar(wrapped.getAvatar());
+  }
+ else {
+    this.avatar=new Avatar();
+  }
+}

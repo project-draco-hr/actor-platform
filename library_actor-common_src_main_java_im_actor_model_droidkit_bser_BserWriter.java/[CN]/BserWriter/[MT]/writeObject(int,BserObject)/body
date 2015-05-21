@@ -2,6 +2,7 @@
   if (value == null) {
     throw new IllegalArgumentException("Value can not be null");
   }
+  writtenFields.put(fieldNumber,true);
   writeTag(fieldNumber,WireTypes.TYPE_LENGTH_DELIMITED);
   DataOutput outputStream=new DataOutput();
   BserWriter writer=new BserWriter(outputStream);
