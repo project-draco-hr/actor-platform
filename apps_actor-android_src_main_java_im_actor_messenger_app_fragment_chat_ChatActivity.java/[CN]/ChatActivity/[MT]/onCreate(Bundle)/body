@@ -108,13 +108,13 @@
         if (s.charAt(messageBody.getSelectionStart() - 1) == MENTION_BOUNDS_CHR)         messageBody.setSelection(messageBody.getSelectionStart() + 1);
       }
       if (mentionErase && eraseCount == 1) {
-        if (s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
+        if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
           s.replace(mentionEraseStart - 2,mentionEraseStart,"");
         }
- else         if (s.charAt(mentionEraseStart - 1) == '@') {
-          s.replace(mentionEraseStart - 1,mentionEraseStart + 1,"");
+ else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == '@') {
+          s.replace(mentionEraseStart - 1,mentionEraseStart - 1,"");
         }
- else {
+ else         if (mentionEraseStart > 0) {
           s.replace(mentionEraseStart - 1,mentionEraseStart,MENTION_BOUNDS_STR);
           if (s.length() > mentionEraseStart - 1 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR)           messageBody.setSelection(mentionEraseStart - 1);
         }
@@ -122,6 +122,9 @@
       int emptyBoundsIndex=s.toString().indexOf(MENTION_BOUNDS_STR.concat(MENTION_BOUNDS_STR));
       if (emptyBoundsIndex != -1) {
         s.replace(emptyBoundsIndex,emptyBoundsIndex + 2,"");
+      }
+      if (s.length() == 1 && s.charAt(0) == MENTION_BOUNDS_CHR) {
+        s.clear();
       }
     }
   }
