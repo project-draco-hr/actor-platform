@@ -40,7 +40,7 @@ Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context,false
 result=buildSingleMessageNotification(avatarDrawable,builder,sender,text,topNotification);
 NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
-if (avatar != null) messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
 @Override public void onNotDownloaded(){
 }
 @Override public void onDownloading(float progress){
@@ -88,7 +88,7 @@ Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context,false
 result=buildSingleConversationNotification(builder,inboxStyle,avatarDrawable);
 NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
-if (avatar != null) messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
 @Override public void onNotDownloaded(){
 }
 @Override public void onDownloading(float progress){
