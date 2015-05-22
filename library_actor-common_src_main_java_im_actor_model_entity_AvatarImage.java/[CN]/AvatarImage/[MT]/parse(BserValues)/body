@@ -2,7 +2,7 @@
   if (!values.getBool(5,false)) {
     int width=values.getInt(1);
     int height=values.getInt(2);
-    FileReference fileReference=FileReference.fromBytes(values.getBytes(3));
+    FileReference fileReference=new FileReference(values.getBytes(3));
     setWrapped(new im.actor.model.api.AvatarImage(fileReference.getFileLocation(),width,height,fileReference.getFileSize()));
   }
   super.parse(values);

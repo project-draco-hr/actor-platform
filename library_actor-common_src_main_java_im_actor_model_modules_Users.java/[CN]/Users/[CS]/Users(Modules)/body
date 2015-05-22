@@ -9,7 +9,7 @@
     }
     @Override protected User deserialize(    byte[] raw){
       try {
-        return User.fromBytes(raw);
+        return new User(raw);
       }
  catch (      IOException e) {
         e.printStackTrace();

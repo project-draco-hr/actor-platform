@@ -11,7 +11,7 @@
     }
     ImageHelper.save(bmp,resultFileName);
     byte[] fastThumbData=ImageHelper.save(fastThumb);
-    sendPhoto(peer,fileName,bmp.getWidth(),bmp.getHeight(),new FastThumb(fastThumb.getWidth(),fastThumb.getHeight(),fastThumbData),new AndroidFileSystemReference(resultFileName));
+    sendPhoto(peer,fileName,bmp.getWidth(),bmp.getHeight(),new FastThumb(fastThumb.getWidth(),fastThumb.getHeight(),fastThumbData),resultFileName);
   }
  catch (  Throwable t) {
     t.printStackTrace();

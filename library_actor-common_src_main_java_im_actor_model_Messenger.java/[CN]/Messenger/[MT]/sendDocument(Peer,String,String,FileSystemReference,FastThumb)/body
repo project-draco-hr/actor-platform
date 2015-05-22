@@ -1,3 +1,0 @@
-{
-  modules.getMessagesModule().sendDocument(peer,fileName,mimeType,fastThumb,fileSystemReference);
-}

@@ -3,7 +3,7 @@
   dialogTitle=values.getString(2);
   byte[] av=values.optBytes(3);
   if (av != null) {
-    dialogAvatar=Avatar.fromBytes(av);
+    dialogAvatar=new Avatar(av);
   }
   unreadCount=values.getInt(4);
   sortDate=values.getLong(5);

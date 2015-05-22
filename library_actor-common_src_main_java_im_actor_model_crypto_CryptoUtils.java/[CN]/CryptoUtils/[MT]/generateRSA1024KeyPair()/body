@@ -1,3 +1,0 @@
-{
-  return provider.generateRSA1024KeyPair();
-}

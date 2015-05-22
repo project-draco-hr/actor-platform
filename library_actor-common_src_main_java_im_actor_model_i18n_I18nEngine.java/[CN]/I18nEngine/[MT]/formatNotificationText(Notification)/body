@@ -1,0 +1,3 @@
+{
+  return formatContentText(pendingNotification.getSender(),pendingNotification.getContentDescription().getContentType(),pendingNotification.getContentDescription().getText(),pendingNotification.getContentDescription().getRelatedUser());
+}

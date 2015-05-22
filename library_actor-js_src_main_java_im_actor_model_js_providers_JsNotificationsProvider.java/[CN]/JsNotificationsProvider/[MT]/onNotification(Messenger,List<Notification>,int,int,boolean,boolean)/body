@@ -2,12 +2,12 @@
   if (silentUpdate) {
     return;
   }
-  String peerTitle=null;
+  String peerTitle;
   String peerAvatarUrl=null;
   String contentMessage="";
   Notification notification=topNotifications.get(0);
   if (conversationsCount == 1) {
-    Avatar peerAvatar=null;
+    Avatar peerAvatar;
     if (notification.getPeer().getPeerType() == PeerType.PRIVATE) {
       UserVM userVM=messenger.getUsers().get(notification.getPeer().getPeerId());
       peerTitle=userVM.getName().get();

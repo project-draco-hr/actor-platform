@@ -1,0 +1,4 @@
+{
+  FileSystemReference reference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(descriptor);
+  sendMessageActor.send(new SenderActor.SendVideo(peer,fileName,w,h,duration,fastThumb,descriptor,reference.getSize()));
+}

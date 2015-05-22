@@ -5,7 +5,7 @@
     String title=values.getString(3);
     im.actor.model.api.Avatar avatar=new im.actor.model.api.Avatar();
     if (values.optBytes(4) != null) {
-      avatar=Avatar.fromBytes(values.getBytes(4)).toWrapped();
+      avatar=new Avatar(values.getBytes(4)).toWrapped();
     }
     int adminId=values.getInt(5);
     int count=values.getRepeatedCount(6);
