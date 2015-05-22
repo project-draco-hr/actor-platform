@@ -1,11 +1,27 @@
 {
-  if (wrapped.getSmallImage() != null) {
-    smallImage=new AvatarImage(wrapped.getSmallImage());
+  if (wrapped == null) {
+    smallImage=null;
+    largeImage=null;
+    fullImage=null;
   }
-  if (wrapped.getLargeImage() != null) {
-    largeImage=new AvatarImage(wrapped.getLargeImage());
-  }
-  if (wrapped.getFullImage() != null) {
-    fullImage=new AvatarImage(wrapped.getFullImage());
+ else {
+    if (wrapped.getSmallImage() != null) {
+      smallImage=new AvatarImage(wrapped.getSmallImage());
+    }
+ else {
+      smallImage=null;
+    }
+    if (wrapped.getLargeImage() != null) {
+      largeImage=new AvatarImage(wrapped.getLargeImage());
+    }
+ else {
+      largeImage=null;
+    }
+    if (wrapped.getFullImage() != null) {
+      fullImage=new AvatarImage(wrapped.getFullImage());
+    }
+ else {
+      fullImage=null;
+    }
   }
 }
