@@ -19,11 +19,11 @@
     builder.append(name);
     builder.setSpan(new ForegroundColorSpan(colors[Math.abs(message.getSenderId()) % colors.length]),0,name.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     builder.append("\n");
-    builder.append(bypass.markdownToSpannable(((TextContent)message.getContent()).getText()));
+    builder.append(bypass.markdownToSpannable(((TextContent)message.getContent()).getText(),false));
     spannedText=builder;
   }
  else {
-    spannedText=bypass.markdownToSpannable(((TextContent)message.getContent()).getText());
+    spannedText=bypass.markdownToSpannable(((TextContent)message.getContent()).getText(),false);
   }
   Editable spannedTextEditable=(Editable)spannedText;
   URLSpan[] urlSpans=spannedTextEditable.getSpans(0,spannedTextEditable.length(),URLSpan.class);

@@ -10,10 +10,24 @@
       String name=user.getName().get();
       int id=user.getId();
       if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
-        String mention="[".concat("@").concat(name).concat("\u200b](people://").concat(Integer.toString(id)).concat(") ");
-        CharSequence spannedMention=bypass.markdownToSpannable(mention);
-        messageBody.setText(messageBody.getText().replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention));
-        messageBody.setSelection(mentionStart + 1,mentionStart + spannedMention.length() - 2);
+        String mention="people://".concat(Integer.toString(id));
+        MentionSpan span=new MentionSpan(mention);
+        SpannableStringBuilder spannedMention=new SpannableStringBuilder("@".concat(MENTION_BOUNDS_STR).concat(name).concat(MENTION_BOUNDS_STR));
+        spannedMention.setSpan(span,0,spannedMention.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        Editable text=messageBody.getText();
+        boolean spaceAppended=false;
+        if (text.length() > mentionStart + mentionSearchString.length() + 1) {
+          if (text.charAt(mentionSearchString.length() + 1) != ' ') {
+            spannedMention.append(' ');
+            spaceAppended=true;
+          }
+        }
+ else {
+          spannedMention.append(' ');
+          spaceAppended=true;
+        }
+        text.replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention);
+        messageBody.setSelection(mentionStart + 2,mentionStart + spannedMention.length() - (spaceAppended ? 2 : 1));
       }
       hideMentions();
     }

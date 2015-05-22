@@ -1,7 +1,7 @@
 {
   Editable text=messageBody.getText();
   convertUrlspansToMarkdownLinks(text);
-  final String textString=text.toString().replace("\u200b","").trim();
+  final String textString=text.toString().replace(MENTION_BOUNDS_STR,"").trim();
   messageBody.setText("");
   mentionSearchString="";
   if (textString.length() == 0) {
