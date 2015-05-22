@@ -1,4 +1,5 @@
 {
+  this.useMentionSpan=useMentionSpan;
   Document document=processMarkdown(markdown);
   CharSequence[] spans=new CharSequence[document.getElementCount()];
   for (int i=0; i < document.getElementCount(); i++) {

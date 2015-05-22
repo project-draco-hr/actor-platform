@@ -1,0 +1,46 @@
+{
+  if (isMentionsVisible) {
+    return;
+  }
+  isMentionsVisible=true;
+  GroupVM groupInfo=groups().get(peer.getPeerId());
+  mentionsAdapter=new MentionsAdapter(groupInfo.getMembers().get(),this,new OnItemClickedListener<GroupMember>(){
+    @Override public void onClicked(    GroupMember item){
+      UserVM user=users().get(item.getUid());
+      String name=user.getName().get();
+      int id=user.getId();
+      if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
+        String mention="people://".concat(Integer.toString(id));
+        MentionSpan span=new MentionSpan(mention);
+        SpannableStringBuilder spannedMention=new SpannableStringBuilder("@".concat(MENTION_BOUNDS_STR).concat(name).concat(MENTION_BOUNDS_STR));
+        spannedMention.setSpan(span,0,spannedMention.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        Editable text=messageBody.getText();
+        boolean spaceAppended=false;
+        if (text.length() > mentionStart + mentionSearchString.length() + 1) {
+          if (text.charAt(mentionSearchString.length() + 1) != ' ') {
+            spannedMention.append(' ');
+            spaceAppended=true;
+          }
+        }
+ else {
+          spannedMention.append(' ');
+          spaceAppended=true;
+        }
+        text.replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention);
+        messageBody.setSelection(mentionStart + 2,mentionStart + spannedMention.length() - (spaceAppended ? 2 : 1));
+      }
+      hideMentions();
+    }
+    @Override public boolean onLongClicked(    GroupMember item){
+      return false;
+    }
+  }
+,new MentionsAdapter.MentionsUpdatedCallback(){
+    @Override public void onMentionsUpdated(    int oldRowsCount,    int newRowsCount){
+      onMentionsChanged(oldRowsCount,newRowsCount);
+    }
+  }
+,initEmpty);
+  mentionsList.setAdapter(mentionsAdapter);
+  expandMentions(mentionsList,0,mentionsList.getCount());
+}
