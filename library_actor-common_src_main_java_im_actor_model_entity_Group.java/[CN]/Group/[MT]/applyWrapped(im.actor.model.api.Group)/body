@@ -2,12 +2,7 @@
   this.groupId=wrapped.getId();
   this.accessHash=wrapped.getAccessHash();
   this.title=wrapped.getTitle();
-  if (wrapped.getAvatar() != null) {
-    this.avatar=new Avatar(wrapped.getAvatar());
-  }
- else {
-    avatar=new Avatar();
-  }
+  this.avatar=wrapped.getAvatar() != null ? new Avatar(wrapped.getAvatar()) : null;
   this.adminId=wrapped.getCreatorUid();
   this.members=new ArrayList<GroupMember>();
   for (  Member m : wrapped.getMembers()) {

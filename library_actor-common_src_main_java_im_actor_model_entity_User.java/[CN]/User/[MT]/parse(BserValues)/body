@@ -16,7 +16,7 @@ break;
 im.actor.model.api.Avatar avatar=new im.actor.model.api.Avatar();
 byte[] a=values.optBytes(5);
 if (a != null) {
-avatar=Avatar.fromBytes(a).toWrapped();
+avatar=new Avatar(a).toWrapped();
 }
 List<im.actor.model.api.ContactRecord> records=new ArrayList<im.actor.model.api.ContactRecord>();
 int count=values.getRepeatedCount(7);

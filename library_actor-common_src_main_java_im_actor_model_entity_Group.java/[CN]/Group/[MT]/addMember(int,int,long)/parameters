@@ -1,0 +1,3 @@
+int uid
+int inviterUid
+long inviteDate

@@ -1,10 +1,7 @@
 {
   Group group=groups().getValue(groupId);
   if (group != null) {
-    group=group.clearMembers();
-    for (    Member m : members) {
-      group=group.addMember(m.getUid(),m.getInviterUid(),m.getDate(),m.getUid() == group.getAdminId());
-    }
+    group=group.updateMembers(members);
     groups().addOrUpdateItem(group);
   }
 }

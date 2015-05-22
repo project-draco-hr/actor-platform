@@ -1,27 +1,20 @@
 {
-  if (wrapped == null) {
-    smallImage=null;
-    largeImage=null;
-    fullImage=null;
+  if (wrapped.getSmallImage() != null) {
+    smallImage=new AvatarImage(wrapped.getSmallImage());
   }
  else {
-    if (wrapped.getSmallImage() != null) {
-      smallImage=new AvatarImage(wrapped.getSmallImage());
-    }
+    smallImage=null;
+  }
+  if (wrapped.getLargeImage() != null) {
+    largeImage=new AvatarImage(wrapped.getLargeImage());
+  }
  else {
-      smallImage=null;
-    }
-    if (wrapped.getLargeImage() != null) {
-      largeImage=new AvatarImage(wrapped.getLargeImage());
-    }
+    largeImage=null;
+  }
+  if (wrapped.getFullImage() != null) {
+    fullImage=new AvatarImage(wrapped.getFullImage());
+  }
  else {
-      largeImage=null;
-    }
-    if (wrapped.getFullImage() != null) {
-      fullImage=new AvatarImage(wrapped.getFullImage());
-    }
- else {
-      fullImage=null;
-    }
+    fullImage=null;
   }
 }

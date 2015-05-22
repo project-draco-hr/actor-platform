@@ -22,7 +22,7 @@
   android.app.Notification result;
   if (messagesCount == 1) {
     final String sender=getNotificationSender(topNotification);
-    final CharSequence text=getNotificationText(topNotification);
+    final CharSequence text=messenger().getFormatter().formatNotificationText(topNotification);
     visiblePeer=topNotification.getPeer();
     Avatar avatar=null;
     int id=0;
@@ -68,7 +68,7 @@ if (topNotification.getPeer().getPeerType() == PeerType.GROUP) {
 inboxStyle.addLine(getNotificationTextFull(n));
 }
  else {
-inboxStyle.addLine(getNotificationText(n));
+inboxStyle.addLine(messenger().getFormatter().formatNotificationText(n));
 }
 }
 inboxStyle.setSummaryText(messagesCount + " messages");
