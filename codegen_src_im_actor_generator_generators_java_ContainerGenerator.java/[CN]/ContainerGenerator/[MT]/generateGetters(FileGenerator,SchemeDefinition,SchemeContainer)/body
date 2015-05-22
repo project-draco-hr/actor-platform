@@ -2,6 +2,21 @@
   for (  SchemeAttribute attribute : container.getFilteredAttributes()) {
     String type=JavaConfig.convertType(definition,attribute.getType());
     String getter=type.equals("boolean") || type.equals("Boolean") ? JavaConfig.getBoolGetterName(attribute.getName()) : JavaConfig.getGetterName(attribute.getName());
+    SchemeType schemeType=JavaConfig.reduceAlias(attribute.getType(),definition);
+    if (schemeType instanceof SchemeOptionalType) {
+      generator.appendLn("@Nullable");
+    }
+ else {
+      if (!(schemeType instanceof SchemePrimitiveType)) {
+        generator.appendLn("@NotNull");
+      }
+ else {
+        String name=((SchemePrimitiveType)schemeType).getName();
+        if (name.equals("string") || name.equals("bytes")) {
+          generator.appendLn("@NotNull");
+        }
+      }
+    }
     generator.appendLn("public " + type + " "+ getter+ "() {");
     generator.increaseDepth();
     generator.appendLn("return this." + attribute.getName() + ";");
