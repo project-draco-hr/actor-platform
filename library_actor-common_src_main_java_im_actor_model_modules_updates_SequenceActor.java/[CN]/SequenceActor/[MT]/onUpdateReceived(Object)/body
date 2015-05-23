@@ -68,6 +68,11 @@
   }
   if (!isValidSeq(seq)) {
     further.put(seq,u);
+    if (seq - this.seq > INVALIDATE_MAX_SEC_HOLE) {
+      Log.w(TAG,"Out of sequence: Too big hole. Force invalidate immediately");
+      self().sendOnce(new ForceInvalidate());
+      return;
+    }
     if (isTimerStarted) {
       Log.w(TAG,"Out of sequence: timer already started");
     }
