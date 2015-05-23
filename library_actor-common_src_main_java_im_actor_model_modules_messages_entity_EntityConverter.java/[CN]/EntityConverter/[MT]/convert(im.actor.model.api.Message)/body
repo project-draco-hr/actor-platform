@@ -8,7 +8,7 @@
     ServiceEx ex=message.getExt();
     if (ex instanceof ServiceExChangedAvatar) {
       ServiceExChangedAvatar avatar=(ServiceExChangedAvatar)ex;
-      return new ServiceGroupAvatarChanged(convert(avatar.getAvatar()));
+      return new ServiceGroupAvatarChanged(avatar.getAvatar() != null ? new Avatar(avatar.getAvatar()) : null);
     }
  else     if (ex instanceof ServiceExChangedTitle) {
       ServiceExChangedTitle title=(ServiceExChangedTitle)ex;
@@ -37,7 +37,7 @@
     String mimeType=documentMessage.getMimeType();
     String name=documentMessage.getName();
     im.actor.model.entity.content.FastThumb fastThumb=convert(documentMessage.getThumb());
-    FileReference fileReference=new FileReference(documentMessage.getFileId(),documentMessage.getAccessHash(),documentMessage.getFileSize(),documentMessage.getName());
+    FileReference fileReference=new FileReference(new FileLocation(documentMessage.getFileId(),documentMessage.getAccessHash()),documentMessage.getName(),documentMessage.getFileSize());
     FileRemoteSource source=new FileRemoteSource(fileReference);
     if (documentMessage.getExt() instanceof DocumentExPhoto) {
       DocumentExPhoto photo=(DocumentExPhoto)documentMessage.getExt();

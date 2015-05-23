@@ -1,0 +1,4 @@
+String callId
+int code
+String reason
+Map<String,String> headers

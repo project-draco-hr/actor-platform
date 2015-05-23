@@ -7,11 +7,14 @@
   final TextView lastSeen=(TextView)res.findViewById(R.id.lastSeen);
   bind(lastSeen,lastSeen,user);
   LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.phoneContainer);
+  View phonesDivider=res.findViewById(R.id.phoneDivider);
   if (user.getPhones().get().size() == 0) {
     contactsContainer.setVisibility(View.GONE);
+    phonesDivider.setVisibility(View.GONE);
   }
  else {
     contactsContainer.setVisibility(View.VISIBLE);
+    phonesDivider.setVisibility(View.VISIBLE);
     ArrayList<UserPhone> phones=user.getPhones().get();
     for (int i=0; i < phones.size(); i++) {
       final UserPhone record=phones.get(i);
@@ -48,7 +51,8 @@
           new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.phone_menu_call).replace("{0}",phoneNumber),getString(R.string.phone_menu_sms).replace("{0}",phoneNumber),getString(R.string.phone_menu_share).replace("{0}",phoneNumber),getString(R.string.phone_menu_copy)},new DialogInterface.OnClickListener(){
             @Override public void onClick(            DialogInterface dialog,            int which){
               if (which == 0) {
-                startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:+" + record.getPhone())));
+                messenger().startCall(uid);
+                startActivity(new Intent(getActivity(),CallActivity.class));
               }
  else               if (which == 1) {
                 startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("sms:+" + record.getPhone())));
@@ -80,12 +84,18 @@
 );
     }
   }
-  res.findViewById(R.id.profileAction).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      startActivity(Intents.openPrivateDialog(uid,true,getActivity()));
-    }
+  if (user.isBot()) {
+    res.findViewById(R.id.profileAction).setVisibility(View.GONE);
   }
+ else {
+    res.findViewById(R.id.profileAction).setVisibility(View.VISIBLE);
+    res.findViewById(R.id.profileAction).setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        startActivity(Intents.openPrivateDialog(uid,true,getActivity()));
+      }
+    }
 );
+  }
   avatarView=(CoverAvatarView)res.findViewById(R.id.avatar);
   bind(avatarView,user.getAvatar());
   avatarView.setOnClickListener(new View.OnClickListener(){

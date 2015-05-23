@@ -9,7 +9,7 @@
     Bitmap smallThumb=ImageHelper.scaleFit(img,90,90);
     byte[] smallThumbData=ImageHelper.save(smallThumb);
     FastThumb thumb=new FastThumb(smallThumb.getWidth(),smallThumb.getHeight(),smallThumbData);
-    sendVideo(peer,fileName,width,height,duration,thumb,new AndroidFileSystemReference(fullFilePath));
+    sendVideo(peer,fileName,width,height,duration,thumb,fullFilePath);
   }
  catch (  Throwable e) {
     e.printStackTrace();

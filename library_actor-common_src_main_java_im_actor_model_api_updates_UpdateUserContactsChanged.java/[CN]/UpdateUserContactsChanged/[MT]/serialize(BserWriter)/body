@@ -1,5 +1,4 @@
 {
   writer.writeInt(1,this.uid);
-  writer.writeRepeatedInt(2,this.phones);
-  writer.writeRepeatedInt(3,this.emails);
+  writer.writeRepeatedObj(4,this.contactRecords);
 }

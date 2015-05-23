@@ -1,0 +1,4 @@
+{
+  this.bannerId=bannerId;
+  this.viewDuration=viewDuration;
+}

@@ -2,5 +2,5 @@
   Rect bounds=getBounds();
   CIRCLE_PAINT.setColor(color);
   canvas.drawCircle(bounds.centerX(),bounds.centerY(),bounds.width() / 2,CIRCLE_PAINT);
-  canvas.drawText(title,textX,textY,TEXT_PAINT);
+  canvas.drawText(title,textX,textY,(forceNewTextSize ? FORCED_SIZE_TEXT_PAINT : TEXT_PAINT));
 }

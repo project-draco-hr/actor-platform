@@ -1,6 +1,7 @@
 {
   boolean removed=false;
-  for (  OutUnreadMessage p : messagesStorage.getMessages().toArray(new OutUnreadMessage[0])) {
+  ArrayList<OutUnreadMessage> messagesStorageMessages=messagesStorage.getMessages();
+  for (  OutUnreadMessage p : messagesStorageMessages.toArray(new OutUnreadMessage[messagesStorageMessages.size()])) {
     if (p.getDate() <= date) {
       Message msg=messages.getValue(p.getRid());
       if (msg != null && (msg.getMessageState() == MessageState.SENT || msg.getMessageState() == MessageState.RECEIVED)) {

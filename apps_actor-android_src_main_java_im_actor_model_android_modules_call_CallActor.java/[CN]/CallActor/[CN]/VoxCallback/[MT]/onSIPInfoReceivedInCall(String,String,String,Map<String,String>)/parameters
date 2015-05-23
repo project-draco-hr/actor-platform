@@ -1,0 +1,4 @@
+String callId
+String type
+String content
+Map<String,String> headers

@@ -5,9 +5,6 @@ default :
 case 1:
     peerType=PeerType.PRIVATE;
   break;
-case 2:
-peerType=PeerType.EMAIL;
-break;
 case 3:
 peerType=PeerType.GROUP;
 break;

@@ -35,7 +35,7 @@
   }
   builder.setDeviceCategory(DeviceCategory.MOBILE);
   builder.setAppCategory(AppCategory.ANDROID);
-  builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,BuildConfig.API_ID,BuildConfig.API_KEY,"Android Device",AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
+  builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,BuildConfig.API_ID,BuildConfig.API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
   IntentFilter screenFilter=new IntentFilter();
   screenFilter.addAction(Intent.ACTION_SCREEN_OFF);

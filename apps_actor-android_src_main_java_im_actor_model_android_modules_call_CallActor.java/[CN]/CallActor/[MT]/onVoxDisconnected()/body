@@ -1,0 +1,8 @@
+{
+  Log.d(TAG,"Disconnected");
+  isConnected=false;
+  isLoggedIn=false;
+  cancelOngoing();
+  cancelPending();
+  self().sendOnce(new TryConnect());
+}

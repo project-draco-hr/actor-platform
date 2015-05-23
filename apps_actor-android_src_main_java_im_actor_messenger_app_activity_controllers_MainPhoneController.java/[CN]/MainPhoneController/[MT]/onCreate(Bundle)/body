@@ -21,7 +21,7 @@
   }
 );
   searchList=(RecyclerView)findViewById(R.id.searchList);
-  searchList.setLayoutManager(new LinearLayoutManager(getActivity()));
+  searchList.setLayoutManager(new CustomLinearLayoutManager(getActivity()));
   searchContainer=findViewById(R.id.searchCont);
   searchEmptyView=findViewById(R.id.empty);
   searchHintView=findViewById(R.id.searchHint);

@@ -1,0 +1,5 @@
+ContactType type
+String stringValue
+Long longValue
+String title
+String subtitle

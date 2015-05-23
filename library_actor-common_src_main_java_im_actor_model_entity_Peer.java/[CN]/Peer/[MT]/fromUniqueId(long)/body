@@ -7,7 +7,5 @@ case 0:
     return new Peer(PeerType.PRIVATE,id);
 case 1:
   return new Peer(PeerType.GROUP,id);
-case 2:
-return new Peer(PeerType.EMAIL,id);
 }
 }

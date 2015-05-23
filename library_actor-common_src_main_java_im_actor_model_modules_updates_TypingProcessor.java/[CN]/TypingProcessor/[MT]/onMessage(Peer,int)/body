@@ -5,6 +5,4 @@
  else   if (peer.getType() == PeerType.GROUP) {
     typingActor.sendOnce(new TypingActor.StopGroupTyping(peer.getId(),uid));
   }
- else {
-  }
 }

@@ -1,4 +1,0 @@
-{
-  peer=Peer.fromUniqueId(values.getLong(1));
-  lastReadSortingDate=values.getLong(2);
-}

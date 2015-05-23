@@ -1,6 +1,6 @@
 {
   UserVM user=users().get(data.getUid());
-  avatarView.bind(user);
+  avatarView.bind(user,false);
   userName.setText(user.getName().get());
   if (data.isAdministrator()) {
     admin.setVisibility(View.VISIBLE);

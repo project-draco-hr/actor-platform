@@ -2,6 +2,6 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   FileReference that=(FileReference)o;
-  if (fileId != that.fileId)   return false;
+  if (getWrapped().getFileId() != that.getWrapped().getFileId())   return false;
   return true;
 }

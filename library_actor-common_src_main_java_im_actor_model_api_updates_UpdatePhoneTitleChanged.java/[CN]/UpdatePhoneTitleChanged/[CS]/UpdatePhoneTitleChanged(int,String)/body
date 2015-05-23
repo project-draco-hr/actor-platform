@@ -1,4 +1,0 @@
-{
-  this.phoneId=phoneId;
-  this.title=title;
-}

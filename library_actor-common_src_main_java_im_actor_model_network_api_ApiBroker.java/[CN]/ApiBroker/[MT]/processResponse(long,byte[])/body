@@ -50,7 +50,7 @@
   }
  else   if (protoStruct instanceof RpcInternalError) {
     RpcInternalError e=((RpcInternalError)protoStruct);
-    Log.d(TAG,"<- internal_error#" + holder.publicId);
+    Log.d(TAG,"<- internal_error#" + holder.publicId + " "+ e.getTryAgainDelay()+ " sec");
     if (e.isCanTryAgain()) {
       self().send(new ForceResend(rid),e.getTryAgainDelay() * 1000L);
     }
@@ -68,5 +68,6 @@
     self().send(new ForceResend(rid),f.getDelay() * 1000L);
   }
  else {
+    Log.d(TAG,"<- unknown_package#" + holder.publicId);
   }
 }

@@ -1,7 +1,7 @@
 {
   MVVMEngine.getMainThreadProvider().postToMainThread(new Runnable(){
     @Override public void run(){
-      for (      ModelChangedListener<GroupVM> l : listeners.toArray(new ModelChangedListener[0])) {
+      for (      ModelChangedListener<GroupVM> l : listeners.toArray(new ModelChangedListener[listeners.size()])) {
         l.onChanged(GroupVM.this);
       }
     }
