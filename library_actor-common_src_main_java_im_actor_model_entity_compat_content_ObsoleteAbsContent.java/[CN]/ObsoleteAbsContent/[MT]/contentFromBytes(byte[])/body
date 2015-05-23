@@ -3,11 +3,14 @@
   ObsoleteContentType type=typeFromValue(reader.getInt(1));
 switch (type) {
 case TEXT:
+    return new ObsoleteTextContent(data).toApiMessage();
 case DOCUMENT:
 case DOCUMENT_PHOTO:
 case DOCUMENT_VIDEO:
 case SERVICE:
+  return new ObsoleteService(data).toApiMessage();
 case SERVICE_REGISTERED:
+return new ObsoleteServiceRegistered().toApiMessage();
 case SERVICE_CREATED:
 case SERVICE_TITLE:
 case SERVICE_AVATAR:
@@ -15,6 +18,6 @@ case SERVICE_ADDED:
 case SERVICE_KICKED:
 case SERVICE_LEAVE:
 default :
-    throw new IOException("Unknown type");
+throw new IOException("Unknown type");
 }
 }

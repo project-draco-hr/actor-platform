@@ -1,0 +1,8 @@
+{
+  mimetype=values.getString(3);
+  name=values.getString(4);
+  byte[] ft=values.optBytes(5);
+  if (ft != null) {
+    fastThumb=new ObsoleteFastThumb(ft);
+  }
+}
