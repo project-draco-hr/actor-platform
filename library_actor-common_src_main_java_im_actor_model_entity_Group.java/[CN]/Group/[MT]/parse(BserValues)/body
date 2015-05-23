@@ -1,27 +1,8 @@
 {
-  if (!values.getBool(9,false)) {
-    int groupId=values.getInt(1);
-    long accessHash=values.getLong(2);
-    String title=values.getString(3);
-    im.actor.model.api.Avatar avatar=new im.actor.model.api.Avatar();
-    if (values.optBytes(4) != null) {
-      avatar=new Avatar(values.getBytes(4)).toWrapped();
-    }
-    int adminId=values.getInt(5);
-    int count=values.getRepeatedCount(6);
-    List<Member> members=new ArrayList<Member>();
-    if (count > 0) {
-      List<ObsoleteGroupMember> res=new ArrayList<ObsoleteGroupMember>();
-      for (int i=0; i < count; i++) {
-        res.add(new ObsoleteGroupMember());
-      }
-      res=values.getRepeatedObj(6,res);
-      for (      ObsoleteGroupMember o : res) {
-        members.add(new Member(o.getUid(),o.getInviterUid(),o.getInviteDate()));
-      }
-    }
-    boolean isMember=values.getBool(7);
-    setWrapped(new im.actor.model.api.Group(groupId,accessHash,title,avatar,isMember,adminId,members,0));
+  if (values.getBool(9,false)) {
+    super.parse(values);
   }
-  super.parse(values);
+ else {
+    setWrapped(new ObsoleteGroup(values).toApiGroup());
+  }
 }

@@ -1,0 +1,29 @@
+{
+switch (val) {
+default :
+case 1:
+    return ObsoleteContentType.TEXT;
+case 2:
+  return ObsoleteContentType.DOCUMENT;
+case 3:
+return ObsoleteContentType.DOCUMENT_PHOTO;
+case 4:
+return ObsoleteContentType.DOCUMENT_VIDEO;
+case 5:
+return ObsoleteContentType.SERVICE;
+case 6:
+return ObsoleteContentType.SERVICE_CREATED;
+case 7:
+return ObsoleteContentType.SERVICE_AVATAR;
+case 8:
+return ObsoleteContentType.SERVICE_TITLE;
+case 9:
+return ObsoleteContentType.SERVICE_ADDED;
+case 10:
+return ObsoleteContentType.SERVICE_KICKED;
+case 11:
+return ObsoleteContentType.SERVICE_LEAVE;
+case 12:
+return ObsoleteContentType.SERVICE_REGISTERED;
+}
+}

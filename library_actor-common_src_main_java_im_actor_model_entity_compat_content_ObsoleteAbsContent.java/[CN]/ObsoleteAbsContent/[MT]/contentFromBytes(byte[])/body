@@ -1,0 +1,20 @@
+{
+  BserValues reader=new BserValues(BserParser.deserialize(new DataInput(data,0,data.length)));
+  ObsoleteContentType type=typeFromValue(reader.getInt(1));
+switch (type) {
+case TEXT:
+case DOCUMENT:
+case DOCUMENT_PHOTO:
+case DOCUMENT_VIDEO:
+case SERVICE:
+case SERVICE_REGISTERED:
+case SERVICE_CREATED:
+case SERVICE_TITLE:
+case SERVICE_AVATAR:
+case SERVICE_ADDED:
+case SERVICE_KICKED:
+case SERVICE_LEAVE:
+default :
+    throw new IOException("Unknown type");
+}
+}

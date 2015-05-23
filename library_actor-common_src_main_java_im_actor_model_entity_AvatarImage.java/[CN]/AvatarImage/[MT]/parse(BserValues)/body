@@ -1,9 +1,9 @@
 {
-  if (!values.getBool(5,false)) {
-    int width=values.getInt(1);
-    int height=values.getInt(2);
-    FileReference fileReference=new FileReference(values.getBytes(3));
-    setWrapped(new im.actor.model.api.AvatarImage(fileReference.getFileLocation(),width,height,fileReference.getFileSize()));
+  if (values.getBool(5,false)) {
+    super.parse(values);
   }
-  super.parse(values);
+ else {
+    ObsoleteAvatarImage obsoleteAvatarImage=new ObsoleteAvatarImage(values);
+    setWrapped(new im.actor.model.api.AvatarImage(new FileLocation(obsoleteAvatarImage.getFileReference().getFileId(),obsoleteAvatarImage.getFileReference().getAccessHash()),obsoleteAvatarImage.getWidth(),obsoleteAvatarImage.getHeight(),obsoleteAvatarImage.getFileReference().getFileSize()));
+  }
 }
