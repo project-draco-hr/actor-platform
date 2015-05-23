@@ -1,6 +1,7 @@
 {
   int start;
   int end;
+  boolean urlTitleEndsSpace;
   String url;
   String urlTitle;
   String mdUrl;
@@ -10,9 +11,12 @@
     end=text.getSpanEnd(span);
     if (start != -1 && end <= text.length()) {
       url=span.getURL();
-      urlTitle=text.toString().substring(start,end).trim();
-      mdUrl=new String("[").concat(urlTitle).concat("](").concat(url).concat(")");
-      if (urlTitle.equals("@".concat(MENTION_BOUNDS_STR).concat(MENTION_BOUNDS_STR)) || urlTitle.equals("@") || urlTitle.equals("@ "))       mdUrl="@";
+      urlTitle=text.toString().substring(start,end);
+      urlTitleEndsSpace=urlTitle.endsWith(" ");
+      urlTitle=urlTitle.trim();
+      mdUrl="[".concat(urlTitle).concat("](").concat(url).concat(")");
+      if (urlTitleEndsSpace)       mdUrl=mdUrl.concat(" ");
+      if (urlTitle.equals("@".concat(MENTION_BOUNDS_STR).concat(MENTION_BOUNDS_STR)) || urlTitle.equals("@"))       mdUrl="@";
       if (!urlTitle.contains("@"))       mdUrl=urlTitle;
       text.replace(start,end,mdUrl);
     }

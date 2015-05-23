@@ -25,7 +25,7 @@
  else {
     spannedText=bypass.markdownToSpannable(((TextContent)message.getContent()).getText(),false);
   }
-  Editable spannedTextEditable=(Editable)spannedText;
+  Editable spannedTextEditable=new SpannableStringBuilder(spannedText);
   URLSpan[] urlSpans=spannedTextEditable.getSpans(0,spannedTextEditable.length(),URLSpan.class);
   if (urlSpans.length > 0) {
     int start;
@@ -47,6 +47,7 @@
     spannedText=spannedTextEditable;
   }
  else {
+    spannedText=spannedTextEditable;
     Linkify.addLinks((Spannable)spannedText,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
   }
   if (emoji().containsEmoji(spannedText)) {
