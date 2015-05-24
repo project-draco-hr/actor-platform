@@ -1,6 +1,5 @@
 {
   String res="struct JsonMessage{";
-  res+="rawJson=" + this.rawJson;
   res+="}";
   return res;
 }
