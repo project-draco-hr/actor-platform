@@ -1,3 +1,0 @@
-{
-  return new ServiceMessage("User registered",new ServiceExContactRegistered());
-}

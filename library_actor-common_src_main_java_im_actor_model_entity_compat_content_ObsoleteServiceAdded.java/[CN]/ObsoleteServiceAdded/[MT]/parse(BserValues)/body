@@ -1,0 +1,3 @@
+{
+  addedUid=values.getInt(10);
+}

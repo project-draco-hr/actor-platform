@@ -1,0 +1,6 @@
+{
+  byte[] data=values.optBytes(10);
+  if (data != null) {
+    avatar=new ObsoleteAvatar(data);
+  }
+}
