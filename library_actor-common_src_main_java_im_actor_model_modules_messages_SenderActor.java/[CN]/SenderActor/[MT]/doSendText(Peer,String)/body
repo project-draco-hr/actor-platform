@@ -1,9 +1,10 @@
 {
   long rid=RandomUtils.nextRid();
   long date=Environment.getCurrentTime();
-  Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,new TextContent(text));
+  TextContent content=TextContent.create(text);
+  Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,content);
   getConversationActor(peer).send(message);
-  pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,new TextContent(text)));
+  pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,content));
   savePending();
-  performSendContent(peer,rid,new TextContent(text));
+  performSendContent(peer,rid,content);
 }

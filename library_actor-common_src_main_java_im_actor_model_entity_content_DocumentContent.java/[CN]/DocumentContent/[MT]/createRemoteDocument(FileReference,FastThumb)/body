@@ -1,0 +1,3 @@
+{
+  return new PhotoContent(new ContentRemoteContainer(new DocumentMessage(reference.getFileId(),reference.getAccessHash(),reference.getFileSize(),reference.getFileName(),"image/jpeg",fastThumb != null ? new im.actor.model.api.FastThumb(fastThumb.getW(),fastThumb.getH(),fastThumb.getImage()) : null,null)));
+}

@@ -7,15 +7,15 @@
   AbsContent nContent;
   if (msg.getContent() instanceof PhotoContent) {
     PhotoContent basePhotoContent=(PhotoContent)msg.getContent();
-    nContent=new PhotoContent(new FileRemoteSource(fileReference),basePhotoContent.getMimetype(),basePhotoContent.getName(),basePhotoContent.getFastThumb(),basePhotoContent.getW(),basePhotoContent.getH());
+    nContent=PhotoContent.createRemotePhoto(fileReference,basePhotoContent.getW(),basePhotoContent.getH(),basePhotoContent.getFastThumb());
   }
  else   if (msg.getContent() instanceof VideoContent) {
     VideoContent baseVideoContent=(VideoContent)msg.getContent();
-    nContent=new VideoContent(new FileRemoteSource(fileReference),baseVideoContent.getMimetype(),baseVideoContent.getName(),baseVideoContent.getFastThumb(),baseVideoContent.getDuration(),baseVideoContent.getW(),baseVideoContent.getH());
+    nContent=VideoContent.createRemotePhoto(fileReference,baseVideoContent.getW(),baseVideoContent.getH(),baseVideoContent.getDuration(),baseVideoContent.getFastThumb());
   }
  else   if (msg.getContent() instanceof DocumentContent) {
     DocumentContent baseDocContent=(DocumentContent)msg.getContent();
-    nContent=new DocumentContent(new FileRemoteSource(fileReference),baseDocContent.getMimetype(),baseDocContent.getName(),baseDocContent.getFastThumb());
+    nContent=DocumentContent.createRemoteDocument(fileReference,baseDocContent.getFastThumb());
   }
  else {
     return;

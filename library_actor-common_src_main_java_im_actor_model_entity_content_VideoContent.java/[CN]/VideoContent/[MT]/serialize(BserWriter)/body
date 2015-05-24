@@ -1,6 +1,0 @@
-{
-  super.serialize(writer);
-  writer.writeInt(10,duration);
-  writer.writeInt(11,w);
-  writer.writeInt(12,h);
-}

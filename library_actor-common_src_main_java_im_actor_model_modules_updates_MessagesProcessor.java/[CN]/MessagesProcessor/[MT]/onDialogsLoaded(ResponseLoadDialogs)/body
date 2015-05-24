@@ -4,7 +4,13 @@
   for (  im.actor.model.api.Dialog dialog : dialogsResponse.getDialogs()) {
     maxLoadedDate=Math.min(dialog.getSortDate(),maxLoadedDate);
     Peer peer=convert(dialog.getPeer());
-    AbsContent msgContent=convert(dialog.getMessage());
+    AbsContent msgContent=null;
+    try {
+      msgContent=AbsContent.fromMessage(dialog.getMessage());
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
     if (msgContent == null) {
       continue;
     }

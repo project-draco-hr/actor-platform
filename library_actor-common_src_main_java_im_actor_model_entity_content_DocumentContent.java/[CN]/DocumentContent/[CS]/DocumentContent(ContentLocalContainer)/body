@@ -1,0 +1,8 @@
+{
+  super(contentContainer);
+  LocalDocument localDocument=(LocalDocument)contentContainer.getContent();
+  source=new FileLocalSource(localDocument.getFileName(),localDocument.getFileSize(),localDocument.getFileDescriptor());
+  mimeType=localDocument.getMimeType();
+  name=localDocument.getFileName();
+  fastThumb=localDocument.getFastThumb() != null ? new FastThumb(localDocument.getFastThumb()) : null;
+}

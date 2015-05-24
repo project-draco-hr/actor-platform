@@ -1,0 +1,18 @@
+{
+  DataOutput res=new DataOutput();
+  BserWriter writer=new BserWriter(res);
+  if (this instanceof LocalPhoto) {
+    writer.writeInt(1,CONTENT_PHOTO);
+  }
+ else   if (this instanceof LocalVideo) {
+    writer.writeInt(1,CONTENT_VIDEO);
+  }
+ else   if (this instanceof LocalDocument) {
+    writer.writeInt(1,CONTENT_DOC);
+  }
+ else {
+    throw new IOException("Unknown type");
+  }
+  writer.writeBytes(2,toByteArray());
+  return res.toByteArray();
+}

@@ -1,0 +1,11 @@
+{
+  BserValues reader=new BserValues(BserParser.deserialize(new DataInput(data,0,data.length)));
+  AbsContentContainer contentainer;
+  if (reader.getBool(32,false)) {
+    contentainer=AbsContentContainer.loadContainer(reader.getBytes(33));
+  }
+ else {
+    contentainer=ObsoleteContent.contentFromValues(reader);
+  }
+  return convertData(contentainer);
+}

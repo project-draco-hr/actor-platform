@@ -3,7 +3,13 @@
   long maxLoadedDate=Long.MAX_VALUE;
   for (  HistoryMessage historyMessage : historyResponse.getHistory()) {
     maxLoadedDate=Math.min(historyMessage.getDate(),maxLoadedDate);
-    AbsContent content=EntityConverter.convert(historyMessage.getMessage());
+    AbsContent content=null;
+    try {
+      content=AbsContent.fromMessage(historyMessage.getMessage());
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
     if (content == null) {
       continue;
     }

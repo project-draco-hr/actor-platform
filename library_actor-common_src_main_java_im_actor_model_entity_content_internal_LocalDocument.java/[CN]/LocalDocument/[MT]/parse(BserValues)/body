@@ -1,0 +1,10 @@
+{
+  fileName=values.getString(1);
+  fileDescriptor=values.getString(2);
+  fileSize=values.getInt(3);
+  mimeType=values.getString(4);
+  byte[] rawFT=values.optBytes(5);
+  if (rawFT != null) {
+    fastThumb=new LocalFastThumb(rawFT);
+  }
+}

@@ -1,7 +1,7 @@
 {
   long rid=RandomUtils.nextRid();
   long date=Environment.getCurrentTime();
-  PhotoContent photoContent=new PhotoContent(new FileLocalSource(fileName,fileSize,descriptor),"image/jpeg",fileName,fastThumb,w,h);
+  PhotoContent photoContent=PhotoContent.createLocalPhoto(descriptor,fileName,fileSize,w,h,fastThumb);
   Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,photoContent);
   getConversationActor(peer).send(message);
   pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,photoContent));

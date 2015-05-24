@@ -7,7 +7,7 @@
       onGroupDescChanged(upd);
     }
     if (!isSilent) {
-      Message message=new Message(rid,date,date,uid,uid == myUid() ? MessageState.SENT : MessageState.UNKNOWN,new ServiceGroupTitleChanged(title));
+      Message message=new Message(rid,date,date,uid,uid == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupTitleChanged.create(title));
       conversationActor(group.peer()).send(message);
     }
   }

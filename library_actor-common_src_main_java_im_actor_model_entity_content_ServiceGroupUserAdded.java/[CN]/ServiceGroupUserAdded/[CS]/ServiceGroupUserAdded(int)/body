@@ -1,4 +1,0 @@
-{
-  super("Member added");
-  this.addedUid=addedUid;
-}

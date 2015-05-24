@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getGroup(gid).unsubscribe(callback);
+  messenger.getJsGroup(gid).unsubscribe(callback);
 }

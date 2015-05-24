@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  fileReference=new FileReference(values.getBytes(2));
-}
