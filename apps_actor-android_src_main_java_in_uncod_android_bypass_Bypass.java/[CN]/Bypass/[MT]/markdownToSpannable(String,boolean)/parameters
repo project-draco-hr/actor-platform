@@ -1,2 +1,2 @@
 String markdown
-boolean useMentionSpan
+boolean hideUrlStyle

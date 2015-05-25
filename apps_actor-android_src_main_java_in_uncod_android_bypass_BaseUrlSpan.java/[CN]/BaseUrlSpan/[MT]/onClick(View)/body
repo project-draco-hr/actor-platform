@@ -1,0 +1,9 @@
+{
+  Intent viewIntent=new Intent(Intent.ACTION_VIEW,Uri.parse(getURL()));
+  if (viewIntent.resolveActivity(ctx.getPackageManager()) != null) {
+    super.onClick(v);
+  }
+ else {
+    Toast.makeText(ctx,"Unknown URL type",Toast.LENGTH_SHORT).show();
+  }
+}

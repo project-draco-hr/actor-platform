@@ -1,0 +1,5 @@
+{
+  super(url);
+  this.ctx=ctx;
+  this.hideUrlStyle=hideUrlStyle;
+}
