@@ -1,4 +1,0 @@
-{
-  super("User kicked");
-  this.kickedUid=kickedUid;
-}

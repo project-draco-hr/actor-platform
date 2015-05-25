@@ -1,0 +1,7 @@
+{
+  DataOutput dataOutput=new DataOutput();
+  BserWriter writer=new BserWriter(dataOutput);
+  writer.writeBool(32,true);
+  writer.writeBytes(33,content.getContentContainer().buildContainer());
+  return dataOutput.toByteArray();
+}

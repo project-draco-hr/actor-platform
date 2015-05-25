@@ -1,0 +1,3 @@
+{
+  fileReference=new ObsoleteFileReference(values.getBytes(2));
+}

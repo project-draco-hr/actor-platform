@@ -1,41 +1,8 @@
 {
-  if (!values.getBool(8,false)) {
-    int uid=values.getInt(1);
-    long accessHash=values.getLong(2);
-    String name=values.getString(3);
-    String localName=values.optString(4);
-    im.actor.model.api.Sex sex=im.actor.model.api.Sex.UNKNOWN;
-switch (Sex.fromValue(values.getInt(6))) {
-case FEMALE:
-      sex=im.actor.model.api.Sex.FEMALE;
-    break;
-case MALE:
-  sex=im.actor.model.api.Sex.MALE;
-break;
-}
-im.actor.model.api.Avatar avatar=new im.actor.model.api.Avatar();
-byte[] a=values.optBytes(5);
-if (a != null) {
-avatar=Avatar.fromBytes(a).toWrapped();
-}
-List<im.actor.model.api.ContactRecord> records=new ArrayList<im.actor.model.api.ContactRecord>();
-int count=values.getRepeatedCount(7);
-if (count > 0) {
-List<ObsoleteContactRecord> rec=new ArrayList<ObsoleteContactRecord>();
-for (int i=0; i < count; i++) {
-rec.add(new ObsoleteContactRecord());
-}
-rec=values.getRepeatedObj(7,rec);
-for (ObsoleteContactRecord o : rec) {
-if (o.getRecordType() == 0) {
-  if (o.getRecordData().equals("0")) {
-    continue;
+  if (values.getBool(8,false)) {
+    super.parse(values);
   }
-  records.add(new im.actor.model.api.ContactRecord(ContactType.PHONE,null,Long.parseLong(o.getRecordData()),o.getRecordTitle(),null));
-}
-}
-}
-setWrapped(new im.actor.model.api.User(uid,accessHash,name,localName,sex,avatar,records,false));
-}
-super.parse(values);
+ else {
+    setWrapped(new ObsoleteUser(values).toApiUser());
+  }
 }

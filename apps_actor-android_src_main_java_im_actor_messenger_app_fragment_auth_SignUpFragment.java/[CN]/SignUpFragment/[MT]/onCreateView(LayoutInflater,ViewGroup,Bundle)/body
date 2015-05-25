@@ -16,7 +16,7 @@
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
     }
     @Override public void afterTextChanged(    Editable s){
-      messenger().trackAuthSignupClosedNameType(s.toString());
+      messenger().trackAuthSignupNameType(s.toString());
     }
   }
 );

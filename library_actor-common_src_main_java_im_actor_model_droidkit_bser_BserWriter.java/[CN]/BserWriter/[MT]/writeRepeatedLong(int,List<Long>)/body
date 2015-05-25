@@ -10,6 +10,6 @@
     if (l == null) {
       throw new IllegalArgumentException("Value can not be null");
     }
-    writeVar64Field(fieldNumber,l);
+    writeVarIntField(fieldNumber,l);
   }
 }

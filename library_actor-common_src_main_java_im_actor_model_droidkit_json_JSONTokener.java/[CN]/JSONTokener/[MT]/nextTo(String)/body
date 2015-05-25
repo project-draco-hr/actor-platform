@@ -1,0 +1,14 @@
+{
+  char c;
+  StringBuilder sb=new StringBuilder();
+  for (; ; ) {
+    c=this.next();
+    if (delimiters.contains("" + c) || c == 0 || c == '\n' || c == '\r') {
+      if (c != 0) {
+        this.back();
+      }
+      return sb.toString().trim();
+    }
+    sb.append(c);
+  }
+}

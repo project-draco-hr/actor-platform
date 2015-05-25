@@ -1,0 +1,7 @@
+{
+  List<Member> members=new ArrayList<Member>();
+  for (  ObsoleteGroupMember member : this.members) {
+    members.add(new Member(member.getUid(),member.getInviterUid(),member.getInviteDate()));
+  }
+  return new im.actor.model.api.Group(groupId,accessHash,title,avatar != null ? avatar.toApiAvatar() : null,isMember,creatorId,members,0);
+}

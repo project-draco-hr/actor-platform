@@ -1,0 +1,7 @@
+{
+  this.fileName=fileName;
+  this.fileDescriptor=fileDescriptor;
+  this.fileSize=fileSize;
+  this.mimeType=mimeType;
+  this.fastThumb=fastThumb;
+}

@@ -1,0 +1,3 @@
+{
+  return new PhotoContent(new ContentLocalContainer(new LocalPhoto(fileName,descriptor,fileSize,"image/jpeg",fastThumb != null ? new LocalFastThumb(fastThumb) : null,w,h)));
+}

@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  groupTitle=values.getString(10);
-}

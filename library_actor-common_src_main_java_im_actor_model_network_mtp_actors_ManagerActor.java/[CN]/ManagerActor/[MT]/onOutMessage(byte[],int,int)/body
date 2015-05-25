@@ -12,6 +12,4 @@
     byte[] pkg=bos.toByteArray();
     currentConnection.post(pkg,0,pkg.length);
   }
- else {
-  }
 }

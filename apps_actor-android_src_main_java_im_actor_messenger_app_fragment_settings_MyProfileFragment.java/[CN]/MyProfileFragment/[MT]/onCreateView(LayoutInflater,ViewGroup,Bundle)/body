@@ -17,8 +17,8 @@
   }
 );
   final LinearLayout contactsContainer=(LinearLayout)view.findViewById(R.id.phoneContainer);
-  bind(userModel.getPhones(),new ValueChangedListener<ArrayList<UserPhone>>(){
-    @Override public void onChanged(    ArrayList<UserPhone> val,    ValueModel<ArrayList<UserPhone>> valueModel){
+  bind(userModel.getPhones(),new ValueChangedListener<ArrayListUserPhone>(){
+    @Override public void onChanged(    ArrayListUserPhone val,    ValueModel<ArrayListUserPhone> valueModel){
       if (val.size() == 0) {
         contactsContainer.setVisibility(View.GONE);
       }

@@ -1,5 +1,0 @@
-{
-  FileRemoteSource fileLocalSource=new FileRemoteSource();
-  fileLocalSource.parse(reader);
-  return fileLocalSource;
-}

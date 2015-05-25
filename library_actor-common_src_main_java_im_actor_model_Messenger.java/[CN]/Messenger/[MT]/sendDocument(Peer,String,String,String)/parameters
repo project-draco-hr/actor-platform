@@ -1,0 +1,4 @@
+Peer peer
+String fileName
+String mimeType
+String descriptor

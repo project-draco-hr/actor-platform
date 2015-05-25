@@ -5,6 +5,6 @@
     res.append(": ");
     res.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),0,res.length(),0);
   }
-  res.append(getNotificationText(notification));
+  res.append(messenger().getFormatter().formatNotificationText(notification));
   return res;
 }

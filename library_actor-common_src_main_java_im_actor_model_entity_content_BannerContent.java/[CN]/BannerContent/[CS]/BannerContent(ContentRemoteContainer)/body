@@ -1,0 +1,9 @@
+{
+  super(contentContainer);
+  String json=((JsonMessage)contentContainer.getMessage()).getRawJson();
+  JSONObject data=new JSONObject(json).getJSONObject("data");
+  JSONObject image=data.getJSONObject("image");
+  adUrl=data.getString("advertUrl");
+  w=image.getInt("width");
+  h=image.getInt("height");
+}

@@ -1,0 +1,17 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(data)));
+  int type=values.getInt(1);
+  byte[] content=values.getBytes(2);
+  if (type == CONTENT_DOC) {
+    return new LocalDocument(content);
+  }
+ else   if (type == CONTENT_PHOTO) {
+    return new LocalPhoto(content);
+  }
+ else   if (type == CONTENT_VIDEO) {
+    return new LocalVideo(content);
+  }
+ else {
+    throw new IOException("Unknown type");
+  }
+}
