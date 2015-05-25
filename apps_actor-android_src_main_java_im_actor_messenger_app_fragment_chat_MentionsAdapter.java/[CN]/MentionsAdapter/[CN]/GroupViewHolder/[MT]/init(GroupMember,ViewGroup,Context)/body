@@ -4,11 +4,5 @@
   avatarView=(AvatarView)res.findViewById(R.id.avatar);
   avatarView.init(Screen.dp(35),20);
   groupMember=data;
-  res.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      onItemClickedListener.onClicked(groupMember);
-    }
-  }
-);
   return res;
 }
