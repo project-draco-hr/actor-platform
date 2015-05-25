@@ -53,7 +53,10 @@
     builder.setSpan(monoSpan,0,builder.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
   }
  else   if (element.getType() == Type.LINK) {
-    URLSpan urlSpan=useMentionSpan ? new MentionSpan(element.getAttribute("link")) : new URLSpan(element.getAttribute("link"));
+    String url=element.getAttribute("link");
+    String urlShame=Uri.parse(url).getScheme();
+    if (urlShame == null || urlShame.isEmpty())     url="http://".concat(url);
+    URLSpan urlSpan=useMentionSpan && urlShame.equals("people") ? new MentionSpan(url) : new URLSpan(url);
     builder.setSpan(urlSpan,0,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
   }
  else   if (element.getType() == Type.BLOCK_QUOTE) {
