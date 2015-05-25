@@ -1,0 +1,10 @@
+{
+  if (this.token == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.token);
+  if (this.url == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.url);
+}

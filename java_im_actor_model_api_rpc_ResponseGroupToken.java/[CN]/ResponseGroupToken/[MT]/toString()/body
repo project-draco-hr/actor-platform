@@ -1,0 +1,5 @@
+{
+  String res="response GroupToken{";
+  res+="}";
+  return res;
+}

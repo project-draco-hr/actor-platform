@@ -1,0 +1,5 @@
+{
+  String res="response InviteUrl{";
+  res+="}";
+  return res;
+}

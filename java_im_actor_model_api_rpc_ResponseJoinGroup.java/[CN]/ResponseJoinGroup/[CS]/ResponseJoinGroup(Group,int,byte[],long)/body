@@ -1,0 +1,6 @@
+{
+  this.group=group;
+  this.seq=seq;
+  this.state=state;
+  this.date=date;
+}
