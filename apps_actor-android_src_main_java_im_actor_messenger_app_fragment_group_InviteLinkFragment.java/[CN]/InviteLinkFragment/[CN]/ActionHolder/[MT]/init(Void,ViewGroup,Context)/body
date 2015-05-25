@@ -1,0 +1,6 @@
+{
+  View res=((Activity)context).getLayoutInflater().inflate(R.layout.fragment_invite_link_item,viewGroup,false);
+  action=(TextView)res.findViewById(R.id.action);
+  container=(LinearLayout)res.findViewById(R.id.inviteLinksActionContainer);
+  return res;
+}

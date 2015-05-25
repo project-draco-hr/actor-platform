@@ -1,0 +1,5 @@
+{
+  Intent res=new Intent(context,InviteLinkActivity.class);
+  res.putExtra(EXTRA_GROUP_ID,chatId);
+  return res;
+}

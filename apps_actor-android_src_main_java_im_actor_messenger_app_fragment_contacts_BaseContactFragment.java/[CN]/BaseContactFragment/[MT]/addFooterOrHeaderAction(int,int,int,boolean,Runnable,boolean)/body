@@ -54,5 +54,10 @@
       invitePanel.addView(div,layoutParams);
     }
   }
-  addFooterView(container);
+  if (isHeader) {
+    addHeaderView(container);
+  }
+ else {
+    addFooterView(container);
+  }
 }

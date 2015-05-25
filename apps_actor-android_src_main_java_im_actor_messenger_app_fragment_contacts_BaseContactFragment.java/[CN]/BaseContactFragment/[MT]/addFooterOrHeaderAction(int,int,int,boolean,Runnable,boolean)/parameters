@@ -3,3 +3,4 @@ int icon
 int text
 boolean isLast
 Runnable action
+boolean isHeader
