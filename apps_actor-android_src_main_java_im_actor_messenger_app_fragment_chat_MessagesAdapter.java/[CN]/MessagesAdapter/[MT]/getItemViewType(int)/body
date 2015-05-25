@@ -15,5 +15,7 @@
  else   if (content instanceof DocumentContent) {
     return 3;
   }
-  throw new RuntimeException("Unknown view type");
+ else {
+    return 4;
+  }
 }

@@ -1,0 +1,4 @@
+{
+  this.put(index,new im.actor.model.droidkit.json.JSONObject(value));
+  return this;
+}

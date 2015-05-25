@@ -1,0 +1,12 @@
+{
+  if (this.mode == 'i') {
+    this.mode='o';
+  }
+  if (this.mode == 'o' || this.mode == 'a') {
+    this.append("{");
+    this.push(new im.actor.model.droidkit.json.JSONObject());
+    this.comma=false;
+    return this;
+  }
+  throw new JSONException("Misplaced object.");
+}
