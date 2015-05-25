@@ -1,6 +1,0 @@
-{
-  String res="rpc GetGroupToken{";
-  res+="groupPeer=" + this.groupPeer;
-  res+="}";
-  return res;
-}

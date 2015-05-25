@@ -71,9 +71,9 @@ return RequestRevokeInviteUrl.fromBytes(payload);
 case 180:
 return RequestJoinGroup.fromBytes(payload);
 case 182:
-return RequestGetGroupToken.fromBytes(payload);
+return RequestGetIntegrationToken.fromBytes(payload);
 case 184:
-return RequestRevokeGroupToken.fromBytes(payload);
+return RequestRevokeIntegrationToken.fromBytes(payload);
 case 27:
 return RequestTyping.fromBytes(payload);
 case 29:
@@ -147,7 +147,7 @@ return ResponseInviteUrl.fromBytes(payload);
 case 181:
 return ResponseJoinGroup.fromBytes(payload);
 case 183:
-return ResponseGroupToken.fromBytes(payload);
+return ResponseIntegrationToken.fromBytes(payload);
 case 78:
 return ResponseGetFileUrl.fromBytes(payload);
 case 121:
