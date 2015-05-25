@@ -1,8 +1,9 @@
 {
   long rid=RandomUtils.nextRid();
-  long date=Environment.getCurrentTime();
-  DocumentContent documentContent=new DocumentContent(new FileLocalSource(fileName,fileSize,descriptor),mimeType,fileName,fastThumb);
-  Message message=new Message(rid,date,date,myUid(),MessageState.PENDING,documentContent);
+  long date=Environment.getCurrentSyncedTime();
+  long sortDate=date + 365 * 24 * 60* 60* 1000L;
+  DocumentContent documentContent=DocumentContent.createLocal(fileName,fileSize,descriptor,mimeType,fastThumb);
+  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,documentContent);
   getConversationActor(peer).send(message);
   pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,documentContent));
   savePending();

@@ -1,0 +1,13 @@
+{
+  if (source instanceof ObsoleteLocalFileSource) {
+    ObsoleteLocalFileSource fSource=(ObsoleteLocalFileSource)source;
+    return new ContentLocalContainer(new LocalVideo(name,fSource.getFileDescriptor(),fSource.getSize(),mimeType,fastThumb != null ? fastThumb.toFastThumb() : null,w,h,duration));
+  }
+ else   if (source instanceof ObsoleteRemoteFileSource) {
+    ObsoleteRemoteFileSource fSource=(ObsoleteRemoteFileSource)source;
+    return new ContentRemoteContainer(new DocumentMessage(fSource.getFileReference().getFileId(),fSource.getFileReference().getAccessHash(),fSource.getFileReference().getFileSize(),name,mimeType,fastThumb != null ? fastThumb.toApiFastThumb() : null,new DocumentExVideo(w,h,duration)));
+  }
+ else {
+    throw new RuntimeException("Unknwon source type");
+  }
+}

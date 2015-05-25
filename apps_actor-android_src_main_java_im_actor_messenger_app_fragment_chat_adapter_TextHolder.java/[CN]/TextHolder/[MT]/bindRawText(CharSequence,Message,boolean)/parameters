@@ -1,0 +1,3 @@
+CharSequence spannedText
+Message message
+boolean isItalic

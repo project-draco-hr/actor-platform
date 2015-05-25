@@ -1,0 +1,9 @@
+{
+  this.myArrayList=new ArrayList<Object>();
+  if (collection != null) {
+    Iterator<Object> iter=collection.iterator();
+    while (iter.hasNext()) {
+      this.myArrayList.add(im.actor.model.droidkit.json.JSONObject.wrap(iter.next()));
+    }
+  }
+}

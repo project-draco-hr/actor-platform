@@ -1,7 +1,0 @@
-{
-  super.parse(values);
-  byte[] data=values.optBytes(10);
-  if (data != null) {
-    newAvatar=Avatar.fromBytes(data);
-  }
-}

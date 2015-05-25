@@ -16,5 +16,7 @@
   this.pushes=new Pushes(this);
   timing.section("App State");
   this.appStateModule=new AppStateModule(this);
+  timing.section("External");
+  this.external=new External(this);
   timing.end();
 }

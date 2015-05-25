@@ -1,0 +1,7 @@
+{
+  this.recordField=recordField;
+  this.load(data);
+  if (wrapped == null) {
+    throw new IOException("Unable to deserialize wrapped object");
+  }
+}

@@ -30,7 +30,4 @@ this.records.add(new ContactRecord(ContactRecordType.EMAIL,record.getStringValue
 if (wrapped.getAvatar() != null) {
 this.avatar=new Avatar(wrapped.getAvatar());
 }
- else {
-this.avatar=new Avatar();
-}
 }

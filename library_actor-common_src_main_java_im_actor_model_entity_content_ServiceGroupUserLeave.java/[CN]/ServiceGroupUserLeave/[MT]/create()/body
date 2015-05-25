@@ -1,0 +1,3 @@
+{
+  return new ServiceGroupUserLeave(new ContentRemoteContainer(new ServiceMessage("User leave",new ServiceExUserLeft())));
+}

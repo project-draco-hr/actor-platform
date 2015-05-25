@@ -1,0 +1,4 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(data,0,data.length)));
+  parse(values);
+}

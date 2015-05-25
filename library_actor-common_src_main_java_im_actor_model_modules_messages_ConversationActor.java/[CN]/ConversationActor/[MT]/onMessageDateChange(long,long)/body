@@ -1,0 +1,7 @@
+{
+  Message msg=messages.getValue(rid);
+  if (msg != null && (msg.getMessageState() != MessageState.PENDING) && (msg.getMessageState() != MessageState.ERROR)) {
+    Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
+    messages.addOrUpdateItem(updatedMsg);
+  }
+}

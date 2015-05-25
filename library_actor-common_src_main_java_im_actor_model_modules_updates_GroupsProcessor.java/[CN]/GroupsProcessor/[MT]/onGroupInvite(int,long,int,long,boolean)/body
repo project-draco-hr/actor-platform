@@ -1,14 +1,14 @@
 {
   Group group=groups().getValue(groupId);
   if (group != null) {
-    groups().addOrUpdateItem(group.changeMember(true).addMember(myUid(),inviterId,date,inviterId == myUid()));
+    groups().addOrUpdateItem(group.changeMember(true).addMember(myUid(),inviterId,date));
     if (!isSilent) {
       if (inviterId == myUid()) {
-        Message message=new Message(rid,date,date,inviterId,MessageState.UNKNOWN,new ServiceGroupCreated(group.getTitle()));
+        Message message=new Message(rid,date,date,inviterId,MessageState.UNKNOWN,ServiceGroupCreated.create());
         conversationActor(group.peer()).send(message);
       }
  else {
-        Message message=new Message(rid,date,date,inviterId,MessageState.SENT,new ServiceGroupUserAdded(myUid()));
+        Message message=new Message(rid,date,date,inviterId,MessageState.SENT,ServiceGroupUserAdded.create(myUid()));
         conversationActor(group.peer()).send(message);
       }
     }

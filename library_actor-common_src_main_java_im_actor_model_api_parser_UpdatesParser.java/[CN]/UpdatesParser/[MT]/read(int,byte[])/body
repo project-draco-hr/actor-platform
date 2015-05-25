@@ -16,6 +16,10 @@ case 41:
 return UpdateContactsRemoved.fromBytes(payload);
 case 55:
 return UpdateMessage.fromBytes(payload);
+case 162:
+return UpdateMessageContentChanged.fromBytes(payload);
+case 163:
+return UpdateMessageDateChanged.fromBytes(payload);
 case 4:
 return UpdateMessageSent.fromBytes(payload);
 case 54:

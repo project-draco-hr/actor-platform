@@ -6,7 +6,7 @@
   HashSet<UnreadMessage> unread=messagesStorage.getUnread(peer);
   long maxPlainReadDate=sortingDate;
   boolean removed=false;
-  for (  UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+  for (  UnreadMessage u : unread.toArray(new UnreadMessage[unread.size()])) {
     if (u.getSortDate() <= sortingDate) {
       maxPlainReadDate=Math.max(u.getSortDate(),maxPlainReadDate);
       removed=true;
