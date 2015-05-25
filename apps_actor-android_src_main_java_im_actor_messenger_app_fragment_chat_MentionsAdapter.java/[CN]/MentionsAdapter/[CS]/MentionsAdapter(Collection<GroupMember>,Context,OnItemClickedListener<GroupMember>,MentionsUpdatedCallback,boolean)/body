@@ -15,5 +15,7 @@
     }
     searchMap.put(initials.toLowerCase(),m);
     searchMap.put(userName.toLowerCase(),m);
+    searchMap.put(TextUtils.transliterate(initials.toLowerCase()),m);
+    searchMap.put(TextUtils.transliterate(userName.toLowerCase()),m);
   }
 }
