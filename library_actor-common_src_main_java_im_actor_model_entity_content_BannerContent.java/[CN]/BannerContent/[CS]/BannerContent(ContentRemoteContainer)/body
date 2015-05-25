@@ -6,4 +6,5 @@
   adUrl=data.getString("advertUrl");
   w=image.getInt("width");
   h=image.getInt("height");
+  reference=new FileReference(new FileLocation(image.getInt("fileId"),image.getLong("fileHash")),"banner.jpg",image.getInt("fileSize"));
 }
