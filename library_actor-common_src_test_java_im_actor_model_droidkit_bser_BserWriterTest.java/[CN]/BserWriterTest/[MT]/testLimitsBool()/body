@@ -1,0 +1,8 @@
+{
+  DataOutput dataOutput=new DataOutput();
+  BserWriter writer=new BserWriter(dataOutput);
+  writer.writeBool(32,true);
+  writer.writeBytes(33,new byte[26]);
+  byte[] data=dataOutput.toByteArray();
+  BserParser.deserialize(new DataInput(data));
+}

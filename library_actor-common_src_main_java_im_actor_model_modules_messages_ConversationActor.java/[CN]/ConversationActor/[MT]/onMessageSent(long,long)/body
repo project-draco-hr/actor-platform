@@ -9,7 +9,7 @@
       }
     }
     savePending();
-    Message updatedMsg=msg.changeDate(date).changeState(MessageState.SENT);
+    Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
     messages.addOrUpdateItem(updatedMsg);
     dialogsActor.send(new DialogsActor.MessageSent(peer,rid,date));
   }
