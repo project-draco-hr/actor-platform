@@ -51,8 +51,7 @@
           new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.phone_menu_call).replace("{0}",phoneNumber),getString(R.string.phone_menu_sms).replace("{0}",phoneNumber),getString(R.string.phone_menu_share).replace("{0}",phoneNumber),getString(R.string.phone_menu_copy)},new DialogInterface.OnClickListener(){
             @Override public void onClick(            DialogInterface dialog,            int which){
               if (which == 0) {
-                messenger().startCall(uid);
-                startActivity(new Intent(getActivity(),CallActivity.class));
+                startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:+" + record.getPhone())));
               }
  else               if (which == 1) {
                 startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("sms:+" + record.getPhone())));

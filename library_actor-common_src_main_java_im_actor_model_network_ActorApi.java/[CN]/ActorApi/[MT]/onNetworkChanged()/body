@@ -1,3 +1,0 @@
-{
-  this.apiBroker.send(new ApiBroker.NetworkChanged());
-}
