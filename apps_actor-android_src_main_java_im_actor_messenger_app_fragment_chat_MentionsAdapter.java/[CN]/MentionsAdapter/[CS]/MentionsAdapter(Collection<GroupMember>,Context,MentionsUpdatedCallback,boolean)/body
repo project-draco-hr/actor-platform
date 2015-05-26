@@ -1,5 +1,6 @@
 {
   super(context);
+  highlightColor=context.getResources().getColor(R.color.primary);
   this.allMembers=members.toArray(new GroupMember[0]);
   this.membersToShow=initEmpty ? new GroupMember[]{} : allMembers;
   searchMap=new HashMap<String,GroupMember>();

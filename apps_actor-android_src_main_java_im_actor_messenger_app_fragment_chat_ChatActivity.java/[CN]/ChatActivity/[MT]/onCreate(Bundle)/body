@@ -67,10 +67,10 @@
       if (peer.getPeerType() == PeerType.GROUP) {
         if (count == 1 && s.charAt(start) == '@') {
           showMentions(false);
-          forceHide=false;
+          forceMentionHide=false;
           mentionSearchString="";
         }
- else         if (!forceHide && firstPeace.contains("@")) {
+ else         if (!forceMentionHide && firstPeace.contains("@")) {
           showMentions(true);
         }
  else {
@@ -117,8 +117,10 @@
         }
  else         if (mentionEraseStart > 0 && firstBound != -1) {
           s.replace(firstBound,mentionEraseStart,"");
-          hideMentions();
-          forceHide=true;
+          if (useForceMentionHide) {
+            hideMentions();
+            forceMentionHide=true;
+          }
         }
       }
       int emptyBoundsIndex=s.toString().indexOf(MENTION_BOUNDS_STR.concat(MENTION_BOUNDS_STR));
