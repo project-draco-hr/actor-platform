@@ -35,10 +35,9 @@
             spannedMention.append(' ');
             spaceAppended=true;
           }
-          boolean isAutocomplite=mentionsAdapter.getCount() == 1;
-          int searchStringCount=mentionSearchString.length();
           text.replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention);
-          messageBody.setSelection(mentionStart + (isAutocomplite ? searchStringCount : 0) + 2,mentionStart + spannedMention.length() - (spaceAppended ? 2 : 1));
+          int cursorPosition=mentionStart + spannedMention.length() + (spaceAppended ? 0 : 1);
+          messageBody.setSelection(cursorPosition,cursorPosition);
         }
         hideMentions();
       }

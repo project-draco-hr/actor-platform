@@ -43,8 +43,7 @@
   if (saveInstance == null) {
     getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
   }
-  messageBody=(EditText)findViewById(R.id.et_message);
-  messageBody.setMovementMethod(LinkMovementMethod.getInstance());
+  messageBody=(SelectionListenerEdittext)findViewById(R.id.et_message);
   messageBody.addTextChangedListener(new TextWatcher(){
     boolean mentionErase;
     int mentionEraseStart;
@@ -68,9 +67,10 @@
       if (peer.getPeerType() == PeerType.GROUP) {
         if (count == 1 && s.charAt(start) == '@') {
           showMentions(false);
+          forceHide=false;
           mentionSearchString="";
         }
- else         if (firstPeace.contains("@")) {
+ else         if (!forceHide && firstPeace.contains("@")) {
           showMentions(true);
         }
  else {
@@ -108,15 +108,17 @@
         if (s.charAt(messageBody.getSelectionStart() - 1) == MENTION_BOUNDS_CHR)         messageBody.setSelection(messageBody.getSelectionStart() + 1);
       }
       if (mentionErase && eraseCount == 1) {
+        int firstBound=s.subSequence(0,mentionEraseStart).toString().lastIndexOf(MENTION_BOUNDS_STR);
         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
           s.replace(mentionEraseStart - 2,mentionEraseStart,"");
         }
  else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == '@') {
           s.replace(mentionEraseStart - 1,mentionEraseStart - 1,"");
         }
- else         if (mentionEraseStart > 0) {
-          s.replace(mentionEraseStart - 1,mentionEraseStart,MENTION_BOUNDS_STR);
-          if (s.length() > mentionEraseStart - 1 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR)           messageBody.setSelection(mentionEraseStart - 1);
+ else         if (mentionEraseStart > 0 && firstBound != -1) {
+          s.replace(firstBound,mentionEraseStart,"");
+          hideMentions();
+          forceHide=true;
         }
       }
       int emptyBoundsIndex=s.toString().indexOf(MENTION_BOUNDS_STR.concat(MENTION_BOUNDS_STR));
@@ -125,6 +127,20 @@
       }
       if (s.length() == 1 && s.charAt(0) == MENTION_BOUNDS_CHR) {
         s.clear();
+      }
+    }
+  }
+);
+  messageBody.setOnSelectionListener(new SelectionListenerEdittext.OnSelectedListener(){
+    @Override public void onSelected(    int selStart,    int selEnd){
+      Editable text=messageBody.getText();
+      if (selEnd != selStart && text.charAt(selStart) == '@') {
+        if (text.charAt(selEnd - 1) == MENTION_BOUNDS_CHR) {
+          messageBody.setSelection(selStart + 2,selEnd - 1);
+        }
+ else         if (text.length() >= 3 && text.charAt(selEnd - 2) == MENTION_BOUNDS_CHR) {
+          messageBody.setSelection(selStart + 2,selEnd - 2);
+        }
       }
     }
   }
