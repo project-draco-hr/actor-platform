@@ -1,31 +1,51 @@
 {
   chatId=getArguments().getInt(EXTRA_GROUP_ID);
   groupInfo=groups().get(chatId);
-  token="token";
-  link="http://".concat(getActivity().getString(R.string.messenger_domain)).concat("/");
+  link=messenger().getGroupInviteLink(Peer.group(chatId));
+  if (link == null || link.isEmpty()) {
+    execute(messenger().requestInviteLink(chatId),R.string.invite_link_title,new CommandCallback<String>(){
+      @Override public void onResult(      String res){
+        link=res;
+        adapter.notifyDataSetChanged();
+      }
+      @Override public void onError(      Exception e){
+      }
+    }
+);
+  }
   final ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
   View res=inflater.inflate(R.layout.fragment_invite_link,container,false);
   listView=(ListView)res.findViewById(R.id.inviteLinkActionsList);
-  listView.setAdapter(new InviteLincActionsAdapter(getActivity()));
+  adapter=new InviteLincActionsAdapter(getActivity());
+  listView.setAdapter(adapter);
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
 switch (position) {
 case 0:
-        clipboard.setPrimaryClip(ClipData.newPlainText(null,link.concat(token)));
+        clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
       Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
     break;
 case 1:
   break;
 case 2:
-clipboard.setPrimaryClip(ClipData.newPlainText(null,link.concat(token)));
+clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
 Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
 break;
 case 3:
+execute(messenger().revokeInviteLink(chatId),R.string.invite_link_title,new CommandCallback<String>(){
+@Override public void onResult(String res){
+link=res;
+adapter.notifyDataSetChanged();
+}
+@Override public void onError(Exception e){
+}
+}
+);
 break;
 case 4:
 Intent i=new Intent(Intent.ACTION_SEND);
 i.setType("text/plain");
-i.putExtra(Intent.EXTRA_TEXT,link.concat(token));
+i.putExtra(Intent.EXTRA_TEXT,link);
 Intent chooser=Intent.createChooser(i,getString(R.string.invite_link_chooser_title));
 if (i.resolveActivity(getActivity().getPackageManager()) != null) {
 startActivity(chooser);

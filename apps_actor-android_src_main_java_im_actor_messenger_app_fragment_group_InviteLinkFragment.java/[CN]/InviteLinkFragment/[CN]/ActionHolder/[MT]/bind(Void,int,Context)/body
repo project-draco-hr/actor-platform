@@ -1,7 +1,7 @@
 {
 switch (position) {
 case 0:
-    action.setText(link.concat(token));
+    action.setText(link);
   break;
 case 1:
 action.setText(getString(R.string.invite_link_hint));

@@ -1,9 +1,7 @@
 {
   super(fragment,itemView,false);
-  bypass=new Bypass(itemView.getContext());
   messageBubble=(FrameLayout)itemView.findViewById(R.id.fl_bubble);
   text=(TextView)itemView.findViewById(R.id.tv_text);
-  text.setMovementMethod(LinkMovementMethod.getInstance());
   text.setTypeface(Fonts.regular());
   time=(TextView)itemView.findViewById(R.id.tv_time);
   time.setTypeface(Fonts.regular());

@@ -1,0 +1,4 @@
+Group group
+int seq
+byte[] state
+long date

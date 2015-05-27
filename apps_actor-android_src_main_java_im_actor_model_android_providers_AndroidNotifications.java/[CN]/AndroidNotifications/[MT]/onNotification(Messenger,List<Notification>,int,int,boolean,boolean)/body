@@ -22,7 +22,7 @@
   android.app.Notification result;
   if (messagesCount == 1) {
     final String sender=getNotificationSender(topNotification);
-    final CharSequence text=bypass.markdownToSpannable(messenger().getFormatter().formatNotificationText(topNotification),true).toString();
+    final CharSequence text=messenger().getFormatter().formatNotificationText(topNotification);
     visiblePeer=topNotification.getPeer();
     Avatar avatar=null;
     int id=0;
