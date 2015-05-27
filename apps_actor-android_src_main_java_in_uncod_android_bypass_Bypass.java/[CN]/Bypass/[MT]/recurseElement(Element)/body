@@ -6,7 +6,7 @@
   CharSequence concat=TextUtils.concat(spans);
   SpannableStringBuilder builder=new SpannableStringBuilder();
   String text=element.getText();
-  if (element.size() == 0 && element.getParent().getType() != Type.BLOCK_CODE) {
+  if (element.getParent() != null && element.size() == 0 && element.getParent().getType() != Type.BLOCK_CODE) {
   }
   if (element.getParent() != null && element.getParent().getType() == Type.LIST_ITEM && element.getType() == Type.LIST) {
   }
@@ -32,7 +32,7 @@
     builder.setSpan(new StyleSpan(Typeface.BOLD),0,builder.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     builder.append("\n");
   }
- else   if (element.getType() == Type.LIST_ITEM && element.getParent().getParent() != null) {
+ else   if (element.getParent() != null && element.getParent().getParent() != null && element.getType() == Type.LIST_ITEM) {
     LeadingMarginSpan span=new LeadingMarginSpan.Standard(20);
     builder.setSpan(span,0,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
   }
@@ -67,6 +67,7 @@
     builder.setSpan(quoteSpan,0,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     StyleSpan italicSpan=new StyleSpan(Typeface.ITALIC);
     builder.setSpan(italicSpan,0,builder.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    builder.append("\n");
   }
  else   if (element.getType() == Type.TABLE) {
     builder.clear();
