@@ -1,0 +1,8 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  int chatId=getArguments().getInt("GROUP_ID",0);
+  String inviteLink=messenger().getGroupInviteLink(Peer.group(chatId));
+  if (inviteLink == null || inviteLink.isEmpty()) {
+    execute(messenger().requestInviteLink(chatId));
+  }
+}
