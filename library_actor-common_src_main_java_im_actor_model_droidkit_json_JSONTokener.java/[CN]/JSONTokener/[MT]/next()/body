@@ -6,7 +6,7 @@
   }
  else {
     try {
-      c=this.reader.read();
+      c=this.reader.readByte();
     }
  catch (    IOException exception) {
       throw new JSONException(exception);

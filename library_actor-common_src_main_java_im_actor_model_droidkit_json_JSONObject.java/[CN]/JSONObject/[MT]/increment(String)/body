@@ -16,7 +16,7 @@
     this.put(key,(Float)value + 1);
   }
  else {
-    throw new JSONException("Unable to increment [" + quote(key) + "].");
+    throw new JSONException("Unable to increment [" + key + "].");
   }
   return this;
 }

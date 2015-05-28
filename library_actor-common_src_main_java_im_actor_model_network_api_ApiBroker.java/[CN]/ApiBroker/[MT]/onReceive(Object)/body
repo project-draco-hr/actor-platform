@@ -21,6 +21,6 @@
     processUpdate(((ProtoUpdate)message).getData());
   }
  else   if (message instanceof NetworkChanged) {
-    onNetworkChanged();
+    onNetworkChanged(((NetworkChanged)message).state);
   }
 }

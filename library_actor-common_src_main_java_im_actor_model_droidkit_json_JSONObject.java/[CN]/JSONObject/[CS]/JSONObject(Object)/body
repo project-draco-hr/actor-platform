@@ -1,4 +1,0 @@
-{
-  this();
-  this.populateMap(bean);
-}

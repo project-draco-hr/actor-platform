@@ -1,0 +1,6 @@
+{
+  Log.w(TAG,"Network configuration changed: " + state);
+  this.networkState=state;
+  backoff.reset();
+  checkConnection();
+}

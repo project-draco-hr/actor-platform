@@ -1,3 +1,0 @@
-{
-  this.manager.send(new ManagerActor.NetworkChanged());
-}

@@ -13,7 +13,7 @@
     checkConnection();
   }
  else   if (message instanceof NetworkChanged) {
-    onNetworkChanged();
+    onNetworkChanged(((NetworkChanged)message).state);
   }
  else   if (message instanceof OutMessage) {
     OutMessage m=(OutMessage)message;

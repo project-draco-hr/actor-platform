@@ -3,7 +3,7 @@
   if (collection != null) {
     Iterator<Object> iter=collection.iterator();
     while (iter.hasNext()) {
-      this.myArrayList.add(im.actor.model.droidkit.json.JSONObject.wrap(iter.next()));
+      this.myArrayList.add(iter.next());
     }
   }
 }
