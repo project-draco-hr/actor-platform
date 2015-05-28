@@ -1,9 +1,14 @@
 {
   this.hideUrlStyle=hideUrlStyle;
+  markdown=quotesWorkaround(markdown,0);
   Document document=processMarkdown(markdown);
   CharSequence[] spans=new CharSequence[document.getElementCount()];
   for (int i=0; i < document.getElementCount(); i++) {
     spans[i]=recurseElement(document.getElement(i));
   }
-  return TextUtils.concat(spans);
+  CharSequence ret=TextUtils.concat(spans);
+  while (ret != null && ret.length() > 1 && ret.charAt(ret.length() - 1) == '\n') {
+    ret=ret.subSequence(0,ret.length() - 1);
+  }
+  return ret;
 }
