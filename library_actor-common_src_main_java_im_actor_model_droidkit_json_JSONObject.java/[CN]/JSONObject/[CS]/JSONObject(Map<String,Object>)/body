@@ -6,7 +6,7 @@
       Entry<String,Object> entry=i.next();
       Object value=entry.getValue();
       if (value != null) {
-        this.map.put(entry.getKey(),wrap(value));
+        this.map.put(entry.getKey(),value);
       }
     }
   }

@@ -1,3 +1,0 @@
-{
-  return this.append(im.actor.model.droidkit.json.JSONObject.valueToString(object));
-}
