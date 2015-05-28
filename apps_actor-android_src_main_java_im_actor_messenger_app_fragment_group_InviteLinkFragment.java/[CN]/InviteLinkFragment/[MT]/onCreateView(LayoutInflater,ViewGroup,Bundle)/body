@@ -1,6 +1,5 @@
 {
   chatId=getArguments().getInt(EXTRA_GROUP_ID);
-  groupInfo=groups().get(chatId);
   link=messenger().getGroupInviteLink(Peer.group(chatId));
   if (link == null || link.isEmpty()) {
     execute(messenger().requestInviteLink(chatId),R.string.invite_link_title,new CommandCallback<String>(){
@@ -32,7 +31,7 @@ clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
 Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
 break;
 case 3:
-execute(messenger().revokeInviteLink(chatId),R.string.invite_link_title,new CommandCallback<String>(){
+execute(messenger().revokeInviteLink(chatId),R.string.invite_link_action_revoke,new CommandCallback<String>(){
 @Override public void onResult(String res){
 link=res;
 adapter.notifyDataSetChanged();

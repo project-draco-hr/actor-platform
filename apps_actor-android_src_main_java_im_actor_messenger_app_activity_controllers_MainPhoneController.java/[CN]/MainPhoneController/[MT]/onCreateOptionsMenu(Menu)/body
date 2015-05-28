@@ -46,7 +46,7 @@
           searchAdapter.setQuery(s.trim().toLowerCase());
         }
  else {
-          searchDisplay.initSearch("search clear crash workaround",false);
+          searchDisplay.initEmpty();
         }
       }
       return false;
