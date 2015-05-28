@@ -3,6 +3,7 @@
   this.sessionId=sessionId;
   this.endpoints=endpoints;
   this.callback=callback;
+  this.isEnableLog=isEnableLog;
   this.networkProvider=networkProvider;
   this.manager=ManagerActor.manager(this);
   this.sender=SenderActor.senderActor(this);

@@ -1,5 +1,6 @@
 {
   this.proto=proto;
+  this.isEnableLog=proto.isEnableLog();
   this.unsentPackages=new HashMap<Long,ProtoMessage>();
   this.confirm=new HashSet<Long>();
 }

@@ -1,14 +1,16 @@
 {
   long[] ids=new long[confirm.size()];
   Long[] ids2=confirm.toArray(new Long[confirm.size()]);
-  String acks="";
-  for (int i=0; i < ids.length; i++) {
-    ids[i]=ids2[i];
-    if (acks.length() != 0) {
-      acks+=",";
+  if (isEnableLog) {
+    String acks="";
+    for (int i=0; i < ids.length; i++) {
+      ids[i]=ids2[i];
+      if (acks.length() != 0) {
+        acks+=",";
+      }
+      acks+="#" + ids2[i];
     }
-    acks+="#" + ids2[i];
+    Log.d(TAG,"Sending acks " + acks);
   }
-  Log.d(TAG,"Sending acks " + acks);
   return new MessageAck(ids);
 }
