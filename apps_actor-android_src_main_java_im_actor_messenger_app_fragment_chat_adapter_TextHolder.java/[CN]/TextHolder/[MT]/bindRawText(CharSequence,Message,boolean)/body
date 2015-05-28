@@ -12,7 +12,7 @@
     text.setTypeface(Fonts.regular());
   }
   text.setText(spannedText);
-  Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+  text.setMovementMethod(new CustomLinkMovementMethod());
   if (message.getSenderId() == myUid()) {
     status.setVisibility(View.VISIBLE);
 switch (message.getMessageState()) {

@@ -1,0 +1,10 @@
+{
+  mPressedSpan=getPressedSpan(textView,spannable,event);
+  if (mPressedSpan instanceof ClickableSpan) {
+    super.onTouchEvent(textView,spannable,event);
+  }
+ else {
+    mainContainer.onTouchEvent(event);
+  }
+  return true;
+}
