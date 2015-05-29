@@ -10,7 +10,6 @@
   SpannableStringBuilder builder=new SpannableStringBuilder();
   String text=element.getText();
   if (element.getParent() != null && element.size() == 0 && element.getParent().getType() != Type.BLOCK_CODE) {
-    text=text.replace('\n',' ');
   }
   if (element.getParent() != null && element.getParent().getType() == Type.LIST_ITEM && element.getType() == Type.LIST) {
     builder.append("\n");

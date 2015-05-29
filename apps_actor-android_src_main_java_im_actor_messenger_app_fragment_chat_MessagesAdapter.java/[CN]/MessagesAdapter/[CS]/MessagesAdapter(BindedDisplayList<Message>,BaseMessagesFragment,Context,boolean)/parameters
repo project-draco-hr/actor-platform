@@ -1,3 +1,4 @@
 BindedDisplayList<Message> displayList
 BaseMessagesFragment messagesFragment
 Context context
+boolean isMarkDownEnabled

@@ -13,7 +13,7 @@
   }
   text.setText(spannedText);
   text.setMovementMethod(new CustomLinkMovementMethod());
-  Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+  if (!isMarkdownEnabled)   Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
   if (message.getSenderId() == myUid()) {
     status.setVisibility(View.VISIBLE);
 switch (message.getMessageState()) {
