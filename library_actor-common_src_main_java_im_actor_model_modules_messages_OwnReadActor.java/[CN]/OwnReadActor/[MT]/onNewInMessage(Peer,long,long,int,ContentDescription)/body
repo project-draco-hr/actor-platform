@@ -3,6 +3,7 @@
   if (sortingDate <= readState) {
     return;
   }
+  if (contentDescription != null)   modules().getNotifications().onInMessage(peer,senderUid,sortingDate,contentDescription);
   HashSet<UnreadMessage> unread=messagesStorage.getUnread(peer);
   unread.add(new UnreadMessage(peer,rid,sortingDate));
   saveStorage();

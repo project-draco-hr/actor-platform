@@ -31,15 +31,20 @@ clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
 Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
 break;
 case 3:
+new MaterialDialog.Builder(getActivity()).content(R.string.alert_revoke_link_message).positiveText(R.string.alert_revoke_link_yes).negativeText(R.string.dialog_cancel).callback(new MaterialDialog.ButtonCallback(){
+@Override public void onPositive(MaterialDialog materialDialog1){
 execute(messenger().revokeInviteLink(chatId),R.string.invite_link_action_revoke,new CommandCallback<String>(){
 @Override public void onResult(String res){
-link=res;
-adapter.notifyDataSetChanged();
+  link=res;
+  adapter.notifyDataSetChanged();
 }
 @Override public void onError(Exception e){
 }
 }
 );
+}
+}
+).show();
 break;
 case 4:
 Intent i=new Intent(Intent.ACTION_SEND);
