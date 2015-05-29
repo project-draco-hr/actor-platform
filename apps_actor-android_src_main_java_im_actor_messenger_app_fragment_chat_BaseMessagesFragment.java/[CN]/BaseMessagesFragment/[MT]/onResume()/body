@@ -1,4 +1,6 @@
 {
   super.onResume();
+  if (onPause)   scrollToUnread();
+  onPause=false;
   messenger().onConversationOpen(peer);
 }

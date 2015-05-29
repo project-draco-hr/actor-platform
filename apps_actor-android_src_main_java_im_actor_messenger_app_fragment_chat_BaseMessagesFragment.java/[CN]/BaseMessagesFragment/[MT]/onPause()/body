@@ -1,4 +1,5 @@
 {
   super.onPause();
+  onPause=true;
   messenger().onConversationClosed(peer);
 }
