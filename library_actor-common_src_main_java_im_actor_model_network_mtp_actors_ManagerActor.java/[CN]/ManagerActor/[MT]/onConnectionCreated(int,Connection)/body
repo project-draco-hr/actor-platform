@@ -1,10 +1,17 @@
 {
   if (connection.isClosed()) {
+    if (isEnableLog) {
+      Log.w(TAG,"Unable to register connection #" + id + ": already closed");
+    }
     return;
   }
   if (currentConnectionId == id) {
+    if (isEnableLog) {
+      Log.w(TAG,"Unable to register connection #" + id + ": already have connection");
+    }
     return;
   }
+  Log.d(TAG,"Connection #" + id + " created");
   if (currentConnection != null) {
     currentConnection.close();
     currentConnectionId=0;

@@ -3,7 +3,9 @@
     self().send(new RequestAuthId());
   }
  else {
-    Log.d(TAG,"Key loaded: " + keyStorage.getAuthKey());
+    if (isEnableLog) {
+      Log.d(TAG,"Key loaded: " + keyStorage.getAuthKey());
+    }
     self().send(new InitMTProto(keyStorage.getAuthKey()));
   }
 }

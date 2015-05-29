@@ -15,7 +15,7 @@
       callback.onNewSessionCreated();
     }
   }
-,networkProvider);
+,networkProvider,isEnableLog);
   for (  RequestHolder holder : requests.values()) {
     holder.protoId=proto.sendRpcMessage(holder.message);
     idMap.put(holder.protoId,holder.publicId);
