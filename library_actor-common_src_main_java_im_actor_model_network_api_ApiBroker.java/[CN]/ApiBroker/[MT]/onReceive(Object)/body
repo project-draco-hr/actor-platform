@@ -23,4 +23,10 @@
  else   if (message instanceof NetworkChanged) {
     onNetworkChanged(((NetworkChanged)message).state);
   }
+ else   if (message instanceof ForceNetworkCheck) {
+    forceNetworkCheck();
+  }
+ else {
+    drop(message);
+  }
 }
