@@ -1,0 +1,7 @@
+{
+  if (hideUrlStyle) {
+  }
+ else {
+    super.onClick(widget);
+  }
+}

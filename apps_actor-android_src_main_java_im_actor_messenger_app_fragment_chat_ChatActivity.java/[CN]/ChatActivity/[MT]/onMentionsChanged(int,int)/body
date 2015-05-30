@@ -1,6 +1,6 @@
 {
-  if (mentionsAdapter != null)   if (newRowsCount == 1 && !isEarse) {
-    mentionsAdapter.getView(0,null,null).callOnClick();
+  if (mentionsAdapter != null)   if (newRowsCount == 1 && !isOneCharErase && !forceMentionHide && useMentionOneItemAutocomplete) {
+    mentionsList.performItemClick(mentionsAdapter.getView(0,null,null),0,mentionsAdapter.getItemId(0));
   }
  else {
     expandMentions(mentionsList,oldRowsCount,newRowsCount);

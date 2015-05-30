@@ -1,0 +1,25 @@
+{
+  return new Command<Integer>(){
+    @Override public void start(    final CommandCallback<Integer> callback){
+      request(new RequestJoinGroup(url),new RpcCallback<ResponseJoinGroup>(){
+        @Override public void onResult(        ResponseJoinGroup response){
+          im.actor.model.api.Group group=response.getGroup();
+          ArrayList<im.actor.model.api.Group> groups=new ArrayList<im.actor.model.api.Group>();
+          groups.add(group);
+          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,response.getState(),new ArrayList<im.actor.model.api.User>(),groups));
+          updates().onUpdateReceived(new GroupCreated(group,callback));
+        }
+        @Override public void onError(        RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(new RpcInternalException());
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

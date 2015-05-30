@@ -1,0 +1,4 @@
+Collection<GroupMember> members
+Context context
+MentionsUpdatedCallback updatedCallback
+boolean initEmpty

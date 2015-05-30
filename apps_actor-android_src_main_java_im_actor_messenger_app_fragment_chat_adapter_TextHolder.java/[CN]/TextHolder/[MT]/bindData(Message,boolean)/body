@@ -1,5 +1,6 @@
 {
   CharSequence spannedText;
+  spannedText=new SpannableStringBuilder(((TextContent)message.getContent()).getText());
   if (getPeer().getPeerType() == PeerType.GROUP && message.getSenderId() != myUid()) {
     String name;
     UserVM userModel=users().get(message.getSenderId());
@@ -13,11 +14,7 @@
     builder.append(name);
     builder.setSpan(new ForegroundColorSpan(colors[Math.abs(message.getSenderId()) % colors.length]),0,name.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     builder.append("\n");
-    builder.append(((TextContent)message.getContent()).getText());
-    spannedText=builder;
-  }
- else {
-    spannedText=((TextContent)message.getContent()).getText();
+    spannedText=builder.append(spannedText);
   }
   if (emoji().containsEmoji(spannedText)) {
     if (emoji().isLoaded()) {
