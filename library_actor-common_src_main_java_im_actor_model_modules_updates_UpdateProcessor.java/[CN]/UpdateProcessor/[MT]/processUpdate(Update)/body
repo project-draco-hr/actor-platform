@@ -59,26 +59,6 @@
       messagesProcessor.onUserRegistered(registered.getUid(),registered.getDate());
     }
   }
- else   if (update instanceof UpdateUserOnline) {
-    UpdateUserOnline userOnline=(UpdateUserOnline)update;
-    presenceProcessor.onUserOnline(userOnline.getUid());
-  }
- else   if (update instanceof UpdateUserOffline) {
-    UpdateUserOffline offline=(UpdateUserOffline)update;
-    presenceProcessor.onUserOffline(offline.getUid());
-  }
- else   if (update instanceof UpdateUserLastSeen) {
-    UpdateUserLastSeen lastSeen=(UpdateUserLastSeen)update;
-    presenceProcessor.onUserLastSeen(lastSeen.getUid(),lastSeen.getDate());
-  }
- else   if (update instanceof UpdateGroupOnline) {
-    UpdateGroupOnline groupOnline=(UpdateGroupOnline)update;
-    presenceProcessor.onGroupOnline(groupOnline.getGroupId(),groupOnline.getCount());
-  }
- else   if (update instanceof UpdateTyping) {
-    UpdateTyping typing=(UpdateTyping)update;
-    typingProcessor.onTyping(typing.getPeer(),typing.getUid(),typing.getTypingType());
-  }
  else   if (update instanceof UpdateGroupTitleChanged) {
     UpdateGroupTitleChanged titleChanged=(UpdateGroupTitleChanged)update;
     groupsProcessor.onTitleChanged(titleChanged.getGroupId(),titleChanged.getRid(),titleChanged.getUid(),titleChanged.getTitle(),titleChanged.getDate(),false);
