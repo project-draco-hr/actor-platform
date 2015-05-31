@@ -1,7 +1,0 @@
-{
-  RichKryo rkryo=new RichKryo(kryo);
-  if (!rkryo.alreadyRegistered(TaggedFieldSerializable.class)) {
-    kryo.register(TaggedFieldSerializable.class);
-    kryo.addDefaultSerializer(TaggedFieldSerializable.class,TaggedFieldSerializer.class);
-  }
-}
