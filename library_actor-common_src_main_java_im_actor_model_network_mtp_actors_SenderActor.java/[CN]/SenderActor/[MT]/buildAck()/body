@@ -12,5 +12,11 @@
     }
     Log.d(TAG,"Sending acks " + acks);
   }
-  return new MessageAck(ids);
+  pendingConfirm.addAll(confirm);
+  confirm.clear();
+  MessageAck res=new MessageAck(ids);
+  if (isEnableLog) {
+    Log.d(TAG,"Ack data: " + CryptoUtils.hex(res.toByteArray()));
+  }
+  return res;
 }
