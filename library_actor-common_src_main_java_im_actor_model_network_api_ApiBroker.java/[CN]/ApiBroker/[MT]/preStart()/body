@@ -1,11 +1,12 @@
 {
-  if (keyStorage.getAuthKey() == 0) {
+  this.currentAuthId=keyStorage.getAuthKey();
+  if (currentAuthId == 0) {
     self().send(new RequestAuthId());
   }
  else {
     if (isEnableLog) {
-      Log.d(TAG,"Key loaded: " + keyStorage.getAuthKey());
+      Log.d(TAG,"Key loaded: " + currentAuthId);
     }
-    self().send(new InitMTProto(keyStorage.getAuthKey()));
+    self().send(new InitMTProto(currentAuthId));
   }
 }

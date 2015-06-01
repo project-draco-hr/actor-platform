@@ -1,0 +1,10 @@
+{
+  if (authId != currentAuthId) {
+    return;
+  }
+  Log.w(TAG,"Auth id invalidated");
+  callback.onAuthIdInvalidated();
+  currentAuthId=0;
+  proto=null;
+  self().send(new RequestAuthId());
+}

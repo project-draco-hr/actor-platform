@@ -1,6 +1,0 @@
-long authId
-long sessionId
-Endpoints endpoints
-MTProtoCallback callback
-NetworkProvider networkProvider
-boolean isEnableLog

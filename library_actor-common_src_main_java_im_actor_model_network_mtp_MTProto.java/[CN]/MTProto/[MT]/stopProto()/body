@@ -1,0 +1,6 @@
+{
+  this.sender.send(PoisonPill.INSTANCE);
+  this.manager.send(PoisonPill.INSTANCE);
+  this.receiver.send(PoisonPill.INSTANCE);
+  this.isClosed=true;
+}

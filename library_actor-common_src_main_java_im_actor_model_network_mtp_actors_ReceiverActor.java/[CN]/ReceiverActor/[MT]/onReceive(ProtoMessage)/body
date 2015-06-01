@@ -58,6 +58,10 @@
         sender.send(new SenderActor.SendMessage(MTUids.nextId(),new RequestResend(unsent.getMessageId()).toByteArray()));
       }
     }
+ else     if (obj instanceof AuthIdInvalid) {
+      proto.getCallback().onAuthKeyInvalidated(proto.getAuthId());
+      proto.stopProto();
+    }
  else {
       Log.w(TAG,"Unsupported package " + obj);
     }
