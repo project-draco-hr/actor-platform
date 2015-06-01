@@ -1,4 +1,5 @@
 {
   this.group=group;
+  this.users=users;
   this.callback=callback;
 }
