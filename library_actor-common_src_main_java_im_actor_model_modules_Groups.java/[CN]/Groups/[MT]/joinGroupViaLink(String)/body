@@ -6,7 +6,7 @@
           im.actor.model.api.Group group=response.getGroup();
           ArrayList<im.actor.model.api.Group> groups=new ArrayList<im.actor.model.api.Group>();
           groups.add(group);
-          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,new UpdateGroupInvite(group.getId(),RandomUtils.nextRid(),myUid(),response.getDate()).toByteArray(),new ArrayList<im.actor.model.api.User>(),groups));
+          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,new UpdateGroupInvite(group.getId(),response.getRid(),myUid(),response.getDate()).toByteArray(),response.getUsers(),groups));
           updates().onUpdateReceived(new GroupCreated(group,callback));
         }
         @Override public void onError(        RpcException e){
