@@ -1,5 +1,5 @@
 {
   super.onPause();
-  onPause=true;
+  onPauseSize=new Integer(getDisplayList().getSize());
   messenger().onConversationClosed(peer);
 }
