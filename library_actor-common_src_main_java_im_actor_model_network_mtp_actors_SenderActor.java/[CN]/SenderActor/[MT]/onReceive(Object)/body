@@ -58,8 +58,6 @@
       return;
     }
     MessageAck messageAck=buildAck();
-    pendingConfirm.addAll(confirm);
-    confirm.clear();
     doSend(new ProtoMessage(MTUids.nextId(),messageAck.toByteArray()));
   }
  else   if (message instanceof NewSession) {

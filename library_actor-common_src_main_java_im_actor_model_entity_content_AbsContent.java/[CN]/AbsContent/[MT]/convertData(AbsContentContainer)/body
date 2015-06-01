@@ -57,6 +57,9 @@
  else         if (ext instanceof ServiceExUserLeft) {
           return new ServiceGroupUserLeave(remoteContainer);
         }
+ else         if (ext instanceof ServiceExUserJoined) {
+          return new ServiceGroupUserJoined(remoteContainer);
+        }
  else {
           return new ServiceContent(remoteContainer);
         }
