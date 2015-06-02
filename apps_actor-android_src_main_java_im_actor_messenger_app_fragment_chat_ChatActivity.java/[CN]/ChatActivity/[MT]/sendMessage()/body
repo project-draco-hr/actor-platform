@@ -1,6 +1,6 @@
 {
   Editable text=messageBody.getText();
-  convertUrlspansToMarkdownLinks(text);
+  ArrayList<Integer> mentions=convertUrlspansToMarkdownLinks(text);
   final String textString=text.toString().replace(MENTION_BOUNDS_STR,"").trim();
   messageBody.setText("");
   mentionSearchString="";
@@ -10,6 +10,6 @@
   if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
     keyboardUtils.setImeVisibility(messageBody,false);
   }
-  messenger().sendMessage(peer,textString);
+  messenger().sendMessage(peer,textString,mentions);
   messenger().trackTextSend(peer);
 }
