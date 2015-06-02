@@ -13,7 +13,19 @@
   }
   text.setText(spannedText);
   text.setMovementMethod(new CustomLinkMovementMethod());
-  if (!isMarkdownEnabled)   Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+  if (!isMarkdownEnabled) {
+    Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+    String regex="(people:\\/\\/)([0-9]{1,10})";
+    Pattern p=Pattern.compile(regex);
+    Matcher m=p.matcher(text.getText().toString());
+    MentionSpan span=new MentionSpan("",false);
+    SpannableString s=SpannableString.valueOf(text.getText());
+    while (m.find()) {
+      span.setUrl(m.group());
+      s.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+    text.setText(s);
+  }
   if (message.getSenderId() == myUid()) {
     status.setVisibility(View.VISIBLE);
 switch (message.getMessageState()) {

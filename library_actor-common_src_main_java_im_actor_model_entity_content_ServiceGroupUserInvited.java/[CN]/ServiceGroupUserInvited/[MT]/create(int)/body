@@ -1,3 +1,3 @@
 {
-  return new ServiceGroupUserInvited(new ContentRemoteContainer(new ServiceMessage("User added",new ServiceExUserInvited(uid))));
+  return new ServiceGroupUserInvited(new ContentRemoteContainer(new ServiceMessage("User invited",new ServiceExUserInvited(uid))));
 }
