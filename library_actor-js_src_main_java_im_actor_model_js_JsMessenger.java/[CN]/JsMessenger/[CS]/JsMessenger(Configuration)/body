@@ -4,4 +4,20 @@
   replacer=new Replacer(this);
   angularFilesModule=new AngularFilesModule(modules);
   angularModule=new AngularModule(this,angularFilesModule,modules);
+  if (JsChromePush.isSupported()) {
+    Log.d("JsMessenger","ChromePush Supported");
+    JsChromePush.subscribe(new PushSubscribeResult(){
+      @Override public void onSubscribedChrome(      String token){
+        Log.d("JsMessenger","Subscribed: " + token);
+        registerGooglePush(209133700967L,token);
+      }
+      @Override public void onSubscriptionFailure(){
+        Log.d("JsMessenger","Subscribe failure");
+      }
+    }
+);
+  }
+ else {
+    Log.d("JsMessenger","ChromePush NOT Supported");
+  }
 }
