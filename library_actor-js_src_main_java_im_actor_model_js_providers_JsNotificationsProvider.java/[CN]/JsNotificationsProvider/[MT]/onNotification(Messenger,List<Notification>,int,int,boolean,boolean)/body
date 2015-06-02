@@ -67,16 +67,12 @@
       contentMessage+="\n+" + (messagesCount - 4) + " new messages in "+ conversationsCount+ " conversations";
     }
   }
-  if (currentNotification != null) {
-    currentNotification.close();
-    currentNotification=null;
-  }
   if (!JsNotification.isSupported()) {
     return;
   }
   if (!JsNotification.isGranted()) {
     return;
   }
-  currentNotification=JsNotification.create(peerTitle,contentMessage,peerAvatarUrl);
+  JsManagedNotification.show(peerTitle,contentMessage,peerAvatarUrl);
   playSound();
 }
