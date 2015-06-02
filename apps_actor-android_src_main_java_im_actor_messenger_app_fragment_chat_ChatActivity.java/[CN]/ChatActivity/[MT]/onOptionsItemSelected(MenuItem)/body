@@ -12,7 +12,7 @@ new AlertDialog.Builder(this).setMessage(R.string.alert_delete_all_messages_text
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
 break;
 case R.id.leaveGroup:
-new AlertDialog.Builder(this).setMessage(getString(R.string.alert_leave_group_message).replace("{0}",groups().get(peer.getPeerId()).getName().get())).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
+new AlertDialog.Builder(this).setMessage(getString(R.string.alert_leave_group_message).replace("%1$s",groups().get(peer.getPeerId()).getName().get())).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
 @Override public void onClick(DialogInterface dialog2,int which){
 execute(messenger().leaveGroup(peer.getPeerId()));
 finish();
