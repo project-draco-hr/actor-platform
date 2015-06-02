@@ -1,5 +1,5 @@
 {
   super(contentContainer);
   ServiceMessage serviceMessage=(ServiceMessage)contentContainer.getMessage();
-  addedUid=((ServiceExUserAdded)serviceMessage.getExt()).getAddedUid();
+  invitedUId=((ServiceExUserInvited)serviceMessage.getExt()).getInvitedUid();
 }

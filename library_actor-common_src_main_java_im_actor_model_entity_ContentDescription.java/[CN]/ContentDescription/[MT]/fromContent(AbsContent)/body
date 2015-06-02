@@ -28,8 +28,8 @@
  else   if (msg instanceof ServiceGroupCreated) {
     return new ContentDescription(ContentType.SERVICE_CREATED);
   }
- else   if (msg instanceof ServiceGroupUserAdded) {
-    return new ContentDescription(ContentType.SERVICE_ADD,"",((ServiceGroupUserAdded)msg).getAddedUid(),false);
+ else   if (msg instanceof ServiceGroupUserInvited) {
+    return new ContentDescription(ContentType.SERVICE_ADD,"",((ServiceGroupUserInvited)msg).getInvitedUid(),false);
   }
  else   if (msg instanceof ServiceGroupUserKicked) {
     return new ContentDescription(ContentType.SERVICE_KICK,"",((ServiceGroupUserKicked)msg).getKickedUid(),false);
