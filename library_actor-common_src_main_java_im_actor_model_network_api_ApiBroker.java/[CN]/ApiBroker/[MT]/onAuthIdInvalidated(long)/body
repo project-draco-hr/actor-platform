@@ -3,8 +3,9 @@
     return;
   }
   Log.w(TAG,"Auth id invalidated");
-  callback.onAuthIdInvalidated();
+  keyStorage.saveAuthKey(0);
   currentAuthId=0;
   proto=null;
+  callback.onAuthIdInvalidated();
   self().send(new RequestAuthId());
 }

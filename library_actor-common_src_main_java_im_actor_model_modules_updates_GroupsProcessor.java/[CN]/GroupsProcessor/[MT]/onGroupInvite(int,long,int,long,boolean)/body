@@ -8,7 +8,7 @@
         conversationActor(group.peer()).send(message);
       }
  else {
-        Message message=new Message(rid,date,date,inviterId,MessageState.SENT,ServiceGroupUserAdded.create(myUid()));
+        Message message=new Message(rid,date,date,inviterId,MessageState.SENT,ServiceGroupUserInvited.create(myUid()));
         conversationActor(group.peer()).send(message);
       }
     }

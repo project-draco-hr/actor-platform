@@ -1,6 +1,7 @@
 {
   Log.d(TAG,"Creating proto");
   keyStorage.saveAuthKey(key);
+  currentAuthId=key;
   proto=new MTProto(key,RandomUtils.nextRid(),endpoints,new ProtoCallback(key),networkProvider,isEnableLog,getPath() + "/proto#" + NEXT_PROTO_ID.incrementAndGet());
   for (  RequestHolder holder : requests.values()) {
     holder.protoId=proto.sendRpcMessage(holder.message);

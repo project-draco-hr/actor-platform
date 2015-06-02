@@ -12,4 +12,5 @@
   setHttpProvider(new JsHttpProvider());
   setAppCategory(AppCategory.WEB);
   setDeviceCategory(DeviceCategory.DESKTOP);
+  setLifecycleProvider(new JsLifecycleProvider());
 }

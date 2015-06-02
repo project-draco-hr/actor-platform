@@ -1,4 +1,0 @@
-{
-  this.deviceInvalidationCallback=invalidationCallback;
-  return this;
-}

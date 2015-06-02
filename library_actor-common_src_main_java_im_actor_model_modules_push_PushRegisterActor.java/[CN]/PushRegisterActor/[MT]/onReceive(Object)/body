@@ -7,6 +7,9 @@
     RegisterApplePush applePush=(RegisterApplePush)message;
     registerApplePush(applePush.getApnsKey(),applePush.getToken());
   }
+ else   if (message instanceof ResendPush) {
+    resendPush();
+  }
  else {
     drop(message);
   }

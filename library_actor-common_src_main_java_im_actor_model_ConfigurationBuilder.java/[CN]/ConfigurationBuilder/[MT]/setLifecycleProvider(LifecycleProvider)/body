@@ -1,0 +1,4 @@
+{
+  this.lifecycleProvider=lifecycleProvider;
+  return this;
+}
