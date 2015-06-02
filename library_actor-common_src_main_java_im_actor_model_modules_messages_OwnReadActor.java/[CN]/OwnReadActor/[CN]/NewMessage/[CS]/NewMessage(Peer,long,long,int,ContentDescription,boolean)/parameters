@@ -1,5 +1,6 @@
 Peer peer
 long rid
 long sortingDate
-int senderUid
+int senderUId
 ContentDescription contentDescription
+boolean hasCurrentUserMention

@@ -1,6 +1,6 @@
 {
   boolean isPeerEnabled=modules().getSettings().isNotificationsEnabled(peer);
-  boolean isEnabled=modules().getSettings().isNotificationsEnabled() && isPeerEnabled;
+  boolean isEnabled=(modules().getSettings().isNotificationsEnabled() && isPeerEnabled) || hasCurrentUserMention;
   if (isEnabled) {
     List<PendingNotification> allPending=getNotifications();
     allPending.add(new PendingNotification(peer,sender,date,description));

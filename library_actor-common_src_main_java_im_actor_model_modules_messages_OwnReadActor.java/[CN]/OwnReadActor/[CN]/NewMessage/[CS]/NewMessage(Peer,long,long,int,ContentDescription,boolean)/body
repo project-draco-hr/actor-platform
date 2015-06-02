@@ -4,4 +4,5 @@
   this.sortingDate=sortingDate;
   this.senderUId=senderUId;
   this.contentDescription=contentDescription;
+  this.hasCurrentUserMention=hasCurrentUserMention;
 }

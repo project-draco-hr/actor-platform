@@ -2,3 +2,4 @@ Peer peer
 int sender
 long sortDate
 ContentDescription contentDescription
+boolean hasCurrentUserMention

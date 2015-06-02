@@ -3,4 +3,5 @@
   this.sender=sender;
   this.sortDate=sortDate;
   this.contentDescription=contentDescription;
+  this.hasCurrentUserMention=hasCurrentUserMention;
 }
