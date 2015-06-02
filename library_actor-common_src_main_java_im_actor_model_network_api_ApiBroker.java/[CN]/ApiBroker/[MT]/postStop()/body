@@ -1,0 +1,6 @@
+{
+  if (proto != null) {
+    proto.stopProto();
+    proto=null;
+  }
+}

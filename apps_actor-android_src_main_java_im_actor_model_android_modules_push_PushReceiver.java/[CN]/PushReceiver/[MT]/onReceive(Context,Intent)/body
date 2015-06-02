@@ -42,5 +42,4 @@
  else {
     Log.w(TAG,"Message with null extras: ignoring");
   }
-  setResultCode(Activity.RESULT_OK);
 }

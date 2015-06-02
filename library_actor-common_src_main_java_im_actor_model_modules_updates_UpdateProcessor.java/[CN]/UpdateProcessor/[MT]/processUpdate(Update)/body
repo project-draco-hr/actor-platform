@@ -79,9 +79,9 @@
     UpdateGroupUserKick userKick=(UpdateGroupUserKick)update;
     groupsProcessor.onUserKicked(userKick.getGroupId(),userKick.getRid(),userKick.getUid(),userKick.getKickerUid(),userKick.getDate(),false);
   }
- else   if (update instanceof UpdateGroupUserAdded) {
-    UpdateGroupUserAdded userAdded=(UpdateGroupUserAdded)update;
-    groupsProcessor.onUserAdded(userAdded.getGroupId(),userAdded.getRid(),userAdded.getUid(),userAdded.getInviterUid(),userAdded.getDate(),false);
+ else   if (update instanceof UpdateGroupUserInvited) {
+    UpdateGroupUserInvited userInvited=(UpdateGroupUserInvited)update;
+    groupsProcessor.onUserAdded(userInvited.getGroupId(),userInvited.getRid(),userInvited.getUid(),userInvited.getInviterUid(),userInvited.getDate(),false);
   }
  else   if (update instanceof UpdateContactsAdded) {
     UpdateContactsAdded contactsAdded=(UpdateContactsAdded)update;

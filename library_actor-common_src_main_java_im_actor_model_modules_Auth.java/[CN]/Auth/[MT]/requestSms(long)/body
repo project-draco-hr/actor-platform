@@ -4,8 +4,6 @@
       modules().getAnalytics().trackCodeRequest(phone);
       request(new RequestSendAuthCode(phone,apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseSendAuthCode>(){
         @Override public void onResult(        final ResponseSendAuthCode response){
-          Log.d("AUTH","OnResult: " + response);
-          Log.d("AUTH","Callback: " + callback);
           preferences().putLong(KEY_PHONE,phone);
           preferences().putString(KEY_SMS_HASH,response.getSmsHash());
           state=AuthState.CODE_VALIDATION;

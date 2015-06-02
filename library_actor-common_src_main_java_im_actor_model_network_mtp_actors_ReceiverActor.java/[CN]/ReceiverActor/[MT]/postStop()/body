@@ -1,0 +1,5 @@
+{
+  this.sender=null;
+  this.proto=null;
+  this.receivedMessages=null;
+}

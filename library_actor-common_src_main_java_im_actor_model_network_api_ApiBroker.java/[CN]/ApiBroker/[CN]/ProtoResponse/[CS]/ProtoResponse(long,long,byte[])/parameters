@@ -1,0 +1,3 @@
+long authId
+long responseId
+byte[] data

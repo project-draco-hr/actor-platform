@@ -1,0 +1,9 @@
+{
+  state=AuthState.AUTH_START;
+  myUid=0;
+  preferences().putBool(KEY_AUTH,false);
+  preferences().putInt(KEY_AUTH_UID,0);
+  preferences().putLong(KEY_PHONE,0);
+  preferences().putString(KEY_SMS_HASH,null);
+  preferences().putInt(KEY_SMS_CODE,0);
+}
