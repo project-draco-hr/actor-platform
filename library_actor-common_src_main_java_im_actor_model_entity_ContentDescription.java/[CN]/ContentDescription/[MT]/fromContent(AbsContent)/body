@@ -38,7 +38,7 @@
     return new ContentDescription(ContentType.SERVICE_LEAVE,"",0,true);
   }
  else   if (msg instanceof ServiceGroupUserJoined) {
-    return new ContentDescription(ContentType.SERVICE_JOINED,"",0,true);
+    return new ContentDescription(ContentType.SERVICE_JOINED,"",0,false);
   }
  else {
     return new ContentDescription(ContentType.UNKNOWN_CONTENT);
