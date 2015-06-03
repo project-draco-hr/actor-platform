@@ -2,19 +2,22 @@
   return new Command<Integer>(){
     @Override public void start(    final CommandCallback<Integer> callback){
       request(new RequestJoinGroup(url),new RpcCallback<ResponseJoinGroup>(){
-        @Override public void onResult(        ResponseJoinGroup response){
+        @Override public void onResult(        final ResponseJoinGroup response){
           im.actor.model.api.Group group=response.getGroup();
           ArrayList<im.actor.model.api.Group> groups=new ArrayList<im.actor.model.api.Group>();
           groups.add(group);
-          if (group.getAvatar() != null && group.getAvatar().toString() != null) {
-            changeAvatar(group.getId(),group.getAvatar().toString());
+          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateMessage(new im.actor.model.api.Peer(PeerType.GROUP,group.getId()),myUid(),response.getDate(),response.getRid(),new ServiceMessage("Joined chat",new ServiceExUserJoined())),response.getUsers(),groups);
+          updates().executeAfter(response.getSeq(),new Runnable(){
+            @Override public void run(){
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(response.getGroup().getId());
+                }
+              }
+);
+            }
           }
-          groups().addOrUpdateItem(EntityConverter.convert(group));
-          for (          im.actor.model.api.User u : response.getUsers()) {
-            users().addOrUpdateItem(new User(u));
-          }
-          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,new UpdateGroupInvite(group.getId(),response.getRid(),group.getCreatorUid(),response.getDate()).toByteArray(),response.getUsers(),groups));
-          updates().onUpdateReceived(new GroupCreated(group,response.getUsers(),callback));
+);
         }
         @Override public void onError(        RpcException e){
           runOnUiThread(new Runnable(){

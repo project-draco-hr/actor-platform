@@ -15,14 +15,24 @@
           for (          int u : uids) {
             members.add(new Member(u,myUid(),response.getDate()));
           }
-          im.actor.model.api.Group group=new im.actor.model.api.Group(response.getGroupPeer().getGroupId(),response.getGroupPeer().getAccessHash(),title,null,true,myUid(),members,response.getDate());
+          final im.actor.model.api.Group group=new im.actor.model.api.Group(response.getGroupPeer().getGroupId(),response.getGroupPeer().getAccessHash(),title,null,true,myUid(),members,response.getDate());
           ArrayList<im.actor.model.api.Group> groups=new ArrayList<im.actor.model.api.Group>();
           groups.add(group);
-          if (avatarDescriptor != null) {
-            changeAvatar(group.getId(),avatarDescriptor);
+          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateGroupInvite(group.getId(),rid,myUid(),response.getDate()),new ArrayList<im.actor.model.api.User>(),groups);
+          updates().executeAfter(response.getSeq(),new Runnable(){
+            @Override public void run(){
+              if (avatarDescriptor != null) {
+                changeAvatar(group.getId(),avatarDescriptor);
+              }
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(group.getId());
+                }
+              }
+);
+            }
           }
-          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,new UpdateGroupInvite(response.getGroupPeer().getGroupId(),rid,myUid(),response.getDate()).toByteArray(),new ArrayList<im.actor.model.api.User>(),groups));
-          updates().onUpdateReceived(new GroupCreated(group,new ArrayList<im.actor.model.api.User>(),callback));
+);
         }
         @Override public void onError(        final RpcException e){
           runOnUiThread(new Runnable(){
