@@ -9,6 +9,7 @@
  else {
     container.setOnClickListener((View.OnClickListener)this);
     container.setOnClickListener((BubbleContainer.OnAvatarClickListener)this);
-    container.setOnLongClickListener(this);
+    container.setOnLongClickListener((View.OnLongClickListener)this);
+    container.setOnLongClickListener((BubbleContainer.OnAvatarLongClickListener)this);
   }
 }
