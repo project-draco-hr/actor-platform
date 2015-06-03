@@ -1,6 +1,6 @@
 {
   this.displayList=displayList;
-  setHasStableIds(false);
+  setHasStableIds(true);
   listener=new DisplayList.AndroidChangeListener<V>(){
     @Override public void onCollectionChanged(    AndroidListUpdate<V> modification){
       currentUpdate=modification;
