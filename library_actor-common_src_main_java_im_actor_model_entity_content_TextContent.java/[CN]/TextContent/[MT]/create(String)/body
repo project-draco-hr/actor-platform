@@ -1,3 +1,0 @@
-{
-  return new TextContent(new ContentRemoteContainer(new TextMessage(text,new ArrayList<Integer>(),null)));
-}

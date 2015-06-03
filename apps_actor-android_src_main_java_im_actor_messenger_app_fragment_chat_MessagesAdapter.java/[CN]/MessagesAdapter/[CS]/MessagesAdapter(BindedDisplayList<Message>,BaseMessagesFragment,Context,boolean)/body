@@ -1,0 +1,6 @@
+{
+  super(displayList);
+  this.messagesFragment=messagesFragment;
+  this.context=context;
+  this.isMarkDownEnabled=isMarkDownEnabled;
+}

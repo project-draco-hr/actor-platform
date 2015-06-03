@@ -2,12 +2,22 @@
   return new Command<Integer>(){
     @Override public void start(    final CommandCallback<Integer> callback){
       request(new RequestJoinGroup(url),new RpcCallback<ResponseJoinGroup>(){
-        @Override public void onResult(        ResponseJoinGroup response){
+        @Override public void onResult(        final ResponseJoinGroup response){
           im.actor.model.api.Group group=response.getGroup();
           ArrayList<im.actor.model.api.Group> groups=new ArrayList<im.actor.model.api.Group>();
           groups.add(group);
-          updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateGroupInvite.HEADER,response.getState(),new ArrayList<im.actor.model.api.User>(),groups));
-          updates().onUpdateReceived(new GroupCreated(group,callback));
+          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateMessage(new im.actor.model.api.Peer(PeerType.GROUP,group.getId()),myUid(),response.getDate(),response.getRid(),new ServiceMessage("Joined chat",new ServiceExUserJoined())),response.getUsers(),groups);
+          updates().executeAfter(response.getSeq(),new Runnable(){
+            @Override public void run(){
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(response.getGroup().getId());
+                }
+              }
+);
+            }
+          }
+);
         }
         @Override public void onError(        RpcException e){
           runOnUiThread(new Runnable(){

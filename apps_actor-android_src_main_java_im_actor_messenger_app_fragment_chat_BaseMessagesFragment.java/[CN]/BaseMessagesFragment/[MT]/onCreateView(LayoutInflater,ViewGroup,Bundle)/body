@@ -12,19 +12,6 @@
   View header=new View(getActivity());
   header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(64)));
   addFooterView(header);
-  conversationVM=messenger().buildConversationVM(peer,getDisplayList(),new ConversationVMCallback(){
-    @Override public void onLoaded(    long unreadId,    final int index){
-      if (messagesAdapter != null) {
-        messagesAdapter.setFirstUnread(unreadId);
-      }
-      if (index > 0) {
-        linearLayoutManager.scrollToPositionWithOffset(index + 1,Screen.dp(64));
-      }
- else {
-        getCollection().scrollToPosition(0);
-      }
-    }
-  }
-);
+  scrollToUnread();
   return res;
 }

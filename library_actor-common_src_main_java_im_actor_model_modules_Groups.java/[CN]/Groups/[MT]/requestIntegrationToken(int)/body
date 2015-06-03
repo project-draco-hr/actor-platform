@@ -1,0 +1,37 @@
+{
+  return new Command<String>(){
+    @Override public void start(    final CommandCallback<String> callback){
+      final Group group=getGroups().getValue(gid);
+      if (group == null) {
+        runOnUiThread(new Runnable(){
+          @Override public void run(){
+            callback.onError(new RpcInternalException());
+          }
+        }
+);
+        return;
+      }
+      request(new RequestGetIntegrationToken(new OutPeer(PeerType.GROUP,group.getGroupId(),group.getAccessHash())),new RpcCallback<ResponseIntegrationToken>(){
+        @Override public void onResult(        final ResponseIntegrationToken response){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              modules().getSettings().changeGroupIntegrationToken(group.peer(),response.getUrl());
+              callback.onResult(response.getUrl());
+            }
+          }
+);
+        }
+        @Override public void onError(        RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(new RpcInternalException());
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

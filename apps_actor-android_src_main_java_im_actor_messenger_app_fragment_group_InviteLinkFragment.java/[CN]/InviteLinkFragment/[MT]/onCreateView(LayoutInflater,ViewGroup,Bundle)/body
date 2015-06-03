@@ -8,38 +8,47 @@
         adapter.notifyDataSetChanged();
       }
       @Override public void onError(      Exception e){
+        Toast.makeText(getActivity(),getString(R.string.invite_link_error_get_link),Toast.LENGTH_SHORT).show();
+        adapter.notifyDataSetChanged();
       }
     }
 );
   }
   final ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-  View res=inflater.inflate(R.layout.fragment_invite_link,container,false);
-  listView=(ListView)res.findViewById(R.id.inviteLinkActionsList);
+  View res=inflater.inflate(R.layout.fragment_link_actions,container,false);
+  listView=(ListView)res.findViewById(R.id.linkActionsList);
   adapter=new InviteLincActionsAdapter(getActivity());
   listView.setAdapter(adapter);
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      if (link != null && !link.isEmpty()) {
 switch (position) {
 case 0:
-        clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
-      Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
-    break;
+          clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
+        Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
+      break;
 case 1:
-  break;
+    break;
 case 2:
-clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
+  clipboard.setPrimaryClip(ClipData.newPlainText(null,link));
 Toast.makeText(getActivity(),getString(R.string.invite_link_copied),Toast.LENGTH_SHORT).show();
 break;
 case 3:
+new MaterialDialog.Builder(getActivity()).content(R.string.alert_revoke_link_message).positiveText(R.string.alert_revoke_link_yes).negativeText(R.string.dialog_cancel).callback(new MaterialDialog.ButtonCallback(){
+@Override public void onPositive(MaterialDialog materialDialog1){
 execute(messenger().revokeInviteLink(chatId),R.string.invite_link_action_revoke,new CommandCallback<String>(){
-@Override public void onResult(String res){
-link=res;
-adapter.notifyDataSetChanged();
-}
-@Override public void onError(Exception e){
-}
+  @Override public void onResult(  String res){
+    link=res;
+    adapter.notifyDataSetChanged();
+  }
+  @Override public void onError(  Exception e){
+    Toast.makeText(getActivity(),getString(R.string.invite_link_error_revoke_link),Toast.LENGTH_SHORT).show();
+  }
 }
 );
+}
+}
+).show();
 break;
 case 4:
 Intent i=new Intent(Intent.ACTION_SEND);
@@ -53,8 +62,9 @@ break;
 }
 }
 }
+}
 );
-View footer=inflater.inflate(R.layout.fragment_invite_link_item_footer,listView,false);
+View footer=inflater.inflate(R.layout.fragment_link_item_footer,listView,false);
 listView.addFooterView(footer,null,false);
 return res;
 }

@@ -13,6 +13,18 @@
       }
     }
 );
+    avatarView.setOnLongClickListener(new OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        if (onLongClickListener != null) {
+          onLongClickListener.onAvatarLongClick(uid);
+          return true;
+        }
+ else {
+          return false;
+        }
+      }
+    }
+);
   }
  else {
     avatarView.setVisibility(GONE);

@@ -1,6 +1,6 @@
 {
   if (item.getItemId() == R.id.leaveGroup) {
-    new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_delete_group_title).replace("{0}",groupInfo.getName().get())).setPositiveButton(R.string.alert_delete_group_yes,new DialogInterface.OnClickListener(){
+    new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_leave_group_message).replace("%1$s",groupInfo.getName().get())).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
       @Override public void onClick(      DialogInterface dialog2,      int which){
         execute(messenger().leaveGroup(chatId));
       }
@@ -16,6 +16,9 @@
   }
  else   if (item.getItemId() == R.id.changePhoto) {
     startActivity(ViewAvatarActivity.viewGroupAvatar(chatId,getActivity()));
+  }
+ else   if (item.getItemId() == R.id.integrationToken) {
+    startActivity(Intents.integrationToken(chatId,getActivity()));
   }
   return super.onOptionsItemSelected(item);
 }

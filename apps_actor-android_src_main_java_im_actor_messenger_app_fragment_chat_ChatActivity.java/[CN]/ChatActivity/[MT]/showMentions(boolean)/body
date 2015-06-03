@@ -19,10 +19,7 @@
         String name=user.getName().get();
         int userId=user.getId();
         if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
-          String mention="http://".concat(getString(R.string.messenger_domain)).concat("/people/").concat(Integer.toString(userId));
-          MentionSpan span=new MentionSpan(mention,true);
-          SpannableStringBuilder spannedMention=new SpannableStringBuilder("@".concat(MENTION_BOUNDS_STR).concat(name).concat(MENTION_BOUNDS_STR));
-          spannedMention.setSpan(span,0,spannedMention.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+          SpannableStringBuilder spannedMention=buildMention(userId,name);
           Editable text=messageBody.getText();
           boolean spaceAppended=false;
           if (text.length() > mentionStart + mentionSearchString.length() + 1) {
