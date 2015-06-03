@@ -1,7 +1,9 @@
 {
   CharSequence spannedText;
-  if (isMarkdownEnabled) {
-    spannedText=new SpannableStringBuilder(bypass.markdownToSpannable(((TextContent)message.getContent()).getText(),false));
+  TextMessageEx ext=((TextContent)message.getContent()).getTextMessageEx();
+  isMdExt=ext instanceof TextExMarkdown;
+  if (isMarkdownEnabled || isMdExt) {
+    spannedText=new SpannableStringBuilder(bypass.markdownToSpannable(isMdExt ? ((TextExMarkdown)ext).getMarkdown() : ((TextContent)message.getContent()).getText(),false));
     Editable spannedTextEditable=new SpannableStringBuilder(spannedText);
     URLSpan[] urlSpans=spannedTextEditable.getSpans(0,spannedTextEditable.length(),URLSpan.class);
     if (urlSpans.length > 0) {
