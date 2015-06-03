@@ -20,4 +20,10 @@
  else {
     Log.d("JsMessenger","ChromePush NOT Supported");
   }
+  if (JsSafariPush.isSupported()) {
+    Log.d("JsMessenger","SafariPush Supported");
+  }
+ else {
+    Log.d("JsMessenger","SafariPush NOT Supported");
+  }
 }
