@@ -1,6 +1,6 @@
 {
-  writer.writeLong(1,fileId);
-  writer.writeLong(2,accessHash);
+  writer.writeBool(5,true);
   writer.writeInt(3,fileSize);
   writer.writeString(4,fileName);
+  super.serialize(writer);
 }

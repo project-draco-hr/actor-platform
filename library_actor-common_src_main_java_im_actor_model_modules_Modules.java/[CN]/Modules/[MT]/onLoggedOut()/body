@@ -1,0 +1,9 @@
+{
+  MVVMEngine.runOnUiThread(new Runnable(){
+    @Override public void run(){
+      getConfiguration().getStorageProvider().resetStorage();
+      getConfiguration().getLifecycleProvider().killApp();
+    }
+  }
+);
+}

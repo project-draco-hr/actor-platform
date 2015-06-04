@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getUser(uid).unsubscribe(callback);
+  messenger.getJsUser(uid).unsubscribe(callback);
 }

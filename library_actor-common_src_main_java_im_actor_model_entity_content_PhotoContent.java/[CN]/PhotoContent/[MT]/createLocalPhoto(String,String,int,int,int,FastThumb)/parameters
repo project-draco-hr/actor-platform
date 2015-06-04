@@ -1,0 +1,6 @@
+String descriptor
+String fileName
+int fileSize
+int w
+int h
+FastThumb fastThumb

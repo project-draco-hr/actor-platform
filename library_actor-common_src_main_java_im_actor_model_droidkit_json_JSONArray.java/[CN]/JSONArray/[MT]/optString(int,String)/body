@@ -1,0 +1,4 @@
+{
+  Object object=this.opt(index);
+  return im.actor.model.droidkit.json.JSONObject.NULL.equals(object) ? defaultValue : object.toString();
+}

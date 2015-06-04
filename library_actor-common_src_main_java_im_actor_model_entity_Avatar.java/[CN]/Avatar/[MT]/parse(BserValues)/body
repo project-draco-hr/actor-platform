@@ -1,14 +1,8 @@
 {
-  byte[] small=values.optBytes(1);
-  if (small != null) {
-    smallImage=AvatarImage.fromBytes(small);
+  if (values.getBool(5,false)) {
+    super.parse(values);
   }
-  byte[] large=values.optBytes(2);
-  if (large != null) {
-    largeImage=AvatarImage.fromBytes(large);
-  }
-  byte[] full=values.optBytes(3);
-  if (full != null) {
-    fullImage=AvatarImage.fromBytes(full);
+ else {
+    setWrapped(new ObsoleteAvatar(values).toApiAvatar());
   }
 }

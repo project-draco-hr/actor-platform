@@ -1,0 +1,5 @@
+{
+  w=fastThumb.getW();
+  h=fastThumb.getH();
+  image=fastThumb.getImage();
+}

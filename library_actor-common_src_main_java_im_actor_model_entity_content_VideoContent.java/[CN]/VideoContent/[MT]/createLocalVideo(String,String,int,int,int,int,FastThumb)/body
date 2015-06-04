@@ -1,0 +1,3 @@
+{
+  return new VideoContent(new ContentLocalContainer(new LocalVideo(fileName,descriptor,fileSize,"video/mp4",fastThumb != null ? new LocalFastThumb(fastThumb) : null,w,h,duration)));
+}

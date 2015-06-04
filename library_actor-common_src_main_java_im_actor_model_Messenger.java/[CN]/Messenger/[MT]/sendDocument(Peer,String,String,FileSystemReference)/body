@@ -1,3 +1,0 @@
-{
-  sendDocument(peer,fileName,mimeType,fileSystemReference,null);
-}

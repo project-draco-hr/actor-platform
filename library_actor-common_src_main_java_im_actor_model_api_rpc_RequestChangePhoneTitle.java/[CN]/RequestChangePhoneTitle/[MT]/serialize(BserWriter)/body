@@ -1,7 +1,0 @@
-{
-  writer.writeInt(1,this.phoneId);
-  if (this.title == null) {
-    throw new IOException();
-  }
-  writer.writeString(2,this.title);
-}

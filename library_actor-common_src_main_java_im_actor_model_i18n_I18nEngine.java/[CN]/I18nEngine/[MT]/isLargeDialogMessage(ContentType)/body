@@ -9,6 +9,7 @@ case SERVICE_LEAVE:
 case SERVICE_REGISTERED:
 case SERVICE_KICK:
 case SERVICE_ADD:
+case SERVICE_JOINED:
     return true;
 default :
   return false;

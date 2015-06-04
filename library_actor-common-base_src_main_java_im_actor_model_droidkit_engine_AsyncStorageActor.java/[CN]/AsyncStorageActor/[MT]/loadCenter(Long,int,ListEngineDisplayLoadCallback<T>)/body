@@ -1,0 +1,5 @@
+{
+  ArrayList<T> res;
+  res=convertList(storage.loadCenter(centerSortKey,limit));
+  callCallback(callback,res);
+}

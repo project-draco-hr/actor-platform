@@ -1,3 +1,0 @@
-ModificationHolder<T>[] modifications
-ArrayList<T> initialList
-ArrayList<ModificationResult<T>> modRes

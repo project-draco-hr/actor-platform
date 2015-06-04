@@ -1,3 +1,0 @@
-{
-  return new User(uid,accessHash,name,localName,avatar,sex,records);
-}

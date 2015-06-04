@@ -1,0 +1,3 @@
+List<T> items
+ArrayList<T> sourceList
+ArrayList<ChangeDescription<T>> changes

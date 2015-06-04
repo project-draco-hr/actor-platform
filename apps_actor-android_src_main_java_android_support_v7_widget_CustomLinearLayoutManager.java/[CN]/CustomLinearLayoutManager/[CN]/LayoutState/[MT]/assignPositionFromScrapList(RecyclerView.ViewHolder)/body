@@ -1,0 +1,4 @@
+{
+  RecyclerView.ViewHolder closest=nextViewHolderInLimitedList(ignore);
+  mCurrentPosition=closest == null ? RecyclerView.NO_POSITION : closest.getLayoutPosition();
+}

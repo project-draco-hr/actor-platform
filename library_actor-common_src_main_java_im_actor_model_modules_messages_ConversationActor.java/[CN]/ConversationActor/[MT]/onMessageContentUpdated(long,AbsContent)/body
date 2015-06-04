@@ -5,12 +5,5 @@
   }
   Message updatedMsg=message.changeContent(content);
   messages.addOrUpdateItem(updatedMsg);
-  if (updatedMsg.getContent() instanceof PhotoContent || updatedMsg.getContent() instanceof VideoContent) {
-    media.addOrUpdateItem(updatedMsg);
-  }
- else {
-    if (updatedMsg.getContent() instanceof DocumentContent) {
-    }
-  }
   dialogsActor.send(new DialogsActor.MessageContentChanged(peer,rid,content));
 }

@@ -1,0 +1,41 @@
+{
+  resolveShouldLayoutReverse();
+  if (getChildCount() == 0) {
+    return null;
+  }
+  final int layoutDir=convertFocusDirectionToLayoutDirection(focusDirection);
+  if (layoutDir == LayoutState.INVALID_LAYOUT) {
+    return null;
+  }
+  ensureLayoutState();
+  final View referenceChild;
+  if (layoutDir == LayoutState.LAYOUT_START) {
+    referenceChild=findReferenceChildClosestToStart(state);
+  }
+ else {
+    referenceChild=findReferenceChildClosestToEnd(state);
+  }
+  if (referenceChild == null) {
+    if (DEBUG) {
+      Log.d(TAG,"Cannot find a child with a valid position to be used for focus search.");
+    }
+    return null;
+  }
+  ensureLayoutState();
+  final int maxScroll=(int)(MAX_SCROLL_FACTOR * mOrientationHelper.getTotalSpace());
+  updateLayoutState(layoutDir,maxScroll,false,state);
+  mLayoutState.mScrollingOffset=LayoutState.SCOLLING_OFFSET_NaN;
+  mLayoutState.mRecycle=false;
+  fill(recycler,mLayoutState,state,true);
+  final View nextFocus;
+  if (layoutDir == LayoutState.LAYOUT_START) {
+    nextFocus=getChildClosestToStart();
+  }
+ else {
+    nextFocus=getChildClosestToEnd();
+  }
+  if (nextFocus == referenceChild || !nextFocus.isFocusable()) {
+    return null;
+  }
+  return nextFocus;
+}

@@ -9,12 +9,14 @@
   timing.section("Analytics");
   this.analytics=new Analytics(this);
   timing.section("API");
-  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.getNetworkProvider());
+  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.getNetworkProvider(),configuration.isEnableNetworkLogging());
   timing.section("Auth");
   this.auth=new Auth(this);
   timing.section("Pushes");
   this.pushes=new Pushes(this);
   timing.section("App State");
   this.appStateModule=new AppStateModule(this);
+  timing.section("External");
+  this.external=new External(this);
   timing.end();
 }

@@ -3,7 +3,10 @@ switch (position) {
 default :
 case 0:
     DialogsFragment res=new DialogsFragment();
-  res.setHasOptionsMenu(false);
+  Bundle arguments=new Bundle();
+arguments.putString("invite_url",joinGroupUrl);
+res.setArguments(arguments);
+res.setHasOptionsMenu(false);
 return res;
 case 1:
 ContactsFragment res2=new ContactsFragment();

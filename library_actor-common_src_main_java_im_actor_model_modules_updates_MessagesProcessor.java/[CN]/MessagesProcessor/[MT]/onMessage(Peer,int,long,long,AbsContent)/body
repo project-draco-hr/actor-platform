@@ -3,8 +3,13 @@
   Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
   conversationActor(peer).send(message);
   if (!isOut) {
-    ownReadActor().send(new OwnReadActor.NewMessage(peer,rid,date));
-    modules().getNotifications().onInMessage(peer,senderUid,date,ContentDescription.fromContent(message.getContent()));
+    boolean hasCurrentUserMention=false;
+    AbsContent content=message.getContent();
+    if (content instanceof TextContent) {
+      ArrayList<Integer> mentions=((TextContent)content).getMentions();
+      hasCurrentUserMention=mentions != null && mentions.contains(myUid());
+    }
+    ownReadActor().send(new OwnReadActor.NewMessage(peer,rid,date,senderUid,ContentDescription.fromContent(content),hasCurrentUserMention));
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));
   }
  else {

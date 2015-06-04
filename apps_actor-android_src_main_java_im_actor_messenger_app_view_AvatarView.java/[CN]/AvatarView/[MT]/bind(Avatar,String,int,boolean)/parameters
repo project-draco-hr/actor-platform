@@ -1,0 +1,4 @@
+Avatar avatar
+String title
+int id
+boolean forceNewTextSize

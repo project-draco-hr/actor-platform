@@ -1,0 +1,9 @@
+{
+  Log.d(TAG,"Call disconnected: " + callId);
+  if (callId.equals(pendingCallId)) {
+    cancelPending();
+  }
+  if (callId.equals(ongoingCallId)) {
+    cancelOngoing();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  this.interests=values.getRepeatedInt(1);
+}

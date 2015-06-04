@@ -1,3 +1,0 @@
-{
-  this.apiBroker=ApiBroker.get(endpoints,keyStorage,callback,networkProvider);
-}

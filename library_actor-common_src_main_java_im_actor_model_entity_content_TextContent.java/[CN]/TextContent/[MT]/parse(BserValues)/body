@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  text=values.getString(2);
-}

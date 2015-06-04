@@ -1,0 +1,5 @@
+{
+  if (currentConnection != null) {
+    currentConnection.checkConnection();
+  }
+}

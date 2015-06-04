@@ -1,0 +1,8 @@
+{
+  if (state.hasTargetScrollPosition()) {
+    return mOrientationHelper.getTotalSpace();
+  }
+ else {
+    return 0;
+  }
+}

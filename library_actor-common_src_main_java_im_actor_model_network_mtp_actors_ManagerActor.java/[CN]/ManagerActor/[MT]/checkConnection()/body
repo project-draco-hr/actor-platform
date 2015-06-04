@@ -3,6 +3,10 @@
     return;
   }
   if (currentConnection == null) {
+    if (networkState == NetworkState.NO_CONNECTION) {
+      Log.d(TAG,"Not trying to create connection: Not network available");
+      return;
+    }
     Log.d(TAG,"Trying to create connection...");
     isCheckingConnections=true;
     final int id=NEXT_CONNECTION.getAndIncrement();

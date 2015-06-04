@@ -1,0 +1,16 @@
+{
+  outer:   for (int i=0; i < sourceList.size(); i++) {
+    long id=sourceList.get(i).getEngineId();
+    for (    T itm : items) {
+      if (itm.getEngineId() == id) {
+        continue outer;
+      }
+    }
+    changes.add(ChangeDescription.<T>remove(i));
+    sourceList.remove(i);
+    i--;
+  }
+  for (  T itm : items) {
+    addOrUpdate(itm,sourceList,changes,false);
+  }
+}

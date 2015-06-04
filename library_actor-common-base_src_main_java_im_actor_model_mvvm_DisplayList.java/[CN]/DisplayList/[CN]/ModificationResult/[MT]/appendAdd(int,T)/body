@@ -1,3 +1,0 @@
-{
-  operations.add(new Operation<T>(OperationType.ADD,index,item));
-}

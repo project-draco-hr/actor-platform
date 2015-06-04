@@ -1,0 +1,7 @@
+{
+  if (authId != currentAuthId) {
+    return;
+  }
+  Log.w(TAG,"New Session Created");
+  callback.onNewSessionCreated();
+}

@@ -1,5 +1,8 @@
 {
   this.uid=values.getInt(1);
-  this.phones=values.getRepeatedInt(2);
-  this.emails=values.getRepeatedInt(3);
+  List<ContactRecord> _contactRecords=new ArrayList<ContactRecord>();
+  for (int i=0; i < values.getRepeatedCount(4); i++) {
+    _contactRecords.add(new ContactRecord());
+  }
+  this.contactRecords=values.getRepeatedObj(4,_contactRecords);
 }

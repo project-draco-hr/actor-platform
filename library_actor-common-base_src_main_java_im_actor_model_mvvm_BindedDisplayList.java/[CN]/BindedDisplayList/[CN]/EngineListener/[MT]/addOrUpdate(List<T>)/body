@@ -1,4 +1,4 @@
 {
-  Modification<T> modification=DisplayModifications.addOrUpdate(items);
+  Modification<T> modification=Modifications.addOrUpdate(items);
   applyModification(modification);
 }

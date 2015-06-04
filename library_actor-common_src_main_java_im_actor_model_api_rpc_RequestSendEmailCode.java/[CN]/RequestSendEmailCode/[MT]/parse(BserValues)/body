@@ -1,4 +1,0 @@
-{
-  this.email=values.getString(1);
-  this.description=values.optString(2);
-}

@@ -1,4 +1,4 @@
 {
-  Modification<T> modification=DisplayModifications.clear();
+  Modification<T> modification=Modifications.clear();
   applyModification(modification);
 }

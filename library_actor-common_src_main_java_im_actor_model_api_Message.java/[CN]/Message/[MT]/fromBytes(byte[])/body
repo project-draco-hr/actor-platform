@@ -9,6 +9,8 @@ case 2:
   return Bser.parse(new ServiceMessage(),content);
 case 3:
 return Bser.parse(new DocumentMessage(),content);
+case 4:
+return Bser.parse(new JsonMessage(),content);
 default :
 return new MessageUnsupported(key,content);
 }

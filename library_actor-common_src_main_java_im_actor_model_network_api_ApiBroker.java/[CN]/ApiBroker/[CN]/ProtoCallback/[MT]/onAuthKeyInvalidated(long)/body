@@ -1,0 +1,6 @@
+{
+  if (this.authId != authId) {
+    return;
+  }
+  self().send(new AuthIdInvalidated(authId));
+}

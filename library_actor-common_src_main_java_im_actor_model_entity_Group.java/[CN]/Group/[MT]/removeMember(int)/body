@@ -1,9 +1,12 @@
 {
-  ArrayList<GroupMember> nMembers=new ArrayList<GroupMember>();
-  for (  GroupMember member : members) {
+  im.actor.model.api.Group w=getWrapped();
+  ArrayList<Member> nMembers=new ArrayList<Member>();
+  for (  Member member : w.getMembers()) {
     if (member.getUid() != uid) {
       nMembers.add(member);
     }
   }
-  return new Group(groupId,accessHash,title,avatar,nMembers,adminId,isMember);
+  im.actor.model.api.Group res=new im.actor.model.api.Group(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate());
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return new Group(res);
 }

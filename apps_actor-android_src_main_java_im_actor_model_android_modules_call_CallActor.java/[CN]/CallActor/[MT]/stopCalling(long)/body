@@ -1,0 +1,8 @@
+{
+  if (ongoingCallKey == callKey) {
+    cancelOngoing();
+  }
+  if (pendingCallKey == callKey) {
+    cancelPending();
+  }
+}

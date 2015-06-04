@@ -1,0 +1,7 @@
+{
+  this.type=type;
+  this.stringValue=stringValue;
+  this.longValue=longValue;
+  this.title=title;
+  this.subtitle=subtitle;
+}

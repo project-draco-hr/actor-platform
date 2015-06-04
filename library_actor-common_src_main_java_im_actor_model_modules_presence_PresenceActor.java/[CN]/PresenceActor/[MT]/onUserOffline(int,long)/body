@@ -1,0 +1,10 @@
+{
+  if (lastUidState.containsKey(uid) && lastUidState.get(uid) >= updateDate) {
+    return;
+  }
+  lastUidState.put(uid,updateDate);
+  UserVM vm=getUserVM(uid);
+  if (vm != null) {
+    vm.getPresence().change(new UserPresence(UserPresence.State.OFFLINE));
+  }
+}

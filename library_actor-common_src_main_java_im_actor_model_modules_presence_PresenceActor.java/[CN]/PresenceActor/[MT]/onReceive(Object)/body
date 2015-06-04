@@ -1,19 +1,19 @@
 {
   if (message instanceof UserOnline) {
     UserOnline online=(UserOnline)message;
-    onUserOnline(online.getUid());
+    onUserOnline(online.getUid(),online.getUpdateDate());
   }
  else   if (message instanceof UserOffline) {
     UserOffline offline=(UserOffline)message;
-    onUserOffline(offline.getUid());
+    onUserOffline(offline.getUid(),offline.getUpdateDate());
   }
  else   if (message instanceof UserLastSeen) {
     UserLastSeen lastSeen=(UserLastSeen)message;
-    onUserLastSeen(lastSeen.getUid(),lastSeen.getDate());
+    onUserLastSeen(lastSeen.getUid(),lastSeen.getDate(),lastSeen.getUpdateDate());
   }
  else   if (message instanceof GroupOnline) {
     GroupOnline groupOnline=(GroupOnline)message;
-    onGroupOnline(groupOnline.getGid(),groupOnline.getCount());
+    onGroupOnline(groupOnline.getGid(),groupOnline.getCount(),groupOnline.getUpdateDate());
   }
  else   if (message instanceof Subscribe) {
     subscribe(((Subscribe)message).getPeer());

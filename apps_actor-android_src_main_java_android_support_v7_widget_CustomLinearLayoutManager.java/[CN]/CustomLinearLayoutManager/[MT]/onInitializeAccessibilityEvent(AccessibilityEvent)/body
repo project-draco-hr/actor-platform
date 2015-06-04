@@ -1,0 +1,8 @@
+{
+  super.onInitializeAccessibilityEvent(event);
+  if (getChildCount() > 0) {
+    final AccessibilityRecordCompat record=AccessibilityEventCompat.asRecord(event);
+    record.setFromIndex(findFirstVisibleItemPosition());
+    record.setToIndex(findLastVisibleItemPosition());
+  }
+}

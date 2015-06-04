@@ -8,7 +8,7 @@
       groups().addOrUpdateItem(group.removeMember(uid));
     }
     if (!isSilent) {
-      Message message=new Message(rid,date,date,kicker,kicker == myUid() ? MessageState.SENT : MessageState.UNKNOWN,new ServiceGroupUserKicked(uid));
+      Message message=new Message(rid,date,date,kicker,kicker == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupUserKicked.create(uid));
       conversationActor(group.peer()).send(message);
     }
   }
