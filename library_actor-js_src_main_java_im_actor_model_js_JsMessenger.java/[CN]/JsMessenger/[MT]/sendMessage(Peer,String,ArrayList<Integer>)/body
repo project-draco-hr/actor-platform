@@ -2,5 +2,5 @@
   if (replacer.canHack(peer,text)) {
     return;
   }
-  super.sendMessage(peer,text);
+  super.sendMessage(peer,text,mentions);
 }
