@@ -1,0 +1,16 @@
+{
+  return JsPromise.create(new JsPromiseExecutor(){
+    @Override public void execute(){
+      messenger.revokeIntegrationToken(gid).start(new CommandCallback<String>(){
+        @Override public void onResult(        String res){
+          resolve(res);
+        }
+        @Override public void onError(        Exception e){
+          reject();
+        }
+      }
+);
+    }
+  }
+);
+}
