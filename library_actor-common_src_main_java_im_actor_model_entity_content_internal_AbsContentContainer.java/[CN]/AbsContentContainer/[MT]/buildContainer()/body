@@ -1,0 +1,16 @@
+{
+  DataOutput res=new DataOutput();
+  BserWriter writer=new BserWriter(res);
+  if (this instanceof ContentLocalContainer) {
+    writer.writeInt(1,TYPE_LOCAL);
+    writer.writeBytes(2,((ContentLocalContainer)this).getContent().buildContainer());
+  }
+ else   if (this instanceof ContentRemoteContainer) {
+    writer.writeInt(1,TYPE_REMOTE);
+    writer.writeBytes(2,((ContentRemoteContainer)this).getMessage().buildContainer());
+  }
+ else {
+    throw new IOException("Unknown type");
+  }
+  return res.toByteArray();
+}

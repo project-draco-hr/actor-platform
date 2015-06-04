@@ -1,4 +1,17 @@
 {
   super.onResume();
+  if (joinGroupUrl != null && !joinGroupUrl.isEmpty()) {
+    execute(messenger().joinGroupViaLink(joinGroupUrl),R.string.invite_link_title,new CommandCallback<Integer>(){
+      @Override public void onResult(      Integer res){
+        getActivity().startActivity(Intents.openGroupDialog(res,true,getActivity()));
+        getActivity().finish();
+        joinGroupUrl="";
+      }
+      @Override public void onError(      Exception e){
+        joinGroupUrl="";
+      }
+    }
+);
+  }
   messenger().onDialogsOpen();
 }

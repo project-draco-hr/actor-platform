@@ -1,4 +1,5 @@
 {
+  Log.w(TAG,"Connection create failure");
   backoff.onFailure();
   isCheckingConnections=false;
   requestCheckConnection(backoff.exponentialWait());

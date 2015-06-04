@@ -1,0 +1,3 @@
+{
+  return new ServiceMessage("Member added",new ServiceExUserInvited(addedUid));
+}

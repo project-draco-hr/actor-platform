@@ -1,0 +1,6 @@
+{
+  String res="rpc GetGroupInviteUrl{";
+  res+="groupPeer=" + this.groupPeer;
+  res+="}";
+  return res;
+}

@@ -1,6 +1,0 @@
-{
-  GroupVM vm=getGroupVM(gid);
-  if (vm != null) {
-    vm.getPresence().change(count);
-  }
-}

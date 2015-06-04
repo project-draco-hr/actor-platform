@@ -1,0 +1,28 @@
+{
+  if (dt < 0) {
+    if (DEBUG) {
+      Log.d(TAG,"Called recycle from start with a negative value. This might happen" + " during layout changes but may be sign of a bug");
+    }
+    return;
+  }
+  final int limit=dt;
+  final int childCount=getChildCount();
+  if (mShouldReverseLayout) {
+    for (int i=childCount - 1; i >= 0; i--) {
+      View child=getChildAt(i);
+      if (mOrientationHelper.getDecoratedEnd(child) > limit) {
+        recycleChildren(recycler,childCount - 1,i);
+        return;
+      }
+    }
+  }
+ else {
+    for (int i=0; i < childCount; i++) {
+      View child=getChildAt(i);
+      if (mOrientationHelper.getDecoratedEnd(child) > limit) {
+        recycleChildren(recycler,0,i);
+        return;
+      }
+    }
+  }
+}

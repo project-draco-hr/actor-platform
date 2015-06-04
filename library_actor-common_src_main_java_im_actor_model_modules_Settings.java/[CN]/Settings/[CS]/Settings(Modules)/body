@@ -31,6 +31,7 @@ break;
 }
 KEY_NOTIFICATION_TONES="app." + configKey + ".tones_enabled";
 KEY_CHAT_SEND_BY_ENTER="app." + configKey + ".send_by_enter";
+KEY_MARKDOWN_ENABLED="app." + configKey + ".use_markdown";
 KEY_NOTIFICATION_SOUND="account.notification.sound";
 KEY_NOTIFICATION_ENABLED="category." + deviceTypeKey + ".notification.enabled";
 KEY_NOTIFICATION_SOUND_ENABLED="category." + deviceTypeKey + ".notification.sound.enabled";
@@ -40,4 +41,6 @@ KEY_NOTIFICATION_CHAT_PREFIX="category." + deviceTypeKey + ".notification.chat."
 KEY_NOTIFICATION_IN_APP_ENABLED="category." + deviceTypeKey + ".in_app.enabled";
 KEY_NOTIFICATION_IN_APP_SOUND="category." + deviceTypeKey + ".in_app.sound.enabled";
 KEY_NOTIFICATION_IN_APP_VIBRATION="category." + deviceTypeKey + ".in_app.vibration.enabled";
+KEY_GROUP_INVITE_LINK="account.group.invite_url";
+KEY_GROUP_INTEGRATION_TOKEN="account.group.integration_token";
 }

@@ -1,0 +1,3 @@
+{
+  kickedUid=values.getInt(10);
+}

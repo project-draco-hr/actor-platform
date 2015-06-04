@@ -1,3 +1,0 @@
-{
-  presenceActor.sendOnce(new PresenceActor.UserOnline(uid));
-}

@@ -1,5 +1,0 @@
-int color
-int icon
-int text
-boolean isLast
-Runnable action

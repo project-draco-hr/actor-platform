@@ -1,0 +1,7 @@
+{
+  byte[] rawWrapper=values.optBytes(recordField);
+  if (rawWrapper != null) {
+    wrapped=Bser.parse(createInstance(),rawWrapper);
+    applyWrapped(wrapped);
+  }
+}

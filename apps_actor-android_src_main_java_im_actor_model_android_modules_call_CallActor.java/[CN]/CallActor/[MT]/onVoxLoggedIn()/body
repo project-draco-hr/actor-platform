@@ -1,0 +1,8 @@
+{
+  Log.d(TAG,"Logged In");
+  isLoggedIn=true;
+  if (pendingCallId != null) {
+    callModule.onCallConnected(pendingCallKey);
+    voxImplantClient.startCall(pendingCallId);
+  }
+}

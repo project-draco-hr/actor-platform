@@ -1,0 +1,5 @@
+{
+  String res="update CallRing{";
+  res+="}";
+  return res;
+}

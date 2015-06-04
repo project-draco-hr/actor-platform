@@ -1,0 +1,6 @@
+{
+  this.v=v;
+  this.targetHeight=targetHeight;
+  this.initialHeight=initialHeight;
+  this.currentHeight=initialHeight;
+}

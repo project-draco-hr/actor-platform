@@ -1,0 +1,3 @@
+int gid
+int count
+long updateDate

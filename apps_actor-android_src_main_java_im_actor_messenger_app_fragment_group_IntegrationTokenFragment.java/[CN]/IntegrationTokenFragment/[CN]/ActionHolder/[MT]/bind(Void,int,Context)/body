@@ -1,0 +1,35 @@
+{
+switch (position) {
+case 0:
+    action.setText(integrationToken);
+  break;
+case 1:
+action.setText(getString(R.string.integration_token_hint));
+break;
+case 2:
+action.setText(getString(R.string.integration_token_action_copy));
+break;
+case 3:
+action.setText(getString(R.string.integration_token_action_revoke));
+break;
+case 4:
+action.setText(getString(R.string.integration_token_action_share));
+break;
+}
+if (position == 1) {
+container.setBackgroundColor(getActivity().getResources().getColor(R.color.bg_backyard));
+topShadow.setVisibility(View.VISIBLE);
+botShadow.setVisibility(View.VISIBLE);
+divider.setVisibility(View.INVISIBLE);
+action.setTextColor(getActivity().getResources().getColor(R.color.text_hint));
+action.setTextSize(14);
+}
+ else {
+container.setBackgroundColor(Color.TRANSPARENT);
+topShadow.setVisibility(View.INVISIBLE);
+botShadow.setVisibility(View.INVISIBLE);
+divider.setVisibility(View.VISIBLE);
+action.setTextColor(getActivity().getResources().getColor(R.color.text_primary));
+action.setTextSize(16);
+}
+}

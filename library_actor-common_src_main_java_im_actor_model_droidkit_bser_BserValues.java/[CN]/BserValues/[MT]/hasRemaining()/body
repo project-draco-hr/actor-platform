@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < fields.size(); i++) {
+    if (!touched.get(fields.keyAt(i),false)) {
+      return true;
+    }
+  }
+  return false;
+}

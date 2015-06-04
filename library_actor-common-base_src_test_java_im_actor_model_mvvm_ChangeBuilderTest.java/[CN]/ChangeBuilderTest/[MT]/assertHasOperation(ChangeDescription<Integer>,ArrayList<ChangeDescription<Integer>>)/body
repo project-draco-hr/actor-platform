@@ -1,0 +1,17 @@
+{
+  for (  ChangeDescription<Integer> i : list) {
+    if (i.getOperationType() == op.getOperationType()) {
+      if (op.getOperationType() == ChangeDescription.OperationType.REMOVE) {
+        if (op.getIndex() == i.getIndex()) {
+          return;
+        }
+      }
+ else       if (op.getOperationType() == ChangeDescription.OperationType.ADD) {
+        if (op.getIndex() == i.getIndex()) {
+          return;
+        }
+      }
+    }
+  }
+  assertTrue(false);
+}

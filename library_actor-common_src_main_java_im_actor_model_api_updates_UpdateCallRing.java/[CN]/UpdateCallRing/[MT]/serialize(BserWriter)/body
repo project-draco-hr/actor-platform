@@ -1,0 +1,10 @@
+{
+  if (this.user == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.user);
+  if (this.callId == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.callId);
+}

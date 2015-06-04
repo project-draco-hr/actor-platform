@@ -1,7 +1,0 @@
-{
-  writer.writeInt(1,id);
-  writer.writeLong(2,accessHash);
-  writer.writeInt(3,recordType);
-  writer.writeString(4,recordData);
-  writer.writeString(5,recordTitle);
-}

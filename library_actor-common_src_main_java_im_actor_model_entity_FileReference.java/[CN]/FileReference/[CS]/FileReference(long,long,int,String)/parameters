@@ -1,4 +1,0 @@
-long fileId
-long accessHash
-int fileSize
-String fileName

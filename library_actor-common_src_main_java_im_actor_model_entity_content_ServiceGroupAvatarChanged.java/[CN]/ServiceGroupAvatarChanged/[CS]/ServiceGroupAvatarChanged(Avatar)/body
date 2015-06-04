@@ -1,4 +1,0 @@
-{
-  super("Group avatar changed");
-  this.newAvatar=newAvatar;
-}

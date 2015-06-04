@@ -8,9 +8,6 @@ case PRIVATE:
 case GROUP:
 type=1;
 break;
-case EMAIL:
-type=2;
-break;
 }
 return ((long)peerId & 0xFFFFFFFFL) + (((long)type & 0xFFFFFFFFL) << 32);
 }

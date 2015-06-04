@@ -1,0 +1,13 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (; ; ) {
+    char c=this.next();
+    if (c == delimiter || c == 0 || c == '\n' || c == '\r') {
+      if (c != 0) {
+        this.back();
+      }
+      return sb.toString().trim();
+    }
+    sb.append(c);
+  }
+}

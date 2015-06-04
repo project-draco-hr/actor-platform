@@ -6,7 +6,7 @@
   }
   im.actor.model.api.Message message;
   if (content instanceof TextContent) {
-    message=new TextMessage(((TextContent)content).getText(),null);
+    message=new TextMessage(((TextContent)content).getText(),((TextContent)content).getMentions(),null);
   }
  else   if (content instanceof DocumentContent) {
     DocumentContent documentContent=(DocumentContent)content;
@@ -24,7 +24,7 @@
     if (documentContent.getFastThumb() != null) {
       fastThumb=new im.actor.model.api.FastThumb(documentContent.getFastThumb().getW(),documentContent.getFastThumb().getH(),documentContent.getFastThumb().getImage());
     }
-    message=new DocumentMessage(source.getFileReference().getFileId(),source.getFileReference().getAccessHash(),source.getFileReference().getFileSize(),null,null,null,source.getFileReference().getFileName(),documentContent.getMimetype(),fastThumb,documentEx);
+    message=new DocumentMessage(source.getFileReference().getFileId(),source.getFileReference().getAccessHash(),source.getFileReference().getFileSize(),source.getFileReference().getFileName(),documentContent.getMimeType(),fastThumb,documentEx);
   }
  else {
     return;

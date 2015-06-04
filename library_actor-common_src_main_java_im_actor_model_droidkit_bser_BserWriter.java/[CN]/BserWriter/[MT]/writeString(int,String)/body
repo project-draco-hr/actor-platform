@@ -2,5 +2,6 @@
   if (value == null) {
     throw new IllegalArgumentException("Value can not be null");
   }
+  writtenFields.put(fieldNumber,true);
   writeBytesField(fieldNumber,value.getBytes());
 }

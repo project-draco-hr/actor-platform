@@ -1,0 +1,14 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(data)));
+  int type=values.getInt(1);
+  byte[] content=values.getBytes(2);
+  if (type == TYPE_LOCAL) {
+    return new ContentLocalContainer(AbsLocalContent.loadContainer(content));
+  }
+ else   if (type == TYPE_REMOTE) {
+    return new ContentRemoteContainer(Message.fromBytes(content));
+  }
+ else {
+    throw new IOException("Unknown type");
+  }
+}

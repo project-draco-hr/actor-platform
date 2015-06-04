@@ -1,0 +1,3 @@
+{
+  self().send(new ProtoResponse(authId,mid,content));
+}

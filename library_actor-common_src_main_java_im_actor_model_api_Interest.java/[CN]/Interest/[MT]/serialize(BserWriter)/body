@@ -1,0 +1,9 @@
+{
+  writer.writeInt(1,this.id);
+  if (this.title == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.title);
+  writer.writeBool(4,this.isSelected);
+  writer.writeRepeatedObj(3,this.childInterests);
+}

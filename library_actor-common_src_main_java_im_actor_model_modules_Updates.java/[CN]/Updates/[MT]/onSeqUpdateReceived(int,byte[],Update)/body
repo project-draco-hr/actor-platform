@@ -1,0 +1,3 @@
+{
+  updateActor.send(new SeqUpdate(seq,state,update.getHeaderKey(),update.toByteArray()));
+}

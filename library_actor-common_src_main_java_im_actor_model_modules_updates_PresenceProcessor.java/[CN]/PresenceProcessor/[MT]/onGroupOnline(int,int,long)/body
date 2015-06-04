@@ -1,0 +1,3 @@
+{
+  presenceActor.sendOnce(new PresenceActor.GroupOnline(gid,count,updateDate));
+}

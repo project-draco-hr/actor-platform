@@ -1,3 +1,3 @@
 {
-  super.sendMessage(peer,text);
+  super.sendMessage(peer,text,new ArrayList<Integer>());
 }

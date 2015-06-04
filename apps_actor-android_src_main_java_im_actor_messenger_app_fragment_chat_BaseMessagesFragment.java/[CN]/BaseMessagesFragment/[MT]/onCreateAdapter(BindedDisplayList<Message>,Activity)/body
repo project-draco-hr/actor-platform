@@ -1,4 +1,4 @@
 {
-  messagesAdapter=new MessagesAdapter(displayList,this,activity);
+  messagesAdapter=new MessagesAdapter(displayList,this,activity,messenger().isMarkdownEnabled());
   return messagesAdapter;
 }

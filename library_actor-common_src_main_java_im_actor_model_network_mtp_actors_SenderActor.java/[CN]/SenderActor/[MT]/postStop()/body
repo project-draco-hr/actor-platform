@@ -1,0 +1,7 @@
+{
+  this.unsentPackages=null;
+  this.confirm=null;
+  this.pendingConfirm=null;
+  this.proto=null;
+  this.manager=null;
+}

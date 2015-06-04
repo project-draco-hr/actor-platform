@@ -6,6 +6,9 @@
       int receivedPackageIndex=dataInput.readInt();
       int headerValue=dataInput.readByte();
       int size=dataInput.readInt();
+      if (size > 1024 * 1024) {
+        throw new IOException("Incorrect size");
+      }
       byte[] body=readBytes(size + 4);
       DataOutput dataOutput=new DataOutput();
       dataOutput.writeBytes(header);

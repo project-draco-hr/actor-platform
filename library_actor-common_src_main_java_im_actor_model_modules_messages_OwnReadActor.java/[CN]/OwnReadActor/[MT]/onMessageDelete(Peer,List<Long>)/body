@@ -1,7 +1,7 @@
 {
   Set<UnreadMessage> unread=messagesStorage.getUnread(peer);
   boolean isRemoved=false;
-  for (  UnreadMessage u : unread.toArray(new UnreadMessage[0])) {
+  for (  UnreadMessage u : unread.toArray(new UnreadMessage[unread.size()])) {
     if (rids.contains(u.getRid())) {
       unread.remove(u);
       isRemoved=true;

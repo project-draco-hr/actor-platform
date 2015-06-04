@@ -13,7 +13,10 @@
     checkConnection();
   }
  else   if (message instanceof NetworkChanged) {
-    onNetworkChanged();
+    onNetworkChanged(((NetworkChanged)message).state);
+  }
+ else   if (message instanceof ForceNetworkCheck) {
+    forceNetworkCheck();
   }
  else   if (message instanceof OutMessage) {
     OutMessage m=(OutMessage)message;
@@ -22,5 +25,8 @@
  else   if (message instanceof InMessage) {
     InMessage m=(InMessage)message;
     onInMessage(m.data,m.offset,m.len);
+  }
+ else {
+    drop(message);
   }
 }

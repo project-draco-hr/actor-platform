@@ -1,0 +1,6 @@
+{
+  super(remoteContainer);
+  ServiceMessage serviceMessage=(ServiceMessage)remoteContainer.getMessage();
+  ServiceExChangedAvatar changedAvatar=((ServiceExChangedAvatar)serviceMessage.getExt());
+  newAvatar=(changedAvatar.getAvatar() != null) ? new Avatar(changedAvatar.getAvatar()) : null;
+}

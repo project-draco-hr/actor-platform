@@ -1,0 +1,6 @@
+{
+  super(contentLocalContainer);
+  LocalPhoto photo=((LocalPhoto)contentLocalContainer.getContent());
+  w=photo.getW();
+  h=photo.getH();
+}

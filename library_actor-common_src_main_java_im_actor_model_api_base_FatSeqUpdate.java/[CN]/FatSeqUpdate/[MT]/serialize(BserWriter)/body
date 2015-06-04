@@ -11,6 +11,4 @@
   writer.writeBytes(4,this.update);
   writer.writeRepeatedObj(5,this.users);
   writer.writeRepeatedObj(6,this.groups);
-  writer.writeRepeatedObj(7,this.phones);
-  writer.writeRepeatedObj(8,this.emails);
 }

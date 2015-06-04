@@ -1,0 +1,4 @@
+int endOffset
+RecyclerView.Recycler recycler
+RecyclerView.State state
+boolean canOffsetChildren
