@@ -1,6 +1,11 @@
 {
   if (getIntent().getData() != null) {
-    joinGroupUrl=getIntent().getData().toString();
+    if (getIntent().getAction().equals(Intent.ACTION_VIEW)) {
+      joinGroupUrl=getIntent().getData().toString();
+    }
+  }
+  if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND)) {
+    sendUri=getIntent().getClipData().getItemAt(0).getUri().toString();
   }
   setContentView(R.layout.activity_main);
   getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));
