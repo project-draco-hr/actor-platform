@@ -6,7 +6,7 @@
   }
   im.actor.model.api.Message message;
   if (content instanceof TextContent) {
-    message=new TextMessage(((TextContent)content).getText(),((TextContent)content).getMentions(),((TextContent)content).getTextMessageEx());
+    message=new TextMessage(((TextContent)content).getText(),((TextContent)content).getMentions(),null);
   }
  else   if (content instanceof DocumentContent) {
     DocumentContent documentContent=(DocumentContent)content;
