@@ -1,8 +1,7 @@
 {
   String res="rpc SignUp{";
   res+="name=" + this.name;
-  res+=", deviceHash=" + byteArrayToString(this.deviceHash);
-  res+=", deviceTitle=" + this.deviceTitle;
+  res+=", sex=" + this.sex;
   res+="}";
   return res;
 }

@@ -1,0 +1,5 @@
+String email
+int appId
+String apiKey
+byte[] deviceHash
+String deviceTitle
