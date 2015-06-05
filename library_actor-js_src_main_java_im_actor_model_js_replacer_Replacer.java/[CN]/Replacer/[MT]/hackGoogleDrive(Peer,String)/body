@@ -1,6 +1,0 @@
-{
-  String id=text.substring("https://drive.google.com/file/d/".length());
-  id=id.substring(0,id.indexOf("/"));
-  String url="https://drive.google.com/uc?export=download&id=" + id;
-  hackImageUrl(peer,url,text);
-}
