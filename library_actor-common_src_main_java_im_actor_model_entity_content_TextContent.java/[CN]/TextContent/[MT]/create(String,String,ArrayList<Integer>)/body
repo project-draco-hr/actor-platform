@@ -1,3 +1,6 @@
 {
+  if (mentions == null) {
+    mentions=new ArrayList<Integer>();
+  }
   return new TextContent(new ContentRemoteContainer(new TextMessage(text,mentions,markDownText == null || markDownText.isEmpty() ? null : new TextExMarkdown(markDownText))));
 }
