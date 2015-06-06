@@ -5,6 +5,7 @@
   }
  catch (  IOException e) {
     e.printStackTrace();
+    Log.w("ProtoObject","Error: " + e.getMessage());
   }
   return outputStream.toByteArray();
 }

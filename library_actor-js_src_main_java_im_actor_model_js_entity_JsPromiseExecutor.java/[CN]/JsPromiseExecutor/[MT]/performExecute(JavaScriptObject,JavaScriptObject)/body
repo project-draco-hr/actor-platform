@@ -1,0 +1,5 @@
+{
+  this.resolveFunc=resolve;
+  this.rejectFunc=reject;
+  execute();
+}

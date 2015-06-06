@@ -1,0 +1,6 @@
+{
+  this.peer=peer;
+  this.text=text;
+  this.markDownText=markDownText;
+  this.mentions=mentions;
+}

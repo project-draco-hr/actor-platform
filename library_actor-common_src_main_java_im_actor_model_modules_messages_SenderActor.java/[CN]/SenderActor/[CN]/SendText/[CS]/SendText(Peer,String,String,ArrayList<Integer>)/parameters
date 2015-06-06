@@ -1,0 +1,4 @@
+Peer peer
+String text
+String markDownText
+ArrayList<Integer> mentions

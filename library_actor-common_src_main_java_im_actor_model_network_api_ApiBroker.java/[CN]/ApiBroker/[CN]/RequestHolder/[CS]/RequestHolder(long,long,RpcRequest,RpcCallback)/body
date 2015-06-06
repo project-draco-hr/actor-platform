@@ -1,0 +1,6 @@
+{
+  this.requestTime=requestTime;
+  this.message=message;
+  this.publicId=publicId;
+  this.callback=callback;
+}
