@@ -1,0 +1,3 @@
+{
+  messenger.sendClipboardPhoto(peer.convert(),blob);
+}

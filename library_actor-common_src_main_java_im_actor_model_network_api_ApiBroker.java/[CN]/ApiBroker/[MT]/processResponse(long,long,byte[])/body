@@ -39,7 +39,7 @@
       e.printStackTrace();
       return;
     }
-    Log.d(TAG,"<- response#" + holder.publicId + ": "+ response);
+    Log.d(TAG,"<- response#" + holder.publicId + ": "+ response+ " in "+ (Environment.getCurrentTime() - holder.requestTime)+ " ms");
     holder.callback.onResult(response);
   }
  else   if (protoStruct instanceof RpcError) {
@@ -48,12 +48,12 @@
     if (holder.protoId != 0) {
       idMap.remove(holder.protoId);
     }
-    Log.w(TAG,"<- error#" + holder.publicId + ": "+ e.errorTag+ " "+ e.errorCode+ " "+ e.userMessage);
+    Log.w(TAG,"<- error#" + holder.publicId + ": "+ e.errorTag+ " "+ e.errorCode+ " "+ e.userMessage+ " in "+ (Environment.getCurrentTime() - holder.requestTime)+ " ms");
     holder.callback.onError(new RpcException(e.errorTag,e.errorCode,e.userMessage,e.canTryAgain,e.relatedData));
   }
  else   if (protoStruct instanceof RpcInternalError) {
     RpcInternalError e=((RpcInternalError)protoStruct);
-    Log.d(TAG,"<- internal_error#" + holder.publicId + " "+ e.getTryAgainDelay()+ " sec");
+    Log.d(TAG,"<- internal_error#" + holder.publicId + " "+ e.getTryAgainDelay()+ " sec"+ " in "+ (Environment.getCurrentTime() - holder.requestTime)+ " ms");
     if (e.isCanTryAgain()) {
       self().send(new ForceResend(rid),e.getTryAgainDelay() * 1000L);
     }
@@ -67,10 +67,10 @@
   }
  else   if (protoStruct instanceof RpcFloodWait) {
     RpcFloodWait f=(RpcFloodWait)protoStruct;
-    Log.d(TAG,"<- flood_wait#" + holder.publicId + " "+ f.getDelay()+ " sec");
+    Log.d(TAG,"<- flood_wait#" + holder.publicId + " "+ f.getDelay()+ " sec"+ " in "+ (Environment.getCurrentTime() - holder.requestTime)+ " ms");
     self().send(new ForceResend(rid),f.getDelay() * 1000L);
   }
  else {
-    Log.d(TAG,"<- unknown_package#" + holder.publicId);
+    Log.d(TAG,"<- unknown_package#" + holder.publicId + " in "+ (Environment.getCurrentTime() - holder.requestTime)+ " ms");
   }
 }
