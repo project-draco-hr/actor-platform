@@ -7,6 +7,9 @@
     OnContactsUpdated contactsUpdated=(OnContactsUpdated)message;
     onContactsUpdated(contactsUpdated.getContactsList());
   }
+ else   if (message instanceof Clear) {
+    clear();
+  }
  else {
     drop(message);
   }

@@ -1,6 +1,0 @@
-FileSource location
-String mimetype
-String name
-FastThumb fastThumb
-int w
-int h

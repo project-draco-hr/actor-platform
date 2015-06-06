@@ -5,9 +5,22 @@
     presence+=", " + messenger.getFormatter().formatGroupOnline(online);
   }
   String fileUrl=null;
+  String bigFileUrl=null;
   Avatar avatar=groupVM.getAvatar().get();
-  if (avatar != null && avatar.getSmallImage() != null) {
-    fileUrl=messenger.getFileUrl(avatar.getSmallImage().getFileReference());
+  if (avatar != null) {
+    if (avatar.getSmallImage() != null) {
+      fileUrl=messenger.getFileUrl(avatar.getSmallImage().getFileReference());
+    }
+    if (avatar.getLargeImage() != null) {
+      bigFileUrl=messenger.getFileUrl(avatar.getLargeImage().getFileReference());
+    }
   }
-  return create(groupVM.getId(),groupVM.getName().get(),fileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence);
+  JsArray<JsGroupMember> convertedMembers=JsArray.createArray().cast();
+  HashSet<GroupMember> groupMembers=groupVM.getMembers().get();
+  GroupMember[] members=groupMembers.toArray(new GroupMember[groupMembers.size()]);
+  for (  GroupMember g : members) {
+    JsPeerInfo peerInfo=messenger.buildPeerInfo(Peer.user(g.getUid()));
+    convertedMembers.push(JsGroupMember.create(peerInfo,g.isAdministrator(),g.getInviterUid() == messenger.myUid() || groupVM.getCreatorId() == messenger.myUid()));
+  }
+  return create(groupVM.getId(),groupVM.getName().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence,convertedMembers);
 }

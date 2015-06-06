@@ -1,4 +1,5 @@
 {
+  query=q;
   int oldRowsCount=new Integer(membersToShow.length);
   if (q.isEmpty()) {
     if (this.membersToShow.equals(allMembers)) {

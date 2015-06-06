@@ -20,11 +20,11 @@
     users.add(groupInvite.getInviteUid());
     groups.add(groupInvite.getGroupId());
   }
- else   if (update instanceof UpdateGroupUserAdded) {
-    UpdateGroupUserAdded added=(UpdateGroupUserAdded)update;
-    users.add(added.getInviterUid());
-    users.add(added.getUid());
-    groups.add(added.getGroupId());
+ else   if (update instanceof UpdateGroupUserInvited) {
+    UpdateGroupUserInvited invited=(UpdateGroupUserInvited)update;
+    users.add(invited.getInviterUid());
+    users.add(invited.getUid());
+    groups.add(invited.getGroupId());
   }
  else   if (update instanceof UpdateGroupUserKick) {
     UpdateGroupUserKick kick=(UpdateGroupUserKick)update;

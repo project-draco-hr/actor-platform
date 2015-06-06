@@ -4,5 +4,5 @@
   writer.writeLong(3,date);
   writer.writeInt(4,senderId);
   writer.writeInt(5,messageState.getValue());
-  writer.writeObject(6,content);
+  writer.writeBytes(6,AbsContent.serialize(content));
 }

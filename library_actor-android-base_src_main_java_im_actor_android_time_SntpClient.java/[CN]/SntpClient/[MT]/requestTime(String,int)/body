@@ -25,7 +25,6 @@
     mRoundTripTime=roundTripTime;
   }
  catch (  Exception e) {
-    if (false)     Log.d(TAG,"request time failed: " + e);
     return false;
   }
  finally {

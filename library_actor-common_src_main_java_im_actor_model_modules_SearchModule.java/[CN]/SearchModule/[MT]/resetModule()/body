@@ -1,0 +1,3 @@
+{
+  actorRef.send(new SearchActor.Clear());
+}

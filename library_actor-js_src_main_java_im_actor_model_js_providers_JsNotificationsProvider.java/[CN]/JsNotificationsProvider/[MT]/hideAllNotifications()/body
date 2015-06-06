@@ -1,6 +1,2 @@
 {
-  if (currentNotification != null) {
-    currentNotification.close();
-    currentNotification=null;
-  }
 }

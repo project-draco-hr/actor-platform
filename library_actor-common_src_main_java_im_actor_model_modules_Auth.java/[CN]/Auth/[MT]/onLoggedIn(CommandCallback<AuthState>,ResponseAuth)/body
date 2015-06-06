@@ -15,7 +15,7 @@
           records.add(Long.parseLong(contactRecord.getRecordData()));
         }
       }
-      modules().getAnalytics().onLoggedInPerformed(CryptoUtils.hex(deviceHash),user.getUid(),records.toArray(new Long[0]),user.getName());
+      modules().getAnalytics().onLoggedInPerformed(CryptoUtils.hex(deviceHash),user.getUid(),records.toArray(new Long[records.size()]),user.getName());
     }
   }
 ));

@@ -43,17 +43,56 @@
   if (saveInstance == null) {
     getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
   }
-  messageBody=(EditText)findViewById(R.id.et_message);
-  messageBody.setMovementMethod(LinkMovementMethod.getInstance());
+  messageBody=(SelectionListenerEdittext)findViewById(R.id.et_message);
   messageBody.addTextChangedListener(new TextWatcher(){
-    boolean mentionEarse;
-    int mentionEarseStart;
+    boolean mentionErase;
+    int mentionEraseStart;
+    int eraseStart;
+    int eraseCount;
+    boolean isErase;
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
       if (after > count && !isTypingDisabled) {
         messenger.onTyping(peer);
       }
+      isErase=after < count;
+      isOneCharErase=isErase && (count == 1 || (count - after == 1));
+      if (isOneCharErase)       eraseStart=start + count - 1;
+      mentionErase=isOneCharErase && s.charAt(eraseStart) == MENTION_BOUNDS_CHR;
+      if (mentionErase)       mentionEraseStart=eraseStart;
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+      String str=s.toString();
+      String firstPeace=str.substring(0,start + count);
+      if (peer.getPeerType() == PeerType.GROUP) {
+        if (count == 1 && s.charAt(start) == '@') {
+          showMentions(false);
+          forceMentionHide=false;
+          mentionSearchString="";
+          lastMentionSearch="";
+        }
+ else         if (!forceMentionHide && firstPeace.contains("@")) {
+          showMentions(true);
+        }
+ else {
+          hideMentions();
+        }
+        mentionStart=firstPeace.lastIndexOf("@");
+        if (s.length() != count) {
+          if (firstPeace.contains("@") && mentionStart + 1 < firstPeace.length()) {
+            mentionSearchString=firstPeace.substring(mentionStart + 1,firstPeace.length());
+            if (!mentionSearchString.startsWith(MENTION_BOUNDS_STR) && !mentionSearchString.isEmpty())             lastMentionSearch=mentionSearchString;
+          }
+ else {
+            mentionSearchString="";
+          }
+          if (mentionSearchString.equals(" ")) {
+            hideMentions();
+          }
+ else           if (mentionsAdapter != null) {
+            mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
+          }
+        }
+      }
     }
     @Override public void afterTextChanged(    Editable s){
       if (s.length() > 0) {
@@ -63,6 +102,51 @@
  else {
         sendButton.setTint(getResources().getColor(R.color.conv_send_disabled));
         sendButton.setEnabled(false);
+      }
+      int escapeMentionEdit=s.toString().indexOf(" ".concat(MENTION_BOUNDS_STR));
+      if (!isOneCharErase && escapeMentionEdit != -1) {
+        s.replace(escapeMentionEdit,escapeMentionEdit + 2,MENTION_BOUNDS_STR.concat(" "));
+        if (s.charAt(messageBody.getSelectionStart() - 1) == MENTION_BOUNDS_CHR)         messageBody.setSelection(messageBody.getSelectionStart() + 1);
+      }
+      if (mentionErase) {
+        int firstBound=s.subSequence(0,mentionEraseStart).toString().lastIndexOf(MENTION_BOUNDS_STR);
+        if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
+          s.replace(mentionEraseStart - 2,mentionEraseStart,"");
+        }
+ else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == '@') {
+          s.replace(mentionEraseStart - 1,mentionEraseStart - 1,"");
+        }
+ else         if (mentionEraseStart > 0 && firstBound != -1) {
+          for (          URLSpan span : s.getSpans(firstBound,mentionEraseStart,URLSpan.class)) {
+            s.removeSpan(span);
+          }
+          s.replace(firstBound,mentionEraseStart,lastMentionSearch);
+          if (useForceMentionHide) {
+            hideMentions();
+            forceMentionHide=true;
+          }
+        }
+      }
+      int emptyBoundsIndex=s.toString().indexOf(MENTION_BOUNDS_STR.concat(MENTION_BOUNDS_STR));
+      if (emptyBoundsIndex != -1) {
+        s.replace(emptyBoundsIndex,emptyBoundsIndex + 2,"");
+      }
+      if (s.length() == 1 && s.charAt(0) == MENTION_BOUNDS_CHR) {
+        s.clear();
+      }
+    }
+  }
+);
+  messageBody.setOnSelectionListener(new SelectionListenerEdittext.OnSelectedListener(){
+    @Override public void onSelected(    int selStart,    int selEnd){
+      Editable text=messageBody.getText();
+      if (selEnd != selStart && text.charAt(selStart) == '@') {
+        if (text.charAt(selEnd - 1) == MENTION_BOUNDS_CHR) {
+          messageBody.setSelection(selStart + 2,selEnd - 1);
+        }
+ else         if (text.length() >= 3 && text.charAt(selEnd - 2) == MENTION_BOUNDS_CHR) {
+          messageBody.setSelection(selStart + 2,selEnd - 2);
+        }
       }
     }
   }
@@ -194,4 +278,5 @@
   }
 );
   mentionsList=(ListView)findViewById(R.id.mentionsList);
+  sendUri=getIntent().getStringExtra("send_uri");
 }

@@ -1,3 +1,3 @@
 {
-  writeVar32Field(fieldNumber,value);
+  writeVar32Fixed(fieldNumber,value);
 }

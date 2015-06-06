@@ -1,0 +1,45 @@
+{
+  if (isMentionsVisible) {
+    return;
+  }
+  isMentionsVisible=true;
+  GroupVM groupInfo=groups().get(peer.getPeerId());
+  mentionsAdapter=new MentionsAdapter(new ArrayList<GroupMember>(groupInfo.getMembers().get()),this,new MentionsAdapter.MentionsUpdatedCallback(){
+    @Override public void onMentionsUpdated(    int oldRowsCount,    int newRowsCount){
+      onMentionsChanged(oldRowsCount,newRowsCount);
+    }
+  }
+,initEmpty);
+  mentionsList.setAdapter(mentionsAdapter);
+  mentionsList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      Object item=parent.getItemAtPosition(position);
+      if (item != null && item instanceof GroupMember) {
+        UserVM user=users().get(((GroupMember)item).getUid());
+        String name=user.getName().get();
+        int userId=user.getId();
+        if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
+          SpannableStringBuilder spannedMention=buildMention(userId,name);
+          Editable text=messageBody.getText();
+          boolean spaceAppended=false;
+          if (text.length() > mentionStart + mentionSearchString.length() + 1) {
+            if (text.charAt(mentionSearchString.length() + 1) != ' ') {
+              spannedMention.append(' ');
+              spaceAppended=true;
+            }
+          }
+ else {
+            spannedMention.append(' ');
+            spaceAppended=true;
+          }
+          text.replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention);
+          int cursorPosition=mentionStart + spannedMention.length() + (spaceAppended ? 0 : 1);
+          messageBody.setSelection(cursorPosition,cursorPosition);
+        }
+        hideMentions();
+      }
+    }
+  }
+);
+  expandMentions(mentionsList,0,mentionsList.getCount());
+}

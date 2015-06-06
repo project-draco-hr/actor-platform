@@ -1,0 +1,3 @@
+{
+  return new TextMessage(text,new ArrayList<Integer>(),null);
+}

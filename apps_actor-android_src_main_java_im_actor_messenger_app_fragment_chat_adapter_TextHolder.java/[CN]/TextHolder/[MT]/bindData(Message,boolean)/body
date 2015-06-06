@@ -1,11 +1,38 @@
 {
-  if (message.getSenderId() == myUid()) {
-    messageBubble.setBackgroundResource(R.drawable.bubble_text_out);
+  CharSequence spannedText;
+  TextMessageEx ext=((TextContent)message.getContent()).getTextMessageEx();
+  isMdExt=ext instanceof TextExMarkdown;
+  if (isMarkdownEnabled || isMdExt) {
+    spannedText=new SpannableStringBuilder(bypass.markdownToSpannable(isMdExt ? ((TextExMarkdown)ext).getMarkdown() : ((TextContent)message.getContent()).getText(),false));
+    Editable spannedTextEditable=new SpannableStringBuilder(spannedText);
+    URLSpan[] urlSpans=spannedTextEditable.getSpans(0,spannedTextEditable.length(),URLSpan.class);
+    if (urlSpans.length > 0) {
+      int start;
+      int end;
+      int prevEnd=0;
+      Spannable toLinkyfy;
+      for (int i=0; i < urlSpans.length; i++) {
+        start=spannedTextEditable.getSpanStart(urlSpans[i]);
+        end=spannedTextEditable.getSpanEnd(urlSpans[i]);
+        if (start > spannedText.length() - 1)         continue;
+        toLinkyfy=(Spannable)spannedText.subSequence(prevEnd,start);
+        Linkify.addLinks(toLinkyfy,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+        spannedTextEditable.replace(prevEnd,start,toLinkyfy);
+        prevEnd=end;
+      }
+      toLinkyfy=(Spannable)spannedText.subSequence(prevEnd,spannedTextEditable.length());
+      Linkify.addLinks(toLinkyfy,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+      spannedTextEditable.replace(prevEnd,spannedTextEditable.length(),toLinkyfy);
+      spannedText=spannedTextEditable;
+    }
+ else {
+      spannedText=spannedTextEditable;
+      Linkify.addLinks((Spannable)spannedText,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+    }
   }
  else {
-    messageBubble.setBackgroundResource(R.drawable.bubble_text_in);
+    spannedText=new SpannableStringBuilder(((TextContent)message.getContent()).getText());
   }
-  CharSequence spannedText;
   if (getPeer().getPeerType() == PeerType.GROUP && message.getSenderId() != myUid()) {
     String name;
     UserVM userModel=users().get(message.getSenderId());
@@ -19,14 +46,8 @@
     builder.append(name);
     builder.setSpan(new ForegroundColorSpan(colors[Math.abs(message.getSenderId()) % colors.length]),0,name.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     builder.append("\n");
-    builder.append(((TextContent)message.getContent()).getText());
-    spannedText=builder;
+    spannedText=builder.append(spannedText);
   }
- else {
-    spannedText=((TextContent)message.getContent()).getText();
-  }
-  spannedText=new SpannableStringBuilder(spannedText);
-  Linkify.addLinks((Spannable)spannedText,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
   if (emoji().containsEmoji(spannedText)) {
     if (emoji().isLoaded()) {
       spannedText=emoji().processEmojiCompatMutable(spannedText,SmileProcessor.CONFIGURATION_BUBBLES);
@@ -46,35 +67,5 @@
       emoji().registerListener(smilesListener);
     }
   }
-  text.setText(spannedText);
-  if (message.getSenderId() == myUid()) {
-    status.setVisibility(View.VISIBLE);
-switch (message.getMessageState()) {
-case SENT:
-      status.setResource(R.drawable.msg_check_1);
-    status.setTint(sentColor);
-  break;
-case RECEIVED:
-status.setResource(R.drawable.msg_check_2);
-status.setTint(deliveredColor);
-break;
-case READ:
-status.setResource(R.drawable.msg_check_2);
-status.setTint(readColor);
-break;
-default :
-case PENDING:
-status.setResource(R.drawable.msg_clock);
-status.setTint(waitColor);
-break;
-case ERROR:
-status.setResource(R.drawable.msg_error);
-status.setTint(errorColor);
-break;
-}
-}
- else {
-status.setVisibility(View.GONE);
-}
-time.setText(TextUtils.formatTime(message.getDate()));
+  bindRawText(spannedText,message,false);
 }

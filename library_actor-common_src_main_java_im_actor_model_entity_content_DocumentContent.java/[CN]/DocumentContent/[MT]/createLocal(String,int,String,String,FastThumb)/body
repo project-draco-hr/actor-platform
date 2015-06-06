@@ -1,0 +1,3 @@
+{
+  return new DocumentContent(new ContentLocalContainer(new LocalDocument(fileName,descriptor,fileSize,mimeType,fastThumb != null ? new LocalFastThumb(fastThumb) : null)));
+}

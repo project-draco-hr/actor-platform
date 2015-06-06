@@ -1,0 +1,13 @@
+{
+  int quoteIndex=markdown.indexOf(">",i);
+  if (markdown.length() > i && quoteIndex >= 1 && markdown.charAt(quoteIndex - 1) != '\n') {
+    markdown=markdown.substring(0,quoteIndex - 1).concat("\n").concat(markdown.substring(quoteIndex - 1,markdown.length()));
+    return quotesWorkaround(markdown,quoteIndex + 2);
+  }
+ else   if (markdown.length() > i && markdown.substring(i).contains(">")) {
+    return quotesWorkaround(markdown,++i);
+  }
+ else {
+    return markdown;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  this.uid=uid;
+  this.date=date;
+  this.updateDate=updateDate;
+}

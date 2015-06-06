@@ -1,6 +1,0 @@
-int id
-int width
-int height
-String bannerUrl
-String adUrl
-int adCost

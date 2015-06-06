@@ -17,14 +17,8 @@
  else   if (message instanceof MessageRead) {
     onMessagePlainRead(((MessageRead)message).getDate());
   }
- else   if (message instanceof MessageEncryptedRead) {
-    onMessageEncryptedRead(((MessageEncryptedRead)message).getRid());
-  }
  else   if (message instanceof MessageReceived) {
     onMessagePlainReceived(((MessageReceived)message).getDate());
-  }
- else   if (message instanceof MessageEncryptedReceived) {
-    onMessageEncryptedReceived(((MessageEncryptedReceived)message).getRid());
   }
  else   if (message instanceof HistoryLoaded) {
     onHistoryLoaded(((HistoryLoaded)message).getMessages());
@@ -37,6 +31,9 @@
   }
  else   if (message instanceof MessagesDeleted) {
     onMessagesDeleted(((MessagesDeleted)message).getRids());
+  }
+ else   if (message instanceof MessageDateChange) {
+    onMessageDateChange(((MessageDateChange)message).getRid(),((MessageDateChange)message).getDate());
   }
  else {
     drop(message);

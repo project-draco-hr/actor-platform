@@ -16,17 +16,5 @@
   }
   if (updated.size() > 0) {
     messages.addOrUpdateItems(updated);
-    ArrayList<Message> updatedMedia=new ArrayList<Message>();
-    ArrayList<Message> updatedDoc=new ArrayList<Message>();
-    for (    Message updatedMsg : updated) {
-      if (updatedMsg.getContent() instanceof PhotoContent || updatedMsg.getContent() instanceof VideoContent) {
-        updatedMedia.add(updatedMsg);
-      }
- else {
-        if (updatedMsg.getContent() instanceof DocumentContent) {
-        }
-      }
-    }
-    media.addOrUpdateItems(updatedMedia);
   }
 }

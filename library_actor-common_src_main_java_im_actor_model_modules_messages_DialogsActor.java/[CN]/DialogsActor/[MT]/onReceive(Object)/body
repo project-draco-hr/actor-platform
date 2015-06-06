@@ -33,10 +33,6 @@
     GroupChanged groupChanged=(GroupChanged)message;
     onGroupChanged(groupChanged.getGroup());
   }
- else   if (message instanceof MessageSent) {
-    MessageSent messageSent=(MessageSent)message;
-    onMessageSent(messageSent.getPeer(),messageSent.getRid(),messageSent.getDate());
-  }
  else   if (message instanceof MessageContentChanged) {
     MessageContentChanged contentChanged=(MessageContentChanged)message;
     onMessageContentChanged(contentChanged.getPeer(),contentChanged.getRid(),contentChanged.getContent());

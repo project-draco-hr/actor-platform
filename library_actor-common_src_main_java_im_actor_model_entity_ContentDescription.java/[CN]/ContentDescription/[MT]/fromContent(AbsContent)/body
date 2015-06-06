@@ -28,14 +28,17 @@
  else   if (msg instanceof ServiceGroupCreated) {
     return new ContentDescription(ContentType.SERVICE_CREATED);
   }
- else   if (msg instanceof ServiceGroupUserAdded) {
-    return new ContentDescription(ContentType.SERVICE_ADD,"",((ServiceGroupUserAdded)msg).getAddedUid(),false);
+ else   if (msg instanceof ServiceGroupUserInvited) {
+    return new ContentDescription(ContentType.SERVICE_ADD,"",((ServiceGroupUserInvited)msg).getAddedUid(),false);
   }
  else   if (msg instanceof ServiceGroupUserKicked) {
     return new ContentDescription(ContentType.SERVICE_KICK,"",((ServiceGroupUserKicked)msg).getKickedUid(),false);
   }
  else   if (msg instanceof ServiceGroupUserLeave) {
     return new ContentDescription(ContentType.SERVICE_LEAVE,"",0,true);
+  }
+ else   if (msg instanceof ServiceGroupUserJoined) {
+    return new ContentDescription(ContentType.SERVICE_JOINED,"",0,false);
   }
  else {
     return new ContentDescription(ContentType.UNKNOWN_CONTENT);

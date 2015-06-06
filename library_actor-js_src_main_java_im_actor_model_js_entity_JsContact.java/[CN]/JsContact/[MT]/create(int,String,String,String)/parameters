@@ -1,0 +1,4 @@
+int uid
+String name
+String placeholder
+String avatar

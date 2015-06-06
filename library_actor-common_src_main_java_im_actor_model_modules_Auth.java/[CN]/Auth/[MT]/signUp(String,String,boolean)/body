@@ -1,7 +1,7 @@
 {
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
-      request(new RequestSignUp(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),preferences().getInt(KEY_SMS_CODE,0) + "",firstName,deviceHash,apiConfiguration.getAppTitle(),apiConfiguration.getAppId(),apiConfiguration.getAppKey(),isSilent),new RpcCallback<ResponseAuth>(){
+      request(new RequestSignUp(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),preferences().getInt(KEY_SMS_CODE,0) + "",firstName,deviceHash,apiConfiguration.getDeviceTitle(),apiConfiguration.getAppId(),apiConfiguration.getAppKey(),isSilent),new RpcCallback<ResponseAuth>(){
         @Override public void onResult(        ResponseAuth response){
           onLoggedIn(callback,response);
           if (avatarPath != null) {

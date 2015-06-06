@@ -37,11 +37,15 @@
   isTypingDisabled=true;
   String text=messenger().loadDraft(peer);
   if (text != null) {
-    messageBody.setText((emoji().processEmojiCompatMutable(text,SmileProcessor.CONFIGURATION_BUBBLES)));
+    messageBody.setText((emoji().processEmojiCompatMutable(bypass.markdownToSpannable(text,true),SmileProcessor.CONFIGURATION_BUBBLES)));
   }
  else {
     messageBody.setText("");
   }
   messageBody.setSelection(messageBody.getText().length());
   isTypingDisabled=false;
+  if (sendUri != null && !sendUri.isEmpty()) {
+    sendUri(Uri.parse(sendUri));
+    sendUri="";
+  }
 }

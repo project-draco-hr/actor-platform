@@ -17,9 +17,10 @@
   }
  else   if (u instanceof WeakUpdate) {
     WeakUpdate w=(WeakUpdate)u;
-    Log.d(TAG,"Received weak update");
     try {
-      processor.processUpdate(parser.read(w.getUpdateHeader(),w.getUpdate()));
+      Update update=parser.read(w.getUpdateHeader(),w.getUpdate());
+      processor.processWeakUpdate(update,w.getDate());
+      Log.d(TAG,"Weak Update: " + update);
     }
  catch (    IOException e) {
       e.printStackTrace();
@@ -68,6 +69,11 @@
   }
   if (!isValidSeq(seq)) {
     further.put(seq,u);
+    if (seq - this.seq > INVALIDATE_MAX_SEC_HOLE) {
+      Log.w(TAG,"Out of sequence: Too big hole. Force invalidate immediately");
+      self().sendOnce(new ForceInvalidate());
+      return;
+    }
     if (isTimerStarted) {
       Log.w(TAG,"Out of sequence: timer already started");
     }
@@ -87,7 +93,7 @@
     e.printStackTrace();
     return;
   }
-  if (processor.isCausesInvalidation(update)) {
+  if ((!(u instanceof FatSeqUpdate)) && processor.isCausesInvalidation(update)) {
     Log.w(TAG,"Message causes invalidation");
     invalidate();
     return;

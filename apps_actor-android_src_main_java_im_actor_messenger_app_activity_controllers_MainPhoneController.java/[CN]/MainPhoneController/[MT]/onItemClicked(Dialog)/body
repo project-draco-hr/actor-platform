@@ -1,3 +1,4 @@
 {
-  startActivity(Intents.openDialog(item.getPeer(),false,getActivity()));
+  startActivity(Intents.openDialog(item.getPeer(),false,getActivity()).putExtra("send_uri",sendUri));
+  sendUri="";
 }

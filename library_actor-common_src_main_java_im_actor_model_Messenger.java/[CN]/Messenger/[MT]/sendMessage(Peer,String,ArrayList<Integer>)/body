@@ -1,0 +1,3 @@
+{
+  sendMessage(peer,text,null,mentions);
+}

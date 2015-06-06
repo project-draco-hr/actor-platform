@@ -1,8 +1,0 @@
-{
-  Document document=processMarkdown(markdown);
-  CharSequence[] spans=new CharSequence[document.getElementCount()];
-  for (int i=0; i < document.getElementCount(); i++) {
-    spans[i]=recurseElement(document.getElement(i));
-  }
-  return TextUtils.concat(spans);
-}

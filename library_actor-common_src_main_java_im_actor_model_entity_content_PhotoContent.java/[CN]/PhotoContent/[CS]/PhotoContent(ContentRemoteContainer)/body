@@ -1,0 +1,9 @@
+{
+  super(contentRemoteContainer);
+  DocumentMessage message=(DocumentMessage)contentRemoteContainer.getMessage();
+  DocumentExPhoto photo=(DocumentExPhoto)message.getExt();
+  if (photo != null) {
+    w=photo.getW();
+    h=photo.getH();
+  }
+}
