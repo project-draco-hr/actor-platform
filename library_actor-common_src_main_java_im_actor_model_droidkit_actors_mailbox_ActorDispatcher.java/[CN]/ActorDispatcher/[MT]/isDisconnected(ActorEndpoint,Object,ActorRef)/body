@@ -6,8 +6,7 @@
       }
       sender.send(new DeadLetter(message));
     }
+    return true;
   }
- else {
-    endpoint.getMailbox().schedule(new Envelope(message,endpoint.getScope(),endpoint.getMailbox(),sender),time);
-  }
+  return false;
 }
