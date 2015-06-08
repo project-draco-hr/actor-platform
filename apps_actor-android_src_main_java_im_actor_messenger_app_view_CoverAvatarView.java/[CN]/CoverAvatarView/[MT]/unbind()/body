@@ -8,5 +8,4 @@
     fullFileVM=null;
   }
   currentId=0;
-  setImageURI(null);
 }
