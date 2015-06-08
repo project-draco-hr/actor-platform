@@ -1,0 +1,5 @@
+{
+  for (  File value : values) {
+    index.add(value);
+  }
+}

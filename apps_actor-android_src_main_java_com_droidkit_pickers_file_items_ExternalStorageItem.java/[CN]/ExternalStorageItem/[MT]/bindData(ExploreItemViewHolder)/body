@@ -1,0 +1,5 @@
+{
+  holder.setTitle(getTitle());
+  holder.disableSubtitle();
+  holder.disableDivider();
+}

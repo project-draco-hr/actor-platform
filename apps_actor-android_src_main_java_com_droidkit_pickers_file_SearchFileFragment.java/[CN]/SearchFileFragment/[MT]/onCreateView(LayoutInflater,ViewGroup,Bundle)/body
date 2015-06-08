@@ -1,0 +1,38 @@
+{
+  rootView=inflater.inflate(R.layout.picker_fragment_file_search,container,false);
+  root=getArguments().getString("root");
+  View contentContainer=rootView.findViewById(R.id.content_container);
+  status=(TextView)rootView.findViewById(R.id.status);
+  listView=(ListView)contentContainer.findViewById(R.id.list);
+  listView.setOnScrollListener(this);
+  adapter=new ExplorerAdapter(pickerActivity,items);
+  listView.setAdapter(adapter);
+  listView.setOnItemClickListener(pickerActivity);
+  AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
+  alphaAnimation.setDuration(300);
+  alphaAnimation.setInterpolator(new MaterialInterpolator());
+  TranslateAnimation translateAnimation=new TranslateAnimation(0,0,-150,0);
+  translateAnimation.setDuration(450);
+  translateAnimation.setInterpolator(new MaterialInterpolator());
+  contentContainer.startAnimation(alphaAnimation);
+  pickerActivity.getSupportActionBar().setTitle(R.string.picker_file_search_activity_title);
+  if (index.isEmpty()) {
+    indexingTask=new IndexTask(new File(root)){
+      @Override public void onIndexingEnded(      ArrayList<File> indexedItems){
+        index.clear();
+        index.addAll(indexedItems);
+        indexingTask=null;
+        if (searchingTask != null) {
+          searchingTask.execute();
+        }
+ else {
+        }
+      }
+    }
+;
+    indexingTask.execute();
+  }
+ else {
+  }
+  return rootView;
+}
