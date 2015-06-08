@@ -1,0 +1,3 @@
+ActorEndpoint endpoint
+Object message
+ActorRef sender

@@ -1,6 +1,6 @@
 {
   long rid=RandomUtils.nextRid();
-  long date=Environment.getCurrentSyncedTime();
+  long date=createPendingDate();
   long sortDate=date + 365 * 24 * 60* 60* 1000L;
   VideoContent videoContent=VideoContent.createLocalVideo(descriptor,fileName,fileSize,w,h,duration,fastThumb);
   Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,videoContent);
