@@ -110,13 +110,7 @@
       }
       if (mentionErase) {
         int firstBound=s.subSequence(0,mentionEraseStart).toString().lastIndexOf(MENTION_BOUNDS_STR);
-        if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
-          s.replace(mentionEraseStart - 2,mentionEraseStart,"");
-        }
- else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == '@') {
-          s.replace(mentionEraseStart - 1,mentionEraseStart - 1,"");
-        }
- else         if (mentionEraseStart > 0 && firstBound != -1) {
+        if (mentionEraseStart > 0 && firstBound > 0 && s.charAt(firstBound - 1) == '@') {
           for (          URLSpan span : s.getSpans(firstBound,mentionEraseStart,URLSpan.class)) {
             s.removeSpan(span);
           }
@@ -126,12 +120,18 @@
             forceMentionHide=true;
           }
         }
+ else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
+          s.replace(mentionEraseStart - 2,mentionEraseStart,"");
+        }
+ else         if (mentionEraseStart > 0) {
+          s.replace(mentionEraseStart - 1,mentionEraseStart,"");
+        }
       }
       int emptyBoundsIndex=s.toString().indexOf(MENTION_BOUNDS_STR.concat(MENTION_BOUNDS_STR));
-      if (emptyBoundsIndex != -1) {
+      if (isErase && emptyBoundsIndex != -1) {
         s.replace(emptyBoundsIndex,emptyBoundsIndex + 2,"");
       }
-      if (s.length() == 1 && s.charAt(0) == MENTION_BOUNDS_CHR) {
+      if (s.toString().trim().length() == 1 && s.toString().trim().charAt(0) == MENTION_BOUNDS_CHR) {
         s.clear();
       }
     }
