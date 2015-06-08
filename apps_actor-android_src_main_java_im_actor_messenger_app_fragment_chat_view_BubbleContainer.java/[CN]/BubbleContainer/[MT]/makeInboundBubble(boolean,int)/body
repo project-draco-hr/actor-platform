@@ -4,11 +4,23 @@
   if (showAvatar) {
     UserVM u=users().get(uid);
     avatarView.setVisibility(VISIBLE);
-    avatarView.bind(u);
+    avatarView.bind(u,false);
     avatarView.setOnClickListener(new OnClickListener(){
       @Override public void onClick(      View v){
         if (onClickListener != null) {
           onClickListener.onAvatarClick(uid);
+        }
+      }
+    }
+);
+    avatarView.setOnLongClickListener(new OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        if (onLongClickListener != null) {
+          onLongClickListener.onAvatarLongClick(uid);
+          return true;
+        }
+ else {
+          return false;
         }
       }
     }

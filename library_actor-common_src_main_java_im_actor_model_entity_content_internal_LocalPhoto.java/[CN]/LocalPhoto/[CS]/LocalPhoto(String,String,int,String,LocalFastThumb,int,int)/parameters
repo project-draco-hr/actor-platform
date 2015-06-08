@@ -1,0 +1,7 @@
+String fileName
+String fileDescriptor
+int fileSize
+String mimeType
+LocalFastThumb fastThumb
+int w
+int h

@@ -1,0 +1,3 @@
+{
+  return im.actor.model.droidkit.json.JSONObject.NULL.equals(this.opt(index));
+}

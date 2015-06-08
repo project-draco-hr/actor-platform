@@ -1,0 +1,8 @@
+{
+  if (pendingCallId != null) {
+    voxImplantClient.disconnectCall(pendingCallId);
+    callModule.onCallEnded(pendingCallKey);
+    pendingCallId=null;
+    pendingCallKey=0;
+  }
+}

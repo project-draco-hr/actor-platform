@@ -1,3 +1,6 @@
 {
+  if (currentUpdate != null) {
+    return currentUpdate.getSize();
+  }
   return displayList.getSize();
 }

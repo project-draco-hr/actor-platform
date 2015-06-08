@@ -1,6 +1,6 @@
 {
   long rid=RandomUtils.nextRid();
-  Message message=new Message(rid,date,date,uid,MessageState.UNKNOWN,new ServiceUserRegistered());
+  Message message=new Message(rid,date,date,uid,MessageState.UNKNOWN,ServiceUserRegistered.create());
   ownReadActor().send(new OwnReadActor.NewMessage(new Peer(PeerType.PRIVATE,uid),rid,date));
   conversationActor(Peer.user(uid)).send(message);
 }

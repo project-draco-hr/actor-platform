@@ -5,6 +5,8 @@
       idMap.remove(holder.protoId);
       proto.cancelRpc(holder.protoId);
     }
-    proto.sendRpcMessage(holder.message);
+    long mid=proto.sendRpcMessage(holder.message);
+    holder.protoId=mid;
+    idMap.put(mid,randomId);
   }
 }

@@ -1,0 +1,9 @@
+{
+  this.receiver=null;
+  this.sender=null;
+  currentConnectionId=-1;
+  if (currentConnection != null) {
+    currentConnection.close();
+    currentConnection=null;
+  }
+}

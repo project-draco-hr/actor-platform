@@ -1,2 +1,3 @@
 {
+  super(RECORD_ID,new im.actor.model.api.Avatar());
 }

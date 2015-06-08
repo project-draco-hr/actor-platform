@@ -1,0 +1,10 @@
+{
+  cancelOngoing();
+  cancelPending();
+  if (isLoggedIn) {
+    pendingCallKey=callKey;
+    pendingCallId=voxImplantClient.createCall(number,false,number);
+    callModule.onCallConnected(callKey);
+    voxImplantClient.startCall(pendingCallId);
+  }
+}

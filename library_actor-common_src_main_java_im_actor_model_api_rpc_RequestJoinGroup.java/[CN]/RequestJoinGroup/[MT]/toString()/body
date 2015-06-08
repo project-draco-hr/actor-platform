@@ -1,0 +1,5 @@
+{
+  String res="rpc JoinGroup{";
+  res+="}";
+  return res;
+}

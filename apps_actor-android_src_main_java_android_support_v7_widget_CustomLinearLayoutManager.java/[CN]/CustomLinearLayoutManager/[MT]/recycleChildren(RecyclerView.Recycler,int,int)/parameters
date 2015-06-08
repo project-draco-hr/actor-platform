@@ -1,0 +1,3 @@
+RecyclerView.Recycler recycler
+int startIndex
+int endIndex

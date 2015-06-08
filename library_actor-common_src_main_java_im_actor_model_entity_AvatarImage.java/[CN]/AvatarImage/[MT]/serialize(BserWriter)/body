@@ -1,5 +1,4 @@
 {
-  writer.writeInt(1,width);
-  writer.writeInt(2,height);
-  writer.writeObject(3,fileReference);
+  writer.writeBool(5,true);
+  super.serialize(writer);
 }

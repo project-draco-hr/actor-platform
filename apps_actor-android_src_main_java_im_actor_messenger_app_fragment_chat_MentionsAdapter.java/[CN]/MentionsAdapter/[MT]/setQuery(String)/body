@@ -1,0 +1,20 @@
+{
+  query=q;
+  int oldRowsCount=new Integer(membersToShow.length);
+  if (q.isEmpty()) {
+    if (this.membersToShow.equals(allMembers)) {
+      return;
+    }
+    this.membersToShow=allMembers;
+  }
+ else {
+    HashSet<GroupMember> foundMembers=new HashSet<GroupMember>();
+    for (    String s : searchMap.keySet()) {
+      if (s.startsWith(q))       foundMembers.add(searchMap.get(s));
+    }
+    this.membersToShow=foundMembers.toArray(new GroupMember[0]);
+  }
+  int newRowsCount=new Integer(membersToShow.length);
+  updatedCallback.onMentionsUpdated(oldRowsCount,newRowsCount);
+  notifyDataSetChanged();
+}

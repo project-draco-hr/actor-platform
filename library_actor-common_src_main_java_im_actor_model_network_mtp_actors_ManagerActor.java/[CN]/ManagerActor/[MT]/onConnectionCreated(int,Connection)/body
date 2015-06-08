@@ -1,19 +1,21 @@
 {
-  Log.d(TAG,"Connection #" + id + " created");
   if (connection.isClosed()) {
-    Log.w(TAG,"Unable to register connection #" + id + ": already closed");
+    if (isEnableLog) {
+      Log.w(TAG,"Unable to register connection #" + id + ": already closed");
+    }
     return;
   }
   if (currentConnectionId == id) {
-    Log.w(TAG,"Unable to register connection #" + id + ": already have connection");
+    if (isEnableLog) {
+      Log.w(TAG,"Unable to register connection #" + id + ": already have connection");
+    }
     return;
   }
+  Log.d(TAG,"Connection #" + id + " created");
   if (currentConnection != null) {
     currentConnection.close();
-    Log.d(TAG,"Set connection #" + 0);
     currentConnectionId=0;
   }
-  Log.d(TAG,"Set connection #" + id);
   currentConnectionId=id;
   currentConnection=connection;
   backoff.onSuccess();

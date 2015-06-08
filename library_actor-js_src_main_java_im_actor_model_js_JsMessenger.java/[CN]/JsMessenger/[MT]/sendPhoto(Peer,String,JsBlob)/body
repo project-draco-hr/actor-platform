@@ -1,0 +1,15 @@
+{
+  JsImageResize.resize(blob,new JsResizeListener(){
+    @Override public void onResized(    String thumb,    int thumbW,    int thumbH,    int fullW,    int fullH){
+      int index=thumb.indexOf("base64,");
+      if (index < 0) {
+        return;
+      }
+      String rawData=thumb.substring(index + "base64,".length());
+      byte[] thumbData=Base64Utils.fromBase64(rawData);
+      String descriptor=fileSystemProvider.registerUploadFile(blob);
+      sendPhoto(peer,fileName,fullW,fullH,new FastThumb(thumbW,thumbH,thumbData),descriptor);
+    }
+  }
+);
+}

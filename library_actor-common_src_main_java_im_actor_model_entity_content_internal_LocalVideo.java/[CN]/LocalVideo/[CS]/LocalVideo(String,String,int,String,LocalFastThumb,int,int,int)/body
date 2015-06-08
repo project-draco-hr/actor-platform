@@ -1,0 +1,6 @@
+{
+  super(fileName,fileDescriptor,fileSize,mimeType,fastThumb);
+  this.w=w;
+  this.h=h;
+  this.duration=duration;
+}

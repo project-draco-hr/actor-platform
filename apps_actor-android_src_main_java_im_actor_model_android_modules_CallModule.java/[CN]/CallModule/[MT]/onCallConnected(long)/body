@@ -1,0 +1,6 @@
+{
+  CurrentCall call=currentCall.get();
+  if (call.getRid() == rid) {
+    currentCall.change(new CurrentCall(rid,call.getCallUser(),CallState.RINGING));
+  }
+}

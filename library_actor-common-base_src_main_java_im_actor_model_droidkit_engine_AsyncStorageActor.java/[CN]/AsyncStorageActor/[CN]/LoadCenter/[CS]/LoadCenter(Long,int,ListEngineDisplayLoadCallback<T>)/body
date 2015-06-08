@@ -1,0 +1,5 @@
+{
+  this.centerSortKey=centerSortKey;
+  this.limit=limit;
+  this.callback=callback;
+}

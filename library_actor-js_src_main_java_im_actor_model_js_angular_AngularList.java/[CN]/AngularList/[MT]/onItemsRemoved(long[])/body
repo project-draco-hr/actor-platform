@@ -1,0 +1,6 @@
+{
+  for (  long id : ids) {
+    remoteItemImpl(id);
+  }
+  notifySubscribers();
+}

@@ -1,6 +1,6 @@
 {
   writer.writeLong(1,peer.getUnuqueId());
   writer.writeLong(2,rid);
-  writer.writeBytes(3,content.toByteArray());
+  writer.writeBytes(3,AbsContent.serialize(content));
   writer.writeBool(4,isError);
 }

@@ -1,0 +1,10 @@
+{
+  if (lastGidState.containsKey(gid) && lastGidState.get(gid) >= updateDate) {
+    return;
+  }
+  lastGidState.put(gid,updateDate);
+  GroupVM vm=getGroupVM(gid);
+  if (vm != null) {
+    vm.getPresence().change(count);
+  }
+}

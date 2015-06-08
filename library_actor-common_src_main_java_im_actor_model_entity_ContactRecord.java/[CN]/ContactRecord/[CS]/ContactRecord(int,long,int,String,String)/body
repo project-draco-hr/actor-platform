@@ -1,7 +1,0 @@
-{
-  this.id=id;
-  this.accessHash=accessHash;
-  this.recordType=recordType;
-  this.recordData=recordData;
-  this.recordTitle=recordTitle;
-}

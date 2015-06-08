@@ -1,0 +1,3 @@
+{
+  return new ServiceMessage("Group theme changed",new ServiceExChangedTitle(newTitle));
+}

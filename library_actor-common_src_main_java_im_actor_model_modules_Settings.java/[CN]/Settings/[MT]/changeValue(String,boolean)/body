@@ -1,0 +1,4 @@
+{
+  String sVal=val ? "true" : "false";
+  changeValue(key,sVal);
+}

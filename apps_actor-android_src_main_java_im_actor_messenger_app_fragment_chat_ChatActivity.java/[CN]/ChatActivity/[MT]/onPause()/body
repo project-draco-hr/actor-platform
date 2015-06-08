@@ -1,4 +1,7 @@
 {
   super.onPause();
-  messenger.saveDraft(peer,messageBody.getText().toString());
+  emojiKeyboard.destroy();
+  Editable text=(Editable)messageBody.getText().subSequence(0,messageBody.getText().length());
+  convertUrlspansToMarkdownLinks(text);
+  messenger.saveDraft(peer,text.toString());
 }

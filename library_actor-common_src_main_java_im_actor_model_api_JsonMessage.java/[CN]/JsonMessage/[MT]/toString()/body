@@ -1,0 +1,5 @@
+{
+  String res="struct JsonMessage{";
+  res+="}";
+  return res;
+}

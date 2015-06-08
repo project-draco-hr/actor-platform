@@ -1,13 +1,24 @@
 {
   ModificationHolder<T> holder=new ModificationHolder<T>(modification,runnable);
-  if (isLocked) {
+  if (modification != null) {
     pending.add(holder);
+  }
+  if (isLocked) {
+    return;
+  }
+  if (pending.size() == 0) {
     return;
   }
   ArrayList<T> backgroundList=displayList.lists[(displayList.currentList + 1) % 2];
-  modification.modify(backgroundList);
-  if (displayList.hook != null) {
-    displayList.hook.beforeDisplay(backgroundList);
+  ArrayList<T> initialList=new ArrayList<T>(backgroundList);
+  ModificationHolder<T>[] dest=pending.toArray(new ModificationHolder[pending.size()]);
+  pending.clear();
+  ArrayList<ChangeDescription<T>> modRes=new ArrayList<ChangeDescription<T>>();
+  for (  ModificationHolder<T> m : dest) {
+    List<ChangeDescription<T>> changes=m.modification.modify(backgroundList);
+    modRes.addAll(changes);
   }
-  requestListSwitch(new ModificationHolder[]{holder});
+  ArrayList<ChangeDescription<T>> androidChanges=ChangeBuilder.processAndroidModifications(modRes,initialList);
+  ArrayList<ChangeDescription<T>> appleChanges=ChangeBuilder.processAppleModifications(modRes,initialList);
+  requestListSwitch(dest,initialList,androidChanges,appleChanges);
 }

@@ -1,8 +1,0 @@
-int seq
-byte[] state
-int updateHeader
-byte[] update
-List<User> users
-List<Group> groups
-List<Phone> phones
-List<Email> emails

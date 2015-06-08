@@ -48,7 +48,7 @@
     }
   }
 );
-  int docsCount=10;
+  int docsCount=0;
   if (docsCount == 0) {
     header.findViewById(R.id.docsContainer).setVisibility(View.GONE);
   }
@@ -63,7 +63,7 @@
     ((TextView)header.findViewById(R.id.docCount)).setText("" + docsCount);
   }
   Peer peer=Peer.group(groupInfo.getId());
-  int mediaCount=messenger().getMediaCount(peer);
+  int mediaCount=0;
   if (mediaCount == 0) {
     header.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
   }
@@ -78,7 +78,6 @@
     header.findViewById(R.id.mediaCount).setVisibility(View.VISIBLE);
     ((TextView)header.findViewById(R.id.mediaCount)).setText("" + mediaCount);
   }
-  header.findViewById(R.id.sharedContainer).setVisibility(View.GONE);
   ((TextView)header.findViewById(R.id.membersCount)).setText(getString(R.string.group_members_count).replace("{0}",groupInfo.getMembersCount() + "").replace("{1}","300"));
   listView.addHeaderView(header,null,false);
   View add=inflater.inflate(R.layout.fragment_group_add,listView,false);

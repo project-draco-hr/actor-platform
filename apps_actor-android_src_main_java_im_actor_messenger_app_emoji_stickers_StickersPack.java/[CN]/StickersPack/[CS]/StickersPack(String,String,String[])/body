@@ -1,5 +1,0 @@
-{
-  this.idsOrder=idsOrder;
-  this.packId=packId;
-  this.logoId=logoId;
-}

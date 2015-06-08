@@ -1,4 +1,7 @@
 {
+  if (getIntent().getData() != null) {
+    joinGroupUrl=getIntent().getData().toString();
+  }
   setContentView(R.layout.activity_main);
   getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));
   syncInProgressView=findViewById(R.id.syncInProgress);
@@ -21,7 +24,7 @@
   }
 );
   searchList=(RecyclerView)findViewById(R.id.searchList);
-  searchList.setLayoutManager(new LinearLayoutManager(getActivity()));
+  searchList.setLayoutManager(new CustomLinearLayoutManager(getActivity()));
   searchContainer=findViewById(R.id.searchCont);
   searchEmptyView=findViewById(R.id.empty);
   searchHintView=findViewById(R.id.searchHint);

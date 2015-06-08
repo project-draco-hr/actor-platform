@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getConversationList(peer.convert()).subscribe(callback);
+  messenger.getConversationList(peer.convert()).unsubscribe(callback);
 }

@@ -1,5 +1,0 @@
-{
-  String sVal=val ? "true" : "false";
-  preferences().putString(key,sVal);
-  settingsSync.send(new SettingsSyncActor.ChangeSettings(key,sVal));
-}

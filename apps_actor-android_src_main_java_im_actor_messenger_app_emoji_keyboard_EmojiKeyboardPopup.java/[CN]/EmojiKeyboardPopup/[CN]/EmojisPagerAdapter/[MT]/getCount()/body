@@ -1,3 +1,0 @@
-{
-  return Stickers.getPacks().length + 1;
-}

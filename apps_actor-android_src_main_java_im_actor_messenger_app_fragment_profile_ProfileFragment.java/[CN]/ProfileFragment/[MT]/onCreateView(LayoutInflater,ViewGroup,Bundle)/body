@@ -7,11 +7,14 @@
   final TextView lastSeen=(TextView)res.findViewById(R.id.lastSeen);
   bind(lastSeen,lastSeen,user);
   LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.phoneContainer);
+  View phonesDivider=res.findViewById(R.id.phoneDivider);
   if (user.getPhones().get().size() == 0) {
     contactsContainer.setVisibility(View.GONE);
+    phonesDivider.setVisibility(View.GONE);
   }
  else {
     contactsContainer.setVisibility(View.VISIBLE);
+    phonesDivider.setVisibility(View.VISIBLE);
     ArrayList<UserPhone> phones=user.getPhones().get();
     for (int i=0; i < phones.size(); i++) {
       final UserPhone record=phones.get(i);
@@ -57,8 +60,8 @@
                 startActivity(new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT,getString(R.string.settings_share_text).replace("{0}",phoneNumber).replace("{1}",user.getName().get())));
               }
  else               if (which == 3) {
-                android.content.ClipboardManager clipboard=(android.content.ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                android.content.ClipData clip=android.content.ClipData.newPlainText("Phone number",phoneNumber);
+                ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip=ClipData.newPlainText("Phone number",phoneNumber);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(getActivity(),R.string.toast_phone_copied,Toast.LENGTH_SHORT).show();
               }
@@ -70,8 +73,8 @@
 );
       recordView.setOnLongClickListener(new View.OnLongClickListener(){
         @Override public boolean onLongClick(        View v){
-          android.content.ClipboardManager clipboard=(android.content.ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-          android.content.ClipData clip=android.content.ClipData.newPlainText("Phone number","+" + record.getPhone());
+          ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+          ClipData clip=ClipData.newPlainText("Phone number","+" + record.getPhone());
           clipboard.setPrimaryClip(clip);
           Toast.makeText(getActivity(),R.string.toast_phone_copied,Toast.LENGTH_SHORT).show();
           return true;
@@ -80,12 +83,18 @@
 );
     }
   }
-  res.findViewById(R.id.profileAction).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      startActivity(Intents.openPrivateDialog(uid,true,getActivity()));
-    }
+  if (user.isBot()) {
+    res.findViewById(R.id.profileAction).setVisibility(View.GONE);
   }
+ else {
+    res.findViewById(R.id.profileAction).setVisibility(View.VISIBLE);
+    res.findViewById(R.id.profileAction).setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        startActivity(Intents.openPrivateDialog(uid,true,getActivity()));
+      }
+    }
 );
+  }
   avatarView=(CoverAvatarView)res.findViewById(R.id.avatar);
   bind(avatarView,user.getAvatar());
   avatarView.setOnClickListener(new View.OnClickListener(){
@@ -94,6 +103,36 @@
     }
   }
 );
+  int docsCount=0;
+  if (docsCount == 0) {
+    res.findViewById(R.id.docsContainer).setVisibility(View.GONE);
+  }
+ else {
+    res.findViewById(R.id.sharedContainer).setVisibility(View.VISIBLE);
+    res.findViewById(R.id.docsContainer).setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        startActivity(Intents.openDocs(Peer.user(uid),getActivity()));
+      }
+    }
+);
+    ((TextView)res.findViewById(R.id.docCount)).setText("" + docsCount);
+  }
+  Peer peer=Peer.user(uid);
+  int mediaCount=0;
+  if (mediaCount == 0) {
+    res.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
+  }
+ else {
+    res.findViewById(R.id.sharedContainer).setVisibility(View.VISIBLE);
+    res.findViewById(R.id.mediaContainer).setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        startActivity(Intents.openMedias(Peer.user(uid),getActivity()));
+      }
+    }
+);
+    res.findViewById(R.id.mediaCount).setVisibility(View.VISIBLE);
+    ((TextView)res.findViewById(R.id.mediaCount)).setText("" + mediaCount);
+  }
   View notificationContainter=res.findViewById(R.id.notificationsCont);
   final SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
   notificationEnable.setChecked(messenger().isNotificationsEnabled(Peer.user(uid)));

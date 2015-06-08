@@ -1,12 +1,8 @@
 {
   Log.w(TAG,"Connection #" + id + " dies");
   if (currentConnectionId == id) {
-    Log.d(TAG,"Set connection #" + 0);
     currentConnectionId=0;
     currentConnection=null;
     requestCheckConnection();
-  }
- else {
-    Log.w(TAG,"Unable to unregister connection #" + id + ": connection not found, expected: #"+ currentConnectionId);
   }
 }

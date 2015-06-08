@@ -1,0 +1,12 @@
+{
+  Log.d(TAG,"Incoming Call: " + callId);
+  cancelPending();
+  if (ongoingCallId != null) {
+    voxImplantClient.disconnectCall(callId);
+  }
+ else {
+    ongoingCallId=callId;
+    ongoingCallKey=RandomUtil.randomId();
+    callModule.onIncomingCall(ongoingCallKey,0);
+  }
+}

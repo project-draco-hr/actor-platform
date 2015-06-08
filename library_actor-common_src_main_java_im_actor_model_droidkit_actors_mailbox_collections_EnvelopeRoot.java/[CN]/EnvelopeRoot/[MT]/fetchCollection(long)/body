@@ -1,7 +1,7 @@
 {
-  Map.Entry<Long,EnvelopeCollection> res=sortedCollection.isEmpty() ? null : sortedCollection.firstEntry();
-  if (res != null) {
-    EnvelopeCollection collection=res.getValue();
+  Long collectionKey=sortedCollection.isEmpty() ? null : sortedCollection.firstKey();
+  if (collectionKey != null) {
+    EnvelopeCollection collection=sortedCollection.get(collectionKey);
     EnvelopeCollection.FetchResult envelope=collection.fetchEnvelope(time);
     if (envelope != null) {
       if (envelope.getEnvelope() != null) {

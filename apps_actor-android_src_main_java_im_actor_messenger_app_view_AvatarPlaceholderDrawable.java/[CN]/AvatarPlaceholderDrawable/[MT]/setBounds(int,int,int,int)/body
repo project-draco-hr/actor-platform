@@ -1,7 +1,7 @@
 {
   super.setBounds(left,top,right,bottom);
   Rect bounds=new Rect();
-  textX=(int)((right - left - TEXT_PAINT.measureText(title,0,title.length())) / 2);
-  TEXT_PAINT.getTextBounds(title,0,title.length(),bounds);
+  textX=(int)((right - left - (forceNewTextSize ? FORCED_SIZE_TEXT_PAINT : TEXT_PAINT).measureText(title,0,title.length())) / 2);
+  (forceNewTextSize ? FORCED_SIZE_TEXT_PAINT : TEXT_PAINT).getTextBounds(title,0,title.length(),bounds);
   textY=(int)((bottom - top - bounds.top- bounds.bottom) / 2);
 }

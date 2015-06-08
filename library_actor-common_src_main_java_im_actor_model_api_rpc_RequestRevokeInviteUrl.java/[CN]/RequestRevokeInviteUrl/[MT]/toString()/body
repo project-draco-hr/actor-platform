@@ -1,0 +1,6 @@
+{
+  String res="rpc RevokeInviteUrl{";
+  res+="groupPeer=" + this.groupPeer;
+  res+="}";
+  return res;
+}

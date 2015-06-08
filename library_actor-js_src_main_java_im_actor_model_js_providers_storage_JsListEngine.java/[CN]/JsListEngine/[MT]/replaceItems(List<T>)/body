@@ -1,18 +1,18 @@
 {
   cache.clear();
   storage.clear();
-  for (  JsListEngineCallback<T> callback : callbacks) {
-    callback.onClear();
-  }
   ArrayList<ListEngineRecord> records=new ArrayList<ListEngineRecord>();
   for (  T t : items) {
     cache.put(t.getEngineId(),t);
     records.add(new ListEngineRecord(t.getEngineId(),t.getEngineSort(),t.getEngineSearch(),t.toByteArray()));
   }
   storage.updateOrAdd(records);
-  for (  T t : items) {
-    for (    JsListEngineCallback<T> callback : callbacks) {
-      callback.onItemAddedOrUpdated(t);
+  for (  JsListEngineCallback<T> callback : callbacks) {
+    try {
+      callback.onItemsReplaced(items);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
     }
   }
 }

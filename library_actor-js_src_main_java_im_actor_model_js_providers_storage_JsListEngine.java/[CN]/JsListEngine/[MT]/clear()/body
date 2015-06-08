@@ -2,6 +2,11 @@
   cache.clear();
   storage.clear();
   for (  JsListEngineCallback<T> callback : callbacks) {
-    callback.onClear();
+    try {
+      callback.onClear();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
   }
 }

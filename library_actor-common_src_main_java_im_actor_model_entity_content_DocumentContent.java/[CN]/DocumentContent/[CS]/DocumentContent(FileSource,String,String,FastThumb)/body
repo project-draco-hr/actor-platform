@@ -1,6 +1,0 @@
-{
-  this.source=source;
-  this.mimetype=mimetype;
-  this.name=name;
-  this.fastThumb=fastThumb;
-}

@@ -1,0 +1,7 @@
+{
+  super.onDetachedFromWindow(view,recycler);
+  if (mRecycleChildrenOnDetach) {
+    removeAndRecycleAllViews(recycler);
+    recycler.clear();
+  }
+}

@@ -1,11 +1,9 @@
 {
 switch (peerType) {
-case EMAIL:
-    return PeerType.EMAIL;
 case GROUP:
-  return PeerType.GROUP;
+    return PeerType.GROUP;
 default :
 case PRIVATE:
-return PeerType.PRIVATE;
+  return PeerType.PRIVATE;
 }
 }

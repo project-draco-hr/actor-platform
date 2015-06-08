@@ -1,3 +1,6 @@
 {
-  return new User(uid,accessHash,name,localName,avatar,sex,records);
+  im.actor.model.api.User w=getWrapped();
+  im.actor.model.api.User res=new im.actor.model.api.User(w.getId(),w.getAccessHash(),name,w.getLocalName(),w.getSex(),w.getAvatar(),w.getContactInfo(),w.isBot());
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return new User(res);
 }

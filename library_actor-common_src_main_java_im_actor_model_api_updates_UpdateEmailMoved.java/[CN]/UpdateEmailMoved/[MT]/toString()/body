@@ -1,7 +1,0 @@
-{
-  String res="update EmailMoved{";
-  res+="emailId=" + this.emailId;
-  res+=", uid=" + this.uid;
-  res+="}";
-  return res;
-}

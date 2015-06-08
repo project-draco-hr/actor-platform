@@ -1,6 +1,12 @@
 {
   Peer peer=convert(_peer);
-  AbsContent msgContent=convert(content);
+  AbsContent msgContent=null;
+  try {
+    msgContent=AbsContent.fromMessage(content);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
   if (msgContent == null) {
     return;
   }

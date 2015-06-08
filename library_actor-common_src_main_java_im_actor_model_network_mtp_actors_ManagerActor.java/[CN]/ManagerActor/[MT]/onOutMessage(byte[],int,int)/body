@@ -1,7 +1,6 @@
 {
   if (currentConnection != null && currentConnection.isClosed()) {
     currentConnection=null;
-    Log.d(TAG,"Set connection #" + 0);
     currentConnectionId=0;
     checkConnection();
   }
@@ -12,7 +11,5 @@
     bos.writeBytes(data,offset,len);
     byte[] pkg=bos.toByteArray();
     currentConnection.post(pkg,0,pkg.length);
-  }
- else {
   }
 }

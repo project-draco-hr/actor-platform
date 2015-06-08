@@ -1,0 +1,4 @@
+int fromIndex
+int toIndex
+boolean completelyVisible
+boolean acceptPartiallyVisible

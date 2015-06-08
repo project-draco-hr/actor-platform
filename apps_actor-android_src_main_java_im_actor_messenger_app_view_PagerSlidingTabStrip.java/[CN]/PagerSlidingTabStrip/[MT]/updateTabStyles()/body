@@ -7,14 +7,7 @@
       tab.setTextSize(TypedValue.COMPLEX_UNIT_PX,tabTextSize);
       tab.setTypeface(tabTypeface,tabTypefaceStyle);
       tab.setTextColor(tabTextColor);
-      if (textAllCaps) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-          tab.setAllCaps(true);
-        }
- else {
-          tab.setText(tab.getText().toString().toUpperCase(locale));
-        }
-      }
+      tab.setAllCaps(true);
     }
   }
 }

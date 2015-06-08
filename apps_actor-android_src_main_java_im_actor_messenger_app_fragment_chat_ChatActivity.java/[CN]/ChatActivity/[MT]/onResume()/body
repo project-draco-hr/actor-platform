@@ -37,10 +37,11 @@
   isTypingDisabled=true;
   String text=messenger().loadDraft(peer);
   if (text != null) {
-    messageBody.setText(text);
+    messageBody.setText((emoji().processEmojiCompatMutable(bypass.markdownToSpannable(text,true),SmileProcessor.CONFIGURATION_BUBBLES)));
   }
  else {
     messageBody.setText("");
   }
+  messageBody.setSelection(messageBody.getText().length());
   isTypingDisabled=false;
 }

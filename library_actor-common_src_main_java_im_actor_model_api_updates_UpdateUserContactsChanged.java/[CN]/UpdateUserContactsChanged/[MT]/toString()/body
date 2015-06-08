@@ -1,8 +1,6 @@
 {
   String res="update UserContactsChanged{";
-  res+="uid=" + this.uid;
-  res+=", phones=" + this.phones.size();
-  res+=", emails=" + this.emails.size();
+  res+="contactRecords=" + this.contactRecords.size();
   res+="}";
   return res;
 }

@@ -1,7 +1,9 @@
 {
-  byte[] nData=new byte[size];
-  for (int i=0; i < offset; i++) {
-    nData[i]=data[i];
+  int nSize=data.length;
+  while (nSize < size) {
+    nSize=growSize(nSize);
   }
+  byte[] nData=new byte[nSize];
+  System.arraycopy(data,0,nData,0,offset);
   data=nData;
 }

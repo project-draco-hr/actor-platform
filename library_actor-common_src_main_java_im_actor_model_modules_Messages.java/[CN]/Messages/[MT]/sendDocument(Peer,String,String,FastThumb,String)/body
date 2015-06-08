@@ -1,0 +1,4 @@
+{
+  FileSystemReference reference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(descriptor);
+  sendMessageActor.send(new SenderActor.SendDocument(peer,fileName,mimeType,reference.getSize(),reference.getDescriptor(),fastThumb));
+}

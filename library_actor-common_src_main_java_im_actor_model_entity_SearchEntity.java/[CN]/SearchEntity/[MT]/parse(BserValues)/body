@@ -2,10 +2,7 @@
   peer=Peer.fromBytes(values.getBytes(1));
   order=values.getLong(2);
   if (values.optBytes(3) != null) {
-    avatar=Avatar.fromBytes(values.getBytes(3));
-  }
- else {
-    avatar=null;
+    avatar=new Avatar(values.getBytes(3));
   }
   title=values.getString(4);
 }

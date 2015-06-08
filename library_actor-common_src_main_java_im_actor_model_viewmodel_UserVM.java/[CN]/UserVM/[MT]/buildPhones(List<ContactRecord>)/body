@@ -1,7 +1,7 @@
 {
-  ArrayList<UserPhone> res=new ArrayList<UserPhone>();
+  ArrayListUserPhone res=new ArrayListUserPhone();
   for (  ContactRecord r : records) {
-    if (r.getRecordType() == ContactRecord.TYPE_PHONE) {
+    if (r.getRecordType() == ContactRecordType.PHONE) {
       res.add(new UserPhone(Long.parseLong(r.getRecordData()),r.getRecordTitle()));
     }
   }

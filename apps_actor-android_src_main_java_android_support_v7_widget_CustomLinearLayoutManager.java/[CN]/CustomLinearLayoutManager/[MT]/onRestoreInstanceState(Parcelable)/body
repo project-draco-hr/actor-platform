@@ -1,0 +1,12 @@
+{
+  if (state instanceof SavedState) {
+    mPendingSavedState=(SavedState)state;
+    requestLayout();
+    if (DEBUG) {
+      Log.d(TAG,"loaded saved state");
+    }
+  }
+ else   if (DEBUG) {
+    Log.d(TAG,"invalid saved state class");
+  }
+}

@@ -1,0 +1,8 @@
+{
+  assertNotInLayoutOrScroll(null);
+  if (reverseLayout == mReverseLayout) {
+    return;
+  }
+  mReverseLayout=reverseLayout;
+  requestLayout();
+}

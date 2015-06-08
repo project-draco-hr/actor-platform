@@ -1,0 +1,9 @@
+{
+  writer.writeString(1,fileName);
+  writer.writeString(2,fileDescriptor);
+  writer.writeInt(3,fileSize);
+  writer.writeString(4,mimeType);
+  if (fastThumb != null) {
+    writer.writeObject(5,fastThumb);
+  }
+}
