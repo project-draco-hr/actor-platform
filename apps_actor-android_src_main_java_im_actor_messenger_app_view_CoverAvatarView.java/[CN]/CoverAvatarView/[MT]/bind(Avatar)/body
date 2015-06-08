@@ -1,4 +1,7 @@
 {
+  if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == currentId) {
+    return;
+  }
   if (fileVM != null) {
     fileVM.detach();
     fileVM=null;
@@ -8,7 +11,17 @@
     fullFileVM=null;
   }
   isLoaded=false;
+  if (avatar != null && (avatar.getFullImage() != null || avatar.getSmallImage() != null)) {
+    String downloadedDescriptor=messenger().getDownloadedDescriptor(avatar.getFullImage() != null ? avatar.getFullImage().getFileReference().getFileId() : avatar.getSmallImage().getFileReference().getFileId());
+    if (downloadedDescriptor != null && !downloadedDescriptor.isEmpty()) {
+      Drawable d=Drawable.createFromPath(downloadedDescriptor);
+      setScaleType(ImageView.ScaleType.CENTER_CROP);
+      setImageDrawable(d);
+      return;
+    }
+  }
   if (avatar != null && avatar.getSmallImage() != null) {
+    currentId=avatar.getSmallImage().getFileReference().getFileId();
     fileVM=messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
       @Override public void onNotDownloaded(){
       }

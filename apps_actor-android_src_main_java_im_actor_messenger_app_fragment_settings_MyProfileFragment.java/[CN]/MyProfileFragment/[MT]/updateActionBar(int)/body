@@ -1,5 +1,5 @@
 {
-  avatar.setOffset(offset);
+  avatarView.setOffset(offset);
   ActionBar bar=((BaseActivity)getActivity()).getSupportActionBar();
   int fullColor=baseColor;
   if (Math.abs(offset) > Screen.dp(248 - 56)) {
