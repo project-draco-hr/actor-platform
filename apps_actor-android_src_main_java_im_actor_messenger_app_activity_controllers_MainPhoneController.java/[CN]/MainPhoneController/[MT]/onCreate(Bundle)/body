@@ -13,6 +13,9 @@
       sendUriMultiple.add(clip.getItemAt(i).getUri().toString());
     }
   }
+  if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("share_user")) {
+    shareUser=getIntent().getExtras().getInt("share_user");
+  }
   setContentView(R.layout.activity_main);
   getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));
   syncInProgressView=findViewById(R.id.syncInProgress);

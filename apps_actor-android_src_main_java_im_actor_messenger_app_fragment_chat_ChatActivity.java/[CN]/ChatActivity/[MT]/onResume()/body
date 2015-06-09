@@ -54,4 +54,13 @@
     }
     sendUriMultiple.clear();
   }
+  if (shareUser != 0) {
+    String userName=users().get(shareUser).getName().get();
+    String mentionTitle="@".concat(userName);
+    ArrayList<Integer> mention=new ArrayList<Integer>();
+    mention.add(shareUser);
+    messenger().sendMessage(peer,mentionTitle,"[".concat(mentionTitle).concat("](people://".concat(Integer.toString(shareUser)).concat(")")),mention);
+    messenger().trackTextSend(peer);
+    shareUser=0;
+  }
 }
