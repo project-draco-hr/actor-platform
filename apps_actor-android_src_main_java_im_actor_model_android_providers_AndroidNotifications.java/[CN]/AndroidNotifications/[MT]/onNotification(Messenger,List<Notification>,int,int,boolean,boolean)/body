@@ -36,7 +36,7 @@ avatar=groups().get(visiblePeer.getPeerId()).getAvatar().get();
 id=groups().get(visiblePeer.getPeerId()).getId();
 break;
 }
-Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context,false);
+Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context);
 result=buildSingleMessageNotification(avatarDrawable,builder,sender,text,topNotification);
 NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
@@ -90,7 +90,7 @@ avatar=groups().get(visiblePeer.getPeerId()).getAvatar().get();
 id=groups().get(visiblePeer.getPeerId()).getId();
 break;
 }
-Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context,false);
+Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context);
 result=buildSingleConversationNotification(builder,inboxStyle,avatarDrawable);
 NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);

@@ -2,7 +2,7 @@
   if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == currentId) {
     return;
   }
-  getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext(),forceNewTextSize));
+  getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext()));
   if (bindedFile != null) {
     bindedFile.detach();
     bindedFile=null;

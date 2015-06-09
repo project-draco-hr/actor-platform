@@ -1,0 +1,4 @@
+String title
+int id
+float selfTextSize
+Context context
