@@ -45,7 +45,13 @@
   messageBody.setSelection(messageBody.getText().length());
   isTypingDisabled=false;
   if (sendUri != null && !sendUri.isEmpty()) {
-    sendUri(Uri.parse(sendUri));
+    sendUri(Uri.parse(sendUri),true);
     sendUri="";
+  }
+  if (sendUriMultiple != null && sendUriMultiple.size() > 0) {
+    for (    String sendUri : sendUriMultiple) {
+      sendUri(Uri.parse(sendUri),false);
+    }
+    sendUriMultiple.clear();
   }
 }

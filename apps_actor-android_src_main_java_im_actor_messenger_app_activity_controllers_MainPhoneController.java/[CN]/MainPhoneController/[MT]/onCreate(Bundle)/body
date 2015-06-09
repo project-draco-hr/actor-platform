@@ -7,6 +7,12 @@
   if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND)) {
     sendUri=getIntent().getClipData().getItemAt(0).getUri().toString();
   }
+  if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND_MULTIPLE)) {
+    ClipData clip=getIntent().getClipData();
+    for (int i=0; i < clip.getItemCount(); i++) {
+      sendUriMultiple.add(clip.getItemAt(i).getUri().toString());
+    }
+  }
   setContentView(R.layout.activity_main);
   getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));
   syncInProgressView=findViewById(R.id.syncInProgress);

@@ -2,22 +2,40 @@
   new AsyncTask<Void,Void,Void>(){
     private ProgressDialog progressDialog;
     @Override protected void onPreExecute(){
-      progressDialog=new ProgressDialog(ChatActivity.this);
-      progressDialog.setMessage(getString(R.string.pick_downloading));
-      progressDialog.setCancelable(false);
-      progressDialog.show();
+      if (showDialog) {
+        progressDialog=new ProgressDialog(ChatActivity.this);
+        progressDialog.setMessage(getString(R.string.pick_downloading));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+      }
     }
     @Override protected Void doInBackground(    Void... params){
       String[] filePathColumn={MediaStore.Images.Media.DATA,MediaStore.Video.Media.MIME_TYPE,MediaStore.Video.Media.TITLE};
+      String picturePath;
+      String mimeType;
+      String fileName;
       Cursor cursor=getContentResolver().query(uri,filePathColumn,null,null,null);
-      cursor.moveToFirst();
-      String picturePath=cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
-      String mimeType=cursor.getString(cursor.getColumnIndex(filePathColumn[1]));
-      String fileName=cursor.getString(cursor.getColumnIndex(filePathColumn[2]));
-      if (mimeType == null) {
-        mimeType="?/?";
+      if (cursor != null) {
+        cursor.moveToFirst();
+        picturePath=cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
+        mimeType=cursor.getString(cursor.getColumnIndex(filePathColumn[1]));
+        fileName=cursor.getString(cursor.getColumnIndex(filePathColumn[2]));
+        if (mimeType == null) {
+          mimeType="?/?";
+        }
+        cursor.close();
       }
-      cursor.close();
+ else {
+        picturePath=uri.getPath();
+        fileName=new File(uri.getPath()).getName();
+        int index=fileName.lastIndexOf(".");
+        if (index > 0) {
+          mimeType=MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileName.substring(index + 1));
+        }
+ else {
+          mimeType="?/?";
+        }
+      }
       if (picturePath == null || !uri.getScheme().equals("file")) {
         File externalFile=AppContext.getContext().getExternalFilesDir(null);
         if (externalFile == null) {
@@ -54,7 +72,7 @@
       return null;
     }
     @Override protected void onPostExecute(    Void aVoid){
-      progressDialog.dismiss();
+      if (showDialog)       progressDialog.dismiss();
     }
   }
 .execute();
