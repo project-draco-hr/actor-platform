@@ -20,6 +20,7 @@
           }
         }
         menu.findItem(R.id.copy).setVisible(isAllText);
+        menu.findItem(R.id.quote).setVisible(selected.length == 1 && isAllText);
         return false;
       }
       @Override public boolean onActionItemClicked(      final ActionMode actionMode,      MenuItem menuItem){
@@ -46,6 +47,15 @@
           Toast.makeText(getActivity(),R.string.toast_messages_copied,Toast.LENGTH_SHORT).show();
           actionMode.finish();
           return true;
+        }
+ else         if (menuItem.getItemId() == R.id.quote) {
+          Message m=messagesAdapter.getSelected()[0];
+          if (m.getContent() instanceof TextContent) {
+            String name=users().get(m.getSenderId()).getName().get();
+            String text=((TextContent)m.getContent()).getText();
+            ((ChatActivity)getActivity()).addQuote("[@".concat(name).concat(":](people://").concat(Integer.toString(m.getSenderId())).concat(")\n\n>".concat(text.replace("\n\n","\n")).concat("\n\n")));
+            actionMode.finish();
+          }
         }
         return false;
       }

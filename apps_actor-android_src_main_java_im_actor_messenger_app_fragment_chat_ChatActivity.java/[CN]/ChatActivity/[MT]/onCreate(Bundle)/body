@@ -275,6 +275,17 @@
   }
 );
   mentionsList=(ListView)findViewById(R.id.mentionsList);
+  quoteContainer=(FrameLayout)findViewById(R.id.quoteContainer);
+  quoteClose=(ImageView)findViewById(R.id.ib_close_quote);
+  quoteText=(TextView)findViewById(R.id.quote_text);
+  quoteClose.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      goneView(quoteContainer);
+      quoteText.setText("");
+      currentQuote="";
+    }
+  }
+);
   sendUri=getIntent().getStringExtra("send_uri");
   sendUriMultiple=getIntent().getStringArrayListExtra("send_uri_multiple");
   shareUser=getIntent().getIntExtra("share_user",0);
