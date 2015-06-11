@@ -59,7 +59,7 @@
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(context.getResources().getColor(R.color.text_secondary));
+          text.setTextColor(context.getResources().getColor(R.color.chats_text));
         }
       }
     }
@@ -81,7 +81,7 @@
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(context.getResources().getColor(R.color.text_secondary));
+          text.setTextColor(context.getResources().getColor(R.color.chats_text));
         }
       }
     }
@@ -90,7 +90,7 @@
   }
  else {
     text.setText(bindedText);
-    text.setTextColor(context.getResources().getColor(R.color.text_secondary));
+    text.setTextColor(context.getResources().getColor(R.color.chats_text));
   }
   if (data.getSenderId() != myUid()) {
     state.setVisibility(View.GONE);
