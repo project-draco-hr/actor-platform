@@ -16,8 +16,8 @@
     final float nextTabRight=nextTab.getRight() - indicatorPadding;
     lineLeft=(currentPositionOffset * nextTabLeft + (1f - currentPositionOffset) * lineLeft);
     lineRight=(currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
-    currentTabColor=blendColors(tabTextColor,0x00202020,currentPositionOffset,false);
-    nextTabColor=blendColors(tabTextColor,0x00202020,currentPositionOffset,true);
+    currentTabColor=blendColors(tabTextColor,0x30000000,currentPositionOffset,false);
+    nextTabColor=blendColors(tabTextColor,0x30000000,currentPositionOffset,true);
     if (currentTab instanceof TextView) {
       ((TextView)currentTab).setTextColor(currentTabColor);
     }
@@ -29,10 +29,10 @@
     for (int i=0; i < tabCount; i++) {
       if (tabsContainer.getChildAt(i) instanceof TextView) {
         if (i == currentPosition) {
-          ((TextView)tabsContainer.getChildAt(i)).setTextColor(blendColors(tabTextColor,0x00202020,currentPositionOffset,false));
+          ((TextView)tabsContainer.getChildAt(i)).setTextColor(blendColors(tabTextColor,0x30000000,currentPositionOffset,false));
         }
  else {
-          ((TextView)tabsContainer.getChildAt(i)).setTextColor(blendColors(tabTextColor,0x00202020,currentPositionOffset,true));
+          ((TextView)tabsContainer.getChildAt(i)).setTextColor(blendColors(tabTextColor,0x30000000,currentPositionOffset,true));
         }
       }
     }
