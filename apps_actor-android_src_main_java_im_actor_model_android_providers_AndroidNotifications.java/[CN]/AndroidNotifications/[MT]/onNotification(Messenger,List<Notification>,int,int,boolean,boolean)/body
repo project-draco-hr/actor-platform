@@ -50,9 +50,7 @@ messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCa
 @Override public void onDownloading(float progress){
 }
 @Override public void onDownloaded(FileSystemReference reference){
-RoundedBitmapDrawable d=RoundedBitmapDrawableFactory.create(context.getResources(),reference.getDescriptor());
-d.setCornerRadius(d.getIntrinsicHeight() / 2);
-d.setAntiAlias(true);
+RoundedBitmapDrawable d=getRoundedBitmapDrawable(reference);
 android.app.Notification result=buildSingleMessageNotification(d,builder,sender,text,topNotification);
 manager.notify(NOTIFICATION_ID,result);
 }
@@ -105,9 +103,7 @@ messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCa
 @Override public void onDownloading(float progress){
 }
 @Override public void onDownloaded(FileSystemReference reference){
-RoundedBitmapDrawable d=RoundedBitmapDrawableFactory.create(context.getResources(),reference.getDescriptor());
-d.setCornerRadius(d.getIntrinsicHeight() / 2);
-d.setAntiAlias(true);
+RoundedBitmapDrawable d=getRoundedBitmapDrawable(reference);
 android.app.Notification result=buildSingleConversationNotification(builder,inboxStyle,d);
 manager.notify(NOTIFICATION_ID,result);
 }
