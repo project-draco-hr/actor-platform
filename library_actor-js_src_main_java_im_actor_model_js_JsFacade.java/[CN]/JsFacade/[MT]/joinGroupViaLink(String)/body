@@ -3,7 +3,7 @@
     @Override public void execute(){
       messenger.joinGroupViaLink(url).start(new CommandCallback<Integer>(){
         @Override public void onResult(        Integer res){
-          resolve(res);
+          resolve(JsPeer.create(Peer.group(res)));
         }
         @Override public void onError(        Exception e){
           reject();
