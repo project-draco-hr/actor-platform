@@ -1,0 +1,3 @@
+{
+  return (explorerItem2.getLastModified().compareTo(explorerItem.getLastModified()));
+}

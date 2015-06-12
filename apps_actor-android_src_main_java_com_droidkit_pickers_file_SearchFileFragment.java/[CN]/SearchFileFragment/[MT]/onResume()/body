@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  pickerActivity.setFragment(this);
+  pickerActivity.invalidateOptionsMenu();
+  pickerActivity.getSupportActionBar().setIcon(R.drawable.picker_bar_search);
+}

@@ -1,0 +1,5 @@
+{
+  super.bindData(itemView);
+  TextView subTitleView=(TextView)itemView.findViewById(R.id.subtitle);
+  subTitleView.setVisibility(View.VISIBLE);
+}

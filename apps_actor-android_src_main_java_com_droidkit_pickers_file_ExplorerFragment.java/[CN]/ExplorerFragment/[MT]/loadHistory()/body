@@ -1,0 +1,12 @@
+{
+  ArrayList<ExplorerItem> history=new ArrayList<ExplorerItem>();
+  ArrayList<String> pathesFromDB=HistoryDatabase.getHistory(pickerActivity);
+  if (!pathesFromDB.isEmpty()) {
+    history.add(new HeaderItem(getString(R.string.picker_file_header_recent)));
+    for (    String pathFromDB : pathesFromDB) {
+      File historyFile=new File(pathFromDB);
+      if (historyFile.exists())       history.add(getFileItem(historyFile));
+    }
+  }
+  return history;
+}

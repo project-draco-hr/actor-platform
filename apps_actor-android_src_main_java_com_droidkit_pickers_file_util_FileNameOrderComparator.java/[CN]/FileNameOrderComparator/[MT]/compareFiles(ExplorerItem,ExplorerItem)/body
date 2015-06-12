@@ -1,0 +1,3 @@
+{
+  return (explorerItem.getTitle().compareToIgnoreCase(explorerItem2.getTitle()));
+}

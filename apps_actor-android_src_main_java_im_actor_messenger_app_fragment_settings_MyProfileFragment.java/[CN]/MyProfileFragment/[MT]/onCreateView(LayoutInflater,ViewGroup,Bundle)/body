@@ -121,7 +121,8 @@
     }
   }
 );
-  avatar=(CoverAvatarView)view.findViewById(R.id.avatar);
+  avatarView=(CoverAvatarView)view.findViewById(R.id.avatar);
+  bind(avatarView,users().get(myUid()).getAvatar());
   view.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(ViewAvatarActivity.viewAvatar(myUid(),getActivity()));

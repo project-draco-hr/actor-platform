@@ -7,4 +7,5 @@
     fullFileVM.detach();
     fullFileVM=null;
   }
+  currentId=0;
 }
