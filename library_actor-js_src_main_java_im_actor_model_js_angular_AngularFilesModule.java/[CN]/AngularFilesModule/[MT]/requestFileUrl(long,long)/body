@@ -6,7 +6,7 @@
   request(new RequestGetFileUrl(new FileLocation(id,accessHash)),new RpcCallback<ResponseGetFileUrl>(){
     @Override public void onResult(    ResponseGetFileUrl response){
       requestedFiles.remove(id);
-      keyValueStorage.addOrUpdateItem(new CachedFileUrl(id,response.getUrl()));
+      keyValueStorage.addOrUpdateItem(new CachedFileUrl(id,response.getUrl(),Environment.getCurrentSyncedTime() + response.getTimeout()));
       for (      AngularFileLoadedListener listener : listeners) {
         listener.onFileLoaded(id);
       }
