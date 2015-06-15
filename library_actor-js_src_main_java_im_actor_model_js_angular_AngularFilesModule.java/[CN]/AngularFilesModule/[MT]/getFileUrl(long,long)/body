@@ -1,7 +1,12 @@
 {
   CachedFileUrl cachedFileUrl=keyValueStorage.getValue(id);
   if (cachedFileUrl != null) {
-    return cachedFileUrl.getUrl();
+    if (cachedFileUrl.getTimeout() <= Environment.getCurrentSyncedTime()) {
+      keyValueStorage.removeItem(id);
+    }
+ else {
+      return cachedFileUrl.getUrl();
+    }
   }
   requestFileUrl(id,accessHash);
   return null;
