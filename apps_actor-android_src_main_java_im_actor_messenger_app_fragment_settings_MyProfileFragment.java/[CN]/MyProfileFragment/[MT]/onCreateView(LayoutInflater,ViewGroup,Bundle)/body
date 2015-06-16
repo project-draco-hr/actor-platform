@@ -122,6 +122,7 @@
   }
 );
   avatarView=(CoverAvatarView)view.findViewById(R.id.avatar);
+  avatarView.setBkgrnd((ImageView)view.findViewById(R.id.avatar_bgrnd));
   bind(avatarView,users().get(myUid()).getAvatar());
   view.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
