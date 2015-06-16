@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.screenWidth);
+  writer.writeInt(2,this.screenHeight);
+}
