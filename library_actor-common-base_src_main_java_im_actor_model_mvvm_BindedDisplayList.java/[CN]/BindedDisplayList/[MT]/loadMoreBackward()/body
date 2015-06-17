@@ -18,6 +18,7 @@
       }
  else {
         window.onBackwardSliceLoaded(bottomSortKey);
+        if (linearLayoutCallback != null)         linearLayoutCallback.setStackFromEnd(true);
         editList(Modifications.addOnly(items),new Runnable(){
           @Override public void run(){
             if (gen == currentGeneration) {
