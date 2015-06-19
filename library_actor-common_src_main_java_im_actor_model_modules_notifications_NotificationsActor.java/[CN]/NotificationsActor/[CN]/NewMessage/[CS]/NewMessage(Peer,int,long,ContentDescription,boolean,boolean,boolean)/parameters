@@ -1,6 +1,7 @@
 Peer peer
-long rid
-long sortingDate
-int senderUid
+int sender
+long sortDate
 ContentDescription contentDescription
 boolean hasCurrentUserMention
+boolean isAlreadyRead
+boolean isLastInDiff

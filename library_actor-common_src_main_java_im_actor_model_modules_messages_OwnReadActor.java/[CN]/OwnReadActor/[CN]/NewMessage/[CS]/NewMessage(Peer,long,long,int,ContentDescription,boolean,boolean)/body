@@ -1,7 +1,9 @@
 {
   this.peer=peer;
-  this.sender=sender;
-  this.sortDate=sortDate;
+  this.rid=rid;
+  this.sortingDate=sortingDate;
+  this.senderUId=senderUId;
   this.contentDescription=contentDescription;
   this.hasCurrentUserMention=hasCurrentUserMention;
+  this.isLastInDiff=isLastInDiff;
 }

@@ -1,4 +1,10 @@
 {
+  if (isLastInDiff) {
+    self().send(new ResumeNotifications());
+  }
+  if (isAlreadyRead) {
+    return;
+  }
   boolean isPeerEnabled=modules().getSettings().isNotificationsEnabled(peer);
   boolean isEnabled=(modules().getSettings().isNotificationsEnabled() && isPeerEnabled) || hasCurrentUserMention;
   if (isEnabled) {

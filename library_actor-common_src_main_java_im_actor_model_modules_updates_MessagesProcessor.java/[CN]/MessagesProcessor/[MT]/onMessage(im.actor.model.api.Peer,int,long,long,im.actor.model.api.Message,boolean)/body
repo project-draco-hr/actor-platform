@@ -10,5 +10,5 @@
   if (msgContent == null) {
     return;
   }
-  onMessage(peer,senderUid,date,rid,msgContent);
+  onMessage(peer,senderUid,date,rid,msgContent,isLastInDiff);
 }

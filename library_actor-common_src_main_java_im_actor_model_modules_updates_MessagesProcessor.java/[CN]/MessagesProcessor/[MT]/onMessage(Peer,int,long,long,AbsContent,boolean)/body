@@ -9,7 +9,7 @@
       ArrayList<Integer> mentions=((TextContent)content).getMentions();
       hasCurrentUserMention=mentions != null && mentions.contains(myUid());
     }
-    ownReadActor().send(new OwnReadActor.NewMessage(peer,rid,date,senderUid,ContentDescription.fromContent(content),hasCurrentUserMention));
+    ownReadActor().send(new OwnReadActor.NewMessage(peer,rid,date,senderUid,ContentDescription.fromContent(content),hasCurrentUserMention,isLastInDiff));
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));
   }
  else {
