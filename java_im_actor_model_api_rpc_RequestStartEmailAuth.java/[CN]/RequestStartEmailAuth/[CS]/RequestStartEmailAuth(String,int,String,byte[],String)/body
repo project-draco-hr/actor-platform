@@ -1,0 +1,7 @@
+{
+  this.email=email;
+  this.appId=appId;
+  this.apiKey=apiKey;
+  this.deviceHash=deviceHash;
+  this.deviceTitle=deviceTitle;
+}
