@@ -1,8 +1,8 @@
 {
-  for (  TimerCompat ping : schedulledPings.values()) {
+  for (  AbsTimerCompat ping : schedulledPings.values()) {
     ping.schedule(RESPONSE_TIMEOUT);
   }
-  for (  TimerCompat ackTimeout : packageTimers.values()) {
+  for (  AbsTimerCompat ackTimeout : packageTimers.values()) {
     ackTimeout.schedule(RESPONSE_TIMEOUT);
   }
   pingTask.schedule(PING_TIMEOUT);

@@ -44,4 +44,8 @@
   }
   messageBody.setSelection(messageBody.getText().length());
   isTypingDisabled=false;
+  if (sendUri != null && !sendUri.isEmpty()) {
+    sendUri(Uri.parse(sendUri));
+    sendUri="";
+  }
 }

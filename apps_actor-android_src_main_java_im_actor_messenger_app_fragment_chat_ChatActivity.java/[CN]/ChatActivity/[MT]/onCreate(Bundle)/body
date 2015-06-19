@@ -55,11 +55,10 @@
         messenger.onTyping(peer);
       }
       isErase=after < count;
-      isOneCharErase=isErase && count == 1;
-      if (isOneCharErase)       eraseStart=start;
-      mentionErase=isOneCharErase && count == 1 && s.charAt(start) == MENTION_BOUNDS_CHR;
-      if (mentionErase)       mentionEraseStart=start;
-      eraseCount=count;
+      isOneCharErase=isErase && (count == 1 || (count - after == 1));
+      if (isOneCharErase)       eraseStart=start + count - 1;
+      mentionErase=isOneCharErase && s.charAt(eraseStart) == MENTION_BOUNDS_CHR;
+      if (mentionErase)       mentionEraseStart=eraseStart;
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       String str=s.toString();
@@ -109,7 +108,7 @@
         s.replace(escapeMentionEdit,escapeMentionEdit + 2,MENTION_BOUNDS_STR.concat(" "));
         if (s.charAt(messageBody.getSelectionStart() - 1) == MENTION_BOUNDS_CHR)         messageBody.setSelection(messageBody.getSelectionStart() + 1);
       }
-      if (mentionErase && eraseCount == 1) {
+      if (mentionErase) {
         int firstBound=s.subSequence(0,mentionEraseStart).toString().lastIndexOf(MENTION_BOUNDS_STR);
         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
           s.replace(mentionEraseStart - 2,mentionEraseStart,"");
@@ -279,4 +278,5 @@
   }
 );
   mentionsList=(ListView)findViewById(R.id.mentionsList);
+  sendUri=getIntent().getStringExtra("send_uri");
 }

@@ -1,3 +1,3 @@
 {
-  sendOnce(message,delay,null);
+  dispatcher.sendMessageOnceAtTime(endpoint,message,ActorTime.currentTime() + delay,null);
 }

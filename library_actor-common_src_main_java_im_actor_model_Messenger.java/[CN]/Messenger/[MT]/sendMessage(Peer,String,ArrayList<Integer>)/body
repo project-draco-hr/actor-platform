@@ -1,3 +1,3 @@
 {
-  modules.getMessagesModule().sendMessage(peer,text,mentions);
+  sendMessage(peer,text,null,mentions);
 }

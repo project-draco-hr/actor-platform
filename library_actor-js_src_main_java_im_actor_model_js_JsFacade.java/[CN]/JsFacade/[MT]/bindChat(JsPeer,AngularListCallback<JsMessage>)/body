@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"bindChat: " + peer);
   if (callback == null) {
     return;
   }

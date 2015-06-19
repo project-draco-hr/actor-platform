@@ -5,10 +5,10 @@
       if (p.getRid() == rid) {
         messagesStorage.getMessages().remove(p);
         messagesStorage.getMessages().add(new OutUnreadMessage(rid,date));
+        savePending();
         break;
       }
     }
-    savePending();
     Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
     messages.addOrUpdateItem(updatedMsg);
     dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg));
