@@ -14,30 +14,34 @@
   ((TextView)findViewById(R.id.signIn)).setTypeface(Fonts.medium());
   findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      startActivity(new Intent(TourActivity.this,AuthActivity.class));
-      finish();
-    }
-  }
-);
-  findViewById(R.id.signIn).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      new MaterialDialog.Builder(TourActivity.this).title(getString(R.string.tour_sign_in)).items(new CharSequence[]{getString(R.string.tour_sign_using_tel),getString(R.string.tour_sign_using_email),getString(R.string.tour_sign_using_oauth)}).itemsCallback(new MaterialDialog.ListCallback(){
+      new MaterialDialog.Builder(TourActivity.this).title(getString(R.string.tour_sign_up)).items(new CharSequence[]{getString(R.string.tour_sign_using_tel),getString(R.string.tour_sign_using_email),getString(R.string.tour_sign_using_oauth)}).itemsCallback(new MaterialDialog.ListCallback(){
         @Override public void onSelection(        MaterialDialog materialDialog,        View view,        int i,        CharSequence charSequence){
+          Intent authIntent=new Intent(TourActivity.this,AuthActivity.class);
 switch (i) {
 case 0:
-            startActivity(new Intent(TourActivity.this,AuthActivity.class));
+            startActivity(authIntent);
           finish();
         break;
 case 1:
-      break;
+      authIntent.putExtra("auth_type","auth_type_email");
+    startActivity(authIntent);
+  finish();
+break;
 case 2:
-    Intent pickAccIntent=AccountPicker.newChooseAccountIntent(null,null,new String[]{"com.google"},false,null,null,null,null);
-  startActivityForResult(pickAccIntent,SIGNIN_OAUTH);
+Intent pickAccIntent=AccountPicker.newChooseAccountIntent(null,null,new String[]{"com.google"},false,null,null,null,null);
+startActivityForResult(pickAccIntent,SIGNIN_OAUTH);
 break;
 }
 }
 }
 ).show();
+}
+}
+);
+findViewById(R.id.signIn).setOnClickListener(new View.OnClickListener(){
+@Override public void onClick(View v){
+startActivity(new Intent(TourActivity.this,AuthActivity.class));
+finish();
 }
 }
 );
@@ -121,19 +125,19 @@ if (page > lastPageIndex) {
 float progress=page - lastPageIndex;
 if (progress > 0.5) {
 if (loginHolderStatus == LOGINHOLDER_STATUS_VISIBLE) {
-  loginHolderStatus=LOGINHOLDER_STATUS_OUT;
-  loginHolder.animate().y(-loginHolder.getHeight()).setDuration(200).setInterpolator(new AccelerateDecelerateInterpolator()).setStartDelay(0).start();
+loginHolderStatus=LOGINHOLDER_STATUS_OUT;
+loginHolder.animate().y(-loginHolder.getHeight()).setDuration(200).setInterpolator(new AccelerateDecelerateInterpolator()).setStartDelay(0).start();
 }
 mainContentHidden=false;
 }
  else {
 if (loginHolderStatus == LOGINHOLDER_STATUS_OUT) {
-  loginHolderStatus=LOGINHOLDER_STATUS_VISIBLE;
-  loginHolder.animate().y(0).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(200).setStartDelay(0).start();
+loginHolderStatus=LOGINHOLDER_STATUS_VISIBLE;
+loginHolder.animate().y(0).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(200).setStartDelay(0).start();
 }
 if (!mainContentHidden) {
-  backToTopArrow.animate().alpha(0).setDuration(0).start();
-  backToTopText.animate().alpha(0).setDuration(0).start();
+backToTopArrow.animate().alpha(0).setDuration(0).start();
+backToTopText.animate().alpha(0).setDuration(0).start();
 }
 }
 }
