@@ -5,8 +5,8 @@
   JsConfigurationBuilder configuration=new JsConfigurationBuilder();
   configuration.setApiConfiguration(new ApiConfiguration(APP_NAME,APP_ID,APP_KEY,clientName,uniqueId));
   configuration.setFileSystemProvider(provider);
-  configuration.addEndpoint("wss://front1-mtproto-api-rev2.actor.im:8443/");
-  configuration.addEndpoint("wss://front2-mtproto-api-rev2.actor.im:8443/");
+  configuration.addEndpoint("wss://front1-ws-mtproto-api-rev2.actor.im/");
+  configuration.addEndpoint("wss://front2-ws-mtproto-api-rev2.actor.im/");
   messenger=new JsMessenger(configuration.build());
   Log.d(TAG,"JsMessenger created");
 }

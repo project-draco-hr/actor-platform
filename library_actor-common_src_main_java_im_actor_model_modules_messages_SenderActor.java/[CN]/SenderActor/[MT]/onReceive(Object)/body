@@ -1,7 +1,7 @@
 {
   if (message instanceof SendText) {
     SendText sendText=(SendText)message;
-    doSendText(sendText.getPeer(),sendText.getText(),sendText.getMentions());
+    doSendText(sendText.getPeer(),sendText.getText(),sendText.getMentions(),sendText.getMarkDownText());
   }
  else   if (message instanceof MessageSent) {
     MessageSent messageSent=(MessageSent)message;

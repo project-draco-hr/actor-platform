@@ -1,0 +1,3 @@
+{
+  messenger.changeNotificationsEnabled(peer.convert(),isEnabled);
+}

@@ -2,4 +2,5 @@
   super(remoteContainer);
   text=((TextMessage)remoteContainer.getMessage()).getText();
   mentions=(ArrayList<Integer>)((TextMessage)remoteContainer.getMessage()).getMentions();
+  textMessageEx=((TextMessage)remoteContainer.getMessage()).getExt();
 }
