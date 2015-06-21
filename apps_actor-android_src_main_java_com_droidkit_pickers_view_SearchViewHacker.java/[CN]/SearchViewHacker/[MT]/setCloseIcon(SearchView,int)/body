@@ -1,0 +1,6 @@
+{
+  ImageView searchImageView=(ImageView)findView(searchView,"mCloseButton");
+  searchImageView.setVisibility(View.VISIBLE);
+  searchImageView.setAdjustViewBounds(false);
+  searchImageView.setImageResource(res);
+}

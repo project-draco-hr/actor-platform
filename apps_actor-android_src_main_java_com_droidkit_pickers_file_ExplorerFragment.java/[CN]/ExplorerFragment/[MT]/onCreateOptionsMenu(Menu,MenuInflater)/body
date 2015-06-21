@@ -1,0 +1,10 @@
+{
+  this.menu=menu;
+  if (!welcome) {
+    inflater.inflate(R.menu.picker_file,menu);
+    sortnameMenuItem=menu.findItem(R.id.sortname);
+    sortdateMenuItem=menu.findItem(R.id.sortdate);
+  }
+ else   inflater.inflate(R.menu.picker_file_welcome,menu);
+  super.onCreateOptionsMenu(menu,inflater);
+}

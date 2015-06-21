@@ -1,0 +1,44 @@
+{
+  int imageId=R.drawable.picker_folder;
+  if (file.list() == null || file.getName().toCharArray()[0] == '.') {
+    return null;
+  }
+ else   if (file.list().length == 0) {
+  }
+  String folderPath=file.getPath();
+  if (folderPath.equals(Environment.getExternalStorageDirectory().getPath())) {
+  }
+ else   if (folderPath.contains(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath())) {
+    imageId=R.drawable.picker_folder_music;
+  }
+ else   if (folderPath.contains(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath())) {
+    imageId=R.drawable.picker_folder_pictures;
+  }
+ else   if (folderPath.contains(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath())) {
+    imageId=R.drawable.picker_folder_download;
+  }
+ else   if (folderPath.contains(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).getPath())) {
+    imageId=R.drawable.picker_folder_video;
+  }
+ else   if (folderPath.contains(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath())) {
+    imageId=R.drawable.picker_folder_camera;
+  }
+ else {
+    folderPath=folderPath.toLowerCase();
+    if (folderPath.contains("music")) {
+      imageId=R.drawable.picker_folder_music;
+    }
+ else     if (folderPath.contains("picture") || folderPath.contains("image") || folderPath.contains("photo")) {
+      imageId=R.drawable.picker_folder_pictures;
+    }
+ else     if (folderPath.contains("download")) {
+      imageId=R.drawable.picker_folder_download;
+    }
+ else     if (folderPath.contains("doc")) {
+    }
+ else     if (folderPath.contains("movie") || folderPath.contains("video")) {
+      imageId=R.drawable.picker_folder_video;
+    }
+  }
+  return new FolderItem(file,imageId);
+}

@@ -1,5 +1,0 @@
-String title
-int id
-float fontSize
-Context context
-boolean forceNewTextSize

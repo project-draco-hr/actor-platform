@@ -1,0 +1,7 @@
+{
+  super.onResume();
+  messenger().trackAuthPhoneOpen();
+  setTitle(R.string.auth_email_title);
+  focusPhone();
+  keyboardHelper.setImeVisibility(emailEditText,true);
+}
