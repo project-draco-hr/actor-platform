@@ -1,0 +1,5 @@
+File file
+boolean selected
+String fileType
+int imageId
+boolean enabled

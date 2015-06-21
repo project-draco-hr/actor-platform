@@ -26,12 +26,14 @@
         builder.setContentIntent(PendingIntent.getActivity(context,0,new Intent(context,MainActivity.class),PendingIntent.FLAG_UPDATE_CURRENT));
         NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(NOTIFICATION_ID,builder.build());
+        setResultCode(Activity.RESULT_OK);
       }
  else {
         if (extras.containsKey("seq")) {
           int seq=Integer.parseInt(extras.getString("seq"));
           Log.d(TAG,"Received seq: " + seq);
           messenger().onPushReceived(seq);
+          setResultCode(Activity.RESULT_OK);
         }
  else {
           Log.w(TAG,"Unknown message");

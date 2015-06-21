@@ -1,0 +1,7 @@
+{
+  int id=item.getItemId();
+  if (item.getItemId() == R.id.menu_search) {
+    searchView.setIconified(!searchView.isIconified());
+  }
+  return super.onOptionsItemSelected(item);
+}

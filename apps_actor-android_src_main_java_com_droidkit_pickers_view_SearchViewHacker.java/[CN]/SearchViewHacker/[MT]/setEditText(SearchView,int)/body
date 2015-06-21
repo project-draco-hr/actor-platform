@@ -1,0 +1,4 @@
+{
+  View autoComplete=findView(searchView,"mSearchPlate");
+  autoComplete.setBackgroundResource(resId);
+}

@@ -7,9 +7,6 @@
     anchorInfo.assignFromViewAndKeepVisibleRect(focused);
     return true;
   }
-  if (mLastStackFromEnd != mStackFromEnd) {
-    return false;
-  }
   View referenceChild=anchorInfo.mLayoutFromEnd ? findReferenceChildClosestToEnd(state) : findReferenceChildClosestToStart(state);
   if (referenceChild != null) {
     anchorInfo.assignFromView(referenceChild);

@@ -1,3 +1,0 @@
-{
-  return readValue(KEY_GROUP_INVITE_LINK + getChatKey(peer));
-}

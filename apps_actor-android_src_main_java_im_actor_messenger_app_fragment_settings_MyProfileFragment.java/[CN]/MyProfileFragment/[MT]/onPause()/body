@@ -1,5 +1,5 @@
 {
   super.onPause();
   messenger().trackOwnProfileClosed();
-  avatar.unbind();
+  avatarView.unbind();
 }

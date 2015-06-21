@@ -15,7 +15,6 @@
         @Override public void onResult(        final ResponseIntegrationToken response){
           runOnUiThread(new Runnable(){
             @Override public void run(){
-              modules().getSettings().changeGroupIntegrationToken(group.peer(),response.getUrl());
               callback.onResult(response.getUrl());
             }
           }

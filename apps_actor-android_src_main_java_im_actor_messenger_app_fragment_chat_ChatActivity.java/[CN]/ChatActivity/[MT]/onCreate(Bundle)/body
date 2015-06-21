@@ -77,20 +77,18 @@
           hideMentions();
         }
         mentionStart=firstPeace.lastIndexOf("@");
-        if (s.length() != count) {
-          if (firstPeace.contains("@") && mentionStart + 1 < firstPeace.length()) {
-            mentionSearchString=firstPeace.substring(mentionStart + 1,firstPeace.length());
-            if (!mentionSearchString.startsWith(MENTION_BOUNDS_STR) && !mentionSearchString.isEmpty())             lastMentionSearch=mentionSearchString;
-          }
+        if (firstPeace.contains("@") && mentionStart + 1 < firstPeace.length()) {
+          mentionSearchString=firstPeace.substring(mentionStart + 1,firstPeace.length());
+          if (!mentionSearchString.startsWith(MENTION_BOUNDS_STR) && !mentionSearchString.isEmpty())           lastMentionSearch=mentionSearchString;
+        }
  else {
-            mentionSearchString="";
-          }
-          if (mentionSearchString.equals(" ")) {
-            hideMentions();
-          }
- else           if (mentionsAdapter != null) {
-            mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
-          }
+          mentionSearchString="";
+        }
+        if (mentionSearchString.equals(" ")) {
+          hideMentions();
+        }
+ else         if (mentionsAdapter != null) {
+          mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
         }
       }
     }
@@ -110,13 +108,7 @@
       }
       if (mentionErase) {
         int firstBound=s.subSequence(0,mentionEraseStart).toString().lastIndexOf(MENTION_BOUNDS_STR);
-        if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
-          s.replace(mentionEraseStart - 2,mentionEraseStart,"");
-        }
- else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == '@') {
-          s.replace(mentionEraseStart - 1,mentionEraseStart - 1,"");
-        }
- else         if (mentionEraseStart > 0 && firstBound != -1) {
+        if (mentionEraseStart > 0 && firstBound > 0 && s.charAt(firstBound - 1) == '@') {
           for (          URLSpan span : s.getSpans(firstBound,mentionEraseStart,URLSpan.class)) {
             s.removeSpan(span);
           }
@@ -126,12 +118,18 @@
             forceMentionHide=true;
           }
         }
+ else         if (mentionEraseStart > 0 && s.charAt(mentionEraseStart - 1) == MENTION_BOUNDS_CHR) {
+          s.replace(mentionEraseStart - 2,mentionEraseStart,"");
+        }
+ else         if (mentionEraseStart > 0) {
+          s.replace(mentionEraseStart - 1,mentionEraseStart,"");
+        }
       }
       int emptyBoundsIndex=s.toString().indexOf(MENTION_BOUNDS_STR.concat(MENTION_BOUNDS_STR));
-      if (emptyBoundsIndex != -1) {
+      if (isErase && emptyBoundsIndex != -1) {
         s.replace(emptyBoundsIndex,emptyBoundsIndex + 2,"");
       }
-      if (s.length() == 1 && s.charAt(0) == MENTION_BOUNDS_CHR) {
+      if (s.toString().trim().length() == 1 && s.toString().trim().charAt(0) == MENTION_BOUNDS_CHR) {
         s.clear();
       }
     }
@@ -249,9 +247,6 @@
  else           if (item.getItemId() == R.id.file) {
             startActivityForResult(Intents.pickFile(ChatActivity.this),REQUEST_DOC);
           }
- else           if (item.getItemId() == R.id.location) {
-            startActivityForResult(com.droidkit.pickers.Intents.pickLocation(ChatActivity.this),REQUEST_LOCATION);
-          }
           return false;
         }
       }
@@ -278,5 +273,21 @@
   }
 );
   mentionsList=(ListView)findViewById(R.id.mentionsList);
+  quoteContainer=(FrameLayout)findViewById(R.id.quoteContainer);
+  quoteClose=(ImageView)findViewById(R.id.ib_close_quote);
+  quoteText=(TextView)findViewById(R.id.quote_text);
+  quoteClose.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      goneView(quoteContainer);
+      quoteText.setText("");
+      currentQuote="";
+    }
+  }
+);
   sendUri=getIntent().getStringExtra("send_uri");
+  sendUriMultiple=getIntent().getStringArrayListExtra("send_uri_multiple");
+  shareUser=getIntent().getIntExtra("share_user",0);
+  forwardText=getIntent().getStringExtra("forward_text");
+  forwardDocDescriptor=getIntent().getStringExtra("forward_doc_descriptor");
+  forwardDocIsDoc=getIntent().getBooleanExtra("forward_doc_is_doc",true);
 }

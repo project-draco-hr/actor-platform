@@ -1,0 +1,14 @@
+{
+  Peer peer=convert(_peer);
+  AbsContent msgContent=null;
+  try {
+    msgContent=AbsContent.fromMessage(content);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  if (msgContent == null) {
+    return;
+  }
+  onMessage(peer,senderUid,date,rid,msgContent,isLastInDiff);
+}

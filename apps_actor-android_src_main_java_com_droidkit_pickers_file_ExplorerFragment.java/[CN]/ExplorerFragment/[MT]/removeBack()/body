@@ -1,0 +1,8 @@
+{
+  for (  ExplorerItem item : items) {
+    if (item instanceof BackItem) {
+      items.remove(item);
+      break;
+    }
+  }
+}
