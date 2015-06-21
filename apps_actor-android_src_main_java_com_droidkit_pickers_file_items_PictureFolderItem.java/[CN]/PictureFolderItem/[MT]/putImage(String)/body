@@ -1,0 +1,4 @@
+{
+  if (albumImage == null)   albumImage=imgUri;
+  imgCounter++;
+}

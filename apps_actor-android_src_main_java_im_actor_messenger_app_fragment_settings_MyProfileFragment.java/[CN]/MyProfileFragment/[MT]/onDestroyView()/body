@@ -1,7 +1,7 @@
 {
   super.onDestroyView();
-  if (avatar != null) {
-    avatar.unbind();
-    avatar=null;
+  if (avatarView != null) {
+    avatarView.unbind();
+    avatarView=null;
   }
 }
