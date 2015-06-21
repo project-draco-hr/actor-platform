@@ -11,7 +11,7 @@
   }
  else   if (msg.getContent() instanceof VideoContent) {
     VideoContent baseVideoContent=(VideoContent)msg.getContent();
-    nContent=VideoContent.createRemotePhoto(fileReference,baseVideoContent.getW(),baseVideoContent.getH(),baseVideoContent.getDuration(),baseVideoContent.getFastThumb());
+    nContent=VideoContent.createRemoteVideo(fileReference,baseVideoContent.getW(),baseVideoContent.getH(),baseVideoContent.getDuration(),baseVideoContent.getFastThumb());
   }
  else   if (msg.getContent() instanceof DocumentContent) {
     DocumentContent baseDocContent=(DocumentContent)msg.getContent();

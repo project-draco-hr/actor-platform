@@ -5,6 +5,7 @@
         messagesAdapter.setFirstUnread(unreadId);
       }
       if (index > 0) {
+        linearLayoutManager.setStackFromEnd(false);
         linearLayoutManager.scrollToPositionWithOffset(index + 1,Screen.dp(64));
       }
  else {

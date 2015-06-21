@@ -1,0 +1,7 @@
+{
+  if (currentFragment != null) {
+    currentFragment.onCreateOptionsMenu(menu,getMenuInflater());
+    return true;
+  }
+  return super.onCreateOptionsMenu(menu);
+}

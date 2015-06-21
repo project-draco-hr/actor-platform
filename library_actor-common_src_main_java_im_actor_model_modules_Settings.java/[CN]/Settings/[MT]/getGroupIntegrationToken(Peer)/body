@@ -1,3 +1,0 @@
-{
-  return readValue(KEY_GROUP_INTEGRATION_TOKEN + getChatKey(peer));
-}

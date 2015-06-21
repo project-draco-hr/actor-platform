@@ -1,0 +1,3 @@
+{
+  return JsPeer.create(Peer.user(uid));
+}

@@ -1,4 +1,5 @@
 {
-  fid=values.getInt(1);
+  fid=values.getLong(1);
   url=values.getString(2);
+  timeout=values.getLong(3);
 }

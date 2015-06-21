@@ -1,0 +1,12 @@
+{
+  if (endpoint.isDisconnected()) {
+    if (sender != null) {
+      if (actorSystem.getTraceInterface() != null) {
+        actorSystem.getTraceInterface().onDeadLetter(sender,message);
+      }
+      sender.send(new DeadLetter(message));
+    }
+    return true;
+  }
+  return false;
+}

@@ -54,7 +54,7 @@ synchronized (LOCK) {
   }
  catch (  Exception e) {
     if (actorSystem.getTraceInterface() != null) {
-      actorSystem.getTraceInterface().onActorDie(scope.getActorRef(),e);
+      actorSystem.getTraceInterface().onActorDie(scope.getActorRef(),envelope,e);
     }
     scope.onActorDie();
     isDisconnected=true;

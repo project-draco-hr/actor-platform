@@ -1,0 +1,23 @@
+{
+  if (folder.getPath().contains("/sys") || folder.getPath().toLowerCase().contains("/cache") || folder.getPath().toLowerCase().contains(Environment.getExternalStorageDirectory().getPath().toLowerCase() + "/android")) {
+    return;
+  }
+  if (folder.listFiles() == null || folder.getName().toCharArray()[0] == '.') {
+    return;
+  }
+  index.add(folder);
+  for (  final File file : folder.listFiles()) {
+    if (isCancelled()) {
+      return;
+    }
+    if (file.isDirectory()) {
+      scanFolder(file);
+    }
+ else {
+      if (file.getName().toCharArray()[0] == '.') {
+        continue;
+      }
+      index.add(file);
+    }
+  }
+}

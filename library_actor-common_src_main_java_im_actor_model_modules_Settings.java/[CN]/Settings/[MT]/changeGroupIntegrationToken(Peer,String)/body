@@ -1,3 +1,0 @@
-{
-  changeValue(KEY_GROUP_INTEGRATION_TOKEN + getChatKey(peer),token);
-}

@@ -1,0 +1,4 @@
+{
+  AutoCompleteTextView autoComplete=(AutoCompleteTextView)findView(searchView,"mQueryTextView");
+  autoComplete.setTextColor(color);
+}

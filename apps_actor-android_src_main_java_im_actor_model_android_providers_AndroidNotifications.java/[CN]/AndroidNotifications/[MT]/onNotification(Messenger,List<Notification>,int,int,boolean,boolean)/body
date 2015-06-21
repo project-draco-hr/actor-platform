@@ -26,19 +26,22 @@
     visiblePeer=topNotification.getPeer();
     Avatar avatar=null;
     int id=0;
+    String avatarTitle="";
 switch (visiblePeer.getPeerType()) {
 case PRIVATE:
       avatar=users().get(visiblePeer.getPeerId()).getAvatar().get();
     id=users().get(visiblePeer.getPeerId()).getId();
-  break;
+  avatarTitle=users().get(visiblePeer.getPeerId()).getName().get();
+break;
 case GROUP:
 avatar=groups().get(visiblePeer.getPeerId()).getAvatar().get();
 id=groups().get(visiblePeer.getPeerId()).getId();
+avatarTitle=groups().get(visiblePeer.getPeerId()).getName().get();
 break;
 }
-Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context,false);
+Drawable avatarDrawable=new AvatarPlaceholderDrawable(avatarTitle,id,18,context);
 result=buildSingleMessageNotification(avatarDrawable,builder,sender,text,topNotification);
-NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+final NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) {
 messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
@@ -47,18 +50,14 @@ messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCa
 @Override public void onDownloading(float progress){
 }
 @Override public void onDownloaded(FileSystemReference reference){
-RoundedBitmapDrawable d=RoundedBitmapDrawableFactory.create(context.getResources(),reference.getDescriptor());
-d.setCornerRadius(d.getIntrinsicHeight() / 2);
-d.setAntiAlias(true);
+RoundedBitmapDrawable d=getRoundedBitmapDrawable(reference);
 android.app.Notification result=buildSingleMessageNotification(d,builder,sender,text,topNotification);
-NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 }
 }
 );
 }
  else {
-manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 }
 }
@@ -80,19 +79,22 @@ inboxStyle.addLine(messenger().getFormatter().formatNotificationText(n));
 inboxStyle.setSummaryText(messagesCount + " messages");
 Avatar avatar=null;
 int id=0;
+String avatarTitle="";
 switch (visiblePeer.getPeerType()) {
 case PRIVATE:
 avatar=users().get(visiblePeer.getPeerId()).getAvatar().get();
 id=users().get(visiblePeer.getPeerId()).getId();
+avatarTitle=users().get(visiblePeer.getPeerId()).getName().get();
 break;
 case GROUP:
 avatar=groups().get(visiblePeer.getPeerId()).getAvatar().get();
 id=groups().get(visiblePeer.getPeerId()).getId();
+avatarTitle=groups().get(visiblePeer.getPeerId()).getName().get();
 break;
 }
-Drawable avatarDrawable=new AvatarPlaceholderDrawable(sender,id,12,context,false);
+Drawable avatarDrawable=new AvatarPlaceholderDrawable(avatarTitle,id,18,context);
 result=buildSingleConversationNotification(builder,inboxStyle,avatarDrawable);
-NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+final NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) {
 messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
@@ -101,18 +103,14 @@ messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCa
 @Override public void onDownloading(float progress){
 }
 @Override public void onDownloaded(FileSystemReference reference){
-RoundedBitmapDrawable d=RoundedBitmapDrawableFactory.create(context.getResources(),reference.getDescriptor());
-d.setCornerRadius(d.getIntrinsicHeight() / 2);
-d.setAntiAlias(true);
+RoundedBitmapDrawable d=getRoundedBitmapDrawable(reference);
 android.app.Notification result=buildSingleConversationNotification(builder,inboxStyle,d);
-NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 }
 }
 );
 }
  else {
-manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 }
 }

@@ -5,7 +5,12 @@
   this.state=state;
 switch (state) {
 case AUTH_START:
-    showFragment(new SignPhoneFragment(),false,false);
+    if (authType != null && authType.equals("auth_type_email")) {
+      showFragment(new SignEmailFragment(),false,false);
+    }
+ else {
+      showFragment(new SignPhoneFragment(),false,false);
+    }
   break;
 case CODE_VALIDATION:
 showFragment(new SignInFragment(),false,false);

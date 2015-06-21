@@ -1,0 +1,7 @@
+{
+  final ActionMode mode=super.startSupportActionMode(callback);
+  if (mode != null) {
+    mode.invalidate();
+  }
+  return mode;
+}

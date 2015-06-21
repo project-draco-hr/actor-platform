@@ -44,4 +44,37 @@
   }
   messageBody.setSelection(messageBody.getText().length());
   isTypingDisabled=false;
+  if (sendUri != null && !sendUri.isEmpty()) {
+    sendUri(Uri.parse(sendUri),true);
+    sendUri="";
+  }
+  if (sendUriMultiple != null && sendUriMultiple.size() > 0) {
+    for (    String sendUri : sendUriMultiple) {
+      sendUri(Uri.parse(sendUri),false);
+    }
+    sendUriMultiple.clear();
+  }
+  if (shareUser != 0) {
+    String userName=users().get(shareUser).getName().get();
+    String mentionTitle="@".concat(userName);
+    ArrayList<Integer> mention=new ArrayList<Integer>();
+    mention.add(shareUser);
+    messenger().sendMessage(peer,mentionTitle,"[".concat(mentionTitle).concat("](people://".concat(Integer.toString(shareUser)).concat(")")),mention);
+    messenger().trackTextSend(peer);
+    shareUser=0;
+  }
+  if (forwardText != null && !forwardText.isEmpty()) {
+    addQuote(forwardText);
+    forwardText="";
+  }
+  if (forwardDocDescriptor != null && !forwardDocDescriptor.isEmpty()) {
+    if (forwardDocIsDoc) {
+      messenger().sendDocument(peer,forwardDocDescriptor);
+      messenger().trackDocumentSend(peer);
+    }
+ else {
+      sendUri(Uri.fromFile(new File(forwardDocDescriptor)),false);
+    }
+    forwardDocDescriptor="";
+  }
 }

@@ -1,3 +1,3 @@
 {
-  bind(contact.getAvatar(),contact.getName(),contact.getUid(),false);
+  bind(contact.getAvatar(),contact.getName(),contact.getUid());
 }

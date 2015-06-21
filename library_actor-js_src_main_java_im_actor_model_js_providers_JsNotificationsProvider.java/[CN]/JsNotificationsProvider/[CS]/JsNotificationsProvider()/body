@@ -1,0 +1,6 @@
+{
+  inappSound=Audio.createIfSupported();
+  if (inappSound != null) {
+    inappSound.setSrc("assets/sound/notification.mp3");
+  }
+}

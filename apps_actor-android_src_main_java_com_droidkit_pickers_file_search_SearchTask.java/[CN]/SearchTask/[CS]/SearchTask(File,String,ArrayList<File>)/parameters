@@ -1,0 +1,3 @@
+File searchRoot
+String searchQuery
+ArrayList<File> index

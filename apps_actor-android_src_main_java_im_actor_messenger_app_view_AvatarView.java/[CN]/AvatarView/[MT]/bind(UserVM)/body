@@ -1,0 +1,3 @@
+{
+  bind(user.getAvatar().get(),user.getName().get(),user.getId());
+}

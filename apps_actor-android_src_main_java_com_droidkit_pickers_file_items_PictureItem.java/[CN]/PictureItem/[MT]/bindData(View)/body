@@ -1,0 +1,13 @@
+{
+  super.bindData(itemView);
+  View stroke=itemView.findViewById(R.id.selected_stroke);
+  if (stroke != null) {
+    stroke.setSelected(isSelected());
+  }
+  if (isVideo()) {
+    View videoHolder=itemView.findViewById(R.id.video_holder);
+    if (videoHolder != null) {
+      videoHolder.setVisibility(View.VISIBLE);
+    }
+  }
+}

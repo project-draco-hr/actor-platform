@@ -9,7 +9,7 @@
   CRC32_ENGINE.update(data,offset,len);
   dataOutput.writeInt((int)CRC32_ENGINE.getValue());
   if (header == HEADER_PROTO) {
-    TimerCompat timeoutTask=new TimerCompat(new TimeoutRunnable());
+    AbsTimerCompat timeoutTask=Environment.createTimer(new TimeoutRunnable());
     packageTimers.put(packageId,timeoutTask);
     timeoutTask.schedule(RESPONSE_TIMEOUT);
   }
