@@ -1,0 +1,4 @@
+{
+  item.setSelected(selectItem(item.getPath()));
+  item.bindData(itemView);
+}

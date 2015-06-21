@@ -1,0 +1,6 @@
+{
+  final ImageView holder=(ImageView)itemView.findViewById(R.id.image);
+  if (holder != null) {
+    holder.setImageResource(R.drawable.example_user_placeholder);
+  }
+}

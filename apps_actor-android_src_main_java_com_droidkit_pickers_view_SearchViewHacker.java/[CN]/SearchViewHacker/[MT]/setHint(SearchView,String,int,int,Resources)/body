@@ -1,0 +1,7 @@
+{
+  AutoCompleteTextView autoComplete=(AutoCompleteTextView)findView(searchView,"mQueryTextView");
+  SpannableStringBuilder stopHint=new SpannableStringBuilder("");
+  stopHint.append(hint);
+  autoComplete.setHint(stopHint);
+  autoComplete.setHintTextColor(color);
+}

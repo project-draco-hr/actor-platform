@@ -1,5 +1,0 @@
-{
-  this.peer=peer;
-  this.text=text;
-  this.mentions=mentions;
-}

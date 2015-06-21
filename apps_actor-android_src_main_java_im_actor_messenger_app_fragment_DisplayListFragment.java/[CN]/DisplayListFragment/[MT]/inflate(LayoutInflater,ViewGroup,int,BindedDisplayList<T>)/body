@@ -8,8 +8,8 @@
     collection.setVisibility(View.VISIBLE);
   }
   setAnimationsEnabled(true);
-  configureRecyclerView(collection);
   this.displayList=displayList;
+  configureRecyclerView(collection);
   adapter=onCreateAdapter(displayList,getActivity());
   collection.setAdapter(adapter);
   return res;

@@ -14,5 +14,10 @@
  else   if (item.getItemId() == R.id.edit) {
     startActivity(Intents.editUserName(uid,this));
   }
+ else   if (item.getItemId() == R.id.share) {
+    Intent i=new Intent(this,MainActivity.class);
+    i.putExtra("share_user",uid);
+    startActivity(i);
+  }
   return super.onOptionsItemSelected(item);
 }

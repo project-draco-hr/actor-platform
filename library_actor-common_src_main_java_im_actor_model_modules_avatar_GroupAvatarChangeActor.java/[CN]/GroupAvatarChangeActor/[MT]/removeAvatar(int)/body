@@ -6,10 +6,12 @@
   final long rid=RandomUtils.nextRid();
   currentTasks.put(gid,rid);
   tasksMap.put(rid,gid);
+  Group group=modules().getGroupsModule().getGroups().getValue(gid);
+  GroupOutPeer outPeer=new GroupOutPeer(gid,group.getAccessHash());
   modules().getProfile().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,true));
-  request(new RequestRemoveAvatar(),new RpcCallback<ResponseSeq>(){
-    @Override public void onResult(    ResponseSeq response){
-      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateGroupAvatarChanged.HEADER,new UpdateGroupAvatarChanged(gid,rid,myUid(),null,System.currentTimeMillis()).toByteArray()));
+  request(new RequestRemoveGroupAvatar(outPeer,rid),new RpcCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate response){
+      updates().onSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateGroupAvatarChanged(gid,rid,myUid(),null,response.getDate()));
       updates().onUpdateReceived(new ExecuteAfter(response.getSeq(),new Runnable(){
         @Override public void run(){
           self().send(new AvatarChanged(gid,rid));

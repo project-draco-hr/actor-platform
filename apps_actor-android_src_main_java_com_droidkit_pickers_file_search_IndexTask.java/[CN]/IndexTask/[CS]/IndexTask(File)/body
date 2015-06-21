@@ -1,0 +1,5 @@
+{
+  this.root=searchRoot;
+  handler=new Handler();
+  index=new ArrayList<File>();
+}

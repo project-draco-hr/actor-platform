@@ -1,6 +1,30 @@
 {
   if (getIntent().getData() != null) {
-    joinGroupUrl=getIntent().getData().toString();
+    if (getIntent().getAction().equals(Intent.ACTION_VIEW)) {
+      joinGroupUrl=getIntent().getData().toString();
+    }
+  }
+  if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND)) {
+    sendUri=getIntent().getClipData().getItemAt(0).getUri().toString();
+  }
+  if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND_MULTIPLE)) {
+    ClipData clip=getIntent().getClipData();
+    for (int i=0; i < clip.getItemCount(); i++) {
+      sendUriMultiple.add(clip.getItemAt(i).getUri().toString());
+    }
+  }
+  if (getIntent().getExtras() != null) {
+    Bundle extras=getIntent().getExtras();
+    if (extras.containsKey("share_user")) {
+      shareUser=extras.getInt("share_user");
+    }
+ else     if (extras.containsKey("forward_text")) {
+      forwardText=extras.getString("forward_text");
+    }
+ else     if (extras.containsKey("forward_doc_descriptor")) {
+      forwardDocDescriptor=extras.getString("forward_doc_descriptor");
+      forwardDocIsDoc=extras.getBoolean("forward_doc_is_doc");
+    }
   }
   setContentView(R.layout.activity_main);
   getActivity().setSupportActionBar(((Toolbar)findViewById(R.id.toolbar)));

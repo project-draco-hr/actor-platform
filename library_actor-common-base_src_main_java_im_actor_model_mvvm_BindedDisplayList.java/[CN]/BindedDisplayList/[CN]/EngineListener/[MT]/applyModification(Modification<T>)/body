@@ -2,6 +2,7 @@
   MVVMEngine.runOnUiThread(new Runnable(){
     @Override public void run(){
       if (window.isInited()) {
+        if (linearLayoutCallback != null)         linearLayoutCallback.setStackFromEnd(false);
         editList(modification);
       }
  else {

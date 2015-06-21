@@ -1,0 +1,14 @@
+{
+  this.searchQuery=searchQuery;
+  String tempRegex=searchQuery.toLowerCase();
+  String[] splitedTempRegex=tempRegex.split("\\s+");
+  ArrayList<String> filtered=new ArrayList<String>();
+  for (  String s : splitedTempRegex) {
+    if (s != null && !s.equals("")) {
+      filtered.add(s);
+    }
+  }
+  tempRegex=filtered.toString().replaceAll("\\[","(").replaceAll("]",")").replaceAll(",","|").replaceAll("\\s+","").replaceAll("\\.","\\\\.");
+  this.strongRegex="(((.*)(\\s+))|(^))" + tempRegex + ".*";
+  this.mostStrongRegex="^" + tempRegex + ".*";
+}

@@ -1,0 +1,4 @@
+{
+  super(runnable);
+  secureInterval=JsInterval.create(runnable);
+}
