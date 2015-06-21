@@ -1,0 +1,12 @@
+{
+  long readState=modules().getMessagesModule().loadReadState(peer);
+  boolean isAlreadyRead=sortingDate <= readState;
+  if (contentDescription != null)   modules().getNotifications().onInMessage(peer,senderUid,sortingDate,contentDescription,hasCurrentUserMention,isAlreadyRead,isLastInDiff);
+  if (isAlreadyRead) {
+    return;
+  }
+  HashSet<UnreadMessage> unread=messagesStorage.getUnread(peer);
+  unread.add(new UnreadMessage(peer,rid,sortingDate));
+  saveStorage();
+  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
+}

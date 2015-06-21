@@ -14,7 +14,7 @@
   }
  else   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
-    messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());
+    messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage(),message.isLastInDiff());
     typingProcessor.onMessage(message.getPeer(),message.getSenderUid());
   }
  else   if (update instanceof UpdateMessageRead) {

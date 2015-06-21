@@ -1,8 +1,0 @@
-{
-  this.peer=peer;
-  this.rid=rid;
-  this.sortingDate=sortingDate;
-  this.senderUId=senderUId;
-  this.contentDescription=contentDescription;
-  this.hasCurrentUserMention=hasCurrentUserMention;
-}

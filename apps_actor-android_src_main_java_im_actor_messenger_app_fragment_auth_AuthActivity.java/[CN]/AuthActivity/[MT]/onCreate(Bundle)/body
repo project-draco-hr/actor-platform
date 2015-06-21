@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  authType=getIntent().getStringExtra("auth_type");
   if (savedInstanceState == null) {
     updateState();
   }

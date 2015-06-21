@@ -2,7 +2,7 @@
   StringBuilder str=new StringBuilder();
   int c=size();
   for (int i=0; i < c; i++) {
-    Long e=get(i);
+    Long e=buffer != null ? buffer.get(i) : get(i);
     str.append(e);
     if (i < (c - 1)) {
       str.append('~');

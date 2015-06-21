@@ -3,4 +3,10 @@
   linearLayoutManager=new CustomLinearLayoutManager(getActivity(),CustomLinearLayoutManager.VERTICAL,true);
   linearLayoutManager.setStackFromEnd(false);
   recyclerView.setLayoutManager(linearLayoutManager);
+  getDisplayList().setLinearLayoutCallback(new BindedDisplayList.LinearLayoutCallback(){
+    @Override public void setStackFromEnd(    boolean b){
+      if (linearLayoutManager != null)       linearLayoutManager.setStackFromEnd(b);
+    }
+  }
+);
 }

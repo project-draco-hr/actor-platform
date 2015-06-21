@@ -1,4 +1,5 @@
 {
   boolean ret=super.add(object);
+  if (buffer != null)   buffer.add(object);
   return ret;
 }
