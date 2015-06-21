@@ -1,5 +1,0 @@
-{
-  setLogProvider(new JavaLog());
-  setNetworkProvider(new JavaNetworkProvider());
-  setLocaleProvider(new JavaLocale(locale));
-}
