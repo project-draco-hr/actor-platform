@@ -1,0 +1,3 @@
+{
+  return obj != null && obj instanceof AngularListCallbackExporterImpl && jso.equals(((AngularListCallbackExporterImpl)obj).jso);
+}

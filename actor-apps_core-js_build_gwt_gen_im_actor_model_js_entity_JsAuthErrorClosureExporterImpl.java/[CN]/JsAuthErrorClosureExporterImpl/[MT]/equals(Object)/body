@@ -1,0 +1,3 @@
+{
+  return obj != null && obj instanceof JsAuthErrorClosureExporterImpl && jso.equals(((JsAuthErrorClosureExporterImpl)obj).jso);
+}

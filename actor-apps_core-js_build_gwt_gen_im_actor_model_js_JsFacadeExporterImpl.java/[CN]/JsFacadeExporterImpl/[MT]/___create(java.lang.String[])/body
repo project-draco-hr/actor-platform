@@ -1,0 +1,3 @@
+{
+  return new im.actor.model.js.JsFacade(a0);
+}
