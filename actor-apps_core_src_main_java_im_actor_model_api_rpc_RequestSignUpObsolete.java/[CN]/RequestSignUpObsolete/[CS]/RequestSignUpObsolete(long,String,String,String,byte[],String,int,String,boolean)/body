@@ -1,0 +1,11 @@
+{
+  this.phoneNumber=phoneNumber;
+  this.smsHash=smsHash;
+  this.smsCode=smsCode;
+  this.name=name;
+  this.deviceHash=deviceHash;
+  this.deviceTitle=deviceTitle;
+  this.appId=appId;
+  this.appKey=appKey;
+  this.isSilent=isSilent;
+}
