@@ -1,3 +1,0 @@
-{
-  return this.createAlternation_mja8cp_a(editorContext,node);
-}

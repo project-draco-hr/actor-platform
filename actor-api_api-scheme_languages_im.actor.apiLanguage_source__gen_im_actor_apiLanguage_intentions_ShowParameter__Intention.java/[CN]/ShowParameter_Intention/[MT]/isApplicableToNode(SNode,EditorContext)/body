@@ -1,3 +1,0 @@
-{
-  return !((SPropertyOperations.hasValue(node,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0xabaabdc394ebffaL,0x2aa6bc7b464747c1L,"category"),"full","hidden")));
-}

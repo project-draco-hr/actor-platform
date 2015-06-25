@@ -1,7 +1,0 @@
-{
-  ParameterCategory constant=ParameterCategory.parseValue(value);
-  if (constant != null) {
-    return constant.getName();
-  }
-  return "";
-}

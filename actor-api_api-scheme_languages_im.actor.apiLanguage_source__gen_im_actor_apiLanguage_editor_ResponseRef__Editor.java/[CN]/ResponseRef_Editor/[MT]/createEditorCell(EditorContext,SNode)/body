@@ -1,3 +1,0 @@
-{
-  return this.createAlternation_aizlrx_a(editorContext,node);
-}

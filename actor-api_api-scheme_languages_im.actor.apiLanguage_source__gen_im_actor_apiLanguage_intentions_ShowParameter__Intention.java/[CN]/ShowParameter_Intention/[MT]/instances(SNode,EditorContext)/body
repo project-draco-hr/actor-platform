@@ -1,6 +1,0 @@
-{
-  if (myCachedExecutable == null) {
-    myCachedExecutable=Collections.<IntentionExecutable>singletonList(new ShowParameter_Intention.IntentionImplementation());
-  }
-  return myCachedExecutable;
-}

@@ -1,3 +1,0 @@
-{
-  return "ResponseRef".equals(node + "");
-}

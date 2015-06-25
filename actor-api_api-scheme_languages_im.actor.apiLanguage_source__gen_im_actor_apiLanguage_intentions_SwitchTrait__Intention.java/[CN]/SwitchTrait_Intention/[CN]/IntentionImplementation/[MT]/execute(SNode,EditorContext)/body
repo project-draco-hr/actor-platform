@@ -1,3 +1,0 @@
-{
-  SPropertyOperations.set(node,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x49b8c233699cfad0L,0x5cfd033037d676eaL,"isContainer"),"" + (!(SPropertyOperations.getBoolean(node,MetaAdapterFactory.getProperty(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x49b8c233699cfad0L,0x5cfd033037d676eaL,"isContainer")))));
-}
