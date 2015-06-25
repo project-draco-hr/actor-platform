@@ -1,0 +1,15 @@
+{
+  if (category.equals("full")) {
+    return ParameterCategory.VISIBLE;
+  }
+ else   if (category.equals("hidden")) {
+    return ParameterCategory.HIDDEN;
+  }
+ else   if (category.equals("danger")) {
+    return ParameterCategory.DANGER;
+  }
+ else   if (category.equals("compact")) {
+    return ParameterCategory.COMPACT;
+  }
+  throw new IOException();
+}

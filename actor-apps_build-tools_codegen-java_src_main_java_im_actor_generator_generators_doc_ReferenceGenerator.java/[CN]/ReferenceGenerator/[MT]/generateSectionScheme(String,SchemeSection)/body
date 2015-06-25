@@ -1,0 +1,7 @@
+{
+  String body="<pre style=\"border:0px; white-space: nowrap;\">\n";
+  for (  SchemeRecord record : section.getRecords()) {
+    body+=generateRecordDefinition(record,path) + "<br/>";
+  }
+  return body + "</pre>";
+}

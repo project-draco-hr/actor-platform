@@ -1,0 +1,5 @@
+{
+  for (  SchemeAttribute enrec : container.getAttributes()) {
+    generator.appendLn(getType(definition,enrec.getType(),true) + " " + enrec.getName()+ " = "+ enrec.getId()+ ";");
+  }
+}

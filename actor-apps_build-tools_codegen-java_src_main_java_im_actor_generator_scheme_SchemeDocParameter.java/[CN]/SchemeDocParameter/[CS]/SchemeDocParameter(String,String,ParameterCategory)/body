@@ -1,0 +1,5 @@
+{
+  this.argument=argument;
+  this.description=description.trim();
+  this.category=category;
+}

@@ -1,0 +1,18 @@
+{
+  generator.appendLn("@Override");
+  generator.appendLn("public void parse(BserValues values) throws IOException {");
+  generator.increaseDepth();
+  for (  SchemeAttribute attribute : container.getFilteredAttributes()) {
+    generateDeserialization(generator,attribute.getId(),attribute.getName(),attribute.getType(),definition);
+  }
+  if (isExpandable) {
+    generator.appendLn("if (values.hasRemaining()) {");
+    generator.increaseDepth();
+    generator.appendLn("setUnmappedObjects(values.buildRemaining());");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+  }
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn();
+}

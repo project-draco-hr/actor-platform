@@ -1,0 +1,14 @@
+{
+  String res=color("rpc",KEYWORD) + " " + link(u.getName(),pathToReference + "Rpc" + u.getName()+ ".html")+ " "+ generateAttributes(u.getAttributes(),pathToReference,useNoBreak);
+  res+=" -> ";
+  if (u.getResponse() instanceof SchemeRpc.AnonymousResponse) {
+    SchemeRpc.AnonymousResponse resp=(SchemeRpc.AnonymousResponse)u.getResponse();
+    res+=color("tuple",KEYWORD) + color("@" + hex(u.getHeader()),HEADER);
+    res+=generateAttributes(resp.getResponse().getAttributes(),pathToReference,false);
+  }
+ else {
+    SchemeRpc.RefResponse refResponse=(SchemeRpc.RefResponse)u.getResponse();
+    res+=link(refResponse.getName(),"Response" + refResponse.getName() + ".html");
+  }
+  return res;
+}

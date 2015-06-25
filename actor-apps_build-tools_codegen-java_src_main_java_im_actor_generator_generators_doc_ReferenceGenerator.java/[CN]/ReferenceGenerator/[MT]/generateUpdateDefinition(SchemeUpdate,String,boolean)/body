@@ -1,0 +1,3 @@
+{
+  return color("update",KEYWORD) + " " + link(u.getName(),pathToReference + "Update" + u.getName()+ ".html")+ color("@" + hex(u.getHeader()),HEADER)+ " "+ generateAttributes(u.getAttributes(),pathToReference,useNoBreak);
+}

@@ -1,0 +1,5 @@
+FileGenerator generator
+String attributeName
+SchemeType type
+SchemeDefinition definition
+ParameterCategory category

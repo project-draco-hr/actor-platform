@@ -1,0 +1,5 @@
+{
+  String res="tuple GetOAuth2Params{";
+  res+="}";
+  return res;
+}

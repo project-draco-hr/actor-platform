@@ -1,0 +1,74 @@
+{
+  type=JavaConfig.reduceAlias(type,definition);
+  if (type instanceof SchemePrimitiveType) {
+    SchemePrimitiveType primitiveType=(SchemePrimitiveType)type;
+    if (primitiveType.getName().equals("bytes")) {
+      if (category == ParameterCategory.COMPACT) {
+        generator.append("byteArrayToStringCompact(this." + attributeName + ")");
+      }
+ else {
+        generator.append("byteArrayToString(this." + attributeName + ")");
+      }
+    }
+ else {
+      generator.append("this." + attributeName);
+    }
+  }
+ else   if (type instanceof SchemeStructType) {
+    if (category == ParameterCategory.COMPACT) {
+      generator.append("(this." + attributeName + " != null ? \"set\":\"empty\")");
+    }
+ else {
+      generator.append("this." + attributeName);
+    }
+  }
+ else   if (type instanceof SchemeEnumType) {
+    generator.append("this." + attributeName);
+  }
+ else   if (type instanceof SchemeOptionalType) {
+    SchemeOptionalType optType=(SchemeOptionalType)type;
+    SchemeType childType=JavaConfig.reduceAlias(optType.getType(),definition);
+    if (category == ParameterCategory.COMPACT) {
+      if (childType instanceof SchemePrimitiveType) {
+        SchemePrimitiveType primitiveType=(SchemePrimitiveType)childType;
+        if (primitiveType.getName().equals("bytes")) {
+          generator.append("byteArrayToStringCompact(this." + attributeName + ")");
+        }
+ else {
+          generator.append("this." + attributeName);
+        }
+      }
+ else       if (childType instanceof SchemeStructType) {
+        generator.append("(this." + attributeName + " != null ? \"set\":\"empty\")");
+      }
+ else       if (childType instanceof SchemeEnumType) {
+        generator.append("this." + attributeName);
+      }
+ else       if (childType instanceof SchemeTraitType) {
+        generator.append("(this." + attributeName + " != null ? \"set\":\"empty\")");
+      }
+    }
+ else {
+      generator.append("this." + attributeName);
+    }
+  }
+ else   if (type instanceof SchemeListType) {
+    if (category == ParameterCategory.COMPACT) {
+      generator.append("this." + attributeName + ".size()");
+    }
+ else {
+      generator.append("this." + attributeName);
+    }
+  }
+ else   if (type instanceof SchemeTraitType) {
+    if (category == ParameterCategory.COMPACT) {
+      generator.append("(this." + attributeName + " != null ? \"set\":\"empty\")");
+    }
+ else {
+      generator.append("this." + attributeName);
+    }
+  }
+ else {
+    throw new IOException();
+  }
+}

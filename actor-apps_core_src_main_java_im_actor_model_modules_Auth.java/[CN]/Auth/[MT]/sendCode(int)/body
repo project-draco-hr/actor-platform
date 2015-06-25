@@ -1,0 +1,30 @@
+{
+  return new Command<AuthState>(){
+    @Override public void start(    final CommandCallback<AuthState> callback){
+      request(new RequestSignInObsolete(preferences().getLong(KEY_PHONE,0),preferences().getString(KEY_SMS_HASH),code + "",deviceHash,apiConfiguration.getDeviceTitle(),apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseAuth>(){
+        @Override public void onResult(        ResponseAuth response){
+          onLoggedIn(callback,response);
+        }
+        @Override public void onError(        final RpcException e){
+          if ("PHONE_CODE_EXPIRED".equals(e.getTag())) {
+            resetAuth();
+          }
+ else           if ("PHONE_NUMBER_UNOCCUPIED".equals(e.getTag())) {
+            preferences().putInt(KEY_SMS_CODE,code);
+            state=AuthState.SIGN_UP;
+            callback.onResult(AuthState.SIGN_UP);
+            return;
+          }
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

@@ -1,0 +1,50 @@
+{
+  type=reduceAlias(type,definition);
+  if (type instanceof SchemePrimitiveType) {
+    return JavaConfig.mapPrimitiveType((SchemePrimitiveType)type);
+  }
+ else   if (type instanceof SchemeStructType) {
+    return getStructName(((SchemeStructType)type).getType());
+  }
+ else   if (type instanceof SchemeListType) {
+    SchemeListType listType=(SchemeListType)type;
+    SchemeType childType=reduceAlias(listType.getType(),definition);
+    if (childType instanceof SchemePrimitiveType) {
+      return "List<" + mapPrimitiveReferenceType((SchemePrimitiveType)childType) + ">";
+    }
+ else     if (childType instanceof SchemeStructType) {
+      return "List<" + getStructName(((SchemeStructType)childType).getType()) + ">";
+    }
+ else {
+      throw new IOException();
+    }
+  }
+ else   if (type instanceof SchemeOptionalType) {
+    SchemeOptionalType optionalType=(SchemeOptionalType)type;
+    SchemeType childType=reduceAlias(optionalType.getType(),definition);
+    if (childType instanceof SchemePrimitiveType) {
+      return mapPrimitiveReferenceType((SchemePrimitiveType)childType);
+    }
+ else     if (childType instanceof SchemeStructType) {
+      return getStructName(((SchemeStructType)childType).getType());
+    }
+ else     if (childType instanceof SchemeEnumType) {
+      return getEnumName(((SchemeEnumType)childType).getName());
+    }
+ else     if (childType instanceof SchemeTraitType) {
+      return getStructName(((SchemeTraitType)childType).getTraitName());
+    }
+ else {
+      throw new IOException();
+    }
+  }
+ else   if (type instanceof SchemeEnumType) {
+    return getEnumName(((SchemeEnumType)type).getName());
+  }
+ else   if (type instanceof SchemeTraitType) {
+    return getStructName(((SchemeTraitType)type).getTraitName());
+  }
+ else {
+    throw new IOException();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  if (Core.core().getHockeyToken() != null) {
+    UpdateManager.register(this,Core.core().getHockeyToken());
+  }
+}

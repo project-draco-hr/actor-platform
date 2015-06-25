@@ -1,0 +1,5 @@
+{
+  this.transactionHash=values.getString(1);
+  this.isRegistered=values.getBool(2);
+  this.activationType=EmailActivationType.parse(values.getInt(3));
+}

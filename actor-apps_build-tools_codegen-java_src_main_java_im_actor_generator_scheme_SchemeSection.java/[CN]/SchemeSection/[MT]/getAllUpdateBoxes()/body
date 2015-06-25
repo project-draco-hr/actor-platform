@@ -1,0 +1,9 @@
+{
+  ArrayList<SchemeUpdateBox> res=new ArrayList<SchemeUpdateBox>();
+  for (  SchemeRecord record : records) {
+    if (record instanceof SchemeUpdateBox) {
+      res.add((SchemeUpdateBox)record);
+    }
+  }
+  return res;
+}

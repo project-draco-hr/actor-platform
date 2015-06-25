@@ -1,0 +1,7 @@
+{
+  for (  SchemeAttribute attribute : container.getFilteredAttributes()) {
+    generator.append("private ");
+    generator.append(JavaConfig.convertType(definition,attribute.getType()));
+    generator.appendLn(" " + attribute.getName() + ";");
+  }
+}

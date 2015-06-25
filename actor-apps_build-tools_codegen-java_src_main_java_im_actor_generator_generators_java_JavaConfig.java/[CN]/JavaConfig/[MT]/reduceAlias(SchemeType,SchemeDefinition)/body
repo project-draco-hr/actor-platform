@@ -1,0 +1,8 @@
+{
+  if (type instanceof SchemeAliasType) {
+    return reduceAlias(definition.getAliases().get(((SchemeAliasType)type).getName()),definition);
+  }
+ else {
+    return type;
+  }
+}

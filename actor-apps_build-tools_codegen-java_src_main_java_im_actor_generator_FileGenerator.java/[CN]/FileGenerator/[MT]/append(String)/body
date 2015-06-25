@@ -1,0 +1,11 @@
+{
+  if (isFirstData) {
+    String padding="";
+    for (int i=0; i < depth; i++) {
+      padding+="    ";
+    }
+    stream.append(padding);
+    isFirstData=false;
+  }
+  stream.append(value);
+}

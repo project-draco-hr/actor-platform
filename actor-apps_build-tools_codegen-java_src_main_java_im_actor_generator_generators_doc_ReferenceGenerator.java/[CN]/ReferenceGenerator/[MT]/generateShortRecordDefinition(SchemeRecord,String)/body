@@ -1,0 +1,27 @@
+{
+  if (record instanceof SchemeUpdate) {
+    SchemeUpdate u=(SchemeUpdate)record;
+    return color("update",KEYWORD) + " " + link(u.getName(),path + "Update" + u.getName()+ ".html");
+  }
+ else   if (record instanceof SchemeStruct) {
+    SchemeStruct s=(SchemeStruct)record;
+    return color("struct",KEYWORD) + " " + link(s.getName(),path + "Struct" + s.getName()+ ".html");
+  }
+ else   if (record instanceof SchemeEnum) {
+    SchemeEnum e=(SchemeEnum)record;
+    return color("enum",KEYWORD) + " " + link(e.getName(),path + "Enum" + e.getName()+ ".html");
+  }
+ else   if (record instanceof SchemeRpc) {
+    SchemeRpc rpc=(SchemeRpc)record;
+    return color("rpc",KEYWORD) + " " + link(rpc.getName(),path + "Rpc" + rpc.getName()+ ".html");
+  }
+ else   if (record instanceof SchemeResponse) {
+    SchemeResponse r=(SchemeResponse)record;
+    return color("response",KEYWORD) + " " + link(r.getName(),path + "Response" + r.getName()+ ".html");
+  }
+ else   if (record instanceof SchemeUpdateBox) {
+    SchemeUpdateBox r=(SchemeUpdateBox)record;
+    return color("update box",KEYWORD) + " " + link(r.getName(),path + "UpdateBox" + r.getName()+ ".html");
+  }
+  return "";
+}

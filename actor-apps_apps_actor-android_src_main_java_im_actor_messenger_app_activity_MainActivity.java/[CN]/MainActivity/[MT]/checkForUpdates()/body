@@ -1,5 +1,0 @@
-{
-  if (BuildConfig.HOCKEY != null) {
-    UpdateManager.register(this,BuildConfig.HOCKEY);
-  }
-}

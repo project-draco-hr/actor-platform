@@ -1,0 +1,30 @@
+{
+  return new Command<AuthState>(){
+    @Override public void start(    final CommandCallback<AuthState> callback){
+      modules().getAnalytics().trackCodeRequest(phone);
+      request(new RequestSendAuthCodeObsolete(phone,apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseSendAuthCodeObsolete>(){
+        @Override public void onResult(        final ResponseSendAuthCodeObsolete response){
+          preferences().putLong(KEY_PHONE,phone);
+          preferences().putString(KEY_SMS_HASH,response.getSmsHash());
+          state=AuthState.CODE_VALIDATION;
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onResult(state);
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

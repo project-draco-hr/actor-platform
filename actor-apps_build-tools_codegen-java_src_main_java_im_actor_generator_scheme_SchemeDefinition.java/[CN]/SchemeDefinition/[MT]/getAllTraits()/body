@@ -1,0 +1,7 @@
+{
+  List<SchemeTrait> res=new ArrayList<SchemeTrait>();
+  for (  SchemeSection section : sections) {
+    res.addAll(section.getAllTraits());
+  }
+  return res;
+}
