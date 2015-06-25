@@ -1,0 +1,6 @@
+{
+  if (myCachedExecutable == null) {
+    myCachedExecutable=Collections.<IntentionExecutable>singletonList(new SwitchTrait_Intention.IntentionImplementation());
+  }
+  return myCachedExecutable;
+}

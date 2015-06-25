@@ -1,0 +1,6 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"update box");
+  editorCell.setCellId("Constant_436jad_c0");
+  editorCell.setDefaultText("");
+  return editorCell;
+}

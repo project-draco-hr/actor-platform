@@ -1,0 +1,24 @@
+{
+  generator.appendLn("@Override");
+  generator.appendLn("public void serialize(BserWriter writer) throws IOException {");
+  generator.increaseDepth();
+  for (  SchemeAttribute attribute : container.getFilteredAttributes()) {
+    generateSerialization(generator,attribute.getId(),attribute.getName(),attribute.getType(),definition);
+  }
+  if (isExpandable) {
+    generator.appendLn("if (this.getUnmappedObjects() != null) {");
+    generator.increaseDepth();
+    generator.appendLn("SparseArray<Object> unmapped = this.getUnmappedObjects();");
+    generator.appendLn("for (int i = 0; i < unmapped.size(); i++) {");
+    generator.increaseDepth();
+    generator.appendLn("int key = unmapped.keyAt(i);");
+    generator.appendLn("writer.writeUnmapped(key, unmapped.get(key));");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+  }
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn();
+}

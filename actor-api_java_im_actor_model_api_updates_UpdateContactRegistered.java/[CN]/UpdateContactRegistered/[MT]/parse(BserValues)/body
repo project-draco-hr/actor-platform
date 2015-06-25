@@ -1,0 +1,6 @@
+{
+  this.uid=values.getInt(1);
+  this.isSilent=values.getBool(2);
+  this.date=values.getLong(3);
+  this.rid=values.getLong(4);
+}

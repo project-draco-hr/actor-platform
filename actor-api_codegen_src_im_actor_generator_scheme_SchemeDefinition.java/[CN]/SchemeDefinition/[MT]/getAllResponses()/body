@@ -1,0 +1,7 @@
+{
+  ArrayList<SchemeBaseResponse> res=new ArrayList<SchemeBaseResponse>();
+  for (  SchemeSection section : sections) {
+    res.addAll(section.getAllResponses());
+  }
+  return res;
+}

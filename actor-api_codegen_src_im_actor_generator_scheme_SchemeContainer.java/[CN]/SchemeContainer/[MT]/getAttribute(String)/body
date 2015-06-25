@@ -1,0 +1,8 @@
+{
+  for (  SchemeAttribute attribute : attributes) {
+    if (attribute.getName().equals(name)) {
+      return attribute;
+    }
+  }
+  return null;
+}

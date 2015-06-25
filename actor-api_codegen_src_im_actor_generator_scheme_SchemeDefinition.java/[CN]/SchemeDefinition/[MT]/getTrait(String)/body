@@ -1,0 +1,8 @@
+{
+  for (  SchemeTrait trait : getAllTraits()) {
+    if (trait.getName().equals(name)) {
+      return trait;
+    }
+  }
+  throw new RuntimeException("Unable to find trait");
+}

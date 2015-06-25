@@ -1,0 +1,9 @@
+{
+  ArrayList<SchemeTrait> res=new ArrayList<SchemeTrait>();
+  for (  SchemeRecord record : records) {
+    if (record instanceof SchemeTrait) {
+      res.add((SchemeTrait)record);
+    }
+  }
+  return res;
+}

@@ -1,0 +1,8 @@
+{
+  String res="update MessageRead{";
+  res+="peer=" + this.peer;
+  res+=", startDate=" + this.startDate;
+  res+=", readDate=" + this.readDate;
+  res+="}";
+  return res;
+}

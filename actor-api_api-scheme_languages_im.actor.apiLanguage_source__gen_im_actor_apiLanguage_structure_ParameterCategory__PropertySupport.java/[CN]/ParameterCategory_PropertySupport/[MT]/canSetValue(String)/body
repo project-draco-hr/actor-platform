@@ -1,0 +1,13 @@
+{
+  if (value == null) {
+    return true;
+  }
+  Iterator<ParameterCategory> constants=ListSequence.fromList(ParameterCategory.getConstants()).iterator();
+  while (constants.hasNext()) {
+    ParameterCategory constant=constants.next();
+    if (value.equals(constant.getName())) {
+      return true;
+    }
+  }
+  return false;
+}

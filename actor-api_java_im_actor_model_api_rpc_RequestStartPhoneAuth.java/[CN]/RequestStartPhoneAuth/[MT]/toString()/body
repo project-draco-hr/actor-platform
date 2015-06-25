@@ -1,0 +1,8 @@
+{
+  String res="rpc StartPhoneAuth{";
+  res+="phoneNumber=" + this.phoneNumber;
+  res+=", deviceHash=" + byteArrayToString(this.deviceHash);
+  res+=", deviceTitle=" + this.deviceTitle;
+  res+="}";
+  return res;
+}

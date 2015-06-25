@@ -1,0 +1,15 @@
+{
+  ArrayList<SchemeBaseResponse> res=new ArrayList<SchemeBaseResponse>();
+  for (  SchemeRecord record : records) {
+    if (record instanceof SchemeResponse) {
+      res.add((SchemeResponse)record);
+    }
+ else     if (record instanceof SchemeRpc) {
+      SchemeRpc.AbsResponse response=((SchemeRpc)record).getResponse();
+      if (response instanceof SchemeRpc.AnonymousResponse) {
+        res.add(((SchemeRpc.AnonymousResponse)response).getResponse());
+      }
+    }
+  }
+  return res;
+}

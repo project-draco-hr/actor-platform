@@ -1,0 +1,3 @@
+List<Group> groups
+List<User> users
+List<Dialog> dialogs

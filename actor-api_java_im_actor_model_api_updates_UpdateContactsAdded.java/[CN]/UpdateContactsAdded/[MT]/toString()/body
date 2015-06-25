@@ -1,0 +1,6 @@
+{
+  String res="update ContactsAdded{";
+  res+="uids=" + this.uids.size();
+  res+="}";
+  return res;
+}

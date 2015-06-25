@@ -1,0 +1,7 @@
+{
+  String res="update MessageDelete{";
+  res+="peer=" + this.peer;
+  res+=", rids=" + this.rids;
+  res+="}";
+  return res;
+}

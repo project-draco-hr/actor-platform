@@ -1,0 +1,5 @@
+FileGenerator generator
+int attributeId
+String attributeName
+SchemeType type
+SchemeDefinition definition

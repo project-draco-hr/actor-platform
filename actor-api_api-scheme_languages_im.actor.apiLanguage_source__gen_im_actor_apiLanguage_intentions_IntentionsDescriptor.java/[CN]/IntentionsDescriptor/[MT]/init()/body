@@ -1,0 +1,10 @@
+{
+  IntentionsManager.getInstance().registerIntentionFactory(new DangerParameter_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new HideParameter_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new ShowParameter_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new ShrinkParameter_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new SwitchTrait_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new ToggleDeprecated_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new ToggleExpandable_Intention());
+  IntentionsManager.getInstance().registerIntentionFactory(new ToggleImplements_Intention());
+}

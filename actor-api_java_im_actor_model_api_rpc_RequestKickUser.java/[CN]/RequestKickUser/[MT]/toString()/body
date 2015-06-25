@@ -1,0 +1,8 @@
+{
+  String res="rpc KickUser{";
+  res+="groupPeer=" + this.groupPeer;
+  res+=", rid=" + this.rid;
+  res+=", user=" + this.user;
+  res+="}";
+  return res;
+}

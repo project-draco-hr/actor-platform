@@ -1,0 +1,12 @@
+{
+  List<PhoneToImport> _phones=new ArrayList<PhoneToImport>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _phones.add(new PhoneToImport());
+  }
+  this.phones=values.getRepeatedObj(1,_phones);
+  List<EmailToImport> _emails=new ArrayList<EmailToImport>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _emails.add(new EmailToImport());
+  }
+  this.emails=values.getRepeatedObj(2,_emails);
+}

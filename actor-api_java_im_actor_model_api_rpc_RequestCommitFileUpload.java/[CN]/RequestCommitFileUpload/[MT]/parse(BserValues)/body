@@ -1,0 +1,4 @@
+{
+  this.uploadKey=values.getBytes(1);
+  this.fileName=values.getString(2);
+}

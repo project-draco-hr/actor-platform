@@ -1,0 +1,6 @@
+{
+  if (!(isApplicableToNode(node,editorContext))) {
+    return false;
+  }
+  return true;
+}

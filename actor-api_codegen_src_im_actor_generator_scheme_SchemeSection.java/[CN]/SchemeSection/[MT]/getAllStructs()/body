@@ -1,0 +1,9 @@
+{
+  ArrayList<SchemeStruct> res=new ArrayList<SchemeStruct>();
+  for (  SchemeRecord record : records) {
+    if (record instanceof SchemeStruct) {
+      res.add((SchemeStruct)record);
+    }
+  }
+  return res;
+}

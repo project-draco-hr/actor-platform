@@ -1,0 +1,8 @@
+{
+  this.w=values.getInt(1);
+  this.h=values.getInt(2);
+  this.duration=values.getInt(3);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

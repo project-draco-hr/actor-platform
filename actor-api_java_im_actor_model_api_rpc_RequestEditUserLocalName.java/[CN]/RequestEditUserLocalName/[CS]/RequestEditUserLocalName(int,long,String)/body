@@ -1,0 +1,5 @@
+{
+  this.uid=uid;
+  this.accessHash=accessHash;
+  this.name=name;
+}

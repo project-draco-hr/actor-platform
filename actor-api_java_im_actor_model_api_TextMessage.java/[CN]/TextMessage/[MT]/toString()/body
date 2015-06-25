@@ -1,0 +1,7 @@
+{
+  String res="struct TextMessage{";
+  res+="mentions=" + this.mentions;
+  res+=", ext=" + this.ext;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,4 @@
+long phoneNumber
+String smsHash
+int appId
+String apiKey

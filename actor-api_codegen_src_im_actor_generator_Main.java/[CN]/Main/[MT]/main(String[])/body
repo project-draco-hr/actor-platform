@@ -1,0 +1,23 @@
+{
+  System.out.println("Actor Api scheme serialization generator");
+  if (args.length < 1) {
+    System.out.println("No file specified. Exiting.");
+    return;
+  }
+  System.out.println("Reading schema from file...");
+  String workingDir=new File(args[0]).getParent();
+  SchemeDefinition definition=SchemeFactory.fromFile(args[0]);
+  System.out.println("Generating java files...");
+  String destJava=workingDir + "/java/";
+  FileUtils.forceDelete(new File(destJava));
+  new File(destJava).mkdirs();
+  EnumGenerator.generate(definition,destJava);
+  UpdateGenerator.generate(definition,destJava);
+  UpdateGenerator.generateParser(definition,destJava);
+  StructGenerator.generate(definition,destJava);
+  RequestGenerator.generate(definition,destJava);
+  RequestGenerator.generateParser(definition,destJava);
+  UpdateBoxGenerator.generate(definition,destJava);
+  MetaGenerator.generate(definition,destJava);
+  System.out.println("Success");
+}

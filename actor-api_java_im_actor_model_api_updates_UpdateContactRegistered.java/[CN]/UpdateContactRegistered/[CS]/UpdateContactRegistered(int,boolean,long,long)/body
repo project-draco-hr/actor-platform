@@ -1,0 +1,6 @@
+{
+  this.uid=uid;
+  this.isSilent=isSilent;
+  this.date=date;
+  this.rid=rid;
+}

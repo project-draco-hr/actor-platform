@@ -1,0 +1,5 @@
+{
+  this.peer=peer;
+  this.minDate=minDate;
+  this.limit=limit;
+}

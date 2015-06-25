@@ -1,0 +1,6 @@
+{
+  String res="rpc RemoveContact{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

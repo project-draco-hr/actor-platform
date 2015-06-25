@@ -1,0 +1,9 @@
+{
+  ArrayList<SchemeRpc> res=new ArrayList<SchemeRpc>();
+  for (  SchemeRecord record : records) {
+    if (record instanceof SchemeRpc) {
+      res.add((SchemeRpc)record);
+    }
+  }
+  return res;
+}

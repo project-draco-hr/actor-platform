@@ -1,0 +1,9 @@
+{
+  this.phoneNumber=values.getLong(1);
+  this.smsHash=values.getString(2);
+  this.smsCode=values.getString(3);
+  this.deviceHash=values.getBytes(5);
+  this.deviceTitle=values.getString(6);
+  this.appId=values.getInt(7);
+  this.appKey=values.getString(8);
+}

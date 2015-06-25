@@ -1,0 +1,10 @@
+{
+  this.type=ContactType.parse(values.getInt(1));
+  this.stringValue=values.optString(2);
+  this.longValue=values.optLong(3);
+  this.title=values.optString(4);
+  this.subtitle=values.optString(5);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

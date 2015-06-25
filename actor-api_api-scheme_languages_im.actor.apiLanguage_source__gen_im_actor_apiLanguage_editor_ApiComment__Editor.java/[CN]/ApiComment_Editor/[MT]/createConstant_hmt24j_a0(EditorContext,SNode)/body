@@ -1,0 +1,10 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"//");
+  editorCell.setCellId("Constant_hmt24j_a0");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.TEXT_COLOR,0,StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_GREEN));
+  style.set(StyleAttributes.FONT_STYLE,0,MPSFonts.ITALIC);
+  editorCell.getStyle().putAll(style);
+  editorCell.setDefaultText("");
+  return editorCell;
+}

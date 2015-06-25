@@ -1,0 +1,11 @@
+{
+  for (  SchemeDoc doc : docs) {
+    if (doc instanceof SchemeDocParameter) {
+      SchemeDocParameter docParameter=(SchemeDocParameter)doc;
+      if (docParameter.getArgument().equals(name)) {
+        return docParameter.getCategory();
+      }
+    }
+  }
+  return ParameterCategory.HIDDEN;
+}

@@ -1,0 +1,5 @@
+{
+  this.transactionHash=transactionHash;
+  this.isRegistered=isRegistered;
+  this.activationType=activationType;
+}

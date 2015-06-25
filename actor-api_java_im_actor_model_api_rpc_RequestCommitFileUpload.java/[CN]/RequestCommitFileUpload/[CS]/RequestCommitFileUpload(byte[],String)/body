@@ -1,0 +1,4 @@
+{
+  this.uploadKey=uploadKey;
+  this.fileName=fileName;
+}

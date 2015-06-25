@@ -1,0 +1,6 @@
+{
+  EditorCell emptyCell=null;
+  emptyCell=super.createEmptyCell(editorContext);
+  this.installElementCellActions(super.getOwner(),null,emptyCell,editorContext);
+  return emptyCell;
+}

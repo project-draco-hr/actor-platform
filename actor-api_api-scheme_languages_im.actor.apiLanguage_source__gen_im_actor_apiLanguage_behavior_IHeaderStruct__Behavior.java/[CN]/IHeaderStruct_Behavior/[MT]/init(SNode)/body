@@ -1,0 +1,3 @@
+{
+  SLinkOperations.setTarget(thisNode,MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b6914154L,0x4114dc2d726d3416L,"header"),SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x4114dc2d726c9c8eL,"im.actor.apiLanguage.structure.HeaderKey"))));
+}

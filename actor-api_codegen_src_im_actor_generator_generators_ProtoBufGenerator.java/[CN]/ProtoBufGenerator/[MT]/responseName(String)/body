@@ -1,0 +1,8 @@
+{
+  if (name.startsWith("Request")) {
+    return "Response" + name.substring("Request".length());
+  }
+ else {
+    return "Response" + name;
+  }
+}

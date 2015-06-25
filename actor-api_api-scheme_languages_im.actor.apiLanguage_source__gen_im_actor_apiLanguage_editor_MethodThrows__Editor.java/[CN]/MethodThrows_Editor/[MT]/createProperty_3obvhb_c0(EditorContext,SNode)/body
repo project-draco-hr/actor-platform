@@ -1,0 +1,16 @@
+{
+  CellProviderWithRole provider=new PropertyCellProvider(node,editorContext);
+  provider.setRole("errorCode");
+  provider.setNoTargetText("<no errorCode>");
+  EditorCell editorCell;
+  editorCell=provider.createEditorCell(editorContext);
+  editorCell.setCellId("property_errorCode");
+  editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+  SNode attributeConcept=provider.getRoleAttribute();
+  Class attributeKind=provider.getRoleAttributeClass();
+  if (attributeConcept != null) {
+    EditorManager manager=EditorManager.getInstanceFromContext(editorContext);
+    return manager.createNodeRoleAttributeCell(editorContext,attributeConcept,attributeKind,editorCell);
+  }
+ else   return editorCell;
+}

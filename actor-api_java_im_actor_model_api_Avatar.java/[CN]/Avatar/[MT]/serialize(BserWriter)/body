@@ -1,0 +1,18 @@
+{
+  if (this.smallImage != null) {
+    writer.writeObject(1,this.smallImage);
+  }
+  if (this.largeImage != null) {
+    writer.writeObject(2,this.largeImage);
+  }
+  if (this.fullImage != null) {
+    writer.writeObject(3,this.fullImage);
+  }
+  if (this.getUnmappedObjects() != null) {
+    SparseArray<Object> unmapped=this.getUnmappedObjects();
+    for (int i=0; i < unmapped.size(); i++) {
+      int key=unmapped.keyAt(i);
+      writer.writeUnmapped(key,unmapped.get(key));
+    }
+  }
+}

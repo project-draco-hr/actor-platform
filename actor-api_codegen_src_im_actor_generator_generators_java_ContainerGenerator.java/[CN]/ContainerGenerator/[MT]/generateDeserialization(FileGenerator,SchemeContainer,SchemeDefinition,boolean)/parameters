@@ -1,0 +1,4 @@
+FileGenerator generator
+SchemeContainer container
+SchemeDefinition definition
+boolean isExpandable

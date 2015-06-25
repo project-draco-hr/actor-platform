@@ -1,0 +1,7 @@
+{
+  this.phoneNumber=values.getLong(1);
+  this.appId=values.getInt(2);
+  this.apiKey=values.getString(3);
+  this.deviceHash=values.getBytes(4);
+  this.deviceTitle=values.getString(5);
+}

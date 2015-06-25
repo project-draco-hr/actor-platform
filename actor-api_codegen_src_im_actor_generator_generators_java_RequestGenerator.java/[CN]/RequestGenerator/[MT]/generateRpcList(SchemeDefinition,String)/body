@@ -1,0 +1,116 @@
+{
+  String destFolder=path + "/" + JavaConfig.PATH+ "/";
+  new File(destFolder).mkdirs();
+  FileGenerator generator=new FileGenerator(destFolder + "/ApiRequests.java");
+  generator.appendLn("package " + JavaConfig.PACKAGE + ";");
+  generator.appendLn(JavaConfig.NOTICE);
+  generator.appendLn();
+  for (  String im : JavaConfig.IMPORTS) {
+    generator.appendLn("import " + im + ";");
+  }
+  generator.appendLn("import " + JavaConfig.PACKAGE + ".rpc.*;");
+  generator.appendLn("import im.actor.api.*;");
+  generator.appendLn("import com.droidkit.actors.concurrency.Future;");
+  generator.appendLn("import com.droidkit.actors.concurrency.FutureCallback;");
+  generator.appendLn("import java.util.concurrent.TimeoutException;");
+  generator.appendLn();
+  generator.appendLn("public class ApiRequests {");
+  generator.increaseDepth();
+  generator.appendLn("private ActorApi api;");
+  generator.appendLn();
+  generator.appendLn("public ApiRequests(ActorApi api) {");
+  generator.increaseDepth();
+  generator.appendLn("this.api = api;");
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.appendLn();
+  for (  SchemeRpc u : definition.getAllRpc()) {
+    String javaName=JavaConfig.getRequestName(u.getName());
+    String responseJavaName;
+    if (u.getResponse() instanceof SchemeRpc.RefResponse) {
+      responseJavaName=JavaConfig.getResponseName(((SchemeRpc.RefResponse)u.getResponse()).getName());
+    }
+ else {
+      responseJavaName=JavaConfig.getAnonymousResponseName(u.getName());
+    }
+    generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
+    if (u.getAttributes().size() > 0) {
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
+    }
+    generator.appendLn(") {");
+    generator.increaseDepth();
+    generator.append("return this.api.rpc(new " + javaName + "(");
+    ContainerGenerator.generateConstructorArgsValues(generator,u);
+    generator.appendLn("));");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+    generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
+    if (u.getAttributes().size() > 0) {
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
+      generator.append(", ");
+    }
+    generator.appendLn("long requestTimeout) {");
+    generator.increaseDepth();
+    generator.append("return this.api.rpc(new " + javaName + "(");
+    ContainerGenerator.generateConstructorArgsValues(generator,u);
+    generator.appendLn("), requestTimeout);");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+    generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
+    if (u.getAttributes().size() > 0) {
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
+      generator.append(", ");
+    }
+    generator.appendLn("FutureCallback<" + responseJavaName + "> callback) {");
+    generator.increaseDepth();
+    generator.append("return this.api.rpc(new " + javaName + "(");
+    ContainerGenerator.generateConstructorArgsValues(generator,u);
+    generator.appendLn("), callback);");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+    generator.append("public Future<" + responseJavaName + "> "+ JavaConfig.getRequestsName(u.getName())+ "(");
+    if (u.getAttributes().size() > 0) {
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
+      generator.append(", ");
+    }
+    generator.appendLn("long requestTimeout, FutureCallback<" + responseJavaName + "> callback) {");
+    generator.increaseDepth();
+    generator.append("return this.api.rpc(new " + javaName + "(");
+    ContainerGenerator.generateConstructorArgsValues(generator,u);
+    generator.appendLn("), requestTimeout, callback);");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+    generator.append("public " + responseJavaName + " "+ JavaConfig.getRequestsName(u.getName())+ "Sync (");
+    if (u.getAttributes().size() > 0) {
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
+    }
+    generator.appendLn(") throws TimeoutException, ApiRequestException {");
+    generator.increaseDepth();
+    generator.append("return this.api.rpcSync(new " + javaName + "(");
+    ContainerGenerator.generateConstructorArgsValues(generator,u);
+    generator.appendLn("));");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+    generator.append("public " + responseJavaName + " "+ JavaConfig.getRequestsName(u.getName())+ "Sync (");
+    if (u.getAttributes().size() > 0) {
+      ContainerGenerator.generateConstructorArgs(generator,definition,u);
+      generator.append(", ");
+    }
+    generator.appendLn("long requestTimeout) throws TimeoutException, ApiRequestException {");
+    generator.increaseDepth();
+    generator.append("return this.api.rpcSync(new " + javaName + "(");
+    ContainerGenerator.generateConstructorArgsValues(generator,u);
+    generator.appendLn("), requestTimeout);");
+    generator.decreaseDepth();
+    generator.appendLn("}");
+    generator.appendLn();
+  }
+  generator.decreaseDepth();
+  generator.appendLn("}");
+  generator.close();
+}

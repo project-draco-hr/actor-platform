@@ -1,0 +1,6 @@
+{
+  if (this.url == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.url);
+}
