@@ -1,4 +1,0 @@
-{
-  this.transactionHash=values.getString(1);
-  this.redirectUrl=values.getString(2);
-}

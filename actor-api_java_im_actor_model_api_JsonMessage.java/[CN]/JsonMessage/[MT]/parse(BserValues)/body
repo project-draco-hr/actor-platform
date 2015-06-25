@@ -1,6 +1,0 @@
-{
-  this.rawJson=values.getString(1);
-  if (values.hasRemaining()) {
-    setUnmappedObjects(values.buildRemaining());
-  }
-}

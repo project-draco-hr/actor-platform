@@ -1,5 +1,0 @@
-{
-  this.transactionHash=transactionHash;
-  this.name=name;
-  this.sex=sex;
-}

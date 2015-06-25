@@ -1,4 +1,0 @@
-{
-  this.peer=values.getObj(1,new OutPeer());
-  this.typingType=TypingType.parse(values.getInt(3));
-}

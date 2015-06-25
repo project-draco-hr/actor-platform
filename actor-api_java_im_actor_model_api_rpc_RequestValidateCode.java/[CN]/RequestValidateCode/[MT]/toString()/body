@@ -1,5 +1,0 @@
-{
-  String res="rpc ValidateCode{";
-  res+="}";
-  return res;
-}

@@ -1,7 +1,0 @@
-{
-  if (this.url == null) {
-    throw new IOException();
-  }
-  writer.writeString(1,this.url);
-  writer.writeInt(2,this.timeout);
-}

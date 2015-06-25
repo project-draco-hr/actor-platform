@@ -1,5 +1,0 @@
-{
-  String res="rpc CommitFileUpload{";
-  res+="}";
-  return res;
-}

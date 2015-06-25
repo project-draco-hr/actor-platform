@@ -1,6 +1,0 @@
-{
-  String res="struct ServiceExUserInvited{";
-  res+="invitedUid=" + this.invitedUid;
-  res+="}";
-  return res;
-}

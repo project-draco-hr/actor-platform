@@ -1,3 +1,0 @@
-{
-  writer.writeRepeatedInt(1,this.uids);
-}

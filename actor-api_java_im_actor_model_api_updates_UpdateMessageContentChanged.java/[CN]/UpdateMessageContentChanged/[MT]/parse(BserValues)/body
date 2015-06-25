@@ -1,5 +1,0 @@
-{
-  this.peer=values.getObj(1,new Peer());
-  this.rid=values.getLong(2);
-  this.message=Message.fromBytes(values.getBytes(3));
-}

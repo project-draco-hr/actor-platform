@@ -1,7 +1,0 @@
-{
-  String res="update GroupOnline{";
-  res+="groupId=" + this.groupId;
-  res+=", count=" + this.count;
-  res+="}";
-  return res;
-}

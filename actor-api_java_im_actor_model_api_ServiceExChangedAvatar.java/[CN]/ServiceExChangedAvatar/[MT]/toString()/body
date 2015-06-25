@@ -1,6 +1,0 @@
-{
-  String res="struct ServiceExChangedAvatar{";
-  res+="avatar=" + (this.avatar != null ? "set" : "empty");
-  res+="}";
-  return res;
-}

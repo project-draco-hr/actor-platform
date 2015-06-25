@@ -1,5 +1,0 @@
-{
-  String res="rpc CompleteOAuth2{";
-  res+="}";
-  return res;
-}

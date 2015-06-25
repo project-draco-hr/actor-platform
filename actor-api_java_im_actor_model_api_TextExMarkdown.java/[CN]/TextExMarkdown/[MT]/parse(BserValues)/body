@@ -1,6 +1,0 @@
-{
-  this.markdown=values.getString(2);
-  if (values.hasRemaining()) {
-    setUnmappedObjects(values.buildRemaining());
-  }
-}

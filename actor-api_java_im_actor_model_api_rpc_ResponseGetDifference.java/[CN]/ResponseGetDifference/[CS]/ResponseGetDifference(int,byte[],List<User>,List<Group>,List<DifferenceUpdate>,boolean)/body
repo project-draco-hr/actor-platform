@@ -1,8 +1,0 @@
-{
-  this.seq=seq;
-  this.state=state;
-  this.users=users;
-  this.groups=groups;
-  this.updates=updates;
-  this.needMore=needMore;
-}

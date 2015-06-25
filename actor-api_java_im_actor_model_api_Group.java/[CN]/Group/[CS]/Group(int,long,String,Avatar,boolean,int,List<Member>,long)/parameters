@@ -1,8 +1,0 @@
-int id
-long accessHash
-String title
-Avatar avatar
-boolean isMember
-int creatorUid
-List<Member> members
-long createDate

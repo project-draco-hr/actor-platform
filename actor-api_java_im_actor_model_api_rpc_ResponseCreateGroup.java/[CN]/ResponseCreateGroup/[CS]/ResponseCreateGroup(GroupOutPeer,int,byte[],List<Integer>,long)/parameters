@@ -1,5 +1,0 @@
-GroupOutPeer groupPeer
-int seq
-byte[] state
-List<Integer> users
-long date

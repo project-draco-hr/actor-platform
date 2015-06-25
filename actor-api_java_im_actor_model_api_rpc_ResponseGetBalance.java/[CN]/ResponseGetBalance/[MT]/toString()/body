@@ -1,5 +1,0 @@
-{
-  String res="tuple GetBalance{";
-  res+="}";
-  return res;
-}

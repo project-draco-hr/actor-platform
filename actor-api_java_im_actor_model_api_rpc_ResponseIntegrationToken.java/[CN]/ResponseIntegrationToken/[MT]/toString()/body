@@ -1,5 +1,0 @@
-{
-  String res="response IntegrationToken{";
-  res+="}";
-  return res;
-}

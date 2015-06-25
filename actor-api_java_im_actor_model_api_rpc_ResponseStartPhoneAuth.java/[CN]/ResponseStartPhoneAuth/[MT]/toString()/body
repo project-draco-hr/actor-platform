@@ -1,5 +1,0 @@
-{
-  String res="tuple StartPhoneAuth{";
-  res+="}";
-  return res;
-}

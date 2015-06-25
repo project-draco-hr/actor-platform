@@ -1,5 +1,0 @@
-{
-  String res="rpc GetParameters{";
-  res+="}";
-  return res;
-}

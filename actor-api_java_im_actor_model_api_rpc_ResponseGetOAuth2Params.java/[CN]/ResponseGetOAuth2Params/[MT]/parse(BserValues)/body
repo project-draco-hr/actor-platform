@@ -1,3 +1,0 @@
-{
-  this.authUrl=values.getString(1);
-}

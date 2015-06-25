@@ -1,7 +1,0 @@
-{
-  writer.writeInt(1,this.updateHeader);
-  if (this.update == null) {
-    throw new IOException();
-  }
-  writer.writeBytes(2,this.update);
-}

@@ -1,6 +1,0 @@
-{
-  String res="rpc ClearChat{";
-  res+="peer=" + this.peer;
-  res+="}";
-  return res;
-}

@@ -1,9 +1,0 @@
-long phoneNumber
-String smsHash
-String smsCode
-String name
-byte[] deviceHash
-String deviceTitle
-int appId
-String appKey
-boolean isSilent

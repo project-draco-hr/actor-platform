@@ -1,6 +1,0 @@
-{
-  String res="rpc StartEmailAuth{";
-  res+="email=" + this.email;
-  res+="}";
-  return res;
-}

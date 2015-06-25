@@ -1,4 +1,0 @@
-{
-  this.apnsKey=apnsKey;
-  this.token=token;
-}

@@ -1,3 +1,0 @@
-{
-  this.balance=values.getString(1);
-}

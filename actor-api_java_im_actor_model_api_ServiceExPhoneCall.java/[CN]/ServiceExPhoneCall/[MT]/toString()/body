@@ -1,5 +1,0 @@
-{
-  String res="struct ServiceExPhoneCall{";
-  res+="}";
-  return res;
-}

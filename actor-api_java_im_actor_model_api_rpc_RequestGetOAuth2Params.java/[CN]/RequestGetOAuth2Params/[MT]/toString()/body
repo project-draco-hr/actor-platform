@@ -1,6 +1,0 @@
-{
-  String res="rpc GetOAuth2Params{";
-  res+="redirectUrl=" + this.redirectUrl;
-  res+="}";
-  return res;
-}

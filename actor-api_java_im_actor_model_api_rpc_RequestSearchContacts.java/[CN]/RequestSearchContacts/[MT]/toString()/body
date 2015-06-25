@@ -1,6 +1,0 @@
-{
-  String res="rpc SearchContacts{";
-  res+="request=" + this.request;
-  res+="}";
-  return res;
-}

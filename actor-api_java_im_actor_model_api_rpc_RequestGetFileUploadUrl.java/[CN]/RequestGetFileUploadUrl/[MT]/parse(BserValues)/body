@@ -1,3 +1,0 @@
-{
-  this.expectedSize=values.getInt(1);
-}

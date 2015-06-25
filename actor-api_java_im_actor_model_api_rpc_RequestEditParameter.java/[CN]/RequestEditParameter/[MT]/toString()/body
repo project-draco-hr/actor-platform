@@ -1,7 +1,0 @@
-{
-  String res="rpc EditParameter{";
-  res+="key=" + this.key;
-  res+=", value=" + this.value;
-  res+="}";
-  return res;
-}

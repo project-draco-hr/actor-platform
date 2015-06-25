@@ -1,4 +1,0 @@
-{
-  writer.writeInt(1,this.uid);
-  writer.writeRepeatedObj(4,this.contactRecords);
-}

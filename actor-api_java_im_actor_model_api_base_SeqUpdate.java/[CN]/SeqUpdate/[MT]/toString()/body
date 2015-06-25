@@ -1,9 +1,0 @@
-{
-  String res="update box SeqUpdate{";
-  res+="seq=" + this.seq;
-  res+=", state=" + byteArrayToStringCompact(this.state);
-  res+=", updateHeader=" + this.updateHeader;
-  res+=", update=" + byteArrayToStringCompact(this.update);
-  res+="}";
-  return res;
-}

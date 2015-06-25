@@ -1,9 +1,0 @@
-{
-  String res="struct ContactRecord{";
-  res+="type=" + this.type;
-  res+=", stringValue=" + this.stringValue;
-  res+=", longValue=" + this.longValue;
-  res+=", title=" + this.title;
-  res+="}";
-  return res;
-}

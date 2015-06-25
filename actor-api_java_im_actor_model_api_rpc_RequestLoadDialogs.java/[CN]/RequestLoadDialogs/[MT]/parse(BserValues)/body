@@ -1,4 +1,0 @@
-{
-  this.minDate=values.getLong(1);
-  this.limit=values.getInt(2);
-}

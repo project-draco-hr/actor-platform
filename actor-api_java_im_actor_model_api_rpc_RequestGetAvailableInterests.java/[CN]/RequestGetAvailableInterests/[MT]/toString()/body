@@ -1,5 +1,0 @@
-{
-  String res="rpc GetAvailableInterests{";
-  res+="}";
-  return res;
-}

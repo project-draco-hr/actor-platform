@@ -1,7 +1,0 @@
-{
-  this.w=values.getInt(1);
-  this.h=values.getInt(2);
-  if (values.hasRemaining()) {
-    setUnmappedObjects(values.buildRemaining());
-  }
-}

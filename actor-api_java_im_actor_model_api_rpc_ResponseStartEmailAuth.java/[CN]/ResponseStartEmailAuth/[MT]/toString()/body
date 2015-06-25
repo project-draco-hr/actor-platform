@@ -1,5 +1,0 @@
-{
-  String res="tuple StartEmailAuth{";
-  res+="}";
-  return res;
-}

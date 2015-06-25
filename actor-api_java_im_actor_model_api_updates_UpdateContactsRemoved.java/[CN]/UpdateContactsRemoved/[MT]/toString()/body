@@ -1,6 +1,0 @@
-{
-  String res="update ContactsRemoved{";
-  res+="uids=" + this.uids.size();
-  res+="}";
-  return res;
-}

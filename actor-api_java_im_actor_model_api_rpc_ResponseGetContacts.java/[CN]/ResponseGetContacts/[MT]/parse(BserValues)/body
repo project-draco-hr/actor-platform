@@ -1,8 +1,0 @@
-{
-  List<User> _users=new ArrayList<User>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _users.add(new User());
-  }
-  this.users=values.getRepeatedObj(1,_users);
-  this.isNotChanged=values.getBool(2);
-}

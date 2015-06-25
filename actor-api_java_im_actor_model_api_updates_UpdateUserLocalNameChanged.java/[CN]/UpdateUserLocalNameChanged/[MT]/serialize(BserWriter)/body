@@ -1,6 +1,0 @@
-{
-  writer.writeInt(1,this.uid);
-  if (this.localName != null) {
-    writer.writeString(2,this.localName);
-  }
-}

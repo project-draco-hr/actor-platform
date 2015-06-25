@@ -1,7 +1,0 @@
-{
-  String res="rpc SignInObsolete{";
-  res+="deviceHash=" + byteArrayToString(this.deviceHash);
-  res+=", deviceTitle=" + this.deviceTitle;
-  res+="}";
-  return res;
-}

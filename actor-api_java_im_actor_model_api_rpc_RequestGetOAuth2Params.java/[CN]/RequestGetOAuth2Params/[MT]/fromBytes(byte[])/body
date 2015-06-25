@@ -1,3 +1,0 @@
-{
-  return Bser.parse(new RequestGetOAuth2Params(),data);
-}

@@ -1,6 +1,0 @@
-{
-  String res="struct ServiceExChangedTitle{";
-  res+="title=" + this.title;
-  res+="}";
-  return res;
-}

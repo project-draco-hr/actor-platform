@@ -1,6 +1,0 @@
-{
-  String res="rpc SendAuthCallObsolete{";
-  res+="phoneNumber=" + this.phoneNumber;
-  res+="}";
-  return res;
-}

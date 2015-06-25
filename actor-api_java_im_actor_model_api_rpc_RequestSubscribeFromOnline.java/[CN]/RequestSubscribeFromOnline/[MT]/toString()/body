@@ -1,6 +1,0 @@
-{
-  String res="rpc SubscribeFromOnline{";
-  res+="users=" + this.users.size();
-  res+="}";
-  return res;
-}

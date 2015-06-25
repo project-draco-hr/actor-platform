@@ -1,7 +1,0 @@
-{
-  this.groupId=groupId;
-  this.rid=rid;
-  this.uid=uid;
-  this.inviterUid=inviterUid;
-  this.date=date;
-}

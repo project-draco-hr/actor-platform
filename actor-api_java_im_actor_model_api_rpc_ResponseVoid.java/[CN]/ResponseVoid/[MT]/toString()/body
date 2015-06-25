@@ -1,5 +1,0 @@
-{
-  String res="response Void{";
-  res+="}";
-  return res;
-}

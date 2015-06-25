@@ -1,9 +1,0 @@
-{
-  String res="update GroupInvite{";
-  res+="groupId=" + this.groupId;
-  res+=", rid=" + this.rid;
-  res+=", inviteUid=" + this.inviteUid;
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

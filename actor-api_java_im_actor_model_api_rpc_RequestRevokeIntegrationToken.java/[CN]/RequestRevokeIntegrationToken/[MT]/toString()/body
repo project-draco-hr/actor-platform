@@ -1,6 +1,0 @@
-{
-  String res="rpc RevokeIntegrationToken{";
-  res+="groupPeer=" + this.groupPeer;
-  res+="}";
-  return res;
-}

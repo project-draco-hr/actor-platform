@@ -1,4 +1,0 @@
-{
-  this.url=values.getString(1);
-  this.timeout=values.getInt(2);
-}

@@ -1,4 +1,0 @@
-{
-  this.uid=uid;
-  this.contactRecords=contactRecords;
-}

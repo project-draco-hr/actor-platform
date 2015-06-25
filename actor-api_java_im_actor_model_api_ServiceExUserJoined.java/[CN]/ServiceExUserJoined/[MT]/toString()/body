@@ -1,5 +1,0 @@
-{
-  String res="struct ServiceExUserJoined{";
-  res+="}";
-  return res;
-}

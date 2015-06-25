@@ -1,7 +1,0 @@
-{
-  String res="struct Parameter{";
-  res+="key=" + this.key;
-  res+=", value=" + this.value;
-  res+="}";
-  return res;
-}

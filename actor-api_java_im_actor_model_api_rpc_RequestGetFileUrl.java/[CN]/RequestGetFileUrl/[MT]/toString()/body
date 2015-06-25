@@ -1,6 +1,0 @@
-{
-  String res="rpc GetFileUrl{";
-  res+="file=" + this.file;
-  res+="}";
-  return res;
-}

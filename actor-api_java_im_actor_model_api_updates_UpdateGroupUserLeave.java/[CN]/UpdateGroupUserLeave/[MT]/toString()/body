@@ -1,9 +1,0 @@
-{
-  String res="update GroupUserLeave{";
-  res+="groupId=" + this.groupId;
-  res+=", rid=" + this.rid;
-  res+=", uid=" + this.uid;
-  res+=", date=" + this.date;
-  res+="}";
-  return res;
-}

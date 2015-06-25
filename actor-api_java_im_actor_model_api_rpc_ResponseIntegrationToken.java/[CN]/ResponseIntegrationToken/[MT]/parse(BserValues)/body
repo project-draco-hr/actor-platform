@@ -1,4 +1,0 @@
-{
-  this.token=values.getString(1);
-  this.url=values.getString(2);
-}

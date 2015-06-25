@@ -1,7 +1,0 @@
-{
-  String res="rpc SignUp{";
-  res+="name=" + this.name;
-  res+=", sex=" + this.sex;
-  res+="}";
-  return res;
-}
