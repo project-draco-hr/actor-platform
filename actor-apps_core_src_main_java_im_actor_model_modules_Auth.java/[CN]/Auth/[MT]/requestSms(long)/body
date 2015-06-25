@@ -2,8 +2,8 @@
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
       modules().getAnalytics().trackCodeRequest(phone);
-      request(new RequestSendAuthCode(phone,apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseSendAuthCode>(){
-        @Override public void onResult(        final ResponseSendAuthCode response){
+      request(new RequestSendAuthCodeObsolete(phone,apiConfiguration.getAppId(),apiConfiguration.getAppKey()),new RpcCallback<ResponseSendAuthCodeObsolete>(){
+        @Override public void onResult(        final ResponseSendAuthCodeObsolete response){
           preferences().putLong(KEY_PHONE,phone);
           preferences().putString(KEY_SMS_HASH,response.getSmsHash());
           state=AuthState.CODE_VALIDATION;
