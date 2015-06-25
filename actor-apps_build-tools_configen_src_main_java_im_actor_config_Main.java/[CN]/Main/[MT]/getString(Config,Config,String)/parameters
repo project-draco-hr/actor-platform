@@ -1,2 +1,3 @@
 Config config
+Config altConfig
 String path

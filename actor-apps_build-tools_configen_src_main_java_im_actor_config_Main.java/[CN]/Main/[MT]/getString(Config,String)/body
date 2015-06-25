@@ -1,8 +1,0 @@
-{
-  if (config.hasPath(path)) {
-    if (!config.getIsNull(path)) {
-      return config.getString(path);
-    }
-  }
-  return null;
-}
