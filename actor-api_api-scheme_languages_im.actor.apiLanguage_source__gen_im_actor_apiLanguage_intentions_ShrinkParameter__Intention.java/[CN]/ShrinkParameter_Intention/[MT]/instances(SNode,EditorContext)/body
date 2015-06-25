@@ -1,0 +1,6 @@
+{
+  if (myCachedExecutable == null) {
+    myCachedExecutable=Collections.<IntentionExecutable>singletonList(new ShrinkParameter_Intention.IntentionImplementation());
+  }
+  return myCachedExecutable;
+}

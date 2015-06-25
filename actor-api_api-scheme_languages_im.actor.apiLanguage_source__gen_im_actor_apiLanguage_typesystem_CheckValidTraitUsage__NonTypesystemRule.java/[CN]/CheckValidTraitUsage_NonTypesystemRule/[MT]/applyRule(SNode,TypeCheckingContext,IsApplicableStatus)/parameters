@@ -1,0 +1,3 @@
+SNode iStruct
+TypeCheckingContext typeCheckingContext
+IsApplicableStatus status

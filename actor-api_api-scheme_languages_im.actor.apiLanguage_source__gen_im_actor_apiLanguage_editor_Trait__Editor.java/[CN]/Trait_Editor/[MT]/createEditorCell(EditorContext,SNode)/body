@@ -1,0 +1,3 @@
+{
+  return this.createCollection_dq53sv_a(editorContext,node);
+}

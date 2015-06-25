@@ -1,0 +1,70 @@
+{
+switch (Arrays.binarySearch(stringSwitchCases_xbvbvu_a0a0b,descriptor.getConceptFqName())) {
+case 0:
+    return Collections.<ConceptEditor>singletonList(new AliasType_Editor());
+case 1:
+  return Collections.<ConceptEditor>singletonList(new ApiAlias_Editor());
+case 2:
+return Collections.<ConceptEditor>singletonList(new ApiComment_Editor());
+case 3:
+return Collections.<ConceptEditor>singletonList(new ApiDef_Editor());
+case 4:
+return Collections.<ConceptEditor>singletonList(new ApiDescription_Editor());
+case 5:
+return Collections.<ConceptEditor>singletonList(new ApiEmptyDef_Editor());
+case 6:
+return Collections.<ConceptEditor>singletonList(new ApiSection_Editor());
+case 7:
+return Collections.<ConceptEditor>singletonList(new Enum_Editor());
+case 8:
+return Collections.<ConceptEditor>singletonList(new EnumAttribute_Editor());
+case 9:
+return Collections.<ConceptEditor>singletonList(new EnumType_Editor());
+case 10:
+return Collections.<ConceptEditor>singletonList(new HeaderKey_Editor());
+case 11:
+return Collections.<ConceptEditor>singletonList(new InterfaceRef_Editor());
+case 12:
+return Collections.<ConceptEditor>singletonList(new List_Editor());
+case 13:
+return Collections.<ConceptEditor>singletonList(new MethodThrows_Editor());
+case 14:
+return Collections.<ConceptEditor>singletonList(new Optional_Editor());
+case 15:
+return Collections.<ConceptEditor>singletonList(new Response_Editor());
+case 16:
+return Collections.<ConceptEditor>singletonList(new ResponseRef_Editor());
+case 17:
+return Collections.<ConceptEditor>singletonList(new ResponseRefAnonymous_Editor());
+case 18:
+return Collections.<ConceptEditor>singletonList(new ResponseRefValue_Editor());
+case 19:
+return Collections.<ConceptEditor>singletonList(new Rpc_Editor());
+case 20:
+return Collections.<ConceptEditor>singletonList(new SectionDoc_Editor());
+case 21:
+return Collections.<ConceptEditor>singletonList(new SerializableType_Editor());
+case 22:
+return Collections.<ConceptEditor>singletonList(new Struct_Editor());
+case 23:
+return Collections.<ConceptEditor>singletonList(new StructAttribute_Editor());
+case 24:
+return Collections.<ConceptEditor>singletonList(new StructDocComment_Editor());
+case 25:
+return Collections.<ConceptEditor>singletonList(new StructDocParameter_Editor());
+case 26:
+return Collections.<ConceptEditor>singletonList(new StructType_Editor());
+case 27:
+return Collections.<ConceptEditor>singletonList(new Trait_Editor());
+case 28:
+return Collections.<ConceptEditor>singletonList(new TraitAttribute_Editor());
+case 29:
+return Collections.<ConceptEditor>singletonList(new TraitType_Editor());
+case 30:
+return Collections.<ConceptEditor>singletonList(new Update_Editor());
+case 31:
+return Collections.<ConceptEditor>singletonList(new UpdateBox_Editor());
+default :
+}
+return Collections.<ConceptEditor>emptyList();
+}

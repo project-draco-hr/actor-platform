@@ -1,0 +1,20 @@
+{
+  CellProviderWithRole provider=new RefCellCellProvider(node,editorContext);
+  provider.setRole("interface");
+  provider.setNoTargetText("<no interface>");
+  EditorCell editorCell;
+  provider.setAuxiliaryCellProvider(new Struct_Editor._Inline_a8dvuz_a1a5a());
+  editorCell=provider.createEditorCell(editorContext);
+  if (editorCell.getRole() == null) {
+    editorCell.setReferenceCell(true);
+    editorCell.setRole("interface");
+  }
+  editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+  SNode attributeConcept=provider.getRoleAttribute();
+  Class attributeKind=provider.getRoleAttributeClass();
+  if (attributeConcept != null) {
+    EditorManager manager=EditorManager.getInstanceFromContext(editorContext);
+    return manager.createNodeRoleAttributeCell(editorContext,attributeConcept,attributeKind,editorCell);
+  }
+ else   return editorCell;
+}

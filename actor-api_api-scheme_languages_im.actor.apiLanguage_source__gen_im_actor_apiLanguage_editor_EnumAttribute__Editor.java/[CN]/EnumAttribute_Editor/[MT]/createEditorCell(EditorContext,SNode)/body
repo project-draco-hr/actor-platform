@@ -1,0 +1,3 @@
+{
+  return this.createCollection_lwap60_a(editorContext,node);
+}

@@ -1,0 +1,11 @@
+{
+  AbstractCellListHandler handler=new ApiDescription_Editor.aliasesListHandler_h72lb9_o0(node,"aliases",editorContext);
+  EditorCell_Collection editorCell=handler.createCells(editorContext,new CellLayout_Vertical(),false);
+  editorCell.setCellId("refNodeList_aliases");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE,0,true);
+  style.set(StyleAttributes.INDENT_LAYOUT_INDENT,0,true);
+  editorCell.getStyle().putAll(style);
+  editorCell.setRole(handler.getElementRole());
+  return editorCell;
+}

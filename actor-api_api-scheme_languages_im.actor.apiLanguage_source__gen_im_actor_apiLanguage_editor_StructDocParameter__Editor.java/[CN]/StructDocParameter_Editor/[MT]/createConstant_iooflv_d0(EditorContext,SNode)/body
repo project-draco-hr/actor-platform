@@ -1,0 +1,9 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"compact");
+  editorCell.setCellId("Constant_iooflv_d0");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.TEXT_COLOR,0,StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_GREEN));
+  editorCell.getStyle().putAll(style);
+  editorCell.setDefaultText("");
+  return editorCell;
+}

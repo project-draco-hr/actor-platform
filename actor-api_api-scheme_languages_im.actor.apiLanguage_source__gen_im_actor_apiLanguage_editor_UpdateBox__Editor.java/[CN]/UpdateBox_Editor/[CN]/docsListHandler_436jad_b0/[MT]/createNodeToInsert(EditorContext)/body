@@ -1,0 +1,4 @@
+{
+  SNode listOwner=super.getOwner();
+  return NodeFactoryManager.createNode(listOwner,editorContext,super.getElementRole());
+}

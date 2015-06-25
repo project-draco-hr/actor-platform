@@ -1,0 +1,7 @@
+{
+  AbstractCellListHandler handler=new Trait_Editor.interfacesListHandler_dq53sv_f0(node,"interfaces",editorContext);
+  EditorCell_Collection editorCell=handler.createCells(editorContext,new CellLayout_Indent(),false);
+  editorCell.setCellId("refNodeList_interfaces");
+  editorCell.setRole(handler.getElementRole());
+  return editorCell;
+}

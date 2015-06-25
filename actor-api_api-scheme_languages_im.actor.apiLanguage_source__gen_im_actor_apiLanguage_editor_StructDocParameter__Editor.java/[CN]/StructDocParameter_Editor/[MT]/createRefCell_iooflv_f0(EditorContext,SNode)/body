@@ -1,0 +1,23 @@
+{
+  CellProviderWithRole provider=new RefCellCellProvider(node,editorContext);
+  provider.setRole("paramter");
+  provider.setNoTargetText("<no paramter>");
+  EditorCell editorCell;
+  provider.setAuxiliaryCellProvider(new StructDocParameter_Editor._Inline_iooflv_a5a());
+  editorCell=provider.createEditorCell(editorContext);
+  if (editorCell.getRole() == null) {
+    editorCell.setReferenceCell(true);
+    editorCell.setRole("paramter");
+  }
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.TEXT_COLOR,0,StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_GREEN));
+  editorCell.getStyle().putAll(style);
+  editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+  SNode attributeConcept=provider.getRoleAttribute();
+  Class attributeKind=provider.getRoleAttributeClass();
+  if (attributeConcept != null) {
+    EditorManager manager=EditorManager.getInstanceFromContext(editorContext);
+    return manager.createNodeRoleAttributeCell(editorContext,attributeConcept,attributeKind,editorCell);
+  }
+ else   return editorCell;
+}

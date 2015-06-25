@@ -1,0 +1,19 @@
+{
+  CellProviderWithRole provider=new PropertyCellProvider(node,editorContext);
+  provider.setRole("content");
+  provider.setNoTargetText("<no content>");
+  EditorCell editorCell;
+  editorCell=provider.createEditorCell(editorContext);
+  editorCell.setCellId("property_content");
+  Style style=new StyleImpl();
+  style.set(StyleAttributes.TEXT_COLOR,0,StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_GREEN));
+  editorCell.getStyle().putAll(style);
+  editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+  SNode attributeConcept=provider.getRoleAttribute();
+  Class attributeKind=provider.getRoleAttributeClass();
+  if (attributeConcept != null) {
+    EditorManager manager=EditorManager.getInstanceFromContext(editorContext);
+    return manager.createNodeRoleAttributeCell(editorContext,attributeConcept,attributeKind,editorCell);
+  }
+ else   return editorCell;
+}

@@ -1,0 +1,6 @@
+{
+  if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind),MetaAdapterFactory.getConcept(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b68879a3L,"im.actor.apiLanguage.structure.StructAttribute"))) {
+    return SimpleRoleScope.forNamedElements(thisNode,SLinkOperations.findLinkDeclaration(MetaAdapterFactory.getContainmentLink(0x77fdf769432b4edeL,0x8171050f8dee73fcL,0x20977a66b69665d2L,0x20977a66b6966607L,"attributes")));
+  }
+  return null;
+}

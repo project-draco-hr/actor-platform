@@ -1,0 +1,6 @@
+{
+  EditorCell_Constant editorCell=new EditorCell_Constant(editorContext,node,"");
+  editorCell.setCellId("Constant_e7ja1v_l0");
+  editorCell.setDefaultText("");
+  return editorCell;
+}
