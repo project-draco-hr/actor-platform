@@ -1,6 +1,0 @@
-{
-  if (!exported) {
-    exported=true;
-    export0();
-  }
-}

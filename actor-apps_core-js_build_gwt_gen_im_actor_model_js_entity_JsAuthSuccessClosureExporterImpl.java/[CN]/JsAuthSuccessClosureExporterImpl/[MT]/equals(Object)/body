@@ -1,3 +1,0 @@
-{
-  return obj != null && obj instanceof JsAuthSuccessClosureExporterImpl && jso.equals(((JsAuthSuccessClosureExporterImpl)obj).jso);
-}

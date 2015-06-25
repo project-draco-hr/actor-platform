@@ -1,3 +1,0 @@
-{
-  return instance.createGroup(a0,a1,ExporterUtil.toArrInt(a2));
-}
