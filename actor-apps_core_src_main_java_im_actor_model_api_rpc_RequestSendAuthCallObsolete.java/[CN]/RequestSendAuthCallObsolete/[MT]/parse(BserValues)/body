@@ -1,0 +1,6 @@
+{
+  this.phoneNumber=values.getLong(1);
+  this.smsHash=values.getString(2);
+  this.appId=values.getInt(3);
+  this.apiKey=values.getString(4);
+}

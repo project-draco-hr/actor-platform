@@ -1,11 +1,8 @@
 {
-  this.phoneNumber=values.getLong(1);
-  this.smsHash=values.getString(2);
-  this.smsCode=values.getString(3);
-  this.name=values.getString(4);
-  this.deviceHash=values.getBytes(7);
-  this.deviceTitle=values.getString(8);
-  this.appId=values.getInt(9);
-  this.appKey=values.getString(10);
-  this.isSilent=values.getBool(11);
+  this.transactionHash=values.getString(1);
+  this.name=values.getString(2);
+  int val_sex=values.getInt(3,0);
+  if (val_sex != 0) {
+    this.sex=Sex.parse(val_sex);
+  }
 }

@@ -1,29 +1,13 @@
 {
-  writer.writeLong(1,this.phoneNumber);
-  if (this.smsHash == null) {
+  if (this.transactionHash == null) {
     throw new IOException();
   }
-  writer.writeString(2,this.smsHash);
-  if (this.smsCode == null) {
-    throw new IOException();
-  }
-  writer.writeString(3,this.smsCode);
+  writer.writeString(1,this.transactionHash);
   if (this.name == null) {
     throw new IOException();
   }
-  writer.writeString(4,this.name);
-  if (this.deviceHash == null) {
-    throw new IOException();
+  writer.writeString(2,this.name);
+  if (this.sex != null) {
+    writer.writeInt(3,this.sex.getValue());
   }
-  writer.writeBytes(7,this.deviceHash);
-  if (this.deviceTitle == null) {
-    throw new IOException();
-  }
-  writer.writeString(8,this.deviceTitle);
-  writer.writeInt(9,this.appId);
-  if (this.appKey == null) {
-    throw new IOException();
-  }
-  writer.writeString(10,this.appKey);
-  writer.writeBool(11,this.isSilent);
 }
