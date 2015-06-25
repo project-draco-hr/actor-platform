@@ -1,3 +1,11 @@
 {
-  core=new Core(application);
+  try {
+    core=new Core(application);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+catch (  JSONException e) {
+    throw new RuntimeException(e);
+  }
 }

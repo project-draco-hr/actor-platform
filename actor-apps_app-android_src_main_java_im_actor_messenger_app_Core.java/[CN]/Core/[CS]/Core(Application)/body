@@ -1,7 +1,9 @@
 {
-  if (BuildConfig.MINT != null) {
+  JSONObject config=new JSONObject(new String(readAll(application.getAssets().open("app.json"))));
+  hockeyToken=config.optString("hockeyapp");
+  if (config.optString("mint") != null) {
     Mint.disableNetworkMonitoring();
-    Mint.initAndStartSession(application,BuildConfig.MINT);
+    Mint.initAndStartSession(application,config.getString("mint"));
   }
   Fresco.initialize(application);
   application.startService(new Intent(application,KeepAliveService.class));
@@ -17,25 +19,21 @@
   this.imageLoader=new ImageLoader(clasificator,application);
   this.imageLoader.getTaskResolver().register(FullAvatarTask.class,FullAvatarActor.class);
   AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application.getResources().getString(R.string.app_locale),application);
-  if (BuildConfig.ENABLE_PHONE_BOOK) {
-    builder.setPhoneBookProvider(new AndroidPhoneBook());
-  }
- else {
-    builder.setPhoneBookProvider(new EmptyPhoneProvider());
-  }
+  builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
-  for (  String url : BuildConfig.API_URL) {
-    builder.addEndpoint(url);
+  JSONArray endpoints=config.getJSONArray("endpoints");
+  for (int i=0; i < endpoints.length(); i++) {
+    builder.addEndpoint(endpoints.getString(i));
   }
   builder.setEnableContactsLogging(true);
   builder.setEnableNetworkLogging(true);
   builder.setEnableFilesLogging(true);
-  if (BuildConfig.MIXPANEL != null) {
-    builder.setAnalyticsProvider(new AndroidMixpanelAnalytics(AppContext.getContext(),BuildConfig.MIXPANEL));
+  if (config.optString("mixpanel") != null) {
+    builder.setAnalyticsProvider(new AndroidMixpanelAnalytics(AppContext.getContext(),config.getString("mixpanel")));
   }
   builder.setDeviceCategory(DeviceCategory.MOBILE);
   builder.setAppCategory(AppCategory.ANDROID);
-  builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,BuildConfig.API_ID,BuildConfig.API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
+  builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,API_ID,API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
   IntentFilter screenFilter=new IntentFilter();
   screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
