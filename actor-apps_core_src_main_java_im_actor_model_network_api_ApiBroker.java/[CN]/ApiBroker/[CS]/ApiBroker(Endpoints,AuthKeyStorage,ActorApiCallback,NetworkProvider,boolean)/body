@@ -1,7 +1,0 @@
-{
-  this.isEnableLog=isEnableLog;
-  this.endpoints=endpoints;
-  this.keyStorage=keyStorage;
-  this.callback=callback;
-  this.networkProvider=networkProvider;
-}

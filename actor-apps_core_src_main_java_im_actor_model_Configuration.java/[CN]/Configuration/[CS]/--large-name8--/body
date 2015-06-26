@@ -20,4 +20,7 @@
   this.deviceCategory=deviceCategory;
   this.appCategory=appCategory;
   this.lifecycleProvider=lifecycleProvider;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
 }

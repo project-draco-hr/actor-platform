@@ -5,6 +5,9 @@
   this.callback=callback;
   this.actorPath=basePath;
   this.isEnableLog=isEnableLog;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
   this.networkProvider=networkProvider;
   this.isClosed=false;
   this.manager=ManagerActor.manager(this);

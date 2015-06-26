@@ -5,3 +5,6 @@ MTProtoCallback callback
 NetworkProvider networkProvider
 boolean isEnableLog
 String basePath
+int minDelay
+int maxDelay
+int maxFailureCount

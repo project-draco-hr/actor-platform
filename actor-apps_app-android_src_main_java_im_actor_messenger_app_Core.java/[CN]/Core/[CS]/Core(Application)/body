@@ -34,7 +34,7 @@
   builder.setDeviceCategory(DeviceCategory.MOBILE);
   builder.setAppCategory(AppCategory.ANDROID);
   builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,API_ID,API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
-  this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
+  this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build(500,15000,50));
   IntentFilter screenFilter=new IntentFilter();
   screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
   screenFilter.addAction(Intent.ACTION_SCREEN_ON);

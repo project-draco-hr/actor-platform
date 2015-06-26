@@ -19,3 +19,6 @@ AnalyticsProvider analyticsProvider
 DeviceCategory deviceCategory
 AppCategory appCategory
 LifecycleProvider lifecycleProvider
+int minDelay
+int maxDelay
+int maxFailureCount
