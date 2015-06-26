@@ -1,0 +1,3 @@
+int minDelay
+int maxDelay
+int maxFailureCount

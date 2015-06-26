@@ -1,0 +1,4 @@
+{
+  this.minDelay=minDelay;
+  return this;
+}
