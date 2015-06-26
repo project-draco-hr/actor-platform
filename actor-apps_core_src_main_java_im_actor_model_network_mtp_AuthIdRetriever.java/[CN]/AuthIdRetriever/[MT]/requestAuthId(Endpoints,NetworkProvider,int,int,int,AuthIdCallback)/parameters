@@ -1,3 +1,6 @@
 Endpoints endpoints
 NetworkProvider networkProvider
+int minDelay
+int maxDelay
+int maxFailureCount
 AuthIdCallback callback

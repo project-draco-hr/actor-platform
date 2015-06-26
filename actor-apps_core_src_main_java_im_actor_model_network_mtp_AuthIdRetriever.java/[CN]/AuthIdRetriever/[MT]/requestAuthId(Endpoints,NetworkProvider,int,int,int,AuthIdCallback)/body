@@ -1,7 +1,7 @@
 {
   Log.d(TAG,"Requesting AuthId");
   final boolean[] isFinished=new boolean[1];
-  final ExponentialBackoff backoff=new ExponentialBackoff();
+  final ExponentialBackoff backoff=new ExponentialBackoff(maxDelay,minDelay,maxFailureCount);
   isFinished[0]=false;
   networkProvider.createConnection(0,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(),new ConnectionCallback(){
     @Override public void onConnectionRedirect(    String host,    int port,    int timeout){
