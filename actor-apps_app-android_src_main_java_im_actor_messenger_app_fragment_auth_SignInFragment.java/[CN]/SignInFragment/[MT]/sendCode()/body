@@ -1,14 +1,6 @@
 {
-  String text=smsCodeEnterEditText.getText().toString().trim();
+  String text=codeEnterEditText.getText().toString().trim();
   if (text.length() > 0) {
-    int code;
-    try {
-      code=Integer.parseInt(smsCodeEnterEditText.getText().toString());
-    }
- catch (    Exception e) {
-      e.printStackTrace();
-      return;
-    }
-    executeAuth(messenger().sendCode(code),"Send Code");
+    executeAuth(messenger().validateCode(text),"Send Code");
   }
 }

@@ -1,0 +1,36 @@
+{
+  return new Command<AuthState>(){
+    @Override public void start(    final CommandCallback<AuthState> callback){
+      request(new RequestStartEmailAuth(email,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle()),new RpcCallback<ResponseStartEmailAuth>(){
+        @Override public void onResult(        ResponseStartEmailAuth response){
+          preferences().putString(KEY_EMAIL,email);
+          preferences().putString(KEY_TRANSACTION_HASH,response.getTransactionHash());
+          EmailActivationType emailActivationType=response.getActivationType();
+          if (emailActivationType.equals(EmailActivationType.OAUTH2)) {
+            state=AuthState.GET_OAUTH_PARAMS;
+          }
+ else           if (emailActivationType.equals(EmailActivationType.CODE)) {
+            state=AuthState.CODE_VALIDATION_EMAIL;
+          }
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onResult(state);
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+              e.printStackTrace();
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

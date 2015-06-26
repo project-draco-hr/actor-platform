@@ -1,5 +1,5 @@
 {
-  final String ACTION="Request code";
+  final String ACTION="Request code email";
   messenger().trackCodeRequest();
   if (emailEditText.getText().toString().trim().length() == 0) {
     String message=getString(R.string.auth_error_empty_email);
@@ -14,4 +14,5 @@
     messenger().trackActionError(ACTION,"LOCAL_INCORRECT_EMAIL",message);
     return;
   }
+  executeAuth(messenger().requestStartEmailAuth(rawEmail),ACTION);
 }
