@@ -1,4 +1,5 @@
 {
+  modifications=optimize(modifications);
   ArrayList<State<T>> states=new ArrayList<State<T>>();
   ArrayList<State<T>> current=new ArrayList<State<T>>();
   for (int i=0; i < initialList.size(); i++) {
