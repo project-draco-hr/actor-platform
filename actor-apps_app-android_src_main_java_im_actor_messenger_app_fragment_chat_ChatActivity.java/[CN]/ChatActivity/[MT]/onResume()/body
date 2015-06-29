@@ -54,6 +54,10 @@
     }
     sendUriMultiple.clear();
   }
+  if (sendText != null && !sendText.isEmpty()) {
+    messageBody.setText(sendText);
+    sendText="";
+  }
   if (shareUser != 0) {
     String userName=users().get(shareUser).getName().get();
     String mentionTitle="@".concat(userName);

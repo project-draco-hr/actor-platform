@@ -5,7 +5,14 @@
     }
   }
   if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND)) {
-    sendUri=getIntent().getClipData().getItemAt(0).getUri().toString();
+    ClipData.Item data=getIntent().getClipData().getItemAt(0);
+    Uri sendUri=data.getUri();
+    if (sendUri != null) {
+      sendUriString=sendUri.toString();
+    }
+ else     if (data.getText() != null && data.getText().length() > 0) {
+      sendText=data.getText().toString();
+    }
   }
   if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND_MULTIPLE)) {
     ClipData clip=getIntent().getClipData();
