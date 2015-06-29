@@ -1,6 +1,6 @@
 {
   im.actor.model.api.Group w=getWrapped();
-  im.actor.model.api.Group res=new im.actor.model.api.Group(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate());
+  im.actor.model.api.Group res=new im.actor.model.api.Group(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.disableEdit(),w.disableInviteView(),w.disableInviteRevoke(),w.disableIntegrationView(),w.disableIntegrationsRevoke(),w.isAdmin());
   res.setUnmappedObjects(w.getUnmappedObjects());
   return new Group(res);
 }
