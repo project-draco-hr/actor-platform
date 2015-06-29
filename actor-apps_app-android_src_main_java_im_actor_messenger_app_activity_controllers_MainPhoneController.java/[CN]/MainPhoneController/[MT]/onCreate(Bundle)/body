@@ -109,8 +109,33 @@
 );
   findViewById(R.id.joinPublicGroupContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      goneFab();
-      startActivity(new Intent(getActivity(),CreateGroupActivity.class));
+      execute(messenger().executeExternalCommand(new RequestGetPublicGroups()),R.string.main_fab_join_public_group,new CommandCallback<ResponseGetPublicGroups>(){
+        @Override public void onResult(        ResponseGetPublicGroups res){
+          final PublicGroup[] groups=new PublicGroup[res.getGroups().size()];
+          String[] groupsTitles=new String[res.getGroups().size()];
+          for (int i=0; i < groups.length; i++) {
+            groups[i]=res.getGroups().get(i);
+            groupsTitles[i]=res.getGroups().get(i).getTitle();
+          }
+          MaterialDialog.Builder builder=new MaterialDialog.Builder(getActivity()).items(groupsTitles).itemsCallback(new MaterialDialog.ListCallback(){
+            @Override public void onSelection(            MaterialDialog materialDialog,            View view,            int i,            CharSequence charSequence){
+              execute(messenger().executeExternalCommand(new RequestJoinGroupDirect(new GroupOutPeer(groups[i].getId(),groups[i].getAccessHash()))),R.string.main_fab_join_public_group,new CommandCallback<ResponseJoinGroupDirect>(){
+                @Override public void onResult(                ResponseJoinGroupDirect res){
+                  startActivity(Intents.openDialog(Peer.group(res.getGroup().getId()),false,getActivity()));
+                }
+                @Override public void onError(                Exception e){
+                }
+              }
+);
+            }
+          }
+);
+          builder.show();
+        }
+        @Override public void onError(        Exception e){
+        }
+      }
+);
     }
   }
 );
