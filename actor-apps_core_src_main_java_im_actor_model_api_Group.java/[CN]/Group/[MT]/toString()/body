@@ -5,6 +5,9 @@
   res+=", isMember=" + this.isMember;
   res+=", members=" + this.members.size();
   res+=", createDate=" + this.createDate;
+  res+=", disableEdit=" + this.disableEdit;
+  res+=", disableInviteView=" + this.disableInviteView;
+  res+=", disableIntegrationView=" + this.disableIntegrationView;
   res+="}";
   return res;
 }
