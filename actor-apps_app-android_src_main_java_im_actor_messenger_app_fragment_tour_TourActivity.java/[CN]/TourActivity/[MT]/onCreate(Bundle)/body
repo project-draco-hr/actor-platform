@@ -19,11 +19,11 @@
           Intent authIntent=new Intent(TourActivity.this,AuthActivity.class);
 switch (i) {
 case 0:
-            authIntent.putExtra("auth_type","auth_type_phone");
+            authIntent.putExtra(AuthActivity.AUTH_TYPE_KEY,AuthActivity.AUTH_TYPE_PHONE);
           startActivity(authIntent);
         break;
 case 1:
-      authIntent.putExtra("auth_type","auth_type_email");
+      authIntent.putExtra(AuthActivity.AUTH_TYPE_KEY,AuthActivity.AUTH_TYPE_EMAIL);
     startActivity(authIntent);
   break;
 case 2:
@@ -44,11 +44,11 @@ new MaterialDialog.Builder(TourActivity.this).title(getString(R.string.tour_sign
 Intent authIntent=new Intent(TourActivity.this,AuthActivity.class);
 switch (i) {
 case 0:
-authIntent.putExtra("auth_type","auth_type_phone");
+authIntent.putExtra(AuthActivity.AUTH_TYPE_KEY,AuthActivity.AUTH_TYPE_PHONE);
 startActivity(authIntent);
 break;
 case 1:
-authIntent.putExtra("auth_type","auth_type_email");
+authIntent.putExtra(AuthActivity.AUTH_TYPE_KEY,AuthActivity.AUTH_TYPE_EMAIL);
 startActivity(authIntent);
 break;
 case 2:

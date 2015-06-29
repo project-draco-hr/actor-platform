@@ -5,16 +5,16 @@
   this.state=state;
 switch (state) {
 case AUTH_START:
-    if (authType != null && authType.equals("auth_type_email")) {
+    if (authType == AUTH_TYPE_EMAIL) {
       showFragment(new SignEmailFragment(),false,false);
     }
- else     if (authType != null && authType.equals("auth_type_phone")) {
+ else     if (authType == AUTH_TYPE_PHONE) {
       showFragment(new SignPhoneFragment(),false,false);
     }
   break;
 case CODE_VALIDATION_PHONE:
 case CODE_VALIDATION_EMAIL:
-if ((state == AuthState.CODE_VALIDATION_EMAIL && authType.equals("auth_type_phone")) || (state == AuthState.CODE_VALIDATION_PHONE && authType.equals("auth_type_email"))) {
+if ((state == AuthState.CODE_VALIDATION_EMAIL && authType == AUTH_TYPE_PHONE) || (state == AuthState.CODE_VALIDATION_PHONE && authType == AUTH_TYPE_EMAIL)) {
   updateState(AuthState.AUTH_START);
   break;
 }
@@ -28,7 +28,7 @@ case GET_OAUTH_PARAMS:
 executeAuth(messenger().requestGetOAuthParams(),"get_oauth_params");
 break;
 case COMPLETE_OAUTH:
-if (authType.equals("auth_type_phone")) {
+if (authType == AUTH_TYPE_PHONE) {
 updateState(AuthState.AUTH_START);
 break;
 }
