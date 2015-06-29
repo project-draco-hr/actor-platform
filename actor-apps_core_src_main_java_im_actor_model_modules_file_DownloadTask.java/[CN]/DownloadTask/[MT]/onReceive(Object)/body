@@ -1,0 +1,8 @@
+{
+  if (message instanceof NotifyProgress) {
+    performReportProgress();
+  }
+ else {
+    super.onReceive(message);
+  }
+}
