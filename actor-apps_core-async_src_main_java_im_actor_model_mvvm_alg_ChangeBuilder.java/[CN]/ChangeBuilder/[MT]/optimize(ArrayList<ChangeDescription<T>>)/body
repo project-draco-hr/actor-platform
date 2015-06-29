@@ -1,0 +1,36 @@
+{
+  ArrayList<ChangeDescription<T>> res=new ArrayList<ChangeDescription<T>>();
+  ChangeDescription<T> desc=null;
+  for (  ChangeDescription<T> d : modifications) {
+    if (d.getOperationType() == ChangeDescription.OperationType.ADD) {
+      if (desc != null) {
+        if (desc.getOperationType() == ChangeDescription.OperationType.ADD) {
+          if (desc.getIndex() + desc.getLength() == d.getIndex()) {
+            desc=ChangeDescription.mergeAdd(desc,d);
+          }
+ else {
+            res.add(desc);
+            desc=null;
+          }
+        }
+ else {
+          res.add(desc);
+          desc=null;
+        }
+      }
+    }
+ else {
+      if (desc != null) {
+        res.add(desc);
+        desc=null;
+      }
+    }
+    if (desc == null) {
+      desc=d;
+    }
+  }
+  if (desc != null) {
+    res.add(desc);
+  }
+  return res;
+}

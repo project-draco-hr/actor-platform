@@ -38,8 +38,8 @@
     changes.add(ChangeDescription.update(addedIndex,item));
   }
  else   if (removedIndex >= 0) {
+    changes.add(ChangeDescription.update(removedIndex,item));
     changes.add(ChangeDescription.<T>move(removedIndex,addedIndex));
-    changes.add(ChangeDescription.update(addedIndex,item));
   }
  else {
     changes.add(ChangeDescription.add(addedIndex,item));

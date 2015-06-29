@@ -1,3 +1,4 @@
 {
+  modifications=optimize(modifications);
   return modifications;
 }

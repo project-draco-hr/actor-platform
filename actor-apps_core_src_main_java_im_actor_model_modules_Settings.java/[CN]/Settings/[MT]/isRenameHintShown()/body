@@ -1,0 +1,7 @@
+{
+  boolean res=loadValue(KEY_RENAME_HINT_SHOWN,false);
+  if (!res) {
+    changeValue(KEY_RENAME_HINT_SHOWN,true);
+  }
+  return res;
+}
