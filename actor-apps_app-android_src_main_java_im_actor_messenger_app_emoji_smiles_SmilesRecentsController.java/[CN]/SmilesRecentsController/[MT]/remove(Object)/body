@@ -1,5 +1,4 @@
 {
   boolean ret=super.remove(object);
-  if (buffer != null)   buffer.remove(object);
   return ret;
 }
