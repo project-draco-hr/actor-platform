@@ -9,7 +9,7 @@
   timing.section("Analytics");
   this.analytics=new Analytics(this);
   timing.section("API");
-  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.getNetworkProvider(),configuration.isEnableNetworkLogging());
+  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.getNetworkProvider(),configuration.isEnableNetworkLogging(),configuration.getMinDelay(),configuration.getMaxDelay(),configuration.getMaxFailureCount());
   timing.section("Auth");
   this.auth=new Auth(this);
   timing.section("Pushes");

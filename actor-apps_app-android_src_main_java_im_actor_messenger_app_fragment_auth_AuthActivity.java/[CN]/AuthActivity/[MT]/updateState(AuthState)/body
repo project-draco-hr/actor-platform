@@ -12,8 +12,19 @@ case AUTH_START:
       showFragment(new SignPhoneFragment(),false,false);
     }
   break;
-case CODE_VALIDATION:
-showFragment(new SignInFragment(),false,false);
+case CODE_VALIDATION_PHONE:
+case CODE_VALIDATION_EMAIL:
+Fragment signInFragment=new SignInFragment();
+Bundle args=new Bundle();
+args.putString("authType",state == AuthState.CODE_VALIDATION_EMAIL ? SignInFragment.AUTH_TYPE_EMAIL : SignInFragment.AUTH_TYPE_PHONE);
+signInFragment.setArguments(args);
+showFragment(signInFragment,false,false);
+break;
+case GET_OAUTH_PARAMS:
+executeAuth(messenger().requestGetOAuthParams(),"get_oauth_params");
+break;
+case COMPLETE_OAUTH:
+startActivityForResult(new Intent(this,OAuthDialogActivity.class),OAUTH_DIALOG);
 break;
 case SIGN_UP:
 showFragment(new SignUpFragment(),false,false);

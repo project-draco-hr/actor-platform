@@ -1,0 +1,9 @@
+Endpoints endpoints
+AuthKeyStorage keyStorage
+ActorApiCallback callback
+NetworkProvider networkProvider
+boolean isEnableLog
+int id
+int minDelay
+int maxDelay
+int maxFailureCount

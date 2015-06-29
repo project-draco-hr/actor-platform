@@ -32,5 +32,5 @@
   if (lifecycleProvider == null) {
     throw new RuntimeException("Lifecycle Provider not set");
   }
-  return new Configuration(networkProvider,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threadingProvider,mainThreadProvider,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,dispatcherProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,httpProvider,analyticsProvider,deviceCategory,appCategory,lifecycleProvider);
+  return new Configuration(networkProvider,endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),threadingProvider,mainThreadProvider,enginesFactory,log,localeProvider,phoneBookProvider,cryptoProvider,fileSystemProvider,notificationProvider,dispatcherProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,httpProvider,analyticsProvider,deviceCategory,appCategory,lifecycleProvider,minDelay,maxDelay,maxFailureCount);
 }

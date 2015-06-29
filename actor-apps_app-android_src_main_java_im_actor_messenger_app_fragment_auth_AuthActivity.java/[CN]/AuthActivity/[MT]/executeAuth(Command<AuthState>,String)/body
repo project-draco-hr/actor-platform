@@ -36,6 +36,10 @@
             message=getString(R.string.auth_error_code_invalid);
             canTryAgain=false;
           }
+ else           if ("FAILED_GET_OAUTH2_TOKEN".equals(re.getTag())) {
+            message=getString(R.string.auth_error_failed_get_oauth2_token);
+            canTryAgain=false;
+          }
  else {
             message=re.getMessage();
             canTryAgain=re.isCanTryAgain();
