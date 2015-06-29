@@ -20,6 +20,7 @@
     }
  else     if (extras.containsKey("forward_text")) {
       forwardText=extras.getString("forward_text");
+      forwardTextRaw=extras.getString("forward_text_raw");
     }
  else     if (extras.containsKey("forward_doc_descriptor")) {
       forwardDocDescriptor=extras.getString("forward_doc_descriptor");

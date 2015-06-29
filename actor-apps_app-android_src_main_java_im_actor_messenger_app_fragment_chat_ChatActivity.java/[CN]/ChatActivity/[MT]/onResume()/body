@@ -63,9 +63,10 @@
     messenger().trackTextSend(peer);
     shareUser=0;
   }
-  if (forwardText != null && !forwardText.isEmpty()) {
-    addQuote(forwardText);
+  if (forwardTextRaw != null && !forwardTextRaw.isEmpty()) {
+    addQuote(forwardText,forwardTextRaw);
     forwardText="";
+    forwardTextRaw="";
   }
   if (forwardDocDescriptor != null && !forwardDocDescriptor.isEmpty()) {
     if (forwardDocIsDoc) {

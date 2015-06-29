@@ -1,5 +1,0 @@
-{
-  quoteText.setText(bypass.markdownToSpannable(quote,true));
-  currentQuote=quote;
-  showView(quoteContainer);
-}

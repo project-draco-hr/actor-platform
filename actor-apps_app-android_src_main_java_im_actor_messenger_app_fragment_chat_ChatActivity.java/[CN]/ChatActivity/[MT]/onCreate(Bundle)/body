@@ -288,6 +288,7 @@
   sendUriMultiple=getIntent().getStringArrayListExtra("send_uri_multiple");
   shareUser=getIntent().getIntExtra("share_user",0);
   forwardText=getIntent().getStringExtra("forward_text");
+  forwardTextRaw=getIntent().getStringExtra("forward_text_raw");
   forwardDocDescriptor=getIntent().getStringExtra("forward_doc_descriptor");
   forwardDocIsDoc=getIntent().getBooleanExtra("forward_doc_is_doc",true);
 }

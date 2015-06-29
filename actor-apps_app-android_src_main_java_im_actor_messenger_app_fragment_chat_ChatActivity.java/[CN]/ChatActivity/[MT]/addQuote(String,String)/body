@@ -1,0 +1,10 @@
+{
+  if (quote != null && !quote.isEmpty()) {
+    quoteText.setText(bypass.markdownToSpannable(quote,true));
+  }
+ else {
+    quoteText.setText(bypass.markdownToSpannable(rawQuote,true));
+  }
+  currentQuote=rawQuote;
+  showView(quoteContainer);
+}
