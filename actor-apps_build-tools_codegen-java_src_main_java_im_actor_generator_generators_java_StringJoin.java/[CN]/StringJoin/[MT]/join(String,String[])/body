@@ -1,0 +1,12 @@
+{
+  if (strings != null && strings.length > 0) {
+    String str=strings[0];
+    for (int i=1; i < strings.length; i++) {
+      str=str.concat(delimeter).concat(strings[i]);
+    }
+    return str;
+  }
+ else {
+    return "";
+  }
+}

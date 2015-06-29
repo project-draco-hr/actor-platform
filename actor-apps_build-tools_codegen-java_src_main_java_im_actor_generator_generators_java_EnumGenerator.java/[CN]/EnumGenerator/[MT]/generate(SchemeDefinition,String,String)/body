@@ -1,5 +1,5 @@
 {
-  String destFolder=path + "/" + String.join("/",pkg.split("\\."));
+  String destFolder=path + "/" + StringJoin.join("/",pkg.split("\\."));
   new File(destFolder).mkdirs();
   for (  SchemeEnum e : definition.getAllEnums()) {
     String javaName=JavaConfig.getEnumName(e.getName());
