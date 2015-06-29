@@ -1,0 +1,14 @@
+int id
+long accessHash
+String title
+Avatar avatar
+boolean isMember
+int creatorUid
+List<Member> members
+long createDate
+Boolean disableEdit
+Boolean disableInviteView
+Boolean disableInviteRevoke
+Boolean disableIntegrationView
+Boolean disableIntegrationsRevoke
+Boolean isAdmin

@@ -3,5 +3,5 @@
   for (  ObsoleteGroupMember member : this.members) {
     members.add(new Member(member.getUid(),member.getInviterUid(),member.getInviteDate()));
   }
-  return new im.actor.model.api.Group(groupId,accessHash,title,avatar != null ? avatar.toApiAvatar() : null,isMember,creatorId,members,0);
+  return new im.actor.model.api.Group(groupId,accessHash,title,avatar != null ? avatar.toApiAvatar() : null,isMember,creatorId,members,0,null,null,null,null,null,null);
 }

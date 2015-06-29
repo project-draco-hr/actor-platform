@@ -12,6 +12,24 @@
   writer.writeInt(8,this.creatorUid);
   writer.writeRepeatedObj(9,this.members);
   writer.writeLong(10,this.createDate);
+  if (this.disableEdit != null) {
+    writer.writeBool(11,this.disableEdit);
+  }
+  if (this.disableInviteView != null) {
+    writer.writeBool(12,this.disableInviteView);
+  }
+  if (this.disableInviteRevoke != null) {
+    writer.writeBool(13,this.disableInviteRevoke);
+  }
+  if (this.disableIntegrationView != null) {
+    writer.writeBool(14,this.disableIntegrationView);
+  }
+  if (this.disableIntegrationsRevoke != null) {
+    writer.writeBool(15,this.disableIntegrationsRevoke);
+  }
+  if (this.isAdmin != null) {
+    writer.writeBool(16,this.isAdmin);
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {
