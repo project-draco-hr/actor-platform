@@ -1,0 +1,11 @@
+{
+  String res="struct PublicGroup{";
+  res+="id=" + this.id;
+  res+=", title=" + this.title;
+  res+=", avatar=" + this.avatar;
+  res+=", membersCount=" + this.membersCount;
+  res+=", friendsCount=" + this.friendsCount;
+  res+=", description=" + this.description;
+  res+="}";
+  return res;
+}

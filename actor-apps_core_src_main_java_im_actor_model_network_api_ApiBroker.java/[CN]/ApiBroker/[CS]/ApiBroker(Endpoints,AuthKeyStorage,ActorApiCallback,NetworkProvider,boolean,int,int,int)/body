@@ -1,0 +1,11 @@
+{
+  this.isEnableLog=isEnableLog;
+  this.endpoints=endpoints;
+  this.keyStorage=keyStorage;
+  this.callback=callback;
+  this.networkProvider=networkProvider;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
+  authIdBackOff=new ExponentialBackoff(minDelay,maxDelay,maxFailureCount);
+}

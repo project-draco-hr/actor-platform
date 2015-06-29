@@ -5,15 +5,35 @@
   this.state=state;
 switch (state) {
 case AUTH_START:
-    if (authType != null && authType.equals("auth_type_email")) {
+    if (authType == AUTH_TYPE_EMAIL) {
       showFragment(new SignEmailFragment(),false,false);
     }
- else {
+ else     if (authType == AUTH_TYPE_PHONE) {
       showFragment(new SignPhoneFragment(),false,false);
     }
   break;
-case CODE_VALIDATION:
-showFragment(new SignInFragment(),false,false);
+case CODE_VALIDATION_PHONE:
+case CODE_VALIDATION_EMAIL:
+if ((state == AuthState.CODE_VALIDATION_EMAIL && authType == AUTH_TYPE_PHONE) || (state == AuthState.CODE_VALIDATION_PHONE && authType == AUTH_TYPE_EMAIL)) {
+  updateState(AuthState.AUTH_START);
+  break;
+}
+Fragment signInFragment=new SignInFragment();
+Bundle args=new Bundle();
+args.putString("authType",state == AuthState.CODE_VALIDATION_EMAIL ? SignInFragment.AUTH_TYPE_EMAIL : SignInFragment.AUTH_TYPE_PHONE);
+signInFragment.setArguments(args);
+showFragment(signInFragment,false,false);
+break;
+case GET_OAUTH_PARAMS:
+executeAuth(messenger().requestGetOAuthParams(),"get_oauth_params");
+break;
+case COMPLETE_OAUTH:
+if (authType == AUTH_TYPE_PHONE) {
+updateState(AuthState.AUTH_START);
+break;
+}
+showFragment(new SignEmailFragment(),false,false);
+startActivityForResult(new Intent(this,OAuthDialogActivity.class),OAUTH_DIALOG);
 break;
 case SIGN_UP:
 showFragment(new SignUpFragment(),false,false);

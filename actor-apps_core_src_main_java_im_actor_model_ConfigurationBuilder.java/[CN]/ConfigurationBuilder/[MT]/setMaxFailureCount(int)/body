@@ -1,0 +1,4 @@
+{
+  this.maxFailureCount=maxFailureCount;
+  return this;
+}

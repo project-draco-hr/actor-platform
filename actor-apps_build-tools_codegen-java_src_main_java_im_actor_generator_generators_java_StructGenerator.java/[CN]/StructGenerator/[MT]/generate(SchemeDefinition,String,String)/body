@@ -1,5 +1,5 @@
 {
-  String destFolder=path + "/" + String.join("/",pkg.split("\\."));
+  String destFolder=path + "/" + StringJoin.join("/",pkg.split("\\."));
   new File(destFolder).mkdirs();
   for (  SchemeTrait u : definition.getAllTraits()) {
     String javaName=JavaConfig.getStructName(u.getName());

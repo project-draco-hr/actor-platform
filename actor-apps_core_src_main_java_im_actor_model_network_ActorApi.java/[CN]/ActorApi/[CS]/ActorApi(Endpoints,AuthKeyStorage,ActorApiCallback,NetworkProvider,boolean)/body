@@ -1,8 +1,0 @@
-{
-  this.endpoints=endpoints;
-  this.keyStorage=keyStorage;
-  this.callback=callback;
-  this.networkProvider=networkProvider;
-  this.isEnableLog=isEnableLog;
-  this.apiBroker=ApiBroker.get(endpoints,keyStorage,callback,networkProvider,isEnableLog,NEXT_ID.get());
-}

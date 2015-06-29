@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  authType=getIntent().getStringExtra("auth_type");
+  authType=getIntent().getIntExtra(AUTH_TYPE_KEY,AUTH_TYPE_PHONE);
   if (savedInstanceState == null) {
     updateState();
   }

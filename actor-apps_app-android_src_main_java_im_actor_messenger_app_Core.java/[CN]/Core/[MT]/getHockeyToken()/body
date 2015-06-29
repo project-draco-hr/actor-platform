@@ -1,3 +1,6 @@
 {
+  if (hockeyToken != null && hockeyToken.equals("null")) {
+    return null;
+  }
   return hockeyToken;
 }
