@@ -1,0 +1,8 @@
+{
+  if (groups().get(item.getId()) != null && groups().get(item.getId()).isMember().get()) {
+    startActivity(Intents.openDialog(Peer.group(item.getId()),false,getActivity()));
+  }
+ else {
+    joinGroup(item);
+  }
+}
