@@ -1,6 +1,10 @@
 {
   emailEditText=(EditText)v.findViewById(R.id.tv_email);
   emailEditText.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+  String email=messenger().getPreferences().getString(Auth.KEY_EMAIL);
+  if (email != null && !email.isEmpty()) {
+    emailEditText.setText(email);
+  }
   emailEditText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
     @Override public boolean onEditorAction(    TextView textView,    int id,    KeyEvent keyEvent){
       if (id == EditorInfo.IME_ACTION_GO) {

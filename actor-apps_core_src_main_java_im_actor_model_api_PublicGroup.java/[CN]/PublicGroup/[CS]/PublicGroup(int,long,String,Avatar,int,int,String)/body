@@ -1,0 +1,9 @@
+{
+  this.id=id;
+  this.accessHash=accessHash;
+  this.title=title;
+  this.avatar=avatar;
+  this.membersCount=membersCount;
+  this.friendsCount=friendsCount;
+  this.description=description;
+}

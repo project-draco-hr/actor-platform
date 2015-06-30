@@ -1,0 +1,7 @@
+{
+  List<PublicGroup> _groups=new ArrayList<PublicGroup>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _groups.add(new PublicGroup());
+  }
+  this.groups=values.getRepeatedObj(1,_groups);
+}

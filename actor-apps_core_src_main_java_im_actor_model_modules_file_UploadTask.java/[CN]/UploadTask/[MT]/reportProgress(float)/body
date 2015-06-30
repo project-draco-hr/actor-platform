@@ -2,5 +2,15 @@
   if (isCompleted) {
     return;
   }
-  manager.send(new UploadManager.UploadTaskProgress(rid,progress));
+  if (progress > currentProgress) {
+    currentProgress=progress;
+  }
+  long delta=Environment.getActorTime() - lastNotifyDate;
+  if (delta > NOTIFY_THROTTLE) {
+    lastNotifyDate=Environment.getActorTime();
+    self().send(new NotifyProgress());
+  }
+ else {
+    self().sendOnce(new NotifyProgress(),delta);
+  }
 }

@@ -1,0 +1,4 @@
+{
+  this.maxDelay=maxDelay;
+  return this;
+}

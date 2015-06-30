@@ -1,0 +1,6 @@
+{
+  ArrayList<T> items=new ArrayList<T>();
+  items.addAll(a.getItems());
+  items.addAll(b.getItems());
+  return new ChangeDescription<T>(OperationType.ADD,a.getIndex(),0,items.size(),items);
+}

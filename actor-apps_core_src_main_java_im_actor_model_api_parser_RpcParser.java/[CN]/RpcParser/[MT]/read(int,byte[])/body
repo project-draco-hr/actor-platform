@@ -82,6 +82,10 @@ case 179:
 return RequestRevokeInviteUrl.fromBytes(payload);
 case 180:
 return RequestJoinGroup.fromBytes(payload);
+case 199:
+return RequestJoinGroupDirect.fromBytes(payload);
+case 201:
+return RequestGetPublicGroups.fromBytes(payload);
 case 182:
 return RequestGetIntegrationToken.fromBytes(payload);
 case 184:
@@ -168,6 +172,10 @@ case 178:
 return ResponseInviteUrl.fromBytes(payload);
 case 181:
 return ResponseJoinGroup.fromBytes(payload);
+case 200:
+return ResponseJoinGroupDirect.fromBytes(payload);
+case 202:
+return ResponseGetPublicGroups.fromBytes(payload);
 case 183:
 return ResponseIntegrationToken.fromBytes(payload);
 case 78:

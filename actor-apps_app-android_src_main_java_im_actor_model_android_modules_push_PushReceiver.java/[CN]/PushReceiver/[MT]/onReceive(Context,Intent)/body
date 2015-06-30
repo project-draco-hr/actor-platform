@@ -44,4 +44,5 @@
  else {
     Log.w(TAG,"Message with null extras: ignoring");
   }
+  completeWakefulIntent(intent);
 }

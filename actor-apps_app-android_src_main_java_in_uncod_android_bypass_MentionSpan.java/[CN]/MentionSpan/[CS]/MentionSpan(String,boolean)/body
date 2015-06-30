@@ -1,3 +1,4 @@
 {
   super(url,hideUrlStyle);
+  colors=new int[]{AppContext.getContext().getResources().getColor(R.color.placeholder_0),AppContext.getContext().getResources().getColor(R.color.placeholder_1),AppContext.getContext().getResources().getColor(R.color.placeholder_2),AppContext.getContext().getResources().getColor(R.color.placeholder_3),AppContext.getContext().getResources().getColor(R.color.placeholder_4),AppContext.getContext().getResources().getColor(R.color.placeholder_5),AppContext.getContext().getResources().getColor(R.color.placeholder_6)};
 }

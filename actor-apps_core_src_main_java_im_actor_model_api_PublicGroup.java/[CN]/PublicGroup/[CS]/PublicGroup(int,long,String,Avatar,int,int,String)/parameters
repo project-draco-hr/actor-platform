@@ -1,0 +1,7 @@
+int id
+long accessHash
+String title
+Avatar avatar
+int membersCount
+int friendsCount
+String description

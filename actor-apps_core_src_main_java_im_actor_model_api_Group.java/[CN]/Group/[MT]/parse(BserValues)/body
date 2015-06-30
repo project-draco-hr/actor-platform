@@ -11,6 +11,12 @@
   }
   this.members=values.getRepeatedObj(9,_members);
   this.createDate=values.getLong(10);
+  this.disableEdit=values.optBool(11);
+  this.disableInviteView=values.optBool(12);
+  this.disableInviteRevoke=values.optBool(13);
+  this.disableIntegrationView=values.optBool(14);
+  this.disableIntegrationsRevoke=values.optBool(15);
+  this.isAdmin=values.optBool(16);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

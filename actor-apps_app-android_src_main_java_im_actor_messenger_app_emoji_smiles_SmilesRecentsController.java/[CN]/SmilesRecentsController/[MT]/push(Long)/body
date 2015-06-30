@@ -1,12 +1,9 @@
 {
-  if (buffer == null) {
-    buffer=new ArrayList<Long>(this);
+  if (contains(object)) {
+    super.remove(object);
   }
-  if (buffer.contains(object)) {
-    buffer.remove(object);
-  }
-  buffer.add(0,object);
-  while (buffer.size() > 32) {
-    buffer.remove(32);
+  add(0,object);
+  while (size() > 32) {
+    remove(32);
   }
 }
