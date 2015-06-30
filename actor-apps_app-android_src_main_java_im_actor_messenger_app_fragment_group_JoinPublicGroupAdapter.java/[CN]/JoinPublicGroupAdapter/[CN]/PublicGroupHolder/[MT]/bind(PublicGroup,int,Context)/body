@@ -1,0 +1,13 @@
+{
+  publicGroup=data;
+  avatarView.bind(data);
+  CharSequence title=data.getTitle();
+  if (query != null && !query.isEmpty()) {
+    title=SearchHighlight.highlightMentionsQuery((String)title,query,highlightColor);
+  }
+  this.title.setText(title);
+  this.description.setText(data.getDescription());
+  this.description.setVisibility(data.getDescription().length() > 0 ? View.VISIBLE : View.GONE);
+  this.membersCount.setText(Integer.toString(data.getMembersCount()));
+  this.friendsCount.setText(Integer.toString(data.getFriendsCount()));
+}

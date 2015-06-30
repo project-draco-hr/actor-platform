@@ -1,0 +1,3 @@
+{
+  super(raw.getId(),raw.getAccessHash(),raw.getTitle(),raw.getAvatar(),raw.getMembersCount(),raw.getFriendsCount(),raw.getDescription());
+}

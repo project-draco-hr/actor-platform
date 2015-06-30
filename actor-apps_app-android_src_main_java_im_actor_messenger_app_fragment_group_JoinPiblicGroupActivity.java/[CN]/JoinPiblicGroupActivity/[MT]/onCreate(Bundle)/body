@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setTitle(R.string.join_public_group_title);
+  if (savedInstanceState == null) {
+    showFragment(new JoinPublicGroupFragment(),false,false);
+  }
+}
