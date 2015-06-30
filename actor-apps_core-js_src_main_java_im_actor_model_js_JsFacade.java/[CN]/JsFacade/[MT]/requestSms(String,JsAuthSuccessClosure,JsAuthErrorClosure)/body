@@ -1,7 +1,7 @@
 {
   try {
     long res=Long.parseLong(phone);
-    messenger.requestSms(res).start(new CommandCallback<AuthState>(){
+    messenger.requestSmsObsolete(res).start(new CommandCallback<AuthState>(){
       @Override public void onResult(      AuthState res){
         success.onResult(Enums.convert(res));
       }

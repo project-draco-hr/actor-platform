@@ -1,5 +1,5 @@
 {
-  messenger.signUp(name,null,false).start(new CommandCallback<AuthState>(){
+  messenger.signUpObsolete(name,null,false).start(new CommandCallback<AuthState>(){
     @Override public void onResult(    AuthState res){
       success.onResult(Enums.convert(res));
     }

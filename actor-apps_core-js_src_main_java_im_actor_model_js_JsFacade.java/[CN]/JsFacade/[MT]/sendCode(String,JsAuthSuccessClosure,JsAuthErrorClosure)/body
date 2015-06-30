@@ -1,7 +1,7 @@
 {
   try {
     int res=Integer.parseInt(code);
-    messenger.sendCode(res).start(new CommandCallback<AuthState>(){
+    messenger.sendCodeObsolete(res).start(new CommandCallback<AuthState>(){
       @Override public void onResult(      AuthState res){
         success.onResult(Enums.convert(res));
       }
