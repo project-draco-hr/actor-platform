@@ -1,6 +1,6 @@
 {
   Intent i=new Intent(getActivity(),JoinGroupPopUpActivity.class);
-  if (a != null)   i.putExtra("avatar",a.toByteArray());
+  if (item.getAvatar() != null)   i.putExtra("avatar",item.getAvatar().toByteArray());
   i.putExtra("id",item.getId());
   i.putExtra("title",item.getTitle());
   i.putExtra("description",item.getDescription());
