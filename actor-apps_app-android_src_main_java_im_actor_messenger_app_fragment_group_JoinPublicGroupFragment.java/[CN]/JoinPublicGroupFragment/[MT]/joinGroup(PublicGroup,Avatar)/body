@@ -1,0 +1,10 @@
+{
+  Intent i=new Intent(getActivity(),JoinGroupPopUpActivity.class);
+  if (a != null)   i.putExtra("avatar",a.toByteArray());
+  i.putExtra("id",item.getId());
+  i.putExtra("title",item.getTitle());
+  i.putExtra("description",item.getDescription());
+  i.putExtra("members",item.getMembers());
+  i.putExtra("accessHash",item.getAccessHash());
+  startActivity(i);
+}

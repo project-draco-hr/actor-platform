@@ -1,5 +1,0 @@
-{
-  Intent i=new Intent(getActivity(),JoinGroupPopUpActivity.class);
-  i.putExtra("group",item.toByteArray());
-  startActivity(i);
-}

@@ -1,3 +1,9 @@
 {
-  super(raw.getId(),raw.getAccessHash(),raw.getTitle(),raw.getAvatar(),raw.getMembersCount(),raw.getFriendsCount(),raw.getDescription());
+  this.id=raw.getId();
+  this.accessHash=raw.getAccessHash();
+  this.title=raw.getTitle();
+  this.avatar=raw.getAvatar() == null ? null : new Avatar(raw.getAvatar());
+  this.description=raw.getDescription();
+  this.members=raw.getMembersCount();
+  this.friends=raw.getFriendsCount();
 }

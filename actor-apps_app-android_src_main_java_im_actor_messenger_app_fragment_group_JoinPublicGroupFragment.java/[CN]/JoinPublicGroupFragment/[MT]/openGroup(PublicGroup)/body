@@ -10,6 +10,6 @@
     startActivity(Intents.openDialog(Peer.group(item.getId()),false,getActivity()));
   }
  else {
-    joinGroup(item);
+    joinGroup(item,item.getAvatar());
   }
 }
