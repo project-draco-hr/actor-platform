@@ -10,6 +10,8 @@
   title=new TextView(context);
   title.setText(data.getTitle());
   title.setGravity(Gravity.CENTER);
+  title.setTextColor(context.getResources().getColor(R.color.text_secondary));
+  title.setTextSize(15);
   title.setMaxLines(2);
   title.setEllipsize(TextUtils.TruncateAt.END);
   title.setMaxWidth(Screen.dp(100));
@@ -17,8 +19,22 @@
   counter=new TextView(context);
   counter.setGravity(Gravity.CENTER);
   counter.setSingleLine();
+  counter.setTextColor(context.getResources().getColor(R.color.text_secondary));
+  counter.setTextSize(14);
   counter.setMaxWidth(Screen.dp(100));
   counter.setEllipsize(TextUtils.TruncateAt.END);
-  counter.setText(context.getString(R.string.join_public_group_members_count).concat(Integer.toString(data.getMembers())));
-  addView(counter,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+  String counterString;
+switch (counterType) {
+case COUNTER_TYPE_FRIENDS:
+    counterString=context.getString(R.string.join_public_group_friends_count).concat(Integer.toString(data.getFriends()));
+  break;
+case COUNTER_TYPE_MEMBERS:
+counterString=context.getString(R.string.join_public_group_members_count).concat(Integer.toString(data.getMembers()));
+break;
+default :
+counterString="";
+break;
+}
+counter.setText(counterString);
+addView(counter,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
 }
