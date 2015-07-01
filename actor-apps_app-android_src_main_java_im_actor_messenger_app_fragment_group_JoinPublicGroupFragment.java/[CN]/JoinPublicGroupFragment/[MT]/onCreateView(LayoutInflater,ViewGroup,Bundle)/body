@@ -22,9 +22,22 @@
           }
 );
           ArrayList<PublicGroup> groupsSet=new ArrayList<PublicGroup>();
-          groupsSet.add(sortedGroups.get(0));
-          groupsSet.add(sortedGroups.get(1));
-          groupsSet.add(sortedGroups.get(2));
+          for (int i=0; i < 3; i++) {
+            PublicGroup group=sortedGroups.get(i);
+            groupsSet.add(group);
+            if (group.getAvatar() != null) {
+              Avatar a=new Avatar(group.getAvatar());
+              messenger().bindFile(a.getFullImage().getFileReference(),true,new FileVMCallback(){
+                @Override public void onNotDownloaded(){
+                }
+                @Override public void onDownloading(                float progress){
+                }
+                @Override public void onDownloaded(                FileSystemReference reference){
+                }
+              }
+);
+            }
+          }
           PublicGroupSetView groupSetView=new PublicGroupSetView(getActivity(),new PublicGroupSet(groupsSet,getString(R.string.join_public_group_top_title),getString(R.string.join_public_group_top_subtitle)));
           groupSetView.setOnGroupClickListener(new PublicGroupSetView.GroupClickListener(){
             @Override public void onClick(            PublicGroup group){

@@ -1,5 +1,12 @@
 {
-  if (groups().get(item.getId()) != null && groups().get(item.getId()).isMember().get()) {
+  GroupVM groupVM=null;
+  try {
+    groupVM=groups().get(item.getId());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  if (groupVM != null && groupVM.isMember().get()) {
     startActivity(Intents.openDialog(Peer.group(item.getId()),false,getActivity()));
   }
  else {

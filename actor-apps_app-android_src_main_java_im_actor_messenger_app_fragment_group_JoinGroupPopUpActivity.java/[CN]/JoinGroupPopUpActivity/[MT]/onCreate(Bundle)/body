@@ -1,9 +1,12 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_base_fragment);
   int chatId=getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0);
-  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-  getSupportActionBar().setTitle(null);
+  Fragment fr=new JoinPublicGroupPopUpFragment();
+  Bundle b=new Bundle();
+  b.putByteArray("group",getIntent().getByteArrayExtra("group"));
+  fr.setArguments(b);
   if (savedInstanceState == null) {
-    showFragment(GroupInfoFragment.create(chatId),false,false);
+    showFragment(fr,false,false);
   }
 }

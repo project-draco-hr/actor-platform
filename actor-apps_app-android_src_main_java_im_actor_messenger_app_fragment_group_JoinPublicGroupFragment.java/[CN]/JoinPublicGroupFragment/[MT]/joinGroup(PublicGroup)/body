@@ -1,16 +1,5 @@
 {
-  execute(messenger().joinPublicGroup(item.getId(),item.getAccessHash()),R.string.main_fab_join_public_group,new CommandCallback<Integer>(){
-    @Override public void onResult(    Integer res){
-      startActivity(Intents.openDialog(Peer.group(res),false,getActivity()));
-    }
-    @Override public void onError(    Exception e){
-      if (e instanceof RpcException) {
-        RpcException re=(RpcException)e;
-        if ("USER_ALREADY_INVITED".equals(re.getTag())) {
-          startActivity(Intents.openDialog(Peer.group(item.getId()),false,getActivity()));
-        }
-      }
-    }
-  }
-);
+  Intent i=new Intent(getActivity(),JoinGroupPopUpActivity.class);
+  i.putExtra("group",item.toByteArray());
+  startActivity(i);
 }
