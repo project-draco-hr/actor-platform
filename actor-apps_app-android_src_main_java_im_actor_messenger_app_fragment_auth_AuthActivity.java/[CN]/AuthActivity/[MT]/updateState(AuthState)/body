@@ -32,8 +32,7 @@ if (authType == AUTH_TYPE_PHONE) {
 updateState(AuthState.AUTH_START);
 break;
 }
-showFragment(new SignEmailFragment(),false,false);
-startActivityForResult(new Intent(this,OAuthDialogActivity.class),OAUTH_DIALOG);
+showFragment(new OAuthFragment(),false,false);
 break;
 case SIGN_UP:
 showFragment(new SignUpFragment(),false,false);

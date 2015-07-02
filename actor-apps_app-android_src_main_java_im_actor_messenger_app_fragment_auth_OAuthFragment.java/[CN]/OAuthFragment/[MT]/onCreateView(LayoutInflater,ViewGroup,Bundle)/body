@@ -1,6 +1,5 @@
 {
-  super.onCreate(savedInstanceState);
-  WebView wv=new WebView(this);
+  wv=new WebView(getActivity());
   wv.getSettings().setJavaScriptEnabled(true);
   wv.loadUrl(messenger().getPreferences().getString(Auth.KEY_OAUTH_REDIRECT_URL));
   wv.setWebViewClient(new WebViewClient(){
@@ -10,10 +9,10 @@
     }
     @Override public void onLoadResource(    WebView view,    String url){
       if (url.startsWith("https://actor.im/auth/oauth2callback")) {
+        goneView(wv);
         Uri u=Uri.parse(url);
         String code=u.getQueryParameter("code");
-        setResult(RESULT_OK,new Intent().putExtra("code",code));
-        finish();
+        executeAuth(messenger().requestCompleteOAuth(code),"Sign in");
       }
  else {
         super.onLoadResource(view,url);
@@ -21,10 +20,5 @@
     }
   }
 );
-  LinearLayout ll=new LinearLayout(this);
-  ll.setGravity(Gravity.CENTER);
-  ll.setOrientation(LinearLayout.VERTICAL);
-  LinearLayout.LayoutParams llp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-  ll.addView(wv,llp);
-  setContentView(ll);
+  return wv;
 }
