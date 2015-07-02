@@ -80,7 +80,8 @@
             }
           }
 );
-          topMembersGroupSetView.addChain(topFriendsGroupSetView);
+          PublicGroupSetView allSeperator=new PublicGroupSetView(getActivity(),new PublicGroupSet(null,getString(R.string.join_public_group_all_groups),null),PublicGroupCardView.COUNTER_TYPE_FRIENDS);
+          topMembersGroupSetView.addChain(topFriendsGroupSetView).addChain(allSeperator);
           listView.addHeaderView(topMembersGroupSetView,null,false);
           adapter.updateGroups(groups);
           hideView(emptyView);
