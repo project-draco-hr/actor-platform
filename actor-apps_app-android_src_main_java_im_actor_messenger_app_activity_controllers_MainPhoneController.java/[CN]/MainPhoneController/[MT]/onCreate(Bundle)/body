@@ -63,8 +63,10 @@
   searchHintView.setVisibility(View.GONE);
   searchEmptyView.setVisibility(View.GONE);
   pager=(ViewPager)findViewById(R.id.vp_pager);
+  pager.setOffscreenPageLimit(2);
   homePagerAdapter=new HomePagerAdapter(getFragmentManager());
   pager.setAdapter(homePagerAdapter);
+  pager.setCurrentItem(1);
   pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
     private int prevPage=-1;
     @Override public void onPageScrolled(    int position,    float positionOffset,    int positionOffsetPixels){
@@ -110,7 +112,7 @@
   findViewById(R.id.joinPublicGroupContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       goneFab();
-      startActivity(new Intent(getActivity(),JoinPiblicGroupActivity.class));
+      startActivity(new Intent(getActivity(),JoinPublicGroupActivity.class));
     }
   }
 );

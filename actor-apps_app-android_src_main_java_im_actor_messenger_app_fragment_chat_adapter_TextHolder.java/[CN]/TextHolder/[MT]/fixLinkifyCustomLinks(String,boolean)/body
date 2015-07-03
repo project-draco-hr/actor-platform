@@ -1,0 +1,10 @@
+{
+  Pattern p=Pattern.compile(regex);
+  Matcher m=p.matcher(text.getText().toString());
+  SpannableString s=SpannableString.valueOf(text.getText());
+  while (m.find()) {
+    URLSpan span=isMention ? new MentionSpan(m.group(),false) : new URLSpan(m.group());
+    s.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  }
+  text.setText(s);
+}

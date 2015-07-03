@@ -17,22 +17,12 @@
     Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
   }
   String regex="(people:\\/\\/)([0-9]{1,20})";
-  Pattern p=Pattern.compile(regex);
-  Matcher m=p.matcher(text.getText().toString());
-  SpannableString s=SpannableString.valueOf(text.getText());
-  while (m.find()) {
-    MentionSpan span=new MentionSpan(m.group(),false);
-    s.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-  }
-  text.setText(s);
+  fixLinkifyCustomLinks(regex,true);
+  regex="(actor:\\/\\/)(invite\\?token=)([0-9-a-z]{1,64})";
+  fixLinkifyCustomLinks(regex,false);
   regex="(https:\\/\\/)(quit\\.email\\/join\\/)([0-9-a-z]{1,64})";
-  p=Pattern.compile(regex);
-  m=p.matcher(text.getText().toString());
-  s=SpannableString.valueOf(text.getText());
-  while (m.find()) {
-    URLSpan span=new URLSpan(m.group());
-    s.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-  }
+  fixLinkifyCustomLinks(regex,false);
+  SpannableString s=SpannableString.valueOf(text.getText());
   text.setText(s);
   QuoteSpan[] qSpans=s.getSpans(0,s.length(),QuoteSpan.class);
   text.setMinimumWidth(0);
