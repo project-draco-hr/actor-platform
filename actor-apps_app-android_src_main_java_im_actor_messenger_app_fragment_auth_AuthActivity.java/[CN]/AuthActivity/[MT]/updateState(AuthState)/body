@@ -5,18 +5,25 @@
   this.state=state;
 switch (state) {
 case AUTH_START:
-    if (authType == AUTH_TYPE_EMAIL) {
-      showFragment(new SignEmailFragment(),false,false);
-    }
- else     if (authType == AUTH_TYPE_PHONE) {
-      showFragment(new SignPhoneFragment(),false,false);
-    }
-  break;
+    Fragment chooseAuthFr=new ChooseAuthTypeFragment();
+  Bundle b=new Bundle();
+b.putInt(SIGN_TYPE_KEY,signType);
+chooseAuthFr.setArguments(b);
+showFragment(chooseAuthFr,false,false);
+break;
+case AUTH_EMAIL:
+showFragment(new SignEmailFragment(),false,false);
+authType=AUTH_TYPE_EMAIL;
+break;
+case AUTH_PHONE:
+showFragment(new SignPhoneFragment(),false,false);
+authType=AUTH_TYPE_PHONE;
+break;
 case CODE_VALIDATION_PHONE:
 case CODE_VALIDATION_EMAIL:
 if ((state == AuthState.CODE_VALIDATION_EMAIL && authType == AUTH_TYPE_PHONE) || (state == AuthState.CODE_VALIDATION_PHONE && authType == AUTH_TYPE_EMAIL)) {
-  updateState(AuthState.AUTH_START);
-  break;
+updateState(AuthState.AUTH_START);
+break;
 }
 Fragment signInFragment=new SignInFragment();
 Bundle args=new Bundle();
