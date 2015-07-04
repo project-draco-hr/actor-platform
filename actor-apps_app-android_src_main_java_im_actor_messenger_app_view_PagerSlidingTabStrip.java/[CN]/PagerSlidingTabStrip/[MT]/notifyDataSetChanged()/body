@@ -3,7 +3,12 @@
   tabCount=pager.getAdapter().getCount();
   for (int i=0; i < tabCount; i++) {
     if (pager.getAdapter() instanceof IconTabProvider) {
-      addIconTab(i,((IconTabProvider)pager.getAdapter()).getPageIconResId(i,getContext()));
+      if (((IconTabProvider)pager.getAdapter()).getPageIconResId(i,getContext()) != -1) {
+        addIconTab(i,((IconTabProvider)pager.getAdapter()).getPageIconResId(i,getContext()));
+      }
+ else {
+        addTextTab(i,pager.getAdapter().getPageTitle(i).toString());
+      }
     }
  else     if (pager.getAdapter() instanceof TabProvider) {
       addTab(i,((TabProvider)pager.getAdapter()).getTab(i,getContext()));

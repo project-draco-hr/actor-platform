@@ -1,0 +1,13 @@
+{
+  super(context);
+  highlightColor=context.getResources().getColor(R.color.primary);
+  this.allGroups=groups.toArray(new PublicGroup[groups.size()]);
+  this.groupsToShow=allGroups;
+  searchMap=new HashMap<String,PublicGroup>();
+  String groupTitle;
+  for (  PublicGroup m : groups) {
+    groupTitle=m.getTitle();
+    searchMap.put(groupTitle.toLowerCase(),m);
+    searchMap.put(TextUtils.transliterate(groupTitle.toLowerCase()),m);
+  }
+}

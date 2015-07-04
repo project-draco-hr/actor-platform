@@ -21,8 +21,14 @@
     if (currentTab instanceof TextView) {
       ((TextView)currentTab).setTextColor(currentTabColor);
     }
+ else     if (currentTab instanceof ImageButton) {
+      ((ImageButton)currentTab).setAlpha(Color.alpha(currentTabColor));
+    }
     if (nextTab instanceof TextView) {
       ((TextView)nextTab).setTextColor(nextTabColor);
+    }
+ else     if (nextTab instanceof ImageButton) {
+      ((ImageButton)nextTab).setAlpha(Color.alpha(nextTabColor));
     }
   }
  else {
@@ -33,6 +39,14 @@
         }
  else {
           ((TextView)tabsContainer.getChildAt(i)).setTextColor(blendColors(tabTextColor,0x30000000,currentPositionOffset,true));
+        }
+      }
+ else       if (tabsContainer.getChildAt(i) instanceof ImageButton) {
+        if (i == currentPosition) {
+          ((ImageButton)tabsContainer.getChildAt(i)).setAlpha(Color.alpha(blendColors(tabTextColor,0x30000000,currentPositionOffset,false)));
+        }
+ else {
+          ((ImageButton)tabsContainer.getChildAt(i)).setAlpha(Color.alpha(blendColors(tabTextColor,0x30000000,currentPositionOffset,true)));
         }
       }
     }

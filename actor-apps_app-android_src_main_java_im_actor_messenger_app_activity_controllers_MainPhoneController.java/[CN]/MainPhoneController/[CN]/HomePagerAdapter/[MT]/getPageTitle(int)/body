@@ -2,8 +2,10 @@
 switch (position) {
 default :
 case 0:
-    return getActivity().getString(R.string.main_bar_chats);
+    return "PUB";
 case 1:
-  return getActivity().getString(R.string.main_bar_contacts);
+  return getActivity().getString(R.string.main_bar_chats);
+case 2:
+return getActivity().getString(R.string.main_bar_contacts);
 }
 }
