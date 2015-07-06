@@ -1,0 +1,18 @@
+{
+  if (altConfig != null) {
+    if (altConfig.hasPath(path)) {
+      if (!altConfig.getIsNull(path)) {
+        return altConfig.getBoolean(path);
+      }
+ else {
+        return value;
+      }
+    }
+  }
+  if (config.hasPath(path)) {
+    if (!config.getIsNull(path)) {
+      return config.getBoolean(path);
+    }
+  }
+  return value;
+}
