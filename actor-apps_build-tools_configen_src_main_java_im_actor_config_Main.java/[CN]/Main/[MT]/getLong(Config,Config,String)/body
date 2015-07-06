@@ -2,7 +2,7 @@
   if (altConfig != null) {
     if (altConfig.hasPath(path)) {
       if (!altConfig.getIsNull(path)) {
-        return altConfig.getInt(path);
+        return altConfig.getLong(path);
       }
  else {
         return null;
@@ -11,7 +11,7 @@
   }
   if (config.hasPath(path)) {
     if (!config.getIsNull(path)) {
-      return config.getInt(path);
+      return config.getLong(path);
     }
   }
   return null;
