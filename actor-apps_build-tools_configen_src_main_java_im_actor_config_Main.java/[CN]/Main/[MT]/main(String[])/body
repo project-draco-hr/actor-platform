@@ -40,9 +40,11 @@
   ios.setBaseVersion(getString(config,configAlt,"version.ios"));
   android.setBaseVersion(getString(config,configAlt,"version.android"));
   web.setBaseVersion(getString(config,configAlt,"version.web"));
-  ios.setIsCommunityEnabled(getBool(config,config,"features.community",false));
-  android.setIsCommunityEnabled(getBool(config,config,"features.community",false));
-  web.setIsCommunityEnabled(getBool(config,config,"features.community",false));
+  ios.setIsCommunityEnabled(getBool(config,configAlt,"features.community",false));
+  android.setIsCommunityEnabled(getBool(config,configAlt,"features.community",false));
+  web.setIsCommunityEnabled(getBool(config,configAlt,"features.community",false));
+  ios.setPushId(getInteger(config,configAlt,"push.ios"));
+  android.setPushId(getInteger(config,configAlt,"push.android"));
   ObjectMapper mapper=new ObjectMapper();
   mapper.enable(SerializationFeature.INDENT_OUTPUT);
   if (type.equals("android")) {
