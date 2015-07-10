@@ -7,7 +7,7 @@
           for (          UserVM user : users) {
             jsUsers.push(messenger.getJsUser(user.getId()).get());
           }
-          resolve(users);
+          resolve(jsUsers);
         }
         @Override public void onError(        Exception e){
           reject(e.getMessage());
