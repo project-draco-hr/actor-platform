@@ -33,6 +33,7 @@
   }
  else {
     Log.d(TAG,"Loading difference...");
+    onUpdateStarted();
     final long loadStart=Environment.getCurrentTime();
     request(new RequestGetDifference(seq,state),new RpcCallback<ResponseGetDifference>(){
       @Override public void onResult(      ResponseGetDifference response){
@@ -66,6 +67,9 @@
         self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
         if (response.needMore()) {
           invalidate();
+        }
+ else {
+          onUpdateEnded();
         }
       }
       @Override public void onError(      RpcException e){

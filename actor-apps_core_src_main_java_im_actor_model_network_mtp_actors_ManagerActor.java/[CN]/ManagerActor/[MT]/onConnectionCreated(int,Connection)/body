@@ -18,6 +18,7 @@
   }
   currentConnectionId=id;
   currentConnection=connection;
+  connectionStateChanged();
   backoff.onSuccess();
   isCheckingConnections=false;
   requestCheckConnection();

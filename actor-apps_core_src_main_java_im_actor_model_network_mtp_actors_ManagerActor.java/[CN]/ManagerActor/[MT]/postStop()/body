@@ -6,4 +6,5 @@
     currentConnection.close();
     currentConnection=null;
   }
+  connectionStateChanged();
 }
