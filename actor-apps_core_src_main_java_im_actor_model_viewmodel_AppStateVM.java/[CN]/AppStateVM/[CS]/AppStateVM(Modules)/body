@@ -3,6 +3,8 @@
   this.isDialogsEmpty=new ValueModel<Boolean>("app.dialogs.empty",modules.getPreferences().getBool("app.dialogs.empty",true));
   this.isContactsEmpty=new ValueModel<Boolean>("app.contacts.empty",modules.getPreferences().getBool("app.contacts.empty",true));
   this.isAppEmpty=new ValueModel<Boolean>("app.empty",modules.getPreferences().getBool("app.empty",true));
+  this.isConnecting=new ValueModel<Boolean>("app.connecting",false);
+  this.isSyncing=new ValueModel<Boolean>("app.syncing",false);
   this.isBookImported=modules.getPreferences().getBool("app.contacts.imported",false);
   this.isDialogsLoaded=modules.getPreferences().getBool("app.dialogs.loaded",false);
   this.isContactsLoaded=modules.getPreferences().getBool("app.contacts.loaded",false);

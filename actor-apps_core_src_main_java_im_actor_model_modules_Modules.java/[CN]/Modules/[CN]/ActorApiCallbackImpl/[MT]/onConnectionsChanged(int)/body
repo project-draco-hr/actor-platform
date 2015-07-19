@@ -1,0 +1,3 @@
+{
+  appStateModule.getAppStateVM().getIsConnecting().change(count == 0);
+}
