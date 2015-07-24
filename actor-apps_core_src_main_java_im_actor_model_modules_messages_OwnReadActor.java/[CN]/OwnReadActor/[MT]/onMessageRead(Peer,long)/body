@@ -20,6 +20,5 @@
     modules().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,maxPlainReadDate));
   }
   modules().getMessagesModule().saveReadState(peer,sortingDate);
-  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
   modules().getNotifications().onOwnRead(peer,sortingDate);
 }

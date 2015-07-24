@@ -1,6 +1,7 @@
 {
   super(messenger);
-  this.conversationPending=new SyncKeyValue(storage().createKeyValue(STORAGE_PENDING));
+  this.conversationPendingIn=new SyncKeyValue(storage().createKeyValue(STORAGE_CHAT_IN));
+  this.conversationPendingOut=new SyncKeyValue(storage().createKeyValue(STORAGE_CHAT_OUT));
   this.cursorStorage=new SyncKeyValue(storage().createKeyValue(STORAGE_CURSOR));
   this.dialogs=storage().createDialogsList(storage().createList(STORAGE_DIALOGS));
 }

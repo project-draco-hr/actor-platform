@@ -15,10 +15,10 @@
     onMessageError(messageError.getRid());
   }
  else   if (message instanceof MessageRead) {
-    onMessagePlainRead(((MessageRead)message).getDate());
+    onMessageRead(((MessageRead)message).getDate());
   }
  else   if (message instanceof MessageReceived) {
-    onMessagePlainReceived(((MessageReceived)message).getDate());
+    onMessageReceived(((MessageReceived)message).getDate());
   }
  else   if (message instanceof HistoryLoaded) {
     onHistoryLoaded(((HistoryLoaded)message).getMessages());

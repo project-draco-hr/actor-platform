@@ -1,0 +1,16 @@
+{
+  boolean isOut=myUid() == senderUid;
+  Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  conversationActor(peer).send(message);
+  if (!isOut) {
+    boolean hasCurrentUserMention=false;
+    AbsContent content=message.getContent();
+    if (content instanceof TextContent) {
+      ArrayList<Integer> mentions=((TextContent)content).getMentions();
+      hasCurrentUserMention=mentions != null && mentions.contains(myUid());
+    }
+    plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));
+  }
+ else {
+  }
+}

@@ -1,7 +1,7 @@
 {
   if (message instanceof NewMessage) {
     NewMessage newMessage=(NewMessage)message;
-    onNewMessage(newMessage.getPeer(),newMessage.getSender(),newMessage.getSortDate(),newMessage.getContentDescription(),newMessage.getHasCurrentUserMention(),newMessage.isAlreadyRead(),newMessage.isLastInDiff());
+    onNewMessage(newMessage.getPeer(),newMessage.getSender(),newMessage.getSortDate(),newMessage.getContentDescription(),newMessage.getHasCurrentUserMention(),newMessage.isAlreadyRead());
   }
  else   if (message instanceof MessagesRead) {
     MessagesRead read=(MessagesRead)message;

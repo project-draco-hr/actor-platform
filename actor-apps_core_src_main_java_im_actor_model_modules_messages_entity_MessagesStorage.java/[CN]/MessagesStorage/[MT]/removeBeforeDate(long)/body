@@ -1,0 +1,5 @@
+{
+  ArrayList<MessageRef> res=findBeforeDate(date);
+  messages.removeAll(res);
+  return res;
+}

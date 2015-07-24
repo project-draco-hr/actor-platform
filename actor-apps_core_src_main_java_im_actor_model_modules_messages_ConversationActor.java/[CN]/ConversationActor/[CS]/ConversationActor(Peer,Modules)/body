@@ -1,5 +1,8 @@
 {
   super(messenger);
   this.peer=peer;
-  this.pendingKeyValue=messenger.getMessagesModule().getConversationPending();
+  this.outPendingKeyValue=messenger.getMessagesModule().getConversationPendingOut();
+  this.inPendingKeyValue=messenger.getMessagesModule().getConversationPendingIn();
+  this.OUT_READ_STATE_PREF="chat_state." + peer + ".out_read";
+  this.OUT_RECEIVE_STATE_PREF="chat_state." + peer + ".out_receive";
 }

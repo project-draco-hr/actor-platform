@@ -11,5 +11,4 @@
     return;
   }
   saveStorage();
-  modules().getMessagesModule().getDialogsActor().send(new DialogsActor.CounterChanged(peer,unread.size()));
 }
