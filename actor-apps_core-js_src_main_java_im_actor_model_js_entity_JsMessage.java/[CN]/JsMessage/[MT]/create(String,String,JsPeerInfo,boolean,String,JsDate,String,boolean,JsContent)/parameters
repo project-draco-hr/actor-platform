@@ -5,4 +5,5 @@ boolean isOut
 String date
 JsDate fullDate
 String state
+boolean isOnServer
 JsContent content
