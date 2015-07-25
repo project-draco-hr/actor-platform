@@ -16,6 +16,7 @@
     dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inMessagesStorage.getCount()));
     if (state != MessageState.READ) {
       outMessagesStorage.addOrUpdate(rid,date);
+      saveOutPending();
     }
   }
 }

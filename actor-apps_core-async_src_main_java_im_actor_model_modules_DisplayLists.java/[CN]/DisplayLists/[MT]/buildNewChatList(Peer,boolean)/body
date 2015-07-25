@@ -11,8 +11,8 @@
         modules().getMessagesModule().loadMoreHistory(peer);
       }
       @Override public void onItemTouched(      Message item){
-        if (item.getSenderId() != myUid()) {
-          modules().getMessagesModule().onInMessageShown(peer,item.getSortDate());
+        if (item.isOnServer()) {
+          modules().getMessagesModule().onMessageShown(peer,item.getSortDate());
         }
       }
     }

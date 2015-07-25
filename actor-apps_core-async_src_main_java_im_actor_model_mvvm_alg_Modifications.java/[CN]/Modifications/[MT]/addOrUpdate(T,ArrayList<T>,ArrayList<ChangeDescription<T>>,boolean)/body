@@ -6,7 +6,7 @@
   for (int i=0; i < sourceList.size(); i++) {
     T srcItem=sourceList.get(i);
     if (srcItem.getEngineId() == id) {
-      if (isAddOnly) {
+      if (isLoadMore) {
         return;
       }
       sourceList.remove(i);

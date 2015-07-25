@@ -27,7 +27,9 @@
       if (message.getSortDate() <= inReadState) {
         return;
       }
+      inMessagesStorage.addOrUpdate(message.getRid(),message.getDate());
+      dialogsActor.send(new DialogsActor.InMessage(peer,message,inMessagesStorage.getCount()));
+      saveInPending();
     }
-    dialogsActor.send(new DialogsActor.InMessage(peer,message,inMessagesStorage.getCount()));
   }
 }

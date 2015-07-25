@@ -3,7 +3,7 @@
     onListSwitched(((ListSwitched<T>)message).modifications);
   }
  else   if (message instanceof EditList) {
-    onEditList(((EditList<T>)message).modification,((EditList)message).executeAfter);
+    onEditList(((EditList<T>)message).modification,((EditList)message).executeAfter,((EditList)message).isLoadMore);
   }
  else {
     drop(message);

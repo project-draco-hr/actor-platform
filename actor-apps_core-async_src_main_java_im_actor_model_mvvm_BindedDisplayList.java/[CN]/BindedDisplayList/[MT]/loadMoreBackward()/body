@@ -19,14 +19,14 @@
  else {
         window.onBackwardSliceLoaded(topSortKey);
         if (linearLayoutCallback != null)         linearLayoutCallback.setStackFromEnd(true);
-        editList(Modifications.addOnly(items),new Runnable(){
+        editList(Modifications.addLoadMore(items),new Runnable(){
           @Override public void run(){
             if (gen == currentGeneration) {
               isLoadMoreBackwardRequested=false;
             }
           }
         }
-);
+,true);
       }
     }
   }

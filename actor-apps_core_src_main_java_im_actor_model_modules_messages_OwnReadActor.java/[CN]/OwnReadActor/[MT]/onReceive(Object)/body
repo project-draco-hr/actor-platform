@@ -1,19 +1,11 @@
 {
-  if (message instanceof NewMessage) {
-    NewMessage newMessage=(NewMessage)message;
-    onNewInMessage(newMessage.getPeer(),newMessage.getRid(),newMessage.getSortingDate(),newMessage.getSenderUId(),newMessage.getContentDescription(),newMessage.getHasCurrentUserMention());
-  }
- else   if (message instanceof MessageRead) {
+  if (message instanceof MessageRead) {
     MessageRead messageRead=(MessageRead)message;
     onMessageRead(messageRead.getPeer(),messageRead.getSortingDate());
   }
  else   if (message instanceof MessageReadByMe) {
     MessageReadByMe readByMe=(MessageReadByMe)message;
     onMessageReadByMe(readByMe.getPeer(),readByMe.getSortDate());
-  }
- else   if (message instanceof MessageDeleted) {
-    MessageDeleted deleted=(MessageDeleted)message;
-    onMessageDelete(deleted.getPeer(),deleted.getRids());
   }
  else {
     drop(message);

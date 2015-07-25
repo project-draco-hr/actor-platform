@@ -1,9 +1,9 @@
 {
   messages=messages(peer);
   dialogsActor=modules().getMessagesModule().getDialogsActor();
-  inReadState=modules().getMessagesModule().loadReadState(peer);
   inMessagesStorage=new MessagesStorage();
   outMessagesStorage=new MessagesStorage();
+  inReadState=modules().getPreferences().getLong(IN_READ_STATE_PREF,0);
   outReadState=modules().getPreferences().getLong(OUT_READ_STATE_PREF,0);
   outReceiveState=modules().getPreferences().getLong(OUT_RECEIVE_STATE_PREF,0);
   try {

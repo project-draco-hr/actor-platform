@@ -17,7 +17,7 @@
       if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {
         return;
       }
-      builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setUnreadCount(dialog.getUnreadCount()).setSortKey(dialog.getSortDate());
+      builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setSortKey(dialog.getSortDate());
       if (!contentDescription.isSilent()) {
         builder.setSortKey(message.getSortDate());
       }
@@ -26,7 +26,7 @@
       if (contentDescription.isSilent()) {
         return;
       }
-      builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setUnreadCount(0).setSortKey(message.getSortDate());
+      builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setSortKey(message.getSortDate());
     }
     addOrUpdateItem(builder.createDialog());
     notifyState();

@@ -22,14 +22,14 @@
  else {
         window.onForwardSliceLoaded(bottomSortKey);
         if (linearLayoutCallback != null)         linearLayoutCallback.setStackFromEnd(false);
-        editList(Modifications.addOnly(items),new Runnable(){
+        editList(Modifications.addLoadMore(items),new Runnable(){
           @Override public void run(){
             if (gen == currentGeneration) {
               isLoadMoreForwardRequested=false;
             }
           }
         }
-);
+,true);
       }
     }
   }

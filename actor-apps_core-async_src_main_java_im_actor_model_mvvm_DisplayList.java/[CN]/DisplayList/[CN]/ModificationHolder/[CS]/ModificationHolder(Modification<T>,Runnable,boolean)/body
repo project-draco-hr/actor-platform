@@ -1,0 +1,5 @@
+{
+  this.modification=modification;
+  this.executeAfter=executeAfter;
+  this.isLoadMore=isLoadMore;
+}

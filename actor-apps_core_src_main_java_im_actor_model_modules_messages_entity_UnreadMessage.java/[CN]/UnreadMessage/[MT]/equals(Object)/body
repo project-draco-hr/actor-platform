@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  UnreadMessage that=(UnreadMessage)o;
-  if (rid != that.rid)   return false;
-  if (!peer.equals(that.peer))   return false;
-  return true;
-}

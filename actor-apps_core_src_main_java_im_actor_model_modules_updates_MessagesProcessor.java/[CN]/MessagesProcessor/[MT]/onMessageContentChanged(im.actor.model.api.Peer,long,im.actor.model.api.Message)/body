@@ -1,10 +1,12 @@
 {
   Peer peer=convert(_peer);
+  AbsContent content;
   try {
-    conversationActor(peer).send(new ConversationActor.MessageContentUpdated(rid,AbsContent.fromMessage(message)));
+    content=AbsContent.fromMessage(message);
   }
  catch (  IOException e) {
     e.printStackTrace();
     return;
   }
+  conversationActor(peer).send(new ConversationActor.MessageContentUpdated(rid,content));
 }

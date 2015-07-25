@@ -1,11 +1,5 @@
 {
   super(modules);
   this.environment=environment;
-switch (environment) {
-case ANDROID:
-    operationMode=DisplayList.OperationMode.ANDROID;
-  break;
-default :
-operationMode=DisplayList.OperationMode.GENERAL;
-}
+  this.operationMode=DisplayList.OperationMode.GENERAL;
 }

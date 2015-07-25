@@ -5,6 +5,6 @@
     m.modification.modify(backgroundList);
   }
   if (pending.size() > 0) {
-    self().send(new EditList<T>(null,null));
+    self().send(new EditList<T>(null,null,false));
   }
 }

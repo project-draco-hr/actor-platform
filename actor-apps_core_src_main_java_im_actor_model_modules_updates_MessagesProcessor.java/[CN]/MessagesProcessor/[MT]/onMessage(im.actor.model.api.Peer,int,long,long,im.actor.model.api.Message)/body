@@ -1,14 +1,17 @@
 {
   Peer peer=convert(_peer);
-  AbsContent msgContent=null;
+  AbsContent msgContent;
   try {
     msgContent=AbsContent.fromMessage(content);
   }
  catch (  IOException e) {
     e.printStackTrace();
-  }
-  if (msgContent == null) {
     return;
   }
-  onMessage(peer,senderUid,date,rid,msgContent);
+  boolean isOut=myUid() == senderUid;
+  Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  conversationActor(peer).send(message);
+  if (!isOut) {
+    plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));
+  }
 }

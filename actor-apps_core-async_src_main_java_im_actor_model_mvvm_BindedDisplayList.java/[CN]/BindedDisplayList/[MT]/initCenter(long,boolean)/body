@@ -5,7 +5,7 @@
   }
   mode=ListMode.CENTER;
   if (refresh) {
-    editList((Modification)Modifications.clear());
+    editList((Modification)Modifications.clear(),true);
   }
   stateModel.change(State.LOADING_EMPTY);
   isLoadMoreBackwardRequested=false;
@@ -18,7 +18,7 @@
       MVVMEngine.checkMainThread();
       window.completeInitCenter(bottomSortKey,topSortKey);
       if (items.size() != 0) {
-        editList(Modifications.addOrUpdate(items));
+        editList(Modifications.addOrUpdate(items),true);
       }
  else {
         window.onForwardCompleted();
