@@ -5,6 +5,9 @@
         @Override public void run(){
           callback.onResult(response);
         }
+        @Override public String toString(){
+          return "Response {" + response + "}";
+        }
       }
 );
     }
@@ -12,6 +15,9 @@
       self().send(new Runnable(){
         @Override public void run(){
           callback.onError(e);
+        }
+        @Override public String toString(){
+          return "Error {" + e + "}";
         }
       }
 );

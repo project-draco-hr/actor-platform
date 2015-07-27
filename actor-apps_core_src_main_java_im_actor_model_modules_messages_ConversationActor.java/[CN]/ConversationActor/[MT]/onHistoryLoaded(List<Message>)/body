@@ -1,18 +1,13 @@
 {
   ArrayList<Message> updated=new ArrayList<Message>();
-  boolean isOutPendingChanged=false;
   for (  Message historyMessage : history) {
     if (messages.getValue(historyMessage.getEngineId()) != null) {
       continue;
     }
     updated.add(historyMessage);
     if (historyMessage.getMessageState() != MessageState.READ) {
-      outMessagesStorage.addOrUpdate(historyMessage.getRid(),historyMessage.getDate());
-      isOutPendingChanged=true;
+      inPendingIndex.put(historyMessage.getRid(),historyMessage.getDate());
     }
-  }
-  if (isOutPendingChanged) {
-    saveOutPending();
   }
   if (updated.size() > 0) {
     messages.addOrUpdateItems(updated);

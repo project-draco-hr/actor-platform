@@ -1,6 +1,6 @@
 {
   messages.clear();
-  inMessagesStorage.clear();
-  outMessagesStorage.clear();
+  inPendingIndex.clear();
+  outPendingIndex.clear();
   dialogsActor.send(new DialogsActor.ChatClear(peer));
 }

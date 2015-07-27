@@ -1,0 +1,2 @@
+OperationMode operationMode
+List<T> defaultValues

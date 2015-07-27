@@ -4,5 +4,5 @@
       return new ReceiverActor(proto);
     }
   }
-),proto.getActorPath() + "/receiver"));
+).changeDispatcher("network"),proto.getActorPath() + "/receiver"));
 }

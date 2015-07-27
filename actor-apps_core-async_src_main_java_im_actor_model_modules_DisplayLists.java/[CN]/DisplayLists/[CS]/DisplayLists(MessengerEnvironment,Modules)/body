@@ -1,5 +1,15 @@
 {
   super(modules);
   this.environment=environment;
-  this.operationMode=DisplayList.OperationMode.GENERAL;
+switch (environment) {
+case ANDROID:
+    this.operationMode=DisplayList.OperationMode.ANDROID;
+  break;
+case IOS:
+this.operationMode=DisplayList.OperationMode.IOS;
+break;
+default :
+this.operationMode=DisplayList.OperationMode.GENERAL;
+break;
+}
 }

@@ -4,5 +4,5 @@
       return new ApiBroker(endpoints,keyStorage,callback,networkProvider,isEnableLog,minDelay,maxDelay,maxFailureCount);
     }
   }
-),"api/broker#" + id);
+).changeDispatcher("network"),"api/broker#" + id);
 }

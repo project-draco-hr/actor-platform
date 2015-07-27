@@ -34,7 +34,13 @@
     }
     modRes.addAll(changes);
   }
-  ArrayList<ChangeDescription<T>> androidChanges=ChangeBuilder.processAndroidModifications(modRes,initialList);
-  ArrayList<ChangeDescription<T>> appleChanges=ChangeBuilder.processAppleModifications(modRes,initialList);
+  ArrayList<ChangeDescription<T>> androidChanges=null;
+  AppleListUpdate appleChanges=null;
+  if (displayList.operationMode == OperationMode.ANDROID || displayList.operationMode == OperationMode.GENERAL) {
+    androidChanges=ChangeBuilder.processAndroidModifications(modRes,initialList);
+  }
+  if (displayList.operationMode == OperationMode.IOS || displayList.operationMode == OperationMode.GENERAL) {
+    appleChanges=ChangeBuilder.processAppleModifications(modRes,initialList,dest[0].isLoadMore);
+  }
   requestListSwitch(dest,initialList,androidChanges,appleChanges,dest[0].isLoadMore);
 }

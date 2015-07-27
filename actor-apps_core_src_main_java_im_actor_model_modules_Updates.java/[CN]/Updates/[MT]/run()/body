@@ -4,5 +4,5 @@
       return new SequenceActor(modules());
     }
   }
-),"actor/updates");
+).changeDispatcher("updates"),"actor/updates");
 }

@@ -13,10 +13,9 @@
     }
     Message updatedMsg=msg.changeAllDate(date).changeState(state);
     messages.addOrUpdateItem(updatedMsg);
-    dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inMessagesStorage.getCount()));
+    dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inPendingIndex.getCount()));
     if (state != MessageState.READ) {
-      outMessagesStorage.addOrUpdate(rid,date);
-      saveOutPending();
+      outPendingIndex.put(rid,date);
     }
   }
 }

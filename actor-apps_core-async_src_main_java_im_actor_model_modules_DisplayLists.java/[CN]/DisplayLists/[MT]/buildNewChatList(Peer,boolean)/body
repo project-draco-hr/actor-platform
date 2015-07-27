@@ -19,7 +19,7 @@
 ;
   }
   BaseAsyncStorageProvider storageProvider=(BaseAsyncStorageProvider)modules().getConfiguration().getStorageProvider();
-  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,storageProvider.getMessagesLoadPage(),storageProvider.getMessagesLoadGap(),hook);
+  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,storageProvider.getMessagesLoadPage(),storageProvider.getMessagesLoadGap(),operationMode,hook);
   long lastRead=modules().getMessagesModule().loadReadState(peer);
   if (lastRead != 0)   chatList.initCenter(lastRead,false);
  else   chatList.initTop(false);

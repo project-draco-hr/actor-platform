@@ -1,0 +1,7 @@
+{
+  this.removed=removed;
+  this.added=added;
+  this.moved=moved;
+  this.updated=updated;
+  this.isLoadMore=isLoadMore;
+}

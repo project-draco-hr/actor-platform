@@ -4,7 +4,7 @@
   if (!(mediaEngine instanceof ListEngineDisplayExt)) {
     throw new RuntimeException("Media ListEngine must implement ListEngineDisplayExt for using global list");
   }
-  BindedDisplayList<Message> mediaList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)mediaEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,null);
+  BindedDisplayList<Message> mediaList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)mediaEngine,isGlobalList,LOAD_PAGE,LOAD_GAP,operationMode,null);
   mediaList.initTop(false);
   return mediaList;
 }

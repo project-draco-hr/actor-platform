@@ -1,5 +1,0 @@
-ModificationHolder<T>[] modifications
-ArrayList<T> initialList
-ArrayList<ChangeDescription<T>> androidChanges
-ArrayList<ChangeDescription<T>> appleChanges
-boolean isLoadedMore

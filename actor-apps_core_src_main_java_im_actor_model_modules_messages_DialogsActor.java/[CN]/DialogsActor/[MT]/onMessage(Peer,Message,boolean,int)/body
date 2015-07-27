@@ -1,4 +1,5 @@
 {
+  long start=Environment.getCurrentTime();
   PeerDesc peerDesc=buildPeerDesc(peer);
   if (peerDesc == null) {
     return;
@@ -13,6 +14,7 @@
     Dialog dialog=dialogs.getValue(peer.getUnuqueId());
     ContentDescription contentDescription=ContentDescription.fromContent(message.getContent());
     DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setStatus(message.getMessageState()).setSenderId(message.getSenderId()).setUnreadCount(counter);
+    boolean forceUpdate=false;
     if (dialog != null) {
       if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {
         return;
@@ -27,8 +29,10 @@
         return;
       }
       builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setSortKey(message.getSortDate());
+      forceUpdate=true;
     }
     addOrUpdateItem(builder.createDialog());
-    notifyState();
+    notifyState(forceUpdate);
   }
+  Log.d("DialogsActor","onMessage in " + (Environment.getCurrentTime() - start) + " ms");
 }
