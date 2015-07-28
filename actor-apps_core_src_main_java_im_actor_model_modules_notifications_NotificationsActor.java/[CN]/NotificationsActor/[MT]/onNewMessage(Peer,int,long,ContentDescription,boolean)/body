@@ -1,12 +1,9 @@
 {
-  if (isAlreadyRead) {
-    return;
-  }
   boolean isPeerEnabled=modules().getSettings().isNotificationsEnabled(peer);
   boolean isEnabled=(modules().getSettings().isNotificationsEnabled() && isPeerEnabled) || hasCurrentUserMention;
   boolean isInAppEnabled=modules().getSettings().isInAppEnabled();
   boolean isConversationTonesEnabled=modules().getSettings().isConversationTonesEnabled();
-  if (!isEnabled) {
+  if (!isEnabled && (!(isInAppEnabled && peer.equals(visiblePeer)))) {
     return;
   }
   List<PendingNotification> allPending=getNotifications();

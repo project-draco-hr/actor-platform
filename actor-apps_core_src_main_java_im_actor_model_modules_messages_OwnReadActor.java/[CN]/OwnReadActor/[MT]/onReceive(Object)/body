@@ -7,6 +7,10 @@
     MessageReadByMe readByMe=(MessageReadByMe)message;
     onMessageReadByMe(readByMe.getPeer(),readByMe.getSortDate());
   }
+ else   if (message instanceof InMessage) {
+    InMessage inMessage=(InMessage)message;
+    onInMessage(inMessage.getPeer(),inMessage.getMessage());
+  }
  else {
     drop(message);
   }

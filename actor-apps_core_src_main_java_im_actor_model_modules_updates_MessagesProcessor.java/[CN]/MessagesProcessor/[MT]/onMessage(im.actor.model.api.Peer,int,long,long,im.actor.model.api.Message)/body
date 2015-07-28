@@ -13,5 +13,6 @@
   conversationActor(peer).send(message);
   if (!isOut) {
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));
+    ownReadActor().send(new OwnReadActor.InMessage(peer,message));
   }
 }

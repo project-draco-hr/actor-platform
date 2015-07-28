@@ -3,4 +3,3 @@ int sender
 long sortDate
 ContentDescription contentDescription
 boolean hasCurrentUserMention
-boolean isAlreadyRead
