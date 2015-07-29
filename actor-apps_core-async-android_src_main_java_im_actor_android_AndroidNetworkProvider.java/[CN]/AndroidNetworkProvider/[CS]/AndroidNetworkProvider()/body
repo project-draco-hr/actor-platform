@@ -1,3 +1,0 @@
-{
-  super(new im.actor.android.tcp.AsyncTcpConnectionFactory());
-}

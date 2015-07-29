@@ -1,0 +1,8 @@
+{
+synchronized (LOCK) {
+    for (    long l : keys) {
+      cache.removeObject(l);
+    }
+    storage.delete(keys);
+  }
+}

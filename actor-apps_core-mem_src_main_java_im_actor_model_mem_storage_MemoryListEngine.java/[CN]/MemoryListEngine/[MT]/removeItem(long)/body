@@ -1,0 +1,6 @@
+{
+synchronized (LOCK) {
+    cache.removeObject(key);
+    storage.delete(key);
+  }
+}
