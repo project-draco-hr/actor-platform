@@ -8,6 +8,6 @@
   setCryptoProvider(new AndroidCryptoProvider());
   setHttpProvider(new AndroidHttpSupport());
   setLifecycleProvider(new AndroidLifecycleProvider());
-  setNetworkProvider(new AndroidNetworkProvider());
+  setNetworkProvider(new TcpNetworkProvider());
   setLocaleProvider(new AndroidLocale(locale));
 }
