@@ -1,5 +1,3 @@
 {
-  items=new HashMap<String,String>();
-  loadPart("AppText",name);
-  loadPart("Months",name);
+  super(name);
 }
