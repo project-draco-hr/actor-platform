@@ -2,6 +2,7 @@
   this.modules=modules;
   this.locale=provider.loadLocale();
   this.is24Hours=provider.is24Hours();
+  this.provider=provider;
   MONTHS_SHORT=new String[]{locale.get("JanShort"),locale.get("FebShort"),locale.get("MarShort"),locale.get("AprShort"),locale.get("MayShort"),locale.get("JunShort"),locale.get("JulShort"),locale.get("AugShort"),locale.get("SepShort"),locale.get("OctShort"),locale.get("NovShort"),locale.get("DecShort")};
   MONTHS=new String[]{locale.get("JanFull"),locale.get("FebFull"),locale.get("MarFull"),locale.get("AprFull"),locale.get("MayFull"),locale.get("JunFull"),locale.get("JulFull"),locale.get("AugFull"),locale.get("SepFull"),locale.get("OctFull"),locale.get("NovFull"),locale.get("DecFull")};
 }
