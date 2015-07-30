@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.bannerId);
+  writer.writeInt(2,this.viewDuration);
+}
