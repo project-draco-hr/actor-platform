@@ -1,6 +1,0 @@
-{
-  String res="update UnreadMessages{";
-  res+="count=" + this.count;
-  res+="}";
-  return res;
-}

@@ -1,3 +1,0 @@
-{
-  this.bannerId=values.getInt(1);
-}
