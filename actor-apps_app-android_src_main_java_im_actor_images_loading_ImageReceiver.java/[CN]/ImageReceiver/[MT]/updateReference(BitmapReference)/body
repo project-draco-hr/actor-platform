@@ -1,8 +1,0 @@
-{
-  if (reference != null) {
-    reference.release();
-    reference=null;
-  }
-  reference=nReference;
-  receiverCallback.onImageLoaded(nReference);
-}

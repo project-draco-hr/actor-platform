@@ -104,36 +104,8 @@
     }
   }
 );
-  int docsCount=0;
-  if (docsCount == 0) {
-    res.findViewById(R.id.docsContainer).setVisibility(View.GONE);
-  }
- else {
-    res.findViewById(R.id.sharedContainer).setVisibility(View.VISIBLE);
-    res.findViewById(R.id.docsContainer).setOnClickListener(new View.OnClickListener(){
-      @Override public void onClick(      View v){
-        startActivity(Intents.openDocs(Peer.user(uid),getActivity()));
-      }
-    }
-);
-    ((TextView)res.findViewById(R.id.docCount)).setText("" + docsCount);
-  }
-  Peer peer=Peer.user(uid);
-  int mediaCount=0;
-  if (mediaCount == 0) {
-    res.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
-  }
- else {
-    res.findViewById(R.id.sharedContainer).setVisibility(View.VISIBLE);
-    res.findViewById(R.id.mediaContainer).setOnClickListener(new View.OnClickListener(){
-      @Override public void onClick(      View v){
-        startActivity(Intents.openMedias(Peer.user(uid),getActivity()));
-      }
-    }
-);
-    res.findViewById(R.id.mediaCount).setVisibility(View.VISIBLE);
-    ((TextView)res.findViewById(R.id.mediaCount)).setText("" + mediaCount);
-  }
+  res.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
+  res.findViewById(R.id.docsContainer).setVisibility(View.GONE);
   View notificationContainter=res.findViewById(R.id.notificationsCont);
   final SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
   notificationEnable.setChecked(messenger().isNotificationsEnabled(Peer.user(uid)));

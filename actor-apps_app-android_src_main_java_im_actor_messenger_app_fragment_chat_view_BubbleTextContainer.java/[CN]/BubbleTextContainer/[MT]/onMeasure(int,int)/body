@@ -13,25 +13,35 @@
   Layout textLayout=messageView.getLayout();
   int contentW=messageView.getMeasuredWidth();
   int timeW=timeView.getMeasuredWidth();
-  if (messageView.getLayout().getLineCount() < 5) {
+  boolean isRtl=BidiFormatter.getInstance().isRtl(messageView.getText().toString());
+  if (messageView.getLayout().getLineCount() < 5 && !isRtl) {
     contentW=0;
     for (int i=0; i < textLayout.getLineCount(); i++) {
       contentW=Math.max(contentW,(int)textLayout.getLineWidth(i));
     }
   }
   int lastLineW=(int)textLayout.getLineWidth(textLayout.getLineCount() - 1);
+  if (isRtl) {
+    lastLineW=contentW;
+  }
   int fullContentW, fullContentH;
-  if (lastLineW + timeW < contentW) {
-    fullContentW=contentW;
-    fullContentH=messageView.getMeasuredHeight();
-  }
- else   if (lastLineW + timeW < maxW) {
-    fullContentW=lastLineW + timeW;
-    fullContentH=messageView.getMeasuredHeight();
-  }
- else {
+  if (isRtl) {
     fullContentW=contentW;
     fullContentH=messageView.getMeasuredHeight() + timeView.getMeasuredHeight();
+  }
+ else {
+    if (lastLineW + timeW < contentW) {
+      fullContentW=contentW;
+      fullContentH=messageView.getMeasuredHeight();
+    }
+ else     if (lastLineW + timeW < maxW) {
+      fullContentW=lastLineW + timeW;
+      fullContentH=messageView.getMeasuredHeight();
+    }
+ else {
+      fullContentW=contentW;
+      fullContentH=messageView.getMeasuredHeight() + timeView.getMeasuredHeight();
+    }
   }
   setMeasuredDimension(fullContentW + bounds.left + bounds.right,fullContentH + bounds.top + bounds.bottom);
 }

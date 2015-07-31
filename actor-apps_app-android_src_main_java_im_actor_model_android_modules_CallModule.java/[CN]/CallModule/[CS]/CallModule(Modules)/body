@@ -1,9 +1,0 @@
-{
-  super(modules);
-  actorRef=system().actorOf(Props.create(CallActor.class,new ActorCreator<CallActor>(){
-    @Override public CallActor create(){
-      return new CallActor(modules,CallModule.this);
-    }
-  }
-),"actor/call");
-}

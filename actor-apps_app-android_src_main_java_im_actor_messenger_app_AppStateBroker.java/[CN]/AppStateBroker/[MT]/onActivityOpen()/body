@@ -1,7 +1,0 @@
-{
-  Logger.d(TAG,"Activity open");
-  activityCount++;
-  if (isScreenVisible) {
-    onAppProbablyOpened();
-  }
-}

@@ -1,0 +1,3 @@
+{
+  this(rootViewType == RootViewType.FRAME_LAYOUT ? new FrameLayout(context) : new LinearLayout(context));
+}

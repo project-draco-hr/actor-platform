@@ -1,3 +1,0 @@
-BitmapClasificator.CacheConfig config
-LruCache<String,Bitmap> bitmapLruCache
-LruCache<String,Bitmap> bitmapFreeCache

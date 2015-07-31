@@ -1,3 +1,0 @@
-{
-  setSrc(BitmapUtil.fastBlur(bmp,3));
-}

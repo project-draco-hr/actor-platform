@@ -1,3 +1,0 @@
-{
-  return cachePath + "/" + HashUtil.md5(key)+ ".tcache";
-}

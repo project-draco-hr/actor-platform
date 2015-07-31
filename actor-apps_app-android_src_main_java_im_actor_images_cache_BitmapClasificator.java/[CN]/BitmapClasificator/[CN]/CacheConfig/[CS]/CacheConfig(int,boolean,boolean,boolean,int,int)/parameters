@@ -1,6 +1,0 @@
-int category
-boolean lruEnabled
-boolean freeEnabled
-boolean useSizeInBytes
-int maxLruSize
-int maxFreeSize

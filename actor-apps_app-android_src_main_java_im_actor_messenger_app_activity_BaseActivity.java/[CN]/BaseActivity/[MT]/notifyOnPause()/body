@@ -1,0 +1,6 @@
+{
+  if (!isResumed) {
+    return;
+  }
+  isResumed=false;
+}

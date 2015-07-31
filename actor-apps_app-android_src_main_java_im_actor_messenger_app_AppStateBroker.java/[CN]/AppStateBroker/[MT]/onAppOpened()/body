@@ -1,4 +1,0 @@
-{
-  Logger.d(TAG,"App open");
-  Core.messenger().onAppVisible();
-}

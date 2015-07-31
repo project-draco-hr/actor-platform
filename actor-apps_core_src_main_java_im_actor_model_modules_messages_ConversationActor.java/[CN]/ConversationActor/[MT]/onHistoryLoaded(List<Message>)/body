@@ -5,9 +5,6 @@
       continue;
     }
     updated.add(historyMessage);
-    if (historyMessage.getMessageState() != MessageState.READ) {
-      inPendingIndex.put(historyMessage.getRid(),historyMessage.getDate());
-    }
   }
   if (updated.size() > 0) {
     messages.addOrUpdateItems(updated);

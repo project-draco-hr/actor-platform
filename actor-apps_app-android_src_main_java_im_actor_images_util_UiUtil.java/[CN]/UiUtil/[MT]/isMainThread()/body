@@ -1,3 +1,0 @@
-{
-  return Looper.getMainLooper().getThread() == Thread.currentThread();
-}

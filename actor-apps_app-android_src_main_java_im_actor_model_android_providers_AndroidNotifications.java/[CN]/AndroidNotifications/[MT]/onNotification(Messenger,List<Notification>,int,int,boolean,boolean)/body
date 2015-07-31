@@ -5,10 +5,10 @@
   builder.setPriority(NotificationCompat.PRIORITY_HIGH);
   builder.setCategory(NotificationCompat.CATEGORY_MESSAGE);
   int defaults=NotificationCompat.DEFAULT_LIGHTS;
-  if (messenger().isNotificationSoundEnabled()) {
+  if (messenger.isNotificationSoundEnabled()) {
     defaults|=NotificationCompat.DEFAULT_SOUND;
   }
-  if (messenger().isNotificationVibrationEnabled()) {
+  if (messenger.isNotificationVibrationEnabled()) {
     defaults|=NotificationCompat.DEFAULT_VIBRATE;
   }
   if (silentUpdate) {
@@ -17,12 +17,12 @@
   builder.setDefaults(defaults);
   final Notification topNotification=topNotifications.get(0);
   if (!silentUpdate) {
-    builder.setTicker(getNotificationTextFull(topNotification));
+    builder.setTicker(getNotificationTextFull(topNotification,messenger));
   }
   android.app.Notification result;
   if (messagesCount == 1) {
     final String sender=getNotificationSender(topNotification);
-    final CharSequence text=messenger().getFormatter().formatNotificationText(topNotification);
+    final CharSequence text=messenger.getFormatter().formatNotificationText(topNotification);
     visiblePeer=topNotification.getPeer();
     Avatar avatar=null;
     int id=0;
@@ -44,7 +44,7 @@ result=buildSingleMessageNotification(avatarDrawable,builder,sender,text,topNoti
 final NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) {
-messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+messenger.bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
 @Override public void onNotDownloaded(){
 }
 @Override public void onDownloading(float progress){
@@ -70,10 +70,10 @@ builder.setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(
 final NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
 for (Notification n : topNotifications) {
 if (topNotification.getPeer().getPeerType() == PeerType.GROUP) {
-inboxStyle.addLine(getNotificationTextFull(n));
+inboxStyle.addLine(getNotificationTextFull(n,messenger));
 }
  else {
-inboxStyle.addLine(messenger().getFormatter().formatNotificationText(n));
+inboxStyle.addLine(messenger.getFormatter().formatNotificationText(n));
 }
 }
 inboxStyle.setSummaryText(messagesCount + " messages");
@@ -97,7 +97,7 @@ result=buildSingleConversationNotification(builder,inboxStyle,avatarDrawable);
 final NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) {
-messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+messenger.bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
 @Override public void onNotDownloaded(){
 }
 @Override public void onDownloading(float progress){
@@ -121,7 +121,7 @@ visiblePeer=null;
 builder.setContentIntent(PendingIntent.getActivity(context,0,new Intent(context,MainActivity.class),PendingIntent.FLAG_UPDATE_CURRENT));
 NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
 for (Notification n : topNotifications) {
-inboxStyle.addLine(getNotificationTextFull(n));
+inboxStyle.addLine(getNotificationTextFull(n,messenger));
 }
 inboxStyle.setSummaryText(messagesCount + " messages in " + conversationsCount+ " chats");
 result=builder.setStyle(inboxStyle).build();

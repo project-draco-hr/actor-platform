@@ -1,3 +1,0 @@
-{
-  return "full_avatar:@file=" + avatarImage.getFileReference().getFileId();
-}

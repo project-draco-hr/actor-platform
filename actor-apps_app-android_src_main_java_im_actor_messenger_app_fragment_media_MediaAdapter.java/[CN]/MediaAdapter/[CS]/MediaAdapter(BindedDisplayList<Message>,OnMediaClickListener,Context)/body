@@ -1,5 +1,0 @@
-{
-  super(mediaDisplayList);
-  this.context=context;
-  this.onItemClickListener=onItemClickedListener;
-}
