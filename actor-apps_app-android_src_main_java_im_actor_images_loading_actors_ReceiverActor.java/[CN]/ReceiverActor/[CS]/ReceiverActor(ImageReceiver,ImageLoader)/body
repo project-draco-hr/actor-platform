@@ -1,5 +1,0 @@
-{
-  this.loader=imageLoader;
-  this.resolver=imageLoader.getTaskResolver();
-  this.receiver=new WeakReference<ImageReceiver>(receiver);
-}

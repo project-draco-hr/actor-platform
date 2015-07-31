@@ -1,9 +1,0 @@
-{
-  currentCall.change(new CurrentCall(rid,uid,CallState.RINGING_INCOMING));
-  MVVMEngine.runOnUiThread(new Runnable(){
-    @Override public void run(){
-      AppContext.getContext().startActivity(new Intent(AppContext.getContext(),CallActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-    }
-  }
-);
-}

@@ -1,0 +1,6 @@
+{
+  if (bindedDownloadFile != null) {
+    bindedDownloadFile.detach();
+    bindedDownloadFile=null;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (keys.containsKey(key)) {
+    return (Long)keys.get(key);
+  }
+  return def;
+}

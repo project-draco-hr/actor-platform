@@ -1,5 +1,0 @@
-{
-  rules.add(currentRule);
-  currentRule=null;
-  return this;
-}

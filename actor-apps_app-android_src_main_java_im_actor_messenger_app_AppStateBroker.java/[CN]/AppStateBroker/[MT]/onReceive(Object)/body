@@ -1,9 +1,0 @@
-{
-  super.onReceive(message);
-  if (message instanceof CloseApp) {
-    if (isAppOpen) {
-      isAppOpen=false;
-      onAppClosed();
-    }
-  }
-}

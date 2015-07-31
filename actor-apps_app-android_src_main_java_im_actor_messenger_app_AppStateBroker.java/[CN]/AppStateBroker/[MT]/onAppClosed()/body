@@ -1,4 +1,0 @@
-{
-  Logger.d(TAG,"App closed");
-  Core.messenger().onAppHidden();
-}

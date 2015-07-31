@@ -1,9 +1,0 @@
-{
-  this.context=context;
-  this.actorSystem=new ActorSystem();
-  this.actorSystem.addDispatcher("ui",new UiActorDispatcher("ui",actorSystem));
-  this.taskResolver=new TaskResolver(this);
-  this.memoryCache=new MemoryCache(clasificator);
-  this.internalDiskCache=new DiskCache(context.getFilesDir().getAbsolutePath() + "dcache/");
-  initDefaultResolver();
-}

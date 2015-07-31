@@ -1,5 +1,0 @@
-{
-  currentRule=new Rule();
-  currentRule.filter=filter;
-  return this;
-}

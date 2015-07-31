@@ -4,11 +4,7 @@
     rids2[i]=rids.get(i);
   }
   messages.removeItems(rids2);
-  if (inMessagesStorage.remove(rids)) {
-    saveInPending();
-  }
-  if (outMessagesStorage.remove(rids)) {
-    saveOutPending();
-  }
+  inPendingIndex.remove(rids);
+  outPendingIndex.remove(rids);
   dialogsActor.send(new DialogsActor.MessageDeleted(peer,messages.getHeadValue()));
 }

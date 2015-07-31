@@ -4,9 +4,6 @@
   }
   inReadState=date;
   preferences().putLong(IN_READ_STATE_PREF,date);
-  ArrayList<MessageRef> res=inMessagesStorage.removeBeforeDate(date);
-  if (res.size() > 0) {
-    dialogsActor.send(new DialogsActor.CounterChanged(peer,inMessagesStorage.getCount()));
-    saveInPending();
-  }
+  inPendingIndex.removeBeforeValue(date);
+  dialogsActor.send(new DialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
 }

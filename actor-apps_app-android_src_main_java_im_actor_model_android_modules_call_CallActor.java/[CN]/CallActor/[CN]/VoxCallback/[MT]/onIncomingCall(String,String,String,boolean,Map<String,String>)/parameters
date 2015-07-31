@@ -1,5 +1,0 @@
-String callId
-String from
-String displayName
-boolean videoCall
-Map<String,String> headers

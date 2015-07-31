@@ -1,0 +1,15 @@
+{
+  if (records.size() == 0) {
+    return null;
+  }
+  long res=0;
+  long value=Long.MIN_VALUE;
+  for (  Long key : records.keySet()) {
+    Record record=records.get(key);
+    if (record.getOrder() >= value) {
+      value=record.getOrder();
+      res=record.getId();
+    }
+  }
+  return res;
+}

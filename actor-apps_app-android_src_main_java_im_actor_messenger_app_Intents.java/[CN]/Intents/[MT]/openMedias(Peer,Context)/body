@@ -1,3 +1,0 @@
-{
-  return MediaActivity.getIntent(peer,context);
-}

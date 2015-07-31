@@ -1,5 +1,0 @@
-{
-  BitmapReference ref=new BitmapReference(key,bitmap,this);
-  references.put(ref,referent);
-  return ref;
-}

@@ -1,0 +1,3 @@
+ArrayList<ChangeDescription<T>> modifications
+ArrayList<T> initialList
+boolean isLoadMore

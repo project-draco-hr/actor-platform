@@ -1,4 +1,4 @@
 {
   dialogs.removeItem(peer.getUnuqueId());
-  notifyState();
+  notifyState(true);
 }

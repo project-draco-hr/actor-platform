@@ -1,0 +1,66 @@
+{
+  View rootView=inflater.inflate(R.layout.fragment_media_picture,container,false);
+  final Bundle bundle=getArguments();
+  path=bundle.getString(ARG_FILE_PATH);
+  fileId=bundle.getLong(ARG_FILE_ID);
+  accessHash=bundle.getLong(ARG_FILE_ACCESS_HASH);
+  fileSize=bundle.getInt(ARG_FILE_SIZE);
+  fileName=bundle.getString(ARG_FILE_NAME);
+  int sender=bundle.getInt(ARG_OWNER,0);
+  circularView=(CircularView)rootView.findViewById(R.id.progress);
+  circularView.setValue(50);
+  circularView.setVisibility(View.GONE);
+  imageView=(ImageView)rootView.findViewById(R.id.image);
+  try {
+    imageView.setImageBitmap(ImageLoading.loadBitmapOptimized(path));
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+  }
+  attacher=new PhotoViewAttacher(imageView);
+  attacher.setOnDoubleTapListener(new DefaultOnDoubleTapListener(attacher){
+    @Override public boolean onSingleTapConfirmed(    MotionEvent e){
+      if (!uiIsHidden) {
+        hideSystemUi();
+      }
+ else {
+        showSystemUi();
+      }
+      return super.onSingleTapConfirmed(e);
+    }
+    @Override public boolean onDoubleTap(    MotionEvent e){
+      if (!uiIsHidden)       hideSystemUi();
+      return super.onDoubleTap(e);
+    }
+    @Override public boolean onDoubleTapEvent(    MotionEvent e){
+      return super.onDoubleTapEvent(e);
+    }
+  }
+);
+  ownerAvatarView=(AvatarView)rootView.findViewById(R.id.avatar);
+  ownerNameView=(TextView)rootView.findViewById(R.id.name);
+  ownerContainer=rootView.findViewById(R.id.ownerContainer);
+  if (Build.VERSION.SDK_INT >= 19) {
+    ownerContainer.setPadding(0,0,0,Screen.getNavbarHeight());
+  }
+  UserVM owner=users().get(sender);
+  ownerAvatarView.init(Screen.dp(48),18);
+  ownerAvatarView.bind(owner);
+  ownerNameView.setText(owner.getName().get());
+  backgroundView=null;
+  Activity activity=getActivity();
+  backgroundView=rootView.findViewById(R.id.background);
+  if (backgroundView != null)   backgroundView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (!uiIsHidden) {
+        hideSystemUi();
+      }
+ else {
+        showSystemUi();
+      }
+    }
+  }
+);
+  ownerContainer.setVisibility(View.GONE);
+  return rootView;
+}

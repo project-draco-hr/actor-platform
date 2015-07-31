@@ -1,3 +1,0 @@
-{
-  messenger().bindRawFile(location,true,fileCallback);
-}

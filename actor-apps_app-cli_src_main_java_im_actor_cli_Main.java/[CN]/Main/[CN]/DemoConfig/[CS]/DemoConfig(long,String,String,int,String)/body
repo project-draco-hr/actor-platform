@@ -1,0 +1,7 @@
+{
+  this.phoneNumber=phoneNumber;
+  this.activationCode=activationCode;
+  this.destAccount=destAccount;
+  this.count=count;
+  this.endpoint=endpoint;
+}

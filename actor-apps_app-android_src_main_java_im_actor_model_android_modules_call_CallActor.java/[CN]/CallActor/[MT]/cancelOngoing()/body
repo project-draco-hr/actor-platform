@@ -1,8 +1,0 @@
-{
-  if (ongoingCallId != null) {
-    voxImplantClient.disconnectCall(ongoingCallId);
-    callModule.onCallEnded(ongoingCallKey);
-    ongoingCallId=null;
-    ongoingCallKey=0;
-  }
-}

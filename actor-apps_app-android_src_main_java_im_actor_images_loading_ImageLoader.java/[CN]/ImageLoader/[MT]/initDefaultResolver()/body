@@ -1,5 +1,0 @@
-{
-  taskResolver.register(RawFileTask.class,RawFileActor.class);
-  taskResolver.register(PreviewContentTask.class,PreviewContentActor.class);
-  taskResolver.register(PreviewFileTask.class,FilePreviewActor.class);
-}

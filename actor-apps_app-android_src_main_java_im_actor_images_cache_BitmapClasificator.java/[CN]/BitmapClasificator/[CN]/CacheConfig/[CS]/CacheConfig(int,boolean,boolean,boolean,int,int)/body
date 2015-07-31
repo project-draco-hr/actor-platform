@@ -1,8 +1,0 @@
-{
-  this.category=category;
-  this.lruEnabled=lruEnabled;
-  this.freeEnabled=freeEnabled;
-  this.useSizeInBytes=useSizeInBytes;
-  this.maxLruSize=maxLruSize;
-  this.maxFreeSize=maxFreeSize;
-}

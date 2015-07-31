@@ -1,6 +1,3 @@
 {
   dialogs.addOrUpdateItem(dialog);
-  ArrayList<Dialog> d=new ArrayList<Dialog>();
-  d.add(dialog);
-  modules().getSearch().onDialogsChanged(d);
 }

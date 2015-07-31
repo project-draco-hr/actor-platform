@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,update + "");
   if (update instanceof UpdateUserNameChanged) {
     UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
     usersProcessor.onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());

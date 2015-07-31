@@ -1,0 +1,36 @@
+{
+  System.out.println("Actor CLI v0.1");
+  System.out.println();
+  if (args.length < 2) {
+    printUsage();
+    return;
+  }
+  if (!args[0].equals("demo") || !args[1].equals("send")) {
+    printUsage();
+    return;
+  }
+  String endpoint="tls://front1-mtproto-api-rev2.actor.im";
+  int argsOffset=2;
+  if (args[argsOffset].equals("-e")) {
+    endpoint=args[argsOffset + 1];
+    argsOffset+=2;
+  }
+  final long phoneNumber=Long.parseLong(args[argsOffset++]);
+  final String activationCode=args[argsOffset++];
+  final String destNumber=args[argsOffset++];
+  final int count;
+  if (args.length > argsOffset) {
+    count=Integer.parseInt(args[argsOffset++]);
+  }
+ else {
+    count=1;
+  }
+  System.out.println("Starting Send Demo");
+  System.out.println("From Account: " + phoneNumber + " with code "+ activationCode);
+  System.out.println("To Account: " + destNumber);
+  System.out.println("Messages Count: " + (count >= 0 ? "" + count : "infinite"));
+  System.out.println("With Endpoint: " + endpoint);
+  System.out.println();
+  startDemo(new DemoConfig(phoneNumber,activationCode,destNumber,count,endpoint));
+  while (true)   ;
+}

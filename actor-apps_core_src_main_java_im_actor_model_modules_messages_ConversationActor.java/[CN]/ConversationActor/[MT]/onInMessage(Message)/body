@@ -1,7 +1,4 @@
 {
-  if (messages.getValue(message.getEngineId()) != null) {
-    return;
-  }
   if (message.getSenderId() == myUid()) {
     if (message.isOnServer()) {
       if (message.getSortDate() <= outReadState) {
@@ -19,17 +16,15 @@
   if (message.isOnServer()) {
     if (message.getSenderId() == myUid()) {
       if (message.isOnServer() && message.getMessageState() != MessageState.READ) {
-        outMessagesStorage.addOrUpdate(message.getRid(),message.getDate());
-        saveOutPending();
+        outPendingIndex.put(message.getRid(),message.getDate());
       }
     }
  else {
       if (message.getSortDate() <= inReadState) {
         return;
       }
-      inMessagesStorage.addOrUpdate(message.getRid(),message.getDate());
-      dialogsActor.send(new DialogsActor.InMessage(peer,message,inMessagesStorage.getCount()));
-      saveInPending();
+      inPendingIndex.put(message.getRid(),message.getDate());
     }
+    dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
   }
 }

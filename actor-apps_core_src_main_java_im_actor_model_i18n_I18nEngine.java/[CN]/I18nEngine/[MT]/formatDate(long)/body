@@ -1,4 +1,3 @@
 {
-  Date dateVal=new Date(date);
-  return dateVal.getDate() + "/" + (dateVal.getMonth() + 1)+ "/"+ formatTwoDigit(dateVal.getYear());
+  return provider.formatDate(date);
 }

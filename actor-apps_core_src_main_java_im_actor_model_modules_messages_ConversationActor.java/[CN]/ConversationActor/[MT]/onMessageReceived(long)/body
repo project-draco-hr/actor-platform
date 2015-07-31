@@ -4,17 +4,17 @@
   }
   outReceiveState=date;
   preferences().putLong(OUT_RECEIVE_STATE_PREF,date);
-  ArrayList<MessageRef> res=outMessagesStorage.findBeforeDate(date);
+  List<Long> res=outPendingIndex.findBeforeValue(date);
   if (res.size() > 0) {
     long minRid=-1;
     long minDate=Long.MAX_VALUE;
     ArrayList<Message> updated=new ArrayList<Message>();
-    for (    MessageRef ref : res) {
-      Message msg=messages.getValue(ref.getRid());
+    for (    Long ref : res) {
+      Message msg=messages.getValue(ref);
       if (msg != null && msg.isSent()) {
-        if (ref.getDate() < minDate) {
-          minDate=ref.getDate();
-          minRid=ref.getRid();
+        if (msg.getDate() < minDate) {
+          minDate=msg.getDate();
+          minRid=ref;
         }
         updated.add(msg.changeState(MessageState.RECEIVED));
       }

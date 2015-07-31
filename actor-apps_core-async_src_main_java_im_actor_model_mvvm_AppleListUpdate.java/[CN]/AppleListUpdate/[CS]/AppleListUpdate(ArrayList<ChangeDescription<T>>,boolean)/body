@@ -1,4 +1,0 @@
-{
-  this.changes=changes;
-  this.isLoadMore=isLoadMore;
-}

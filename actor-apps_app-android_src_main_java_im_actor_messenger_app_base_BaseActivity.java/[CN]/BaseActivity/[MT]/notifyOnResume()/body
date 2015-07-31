@@ -1,7 +1,0 @@
-{
-  if (isResumed) {
-    return;
-  }
-  isResumed=true;
-  stateBroker().onActivityOpen();
-}

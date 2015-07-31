@@ -1,3 +1,0 @@
-{
-  return new MediaHolder(LayoutInflater.from(context).inflate(R.layout.adapter_media,viewGroup,false));
-}

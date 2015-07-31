@@ -1,3 +1,0 @@
-{
-  return new DialogHolder(context,new FrameLayout(context),itemClicked);
-}

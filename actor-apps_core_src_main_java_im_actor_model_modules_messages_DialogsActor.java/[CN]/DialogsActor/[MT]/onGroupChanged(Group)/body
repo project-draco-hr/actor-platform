@@ -4,6 +4,8 @@
     if (dialog.getDialogTitle().equals(group.getTitle()) && equalsE(dialog.getDialogAvatar(),group.getAvatar())) {
       return;
     }
-    addOrUpdateItem(dialog.editPeerInfo(group.getTitle(),group.getAvatar()));
+    Dialog updated=dialog.editPeerInfo(group.getTitle(),group.getAvatar());
+    addOrUpdateItem(updated);
+    updateSearch(updated);
   }
 }

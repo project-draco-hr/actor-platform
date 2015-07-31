@@ -1,3 +1,0 @@
-{
-  return "file:" + w + ":"+ h+ HashUtil.md5(fileName);
-}

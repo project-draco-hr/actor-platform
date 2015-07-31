@@ -1,7 +1,0 @@
-{
-  Log.d(TAG,"Connected");
-  isConnected=true;
-  int myUid=modules().getAuthModule().myUid();
-  Log.d(TAG,"Authenticating uid_" + myUid);
-  voxImplantClient.login("uid_" + myUid + "@cloud.actor.voximplant.com","NWU1jVPOdosiMD7tX0kn");
-}

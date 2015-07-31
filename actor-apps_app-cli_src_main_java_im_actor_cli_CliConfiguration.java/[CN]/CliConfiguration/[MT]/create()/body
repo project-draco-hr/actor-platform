@@ -1,0 +1,15 @@
+{
+  ConfigurationBuilder configurationBuilder=new ConfigurationBuilder();
+  configurationBuilder.setAppCategory(AppCategory.GENERIC);
+  configurationBuilder.setThreadingProvider(new JavaThreadingProvider());
+  configurationBuilder.setNetworkProvider(new TcpNetworkProvider());
+  configurationBuilder.setLocaleProvider(new JvmLocale("En"));
+  configurationBuilder.setPhoneBookProvider(new EmptyPhoneProvider());
+  configurationBuilder.setCryptoProvider(new BouncyCastleProvider(new JavaRandomProvider()));
+  configurationBuilder.setStorageProvider(new MemoryStorageProvider());
+  configurationBuilder.setMainThreadProvider(new CliMainThreadProvider());
+  configurationBuilder.setLifecycleProvider(new CliLifecycleProvider());
+  configurationBuilder.setDispatcherProvider(new CliDispatcherProvider());
+  configurationBuilder.setApiConfiguration(new ApiConfiguration("Actor CLI",0,"","",""));
+  return configurationBuilder;
+}

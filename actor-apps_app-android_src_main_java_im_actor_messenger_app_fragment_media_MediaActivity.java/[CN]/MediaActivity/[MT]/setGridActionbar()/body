@@ -1,4 +1,0 @@
-{
-  toolbar.setTitle(R.string.profile_shared_media);
-  invalidateOptionsMenu();
-}

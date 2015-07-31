@@ -1,0 +1,10 @@
+{
+  super(itemView);
+  this.contentView=itemView;
+  if (itemView instanceof FrameLayout) {
+    this.contentFrame=(FrameLayout)itemView;
+  }
+ else {
+    this.contentFrame=null;
+  }
+}

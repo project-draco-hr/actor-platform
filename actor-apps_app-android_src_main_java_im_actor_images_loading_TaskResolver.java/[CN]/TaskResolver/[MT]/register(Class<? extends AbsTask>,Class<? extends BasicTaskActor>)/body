@@ -1,6 +1,0 @@
-{
-  if (types.containsKey(taskClass)) {
-    throw new RuntimeException("Already registered actor for task " + taskClass.getName());
-  }
-  types.put(taskClass,actorClass);
-}
