@@ -1,4 +1,0 @@
-T item
-ArrayList<T> sourceList
-ArrayList<ChangeDescription<T>> changes
-boolean isAddOnly

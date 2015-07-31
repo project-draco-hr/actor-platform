@@ -1,4 +1,3 @@
 {
   super(messenger);
-  this.syncKeyValue=messenger.getMessagesModule().getCursorStorage();
 }

@@ -4,6 +4,7 @@
     rids2[i]=rids.get(i);
   }
   messages.removeItems(rids2);
-  Message topMessage=messages.getHeadValue();
-  dialogsActor.send(new DialogsActor.MessageDeleted(peer,topMessage));
+  inPendingIndex.remove(rids);
+  outPendingIndex.remove(rids);
+  dialogsActor.send(new DialogsActor.MessageDeleted(peer,messages.getHeadValue()));
 }

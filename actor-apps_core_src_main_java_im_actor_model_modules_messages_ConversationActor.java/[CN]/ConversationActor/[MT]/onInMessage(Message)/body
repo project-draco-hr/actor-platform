@@ -1,13 +1,30 @@
 {
-  if (messages.getValue(message.getEngineId()) != null) {
-    return;
+  if (message.getSenderId() == myUid()) {
+    if (message.isOnServer()) {
+      if (message.getSortDate() <= outReadState) {
+        message=message.changeState(MessageState.READ);
+      }
+ else       if (message.getSortDate() <= outReceiveState) {
+        message=message.changeState(MessageState.RECEIVED);
+      }
+ else {
+        message=message.changeState(MessageState.SENT);
+      }
+    }
   }
   messages.addOrUpdateItem(message);
-  if (message.getMessageState() != MessageState.PENDING && message.getMessageState() != MessageState.ERROR) {
-    dialogsActor.send(new DialogsActor.InMessage(peer,message));
-  }
-  if (message.getSenderId() == myUid()) {
-    messagesStorage.getMessages().add(new OutUnreadMessage(message.getRid(),message.getDate()));
-    savePending();
+  if (message.isOnServer()) {
+    if (message.getSenderId() == myUid()) {
+      if (message.isOnServer() && message.getMessageState() != MessageState.READ) {
+        outPendingIndex.put(message.getRid(),message.getDate());
+      }
+    }
+ else {
+      if (message.getSortDate() <= inReadState) {
+        return;
+      }
+      inPendingIndex.put(message.getRid(),message.getDate());
+    }
+    dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
   }
 }

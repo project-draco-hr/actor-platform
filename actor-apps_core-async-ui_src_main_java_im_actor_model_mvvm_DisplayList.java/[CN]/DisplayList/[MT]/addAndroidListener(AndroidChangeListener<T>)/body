@@ -1,0 +1,9 @@
+{
+  if (operationMode != OperationMode.ANDROID && operationMode != OperationMode.GENERAL) {
+    throw new RuntimeException("Unable to set Android Listener in iOS mode");
+  }
+  MVVMEngine.checkMainThread();
+  if (!androidListeners.contains(listener)) {
+    androidListeners.add(listener);
+  }
+}

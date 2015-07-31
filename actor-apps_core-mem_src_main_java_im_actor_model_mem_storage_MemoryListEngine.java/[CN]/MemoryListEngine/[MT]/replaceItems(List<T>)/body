@@ -1,0 +1,12 @@
+{
+synchronized (LOCK) {
+    cache.clear();
+    ArrayList<ListEngineRecord> records=new ArrayList<ListEngineRecord>();
+    for (    T item : items) {
+      cache.onObjectUpdated(item.getEngineId(),item);
+      records.add(new ListEngineRecord(item.getEngineId(),item.getEngineSort(),item.getEngineSearch(),item.toByteArray()));
+    }
+    storage.clear();
+    storage.updateOrAdd(records);
+  }
+}

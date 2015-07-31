@@ -1,0 +1,5 @@
+{
+  for (  KeyValueRecord r : values) {
+    records.put(r.getId(),r.getData());
+  }
+}

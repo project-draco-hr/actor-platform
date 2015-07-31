@@ -1,6 +1,0 @@
-{
-  MVVMEngine.checkMainThread();
-  if (!appleListeners.contains(listener)) {
-    appleListeners.add(listener);
-  }
-}

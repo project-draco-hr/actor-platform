@@ -1,12 +1,13 @@
 {
   String sValue=readValue(key);
-  if ("true".equals(sValue)) {
-    return true;
+  boolean res=defaultVal;
+  if (sValue != null) {
+    if ("true".equals(sValue)) {
+      res=true;
+    }
+ else     if ("false".equals(sValue)) {
+      res=false;
+    }
   }
- else   if ("false".equals(sValue)) {
-    return false;
-  }
- else {
-    return defaultVal;
-  }
+  return res;
 }

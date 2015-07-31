@@ -1,0 +1,5 @@
+im.actor.model.api.Peer _peer
+int senderUid
+long date
+long rid
+im.actor.model.api.Message content

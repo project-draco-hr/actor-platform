@@ -1,0 +1,6 @@
+{
+  if (keys.containsKey(key)) {
+    return (Boolean)keys.get(key);
+  }
+  return def;
+}

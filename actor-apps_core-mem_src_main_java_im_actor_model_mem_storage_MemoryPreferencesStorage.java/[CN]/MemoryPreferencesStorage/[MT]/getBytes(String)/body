@@ -1,0 +1,6 @@
+{
+  if (keys.containsKey(key)) {
+    return (byte[])keys.get(key);
+  }
+  return null;
+}

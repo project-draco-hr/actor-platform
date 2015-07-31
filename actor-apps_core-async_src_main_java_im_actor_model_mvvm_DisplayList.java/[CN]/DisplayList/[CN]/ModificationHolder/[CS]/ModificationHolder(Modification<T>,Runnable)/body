@@ -1,4 +1,0 @@
-{
-  this.modification=modification;
-  this.executeAfter=executeAfter;
-}

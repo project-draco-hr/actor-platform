@@ -1,0 +1,9 @@
+{
+  if (date < inReadState) {
+    return;
+  }
+  inReadState=date;
+  preferences().putLong(IN_READ_STATE_PREF,date);
+  inPendingIndex.removeBeforeValue(date);
+  dialogsActor.send(new DialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+}

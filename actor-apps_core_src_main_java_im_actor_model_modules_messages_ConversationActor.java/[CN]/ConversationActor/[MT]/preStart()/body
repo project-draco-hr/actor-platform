@@ -1,14 +1,9 @@
 {
   messages=messages(peer);
-  messagesStorage=new OutUnreadMessagesStorage();
-  byte[] data=pendingKeyValue.get(peer.getUnuqueId());
-  if (data != null) {
-    try {
-      messagesStorage=OutUnreadMessagesStorage.fromBytes(data);
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
-  }
   dialogsActor=modules().getMessagesModule().getDialogsActor();
+  outPendingIndex=modules().getConfiguration().getStorageProvider().createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
+  inPendingIndex=modules().getConfiguration().getStorageProvider().createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
+  inReadState=modules().getPreferences().getLong(IN_READ_STATE_PREF,0);
+  outReadState=modules().getPreferences().getLong(OUT_READ_STATE_PREF,0);
+  outReceiveState=modules().getPreferences().getLong(OUT_RECEIVE_STATE_PREF,0);
 }

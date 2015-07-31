@@ -1,0 +1,3 @@
+{
+  return new MemoryListEngine<Dialog>((MemoryListStorage)storage,Dialog.CREATOR);
+}

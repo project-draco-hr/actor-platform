@@ -1,16 +1,21 @@
 {
   Message msg=messages.getValue(rid);
   if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
-    for (    OutUnreadMessage p : messagesStorage.getMessages()) {
-      if (p.getRid() == rid) {
-        messagesStorage.getMessages().remove(p);
-        messagesStorage.getMessages().add(new OutUnreadMessage(rid,date));
-        savePending();
-        break;
-      }
+    MessageState state;
+    if (date <= outReadState) {
+      state=MessageState.READ;
     }
-    Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
+ else     if (date <= outReceiveState) {
+      state=MessageState.RECEIVED;
+    }
+ else {
+      state=MessageState.SENT;
+    }
+    Message updatedMsg=msg.changeAllDate(date).changeState(state);
     messages.addOrUpdateItem(updatedMsg);
-    dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg));
+    dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inPendingIndex.getCount()));
+    if (state != MessageState.READ) {
+      outPendingIndex.put(rid,date);
+    }
   }
 }

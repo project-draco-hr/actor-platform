@@ -1,0 +1,5 @@
+{
+  this.peer=peer;
+  this.message=message;
+  this.counter=counter;
+}

@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,update + "");
   if (update instanceof UpdateUserNameChanged) {
     UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
     usersProcessor.onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());
@@ -14,7 +13,7 @@
   }
  else   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
-    messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage(),message.isLastInDiff());
+    messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());
     typingProcessor.onMessage(message.getPeer(),message.getSenderUid());
   }
  else   if (update instanceof UpdateMessageRead) {
@@ -56,7 +55,7 @@
  else   if (update instanceof UpdateContactRegistered) {
     UpdateContactRegistered registered=(UpdateContactRegistered)update;
     if (!registered.isSilent()) {
-      messagesProcessor.onUserRegistered(registered.getUid(),registered.getDate());
+      messagesProcessor.onUserRegistered(registered.getRid(),registered.getUid(),registered.getDate());
     }
   }
  else   if (update instanceof UpdateGroupTitleChanged) {

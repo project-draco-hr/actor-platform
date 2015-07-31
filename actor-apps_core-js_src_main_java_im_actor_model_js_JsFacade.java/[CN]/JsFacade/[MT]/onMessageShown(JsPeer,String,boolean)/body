@@ -1,5 +1,0 @@
-{
-  if (!isOut) {
-    messenger.onMessageShown(peer.convert(),Long.parseLong(sortKey));
-  }
-}

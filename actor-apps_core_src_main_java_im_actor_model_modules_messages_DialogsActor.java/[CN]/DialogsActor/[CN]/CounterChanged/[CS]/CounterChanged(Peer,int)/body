@@ -1,4 +1,4 @@
 {
   this.peer=peer;
-  this.count=count;
+  this.counter=counter;
 }

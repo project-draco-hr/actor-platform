@@ -1,0 +1,47 @@
+{
+  long id=item.getEngineId();
+  long sortKey=item.getEngineSort();
+  int removedIndex=-1;
+  int addedIndex=-1;
+  for (int i=0; i < sourceList.size(); i++) {
+    T srcItem=sourceList.get(i);
+    if (srcItem.getEngineId() == id) {
+      if (isLoadMore) {
+        return;
+      }
+      sourceList.remove(i);
+      if (addedIndex >= 0) {
+        removedIndex=i - 1;
+      }
+ else {
+        removedIndex=i;
+      }
+      i--;
+      continue;
+    }
+ else {
+      if ((addedIndex < 0) && sortKey > srcItem.getEngineSort()) {
+        addedIndex=i;
+        sourceList.add(i,item);
+        i++;
+      }
+    }
+    if (addedIndex >= 0 && removedIndex >= 0) {
+      break;
+    }
+  }
+  if (addedIndex < 0) {
+    addedIndex=sourceList.size();
+    sourceList.add(sourceList.size(),item);
+  }
+  if (addedIndex == removedIndex) {
+    changes.add(ChangeDescription.update(addedIndex,item));
+  }
+ else   if (removedIndex >= 0) {
+    changes.add(ChangeDescription.update(removedIndex,item));
+    changes.add(ChangeDescription.<T>move(removedIndex,addedIndex));
+  }
+ else {
+    changes.add(ChangeDescription.add(addedIndex,item));
+  }
+}

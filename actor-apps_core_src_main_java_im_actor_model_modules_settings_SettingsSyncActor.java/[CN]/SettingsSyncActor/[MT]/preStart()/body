@@ -17,7 +17,7 @@
     request(new RequestGetParameters(),new RpcCallback<ResponseGetParameters>(){
       @Override public void onResult(      ResponseGetParameters response){
         for (        Parameter p : response.getParameters()) {
-          modules().getPreferences().putString(p.getKey(),p.getValue());
+          modules().getSettings().onUpdatedSetting(p.getKey(),p.getValue());
         }
         preferences().putBool(SYNC_STATE_LOADED,true);
       }

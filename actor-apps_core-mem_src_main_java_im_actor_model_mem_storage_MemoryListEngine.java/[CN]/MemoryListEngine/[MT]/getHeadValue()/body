@@ -1,0 +1,9 @@
+{
+synchronized (LOCK) {
+    Long key=storage.getTopKey();
+    if (key == null) {
+      return null;
+    }
+    return loadValue(key);
+  }
+}

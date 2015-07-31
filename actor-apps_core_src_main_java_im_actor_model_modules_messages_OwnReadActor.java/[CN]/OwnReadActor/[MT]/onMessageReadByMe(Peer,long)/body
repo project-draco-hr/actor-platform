@@ -1,12 +1,8 @@
 {
-  long msgSortingDate=0;
-  Set<UnreadMessage> unread=messagesStorage.getUnread(peer);
-  for (  UnreadMessage u : unread.toArray(new UnreadMessage[unread.size()])) {
-    if (u.getSortDate() <= sortingDate && u.getSortDate() > msgSortingDate) {
-      msgSortingDate=u.getSortDate();
-    }
+  long readState=modules().getMessagesModule().loadReadState(peer);
+  if (sortingDate <= readState) {
+    return;
   }
-  if (msgSortingDate > 0) {
-    onMessageRead(peer,msgSortingDate);
-  }
+  getConversationActor(peer).send(new ConversationActor.MessageReadByMe(sortingDate));
+  modules().getMessagesModule().saveReadState(peer,sortingDate);
 }

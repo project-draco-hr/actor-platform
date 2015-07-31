@@ -1,0 +1,5 @@
+ArrayList<Integer> removed
+ArrayList<Integer> added
+ArrayList<Move> moved
+ArrayList<Integer> updated
+boolean isLoadMore

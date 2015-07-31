@@ -1,0 +1,5 @@
+{
+  this.list=new ArrayList<T>(list);
+  this.changes=changes;
+  this.isLoadMore=isLoadMore;
+}

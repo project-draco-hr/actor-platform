@@ -1,3 +1,0 @@
-{
-  ownReadActor.send(new OwnReadActor.MessageRead(peer,sortDate));
-}

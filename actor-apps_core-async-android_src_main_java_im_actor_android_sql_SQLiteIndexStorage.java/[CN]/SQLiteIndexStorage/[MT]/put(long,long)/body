@@ -1,0 +1,14 @@
+{
+  checkSqlite();
+  checkInsertStatement();
+  db.beginTransaction();
+  try {
+    insertStatement.bindLong(1,key);
+    insertStatement.bindLong(2,value);
+    insertStatement.executeInsert();
+    db.setTransactionSuccessful();
+  }
+  finally {
+    db.endTransaction();
+  }
+}

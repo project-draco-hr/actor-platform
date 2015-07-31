@@ -1,0 +1,4 @@
+{
+  ownReadActor.send(new OwnReadActor.MessageRead(peer,sortDate));
+  conversationActor(peer).send(new ConversationActor.MessageReadByMe(sortDate));
+}

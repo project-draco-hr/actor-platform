@@ -1,0 +1,3 @@
+{
+  mtProto.getCallback().onConnectionsCountChanged(currentConnection != null ? 1 : 0);
+}
