@@ -3,4 +3,28 @@
     return;
   }
   finished=true;
+  transitionView.setAlpha(1f);
+  transitionView.postDelayed(new Runnable(){
+    @Override public void run(){
+      getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+      containerView.setVisibility(View.GONE);
+      Bitmap bitmap;
+      try {
+        bitmap=ImageLoading.loadBitmapOptimized(path);
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+        return;
+      }
+      MediaFullscreenAnimationUtils.animateBack(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
+        @Override public void onAnimationEnd(        Animator animation){
+          PictureActivity.super.finish();
+          overridePendingTransition(0,0);
+        }
+      }
+);
+      MediaFullscreenAnimationUtils.animateBackgroundBack(backgroundView,null);
+    }
+  }
+,50);
 }

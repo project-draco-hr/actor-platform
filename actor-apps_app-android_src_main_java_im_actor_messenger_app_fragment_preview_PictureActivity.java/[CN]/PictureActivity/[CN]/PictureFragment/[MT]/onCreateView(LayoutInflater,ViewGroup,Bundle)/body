@@ -9,6 +9,34 @@
   int sender=bundle.getInt(ARG_OWNER,0);
   circularView=(CircularView)rootView.findViewById(R.id.progress);
   circularView.setValue(50);
+  circularView.setVisibility(View.GONE);
+  imageView=(ImageView)rootView.findViewById(R.id.image);
+  try {
+    imageView.setImageBitmap(ImageLoading.loadBitmapOptimized(path));
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+  }
+  attacher=new PhotoViewAttacher(imageView);
+  attacher.setOnDoubleTapListener(new DefaultOnDoubleTapListener(attacher){
+    @Override public boolean onSingleTapConfirmed(    MotionEvent e){
+      if (!uiIsHidden) {
+        hideSystemUi();
+      }
+ else {
+        showSystemUi();
+      }
+      return super.onSingleTapConfirmed(e);
+    }
+    @Override public boolean onDoubleTap(    MotionEvent e){
+      if (!uiIsHidden)       hideSystemUi();
+      return super.onDoubleTap(e);
+    }
+    @Override public boolean onDoubleTapEvent(    MotionEvent e){
+      return super.onDoubleTapEvent(e);
+    }
+  }
+);
   ownerAvatarView=(AvatarView)rootView.findViewById(R.id.avatar);
   ownerNameView=(TextView)rootView.findViewById(R.id.name);
   ownerContainer=rootView.findViewById(R.id.ownerContainer);
