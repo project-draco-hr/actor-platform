@@ -1,4 +1,0 @@
-{
-  currentRule.lruSize=size;
-  return this;
-}

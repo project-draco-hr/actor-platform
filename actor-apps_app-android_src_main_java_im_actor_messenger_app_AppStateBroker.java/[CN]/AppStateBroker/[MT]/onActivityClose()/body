@@ -1,7 +1,0 @@
-{
-  Logger.d(TAG,"Activity close");
-  activityCount--;
-  if (activityCount == 0) {
-    onAppProbablyClosed();
-  }
-}

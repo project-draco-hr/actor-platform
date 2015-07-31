@@ -4,16 +4,6 @@
     return true;
   }
  else   if (item.getItemId() == R.id.save) {
-    getImageLoader().createReceiver(new ReceiverCallback(){
-      @Override public void onImageLoaded(      BitmapReference bitmap){
-        Intents.savePicture(getActivity(),bitmap.getBitmap());
-      }
-      @Override public void onImageCleared(){
-      }
-      @Override public void onImageError(){
-      }
-    }
-).request(new RawFileTask(path));
     item.setEnabled(false);
     item.setTitle(R.string.menu_saved);
     return true;

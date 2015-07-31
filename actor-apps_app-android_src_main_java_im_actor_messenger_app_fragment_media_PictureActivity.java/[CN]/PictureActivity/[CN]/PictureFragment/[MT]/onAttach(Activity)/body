@@ -4,8 +4,5 @@
     toolbar=((PictureActivity)activity).toolbar;
   }
  else {
-    if (activity instanceof MediaActivity) {
-      toolbar=((MediaActivity)activity).toolbar;
-    }
   }
 }

@@ -1,5 +1,0 @@
-{
-  if (ongoingCallKey == callKey) {
-    voxImplantClient.answerCall(ongoingCallId);
-  }
-}

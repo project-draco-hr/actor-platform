@@ -1,6 +1,0 @@
-{
-  if (isReleased) {
-    throw new RuntimeException("Released Bitmap");
-  }
-  return baseReference.createReference(referrent);
-}

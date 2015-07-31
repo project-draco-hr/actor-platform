@@ -1,7 +1,0 @@
-{
-  Bundle args=new Bundle();
-  args.putLong(Intents.EXTRA_CHAT_PEER,peer.getUnuqueId());
-  DocumentsFragment res=new DocumentsFragment();
-  res.setArguments(args);
-  return res;
-}

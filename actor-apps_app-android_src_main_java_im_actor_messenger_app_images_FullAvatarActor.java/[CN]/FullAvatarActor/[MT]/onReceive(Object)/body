@@ -1,8 +1,0 @@
-{
-  if (message instanceof OnDownloaded) {
-    onDownloaded(((OnDownloaded)message).getReference());
-  }
- else {
-    super.onReceive(message);
-  }
-}

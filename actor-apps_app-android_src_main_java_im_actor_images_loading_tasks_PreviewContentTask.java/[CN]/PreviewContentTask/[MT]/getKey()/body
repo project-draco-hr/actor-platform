@@ -1,3 +1,0 @@
-{
-  return "uri:" + ((kind == MediaStore.Images.Thumbnails.MICRO_KIND) ? "micro" : "mini") + ":"+ HashUtil.md5(uri.toString());
-}

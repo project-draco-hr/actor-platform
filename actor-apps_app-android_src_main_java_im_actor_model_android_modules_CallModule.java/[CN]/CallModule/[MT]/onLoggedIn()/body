@@ -1,3 +1,0 @@
-{
-  actorRef.send(new CallActor.StartEngine());
-}

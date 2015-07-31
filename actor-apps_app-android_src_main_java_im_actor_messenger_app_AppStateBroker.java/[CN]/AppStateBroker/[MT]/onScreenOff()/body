@@ -1,5 +1,0 @@
-{
-  Logger.d(TAG,"Screen Off");
-  isScreenVisible=false;
-  onAppProbablyClosed();
-}
