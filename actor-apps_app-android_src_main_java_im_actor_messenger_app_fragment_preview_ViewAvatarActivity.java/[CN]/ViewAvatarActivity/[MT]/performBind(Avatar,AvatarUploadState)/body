@@ -1,4 +1,5 @@
 {
+  unbind();
   if (uploadState != null && uploadState.isUploading()) {
     if (uploadState.getDescriptor() != null) {
       photoView.setImageURI(Uri.fromFile(new File(uploadState.getDescriptor())));
@@ -8,10 +9,8 @@
     }
     showView(progress);
     goneView(noPhoto);
-    isUploading=true;
     return;
   }
-  isUploading=false;
   if (avatar == null || avatar.getFullImage() == null) {
     photoView.setImageBitmap(null);
     showView(noPhoto);
@@ -59,5 +58,24 @@
         }
       }
     }
+    bindedDownloadFile=messenger().bindFile(avatar.getFullImage().getFileReference(),true,new FileVMCallback(){
+      @Override public void onNotDownloaded(){
+      }
+      @Override public void onDownloading(      float progressV){
+      }
+      @Override public void onDownloaded(      FileSystemReference reference){
+        try {
+          Bitmap bitmap=ImageLoading.loadBitmapOptimized(reference.getDescriptor());
+          photoView.setImageBitmap(bitmap);
+          photoView.setZoomable(true);
+          showView(photoView);
+          goneView(progress);
+        }
+ catch (        ImageLoadException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+);
   }
 }
