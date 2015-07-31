@@ -67,6 +67,10 @@
       contentMessage+="\n+" + (messagesCount - 4) + " new messages in "+ conversationsCount+ " conversations";
     }
   }
+  if (JsElectronApp.isSupported()) {
+    JsElectronApp.showNewMessages();
+  }
+  playSound();
   if (!JsNotification.isSupported()) {
     return;
   }
@@ -74,5 +78,4 @@
     return;
   }
   JsManagedNotification.show(peerTitle,contentMessage,peerAvatarUrl);
-  playSound();
 }
