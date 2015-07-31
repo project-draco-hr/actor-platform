@@ -28,7 +28,4 @@
   builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,API_ID,API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   builder.setMaxDelay(MAX_DELAY);
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
-  IntentFilter screenFilter=new IntentFilter();
-  screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
-  screenFilter.addAction(Intent.ACTION_SCREEN_ON);
 }

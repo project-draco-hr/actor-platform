@@ -3,4 +3,5 @@
     return;
   }
   isResumed=false;
+  Core.messenger().onActivityClosed();
 }

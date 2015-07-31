@@ -1,6 +1,12 @@
 {
   super(MessengerEnvironment.ANDROID,configuration);
   this.context=context;
+  this.appStateActor=system().actorOf(Props.create(AppStateActor.class,new ActorCreator<AppStateActor>(){
+    @Override public AppStateActor create(){
+      return new AppStateActor(AndroidBaseMessenger.this);
+    }
+  }
+),"actor/android/state");
   context.getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true,new ContentObserver(null){
     @Override public void onChange(    boolean selfChange){
       onPhoneBookChanged();
@@ -34,4 +40,24 @@ onNetworkChanged(state);
 }
 }
 ,new IntentFilter(android.net.ConnectivityManager.CONNECTIVITY_ACTION));
+IntentFilter screenFilter=new IntentFilter();
+screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
+screenFilter.addAction(Intent.ACTION_SCREEN_ON);
+context.registerReceiver(new BroadcastReceiver(){
+@Override public void onReceive(Context context,Intent intent){
+if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+appStateActor.send(new AppStateActor.OnScreenOn());
+}
+ else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+appStateActor.send(new AppStateActor.OnScreenOff());
+}
+}
+}
+,screenFilter);
+if (isScreenOn()) {
+appStateActor.send(new AppStateActor.OnScreenOn());
+}
+ else {
+appStateActor.send(new AppStateActor.OnScreenOff());
+}
 }
