@@ -1,5 +1,0 @@
-{
-  this.rid=rid;
-  this.callUser=callUser;
-  this.callState=callState;
-}

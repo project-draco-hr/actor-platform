@@ -1,9 +1,0 @@
-{
-  BitmapReference reference=receiver.getReference();
-  if (reference != null && !reference.isReleased()) {
-    return reference.getBitmap();
-  }
- else {
-    return null;
-  }
-}

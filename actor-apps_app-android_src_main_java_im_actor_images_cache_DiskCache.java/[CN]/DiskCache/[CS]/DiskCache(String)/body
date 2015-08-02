@@ -1,4 +1,0 @@
-{
-  this.cachePath=cachePath;
-  new File(cachePath).mkdirs();
-}

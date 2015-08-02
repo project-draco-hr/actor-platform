@@ -1,5 +1,0 @@
-{
-  BitmapReference reference=loader.getMemoryCache().referenceBitmap(task.getKey(),bitmap,this);
-  complete(reference);
-  self().send(reference);
-}

@@ -1,6 +1,0 @@
-{
-  this.memoryCache=memoryCache;
-  this.bitmap=bitmap;
-  this.key=key;
-  this.isReleased=false;
-}

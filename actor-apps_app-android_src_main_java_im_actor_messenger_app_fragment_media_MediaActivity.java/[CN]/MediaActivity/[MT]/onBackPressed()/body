@@ -1,8 +1,0 @@
-{
-  if (showingPager) {
-    hidePager();
-  }
- else {
-    finish();
-  }
-}

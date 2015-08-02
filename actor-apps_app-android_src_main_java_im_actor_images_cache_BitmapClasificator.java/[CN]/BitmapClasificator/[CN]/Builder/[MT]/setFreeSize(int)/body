@@ -1,4 +1,0 @@
-{
-  currentRule.freeSize=size;
-  return this;
-}

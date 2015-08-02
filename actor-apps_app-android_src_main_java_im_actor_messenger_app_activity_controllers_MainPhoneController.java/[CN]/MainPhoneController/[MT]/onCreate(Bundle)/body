@@ -1,37 +1,38 @@
 {
-  if (getIntent().getData() != null) {
-    if (getIntent().getAction().equals(Intent.ACTION_VIEW)) {
+  Intent intent=getIntent();
+  if (intent != null) {
+    if (intent.getAction().equals(Intent.ACTION_VIEW) && intent.getData() != null) {
       joinGroupUrl=getIntent().getData().toString();
     }
-  }
-  if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND)) {
-    ClipData.Item data=getIntent().getClipData().getItemAt(0);
-    Uri sendUri=data.getUri();
-    if (sendUri != null) {
-      sendUriString=sendUri.toString();
+ else     if (intent.getAction().equals(Intent.ACTION_SEND)) {
+      if ("text/plain".equals(getIntent().getType())) {
+        sendText=intent.getStringExtra(Intent.EXTRA_TEXT);
+      }
+ else {
+        sendUriString=intent.getParcelableExtra(Intent.EXTRA_STREAM).toString();
+      }
     }
- else     if (data.getText() != null && data.getText().length() > 0) {
-      sendText=data.getText().toString();
+ else     if (intent.getAction().equals(Intent.ACTION_SEND_MULTIPLE)) {
+      ArrayList<Uri> imageUris=intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+      if (imageUris != null) {
+        for (        Uri u : imageUris) {
+          sendUriMultiple.add(u.toString());
+        }
+      }
     }
-  }
-  if (getIntent().getClipData() != null && getIntent().getAction().equals(Intent.ACTION_SEND_MULTIPLE)) {
-    ClipData clip=getIntent().getClipData();
-    for (int i=0; i < clip.getItemCount(); i++) {
-      sendUriMultiple.add(clip.getItemAt(i).getUri().toString());
-    }
-  }
-  if (getIntent().getExtras() != null) {
-    Bundle extras=getIntent().getExtras();
-    if (extras.containsKey("share_user")) {
-      shareUser=extras.getInt("share_user");
-    }
- else     if (extras.containsKey("forward_text")) {
-      forwardText=extras.getString("forward_text");
-      forwardTextRaw=extras.getString("forward_text_raw");
-    }
- else     if (extras.containsKey("forward_doc_descriptor")) {
-      forwardDocDescriptor=extras.getString("forward_doc_descriptor");
-      forwardDocIsDoc=extras.getBoolean("forward_doc_is_doc");
+    if (intent.getExtras() != null) {
+      Bundle extras=getIntent().getExtras();
+      if (extras.containsKey("share_user")) {
+        shareUser=extras.getInt("share_user");
+      }
+ else       if (extras.containsKey("forward_text")) {
+        forwardText=extras.getString("forward_text");
+        forwardTextRaw=extras.getString("forward_text_raw");
+      }
+ else       if (extras.containsKey("forward_doc_descriptor")) {
+        forwardDocDescriptor=extras.getString("forward_doc_descriptor");
+        forwardDocIsDoc=extras.getBoolean("forward_doc_is_doc");
+      }
     }
   }
   setContentView(R.layout.activity_main);
@@ -56,7 +57,7 @@
   }
 );
   searchList=(RecyclerView)findViewById(R.id.searchList);
-  searchList.setLayoutManager(new CustomLinearLayoutManager(getActivity()));
+  searchList.setLayoutManager(new ChatLinearLayoutManager(getActivity()));
   searchContainer=findViewById(R.id.searchCont);
   searchEmptyView=findViewById(R.id.empty);
   searchHintView=findViewById(R.id.searchHint);
@@ -66,7 +67,7 @@
   pager.setOffscreenPageLimit(2);
   homePagerAdapter=new HomePagerAdapter(getFragmentManager());
   pager.setAdapter(homePagerAdapter);
-  pager.setCurrentItem(1);
+  pager.setCurrentItem(0);
   pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
     private int prevPage=-1;
     @Override public void onPageScrolled(    int position,    float positionOffset,    int positionOffsetPixels){
@@ -106,13 +107,6 @@
     @Override public void onClick(    View v){
       goneFab();
       startActivity(new Intent(getActivity(),CreateGroupActivity.class));
-    }
-  }
-);
-  findViewById(R.id.joinPublicGroupContainer).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      goneFab();
-      startActivity(new Intent(getActivity(),JoinPublicGroupActivity.class));
     }
   }
 );

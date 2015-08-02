@@ -1,8 +1,0 @@
-{
-  if (!isInternal) {
-    isCallbackBlocked=true;
-    receiver.clear();
-    isCallbackBlocked=false;
-  }
-  super.setImageDrawable(drawable);
-}

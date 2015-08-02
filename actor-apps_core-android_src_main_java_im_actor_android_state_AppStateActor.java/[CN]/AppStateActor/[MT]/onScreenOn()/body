@@ -1,0 +1,6 @@
+{
+  isScreenVisible=true;
+  if (activityCount > 0) {
+    onAppProbablyOpened();
+  }
+}

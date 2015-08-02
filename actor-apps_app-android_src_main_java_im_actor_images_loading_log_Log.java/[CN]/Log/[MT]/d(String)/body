@@ -1,9 +1,0 @@
-{
-  Actor actor=CurrentActor.getCurrentActor();
-  if (actor != null) {
-    d(actor.self(),log);
-  }
- else {
-    ref.send(log);
-  }
-}

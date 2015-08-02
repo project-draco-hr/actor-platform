@@ -1,5 +1,0 @@
-{
-  this.fileName=fileName;
-  this.w=w;
-  this.h=h;
-}

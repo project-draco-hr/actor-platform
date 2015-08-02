@@ -62,7 +62,7 @@
             PublicGroup group=sortedByFriendsGroups.get(i);
             if (group.getFriends() > 0) {
               topByFriendsGroupsSet.add(group);
-              if (group.getAvatar() != null) {
+              if (group.getAvatar() != null && group.getAvatar().getFullImage() != null) {
                 messenger().bindFile(group.getAvatar().getFullImage().getFileReference(),true,new FileVMCallback(){
                   @Override public void onNotDownloaded(){
                   }

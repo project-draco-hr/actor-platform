@@ -1,0 +1,7 @@
+{
+  if (isResumed) {
+    return;
+  }
+  isResumed=true;
+  Core.messenger().onActivityOpen();
+}

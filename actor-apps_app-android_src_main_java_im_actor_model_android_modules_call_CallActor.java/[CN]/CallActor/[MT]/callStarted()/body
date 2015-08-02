@@ -1,7 +1,0 @@
-{
-  ongoingCallKey=pendingCallKey;
-  ongoingCallId=pendingCallId;
-  pendingCallId=null;
-  pendingCallKey=0;
-  callModule.onCallStarted(ongoingCallKey);
-}

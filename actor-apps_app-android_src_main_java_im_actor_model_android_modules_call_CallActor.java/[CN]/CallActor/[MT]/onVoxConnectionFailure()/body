@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"Connection failure");
-  self().sendOnce(new TryConnect(),2000);
-}

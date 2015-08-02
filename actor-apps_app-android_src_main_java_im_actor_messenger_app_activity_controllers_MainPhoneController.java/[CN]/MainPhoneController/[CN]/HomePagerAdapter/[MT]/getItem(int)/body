@@ -2,17 +2,10 @@
 switch (position) {
 default :
 case 0:
-    JoinPublicGroupFragment res3=new JoinPublicGroupFragment();
-  res3.setHasOptionsMenu(false);
-return res3;
+    DialogsFragment res1=new DialogsFragment();
+  res1.setHasOptionsMenu(false);
+return res1;
 case 1:
-DialogsFragment res=new DialogsFragment();
-Bundle arguments=new Bundle();
-arguments.putString("invite_url",joinGroupUrl);
-res.setArguments(arguments);
-res.setHasOptionsMenu(false);
-return res;
-case 2:
 ContactsFragment res2=new ContactsFragment();
 res2.setHasOptionsMenu(false);
 return res2;
