@@ -1,0 +1,6 @@
+{
+  String res="response Bool{";
+  res+="value=" + this.value;
+  res+="}";
+  return res;
+}

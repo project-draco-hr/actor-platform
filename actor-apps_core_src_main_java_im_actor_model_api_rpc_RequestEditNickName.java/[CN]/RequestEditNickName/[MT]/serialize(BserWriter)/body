@@ -1,0 +1,5 @@
+{
+  if (this.nickname != null) {
+    writer.writeString(1,this.nickname);
+  }
+}

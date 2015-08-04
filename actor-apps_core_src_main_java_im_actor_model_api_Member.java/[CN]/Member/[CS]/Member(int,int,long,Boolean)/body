@@ -1,0 +1,6 @@
+{
+  this.uid=uid;
+  this.inviterUid=inviterUid;
+  this.date=date;
+  this.isAdmin=isAdmin;
+}

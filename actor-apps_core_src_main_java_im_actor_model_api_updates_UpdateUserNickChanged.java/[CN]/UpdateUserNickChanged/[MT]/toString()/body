@@ -1,0 +1,7 @@
+{
+  String res="update UserNickChanged{";
+  res+="uid=" + this.uid;
+  res+=", nickname=" + this.nickname;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,7 @@
+{
+  String res="rpc EditGroupAbout{";
+  res+="groupPeer=" + this.groupPeer;
+  res+=", rid=" + this.rid;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  if (this.counters == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.counters);
+}

@@ -8,5 +8,5 @@
       records.add(new im.actor.model.api.ContactRecord(ContactType.PHONE,null,Long.parseLong(r.getRecordData()),r.getRecordTitle(),null));
     }
   }
-  return new im.actor.model.api.User(uid,accessHash,name,localName,sex,avatar != null ? avatar.toApiAvatar() : null,records,false);
+  return new im.actor.model.api.User(uid,accessHash,name,localName,sex,avatar != null ? avatar.toApiAvatar() : null,records,false,null,null);
 }

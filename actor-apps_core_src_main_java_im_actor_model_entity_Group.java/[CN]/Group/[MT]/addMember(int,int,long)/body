@@ -6,8 +6,8 @@
       nMembers.add(member);
     }
   }
-  nMembers.add(new Member(uid,inviterUid,inviteDate));
-  im.actor.model.api.Group res=new im.actor.model.api.Group(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.disableEdit(),w.disableInviteView(),w.disableInviteRevoke(),w.disableIntegrationView(),w.disableIntegrationsRevoke(),w.isAdmin());
+  nMembers.add(new Member(uid,inviterUid,inviteDate,null));
+  im.actor.model.api.Group res=new im.actor.model.api.Group(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.disableEdit(),w.disableInviteView(),w.disableInviteRevoke(),w.disableIntegrationView(),w.disableIntegrationsRevoke(),w.isAdmin(),w.getTheme(),w.getAbout());
   res.setUnmappedObjects(w.getUnmappedObjects());
   return new Group(res);
 }

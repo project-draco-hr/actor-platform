@@ -8,6 +8,10 @@ case 51:
 return UpdateUserLocalNameChanged.fromBytes(payload);
 case 134:
 return UpdateUserContactsChanged.fromBytes(payload);
+case 209:
+return UpdateUserNickChanged.fromBytes(payload);
+case 210:
+return UpdateUserAboutChanged.fromBytes(payload);
 case 5:
 return UpdateContactRegistered.fromBytes(payload);
 case 40:
@@ -46,6 +50,10 @@ case 44:
 return UpdateGroupMembersUpdate.fromBytes(payload);
 case 38:
 return UpdateGroupTitleChanged.fromBytes(payload);
+case 213:
+return UpdateGroupTopicChanged.fromBytes(payload);
+case 214:
+return UpdateGroupAboutChanged.fromBytes(payload);
 case 39:
 return UpdateGroupAvatarChanged.fromBytes(payload);
 case 6:
@@ -64,6 +72,8 @@ case 83:
 return UpdateCallEnd.fromBytes(payload);
 case 131:
 return UpdateParameterChanged.fromBytes(payload);
+case 215:
+return UpdateCountersChanged.fromBytes(payload);
 case 42:
 return UpdateConfig.fromBytes(payload);
 }

@@ -1,0 +1,6 @@
+{
+  String res="rpc CheckNickName{";
+  res+="nickname=" + this.nickname;
+  res+="}";
+  return res;
+}

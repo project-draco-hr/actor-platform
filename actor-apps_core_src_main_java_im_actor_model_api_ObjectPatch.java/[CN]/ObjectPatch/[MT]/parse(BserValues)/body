@@ -1,0 +1,7 @@
+{
+  List<Rule> _rules=new ArrayList<Rule>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _rules.add(new Rule());
+  }
+  this.rules=values.getRepeatedObj(1,_rules);
+}

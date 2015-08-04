@@ -1,5 +1,6 @@
 {
   String res="rpc JoinGroup{";
+  res+="token=" + this.token;
   res+="}";
   return res;
 }

@@ -7,6 +7,8 @@
   res+=", avatar=" + (this.avatar != null ? "set" : "empty");
   res+=", contactInfo=" + this.contactInfo.size();
   res+=", isBot=" + this.isBot;
+  res+=", nick=" + this.nick;
+  res+=", about=" + this.about;
   res+="}";
   return res;
 }

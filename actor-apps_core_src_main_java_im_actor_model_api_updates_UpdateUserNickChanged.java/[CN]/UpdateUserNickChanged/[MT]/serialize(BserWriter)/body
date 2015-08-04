@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,this.uid);
+  if (this.nickname != null) {
+    writer.writeString(2,this.nickname);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (this.nickname == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.nickname);
+}

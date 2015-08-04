@@ -1,0 +1,14 @@
+{
+  if (this.group == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.group);
+  writer.writeRepeatedObj(2,this.users);
+  writer.writeLong(3,this.rid);
+  writer.writeInt(4,this.seq);
+  if (this.state == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(5,this.state);
+  writer.writeLong(6,this.date);
+}

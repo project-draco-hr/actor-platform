@@ -2,6 +2,9 @@
   writer.writeInt(1,this.uid);
   writer.writeInt(2,this.inviterUid);
   writer.writeLong(3,this.date);
+  if (this.isAdmin != null) {
+    writer.writeBool(4,this.isAdmin);
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

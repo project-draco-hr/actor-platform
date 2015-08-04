@@ -1,0 +1,6 @@
+{
+  this.globalCounter=values.optInt(1);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

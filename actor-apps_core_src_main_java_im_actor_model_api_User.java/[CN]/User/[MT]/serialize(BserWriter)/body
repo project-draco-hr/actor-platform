@@ -18,6 +18,12 @@
   if (this.isBot != null) {
     writer.writeBool(11,this.isBot);
   }
+  if (this.nick != null) {
+    writer.writeString(13,this.nick);
+  }
+  if (this.about != null) {
+    writer.writeString(14,this.about);
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

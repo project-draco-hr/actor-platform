@@ -1,5 +1,7 @@
 {
   boolean isChanged=name.change(rawObj.getName());
+  isChanged|=nick.change(rawObj.getNick());
+  isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
   isChanged|=phones.change(buildPhones(rawObj.getRecords()));
   if (isChanged) {

@@ -17,6 +17,8 @@
   this.disableIntegrationView=values.optBool(14);
   this.disableIntegrationsRevoke=values.optBool(15);
   this.isAdmin=values.optBool(16);
+  this.theme=values.optString(17);
+  this.about=values.optString(18);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

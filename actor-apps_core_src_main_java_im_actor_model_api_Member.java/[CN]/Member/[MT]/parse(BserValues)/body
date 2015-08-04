@@ -2,6 +2,7 @@
   this.uid=values.getInt(1);
   this.inviterUid=values.getInt(2);
   this.date=values.getLong(3);
+  this.isAdmin=values.optBool(4);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

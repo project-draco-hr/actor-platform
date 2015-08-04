@@ -7,6 +7,14 @@
     UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
     usersProcessor.onUserLocalNameChanged(localNameChanged.getUid(),localNameChanged.getLocalName());
   }
+ else   if (update instanceof UpdateUserNickChanged) {
+    UpdateUserNickChanged nickChanged=(UpdateUserNickChanged)update;
+    usersProcessor.onUserNickChanged(nickChanged.getUid(),nickChanged.getNickname());
+  }
+ else   if (update instanceof UpdateUserAboutChanged) {
+    UpdateUserAboutChanged userAboutChanged=(UpdateUserAboutChanged)update;
+    usersProcessor.onUserAboutChanged(userAboutChanged.getUid(),userAboutChanged.getAbout());
+  }
  else   if (update instanceof UpdateUserAvatarChanged) {
     UpdateUserAvatarChanged avatarChanged=(UpdateUserAvatarChanged)update;
     usersProcessor.onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
@@ -35,10 +43,6 @@
  else   if (update instanceof UpdateMessageSent) {
     UpdateMessageSent messageSent=(UpdateMessageSent)update;
     messagesProcessor.onMessageSent(messageSent.getPeer(),messageSent.getRid(),messageSent.getDate());
-  }
- else   if (update instanceof UpdateMessageDateChanged) {
-    UpdateMessageDateChanged dateChanged=(UpdateMessageDateChanged)update;
-    messagesProcessor.onMessageDateChanged(dateChanged.getPeer(),dateChanged.getRid(),dateChanged.getDate());
   }
  else   if (update instanceof UpdateMessageContentChanged) {
     UpdateMessageContentChanged contentChanged=(UpdateMessageContentChanged)update;

@@ -1,0 +1,5 @@
+{
+  this.groupPeer=values.getObj(1,new GroupOutPeer());
+  this.rid=values.getLong(2);
+  this.topic=values.optString(3);
+}

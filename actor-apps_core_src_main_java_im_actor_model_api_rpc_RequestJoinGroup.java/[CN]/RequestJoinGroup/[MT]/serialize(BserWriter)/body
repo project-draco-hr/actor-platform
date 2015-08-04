@@ -1,6 +1,6 @@
 {
-  if (this.url == null) {
+  if (this.token == null) {
     throw new IOException();
   }
-  writer.writeString(1,this.url);
+  writer.writeString(1,this.token);
 }

@@ -1,0 +1,6 @@
+{
+  String res="rpc EditAbout{";
+  res+="about=" + this.about;
+  res+="}";
+  return res;
+}
