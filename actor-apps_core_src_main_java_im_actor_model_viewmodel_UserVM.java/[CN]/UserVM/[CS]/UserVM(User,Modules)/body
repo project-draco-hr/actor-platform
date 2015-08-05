@@ -4,6 +4,8 @@
   sex=user.getSex();
   isBot=user.isBot();
   name=new StringValueModel("user." + id + ".name",user.getName());
+  localName=new StringValueModel("user." + id + ".local_name",user.getLocalName());
+  serverName=new StringValueModel("user." + id + ".server_name",user.getServerName());
   nick=new StringValueModel("user." + id + ".nick",user.getNick());
   about=new StringValueModel("user." + id + ".about",user.getAbout());
   avatar=new AvatarValueModel("user." + id + ".avatar",user.getAvatar());

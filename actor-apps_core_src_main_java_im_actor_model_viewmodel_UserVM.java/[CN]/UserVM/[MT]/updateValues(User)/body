@@ -1,5 +1,7 @@
 {
   boolean isChanged=name.change(rawObj.getName());
+  isChanged|=localName.change(rawObj.getLocalName());
+  isChanged|=serverName.change(rawObj.getServerName());
   isChanged|=nick.change(rawObj.getNick());
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
