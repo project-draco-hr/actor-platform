@@ -1,0 +1,10 @@
+{
+  preferences().putBytes("app.counter_raw",counters.toByteArray());
+  Integer counter=counters.getGlobalCounter();
+  if (counter != null) {
+    modules().getAppStateModule().getAppStateVM().onGlobalCounterChanged(counter);
+  }
+ else {
+    modules().getAppStateModule().getAppStateVM().onGlobalCounterChanged(0);
+  }
+}

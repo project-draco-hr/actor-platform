@@ -1,0 +1,22 @@
+{
+  super.preStart();
+  counters=new AppCounters();
+  byte[] data=preferences().getBytes("app.counter_raw");
+  if (data != null) {
+    try {
+      AppCounters nCounters=new AppCounters();
+      nCounters.parse(new BserValues(BserParser.deserialize(new DataInput(data))));
+      counters=nCounters;
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  Integer counter=counters.getGlobalCounter();
+  if (counter != null) {
+    modules().getAppStateModule().getAppStateVM().onGlobalCounterChanged(counter);
+  }
+ else {
+    modules().getAppStateModule().getAppStateVM().onGlobalCounterChanged(0);
+  }
+}
