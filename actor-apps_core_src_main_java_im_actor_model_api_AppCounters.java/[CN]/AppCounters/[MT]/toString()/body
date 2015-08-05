@@ -1,5 +1,6 @@
 {
   String res="struct AppCounters{";
+  res+="globalCounter=" + this.globalCounter;
   res+="}";
   return res;
 }
