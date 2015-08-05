@@ -1,4 +1,5 @@
 Peer peer
 String text
-String markDownText
 ArrayList<Integer> mentions
+String markDownText
+boolean autoDetect

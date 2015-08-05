@@ -1,3 +1,0 @@
-{
-  modules.getMessagesModule().sendMessage(peer,text,markDownText,mentions);
-}

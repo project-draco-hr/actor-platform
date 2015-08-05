@@ -3,4 +3,5 @@
   this.text=text;
   this.markDownText=markDownText;
   this.mentions=mentions;
+  this.autoDetect=autoDetect;
 }

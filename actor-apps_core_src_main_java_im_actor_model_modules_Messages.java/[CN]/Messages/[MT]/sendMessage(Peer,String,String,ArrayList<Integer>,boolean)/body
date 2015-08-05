@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendText(peer,message,markDownText,mentions,autoDetect));
+}
