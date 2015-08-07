@@ -1,0 +1,6 @@
+{
+  if (threadingRuntime == null) {
+    throw new RuntimeException("Environment is not inited!");
+  }
+  return threadingRuntime.getSyncedCurrentTime();
+}

@@ -1,0 +1,13 @@
+{
+  setMainThreadProvider(new AndroidMainThreadProvider());
+  setThreadingRuntime(new AndroidThreadingProvider("europe.pool.ntp.org",context));
+  setLogProvider(new AndroidLog());
+  setStorageProvider(new AndroidStorageProvider(context));
+  setDispatcherProvider(new AndroidCallbackDispatcher());
+  setFileSystemProvider(new AndroidFileProvider(context));
+  setCryptoProvider(new AndroidCryptoProvider());
+  setHttpProvider(new AndroidHttpSupport());
+  setLifecycleProvider(new AndroidLifecycleProvider());
+  setNetworkProvider(new TcpNetworkProvider());
+  setLocaleProvider(new AndroidLocale(locale));
+}

@@ -1,7 +1,7 @@
 {
   ConfigurationBuilder configurationBuilder=new ConfigurationBuilder();
   configurationBuilder.setAppCategory(AppCategory.GENERIC);
-  configurationBuilder.setThreadingProvider(new JavaThreadingProvider());
+  configurationBuilder.setThreadingRuntime(new JavaThreadingProvider());
   configurationBuilder.setNetworkProvider(new TcpNetworkProvider());
   configurationBuilder.setLocaleProvider(new JvmLocale("En"));
   configurationBuilder.setPhoneBookProvider(new EmptyPhoneProvider());
