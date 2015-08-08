@@ -1,5 +1,0 @@
-{
-  String res="tuple JoinGroupDirect{";
-  res+="}";
-  return res;
-}

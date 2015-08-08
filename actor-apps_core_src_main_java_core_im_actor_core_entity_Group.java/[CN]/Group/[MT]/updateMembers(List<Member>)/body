@@ -1,0 +1,6 @@
+{
+  im.actor.core.api.Group w=getWrapped();
+  im.actor.core.api.Group res=new im.actor.core.api.Group(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.disableEdit(),w.disableInviteView(),w.disableInviteRevoke(),w.disableIntegrationView(),w.disableIntegrationsRevoke(),w.isAdmin(),w.getTheme(),w.getAbout());
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return new Group(res);
+}

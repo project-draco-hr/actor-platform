@@ -1,0 +1,8 @@
+{
+  List<Long> src=getRepeatedLong(id);
+  ArrayList<Integer> res=new ArrayList<Integer>();
+  for (  Long l : src) {
+    res.add(Utils.convertInt(l));
+  }
+  return res;
+}

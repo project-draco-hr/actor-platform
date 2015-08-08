@@ -1,0 +1,3 @@
+im.actor.core.api.Peer _peer
+long rid
+im.actor.core.api.Message message

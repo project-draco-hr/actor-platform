@@ -1,0 +1,5 @@
+{
+  super(messenger);
+  this.collection=Storage.createKeyValue(STORAGE_USERS,UserVM.CREATOR(modules()),User.CREATOR);
+  this.users=collection.getEngine();
+}

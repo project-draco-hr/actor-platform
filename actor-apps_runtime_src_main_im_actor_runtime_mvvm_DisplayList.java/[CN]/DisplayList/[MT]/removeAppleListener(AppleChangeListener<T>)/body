@@ -1,0 +1,7 @@
+{
+  if (operationMode != OperationMode.IOS && operationMode != OperationMode.GENERAL) {
+    throw new RuntimeException("Unable to set Android Listener in Android mode");
+  }
+  im.actor.runtime.Runtime.checkMainThread();
+  appleListeners.remove(listener);
+}

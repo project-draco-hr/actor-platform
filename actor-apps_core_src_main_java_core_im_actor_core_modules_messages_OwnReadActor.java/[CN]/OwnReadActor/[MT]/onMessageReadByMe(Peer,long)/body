@@ -1,0 +1,8 @@
+{
+  long readState=modules().getMessagesModule().loadReadState(peer);
+  if (sortingDate <= readState) {
+    return;
+  }
+  modules().getMessagesModule().getConversationActor(peer).send(new ConversationActor.MessageReadByMe(sortingDate));
+  modules().getMessagesModule().saveReadState(peer,sortingDate);
+}

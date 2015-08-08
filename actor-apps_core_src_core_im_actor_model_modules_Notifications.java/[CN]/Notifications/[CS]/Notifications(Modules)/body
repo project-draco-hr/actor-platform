@@ -1,4 +1,0 @@
-{
-  super(modules);
-  notificationsStorage=new SyncKeyValue(storage().createKeyValue(STORAGE_NOTIFICATIONS));
-}

@@ -3,7 +3,7 @@
   if (cmd != null)   cmd.start(new CommandCallback<ResponseGetPublicGroups>(){
     @Override public void onResult(    ResponseGetPublicGroups res){
       final ArrayList<PublicGroup> groups=new ArrayList<PublicGroup>();
-      for (      im.actor.model.api.PublicGroup g : res.getGroups()) {
+      for (      im.actor.core.api.PublicGroup g : res.getGroups()) {
         groups.add(new PublicGroup(g));
       }
       getActivity().runOnUiThread(new Runnable(){

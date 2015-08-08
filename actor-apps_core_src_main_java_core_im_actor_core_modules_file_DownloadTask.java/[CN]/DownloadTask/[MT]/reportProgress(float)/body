@@ -1,0 +1,16 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  if (progress > currentProgress) {
+    currentProgress=progress;
+  }
+  long delta=im.actor.runtime.Runtime.getActorTime() - lastNotifyDate;
+  if (delta > NOTIFY_THROTTLE) {
+    lastNotifyDate=im.actor.runtime.Runtime.getActorTime();
+    self().send(new NotifyProgress());
+  }
+ else {
+    self().sendOnce(new NotifyProgress(),delta);
+  }
+}

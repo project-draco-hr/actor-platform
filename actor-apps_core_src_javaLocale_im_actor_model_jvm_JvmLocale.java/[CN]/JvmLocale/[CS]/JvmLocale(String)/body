@@ -1,6 +1,0 @@
-{
-  items=new HashMap<String,String>();
-  loadPart("AppText",name);
-  loadPart("Months",name);
-  dateFormat=DateFormat.getDateInstance(DateFormat.SHORT,Locale.getDefault());
-}

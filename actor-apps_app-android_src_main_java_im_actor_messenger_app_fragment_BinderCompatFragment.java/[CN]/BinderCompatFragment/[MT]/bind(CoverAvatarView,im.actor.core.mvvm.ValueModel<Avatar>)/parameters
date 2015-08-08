@@ -1,0 +1,2 @@
+CoverAvatarView avatarView
+im.actor.core.mvvm.ValueModel<Avatar> avatar

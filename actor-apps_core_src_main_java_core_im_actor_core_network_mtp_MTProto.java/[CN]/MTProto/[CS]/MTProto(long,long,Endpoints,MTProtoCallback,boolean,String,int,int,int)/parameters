@@ -1,0 +1,9 @@
+long authId
+long sessionId
+Endpoints endpoints
+MTProtoCallback callback
+boolean isEnableLog
+String basePath
+int minDelay
+int maxDelay
+int maxFailureCount

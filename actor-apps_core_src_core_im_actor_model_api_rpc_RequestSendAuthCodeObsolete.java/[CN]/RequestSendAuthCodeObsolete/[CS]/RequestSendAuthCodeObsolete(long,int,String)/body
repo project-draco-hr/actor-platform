@@ -1,5 +1,0 @@
-{
-  this.phoneNumber=phoneNumber;
-  this.appId=appId;
-  this.apiKey=apiKey;
-}

@@ -1,0 +1,12 @@
+{
+  if (endpoints.size() == 0) {
+    throw new RuntimeException("Endpoints not set");
+  }
+  if (phoneBookProvider == null) {
+    throw new RuntimeException("Phonebook Provider not set");
+  }
+  if (apiConfiguration == null) {
+    throw new RuntimeException("Api Configuration not set");
+  }
+  return new Configuration(endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),phoneBookProvider,notificationProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,analyticsProvider,deviceCategory,appCategory,minDelay,maxDelay,maxFailureCount);
+}

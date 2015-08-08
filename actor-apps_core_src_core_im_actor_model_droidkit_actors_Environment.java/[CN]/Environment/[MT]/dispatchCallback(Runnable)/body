@@ -1,6 +1,0 @@
-{
-  if (dispatcherProvider == null) {
-    throw new RuntimeException("Environment is not inited!");
-  }
-  dispatcherProvider.dispatch(runnable);
-}

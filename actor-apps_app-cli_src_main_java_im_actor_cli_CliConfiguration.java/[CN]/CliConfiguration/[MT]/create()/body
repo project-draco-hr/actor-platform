@@ -1,11 +1,10 @@
 {
   ConfigurationBuilder configurationBuilder=new ConfigurationBuilder();
   configurationBuilder.setAppCategory(AppCategory.GENERIC);
-  configurationBuilder.setThreadingRuntime(new JavaThreadingProvider());
   configurationBuilder.setNetworkProvider(new TcpNetworkProvider());
   configurationBuilder.setLocaleProvider(new JvmLocale("En"));
   configurationBuilder.setPhoneBookProvider(new EmptyPhoneProvider());
-  configurationBuilder.setCryptoProvider(new BouncyCastleProvider(new JavaRandomProvider()));
+  configurationBuilder.setCryptoProvider(new BouncyCastleRuntime(new JavaRandomProvider()));
   configurationBuilder.setStorageProvider(new MemoryStorageProvider());
   configurationBuilder.setMainThreadProvider(new CliMainThreadProvider());
   configurationBuilder.setLifecycleProvider(new CliLifecycleProvider());

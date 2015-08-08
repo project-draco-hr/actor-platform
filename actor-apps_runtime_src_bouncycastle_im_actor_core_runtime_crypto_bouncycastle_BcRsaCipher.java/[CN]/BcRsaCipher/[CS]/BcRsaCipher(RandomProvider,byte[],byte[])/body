@@ -1,0 +1,12 @@
+{
+  super(random,publicKey);
+  try {
+    im.actor.core.runtime.crypto.encoding.PKS8RsaPrivateKey pks8RsaPrivateKey=new im.actor.core.runtime.crypto.encoding.PKS8RsaPrivateKey(privateKey);
+    AsymmetricKeyParameter keyParameter=new RSAKeyParameters(true,pks8RsaPrivateKey.getModulus(),pks8RsaPrivateKey.getExponent());
+    cipher=new OAEPEncoding(new RSAEngine(),new SHA1Digest());
+    cipher.init(false,new ParametersWithRandom(keyParameter,random));
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

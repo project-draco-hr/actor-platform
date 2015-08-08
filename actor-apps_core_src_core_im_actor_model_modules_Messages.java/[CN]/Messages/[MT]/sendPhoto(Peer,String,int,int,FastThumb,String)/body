@@ -1,4 +1,0 @@
-{
-  FileSystemReference reference=modules().getConfiguration().getFileSystemProvider().fileFromDescriptor(descriptor);
-  sendMessageActor.send(new SenderActor.SendPhoto(peer,fastThumb,descriptor,fileName,reference.getSize(),w,h));
-}

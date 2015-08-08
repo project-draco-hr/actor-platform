@@ -1,3 +1,0 @@
-{
-  return new VideoContent(new ContentRemoteContainer(new DocumentMessage(reference.getFileId(),reference.getAccessHash(),reference.getFileSize(),reference.getFileName(),"video/mp4",fastThumb != null ? new im.actor.model.api.FastThumb(fastThumb.getW(),fastThumb.getH(),fastThumb.getImage()) : null,new DocumentExVideo(w,h,duration))));
-}

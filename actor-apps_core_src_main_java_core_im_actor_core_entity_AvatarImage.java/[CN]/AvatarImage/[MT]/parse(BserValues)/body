@@ -1,0 +1,9 @@
+{
+  if (values.getBool(5,false)) {
+    super.parse(values);
+  }
+ else {
+    ObsoleteAvatarImage obsoleteAvatarImage=new ObsoleteAvatarImage(values);
+    setWrapped(new im.actor.core.api.AvatarImage(new FileLocation(obsoleteAvatarImage.getFileReference().getFileId(),obsoleteAvatarImage.getFileReference().getAccessHash()),obsoleteAvatarImage.getWidth(),obsoleteAvatarImage.getHeight(),obsoleteAvatarImage.getFileReference().getFileSize()));
+  }
+}

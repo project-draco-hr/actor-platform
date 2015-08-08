@@ -1,0 +1,4 @@
+{
+  FileSystemReference reference=Storage.fileFromDescriptor(descriptor);
+  sendMessageActor.send(new SenderActor.SendDocument(peer,fileName,mimeType,reference.getSize(),reference.getDescriptor(),fastThumb));
+}

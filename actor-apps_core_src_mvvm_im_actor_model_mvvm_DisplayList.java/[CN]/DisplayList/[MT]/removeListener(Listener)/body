@@ -1,4 +1,0 @@
-{
-  MVVMEngine.checkMainThread();
-  listeners.remove(listener);
-}

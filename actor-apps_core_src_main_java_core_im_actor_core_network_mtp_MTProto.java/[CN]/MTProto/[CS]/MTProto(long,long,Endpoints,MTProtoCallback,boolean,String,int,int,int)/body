@@ -1,0 +1,15 @@
+{
+  this.authId=authId;
+  this.sessionId=sessionId;
+  this.endpoints=endpoints;
+  this.callback=callback;
+  this.actorPath=basePath;
+  this.isEnableLog=isEnableLog;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
+  this.isClosed=false;
+  this.manager=ManagerActor.manager(this);
+  this.sender=SenderActor.senderActor(this);
+  this.receiver=ReceiverActor.receiver(this);
+}

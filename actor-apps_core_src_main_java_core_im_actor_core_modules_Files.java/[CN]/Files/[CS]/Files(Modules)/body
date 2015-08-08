@@ -1,0 +1,18 @@
+{
+  super(modules);
+  downloadedEngine=new BaseKeyValueEngine<Downloaded>(Storage.createKeyValue(STORAGE_DOWNLOADS)){
+    @Override protected byte[] serialize(    Downloaded value){
+      return value.toByteArray();
+    }
+    @Override protected Downloaded deserialize(    byte[] data){
+      try {
+        return Downloaded.fromBytes(data);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        return null;
+      }
+    }
+  }
+;
+}

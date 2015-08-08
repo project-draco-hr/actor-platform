@@ -1,0 +1,4 @@
+{
+  InputStream stream=getClass().getClassLoader().getResourceAsStream(name);
+  return null;
+}

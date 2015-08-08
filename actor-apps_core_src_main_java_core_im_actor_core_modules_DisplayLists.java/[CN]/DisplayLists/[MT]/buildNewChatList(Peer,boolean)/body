@@ -1,0 +1,26 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  ListEngine<Message> messagesEngine=modules().getMessagesModule().getConversationEngine(peer);
+  if (!(messagesEngine instanceof ListEngineDisplayExt)) {
+    throw new RuntimeException("Conversation ListEngine must implement ListEngineDisplayExt for using global list");
+  }
+  BindedDisplayList.BindHook<Message> hook=null;
+  if (isGlobalList) {
+    hook=new BindedDisplayList.BindHook<Message>(){
+      @Override public void onScrolledToEnd(){
+        modules().getMessagesModule().loadMoreHistory(peer);
+      }
+      @Override public void onItemTouched(      Message item){
+        if (item.isOnServer()) {
+          modules().getMessagesModule().onMessageShown(peer,item.getSortDate());
+        }
+      }
+    }
+;
+  }
+  BindedDisplayList<Message> chatList=new BindedDisplayList<Message>((ListEngineDisplayExt<Message>)messagesEngine,isGlobalList,20,20,operationMode,hook);
+  long lastRead=modules().getMessagesModule().loadReadState(peer);
+  if (lastRead != 0)   chatList.initCenter(lastRead,false);
+ else   chatList.initTop(false);
+  return chatList;
+}

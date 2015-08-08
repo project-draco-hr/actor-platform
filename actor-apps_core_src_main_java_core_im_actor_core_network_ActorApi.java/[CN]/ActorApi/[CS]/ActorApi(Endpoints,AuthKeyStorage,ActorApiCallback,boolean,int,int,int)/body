@@ -1,0 +1,10 @@
+{
+  this.endpoints=endpoints;
+  this.keyStorage=keyStorage;
+  this.callback=callback;
+  this.isEnableLog=isEnableLog;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
+  this.apiBroker=ApiBroker.get(endpoints,keyStorage,callback,isEnableLog,NEXT_ID.get(),minDelay,maxDelay,maxFailureCount);
+}

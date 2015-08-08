@@ -1,8 +1,0 @@
-{
-  if (mainThreadProvider.isSingleThread()) {
-    return;
-  }
-  if (!mainThreadProvider.isMainThread()) {
-    throw new RuntimeException("Unable to perform operation not from Main Thread");
-  }
-}

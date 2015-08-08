@@ -1,0 +1,6 @@
+int groupId
+long rid
+int uid
+im.actor.core.api.Avatar avatar
+long date
+boolean isSilent

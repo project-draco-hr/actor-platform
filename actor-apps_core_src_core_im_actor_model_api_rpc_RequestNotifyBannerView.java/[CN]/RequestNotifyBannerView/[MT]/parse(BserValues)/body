@@ -1,4 +1,0 @@
-{
-  this.bannerId=values.getInt(1);
-  this.viewDuration=values.getInt(2);
-}

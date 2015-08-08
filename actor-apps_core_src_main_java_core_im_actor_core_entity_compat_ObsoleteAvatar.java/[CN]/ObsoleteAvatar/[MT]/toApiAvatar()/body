@@ -1,0 +1,15 @@
+{
+  im.actor.core.api.AvatarImage smallImage=null;
+  im.actor.core.api.AvatarImage largeImage=null;
+  im.actor.core.api.AvatarImage fullImage=null;
+  if (this.smallImage != null) {
+    smallImage=this.smallImage.toApiAvatarImage();
+  }
+  if (this.largeImage != null) {
+    largeImage=this.largeImage.toApiAvatarImage();
+  }
+  if (this.fullImage != null) {
+    fullImage=this.fullImage.toApiAvatarImage();
+  }
+  return new Avatar(smallImage,largeImage,fullImage);
+}
