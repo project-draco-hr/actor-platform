@@ -1,4 +1,0 @@
-Bitmap src
-String fileName
-Bitmap.CompressFormat format
-int quality

@@ -1,3 +1,0 @@
-{
-  this.sequence=new ArrayList<im.actor.core.runtime.crypto.asn1.ASN1Primitive>();
-}

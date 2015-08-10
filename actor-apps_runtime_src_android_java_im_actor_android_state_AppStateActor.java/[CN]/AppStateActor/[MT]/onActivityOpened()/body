@@ -1,6 +1,0 @@
-{
-  activityCount++;
-  if (isScreenVisible) {
-    onAppProbablyOpened();
-  }
-}

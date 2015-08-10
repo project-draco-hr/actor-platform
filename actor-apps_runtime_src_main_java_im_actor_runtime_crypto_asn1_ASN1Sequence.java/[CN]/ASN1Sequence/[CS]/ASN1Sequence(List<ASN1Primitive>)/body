@@ -1,0 +1,3 @@
+{
+  this.sequence=new ArrayList<ASN1Primitive>(sequence);
+}

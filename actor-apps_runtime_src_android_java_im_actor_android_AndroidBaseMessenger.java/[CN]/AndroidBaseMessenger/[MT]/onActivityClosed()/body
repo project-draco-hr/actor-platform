@@ -1,3 +1,0 @@
-{
-  appStateActor.send(new AppStateActor.OnActivityClosed());
-}

@@ -1,5 +1,0 @@
-{
-  if (isAppOpen) {
-    self().sendOnce(new MarkAppAsClosed(),CLOSE_TIMEOUT);
-  }
-}

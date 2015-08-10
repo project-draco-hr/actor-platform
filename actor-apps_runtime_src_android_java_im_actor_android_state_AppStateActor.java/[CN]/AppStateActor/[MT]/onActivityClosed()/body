@@ -1,6 +1,0 @@
-{
-  activityCount--;
-  if (activityCount == 0) {
-    onAppProbablyClosed();
-  }
-}
