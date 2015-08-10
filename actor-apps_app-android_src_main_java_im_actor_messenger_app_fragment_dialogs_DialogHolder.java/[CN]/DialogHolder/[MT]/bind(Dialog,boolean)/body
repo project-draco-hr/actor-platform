@@ -1,0 +1,130 @@
+{
+  this.binded=data.getPeer().getUnuqueId();
+  this.bindedItem=data;
+  avatar.bind(data);
+  if (data.getUnreadCount() > 0) {
+    counter.setText(Integer.toString(data.getUnreadCount()));
+    counter.setVisibility(View.VISIBLE);
+  }
+ else {
+    counter.setVisibility(View.GONE);
+  }
+  title.setText(data.getDialogTitle());
+  Drawable left=null;
+  if (data.getPeer().getPeerType() == PeerType.GROUP) {
+    left=new TintDrawable(R.drawable.dialogs_group,R.color.chats_title,context);
+  }
+  title.setCompoundDrawablesWithIntrinsicBounds(left,null,null,null);
+  if (data.getDate() > 0) {
+    time.setVisibility(View.VISIBLE);
+    time.setText(messenger().getFormatter().formatShortDate(data.getDate()));
+  }
+ else {
+    time.setVisibility(View.GONE);
+  }
+  bindedText=messenger().getFormatter().formatDialogText(data);
+  if (SmileProcessor.containsEmoji(bindedText)) {
+    if (emoji().isLoaded()) {
+      bindedText=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_BUBBLES);
+      ;
+    }
+ else {
+      emoji().registerListener(new SmilesListener(){
+        @Override public void onSmilesUpdated(        boolean completed){
+          CharSequence emojiProcessed=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_DIALOGS);
+          if (text.getText().equals(bindedText)) {
+            text.setText(emojiProcessed);
+          }
+          bindedText=emojiProcessed;
+        }
+      }
+);
+    }
+  }
+  if (privateTypingListener != null) {
+    messenger().getTyping(bindedUid).unsubscribe(privateTypingListener);
+    privateTypingListener=null;
+  }
+  if (groupTypingListener != null) {
+    messenger().getGroupTyping(bindedGid).unsubscribe(groupTypingListener);
+    groupTypingListener=null;
+  }
+  if (data.getPeer().getPeerType() == PeerType.PRIVATE) {
+    bindedUid=data.getPeer().getPeerId();
+    privateTypingListener=new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+        if (val) {
+          text.setText(messenger().getFormatter().formatTyping());
+          text.setTextColor(context.getResources().getColor(R.color.chats_typing));
+        }
+ else {
+          text.setText(bindedText);
+          text.setTextColor(context.getResources().getColor(R.color.chats_text));
+        }
+      }
+    }
+;
+    messenger().getTyping(bindedUid).subscribe(privateTypingListener);
+  }
+ else   if (data.getPeer().getPeerType() == PeerType.GROUP) {
+    bindedGid=data.getPeer().getPeerId();
+    groupTypingListener=new ValueChangedListener<int[]>(){
+      @Override public void onChanged(      int[] val,      ValueModel<int[]> valueModel){
+        if (val.length != 0) {
+          if (val.length == 1) {
+            text.setText(messenger().getFormatter().formatTyping(messenger().getUsers().get(val[0]).getName().get()));
+          }
+ else {
+            text.setText(messenger().getFormatter().formatTyping(val.length));
+          }
+          text.setTextColor(context.getResources().getColor(R.color.chats_typing));
+        }
+ else {
+          text.setText(bindedText);
+          text.setTextColor(context.getResources().getColor(R.color.chats_text));
+        }
+      }
+    }
+;
+    messenger().getGroupTyping(bindedGid).subscribe(groupTypingListener);
+  }
+ else {
+    text.setText(bindedText);
+    text.setTextColor(context.getResources().getColor(R.color.chats_text));
+  }
+  if (data.getSenderId() != myUid()) {
+    state.setVisibility(View.GONE);
+  }
+ else {
+switch (data.getStatus()) {
+default :
+case PENDING:
+      state.setResource(R.drawable.msg_clock);
+    state.setTint(pendingColor);
+  break;
+case SENT:
+state.setResource(R.drawable.msg_check_1);
+state.setTint(sentColor);
+break;
+case RECEIVED:
+state.setResource(R.drawable.msg_check_2);
+state.setTint(receivedColor);
+break;
+case READ:
+state.setResource(R.drawable.msg_check_2);
+state.setTint(readColor);
+break;
+case ERROR:
+state.setResource(R.drawable.msg_error);
+state.setTint(errorColor);
+break;
+}
+state.setVisibility(View.VISIBLE);
+}
+if (isLast) {
+separator.setVisibility(View.GONE);
+}
+ else {
+separator.setVisibility(View.VISIBLE);
+}
+}

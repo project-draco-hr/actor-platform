@@ -1,0 +1,8 @@
+{
+  dest.eraseColor(clearColor);
+  Canvas canvas=new Canvas(dest);
+  Paint paint=new Paint();
+  paint.setFilterBitmap(true);
+  canvas.drawBitmap(src,new Rect(x + 1,y + 1,sw - 1,sh - 1),new Rect(dx,dy,dw,dh),paint);
+  canvas.setBitmap(null);
+}

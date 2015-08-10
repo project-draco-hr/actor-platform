@@ -1,0 +1,4 @@
+{
+  isScreenVisible=false;
+  onAppProbablyClosed();
+}

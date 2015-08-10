@@ -5,7 +5,7 @@
  catch (  IOException e) {
     throw new RuntimeException(e);
   }
-  View res=inflate(inflater,container,R.layout.fragment_messages,messenger().getMessagesGlobalList(peer));
+  View res=inflate(inflater,container,R.layout.fragment_messages,messenger().getMessageDisplayList(peer));
   View footer=new View(getActivity());
   footer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(8)));
   addHeaderView(footer);

@@ -10,7 +10,7 @@ synchronized (LOCKER) {
   }
   try {
     final Bitmap res=blur ? BitmapUtil.fastBlur(ImageLoading.loadBitmap(d),blurRadius) : ImageLoading.loadBitmap(d);
-    MVVMEngine.runOnUiThread(new Runnable(){
+    im.actor.runtime.Runtime.postToMainThread(new Runnable(){
       @Override public void run(){
 synchronized (LOCKER) {
           if (!isActive) {

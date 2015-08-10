@@ -1,0 +1,7 @@
+{
+  if (!isAppOpen) {
+    isAppOpen=true;
+    onAppOpened();
+  }
+  self().sendOnce(new MarkAppAsClosed(),24 * 60 * 60* 1000);
+}

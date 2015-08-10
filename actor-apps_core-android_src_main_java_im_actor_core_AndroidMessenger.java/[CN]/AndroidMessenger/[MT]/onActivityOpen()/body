@@ -1,0 +1,3 @@
+{
+  appStateActor.send(new AppStateActor.OnActivityOpened());
+}

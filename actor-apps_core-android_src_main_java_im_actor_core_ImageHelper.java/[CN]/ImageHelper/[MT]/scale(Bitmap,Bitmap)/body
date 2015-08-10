@@ -1,0 +1,3 @@
+{
+  scale(src,dest,Color.TRANSPARENT);
+}

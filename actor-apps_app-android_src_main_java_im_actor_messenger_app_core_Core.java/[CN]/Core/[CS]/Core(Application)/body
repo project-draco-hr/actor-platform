@@ -1,4 +1,5 @@
 {
+  AndroidContext.setContext(application);
   JSONObject config=new JSONObject(new String(readAll(application.getAssets().open("app.json"))));
   hockeyToken=config.optString("hockeyapp");
   if (config.optString("mint") != null && !config.optString("mint").equals("null")) {
@@ -10,22 +11,15 @@
   AppContext.setContext(application);
   this.smileProcessor=new SmileProcessor(application);
   this.smileProcessor.loadEmoji();
-  AndroidConfigurationBuilder builder=new AndroidConfigurationBuilder(application.getResources().getString(R.string.app_locale),application);
-  builder.setPhoneBookProvider(new AndroidPhoneBook());
-  builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
+  ConfigurationBuilder builder=new ConfigurationBuilder();
   JSONArray endpoints=config.getJSONArray("endpoints");
   for (int i=0; i < endpoints.length(); i++) {
     builder.addEndpoint(endpoints.getString(i));
   }
-  builder.setEnableContactsLogging(true);
-  builder.setEnableNetworkLogging(true);
-  builder.setEnableFilesLogging(true);
-  if (config.optString("mixpanel") != null) {
-    builder.setAnalyticsProvider(new AndroidMixpanelAnalytics(AppContext.getContext(),config.getString("mixpanel")));
-  }
+  builder.setPhoneBookProvider(new AndroidPhoneBook());
+  builder.setNotificationProvider(new AndroidNotifications(AppContext.getContext()));
   builder.setDeviceCategory(DeviceCategory.MOBILE);
   builder.setAppCategory(AppCategory.ANDROID);
   builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,API_ID,API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
-  builder.setMaxDelay(MAX_DELAY);
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
 }

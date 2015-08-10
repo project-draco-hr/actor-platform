@@ -11,7 +11,7 @@
         messenger().cancelDownloading(location.getFileId());
       }
       @Override public void onDownloaded(      final FileSystemReference reference){
-        MVVMEngine.runOnUiThread(new Runnable(){
+        im.actor.runtime.Runtime.postToMainThread(new Runnable(){
           @Override public void run(){
             if (document instanceof PhotoContent) {
               Intents.openMedia(getAdapter().getMessagesFragment().getActivity(),previewView,reference.getDescriptor(),currentMessage.getSenderId());
