@@ -1,0 +1,12 @@
+{
+  return new im.actor.runtime.mvvm.alg.Modification<T>(){
+    @Override public List<ChangeDescription<T>> modify(    ArrayList<T> sourceList){
+      ArrayList<ChangeDescription<T>> res=new ArrayList<ChangeDescription<T>>();
+      for (      T toAdd : items) {
+        addOrUpdate(toAdd,sourceList,res,true);
+      }
+      return res;
+    }
+  }
+;
+}

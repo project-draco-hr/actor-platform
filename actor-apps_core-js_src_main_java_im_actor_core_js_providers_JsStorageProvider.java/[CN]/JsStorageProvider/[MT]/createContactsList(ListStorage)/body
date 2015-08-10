@@ -1,3 +1,0 @@
-{
-  return new JsListEngine<Contact>((JsListStorage)storage,Contact.CREATOR);
-}

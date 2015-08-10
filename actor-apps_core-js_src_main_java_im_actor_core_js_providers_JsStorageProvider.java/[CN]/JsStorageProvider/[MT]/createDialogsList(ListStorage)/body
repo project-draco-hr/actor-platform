@@ -1,3 +1,0 @@
-{
-  return new JsListEngine<Dialog>((JsListStorage)storage,Dialog.CREATOR);
-}
