@@ -1,0 +1,3 @@
+{
+  return (JsDisplayList<JsMessage,Message>)modules.getDisplayLists().getMessagesSharedList(peer);
+}

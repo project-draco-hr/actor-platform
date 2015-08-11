@@ -1,0 +1,3 @@
+{
+  return (JsDisplayList<JsDialog,Dialog>)modules.getDisplayLists().getDialogsSharedList();
+}

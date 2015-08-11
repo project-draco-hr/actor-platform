@@ -25,4 +25,5 @@
  else {
     Log.d("JsMessenger","SafariPush NOT Supported");
   }
+  JsMessenger.instance=this;
 }

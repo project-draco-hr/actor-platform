@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"bindChat: " + peer);
+  if (callback == null) {
+    return;
+  }
+  messenger.getSharedChatList(peer.convert()).subscribe(callback);
+}

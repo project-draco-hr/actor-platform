@@ -1,0 +1,13 @@
+{
+  ExporterUtil.exportAll();
+  JsAssetsProvider.registerBundle(Assets.INSTANCE);
+  JsEngineProvider.registerEntity(Contact.ENTITY_NAME,JsContact.CONVERTER);
+  JsEngineProvider.registerEntity(Dialog.ENTITY_NAME,JsDialog.CONVERTER);
+  JsEngineProvider.registerEntity(Message.ENTITY_NAME,JsMessage.CONVERTER);
+  Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand(){
+    @Override public void execute(){
+      onAppLoaded();
+    }
+  }
+);
+}
