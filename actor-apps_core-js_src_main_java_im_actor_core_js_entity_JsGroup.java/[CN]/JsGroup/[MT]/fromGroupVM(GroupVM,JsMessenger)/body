@@ -15,12 +15,22 @@
       bigFileUrl=messenger.getFileUrl(avatar.getLargeImage().getFileReference());
     }
   }
-  JsArray<JsGroupMember> convertedMembers=JsArray.createArray().cast();
+  ArrayList<JsGroupMember> convertedMembers=new ArrayList<JsGroupMember>();
   HashSet<GroupMember> groupMembers=groupVM.getMembers().get();
   GroupMember[] members=groupMembers.toArray(new GroupMember[groupMembers.size()]);
   for (  GroupMember g : members) {
     JsPeerInfo peerInfo=messenger.buildPeerInfo(Peer.user(g.getUid()));
-    convertedMembers.push(JsGroupMember.create(peerInfo,g.isAdministrator(),g.getInviterUid() == messenger.myUid() || groupVM.getCreatorId() == messenger.myUid()));
+    convertedMembers.add(JsGroupMember.create(peerInfo,g.isAdministrator(),g.getInviterUid() == messenger.myUid() || groupVM.getCreatorId() == messenger.myUid()));
   }
-  return create(groupVM.getId(),groupVM.getName().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence,convertedMembers);
+  Collections.sort(convertedMembers,new Comparator<JsGroupMember>(){
+    @Override public int compare(    JsGroupMember o1,    JsGroupMember o2){
+      return o1.getPeerInfo().getTitle().compareToIgnoreCase(o2.getPeerInfo().getTitle());
+    }
+  }
+);
+  JsArray<JsGroupMember> jsMembers=JsArray.createArray().cast();
+  for (  JsGroupMember member : convertedMembers) {
+    jsMembers.push(member);
+  }
+  return create(groupVM.getId(),groupVM.getName().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence,jsMembers);
 }
