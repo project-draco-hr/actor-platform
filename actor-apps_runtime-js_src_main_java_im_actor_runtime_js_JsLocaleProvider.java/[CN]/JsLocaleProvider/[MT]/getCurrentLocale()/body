@@ -1,3 +1,4 @@
 {
+  Log.d("JsLocaleProvider","Locale Name: " + LocaleInfo.getCurrentLocale().getLocaleName());
   return "En";
 }
