@@ -1,0 +1,2 @@
+ModelChangedListener<GroupVM> listener
+boolean notify

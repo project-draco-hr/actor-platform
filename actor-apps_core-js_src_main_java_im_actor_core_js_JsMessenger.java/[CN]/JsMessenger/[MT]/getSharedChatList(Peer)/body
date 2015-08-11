@@ -1,3 +1,3 @@
 {
-  return (JsDisplayList<JsMessage,Message>)modules.getDisplayLists().getMessagesSharedList(peer);
+  return jsBindingModule.getSharedMessageList(peer);
 }

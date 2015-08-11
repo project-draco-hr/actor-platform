@@ -1,0 +1,6 @@
+{
+  this.value=value;
+  for (  JsBindedValueCallback callback : callbacks) {
+    callback.onChanged(value);
+  }
+}

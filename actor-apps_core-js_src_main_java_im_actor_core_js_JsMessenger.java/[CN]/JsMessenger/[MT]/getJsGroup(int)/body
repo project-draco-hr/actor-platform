@@ -1,3 +1,3 @@
 {
-  return angularModule.getGroup(gid);
+  return jsBindingModule.getGroup(gid);
 }

@@ -1,0 +1,6 @@
+{
+  if (contactsList == null) {
+    contactsList=(JsDisplayList<JsContact,Contact>)context().getDisplayListsModule().getContactsSharedList();
+  }
+  return contactsList;
+}

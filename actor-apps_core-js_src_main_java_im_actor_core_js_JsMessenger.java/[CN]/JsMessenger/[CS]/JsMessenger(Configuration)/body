@@ -1,8 +1,8 @@
 {
   super(configuration);
   fileSystemProvider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
-  angularFilesModule=new AngularFilesModule(modules);
-  angularModule=new AngularModule(this,angularFilesModule,modules);
+  filesModule=new JsFilesModule(modules);
+  jsBindingModule=new JsBindingModule(this,filesModule,modules);
   if (JsChromePush.isSupported()) {
     Log.d("JsMessenger","ChromePush Supported");
     JsChromePush.subscribe(new PushSubscribeResult(){

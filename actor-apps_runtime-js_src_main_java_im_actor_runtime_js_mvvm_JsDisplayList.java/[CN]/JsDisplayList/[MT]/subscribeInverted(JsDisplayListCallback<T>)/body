@@ -1,0 +1,6 @@
+{
+  if (!callbacksInverted.contains(callback)) {
+    callbacksInverted.add(callback);
+  }
+  callback.onCollectionChanged(reverse(jsValues));
+}
