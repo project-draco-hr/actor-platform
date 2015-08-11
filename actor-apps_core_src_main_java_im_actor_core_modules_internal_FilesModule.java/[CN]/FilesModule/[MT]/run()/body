@@ -1,0 +1,14 @@
+{
+  downloadManager=system().actorOf(Props.create(DownloadManager.class,new ActorCreator<DownloadManager>(){
+    @Override public DownloadManager create(){
+      return new DownloadManager(context());
+    }
+  }
+).changeDispatcher("heavy"),"actor/download/manager");
+  uploadManager=system().actorOf(Props.create(UploadManager.class,new ActorCreator<UploadManager>(){
+    @Override public UploadManager create(){
+      return new UploadManager(context());
+    }
+  }
+).changeDispatcher("heavy"),"actor/upload/manager");
+}

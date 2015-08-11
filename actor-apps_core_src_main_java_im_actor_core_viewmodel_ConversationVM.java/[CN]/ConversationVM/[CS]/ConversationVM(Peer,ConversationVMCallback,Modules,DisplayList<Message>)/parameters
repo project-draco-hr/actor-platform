@@ -1,0 +1,4 @@
+Peer peer
+ConversationVMCallback callback
+Modules modules
+DisplayList<Message> displayList

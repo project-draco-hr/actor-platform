@@ -13,9 +13,5 @@
     }
   }
   JsArray<JsPhone> convertedPhones=JsArray.createArray().cast();
-  ArrayListUserPhone phones=userVM.getPhones().get();
-  for (  UserPhone p : phones) {
-    convertedPhones.push(JsPhone.create(p.getPhone() + "",p.getTitle()));
-  }
   return create(userVM.getId(),userVM.getName().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,convertedPhones);
 }

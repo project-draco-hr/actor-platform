@@ -29,7 +29,6 @@
 );
   sendConfirmCodeButton.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      String email=messenger().getPreferences().getString(Auth.KEY_EMAIL);
       executeAuth(messenger().signUp(firstNameEditText.getText().toString().trim(),Sex.UNKNOWN,avatarPath),"SignUp");
     }
   }

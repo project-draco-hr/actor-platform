@@ -1,5 +1,0 @@
-{
-  super.preStart();
-  downloaded=modules().getFilesModule().getDownloadedEngine();
-  LOG=config().isEnableFilesLogging();
-}

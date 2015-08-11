@@ -1,7 +1,6 @@
 {
   try {
-    int res=Integer.parseInt(code);
-    messenger.sendCodeObsolete(res).start(new CommandCallback<AuthState>(){
+    messenger.validateCode(code).start(new CommandCallback<AuthState>(){
       @Override public void onResult(      AuthState res){
         success.onResult(Enums.convert(res));
       }
@@ -21,7 +20,7 @@
   }
  catch (  Exception e) {
     e.printStackTrace();
-    MVVMEngine.runOnUiThread(new Runnable(){
+    im.actor.runtime.Runtime.postToMainThread(new Runnable(){
       @Override public void run(){
         error.onError("PHONE_CODE_INVALID","Invalid code number",false,getAuthState());
       }

@@ -1,7 +1,7 @@
 {
   if (!typing.containsKey(peer)) {
     if (peer.getPeerType() == PeerType.PRIVATE) {
-      UserTypingVM userTypingVM=modules().getTypingModule().getTyping(peer.getPeerId());
+      UserTypingVM userTypingVM=context().getTypingModule().getTyping(peer.getPeerId());
       final AngularValue<JsTyping> value=new AngularValue<JsTyping>();
       userTypingVM.getTyping().subscribe(new ValueChangedListener<Boolean>(){
         @Override public void onChanged(        Boolean val,        ValueModel<Boolean> valueModel){
@@ -16,13 +16,13 @@
       typing.put(peer,value);
     }
  else     if (peer.getPeerType() == PeerType.GROUP) {
-      GroupTypingVM groupTypingVM=modules().getTypingModule().getGroupTyping(peer.getPeerId());
+      GroupTypingVM groupTypingVM=context().getTypingModule().getGroupTyping(peer.getPeerId());
       final AngularValue<JsTyping> value=new AngularValue<JsTyping>();
       groupTypingVM.getActive().subscribe(new ValueChangedListener<int[]>(){
         @Override public void onChanged(        int[] val,        ValueModel<int[]> valueModel){
           String typingValue=null;
           if (val.length == 1) {
-            typingValue=messenger.getFormatter().formatTyping(modules().getUsersModule().getUsersCollection().get(val[0]).getName().get());
+            typingValue=messenger.getFormatter().formatTyping(context().getUsersModule().getUsers().get(val[0]).getName().get());
           }
  else           if (val.length > 1) {
             typingValue=messenger.getFormatter().formatTyping(val.length);

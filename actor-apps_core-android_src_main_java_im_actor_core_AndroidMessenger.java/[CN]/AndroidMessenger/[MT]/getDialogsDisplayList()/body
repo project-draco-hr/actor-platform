@@ -1,3 +1,3 @@
 {
-  return modules.getDisplayLists().getDialogsGlobalList();
+  return (BindedDisplayList<Dialog>)modules.getDisplayLists().getDialogsSharedList();
 }

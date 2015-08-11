@@ -84,29 +84,30 @@
     }
     return;
   }
-  Update update;
+  Update update=null;
   try {
     update=new UpdatesParser().read(type,body);
   }
  catch (  IOException e) {
     Log.w(TAG,"Unable to parse update: ignoring");
     e.printStackTrace();
-    return;
   }
-  if ((!(u instanceof FatSeqUpdate)) && processor.isCausesInvalidation(update)) {
-    Log.w(TAG,"Message causes invalidation");
-    invalidate();
-    return;
-  }
-  Log.d(TAG,"Processing update: " + update);
-  if (u instanceof FatSeqUpdate) {
-    FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),false);
-  }
-  processor.processUpdate(update);
-  if (u instanceof FatSeqUpdate) {
-    FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-    processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),true);
+  if (update != null) {
+    if ((!(u instanceof FatSeqUpdate)) && processor.isCausesInvalidation(update)) {
+      Log.w(TAG,"Message causes invalidation");
+      invalidate();
+      return;
+    }
+    Log.d(TAG,"Processing update: " + update);
+    if (u instanceof FatSeqUpdate) {
+      FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
+      processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),false);
+    }
+    processor.processUpdate(update);
+    if (u instanceof FatSeqUpdate) {
+      FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
+      processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),true);
+    }
   }
   this.seq=seq;
   this.state=state;

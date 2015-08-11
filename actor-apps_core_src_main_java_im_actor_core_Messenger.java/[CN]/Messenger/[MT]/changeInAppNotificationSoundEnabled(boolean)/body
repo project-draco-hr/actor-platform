@@ -1,3 +1,3 @@
 {
-  modules.getSettings().changeInAppSoundEnabled(val);
+  modules.getSettingsModule().changeInAppSoundEnabled(val);
 }

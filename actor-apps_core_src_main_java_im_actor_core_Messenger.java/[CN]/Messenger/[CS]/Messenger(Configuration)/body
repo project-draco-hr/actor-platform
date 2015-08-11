@@ -5,13 +5,7 @@
   ActorSystem.system().addDispatcher("network");
   ActorSystem.system().addDispatcher("heavy");
   ActorSystem.system().addDispatcher("updates",1);
-  if (!im.actor.runtime.Runtime.isSingleThread()) {
-    ActorSystem.system().addDispatcher("display_list");
-    ActorSystem.system().addDispatcher("db",1);
-  }
   timing.section("Modules:Create");
   this.modules=new Modules(this,configuration);
-  timing.section("Modules:Run");
-  this.modules.run();
   timing.end();
 }

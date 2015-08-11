@@ -1,0 +1,5 @@
+{
+  super(context);
+  this.cursorStorage=new SyncKeyValue(Storage.createKeyValue(STORAGE_CURSOR));
+  this.dialogs=Storage.createList(STORAGE_DIALOGS,Dialog.CREATOR);
+}

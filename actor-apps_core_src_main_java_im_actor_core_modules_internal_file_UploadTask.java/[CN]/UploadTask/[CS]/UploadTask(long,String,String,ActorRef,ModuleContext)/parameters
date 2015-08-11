@@ -1,0 +1,5 @@
+long rid
+String descriptor
+String fileName
+ActorRef manager
+ModuleContext context

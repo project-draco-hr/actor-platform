@@ -1,0 +1,10 @@
+{
+  im.actor.core.entity.User u=users().getValue(uid);
+  if (u != null) {
+    if (equalsE(u.getAbout(),about)) {
+      return;
+    }
+    u=u.editAbout(about);
+    users().addOrUpdateItem(u);
+  }
+}

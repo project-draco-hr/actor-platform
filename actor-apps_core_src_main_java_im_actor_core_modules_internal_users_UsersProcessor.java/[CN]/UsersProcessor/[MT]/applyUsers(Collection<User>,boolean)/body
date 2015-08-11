@@ -1,0 +1,19 @@
+{
+  ArrayList<im.actor.core.entity.User> batch=new ArrayList<im.actor.core.entity.User>();
+  for (  im.actor.core.api.User u : updated) {
+    im.actor.core.entity.User saved=users().getValue(u.getId());
+    if (saved == null) {
+      batch.add(new im.actor.core.entity.User(u));
+    }
+ else     if (forced) {
+      im.actor.core.entity.User upd=new im.actor.core.entity.User(u);
+      batch.add(upd);
+      if (!upd.getName().equals(saved.getName()) || !equalsE(upd.getAvatar(),saved.getAvatar())) {
+        onUserDescChanged(upd);
+      }
+    }
+  }
+  if (batch.size() > 0) {
+    users().addOrUpdateItems(batch);
+  }
+}

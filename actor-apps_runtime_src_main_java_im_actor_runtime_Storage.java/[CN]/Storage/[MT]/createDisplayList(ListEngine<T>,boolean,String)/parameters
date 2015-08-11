@@ -1,0 +1,3 @@
+ListEngine<T> engine
+boolean isSharedInstance
+String entityName

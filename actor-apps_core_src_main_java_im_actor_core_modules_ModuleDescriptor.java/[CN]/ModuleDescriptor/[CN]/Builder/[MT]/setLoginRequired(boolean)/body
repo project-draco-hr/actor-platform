@@ -1,0 +1,4 @@
+{
+  this.isLoginRequired=isLoginRequired;
+  return this;
+}

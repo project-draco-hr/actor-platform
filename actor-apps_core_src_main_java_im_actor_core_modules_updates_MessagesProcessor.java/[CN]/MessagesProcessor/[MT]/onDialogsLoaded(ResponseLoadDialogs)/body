@@ -20,7 +20,7 @@
     dialogsActor().send(new DialogsActor.HistoryLoaded(dialogs));
   }
  else {
-    modules().getAppStateModule().onDialogsLoaded();
+    context().getAppStateModule().onDialogsLoaded();
   }
   dialogsHistoryActor().send(new DialogsHistoryActor.LoadedMore(dialogsResponse.getDialogs().size(),maxLoadedDate));
 }

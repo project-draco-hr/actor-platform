@@ -1,6 +1,6 @@
 {
   super(modules);
-  keyValueStorage=new BaseKeyValueEngine<CachedFileUrl>(modules.getConfiguration().getStorageProvider().createKeyValue("file_url_cache")){
+  keyValueStorage=new BaseKeyValueEngine<CachedFileUrl>(Storage.createKeyValue("file_url_cache")){
     @Override protected byte[] serialize(    CachedFileUrl value){
       return value.toByteArray();
     }

@@ -1,4 +1,0 @@
-{
-  super.preStart();
-  listEngine=modules().getSearch().getSearchList();
-}

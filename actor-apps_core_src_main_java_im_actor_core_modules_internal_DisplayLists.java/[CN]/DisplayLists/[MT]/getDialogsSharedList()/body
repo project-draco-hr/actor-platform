@@ -1,0 +1,7 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  if (dialogGlobalList == null) {
+    dialogGlobalList=buildDialogsList(true);
+  }
+  return dialogGlobalList;
+}

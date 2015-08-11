@@ -1,0 +1,36 @@
+{
+  boolean isPeerEnabled=context().getSettingsModule().isNotificationsEnabled(peer);
+  boolean isEnabled=(context().getSettingsModule().isNotificationsEnabled() && isPeerEnabled) || hasCurrentUserMention;
+  boolean isInAppEnabled=context().getSettingsModule().isInAppEnabled();
+  boolean isConversationTonesEnabled=context().getSettingsModule().isConversationTonesEnabled();
+  if (!isEnabled && (!(isInAppEnabled && peer.equals(visiblePeer)))) {
+    return;
+  }
+  List<PendingNotification> allPending=getNotifications();
+  allPending.add(new PendingNotification(peer,sender,date,description));
+  saveStorage();
+  if (isNotificationsPaused) {
+    notificationsDuringPause.add(peer);
+    return;
+  }
+  if (config().getNotificationProvider() != null) {
+    if (isAppVisible) {
+      if (visiblePeer != null && visiblePeer.equals(peer)) {
+        if (isConversationTonesEnabled) {
+          config().getNotificationProvider().onMessageArriveInApp(context());
+        }
+      }
+ else       if (isDialogsVisible) {
+        if (isConversationTonesEnabled) {
+          config().getNotificationProvider().onMessageArriveInApp(context());
+        }
+      }
+ else       if (isInAppEnabled) {
+        performNotification(false);
+      }
+    }
+ else {
+      performNotification(false);
+    }
+  }
+}

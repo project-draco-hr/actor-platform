@@ -1,31 +1,31 @@
 {
   Timing timing=new Timing("ACCOUNT_CREATE");
   timing.section("Users");
-  users=new Users(this);
+  users=new UsersModule(this);
   timing.section("Groups");
-  groups=new Groups(this);
+  groups=new GroupsModule(this);
   timing.section("Search");
   search=new SearchModule(this);
   timing.section("Security");
-  security=new Security(this);
+  security=new SecurityModule(this);
   timing.section("Messages");
-  messages=new Messages(this);
+  messages=new MessagesModule(this);
   timing.section("Updates");
   updates=new Updates(this);
   timing.section("Presence");
-  presence=new Presence(this);
+  presence=new PresenceModule(this);
   timing.section("Typing");
-  typing=new Typing(this);
+  typing=new TypingModule(this);
   timing.section("Files");
-  filesModule=new Files(this);
+  filesModule=new FilesModule(this);
   timing.section("Notifications");
-  notifications=new Notifications(this);
+  notifications=new NotificationsModule(this);
   timing.section("Contacts");
-  contacts=new Contacts(this);
+  contacts=new ContactsModule(this);
   timing.section("Settings");
-  settings=new Settings(this);
+  settings=new SettingsModule(this);
   timing.section("Profile");
-  profile=new Profile(this);
+  profile=new ProfileModule(this);
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");
@@ -46,10 +46,8 @@
   updates.run();
   timing.section("Presence");
   presence.run();
-  if (Storage.isDisplayListsSupported()) {
-    timing.section("DisplayLists");
-    displayLists=new DisplayLists(MessengerEnvironment.ANDROID,this);
-  }
+  timing.section("DisplayLists");
+  displayLists=new DisplayLists(this);
   timing.end();
   if (isAppVisible) {
     presence.onAppVisible();

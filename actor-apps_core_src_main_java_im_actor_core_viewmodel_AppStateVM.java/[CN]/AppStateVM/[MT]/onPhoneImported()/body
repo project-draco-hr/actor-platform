@@ -1,7 +1,7 @@
 {
   if (!isBookImported) {
     isBookImported=true;
-    modules.getPreferences().putBool("app.contacts.imported",true);
+    context.getPreferences().putBool("app.contacts.imported",true);
     updateLoaded();
   }
 }

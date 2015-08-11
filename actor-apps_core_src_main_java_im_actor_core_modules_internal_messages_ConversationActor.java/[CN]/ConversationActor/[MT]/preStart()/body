@@ -1,0 +1,9 @@
+{
+  messages=context().getMessagesModule().getConversationEngine(peer);
+  dialogsActor=context().getMessagesModule().getDialogsActor();
+  outPendingIndex=Storage.createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
+  inPendingIndex=Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
+  inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);
+  outReadState=context().getPreferences().getLong(OUT_READ_STATE_PREF,0);
+  outReceiveState=context().getPreferences().getLong(OUT_RECEIVE_STATE_PREF,0);
+}

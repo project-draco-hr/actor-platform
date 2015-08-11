@@ -1,6 +1,6 @@
 {
   if (onlineState == null) {
-    final AppStateVM vm=modules().getAppStateModule().getAppStateVM();
+    final AppStateVM vm=context().getAppStateModule().getAppStateVM();
     onlineState=new AngularValue<String>("online");
     vm.getIsConnecting().subscribe(new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){

@@ -1,0 +1,5 @@
+{
+  for (  JsDisplayListCallback<T> callback : callbacks) {
+    callback.onCollectionChanged(jsValues);
+  }
+}

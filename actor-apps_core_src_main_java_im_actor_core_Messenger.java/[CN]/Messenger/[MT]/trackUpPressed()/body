@@ -1,3 +1,3 @@
 {
-  modules.getAnalytics().trackUpPressed();
+  modules.getAnalyticsModule().trackUpPressed();
 }

@@ -1,3 +1,10 @@
 {
+  name=name.replace('.','_');
+  Log.d("AssetsRuntime","HasAsset: " + name);
+  for (  ClientBundleWithLookup b : bundles) {
+    if (b.getResource(name) != null) {
+      return true;
+    }
+  }
   return false;
 }

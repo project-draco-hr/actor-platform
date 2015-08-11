@@ -1,7 +1,7 @@
 {
   CachedFileUrl cachedFileUrl=keyValueStorage.getValue(id);
   if (cachedFileUrl != null) {
-    if (cachedFileUrl.getTimeout() <= Environment.getCurrentSyncedTime()) {
+    if (cachedFileUrl.getTimeout() <= im.actor.runtime.Runtime.getCurrentSyncedTime()) {
       keyValueStorage.removeItem(id);
     }
  else {

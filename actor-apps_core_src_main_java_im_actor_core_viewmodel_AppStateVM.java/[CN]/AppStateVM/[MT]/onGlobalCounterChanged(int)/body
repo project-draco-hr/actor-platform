@@ -1,4 +1,4 @@
 {
   globalCounter.change(value);
-  modules.getPreferences().putInt("app.counter",value);
+  context.getPreferences().putInt("app.counter",value);
 }

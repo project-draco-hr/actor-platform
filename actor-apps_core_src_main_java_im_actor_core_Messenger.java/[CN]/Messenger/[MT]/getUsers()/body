@@ -2,5 +2,5 @@
   if (modules.getUsersModule() == null) {
     return null;
   }
-  return modules.getUsersModule().getUsersCollection();
+  return modules.getUsersModule().getUsers();
 }

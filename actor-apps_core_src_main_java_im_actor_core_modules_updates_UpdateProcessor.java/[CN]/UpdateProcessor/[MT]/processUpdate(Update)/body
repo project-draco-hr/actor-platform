@@ -1,25 +1,8 @@
 {
-  if (update instanceof UpdateUserNameChanged) {
-    UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
-    usersProcessor.onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());
+  if (usersProcessor.process(update)) {
+    return;
   }
- else   if (update instanceof UpdateUserLocalNameChanged) {
-    UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
-    usersProcessor.onUserLocalNameChanged(localNameChanged.getUid(),localNameChanged.getLocalName());
-  }
- else   if (update instanceof UpdateUserNickChanged) {
-    UpdateUserNickChanged nickChanged=(UpdateUserNickChanged)update;
-    usersProcessor.onUserNickChanged(nickChanged.getUid(),nickChanged.getNickname());
-  }
- else   if (update instanceof UpdateUserAboutChanged) {
-    UpdateUserAboutChanged userAboutChanged=(UpdateUserAboutChanged)update;
-    usersProcessor.onUserAboutChanged(userAboutChanged.getUid(),userAboutChanged.getAbout());
-  }
- else   if (update instanceof UpdateUserAvatarChanged) {
-    UpdateUserAvatarChanged avatarChanged=(UpdateUserAvatarChanged)update;
-    usersProcessor.onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
-  }
- else   if (update instanceof UpdateMessage) {
+  if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
     messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());
     typingProcessor.onMessage(message.getPeer(),message.getSenderUid());

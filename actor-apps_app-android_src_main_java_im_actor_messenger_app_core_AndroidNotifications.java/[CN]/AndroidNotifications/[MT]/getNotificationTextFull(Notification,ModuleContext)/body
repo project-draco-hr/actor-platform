@@ -1,0 +1,10 @@
+{
+  SpannableStringBuilder res=new SpannableStringBuilder();
+  if (!messenger.getI18nModule().isLargeDialogMessage(notification.getContentDescription().getContentType())) {
+    res.append(getNotificationSender(notification));
+    res.append(": ");
+    res.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),0,res.length(),0);
+  }
+  res.append(messenger.getI18nModule().formatNotificationText(notification));
+  return res;
+}

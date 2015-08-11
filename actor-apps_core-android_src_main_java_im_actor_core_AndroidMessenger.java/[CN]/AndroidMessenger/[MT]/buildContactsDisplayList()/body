@@ -1,3 +1,3 @@
 {
-  return modules.getDisplayLists().buildNewContactList(false);
+  return (BindedDisplayList<Contact>)modules.getDisplayLists().buildContactList(false);
 }

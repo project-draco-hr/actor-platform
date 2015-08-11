@@ -1,5 +1,9 @@
 {
   ExporterUtil.exportAll();
+  for (  ResourcePrototype prototype : Assets.INSTANCE.getResources()) {
+    Log.d("EntryPoint","Resource: " + prototype.getName());
+  }
+  AssetsRuntimeProvider.registerBundle(Assets.INSTANCE);
   Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand(){
     @Override public void execute(){
       onAppLoaded();

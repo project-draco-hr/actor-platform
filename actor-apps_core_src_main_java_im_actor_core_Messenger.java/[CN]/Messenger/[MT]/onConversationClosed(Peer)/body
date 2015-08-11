@@ -1,6 +1,6 @@
 {
-  modules.getAnalytics().trackChatClosed(peer);
+  modules.getAnalyticsModule().trackChatClosed(peer);
   if (modules.getPresenceModule() != null) {
-    modules.getNotifications().onConversationClose(peer);
+    modules.getNotificationsModule().onConversationClose(peer);
   }
 }

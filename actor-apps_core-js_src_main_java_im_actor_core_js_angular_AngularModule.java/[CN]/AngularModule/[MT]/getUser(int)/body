@@ -1,6 +1,6 @@
 {
   if (!users.containsKey(uid)) {
-    final UserVM userVM=modules().getUsersModule().getUsersCollection().get(uid);
+    final UserVM userVM=context().getUsersModule().getUsers().get(uid);
     final AngularValue<JsUser> value=new AngularValue<JsUser>(JsUser.fromUserVM(userVM,messenger));
     userVM.subscribe(new ModelChangedListener<UserVM>(){
       @Override public void onChanged(      UserVM model){

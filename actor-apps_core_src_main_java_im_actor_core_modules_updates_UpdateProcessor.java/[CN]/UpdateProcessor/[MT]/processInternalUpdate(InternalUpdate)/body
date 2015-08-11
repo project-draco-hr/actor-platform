@@ -18,14 +18,14 @@
  else   if (update instanceof ContactsLoaded) {
     ContactsLoaded contactsLoaded=(ContactsLoaded)update;
     applyRelated(contactsLoaded.getContacts().getUsers(),new ArrayList<Group>(),false);
-    modules().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.ContactsLoaded(contactsLoaded.getContacts()));
+    context().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.ContactsLoaded(contactsLoaded.getContacts()));
   }
  else   if (update instanceof UsersFounded) {
     final UsersFounded founded=(UsersFounded)update;
     applyRelated(((UsersFounded)update).getUsers(),new ArrayList<Group>(),false);
     final ArrayList<UserVM> users=new ArrayList<UserVM>();
     for (    User u : founded.getUsers()) {
-      users.add(modules().getUsersModule().getUsersCollection().get(u.getId()));
+      users.add(context().getUsersModule().getUsers().get(u.getId()));
     }
     runOnUiThread(new Runnable(){
       @Override public void run(){

@@ -1,7 +1,7 @@
 {
   this.updateActor=system().actorOf(Props.create(SequenceActor.class,new ActorCreator<SequenceActor>(){
     @Override public SequenceActor create(){
-      return new SequenceActor(modules());
+      return new SequenceActor(context());
     }
   }
 ).changeDispatcher("updates"),"actor/updates");

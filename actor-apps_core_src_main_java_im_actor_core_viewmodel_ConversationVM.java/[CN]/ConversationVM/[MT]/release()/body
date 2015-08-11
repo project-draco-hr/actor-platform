@@ -1,3 +1,2 @@
 {
-  displayList.removeListener(listener);
 }

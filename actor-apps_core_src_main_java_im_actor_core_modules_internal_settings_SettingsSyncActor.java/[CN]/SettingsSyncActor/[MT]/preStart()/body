@@ -1,0 +1,29 @@
+{
+  super.preStart();
+  syncState=new SettingsSyncState();
+  byte[] data=preferences().getBytes(SYNC_STATE);
+  if (data != null) {
+    try {
+      syncState=SettingsSyncState.fromBytes(data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  for (  SettingsSyncAction action : syncState.getPendingActions()) {
+    performSync(action);
+  }
+  if (!preferences().getBool(SYNC_STATE_LOADED,false)) {
+    request(new RequestGetParameters(),new RpcCallback<ResponseGetParameters>(){
+      @Override public void onResult(      ResponseGetParameters response){
+        for (        Parameter p : response.getParameters()) {
+          context().getSettingsModule().onUpdatedSetting(p.getKey(),p.getValue());
+        }
+        preferences().putBool(SYNC_STATE_LOADED,true);
+      }
+      @Override public void onError(      RpcException e){
+      }
+    }
+);
+  }
+}

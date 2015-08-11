@@ -1,10 +1,12 @@
 {
+  Log.d(TAG,"Creating...");
+  provider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
   String clientName=IdentityUtils.getClientName();
   String uniqueId=IdentityUtils.getUniqueId();
-  provider=new JsFileSystemProvider();
-  JsConfigurationBuilder configuration=new JsConfigurationBuilder();
+  ConfigurationBuilder configuration=new ConfigurationBuilder();
   configuration.setApiConfiguration(new ApiConfiguration(APP_NAME,APP_ID,APP_KEY,clientName,uniqueId));
-  configuration.setFileSystemProvider(provider);
+  configuration.setPhoneBookProvider(new JsPhoneBookProvider());
+  configuration.setNotificationProvider(new JsNotificationsProvider());
   for (  String endpoint : endpoints) {
     configuration.addEndpoint(endpoint);
   }

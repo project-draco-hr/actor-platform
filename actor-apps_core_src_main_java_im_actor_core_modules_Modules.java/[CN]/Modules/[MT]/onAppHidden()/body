@@ -3,6 +3,6 @@
   analytics.trackAppHidden();
   if (getPresenceModule() != null) {
     getPresenceModule().onAppHidden();
-    getNotifications().onAppHidden();
+    getNotificationsModule().onAppHidden();
   }
 }

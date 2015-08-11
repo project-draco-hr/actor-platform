@@ -1,3 +1,0 @@
-{
-  super(CURSOR_RECEIVED,messenger);
-}

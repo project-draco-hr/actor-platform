@@ -1,6 +1,6 @@
 {
   super(configuration);
-  fileSystemProvider=(JsFileSystemProvider)configuration.getFileSystemProvider();
+  fileSystemProvider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
   angularFilesModule=new AngularFilesModule(modules);
   angularModule=new AngularModule(this,angularFilesModule,modules);
   if (JsChromePush.isSupported()) {

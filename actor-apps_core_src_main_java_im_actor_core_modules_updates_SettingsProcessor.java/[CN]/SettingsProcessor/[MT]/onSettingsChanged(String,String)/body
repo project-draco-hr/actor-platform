@@ -1,3 +1,3 @@
 {
-  modules().getSettings().onUpdatedSetting(key,value);
+  context().getSettingsModule().onUpdatedSetting(key,value);
 }
