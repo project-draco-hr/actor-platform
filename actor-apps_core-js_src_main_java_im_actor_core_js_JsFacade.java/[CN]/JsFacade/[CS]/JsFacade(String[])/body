@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"Creating...");
   provider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
   String clientName=IdentityUtils.getClientName();
   String uniqueId=IdentityUtils.getUniqueId();
