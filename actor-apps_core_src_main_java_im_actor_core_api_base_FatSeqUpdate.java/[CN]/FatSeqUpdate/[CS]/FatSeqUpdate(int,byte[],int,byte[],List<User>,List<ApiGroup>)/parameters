@@ -1,0 +1,6 @@
+int seq
+byte[] state
+int updateHeader
+byte[] update
+List<User> users
+List<ApiGroup> groups

@@ -1,0 +1,6 @@
+PeerEntity peer
+String fileName
+String mimeType
+int fileSize
+FastThumb fastThumb
+String descriptor

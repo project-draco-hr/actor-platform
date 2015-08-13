@@ -1,0 +1,42 @@
+{
+  final OutPeer outPeer=buidOutPeer(peer);
+  final ApiPeer apiPeer=buildApiPeer(peer);
+  if (outPeer == null || apiPeer == null) {
+    return;
+  }
+  ApiMessage message;
+  if (content instanceof TextContent) {
+    message=new TextMessage(((TextContent)content).getText(),((TextContent)content).getMentions(),((TextContent)content).getTextMessageEx());
+  }
+ else   if (content instanceof DocumentContent) {
+    DocumentContent documentContent=(DocumentContent)content;
+    FileRemoteSource source=(FileRemoteSource)documentContent.getSource();
+    DocumentEx documentEx=null;
+    if (content instanceof PhotoContent) {
+      PhotoContent photoContent=(PhotoContent)content;
+      documentEx=new DocumentExPhoto(photoContent.getW(),photoContent.getH());
+    }
+ else     if (content instanceof VideoContent) {
+      VideoContent videoContent=(VideoContent)content;
+      documentEx=new DocumentExVideo(videoContent.getW(),videoContent.getH(),videoContent.getDuration());
+    }
+    ApiFastThumb fastThumb=null;
+    if (documentContent.getFastThumb() != null) {
+      fastThumb=new ApiFastThumb(documentContent.getFastThumb().getW(),documentContent.getFastThumb().getH(),documentContent.getFastThumb().getImage());
+    }
+    message=new DocumentMessage(source.getFileReference().getFileId(),source.getFileReference().getAccessHash(),source.getFileReference().getFileSize(),source.getFileReference().getFileName(),documentContent.getMimeType(),fastThumb,documentEx);
+  }
+ else {
+    return;
+  }
+  request(new RequestSendMessage(outPeer,rid,message),new RpcCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate response){
+      self().send(new MessageSent(peer,rid));
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));
+    }
+    @Override public void onError(    RpcException e){
+      self().send(new MessageError(peer,rid));
+    }
+  }
+);
+}

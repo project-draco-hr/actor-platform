@@ -1,6 +1,6 @@
 {
   super.onResume();
-  if (peer.getPeerType() == PeerType.PRIVATE) {
+  if (peer.getPeerType() == PeerTypeEntity.PRIVATE) {
     final UserVM user=users().get(peer.getPeerId());
     if (user == null) {
       finish();
@@ -12,7 +12,7 @@
     bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
     kicked.setVisibility(View.GONE);
   }
- else   if (peer.getPeerType() == PeerType.GROUP) {
+ else   if (peer.getPeerType() == PeerTypeEntity.GROUP) {
     GroupVM group=groups().get(peer.getPeerId());
     if (group == null) {
       finish();

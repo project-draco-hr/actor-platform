@@ -1,6 +1,6 @@
 {
   modules.getAnalyticsModule().trackProfileOpen(uid);
   if (modules.getPresenceModule() != null) {
-    modules.getPresenceModule().subscribe(Peer.user(uid));
+    modules.getPresenceModule().subscribe(PeerEntity.user(uid));
   }
 }

@@ -57,7 +57,7 @@ visiblePeer=topNotification.getPeer();
 builder.setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_UPDATE_CURRENT));
 final NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
 for (Notification n : topNotifications) {
-if (topNotification.getPeer().getPeerType() == PeerType.GROUP) {
+if (topNotification.getPeer().getPeerType() == PeerTypeEntity.GROUP) {
 inboxStyle.addLine(getNotificationTextFull(n,messenger));
 }
  else {

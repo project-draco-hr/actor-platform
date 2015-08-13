@@ -1,7 +1,7 @@
 {
-  this.peer=values.getObj(1,new Peer());
+  this.peer=values.getObj(1,new ApiPeer());
   this.senderUid=values.getInt(2);
   this.date=values.getLong(3);
   this.rid=values.getLong(4);
-  this.message=Message.fromBytes(values.getBytes(5));
+  this.message=ApiMessage.fromBytes(values.getBytes(5));
 }

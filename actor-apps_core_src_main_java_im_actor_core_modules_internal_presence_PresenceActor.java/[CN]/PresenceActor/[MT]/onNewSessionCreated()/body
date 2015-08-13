@@ -1,7 +1,7 @@
 {
   List<UserOutPeer> userPeers=new ArrayList<UserOutPeer>();
   for (  int uid : uids) {
-    User user=getUser(uid);
+    UserEntity user=getUser(uid);
     if (user == null) {
       continue;
     }
@@ -12,7 +12,7 @@
   }
   List<GroupOutPeer> groupPeers=new ArrayList<GroupOutPeer>();
   for (  int gid : gids) {
-    Group group=getGroup(gid);
+    GroupEntity group=getGroup(gid);
     if (group == null) {
       continue;
     }

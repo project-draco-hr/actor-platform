@@ -1,0 +1,12 @@
+{
+  peerId=values.getInt(1);
+switch (values.getInt(2)) {
+default :
+case 1:
+    peerType=PeerTypeEntity.PRIVATE;
+  break;
+case 3:
+peerType=PeerTypeEntity.GROUP;
+break;
+}
+}

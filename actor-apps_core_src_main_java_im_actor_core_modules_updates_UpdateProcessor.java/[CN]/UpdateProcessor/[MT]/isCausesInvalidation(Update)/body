@@ -4,10 +4,10 @@
   if (update instanceof UpdateMessage) {
     UpdateMessage updateMessage=(UpdateMessage)update;
     users.add(updateMessage.getSenderUid());
-    if (updateMessage.getPeer().getType() == PeerType.GROUP) {
+    if (updateMessage.getPeer().getType() == ApiPeerType.GROUP) {
       groups.add(updateMessage.getPeer().getId());
     }
-    if (updateMessage.getPeer().getType() == PeerType.PRIVATE) {
+    if (updateMessage.getPeer().getType() == ApiPeerType.PRIVATE) {
       users.add(updateMessage.getPeer().getId());
     }
   }

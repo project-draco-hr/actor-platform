@@ -1,8 +1,8 @@
 {
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
-      Group group=getGroups().getValue(gid);
-      User user=users().getValue(uid);
+      GroupEntity group=getGroups().getValue(gid);
+      UserEntity user=users().getValue(uid);
       if (group == null || user == null) {
         runOnUiThread(new Runnable(){
           @Override public void run(){

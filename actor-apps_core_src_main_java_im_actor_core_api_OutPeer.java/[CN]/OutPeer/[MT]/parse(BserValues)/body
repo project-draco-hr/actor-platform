@@ -1,5 +1,5 @@
 {
-  this.type=PeerType.parse(values.getInt(1));
+  this.type=ApiPeerType.parse(values.getInt(1));
   this.id=values.getInt(2);
   this.accessHash=values.getLong(3);
 }

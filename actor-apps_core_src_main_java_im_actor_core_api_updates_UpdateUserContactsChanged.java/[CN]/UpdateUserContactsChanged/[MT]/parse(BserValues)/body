@@ -1,8 +1,8 @@
 {
   this.uid=values.getInt(1);
-  List<ContactRecord> _contactRecords=new ArrayList<ContactRecord>();
+  List<ApiContactRecord> _contactRecords=new ArrayList<ApiContactRecord>();
   for (int i=0; i < values.getRepeatedCount(4); i++) {
-    _contactRecords.add(new ContactRecord());
+    _contactRecords.add(new ApiContactRecord());
   }
   this.contactRecords=values.getRepeatedObj(4,_contactRecords);
 }

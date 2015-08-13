@@ -3,13 +3,13 @@
   accessHash=values.getLong(2);
   name=values.getString(3);
   localName=values.optString(4);
-  sex=im.actor.core.api.Sex.UNKNOWN;
+  sex=ApiSex.UNKNOWN;
 switch (values.getInt(6)) {
 case 3:
-    sex=im.actor.core.api.Sex.FEMALE;
+    sex=ApiSex.FEMALE;
   break;
 case 2:
-sex=im.actor.core.api.Sex.MALE;
+sex=ApiSex.MALE;
 break;
 }
 byte[] a=values.optBytes(5);

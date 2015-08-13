@@ -29,7 +29,7 @@
 );
   sendConfirmCodeButton.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      executeAuth(messenger().signUp(firstNameEditText.getText().toString().trim(),Sex.UNKNOWN,avatarPath),"SignUp");
+      executeAuth(messenger().signUp(firstNameEditText.getText().toString().trim(),ApiSex.UNKNOWN,avatarPath),"SignUp");
     }
   }
 );

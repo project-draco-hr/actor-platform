@@ -6,7 +6,7 @@
     return new ContentLocalContainer(AbsLocalContent.loadContainer(content));
   }
  else   if (type == TYPE_REMOTE) {
-    return new ContentRemoteContainer(Message.fromBytes(content));
+    return new ContentRemoteContainer(ApiMessage.fromBytes(content));
   }
  else {
     throw new IOException("Unknown type");

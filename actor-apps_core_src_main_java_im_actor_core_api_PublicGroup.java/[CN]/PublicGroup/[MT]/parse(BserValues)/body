@@ -2,7 +2,7 @@
   this.id=values.getInt(1);
   this.accessHash=values.getLong(2);
   this.title=values.getString(3);
-  this.avatar=values.optObj(7,new Avatar());
+  this.avatar=values.optObj(7,new ApiAvatar());
   this.membersCount=values.getInt(4);
   this.friendsCount=values.getInt(5);
   this.description=values.getString(6);

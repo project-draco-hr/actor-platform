@@ -1,0 +1,8 @@
+{
+  UserEntity u=users().getValue(uid);
+  if (u != null) {
+    u=u.editAvatar(avatar);
+    users().addOrUpdateItem(u);
+    onUserDescChanged(u);
+  }
+}

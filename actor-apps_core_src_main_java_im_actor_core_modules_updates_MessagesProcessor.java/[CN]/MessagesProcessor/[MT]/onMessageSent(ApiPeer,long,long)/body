@@ -1,0 +1,5 @@
+{
+  PeerEntity peer=convert(_peer);
+  conversationActor(peer).send(new ConversationActor.MessageSent(rid,date));
+  sendActor().send(new SenderActor.MessageSent(peer,rid));
+}

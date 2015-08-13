@@ -25,7 +25,7 @@
       container.makeOutboundBubble();
     }
  else {
-      container.makeInboundBubble(getPeer().getPeerType() == PeerType.GROUP,message.getSenderId());
+      container.makeInboundBubble(getPeer().getPeerType() == PeerTypeEntity.GROUP,message.getSenderId());
     }
   }
   container.setBubbleSelected(adapter.isSelected(currentMessage));

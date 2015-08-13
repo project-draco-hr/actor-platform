@@ -1,0 +1,12 @@
+{
+switch (peer.getPeerType()) {
+case PRIVATE:
+    UserEntity u=getUser(peer.getPeerId());
+  return new PeerDesc(u.getName(),u.getAvatar());
+case GROUP:
+GroupEntity g=getGroup(peer.getPeerId());
+return new PeerDesc(g.getTitle(),g.getAvatar());
+default :
+return null;
+}
+}

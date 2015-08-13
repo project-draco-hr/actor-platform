@@ -1,0 +1,4 @@
+long rid
+int sender
+long date
+ApiMessage message

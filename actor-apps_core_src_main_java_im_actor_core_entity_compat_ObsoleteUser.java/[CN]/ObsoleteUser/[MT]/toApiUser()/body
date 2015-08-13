@@ -1,11 +1,11 @@
 {
-  List<im.actor.core.api.ContactRecord> records=new ArrayList<im.actor.core.api.ContactRecord>();
+  List<ApiContactRecord> records=new ArrayList<ApiContactRecord>();
   for (  ObsoleteContactRecord r : this.records) {
     if (r.getRecordType() == 0) {
       if (r.getRecordData().equals("0")) {
         continue;
       }
-      records.add(new im.actor.core.api.ContactRecord(ContactType.PHONE,null,Long.parseLong(r.getRecordData()),r.getRecordTitle(),null));
+      records.add(new ApiContactRecord(ContactType.PHONE,null,Long.parseLong(r.getRecordData()),r.getRecordTitle(),null));
     }
   }
   return new im.actor.core.api.User(uid,accessHash,name,localName,sex,avatar != null ? avatar.toApiAvatar() : null,records,false,null,null);

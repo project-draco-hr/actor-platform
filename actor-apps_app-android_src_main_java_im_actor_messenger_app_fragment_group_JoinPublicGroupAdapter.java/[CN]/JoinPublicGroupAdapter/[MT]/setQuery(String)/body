@@ -7,11 +7,11 @@
     this.groupsToShow=allGroups;
   }
  else {
-    HashSet<PublicGroup> foundMembers=new HashSet<PublicGroup>();
+    HashSet<PublicGroupEntity> foundMembers=new HashSet<PublicGroupEntity>();
     for (    String s : searchMap.keySet()) {
       if (s.startsWith(q))       foundMembers.add(searchMap.get(s));
     }
-    this.groupsToShow=foundMembers.toArray(new PublicGroup[foundMembers.size()]);
+    this.groupsToShow=foundMembers.toArray(new PublicGroupEntity[foundMembers.size()]);
   }
   notifyDataSetChanged();
 }

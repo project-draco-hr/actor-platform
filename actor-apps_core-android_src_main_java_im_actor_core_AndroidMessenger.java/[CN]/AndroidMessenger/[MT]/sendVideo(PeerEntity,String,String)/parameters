@@ -1,0 +1,3 @@
+PeerEntity peer
+String fullFilePath
+String fileName

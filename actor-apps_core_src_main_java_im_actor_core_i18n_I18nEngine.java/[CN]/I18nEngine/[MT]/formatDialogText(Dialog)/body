@@ -4,7 +4,7 @@
   }
  else {
     String contentText=formatContentText(dialog.getSenderId(),dialog.getMessageType(),dialog.getText(),dialog.getRelatedUid());
-    if (dialog.getPeer().getPeerType() == PeerType.GROUP) {
+    if (dialog.getPeer().getPeerType() == PeerTypeEntity.GROUP) {
       if (!isLargeDialogMessage(dialog.getMessageType())) {
         return formatPerformerName(dialog.getSenderId()) + ": " + contentText;
       }

@@ -1,5 +1,5 @@
 {
-  this.peer=values.getObj(1,new Peer());
+  this.peer=values.getObj(1,new ApiPeer());
   this.rid=values.getLong(2);
-  this.message=Message.fromBytes(values.getBytes(3));
+  this.message=ApiMessage.fromBytes(values.getBytes(3));
 }

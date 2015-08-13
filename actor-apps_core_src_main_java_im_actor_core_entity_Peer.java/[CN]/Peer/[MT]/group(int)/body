@@ -1,3 +1,0 @@
-{
-  return new Peer(PeerType.GROUP,gid);
-}

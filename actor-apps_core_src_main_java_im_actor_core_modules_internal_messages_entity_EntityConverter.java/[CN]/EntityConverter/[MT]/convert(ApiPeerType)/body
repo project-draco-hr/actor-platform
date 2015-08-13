@@ -1,0 +1,9 @@
+{
+switch (peerType) {
+case GROUP:
+    return PeerTypeEntity.GROUP;
+default :
+case PRIVATE:
+  return PeerTypeEntity.PRIVATE;
+}
+}

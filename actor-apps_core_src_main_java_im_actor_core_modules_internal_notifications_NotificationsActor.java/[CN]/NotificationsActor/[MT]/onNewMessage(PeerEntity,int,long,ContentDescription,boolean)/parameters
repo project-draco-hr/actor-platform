@@ -1,0 +1,5 @@
+PeerEntity peer
+int sender
+long date
+ContentDescription description
+boolean hasCurrentUserMention

@@ -1,4 +1,4 @@
 {
-  peer=Peer.fromBytes(values.getBytes(1));
+  peer=PeerEntity.fromBytes(values.getBytes(1));
   rids=values.getRepeatedLong(2);
 }

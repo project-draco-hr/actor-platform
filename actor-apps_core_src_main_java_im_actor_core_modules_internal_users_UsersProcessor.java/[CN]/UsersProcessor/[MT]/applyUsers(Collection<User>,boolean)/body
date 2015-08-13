@@ -1,12 +1,12 @@
 {
-  ArrayList<im.actor.core.entity.User> batch=new ArrayList<im.actor.core.entity.User>();
+  ArrayList<UserEntity> batch=new ArrayList<UserEntity>();
   for (  im.actor.core.api.User u : updated) {
-    im.actor.core.entity.User saved=users().getValue(u.getId());
+    UserEntity saved=users().getValue(u.getId());
     if (saved == null) {
-      batch.add(new im.actor.core.entity.User(u));
+      batch.add(new UserEntity(u));
     }
  else     if (forced) {
-      im.actor.core.entity.User upd=new im.actor.core.entity.User(u);
+      UserEntity upd=new UserEntity(u);
       batch.add(upd);
       if (!upd.getName().equals(saved.getName()) || !equalsE(upd.getAvatar(),saved.getAvatar())) {
         onUserDescChanged(upd);

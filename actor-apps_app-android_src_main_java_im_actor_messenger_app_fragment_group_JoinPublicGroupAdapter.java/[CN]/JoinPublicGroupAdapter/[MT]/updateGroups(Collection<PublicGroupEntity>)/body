@@ -1,0 +1,4 @@
+{
+  this.groupsToShow=groups.toArray(new PublicGroupEntity[groups.size()]);
+  notifyDataSetChanged();
+}

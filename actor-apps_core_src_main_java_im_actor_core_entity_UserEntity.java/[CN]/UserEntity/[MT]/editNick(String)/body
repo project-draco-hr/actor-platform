@@ -1,0 +1,6 @@
+{
+  im.actor.core.api.User w=getWrapped();
+  im.actor.core.api.User res=new im.actor.core.api.User(w.getId(),w.getAccessHash(),w.getName(),w.getLocalName(),w.getSex(),w.getAvatar(),w.getContactInfo(),w.isBot(),nick,w.getAbout());
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return new UserEntity(res);
+}

@@ -4,7 +4,7 @@
   this.fileSize=values.getInt(3);
   this.name=values.getString(4);
   this.mimeType=values.getString(5);
-  this.thumb=values.optObj(6,new FastThumb());
+  this.thumb=values.optObj(6,new ApiFastThumb());
   if (values.optBytes(8) != null) {
     this.ext=DocumentEx.fromBytes(values.getBytes(8));
   }

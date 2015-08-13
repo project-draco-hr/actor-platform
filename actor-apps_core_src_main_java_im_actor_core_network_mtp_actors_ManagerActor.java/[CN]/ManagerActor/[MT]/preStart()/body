@@ -1,6 +1,6 @@
 {
   receiver=ReceiverActor.receiver(mtProto);
-  sender=SenderActor.senderActor(mtProto);
+  sender=PusherActor.senderActor(mtProto);
   connectionStateChanged();
   checkConnection();
 }

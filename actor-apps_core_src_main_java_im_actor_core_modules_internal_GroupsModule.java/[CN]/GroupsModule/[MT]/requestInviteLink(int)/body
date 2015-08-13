@@ -1,7 +1,7 @@
 {
   return new Command<String>(){
     @Override public void start(    final CommandCallback<String> callback){
-      final Group group=getGroups().getValue(gid);
+      final GroupEntity group=getGroups().getValue(gid);
       if (group == null) {
         runOnUiThread(new Runnable(){
           @Override public void run(){

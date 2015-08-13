@@ -22,5 +22,5 @@
   backoff.onSuccess();
   isCheckingConnections=false;
   requestCheckConnection();
-  sender.send(new SenderActor.ConnectionCreated());
+  sender.send(new PusherActor.ConnectionCreated());
 }

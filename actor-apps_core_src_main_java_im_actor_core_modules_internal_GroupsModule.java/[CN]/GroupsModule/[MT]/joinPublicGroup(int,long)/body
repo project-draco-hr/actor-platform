@@ -3,10 +3,10 @@
     @Override public void start(    final CommandCallback<Integer> callback){
       request(new RequestEnterGroup(new GroupOutPeer(gid,accessHash)),new RpcCallback<ResponseEnterGroup>(){
         @Override public void onResult(        final ResponseEnterGroup response){
-          im.actor.core.api.Group group=response.getGroup();
-          ArrayList<im.actor.core.api.Group> groups=new ArrayList<im.actor.core.api.Group>();
+          ApiGroup group=response.getGroup();
+          ArrayList<ApiGroup> groups=new ArrayList<ApiGroup>();
           groups.add(group);
-          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateMessage(new im.actor.core.api.Peer(PeerType.GROUP,group.getId()),myUid(),response.getDate(),response.getRid(),new ServiceMessage("Joined chat",new ServiceExUserJoined())),response.getUsers(),groups);
+          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateMessage(new ApiPeer(ApiPeerType.GROUP,group.getId()),myUid(),response.getDate(),response.getRid(),new ServiceMessage("Joined chat",new ServiceExUserJoined())),response.getUsers(),groups);
           updates().executeAfter(response.getSeq(),new Runnable(){
             @Override public void run(){
               runOnUiThread(new Runnable(){

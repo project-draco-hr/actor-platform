@@ -1,0 +1,16 @@
+{
+  final OutPeer outPeer=buidOutPeer(peer);
+  final ApiPeer apiPeer=buildApiPeer(peer);
+  request(new RequestDeleteMessage(outPeer,rids),new RpcCallback<ResponseSeq>(){
+    @Override public void onResult(    ResponseSeq response){
+      if (deleteStorage.getPendingDeletions().containsKey(peer)) {
+        deleteStorage.getPendingDeletions().get(peer).getRids().removeAll(rids);
+        saveStorage();
+      }
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageDelete.HEADER,new UpdateMessageDelete(apiPeer,rids).toByteArray()));
+    }
+    @Override public void onError(    RpcException e){
+    }
+  }
+);
+}

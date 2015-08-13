@@ -17,7 +17,7 @@
   }
  else   if (container instanceof ContentRemoteContainer) {
     ContentRemoteContainer remoteContainer=(ContentRemoteContainer)container;
-    Message content=((ContentRemoteContainer)container).getMessage();
+    ApiMessage content=((ContentRemoteContainer)container).getMessage();
     try {
       if (content instanceof DocumentMessage) {
         DocumentMessage d=(DocumentMessage)content;

@@ -1,0 +1,4 @@
+PeerEntity peer
+int sender
+long date
+ContentDescription content

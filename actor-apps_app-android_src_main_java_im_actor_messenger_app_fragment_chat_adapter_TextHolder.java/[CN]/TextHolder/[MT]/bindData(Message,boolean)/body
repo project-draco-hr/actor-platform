@@ -33,7 +33,7 @@
  else {
     spannedText=new SpannableStringBuilder(((TextContent)message.getContent()).getText());
   }
-  if (getPeer().getPeerType() == PeerType.GROUP && message.getSenderId() != myUid()) {
+  if (getPeer().getPeerType() == PeerTypeEntity.GROUP && message.getSenderId() != myUid()) {
     String name;
     UserVM userModel=users().get(message.getSenderId());
     if (userModel != null) {

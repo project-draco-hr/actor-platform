@@ -1,7 +1,7 @@
 {
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
-      User user=getUsersStorage().getValue(uid);
+      UserEntity user=getUsersStorage().getValue(uid);
       if (user == null) {
         runOnUiThread(new Runnable(){
           @Override public void run(){

@@ -1,5 +1,5 @@
 {
-  im.actor.core.entity.User u=users().getValue(uid);
+  UserEntity u=users().getValue(uid);
   if (u != null) {
     if (equalsE(u.getNick(),nick)) {
       return;

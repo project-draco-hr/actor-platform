@@ -1,0 +1,6 @@
+ApiGroup group
+List<User> users
+long rid
+int seq
+byte[] state
+long date

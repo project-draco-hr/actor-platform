@@ -1,5 +1,5 @@
 {
-  peer=Peer.fromUniqueId(values.getLong(1));
+  peer=PeerEntity.fromUniqueId(values.getLong(1));
   rid=values.getLong(2);
   content=AbsContent.parse(values.getBytes(3));
   isError=values.getBool(4,false);

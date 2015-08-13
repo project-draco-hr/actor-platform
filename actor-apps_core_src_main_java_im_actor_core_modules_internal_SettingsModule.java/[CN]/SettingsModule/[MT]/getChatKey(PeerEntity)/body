@@ -1,0 +1,11 @@
+{
+  if (peer.getPeerType() == PeerTypeEntity.PRIVATE) {
+    return "PRIVATE_" + peer.getPeerId();
+  }
+ else   if (peer.getPeerType() == PeerTypeEntity.GROUP) {
+    return "GROUP_" + peer.getPeerId();
+  }
+ else {
+    throw new RuntimeException("Unsupported peer");
+  }
+}

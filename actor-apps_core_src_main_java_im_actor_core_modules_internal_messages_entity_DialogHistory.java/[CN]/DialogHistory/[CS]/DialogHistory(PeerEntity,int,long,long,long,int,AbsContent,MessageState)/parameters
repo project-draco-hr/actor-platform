@@ -1,0 +1,8 @@
+PeerEntity peer
+int unreadCount
+long sortDate
+long rid
+long date
+int senderId
+AbsContent content
+MessageState status

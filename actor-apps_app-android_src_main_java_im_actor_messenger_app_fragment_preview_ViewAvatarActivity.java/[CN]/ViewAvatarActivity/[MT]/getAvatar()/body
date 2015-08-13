@@ -1,5 +1,5 @@
 {
-  if (peer.getPeerType() == PeerType.GROUP) {
+  if (peer.getPeerType() == PeerTypeEntity.GROUP) {
     return groups().get(peer.getPeerId()).getAvatar();
   }
  else {

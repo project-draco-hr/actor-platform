@@ -1,0 +1,4 @@
+PeerEntity peer
+String fileName
+String mimeType
+String descriptor

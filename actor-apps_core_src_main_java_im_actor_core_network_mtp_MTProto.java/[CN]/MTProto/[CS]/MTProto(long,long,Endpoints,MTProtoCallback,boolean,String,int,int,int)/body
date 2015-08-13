@@ -10,6 +10,6 @@
   this.maxFailureCount=maxFailureCount;
   this.isClosed=false;
   this.manager=ManagerActor.manager(this);
-  this.sender=SenderActor.senderActor(this);
+  this.sender=PusherActor.senderActor(this);
   this.receiver=ReceiverActor.receiver(this);
 }

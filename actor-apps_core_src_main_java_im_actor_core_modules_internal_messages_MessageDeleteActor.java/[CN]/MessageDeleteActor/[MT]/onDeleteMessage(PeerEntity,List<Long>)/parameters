@@ -1,0 +1,2 @@
+PeerEntity peer
+List<Long> rids

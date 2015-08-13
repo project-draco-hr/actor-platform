@@ -6,23 +6,23 @@
   }
  else   if (update instanceof MessagesHistoryLoaded) {
     MessagesHistoryLoaded historyLoaded=(MessagesHistoryLoaded)update;
-    applyRelated(historyLoaded.getLoadHistory().getUsers(),new ArrayList<Group>(),false);
+    applyRelated(historyLoaded.getLoadHistory().getUsers(),new ArrayList<ApiGroup>(),false);
     messagesProcessor.onMessagesLoaded(historyLoaded.getPeer(),historyLoaded.getLoadHistory());
   }
  else   if (update instanceof LoggedIn) {
     ArrayList<User> users=new ArrayList<User>();
     users.add(((LoggedIn)update).getAuth().getUser());
-    applyRelated(users,new ArrayList<Group>(),true);
+    applyRelated(users,new ArrayList<ApiGroup>(),true);
     runOnUiThread(((LoggedIn)update).getRunnable());
   }
  else   if (update instanceof ContactsLoaded) {
     ContactsLoaded contactsLoaded=(ContactsLoaded)update;
-    applyRelated(contactsLoaded.getContacts().getUsers(),new ArrayList<Group>(),false);
+    applyRelated(contactsLoaded.getContacts().getUsers(),new ArrayList<ApiGroup>(),false);
     context().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.ContactsLoaded(contactsLoaded.getContacts()));
   }
  else   if (update instanceof UsersFounded) {
     final UsersFounded founded=(UsersFounded)update;
-    applyRelated(((UsersFounded)update).getUsers(),new ArrayList<Group>(),false);
+    applyRelated(((UsersFounded)update).getUsers(),new ArrayList<ApiGroup>(),false);
     final ArrayList<UserVM> users=new ArrayList<UserVM>();
     for (    User u : founded.getUsers()) {
       users.add(context().getUsersModule().getUsers().get(u.getId()));
@@ -36,7 +36,7 @@
   }
  else   if (update instanceof GroupCreated) {
     final GroupCreated created=(GroupCreated)update;
-    ArrayList<Group> groups=new ArrayList<Group>();
+    ArrayList<ApiGroup> groups=new ArrayList<ApiGroup>();
     groups.add(created.getGroup());
     applyRelated(created.getUsers(),groups,false);
     runOnUiThread(new Runnable(){

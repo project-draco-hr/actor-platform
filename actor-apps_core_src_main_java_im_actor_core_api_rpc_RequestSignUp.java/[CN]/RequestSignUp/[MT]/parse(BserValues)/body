@@ -3,6 +3,6 @@
   this.name=values.getString(2);
   int val_sex=values.getInt(3,0);
   if (val_sex != 0) {
-    this.sex=Sex.parse(val_sex);
+    this.sex=ApiSex.parse(val_sex);
   }
 }

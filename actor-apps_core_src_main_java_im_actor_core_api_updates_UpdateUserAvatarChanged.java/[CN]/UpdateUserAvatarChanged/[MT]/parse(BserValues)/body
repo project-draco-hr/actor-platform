@@ -1,4 +1,4 @@
 {
   this.uid=values.getInt(1);
-  this.avatar=values.optObj(2,new Avatar());
+  this.avatar=values.optObj(2,new ApiAvatar());
 }

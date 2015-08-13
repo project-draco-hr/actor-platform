@@ -1,9 +1,9 @@
 {
   ArrayList<DialogHistory> dialogs=new ArrayList<DialogHistory>();
   long maxLoadedDate=Long.MAX_VALUE;
-  for (  im.actor.core.api.Dialog dialog : dialogsResponse.getDialogs()) {
+  for (  ApiDialog dialog : dialogsResponse.getDialogs()) {
     maxLoadedDate=Math.min(dialog.getSortDate(),maxLoadedDate);
-    Peer peer=convert(dialog.getPeer());
+    PeerEntity peer=convert(dialog.getPeer());
     AbsContent msgContent=null;
     try {
       msgContent=AbsContent.fromMessage(dialog.getMessage());

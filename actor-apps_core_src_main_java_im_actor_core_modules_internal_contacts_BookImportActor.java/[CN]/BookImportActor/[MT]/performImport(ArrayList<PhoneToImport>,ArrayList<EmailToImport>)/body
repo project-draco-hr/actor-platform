@@ -30,7 +30,7 @@
       for (      im.actor.core.api.User u : response.getUsers()) {
         uids.add(u.getId());
       }
-      updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateContactsAdded.HEADER,new UpdateContactsAdded(uids).toByteArray(),response.getUsers(),new ArrayList<Group>()));
+      updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateContactsAdded.HEADER,new UpdateContactsAdded(uids).toByteArray(),response.getUsers(),new ArrayList<ApiGroup>()));
     }
     @Override public void onError(    RpcException e){
       if (ENABLE_LOG) {

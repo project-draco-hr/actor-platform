@@ -1,0 +1,4 @@
+{
+  PeerEntity peer=convert(_peer);
+  ownReadActor().send(new OwnReadActor.MessageReadByMe(peer,startDate));
+}
