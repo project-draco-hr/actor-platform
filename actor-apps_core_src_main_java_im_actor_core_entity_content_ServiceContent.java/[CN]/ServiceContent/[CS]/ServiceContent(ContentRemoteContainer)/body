@@ -1,4 +1,4 @@
 {
   super(contentContainer);
-  compatText=((ServiceMessage)contentContainer.getMessage()).getText();
+  compatText=((ApiServiceMessage)contentContainer.getMessage()).getText();
 }

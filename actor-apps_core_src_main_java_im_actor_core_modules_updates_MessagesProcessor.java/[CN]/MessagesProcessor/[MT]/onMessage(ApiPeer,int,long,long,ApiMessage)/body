@@ -1,5 +1,5 @@
 {
-  PeerEntity peer=convert(_peer);
+  Peer peer=convert(_peer);
   AbsContent msgContent;
   try {
     msgContent=AbsContent.fromMessage(content);

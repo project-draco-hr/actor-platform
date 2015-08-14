@@ -1,6 +1,6 @@
 {
-  return new ValueModelCreator<UserEntity,UserVM>(){
-    @Override public UserVM create(    UserEntity baseValue){
+  return new ValueModelCreator<User,UserVM>(){
+    @Override public UserVM create(    User baseValue){
       return new UserVM(baseValue,modules);
     }
   }

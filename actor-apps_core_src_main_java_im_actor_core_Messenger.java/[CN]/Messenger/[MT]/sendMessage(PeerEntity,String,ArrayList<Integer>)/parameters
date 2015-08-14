@@ -1,3 +1,0 @@
-PeerEntity peer
-String text
-ArrayList<Integer> mentions

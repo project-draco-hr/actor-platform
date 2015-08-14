@@ -1,6 +1,6 @@
 {
   try {
-    peer=PeerEntity.fromBytes(getArguments().getByteArray("EXTRA_PEER"));
+    peer=Peer.fromBytes(getArguments().getByteArray("EXTRA_PEER"));
   }
  catch (  IOException e) {
     throw new RuntimeException(e);

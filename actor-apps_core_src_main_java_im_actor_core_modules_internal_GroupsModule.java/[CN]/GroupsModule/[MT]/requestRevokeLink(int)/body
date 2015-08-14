@@ -1,7 +1,7 @@
 {
   return new Command<String>(){
     @Override public void start(    final CommandCallback<String> callback){
-      final GroupEntity group=getGroups().getValue(gid);
+      final Group group=getGroups().getValue(gid);
       if (group == null) {
         runOnUiThread(new Runnable(){
           @Override public void run(){
@@ -11,7 +11,7 @@
 );
         return;
       }
-      request(new RequestRevokeInviteUrl(new GroupOutPeer(group.getGroupId(),group.getAccessHash())),new RpcCallback<ResponseInviteUrl>(){
+      request(new RequestRevokeInviteUrl(new ApiGroupOutPeer(group.getGroupId(),group.getAccessHash())),new RpcCallback<ResponseInviteUrl>(){
         @Override public void onResult(        final ResponseInviteUrl response){
           runOnUiThread(new Runnable(){
             @Override public void run(){

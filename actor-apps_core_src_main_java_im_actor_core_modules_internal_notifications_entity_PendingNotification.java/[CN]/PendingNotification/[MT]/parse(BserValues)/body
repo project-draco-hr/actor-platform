@@ -1,5 +1,5 @@
 {
-  peer=PeerEntity.fromUniqueId(values.getLong(1));
+  peer=Peer.fromUniqueId(values.getLong(1));
   sender=values.getInt(2);
   date=values.getLong(4);
   content=ContentDescription.fromBytes(values.getBytes(5));

@@ -1,5 +1,5 @@
 {
   Intent res=new Intent(context,ViewAvatarActivity.class);
-  res.putExtra(Intents.EXTRA_CHAT_PEER,PeerEntity.user(uid).getUnuqueId());
+  res.putExtra(Intents.EXTRA_CHAT_PEER,Peer.user(uid).getUnuqueId());
   return res;
 }

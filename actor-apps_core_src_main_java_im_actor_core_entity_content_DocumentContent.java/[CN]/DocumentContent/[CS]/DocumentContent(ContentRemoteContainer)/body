@@ -1,7 +1,7 @@
 {
   super(contentContainer);
-  DocumentMessage doc=((DocumentMessage)contentContainer.getMessage());
-  source=new FileRemoteSource(new FileReference(new FileLocation(doc.getFileId(),doc.getAccessHash()),doc.getName(),doc.getFileSize()));
+  ApiDocumentMessage doc=((ApiDocumentMessage)contentContainer.getMessage());
+  source=new FileRemoteSource(new FileReference(new ApiFileLocation(doc.getFileId(),doc.getAccessHash()),doc.getName(),doc.getFileSize()));
   mimeType=doc.getMimeType();
   name=doc.getName();
   fastThumb=doc.getThumb() != null ? new FastThumb(doc.getThumb()) : null;

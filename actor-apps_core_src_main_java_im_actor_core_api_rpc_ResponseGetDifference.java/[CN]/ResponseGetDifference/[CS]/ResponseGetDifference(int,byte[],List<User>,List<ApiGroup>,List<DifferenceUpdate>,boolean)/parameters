@@ -1,6 +1,0 @@
-int seq
-byte[] state
-List<User> users
-List<ApiGroup> groups
-List<DifferenceUpdate> updates
-boolean needMore

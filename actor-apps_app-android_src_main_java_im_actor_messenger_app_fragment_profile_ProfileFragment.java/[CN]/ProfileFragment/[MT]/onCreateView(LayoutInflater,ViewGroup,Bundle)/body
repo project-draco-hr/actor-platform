@@ -108,10 +108,10 @@
   res.findViewById(R.id.docsContainer).setVisibility(View.GONE);
   View notificationContainter=res.findViewById(R.id.notificationsCont);
   final SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
-  notificationEnable.setChecked(messenger().isNotificationsEnabled(PeerEntity.user(uid)));
+  notificationEnable.setChecked(messenger().isNotificationsEnabled(Peer.user(uid)));
   notificationEnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
     @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
-      messenger().changeNotificationsEnabled(PeerEntity.user(uid),isChecked);
+      messenger().changeNotificationsEnabled(Peer.user(uid),isChecked);
     }
   }
 );

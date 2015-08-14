@@ -1,8 +1,8 @@
 {
-  GroupEntity group=groups().getValue(groupId);
+  Group group=groups().getValue(groupId);
   if (group != null) {
     if (!group.getTitle().equals(title)) {
-      GroupEntity upd=group.editTitle(title);
+      Group upd=group.editTitle(title);
       groups().addOrUpdateItem(upd);
       onGroupDescChanged(upd);
     }

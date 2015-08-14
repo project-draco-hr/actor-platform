@@ -16,7 +16,7 @@
   if (!preferences().getBool(SYNC_STATE_LOADED,false)) {
     request(new RequestGetParameters(),new RpcCallback<ResponseGetParameters>(){
       @Override public void onResult(      ResponseGetParameters response){
-        for (        Parameter p : response.getParameters()) {
+        for (        ApiParameter p : response.getParameters()) {
           context().getSettingsModule().onUpdatedSetting(p.getKey(),p.getValue());
         }
         preferences().putBool(SYNC_STATE_LOADED,true);

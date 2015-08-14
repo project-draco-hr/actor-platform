@@ -1,22 +1,22 @@
 {
-  List<UserOutPeer> userPeers=new ArrayList<UserOutPeer>();
+  List<ApiUserOutPeer> userPeers=new ArrayList<ApiUserOutPeer>();
   for (  int uid : uids) {
-    UserEntity user=getUser(uid);
+    User user=getUser(uid);
     if (user == null) {
       continue;
     }
-    userPeers.add(new UserOutPeer(uid,user.getAccessHash()));
+    userPeers.add(new ApiUserOutPeer(uid,user.getAccessHash()));
   }
   if (userPeers.size() > 0) {
     request(new RequestSubscribeToOnline(userPeers));
   }
-  List<GroupOutPeer> groupPeers=new ArrayList<GroupOutPeer>();
+  List<ApiGroupOutPeer> groupPeers=new ArrayList<ApiGroupOutPeer>();
   for (  int gid : gids) {
-    GroupEntity group=getGroup(gid);
+    Group group=getGroup(gid);
     if (group == null) {
       continue;
     }
-    groupPeers.add(new GroupOutPeer(group.getGroupId(),group.getAccessHash()));
+    groupPeers.add(new ApiGroupOutPeer(group.getGroupId(),group.getAccessHash()));
   }
   if (groupPeers.size() > 0) {
     request(new RequestSubscribeToGroupOnline(groupPeers));

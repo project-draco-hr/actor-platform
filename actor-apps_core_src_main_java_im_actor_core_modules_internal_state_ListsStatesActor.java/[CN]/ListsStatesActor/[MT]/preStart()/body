@@ -1,10 +1,10 @@
 {
   super.preStart();
-  counters=new AppCounters();
+  counters=new ApiAppCounters();
   byte[] data=preferences().getBytes("app.counter_raw");
   if (data != null) {
     try {
-      AppCounters nCounters=new AppCounters();
+      ApiAppCounters nCounters=new ApiAppCounters();
       nCounters.parse(new BserValues(BserParser.deserialize(new DataInput(data))));
       counters=nCounters;
     }

@@ -1,5 +1,5 @@
 {
   super(contentContainer);
-  ServiceMessage serviceMessage=(ServiceMessage)contentContainer.getMessage();
-  kickedUid=((ServiceExUserKicked)serviceMessage.getExt()).getKickedUid();
+  ApiServiceMessage serviceMessage=(ApiServiceMessage)contentContainer.getMessage();
+  kickedUid=((ApiServiceExUserKicked)serviceMessage.getExt()).getKickedUid();
 }

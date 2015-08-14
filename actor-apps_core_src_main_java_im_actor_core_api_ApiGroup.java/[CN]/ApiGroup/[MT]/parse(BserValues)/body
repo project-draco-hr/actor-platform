@@ -5,9 +5,9 @@
   this.avatar=values.optObj(4,new ApiAvatar());
   this.isMember=values.getBool(6);
   this.creatorUid=values.getInt(8);
-  List<Member> _members=new ArrayList<Member>();
+  List<ApiMember> _members=new ArrayList<ApiMember>();
   for (int i=0; i < values.getRepeatedCount(9); i++) {
-    _members.add(new Member());
+    _members.add(new ApiMember());
   }
   this.members=values.getRepeatedObj(9,_members);
   this.createDate=values.getLong(10);

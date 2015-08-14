@@ -1,3 +1,3 @@
 {
-  return new ServiceUserRegistered(new ContentRemoteContainer(new ServiceMessage("Contact registered",new ServiceExContactRegistered())));
+  return new ServiceUserRegistered(new ContentRemoteContainer(new ApiServiceMessage("Contact registered",new ApiServiceExContactRegistered())));
 }

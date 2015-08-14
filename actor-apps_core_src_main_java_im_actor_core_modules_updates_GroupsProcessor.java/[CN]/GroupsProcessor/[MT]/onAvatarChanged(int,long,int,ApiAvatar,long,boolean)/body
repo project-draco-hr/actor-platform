@@ -1,7 +1,7 @@
 {
-  GroupEntity group=groups().getValue(groupId);
+  Group group=groups().getValue(groupId);
   if (group != null) {
-    GroupEntity upd=group.editAvatar(avatar);
+    Group upd=group.editAvatar(avatar);
     groups().addOrUpdateItem(upd);
     onGroupDescChanged(upd);
     if (!isSilent) {

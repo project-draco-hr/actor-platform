@@ -1,4 +1,4 @@
 {
-  this.peer=values.getObj(1,new OutPeer());
+  this.peer=values.getObj(1,new ApiOutPeer());
   this.date=values.getLong(3);
 }

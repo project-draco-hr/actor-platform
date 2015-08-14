@@ -1,7 +1,7 @@
 {
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
-      GroupEntity group=getGroups().getValue(gid);
+      Group group=getGroups().getValue(gid);
       if (group == null) {
         runOnUiThread(new Runnable(){
           @Override public void run(){
@@ -12,7 +12,7 @@
         return;
       }
       final long rid=RandomUtils.nextRid();
-      request(new RequestLeaveGroup(new GroupOutPeer(group.getGroupId(),group.getAccessHash()),rid),new RpcCallback<ResponseSeqDate>(){
+      request(new RequestLeaveGroup(new ApiGroupOutPeer(group.getGroupId(),group.getAccessHash()),rid),new RpcCallback<ResponseSeqDate>(){
         @Override public void onResult(        ResponseSeqDate response){
           updates().onSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateGroupUserLeave(gid,rid,myUid(),response.getDate()));
           updates().executeAfter(response.getSeq(),new Runnable(){

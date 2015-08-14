@@ -1,3 +1,3 @@
 {
-  return new ServiceGroupTitleChanged(new ContentRemoteContainer(new ServiceMessage("Title changed",new ServiceExChangedTitle(title))));
+  return new ServiceGroupTitleChanged(new ContentRemoteContainer(new ApiServiceMessage("Title changed",new ApiServiceExChangedTitle(title))));
 }

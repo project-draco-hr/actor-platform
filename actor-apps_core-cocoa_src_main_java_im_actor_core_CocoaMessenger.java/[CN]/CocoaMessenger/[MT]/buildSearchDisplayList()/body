@@ -1,0 +1,3 @@
+{
+  return (BindedDisplayList<SearchEntity>)modules.getDisplayListsModule().buildSearchList(false);
+}

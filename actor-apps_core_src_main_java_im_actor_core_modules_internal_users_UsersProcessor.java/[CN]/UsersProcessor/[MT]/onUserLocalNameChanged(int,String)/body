@@ -1,5 +1,5 @@
 {
-  UserEntity u=users().getValue(uid);
+  User u=users().getValue(uid);
   if (u != null) {
     if (equalsE(u.getLocalName(),name)) {
       return;

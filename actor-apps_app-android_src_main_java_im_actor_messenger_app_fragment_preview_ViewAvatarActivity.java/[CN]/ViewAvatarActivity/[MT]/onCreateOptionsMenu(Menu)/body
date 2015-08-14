@@ -1,9 +1,9 @@
 {
   getMenuInflater().inflate(R.menu.avatar,menu);
-  if (peer.getPeerType() == PeerTypeEntity.GROUP) {
+  if (peer.getPeerType() == PeerType.GROUP) {
     menu.findItem(R.id.editAvatar).setVisible(true);
   }
- else   if (peer.getPeerType() == PeerTypeEntity.PRIVATE && peer.getPeerId() == myUid()) {
+ else   if (peer.getPeerType() == PeerType.PRIVATE && peer.getPeerId() == myUid()) {
     menu.findItem(R.id.editAvatar).setVisible(true);
   }
  else {

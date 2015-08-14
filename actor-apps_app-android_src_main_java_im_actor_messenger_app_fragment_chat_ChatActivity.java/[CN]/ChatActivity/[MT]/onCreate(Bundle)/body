@@ -4,7 +4,7 @@
     fileName=saveInstance.getString("pending_file_name",null);
   }
   keyboardUtils=new KeyboardHelper(this);
-  peer=PeerEntity.fromUniqueId(getIntent().getExtras().getLong(Intents.EXTRA_CHAT_PEER));
+  peer=Peer.fromUniqueId(getIntent().getExtras().getLong(Intents.EXTRA_CHAT_PEER));
   isCompose=saveInstance == null && getIntent().getExtras().getBoolean(Intents.EXTRA_CHAT_COMPOSE,false);
   messenger=messenger();
   getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -27,10 +27,10 @@
   getSupportActionBar().setCustomView(barView,layout);
   barView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      if (peer.getPeerType() == PeerTypeEntity.PRIVATE) {
+      if (peer.getPeerType() == PeerType.PRIVATE) {
         startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
       }
- else       if (peer.getPeerType() == PeerTypeEntity.GROUP) {
+ else       if (peer.getPeerType() == PeerType.GROUP) {
         startActivity(Intents.openGroup(peer.getPeerId(),ChatActivity.this));
       }
  else {
@@ -63,7 +63,7 @@
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       String str=s.toString();
       String firstPeace=str.substring(0,start + count);
-      if (peer.getPeerType() == PeerTypeEntity.GROUP) {
+      if (peer.getPeerType() == PeerType.GROUP) {
         if (count == 1 && s.charAt(start) == '@') {
           showMentions(false);
           forceMentionHide=false;

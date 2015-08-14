@@ -1,5 +1,5 @@
 {
-  GroupEntity group=groups().getValue(groupId);
+  Group group=groups().getValue(groupId);
   if (group != null) {
     if (uid == myUid()) {
       groups().addOrUpdateItem(group.clearMembers().changeMember(false));

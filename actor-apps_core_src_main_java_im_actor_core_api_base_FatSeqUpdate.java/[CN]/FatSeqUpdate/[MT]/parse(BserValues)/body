@@ -3,9 +3,9 @@
   this.state=values.getBytes(2);
   this.updateHeader=values.getInt(3);
   this.update=values.getBytes(4);
-  List<User> _users=new ArrayList<User>();
+  List<ApiUser> _users=new ArrayList<ApiUser>();
   for (int i=0; i < values.getRepeatedCount(5); i++) {
-    _users.add(new User());
+    _users.add(new ApiUser());
   }
   this.users=values.getRepeatedObj(5,_users);
   List<ApiGroup> _groups=new ArrayList<ApiGroup>();

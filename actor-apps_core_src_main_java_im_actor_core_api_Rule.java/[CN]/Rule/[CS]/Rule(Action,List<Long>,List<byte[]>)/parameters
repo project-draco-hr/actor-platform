@@ -1,3 +1,0 @@
-Action action
-List<Long> longValues
-List<byte[]> rawValues

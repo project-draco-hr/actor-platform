@@ -5,7 +5,7 @@
   }
  else   if (source instanceof ObsoleteRemoteFileSource) {
     ObsoleteRemoteFileSource fSource=(ObsoleteRemoteFileSource)source;
-    return new ContentRemoteContainer(new DocumentMessage(fSource.getFileReference().getFileId(),fSource.getFileReference().getAccessHash(),fSource.getFileReference().getFileSize(),name,mimeType,fastThumb != null ? fastThumb.toApiFastThumb() : null,null));
+    return new ContentRemoteContainer(new ApiDocumentMessage(fSource.getFileReference().getFileId(),fSource.getFileReference().getAccessHash(),fSource.getFileReference().getFileSize(),name,mimeType,fastThumb != null ? fastThumb.toApiFastThumb() : null,null));
   }
  else {
     throw new RuntimeException("Unknwon source type");

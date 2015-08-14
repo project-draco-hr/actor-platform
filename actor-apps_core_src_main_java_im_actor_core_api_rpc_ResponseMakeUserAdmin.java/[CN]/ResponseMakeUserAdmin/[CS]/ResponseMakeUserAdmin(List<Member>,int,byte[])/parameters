@@ -1,3 +1,0 @@
-List<Member> members
-int seq
-byte[] state

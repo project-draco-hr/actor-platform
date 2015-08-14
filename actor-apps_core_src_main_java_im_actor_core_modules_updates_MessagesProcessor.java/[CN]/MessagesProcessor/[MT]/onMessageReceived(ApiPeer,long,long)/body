@@ -1,4 +1,4 @@
 {
-  PeerEntity peer=convert(_peer);
+  Peer peer=convert(_peer);
   conversationActor(peer).send(new ConversationActor.MessageReceived(startDate));
 }

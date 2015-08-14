@@ -4,14 +4,14 @@
   byte[] content=values.getBytes(2);
 switch (key) {
 case 1:
-    return Bser.parse(new TextMessage(),content);
+    return Bser.parse(new ApiTextMessage(),content);
 case 2:
-  return Bser.parse(new ServiceMessage(),content);
+  return Bser.parse(new ApiServiceMessage(),content);
 case 3:
-return Bser.parse(new DocumentMessage(),content);
+return Bser.parse(new ApiDocumentMessage(),content);
 case 4:
-return Bser.parse(new JsonMessage(),content);
+return Bser.parse(new ApiJsonMessage(),content);
 default :
-return new MessageUnsupported(key,content);
+return new ApiMessageUnsupported(key,content);
 }
 }

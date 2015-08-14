@@ -8,7 +8,7 @@
     @Override public void run(){
       state=AuthState.LOGGED_IN;
       callback.onResult(state);
-      UserEntity user=modules.getUsersModule().getUsersStorage().getValue(myUid);
+      User user=modules.getUsersModule().getUsersStorage().getValue(myUid);
       ArrayList<Long> records=new ArrayList<Long>();
       for (      ContactRecord contactRecord : user.getRecords()) {
         if (contactRecord.getRecordType() == ContactRecordType.PHONE) {

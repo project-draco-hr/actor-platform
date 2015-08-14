@@ -1,9 +1,9 @@
 {
   CharSequence spannedText;
-  TextMessageEx ext=((TextContent)message.getContent()).getTextMessageEx();
-  isMdExt=ext instanceof TextExMarkdown;
+  ApiTextMessageEx ext=((TextContent)message.getContent()).getTextMessageEx();
+  isMdExt=ext instanceof ApiTextExMarkdown;
   if (isMarkdownEnabled || isMdExt) {
-    spannedText=new SpannableStringBuilder(bypass.markdownToSpannable(isMdExt ? ((TextExMarkdown)ext).getMarkdown() : ((TextContent)message.getContent()).getText(),false));
+    spannedText=new SpannableStringBuilder(bypass.markdownToSpannable(isMdExt ? ((ApiTextExMarkdown)ext).getMarkdown() : ((TextContent)message.getContent()).getText(),false));
     Editable spannedTextEditable=new SpannableStringBuilder(spannedText);
     URLSpan[] urlSpans=spannedTextEditable.getSpans(0,spannedTextEditable.length(),URLSpan.class);
     if (urlSpans.length > 0) {
@@ -33,7 +33,7 @@
  else {
     spannedText=new SpannableStringBuilder(((TextContent)message.getContent()).getText());
   }
-  if (getPeer().getPeerType() == PeerTypeEntity.GROUP && message.getSenderId() != myUid()) {
+  if (getPeer().getPeerType() == PeerType.GROUP && message.getSenderId() != myUid()) {
     String name;
     UserVM userModel=users().get(message.getSenderId());
     if (userModel != null) {

@@ -1,0 +1,3 @@
+{
+  return new Peer(PeerType.GROUP,groupId);
+}

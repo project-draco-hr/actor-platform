@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  peer=PeerEntity.fromUniqueId(getIntent().getLongExtra(Intents.EXTRA_CHAT_PEER,0));
+  peer=Peer.fromUniqueId(getIntent().getLongExtra(Intents.EXTRA_CHAT_PEER,0));
   getSupportActionBar().setDisplayShowHomeEnabled(false);
   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -9,7 +9,7 @@
     externalFile=savedInstanceState.getString("externalFile",null);
     avatarPath=savedInstanceState.getString("avatarPath",null);
   }
-  if (peer.getPeerType() == PeerTypeEntity.PRIVATE) {
+  if (peer.getPeerType() == PeerType.PRIVATE) {
     if (peer.getPeerId() == myUid()) {
       getSupportActionBar().setTitle(R.string.avatar_title_your);
     }

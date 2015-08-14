@@ -20,7 +20,7 @@
     res.add(new Notification(p.getPeer(),p.getSender(),p.getContent()));
   }
   int messagesCount=allPending.size();
-  HashSet<PeerEntity> peers=new HashSet<PeerEntity>();
+  HashSet<Peer> peers=new HashSet<Peer>();
   for (  PendingNotification p : allPending) {
     peers.add(p.getPeer());
   }

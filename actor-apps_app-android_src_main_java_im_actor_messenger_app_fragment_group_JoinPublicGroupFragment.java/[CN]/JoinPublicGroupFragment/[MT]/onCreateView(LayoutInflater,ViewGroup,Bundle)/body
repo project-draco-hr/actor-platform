@@ -2,15 +2,15 @@
   Command<ResponseGetPublicGroups> cmd=messenger().executeExternalCommand(new RequestGetPublicGroups());
   if (cmd != null)   cmd.start(new CommandCallback<ResponseGetPublicGroups>(){
     @Override public void onResult(    ResponseGetPublicGroups res){
-      final ArrayList<PublicGroupEntity> groups=new ArrayList<PublicGroupEntity>();
-      for (      im.actor.core.api.PublicGroup g : res.getGroups()) {
-        groups.add(new PublicGroupEntity(g));
+      final ArrayList<PublicGroup> groups=new ArrayList<PublicGroup>();
+      for (      ApiPublicGroup g : res.getGroups()) {
+        groups.add(new PublicGroup(g));
       }
       getActivity().runOnUiThread(new Runnable(){
         @Override public void run(){
-          ArrayList<PublicGroupEntity> sortedByMembersGroups=new ArrayList<PublicGroupEntity>(groups);
-          Collections.sort(sortedByMembersGroups,new Comparator<PublicGroupEntity>(){
-            @Override public int compare(            PublicGroupEntity lhs,            PublicGroupEntity rhs){
+          ArrayList<PublicGroup> sortedByMembersGroups=new ArrayList<PublicGroup>(groups);
+          Collections.sort(sortedByMembersGroups,new Comparator<PublicGroup>(){
+            @Override public int compare(            PublicGroup lhs,            PublicGroup rhs){
               if (lhs.getMembers() < rhs.getMembers()) {
                 return 1;
               }
@@ -21,9 +21,9 @@
             }
           }
 );
-          ArrayList<PublicGroupEntity> sortedByFriendsGroups=new ArrayList<PublicGroupEntity>(groups);
-          Collections.sort(sortedByFriendsGroups,new Comparator<PublicGroupEntity>(){
-            @Override public int compare(            PublicGroupEntity lhs,            PublicGroupEntity rhs){
+          ArrayList<PublicGroup> sortedByFriendsGroups=new ArrayList<PublicGroup>(groups);
+          Collections.sort(sortedByFriendsGroups,new Comparator<PublicGroup>(){
+            @Override public int compare(            PublicGroup lhs,            PublicGroup rhs){
               if (lhs.getFriends() < rhs.getFriends()) {
                 return 1;
               }
@@ -34,9 +34,9 @@
             }
           }
 );
-          ArrayList<PublicGroupEntity> topByMembersGroupsSet=new ArrayList<PublicGroupEntity>();
+          ArrayList<PublicGroup> topByMembersGroupsSet=new ArrayList<PublicGroup>();
           for (int i=0; i < MAX_GROUPS_IN_SET; i++) {
-            PublicGroupEntity group=sortedByMembersGroups.get(i);
+            PublicGroup group=sortedByMembersGroups.get(i);
             topByMembersGroupsSet.add(group);
             if (group.getAvatar() != null && group.getAvatar().getFullImage() != null) {
               messenger().bindFile(group.getAvatar().getFullImage().getFileReference(),true,new FileVMCallback(){
@@ -52,14 +52,14 @@
           }
           PublicGroupSetView topMembersGroupSetView=new PublicGroupSetView(getActivity(),new PublicGroupSet(topByMembersGroupsSet,getString(R.string.join_public_group_top_title),getString(R.string.join_public_group_top_subtitle)),PublicGroupCardView.COUNTER_TYPE_MEMBERS);
           topMembersGroupSetView.setOnGroupClickListener(new PublicGroupSetView.GroupClickListener(){
-            @Override public void onClick(            PublicGroupEntity group){
+            @Override public void onClick(            PublicGroup group){
               openGroup(group);
             }
           }
 );
-          ArrayList<PublicGroupEntity> topByFriendsGroupsSet=new ArrayList<PublicGroupEntity>();
+          ArrayList<PublicGroup> topByFriendsGroupsSet=new ArrayList<PublicGroup>();
           for (int i=0; i < MAX_GROUPS_IN_SET; i++) {
-            PublicGroupEntity group=sortedByFriendsGroups.get(i);
+            PublicGroup group=sortedByFriendsGroups.get(i);
             if (group.getFriends() > 0) {
               topByFriendsGroupsSet.add(group);
               if (group.getAvatar() != null && group.getAvatar().getFullImage() != null) {
@@ -78,7 +78,7 @@
           if (topByFriendsGroupsSet.size() > 0) {
             PublicGroupSetView topFriendsGroupSetView=new PublicGroupSetView(getActivity(),new PublicGroupSet(topByFriendsGroupsSet,getString(R.string.join_public_group_top_by_friends_title),getString(R.string.join_public_group_top_by_friends_subtitle)),PublicGroupCardView.COUNTER_TYPE_FRIENDS);
             topFriendsGroupSetView.setOnGroupClickListener(new PublicGroupSetView.GroupClickListener(){
-              @Override public void onClick(              PublicGroupEntity group){
+              @Override public void onClick(              PublicGroup group){
                 openGroup(group);
               }
             }
@@ -104,10 +104,10 @@
   listView=(ListView)res.findViewById(R.id.listView);
   emptyView=(TextView)res.findViewById(R.id.emptyView);
   emptyView.setText(getString(R.string.picker_loading));
-  adapter=new JoinPublicGroupAdapter(new ArrayList<PublicGroupEntity>(),getActivity());
+  adapter=new JoinPublicGroupAdapter(new ArrayList<PublicGroup>(),getActivity());
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      final PublicGroupEntity item=(PublicGroupEntity)parent.getItemAtPosition(position);
+      final PublicGroup item=(PublicGroup)parent.getItemAtPosition(position);
       openGroup(item);
     }
   }

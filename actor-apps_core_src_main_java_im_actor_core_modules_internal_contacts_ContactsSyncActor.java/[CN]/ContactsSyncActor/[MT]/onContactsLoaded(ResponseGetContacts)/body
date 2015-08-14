@@ -17,7 +17,7 @@
     Log.d(TAG,"Sync received " + result.getUsers().size() + " contacts");
   }
   outer:   for (  Integer uid : contacts.toArray(new Integer[contacts.size()])) {
-    for (    im.actor.core.api.User u : result.getUsers()) {
+    for (    ApiUser u : result.getUsers()) {
       if (u.getId() == uid) {
         continue outer;
       }
@@ -31,7 +31,7 @@
     }
     context().getContactsModule().markNonContact(uid);
   }
-  for (  im.actor.core.api.User u : result.getUsers()) {
+  for (  ApiUser u : result.getUsers()) {
     if (contacts.contains(u.getId())) {
       continue;
     }

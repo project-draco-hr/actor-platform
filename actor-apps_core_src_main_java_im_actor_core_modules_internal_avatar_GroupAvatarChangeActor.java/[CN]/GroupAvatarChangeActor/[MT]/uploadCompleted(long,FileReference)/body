@@ -7,7 +7,7 @@
   if (currentTasks.get(gid) != rid) {
     return;
   }
-  request(new RequestEditGroupAvatar(new GroupOutPeer(gid,accessHash),rid,new FileLocation(fileReference.getFileId(),fileReference.getAccessHash())),new RpcCallback<ResponseEditGroupAvatar>(){
+  request(new RequestEditGroupAvatar(new ApiGroupOutPeer(gid,accessHash),rid,new ApiFileLocation(fileReference.getFileId(),fileReference.getAccessHash())),new RpcCallback<ResponseEditGroupAvatar>(){
     @Override public void onResult(    ResponseEditGroupAvatar response){
       updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateGroupAvatarChanged.HEADER,new UpdateGroupAvatarChanged(gid,rid,myUid(),response.getAvatar(),response.getDate()).toByteArray()));
       updates().onUpdateReceived(new ExecuteAfter(response.getSeq(),new Runnable(){

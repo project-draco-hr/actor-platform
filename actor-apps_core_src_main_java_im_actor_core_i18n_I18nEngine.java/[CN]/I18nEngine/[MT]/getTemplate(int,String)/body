@@ -5,7 +5,7 @@
     }
   }
   if (locale.containsKey(baseString + "Male") && locale.containsKey(baseString + "Female")) {
-    UserEntity u=getUser(senderId);
+    User u=getUser(senderId);
     if (u.getSex() == Sex.MALE) {
       return locale.get(baseString + "Male");
     }

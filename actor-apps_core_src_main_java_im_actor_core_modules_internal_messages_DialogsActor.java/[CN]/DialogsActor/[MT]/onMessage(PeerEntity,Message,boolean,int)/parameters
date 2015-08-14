@@ -1,4 +1,0 @@
-PeerEntity peer
-Message message
-boolean forceWrite
-int counter

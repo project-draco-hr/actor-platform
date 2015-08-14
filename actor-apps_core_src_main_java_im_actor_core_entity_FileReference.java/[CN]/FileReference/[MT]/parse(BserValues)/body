@@ -2,7 +2,7 @@
   if (!values.getBool(5,false)) {
     long fileId=values.getLong(1);
     long accessHash=values.getLong(2);
-    setWrapped(new FileLocation(fileId,accessHash));
+    setWrapped(new ApiFileLocation(fileId,accessHash));
   }
   super.parse(values);
   fileSize=values.getInt(3);

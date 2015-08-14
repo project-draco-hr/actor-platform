@@ -5,11 +5,11 @@
         @Override public void onResult(        ResponseStartEmailAuth response){
           modules.getPreferences().putString(KEY_EMAIL,email);
           modules.getPreferences().putString(KEY_TRANSACTION_HASH,response.getTransactionHash());
-          EmailActivationType emailActivationType=response.getActivationType();
-          if (emailActivationType.equals(EmailActivationType.OAUTH2)) {
+          ApiEmailActivationType emailActivationType=response.getActivationType();
+          if (emailActivationType.equals(ApiEmailActivationType.OAUTH2)) {
             state=AuthState.GET_OAUTH_PARAMS;
           }
- else           if (emailActivationType.equals(EmailActivationType.CODE)) {
+ else           if (emailActivationType.equals(ApiEmailActivationType.CODE)) {
             state=AuthState.CODE_VALIDATION_EMAIL;
           }
           im.actor.runtime.Runtime.postToMainThread(new Runnable(){

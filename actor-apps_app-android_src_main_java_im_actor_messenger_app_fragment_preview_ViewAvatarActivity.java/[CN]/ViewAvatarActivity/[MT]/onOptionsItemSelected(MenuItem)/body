@@ -23,12 +23,12 @@
           startActivityForResult(i,REQUEST_GALLERY);
         }
  else         if (which == 2) {
-          if (peer.getPeerType() == PeerTypeEntity.PRIVATE) {
+          if (peer.getPeerType() == PeerType.PRIVATE) {
             if (peer.getPeerId() == myUid()) {
               messenger().removeMyAvatar();
             }
           }
- else           if (peer.getPeerType() == PeerTypeEntity.GROUP) {
+ else           if (peer.getPeerType() == PeerType.GROUP) {
             messenger().removeGroupAvatar(peer.getPeerId());
           }
         }

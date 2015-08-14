@@ -10,7 +10,7 @@
     messagesProcessor.onMessagesLoaded(historyLoaded.getPeer(),historyLoaded.getLoadHistory());
   }
  else   if (update instanceof LoggedIn) {
-    ArrayList<User> users=new ArrayList<User>();
+    ArrayList<ApiUser> users=new ArrayList<ApiUser>();
     users.add(((LoggedIn)update).getAuth().getUser());
     applyRelated(users,new ArrayList<ApiGroup>(),true);
     runOnUiThread(((LoggedIn)update).getRunnable());
@@ -24,7 +24,7 @@
     final UsersFounded founded=(UsersFounded)update;
     applyRelated(((UsersFounded)update).getUsers(),new ArrayList<ApiGroup>(),false);
     final ArrayList<UserVM> users=new ArrayList<UserVM>();
-    for (    User u : founded.getUsers()) {
+    for (    ApiUser u : founded.getUsers()) {
       users.add(context().getUsersModule().getUsers().get(u.getId()));
     }
     runOnUiThread(new Runnable(){

@@ -13,7 +13,7 @@
  else {
     deleteStorage=new DeleteStorage();
   }
-  for (  PeerEntity peer : deleteStorage.getPendingDeletions().keySet()) {
+  for (  Peer peer : deleteStorage.getPendingDeletions().keySet()) {
     Delete delete=deleteStorage.getPendingDeletions().get(peer);
     if (delete.getRids().size() > 0) {
       performDelete(peer,delete.getRids());

@@ -1,0 +1,3 @@
+{
+  return (BindedDisplayList<Message>)modules.getDisplayListsModule().getMessagesSharedList(peer);
+}

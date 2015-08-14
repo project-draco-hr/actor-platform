@@ -1,5 +1,5 @@
 {
-  peer=PeerEntity.fromBytes(values.getBytes(1));
+  peer=Peer.fromBytes(values.getBytes(1));
   order=values.getLong(2);
   if (values.optBytes(3) != null) {
     avatar=new Avatar(values.getBytes(3));

@@ -1,5 +1,5 @@
 {
-  peer=PeerEntity.fromBytes(values.getBytes(1));
+  peer=Peer.fromBytes(values.getBytes(1));
   dialogTitle=values.getString(2);
   byte[] av=values.optBytes(3);
   if (av != null) {

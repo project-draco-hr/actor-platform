@@ -1,5 +1,5 @@
 {
-  this.groupPeer=values.getObj(1,new GroupOutPeer());
+  this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
   this.seq=values.getInt(3);
   this.state=values.getBytes(4);
   this.users=values.getRepeatedInt(5);

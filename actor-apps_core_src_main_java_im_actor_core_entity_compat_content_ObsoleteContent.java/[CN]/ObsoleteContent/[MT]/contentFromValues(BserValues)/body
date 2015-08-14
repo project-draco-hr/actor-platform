@@ -11,9 +11,9 @@ return new ObsoleteVideo(values).toContainer();
 case SERVICE:
 return new ContentRemoteContainer(new ObsoleteService(values).toApiMessage());
 case SERVICE_REGISTERED:
-return new ContentRemoteContainer(new ServiceMessage("User registered",new ServiceExContactRegistered(0)));
+return new ContentRemoteContainer(new ApiServiceMessage("User registered",new ApiServiceExContactRegistered(0)));
 case SERVICE_CREATED:
-return new ContentRemoteContainer(new ServiceMessage("Group created",new ServiceExGroupCreated()));
+return new ContentRemoteContainer(new ApiServiceMessage("Group created",new ApiServiceExGroupCreated()));
 case SERVICE_TITLE:
 return new ContentRemoteContainer(new ObsoleteServiceTitle(values).toApiMessage());
 case SERVICE_AVATAR:
@@ -23,7 +23,7 @@ return new ContentRemoteContainer(new ObsoleteServiceAdded(values).toApiMessage(
 case SERVICE_KICKED:
 return new ContentRemoteContainer(new ObsoleteServiceKicked(values).toApiMessage());
 case SERVICE_LEAVE:
-return new ContentRemoteContainer(new ServiceMessage("User leave",new ServiceExUserLeft()));
+return new ContentRemoteContainer(new ApiServiceMessage("User leave",new ApiServiceExUserLeft()));
 default :
 throw new IOException("Unknown type");
 }

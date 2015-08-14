@@ -1,5 +1,5 @@
 {
-  UserEntity u=users().getValue(uid);
+  User u=users().getValue(uid);
   if (u != null) {
     u=u.editAvatar(avatar);
     users().addOrUpdateItem(u);

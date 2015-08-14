@@ -1,5 +1,5 @@
 {
   super(remoteContainer);
-  ServiceMessage serviceMessage=(ServiceMessage)remoteContainer.getMessage();
-  newTitle=((ServiceExChangedTitle)serviceMessage.getExt()).getTitle();
+  ApiServiceMessage serviceMessage=(ApiServiceMessage)remoteContainer.getMessage();
+  newTitle=((ApiServiceExChangedTitle)serviceMessage.getExt()).getTitle();
 }

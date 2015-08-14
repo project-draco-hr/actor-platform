@@ -1,0 +1,4 @@
+ApiFileLocation fileLocation
+int width
+int height
+int fileSize

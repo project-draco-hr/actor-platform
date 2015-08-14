@@ -36,10 +36,10 @@
 );
   }
   final SwitchCompat isNotificationsEnabled=(SwitchCompat)header.findViewById(R.id.enableNotifications);
-  isNotificationsEnabled.setChecked(messenger().isNotificationsEnabled(PeerEntity.group(chatId)));
+  isNotificationsEnabled.setChecked(messenger().isNotificationsEnabled(Peer.group(chatId)));
   isNotificationsEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
     @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
-      messenger().changeNotificationsEnabled(PeerEntity.group(chatId),isChecked);
+      messenger().changeNotificationsEnabled(Peer.group(chatId),isChecked);
     }
   }
 );
