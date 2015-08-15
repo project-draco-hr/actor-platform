@@ -1,2 +1,3 @@
 {
+  logger.log(Level.SEVERE,tag + ": " + throwable.getMessage(),throwable);
 }
