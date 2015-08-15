@@ -2,31 +2,24 @@
   connectExecutor.submit(new Runnable(){
     @Override public void run(){
       try {
-        Socket socket;
         ConnectionEndpoint endpoint=getEndpoint();
-switch (endpoint.getType()) {
-case TCP:
-          socket=new Socket();
-        break;
-case TCP_TLS:
-      SocketFactory socketFactory=SSLSocketFactory.getDefault();
-    socket=socketFactory.createSocket();
-  break;
-default :
-throw new RuntimeException("Unsupported endpoint type: " + endpoint.getType());
-}
-socket.setKeepAlive(false);
-socket.setTcpNoDelay(true);
-socket.connect(new InetSocketAddress(endpoint.getHost(),endpoint.getPort()),ManagedConnection.CONNECTION_TIMEOUT);
-socket.getInputStream();
-socket.getOutputStream();
-onSocketCreated(socket);
-}
- catch (Throwable e) {
-e.printStackTrace();
-crashConnection();
-}
-}
-}
+        Socket socket=new Socket();
+        socket.setKeepAlive(false);
+        socket.setTcpNoDelay(true);
+        socket.connect(new InetSocketAddress(endpoint.getHost(),endpoint.getPort()),ManagedConnection.CONNECTION_TIMEOUT);
+        if (endpoint.getType() == ConnectionEndpoint.Type.TCP_TLS) {
+          SSLSocketFactory socketFactory=(SSLSocketFactory)SSLSocketFactory.getDefault();
+          socket=socketFactory.createSocket(socket,endpoint.getHost(),endpoint.getPort(),true);
+        }
+        socket.getInputStream();
+        socket.getOutputStream();
+        onSocketCreated(socket);
+      }
+ catch (      Throwable e) {
+        e.printStackTrace();
+        crashConnection();
+      }
+    }
+  }
 );
 }
