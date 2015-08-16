@@ -3,4 +3,3 @@ boolean isGlobalList
 int pageSize
 int loadGap
 OperationMode operationMode
-BindHook<T> bindHook
