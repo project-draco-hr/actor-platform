@@ -1,8 +1,18 @@
 {
   boolean isPeerEnabled=context().getSettingsModule().isNotificationsEnabled(peer);
-  boolean isEnabled=(context().getSettingsModule().isNotificationsEnabled() && isPeerEnabled) || hasCurrentUserMention;
+  boolean isEnabled=context().getSettingsModule().isNotificationsEnabled() && isPeerEnabled;
   boolean isInAppEnabled=context().getSettingsModule().isInAppEnabled();
   boolean isConversationTonesEnabled=context().getSettingsModule().isConversationTonesEnabled();
+  if (peer.getPeerType() == PeerType.GROUP) {
+    if (!context().getSettingsModule().isGroupNotificationsEnabled()) {
+      isEnabled=false;
+    }
+ else {
+      if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {
+        isEnabled=hasCurrentUserMention;
+      }
+    }
+  }
   if (!isEnabled && (!(isInAppEnabled && peer.equals(visiblePeer)))) {
     return;
   }
@@ -17,12 +27,12 @@
     if (isAppVisible) {
       if (visiblePeer != null && visiblePeer.equals(peer)) {
         if (isConversationTonesEnabled) {
-          config().getNotificationProvider().onMessageArriveInApp(context());
+          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
         }
       }
  else       if (isDialogsVisible) {
         if (isConversationTonesEnabled) {
-          config().getNotificationProvider().onMessageArriveInApp(context());
+          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
         }
       }
  else       if (isInAppEnabled) {

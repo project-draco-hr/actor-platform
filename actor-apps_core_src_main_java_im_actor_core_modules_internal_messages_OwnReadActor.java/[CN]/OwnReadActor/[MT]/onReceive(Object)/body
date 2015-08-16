@@ -11,6 +11,10 @@
     InMessage inMessage=(InMessage)message;
     onInMessage(inMessage.getPeer(),inMessage.getMessage());
   }
+ else   if (message instanceof OutMessage) {
+    OutMessage outMessage=(OutMessage)message;
+    onOutMessage(outMessage.getPeer(),outMessage.getSortDate());
+  }
  else {
     drop(message);
   }

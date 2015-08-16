@@ -1,0 +1,7 @@
+{
+  long readState=context().getMessagesModule().loadReadState(peer);
+  if (sortDate <= readState) {
+    return;
+  }
+  context().getMessagesModule().saveReadState(peer,sortDate);
+}

@@ -2,10 +2,12 @@
   long start=im.actor.runtime.Runtime.getCurrentTime();
   PeerDesc peerDesc=buildPeerDesc(peer);
   if (peerDesc == null) {
+    Log.d("DialogsActor","unknown peer desk");
     return;
   }
   if (message == null) {
     if (!forceWrite) {
+      Log.d("DialogsActor","not force");
       return;
     }
     onChatClear(peer);
@@ -17,6 +19,7 @@
     boolean forceUpdate=false;
     if (dialog != null) {
       if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {
+        Log.d("DialogsActor","too old");
         return;
       }
       builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setSortKey(dialog.getSortDate());
@@ -26,6 +29,7 @@
     }
  else {
       if (contentDescription.isSilent()) {
+        Log.d("DialogsActor","is silent in");
         return;
       }
       builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setSortKey(message.getSortDate());

@@ -4,12 +4,12 @@
     if (config().getNotificationProvider() != null) {
       if (visiblePeer != null && notificationsDuringPause.contains(visiblePeer)) {
         if (context().getSettingsModule().isConversationTonesEnabled()) {
-          config().getNotificationProvider().onMessageArriveInApp(context());
+          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
         }
       }
  else       if (isDialogsVisible) {
         if (context().getSettingsModule().isConversationTonesEnabled()) {
-          config().getNotificationProvider().onMessageArriveInApp(context());
+          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
         }
       }
  else       if (isAppVisible) {

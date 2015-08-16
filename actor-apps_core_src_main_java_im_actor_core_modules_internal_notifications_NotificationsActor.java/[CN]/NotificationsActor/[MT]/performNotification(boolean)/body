@@ -25,5 +25,10 @@
     peers.add(p.getPeer());
   }
   int chatsCount=peers.size();
-  config().getNotificationProvider().onNotification(context(),res,messagesCount,chatsCount,isSilentUpdate,isAppVisible);
+  if (isSilentUpdate) {
+    config().getNotificationProvider().onUpdateNotification(context().getMessenger(),res,messagesCount,chatsCount);
+  }
+ else {
+    config().getNotificationProvider().onNotification(context().getMessenger(),res,messagesCount,chatsCount,isAppVisible);
+  }
 }

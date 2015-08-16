@@ -13,6 +13,7 @@
     }
   }
   messages.addOrUpdateItem(message);
+  Log.d("ConversationActor","isOnServer: " + message.isOnServer());
   if (message.isOnServer()) {
     if (message.getSenderId() == myUid()) {
       if (message.isOnServer() && message.getMessageState() != MessageState.READ) {
@@ -20,10 +21,9 @@
       }
     }
  else {
-      if (message.getSortDate() <= inReadState) {
-        return;
+      if (message.getSortDate() > inReadState) {
+        inPendingIndex.put(message.getRid(),message.getDate());
       }
-      inPendingIndex.put(message.getRid(),message.getDate());
     }
     dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
   }
