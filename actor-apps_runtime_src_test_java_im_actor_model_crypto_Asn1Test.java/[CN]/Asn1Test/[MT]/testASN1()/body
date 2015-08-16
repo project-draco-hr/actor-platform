@@ -1,6 +1,0 @@
-{
-  String data="asdaksjd ajsdbasdkakjsdadfsgdfgksadsf";
-  byte[] serialized=new ASN1BitString(0,data.getBytes("UTF-8")).serialize();
-  String data2=new String(((ASN1BitString)ASN1.readObject(serialized)).getContent(),"UTF-8");
-  assertEquals(data,data2);
-}

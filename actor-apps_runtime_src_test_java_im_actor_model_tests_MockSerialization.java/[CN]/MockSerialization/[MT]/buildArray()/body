@@ -1,4 +1,0 @@
-{
-  byte[] src=build();
-  return BserParser.deserialize(new DataInput(src,0,src.length));
-}

@@ -1,7 +1,0 @@
-{
-  SparseArray<Object> values=DEFAULT.buildArray();
-  assertEquals(1,values.size());
-  assertTrue(values.get(1) instanceof List);
-  assertContent(values.get(1),Long.class);
-  assertSize(values.get(1),5);
-}

@@ -1,3 +1,0 @@
-{
-  return new SHA1Digest((SHA1Digest)digest);
-}

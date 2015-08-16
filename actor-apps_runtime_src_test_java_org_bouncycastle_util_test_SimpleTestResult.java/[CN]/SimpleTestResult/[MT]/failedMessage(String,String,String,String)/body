@@ -1,7 +1,0 @@
-{
-  StringBuffer sb=new StringBuffer(algorithm);
-  sb.append(" failing ").append(testName);
-  sb.append(SEPARATOR).append("    expected: ").append(expected);
-  sb.append(SEPARATOR).append("    got     : ").append(actual);
-  return sb.toString();
-}

@@ -1,7 +1,0 @@
-{
-  SparseArray<Object> res=new SparseArray<Object>();
-  for (int i=0; i < params.length / 2; i++) {
-    res.put((Integer)params[i * 2],params[i * 2 + 1]);
-  }
-  return res;
-}

@@ -1,3 +1,0 @@
-{
-  super(new MD5Digest(),messages,digests);
-}

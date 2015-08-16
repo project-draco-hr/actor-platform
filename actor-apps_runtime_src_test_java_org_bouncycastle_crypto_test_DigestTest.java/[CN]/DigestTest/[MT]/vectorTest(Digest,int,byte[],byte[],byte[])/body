@@ -1,7 +1,0 @@
-{
-  digest.update(input,0,input.length);
-  digest.doFinal(resBuf,0);
-  if (!areEqual(resBuf,expected)) {
-    fail("Vector " + count + " failed got "+ new String(Hex.encode(resBuf)));
-  }
-}
