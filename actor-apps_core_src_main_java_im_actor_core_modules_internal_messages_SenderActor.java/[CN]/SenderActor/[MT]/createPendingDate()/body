@@ -1,0 +1,8 @@
+{
+  long res=im.actor.runtime.Runtime.getCurrentSyncedTime();
+  if (lastSendDate >= res) {
+    res=lastSendDate + 1;
+  }
+  lastSendDate=res;
+  return res;
+}

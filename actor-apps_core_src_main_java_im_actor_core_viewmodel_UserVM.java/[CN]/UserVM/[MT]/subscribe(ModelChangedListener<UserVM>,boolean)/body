@@ -1,0 +1,10 @@
+{
+  Runtime.checkMainThread();
+  if (listeners.contains(listener)) {
+    return;
+  }
+  listeners.add(listener);
+  if (notify) {
+    listener.onChanged(this);
+  }
+}

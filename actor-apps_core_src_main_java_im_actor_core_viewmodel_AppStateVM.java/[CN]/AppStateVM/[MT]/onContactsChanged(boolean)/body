@@ -1,0 +1,12 @@
+{
+  if (isContactsEmpty.get() != isEmpty) {
+    context.getPreferences().putBool("app.contacts.empty",isEmpty);
+    isContactsEmpty.change(isEmpty);
+  }
+  if (!isEmpty) {
+    if (isAppEmpty.get()) {
+      context.getPreferences().putBool("app.empty",false);
+      isAppEmpty.change(false);
+    }
+  }
+}

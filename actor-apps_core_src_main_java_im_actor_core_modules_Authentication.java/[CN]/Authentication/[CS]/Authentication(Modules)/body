@@ -1,0 +1,10 @@
+{
+  this.modules=modules;
+  this.myUid=modules.getPreferences().getInt(KEY_AUTH_UID,0);
+  deviceHash=modules.getPreferences().getBytes(KEY_DEVICE_HASH);
+  if (deviceHash == null) {
+    deviceHash=Crypto.SHA256(modules.getConfiguration().getApiConfiguration().getDeviceString().getBytes());
+    modules.getPreferences().putBytes(KEY_DEVICE_HASH,deviceHash);
+  }
+  apiConfiguration=modules.getConfiguration().getApiConfiguration();
+}

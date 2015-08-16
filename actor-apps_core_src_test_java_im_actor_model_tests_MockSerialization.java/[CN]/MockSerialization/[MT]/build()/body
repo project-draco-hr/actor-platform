@@ -1,6 +1,0 @@
-{
-  DataOutput dataOutput=new DataOutput();
-  BserWriter bserWriter=new BserWriter(dataOutput);
-  perform(bserWriter);
-  return dataOutput.toByteArray();
-}

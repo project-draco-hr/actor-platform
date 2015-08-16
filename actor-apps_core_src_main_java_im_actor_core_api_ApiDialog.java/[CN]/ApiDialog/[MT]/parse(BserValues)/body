@@ -1,0 +1,13 @@
+{
+  this.peer=values.getObj(1,new ApiPeer());
+  this.unreadCount=values.getInt(3);
+  this.sortDate=values.getLong(4);
+  this.senderUid=values.getInt(5);
+  this.rid=values.getLong(6);
+  this.date=values.getLong(7);
+  this.message=ApiMessage.fromBytes(values.getBytes(8));
+  int val_state=values.getInt(9,0);
+  if (val_state != 0) {
+    this.state=ApiMessageState.parse(val_state);
+  }
+}

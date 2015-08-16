@@ -1,0 +1,5 @@
+{
+  super.preStart();
+  this.dialogs=context().getMessagesModule().getDialogsEngine();
+  notifyState(true);
+}

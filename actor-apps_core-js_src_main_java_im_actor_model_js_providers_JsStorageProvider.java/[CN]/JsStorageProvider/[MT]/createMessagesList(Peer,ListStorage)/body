@@ -1,3 +1,0 @@
-{
-  return new JsListEngine<Message>((JsListStorage)storage,Message.CREATOR);
-}

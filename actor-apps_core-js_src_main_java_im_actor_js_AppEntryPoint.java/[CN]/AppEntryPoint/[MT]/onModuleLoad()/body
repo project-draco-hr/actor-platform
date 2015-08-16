@@ -1,9 +1,0 @@
-{
-  ExporterUtil.exportAll();
-  Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand(){
-    @Override public void execute(){
-      onAppLoaded();
-    }
-  }
-);
-}

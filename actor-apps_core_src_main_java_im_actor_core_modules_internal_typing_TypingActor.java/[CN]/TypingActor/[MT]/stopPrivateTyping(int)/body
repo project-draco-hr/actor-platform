@@ -1,0 +1,6 @@
+{
+  if (typings.contains(uid)) {
+    typings.remove(uid);
+    context().getTypingModule().getTyping(uid).getTyping().change(false);
+  }
+}

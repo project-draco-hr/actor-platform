@@ -1,0 +1,23 @@
+{
+  this.messenger=messenger;
+  this.configuration=configuration;
+  Timing timing=new Timing("MODULES_INIT");
+  timing.section("I18N");
+  this.i18nEngine=new I18nEngine(this);
+  timing.section("Preferences");
+  this.preferences=Storage.createPreferencesStorage();
+  timing.section("Analytics");
+  this.analytics=new AnalyticsModule(this);
+  timing.section("API");
+  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.isEnableNetworkLogging(),configuration.getMinDelay(),configuration.getMaxDelay(),configuration.getMaxFailureCount());
+  timing.section("App State");
+  this.appStateModule=new AppStateModule(this);
+  timing.section("External");
+  this.external=new ExternalModule(this);
+  timing.section("Pushes");
+  this.pushes=new PushesModule(this);
+  timing.section("Auth");
+  this.authentication=new Authentication(this);
+  this.authentication.run();
+  timing.end();
+}

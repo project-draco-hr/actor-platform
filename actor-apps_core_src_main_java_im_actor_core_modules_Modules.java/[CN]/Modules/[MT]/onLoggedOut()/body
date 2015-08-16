@@ -1,0 +1,9 @@
+{
+  im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+    @Override public void run(){
+      Storage.resetStorage();
+      im.actor.runtime.Runtime.killApp();
+    }
+  }
+);
+}

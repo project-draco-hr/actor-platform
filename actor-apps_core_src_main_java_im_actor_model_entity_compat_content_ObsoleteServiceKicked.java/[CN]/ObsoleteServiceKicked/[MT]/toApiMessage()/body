@@ -1,3 +1,0 @@
-{
-  return new ServiceMessage("Member kicked",new ServiceExUserKicked(kickedUid));
-}

@@ -1,22 +1,2 @@
 {
-  final Messenger messenger=CliConfiguration.createMessenger(config.getEndpoint());
-  System.out.print("Authenticating...");
-  messenger.requestStartPhoneAuth(config.getPhoneNumber()).start(new CommandCallback<AuthState>(){
-    @Override public void onResult(    AuthState res){
-      messenger.validateCode(config.getActivationCode()).start(new CommandCallback<AuthState>(){
-        @Override public void onResult(        AuthState res){
-          System.out.println("Logged In.");
-          demoSearchStep(messenger,config);
-        }
-        @Override public void onError(        Exception e){
-          System.out.println("LogIn Error... Stopping demo.");
-        }
-      }
-);
-    }
-    @Override public void onError(    Exception e){
-      System.out.println("LogIn Error. Stopping demo.");
-    }
-  }
-);
 }

@@ -1,0 +1,4 @@
+{
+  this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
+  this.userPeer=values.getObj(2,new ApiUserOutPeer());
+}

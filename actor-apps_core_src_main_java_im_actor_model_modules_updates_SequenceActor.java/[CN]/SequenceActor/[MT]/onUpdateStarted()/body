@@ -1,3 +1,0 @@
-{
-  modules().getAppStateModule().getAppStateVM().getIsSyncing().change(true);
-}

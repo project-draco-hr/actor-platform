@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"onConversationOpen: " + peer);
-  messenger.onConversationOpen(peer.convert());
-}

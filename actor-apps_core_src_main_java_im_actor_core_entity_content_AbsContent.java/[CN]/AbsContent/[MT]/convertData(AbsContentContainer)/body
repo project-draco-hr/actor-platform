@@ -1,0 +1,83 @@
+{
+  if (container instanceof ContentLocalContainer) {
+    ContentLocalContainer localContainer=(ContentLocalContainer)container;
+    AbsLocalContent content=((ContentLocalContainer)container).getContent();
+    if (content instanceof LocalPhoto) {
+      return new PhotoContent(localContainer);
+    }
+ else     if (content instanceof LocalVideo) {
+      return new VideoContent(localContainer);
+    }
+ else     if (content instanceof LocalDocument) {
+      return new DocumentContent(localContainer);
+    }
+ else {
+      throw new IOException("Unknown type");
+    }
+  }
+ else   if (container instanceof ContentRemoteContainer) {
+    ContentRemoteContainer remoteContainer=(ContentRemoteContainer)container;
+    ApiMessage content=((ContentRemoteContainer)container).getMessage();
+    try {
+      if (content instanceof ApiDocumentMessage) {
+        ApiDocumentMessage d=(ApiDocumentMessage)content;
+        if (d.getExt() instanceof ApiDocumentExPhoto) {
+          return new PhotoContent(remoteContainer);
+        }
+ else         if (d.getExt() instanceof ApiDocumentExVideo) {
+          return new VideoContent(remoteContainer);
+        }
+ else {
+          return new DocumentContent(remoteContainer);
+        }
+      }
+ else       if (content instanceof ApiTextMessage) {
+        return new TextContent(remoteContainer);
+      }
+ else       if (content instanceof ApiServiceMessage) {
+        ApiServiceEx ext=((ApiServiceMessage)content).getExt();
+        if (ext instanceof ApiServiceExContactRegistered) {
+          return new ServiceUserRegistered(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExChangedTitle) {
+          return new ServiceGroupTitleChanged(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExChangedAvatar) {
+          return new ServiceGroupAvatarChanged(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExGroupCreated) {
+          return new ServiceGroupCreated(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExUserInvited) {
+          return new ServiceGroupUserInvited(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExUserKicked) {
+          return new ServiceGroupUserKicked(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExUserLeft) {
+          return new ServiceGroupUserLeave(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExUserJoined) {
+          return new ServiceGroupUserJoined(remoteContainer);
+        }
+ else {
+          return new ServiceContent(remoteContainer);
+        }
+      }
+ else       if (content instanceof ApiJsonMessage) {
+        ApiJsonMessage json=(ApiJsonMessage)content;
+        JSONObject object=new JSONObject(json.getRawJson());
+        if (object.getString("dataType").equals("banner")) {
+          return new BannerContent(remoteContainer);
+        }
+      }
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+    return new UnsupportedContent(remoteContainer);
+  }
+ else {
+    throw new IOException("Unknown type");
+  }
+}

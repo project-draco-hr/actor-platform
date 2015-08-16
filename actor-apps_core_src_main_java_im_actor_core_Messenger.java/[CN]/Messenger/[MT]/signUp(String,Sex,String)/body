@@ -1,0 +1,3 @@
+{
+  return modules.getAuthModule().signUp(name,ApiSex.UNKNOWN,avatarPath);
+}

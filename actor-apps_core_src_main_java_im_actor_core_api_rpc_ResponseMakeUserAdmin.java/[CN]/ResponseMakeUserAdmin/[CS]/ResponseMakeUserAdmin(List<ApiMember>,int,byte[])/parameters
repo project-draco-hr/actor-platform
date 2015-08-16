@@ -1,0 +1,3 @@
+List<ApiMember> members
+int seq
+byte[] state

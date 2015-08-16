@@ -1,0 +1,6 @@
+{
+  modules.getAnalyticsModule().trackChatClosed(peer);
+  if (modules.getPresenceModule() != null) {
+    modules.getNotificationsModule().onConversationClose(peer);
+  }
+}

@@ -1,0 +1,3 @@
+ApiPeerType type
+int id
+long accessHash

@@ -1,0 +1,4 @@
+{
+  super(modules);
+  contacts=Storage.createList(STORAGE_CONTACTS,Contact.CREATOR);
+}

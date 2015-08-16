@@ -1,7 +1,0 @@
-{
-  List<Parameter> _parameters=new ArrayList<Parameter>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _parameters.add(new Parameter());
-  }
-  this.parameters=values.getRepeatedObj(1,_parameters);
-}

@@ -1,0 +1,3 @@
+{
+  return modules.getSecurityModule().terminateSession(id);
+}

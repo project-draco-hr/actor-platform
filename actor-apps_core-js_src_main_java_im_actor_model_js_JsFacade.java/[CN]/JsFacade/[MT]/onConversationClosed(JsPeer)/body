@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"onConversationClosed: " + peer);
-  messenger.onConversationClosed(peer.convert());
-}

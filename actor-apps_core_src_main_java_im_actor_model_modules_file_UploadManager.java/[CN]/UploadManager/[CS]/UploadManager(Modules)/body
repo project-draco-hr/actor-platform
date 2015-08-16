@@ -1,4 +1,0 @@
-{
-  super(messenger);
-  this.LOG=messenger.getConfiguration().isEnableFilesLogging();
-}

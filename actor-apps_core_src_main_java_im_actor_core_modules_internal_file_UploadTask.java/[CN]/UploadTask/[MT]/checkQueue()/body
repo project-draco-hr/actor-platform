@@ -1,0 +1,45 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  if (nextBlock == blocksCount && uploadCount == 0) {
+    if (LOG) {
+      Log.d(TAG,"Completing...");
+    }
+    long crc=crc32.getValue();
+    if (LOG) {
+      Log.d(TAG,"Src #" + crc);
+      Log.d(TAG,"Closing files...");
+    }
+    inputFile.close();
+    if (isWriteToDestProvider) {
+      outputFile.close();
+    }
+    request(new RequestCommitFileUpload(uploadConfig,fileName),new RpcCallback<ResponseCommitFileUpload>(){
+      @Override public void onResult(      ResponseCommitFileUpload response){
+        if (LOG) {
+          Log.d(TAG,"Upload completed...");
+        }
+        FileReference location=new FileReference(response.getUploadedFileLocation(),fileName,srcReference.getSize());
+        if (isWriteToDestProvider) {
+          FileSystemReference reference=Storage.commitTempFile(destReference,location.getFileId(),location.getFileName());
+          reportComplete(location,reference);
+        }
+ else {
+          reportComplete(location,srcReference);
+        }
+      }
+      @Override public void onError(      RpcException e){
+        if (LOG) {
+          Log.w(TAG,"Upload complete error");
+        }
+        reportError();
+      }
+    }
+);
+    return;
+  }
+  if (nextBlock < blocksCount && uploadCount < SIM_BLOCKS_COUNT) {
+    loadPart(nextBlock++);
+  }
+}

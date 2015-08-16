@@ -1,3 +1,0 @@
-{
-  return new im.actor.model.api.Avatar();
-}

@@ -1,7 +1,0 @@
-{
-  Log.d(TAG,"unbindChat: " + peer);
-  if (callback == null) {
-    return;
-  }
-  messenger.getConversationList(peer.convert()).unsubscribe(callback);
-}

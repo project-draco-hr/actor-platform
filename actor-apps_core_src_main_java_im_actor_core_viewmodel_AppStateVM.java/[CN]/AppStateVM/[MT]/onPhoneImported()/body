@@ -1,0 +1,7 @@
+{
+  if (!isBookImported) {
+    isBookImported=true;
+    context.getPreferences().putBool("app.contacts.imported",true);
+    updateLoaded();
+  }
+}

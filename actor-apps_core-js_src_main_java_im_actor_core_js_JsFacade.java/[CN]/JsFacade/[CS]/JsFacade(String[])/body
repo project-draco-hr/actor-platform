@@ -1,0 +1,14 @@
+{
+  provider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
+  String clientName=IdentityUtils.getClientName();
+  String uniqueId=IdentityUtils.getUniqueId();
+  ConfigurationBuilder configuration=new ConfigurationBuilder();
+  configuration.setApiConfiguration(new ApiConfiguration(APP_NAME,APP_ID,APP_KEY,clientName,uniqueId));
+  configuration.setPhoneBookProvider(new JsPhoneBookProvider());
+  configuration.setNotificationProvider(new JsNotificationsProvider());
+  for (  String endpoint : endpoints) {
+    configuration.addEndpoint(endpoint);
+  }
+  messenger=new JsMessenger(configuration.build());
+  Log.d(TAG,"JsMessenger created");
+}

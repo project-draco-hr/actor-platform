@@ -1,3 +1,0 @@
-{
-  return modules.getUsersModule().getUsers().getValue(uid);
-}

@@ -1,0 +1,2 @@
+List<ApiUser> users
+CommandCallback<UserVM[]> commandCallback

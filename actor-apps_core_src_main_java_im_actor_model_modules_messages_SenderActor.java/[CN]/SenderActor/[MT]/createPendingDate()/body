@@ -1,8 +1,0 @@
-{
-  long res=Environment.getCurrentSyncedTime();
-  if (lastSendDate >= res) {
-    res=lastSendDate + 1;
-  }
-  lastSendDate=res;
-  return res;
-}

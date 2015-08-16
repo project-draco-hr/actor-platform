@@ -1,0 +1,7 @@
+{
+  if (database == null) {
+    NoOpOpenHelper helper=new NoOpOpenHelper(AndroidContext.getContext(),DB);
+    database=helper.getWritableDatabase();
+  }
+  return database;
+}

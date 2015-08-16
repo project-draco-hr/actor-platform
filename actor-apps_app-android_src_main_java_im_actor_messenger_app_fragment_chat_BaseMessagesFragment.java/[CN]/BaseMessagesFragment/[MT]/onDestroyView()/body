@@ -1,9 +1,5 @@
 {
   super.onDestroyView();
-  if (conversationVM != null) {
-    conversationVM.release();
-    conversationVM=null;
-  }
   messagesAdapter=null;
   linearLayoutManager=null;
   linearLayoutManager=null;

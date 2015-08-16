@@ -1,0 +1,3 @@
+{
+  modules.getSettingsModule().changeNotificationsEnabled(val);
+}

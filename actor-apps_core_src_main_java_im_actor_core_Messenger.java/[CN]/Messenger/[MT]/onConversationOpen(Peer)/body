@@ -1,0 +1,8 @@
+{
+  modules.getAnalyticsModule().trackChatOpen(peer);
+  if (modules.getPresenceModule() != null) {
+    modules.getPresenceModule().subscribe(peer);
+    modules.getNotificationsModule().onConversationOpen(peer);
+    modules.getMessagesModule().onConversationOpen(peer);
+  }
+}

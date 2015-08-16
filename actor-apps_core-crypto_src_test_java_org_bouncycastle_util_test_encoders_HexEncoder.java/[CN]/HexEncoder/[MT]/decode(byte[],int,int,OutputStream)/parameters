@@ -1,4 +1,0 @@
-byte[] data
-int off
-int length
-OutputStream out

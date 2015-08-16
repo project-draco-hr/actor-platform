@@ -1,5 +1,0 @@
-{
-  byte[] src=CryptoUtils.fromHex(DEMO_PRIVATE_KEY);
-  PKS8RsaPrivateKey pks8RsaPrivateKey=new PKS8RsaPrivateKey(src);
-  assertArrayEquals(src,pks8RsaPrivateKey.serialize());
-}

@@ -1,0 +1,3 @@
+{
+  return modules.getPreferences().getString(KEY_EMAIL);
+}

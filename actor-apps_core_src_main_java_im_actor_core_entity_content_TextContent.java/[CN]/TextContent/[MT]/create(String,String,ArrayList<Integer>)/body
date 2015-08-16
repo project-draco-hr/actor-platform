@@ -1,0 +1,6 @@
+{
+  if (mentions == null) {
+    mentions=new ArrayList<Integer>();
+  }
+  return new TextContent(new ContentRemoteContainer(new ApiTextMessage(text,mentions,markDownText == null || markDownText.isEmpty() ? null : new ApiTextExMarkdown(markDownText))));
+}

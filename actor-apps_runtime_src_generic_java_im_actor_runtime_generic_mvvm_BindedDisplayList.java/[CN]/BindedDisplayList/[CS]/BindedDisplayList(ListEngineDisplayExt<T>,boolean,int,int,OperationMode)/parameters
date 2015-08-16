@@ -1,0 +1,5 @@
+ListEngineDisplayExt<T> listEngine
+boolean isGlobalList
+int pageSize
+int loadGap
+OperationMode operationMode

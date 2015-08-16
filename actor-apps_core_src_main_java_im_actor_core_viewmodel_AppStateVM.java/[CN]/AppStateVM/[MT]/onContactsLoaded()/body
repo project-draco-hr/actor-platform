@@ -1,0 +1,7 @@
+{
+  if (!isContactsLoaded) {
+    isContactsLoaded=true;
+    context.getPreferences().putBool("app.contacts.loaded",true);
+    updateLoaded();
+  }
+}

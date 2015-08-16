@@ -1,0 +1,13 @@
+{
+  this.context=context;
+  this.isDialogsEmpty=new ValueModel<Boolean>("app.dialogs.empty",context.getPreferences().getBool("app.dialogs.empty",true));
+  this.isContactsEmpty=new ValueModel<Boolean>("app.contacts.empty",context.getPreferences().getBool("app.contacts.empty",true));
+  this.isAppEmpty=new ValueModel<Boolean>("app.empty",context.getPreferences().getBool("app.empty",true));
+  this.globalCounter=new ValueModel<Integer>("app.counter",context.getPreferences().getInt("app.counter",0));
+  this.isConnecting=new ValueModel<Boolean>("app.connecting",false);
+  this.isSyncing=new ValueModel<Boolean>("app.syncing",false);
+  this.isBookImported=context.getPreferences().getBool("app.contacts.imported",false);
+  this.isDialogsLoaded=context.getPreferences().getBool("app.dialogs.loaded",false);
+  this.isContactsLoaded=context.getPreferences().getBool("app.contacts.loaded",false);
+  this.isAppLoaded=new ValueModel<Boolean>("app.loaded",isBookImported && isDialogsLoaded && isContactsLoaded);
+}

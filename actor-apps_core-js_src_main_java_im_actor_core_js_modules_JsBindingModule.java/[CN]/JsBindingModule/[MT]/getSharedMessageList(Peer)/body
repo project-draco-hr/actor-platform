@@ -1,0 +1,6 @@
+{
+  if (!messageLists.containsKey(peer)) {
+    messageLists.put(peer,(JsDisplayList<JsMessage,Message>)context().getDisplayListsModule().getMessagesSharedList(peer));
+  }
+  return messageLists.get(peer);
+}

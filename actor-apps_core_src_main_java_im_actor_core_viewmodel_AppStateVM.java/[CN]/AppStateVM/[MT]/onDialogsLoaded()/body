@@ -1,0 +1,7 @@
+{
+  if (!isDialogsLoaded) {
+    isDialogsLoaded=true;
+    context.getPreferences().putBool("app.dialogs.loaded",true);
+    updateLoaded();
+  }
+}

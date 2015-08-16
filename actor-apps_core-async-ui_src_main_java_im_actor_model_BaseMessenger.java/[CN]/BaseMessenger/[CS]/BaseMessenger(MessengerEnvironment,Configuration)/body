@@ -1,5 +1,0 @@
-{
-  super(configuration);
-  this.environment=environment;
-  displayLists=new DisplayLists(environment,modules);
-}

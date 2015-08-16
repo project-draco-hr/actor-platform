@@ -1,5 +1,0 @@
-{
-  super(remoteContainer);
-  ServiceMessage serviceMessage=(ServiceMessage)remoteContainer.getMessage();
-  newTitle=((ServiceExChangedTitle)serviceMessage.getExt()).getTitle();
-}

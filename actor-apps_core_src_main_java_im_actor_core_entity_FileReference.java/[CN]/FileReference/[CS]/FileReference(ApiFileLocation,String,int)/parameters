@@ -1,0 +1,3 @@
+ApiFileLocation fileLocation
+String fileName
+int fileSize

@@ -1,4 +1,0 @@
-{
-  this.smsHash=values.getString(1);
-  this.isRegistered=values.getBool(2);
-}

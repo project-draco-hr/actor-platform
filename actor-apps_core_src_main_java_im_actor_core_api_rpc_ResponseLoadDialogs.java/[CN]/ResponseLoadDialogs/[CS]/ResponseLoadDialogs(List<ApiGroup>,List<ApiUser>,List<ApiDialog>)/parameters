@@ -1,0 +1,3 @@
+List<ApiGroup> groups
+List<ApiUser> users
+List<ApiDialog> dialogs

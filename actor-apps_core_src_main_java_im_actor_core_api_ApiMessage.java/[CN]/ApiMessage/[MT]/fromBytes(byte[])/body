@@ -1,0 +1,17 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(src,0,src.length)));
+  int key=values.getInt(1);
+  byte[] content=values.getBytes(2);
+switch (key) {
+case 1:
+    return Bser.parse(new ApiTextMessage(),content);
+case 2:
+  return Bser.parse(new ApiServiceMessage(),content);
+case 3:
+return Bser.parse(new ApiDocumentMessage(),content);
+case 4:
+return Bser.parse(new ApiJsonMessage(),content);
+default :
+return new ApiMessageUnsupported(key,content);
+}
+}

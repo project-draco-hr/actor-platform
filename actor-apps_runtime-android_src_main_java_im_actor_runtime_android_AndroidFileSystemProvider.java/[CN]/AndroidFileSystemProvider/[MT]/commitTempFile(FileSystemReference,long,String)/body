@@ -1,0 +1,10 @@
+{
+  String realFileName=buildResultFile(fileId,fileName);
+  if (realFileName == null) {
+    return null;
+  }
+  if (!new File(sourceFile.getDescriptor()).renameTo(new File(realFileName))) {
+    return null;
+  }
+  return new AndroidFileSystemReference(realFileName);
+}

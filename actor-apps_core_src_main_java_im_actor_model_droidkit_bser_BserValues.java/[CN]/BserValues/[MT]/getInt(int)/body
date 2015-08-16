@@ -1,3 +1,0 @@
-{
-  return convertInt(getLong(id));
-}

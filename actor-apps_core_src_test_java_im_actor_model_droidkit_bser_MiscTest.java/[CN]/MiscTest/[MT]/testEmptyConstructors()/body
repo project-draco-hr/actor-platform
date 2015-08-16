@@ -1,7 +1,0 @@
-{
-  assertEmptyConstructor(Utils.class);
-  assertEmptyConstructor(Limits.class);
-  assertEmptyConstructor(WireTypes.class);
-  assertEmptyConstructor(BserParser.class);
-  assertEmptyConstructor(Bser.class);
-}

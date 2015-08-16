@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.TAG="DownloadTask{" + fileReference.getFileId() + "}";
+  this.LOG=context.getConfiguration().isEnableFilesLogging();
+  this.fileReference=fileReference;
+  this.manager=manager;
+}

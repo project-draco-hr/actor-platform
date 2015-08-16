@@ -1,3 +1,0 @@
-{
-  return new ServiceGroupUserKicked(new ContentRemoteContainer(new ServiceMessage("User kicked",new ServiceExUserKicked(uid))));
-}

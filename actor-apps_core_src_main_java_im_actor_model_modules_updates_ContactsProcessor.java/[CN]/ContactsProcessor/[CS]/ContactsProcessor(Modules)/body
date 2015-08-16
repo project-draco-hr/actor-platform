@@ -1,4 +1,0 @@
-{
-  super(modules);
-  contactsSyncActor=modules().getContactsModule().getContactSyncActor();
-}

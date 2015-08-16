@@ -1,0 +1,3 @@
+{
+  return new ServiceGroupCreated(new ContentRemoteContainer(new ApiServiceMessage("Group created",new ApiServiceExGroupCreated())));
+}

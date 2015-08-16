@@ -1,3 +1,0 @@
-{
-  return modules.getI18nEngine();
-}

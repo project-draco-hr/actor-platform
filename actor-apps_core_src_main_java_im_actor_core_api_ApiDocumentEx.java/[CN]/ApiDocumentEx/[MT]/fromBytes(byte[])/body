@@ -1,0 +1,15 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(src,0,src.length)));
+  int key=values.getInt(1);
+  byte[] content=values.getBytes(2);
+switch (key) {
+case 1:
+    return Bser.parse(new ApiDocumentExPhoto(),content);
+case 2:
+  return Bser.parse(new ApiDocumentExVideo(),content);
+case 3:
+return Bser.parse(new ApiDocumentExVoice(),content);
+default :
+return new ApiDocumentExUnsupported(key,content);
+}
+}

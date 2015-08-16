@@ -1,0 +1,3 @@
+ApiOutPeer peer
+long minDate
+int limit

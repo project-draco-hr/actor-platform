@@ -1,0 +1,3 @@
+{
+  networkRuntime.createConnection(connectionId,mtprotoVersion,apiMajorVersion,apiMinorVersion,endpoint,callback,createCallback);
+}

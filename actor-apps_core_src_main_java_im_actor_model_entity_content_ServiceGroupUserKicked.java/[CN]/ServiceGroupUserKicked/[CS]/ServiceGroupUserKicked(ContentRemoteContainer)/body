@@ -1,5 +1,0 @@
-{
-  super(contentContainer);
-  ServiceMessage serviceMessage=(ServiceMessage)contentContainer.getMessage();
-  kickedUid=((ServiceExUserKicked)serviceMessage.getExt()).getKickedUid();
-}

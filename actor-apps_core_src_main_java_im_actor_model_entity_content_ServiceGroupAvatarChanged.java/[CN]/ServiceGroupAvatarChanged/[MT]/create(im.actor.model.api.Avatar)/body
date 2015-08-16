@@ -1,3 +1,0 @@
-{
-  return new ServiceGroupAvatarChanged(new ContentRemoteContainer(new ServiceMessage("Avatar changed",new ServiceExChangedAvatar(avatar))));
-}

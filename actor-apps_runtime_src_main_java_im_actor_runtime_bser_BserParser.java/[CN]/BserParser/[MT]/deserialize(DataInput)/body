@@ -1,0 +1,25 @@
+{
+  SparseArray<Object> hashMap=new SparseArray<Object>();
+  while (!is.isEOF()) {
+    long currentTag=is.readVarInt();
+    int id=(int)(currentTag >> 3);
+    int type=(int)(currentTag & 0x7);
+    if (type == WireTypes.TYPE_VARINT) {
+      put(id,is.readVarInt(),hashMap);
+    }
+ else     if (type == WireTypes.TYPE_LENGTH_DELIMITED) {
+      int size=(int)is.readVarInt();
+      put(id,is.readBytes(size),hashMap);
+    }
+ else     if (type == WireTypes.TYPE_64BIT) {
+      put(id,is.readLong(),hashMap);
+    }
+ else     if (type == WireTypes.TYPE_32BIT) {
+      put(id,is.readUInt(),hashMap);
+    }
+ else {
+      throw new IOException("Unknown Wire Type #" + type);
+    }
+  }
+  return hashMap;
+}

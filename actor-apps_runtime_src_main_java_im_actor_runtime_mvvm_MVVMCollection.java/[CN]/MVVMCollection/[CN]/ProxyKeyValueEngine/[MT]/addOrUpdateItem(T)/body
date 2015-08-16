@@ -1,0 +1,8 @@
+{
+  cache.put(item.getEngineId(),item);
+  ArrayList<T> res=new ArrayList<T>();
+  res.add(item);
+  notifyChange(res);
+  byte[] data=item.toByteArray();
+  collectionStorage.addOrUpdateItem(item.getEngineId(),data);
+}

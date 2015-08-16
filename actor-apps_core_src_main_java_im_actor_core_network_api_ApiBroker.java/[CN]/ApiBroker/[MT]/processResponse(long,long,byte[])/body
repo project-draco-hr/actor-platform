@@ -1,0 +1,76 @@
+{
+  if (authId != currentAuthId) {
+    return;
+  }
+  ProtoStruct protoStruct;
+  try {
+    protoStruct=ProtoSerializer.readRpcResponsePayload(content);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    Log.w(TAG,"Broken response mid#" + mid);
+    return;
+  }
+  long rid;
+  if (idMap.containsKey(mid)) {
+    rid=idMap.get(mid);
+  }
+ else {
+    return;
+  }
+  RequestHolder holder;
+  if (requests.containsKey(rid)) {
+    holder=requests.get(rid);
+  }
+ else {
+    return;
+  }
+  if (protoStruct instanceof RpcOk) {
+    RpcOk ok=(RpcOk)protoStruct;
+    requests.remove(rid);
+    if (holder.protoId != 0) {
+      idMap.remove(holder.protoId);
+    }
+    Response response;
+    try {
+      response=(Response)new RpcParser().read(ok.responseType,ok.payload);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      return;
+    }
+    Log.d(TAG,"<- response#" + holder.publicId + ": "+ response+ " in "+ (Runtime.getCurrentTime() - holder.requestTime)+ " ms");
+    holder.callback.onResult(response);
+  }
+ else   if (protoStruct instanceof RpcError) {
+    RpcError e=(RpcError)protoStruct;
+    requests.remove(rid);
+    if (holder.protoId != 0) {
+      idMap.remove(holder.protoId);
+    }
+    Log.w(TAG,"<- error#" + holder.publicId + ": "+ e.errorTag+ " "+ e.errorCode+ " "+ e.userMessage+ " in "+ (Runtime.getCurrentTime() - holder.requestTime)+ " ms");
+    holder.callback.onError(new RpcException(e.errorTag,e.errorCode,e.userMessage,e.canTryAgain,e.relatedData));
+  }
+ else   if (protoStruct instanceof RpcInternalError) {
+    RpcInternalError e=((RpcInternalError)protoStruct);
+    Log.d(TAG,"<- internal_error#" + holder.publicId + " "+ e.getTryAgainDelay()+ " sec"+ " in "+ (Runtime.getCurrentTime() - holder.requestTime)+ " ms");
+    if (e.isCanTryAgain()) {
+      self().send(new ForceResend(rid),e.getTryAgainDelay() * 1000L);
+    }
+ else {
+      requests.remove(rid);
+      if (holder.protoId != 0) {
+        idMap.remove(holder.protoId);
+      }
+      holder.callback.onError(new RpcInternalException());
+    }
+  }
+ else   if (protoStruct instanceof RpcFloodWait) {
+    RpcFloodWait f=(RpcFloodWait)protoStruct;
+    Log.d(TAG,"<- flood_wait#" + holder.publicId + " "+ f.getDelay()+ " sec"+ " in "+ (Runtime.getCurrentTime() - holder.requestTime)+ " ms");
+    self().send(new ForceResend(rid),f.getDelay() * 1000L);
+  }
+ else {
+    Log.d(TAG,"<- unknown_package#" + holder.publicId + " in "+ (Runtime.getCurrentTime() - holder.requestTime)+ " ms");
+  }
+}

@@ -1,6 +1,0 @@
-{
-  Double d=new Double(value);
-  im.actor.model.droidkit.json.JSONObject.testValidity(d);
-  this.put(d);
-  return this;
-}

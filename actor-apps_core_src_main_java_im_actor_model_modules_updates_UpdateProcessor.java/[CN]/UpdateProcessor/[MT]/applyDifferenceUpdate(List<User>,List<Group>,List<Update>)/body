@@ -1,9 +1,0 @@
-{
-  applyRelated(users,groups,false);
-  modules().getNotifications().pauseNotifications();
-  for (int i=0; i < updates.size(); i++) {
-    processUpdate(updates.get(i));
-  }
-  modules().getNotifications().resumeNotifications();
-  applyRelated(users,groups,true);
-}

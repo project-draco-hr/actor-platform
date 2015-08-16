@@ -1,0 +1,5 @@
+{
+  ArrayList<Dialog> d=new ArrayList<Dialog>();
+  d.add(dialog);
+  context().getSearchModule().onDialogsChanged(d);
+}

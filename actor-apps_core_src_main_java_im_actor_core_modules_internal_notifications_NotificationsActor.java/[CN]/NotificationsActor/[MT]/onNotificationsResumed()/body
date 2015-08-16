@@ -1,0 +1,26 @@
+{
+  isNotificationsPaused=false;
+  if (notificationsDuringPause.size() > 0) {
+    if (config().getNotificationProvider() != null) {
+      if (visiblePeer != null && notificationsDuringPause.contains(visiblePeer)) {
+        if (context().getSettingsModule().isConversationTonesEnabled()) {
+          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
+        }
+      }
+ else       if (isDialogsVisible) {
+        if (context().getSettingsModule().isConversationTonesEnabled()) {
+          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
+        }
+      }
+ else       if (isAppVisible) {
+        if (context().getSettingsModule().isInAppEnabled()) {
+          performNotification(false);
+        }
+      }
+ else {
+        performNotification(false);
+      }
+    }
+  }
+  notificationsDuringPause.clear();
+}

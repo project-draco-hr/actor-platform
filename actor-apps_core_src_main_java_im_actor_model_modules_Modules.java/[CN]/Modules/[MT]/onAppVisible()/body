@@ -1,9 +1,0 @@
-{
-  isAppVisible=true;
-  actorApi.forceNetworkCheck();
-  analytics.trackAppVisible();
-  if (getPresenceModule() != null) {
-    getPresenceModule().onAppVisible();
-    getNotifications().onAppVisible();
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return new SimpleTestResult(false,test.getName() + ": " + message,t);
-}

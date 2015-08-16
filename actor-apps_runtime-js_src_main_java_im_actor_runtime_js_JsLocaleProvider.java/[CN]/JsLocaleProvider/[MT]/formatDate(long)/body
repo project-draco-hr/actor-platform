@@ -1,0 +1,3 @@
+{
+  return formatDateNative((int)(date / 1000));
+}

@@ -1,0 +1,29 @@
+{
+  super(configuration);
+  fileSystemProvider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
+  filesModule=new JsFilesModule(modules);
+  jsBindingModule=new JsBindingModule(this,filesModule,modules);
+  if (JsChromePush.isSupported()) {
+    Log.d("JsMessenger","ChromePush Supported");
+    JsChromePush.subscribe(new PushSubscribeResult(){
+      @Override public void onSubscribedChrome(      String token){
+        Log.d("JsMessenger","Subscribed: " + token);
+        registerGooglePush(209133700967L,token);
+      }
+      @Override public void onSubscriptionFailure(){
+        Log.d("JsMessenger","Subscribe failure");
+      }
+    }
+);
+  }
+ else {
+    Log.d("JsMessenger","ChromePush NOT Supported");
+  }
+  if (JsSafariPush.isSupported()) {
+    Log.d("JsMessenger","SafariPush Supported");
+  }
+ else {
+    Log.d("JsMessenger","SafariPush NOT Supported");
+  }
+  JsMessenger.instance=this;
+}

@@ -1,0 +1,6 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  PlatformDisplayList<SearchEntity> res=Storage.createDisplayList(context().getSearchModule().getSearchList(),isGlobalList,SearchEntity.ENTITY_NAME);
+  res.initEmpty();
+  return res;
+}

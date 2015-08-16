@@ -1,8 +1,0 @@
-{
-  if (data == null) {
-    return "null";
-  }
- else {
-    return CryptoUtils.hex(CryptoUtils.MD5(data));
-  }
-}
