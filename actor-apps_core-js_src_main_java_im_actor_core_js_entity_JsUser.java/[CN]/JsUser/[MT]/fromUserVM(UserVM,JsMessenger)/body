@@ -17,5 +17,5 @@
   for (  UserPhone p : phones) {
     convertedPhones.push(JsPhone.create(p.getPhone() + "",p.getTitle()));
   }
-  return create(userVM.getId(),userVM.getName().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,convertedPhones);
+  return create(userVM.getId(),userVM.getName().get(),userVM.getNick().get(),userVM.getAbout().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,convertedPhones);
 }
