@@ -1,0 +1,3 @@
+{
+  messenger.getGlobalCounter().subscribe(callback);
+}
