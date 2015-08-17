@@ -1,3 +1,0 @@
-{
-  messenger.onTyping(peer.convert());
-}

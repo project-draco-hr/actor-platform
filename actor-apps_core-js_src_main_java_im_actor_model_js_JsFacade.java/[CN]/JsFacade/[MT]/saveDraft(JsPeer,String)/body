@@ -1,3 +1,0 @@
-{
-  messenger.saveDraft(peer.convert(),text);
-}

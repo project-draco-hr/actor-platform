@@ -1,3 +1,0 @@
-{
-  messenger.deleteMessages(peer.convert(),rids);
-}

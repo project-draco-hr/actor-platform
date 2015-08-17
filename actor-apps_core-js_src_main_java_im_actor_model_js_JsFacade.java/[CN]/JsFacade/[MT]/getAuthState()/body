@@ -1,3 +1,0 @@
-{
-  return Enums.convert(messenger.getAuthState());
-}

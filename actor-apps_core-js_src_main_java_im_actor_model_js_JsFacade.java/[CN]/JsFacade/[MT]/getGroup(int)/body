@@ -1,3 +1,0 @@
-{
-  return messenger.getJsGroup(gid).get();
-}

@@ -1,6 +1,0 @@
-{
-  if (callback == null) {
-    return;
-  }
-  messenger.getContactsList().subscribe(callback);
-}
