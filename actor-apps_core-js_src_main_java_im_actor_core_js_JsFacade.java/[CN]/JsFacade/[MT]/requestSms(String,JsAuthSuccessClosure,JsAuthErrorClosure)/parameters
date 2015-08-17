@@ -1,0 +1,3 @@
+String phone
+JsAuthSuccessClosure success
+JsAuthErrorClosure error

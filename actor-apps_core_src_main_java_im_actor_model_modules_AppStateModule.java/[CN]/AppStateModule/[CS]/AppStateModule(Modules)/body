@@ -1,4 +1,0 @@
-{
-  super(modules);
-  this.appStateVM=new AppStateVM(modules);
-}

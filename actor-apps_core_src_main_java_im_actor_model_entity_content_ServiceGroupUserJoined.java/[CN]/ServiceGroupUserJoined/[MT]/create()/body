@@ -1,3 +1,0 @@
-{
-  return new ServiceGroupUserJoined(new ContentRemoteContainer(new ServiceMessage("User joined",new ServiceExUserJoined())));
-}

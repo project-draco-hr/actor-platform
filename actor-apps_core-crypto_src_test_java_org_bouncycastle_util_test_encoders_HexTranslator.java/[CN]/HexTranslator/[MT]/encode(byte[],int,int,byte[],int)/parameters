@@ -1,5 +1,0 @@
-byte[] in
-int inOff
-int length
-byte[] out
-int outOff

@@ -1,0 +1,17 @@
+{
+  JsMessenger messenger=JsMessenger.getInstance();
+  JsPeerInfo peerInfo=messenger.buildPeerInfo(Peer.user(res.getUid()));
+  JsArray<JsStringMatch> mentionMatches=JsArray.createArray().cast();
+  JsArray<JsStringMatch> secondMatches=JsArray.createArray().cast();
+  if (res.getMentionMatches() != null) {
+    for (    StringMatch match : res.getMentionMatches()) {
+      mentionMatches.push(JsStringMatch.create(match));
+    }
+  }
+  if (res.getOriginalMatches() != null) {
+    for (    StringMatch match : res.getOriginalMatches()) {
+      secondMatches.push(JsStringMatch.create(match));
+    }
+  }
+  return create(peerInfo,res.getMentionString(),mentionMatches,res.getOriginalString(),secondMatches,res.isNickname());
+}

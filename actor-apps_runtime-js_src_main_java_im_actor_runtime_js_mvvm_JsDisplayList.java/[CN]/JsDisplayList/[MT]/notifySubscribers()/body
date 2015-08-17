@@ -1,0 +1,11 @@
+{
+  for (  JsDisplayListCallback<T> callback : callbacks) {
+    callback.onCollectionChanged(jsValues);
+  }
+  if (callbacksInverted.size() > 0) {
+    JsArray<T> rev=reverse(jsValues);
+    for (    JsDisplayListCallback<T> callback : callbacksInverted) {
+      callback.onCollectionChanged(rev);
+    }
+  }
+}

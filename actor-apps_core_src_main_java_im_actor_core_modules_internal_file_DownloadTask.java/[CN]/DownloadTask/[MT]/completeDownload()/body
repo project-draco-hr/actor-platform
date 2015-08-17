@@ -1,0 +1,21 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  if (LOG) {
+    Log.d(TAG,"Closing file...");
+  }
+  if (!outputFile.close()) {
+    reportError();
+    return;
+  }
+  FileSystemReference reference=Storage.commitTempFile(destReference,fileReference.getFileId(),fileReference.getFileName());
+  if (reference == null) {
+    reportError();
+    return;
+  }
+  if (LOG) {
+    Log.d(TAG,"Complete download {" + reference.getDescriptor() + "}");
+  }
+  reportComplete(reference);
+}

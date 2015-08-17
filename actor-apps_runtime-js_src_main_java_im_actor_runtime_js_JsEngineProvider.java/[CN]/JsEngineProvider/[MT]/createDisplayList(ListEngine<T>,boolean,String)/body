@@ -1,0 +1,7 @@
+{
+  JsEntityConverter converter=converters.get(clazz);
+  if (converter == null) {
+    throw new RuntimeException("Unsupported entity type: " + clazz);
+  }
+  return new JsDisplayList<>((JsListEngine)listEngine,converter);
+}

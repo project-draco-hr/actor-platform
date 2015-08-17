@@ -1,4 +1,0 @@
-{
-  this.collectionStorage=collectionStorage;
-  this.proxyKeyValueEngine=new ProxyKeyValueEngine();
-}

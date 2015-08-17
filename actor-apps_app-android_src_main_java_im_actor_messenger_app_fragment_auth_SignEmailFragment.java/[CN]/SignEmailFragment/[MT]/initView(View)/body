@@ -1,7 +1,7 @@
 {
   emailEditText=(EditText)v.findViewById(R.id.tv_email);
   emailEditText.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-  String email=messenger().getPreferences().getString(Auth.KEY_EMAIL);
+  String email=messenger().getAuthEmail();
   if (email != null && !email.isEmpty()) {
     emailEditText.setText(email);
   }

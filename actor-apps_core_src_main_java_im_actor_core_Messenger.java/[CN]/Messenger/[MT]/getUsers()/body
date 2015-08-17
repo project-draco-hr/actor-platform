@@ -1,0 +1,6 @@
+{
+  if (modules.getUsersModule() == null) {
+    return null;
+  }
+  return modules.getUsersModule().getUsers();
+}

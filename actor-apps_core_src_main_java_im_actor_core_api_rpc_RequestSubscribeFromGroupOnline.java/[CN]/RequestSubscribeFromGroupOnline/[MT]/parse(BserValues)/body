@@ -1,0 +1,7 @@
+{
+  List<ApiGroupOutPeer> _groups=new ArrayList<ApiGroupOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _groups.add(new ApiGroupOutPeer());
+  }
+  this.groups=values.getRepeatedObj(1,_groups);
+}

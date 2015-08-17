@@ -1,0 +1,22 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  this.name=values.getString(3);
+  this.localName=values.optString(4);
+  int val_sex=values.getInt(5,0);
+  if (val_sex != 0) {
+    this.sex=ApiSex.parse(val_sex);
+  }
+  this.avatar=values.optObj(8,new ApiAvatar());
+  List<ApiContactRecord> _contactInfo=new ArrayList<ApiContactRecord>();
+  for (int i=0; i < values.getRepeatedCount(12); i++) {
+    _contactInfo.add(new ApiContactRecord());
+  }
+  this.contactInfo=values.getRepeatedObj(12,_contactInfo);
+  this.isBot=values.optBool(11);
+  this.nick=values.optString(13);
+  this.about=values.optString(14);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

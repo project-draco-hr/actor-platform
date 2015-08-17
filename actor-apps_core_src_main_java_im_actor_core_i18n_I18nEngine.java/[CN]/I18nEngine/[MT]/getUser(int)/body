@@ -1,0 +1,3 @@
+{
+  return modules.getUsersModule().getUsersStorage().getValue(uid);
+}

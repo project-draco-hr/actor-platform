@@ -1,0 +1,12 @@
+{
+  List<ApiPhoneToImport> _phones=new ArrayList<ApiPhoneToImport>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _phones.add(new ApiPhoneToImport());
+  }
+  this.phones=values.getRepeatedObj(1,_phones);
+  List<ApiEmailToImport> _emails=new ArrayList<ApiEmailToImport>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _emails.add(new ApiEmailToImport());
+  }
+  this.emails=values.getRepeatedObj(2,_emails);
+}

@@ -1,0 +1,9 @@
+{
+  this.text=values.getString(1);
+  if (values.optBytes(3) != null) {
+    this.ext=ApiServiceEx.fromBytes(values.getBytes(3));
+  }
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

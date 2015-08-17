@@ -1,0 +1,5 @@
+{
+  String res="memory://" + Crypto.hex(Crypto.randomBytes(16));
+  files.put(res,JsBlob.createBlob(content));
+  return res;
+}

@@ -1,9 +1,0 @@
-{
-  super(modules);
-  pushActor=system().actorOf(Props.create(PushActor.class,new ActorCreator<PushActor>(){
-    @Override public PushActor create(){
-      return new PushActor(context,modules);
-    }
-  }
-),"actor/android/push");
-}

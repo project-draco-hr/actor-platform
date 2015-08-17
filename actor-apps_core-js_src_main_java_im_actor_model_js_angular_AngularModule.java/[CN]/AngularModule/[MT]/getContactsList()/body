@@ -1,6 +1,0 @@
-{
-  if (contactsList == null) {
-    contactsList=new AngularList<JsContact,Contact>((JsListEngine<Contact>)modules().getContactsModule().getContacts(),false,JsContact.CONVERTER,messenger);
-  }
-  return contactsList;
-}

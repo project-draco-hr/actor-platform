@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.peer=peer;
+  this.IN_READ_STATE_PREF="chat_state." + peer + ".in_read";
+  this.OUT_READ_STATE_PREF="chat_state." + peer + ".out_read";
+  this.OUT_RECEIVE_STATE_PREF="chat_state." + peer + ".out_receive";
+}

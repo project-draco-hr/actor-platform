@@ -1,0 +1,3 @@
+ListEngine<T> listEngine
+boolean isSharedInstance
+String clazz

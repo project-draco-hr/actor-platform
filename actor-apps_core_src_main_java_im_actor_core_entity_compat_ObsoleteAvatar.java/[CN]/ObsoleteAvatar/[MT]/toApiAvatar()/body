@@ -1,0 +1,15 @@
+{
+  ApiAvatarImage smallImage=null;
+  ApiAvatarImage largeImage=null;
+  ApiAvatarImage fullImage=null;
+  if (this.smallImage != null) {
+    smallImage=this.smallImage.toApiAvatarImage();
+  }
+  if (this.largeImage != null) {
+    largeImage=this.largeImage.toApiAvatarImage();
+  }
+  if (this.fullImage != null) {
+    fullImage=this.fullImage.toApiAvatarImage();
+  }
+  return new ApiAvatar(smallImage,largeImage,fullImage);
+}

@@ -1,5 +1,5 @@
 {
-  View res=inflate(inflater,container,layoutId,messenger().buildContactDisplayList());
+  View res=inflate(inflater,container,layoutId,messenger().buildContactsDisplayList());
   emptyView=res.findViewById(R.id.emptyCollection);
   View headerPadding=new View(getActivity());
   headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_main));

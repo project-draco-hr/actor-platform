@@ -1,0 +1,30 @@
+{
+  return new Command<AuthState>(){
+    @Override public void start(    final CommandCallback<AuthState> callback){
+      request(new RequestStartPhoneAuth(phone,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle()),new RpcCallback<ResponseStartPhoneAuth>(){
+        @Override public void onResult(        ResponseStartPhoneAuth response){
+          modules.getPreferences().putLong(KEY_PHONE,phone);
+          modules.getPreferences().putString(KEY_TRANSACTION_HASH,response.getTransactionHash());
+          state=AuthState.CODE_VALIDATION_PHONE;
+          im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+            @Override public void run(){
+              callback.onResult(state);
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+              e.printStackTrace();
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

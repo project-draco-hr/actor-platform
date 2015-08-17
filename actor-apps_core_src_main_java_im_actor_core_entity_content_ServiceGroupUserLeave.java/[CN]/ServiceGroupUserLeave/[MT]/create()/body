@@ -1,0 +1,3 @@
+{
+  return new ServiceGroupUserLeave(new ContentRemoteContainer(new ApiServiceMessage("User leave",new ApiServiceExUserLeft())));
+}

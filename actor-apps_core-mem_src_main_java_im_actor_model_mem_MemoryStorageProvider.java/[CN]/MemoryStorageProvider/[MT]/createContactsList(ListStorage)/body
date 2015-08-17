@@ -1,3 +1,0 @@
-{
-  return new MemoryListEngine<Contact>((MemoryListStorage)storage,Contact.CREATOR);
-}

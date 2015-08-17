@@ -1,0 +1,11 @@
+{
+  if (ActorTime.currentTime() - lastTypingTime < TYPING_DELAY) {
+    return;
+  }
+  lastTypingTime=ActorTime.currentTime();
+  ApiOutPeer outPeer=buidOutPeer(peer);
+  if (outPeer == null) {
+    return;
+  }
+  request(new RequestTyping(outPeer,ApiTypingType.TEXT));
+}

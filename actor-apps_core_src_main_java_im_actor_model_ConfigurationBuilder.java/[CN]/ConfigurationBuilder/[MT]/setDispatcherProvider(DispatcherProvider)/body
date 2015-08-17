@@ -1,4 +1,0 @@
-{
-  this.dispatcherProvider=dispatcherProvider;
-  return this;
-}

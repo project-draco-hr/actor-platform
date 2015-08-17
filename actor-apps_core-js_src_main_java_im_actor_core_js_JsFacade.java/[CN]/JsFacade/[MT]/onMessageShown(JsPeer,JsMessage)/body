@@ -1,0 +1,5 @@
+{
+  if (message.isOnServer()) {
+    messenger.onMessageShown(peer.convert(),Long.parseLong(message.getSortKey()));
+  }
+}

@@ -1,7 +1,0 @@
-{
-  super(contentContainer);
-  DocumentExVideo video=(DocumentExVideo)((DocumentMessage)contentContainer.getMessage()).getExt();
-  w=video.getW();
-  h=video.getH();
-  duration=video.getDuration();
-}

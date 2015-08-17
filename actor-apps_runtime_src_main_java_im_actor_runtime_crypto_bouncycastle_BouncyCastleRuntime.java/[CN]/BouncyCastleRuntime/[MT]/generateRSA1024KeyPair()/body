@@ -1,0 +1,11 @@
+{
+  RSAKeyPairGenerator generator=new RSAKeyPairGenerator();
+  generator.init(new RSAKeyGenerationParameters(RSA_EXPONENT,RuntimeRandomProvider.INSTANCE,RSA_1024_STREIGHT,RSA_CERTAINITY));
+  Log.d("RSA","Starting key generation...");
+  AsymmetricCipherKeyPair res=generator.generateKeyPair();
+  RSAKeyParameters rsaPublicKey=(RSAKeyParameters)res.getPublic();
+  byte[] publicKey=new X509RsaPublicKey(rsaPublicKey.getModulus(),rsaPublicKey.getExponent()).serialize();
+  RSAPrivateCrtKeyParameters parameter=(RSAPrivateCrtKeyParameters)res.getPrivate();
+  byte[] privateKey=new PKS8RsaPrivateKey(parameter.getModulus(),parameter.getExponent()).serialize();
+  return new CryptoKeyPair(publicKey,privateKey);
+}

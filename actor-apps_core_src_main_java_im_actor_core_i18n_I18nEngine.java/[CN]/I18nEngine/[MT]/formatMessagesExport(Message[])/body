@@ -1,0 +1,33 @@
+{
+  String text="";
+  Arrays.sort(messages,new Comparator<Message>(){
+    int compare(    long lhs,    long rhs){
+      return lhs < rhs ? -1 : (lhs == rhs ? 0 : 1);
+    }
+    @Override public int compare(    Message lhs,    Message rhs){
+      return compare(lhs.getEngineSort(),rhs.getEngineSort());
+    }
+  }
+);
+  if (messages.length == 1) {
+    for (    Message model : messages) {
+      if (!(model.getContent() instanceof TextContent)) {
+        continue;
+      }
+      text+=((TextContent)model.getContent()).getText();
+    }
+  }
+ else {
+    for (    Message model : messages) {
+      if (!(model.getContent() instanceof TextContent)) {
+        continue;
+      }
+      if (text.length() > 0) {
+        text+="\n";
+      }
+      text+=getUser(model.getSenderId()).getName() + ": ";
+      text+=((TextContent)model.getContent()).getText();
+    }
+  }
+  return text;
+}

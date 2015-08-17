@@ -1,4 +1,0 @@
-{
-  this.user=values.getObj(2,new User());
-  this.config=values.getObj(3,new Config());
-}

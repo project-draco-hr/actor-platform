@@ -1,0 +1,3 @@
+{
+  sender.send(new PusherActor.ForgetMessage(mtId));
+}

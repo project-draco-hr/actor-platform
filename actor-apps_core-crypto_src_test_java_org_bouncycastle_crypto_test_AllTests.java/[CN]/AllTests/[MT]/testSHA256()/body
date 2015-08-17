@@ -1,3 +1,0 @@
-{
-  new SHA256DigestTest().performTest();
-}

@@ -1,0 +1,10 @@
+{
+  ArrayList<String> res=new ArrayList<String>();
+  int index;
+  while ((index=s.indexOf("\n")) >= 0) {
+    res.add(s.substring(0,index));
+    s=s.substring(index + 1);
+  }
+  res.add(s);
+  return res.toArray(new String[res.size()]);
+}

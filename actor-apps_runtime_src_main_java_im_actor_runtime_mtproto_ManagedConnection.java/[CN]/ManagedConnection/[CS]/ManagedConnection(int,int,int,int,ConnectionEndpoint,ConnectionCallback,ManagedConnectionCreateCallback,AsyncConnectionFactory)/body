@@ -1,0 +1,15 @@
+{
+  this.TAG="Connection#" + connectionId;
+  this.connectionId=connectionId;
+  this.mtprotoVersion=mtprotoVersion;
+  this.apiMajorVersion=apiMajorVersion;
+  this.apiMinorVersion=apiMinorVersion;
+  this.callback=callback;
+  this.factoryCallback=factoryCallback;
+  this.rawConnection=connectionFactory.createConnection(connectionId,endpoint,connectionInterface);
+  handshakeTimeout=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
+  pingTask=im.actor.runtime.Runtime.createTimer(new PingRunnable());
+  connectionTimeout=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
+  connectionTimeout.schedule(CONNECTION_TIMEOUT);
+  this.rawConnection.doConnect();
+}

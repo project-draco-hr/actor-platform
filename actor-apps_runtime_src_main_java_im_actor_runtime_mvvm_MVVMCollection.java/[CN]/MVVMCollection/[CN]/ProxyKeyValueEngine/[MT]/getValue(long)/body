@@ -1,0 +1,18 @@
+{
+  if (cache.containsKey(id)) {
+    return cache.get(id);
+  }
+  byte[] data=collectionStorage.getValue(id);
+  if (data != null) {
+    try {
+      T res=bserCreator.createInstance();
+      res.parse(new BserValues(BserParser.deserialize(new DataInput(data))));
+      cache.put(res.getEngineId(),res);
+      return res;
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  return null;
+}

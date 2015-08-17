@@ -1,7 +1,0 @@
-{
-  if (!isDialogsLoaded) {
-    isDialogsLoaded=true;
-    modules.getPreferences().putBool("app.dialogs.loaded",true);
-    updateLoaded();
-  }
-}

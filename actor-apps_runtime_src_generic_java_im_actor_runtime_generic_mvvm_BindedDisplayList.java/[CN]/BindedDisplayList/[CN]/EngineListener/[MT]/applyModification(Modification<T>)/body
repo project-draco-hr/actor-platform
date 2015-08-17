@@ -1,0 +1,14 @@
+{
+  im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+    @Override public void run(){
+      if (window.isInited()) {
+        if (linearLayoutCallback != null)         linearLayoutCallback.setStackFromEnd(false);
+        editList(modification);
+      }
+ else {
+        pendingModifications.add(modification);
+      }
+    }
+  }
+);
+}

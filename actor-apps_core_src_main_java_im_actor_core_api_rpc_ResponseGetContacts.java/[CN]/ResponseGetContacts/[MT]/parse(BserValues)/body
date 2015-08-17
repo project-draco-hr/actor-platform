@@ -1,0 +1,8 @@
+{
+  List<ApiUser> _users=new ArrayList<ApiUser>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _users.add(new ApiUser());
+  }
+  this.users=values.getRepeatedObj(1,_users);
+  this.isNotChanged=values.getBool(2);
+}

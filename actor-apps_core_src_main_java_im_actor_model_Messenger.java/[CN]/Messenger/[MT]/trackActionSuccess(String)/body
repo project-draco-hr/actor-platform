@@ -1,3 +1,0 @@
-{
-  modules.getAnalytics().trackActionSuccess(action);
-}

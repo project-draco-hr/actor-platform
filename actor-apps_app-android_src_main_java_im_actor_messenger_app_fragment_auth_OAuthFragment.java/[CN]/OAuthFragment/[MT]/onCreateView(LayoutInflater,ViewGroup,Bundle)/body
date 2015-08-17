@@ -1,7 +1,7 @@
 {
   wv=new WebView(getActivity());
   wv.getSettings().setJavaScriptEnabled(true);
-  wv.loadUrl(messenger().getPreferences().getString(Auth.KEY_OAUTH_REDIRECT_URL));
+  wv.loadUrl(messenger().getAuthEmail());
   wv.setWebViewClient(new WebViewClient(){
     @Override public boolean shouldOverrideUrlLoading(    WebView view,    String url){
       view.loadUrl(url);

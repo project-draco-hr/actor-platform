@@ -1,7 +1,0 @@
-{
-  MVVMEngine.checkMainThread();
-  if (!chatsGlobalLists.containsKey(peer)) {
-    chatsGlobalLists.put(peer,buildNewChatList(peer,true));
-  }
-  return chatsGlobalLists.get(peer);
-}

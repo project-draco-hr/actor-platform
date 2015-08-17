@@ -1,0 +1,3 @@
+{
+  messenger.sendPhoto(peer.convert(),file);
+}

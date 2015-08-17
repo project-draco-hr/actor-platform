@@ -1,0 +1,12 @@
+{
+  if (isDialogsEmpty.get() != isEmpty) {
+    context.getPreferences().putBool("app.dialogs.empty",isEmpty);
+    isDialogsEmpty.change(isEmpty);
+  }
+  if (!isEmpty) {
+    if (isAppEmpty.get()) {
+      context.getPreferences().putBool("app.empty",false);
+      isAppEmpty.change(false);
+    }
+  }
+}

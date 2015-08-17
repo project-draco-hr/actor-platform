@@ -1,0 +1,6 @@
+{
+  if (callback == null) {
+    return;
+  }
+  messenger.getJsUser(uid).subscribe(callback);
+}

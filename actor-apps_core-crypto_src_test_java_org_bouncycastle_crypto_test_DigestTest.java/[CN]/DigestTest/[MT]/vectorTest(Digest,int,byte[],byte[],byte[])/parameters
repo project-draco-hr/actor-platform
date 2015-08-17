@@ -1,5 +1,0 @@
-Digest digest
-int count
-byte[] resBuf
-byte[] input
-byte[] expected

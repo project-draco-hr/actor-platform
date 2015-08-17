@@ -1,0 +1,9 @@
+{
+  this.uid=uid;
+  this.avatar=avatar;
+  this.mentionString=mentionString;
+  this.originalString=originalString;
+  this.isNickname=isNickname;
+  this.mentionMatches=mentionMatches;
+  this.originalMatches=originalMatches;
+}

@@ -1,0 +1,15 @@
+{
+  if (isClosed) {
+    return;
+  }
+  final long pingId=RANDOM.nextLong();
+  DataOutput dataOutput=new DataOutput();
+  dataOutput.writeInt(8);
+synchronized (RANDOM) {
+    dataOutput.writeLong(pingId);
+  }
+  AbsTimerCompat pingTimeoutTask=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
+  schedulledPings.put(pingId,pingTimeoutTask);
+  pingTimeoutTask.schedule(RESPONSE_TIMEOUT);
+  rawPost(HEADER_PING,dataOutput.toByteArray());
+}

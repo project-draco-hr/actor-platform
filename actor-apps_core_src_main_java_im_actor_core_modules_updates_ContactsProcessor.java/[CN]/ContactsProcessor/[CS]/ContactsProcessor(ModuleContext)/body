@@ -1,0 +1,4 @@
+{
+  super(context);
+  contactsSyncActor=context().getContactsModule().getContactSyncActor();
+}

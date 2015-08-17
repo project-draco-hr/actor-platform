@@ -1,0 +1,7 @@
+{
+  String text="Andrew Smith";
+  List<StringMatch> res=StringMatcher.findMatches(text,"An");
+  assertEquals(1,res.size());
+  assertEquals(0,res.get(0).getStart());
+  assertEquals(2,res.get(0).getLength());
+}

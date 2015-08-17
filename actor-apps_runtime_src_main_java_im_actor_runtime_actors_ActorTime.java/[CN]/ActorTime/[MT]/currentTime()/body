@@ -1,0 +1,3 @@
+{
+  return im.actor.runtime.Runtime.getActorTime();
+}

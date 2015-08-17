@@ -1,0 +1,25 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  this.title=values.getString(3);
+  this.avatar=values.optObj(4,new ApiAvatar());
+  this.isMember=values.getBool(6);
+  this.creatorUid=values.getInt(8);
+  List<ApiMember> _members=new ArrayList<ApiMember>();
+  for (int i=0; i < values.getRepeatedCount(9); i++) {
+    _members.add(new ApiMember());
+  }
+  this.members=values.getRepeatedObj(9,_members);
+  this.createDate=values.getLong(10);
+  this.disableEdit=values.optBool(11);
+  this.disableInviteView=values.optBool(12);
+  this.disableInviteRevoke=values.optBool(13);
+  this.disableIntegrationView=values.optBool(14);
+  this.disableIntegrationsRevoke=values.optBool(15);
+  this.isAdmin=values.optBool(16);
+  this.theme=values.optString(17);
+  this.about=values.optString(18);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

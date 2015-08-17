@@ -1,0 +1,20 @@
+{
+  if (!users.containsKey(uid)) {
+    final UserVM userVM=context().getUsersModule().getUsers().get(uid);
+    final JsBindedValue<JsUser> value=new JsBindedValue<JsUser>(JsUser.fromUserVM(userVM,messenger));
+    userVM.subscribe(new ModelChangedListener<UserVM>(){
+      @Override public void onChanged(      UserVM model){
+        value.changeValue(JsUser.fromUserVM(userVM,messenger));
+      }
+    }
+,false);
+    userVM.getPresence().subscribe(new ValueChangedListener<UserPresence>(){
+      @Override public void onChanged(      UserPresence val,      ValueModel<UserPresence> valueModel){
+        value.changeValue(JsUser.fromUserVM(userVM,messenger));
+      }
+    }
+,false);
+    users.put(uid,value);
+  }
+  return users.get(uid);
+}

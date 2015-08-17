@@ -1,0 +1,4 @@
+int id
+String title
+boolean isSelected
+List<ApiInterest> childInterests

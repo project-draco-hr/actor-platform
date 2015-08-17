@@ -1,0 +1,32 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  if (mode != null && mode == ListMode.FORWARD) {
+    return;
+  }
+  mode=ListMode.FORWARD;
+  query=null;
+  if (refresh) {
+    editList((Modification)Modifications.clear());
+  }
+  stateModel.change(State.LOADING_EMPTY);
+  currentGeneration++;
+  window.startInitForward();
+  pendingModifications.clear();
+  listEngine.loadForward(pageSize,cover(new ListEngineDisplayLoadCallback<T>(){
+    @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
+      im.actor.runtime.Runtime.checkMainThread();
+      window.completeInitForward(bottomSortKey);
+      if (items.size() != 0) {
+        editList(Modifications.replace(items),true);
+      }
+ else {
+        window.onForwardCompleted();
+      }
+      for (      Modification<T> m : pendingModifications) {
+        editList(m);
+      }
+      pendingModifications.clear();
+    }
+  }
+,currentGeneration));
+}

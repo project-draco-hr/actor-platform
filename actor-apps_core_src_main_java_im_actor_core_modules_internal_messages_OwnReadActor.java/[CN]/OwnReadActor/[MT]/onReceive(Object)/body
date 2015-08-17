@@ -1,0 +1,21 @@
+{
+  if (message instanceof MessageRead) {
+    MessageRead messageRead=(MessageRead)message;
+    onMessageRead(messageRead.getPeer(),messageRead.getSortingDate());
+  }
+ else   if (message instanceof MessageReadByMe) {
+    MessageReadByMe readByMe=(MessageReadByMe)message;
+    onMessageReadByMe(readByMe.getPeer(),readByMe.getSortDate());
+  }
+ else   if (message instanceof InMessage) {
+    InMessage inMessage=(InMessage)message;
+    onInMessage(inMessage.getPeer(),inMessage.getMessage());
+  }
+ else   if (message instanceof OutMessage) {
+    OutMessage outMessage=(OutMessage)message;
+    onOutMessage(outMessage.getPeer(),outMessage.getSortDate());
+  }
+ else {
+    drop(message);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  return new ListEngineDisplayLoadCallback<T>(){
+    @Override public void onLoaded(    final List<T> items,    final long topSortKey,    final long bottomSortKey){
+      im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+        @Override public void run(){
+          if (generation != currentGeneration) {
+            return;
+          }
+          callback.onLoaded(items,topSortKey,bottomSortKey);
+        }
+      }
+);
+    }
+  }
+;
+}

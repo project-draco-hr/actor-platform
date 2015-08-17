@@ -1,3 +1,0 @@
-{
-  return new ServiceUserRegistered(new ContentRemoteContainer(new ServiceMessage("Contact registered",new ServiceExContactRegistered())));
-}

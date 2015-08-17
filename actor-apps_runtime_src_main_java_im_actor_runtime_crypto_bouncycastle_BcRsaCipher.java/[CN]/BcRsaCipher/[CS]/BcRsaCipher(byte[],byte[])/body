@@ -1,0 +1,12 @@
+{
+  super(publicKey);
+  try {
+    PKS8RsaPrivateKey pks8RsaPrivateKey=new PKS8RsaPrivateKey(privateKey);
+    AsymmetricKeyParameter keyParameter=new RSAKeyParameters(true,pks8RsaPrivateKey.getModulus(),pks8RsaPrivateKey.getExponent());
+    cipher=new OAEPEncoding(new RSAEngine(),new SHA1Digest());
+    cipher.init(false,new ParametersWithRandom(keyParameter,RuntimeRandomProvider.INSTANCE));
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

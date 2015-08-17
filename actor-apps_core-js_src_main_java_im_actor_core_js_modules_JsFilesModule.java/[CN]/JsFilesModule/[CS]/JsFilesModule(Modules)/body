@@ -1,0 +1,18 @@
+{
+  super(modules);
+  keyValueStorage=new BaseKeyValueEngine<CachedFileUrl>(Storage.createKeyValue("file_url_cache")){
+    @Override protected byte[] serialize(    CachedFileUrl value){
+      return value.toByteArray();
+    }
+    @Override protected CachedFileUrl deserialize(    byte[] data){
+      try {
+        return CachedFileUrl.fromBytes(data);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        return null;
+      }
+    }
+  }
+;
+}

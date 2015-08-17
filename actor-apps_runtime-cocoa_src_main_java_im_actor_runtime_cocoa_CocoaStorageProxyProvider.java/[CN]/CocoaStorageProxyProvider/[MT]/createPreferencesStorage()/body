@@ -1,0 +1,6 @@
+{
+  if (storageRuntime == null) {
+    throw new RuntimeException("Storage Runtime not set");
+  }
+  return storageRuntime.createPreferencesStorage();
+}

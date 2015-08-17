@@ -1,0 +1,12 @@
+{
+  name=name.replace('.','_');
+  Log.d("AssetsRuntime","loadAsset: " + name);
+  for (  ClientBundleWithLookup b : bundles) {
+    ResourcePrototype res=b.getResource(name);
+    if (res != null) {
+      Log.d("AssetsRuntime","loadAsset " + res);
+      return ((TextResource)res).getText();
+    }
+  }
+  return null;
+}

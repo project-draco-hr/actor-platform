@@ -1,0 +1,3 @@
+{
+  return (BindedDisplayList<Dialog>)modules.getDisplayListsModule().getDialogsSharedList();
+}

@@ -1,4 +1,0 @@
-{
-  super.performTest();
-  millionATest(million_a_digest);
-}

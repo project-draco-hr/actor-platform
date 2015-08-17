@@ -1,3 +1,0 @@
-{
-  return formatDate(date / 1000);
-}

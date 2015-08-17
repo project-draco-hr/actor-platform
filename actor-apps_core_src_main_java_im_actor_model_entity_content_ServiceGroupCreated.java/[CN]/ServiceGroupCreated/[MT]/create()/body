@@ -1,3 +1,0 @@
-{
-  return new ServiceGroupCreated(new ContentRemoteContainer(new ServiceMessage("Group created",new ServiceExGroupCreated())));
-}

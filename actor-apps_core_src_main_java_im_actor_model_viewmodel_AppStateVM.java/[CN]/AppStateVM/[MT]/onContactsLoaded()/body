@@ -1,7 +1,0 @@
-{
-  if (!isContactsLoaded) {
-    isContactsLoaded=true;
-    modules.getPreferences().putBool("app.contacts.loaded",true);
-    updateLoaded();
-  }
-}

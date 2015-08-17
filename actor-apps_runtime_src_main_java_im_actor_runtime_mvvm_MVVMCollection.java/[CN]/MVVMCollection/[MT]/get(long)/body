@@ -1,0 +1,12 @@
+{
+  if (values.get(id) == null) {
+    T res=proxyKeyValueEngine.getValue(id);
+    if (res != null) {
+      values.put(id,creator.create(res));
+    }
+ else {
+      throw new RuntimeException("Unable to find object #" + id);
+    }
+  }
+  return values.get(id);
+}

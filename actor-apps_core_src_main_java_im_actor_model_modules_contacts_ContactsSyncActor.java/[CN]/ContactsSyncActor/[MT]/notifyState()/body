@@ -1,3 +1,0 @@
-{
-  modules().getAppStateModule().onContactsUpdate(modules().getContactsModule().getContacts().isEmpty());
-}

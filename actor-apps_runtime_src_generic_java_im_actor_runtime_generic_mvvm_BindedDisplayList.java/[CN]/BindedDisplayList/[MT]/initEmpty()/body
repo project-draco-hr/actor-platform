@@ -1,0 +1,10 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  pendingModifications.clear();
+  mode=ListMode.FORWARD;
+  query=null;
+  editList((Modification)Modifications.clear());
+  stateModel.change(State.LOADING_EMPTY);
+  currentGeneration++;
+  window.emptyInit();
+}

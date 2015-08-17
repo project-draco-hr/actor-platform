@@ -1,0 +1,3 @@
+{
+  messenger.loadMoreHistory(peer.convert());
+}

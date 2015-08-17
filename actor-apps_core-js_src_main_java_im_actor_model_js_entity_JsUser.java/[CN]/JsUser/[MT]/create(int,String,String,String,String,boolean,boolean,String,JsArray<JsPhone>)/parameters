@@ -1,9 +1,0 @@
-int id
-String name
-String avatar
-String bigAvatar
-String placeholder
-boolean isContact
-boolean isBot
-String presence
-JsArray<JsPhone> phones

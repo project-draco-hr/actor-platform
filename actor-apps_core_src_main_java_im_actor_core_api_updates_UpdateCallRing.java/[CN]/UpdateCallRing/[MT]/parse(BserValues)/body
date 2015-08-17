@@ -1,0 +1,4 @@
+{
+  this.user=values.getObj(1,new ApiUser());
+  this.callId=values.getString(2);
+}

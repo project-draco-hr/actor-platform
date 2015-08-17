@@ -1,0 +1,7 @@
+{
+  if (rid != currentChangeTask) {
+    return;
+  }
+  currentChangeTask=0;
+  context().getProfileModule().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
+}

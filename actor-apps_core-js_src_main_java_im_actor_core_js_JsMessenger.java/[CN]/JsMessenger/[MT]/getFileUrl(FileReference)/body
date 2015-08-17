@@ -1,0 +1,3 @@
+{
+  return filesModule.getFileUrl(fileReference.getFileId(),fileReference.getAccessHash());
+}

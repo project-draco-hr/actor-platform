@@ -1,0 +1,3 @@
+{
+  return messenger.getTyping(peer.convert()).get();
+}

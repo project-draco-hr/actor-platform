@@ -1,0 +1,12 @@
+{
+  List<ApiHistoryMessage> _history=new ArrayList<ApiHistoryMessage>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _history.add(new ApiHistoryMessage());
+  }
+  this.history=values.getRepeatedObj(1,_history);
+  List<ApiUser> _users=new ArrayList<ApiUser>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _users.add(new ApiUser());
+  }
+  this.users=values.getRepeatedObj(2,_users);
+}

@@ -1,0 +1,7 @@
+{
+  List<ApiInterest> _rootInterests=new ArrayList<ApiInterest>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _rootInterests.add(new ApiInterest());
+  }
+  this.rootInterests=values.getRepeatedObj(1,_rootInterests);
+}

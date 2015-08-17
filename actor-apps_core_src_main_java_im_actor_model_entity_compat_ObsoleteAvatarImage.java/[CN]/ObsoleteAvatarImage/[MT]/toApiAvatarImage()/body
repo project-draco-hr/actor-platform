@@ -1,3 +1,0 @@
-{
-  return new AvatarImage(new FileLocation(fileReference.getFileId(),fileReference.getAccessHash()),width,height,fileReference.getFileSize());
-}

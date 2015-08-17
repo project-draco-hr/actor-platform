@@ -1,0 +1,4 @@
+{
+  globalCounter.change(value);
+  context.getPreferences().putInt("app.counter",value);
+}

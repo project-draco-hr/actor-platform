@@ -1,0 +1,3 @@
+{
+  logRuntime.v(tag,message);
+}

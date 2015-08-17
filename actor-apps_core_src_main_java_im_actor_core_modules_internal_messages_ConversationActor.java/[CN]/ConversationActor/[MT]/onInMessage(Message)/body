@@ -1,0 +1,30 @@
+{
+  if (message.getSenderId() == myUid()) {
+    if (message.isOnServer()) {
+      if (message.getSortDate() <= outReadState) {
+        message=message.changeState(MessageState.READ);
+      }
+ else       if (message.getSortDate() <= outReceiveState) {
+        message=message.changeState(MessageState.RECEIVED);
+      }
+ else {
+        message=message.changeState(MessageState.SENT);
+      }
+    }
+  }
+  messages.addOrUpdateItem(message);
+  Log.d("ConversationActor","isOnServer: " + message.isOnServer());
+  if (message.isOnServer()) {
+    if (message.getSenderId() == myUid()) {
+      if (message.isOnServer() && message.getMessageState() != MessageState.READ) {
+        outPendingIndex.put(message.getRid(),message.getDate());
+      }
+    }
+ else {
+      if (message.getSortDate() > inReadState) {
+        inPendingIndex.put(message.getRid(),message.getDate());
+      }
+    }
+    dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (dialogsList == null) {
+    dialogsList=(JsDisplayList<JsDialog,Dialog>)context().getDisplayListsModule().getDialogsSharedList();
+  }
+  return dialogsList;
+}

@@ -1,0 +1,3 @@
+{
+  logRuntime.e(tag,throwable);
+}

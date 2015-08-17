@@ -1,0 +1,6 @@
+{
+  super(remoteContainer);
+  text=((ApiTextMessage)remoteContainer.getMessage()).getText();
+  mentions=(ArrayList<Integer>)((ApiTextMessage)remoteContainer.getMessage()).getMentions();
+  textMessageEx=((ApiTextMessage)remoteContainer.getMessage()).getExt();
+}

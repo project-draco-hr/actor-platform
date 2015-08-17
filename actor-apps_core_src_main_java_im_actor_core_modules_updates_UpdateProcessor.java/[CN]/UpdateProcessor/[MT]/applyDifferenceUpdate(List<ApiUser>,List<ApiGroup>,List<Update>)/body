@@ -1,0 +1,9 @@
+{
+  applyRelated(users,groups,false);
+  context().getNotificationsModule().pauseNotifications();
+  for (int i=0; i < updates.size(); i++) {
+    processUpdate(updates.get(i));
+  }
+  context().getNotificationsModule().resumeNotifications();
+  applyRelated(users,groups,true);
+}

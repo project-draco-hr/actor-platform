@@ -1,0 +1,8 @@
+{
+  this.smallImage=values.optObj(1,new ApiAvatarImage());
+  this.largeImage=values.optObj(2,new ApiAvatarImage());
+  this.fullImage=values.optObj(3,new ApiAvatarImage());
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

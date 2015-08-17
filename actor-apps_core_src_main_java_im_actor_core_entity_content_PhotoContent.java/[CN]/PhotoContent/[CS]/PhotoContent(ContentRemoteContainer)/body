@@ -1,0 +1,9 @@
+{
+  super(contentRemoteContainer);
+  ApiDocumentMessage message=(ApiDocumentMessage)contentRemoteContainer.getMessage();
+  ApiDocumentExPhoto photo=(ApiDocumentExPhoto)message.getExt();
+  if (photo != null) {
+    w=photo.getW();
+    h=photo.getH();
+  }
+}

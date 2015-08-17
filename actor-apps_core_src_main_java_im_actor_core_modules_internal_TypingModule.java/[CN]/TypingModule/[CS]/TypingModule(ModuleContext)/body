@@ -1,0 +1,5 @@
+{
+  super(context);
+  this.ownTypingActor=OwnTypingActor.get(context);
+  this.typingActor=TypingActor.get(context);
+}

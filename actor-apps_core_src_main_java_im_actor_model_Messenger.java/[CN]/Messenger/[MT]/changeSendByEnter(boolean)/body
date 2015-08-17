@@ -1,3 +1,0 @@
-{
-  modules.getSettings().changeSendByEnter(val);
-}

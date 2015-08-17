@@ -3,7 +3,7 @@
     return;
   }
   isSearchVisible=true;
-  searchDisplay=messenger().buildSearchList();
+  searchDisplay=messenger().buildSearchDisplayList();
   searchAdapter=new SearchAdapter(getActivity(),searchDisplay,new OnItemClickedListener<SearchEntity>(){
     @Override public void onClicked(    SearchEntity item){
       startActivity(Intents.openDialog(item.getPeer(),false,getActivity()));

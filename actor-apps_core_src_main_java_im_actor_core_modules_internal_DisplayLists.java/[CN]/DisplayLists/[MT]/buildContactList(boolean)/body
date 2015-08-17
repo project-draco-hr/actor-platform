@@ -1,0 +1,6 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  PlatformDisplayList<Contact> res=Storage.createDisplayList(context().getContactsModule().getContacts(),isShared,Contact.ENTITY_NAME);
+  res.initTop();
+  return res;
+}

@@ -1,0 +1,3 @@
+boolean isLoginRequired
+ArrayList<Integer> updates
+ModuleCreator<T> creator

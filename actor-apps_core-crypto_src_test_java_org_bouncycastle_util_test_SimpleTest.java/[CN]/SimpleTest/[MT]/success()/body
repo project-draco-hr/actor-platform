@@ -1,3 +1,0 @@
-{
-  return SimpleTestResult.successful(this,"Okay");
-}

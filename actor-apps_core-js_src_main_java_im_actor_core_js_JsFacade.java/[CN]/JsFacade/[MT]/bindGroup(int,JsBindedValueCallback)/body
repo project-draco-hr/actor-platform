@@ -1,0 +1,6 @@
+{
+  if (callback == null) {
+    return;
+  }
+  messenger.getJsGroup(gid).subscribe(callback);
+}

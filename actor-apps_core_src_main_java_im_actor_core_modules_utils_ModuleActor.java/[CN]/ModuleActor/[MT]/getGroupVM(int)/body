@@ -1,0 +1,3 @@
+{
+  return context.getGroupsModule().getGroupsCollection().get(gid);
+}

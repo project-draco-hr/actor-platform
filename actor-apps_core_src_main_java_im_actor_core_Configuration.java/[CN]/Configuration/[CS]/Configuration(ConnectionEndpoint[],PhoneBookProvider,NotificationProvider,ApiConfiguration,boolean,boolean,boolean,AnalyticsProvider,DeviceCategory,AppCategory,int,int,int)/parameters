@@ -1,0 +1,13 @@
+ConnectionEndpoint[] endpoints
+PhoneBookProvider phoneBookProvider
+NotificationProvider notificationProvider
+ApiConfiguration apiConfiguration
+boolean enableContactsLogging
+boolean enableNetworkLogging
+boolean enableFilesLogging
+AnalyticsProvider analyticsProvider
+DeviceCategory deviceCategory
+AppCategory appCategory
+int minDelay
+int maxDelay
+int maxFailureCount

@@ -1,0 +1,12 @@
+{
+  List<ApiContactRecord> records=new ArrayList<ApiContactRecord>();
+  for (  ObsoleteContactRecord r : this.records) {
+    if (r.getRecordType() == 0) {
+      if (r.getRecordData().equals("0")) {
+        continue;
+      }
+      records.add(new ApiContactRecord(ApiContactType.PHONE,null,Long.parseLong(r.getRecordData()),r.getRecordTitle(),null));
+    }
+  }
+  return new ApiUser(uid,accessHash,name,localName,sex,avatar != null ? avatar.toApiAvatar() : null,records,false,null,null);
+}

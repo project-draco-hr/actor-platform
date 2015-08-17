@@ -1,0 +1,9 @@
+int id
+ApiAuthHolder authHolder
+int appId
+String appTitle
+String deviceTitle
+int authTime
+String authLocation
+Double latitude
+Double longitude

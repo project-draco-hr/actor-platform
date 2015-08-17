@@ -1,0 +1,30 @@
+{
+  try {
+    messenger.validateCode(code).start(new CommandCallback<AuthState>(){
+      @Override public void onResult(      AuthState res){
+        success.onResult(Enums.convert(res));
+      }
+      @Override public void onError(      Exception e){
+        String tag="INTERNAL_ERROR";
+        String message="Internal error";
+        boolean canTryAgain=false;
+        if (e instanceof RpcException) {
+          tag=((RpcException)e).getTag();
+          message=e.getMessage();
+          canTryAgain=((RpcException)e).isCanTryAgain();
+        }
+        error.onError(tag,message,canTryAgain,getAuthState());
+      }
+    }
+);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+      @Override public void run(){
+        error.onError("PHONE_CODE_INVALID","Invalid code number",false,getAuthState());
+      }
+    }
+);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return new ServiceGroupUserJoined(new ContentRemoteContainer(new ApiServiceMessage("User joined",new ApiServiceExUserJoined())));
+}

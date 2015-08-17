@@ -1,5 +1,0 @@
-{
-  ConfigurationBuilder configurationBuilder=CliConfiguration.create();
-  configurationBuilder.addEndpoint(url);
-  return new Messenger(configurationBuilder.build());
-}

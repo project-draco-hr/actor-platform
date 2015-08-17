@@ -1,0 +1,7 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  if (isGlobalList) {
+    throw new RuntimeException("Global DisplayList can't be disposed");
+  }
+  listEngine.unsubscribe(engineListener);
+}

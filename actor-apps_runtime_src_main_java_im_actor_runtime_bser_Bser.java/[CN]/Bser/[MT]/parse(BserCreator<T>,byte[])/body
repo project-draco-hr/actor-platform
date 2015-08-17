@@ -1,0 +1,3 @@
+{
+  return parse(creator.createInstance(),new DataInput(data,0,data.length));
+}

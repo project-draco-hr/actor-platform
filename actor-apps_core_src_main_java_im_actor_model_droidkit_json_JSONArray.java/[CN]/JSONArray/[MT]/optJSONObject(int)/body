@@ -1,4 +1,0 @@
-{
-  Object o=this.opt(index);
-  return o instanceof im.actor.model.droidkit.json.JSONObject ? (im.actor.model.droidkit.json.JSONObject)o : null;
-}

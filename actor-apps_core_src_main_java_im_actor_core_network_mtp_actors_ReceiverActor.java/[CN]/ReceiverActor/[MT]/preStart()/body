@@ -1,0 +1,3 @@
+{
+  sender=PusherActor.senderActor(proto);
+}

@@ -1,3 +1,0 @@
-{
-  return preferences().getString(KEY_EMAIL);
-}
