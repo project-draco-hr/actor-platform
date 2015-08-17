@@ -3,6 +3,7 @@
   fileSystemProvider=(JsFileSystemProvider)Storage.getFileSystemRuntime();
   filesModule=new JsFilesModule(modules);
   jsBindingModule=new JsBindingModule(this,filesModule,modules);
+  isElectron=JsElectronApp.isElectron();
   if (JsChromePush.isSupported()) {
     Log.d("JsMessenger","ChromePush Supported");
     JsChromePush.subscribe(new PushSubscribeResult(){

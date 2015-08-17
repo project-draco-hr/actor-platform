@@ -64,7 +64,7 @@
       contentMessage+="\n+" + (messagesCount - 4) + " new messages in "+ conversationsCount+ " conversations";
     }
   }
-  if (JsElectronApp.isSupported()) {
+  if (JsElectronApp.isElectron()) {
     JsElectronApp.showNewMessages();
   }
   playSound();
