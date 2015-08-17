@@ -1,0 +1,7 @@
+int uid
+Avatar avatar
+String mentionString
+List<StringMatch> mentionMatches
+String originalString
+List<StringMatch> originalMatches
+boolean isNickname

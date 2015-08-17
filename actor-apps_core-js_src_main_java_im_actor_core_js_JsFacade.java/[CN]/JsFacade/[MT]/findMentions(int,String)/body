@@ -1,0 +1,8 @@
+{
+  List<MentionFilterResult> res=messenger.findMentions(gid,query);
+  JsArray<JsMentionFilterResult> mentions=JsArray.createArray().cast();
+  for (  MentionFilterResult m : res) {
+    mentions.push(JsMentionFilterResult.create(m));
+  }
+  return mentions;
+}

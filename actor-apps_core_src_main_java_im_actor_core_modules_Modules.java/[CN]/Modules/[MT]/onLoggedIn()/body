@@ -26,6 +26,8 @@
   settings=new SettingsModule(this);
   timing.section("Profile");
   profile=new ProfileModule(this);
+  timing.section("Mentions");
+  mentions=new MentionsModule(this);
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");

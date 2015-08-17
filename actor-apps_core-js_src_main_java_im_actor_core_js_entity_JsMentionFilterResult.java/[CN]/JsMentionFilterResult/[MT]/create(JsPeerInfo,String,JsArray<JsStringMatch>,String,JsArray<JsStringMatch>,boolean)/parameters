@@ -1,0 +1,6 @@
+JsPeerInfo peer
+String mentionText
+JsArray<JsStringMatch> mentionMatches
+String secondText
+JsArray<JsStringMatch> secondMatches
+boolean isNick
