@@ -1,4 +1,7 @@
 {
+  if (date <= loadLastReadState(peer)) {
+    return;
+  }
   boolean isPeerEnabled=context().getSettingsModule().isNotificationsEnabled(peer);
   boolean isEnabled=context().getSettingsModule().isNotificationsEnabled() && isPeerEnabled;
   boolean isInAppEnabled=context().getSettingsModule().isInAppEnabled();

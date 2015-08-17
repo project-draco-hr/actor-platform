@@ -1,0 +1,4 @@
+{
+  storage.put(peer.getUnuqueId(),new ReadState(date).toByteArray());
+  readStates.put(peer,date);
+}

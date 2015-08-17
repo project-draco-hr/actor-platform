@@ -1,0 +1,15 @@
+{
+  if (readStates.containsKey(peer)) {
+    return readStates.get(peer);
+  }
+  byte[] data=storage.get(peer.getUnuqueId());
+  if (data != null) {
+    try {
+      return ReadState.fromBytes(data).getSortDate();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  return 0;
+}
