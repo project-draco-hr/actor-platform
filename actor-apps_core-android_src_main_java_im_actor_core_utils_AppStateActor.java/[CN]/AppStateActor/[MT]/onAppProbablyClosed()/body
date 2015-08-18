@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"onAppProbablyClosed");
   if (isAppOpen) {
     self().sendOnce(new MarkAppAsClosed(),CLOSE_TIMEOUT);
   }
