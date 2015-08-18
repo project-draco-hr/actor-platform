@@ -1,0 +1,9 @@
+{
+  ContentValues contentValues=new ContentValues();
+  if (isInsert) {
+    contentValues.put("package",getContextPackageName());
+    contentValues.put("class",getEntryActivityName());
+  }
+  contentValues.put("badgecount",badgeCount);
+  return contentValues;
+}

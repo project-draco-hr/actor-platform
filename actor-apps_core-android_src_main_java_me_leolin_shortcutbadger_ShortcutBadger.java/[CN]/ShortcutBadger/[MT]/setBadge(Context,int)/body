@@ -1,0 +1,8 @@
+{
+  try {
+    getShortcutBadger(context).executeBadge(badgeCount);
+  }
+ catch (  Throwable e) {
+    throw new ShortcutBadgeException("Unable to execute badge:" + e.getMessage());
+  }
+}

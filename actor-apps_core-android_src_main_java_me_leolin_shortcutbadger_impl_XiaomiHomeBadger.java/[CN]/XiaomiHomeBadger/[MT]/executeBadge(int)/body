@@ -1,0 +1,15 @@
+{
+  try {
+    Class miuiNotificationClass=Class.forName("android.app.MiuiNotification");
+    Object miuiNotification=miuiNotificationClass.newInstance();
+    Field field=miuiNotification.getClass().getDeclaredField("messageCount");
+    field.setAccessible(true);
+    field.set(miuiNotification,String.valueOf(badgeCount == 0 ? "" : badgeCount));
+  }
+ catch (  Exception e) {
+    Intent localIntent=new Intent(INTENT_ACTION);
+    localIntent.putExtra(EXTRA_UPDATE_APP_COMPONENT_NAME,getContextPackageName() + "/" + getEntryActivityName());
+    localIntent.putExtra(EXTRA_UPDATE_APP_MSG_TEXT,String.valueOf(badgeCount == 0 ? "" : badgeCount));
+    mContext.sendBroadcast(localIntent);
+  }
+}

@@ -1,0 +1,32 @@
+{
+  if (mShortcutBadger != null) {
+    return mShortcutBadger;
+  }
+  Log.d(LOG_TAG,"Finding badger");
+  try {
+    Intent intent=new Intent(Intent.ACTION_MAIN);
+    intent.addCategory(Intent.CATEGORY_HOME);
+    ResolveInfo resolveInfo=context.getPackageManager().resolveActivity(intent,PackageManager.MATCH_DEFAULT_ONLY);
+    String currentHomePackage=resolveInfo.activityInfo.packageName;
+    if (Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
+      mShortcutBadger=new XiaomiHomeBadger(context);
+      return mShortcutBadger;
+    }
+    for (    Class<? extends ShortcutBadger> badger : BADGERS) {
+      Constructor<? extends ShortcutBadger> constructor=badger.getConstructor(Context.class);
+      ShortcutBadger shortcutBadger=constructor.newInstance(context);
+      if (shortcutBadger.getSupportLaunchers().contains(currentHomePackage)) {
+        mShortcutBadger=shortcutBadger;
+        break;
+      }
+    }
+  }
+ catch (  Exception e) {
+    Log.e(LOG_TAG,e.getMessage(),e);
+  }
+  if (mShortcutBadger == null) {
+    mShortcutBadger=new DefaultBadger(context);
+  }
+  Log.d(LOG_TAG,"Returning badger:" + mShortcutBadger.getClass().getCanonicalName());
+  return mShortcutBadger;
+}

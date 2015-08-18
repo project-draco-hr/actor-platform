@@ -1,0 +1,13 @@
+{
+  try {
+    ContentValues contentValues=new ContentValues();
+    contentValues.put(TAG,getContextPackageName() + "/" + getEntryActivityName());
+    contentValues.put(COUNT,badgeCount);
+    mContext.getContentResolver().insert(Uri.parse(CONTENT_URI),contentValues);
+  }
+ catch (  IllegalArgumentException ex) {
+  }
+catch (  Exception ex) {
+    throw new ShortcutBadgeException(ex.getMessage());
+  }
+}
