@@ -1,0 +1,11 @@
+{
+  Peer peer=EntityConverter.convert(message.getPeer());
+  if (messages.containsKey(peer)) {
+    messages.get(peer).add(message);
+  }
+ else {
+    ArrayList<UpdateMessage> msgs=new ArrayList<UpdateMessage>();
+    msgs.add(message);
+    messages.put(peer,msgs);
+  }
+}

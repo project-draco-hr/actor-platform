@@ -1,0 +1,11 @@
+{
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    return new ApiPeer(ApiPeerType.PRIVATE,peer.getPeerId());
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    return new ApiPeer(ApiPeerType.GROUP,peer.getPeerId());
+  }
+ else {
+    return null;
+  }
+}

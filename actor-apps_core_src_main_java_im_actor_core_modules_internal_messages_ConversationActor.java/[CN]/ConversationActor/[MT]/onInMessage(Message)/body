@@ -13,7 +13,6 @@
     }
   }
   messages.addOrUpdateItem(message);
-  Log.d("ConversationActor","isOnServer: " + message.isOnServer());
   if (message.isOnServer()) {
     if (message.getSenderId() == myUid()) {
       if (message.isOnServer() && message.getMessageState() != MessageState.READ) {

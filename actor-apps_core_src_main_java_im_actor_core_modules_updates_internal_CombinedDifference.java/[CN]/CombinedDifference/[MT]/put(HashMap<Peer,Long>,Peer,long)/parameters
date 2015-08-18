@@ -1,0 +1,3 @@
+HashMap<Peer,Long> map
+Peer peer
+long date
