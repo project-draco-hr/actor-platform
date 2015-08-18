@@ -23,6 +23,15 @@
       }
     }
  else {
+      if (config().getDeviceCategory() == DeviceCategory.DESKTOP || config().getDeviceCategory() == DeviceCategory.TABLET) {
+        if (isEnabled) {
+          if (isEffectsEnabled()) {
+            playEffect();
+          }
+        }
+      }
+ else {
+      }
     }
   }
  else {
