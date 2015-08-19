@@ -12,11 +12,6 @@
         }
       }
  else {
-        if (isDialogsVisible) {
-          if (isEffectsEnabled()) {
-            playEffect();
-          }
-        }
       }
     }
  else {
