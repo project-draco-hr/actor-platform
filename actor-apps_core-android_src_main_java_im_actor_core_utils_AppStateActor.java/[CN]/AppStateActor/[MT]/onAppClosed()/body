@@ -1,3 +1,7 @@
 {
-  messenger.onAppHidden();
+  Log.d(TAG,"onAppClosed");
+  if (isAppOpen) {
+    isAppOpen=false;
+    messenger.onAppHidden();
+  }
 }

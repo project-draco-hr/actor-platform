@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"onActivityOpened");
   activityCount++;
   if (isScreenVisible) {
     onAppProbablyOpened();

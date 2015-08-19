@@ -1,0 +1,13 @@
+{
+  if (tempGlobalCounter == null) {
+    ValueModel<Integer> counter=context().getAppStateModule().getAppStateVM().getGlobalTempCounter();
+    tempGlobalCounter=new JsBindedValue<JsCounter>(JsCounter.create(counter.get()));
+    counter.subscribe(new ValueChangedListener<Integer>(){
+      @Override public void onChanged(      Integer val,      ValueModel<Integer> valueModel){
+        tempGlobalCounter.changeValue(JsCounter.create(val));
+      }
+    }
+,false);
+  }
+  return tempGlobalCounter;
+}

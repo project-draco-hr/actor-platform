@@ -2,6 +2,9 @@
   if (message instanceof Message) {
     onInMessage((Message)message);
   }
+ else   if (message instanceof Messages) {
+    onInMessages(((Messages)message).getMessages());
+  }
  else   if (message instanceof MessageContentUpdated) {
     MessageContentUpdated contentUpdated=(MessageContentUpdated)message;
     onMessageContentUpdated(contentUpdated.getRid(),contentUpdated.getContent());
@@ -31,9 +34,6 @@
   }
  else   if (message instanceof MessagesDeleted) {
     onMessagesDeleted(((MessagesDeleted)message).getRids());
-  }
- else   if (message instanceof MessageDateChange) {
-    onMessageDateChange(((MessageDateChange)message).getRid(),((MessageDateChange)message).getDate());
   }
  else   if (message instanceof MessageReadByMe) {
     onMessageReadByMe(((MessageReadByMe)message).getDate());

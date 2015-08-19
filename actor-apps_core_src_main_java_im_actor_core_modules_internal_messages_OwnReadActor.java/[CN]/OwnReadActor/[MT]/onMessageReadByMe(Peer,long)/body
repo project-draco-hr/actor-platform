@@ -5,4 +5,5 @@
   }
   context().getMessagesModule().getConversationActor(peer).send(new ConversationActor.MessageReadByMe(sortingDate));
   context().getMessagesModule().saveReadState(peer,sortingDate);
+  context().getNotificationsModule().onOwnRead(peer,sortingDate);
 }

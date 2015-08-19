@@ -1,8 +1,9 @@
 {
   isAppVisible=false;
   analytics.trackAppHidden();
-  if (getPresenceModule() != null) {
+  if (authentication.isLoggedIn()) {
     getPresenceModule().onAppHidden();
     getNotificationsModule().onAppHidden();
+    appStateModule.getAppStateVM().onAppHidden();
   }
 }

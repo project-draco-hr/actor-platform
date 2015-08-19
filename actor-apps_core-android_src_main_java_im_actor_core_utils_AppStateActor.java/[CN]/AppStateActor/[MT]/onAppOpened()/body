@@ -1,3 +1,7 @@
 {
-  messenger.onAppVisible();
+  Log.d(TAG,"onAppOpened");
+  if (!isAppOpen) {
+    isAppOpen=true;
+    messenger.onAppVisible();
+  }
 }

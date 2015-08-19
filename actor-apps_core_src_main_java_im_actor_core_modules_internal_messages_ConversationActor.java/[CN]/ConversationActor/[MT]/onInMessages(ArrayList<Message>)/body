@@ -1,0 +1,46 @@
+{
+  Message topMessage=null;
+  ArrayList<Message> updated=new ArrayList<Message>();
+  for (  Message m : inMessages) {
+    if (m.getSenderId() == myUid()) {
+      if (m.isOnServer()) {
+        if (m.getSortDate() <= outReadState) {
+          m=m.changeState(MessageState.READ);
+        }
+ else         if (m.getSortDate() <= outReceiveState) {
+          m=m.changeState(MessageState.RECEIVED);
+        }
+ else {
+          m=m.changeState(MessageState.SENT);
+        }
+      }
+    }
+    if (m.isOnServer()) {
+      if (topMessage == null) {
+        topMessage=m;
+      }
+ else {
+        if (topMessage.getSortDate() < m.getSortDate()) {
+          topMessage=m;
+        }
+      }
+    }
+    updated.add(m);
+  }
+  messages.addOrUpdateItems(updated);
+  for (  Message m : updated) {
+    if (m.getSenderId() == myUid()) {
+      if (m.isOnServer() && m.getMessageState() != MessageState.READ) {
+        outPendingIndex.put(m.getRid(),m.getDate());
+      }
+    }
+ else {
+      if (m.getSortDate() > inReadState) {
+        inPendingIndex.put(m.getRid(),m.getDate());
+      }
+    }
+  }
+  if (topMessage != null) {
+    dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
+  }
+}

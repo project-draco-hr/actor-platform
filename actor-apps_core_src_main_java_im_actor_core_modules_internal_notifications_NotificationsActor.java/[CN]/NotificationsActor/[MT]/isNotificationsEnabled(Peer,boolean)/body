@@ -1,0 +1,17 @@
+{
+  boolean res=context().getSettingsModule().isNotificationsEnabled() && context().getSettingsModule().isNotificationsEnabled(peer);
+  if (!res) {
+    return false;
+  }
+  if (peer.getPeerType() == PeerType.GROUP) {
+    if (context().getSettingsModule().isGroupNotificationsEnabled()) {
+      if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {
+        return hasMention;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return res;
+}

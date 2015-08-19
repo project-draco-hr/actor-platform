@@ -2,8 +2,9 @@
   isAppVisible=true;
   actorApi.forceNetworkCheck();
   analytics.trackAppVisible();
-  if (getPresenceModule() != null) {
+  if (authentication.isLoggedIn()) {
     getPresenceModule().onAppVisible();
     getNotificationsModule().onAppVisible();
+    appStateModule.getAppStateVM().onAppVisible();
   }
 }

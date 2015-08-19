@@ -1,46 +1,42 @@
 {
-  boolean isPeerEnabled=context().getSettingsModule().isNotificationsEnabled(peer);
-  boolean isEnabled=context().getSettingsModule().isNotificationsEnabled() && isPeerEnabled;
-  boolean isInAppEnabled=context().getSettingsModule().isInAppEnabled();
-  boolean isConversationTonesEnabled=context().getSettingsModule().isConversationTonesEnabled();
-  if (peer.getPeerType() == PeerType.GROUP) {
-    if (!context().getSettingsModule().isGroupNotificationsEnabled()) {
-      isEnabled=false;
-    }
- else {
-      if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {
-        isEnabled=hasCurrentUserMention;
-      }
-    }
-  }
-  if (!isEnabled && (!(isInAppEnabled && peer.equals(visiblePeer)))) {
+  if (date <= loadLastReadState(peer)) {
     return;
   }
-  List<PendingNotification> allPending=getNotifications();
-  allPending.add(new PendingNotification(peer,sender,date,description));
-  saveStorage();
+  boolean isEnabled=isNotificationsEnabled(peer,hasCurrentUserMention);
+  if (isEnabled) {
+    List<PendingNotification> allPending=getNotifications();
+    allPending.add(new PendingNotification(peer,sender,date,description));
+    saveStorage();
+  }
   if (isNotificationsPaused) {
     notificationsDuringPause.add(peer);
     return;
   }
-  if (config().getNotificationProvider() != null) {
-    if (isAppVisible) {
-      if (visiblePeer != null && visiblePeer.equals(peer)) {
-        if (isConversationTonesEnabled) {
-          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
-        }
+  if (isAppVisible) {
+    if (visiblePeer != null && visiblePeer.equals(peer)) {
+      if (config().getDeviceCategory() == DeviceCategory.DESKTOP || config().getDeviceCategory() == DeviceCategory.TABLET) {
       }
- else       if (isDialogsVisible) {
-        if (isConversationTonesEnabled) {
-          config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
+ else {
+        if (isEffectsEnabled()) {
+          playEffect();
         }
-      }
- else       if (isInAppEnabled) {
-        performNotification(false);
       }
     }
  else {
-      performNotification(false);
+      if (config().getDeviceCategory() == DeviceCategory.DESKTOP || config().getDeviceCategory() == DeviceCategory.TABLET) {
+        if (isEnabled) {
+          if (isEffectsEnabled()) {
+            playEffect();
+          }
+        }
+      }
+ else {
+      }
+    }
+  }
+ else {
+    if (isEnabled) {
+      showNotification();
     }
   }
 }

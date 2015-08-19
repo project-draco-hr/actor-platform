@@ -1,0 +1,4 @@
+{
+  ComponentName componentName=mContext.getPackageManager().getLaunchIntentForPackage(mContext.getPackageName()).getComponent();
+  return componentName.getClassName();
+}

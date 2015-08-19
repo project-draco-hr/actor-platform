@@ -15,6 +15,12 @@
     OutMessage outMessage=(OutMessage)message;
     onOutMessage(outMessage.getPeer(),outMessage.getSortDate());
   }
+ else   if (message instanceof StartGetDifference) {
+    onDifferenceStart();
+  }
+ else   if (message instanceof StopGetDifference) {
+    onDifferenceEnd();
+  }
  else {
     drop(message);
   }

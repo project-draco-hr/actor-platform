@@ -60,4 +60,10 @@ appStateActor.send(new AppStateActor.OnScreenOn());
  else {
 appStateActor.send(new AppStateActor.OnScreenOff());
 }
+modules.getAppStateModule().getAppStateVM().getGlobalCounter().subscribe(new ValueChangedListener<Integer>(){
+@Override public void onChanged(Integer val,ValueModel<Integer> valueModel){
+ShortcutBadger.with(AndroidContext.getContext()).count(val);
+}
+}
+);
 }

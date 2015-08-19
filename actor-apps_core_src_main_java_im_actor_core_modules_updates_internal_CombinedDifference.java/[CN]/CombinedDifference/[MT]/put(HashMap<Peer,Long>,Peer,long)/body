@@ -1,0 +1,10 @@
+{
+  if (map.containsKey(peer)) {
+    if (map.get(peer) <= date) {
+      map.put(peer,date);
+    }
+  }
+ else {
+    map.put(peer,date);
+  }
+}

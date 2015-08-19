@@ -1,4 +1,7 @@
 {
+  if (fromDate < loadLastReadState(peer)) {
+    return;
+  }
   boolean isChanged=false;
   List<PendingNotification> notifications=pendingStorage.getNotifications();
   for (  PendingNotification p : notifications.toArray(new PendingNotification[notifications.size()])) {
@@ -9,6 +12,7 @@
   }
   if (isChanged) {
     saveStorage();
-    performNotification(true);
+    updateNotification();
   }
+  writeLastReadState(peer,fromDate);
 }
