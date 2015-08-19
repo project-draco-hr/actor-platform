@@ -6,9 +6,6 @@
       break;
     }
     PendingNotification pendingNotification=allPending.get(allPending.size() - 1 - i);
-    if (visiblePeer != null && visiblePeer.equals(pendingNotification.getPeer())) {
-      continue;
-    }
     destNotifications.add(pendingNotification);
   }
   if (destNotifications.size() == 0) {
