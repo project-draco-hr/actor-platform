@@ -7,7 +7,7 @@ boolean enableNetworkLogging
 boolean enableFilesLogging
 AnalyticsProvider analyticsProvider
 DeviceCategory deviceCategory
-AppCategory appCategory
+PlatformType platformType
 int minDelay
 int maxDelay
 int maxFailureCount

@@ -1,4 +1,0 @@
-{
-  this.appCategory=appCategory;
-  return this;
-}
