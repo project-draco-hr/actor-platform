@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"onUserGoesOffline  #" + uid + " at "+ date+ " at "+ updateDate);
+  if (lastUidState.containsKey(uid) && lastUidState.get(uid) >= updateDate) {
+    Log.d(TAG,"onUserGoesOffline:ignored - too old");
+    return;
+  }
+  lastUidState.put(uid,updateDate);
+  Log.d(TAG,"onUserGoesOffline:updated");
+  UserVM vm=getUserVM(uid);
+  if (vm != null) {
+    vm.getPresence().change(new UserPresence(UserPresence.State.OFFLINE,date));
+  }
+  self().sendOnce(new OnlineUserTimeout(uid,0,0),FOREVER);
+}

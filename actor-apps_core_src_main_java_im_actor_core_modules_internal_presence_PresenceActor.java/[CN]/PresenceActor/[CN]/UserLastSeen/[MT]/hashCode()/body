@@ -1,5 +1,0 @@
-{
-  int result=uid;
-  result=31 * result + (int)(date ^ (date >>> 32));
-  return result;
-}

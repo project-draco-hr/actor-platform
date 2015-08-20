@@ -1,11 +1,14 @@
 {
+  Log.d(TAG,"onUserOnline  #" + uid + " at "+ updateDate);
   if (lastUidState.containsKey(uid) && lastUidState.get(uid) >= updateDate) {
+    Log.d(TAG,"onUserOnline:ignored - too old");
     return;
   }
   lastUidState.put(uid,updateDate);
+  Log.d(TAG,"onUserOnline:updated");
   UserVM vm=getUserVM(uid);
   if (vm != null) {
     vm.getPresence().change(new UserPresence(UserPresence.State.ONLINE));
   }
-  self().sendOnce(new UserLastSeen(uid,updateDate + ONLINE_TIMEOUT,updateDate + ONLINE_TIMEOUT),ONLINE_TIMEOUT);
+  self().sendOnce(new OnlineUserTimeout(uid,(int)((updateDate + ONLINE_TIMEOUT) / 1000L),updateDate + ONLINE_TIMEOUT),ONLINE_TIMEOUT);
 }

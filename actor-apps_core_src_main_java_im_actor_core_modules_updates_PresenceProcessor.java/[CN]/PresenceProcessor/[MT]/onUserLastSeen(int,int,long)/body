@@ -1,0 +1,3 @@
+{
+  presenceActor.send(new PresenceActor.UserLastSeen(uid,date,updateDate));
+}
