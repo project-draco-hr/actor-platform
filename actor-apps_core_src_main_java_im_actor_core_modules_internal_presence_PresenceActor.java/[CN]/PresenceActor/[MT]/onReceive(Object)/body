@@ -21,6 +21,10 @@
  else   if (message instanceof SessionCreated) {
     onNewSessionCreated();
   }
+ else   if (message instanceof OnlineUserTimeout) {
+    OnlineUserTimeout timeout=(OnlineUserTimeout)message;
+    onUserGoesOffline(timeout.getUid(),timeout.getDate(),timeout.getUpdateDate());
+  }
  else {
     drop(message);
   }

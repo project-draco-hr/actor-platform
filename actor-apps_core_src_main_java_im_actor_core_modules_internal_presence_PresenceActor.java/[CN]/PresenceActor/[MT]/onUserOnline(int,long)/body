@@ -10,5 +10,5 @@
   if (vm != null) {
     vm.getPresence().change(new UserPresence(UserPresence.State.ONLINE));
   }
-  self().sendOnce(new UserLastSeen(uid,(int)((updateDate + ONLINE_TIMEOUT) / 1000L),updateDate + ONLINE_TIMEOUT),ONLINE_TIMEOUT);
+  self().sendOnce(new OnlineUserTimeout(uid,(int)((updateDate + ONLINE_TIMEOUT) / 1000L),updateDate + ONLINE_TIMEOUT),ONLINE_TIMEOUT);
 }
