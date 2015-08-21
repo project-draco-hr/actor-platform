@@ -42,5 +42,9 @@
   if (displayList.operationMode == OperationMode.IOS || displayList.operationMode == OperationMode.GENERAL) {
     appleChanges=ChangeBuilder.processAppleModifications(modRes,initialList,dest[0].isLoadMore);
   }
-  requestListSwitch(dest,initialList,androidChanges,appleChanges,dest[0].isLoadMore);
+  Object processedList=null;
+  if (displayList.listProcessor != null) {
+    processedList=displayList.listProcessor.process(backgroundList);
+  }
+  requestListSwitch(dest,initialList,androidChanges,appleChanges,dest[0].isLoadMore,processedList);
 }
