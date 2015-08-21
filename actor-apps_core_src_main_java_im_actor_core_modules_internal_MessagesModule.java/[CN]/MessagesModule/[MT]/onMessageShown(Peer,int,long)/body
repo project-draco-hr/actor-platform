@@ -1,6 +1,11 @@
 {
-  if (sender != myUid()) {
-    ownReadActor.send(new OwnReadActor.MessageRead(peer,sortDate));
-    conversationActor(peer).send(new ConversationActor.MessageReadByMe(sortDate));
+  im.actor.runtime.Runtime.dispatch(new Runnable(){
+    @Override public void run(){
+      if (sender != myUid()) {
+        ownReadActor.send(new OwnReadActor.MessageRead(peer,sortDate));
+        conversationActor(peer).send(new ConversationActor.MessageReadByMe(sortDate));
+      }
+    }
   }
+);
 }
