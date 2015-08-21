@@ -1,0 +1,7 @@
+{
+  if (this.message != null) {
+    this.message.actorRef.send(this.message.object);
+    this.message=null;
+    lastMessage=ActorTime.currentTime();
+  }
+}

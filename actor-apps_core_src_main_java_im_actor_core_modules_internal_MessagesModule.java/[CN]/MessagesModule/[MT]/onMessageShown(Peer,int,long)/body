@@ -2,8 +2,15 @@
   im.actor.runtime.Runtime.dispatch(new Runnable(){
     @Override public void run(){
       if (sender != myUid()) {
-        ownReadActor.send(new OwnReadActor.MessageRead(peer,sortDate));
-        conversationActor(peer).send(new ConversationActor.MessageReadByMe(sortDate));
+        if (!messageShownFilter.containsKey(peer)) {
+          messageShownFilter.put(peer,system().actorOf(Props.create(MessageShownFilter.class,new ActorCreator<MessageShownFilter>(){
+            @Override public MessageShownFilter create(){
+              return new MessageShownFilter();
+            }
+          }
+),"actor/shown_filter_" + peer.getPeerType() + "_"+ peer.getPeerId()));
+        }
+        messageShownFilter.get(peer).send(new BounceFilterActor.Message(new MessageShownEvent(peer,sortDate),messageShownActor));
       }
     }
   }
