@@ -1,4 +1,4 @@
 {
-  String message=" #" + build.getBuildNumber() + " "+ build.getFullName()+ " (`"+ build.getBranch()+ "`) Started";
+  String message=" #" + build.getBuildNumber() + " "+ build.getFullName()+ " (`"+ getBranchName(build.getBranch())+ "`) Started";
   doNotify(message,users);
 }

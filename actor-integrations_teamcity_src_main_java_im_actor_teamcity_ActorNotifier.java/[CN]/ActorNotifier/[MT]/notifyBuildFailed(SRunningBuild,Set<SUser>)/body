@@ -1,4 +1,4 @@
 {
-  String message="**#" + build.getBuildNumber() + " "+ build.getFullName()+ " (`"+ build.getBranch()+ "`) Failed**";
+  String message="**#" + build.getBuildNumber() + " "+ build.getFullName()+ " (`"+ getBranchName(build.getBranch())+ "`) Failed**";
   doNotify(message,users);
 }
