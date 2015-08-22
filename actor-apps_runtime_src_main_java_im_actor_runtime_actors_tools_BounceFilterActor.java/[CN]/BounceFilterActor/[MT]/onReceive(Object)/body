@@ -1,0 +1,11 @@
+{
+  if (message instanceof Message) {
+    onMessage((Message)message);
+  }
+ else   if (message instanceof Flush) {
+    onFlush();
+  }
+ else {
+    drop(message);
+  }
+}

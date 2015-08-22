@@ -1,3 +1,8 @@
 {
-  dialogsHistoryActor.send(new DialogsHistoryActor.LoadMore());
+  im.actor.runtime.Runtime.dispatch(new Runnable(){
+    @Override public void run(){
+      dialogsHistoryActor.send(new DialogsHistoryActor.LoadMore());
+    }
+  }
+);
 }

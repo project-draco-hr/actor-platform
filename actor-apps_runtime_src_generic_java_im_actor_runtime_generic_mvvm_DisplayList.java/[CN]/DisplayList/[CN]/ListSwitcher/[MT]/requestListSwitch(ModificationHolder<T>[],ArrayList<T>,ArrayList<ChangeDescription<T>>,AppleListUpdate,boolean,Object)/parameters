@@ -3,3 +3,4 @@ ArrayList<T> initialList
 ArrayList<ChangeDescription<T>> androidChanges
 AppleListUpdate appleChanges
 boolean isLoadedMore
+Object processedList

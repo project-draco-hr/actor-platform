@@ -2,7 +2,6 @@
   if (operationMode != OperationMode.IOS && operationMode != OperationMode.GENERAL) {
     throw new RuntimeException("Unable to set Android Listener in Android mode");
   }
-  im.actor.runtime.Runtime.checkMainThread();
   if (!appleListeners.contains(listener)) {
     appleListeners.add(listener);
   }

@@ -41,4 +41,10 @@
     }
   }
 ),"actor/deletions");
+  this.messageShownActor=system().actorOf(Props.create(MessageShownActor.class,new ActorCreator<MessageShownActor>(){
+    @Override public MessageShownActor create(){
+      return new MessageShownActor(context());
+    }
+  }
+),"actor/shown");
 }

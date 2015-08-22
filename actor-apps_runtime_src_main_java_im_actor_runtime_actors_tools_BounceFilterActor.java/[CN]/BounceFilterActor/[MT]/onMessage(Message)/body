@@ -1,0 +1,20 @@
+{
+  long time=ActorTime.currentTime();
+  long delta=time - lastMessage;
+  if (delta > BOUNCE_DELAY) {
+    lastMessage=time;
+    if (this.message == null || isOverride(this.message,message)) {
+      message.actorRef.send(message.object);
+    }
+ else {
+      this.message.actorRef.send(this.message.object);
+    }
+    this.message=null;
+  }
+ else {
+    if (this.message == null || isOverride(this.message,message)) {
+      this.message=message;
+      self().sendOnce(new Flush(),BOUNCE_DELAY - delta);
+    }
+  }
+}
