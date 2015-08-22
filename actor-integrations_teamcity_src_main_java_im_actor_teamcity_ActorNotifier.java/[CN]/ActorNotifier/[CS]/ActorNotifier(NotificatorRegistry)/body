@@ -1,0 +1,5 @@
+{
+  ArrayList<UserPropertyInfo> userProps=new ArrayList<UserPropertyInfo>();
+  userProps.add(new UserPropertyInfo(PROPERTY_TOKEN,"Group Integration Token"));
+  notificatorRegistry.register(this,userProps);
+}
