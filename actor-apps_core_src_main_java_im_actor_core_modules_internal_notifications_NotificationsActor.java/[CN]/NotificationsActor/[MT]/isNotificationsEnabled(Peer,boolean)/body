@@ -1,11 +1,18 @@
 {
-  boolean res=context().getSettingsModule().isNotificationsEnabled() && context().getSettingsModule().isNotificationsEnabled(peer);
-  if (!res) {
+  if (context().getSettingsModule().isNotificationsEnabled()) {
     return false;
   }
   if (peer.getPeerType() == PeerType.GROUP) {
     if (context().getSettingsModule().isGroupNotificationsEnabled()) {
-      if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {
+      if (context().getSettingsModule().isNotificationsEnabled(peer)) {
+        if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {
+          return hasMention;
+        }
+ else {
+          return true;
+        }
+      }
+ else {
         return hasMention;
       }
     }
@@ -13,5 +20,7 @@
       return false;
     }
   }
-  return res;
+ else {
+    return context().getSettingsModule().isNotificationsEnabled(peer);
+  }
 }
