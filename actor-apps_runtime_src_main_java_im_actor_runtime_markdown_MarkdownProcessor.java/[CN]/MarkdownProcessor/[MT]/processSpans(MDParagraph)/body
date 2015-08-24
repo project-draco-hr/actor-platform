@@ -1,0 +1,34 @@
+{
+  String text=paragraph.getText();
+  if (text.startsWith("\n")) {
+    text=text.substring(1,text.length());
+  }
+  if (text.endsWith("\n")) {
+    text=text.substring(0,text.length() - 1);
+  }
+  paragraph.setText(text);
+  if (paragraph.getType() == MDParagraph.TYPE_TEXT) {
+    String processedText="";
+    TextCursor cursor=new TextCursor(text);
+    int stopLetter=findStopLetter(cursor);
+    if (stopLetter >= 0) {
+      processedText+=cursor.text.substring(0,stopLetter);
+    }
+    while (stopLetter >= 0) {
+      char c=text.charAt(stopLetter);
+      cursor.currentOffset=stopLetter + 1;
+      int letterEnd=findStopLetter(cursor,c);
+      if (letterEnd >= 0) {
+        processedText+="!" + cursor.text.substring(stopLetter + 1,letterEnd) + "!";
+        cursor.currentOffset=letterEnd + 1;
+      }
+ else {
+        processedText+=cursor.text.substring(stopLetter);
+        cursor.currentOffset=cursor.text.length();
+      }
+      stopLetter=findStopLetter(cursor);
+    }
+    processedText+=cursor.text.substring(cursor.currentOffset);
+    paragraph.setText(processedText);
+  }
+}

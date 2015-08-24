@@ -1,7 +1,7 @@
 {
   CharSequence[] spans=new CharSequence[element.size()];
   for (int i=0; i < element.size(); i++) {
-    spans[i]=recurseElement(element.children[i]);
+    spans[i]=recurseElement(element.getChildren(i));
   }
   CharSequence concat=TextUtils.concat(spans);
   while (concat != null && concat.length() > 1 && concat.charAt(concat.length() - 1) == '\n') {
@@ -22,7 +22,7 @@
   if (element.getType() == Type.LIST && element.getParent() != null) {
   }
  else   if (element.getType() == Type.LIST_ITEM) {
-    if (element.size() > 0 && element.children[element.size() - 1].isBlockElement()) {
+    if (element.size() > 0 && element.getChildren(element.size() - 1).isBlockElement()) {
     }
  else {
       builder.append("\n");

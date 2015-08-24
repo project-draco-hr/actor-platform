@@ -1,0 +1,5 @@
+{
+  this.type=TYPE_TEXT;
+  this.text=text;
+  this.child=new MarkdownElement[0];
+}

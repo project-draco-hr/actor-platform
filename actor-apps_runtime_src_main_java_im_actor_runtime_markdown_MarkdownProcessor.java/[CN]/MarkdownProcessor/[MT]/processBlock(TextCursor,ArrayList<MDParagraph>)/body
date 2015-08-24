@@ -1,0 +1,38 @@
+{
+  if (cursor.currentOffset >= cursor.text.length()) {
+    return false;
+  }
+  boolean isCodeBlock=cursor.text.startsWith(CODE_BLOCK,cursor.currentOffset);
+  if (isCodeBlock) {
+    cursor.currentOffset+=CODE_BLOCK.length();
+  }
+  int blockEnd=cursor.text.indexOf(CODE_BLOCK,cursor.currentOffset);
+  if (isCodeBlock) {
+    if (blockEnd < 0 || blockEnd == cursor.currentOffset) {
+      if (blockEnd < 0) {
+        paragraphs.add(new MDParagraph(MDParagraph.TYPE_TEXT,"```" + cursor.text.substring(cursor.currentOffset)));
+        cursor.currentOffset=cursor.text.length();
+        return false;
+      }
+ else {
+        paragraphs.add(new MDParagraph(MDParagraph.TYPE_TEXT,"``````"));
+        cursor.currentOffset+=3;
+        return true;
+      }
+    }
+ else {
+      paragraphs.add(new MDParagraph(MDParagraph.TYPE_CODE,cursor.text.substring(cursor.currentOffset,blockEnd)));
+      cursor.currentOffset=blockEnd + 3;
+      return true;
+    }
+  }
+ else {
+    if (blockEnd < 0) {
+      blockEnd=cursor.text.length();
+    }
+    String paragraph=cursor.text.substring(cursor.currentOffset,blockEnd);
+    cursor.currentOffset=blockEnd;
+    paragraphs.add(new MDParagraph(MDParagraph.TYPE_TEXT,paragraph));
+    return true;
+  }
+}

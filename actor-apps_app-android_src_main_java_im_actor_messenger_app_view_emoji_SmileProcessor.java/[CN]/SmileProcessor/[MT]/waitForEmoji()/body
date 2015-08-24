@@ -1,0 +1,21 @@
+{
+  if (isLoaded) {
+    return;
+  }
+  final Object lock=new Object();
+synchronized (lock) {
+    listeners.add(new SmilesListener(){
+      @Override public void onSmilesUpdated(      boolean completed){
+        lock.notify();
+      }
+    }
+);
+    try {
+      lock.wait();
+    }
+ catch (    InterruptedException e) {
+      e.printStackTrace();
+      return;
+    }
+  }
+}

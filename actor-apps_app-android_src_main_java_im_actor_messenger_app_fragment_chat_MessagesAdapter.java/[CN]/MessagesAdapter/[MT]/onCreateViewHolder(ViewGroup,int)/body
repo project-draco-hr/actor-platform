@@ -1,7 +1,7 @@
 {
 switch (viewType) {
 case 0:
-    return new TextHolder(this,inflate(R.layout.adapter_dialog_text,viewGroup),isMarkDownEnabled);
+    return new TextHolder(this,inflate(R.layout.adapter_dialog_text,viewGroup));
 case 1:
   return new ServiceHolder(this,inflate(R.layout.adapter_dialog_service,viewGroup));
 case 2:

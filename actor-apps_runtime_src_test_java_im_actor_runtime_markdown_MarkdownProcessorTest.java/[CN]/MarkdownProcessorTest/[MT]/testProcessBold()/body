@@ -1,0 +1,4 @@
+{
+  String message="*bold* text";
+  MarkdownDocument doc=MarkdownProcessor.processDocument(message);
+}

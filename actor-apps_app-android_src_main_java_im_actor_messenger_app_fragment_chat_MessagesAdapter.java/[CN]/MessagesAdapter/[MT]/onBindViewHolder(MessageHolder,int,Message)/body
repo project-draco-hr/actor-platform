@@ -7,5 +7,6 @@
   if (index < getItemCount() - 1) {
     prev=getItem(index + 1);
   }
-  dialogHolder.bindData(item,prev,next);
+  PreprocessedList list=((PreprocessedList)getPreprocessedList());
+  dialogHolder.bindData(item,prev,next,list.getPreprocessedData()[index]);
 }

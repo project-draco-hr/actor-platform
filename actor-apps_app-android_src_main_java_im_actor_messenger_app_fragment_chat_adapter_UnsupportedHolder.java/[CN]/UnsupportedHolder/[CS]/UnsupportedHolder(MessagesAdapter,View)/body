@@ -1,4 +1,4 @@
 {
-  super(fragment,itemView,false);
+  super(fragment,itemView);
   text=fragment.getMessagesFragment().getResources().getString(R.string.chat_unsupported);
 }

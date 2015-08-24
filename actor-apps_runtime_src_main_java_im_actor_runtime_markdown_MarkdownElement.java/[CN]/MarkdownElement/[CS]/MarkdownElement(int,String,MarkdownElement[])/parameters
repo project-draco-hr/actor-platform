@@ -1,0 +1,3 @@
+int type
+String text
+MarkdownElement[] child

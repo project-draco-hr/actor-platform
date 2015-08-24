@@ -1,0 +1,5 @@
+{
+  SpannableStringBuilder builder=new SpannableStringBuilder();
+  MarkdownDocument doc=im.actor.runtime.markdown.MarkdownProcessor.processDocument(markdown);
+  return new SpannableStringBuilder(doc.getRootElement().getText());
+}

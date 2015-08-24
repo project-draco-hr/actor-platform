@@ -3,7 +3,7 @@
   int color=p.getColor();
   p.setStyle(Paint.Style.FILL);
   p.setColor(getColor());
-  c.drawRect(x,top,x + dir * STRIPE_WIDTH,bottom,p);
+  c.drawRect(x + STRIPE_PADDING,top,x + dir * STRIPE_WIDTH + STRIPE_PADDING,bottom,p);
   p.setStyle(style);
   p.setColor(color);
 }

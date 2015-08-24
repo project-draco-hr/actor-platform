@@ -1,0 +1,10 @@
+{
+  for (int i=cursor.currentOffset; i < cursor.text.length(); i++) {
+    if (isStopLetter(cursor.text.charAt(i))) {
+      if (isGoodPrefix(cursor.text,i)) {
+        return i;
+      }
+    }
+  }
+  return -1;
+}

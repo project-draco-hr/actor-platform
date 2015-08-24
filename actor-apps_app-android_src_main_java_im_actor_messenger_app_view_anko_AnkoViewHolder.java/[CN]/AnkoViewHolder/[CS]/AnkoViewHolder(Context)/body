@@ -1,4 +1,0 @@
-{
-  super(new FrameLayout(context));
-  this.context=context;
-}

@@ -1,0 +1,21 @@
+{
+  ArrayList<MDParagraph> paragraphs=new ArrayList<MDParagraph>();
+  TextCursor cursor=new TextCursor(text);
+  while (processBlock(cursor,paragraphs))   ;
+  for (  MDParagraph p : paragraphs) {
+    processSpans(p);
+  }
+  String processedText="";
+  for (  MDParagraph paragraph : paragraphs) {
+    if (processedText.length() > 0) {
+      processedText+="\n";
+    }
+    if (paragraph.getType() == MDParagraph.TYPE_TEXT) {
+      processedText+="[P]" + paragraph.getText() + "[/P]";
+    }
+ else     if (paragraph.getType() == MDParagraph.TYPE_CODE) {
+      processedText+="[CODE]\n" + paragraph.getText() + "\n[/CODE]";
+    }
+  }
+  return new MarkdownDocument(new MarkdownElement(processedText));
+}
