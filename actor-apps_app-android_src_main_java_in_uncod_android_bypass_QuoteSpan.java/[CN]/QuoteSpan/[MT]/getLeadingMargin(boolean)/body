@@ -1,3 +1,0 @@
-{
-  return STRIPE_WIDTH + STRIPE_PADDING + TEXT_PADDING;
-}

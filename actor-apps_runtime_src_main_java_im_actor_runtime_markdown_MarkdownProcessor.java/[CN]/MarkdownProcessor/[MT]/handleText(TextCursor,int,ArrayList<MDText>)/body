@@ -1,0 +1,6 @@
+{
+  if (cursor.currentOffset < limit) {
+    elements.add(new MDRawText(cursor.text.substring(cursor.currentOffset,limit)));
+    cursor.currentOffset=limit + 1;
+  }
+}

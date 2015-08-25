@@ -1,4 +1,0 @@
-{
-  super.onRestoreInstanceState(savedInstanceState);
-  fileName=savedInstanceState.getString("pending_file_name",null);
-}

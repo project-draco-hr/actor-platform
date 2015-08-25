@@ -1,3 +1,3 @@
 {
-  ((ChatActivity)getActivity()).onAvatarLongClick(uid);
+  ((ChatActivity)getActivity()).insertMention(uid);
 }

@@ -18,9 +18,9 @@
         UserVM user=users().get(((GroupMember)item).getUid());
         String name=user.getName().get();
         int userId=user.getId();
-        if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageBody.getText().length()) {
+        if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageEditText.getText().length()) {
           SpannableStringBuilder spannedMention=buildMention(userId,name);
-          Editable text=messageBody.getText();
+          Editable text=messageEditText.getText();
           boolean spaceAppended=false;
           if (text.length() > mentionStart + mentionSearchString.length() + 1) {
             if (text.charAt(mentionSearchString.length() + 1) != ' ') {
@@ -34,7 +34,7 @@
           }
           text.replace(mentionStart,mentionStart + mentionSearchString.length() + 1,spannedMention);
           int cursorPosition=mentionStart + spannedMention.length() + (spaceAppended ? 0 : 1);
-          messageBody.setSelection(cursorPosition,cursorPosition);
+          messageEditText.setSelection(cursorPosition,cursorPosition);
         }
         hideMentions();
       }

@@ -8,9 +8,6 @@
   if (peoplePattern == null) {
     peoplePattern=Pattern.compile("(people:\\\\/\\\\/)([0-9]{1,20})");
   }
-  if (markdownProcessor == null) {
-    markdownProcessor=new MarkdownProcessor();
-  }
   ArrayList<PreprocessedData> preprocessedDatas=new ArrayList<PreprocessedData>();
   for (  Message msg : items) {
     messenger().getUser(msg.getSenderId());
@@ -20,7 +17,7 @@
         Spannable spannableString=new SpannableString(text.getText());
         boolean hasSpannable=false;
         emoji().waitForEmoji();
-        Spannable markdown=markdownProcessor.processText(text.getText());
+        Spannable markdown=AndroidMarkdown.processText(text.getText());
         if (markdown != null) {
           spannableString=markdown;
           hasSpannable=true;

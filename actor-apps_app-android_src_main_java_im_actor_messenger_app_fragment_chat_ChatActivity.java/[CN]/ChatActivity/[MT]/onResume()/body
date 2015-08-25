@@ -10,7 +10,7 @@
     bind(barTitle,user.getName());
     bind(barSubtitle,barSubtitleContainer,user);
     bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
-    kicked.setVisibility(View.GONE);
+    removedFromGroup.setVisibility(View.GONE);
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     GroupVM group=groups().get(peer.getPeerId());
@@ -20,66 +20,29 @@
     }
     bind(barAvatar,group.getId(),group.getAvatar(),group.getName());
     bind(barTitle,group.getName());
+    barSubtitleContainer.setVisibility(View.VISIBLE);
     bind(barSubtitle,barSubtitleContainer,group);
     bindGroupTyping(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
     bind(messenger().getGroups().get(peer.getPeerId()).isMember(),new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
-        kicked.setVisibility(val ? View.GONE : View.VISIBLE);
+        removedFromGroup.setVisibility(val ? View.GONE : View.VISIBLE);
       }
     }
 );
   }
   if (isCompose) {
-    messageBody.requestFocus();
-    keyboardUtils.setImeVisibility(messageBody,true);
+    messageEditText.requestFocus();
+    keyboardUtils.setImeVisibility(messageEditText,true);
   }
   isCompose=false;
   isTypingDisabled=true;
   String text=messenger().loadDraft(peer);
   if (text != null) {
-    messageBody.setText((emoji().processEmojiCompatMutable(bypass.markdownToSpannable(text,true),SmileProcessor.CONFIGURATION_BUBBLES)));
+    messageEditText.setText((emoji().processEmojiCompatMutable(AndroidMarkdown.processText(text),SmileProcessor.CONFIGURATION_BUBBLES)));
   }
  else {
-    messageBody.setText("");
+    messageEditText.setText("");
   }
-  messageBody.setSelection(messageBody.getText().length());
+  messageEditText.setSelection(messageEditText.getText().length());
   isTypingDisabled=false;
-  if (sendUri != null && !sendUri.isEmpty()) {
-    sendUri(Uri.parse(sendUri),true);
-    sendUri="";
-  }
-  if (sendUriMultiple != null && sendUriMultiple.size() > 0) {
-    for (    String sendUri : sendUriMultiple) {
-      sendUri(Uri.parse(sendUri),false);
-    }
-    sendUriMultiple.clear();
-  }
-  if (sendText != null && !sendText.isEmpty()) {
-    messageBody.setText(sendText);
-    sendText="";
-  }
-  if (shareUser != 0) {
-    String userName=users().get(shareUser).getName().get();
-    String mentionTitle="@".concat(userName);
-    ArrayList<Integer> mention=new ArrayList<Integer>();
-    mention.add(shareUser);
-    messenger().sendMessage(peer,mentionTitle,"[".concat(mentionTitle).concat("](people://".concat(Integer.toString(shareUser)).concat(")")),mention);
-    messenger().trackTextSend(peer);
-    shareUser=0;
-  }
-  if (forwardTextRaw != null && !forwardTextRaw.isEmpty()) {
-    addQuote(forwardText,forwardTextRaw);
-    forwardText="";
-    forwardTextRaw="";
-  }
-  if (forwardDocDescriptor != null && !forwardDocDescriptor.isEmpty()) {
-    if (forwardDocIsDoc) {
-      messenger().sendDocument(peer,forwardDocDescriptor);
-      messenger().trackDocumentSend(peer);
-    }
- else {
-      sendUri(Uri.fromFile(new File(forwardDocDescriptor)),false);
-    }
-    forwardDocDescriptor="";
-  }
 }

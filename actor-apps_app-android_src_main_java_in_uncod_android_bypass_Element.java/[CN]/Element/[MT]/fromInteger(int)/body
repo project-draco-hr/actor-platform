@@ -1,8 +1,0 @@
-{
-  for (  Type type : TypeValues) {
-    if (type.value == x) {
-      return type;
-    }
-  }
-  return null;
-}
