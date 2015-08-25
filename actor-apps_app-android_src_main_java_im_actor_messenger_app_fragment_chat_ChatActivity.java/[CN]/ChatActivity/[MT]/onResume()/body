@@ -1,35 +1,5 @@
 {
   super.onResume();
-  if (peer.getPeerType() == PeerType.PRIVATE) {
-    final UserVM user=users().get(peer.getPeerId());
-    if (user == null) {
-      finish();
-      return;
-    }
-    bind(barAvatar,user.getId(),user.getAvatar(),user.getName());
-    bind(barTitle,user.getName());
-    bind(barSubtitle,barSubtitleContainer,user);
-    bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
-    removedFromGroup.setVisibility(View.GONE);
-  }
- else   if (peer.getPeerType() == PeerType.GROUP) {
-    GroupVM group=groups().get(peer.getPeerId());
-    if (group == null) {
-      finish();
-      return;
-    }
-    bind(barAvatar,group.getId(),group.getAvatar(),group.getName());
-    bind(barTitle,group.getName());
-    barSubtitleContainer.setVisibility(View.VISIBLE);
-    bind(barSubtitle,barSubtitleContainer,group);
-    bindGroupTyping(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
-    bind(messenger().getGroups().get(peer.getPeerId()).isMember(),new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
-        removedFromGroup.setVisibility(val ? View.GONE : View.VISIBLE);
-      }
-    }
-);
-  }
   if (isCompose) {
     messageEditText.requestFocus();
     keyboardUtils.setImeVisibility(messageEditText,true);
@@ -38,7 +8,9 @@
   isTypingDisabled=true;
   String text=messenger().loadDraft(peer);
   if (text != null) {
-    messageEditText.setText((emoji().processEmojiCompatMutable(AndroidMarkdown.processText(text),SmileProcessor.CONFIGURATION_BUBBLES)));
+    Spannable spantext=AndroidMarkdown.processOnlyLinks(text);
+    spantext=emoji().processEmojiCompatMutable(spantext,SmileProcessor.CONFIGURATION_BUBBLES);
+    messageEditText.setText(spantext);
   }
  else {
     messageEditText.setText("");

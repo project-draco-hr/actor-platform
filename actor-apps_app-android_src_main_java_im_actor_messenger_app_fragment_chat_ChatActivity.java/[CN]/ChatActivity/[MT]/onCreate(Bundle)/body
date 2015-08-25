@@ -1,5 +1,4 @@
 {
-  super.onCreate(saveInstance);
   peer=Peer.fromUniqueId(getIntent().getExtras().getLong(EXTRA_CHAT_PEER));
   if (saveInstance == null) {
     isCompose=getIntent().getExtras().getBoolean(EXTRA_CHAT_COMPOSE,false);
@@ -7,43 +6,7 @@
  else {
     pending_fileName=saveInstance.getString(STATE_FILE_NAME,null);
   }
-  getSupportActionBar().setDisplayShowCustomEnabled(true);
-  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-  getSupportActionBar().setDisplayShowHomeEnabled(true);
-  getSupportActionBar().setDisplayShowTitleEnabled(false);
-  getSupportActionBar().setDisplayUseLogoEnabled(false);
-  getWindow().setBackgroundDrawable(null);
-  barView=LayoutInflater.from(this).inflate(R.layout.bar_conversation,null);
-  barTitle=(TextView)barView.findViewById(R.id.title);
-  barSubtitleContainer=barView.findViewById(R.id.subtitleContainer);
-  barTypingIcon=(ImageView)barView.findViewById(R.id.typingImage);
-  barTypingIcon.setImageDrawable(new TypingDrawable());
-  barTyping=(TextView)barView.findViewById(R.id.typing);
-  barSubtitle=(TextView)barView.findViewById(R.id.subtitle);
-  barTypingContainer=barView.findViewById(R.id.typingContainer);
-  barTypingContainer.setVisibility(View.INVISIBLE);
-  barAvatar=(AvatarView)barView.findViewById(R.id.avatarPreview);
-  barAvatar.init(Screen.dp(32),18);
-  ActionBar.LayoutParams layout=new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,ActionBar.LayoutParams.MATCH_PARENT);
-  getSupportActionBar().setCustomView(barView,layout);
-  barView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (peer.getPeerType() == PeerType.PRIVATE) {
-        startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
-      }
- else       if (peer.getPeerType() == PeerType.GROUP) {
-        startActivity(Intents.openGroup(peer.getPeerId(),ChatActivity.this));
-      }
- else {
-      }
-    }
-  }
-);
-  setContentView(R.layout.activity_dialog);
-  if (saveInstance == null) {
-    getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,MessagesFragment.create(peer)).commit();
-  }
-  messageEditText=(SelectionListenerEditText)findViewById(R.id.et_message);
+  super.onCreate(saveInstance);
   messageEditText.addTextChangedListener(new TextWatcherImp());
   messageEditText.setOnSelectionListener(new SelectionListenerEditText.OnSelectedListener(){
     @Override public void onSelected(    int selStart,    int selEnd){
@@ -59,72 +22,6 @@
     }
   }
 );
-  messageEditText.setOnKeyListener(new View.OnKeyListener(){
-    @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
-      if (messenger().isSendByEnterEnabled()) {
-        if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keycode == KeyEvent.KEYCODE_ENTER) {
-          sendMessage();
-          return true;
-        }
-      }
-      return false;
-    }
-  }
-);
-  messageEditText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
-    @Override public boolean onEditorAction(    TextView textView,    int i,    KeyEvent keyEvent){
-      if (i == EditorInfo.IME_ACTION_SEND) {
-        sendMessage();
-        return true;
-      }
-      if (i == EditorInfo.IME_ACTION_DONE) {
-        sendMessage();
-        return true;
-      }
-      if (messenger().isSendByEnterEnabled()) {
-        if (keyEvent != null && i == EditorInfo.IME_NULL && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-          sendMessage();
-          return true;
-        }
-      }
-      return false;
-    }
-  }
-);
-  removedFromGroup=findViewById(R.id.kickedFromChat);
-  sendButton=(TintImageView)findViewById(R.id.ib_send);
-  sendButton.setResource(R.drawable.conv_send);
-  sendButton.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      sendMessage();
-    }
-  }
-);
-  attachButton=(ImageButton)findViewById(R.id.ib_attach);
-  attachButton.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      onAttachButtonClicked();
-    }
-  }
-);
-  final ImageView emojiButton=(ImageView)findViewById(R.id.ib_emoji);
-  emojiKeyboard=new EmojiKeyboard(this);
-  emojiKeyboard.setKeyboardStatusListener(new KeyboardStatusListener(){
-    @Override public void onDismiss(){
-      emojiButton.setImageResource(R.drawable.ic_emoji);
-    }
-    @Override public void onShow(){
-      emojiButton.setImageResource(R.drawable.ic_keyboard);
-    }
-  }
-);
-  emojiButton.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      emojiKeyboard.toggle(messageEditText);
-    }
-  }
-);
-  keyboardUtils=new KeyboardHelper(this);
   mentionsList=(ListView)findViewById(R.id.mentionsList);
   quoteContainer=(FrameLayout)findViewById(R.id.quoteContainer);
   quoteText=(TextView)findViewById(R.id.quote_text);

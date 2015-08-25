@@ -1,0 +1,10 @@
+{
+  getSupportActionBar().setDisplayShowCustomEnabled(false);
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  if (enableBack) {
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+  }
+  getSupportActionBar().setDisplayShowTitleEnabled(true);
+  getSupportActionBar().setDisplayUseLogoEnabled(false);
+  getSupportActionBar().setTitle(text);
+}
