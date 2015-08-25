@@ -1,3 +1,0 @@
-{
-  return STOP_LETTERS[0] == c || STOP_LETTERS[1] == c || STOP_LETTERS[2] == c;
-}

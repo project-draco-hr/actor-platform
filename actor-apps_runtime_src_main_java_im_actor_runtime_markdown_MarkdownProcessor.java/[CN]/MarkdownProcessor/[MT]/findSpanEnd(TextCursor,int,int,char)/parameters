@@ -1,0 +1,4 @@
+TextCursor cursor
+int spanStart
+int limit
+char span

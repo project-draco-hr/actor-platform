@@ -1,0 +1,3 @@
+TextCursor cursor
+int blockEnd
+ArrayList<MDSection> paragraphs

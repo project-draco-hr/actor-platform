@@ -1,0 +1,5 @@
+{
+  ArrayList<MDText> elements=new ArrayList<MDText>();
+  while (handleSpan(cursor,blockEnd,elements))   ;
+  return elements.toArray(new MDText[elements.size()]);
+}

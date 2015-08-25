@@ -1,0 +1,4 @@
+{
+  this.spanType=spanType;
+  this.child=child;
+}

@@ -1,8 +1,0 @@
-{
-  if (index >= text.length() - 1 || text.charAt(index + 1) == ' ' || text.charAt(index + 1) == '\t') {
-    return true;
-  }
- else {
-    return false;
-  }
-}

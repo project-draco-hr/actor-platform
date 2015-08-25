@@ -1,5 +1,30 @@
 {
+  MDDocument doc=im.actor.runtime.markdown.MarkdownProcessor.processDocument(markdown);
   SpannableStringBuilder builder=new SpannableStringBuilder();
-  MarkdownDocument doc=im.actor.runtime.markdown.MarkdownProcessor.processDocument(markdown);
-  return new SpannableStringBuilder(doc.getRootElement().getText());
+  boolean isFirst=true;
+  for (  MDSection s : doc.getSections()) {
+    if (isFirst) {
+      isFirst=false;
+    }
+ else {
+      builder.append("\n");
+    }
+    if (s.getType() == MDSection.TYPE_CODE) {
+      int start=builder.length();
+      builder.append("View Source Code");
+      final String text=s.getCode().getCode();
+      builder.setSpan(new RelativeSizeSpan(1.1f),start,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      builder.setSpan(new ForegroundColorSpan(Color.RED),start,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      builder.setSpan(new ClickableSpan(){
+        @Override public void onClick(        View view){
+          AppContext.getContext().startActivity(new Intent(AppContext.getContext(),CodePreviewActivity.class).putExtra("source_code",text).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }
+      }
+,start,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+ else {
+      writeText(s.getText(),builder);
+    }
+  }
+  return builder;
 }
