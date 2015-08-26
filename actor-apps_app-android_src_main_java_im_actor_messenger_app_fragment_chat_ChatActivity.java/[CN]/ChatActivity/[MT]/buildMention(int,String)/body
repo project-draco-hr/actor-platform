@@ -1,7 +1,0 @@
-{
-  String mention="people://" + uid;
-  MentionSpan span=new MentionSpan(mention,true);
-  SpannableStringBuilder spannedMention=new SpannableStringBuilder("@" + MENTION_BOUNDS_STR + name+ MENTION_BOUNDS_STR);
-  spannedMention.setSpan(span,0,spannedMention.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-  return spannedMention;
-}

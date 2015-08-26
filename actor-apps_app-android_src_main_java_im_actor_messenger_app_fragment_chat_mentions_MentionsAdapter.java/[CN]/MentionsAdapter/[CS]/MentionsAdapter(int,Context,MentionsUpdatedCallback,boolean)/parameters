@@ -1,4 +1,4 @@
-Collection<GroupMember> members
+int gid
 Context context
 MentionsUpdatedCallback updatedCallback
 boolean initEmpty

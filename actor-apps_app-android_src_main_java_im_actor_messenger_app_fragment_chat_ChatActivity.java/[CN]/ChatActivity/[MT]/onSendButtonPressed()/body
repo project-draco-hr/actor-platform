@@ -1,16 +1,8 @@
 {
-  boolean useMD=false;
-  Editable mdText=messageEditText.getText();
-  String rawText=mdText.toString();
-  ArrayList<Integer> mentions=convertUrlSpansToMarkdownLinks(mdText);
-  if (mentions.size() > 0)   useMD=true;
-  String mdTextString=mdText.toString().replace(MENTION_BOUNDS_STR,"").trim();
-  rawText=rawText.replace(MENTION_BOUNDS_STR,"").trim();
+  String rawText=messageEditText.getText().toString();
   if (currentQuote != null && !currentQuote.isEmpty()) {
-    mdTextString=currentQuote.concat(mdTextString);
     rawText=quoteText.getText().toString().concat(rawText);
     goneView(quoteContainer);
-    useMD=true;
     currentQuote="";
   }
   messageEditText.setText("");
@@ -21,6 +13,6 @@
   if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
     keyboardUtils.setImeVisibility(messageEditText,false);
   }
-  messenger().sendMessage(peer,rawText,useMD ? mdTextString : "",mentions);
+  messenger().sendMessage(peer,rawText);
   messenger().trackTextSend(peer);
 }

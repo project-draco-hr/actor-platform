@@ -1,6 +1,4 @@
 {
   super.onPause();
-  Editable text=(Editable)messageEditText.getText().subSequence(0,messageEditText.getText().length());
-  convertUrlSpansToMarkdownLinks(text);
-  messenger().saveDraft(peer,text.toString());
+  messenger().saveDraft(peer,messageEditText.getText().toString());
 }

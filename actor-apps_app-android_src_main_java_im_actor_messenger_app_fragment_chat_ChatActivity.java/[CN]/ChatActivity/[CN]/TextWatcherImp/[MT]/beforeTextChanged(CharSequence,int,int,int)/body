@@ -2,13 +2,4 @@
   if (after > count && !isTypingDisabled) {
     messenger().onTyping(peer);
   }
-  isErase=after < count;
-  isOneCharErase=isErase && (count == 1 || (count - after == 1));
-  if (isOneCharErase) {
-    eraseStart=start + count - 1;
-  }
-  mentionErase=isOneCharErase && s.charAt(eraseStart) == MENTION_BOUNDS_CHR;
-  if (mentionErase) {
-    mentionEraseStart=eraseStart;
-  }
 }

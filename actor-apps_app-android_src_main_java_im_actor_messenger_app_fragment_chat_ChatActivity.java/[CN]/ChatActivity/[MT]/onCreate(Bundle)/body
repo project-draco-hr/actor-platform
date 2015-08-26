@@ -8,20 +8,6 @@
   }
   super.onCreate(saveInstance);
   messageEditText.addTextChangedListener(new TextWatcherImp());
-  messageEditText.setOnSelectionListener(new SelectionListenerEditText.OnSelectedListener(){
-    @Override public void onSelected(    int selStart,    int selEnd){
-      Editable text=messageEditText.getText();
-      if (selEnd != selStart && text.charAt(selStart) == '@') {
-        if (text.charAt(selEnd - 1) == MENTION_BOUNDS_CHR) {
-          messageEditText.setSelection(selStart + 2,selEnd - 1);
-        }
- else         if (text.length() >= 3 && text.charAt(selEnd - 2) == MENTION_BOUNDS_CHR) {
-          messageEditText.setSelection(selStart + 2,selEnd - 2);
-        }
-      }
-    }
-  }
-);
   mentionsList=(ListView)findViewById(R.id.mentionsList);
   quoteContainer=(FrameLayout)findViewById(R.id.quoteContainer);
   quoteText=(TextView)findViewById(R.id.quote_text);
