@@ -1,7 +1,7 @@
 {
   String rawText=messageEditText.getText().toString();
   if (currentQuote != null && !currentQuote.isEmpty()) {
-    rawText=quoteText.getText().toString().concat(rawText);
+    rawText=currentQuote.concat(rawText);
     goneView(quoteContainer);
     currentQuote="";
   }

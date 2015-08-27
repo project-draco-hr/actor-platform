@@ -17,4 +17,42 @@
   }
   messageEditText.setSelection(messageEditText.getText().length());
   isTypingDisabled=false;
+  if (sendUri != null && !sendUri.isEmpty()) {
+    execute(messenger().sendUri(peer,Uri.parse(sendUri)));
+    sendUri="";
+  }
+  if (sendUriMultiple != null && sendUriMultiple.size() > 0) {
+    for (    String sendUri : sendUriMultiple) {
+      execute(messenger().sendUri(peer,Uri.parse(sendUri)));
+    }
+    sendUriMultiple.clear();
+  }
+  if (sendText != null && !sendText.isEmpty()) {
+    messageEditText.setText(sendText);
+    sendText="";
+  }
+  if (shareUser != 0) {
+    String userName=users().get(shareUser).getName().get();
+    String mentionTitle="@".concat(userName);
+    ArrayList<Integer> mention=new ArrayList<Integer>();
+    mention.add(shareUser);
+    messenger().sendMessage(peer,mentionTitle,"[".concat(mentionTitle).concat("](people://".concat(Integer.toString(shareUser)).concat(")")),mention);
+    messenger().trackTextSend(peer);
+    shareUser=0;
+  }
+  if (forwardTextRaw != null && !forwardTextRaw.isEmpty()) {
+    addQuote(forwardText,forwardTextRaw);
+    forwardText="";
+    forwardTextRaw="";
+  }
+  if (forwardDocDescriptor != null && !forwardDocDescriptor.isEmpty()) {
+    if (forwardDocIsDoc) {
+      messenger().sendDocument(peer,forwardDocDescriptor);
+      messenger().trackDocumentSend(peer);
+    }
+ else {
+      execute(messenger().sendUri(peer,Uri.fromFile(new File(forwardDocDescriptor))));
+    }
+    forwardDocDescriptor="";
+  }
 }

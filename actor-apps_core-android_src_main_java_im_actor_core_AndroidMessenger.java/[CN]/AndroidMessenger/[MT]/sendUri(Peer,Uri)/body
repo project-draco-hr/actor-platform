@@ -1,6 +1,6 @@
 {
   return new Command<Boolean>(){
-    @Override public void start(    CommandCallback<Boolean> callback){
+    @Override public void start(    final CommandCallback<Boolean> callback){
       fileDownloader.execute(new Runnable(){
         @Override public void run(){
           String[] filePathColumn={MediaStore.Images.Media.DATA,MediaStore.Video.Media.MIME_TYPE,MediaStore.Video.Media.TITLE};
@@ -32,6 +32,7 @@
           if (picturePath == null || !uri.getScheme().equals("file")) {
             File externalFile=context.getExternalFilesDir(null);
             if (externalFile == null) {
+              callback.onError(new NullPointerException());
               return;
             }
             String externalPath=externalFile.getAbsolutePath();
@@ -44,6 +45,7 @@
             }
  catch (            IOException e) {
               e.printStackTrace();
+              callback.onError(e);
               return;
             }
           }
@@ -62,6 +64,7 @@
             sendDocument(peer,picturePath,new File(fileName).getName());
             trackDocumentSend(peer);
           }
+          callback.onResult(true);
         }
       }
 );
