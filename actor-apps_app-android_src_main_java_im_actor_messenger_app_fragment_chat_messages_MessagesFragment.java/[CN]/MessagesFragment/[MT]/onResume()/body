@@ -1,5 +1,5 @@
 {
   super.onResume();
-  if (onPauseSize != 0 && getDisplayList().getSize() != onPauseSize)   scrollToUnread();
+  if (onPauseSize != 0 && getDisplayList().getSize() != onPauseSize)   bindDisplayListLoad();
   messenger().onConversationOpen(peer);
 }

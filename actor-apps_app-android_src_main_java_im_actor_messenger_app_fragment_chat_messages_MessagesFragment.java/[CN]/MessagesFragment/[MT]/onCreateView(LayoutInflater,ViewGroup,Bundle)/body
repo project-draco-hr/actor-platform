@@ -12,6 +12,6 @@
   View header=new View(getActivity());
   header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(64)));
   addFooterView(header);
-  scrollToUnread();
+  bindDisplayListLoad();
   return res;
 }
