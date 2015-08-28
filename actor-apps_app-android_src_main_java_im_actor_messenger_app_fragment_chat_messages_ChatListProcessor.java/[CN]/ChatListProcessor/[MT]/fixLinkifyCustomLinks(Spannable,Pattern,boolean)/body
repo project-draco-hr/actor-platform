@@ -17,6 +17,9 @@
         }
       }
     }
+    if (isMention && !found) {
+      return false;
+    }
     URLSpan span=(isMention && isGroup && found) ? new MentionSpan(nick,userId,false) : new URLSpan(m.group());
     spannable.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     res=true;
