@@ -4,8 +4,9 @@
     ds.setUnderlineText(false);
     ds.setColor(Color.BLACK);
   }
-  if (getURL().startsWith("people://")) {
-    int userId=Integer.parseInt(getURL().replace("people://",""));
-    ds.setColor(colors[Math.abs(userId) % colors.length]);
+  if (tf == null) {
+    tf=Typeface.createFromAsset(AppContext.getContext().getAssets(),"Roboto-Medium.ttf");
   }
+  ds.setColor(colors[Math.abs(userId) % colors.length]);
+  ds.setTypeface(tf);
 }

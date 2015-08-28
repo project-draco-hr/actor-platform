@@ -8,6 +8,9 @@
   if (peoplePattern == null) {
     peoplePattern=Pattern.compile("(people:\\\\/\\\\/)([0-9]{1,20})");
   }
+  if (mentionPattern == null) {
+    mentionPattern=Pattern.compile("(@)([0-9a-zA-Z_]{5,32})");
+  }
   ArrayList<PreprocessedData> preprocessedDatas=new ArrayList<PreprocessedData>();
   for (  Message msg : items) {
     messenger().getUser(msg.getSenderId());
@@ -32,6 +35,9 @@
           hasSpannable=true;
         }
         if (fixLinkifyCustomLinks(spannableString,peoplePattern,true)) {
+          hasSpannable=true;
+        }
+        if (fixLinkifyCustomLinks(spannableString,mentionPattern,true)) {
           hasSpannable=true;
         }
         if (isGroup && msg.getSenderId() != myUid()) {
