@@ -1,6 +1,7 @@
 {
   final int uid=getArguments().getInt(EXTRA_UID);
   final UserVM user=users().get(uid);
+  final String nick=user.getNick().get();
   baseColor=getResources().getColor(R.color.primary);
   View res=inflater.inflate(R.layout.fragment_profile,container,false);
   bind((TextView)res.findViewById(R.id.name),user.getName());
@@ -27,7 +28,7 @@
  else {
         tintImageView.setVisibility(View.INVISIBLE);
       }
-      if (i != phones.size() - 1) {
+      if (i != phones.size() - 1 || (nick != null && !nick.isEmpty())) {
         recordView.findViewById(R.id.divider).setVisibility(View.VISIBLE);
       }
  else {
@@ -82,6 +83,18 @@
       }
 );
     }
+  }
+  final LinearLayout nickContainer=(LinearLayout)res.findViewById(R.id.nickContainer);
+  if (nick != null && !nick.isEmpty()) {
+    final View recordView=inflater.inflate(R.layout.contact_record,nickContainer,false);
+    TintImageView tintImageView=(TintImageView)recordView.findViewById(R.id.recordIcon);
+    tintImageView.setVisibility(View.INVISIBLE);
+    recordView.findViewById(R.id.divider).setVisibility(View.GONE);
+    String value=nick;
+    String title=getString(R.string.nickname);
+    ((TextView)recordView.findViewById(R.id.value)).setText(value);
+    ((TextView)recordView.findViewById(R.id.title)).setText(title);
+    nickContainer.addView(recordView,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));
   }
   if (user.isBot()) {
     res.findViewById(R.id.profileAction).setVisibility(View.GONE);
