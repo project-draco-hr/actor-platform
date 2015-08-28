@@ -2,7 +2,22 @@
   Matcher m=p.matcher(spannable.toString());
   boolean res=false;
   while (m.find()) {
-    URLSpan span=isMention ? new MentionSpan(m.group(),false) : new URLSpan(m.group());
+    boolean found=false;
+    String nick="";
+    UserVM user;
+    int userId=0;
+    if (isGroup) {
+      for (      GroupMember member : group.getMembers().get()) {
+        user=users().get(member.getUid());
+        nick=user.getNick().get();
+        if (nick != null && !nick.isEmpty() && nick.equals(m.group().substring(1,m.group().length()))) {
+          userId=user.getId();
+          found=true;
+          break;
+        }
+      }
+    }
+    URLSpan span=(isMention && isGroup && found) ? new MentionSpan(nick,userId,false) : new URLSpan(m.group());
     spannable.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     res=true;
   }
