@@ -1,0 +1,3 @@
+CharSequence rawText
+Message message
+boolean isItalic

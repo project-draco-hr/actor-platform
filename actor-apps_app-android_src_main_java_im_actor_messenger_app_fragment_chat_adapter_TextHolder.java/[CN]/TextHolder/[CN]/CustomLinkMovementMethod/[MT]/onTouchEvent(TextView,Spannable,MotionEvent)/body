@@ -1,6 +1,0 @@
-{
-  mPressedSpan=getPressedSpan(textView,spannable,event);
-  super.onTouchEvent(textView,spannable,event);
-  mainContainer.onTouchEvent(event);
-  return true;
-}

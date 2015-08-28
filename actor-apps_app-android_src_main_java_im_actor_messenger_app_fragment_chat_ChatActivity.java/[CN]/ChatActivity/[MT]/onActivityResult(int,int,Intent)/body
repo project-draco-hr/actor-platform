@@ -2,20 +2,20 @@
   if (resultCode == RESULT_OK) {
     if (requestCode == REQUEST_GALLERY) {
       if (data.getData() != null) {
-        sendUri(data.getData(),true);
+        execute(messenger().sendUri(peer,data.getData()),R.string.pick_downloading);
       }
     }
  else     if (requestCode == REQUEST_PHOTO) {
-      messenger().sendPhoto(peer,fileName);
+      messenger().sendPhoto(peer,pending_fileName);
       messenger().trackPhotoSend(peer);
     }
  else     if (requestCode == REQUEST_VIDEO) {
-      messenger().sendVideo(peer,fileName);
+      messenger().sendVideo(peer,pending_fileName);
       messenger().trackVideoSend(peer);
     }
  else     if (requestCode == REQUEST_DOC) {
       if (data.getData() != null) {
-        sendUri(data.getData(),true);
+        execute(messenger().sendUri(peer,data.getData()),R.string.pick_downloading);
       }
  else       if (data.hasExtra("picked")) {
         ArrayList<String> files=data.getStringArrayListExtra("picked");

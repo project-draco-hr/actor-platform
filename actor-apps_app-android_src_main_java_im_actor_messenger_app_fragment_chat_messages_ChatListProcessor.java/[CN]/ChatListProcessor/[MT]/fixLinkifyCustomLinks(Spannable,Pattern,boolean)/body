@@ -1,0 +1,10 @@
+{
+  Matcher m=p.matcher(spannable.toString());
+  boolean res=false;
+  while (m.find()) {
+    URLSpan span=isMention ? new MentionSpan(m.group(),false) : new URLSpan(m.group());
+    spannable.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    res=true;
+  }
+  return res;
+}

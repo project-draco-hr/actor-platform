@@ -1,0 +1,34 @@
+{
+  for (  MDText text : texts) {
+    if (text instanceof MDRawText) {
+      builder.append(((MDRawText)text).getRawText());
+    }
+ else     if (text instanceof MDSpan) {
+      MDSpan span=(MDSpan)text;
+      int start=builder.length();
+      writeText(span.getChild(),builder);
+      Object spanObj;
+      if (span.getSpanType() == MDSpan.TYPE_BOLD) {
+        spanObj=new StyleSpan(Typeface.BOLD);
+      }
+ else {
+        spanObj=new StyleSpan(Typeface.ITALIC);
+      }
+      builder.setSpan(spanObj,start,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+ else     if (text instanceof MDUrl) {
+      final MDUrl url=(MDUrl)text;
+      int start=builder.length();
+      builder.append(url.getUrlTitle());
+      builder.setSpan(new ClickableSpan(){
+        @Override public void onClick(        View view){
+          AppContext.getContext().startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url.getUrl())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }
+      }
+,start,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+ else {
+      throw new RuntimeException("Unknown text type: " + text);
+    }
+  }
+}

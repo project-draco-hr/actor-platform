@@ -1,0 +1,2 @@
+TextCursor cursor
+ArrayList<MDSection> paragraphs

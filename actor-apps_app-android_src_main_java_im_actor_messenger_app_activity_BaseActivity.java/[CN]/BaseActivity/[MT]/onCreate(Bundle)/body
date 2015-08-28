@@ -1,4 +1,5 @@
 {
   super.onCreate(savedInstanceState);
+  onCreateToolbar();
   notifyOnResume();
 }

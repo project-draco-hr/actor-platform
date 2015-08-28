@@ -1,0 +1,11 @@
+{
+  int offset=cursor.currentOffset;
+  int index;
+  while ((index=cursor.text.indexOf(CODE_BLOCK,offset)) >= 0) {
+    if (isGoodAnchor(cursor.text,index - 1)) {
+      return index;
+    }
+    offset=index + 3;
+  }
+  return -1;
+}

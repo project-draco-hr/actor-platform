@@ -1,6 +1,0 @@
-{
-  if (children != null) {
-    return children.length;
-  }
-  return 0;
-}
