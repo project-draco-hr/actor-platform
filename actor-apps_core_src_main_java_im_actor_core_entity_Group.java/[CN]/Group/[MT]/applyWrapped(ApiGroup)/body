@@ -9,4 +9,6 @@
     this.members.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate(),m.getUid() == this.adminId));
   }
   this.isMember=wrapped.isMember();
+  this.about=wrapped.getAbout();
+  this.theme=wrapped.getTheme();
 }
