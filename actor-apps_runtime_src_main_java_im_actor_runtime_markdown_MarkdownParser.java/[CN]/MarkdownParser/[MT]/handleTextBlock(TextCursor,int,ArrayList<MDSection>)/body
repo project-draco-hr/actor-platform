@@ -1,0 +1,5 @@
+{
+  MDText[] spans=handleSpans(cursor,blockEnd);
+  paragraphs.add(new MDSection(spans));
+  cursor.currentOffset=blockEnd;
+}

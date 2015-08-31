@@ -1,0 +1,20 @@
+{
+  BufferedInputStream bufferedInputStream=new BufferedInputStream(in);
+  ByteArrayOutputStream os=new ByteArrayOutputStream(4096);
+  byte[] buffer=buffers.get();
+  int len;
+  int readed=0;
+  try {
+    while ((len=bufferedInputStream.read(buffer)) >= 0) {
+      Thread.yield();
+      os.write(buffer,0,len);
+      readed+=len;
+      if (listener != null) {
+        listener.onProgress(readed);
+      }
+    }
+  }
+ catch (  IOException e) {
+  }
+  return os.toByteArray();
+}

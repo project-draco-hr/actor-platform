@@ -1,3 +1,0 @@
-{
-  ((FrameLayout)itemView).addView(view,params);
-}

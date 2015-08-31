@@ -1,3 +1,0 @@
-{
-  ((ChatActivity)getActivity()).onAvatarLongClick(uid);
-}

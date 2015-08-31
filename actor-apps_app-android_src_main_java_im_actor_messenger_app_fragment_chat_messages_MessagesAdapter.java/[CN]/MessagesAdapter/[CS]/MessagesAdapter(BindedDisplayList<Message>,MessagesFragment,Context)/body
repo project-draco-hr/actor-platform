@@ -1,0 +1,5 @@
+{
+  super(displayList);
+  this.messagesFragment=messagesFragment;
+  this.context=context;
+}

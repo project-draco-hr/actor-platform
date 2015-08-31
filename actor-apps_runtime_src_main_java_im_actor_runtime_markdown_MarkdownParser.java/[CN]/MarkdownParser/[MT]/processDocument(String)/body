@@ -1,0 +1,6 @@
+{
+  TextCursor cursor=new TextCursor(text);
+  ArrayList<MDSection> sections=new ArrayList<MDSection>();
+  while (handleCodeBlock(cursor,sections))   ;
+  return new MDDocument(sections.toArray(new MDSection[sections.size()]));
+}

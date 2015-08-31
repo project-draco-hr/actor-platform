@@ -1,9 +1,9 @@
 {
   if (quote != null && !quote.isEmpty()) {
-    quoteText.setText(bypass.markdownToSpannable(quote,true));
+    quoteText.setText(quote);
   }
  else {
-    quoteText.setText(bypass.markdownToSpannable(rawQuote,true));
+    quoteText.setText(rawQuote);
   }
   currentQuote=rawQuote;
   showView(quoteContainer);

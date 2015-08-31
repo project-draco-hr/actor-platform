@@ -1,0 +1,5 @@
+{
+  this.start=start;
+  this.middle=middle;
+  this.end=end;
+}

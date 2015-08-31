@@ -1,4 +1,0 @@
-{
-  super.unbind();
-  emoji().unregisterListener(smilesListener);
-}

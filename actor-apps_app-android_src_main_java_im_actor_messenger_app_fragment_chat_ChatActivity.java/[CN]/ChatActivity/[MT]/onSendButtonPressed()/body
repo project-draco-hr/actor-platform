@@ -1,0 +1,18 @@
+{
+  String rawText=messageEditText.getText().toString();
+  if (currentQuote != null && !currentQuote.isEmpty()) {
+    rawText=currentQuote.concat(rawText);
+    goneView(quoteContainer);
+    currentQuote="";
+  }
+  messageEditText.setText("");
+  mentionSearchString="";
+  if (rawText.length() == 0) {
+    return;
+  }
+  if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
+    keyboardUtils.setImeVisibility(messageEditText,false);
+  }
+  messenger().sendMessage(peer,rawText);
+  messenger().trackTextSend(peer);
+}

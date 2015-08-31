@@ -1,0 +1,9 @@
+{
+  if (index >= 0 && index < text.length()) {
+    char postfix=text.charAt(index);
+    if (postfix != ' ' && postfix != '\t' && postfix != '\n') {
+      return false;
+    }
+  }
+  return true;
+}

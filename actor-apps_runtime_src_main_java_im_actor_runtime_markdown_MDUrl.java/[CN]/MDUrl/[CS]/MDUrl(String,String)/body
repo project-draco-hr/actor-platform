@@ -1,0 +1,4 @@
+{
+  this.urlTitle=urlTitle;
+  this.url=url;
+}

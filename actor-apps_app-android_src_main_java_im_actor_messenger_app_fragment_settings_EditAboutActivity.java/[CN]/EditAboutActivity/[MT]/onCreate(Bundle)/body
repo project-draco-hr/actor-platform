@@ -1,0 +1,14 @@
+{
+  super.onCreate(savedInstanceState);
+  int type=getIntent().getIntExtra(Intents.EXTRA_EDIT_TYPE,0);
+  int id=getIntent().getIntExtra(Intents.EXTRA_EDIT_ID,0);
+  if (type == TYPE_ME) {
+    getSupportActionBar().setTitle(R.string.about_user_me);
+  }
+ else   if (type == TYPE_GROUP) {
+    getSupportActionBar().setTitle(R.string.about_group);
+  }
+  if (savedInstanceState == null) {
+    showFragment(EditAboutFragment.editAbout(type,id),false,false);
+  }
+}

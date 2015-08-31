@@ -1,61 +1,34 @@
 {
   super.onResume();
-  if (peer.getPeerType() == PeerType.PRIVATE) {
-    final UserVM user=users().get(peer.getPeerId());
-    if (user == null) {
-      finish();
-      return;
-    }
-    bind(barAvatar,user.getId(),user.getAvatar(),user.getName());
-    bind(barTitle,user.getName());
-    bind(barSubtitle,barSubtitleContainer,user);
-    bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
-    kicked.setVisibility(View.GONE);
-  }
- else   if (peer.getPeerType() == PeerType.GROUP) {
-    GroupVM group=groups().get(peer.getPeerId());
-    if (group == null) {
-      finish();
-      return;
-    }
-    bind(barAvatar,group.getId(),group.getAvatar(),group.getName());
-    bind(barTitle,group.getName());
-    bind(barSubtitle,barSubtitleContainer,group);
-    bindGroupTyping(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
-    bind(messenger().getGroups().get(peer.getPeerId()).isMember(),new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
-        kicked.setVisibility(val ? View.GONE : View.VISIBLE);
-      }
-    }
-);
-  }
   if (isCompose) {
-    messageBody.requestFocus();
-    keyboardUtils.setImeVisibility(messageBody,true);
+    messageEditText.requestFocus();
+    keyboardUtils.setImeVisibility(messageEditText,true);
   }
   isCompose=false;
   isTypingDisabled=true;
   String text=messenger().loadDraft(peer);
   if (text != null) {
-    messageBody.setText((emoji().processEmojiCompatMutable(bypass.markdownToSpannable(text,true),SmileProcessor.CONFIGURATION_BUBBLES)));
+    Spannable spantext=AndroidMarkdown.processOnlyLinks(text);
+    spantext=emoji().processEmojiCompatMutable(spantext,SmileProcessor.CONFIGURATION_BUBBLES);
+    messageEditText.setText(spantext);
   }
  else {
-    messageBody.setText("");
+    messageEditText.setText("");
   }
-  messageBody.setSelection(messageBody.getText().length());
+  messageEditText.setSelection(messageEditText.getText().length());
   isTypingDisabled=false;
   if (sendUri != null && !sendUri.isEmpty()) {
-    sendUri(Uri.parse(sendUri),true);
+    execute(messenger().sendUri(peer,Uri.parse(sendUri)));
     sendUri="";
   }
   if (sendUriMultiple != null && sendUriMultiple.size() > 0) {
     for (    String sendUri : sendUriMultiple) {
-      sendUri(Uri.parse(sendUri),false);
+      execute(messenger().sendUri(peer,Uri.parse(sendUri)));
     }
     sendUriMultiple.clear();
   }
   if (sendText != null && !sendText.isEmpty()) {
-    messageBody.setText(sendText);
+    messageEditText.setText(sendText);
     sendText="";
   }
   if (shareUser != 0) {
@@ -78,7 +51,7 @@
       messenger().trackDocumentSend(peer);
     }
  else {
-      sendUri(Uri.fromFile(new File(forwardDocDescriptor)),false);
+      execute(messenger().sendUri(peer,Uri.fromFile(new File(forwardDocDescriptor))));
     }
     forwardDocDescriptor="";
   }

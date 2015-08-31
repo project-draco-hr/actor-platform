@@ -1,8 +1,0 @@
-{
-  if (hideUrlStyle) {
-  }
- else {
-    int id=Integer.parseInt(getURL().split("://")[1]);
-    widget.getContext().startActivity(Intents.openProfile(id,widget.getContext()));
-  }
-}

@@ -1,0 +1,10 @@
+{
+  String res="";
+  for (  MDSection section : sections) {
+    if (res.length() > 0) {
+      res+="\n";
+    }
+    res+=section.toMarkdown();
+  }
+  return res;
+}
