@@ -14,4 +14,3 @@ Boolean disableIntegrationsRevoke
 Boolean isAdmin
 String theme
 String about
-ApiGroupType groupType

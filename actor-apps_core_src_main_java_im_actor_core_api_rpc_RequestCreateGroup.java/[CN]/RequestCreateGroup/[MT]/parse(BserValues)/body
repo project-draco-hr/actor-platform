@@ -6,8 +6,4 @@
     _users.add(new ApiUserOutPeer());
   }
   this.users=values.getRepeatedObj(3,_users);
-  int val_groupType=values.getInt(4,0);
-  if (val_groupType != 0) {
-    this.groupType=ApiGroupType.parse(val_groupType);
-  }
 }

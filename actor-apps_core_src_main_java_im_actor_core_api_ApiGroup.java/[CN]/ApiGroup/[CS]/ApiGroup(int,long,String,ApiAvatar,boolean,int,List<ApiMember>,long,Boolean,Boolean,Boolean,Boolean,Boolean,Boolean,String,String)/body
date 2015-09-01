@@ -15,5 +15,4 @@
   this.isAdmin=isAdmin;
   this.theme=theme;
   this.about=about;
-  this.groupType=groupType;
 }

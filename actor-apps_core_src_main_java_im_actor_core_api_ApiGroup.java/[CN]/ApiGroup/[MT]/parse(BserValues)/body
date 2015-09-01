@@ -19,10 +19,6 @@
   this.isAdmin=values.optBool(16);
   this.theme=values.optString(17);
   this.about=values.optString(18);
-  int val_groupType=values.getInt(19,0);
-  if (val_groupType != 0) {
-    this.groupType=ApiGroupType.parse(val_groupType);
-  }
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

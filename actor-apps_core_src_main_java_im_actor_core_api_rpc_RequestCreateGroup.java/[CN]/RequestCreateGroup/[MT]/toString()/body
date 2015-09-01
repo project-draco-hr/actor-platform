@@ -3,7 +3,6 @@
   res+="rid=" + this.rid;
   res+=", title=" + this.title;
   res+=", users=" + this.users.size();
-  res+=", groupType=" + this.groupType;
   res+="}";
   return res;
 }
