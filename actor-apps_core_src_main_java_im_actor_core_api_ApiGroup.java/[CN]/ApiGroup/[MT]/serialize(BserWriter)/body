@@ -36,6 +36,9 @@
   if (this.about != null) {
     writer.writeString(18,this.about);
   }
+  if (this.groupType != null) {
+    writer.writeInt(19,this.groupType.getValue());
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

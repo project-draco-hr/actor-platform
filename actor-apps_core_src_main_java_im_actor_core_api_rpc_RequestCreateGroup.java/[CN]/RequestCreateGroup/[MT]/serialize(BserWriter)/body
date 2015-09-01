@@ -5,4 +5,7 @@
   }
   writer.writeString(2,this.title);
   writer.writeRepeatedObj(3,this.users);
+  if (this.groupType != null) {
+    writer.writeInt(4,this.groupType.getValue());
+  }
 }
