@@ -100,7 +100,12 @@
     }
   }
 );
-  header.findViewById(R.id.docsContainer).setVisibility(View.GONE);
+  header.findViewById(R.id.docsContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(DocumentsActivity.build(Peer.group(chatId),getActivity()));
+    }
+  }
+);
   header.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
   ((TextView)header.findViewById(R.id.membersCount)).setText(getString(R.string.group_members_count).replace("{0}",groupInfo.getMembersCount() + "").replace("{1}","300"));
   listView.addHeaderView(header,null,false);

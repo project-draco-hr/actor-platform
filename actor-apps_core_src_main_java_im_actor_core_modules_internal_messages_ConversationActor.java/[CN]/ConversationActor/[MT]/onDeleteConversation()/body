@@ -1,5 +1,6 @@
 {
   messages.clear();
+  docs.clear();
   inPendingIndex.clear();
   outPendingIndex.clear();
   dialogsActor.send(new DialogsActor.ChatDelete(peer));
