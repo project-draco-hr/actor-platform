@@ -12,8 +12,13 @@
       @Override public void onDownloaded(      final FileSystemReference reference){
         im.actor.runtime.Runtime.postToMainThread(new Runnable(){
           @Override public void run(){
-            Activity activity=getAdapter().getMessagesFragment().getActivity();
-            activity.startActivity(Intents.openDoc(document.getName(),reference.getDescriptor()));
+            if (document instanceof PhotoContent) {
+              Intents.openMedia(getAdapter().getMessagesFragment().getActivity(),fileIcon,reference.getDescriptor(),currentMessage.getSenderId());
+            }
+ else {
+              Activity activity=getAdapter().getMessagesFragment().getActivity();
+              activity.startActivity(Intents.openDoc(document.getName(),reference.getDescriptor()));
+            }
           }
         }
 );
