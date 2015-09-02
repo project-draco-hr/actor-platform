@@ -1,0 +1,7 @@
+{
+  String res="struct Extension{";
+  res+="id=" + this.id;
+  res+=", data=" + byteArrayToString(this.data);
+  res+="}";
+  return res;
+}

@@ -1,0 +1,4 @@
+{
+  this.id=values.getInt(1);
+  this.data=values.getBytes(2);
+}

@@ -15,4 +15,5 @@
   this.isAdmin=isAdmin;
   this.theme=theme;
   this.about=about;
+  this.extensions=extensions;
 }

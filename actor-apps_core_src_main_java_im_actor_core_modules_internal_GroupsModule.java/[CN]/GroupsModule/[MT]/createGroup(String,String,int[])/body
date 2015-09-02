@@ -15,7 +15,7 @@
           for (          int u : uids) {
             members.add(new ApiMember(u,myUid(),response.getDate(),u == myUid()));
           }
-          final ApiGroup group=new ApiGroup(response.getGroupPeer().getGroupId(),response.getGroupPeer().getAccessHash(),title,null,true,myUid(),members,response.getDate(),null,null,null,null,null,true,null,null);
+          final ApiGroup group=new ApiGroup(response.getGroupPeer().getGroupId(),response.getGroupPeer().getAccessHash(),title,null,true,myUid(),members,response.getDate(),null,null,null,null,null,true,null,null,null);
           ArrayList<ApiGroup> groups=new ArrayList<ApiGroup>();
           groups.add(group);
           updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateGroupInvite(group.getId(),rid,myUid(),response.getDate()),new ArrayList<ApiUser>(),groups);

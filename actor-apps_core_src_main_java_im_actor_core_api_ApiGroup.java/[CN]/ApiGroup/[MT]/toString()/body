@@ -8,6 +8,7 @@
   res+=", disableEdit=" + this.disableEdit;
   res+=", disableInviteView=" + this.disableInviteView;
   res+=", disableIntegrationView=" + this.disableIntegrationView;
+  res+=", extensions=" + this.extensions;
   res+="}";
   return res;
 }
