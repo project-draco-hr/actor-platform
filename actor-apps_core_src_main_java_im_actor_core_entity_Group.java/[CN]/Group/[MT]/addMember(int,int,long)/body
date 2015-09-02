@@ -7,7 +7,7 @@
     }
   }
   nMembers.add(new ApiMember(uid,inviterUid,inviteDate,null));
-  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.disableEdit(),w.disableInviteView(),w.disableInviteRevoke(),w.disableIntegrationView(),w.disableIntegrationsRevoke(),w.isAdmin(),w.getTheme(),w.getAbout(),w.getExtensions());
+  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.isMember(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.disableEdit(),w.disableInviteView(),w.disableInviteRevoke(),w.disableIntegrationView(),w.disableIntegrationsRevoke(),w.isAdmin(),w.getTheme(),w.getAbout(),w.isHidden(),w.getExtensions());
   res.setUnmappedObjects(w.getUnmappedObjects());
   return new Group(res);
 }

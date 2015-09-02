@@ -19,11 +19,12 @@
   this.isAdmin=values.optBool(16);
   this.theme=values.optString(17);
   this.about=values.optString(18);
+  this.isHidden=values.optBool(20);
   List<ApiExtension> _extensions=new ArrayList<ApiExtension>();
-  for (int i=0; i < values.getRepeatedCount(20); i++) {
+  for (int i=0; i < values.getRepeatedCount(21); i++) {
     _extensions.add(new ApiExtension());
   }
-  this.extensions=values.getRepeatedObj(20,_extensions);
+  this.extensions=values.getRepeatedObj(21,_extensions);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

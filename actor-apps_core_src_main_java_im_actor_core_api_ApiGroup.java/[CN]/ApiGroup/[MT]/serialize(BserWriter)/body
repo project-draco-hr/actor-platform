@@ -36,7 +36,10 @@
   if (this.about != null) {
     writer.writeString(18,this.about);
   }
-  writer.writeRepeatedObj(20,this.extensions);
+  if (this.isHidden != null) {
+    writer.writeBool(20,this.isHidden);
+  }
+  writer.writeRepeatedObj(21,this.extensions);
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {
