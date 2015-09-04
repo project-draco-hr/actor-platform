@@ -1,0 +1,7 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  if (!chatsDocsGlobalLists.containsKey(peer)) {
+    chatsDocsGlobalLists.put(peer,buildChatDocsList(peer,true));
+  }
+  return chatsDocsGlobalLists.get(peer);
+}

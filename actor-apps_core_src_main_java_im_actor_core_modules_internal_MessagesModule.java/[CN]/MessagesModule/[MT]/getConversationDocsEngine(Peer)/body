@@ -1,0 +1,8 @@
+{
+synchronized (conversationDocsEngines) {
+    if (!conversationDocsEngines.containsKey(peer)) {
+      conversationDocsEngines.put(peer,Storage.createList(STORAGE_CHAT_DOCS_PREFIX + peer.getUnuqueId(),Message.CREATOR));
+    }
+    return conversationDocsEngines.get(peer);
+  }
+}

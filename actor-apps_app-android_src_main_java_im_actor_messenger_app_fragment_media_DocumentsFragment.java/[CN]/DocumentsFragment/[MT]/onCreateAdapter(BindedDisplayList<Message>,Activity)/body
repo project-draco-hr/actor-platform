@@ -1,0 +1,4 @@
+{
+  messagesAdapter=new DocumentsAdapter(displayList,this,activity);
+  return messagesAdapter;
+}
