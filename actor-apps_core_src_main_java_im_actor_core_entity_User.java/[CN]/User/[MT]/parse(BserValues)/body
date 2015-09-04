@@ -3,6 +3,6 @@
     super.parse(values);
   }
  else {
-    setWrapped(new ObsoleteUser(values).toApiUser());
+    throw new IOException("Unsupported obsolete format");
   }
 }

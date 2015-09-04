@@ -1,3 +1,0 @@
-{
-  return new ApiFastThumb(w,h,image);
-}

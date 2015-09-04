@@ -16,7 +16,9 @@
     if (updatedMsg.getContent() instanceof DocumentContent) {
       docs.addOrUpdateItem(updatedMsg);
     }
-    dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inPendingIndex.getCount()));
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inPendingIndex.getCount()));
+    }
     if (state != MessageState.READ) {
       outPendingIndex.put(rid,date);
     }

@@ -6,6 +6,8 @@
     if (updatedMsg.getContent() instanceof DocumentContent) {
       docs.addOrUpdateItem(updatedMsg);
     }
-    dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
+    }
   }
 }

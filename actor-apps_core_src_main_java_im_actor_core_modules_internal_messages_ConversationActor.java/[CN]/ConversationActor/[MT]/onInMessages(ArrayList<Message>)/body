@@ -46,6 +46,8 @@
     }
   }
   if (topMessage != null) {
-    dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
+    }
   }
 }

@@ -7,4 +7,7 @@
   inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);
   outReadState=context().getPreferences().getLong(OUT_READ_STATE_PREF,0);
   outReceiveState=context().getPreferences().getLong(OUT_RECEIVE_STATE_PREF,0);
+  if (peer.getPeerType() == PeerType.GROUP) {
+    isHiddenPeer=getGroup(peer.getPeerId()).isHidden();
+  }
 }

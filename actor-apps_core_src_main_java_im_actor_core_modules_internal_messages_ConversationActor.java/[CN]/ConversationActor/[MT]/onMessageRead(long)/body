@@ -23,7 +23,9 @@
       messages.addOrUpdateItems(updated);
     }
     if (minRid != -1) {
-      dialogsActor.send(new DialogsActor.MessageStateChanged(peer,minRid,MessageState.READ));
+      if (!isHiddenPeer) {
+        dialogsActor.send(new DialogsActor.MessageStateChanged(peer,minRid,MessageState.READ));
+      }
     }
   }
 }

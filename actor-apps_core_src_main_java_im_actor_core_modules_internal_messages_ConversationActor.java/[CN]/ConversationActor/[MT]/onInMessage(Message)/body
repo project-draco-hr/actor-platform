@@ -27,6 +27,8 @@
         inPendingIndex.put(message.getRid(),message.getDate());
       }
     }
-    dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
+    }
   }
 }
