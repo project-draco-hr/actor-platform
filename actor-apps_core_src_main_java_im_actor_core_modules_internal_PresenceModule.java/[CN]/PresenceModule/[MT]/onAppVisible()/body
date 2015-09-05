@@ -1,3 +1,0 @@
-{
-  myPresence.send(new OwnPresenceActor.OnAppVisible());
-}

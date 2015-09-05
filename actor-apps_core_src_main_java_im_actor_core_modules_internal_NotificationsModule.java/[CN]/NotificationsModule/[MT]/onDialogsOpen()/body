@@ -1,3 +1,0 @@
-{
-  notificationsActor.send(new NotificationsActor.OnDialogsVisible());
-}

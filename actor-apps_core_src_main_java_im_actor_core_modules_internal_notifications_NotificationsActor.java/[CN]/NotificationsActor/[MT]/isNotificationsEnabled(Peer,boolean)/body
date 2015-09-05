@@ -3,6 +3,9 @@
     return false;
   }
   if (peer.getPeerType() == PeerType.GROUP) {
+    if (getGroup(peer.getPeerId()).isHidden()) {
+      return false;
+    }
     if (context().getSettingsModule().isGroupNotificationsEnabled()) {
       if (context().getSettingsModule().isNotificationsEnabled(peer)) {
         if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {

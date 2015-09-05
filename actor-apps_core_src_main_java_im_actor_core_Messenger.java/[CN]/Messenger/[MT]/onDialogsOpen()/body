@@ -1,5 +1,3 @@
 {
-  if (modules.getNotificationsModule() != null) {
-    modules.getNotificationsModule().onDialogsOpen();
-  }
+  modules.getEvents().post(new DialogsOpened());
 }
