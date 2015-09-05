@@ -6,10 +6,12 @@
   this.i18nEngine=new I18nEngine(this);
   timing.section("Preferences");
   this.preferences=Storage.createPreferencesStorage();
+  timing.section("Events");
+  this.events=new EventBus();
+  timing.section("API");
+  this.api=new ApiModule(this);
   timing.section("Analytics");
   this.analytics=new AnalyticsModule(this);
-  timing.section("API");
-  this.actorApi=new ActorApi(new Endpoints(configuration.getEndpoints()),new PreferenceApiStorage(preferences),new ActorApiCallbackImpl(),configuration.isEnableNetworkLogging(),configuration.getMinDelay(),configuration.getMaxDelay(),configuration.getMaxFailureCount());
   timing.section("App State");
   this.appStateModule=new AppStateModule(this);
   timing.section("External");

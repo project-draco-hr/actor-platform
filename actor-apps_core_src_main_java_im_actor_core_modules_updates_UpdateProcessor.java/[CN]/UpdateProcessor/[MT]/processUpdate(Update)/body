@@ -49,6 +49,14 @@
     UpdateGroupTitleChanged titleChanged=(UpdateGroupTitleChanged)update;
     groupsProcessor.onTitleChanged(titleChanged.getGroupId(),titleChanged.getRid(),titleChanged.getUid(),titleChanged.getTitle(),titleChanged.getDate(),false);
   }
+ else   if (update instanceof UpdateGroupTopicChanged) {
+    UpdateGroupTopicChanged topicChanged=(UpdateGroupTopicChanged)update;
+    groupsProcessor.onTopicChanged(topicChanged.getGroupId(),topicChanged.getTopic());
+  }
+ else   if (update instanceof UpdateGroupAboutChanged) {
+    UpdateGroupAboutChanged aboutChanged=(UpdateGroupAboutChanged)update;
+    groupsProcessor.onAboutChanged(aboutChanged.getGroupId(),aboutChanged.getAbout());
+  }
  else   if (update instanceof UpdateGroupAvatarChanged) {
     UpdateGroupAvatarChanged avatarChanged=(UpdateGroupAvatarChanged)update;
     groupsProcessor.onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getRid(),avatarChanged.getUid(),avatarChanged.getAvatar(),avatarChanged.getDate(),false);

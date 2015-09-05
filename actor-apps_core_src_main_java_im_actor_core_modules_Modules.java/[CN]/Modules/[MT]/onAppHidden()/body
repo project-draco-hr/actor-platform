@@ -1,9 +1,0 @@
-{
-  isAppVisible=false;
-  analytics.trackAppHidden();
-  if (authentication.isLoggedIn()) {
-    getPresenceModule().onAppHidden();
-    getNotificationsModule().onAppHidden();
-    appStateModule.getAppStateVM().onAppHidden();
-  }
-}

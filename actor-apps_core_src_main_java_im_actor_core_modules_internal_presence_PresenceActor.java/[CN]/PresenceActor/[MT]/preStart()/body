@@ -1,0 +1,5 @@
+{
+  context().getEvents().subscribe(this,NewSessionCreated.EVENT);
+  context().getEvents().subscribe(this,PeerChatOpened.EVENT);
+  context().getEvents().subscribe(this,PeerInfoOpened.EVENT);
+}

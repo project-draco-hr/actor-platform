@@ -7,7 +7,13 @@
         if (cursor.currentOffset < blockStart) {
           handleTextBlock(cursor,blockStart,paragraphs);
         }
-        String codeContent=cursor.text.substring(cursor.currentOffset + 3,blockEnd - 3);
+        String codeContent=cursor.text.substring(cursor.currentOffset + 3,blockEnd - 3).trim();
+        if (codeContent.startsWith("\n")) {
+          codeContent=codeContent.substring(1);
+        }
+        if (codeContent.endsWith("\n")) {
+          codeContent=codeContent.substring(0,codeContent.length() - 1);
+        }
         cursor.currentOffset=blockEnd;
         paragraphs.add(new MDSection(new MDCode(codeContent)));
         return true;

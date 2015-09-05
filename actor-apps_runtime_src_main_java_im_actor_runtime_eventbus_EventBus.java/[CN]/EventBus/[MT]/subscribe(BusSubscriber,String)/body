@@ -1,0 +1,14 @@
+{
+  if (!subscribers.containsKey(subscriber)) {
+    subscribers.put(subscriber,new SubscriberConfig(eventType));
+  }
+ else {
+    SubscriberConfig config=subscribers.get(subscriber);
+    if (!config.getTypes().contains(eventType)) {
+      config.getTypes().add(eventType);
+    }
+  }
+  if (eventType != null && stickyEvents.containsKey(eventType)) {
+    subscriber.onBusEvent(stickyEvents.get(eventType));
+  }
+}

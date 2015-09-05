@@ -4,7 +4,10 @@
     rids2[i]=rids.get(i);
   }
   messages.removeItems(rids2);
+  docs.removeItems(rids2);
   inPendingIndex.remove(rids);
   outPendingIndex.remove(rids);
-  dialogsActor.send(new DialogsActor.MessageDeleted(peer,messages.getHeadValue()));
+  if (!isHiddenPeer) {
+    dialogsActor.send(new DialogsActor.MessageDeleted(peer,messages.getHeadValue()));
+  }
 }

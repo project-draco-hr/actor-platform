@@ -1,7 +1,0 @@
-{
-  List<ApiMember> members=new ArrayList<ApiMember>();
-  for (  ObsoleteGroupMember member : this.members) {
-    members.add(new ApiMember(member.getUid(),member.getInviterUid(),member.getInviteDate(),null));
-  }
-  return new ApiGroup(groupId,accessHash,title,avatar != null ? avatar.toApiAvatar() : null,isMember,creatorId,members,0,null,null,null,null,null,null,null,null);
-}

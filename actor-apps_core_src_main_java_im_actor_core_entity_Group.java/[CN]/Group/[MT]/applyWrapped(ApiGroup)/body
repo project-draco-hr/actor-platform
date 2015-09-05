@@ -3,10 +3,13 @@
   this.accessHash=wrapped.getAccessHash();
   this.title=wrapped.getTitle();
   this.avatar=wrapped.getAvatar() != null ? new Avatar(wrapped.getAvatar()) : null;
-  this.adminId=wrapped.getCreatorUid();
+  this.creatorId=wrapped.getCreatorUid();
   this.members=new ArrayList<GroupMember>();
   for (  ApiMember m : wrapped.getMembers()) {
-    this.members.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate(),m.getUid() == this.adminId));
+    this.members.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate(),m.getUid() == this.creatorId));
   }
   this.isMember=wrapped.isMember();
+  this.isHidden=wrapped.isHidden() != null ? wrapped.isHidden() : false;
+  this.about=wrapped.getAbout();
+  this.theme=wrapped.getTheme();
 }

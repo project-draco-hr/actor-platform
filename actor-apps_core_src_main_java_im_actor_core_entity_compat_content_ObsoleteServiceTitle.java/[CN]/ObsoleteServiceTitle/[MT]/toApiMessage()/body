@@ -1,3 +1,0 @@
-{
-  return new ApiServiceMessage("Group theme changed",new ApiServiceExChangedTitle(newTitle));
-}

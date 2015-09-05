@@ -1,10 +1,12 @@
 {
   super(rawObj);
   this.id=rawObj.getGroupId();
-  this.creatorId=rawObj.getAdminId();
+  this.creatorId=rawObj.getCreatorId();
   this.name=new StringValueModel("group." + id + ".title",rawObj.getTitle());
   this.avatar=new AvatarValueModel("group." + id + ".avatar",rawObj.getAvatar());
   this.isMember=new BooleanValueModel("group." + id + ".isMember",rawObj.isMember());
   this.members=new ValueModel<HashSet<GroupMember>>("group." + id + ".members",new HashSet<GroupMember>(rawObj.getMembers()));
   this.presence=new ValueModel<Integer>("group." + id + ".presence",0);
+  this.theme=new StringValueModel("group." + id + ".theme",rawObj.getTheme());
+  this.about=new StringValueModel("group." + id + ".about",rawObj.getAbout());
 }

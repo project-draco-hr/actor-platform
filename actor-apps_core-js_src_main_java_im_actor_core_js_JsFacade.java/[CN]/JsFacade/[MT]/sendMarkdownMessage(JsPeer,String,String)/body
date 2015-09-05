@@ -1,0 +1,3 @@
+{
+  messenger.sendMessageWithMentionsDetect(peer.convert(),text,markdownText);
+}

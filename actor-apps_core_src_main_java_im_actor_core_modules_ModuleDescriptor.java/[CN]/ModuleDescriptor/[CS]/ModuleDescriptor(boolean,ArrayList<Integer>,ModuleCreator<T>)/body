@@ -1,5 +1,0 @@
-{
-  this.isLoginRequired=isLoginRequired;
-  this.updates=updates;
-  this.creator=creator;
-}

@@ -1,3 +1,0 @@
-{
-  return new ApiServiceMessage("Member kicked",new ApiServiceExUserKicked(kickedUid));
-}

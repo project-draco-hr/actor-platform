@@ -1,0 +1,11 @@
+{
+  if (event instanceof NewSessionCreated) {
+    self().send(new SessionCreated());
+  }
+ else   if (event instanceof PeerChatOpened) {
+    self().send(new Subscribe(((PeerChatOpened)event).getPeer()));
+  }
+ else   if (event instanceof PeerInfoOpened) {
+    self().send(new Subscribe(((PeerInfoOpened)event).getPeer()));
+  }
+}

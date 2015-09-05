@@ -3,6 +3,6 @@
     super.parse(values);
   }
  else {
-    setWrapped(new ObsoleteAvatar(values).toApiAvatar());
+    throw new IOException("Unsupported obsolete format");
   }
 }

@@ -1,0 +1,11 @@
+{
+  if (event instanceof AppVisibleChanged) {
+    AppVisibleChanged visibleChanged=(AppVisibleChanged)event;
+    if (visibleChanged.isVisible()) {
+      self().send(new OwnPresenceActor.OnAppVisible());
+    }
+ else {
+      self().send(new OwnPresenceActor.OnAppHidden());
+    }
+  }
+}

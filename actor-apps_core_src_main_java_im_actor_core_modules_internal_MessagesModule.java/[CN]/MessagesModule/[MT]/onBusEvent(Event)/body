@@ -1,0 +1,5 @@
+{
+  if (event instanceof PeerChatOpened) {
+    assumeConvActor(((PeerChatOpened)event).getPeer());
+  }
+}

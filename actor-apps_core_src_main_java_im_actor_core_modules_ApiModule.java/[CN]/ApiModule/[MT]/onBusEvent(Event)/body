@@ -1,0 +1,7 @@
+{
+  if (event instanceof AppVisibleChanged) {
+    if (((AppVisibleChanged)event).isVisible()) {
+      actorApi.forceNetworkCheck();
+    }
+  }
+}

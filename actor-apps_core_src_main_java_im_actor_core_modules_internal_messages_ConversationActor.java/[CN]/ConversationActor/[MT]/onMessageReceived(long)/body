@@ -6,15 +6,15 @@
   preferences().putLong(OUT_RECEIVE_STATE_PREF,date);
   List<Long> res=outPendingIndex.findBeforeValue(date);
   if (res.size() > 0) {
-    long minRid=-1;
-    long minDate=Long.MAX_VALUE;
+    long maxRid=-1;
+    long maxDate=Long.MIN_VALUE;
     ArrayList<Message> updated=new ArrayList<Message>();
     for (    Long ref : res) {
       Message msg=messages.getValue(ref);
       if (msg != null && msg.isSent()) {
-        if (msg.getDate() < minDate) {
-          minDate=msg.getDate();
-          minRid=ref;
+        if (msg.getDate() > maxDate) {
+          maxDate=msg.getDate();
+          maxRid=ref;
         }
         updated.add(msg.changeState(MessageState.RECEIVED));
       }
@@ -22,8 +22,10 @@
     if (updated.size() > 0) {
       messages.addOrUpdateItems(updated);
     }
-    if (minRid != -1) {
-      dialogsActor.send(new DialogsActor.MessageStateChanged(peer,minRid,MessageState.RECEIVED));
+    if (maxRid != -1) {
+      if (!isHiddenPeer) {
+        dialogsActor.send(new DialogsActor.MessageStateChanged(peer,maxRid,MessageState.RECEIVED));
+      }
     }
   }
 }

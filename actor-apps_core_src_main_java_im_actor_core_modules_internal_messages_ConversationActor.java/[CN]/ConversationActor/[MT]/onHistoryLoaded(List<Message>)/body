@@ -1,12 +1,19 @@
 {
   ArrayList<Message> updated=new ArrayList<Message>();
+  ArrayList<Message> updatedDocs=new ArrayList<Message>();
   for (  Message historyMessage : history) {
     if (messages.getValue(historyMessage.getEngineId()) != null) {
       continue;
     }
     updated.add(historyMessage);
+    if (historyMessage.getContent() instanceof DocumentContent) {
+      updatedDocs.add(historyMessage);
+    }
   }
   if (updated.size() > 0) {
     messages.addOrUpdateItems(updated);
+  }
+  if (updatedDocs.size() > 0) {
+    docs.addOrUpdateItems(updatedDocs);
   }
 }

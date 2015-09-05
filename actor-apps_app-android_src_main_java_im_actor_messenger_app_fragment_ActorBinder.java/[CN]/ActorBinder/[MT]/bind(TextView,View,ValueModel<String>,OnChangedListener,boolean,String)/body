@@ -1,0 +1,22 @@
+{
+  bind(value,new ValueChangedListener<String>(){
+    @Override public void onChanged(    String val,    ValueModel<String> valueModel){
+      if (val != null) {
+        if (hide) {
+          container.setVisibility(View.VISIBLE);
+        }
+        textView.setText(val);
+      }
+ else {
+        if (hide) {
+          container.setVisibility(View.GONE);
+        }
+        textView.setText(defaultValue);
+      }
+      if (callback != null) {
+        callback.onChanged(val);
+      }
+    }
+  }
+);
+}

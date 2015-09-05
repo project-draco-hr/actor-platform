@@ -1,8 +1,0 @@
-{
-  if (updates != null) {
-    updates.onNewSessionCreated();
-  }
-  if (presence != null) {
-    presence.onNewSessionCreated();
-  }
-}

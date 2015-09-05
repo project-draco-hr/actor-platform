@@ -1,3 +1,0 @@
-{
-  return new LocalFastThumb(w,h,image);
-}

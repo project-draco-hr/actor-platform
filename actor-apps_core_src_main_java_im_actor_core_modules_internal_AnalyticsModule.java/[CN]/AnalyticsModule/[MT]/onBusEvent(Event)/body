@@ -1,0 +1,29 @@
+{
+  if (event instanceof AppVisibleChanged) {
+    AppVisibleChanged visibleChanged=(AppVisibleChanged)event;
+    if (visibleChanged.isVisible()) {
+      trackAppVisible();
+    }
+ else {
+      trackAppHidden();
+    }
+  }
+ else   if (event instanceof PeerChatOpened) {
+    trackChatOpen(((PeerChatOpened)event).getPeer());
+  }
+ else   if (event instanceof PeerChatClosed) {
+    trackChatClosed(((PeerChatClosed)event).getPeer());
+  }
+ else   if (event instanceof PeerInfoOpened) {
+    Peer peer=((PeerInfoOpened)event).getPeer();
+    if (peer.getPeerType() == PeerType.PRIVATE) {
+      trackProfileOpen(peer.getPeerId());
+    }
+  }
+ else   if (event instanceof PeerInfoClosed) {
+    Peer peer=((PeerInfoClosed)event).getPeer();
+    if (peer.getPeerType() == PeerType.PRIVATE) {
+      trackProfileClosed(peer.getPeerId());
+    }
+  }
+}

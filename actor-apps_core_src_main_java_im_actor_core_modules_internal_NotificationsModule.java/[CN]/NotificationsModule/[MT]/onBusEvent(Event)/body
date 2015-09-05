@@ -1,0 +1,22 @@
+{
+  if (event instanceof PeerChatOpened) {
+    notificationsActor.send(new NotificationsActor.OnConversationVisible(((PeerChatOpened)event).getPeer()));
+  }
+ else   if (event instanceof PeerChatClosed) {
+    notificationsActor.send(new NotificationsActor.OnConversationHidden(((PeerChatClosed)event).getPeer()));
+  }
+ else   if (event instanceof AppVisibleChanged) {
+    if (((AppVisibleChanged)event).isVisible()) {
+      notificationsActor.send(new NotificationsActor.OnAppVisible());
+    }
+ else {
+      notificationsActor.send(new NotificationsActor.OnAppHidden());
+    }
+  }
+ else   if (event instanceof DialogsOpened) {
+    notificationsActor.send(new NotificationsActor.OnDialogsVisible());
+  }
+ else   if (event instanceof DialogsClosed) {
+    notificationsActor.send(new NotificationsActor.OnDialogsHidden());
+  }
+}

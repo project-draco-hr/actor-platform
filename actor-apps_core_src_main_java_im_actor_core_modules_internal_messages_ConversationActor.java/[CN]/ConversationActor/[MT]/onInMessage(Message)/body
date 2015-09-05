@@ -13,6 +13,9 @@
     }
   }
   messages.addOrUpdateItem(message);
+  if (message.getContent() instanceof DocumentContent) {
+    docs.addOrUpdateItem(message);
+  }
   if (message.isOnServer()) {
     if (message.getSenderId() == myUid()) {
       if (message.isOnServer() && message.getMessageState() != MessageState.READ) {
@@ -24,6 +27,8 @@
         inPendingIndex.put(message.getRid(),message.getDate());
       }
     }
-    dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
+    }
   }
 }

@@ -1,5 +1,0 @@
-{
-  w=values.getInt(1);
-  h=values.getInt(2);
-  image=values.getBytes(3);
-}

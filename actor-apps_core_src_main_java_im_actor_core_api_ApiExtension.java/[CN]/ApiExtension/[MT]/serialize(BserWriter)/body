@@ -1,0 +1,7 @@
+{
+  writer.writeInt(1,this.id);
+  if (this.data == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.data);
+}

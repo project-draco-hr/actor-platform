@@ -1,5 +1,7 @@
 {
   boolean isChanged=name.change(rawObj.getTitle());
+  isChanged|=theme.change(rawObj.getTheme());
+  isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
   isChanged|=isMember.change(rawObj.isMember());
   isChanged|=members.change(new HashSet<GroupMember>(rawObj.getMembers()));
