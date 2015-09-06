@@ -28,6 +28,5 @@
  else   if (content instanceof ServiceGroupUserJoined) {
     return getTemplateNamed(senderId,"ServiceGroupJoined");
   }
-  Log.w("i18NEngine","Unknown service content: " + content);
   return content.getCompatText();
 }

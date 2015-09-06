@@ -1,4 +1,3 @@
 {
-  super(messenger);
-  this.storage=messenger.getNotificationsModule().getNotificationsStorage();
+  super(context);
 }

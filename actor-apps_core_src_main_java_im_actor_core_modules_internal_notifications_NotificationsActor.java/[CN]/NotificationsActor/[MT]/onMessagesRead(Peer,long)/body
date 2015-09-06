@@ -1,5 +1,5 @@
 {
-  if (fromDate < loadLastReadState(peer)) {
+  if (fromDate < getLastReadDate(peer)) {
     return;
   }
   boolean isChanged=false;
@@ -14,5 +14,5 @@
     saveStorage();
     updateNotification();
   }
-  writeLastReadState(peer,fromDate);
+  setLastReadDate(peer,fromDate);
 }

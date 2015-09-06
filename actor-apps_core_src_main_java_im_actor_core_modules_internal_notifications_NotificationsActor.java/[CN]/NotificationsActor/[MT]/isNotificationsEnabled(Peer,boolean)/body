@@ -7,23 +7,29 @@
       return false;
     }
     if (context().getSettingsModule().isGroupNotificationsEnabled()) {
+      if (hasMention) {
+        return true;
+      }
       if (context().getSettingsModule().isNotificationsEnabled(peer)) {
         if (context().getSettingsModule().isGroupNotificationsOnlyMentionsEnabled()) {
-          return hasMention;
+          return false;
         }
  else {
           return true;
         }
       }
  else {
-        return hasMention;
+        return false;
       }
     }
  else {
       return false;
     }
   }
- else {
+ else   if (peer.getPeerType() == PeerType.PRIVATE) {
     return context().getSettingsModule().isNotificationsEnabled(peer);
+  }
+ else {
+    throw new RuntimeException("Unknown peer type");
   }
 }

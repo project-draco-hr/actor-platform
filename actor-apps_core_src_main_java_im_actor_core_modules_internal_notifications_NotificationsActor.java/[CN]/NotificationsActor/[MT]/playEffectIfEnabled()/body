@@ -1,0 +1,5 @@
+{
+  if (isEffectsEnabled()) {
+    config().getNotificationProvider().onMessageArriveInApp(context().getMessenger());
+  }
+}

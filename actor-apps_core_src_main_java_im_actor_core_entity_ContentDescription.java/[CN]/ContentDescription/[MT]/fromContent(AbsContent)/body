@@ -40,6 +40,9 @@
  else   if (msg instanceof ServiceGroupUserJoined) {
     return new ContentDescription(ContentType.SERVICE_JOINED,"",0,false);
   }
+ else   if (msg instanceof ServiceContent) {
+    return new ContentDescription(ContentType.SERVICE,((ServiceContent)msg).getCompatText(),0,false);
+  }
  else {
     return new ContentDescription(ContentType.UNKNOWN_CONTENT);
   }

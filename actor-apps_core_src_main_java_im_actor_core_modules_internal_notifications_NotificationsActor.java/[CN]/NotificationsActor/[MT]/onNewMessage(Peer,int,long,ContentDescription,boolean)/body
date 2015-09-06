@@ -1,5 +1,5 @@
 {
-  if (date <= loadLastReadState(peer)) {
+  if (date <= getLastReadDate(peer)) {
     return;
   }
   boolean isEnabled=isNotificationsEnabled(peer,hasCurrentUserMention);
@@ -9,28 +9,31 @@
     saveStorage();
   }
   if (isNotificationsPaused) {
-    notificationsDuringPause.add(peer);
+    if (!notificationsDuringPause.containsKey(peer)) {
+      notificationsDuringPause.put(peer,hasCurrentUserMention);
+    }
+ else {
+      if (hasCurrentUserMention && !notificationsDuringPause.get(peer)) {
+        notificationsDuringPause.put(peer,true);
+      }
+    }
     return;
   }
   if (isAppVisible) {
     if (visiblePeer != null && visiblePeer.equals(peer)) {
-      if (config().getDeviceCategory() == DeviceCategory.DESKTOP || config().getDeviceCategory() == DeviceCategory.TABLET) {
+      if (isMobilePlatform) {
+        playEffectIfEnabled();
       }
  else {
-        if (isEffectsEnabled()) {
-          playEffect();
-        }
       }
     }
  else {
-      if (config().getDeviceCategory() == DeviceCategory.DESKTOP || config().getDeviceCategory() == DeviceCategory.TABLET) {
-        if (isEnabled) {
-          if (isEffectsEnabled()) {
-            playEffect();
-          }
-        }
+      if (isMobilePlatform) {
       }
  else {
+        if (isEnabled) {
+          playEffectIfEnabled();
+        }
       }
     }
   }
