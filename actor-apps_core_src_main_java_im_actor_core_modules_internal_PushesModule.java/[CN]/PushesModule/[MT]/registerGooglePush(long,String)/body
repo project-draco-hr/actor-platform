@@ -1,3 +1,3 @@
 {
-  pushActor.send(new PushRegisterActor.RegisterGooglePush(projectId,token));
+  pushRegisterActor.send(new PushRegisterActor.RegisterGooglePush(projectId,token));
 }
