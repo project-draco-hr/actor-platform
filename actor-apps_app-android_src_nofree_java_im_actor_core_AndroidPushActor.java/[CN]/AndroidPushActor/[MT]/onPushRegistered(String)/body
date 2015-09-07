@@ -1,5 +1,5 @@
 {
   isRegistered=true;
   messenger.getPreferences().putBool("push_registered",true);
-  messenger.getPushesModule().registerGooglePush(PROJECT_ID,token);
+  messenger.registerGooglePush(PROJECT_ID,token);
 }
