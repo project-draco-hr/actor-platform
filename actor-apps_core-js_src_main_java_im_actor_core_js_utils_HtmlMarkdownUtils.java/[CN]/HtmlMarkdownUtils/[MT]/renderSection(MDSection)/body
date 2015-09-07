@@ -1,0 +1,11 @@
+{
+  if (section.getType() == MDSection.TYPE_CODE) {
+    return renderCode(section.getCode());
+  }
+ else   if (section.getType() == MDSection.TYPE_TEXT) {
+    return renderText(section.getText());
+  }
+ else {
+    return "";
+  }
+}

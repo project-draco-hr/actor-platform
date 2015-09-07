@@ -1,0 +1,14 @@
+{
+  MDDocument doc=new MarkdownParser(mode).processDocument(markdown);
+  ArrayList<String> renderedSections=new ArrayList<String>();
+  for (  MDSection section : doc.getSections()) {
+    renderedSections.add(renderSection(section));
+  }
+  StringBuilder builder=new StringBuilder();
+  for (  String section : renderedSections) {
+    builder.append("<p>");
+    builder.append(section);
+    builder.append("</p>");
+  }
+  return builder.toString();
+}
