@@ -1,6 +1,12 @@
 {
   super(configuration);
   this.context=context;
+  this.androidPushesActor=system().actorOf(Props.create(AndroidPushActor.class,new ActorCreator<AndroidPushActor>(){
+    @Override public AndroidPushActor create(){
+      return new AndroidPushActor(context,modules);
+    }
+  }
+),"actor/android/push");
   this.appStateActor=system().actorOf(Props.create(AppStateActor.class,new ActorCreator<AppStateActor>(){
     @Override public AppStateActor create(){
       return new AppStateActor(AndroidMessenger.this);

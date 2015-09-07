@@ -1,0 +1,9 @@
+{
+  if (message instanceof PushRegistered) {
+    PushRegistered pushRegistered=(PushRegistered)message;
+    onPushRegistered(pushRegistered.getToken());
+  }
+ else {
+    drop(message);
+  }
+}
