@@ -1,5 +1,6 @@
 int id
 String name
+String about
 String avatar
 String bigAvatar
 String placeholder
