@@ -7,24 +7,6 @@
     MessagesRead read=(MessagesRead)message;
     onMessagesRead(read.getPeer(),read.getFromDate());
   }
- else   if (message instanceof OnConversationVisible) {
-    onConversationVisible(((OnConversationVisible)message).getPeer());
-  }
- else   if (message instanceof OnConversationHidden) {
-    onConversationHidden(((OnConversationHidden)message).getPeer());
-  }
- else   if (message instanceof OnAppHidden) {
-    onAppHidden();
-  }
- else   if (message instanceof OnAppVisible) {
-    onAppVisible();
-  }
- else   if (message instanceof OnDialogsVisible) {
-    onDialogsVisible();
-  }
- else   if (message instanceof OnDialogsHidden) {
-    onDialogsHidden();
-  }
  else   if (message instanceof PauseNotifications) {
     onNotificationsPaused();
   }

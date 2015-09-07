@@ -1,0 +1,13 @@
+{
+  Log.d("EventBus","Event: " + e.getType());
+  String eventType=e.getType();
+  if (isSticky) {
+    stickyEvents.put(eventType,e);
+  }
+  for (  BusSubscriber s : subscribers.keySet()) {
+    SubscriberConfig config=subscribers.get(s);
+    if (config.getTypes().contains(null) || config.getTypes().contains(eventType)) {
+      s.onBusEvent(e);
+    }
+  }
+}

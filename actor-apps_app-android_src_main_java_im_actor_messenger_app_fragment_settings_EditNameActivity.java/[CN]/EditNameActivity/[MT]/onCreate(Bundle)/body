@@ -11,6 +11,9 @@
  else   if (type == TYPE_GROUP) {
     getSupportActionBar().setTitle(R.string.edit_name_title_group);
   }
+ else   if (type == TYPE_GROUP_THEME) {
+    getSupportActionBar().setTitle(R.string.edit_name_title_group_theme);
+  }
   if (savedInstanceState == null) {
     showFragment(EditNameFragment.editName(type,id),false,false);
   }

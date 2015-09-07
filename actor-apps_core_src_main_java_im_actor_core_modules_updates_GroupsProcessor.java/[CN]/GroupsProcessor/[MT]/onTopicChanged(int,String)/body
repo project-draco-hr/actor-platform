@@ -1,0 +1,10 @@
+{
+  Group group=groups().getValue(groupId);
+  if (group != null) {
+    if (group.getTheme() == null || !group.getTheme().equals(topic)) {
+      Group upd=group.editTheme(topic);
+      groups().addOrUpdateItem(upd);
+      onGroupDescChanged(upd);
+    }
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return new ApiServiceMessage("Avatar Changed",new ApiServiceExChangedAvatar(avatar != null ? avatar.toApiAvatar() : null));
-}

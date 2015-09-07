@@ -1,6 +1,7 @@
 {
   Message topMessage=null;
   ArrayList<Message> updated=new ArrayList<Message>();
+  ArrayList<Message> updatedDocs=new ArrayList<Message>();
   for (  Message m : inMessages) {
     if (m.getSenderId() == myUid()) {
       if (m.isOnServer()) {
@@ -26,8 +27,12 @@
       }
     }
     updated.add(m);
+    if (m.getContent() instanceof DocumentContent) {
+      updatedDocs.add(m);
+    }
   }
   messages.addOrUpdateItems(updated);
+  docs.addOrUpdateItems(updatedDocs);
   for (  Message m : updated) {
     if (m.getSenderId() == myUid()) {
       if (m.isOnServer() && m.getMessageState() != MessageState.READ) {
@@ -41,6 +46,8 @@
     }
   }
   if (topMessage != null) {
-    dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
+    }
   }
 }

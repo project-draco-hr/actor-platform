@@ -47,4 +47,5 @@
     }
   }
 ),"actor/shown");
+  context().getEvents().subscribe(this,PeerChatOpened.EVENT);
 }

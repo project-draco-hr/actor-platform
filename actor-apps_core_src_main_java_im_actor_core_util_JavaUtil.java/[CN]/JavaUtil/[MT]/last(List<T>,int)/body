@@ -1,0 +1,10 @@
+{
+  ArrayList<T> res=new ArrayList<T>();
+  for (int i=0; i < elements.size(); i++) {
+    if (res.size() >= limit) {
+      break;
+    }
+    res.add(elements.get(elements.size() - 1 - i));
+  }
+  return res;
+}

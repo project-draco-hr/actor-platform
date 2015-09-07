@@ -1,3 +1,0 @@
-{
-  text=values.getString(2);
-}

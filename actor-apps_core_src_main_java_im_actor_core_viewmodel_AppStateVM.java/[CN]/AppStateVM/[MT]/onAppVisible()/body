@@ -1,4 +1,0 @@
-{
-  isAppVisible.change(true);
-  globalTempCounter.change(0);
-}

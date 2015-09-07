@@ -132,8 +132,13 @@
     }
   }
 );
+  res.findViewById(R.id.docsContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(DocumentsActivity.build(Peer.user(uid),getActivity()));
+    }
+  }
+);
   res.findViewById(R.id.mediaContainer).setVisibility(View.GONE);
-  res.findViewById(R.id.docsContainer).setVisibility(View.GONE);
   View notificationContainter=res.findViewById(R.id.notificationsCont);
   final SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
   notificationEnable.setChecked(messenger().isNotificationsEnabled(Peer.user(uid)));

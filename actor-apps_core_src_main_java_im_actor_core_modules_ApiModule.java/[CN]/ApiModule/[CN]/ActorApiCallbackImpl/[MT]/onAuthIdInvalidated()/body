@@ -1,0 +1,3 @@
+{
+  ((Modules)context()).onLoggedOut();
+}

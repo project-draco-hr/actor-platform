@@ -5,5 +5,13 @@
   }
   Message updatedMsg=message.changeContent(content);
   messages.addOrUpdateItem(updatedMsg);
-  dialogsActor.send(new DialogsActor.MessageContentChanged(peer,rid,content));
+  if (updatedMsg.getContent() instanceof DocumentContent) {
+    docs.addOrUpdateItem(updatedMsg);
+  }
+ else {
+    docs.removeItem(rid);
+  }
+  if (!isHiddenPeer) {
+    dialogsActor.send(new DialogsActor.MessageContentChanged(peer,rid,content));
+  }
 }

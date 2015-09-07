@@ -3,6 +3,11 @@
   if (msg != null && msg.isPendingOrSent()) {
     Message updatedMsg=msg.changeState(MessageState.ERROR);
     messages.addOrUpdateItem(updatedMsg);
-    dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
+    if (updatedMsg.getContent() instanceof DocumentContent) {
+      docs.addOrUpdateItem(updatedMsg);
+    }
+    if (!isHiddenPeer) {
+      dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
+    }
   }
 }

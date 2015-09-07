@@ -1,0 +1,17 @@
+{
+  if (event instanceof AppVisibleChanged) {
+    AppVisibleChanged visibleChanged=(AppVisibleChanged)event;
+    if (visibleChanged.isVisible()) {
+      onAppVisible();
+    }
+ else {
+      onAppHidden();
+    }
+  }
+ else   if (event instanceof PeerChatOpened) {
+    onConversationVisible(((PeerChatOpened)event).getPeer());
+  }
+ else   if (event instanceof PeerChatClosed) {
+    onConversationHidden(((PeerChatClosed)event).getPeer());
+  }
+}

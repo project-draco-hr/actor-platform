@@ -46,17 +46,8 @@
   messages.run();
   timing.section("Updates");
   updates.run();
-  timing.section("Presence");
-  presence.run();
   timing.section("DisplayLists");
   displayLists=new DisplayLists(this);
   timing.end();
-  if (isAppVisible) {
-    presence.onAppVisible();
-    notifications.onAppVisible();
-  }
- else {
-    notifications.onAppHidden();
-  }
   messenger.onLoggedIn();
 }

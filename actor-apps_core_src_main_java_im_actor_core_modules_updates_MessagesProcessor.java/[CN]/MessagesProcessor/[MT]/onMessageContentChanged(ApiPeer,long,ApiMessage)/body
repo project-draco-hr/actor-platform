@@ -1,5 +1,8 @@
 {
   Peer peer=convert(_peer);
+  if (!isValidPeer(peer)) {
+    return;
+  }
   AbsContent content;
   try {
     content=AbsContent.fromMessage(message);

@@ -5,5 +5,7 @@
   inReadState=date;
   preferences().putLong(IN_READ_STATE_PREF,date);
   inPendingIndex.removeBeforeValue(date);
-  dialogsActor.send(new DialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+  if (!isHiddenPeer) {
+    dialogsActor.send(new DialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+  }
 }

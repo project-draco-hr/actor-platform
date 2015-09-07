@@ -1,5 +1,0 @@
-{
-  width=values.getInt(1);
-  height=values.getInt(2);
-  fileReference=new ObsoleteFileReference(values.getBytes(3));
-}

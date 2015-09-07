@@ -6,6 +6,7 @@
       int spanEnd=findSpanEnd(cursor,spanStart,blockEnd,span);
       if (spanEnd >= 0) {
         handleUrls(cursor,spanStart,elements);
+        cursor.currentOffset++;
         MDText[] spanElements=handleSpans(cursor,spanEnd - 1);
         cursor.currentOffset=spanEnd;
         MDSpan spanElement=new MDSpan(span == '*' ? MDSpan.TYPE_BOLD : MDSpan.TYPE_ITALIC,spanElements);
