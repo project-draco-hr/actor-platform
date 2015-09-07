@@ -27,4 +27,10 @@
   builder.setPlatformType(PlatformType.ANDROID);
   builder.setApiConfiguration(new ApiConfiguration(BuildConfig.VERSION_TITLE,API_ID,API_KEY,getDeviceName(),AppContext.getContext().getPackageName() + ":" + Build.SERIAL));
   this.messenger=new AndroidMessenger(AppContext.getContext(),builder.build());
+  this.androidPushesActor=system().actorOf(Props.create(AndroidPushActor.class,new ActorCreator<AndroidPushActor>(){
+    @Override public AndroidPushActor create(){
+      return new AndroidPushActor(application,messenger);
+    }
+  }
+),"actor/android/push");
 }
