@@ -8,7 +8,7 @@
       linearLayoutManager.scrollToPositionWithOffset(index + 1,Screen.dp(64));
     }
   }
- else {
+ else   if (getCollection() != null) {
     getCollection().scrollToPosition(0);
   }
 }
