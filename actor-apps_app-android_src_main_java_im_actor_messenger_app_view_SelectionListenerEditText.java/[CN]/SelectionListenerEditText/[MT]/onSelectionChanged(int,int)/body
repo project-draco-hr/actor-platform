@@ -1,6 +1,0 @@
-{
-  super.onSelectionChanged(selStart,selEnd);
-  if (selectionCallback != null) {
-    selectionCallback.onSelected(selStart,selEnd);
-  }
-}
