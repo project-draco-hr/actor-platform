@@ -1,0 +1,8 @@
+{
+  for (  StoredRequest req : requests) {
+    writer.writeObject(1,req);
+  }
+  for (  CursorStoredRequest req : cursorRequests) {
+    writer.writeObject(2,req);
+  }
+}

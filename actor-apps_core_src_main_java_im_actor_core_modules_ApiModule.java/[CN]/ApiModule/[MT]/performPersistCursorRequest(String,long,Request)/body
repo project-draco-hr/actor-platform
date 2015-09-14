@@ -1,0 +1,3 @@
+{
+  persistentRequests.send(new PersistentRequestsActor.PerformCursorRequest(name,key,request));
+}

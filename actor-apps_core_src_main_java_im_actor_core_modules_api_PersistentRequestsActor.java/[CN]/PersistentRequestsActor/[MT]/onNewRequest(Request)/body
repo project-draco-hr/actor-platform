@@ -1,0 +1,6 @@
+{
+  StoredRequest storedRequest=new StoredRequest(request);
+  requestsStorage.getRequests().add(storedRequest);
+  performRequest(storedRequest);
+  saveStorage();
+}

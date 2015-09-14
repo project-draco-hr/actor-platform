@@ -1,0 +1,12 @@
+{
+  if (message instanceof PerformRequest) {
+    onNewRequest(((PerformRequest)message).getRequest());
+  }
+ else   if (message instanceof PerformCursorRequest) {
+    PerformCursorRequest cursorRequest=(PerformCursorRequest)message;
+    onNewCursorRequest(cursorRequest.getName(),cursorRequest.getKey(),cursorRequest.getRequest());
+  }
+ else {
+    drop(message);
+  }
+}

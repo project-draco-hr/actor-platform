@@ -2,4 +2,10 @@
   super(context);
   this.actorApi=new ActorApi(new Endpoints(context().getConfiguration().getEndpoints()),new PreferenceApiStorage(context().getPreferences()),new ActorApiCallbackImpl(),context().getConfiguration().isEnableNetworkLogging(),context().getConfiguration().getMinDelay(),context().getConfiguration().getMaxDelay(),context().getConfiguration().getMaxFailureCount());
   context.getEvents().subscribe(this,AppVisibleChanged.EVENT);
+  persistentRequests=system().actorOf(Props.create(PersistentRequestsActor.class,new ActorCreator<PersistentRequestsActor>(){
+    @Override public PersistentRequestsActor create(){
+      return new PersistentRequestsActor(context());
+    }
+  }
+),"api/persistence");
 }

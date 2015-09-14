@@ -1,0 +1,20 @@
+{
+  requests.clear();
+  for (  byte[] r : values.getRepeatedBytes(1)) {
+    try {
+      requests.add(StoredRequest.fromBytes(r));
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  cursorRequests.clear();
+  for (  byte[] r : values.getRepeatedBytes(2)) {
+    try {
+      cursorRequests.add(CursorStoredRequest.fromBytes(r));
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

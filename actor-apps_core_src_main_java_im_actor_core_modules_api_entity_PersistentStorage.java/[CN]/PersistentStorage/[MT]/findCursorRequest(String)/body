@@ -1,0 +1,8 @@
+{
+  for (  CursorStoredRequest r : cursorRequests) {
+    if (name.equals(r.getName())) {
+      return r;
+    }
+  }
+  return null;
+}
