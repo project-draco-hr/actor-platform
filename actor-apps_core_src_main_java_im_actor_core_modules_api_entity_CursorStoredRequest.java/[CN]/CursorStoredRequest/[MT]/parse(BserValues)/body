@@ -1,0 +1,8 @@
+{
+  name=values.getString(1);
+  currentKey=values.getLong(2);
+  byte[] rawBytes=values.getBytes(3);
+  if (rawBytes != null) {
+    request=StoredRequest.fromBytes(rawBytes);
+  }
+}

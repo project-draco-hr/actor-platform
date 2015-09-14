@@ -1,0 +1,22 @@
+{
+  super.preStart();
+  storage=Storage.createKeyValue(STORAGE);
+  requestsStorage=new PersistentStorage();
+  byte[] data=storage.getValue(0);
+  if (data != null) {
+    try {
+      requestsStorage=PersistentStorage.fromBytes(data);
+    }
+ catch (    Throwable t) {
+      t.printStackTrace();
+    }
+  }
+  for (  StoredRequest r : requestsStorage.getRequests()) {
+    performRequest(r);
+  }
+  for (  CursorStoredRequest r : requestsStorage.getCursorRequests()) {
+    if (r.getRequest() != null) {
+      performCursorRequest(r.getRequest().getRequest(),r.getName(),r.getCurrentKey());
+    }
+  }
+}

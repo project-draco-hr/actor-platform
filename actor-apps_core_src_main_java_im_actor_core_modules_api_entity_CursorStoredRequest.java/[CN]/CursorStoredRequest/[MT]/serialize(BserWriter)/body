@@ -1,0 +1,7 @@
+{
+  writer.writeString(1,name);
+  writer.writeLong(2,currentKey);
+  if (request != null) {
+    writer.writeObject(3,request);
+  }
+}

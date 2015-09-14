@@ -1,0 +1,11 @@
+{
+  request(request.getRequest(),new RpcCallback(){
+    @Override public void onResult(    Response response){
+      requestCompleted(request);
+    }
+    @Override public void onError(    RpcException e){
+      requestCompleted(request);
+    }
+  }
+);
+}

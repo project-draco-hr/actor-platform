@@ -1,0 +1,8 @@
+{
+  CursorStoredRequest s=requestsStorage.findCursorRequest(name);
+  if (s.getCurrentKey() == key) {
+    requestsStorage.getCursorRequests().remove(s);
+    requestsStorage.getCursorRequests().add(new CursorStoredRequest(name,key,null));
+    saveStorage();
+  }
+}

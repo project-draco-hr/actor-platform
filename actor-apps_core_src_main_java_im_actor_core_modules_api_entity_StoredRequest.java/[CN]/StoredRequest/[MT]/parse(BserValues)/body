@@ -1,0 +1,5 @@
+{
+  int headerKey=values.getInt(1);
+  byte[] requestData=values.getBytes(2);
+  request=(Request)PARSER.read(headerKey,requestData);
+}

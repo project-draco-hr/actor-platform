@@ -1,0 +1,13 @@
+{
+  CursorStoredRequest cursorStoredRequest=requestsStorage.findCursorRequest(name);
+  if (cursorStoredRequest != null) {
+    if (cursorStoredRequest.getCurrentKey() >= key) {
+      return;
+    }
+    requestsStorage.getCursorRequests().remove(cursorStoredRequest);
+  }
+  cursorStoredRequest=new CursorStoredRequest(name,key,new StoredRequest(request));
+  requestsStorage.getCursorRequests().add(cursorStoredRequest);
+  performCursorRequest(request,name,key);
+  saveStorage();
+}

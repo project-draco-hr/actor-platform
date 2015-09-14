@@ -1,0 +1,4 @@
+{
+  requestsStorage.getRequests().remove(request);
+  saveStorage();
+}
