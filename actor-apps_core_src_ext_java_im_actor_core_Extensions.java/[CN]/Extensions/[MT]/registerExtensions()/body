@@ -1,0 +1,9 @@
+{
+  extensions=new Extension[APP_EXTENSIONS.length];
+  for (int i=0; i < extensions.length; i++) {
+    extensions[i]=APP_EXTENSIONS[i].newInstance();
+  }
+  for (int i=0; i < extensions.length; i++) {
+    extensions[i].registerExtension(context);
+  }
+}
