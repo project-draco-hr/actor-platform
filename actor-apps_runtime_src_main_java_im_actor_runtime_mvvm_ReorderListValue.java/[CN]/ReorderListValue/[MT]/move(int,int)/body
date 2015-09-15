@@ -1,0 +1,10 @@
+{
+  if (from == to) {
+    return;
+  }
+  ArrayList<T> src=getModifiedValue();
+  ArrayList<T> res=new ArrayList<T>(src);
+  T item=res.remove(from);
+  res.add(to,item);
+  change(res);
+}

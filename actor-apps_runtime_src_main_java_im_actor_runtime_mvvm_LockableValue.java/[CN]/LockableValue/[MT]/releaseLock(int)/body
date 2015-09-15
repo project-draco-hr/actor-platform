@@ -1,0 +1,8 @@
+{
+  activeLocks.remove(id);
+  if (activeLocks.size() == 0) {
+    modifiedValue=null;
+    isLockEnabled=false;
+    notifyInMainThread(originalValue);
+  }
+}

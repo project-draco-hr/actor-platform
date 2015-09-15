@@ -1,0 +1,7 @@
+{
+  super(name);
+  this.converter=converter;
+  this.baseValue=valueModel;
+  this.value=converter.convert(valueModel.get());
+  baseValue.subscribe(changedListener,false);
+}

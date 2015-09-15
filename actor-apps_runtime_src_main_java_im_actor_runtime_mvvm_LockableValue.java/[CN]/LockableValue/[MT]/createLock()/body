@@ -1,0 +1,9 @@
+{
+  if (activeLocks.size() == 0) {
+    modifiedValue=originalValue;
+    isLockEnabled=true;
+  }
+  int lockId=NEXT_LOCK_ID++;
+  activeLocks.add(lockId);
+  return lockId;
+}
