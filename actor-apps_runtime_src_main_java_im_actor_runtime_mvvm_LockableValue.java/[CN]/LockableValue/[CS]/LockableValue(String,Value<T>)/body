@@ -1,0 +1,6 @@
+{
+  super(name);
+  this.baseValue=baseValue;
+  this.originalValue=baseValue.get();
+  baseValue.subscribe(listener);
+}

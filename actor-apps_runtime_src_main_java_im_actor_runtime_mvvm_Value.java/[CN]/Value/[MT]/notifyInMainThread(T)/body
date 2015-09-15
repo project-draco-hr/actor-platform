@@ -1,0 +1,5 @@
+{
+  for (  ValueChangedListener<T> listener : listeners.toArray(new ValueChangedListener[listeners.size()])) {
+    listener.onChanged(value,Value.this);
+  }
+}

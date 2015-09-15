@@ -1,0 +1,8 @@
+{
+  if (isLockEnabled) {
+    return modifiedValue;
+  }
+ else {
+    return originalValue;
+  }
+}

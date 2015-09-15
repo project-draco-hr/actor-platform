@@ -1,0 +1,7 @@
+{
+  if (!isLockEnabled) {
+    throw new RuntimeException("changing of values only cen be performed in locked state");
+  }
+  modifiedValue=obj;
+  notifyInMainThread(modifiedValue);
+}

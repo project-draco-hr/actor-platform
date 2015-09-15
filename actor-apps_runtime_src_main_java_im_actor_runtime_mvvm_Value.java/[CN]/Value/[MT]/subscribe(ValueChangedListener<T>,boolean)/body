@@ -5,6 +5,6 @@
   }
   listeners.add(listener);
   if (notify) {
-    listener.onChanged(value,this);
+    listener.onChanged(get(),this);
   }
 }
