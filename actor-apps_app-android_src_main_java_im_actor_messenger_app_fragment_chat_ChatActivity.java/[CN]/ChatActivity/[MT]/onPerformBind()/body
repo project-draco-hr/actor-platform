@@ -24,7 +24,7 @@
     bind(barSubtitle,barSubtitleContainer,group);
     bindGroupTyping(barTyping,barTypingContainer,barSubtitle,messenger().getGroupTyping(group.getId()));
     bind(messenger().getGroups().get(peer.getPeerId()).isMember(),new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> Value){
         removedFromGroup.setVisibility(val ? View.GONE : View.VISIBLE);
       }
     }

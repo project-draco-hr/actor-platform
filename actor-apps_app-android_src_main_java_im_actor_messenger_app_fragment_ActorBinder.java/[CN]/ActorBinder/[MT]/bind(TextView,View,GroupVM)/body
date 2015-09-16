@@ -1,6 +1,6 @@
 {
   bind(value.getPresence(),value.getMembers(),value.isMember(),new ValueTripleChangedListener<Integer,HashSet<GroupMember>,Boolean>(){
-    @Override public void onChanged(    Integer online,    ValueModel<Integer> onlineModel,    HashSet<GroupMember> members,    ValueModel<HashSet<GroupMember>> membersModel,    Boolean isMember,    ValueModel<Boolean> isMemberModel){
+    @Override public void onChanged(    Integer online,    Value<Integer> onlineModel,    HashSet<GroupMember> members,    Value<HashSet<GroupMember>> membersModel,    Boolean isMember,    Value<Boolean> isMemberModel){
       if (isMember) {
         titleContainer.setVisibility(View.VISIBLE);
         if (online <= 0) {

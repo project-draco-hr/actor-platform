@@ -1,4 +1,0 @@
-AvatarView avatarView
-int id
-ValueModel<Avatar> avatar
-ValueModel<String> name
