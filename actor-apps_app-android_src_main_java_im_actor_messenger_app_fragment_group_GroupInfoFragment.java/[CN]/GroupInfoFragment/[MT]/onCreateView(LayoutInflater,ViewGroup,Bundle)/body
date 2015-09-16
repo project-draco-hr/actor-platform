@@ -4,7 +4,7 @@
   View res=inflater.inflate(R.layout.fragment_group,container,false);
   notMemberView=res.findViewById(R.id.notMember);
   bind(groupInfo.isMember(),new ValueChangedListener<Boolean>(){
-    @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> Value){
       notMemberView.setVisibility(val ? View.GONE : View.VISIBLE);
       getActivity().invalidateOptionsMenu();
     }
@@ -31,7 +31,7 @@
  else {
     UserVM admin=users().get(groupInfo.getCreatorId());
     bind(admin.getName(),new ValueChangedListener<String>(){
-      @Override public void onChanged(      String val,      ValueModel<String> valueModel){
+      @Override public void onChanged(      String val,      Value<String> Value){
         createdBy.setText(getString(R.string.group_created_by).replace("{0}",val));
       }
     }
@@ -106,7 +106,7 @@
   listView.addFooterView(add,null,false);
   groupUserAdapter=new MembersAdapter(groupInfo.getMembers().get(),getActivity());
   bind(groupInfo.getMembers(),new ValueChangedListener<HashSet<GroupMember>>(){
-    @Override public void onChanged(    HashSet<GroupMember> val,    ValueModel<HashSet<GroupMember>> valueModel){
+    @Override public void onChanged(    HashSet<GroupMember> val,    Value<HashSet<GroupMember>> Value){
       groupUserAdapter.updateUid(val);
     }
   }

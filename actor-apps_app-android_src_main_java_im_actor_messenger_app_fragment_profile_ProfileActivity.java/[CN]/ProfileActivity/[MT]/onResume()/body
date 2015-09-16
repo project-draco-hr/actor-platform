@@ -1,7 +1,7 @@
 {
   super.onResume();
   bind(users().get(uid).isContact(),new ValueChangedListener<Boolean>(){
-    @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> Value){
       invalidateOptionsMenu();
     }
   }

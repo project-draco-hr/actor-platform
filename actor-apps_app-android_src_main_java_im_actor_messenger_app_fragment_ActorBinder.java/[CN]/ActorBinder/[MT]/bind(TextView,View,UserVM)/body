@@ -1,6 +1,6 @@
 {
   bind(user.getPresence(),new ValueChangedListener<UserPresence>(){
-    @Override public void onChanged(    UserPresence val,    ValueModel<UserPresence> valueModel){
+    @Override public void onChanged(    UserPresence val,    Value<UserPresence> Value){
       String s=messenger().getFormatter().formatPresence(val,user.getSex());
       if (s != null) {
         container.setVisibility(View.VISIBLE);

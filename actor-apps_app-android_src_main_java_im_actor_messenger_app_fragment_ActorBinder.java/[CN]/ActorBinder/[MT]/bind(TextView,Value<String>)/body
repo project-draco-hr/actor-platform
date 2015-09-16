@@ -1,0 +1,8 @@
+{
+  bind(value,new ValueChangedListener<String>(){
+    @Override public void onChanged(    String val,    Value<String> Value){
+      textView.setText(val);
+    }
+  }
+);
+}

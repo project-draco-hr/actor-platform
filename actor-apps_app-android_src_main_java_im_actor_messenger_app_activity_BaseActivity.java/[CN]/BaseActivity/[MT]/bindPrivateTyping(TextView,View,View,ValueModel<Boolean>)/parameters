@@ -1,4 +1,0 @@
-TextView textView
-View container
-View titleContainer
-ValueModel<Boolean> typing

@@ -52,7 +52,7 @@
   if (data.getPeer().getPeerType() == PeerType.PRIVATE) {
     bindedUid=data.getPeer().getPeerId();
     privateTypingListener=new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> Value){
         if (val) {
           text.setText(messenger().getFormatter().formatTyping());
           text.setTextColor(context.getResources().getColor(R.color.chats_typing));
@@ -69,7 +69,7 @@
  else   if (data.getPeer().getPeerType() == PeerType.GROUP) {
     bindedGid=data.getPeer().getPeerId();
     groupTypingListener=new ValueChangedListener<int[]>(){
-      @Override public void onChanged(      int[] val,      ValueModel<int[]> valueModel){
+      @Override public void onChanged(      int[] val,      Value<int[]> Value){
         if (val.length != 0) {
           if (val.length == 1) {
             text.setText(messenger().getFormatter().formatTyping(messenger().getUsers().get(val[0]).getName().get()));
