@@ -1,0 +1,4 @@
+{
+  super(pattern,flags);
+  this.compiled=RegExp.compile(pattern,flags);
+}

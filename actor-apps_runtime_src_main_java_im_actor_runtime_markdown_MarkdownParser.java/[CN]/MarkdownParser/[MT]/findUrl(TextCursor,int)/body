@@ -5,8 +5,24 @@
         continue start_loop;
       }
     }
- else {
+ else     if (isGoodAnchor(cursor.text,start)) {
       continue start_loop;
+    }
+ else {
+      String currentText=cursor.text.substring(start);
+      if (Patterns.WEB_URL_START.test(currentText)) {
+        final MatcherCompat matcher=Patterns.WEB_URL_START.matcher(currentText);
+        final String url=matcher.group();
+        if (url.length() > 0) {
+          return new BasicUrl(start + matcher.start(),start + matcher.start() + url.length());
+        }
+ else {
+          continue start_loop;
+        }
+      }
+ else {
+        continue start_loop;
+      }
     }
     middle_loop:     for (int middle=start + 1; middle < limit - 1; middle++) {
       if (cursor.text.charAt(middle) != ']' || cursor.text.charAt(middle + 1) != '(') {
@@ -16,7 +32,7 @@
         if (cursor.text.charAt(end) != ')') {
           continue end_loop;
         }
-        return new Url(start,middle,end);
+        return new TitledUrl(start,middle,end);
       }
     }
   }
