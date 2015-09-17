@@ -8,4 +8,7 @@
  else   if (event instanceof PeerInfoOpened) {
     self().send(new Subscribe(((PeerInfoOpened)event).getPeer()));
   }
+ else   if (event instanceof UserVisible) {
+    self().send(new Subscribe(Peer.user(((UserVisible)event).getUid())));
+  }
 }
