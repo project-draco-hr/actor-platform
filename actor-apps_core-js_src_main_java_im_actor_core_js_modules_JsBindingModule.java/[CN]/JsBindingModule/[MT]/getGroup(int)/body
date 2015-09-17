@@ -9,7 +9,7 @@
     }
 ,false);
     groupVM.getPresence().subscribe(new ValueChangedListener<Integer>(){
-      @Override public void onChanged(      Integer val,      ValueModel<Integer> valueModel){
+      @Override public void onChanged(      Integer val,      Value<Integer> valueModel){
         value.changeValue(JsGroup.fromGroupVM(groupVM,messenger));
       }
     }

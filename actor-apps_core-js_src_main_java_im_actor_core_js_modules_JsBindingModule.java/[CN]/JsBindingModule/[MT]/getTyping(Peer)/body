@@ -4,7 +4,7 @@
       UserTypingVM userTypingVM=context().getTypingModule().getTyping(peer.getPeerId());
       final JsBindedValue<JsTyping> value=new JsBindedValue<JsTyping>();
       userTypingVM.getTyping().subscribe(new ValueChangedListener<Boolean>(){
-        @Override public void onChanged(        Boolean val,        ValueModel<Boolean> valueModel){
+        @Override public void onChanged(        Boolean val,        Value<Boolean> valueModel){
           String typingValue=null;
           if (val) {
             typingValue=messenger.getFormatter().formatTyping("");
@@ -19,7 +19,7 @@
       GroupTypingVM groupTypingVM=context().getTypingModule().getGroupTyping(peer.getPeerId());
       final JsBindedValue<JsTyping> value=new JsBindedValue<JsTyping>();
       groupTypingVM.getActive().subscribe(new ValueChangedListener<int[]>(){
-        @Override public void onChanged(        int[] val,        ValueModel<int[]> valueModel){
+        @Override public void onChanged(        int[] val,        Value<int[]> valueModel){
           String typingValue=null;
           if (val.length == 1) {
             typingValue=messenger.getFormatter().formatTyping(context().getUsersModule().getUsers().get(val[0]).getName().get());
