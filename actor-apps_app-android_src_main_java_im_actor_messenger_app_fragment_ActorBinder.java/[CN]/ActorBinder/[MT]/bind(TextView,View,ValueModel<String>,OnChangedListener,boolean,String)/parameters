@@ -1,6 +1,0 @@
-TextView textView
-View container
-ValueModel<String> value
-OnChangedListener callback
-boolean hide
-String defaultValue

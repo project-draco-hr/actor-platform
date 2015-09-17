@@ -26,7 +26,7 @@
   addHeaderView(header);
   emptyDialogs=res.findViewById(R.id.emptyDialogs);
   bind(messenger().getAppState().getIsDialogsEmpty(),new ValueChangedListener<Boolean>(){
-    @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> Value){
       if (val) {
         emptyDialogs.setVisibility(View.VISIBLE);
       }

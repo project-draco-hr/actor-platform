@@ -1,3 +1,0 @@
-ValueModel<T> value
-boolean notify
-ValueChangedListener<T> listener

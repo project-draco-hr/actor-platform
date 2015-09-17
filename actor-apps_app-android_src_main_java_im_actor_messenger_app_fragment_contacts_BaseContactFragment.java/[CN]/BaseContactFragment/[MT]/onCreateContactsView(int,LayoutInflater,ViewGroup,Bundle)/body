@@ -7,7 +7,7 @@
   addHeaderView(headerPadding);
   addFootersAndHeaders();
   bind(messenger().getAppState().getIsContactsEmpty(),new ValueChangedListener<Boolean>(){
-    @Override public void onChanged(    Boolean val,    ValueModel<Boolean> valueModel){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> Value){
       if (emptyView != null) {
         if (val) {
           emptyView.setVisibility(View.VISIBLE);

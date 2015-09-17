@@ -1,10 +1,10 @@
 {
-  Command<ResponseGetPublicGroups> cmd=messenger().executeExternalCommand(new RequestGetPublicGroups());
-  if (cmd != null)   cmd.start(new CommandCallback<ResponseGetPublicGroups>(){
-    @Override public void onResult(    ResponseGetPublicGroups res){
+  Command<List<PublicGroup>> cmd=messenger().listPublicGroups();
+  if (cmd != null)   cmd.start(new CommandCallback<List<PublicGroup>>(){
+    @Override public void onResult(    List<PublicGroup> res){
       final ArrayList<PublicGroup> groups=new ArrayList<PublicGroup>();
-      for (      ApiPublicGroup g : res.getGroups()) {
-        groups.add(new PublicGroup(g));
+      for (      PublicGroup g : res) {
+        groups.add(g);
       }
       getActivity().runOnUiThread(new Runnable(){
         @Override public void run(){

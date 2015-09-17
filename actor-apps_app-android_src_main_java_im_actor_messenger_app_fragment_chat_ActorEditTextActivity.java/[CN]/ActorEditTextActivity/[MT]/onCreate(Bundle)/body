@@ -5,7 +5,7 @@
   if (savedInstanceState == null) {
     getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,onCreateFragment()).commit();
   }
-  messageEditText=(SelectionListenerEditText)findViewById(R.id.et_message);
+  messageEditText=(EditText)findViewById(R.id.et_message);
   messageEditText.setOnKeyListener(new View.OnKeyListener(){
     @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
       if (messenger().isSendByEnterEnabled()) {
