@@ -3,7 +3,7 @@
     final AppStateVM vm=context().getAppStateModule().getAppStateVM();
     onlineState=new JsBindedValue<String>("online");
     vm.getIsConnecting().subscribe(new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
         if (val) {
           onlineState.changeValue("connecting");
         }
@@ -19,7 +19,7 @@
     }
 );
     vm.getIsSyncing().subscribe(new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      ValueModel<Boolean> valueModel){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
         if (vm.getIsConnecting().get()) {
           onlineState.changeValue("connecting");
         }
