@@ -1,0 +1,6 @@
+{
+  if (this.transactionHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.transactionHash);
+}

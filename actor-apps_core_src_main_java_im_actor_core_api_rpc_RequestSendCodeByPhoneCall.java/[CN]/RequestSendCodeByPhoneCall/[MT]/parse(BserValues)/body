@@ -1,0 +1,3 @@
+{
+  this.transactionHash=values.getString(1);
+}
