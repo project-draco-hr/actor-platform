@@ -1,0 +1,22 @@
+{
+  if (((char)c) == '[' || ((char)c) == '{') {
+    super.write(c);
+    super.write('\n');
+    indent++;
+    writeIndentation();
+  }
+ else   if (((char)c) == ',') {
+    super.write(c);
+    super.write('\n');
+    writeIndentation();
+  }
+ else   if (((char)c) == ']' || ((char)c) == '}') {
+    super.write('\n');
+    indent--;
+    writeIndentation();
+    super.write(c);
+  }
+ else {
+    super.write(c);
+  }
+}
