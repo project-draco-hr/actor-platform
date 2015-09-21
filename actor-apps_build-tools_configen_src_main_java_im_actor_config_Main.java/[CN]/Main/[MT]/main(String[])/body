@@ -42,7 +42,7 @@
         Map<String,Object> variantData=(Map<String,Object>)variants.get(variant);
         for (        String key : variantData.keySet()) {
           res.remove(key);
-          res.put(key,convertToJson(platformData.get(key)));
+          res.put(key,convertToJson(variantData.get(key)));
         }
       }
     }
