@@ -1,0 +1,9 @@
+{
+  try {
+    return HtmlMarkdownUtils.processText(markdownText,MarkdownParser.MODE_FULL);
+  }
+ catch (  Exception e) {
+    Log.e("Markdown",e);
+    return "[Error while processing text]";
+  }
+}

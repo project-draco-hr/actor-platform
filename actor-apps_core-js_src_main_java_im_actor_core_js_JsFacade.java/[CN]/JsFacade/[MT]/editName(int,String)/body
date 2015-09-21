@@ -3,10 +3,12 @@
     @Override public void execute(){
       messenger.editName(uid,newName).start(new CommandCallback<Boolean>(){
         @Override public void onResult(        Boolean res){
+          Log.d(TAG,"editName:result");
           resolve();
         }
         @Override public void onError(        Exception e){
-          reject();
+          Log.d(TAG,"editName:error");
+          reject(e.getMessage());
         }
       }
 );

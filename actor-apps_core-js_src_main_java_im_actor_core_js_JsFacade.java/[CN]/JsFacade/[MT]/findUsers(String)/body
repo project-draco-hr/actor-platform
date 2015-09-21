@@ -3,6 +3,7 @@
     @Override public void execute(){
       messenger.findUsers(query).start(new CommandCallback<UserVM[]>(){
         @Override public void onResult(        UserVM[] users){
+          Log.d(TAG,"findUsers:result");
           JsArray<JsUser> jsUsers=JsArray.createArray().cast();
           for (          UserVM user : users) {
             jsUsers.push(messenger.getJsUser(user.getId()).get());
@@ -10,6 +11,7 @@
           resolve(jsUsers);
         }
         @Override public void onError(        Exception e){
+          Log.d(TAG,"findUsers:error");
           reject(e.getMessage());
         }
       }
