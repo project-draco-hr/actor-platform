@@ -1,0 +1,18 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  MDText text : texts) {
+    if (text instanceof MDRawText) {
+      final MDRawText rawText=(MDRawText)text;
+      builder.append(SafeHtmlUtils.htmlEscape(rawText.getRawText()).replace("\n","<br/>"));
+    }
+ else     if (text instanceof MDSpan) {
+      final MDSpan span=(MDSpan)text;
+      builder.append(spanElement(span.getSpanType(),renderText(span.getChild())));
+    }
+ else     if (text instanceof MDUrl) {
+      final MDUrl url=(MDUrl)text;
+      builder.append(urlElement(url));
+    }
+  }
+  return builder.toString();
+}

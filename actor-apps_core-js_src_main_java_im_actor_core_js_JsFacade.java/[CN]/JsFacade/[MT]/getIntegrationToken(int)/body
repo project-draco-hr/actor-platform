@@ -3,10 +3,12 @@
     @Override public void execute(){
       messenger.requestIntegrationToken(gid).start(new CommandCallback<String>(){
         @Override public void onResult(        String res){
+          Log.d(TAG,"getIntegrationToken:result");
           resolve(res);
         }
         @Override public void onError(        Exception e){
-          reject();
+          Log.d(TAG,"getIntegrationToken:error");
+          reject(e.getMessage());
         }
       }
 );

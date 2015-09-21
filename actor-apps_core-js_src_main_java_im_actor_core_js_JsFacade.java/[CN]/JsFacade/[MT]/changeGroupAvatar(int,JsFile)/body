@@ -1,0 +1,4 @@
+{
+  String descriptor=provider.registerUploadFile(file);
+  messenger.changeGroupAvatar(gid,descriptor);
+}

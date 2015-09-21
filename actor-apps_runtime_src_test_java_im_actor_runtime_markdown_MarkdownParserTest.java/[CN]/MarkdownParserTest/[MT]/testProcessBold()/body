@@ -1,0 +1,4 @@
+{
+  String message="*bold* text";
+  MDDocument doc=parser.processDocument(message);
+}

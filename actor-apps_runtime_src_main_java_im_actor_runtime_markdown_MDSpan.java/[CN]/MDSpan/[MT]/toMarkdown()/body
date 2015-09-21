@@ -6,6 +6,8 @@
  else   if (spanType == TYPE_ITALIC) {
     res+="_";
   }
+  if (spanType == TYPE_URL) {
+  }
  else {
     throw new RuntimeException("Unknown type");
   }

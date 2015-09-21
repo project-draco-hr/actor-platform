@@ -33,5 +33,5 @@
   for (  JsGroupMember member : convertedMembers) {
     jsMembers.push(member);
   }
-  return create(groupVM.getId(),groupVM.getName().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence,jsMembers);
+  return create(groupVM.getId(),groupVM.getName().get(),groupVM.getAbout().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(groupVM.getId()),groupVM.getCreatorId(),presence,jsMembers);
 }

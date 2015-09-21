@@ -1,0 +1,11 @@
+{
+  if (type == MDSpan.TYPE_BOLD) {
+    return "<b>" + innerHTML + "</b>";
+  }
+ else   if (type == MDSpan.TYPE_ITALIC) {
+    return "<i>" + innerHTML + "</i>";
+  }
+ else {
+    return innerHTML;
+  }
+}

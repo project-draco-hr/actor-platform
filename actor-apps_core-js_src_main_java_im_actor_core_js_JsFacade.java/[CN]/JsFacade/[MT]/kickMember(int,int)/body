@@ -3,10 +3,12 @@
     @Override public void execute(){
       messenger.kickMember(gid,uid).start(new CommandCallback<Boolean>(){
         @Override public void onResult(        Boolean res){
+          Log.d(TAG,"kickMember:result");
           resolve();
         }
         @Override public void onError(        Exception e){
-          reject();
+          Log.d(TAG,"kickMember:error");
+          reject(e.getMessage());
         }
       }
 );
