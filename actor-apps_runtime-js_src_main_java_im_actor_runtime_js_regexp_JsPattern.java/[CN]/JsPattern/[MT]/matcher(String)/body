@@ -1,7 +1,3 @@
 {
-  MatchResult matchResult=compiled.exec(input);
-  if (matchResult == null) {
-    throw new RuntimeException("Called Matcher on a non-matching string");
-  }
   return new JsMatcher(compiled.exec(input));
 }

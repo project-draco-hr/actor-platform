@@ -1,40 +1,10 @@
 {
-  start_loop:   for (int start=cursor.currentOffset; start < limit; start++) {
-    if (cursor.text.charAt(start) == '[') {
-      if (!isGoodAnchor(cursor.text,start - 1)) {
-        continue start_loop;
-      }
-    }
- else     if (isGoodAnchor(cursor.text,start)) {
-      continue start_loop;
-    }
- else {
-      String currentText=cursor.text.substring(start);
-      if (isGoodAnchor(cursor.text,start - 1) && Patterns.WEB_URL_START.test(currentText)) {
-        final MatcherCompat matcher=Patterns.WEB_URL_START.matcher(currentText);
-        final String url=matcher.group();
-        if (url.length() > 0) {
-          return new BasicUrl(start + matcher.start(),start + matcher.start() + url.length());
-        }
- else {
-          continue start_loop;
-        }
-      }
- else {
-        continue start_loop;
-      }
-    }
-    middle_loop:     for (int middle=start + 1; middle < limit - 1; middle++) {
-      if (cursor.text.charAt(middle) != ']' || cursor.text.charAt(middle + 1) != '(') {
-        continue middle_loop;
-      }
-      end_loop:       for (int end=middle + 2; end < limit; end++) {
-        if (cursor.text.charAt(end) != ')') {
-          continue end_loop;
-        }
-        return new TitledUrl(start,middle,end);
-      }
-    }
+  String currentText=cursor.text.substring(cursor.currentOffset,limit);
+  MatcherCompat matcher=Patterns.WEB_URL_START.matcher(currentText);
+  if (matcher.hasMatch()) {
+    String url=matcher.group();
+    int start=cursor.currentOffset + matcher.start();
+    return new BasicUrl(start,start + url.length());
   }
   return null;
 }
