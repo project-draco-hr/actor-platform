@@ -2,8 +2,8 @@
   while (true) {
     BasicUrl url=findUrl(cursor,limit);
     if (url != null) {
-      addText(cursor,url.getStart(),elements);
       String link=cursor.text.substring(url.getStart(),url.getEnd());
+      addText(cursor,url.getStart(),elements);
       elements.add(new MDUrl(link,link));
       cursor.currentOffset=url.getEnd();
       continue;

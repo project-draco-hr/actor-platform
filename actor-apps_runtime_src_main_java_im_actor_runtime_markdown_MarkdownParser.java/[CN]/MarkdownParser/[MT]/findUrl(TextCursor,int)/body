@@ -1,10 +1,15 @@
 {
-  String currentText=cursor.text.substring(cursor.currentOffset,limit);
-  MatcherCompat matcher=Patterns.WEB_URL_START.matcher(currentText);
-  if (matcher.hasMatch()) {
-    String url=matcher.group();
-    int start=cursor.currentOffset + matcher.start();
-    return new BasicUrl(start,start + url.length());
+  for (int i=cursor.currentOffset; i < limit; i++) {
+    if (!isGoodAnchor(cursor.text,i - 1)) {
+      continue;
+    }
+    String currentText=cursor.text.substring(i,limit);
+    MatcherCompat matcher=Patterns.WEB_URL_START.matcher(currentText);
+    if (matcher.hasMatch()) {
+      String url=matcher.group();
+      int start=i + matcher.start();
+      return new BasicUrl(start,start + url.length());
+    }
   }
   return null;
 }
