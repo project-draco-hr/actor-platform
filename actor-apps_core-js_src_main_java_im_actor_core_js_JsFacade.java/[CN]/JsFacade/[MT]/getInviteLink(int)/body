@@ -3,10 +3,12 @@
     @Override public void execute(){
       messenger.requestInviteLink(gid).start(new CommandCallback<String>(){
         @Override public void onResult(        String res){
+          Log.d(TAG,"getInviteLink:result");
           resolve(res);
         }
         @Override public void onError(        Exception e){
-          reject();
+          Log.d(TAG,"getInviteLink:error");
+          reject(e.getMessage());
         }
       }
 );

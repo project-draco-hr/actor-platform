@@ -4,10 +4,12 @@
       String avatarDescriptor=provider.registerUploadFile(file);
       messenger.createGroup(title,avatarDescriptor,uids).start(new CommandCallback<Integer>(){
         @Override public void onResult(        Integer res){
+          Log.d(TAG,"createGroup:result");
           resolve(JsPeer.create(Peer.group(res)));
         }
         @Override public void onError(        Exception e){
-          reject();
+          Log.d(TAG,"createGroup:error");
+          reject(e.getMessage());
         }
       }
 );

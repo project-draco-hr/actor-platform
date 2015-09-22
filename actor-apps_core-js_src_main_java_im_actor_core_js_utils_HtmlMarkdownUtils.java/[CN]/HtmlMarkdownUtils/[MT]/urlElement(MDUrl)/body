@@ -1,0 +1,3 @@
+{
+  return "<a " + "target=\"_blank\" " + "onClick=\"window.messenger.handleLinkClick(event)\" "+ "href=\"" + UriUtils.sanitizeUri(url.getUrl()) + "\">"+ SafeHtmlUtils.htmlEscape(url.getUrlTitle())+ "</a>";
+}

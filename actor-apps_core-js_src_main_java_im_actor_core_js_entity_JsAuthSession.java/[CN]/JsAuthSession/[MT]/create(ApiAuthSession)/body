@@ -1,0 +1,13 @@
+{
+  String holderStr;
+  if (authSession.getAuthHolder() == ApiAuthHolder.OTHERDEVICE) {
+    holderStr="OTHER_DEVICE";
+  }
+ else   if (authSession.getAuthHolder() == ApiAuthHolder.THISDEVICE) {
+    holderStr="THIS_DEVICE";
+  }
+ else {
+    holderStr="UNSUPPORTED";
+  }
+  return create(authSession.getId(),holderStr,authSession.getAppId(),authSession.getAppTitle(),authSession.getDeviceTitle(),JsDate.create(authSession.getAuthTime() * 1000),authSession.getAuthLocation(),authSession.getLatitude(),authSession.getLongitude());
+}
