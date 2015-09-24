@@ -1,0 +1,8 @@
+{
+  if (keyToTitle.containsKey(tag)) {
+    return keyToTitle.get(tag);
+  }
+ else {
+    return defVal;
+  }
+}

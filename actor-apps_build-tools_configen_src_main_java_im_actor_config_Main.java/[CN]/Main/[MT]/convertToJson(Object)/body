@@ -1,0 +1,23 @@
+{
+  if (src instanceof Map) {
+    JSONObject res=new JSONObject();
+    for (    String s : ((Map<String,Object>)src).keySet()) {
+      res.put(s,((Map<String,Object>)src).get(s));
+    }
+    return res;
+  }
+ else   if (src instanceof String) {
+    return src;
+  }
+ else   if (src instanceof Integer) {
+    return src;
+  }
+ else   if (src instanceof List) {
+    JSONArray res=new JSONArray();
+    for (    Object o : (List)src) {
+      res.add(convertToJson(o));
+    }
+    return res;
+  }
+  throw new RuntimeException("type: " + src.getClass());
+}

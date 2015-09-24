@@ -1,0 +1,23 @@
+{
+  if (o instanceof RpcException) {
+    RpcException e=(RpcException)o;
+    String res=Errors.mapError(e.getTag(),null);
+    if (res != null) {
+      return locale.get(res);
+    }
+ else {
+      if (e.getMessage().equals("")) {
+        return e.getTag();
+      }
+ else {
+        return e.getMessage();
+      }
+    }
+  }
+ else   if (o instanceof Exception) {
+    return ((Exception)o).getMessage();
+  }
+ else {
+    return "" + o;
+  }
+}
