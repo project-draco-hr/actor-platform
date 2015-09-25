@@ -24,6 +24,9 @@
   if (this.about != null) {
     writer.writeString(14,this.about);
   }
+  if (this.external != null) {
+    writer.writeString(15,this.external);
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

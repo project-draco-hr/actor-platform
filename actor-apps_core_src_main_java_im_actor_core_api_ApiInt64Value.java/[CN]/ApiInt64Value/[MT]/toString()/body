@@ -1,0 +1,5 @@
+{
+  String res="struct Int64Value{";
+  res+="}";
+  return res;
+}

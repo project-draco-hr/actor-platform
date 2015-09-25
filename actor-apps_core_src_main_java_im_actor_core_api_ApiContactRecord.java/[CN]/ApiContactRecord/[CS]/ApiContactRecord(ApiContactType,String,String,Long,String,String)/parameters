@@ -1,0 +1,6 @@
+ApiContactType type
+String typeSpec
+String stringValue
+Long longValue
+String title
+String subtitle

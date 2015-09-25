@@ -1,8 +1,0 @@
-{
-  String res="struct Interest{";
-  res+="id=" + this.id;
-  res+=", title=" + this.title;
-  res+=", childInterests=" + this.childInterests;
-  res+="}";
-  return res;
-}

@@ -165,6 +165,14 @@
  else     if (childType instanceof SchemeStructType) {
       generator.appendLn("writer.writeRepeatedObj(" + attributeId + ", this."+ attributeName+ ");");
     }
+ else     if (childType instanceof SchemeTraitType) {
+      String traitTypeName=JavaConfig.getStructName(((SchemeTraitType)childType).getTraitName());
+      generator.appendLn("for (" + traitTypeName + " i : this."+ attributeName+ ") {");
+      generator.increaseDepth();
+      generator.appendLn("writer.writeBytes(i, " + attributeId + ").buildContainer();");
+      generator.decreaseDepth();
+      generator.appendLn("}");
+    }
  else {
       throw new IOException();
     }

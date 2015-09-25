@@ -16,6 +16,7 @@
   this.isBot=values.optBool(11);
   this.nick=values.optString(13);
   this.about=values.optString(14);
+  this.external=values.optString(15);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

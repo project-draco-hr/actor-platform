@@ -1,5 +1,6 @@
 {
   this.type=ApiContactType.parse(values.getInt(1));
+  this.typeSpec=values.optString(6);
   this.stringValue=values.optString(2);
   this.longValue=values.optLong(3);
   this.title=values.optString(4);

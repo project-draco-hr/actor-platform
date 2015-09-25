@@ -1,0 +1,5 @@
+{
+  String res="struct MapValueItem{";
+  res+="}";
+  return res;
+}

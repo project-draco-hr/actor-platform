@@ -1,0 +1,7 @@
+{
+  List<byte[]> _array=values.getRepeatedBytes(1);
+  this.array=new ArrayList<ApiRawValue>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    array.add(ApiRawValue.fromBytes(_array.get(i)));
+  }
+}

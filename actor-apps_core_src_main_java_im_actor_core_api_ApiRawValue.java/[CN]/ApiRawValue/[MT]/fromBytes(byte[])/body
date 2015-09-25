@@ -1,0 +1,19 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(src,0,src.length)));
+  int key=values.getInt(1);
+  byte[] content=values.getBytes(2);
+switch (key) {
+case 1:
+    return Bser.parse(new ApiStringValue(),content);
+case 2:
+  return Bser.parse(new ApiInt32Value(),content);
+case 3:
+return Bser.parse(new ApiInt64Value(),content);
+case 4:
+return Bser.parse(new ApiDoubleValue(),content);
+case 5:
+return Bser.parse(new ApiArrayValue(),content);
+default :
+return new ApiRawValueUnsupported(key,content);
+}
+}

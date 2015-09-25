@@ -1,4 +1,0 @@
-{
-  this.screenWidth=values.getInt(1);
-  this.screenHeight=values.getInt(2);
-}

@@ -9,6 +9,7 @@
   res+=", isBot=" + this.isBot;
   res+=", nick=" + this.nick;
   res+=", about=" + this.about;
+  res+=", external=" + this.external;
   res+="}";
   return res;
 }

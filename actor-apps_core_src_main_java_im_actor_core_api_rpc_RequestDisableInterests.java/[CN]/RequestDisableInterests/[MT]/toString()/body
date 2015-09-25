@@ -1,6 +1,0 @@
-{
-  String res="rpc DisableInterests{";
-  res+="interests=" + this.interests;
-  res+="}";
-  return res;
-}

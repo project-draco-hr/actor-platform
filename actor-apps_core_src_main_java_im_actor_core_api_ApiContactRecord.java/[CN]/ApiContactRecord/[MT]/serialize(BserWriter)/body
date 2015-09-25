@@ -3,6 +3,9 @@
     throw new IOException();
   }
   writer.writeInt(1,this.type.getValue());
+  if (this.typeSpec != null) {
+    writer.writeString(6,this.typeSpec);
+  }
   if (this.stringValue != null) {
     writer.writeString(2,this.stringValue);
   }

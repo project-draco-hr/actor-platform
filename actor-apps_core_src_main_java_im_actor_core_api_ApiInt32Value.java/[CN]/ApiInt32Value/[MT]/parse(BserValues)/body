@@ -1,0 +1,3 @@
+{
+  this.value=values.getInt(1);
+}

@@ -1,5 +1,0 @@
-{
-  String res="update CallEnd{";
-  res+="}";
-  return res;
-}

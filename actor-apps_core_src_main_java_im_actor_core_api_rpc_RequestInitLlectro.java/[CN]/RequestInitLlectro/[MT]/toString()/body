@@ -1,7 +1,0 @@
-{
-  String res="rpc InitLlectro{";
-  res+="screenWidth=" + this.screenWidth;
-  res+=", screenHeight=" + this.screenHeight;
-  res+="}";
-  return res;
-}
