@@ -169,7 +169,7 @@
       String traitTypeName=JavaConfig.getStructName(((SchemeTraitType)childType).getTraitName());
       generator.appendLn("for (" + traitTypeName + " i : this."+ attributeName+ ") {");
       generator.increaseDepth();
-      generator.appendLn("writer.writeBytes(i, " + attributeId + ").buildContainer();");
+      generator.appendLn("writer.writeBytes(" + attributeId + ", i.buildContainer());");
       generator.decreaseDepth();
       generator.appendLn("}");
     }
