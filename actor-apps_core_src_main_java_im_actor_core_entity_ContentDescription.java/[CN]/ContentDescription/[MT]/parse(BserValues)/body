@@ -3,5 +3,4 @@
   text=values.getString(2);
   relatedUser=values.getInt(3);
   isSilent=values.getBool(4);
-  isEncrypted=values.getBool(5);
 }

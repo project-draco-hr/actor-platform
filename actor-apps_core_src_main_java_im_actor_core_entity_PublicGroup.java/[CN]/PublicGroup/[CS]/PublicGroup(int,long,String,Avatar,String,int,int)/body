@@ -1,5 +1,5 @@
 {
-  this.id=id;
+  this.groupId=id;
   this.accessHash=accessHash;
   this.title=title;
   this.avatar=avatar;

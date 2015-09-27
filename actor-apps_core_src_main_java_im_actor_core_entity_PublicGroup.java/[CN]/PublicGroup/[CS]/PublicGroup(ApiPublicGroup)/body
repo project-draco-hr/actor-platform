@@ -1,5 +1,5 @@
 {
-  this.id=raw.getId();
+  this.groupId=raw.getId();
   this.accessHash=raw.getAccessHash();
   this.title=raw.getTitle();
   this.avatar=raw.getAvatar() == null ? null : new Avatar(raw.getAvatar());
