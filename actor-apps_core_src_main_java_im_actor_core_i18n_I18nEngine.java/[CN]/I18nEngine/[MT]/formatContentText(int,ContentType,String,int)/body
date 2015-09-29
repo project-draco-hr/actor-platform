@@ -31,7 +31,7 @@ case SERVICE_TITLE:
 return getTemplateNamed(senderId,"ServiceGroupTitle");
 case SERVICE_JOINED:
 return getTemplateNamed(senderId,"ServiceGroupJoined");
-case EMPTY:
+case NONE:
 return "";
 default :
 case UNKNOWN_CONTENT:

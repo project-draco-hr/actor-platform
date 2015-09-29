@@ -1,0 +1,3 @@
+{
+  return new Event("document_sent",peer.toIdString(),"Document message sent",null);
+}

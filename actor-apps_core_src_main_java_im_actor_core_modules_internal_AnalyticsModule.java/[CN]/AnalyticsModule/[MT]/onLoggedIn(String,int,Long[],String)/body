@@ -1,5 +1,0 @@
-{
-  if (analyticsProvider != null && phoneNumbers.length > 0) {
-    analyticsProvider.onLoggedIn(deviceId,uid,phoneNumbers[0],userName);
-  }
-}

@@ -1,9 +1,0 @@
-{
-  super(context);
-  analyticsProvider=context.getConfiguration().getAnalyticsProvider();
-  context.getEvents().subscribe(this,AppVisibleChanged.EVENT);
-  context.getEvents().subscribe(this,PeerInfoOpened.EVENT);
-  context.getEvents().subscribe(this,PeerInfoClosed.EVENT);
-  context.getEvents().subscribe(this,PeerChatOpened.EVENT);
-  context.getEvents().subscribe(this,PeerChatClosed.EVENT);
-}

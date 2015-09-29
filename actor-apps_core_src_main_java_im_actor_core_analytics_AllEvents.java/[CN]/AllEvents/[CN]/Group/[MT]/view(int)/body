@@ -1,0 +1,3 @@
+{
+  return new Page("group_info","Group Info","" + gid,null);
+}

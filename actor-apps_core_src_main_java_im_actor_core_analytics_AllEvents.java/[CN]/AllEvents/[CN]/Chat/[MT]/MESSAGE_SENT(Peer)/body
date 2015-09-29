@@ -1,0 +1,3 @@
+{
+  return new Event("message_sent",peer.toIdString(),"Text message sent",null);
+}

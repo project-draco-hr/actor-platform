@@ -1,3 +1,0 @@
-{
-  track(action + " error","Tag",tag,"Message",message);
-}

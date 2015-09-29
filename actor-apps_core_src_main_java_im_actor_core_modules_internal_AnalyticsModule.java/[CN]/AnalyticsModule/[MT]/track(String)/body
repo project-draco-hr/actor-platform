@@ -1,5 +1,0 @@
-{
-  if (analyticsProvider != null) {
-    analyticsProvider.trackEvent(event);
-  }
-}

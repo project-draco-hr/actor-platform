@@ -1,0 +1,3 @@
+{
+  Log.d("ActorAnalytics","Event: " + event.getActionType() + " #"+ event.getActionId());
+}

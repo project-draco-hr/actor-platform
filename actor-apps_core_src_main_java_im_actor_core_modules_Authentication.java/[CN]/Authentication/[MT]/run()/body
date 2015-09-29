@@ -9,10 +9,8 @@
         records.add(Long.parseLong(contactRecord.getRecordData()));
       }
     }
-    modules.getAnalyticsModule().onLoggedIn(Crypto.hex(deviceHash),user.getUid(),records.toArray(new Long[records.size()]),user.getName());
   }
  else {
     state=AuthState.AUTH_START;
-    modules.getAnalyticsModule().onLoggedOut(Crypto.hex(deviceHash));
   }
 }

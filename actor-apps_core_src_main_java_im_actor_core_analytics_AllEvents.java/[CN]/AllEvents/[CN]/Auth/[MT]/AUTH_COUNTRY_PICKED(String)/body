@@ -1,0 +1,8 @@
+{
+  if (iso2 != null) {
+    return new Event("auth","country_picked","Country Picked",new ApiStringValue(iso2.toLowerCase()));
+  }
+ else {
+    return new Event("auth","country_picked","Country Picked",null);
+  }
+}
