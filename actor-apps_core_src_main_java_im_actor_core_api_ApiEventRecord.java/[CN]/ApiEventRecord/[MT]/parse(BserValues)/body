@@ -1,0 +1,4 @@
+{
+  this.date=values.getLong(1);
+  this.event=ApiEvent.fromBytes(values.getBytes(2));
+}

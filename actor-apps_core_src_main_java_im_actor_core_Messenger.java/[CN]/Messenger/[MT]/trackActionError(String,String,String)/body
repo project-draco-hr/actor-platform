@@ -1,3 +1,0 @@
-{
-  modules.getAnalyticsModule().trackActionError(action,tag,message);
-}

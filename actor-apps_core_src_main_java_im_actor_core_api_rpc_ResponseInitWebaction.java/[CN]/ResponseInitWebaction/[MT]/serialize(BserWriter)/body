@@ -1,0 +1,14 @@
+{
+  if (this.uri == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.uri);
+  if (this.regexp == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.regexp);
+  if (this.actionHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.actionHash);
+}

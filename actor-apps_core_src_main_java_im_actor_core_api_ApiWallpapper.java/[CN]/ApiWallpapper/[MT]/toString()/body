@@ -1,0 +1,11 @@
+{
+  String res="struct Wallpapper{";
+  res+="id=" + this.id;
+  res+=", w=" + this.w;
+  res+=", h=" + this.h;
+  res+=", fileSize=" + this.fileSize;
+  res+=", file=" + this.file;
+  res+=", thumb=" + this.thumb;
+  res+="}";
+  return res;
+}

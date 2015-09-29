@@ -1,0 +1,6 @@
+{
+  String res="struct AppVisibleChanged{";
+  res+="visible=" + this.visible;
+  res+="}";
+  return res;
+}

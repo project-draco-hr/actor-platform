@@ -1,0 +1,6 @@
+{
+  this.contentType=contentType;
+  this.contentId=contentId;
+  this.visible=visible;
+  this.params=params;
+}

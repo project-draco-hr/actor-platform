@@ -1,0 +1,5 @@
+{
+  this.contentType=contentType;
+  this.contentTypeDisplay=contentTypeDisplay;
+  this.contentId=contentId;
+}

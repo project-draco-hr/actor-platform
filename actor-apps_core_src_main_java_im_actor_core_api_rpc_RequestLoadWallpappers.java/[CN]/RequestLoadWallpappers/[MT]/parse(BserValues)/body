@@ -1,0 +1,4 @@
+{
+  this.maxWidth=values.getInt(1);
+  this.maxHeight=values.getInt(2);
+}

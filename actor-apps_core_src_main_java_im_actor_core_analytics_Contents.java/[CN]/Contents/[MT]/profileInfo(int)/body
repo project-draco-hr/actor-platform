@@ -1,0 +1,3 @@
+{
+  return new ContentPage("profile_info","User Info","" + uid,null);
+}

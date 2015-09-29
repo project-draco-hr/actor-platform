@@ -1,0 +1,7 @@
+{
+  String res="rpc LoadWallpappers{";
+  res+="maxWidth=" + this.maxWidth;
+  res+=", maxHeight=" + this.maxHeight;
+  res+="}";
+  return res;
+}

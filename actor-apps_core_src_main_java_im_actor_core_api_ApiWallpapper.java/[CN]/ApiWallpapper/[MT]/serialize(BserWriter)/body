@@ -1,0 +1,14 @@
+{
+  writer.writeInt(7,this.id);
+  writer.writeInt(1,this.w);
+  writer.writeInt(2,this.h);
+  writer.writeInt(3,this.fileSize);
+  if (this.file == null) {
+    throw new IOException();
+  }
+  writer.writeObject(5,this.file);
+  if (this.thumb == null) {
+    throw new IOException();
+  }
+  writer.writeObject(6,this.thumb);
+}

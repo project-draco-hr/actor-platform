@@ -1,0 +1,7 @@
+{
+  String res="struct UntypedEvent{";
+  res+="eventType=" + this.eventType;
+  res+=", params=" + this.params;
+  res+="}";
+  return res;
+}

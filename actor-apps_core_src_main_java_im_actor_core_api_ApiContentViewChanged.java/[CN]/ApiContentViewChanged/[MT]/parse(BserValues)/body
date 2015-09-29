@@ -1,0 +1,11 @@
+{
+  this.contentType=values.getString(1);
+  this.contentId=values.getString(2);
+  this.visible=values.getBool(3);
+  if (values.optBytes(4) != null) {
+    this.params=ApiRawValue.fromBytes(values.getBytes(4));
+  }
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}
