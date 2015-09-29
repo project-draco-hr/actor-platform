@@ -1,0 +1,5 @@
+{
+  this.uri=uri;
+  this.regexp=regexp;
+  this.actionHash=actionHash;
+}
