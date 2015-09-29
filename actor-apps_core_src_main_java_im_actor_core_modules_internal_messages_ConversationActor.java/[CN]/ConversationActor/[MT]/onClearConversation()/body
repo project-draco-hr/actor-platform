@@ -3,7 +3,5 @@
   docs.clear();
   inPendingIndex.clear();
   outPendingIndex.clear();
-  if (!isHiddenPeer) {
-    dialogsActor.send(new DialogsActor.ChatClear(peer));
-  }
+  dialogsActor.send(new DialogsActor.ChatClear(peer));
 }
