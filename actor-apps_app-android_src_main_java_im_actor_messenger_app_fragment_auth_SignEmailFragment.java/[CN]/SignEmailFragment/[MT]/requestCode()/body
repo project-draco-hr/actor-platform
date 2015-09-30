@@ -1,17 +1,14 @@
 {
   final String ACTION="Request code email";
-  messenger().trackCodeRequest();
   if (emailEditText.getText().toString().trim().length() == 0) {
     String message=getString(R.string.auth_error_empty_email);
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_email).setPositiveButton(R.string.dialog_ok,null).show();
-    messenger().trackActionError(ACTION,"LOCAL_EMPTY_EMAIL",message);
     return;
   }
   String rawEmail=emailEditText.getText().toString();
   if (rawEmail.length() == 0) {
     String message=getString(R.string.auth_error_empty_email);
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_email).setPositiveButton(R.string.dialog_ok,null).show();
-    messenger().trackActionError(ACTION,"LOCAL_INCORRECT_EMAIL",message);
     return;
   }
   executeAuth(messenger().requestStartEmailAuth(rawEmail),ACTION);

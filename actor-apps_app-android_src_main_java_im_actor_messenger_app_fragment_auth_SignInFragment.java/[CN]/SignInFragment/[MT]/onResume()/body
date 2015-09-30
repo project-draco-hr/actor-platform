@@ -3,5 +3,4 @@
   setTitle(R.string.auth_code_title);
   keyboardHelper.setImeVisibility(codeEnterEditText,true);
   focus(codeEnterEditText);
-  messenger().trackAuthCodeOpen();
 }

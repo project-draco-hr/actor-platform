@@ -1,4 +1,3 @@
 {
-  messenger().trackBackPressed();
   super.onBackPressed();
 }

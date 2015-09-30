@@ -37,7 +37,6 @@
     ArrayList<Integer> mention=new ArrayList<Integer>();
     mention.add(shareUser);
     messenger().sendMessage(peer,mentionTitle,"[".concat(mentionTitle).concat("](people://".concat(Integer.toString(shareUser)).concat(")")),mention);
-    messenger().trackTextSend(peer);
     shareUser=0;
   }
   if (forwardTextRaw != null && !forwardTextRaw.isEmpty()) {
@@ -48,7 +47,6 @@
   if (forwardDocDescriptor != null && !forwardDocDescriptor.isEmpty()) {
     if (forwardDocIsDoc) {
       messenger().sendDocument(peer,forwardDocDescriptor);
-      messenger().trackDocumentSend(peer);
     }
  else {
       execute(messenger().sendUri(peer,Uri.fromFile(new File(forwardDocDescriptor))));
