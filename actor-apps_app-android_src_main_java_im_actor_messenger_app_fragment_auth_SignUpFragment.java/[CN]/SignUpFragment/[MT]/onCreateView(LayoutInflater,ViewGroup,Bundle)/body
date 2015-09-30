@@ -16,13 +16,11 @@
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
     }
     @Override public void afterTextChanged(    Editable s){
-      messenger().trackAuthSignupNameType(s.toString());
     }
   }
 );
   v.findViewById(R.id.pickAvatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
-      messenger().trackAuthSignupPressedAvatar();
       startActivityForResult(Intents.pickAvatar(avatarPath != null,getActivity()),REQUEST_AVATAR);
     }
   }

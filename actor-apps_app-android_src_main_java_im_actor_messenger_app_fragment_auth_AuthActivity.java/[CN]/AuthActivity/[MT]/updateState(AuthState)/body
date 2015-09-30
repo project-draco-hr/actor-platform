@@ -34,7 +34,6 @@ case SIGN_UP:
 showFragment(new SignUpFragment(),false,false);
 break;
 case LOGGED_IN:
-messenger().trackAuthSuccess();
 finish();
 startActivity(new Intent(this,MainActivity.class));
 break;

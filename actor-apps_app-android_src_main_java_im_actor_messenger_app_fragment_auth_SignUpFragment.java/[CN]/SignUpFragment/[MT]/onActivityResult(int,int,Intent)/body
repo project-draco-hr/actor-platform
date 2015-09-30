@@ -5,16 +5,13 @@
       if (res == Intents.RESULT_IMAGE) {
         avatarPath=data.getStringExtra(Intents.EXTRA_IMAGE);
         avatarView.bindRaw(avatarPath);
-        messenger().trackAuthSignupAvatarPicked();
       }
  else       if (res == Intents.RESULT_DELETE) {
         avatarPath=null;
         avatarView.unbind();
-        messenger().trackAuthSignupAvatarDeleted();
       }
     }
  else     if (resultCode == Activity.RESULT_CANCELED) {
-      messenger().trackAuthSignupAvatarCanelled();
     }
   }
 }
