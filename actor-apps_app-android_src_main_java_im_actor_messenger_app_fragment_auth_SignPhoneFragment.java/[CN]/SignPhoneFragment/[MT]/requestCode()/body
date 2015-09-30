@@ -1,17 +1,14 @@
 {
   final String ACTION="Request code";
-  messenger().trackCodeRequest();
   if (countryCodeEditText.getText().toString().trim().length() == 0 || phoneNumberEditText.getText().toString().trim().length() == 0) {
     String message=getString(R.string.auth_error_empty_phone);
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_phone).setPositiveButton(R.string.dialog_ok,null).show();
-    messenger().trackActionError(ACTION,"LOCAL_EMPTY_PHONE",message);
     return;
   }
   String rawPhoneN=countryCodeEditText.getText().toString().replaceAll("[^0-9]","") + phoneNumberEditText.getText().toString().replaceAll("[^0-9]","");
   if (rawPhoneN.length() == 0) {
     String message=getString(R.string.auth_error_empty_phone);
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_phone).setPositiveButton(R.string.dialog_ok,null).show();
-    messenger().trackActionError(ACTION,"LOCAL_INCORRECT_PHONE",message);
     return;
   }
   executeAuth(messenger().requestStartPhoneAuth(Long.parseLong(rawPhoneN)),ACTION);

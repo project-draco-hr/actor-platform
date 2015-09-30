@@ -14,5 +14,4 @@
     keyboardUtils.setImeVisibility(messageEditText,false);
   }
   messenger().sendMessage(peer,rawText);
-  messenger().trackTextSend(peer);
 }

@@ -1,6 +1,6 @@
 {
   if (avatar != null && (avatar.getFullImage() != null || avatar.getSmallImage() != null)) {
-    String downloadedDescriptor=messenger().getDownloadedDescriptor(avatar.getFullImage() != null ? avatar.getFullImage().getFileReference().getFileId() : avatar.getSmallImage().getFileReference().getFileId());
+    String downloadedDescriptor=messenger().findDownloadedDescriptor(avatar.getFullImage() != null ? avatar.getFullImage().getFileReference().getFileId() : avatar.getSmallImage().getFileReference().getFileId());
     if (downloadedDescriptor != null && !downloadedDescriptor.isEmpty()) {
       Drawable d=Drawable.createFromPath(downloadedDescriptor);
       setScaleType(ScaleType.CENTER_CROP);

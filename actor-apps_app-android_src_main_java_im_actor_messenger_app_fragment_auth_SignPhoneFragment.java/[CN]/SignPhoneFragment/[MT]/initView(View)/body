@@ -2,7 +2,6 @@
   countrySelectButton=(Button)v.findViewById(R.id.button_country_select);
   onClick(countrySelectButton,new View.OnClickListener(){
     @Override public void onClick(    View v){
-      messenger().trackAuthCountryOpen();
       keyboardHelper.setImeVisibility(phoneNumberEditText,false);
       startActivityForResult(new Intent(getActivity(),PickCountryActivity.class),REQUEST_COUNTRY);
     }
@@ -15,7 +14,6 @@
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
     }
     @Override public void afterTextChanged(    Editable s){
-      messenger().trackAuthPhoneType(countryCodeEditText.getText() + " " + phoneNumberEditText.getText());
       final Activity a=getActivity();
       if (a != null) {
         final String str=s.toString();
@@ -95,7 +93,6 @@
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
     }
     @Override public void afterTextChanged(    Editable s){
-      messenger().trackAuthPhoneType(countryCodeEditText.getText() + " " + phoneNumberEditText.getText());
     }
   }
 );
@@ -111,7 +108,6 @@
 );
   v.findViewById(R.id.button_why).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      messenger().trackAuthPhoneInfoOpen();
       new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_phone_why_description).setPositiveButton(R.string.auth_phone_why_done,null).show().setCanceledOnTouchOutside(true);
     }
   }
