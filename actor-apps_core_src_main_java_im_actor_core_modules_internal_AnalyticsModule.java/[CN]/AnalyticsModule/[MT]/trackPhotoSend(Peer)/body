@@ -1,3 +1,0 @@
-{
-  track("Photo Send","Type",peer.getPeerType().toString(),"Id",peer.getPeerId() + "");
-}

@@ -15,7 +15,6 @@
           records.add(Long.parseLong(contactRecord.getRecordData()));
         }
       }
-      modules.getAnalyticsModule().onLoggedInPerformed(Crypto.hex(deviceHash),user.getUid(),records.toArray(new Long[records.size()]),user.getName());
     }
   }
 ),500L);

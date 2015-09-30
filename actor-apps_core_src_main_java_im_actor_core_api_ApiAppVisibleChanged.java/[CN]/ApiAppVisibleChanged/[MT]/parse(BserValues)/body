@@ -1,0 +1,6 @@
+{
+  this.visible=values.getBool(1);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

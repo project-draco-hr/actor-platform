@@ -1,0 +1,15 @@
+{
+  BserValues values=new BserValues(BserParser.deserialize(new DataInput(src,0,src.length)));
+  int key=values.getInt(1);
+  byte[] content=values.getBytes(2);
+switch (key) {
+case 1:
+    return Bser.parse(new ApiUntypedEvent(),content);
+case 2:
+  return Bser.parse(new ApiContentViewChanged(),content);
+case 4:
+return Bser.parse(new ApiAppVisibleChanged(),content);
+default :
+return new ApiEventUnsupported(key,content);
+}
+}

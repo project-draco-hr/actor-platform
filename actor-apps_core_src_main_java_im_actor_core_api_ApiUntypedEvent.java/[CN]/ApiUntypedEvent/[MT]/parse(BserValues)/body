@@ -1,0 +1,9 @@
+{
+  this.eventType=values.getString(1);
+  if (values.optBytes(2) != null) {
+    this.params=ApiRawValue.fromBytes(values.getBytes(2));
+  }
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

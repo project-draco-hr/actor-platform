@@ -1,0 +1,4 @@
+String contentType
+String contentId
+boolean visible
+ApiRawValue params

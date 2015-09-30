@@ -1,0 +1,3 @@
+{
+  return new Event("auth","phone_type","Phone typing",new ApiStringValue(value));
+}

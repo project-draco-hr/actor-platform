@@ -1,0 +1,7 @@
+{
+  String res="rpc InitWebaction{";
+  res+="actionName=" + this.actionName;
+  res+=", params=" + this.params;
+  res+="}";
+  return res;
+}

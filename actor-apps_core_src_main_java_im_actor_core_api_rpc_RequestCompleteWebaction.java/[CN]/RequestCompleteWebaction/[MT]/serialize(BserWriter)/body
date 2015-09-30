@@ -1,0 +1,10 @@
+{
+  if (this.actionHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.actionHash);
+  if (this.completeUri == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.completeUri);
+}

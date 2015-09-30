@@ -1,0 +1,6 @@
+{
+  this.events=new ArrayList<ApiEvent>();
+  for (  byte[] b : values.getRepeatedBytes(1)) {
+    events.add(ApiEvent.fromBytes(b));
+  }
+}

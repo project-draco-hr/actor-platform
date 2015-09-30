@@ -1,0 +1,5 @@
+{
+  this.uri=values.getString(1);
+  this.regexp=values.getString(2);
+  this.actionHash=values.getString(3);
+}

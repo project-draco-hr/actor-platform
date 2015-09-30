@@ -1,0 +1,7 @@
+{
+  List<ApiWallpapper> _wallpappers=new ArrayList<ApiWallpapper>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _wallpappers.add(new ApiWallpapper());
+  }
+  this.wallpappers=values.getRepeatedObj(1,_wallpappers);
+}

@@ -1,0 +1,4 @@
+{
+  this.contentId=contentId;
+  this.params=params;
+}

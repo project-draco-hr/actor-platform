@@ -1,0 +1,6 @@
+{
+  String res="rpc CompleteWebaction{";
+  res+="completeUri=" + this.completeUri;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,5 @@
+{
+  String res="tuple LoadWallpappers{";
+  res+="}";
+  return res;
+}

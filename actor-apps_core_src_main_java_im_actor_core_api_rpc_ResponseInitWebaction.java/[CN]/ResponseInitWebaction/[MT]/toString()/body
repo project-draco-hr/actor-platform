@@ -1,0 +1,5 @@
+{
+  String res="tuple InitWebaction{";
+  res+="}";
+  return res;
+}

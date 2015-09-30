@@ -1,0 +1,3 @@
+{
+  return modules.getExternalModule().completeWebAction(actionHash,url);
+}

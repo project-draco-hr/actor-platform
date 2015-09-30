@@ -1,0 +1,4 @@
+{
+  this.actionHash=actionHash;
+  this.completeUri=completeUri;
+}

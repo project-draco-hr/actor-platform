@@ -1,0 +1,4 @@
+String contentType
+String contentTypeDisplay
+String contentId
+ApiRawValue params

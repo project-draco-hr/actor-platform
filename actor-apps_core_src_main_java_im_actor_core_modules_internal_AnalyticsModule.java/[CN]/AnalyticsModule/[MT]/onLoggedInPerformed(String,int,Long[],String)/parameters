@@ -1,4 +1,0 @@
-String deviceId
-int uid
-Long[] phoneNumber
-String userName

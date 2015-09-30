@@ -1,0 +1,6 @@
+{
+  String res="rpc StoreEvents{";
+  res+="events=" + this.events;
+  res+="}";
+  return res;
+}

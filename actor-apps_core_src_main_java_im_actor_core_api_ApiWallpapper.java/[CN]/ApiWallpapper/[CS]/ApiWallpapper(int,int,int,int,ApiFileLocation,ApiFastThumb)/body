@@ -1,0 +1,8 @@
+{
+  this.id=id;
+  this.w=w;
+  this.h=h;
+  this.fileSize=fileSize;
+  this.file=file;
+  this.thumb=thumb;
+}

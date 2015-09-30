@@ -1,0 +1,6 @@
+{
+  this.actionType=actionType;
+  this.actionId=actionId;
+  this.actionTitle=actionTitle;
+  this.params=params;
+}

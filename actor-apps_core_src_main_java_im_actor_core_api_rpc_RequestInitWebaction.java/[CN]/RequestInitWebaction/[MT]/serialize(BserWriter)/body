@@ -1,0 +1,10 @@
+{
+  if (this.actionName == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.actionName);
+  if (this.params == null) {
+    throw new IOException();
+  }
+  writer.writeObject(2,this.params);
+}

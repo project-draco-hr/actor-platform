@@ -1,0 +1,8 @@
+{
+  String res="struct ContentViewChanged{";
+  res+="contentType=" + this.contentType;
+  res+=", visible=" + this.visible;
+  res+=", params=" + this.params;
+  res+="}";
+  return res;
+}

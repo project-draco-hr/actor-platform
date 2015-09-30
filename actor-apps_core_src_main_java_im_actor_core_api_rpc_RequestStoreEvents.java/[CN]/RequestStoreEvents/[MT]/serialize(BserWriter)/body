@@ -1,0 +1,5 @@
+{
+  for (  ApiEvent i : this.events) {
+    writer.writeBytes(1,i.buildContainer());
+  }
+}

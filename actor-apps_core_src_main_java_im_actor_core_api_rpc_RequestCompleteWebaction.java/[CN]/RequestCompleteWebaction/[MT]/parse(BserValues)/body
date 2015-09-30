@@ -1,0 +1,4 @@
+{
+  this.actionHash=values.getString(1);
+  this.completeUri=values.getString(2);
+}
