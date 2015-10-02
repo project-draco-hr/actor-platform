@@ -1,3 +1,4 @@
 {
   super(token,endpoint);
+  msgsKv=ShardakkaExtension.get(context().system()).simpleKeyValue("msgs",context().system()).asJava();
 }
