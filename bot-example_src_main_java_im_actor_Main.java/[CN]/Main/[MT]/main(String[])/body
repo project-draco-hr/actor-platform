@@ -1,0 +1,10 @@
+{
+  Scanner scanner=new Scanner(System.in);
+  System.out.print("Enter bot token: ");
+  System.out.flush();
+  String token=scanner.nextLine();
+  scanner.close();
+  ActorSystem system=ActorSystem.create();
+  system.actorOf(Props.create(HelloBot.class,token,RemoteBot.DefaultEndpoint()),"HelloBot");
+  system.awaitTermination();
+}
