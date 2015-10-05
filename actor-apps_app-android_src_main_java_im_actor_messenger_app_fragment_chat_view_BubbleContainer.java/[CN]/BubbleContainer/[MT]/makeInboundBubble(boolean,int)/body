@@ -1,34 +1,3 @@
 {
-  mode=MODE_LEFT;
-  this.showAvatar=showAvatar;
-  if (showAvatar) {
-    UserVM u=users().get(uid);
-    avatarView.setVisibility(VISIBLE);
-    avatarView.bind(u);
-    avatarView.setOnClickListener(new OnClickListener(){
-      @Override public void onClick(      View v){
-        if (onClickListener != null) {
-          onClickListener.onAvatarClick(uid);
-        }
-      }
-    }
-);
-    avatarView.setOnLongClickListener(new OnLongClickListener(){
-      @Override public boolean onLongClick(      View v){
-        if (onLongClickListener != null) {
-          onLongClickListener.onAvatarLongClick(uid);
-          return true;
-        }
- else {
-          return false;
-        }
-      }
-    }
-);
-  }
- else {
-    avatarView.setVisibility(GONE);
-    avatarView.unbind();
-  }
-  findMessageView().setLayoutParams(new MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  makeInboundBubble(showAvatar,uid,0);
 }

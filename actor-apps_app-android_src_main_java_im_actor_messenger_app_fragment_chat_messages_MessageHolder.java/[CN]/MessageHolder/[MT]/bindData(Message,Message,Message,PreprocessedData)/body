@@ -25,7 +25,8 @@
       container.makeOutboundBubble();
     }
  else {
-      container.makeInboundBubble(getPeer().getPeerType() == PeerType.GROUP,message.getSenderId());
+      boolean isGroupBot=getPeer().getPeerType().equals(PeerType.GROUP) && users().get(message.getSenderId()).getName().get().equals("Bot");
+      container.makeInboundBubble(getPeer().getPeerType() == PeerType.GROUP,message.getSenderId(),isGroupBot ? getPeer().getPeerId() : 0);
     }
   }
   container.setBubbleSelected(adapter.isSelected(currentMessage));
