@@ -1,5 +1,0 @@
-long phoneNumber
-String activationCode
-String destAccount
-int count
-String endpoint
