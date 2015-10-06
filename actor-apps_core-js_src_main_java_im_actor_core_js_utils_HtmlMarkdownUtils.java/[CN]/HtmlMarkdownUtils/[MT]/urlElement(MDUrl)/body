@@ -1,3 +1,7 @@
 {
-  return "<a " + "target=\"_blank\" " + "onClick=\"window.messenger.handleLinkClick(event)\" "+ "href=\"" + UriUtils.sanitizeUri(url.getUrl()) + "\">"+ SafeHtmlUtils.htmlEscape(url.getUrlTitle())+ "</a>";
+  String href=UriUtils.sanitizeUri(url.getUrl());
+  if (href != "#" && !href.contains("://")) {
+    href="http://" + href;
+  }
+  return "<a " + "target=\"_blank\" " + "onClick=\"window.messenger.handleLinkClick(event)\" "+ "href=\"" + href + "\">"+ SafeHtmlUtils.htmlEscape(url.getUrlTitle())+ "</a>";
 }
