@@ -1,3 +1,0 @@
-{
-  return ECAlgorithms.referenceMultiply(p,k);
-}

@@ -1,3 +1,0 @@
-{
-  return this.getCurve().createRawPoint(getRawXCoord().multiply(sx),getRawYCoord().multiply(sy),this.withCompression);
-}

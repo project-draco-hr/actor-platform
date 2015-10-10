@@ -1,3 +1,0 @@
-{
-  return getWNafPreCompInfo(p.getCurve().getPreCompInfo(p,PRECOMP_NAME));
-}

@@ -1,6 +1,0 @@
-long[] x
-int xOff
-long[] y
-int yOff
-int yLen
-int bits

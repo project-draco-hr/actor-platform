@@ -1,6 +1,0 @@
-{
-  long c=(z[zPos] & M) - (x & M);
-  z[zPos]=(int)c;
-  c>>=32;
-  return c == 0 ? 0 : decAt(len,z,zPos + 1);
-}

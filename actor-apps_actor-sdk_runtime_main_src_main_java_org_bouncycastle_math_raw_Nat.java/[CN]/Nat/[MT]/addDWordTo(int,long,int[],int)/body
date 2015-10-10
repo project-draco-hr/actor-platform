@@ -1,9 +1,0 @@
-{
-  long c=(z[zOff + 0] & M) + (x & M);
-  z[zOff + 0]=(int)c;
-  c>>>=32;
-  c+=(z[zOff + 1] & M) + (x >>> 32);
-  z[zOff + 1]=(int)c;
-  c>>>=32;
-  return c == 0 ? 0 : incAt(len,z,zOff,2);
-}

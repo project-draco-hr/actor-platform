@@ -1,3 +1,0 @@
-{
-  return this.ks[0];
-}

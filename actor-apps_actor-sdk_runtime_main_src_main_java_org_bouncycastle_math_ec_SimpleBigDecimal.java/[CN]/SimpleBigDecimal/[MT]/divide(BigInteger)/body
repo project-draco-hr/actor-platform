@@ -1,3 +1,0 @@
-{
-  return new SimpleBigDecimal(bigInt.divide(b),scale);
-}

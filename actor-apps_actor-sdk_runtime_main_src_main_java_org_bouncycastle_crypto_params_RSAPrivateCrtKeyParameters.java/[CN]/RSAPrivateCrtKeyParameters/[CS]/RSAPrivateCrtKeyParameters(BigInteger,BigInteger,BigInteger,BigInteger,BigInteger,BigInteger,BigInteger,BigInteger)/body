@@ -1,9 +1,0 @@
-{
-  super(true,modulus,privateExponent);
-  this.e=publicExponent;
-  this.p=p;
-  this.q=q;
-  this.dP=dP;
-  this.dQ=dQ;
-  this.qInv=qInv;
-}

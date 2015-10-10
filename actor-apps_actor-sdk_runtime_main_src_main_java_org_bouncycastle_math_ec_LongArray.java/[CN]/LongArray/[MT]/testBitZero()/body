@@ -1,3 +1,0 @@
-{
-  return m_ints.length > 0 && (m_ints[0] & 1L) != 0;
-}

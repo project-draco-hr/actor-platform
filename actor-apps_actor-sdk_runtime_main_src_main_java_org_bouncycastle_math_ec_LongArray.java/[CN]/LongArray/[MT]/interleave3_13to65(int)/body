@@ -1,5 +1,0 @@
-{
-  int r00=INTERLEAVE5_TABLE[x & 0x7F];
-  int r35=INTERLEAVE5_TABLE[x >>> 7];
-  return (r35 & 0xFFFFFFFFL) << 35 | (r00 & 0xFFFFFFFFL);
-}

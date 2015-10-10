@@ -1,3 +1,0 @@
-{
-  this(q,calculateResidue(q),x);
-}

@@ -1,8 +1,0 @@
-{
-  int pos=xLen << 1;
-  while (--xLen >= 0) {
-    long xVal=x[xLen];
-    x[--pos]=interleave2_32to64((int)(xVal >>> 32));
-    x[--pos]=interleave2_32to64((int)xVal);
-  }
-}

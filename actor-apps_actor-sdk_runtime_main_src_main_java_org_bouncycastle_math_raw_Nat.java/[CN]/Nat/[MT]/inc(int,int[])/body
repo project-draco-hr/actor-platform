@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < len; ++i) {
-    if (++z[i] != 0) {
-      return 0;
-    }
-  }
-  return 1;
-}

@@ -1,3 +1,0 @@
-{
-  return createRawPoint(fromBigInteger(x),fromBigInteger(y),withCompression);
-}

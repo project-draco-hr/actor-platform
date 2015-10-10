@@ -1,4 +1,0 @@
-{
-  BigInteger order=c.getOrder();
-  return order == null ? c.getFieldSize() + 1 : order.bitLength();
-}

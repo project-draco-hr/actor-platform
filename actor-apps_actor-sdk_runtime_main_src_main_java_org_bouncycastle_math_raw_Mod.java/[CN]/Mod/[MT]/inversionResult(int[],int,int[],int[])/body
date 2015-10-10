@@ -1,8 +1,0 @@
-{
-  if (ac < 0) {
-    Nat.add(p.length,a,p,z);
-  }
- else {
-    System.arraycopy(a,0,z,0,p.length);
-  }
-}

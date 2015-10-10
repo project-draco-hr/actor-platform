@@ -1,5 +1,0 @@
-{
-  this.key=key;
-  this.iv=iv;
-  this.params=new ParametersWithIV(new KeyParameter(key),iv);
-}

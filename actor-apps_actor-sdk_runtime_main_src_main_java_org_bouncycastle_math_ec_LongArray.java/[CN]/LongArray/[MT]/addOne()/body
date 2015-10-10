@@ -1,9 +1,0 @@
-{
-  if (m_ints.length == 0) {
-    return new LongArray(new long[]{1L});
-  }
-  int resultLen=Math.max(1,getUsedLength());
-  long[] ints=resizedInts(resultLen);
-  ints[0]^=1L;
-  return new LongArray(ints);
-}

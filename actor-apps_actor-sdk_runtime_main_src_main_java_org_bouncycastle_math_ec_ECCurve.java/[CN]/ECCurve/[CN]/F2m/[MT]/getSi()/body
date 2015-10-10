@@ -1,6 +1,0 @@
-{
-  if (si == null) {
-    si=Tnaf.getSi(this);
-  }
-  return si;
-}

@@ -1,4 +1,0 @@
-{
-  this.endomorphism=endomorphism;
-  return this;
-}

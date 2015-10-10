@@ -1,6 +1,0 @@
-{
-  if (isKoblitz()) {
-    return new WTauNafMultiplier();
-  }
-  return super.createDefaultMultiplier();
-}

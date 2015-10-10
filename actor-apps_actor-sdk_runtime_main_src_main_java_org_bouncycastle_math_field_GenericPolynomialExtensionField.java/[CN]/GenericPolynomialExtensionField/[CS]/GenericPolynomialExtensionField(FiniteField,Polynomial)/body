@@ -1,4 +1,0 @@
-{
-  this.subfield=subfield;
-  this.minimalPolynomial=polynomial;
-}

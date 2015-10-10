@@ -1,6 +1,0 @@
-{
-  if (b.isInfinity()) {
-    return this;
-  }
-  return this.add(b.negate());
-}

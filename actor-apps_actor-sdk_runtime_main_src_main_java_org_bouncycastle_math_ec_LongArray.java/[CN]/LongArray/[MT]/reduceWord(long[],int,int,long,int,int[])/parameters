@@ -1,6 +1,0 @@
-long[] buf
-int off
-int bit
-long word
-int m
-int[] ks

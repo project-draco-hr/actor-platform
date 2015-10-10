@@ -1,3 +1,0 @@
-{
-  return modReduce(x1.multiply(x2));
-}

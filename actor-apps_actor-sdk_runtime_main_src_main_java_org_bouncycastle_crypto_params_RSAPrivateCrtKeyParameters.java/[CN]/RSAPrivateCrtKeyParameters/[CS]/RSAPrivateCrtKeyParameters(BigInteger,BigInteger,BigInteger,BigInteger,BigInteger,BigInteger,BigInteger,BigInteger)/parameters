@@ -1,8 +1,0 @@
-BigInteger modulus
-BigInteger publicExponent
-BigInteger privateExponent
-BigInteger p
-BigInteger q
-BigInteger dP
-BigInteger dQ
-BigInteger qInv

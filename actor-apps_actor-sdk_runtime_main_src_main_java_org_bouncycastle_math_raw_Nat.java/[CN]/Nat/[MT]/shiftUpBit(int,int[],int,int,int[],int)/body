@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < len; ++i) {
-    int next=x[xOff + i];
-    z[zOff + i]=(next << 1) | (c >>> 31);
-    c=next;
-  }
-  return c >>> 31;
-}

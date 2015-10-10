@@ -1,5 +1,0 @@
-{
-  long[] buf=Arrays.clone(m_ints);
-  int rLen=reduceInPlace(buf,0,buf.length,m,ks);
-  return new LongArray(buf,0,rLen);
-}

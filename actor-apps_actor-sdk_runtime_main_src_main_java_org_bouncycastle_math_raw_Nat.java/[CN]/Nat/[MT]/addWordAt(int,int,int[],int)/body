@@ -1,6 +1,0 @@
-{
-  long c=(x & M) + (z[zPos] & M);
-  z[zPos]=(int)c;
-  c>>>=32;
-  return c == 0 ? 0 : incAt(len,z,zPos + 1);
-}

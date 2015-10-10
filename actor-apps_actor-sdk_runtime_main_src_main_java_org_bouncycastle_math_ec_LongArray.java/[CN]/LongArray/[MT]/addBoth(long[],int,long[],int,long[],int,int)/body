@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < count; ++i) {
-    x[xOff + i]^=y1[y1Off + i] ^ y2[y2Off + i];
-  }
-}

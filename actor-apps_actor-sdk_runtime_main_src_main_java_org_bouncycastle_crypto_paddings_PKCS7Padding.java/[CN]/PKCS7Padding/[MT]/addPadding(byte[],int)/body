@@ -1,8 +1,0 @@
-{
-  byte code=(byte)(in.length - inOff);
-  while (inOff < in.length) {
-    in[inOff]=code;
-    inOff++;
-  }
-  return code;
-}

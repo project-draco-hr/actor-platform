@@ -1,4 +1,0 @@
-{
-  this.key=key;
-  this.tweak=Arrays.clone(tweak);
-}

@@ -1,3 +1,0 @@
-{
-  return getWindowSize(bits,DEFAULT_WINDOW_SIZE_CUTOFFS);
-}

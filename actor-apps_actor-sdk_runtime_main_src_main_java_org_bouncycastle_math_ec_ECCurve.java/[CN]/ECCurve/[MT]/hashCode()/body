@@ -1,3 +1,0 @@
-{
-  return getField().hashCode() ^ Integers.rotateLeft(getA().toBigInteger().hashCode(),8) ^ Integers.rotateLeft(getB().toBigInteger().hashCode(),16);
-}

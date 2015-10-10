@@ -1,4 +1,0 @@
-{
-  key=(RSAKeyParameters)param.getParameters();
-  this.forEncryption=forEncryption;
-}
