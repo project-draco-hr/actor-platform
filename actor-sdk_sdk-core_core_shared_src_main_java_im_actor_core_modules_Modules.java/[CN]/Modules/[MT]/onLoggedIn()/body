@@ -30,9 +30,6 @@
   mentions=new MentionsModule(this);
   timing.section("DisplayLists");
   displayLists=new DisplayLists(this);
-  timing.section("Extension");
-  extensions=new Extensions(this);
-  extensions.registerExtensions();
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");
@@ -51,8 +48,6 @@
   messages.run();
   timing.section("Updates");
   updates.run();
-  timing.section("Extension");
-  extensions.runExtensions();
   timing.end();
   messenger.onLoggedIn();
 }
