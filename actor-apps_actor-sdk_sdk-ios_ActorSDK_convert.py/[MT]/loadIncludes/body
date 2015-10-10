@@ -1,0 +1,18 @@
+def loadIncludes(fileName):
+    res = set()
+    umbrella = open(fileName, 'r').read()
+    for line in umbrella.splitlines():
+        if (line.startswith('#include') and ('"' in line)):
+            start = line.index('"')
+            end = line.index('"', (start + 1))
+            includedFile = line[(start + 1):end]
+            if (includedFile != 'objc/runtime.h'):
+                localIncludePath = os.path.join('Sources/', includedFile)
+                if os.path.exists(localIncludePath):
+                    res.add(includedFile.lower())
+        if line.startswith('#import <ActorSDK/'):
+            start = (line.index('<') + 9)
+            end = line.index('>', (start + 1))
+            includedFile = line[(start + 1):end]
+            res.add(includedFile.lower())
+    return res
