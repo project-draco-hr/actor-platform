@@ -1,10 +1,5 @@
 import sys
 import os
-paths = loadIncludes(sys.argv[1])
-for p in paths.copy():
-    paths = paths.union(processInclude(('Sources/' + p), paths.copy(), 0))
-if (not os.path.exists('Public')):
-    os.makedirs('Public')
 for (root, directories, filenames) in os.walk('Sources/'):
     for filename in filenames:
         if (not filename.lower().endswith('.h')):
@@ -13,8 +8,6 @@ for (root, directories, filenames) in os.walk('Sources/'):
         dirName = (os.path.split(os.path.join(root, filename))[0][8:] + '/')
         srcFile = os.path.join(root, filename)
         destFile = os.path.join('Public', path)
-        if (path.lower() not in paths):
-            continue
         if (not os.path.exists(os.path.dirname(destFile))):
             os.makedirs(os.path.dirname(destFile))
         with open(srcFile, 'r') as f:
@@ -28,7 +21,7 @@ for (root, directories, filenames) in os.walk('Sources/'):
                     if (includedFile != 'objc/runtime.h'):
                         localIncludePath = os.path.join('Sources/', includedFile)
                         if os.path.exists(localIncludePath):
-                            line = ((((line[0:start] + '<ActorSDK/') + includedFile) + '>') + line[(end + 1):])
+                            line = ((((line[0:start] + '"') + includedFile) + '"') + line[(end + 1):])
                         else:
                             line = ((((line[0:start] + '<j2objc/') + includedFile) + '>') + line[(end + 1):])
                 destLines = ((destLines + line) + '\n')
