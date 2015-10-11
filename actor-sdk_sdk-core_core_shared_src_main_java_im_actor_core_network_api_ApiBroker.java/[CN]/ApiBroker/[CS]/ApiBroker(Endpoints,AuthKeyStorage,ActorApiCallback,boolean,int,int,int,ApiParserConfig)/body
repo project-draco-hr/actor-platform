@@ -1,0 +1,11 @@
+{
+  this.isEnableLog=isEnableLog;
+  this.endpoints=endpoints;
+  this.keyStorage=keyStorage;
+  this.callback=callback;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
+  this.authIdBackOff=new ExponentialBackoff(minDelay,maxDelay,maxFailureCount);
+  this.parserConfig=parserConfig;
+}

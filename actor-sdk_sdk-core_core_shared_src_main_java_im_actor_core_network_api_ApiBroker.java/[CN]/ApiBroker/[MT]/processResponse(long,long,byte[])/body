@@ -33,7 +33,7 @@
     }
     Response response;
     try {
-      response=(Response)new RpcParser().read(ok.responseType,ok.payload);
+      response=(Response)parserConfig.parseRpc(ok.responseType,ok.payload);
     }
  catch (    IOException e) {
       e.printStackTrace();

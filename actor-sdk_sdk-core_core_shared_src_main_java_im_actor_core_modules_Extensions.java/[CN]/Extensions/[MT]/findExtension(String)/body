@@ -1,0 +1,8 @@
+{
+  for (  ExtensionRef r : extensionRefs) {
+    if (r.getKey().equals(key)) {
+      return r.getExtension();
+    }
+  }
+  return null;
+}

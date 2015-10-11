@@ -1,0 +1,3 @@
+{
+  extensionRefs.add(new ExtensionRef(key,extension));
+}

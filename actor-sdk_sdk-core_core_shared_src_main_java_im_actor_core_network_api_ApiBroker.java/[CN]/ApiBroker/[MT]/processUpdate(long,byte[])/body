@@ -15,7 +15,7 @@
   byte[] body=((Push)protoStruct).body;
   RpcScope updateBox;
   try {
-    updateBox=new RpcParser().read(type,body);
+    updateBox=parserConfig.parseRpc(type,body);
   }
  catch (  IOException e) {
     e.printStackTrace();

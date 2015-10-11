@@ -1,0 +1,4 @@
+{
+  this.rpcScopeParser=rpcScopeParser;
+  this.updateScopeParser=updateScopeParser;
+}

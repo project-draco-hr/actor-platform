@@ -48,6 +48,8 @@
   messages.run();
   timing.section("Updates");
   updates.run();
+  timing.section("Extensions");
+  extensions.runExtensions();
   timing.end();
   messenger.onLoggedIn();
 }

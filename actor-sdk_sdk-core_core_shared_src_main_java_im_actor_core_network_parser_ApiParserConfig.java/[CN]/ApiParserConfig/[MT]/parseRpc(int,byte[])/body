@@ -1,0 +1,10 @@
+{
+  for (  ParsingExtension ex : extensions) {
+    try {
+      return ex.getRpcScopeParser().read(header,content);
+    }
+ catch (    Exception e) {
+    }
+  }
+  return rpcRarser.read(header,content);
+}

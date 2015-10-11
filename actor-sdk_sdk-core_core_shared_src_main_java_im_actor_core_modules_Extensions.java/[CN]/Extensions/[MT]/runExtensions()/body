@@ -1,0 +1,5 @@
+{
+  for (  ExtensionRef r : extensionRefs) {
+    r.getExtension().runExtension();
+  }
+}
