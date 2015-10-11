@@ -1,3 +1,0 @@
-{
-  return new Fp(q,r,a,b,order,cofactor);
-}

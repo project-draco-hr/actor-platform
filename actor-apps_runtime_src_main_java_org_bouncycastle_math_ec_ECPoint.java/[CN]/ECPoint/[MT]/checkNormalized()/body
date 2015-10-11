@@ -1,5 +1,0 @@
-{
-  if (!isNormalized()) {
-    throw new IllegalStateException("point not in normal form");
-  }
-}

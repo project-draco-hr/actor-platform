@@ -1,3 +1,0 @@
-{
-  return new F2m(m,k1,k2,k3,a,b,order,cofactor);
-}

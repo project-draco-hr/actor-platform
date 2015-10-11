@@ -1,7 +1,0 @@
-{
-  checkPoint(point);
-synchronized (point) {
-    HashMap table=point.preCompTable;
-    return table == null ? null : (PreCompInfo)table.get(name);
-  }
-}

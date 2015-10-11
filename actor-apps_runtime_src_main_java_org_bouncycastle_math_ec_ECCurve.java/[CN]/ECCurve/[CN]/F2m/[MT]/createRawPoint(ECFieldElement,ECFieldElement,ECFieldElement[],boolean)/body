@@ -1,3 +1,0 @@
-{
-  return new ECPoint.F2m(this,x,y,zs,withCompression);
-}

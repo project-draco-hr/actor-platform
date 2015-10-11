@@ -1,4 +1,0 @@
-{
-  this.publicParam=publicParam;
-  this.privateParam=privateParam;
-}

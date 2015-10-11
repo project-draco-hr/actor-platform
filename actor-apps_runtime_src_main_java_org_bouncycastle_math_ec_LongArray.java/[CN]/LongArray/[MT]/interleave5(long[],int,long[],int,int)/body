@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < count; ++i) {
-    z[zOff + i]=interleave5(x[xOff + i]);
-  }
-}

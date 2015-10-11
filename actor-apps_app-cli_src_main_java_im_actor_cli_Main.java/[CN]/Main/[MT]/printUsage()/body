@@ -1,4 +1,0 @@
-{
-  System.out.println("USAGE:");
-  System.out.println("actor-cli demo send [-e <endpoint>] <phone_number> <activation_code> <destination_number> [<count>]");
-}

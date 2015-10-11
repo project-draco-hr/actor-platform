@@ -1,3 +1,0 @@
-{
-  return null == curve ? ECCurve.COORD_AFFINE : curve.getCoordinateSystem();
-}

@@ -1,7 +1,0 @@
-{
-  BigInteger x2=x.add(ECConstants.ONE);
-  if (x2.compareTo(q) == 0) {
-    x2=ECConstants.ZERO;
-  }
-  return new Fp(q,r,x2);
-}

@@ -1,3 +1,0 @@
-{
-  return multiplyPlusProduct(b,x,y);
-}

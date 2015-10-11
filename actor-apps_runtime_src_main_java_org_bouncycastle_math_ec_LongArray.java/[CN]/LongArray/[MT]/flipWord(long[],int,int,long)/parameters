@@ -1,4 +1,0 @@
-long[] buf
-int off
-int bit
-long word

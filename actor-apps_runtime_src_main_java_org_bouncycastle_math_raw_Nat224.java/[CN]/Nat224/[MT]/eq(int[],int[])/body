@@ -1,8 +1,0 @@
-{
-  for (int i=6; i >= 0; --i) {
-    if (x[i] != y[i]) {
-      return false;
-    }
-  }
-  return true;
-}

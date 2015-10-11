@@ -1,3 +1,0 @@
-{
-  return getEncoded(this.withCompression);
-}

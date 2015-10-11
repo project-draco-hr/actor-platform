@@ -1,3 +1,0 @@
-{
-  return branch == null ? "<default>" : branch.getDisplayName();
-}

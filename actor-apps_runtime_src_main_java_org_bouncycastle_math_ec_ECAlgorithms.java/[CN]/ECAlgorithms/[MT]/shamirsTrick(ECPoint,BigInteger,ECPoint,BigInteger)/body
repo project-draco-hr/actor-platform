@@ -1,5 +1,0 @@
-{
-  ECCurve cp=P.getCurve();
-  Q=importPoint(cp,Q);
-  return validatePoint(implShamirsTrickJsf(P,k,Q,l));
-}

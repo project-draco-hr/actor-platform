@@ -1,8 +1,0 @@
-{
-  long[] buf=m_ints;
-  int rLen=reduceInPlace(buf,0,buf.length,m,ks);
-  if (rLen < buf.length) {
-    m_ints=new long[rLen];
-    System.arraycopy(buf,0,m_ints,0,rLen);
-  }
-}

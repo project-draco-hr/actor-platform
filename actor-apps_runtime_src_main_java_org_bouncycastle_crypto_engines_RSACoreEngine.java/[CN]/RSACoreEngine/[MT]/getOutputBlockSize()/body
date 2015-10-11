@@ -1,9 +1,0 @@
-{
-  int bitSize=key.getModulus().bitLength();
-  if (forEncryption) {
-    return (bitSize + 7) / 8;
-  }
- else {
-    return (bitSize + 7) / 8 - 1;
-  }
-}

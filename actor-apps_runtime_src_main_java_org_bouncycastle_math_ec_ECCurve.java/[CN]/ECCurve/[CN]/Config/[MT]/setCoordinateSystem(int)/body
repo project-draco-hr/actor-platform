@@ -1,4 +1,0 @@
-{
-  this.coord=coord;
-  return this;
-}

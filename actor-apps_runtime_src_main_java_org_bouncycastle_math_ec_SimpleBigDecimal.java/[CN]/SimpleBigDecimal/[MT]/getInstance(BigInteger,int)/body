@@ -1,3 +1,0 @@
-{
-  return new SimpleBigDecimal(value.shiftLeft(scale),scale);
-}

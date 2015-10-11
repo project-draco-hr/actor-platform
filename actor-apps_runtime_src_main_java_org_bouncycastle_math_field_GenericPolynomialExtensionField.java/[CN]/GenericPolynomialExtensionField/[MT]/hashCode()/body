@@ -1,3 +1,0 @@
-{
-  return subfield.hashCode() ^ Integers.rotateLeft(minimalPolynomial.hashCode(),16);
-}

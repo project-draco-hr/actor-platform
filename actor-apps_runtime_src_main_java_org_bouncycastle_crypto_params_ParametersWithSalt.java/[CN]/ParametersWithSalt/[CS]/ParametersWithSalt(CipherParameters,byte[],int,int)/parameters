@@ -1,4 +1,0 @@
-CipherParameters parameters
-byte[] salt
-int saltOff
-int saltLen

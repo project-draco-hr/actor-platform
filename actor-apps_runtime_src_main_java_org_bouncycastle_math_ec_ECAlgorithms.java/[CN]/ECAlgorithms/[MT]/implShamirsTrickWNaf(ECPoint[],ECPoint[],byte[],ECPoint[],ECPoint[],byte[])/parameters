@@ -1,6 +1,0 @@
-ECPoint[] preCompP
-ECPoint[] preCompNegP
-byte[] wnafP
-ECPoint[] preCompQ
-ECPoint[] preCompNegQ
-byte[] wnafQ

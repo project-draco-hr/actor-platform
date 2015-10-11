@@ -1,6 +1,0 @@
-{
-  if (!p.isValid()) {
-    throw new IllegalArgumentException("Invalid point");
-  }
-  return p;
-}

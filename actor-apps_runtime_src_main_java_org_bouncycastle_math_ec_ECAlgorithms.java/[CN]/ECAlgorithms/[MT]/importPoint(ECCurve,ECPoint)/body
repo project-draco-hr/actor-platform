@@ -1,7 +1,0 @@
-{
-  ECCurve cp=p.getCurve();
-  if (!c.equals(cp)) {
-    throw new IllegalArgumentException("Point must be on the same curve");
-  }
-  return c.importPoint(p);
-}

@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < len; ++i) {
-    int next=z[i];
-    z[i]=(next << bits) | (c >>> -bits);
-    c=next;
-  }
-  return c >>> -bits;
-}

@@ -1,9 +1,0 @@
-{
-  if (off == 0 && len == ints.length) {
-    m_ints=ints;
-  }
- else {
-    m_ints=new long[len];
-    System.arraycopy(ints,off,m_ints,0,len);
-  }
-}

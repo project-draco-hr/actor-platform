@@ -1,4 +1,0 @@
-{
-  FiniteField field=c.getField();
-  return field.getDimension() > 1 && field.getCharacteristic().equals(ECConstants.TWO) && field instanceof PolynomialExtensionField;
-}

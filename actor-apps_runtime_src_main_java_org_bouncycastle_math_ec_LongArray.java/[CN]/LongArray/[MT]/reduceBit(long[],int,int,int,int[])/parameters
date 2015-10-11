@@ -1,5 +1,0 @@
-long[] buf
-int off
-int bit
-int m
-int[] ks

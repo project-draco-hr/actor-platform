@@ -1,3 +1,0 @@
-{
-  return x.signum() == 0 ? this : new Fp(q,r,q.subtract(x));
-}

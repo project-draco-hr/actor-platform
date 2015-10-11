@@ -1,6 +1,0 @@
-{
-  if (endomorphism instanceof GLVEndomorphism) {
-    return new GLVMultiplier(this,(GLVEndomorphism)endomorphism);
-  }
-  return new WNafL2RMultiplier();
-}
