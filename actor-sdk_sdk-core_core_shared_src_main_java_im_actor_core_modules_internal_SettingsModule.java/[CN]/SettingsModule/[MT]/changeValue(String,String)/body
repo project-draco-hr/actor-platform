@@ -1,4 +1,4 @@
 {
-  writeValue(key,val);
   settingsSync.send(new SettingsSyncActor.ChangeSettings(key,val));
+  onUpdatedSetting(key,val);
 }

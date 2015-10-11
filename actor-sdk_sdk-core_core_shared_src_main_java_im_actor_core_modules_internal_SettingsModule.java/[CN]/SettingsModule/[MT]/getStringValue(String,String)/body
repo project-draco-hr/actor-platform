@@ -1,0 +1,7 @@
+{
+  String sValue=readValue(key);
+  if (sValue == null) {
+    return defaultVal;
+  }
+  return sValue;
+}

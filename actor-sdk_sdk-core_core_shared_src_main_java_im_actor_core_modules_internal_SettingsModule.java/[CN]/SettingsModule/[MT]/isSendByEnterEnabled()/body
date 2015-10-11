@@ -1,3 +1,3 @@
 {
-  return loadValue(KEY_CHAT_SEND_BY_ENTER,true);
+  return getBooleanValue(KEY_CHAT_SEND_BY_ENTER,true);
 }
