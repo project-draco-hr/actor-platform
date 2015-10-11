@@ -1,0 +1,8 @@
+def processInclude(fileName, paths, level):
+    res = paths.copy()
+    includes = loadIncludes(fileName)
+    for inc in includes:
+        if (inc not in res):
+            res.add(inc)
+            res = processInclude(('Sources/' + inc), res, (level + 1))
+    return res
