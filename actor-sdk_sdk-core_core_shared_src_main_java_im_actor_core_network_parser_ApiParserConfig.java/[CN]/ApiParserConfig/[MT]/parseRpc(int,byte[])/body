@@ -6,5 +6,5 @@
  catch (    Exception e) {
     }
   }
-  return rpcRarser.read(header,content);
+  throw new IOException("Unknown package");
 }
