@@ -1,0 +1,7 @@
+{
+  ArrayList<KeyValueRecord> res=new ArrayList<KeyValueRecord>();
+  for (  long id : records.keySet()) {
+    res.add(new KeyValueRecord(id,records.get(id)));
+  }
+  return res;
+}

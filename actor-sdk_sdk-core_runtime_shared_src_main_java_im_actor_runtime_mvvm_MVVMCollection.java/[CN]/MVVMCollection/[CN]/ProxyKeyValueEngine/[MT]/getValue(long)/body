@@ -2,7 +2,7 @@
   if (cache.containsKey(id)) {
     return cache.get(id);
   }
-  byte[] data=collectionStorage.getValue(id);
+  byte[] data=collectionStorage.loadItem(id);
   if (data != null) {
     try {
       T res=bserCreator.createInstance();
