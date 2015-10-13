@@ -2,6 +2,7 @@
   messages=context().getMessagesModule().getConversationEngine(peer);
   docs=context().getMessagesModule().getConversationDocsEngine(peer);
   dialogsActor=context().getMessagesModule().getDialogsActor();
+  dialogsGroupedActor=context().getMessagesModule().getDialogsGroupedActor();
   outPendingIndex=Storage.createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
   inPendingIndex=Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
   inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);

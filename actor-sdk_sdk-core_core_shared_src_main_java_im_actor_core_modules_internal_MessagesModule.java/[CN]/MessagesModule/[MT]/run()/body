@@ -11,6 +11,12 @@
     }
   }
 ),"actor/dialogs/history");
+  this.dialogsGroupedActor=system().actorOf(Props.create(GroupedDialogsActor.class,new ActorCreator<GroupedDialogsActor>(){
+    @Override public GroupedDialogsActor create(){
+      return new GroupedDialogsActor(context());
+    }
+  }
+),"actor/dialogs/grouped");
   this.ownReadActor=system().actorOf(Props.create(OwnReadActor.class,new ActorCreator<OwnReadActor>(){
     @Override public OwnReadActor create(){
       return new OwnReadActor(context());

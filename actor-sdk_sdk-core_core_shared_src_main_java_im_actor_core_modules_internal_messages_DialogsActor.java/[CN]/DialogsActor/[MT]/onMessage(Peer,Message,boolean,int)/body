@@ -2,7 +2,7 @@
   long start=im.actor.runtime.Runtime.getCurrentTime();
   PeerDesc peerDesc=buildPeerDesc(peer);
   if (peerDesc == null) {
-    Log.d("DialogsActor","unknown peer desk");
+    Log.d("DialogsActor","unknown peer desc");
     return;
   }
   if (message == null) {
@@ -15,7 +15,10 @@
  else {
     Dialog dialog=dialogs.getValue(peer.getUnuqueId());
     ContentDescription contentDescription=ContentDescription.fromContent(message.getContent());
-    DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setStatus(message.getMessageState()).setSenderId(message.getSenderId()).setUnreadCount(counter);
+    DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setStatus(message.getMessageState()).setSenderId(message.getSenderId());
+    if (counter >= 0) {
+      builder.setUnreadCount(counter);
+    }
     boolean forceUpdate=false;
     if (dialog != null) {
       if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {

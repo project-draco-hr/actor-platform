@@ -1,0 +1,29 @@
+{
+  PeerGroup peerGroup;
+  if (peer.getPeerType() == PeerType.GROUP) {
+    peerGroup=groups;
+  }
+ else   if (peer.getPeerType() == PeerType.PRIVATE) {
+    peerGroup=privates;
+  }
+ else {
+    return;
+  }
+  boolean found=false;
+  for (  PeerDesc d : peerGroup.getPeers()) {
+    if (d.getPeer().equals(peer)) {
+      d.setCounter(counter);
+      found=true;
+    }
+  }
+  if (!found) {
+    peerGroup.getPeers().add(new PeerDesc(peer,counter));
+  }
+  ArrayList<DialogGroup> groups=new ArrayList<DialogGroup>();
+  ArrayList<DialogDesc> groupDescs=new ArrayList<DialogDesc>();
+  for (  PeerDesc d : peerGroup.getPeers()) {
+    groupDescs.add(new DialogDesc(d.getPeer(),"GRPOUP #" + d.getPeer().getPeerId(),null,false,d.counter));
+  }
+  groups.add(new DialogGroup("Groups","group",groupDescs));
+  context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel().change(groups);
+}

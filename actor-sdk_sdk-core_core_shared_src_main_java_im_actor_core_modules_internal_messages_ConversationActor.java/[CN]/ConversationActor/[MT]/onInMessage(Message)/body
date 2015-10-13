@@ -29,6 +29,7 @@
     }
     if (!isHiddenPeer) {
       dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
+      dialogsGroupedActor.send(new GroupedDialogsActor.NewMessage(peer,inPendingIndex.getCount(),message.getSortDate()));
     }
   }
 }

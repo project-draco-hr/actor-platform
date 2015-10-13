@@ -1,0 +1,5 @@
+{
+  this.title=title;
+  this.key=key;
+  this.dialogs=dialogs;
+}

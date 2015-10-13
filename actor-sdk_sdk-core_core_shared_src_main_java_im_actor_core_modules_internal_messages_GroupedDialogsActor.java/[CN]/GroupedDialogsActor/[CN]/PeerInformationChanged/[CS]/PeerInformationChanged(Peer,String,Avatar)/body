@@ -1,0 +1,5 @@
+{
+  this.peer=peer;
+  this.title=title;
+  this.avatar=avatar;
+}

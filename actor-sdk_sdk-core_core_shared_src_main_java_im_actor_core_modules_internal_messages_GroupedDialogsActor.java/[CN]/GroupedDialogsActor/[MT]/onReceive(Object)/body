@@ -1,0 +1,13 @@
+{
+  if (message instanceof PeerInformationChanged) {
+    PeerInformationChanged informationChanged=(PeerInformationChanged)message;
+    onPeerInfoChanged(informationChanged.getPeer(),informationChanged.getTitle(),informationChanged.getAvatar());
+  }
+ else   if (message instanceof NewMessage) {
+    NewMessage newMessage=(NewMessage)message;
+    onNewMessage(newMessage.peer,newMessage.sortDate,newMessage.counter);
+  }
+ else {
+    super.onReceive(message);
+  }
+}

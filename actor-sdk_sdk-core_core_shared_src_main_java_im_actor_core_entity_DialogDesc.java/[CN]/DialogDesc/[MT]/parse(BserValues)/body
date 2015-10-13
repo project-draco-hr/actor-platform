@@ -1,0 +1,10 @@
+{
+  peer=Peer.fromBytes(values.getBytes(1));
+  title=values.getString(2);
+  byte[] av=values.getBytes(3);
+  if (av != null) {
+    avatar=new Avatar(av);
+  }
+  counter=values.getInt(4);
+  isUnread=values.getBool(5);
+}
