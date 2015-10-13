@@ -1,0 +1,10 @@
+{
+  ArrayList<KeyValueRecord> res=new ArrayList<KeyValueRecord>();
+  for (  long id : keys) {
+    byte[] data=loadItem(id);
+    if (data != null) {
+      res.add(new KeyValueRecord(id,data));
+    }
+  }
+  return res;
+}
