@@ -1,0 +1,3 @@
+{
+  groupsValueModel=new ValueModel<ArrayList<DialogGroup>>("groups.model",null);
+}
