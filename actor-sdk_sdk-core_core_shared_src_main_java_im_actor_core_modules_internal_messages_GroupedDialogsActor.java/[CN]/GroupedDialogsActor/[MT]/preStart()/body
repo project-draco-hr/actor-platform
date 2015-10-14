@@ -2,4 +2,14 @@
   super.preStart();
   specs=context().getMessagesModule().getDialogDescKeyValue();
   storage=new GroupedStorage();
+  byte[] data=preferences().getBytes(PREFERENCE_GROUPED);
+  if (data != null) {
+    try {
+      storage=new GroupedStorage(data);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  notifyVM();
 }

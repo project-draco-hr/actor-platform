@@ -1,2 +1,3 @@
 {
+  preferences().putBytes(PREFERENCE_GROUPED,storage.toByteArray());
 }
