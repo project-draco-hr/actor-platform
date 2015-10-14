@@ -1,6 +1,11 @@
 {
   DialogSpec spec=new DialogSpec(peer,false,counter);
   specs.getEngine().addOrUpdateItem(spec);
+  if (peer.getPeerType() == PeerType.GROUP) {
+    if (getGroup(peer.getPeerId()).isHidden()) {
+      return;
+    }
+  }
   boolean found=false;
   for (  Peer p : storage.getPrivatePeers()) {
     if (p.equals(peer)) {

@@ -7,6 +7,10 @@
     NewMessage newMessage=(NewMessage)message;
     onNewMessage(newMessage.peer,newMessage.sortDate,newMessage.counter);
   }
+ else   if (message instanceof CounterChanged) {
+    CounterChanged counterChanged=(CounterChanged)message;
+    onCounterChanged(counterChanged.getPeer(),counterChanged.getCounter());
+  }
  else {
     super.onReceive(message);
   }
