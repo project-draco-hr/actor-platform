@@ -1,5 +1,0 @@
-Peer peer
-String title
-Avatar avatar
-boolean isUnread
-int counter

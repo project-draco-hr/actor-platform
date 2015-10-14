@@ -1,9 +1,0 @@
-{
-  writer.writeObject(1,peer);
-  writer.writeString(2,title);
-  if (avatar != null) {
-    writer.writeObject(3,avatar);
-  }
-  writer.writeInt(4,counter);
-  writer.writeBool(5,isUnread);
-}

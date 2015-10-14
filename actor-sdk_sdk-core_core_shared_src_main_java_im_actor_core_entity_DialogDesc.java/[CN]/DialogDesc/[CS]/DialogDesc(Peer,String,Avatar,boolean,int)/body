@@ -1,7 +1,0 @@
-{
-  this.peer=peer;
-  this.title=title;
-  this.avatar=avatar;
-  this.isUnread=isUnread;
-  this.counter=counter;
-}
