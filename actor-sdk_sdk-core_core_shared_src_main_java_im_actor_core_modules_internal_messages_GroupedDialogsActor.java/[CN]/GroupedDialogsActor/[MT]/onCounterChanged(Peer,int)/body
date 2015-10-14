@@ -1,4 +1,6 @@
 {
+  DialogSpec spec=new DialogSpec(peer,false,counter);
+  specs.getEngine().addOrUpdateItem(spec);
   boolean found=false;
   for (  Peer p : storage.getPrivatePeers()) {
     if (p.equals(peer)) {

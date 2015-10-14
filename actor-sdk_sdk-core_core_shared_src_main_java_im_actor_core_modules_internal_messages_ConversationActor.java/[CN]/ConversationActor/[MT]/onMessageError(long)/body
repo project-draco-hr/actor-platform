@@ -9,5 +9,6 @@
     if (!isHiddenPeer) {
       dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
     }
+    dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
   }
 }

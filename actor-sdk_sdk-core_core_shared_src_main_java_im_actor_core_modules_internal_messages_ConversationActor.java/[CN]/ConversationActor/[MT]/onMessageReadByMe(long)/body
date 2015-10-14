@@ -8,4 +8,5 @@
   if (!isHiddenPeer) {
     dialogsActor.send(new DialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
   }
+  dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
 }

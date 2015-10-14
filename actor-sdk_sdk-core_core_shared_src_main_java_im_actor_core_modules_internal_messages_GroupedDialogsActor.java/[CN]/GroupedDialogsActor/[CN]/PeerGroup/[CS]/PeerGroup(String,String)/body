@@ -1,5 +1,0 @@
-{
-  this.key=key;
-  this.title=title;
-  this.peers=new ArrayList<PeerDesc>();
-}

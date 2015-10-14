@@ -47,8 +47,8 @@
   }
   if (topMessage != null) {
     if (!isHiddenPeer) {
-      dialogsGroupedActor.send(new GroupedDialogsActor.NewMessage(peer,inPendingIndex.getCount(),topMessage.getSortDate()));
       dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
     }
+    dialogsGroupedActor.send(new GroupedDialogsActor.NewMessage(peer,inPendingIndex.getCount(),topMessage.getSortDate()));
   }
 }
