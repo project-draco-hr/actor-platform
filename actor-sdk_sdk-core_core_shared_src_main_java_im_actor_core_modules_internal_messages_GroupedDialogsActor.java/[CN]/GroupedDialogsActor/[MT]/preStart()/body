@@ -1,3 +1,5 @@
 {
   super.preStart();
+  specs=context().getMessagesModule().getDialogDescKeyValue();
+  storage=new GroupedStorage();
 }
