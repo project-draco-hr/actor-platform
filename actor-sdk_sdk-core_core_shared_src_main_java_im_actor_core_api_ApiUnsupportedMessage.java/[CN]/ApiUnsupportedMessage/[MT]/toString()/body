@@ -1,0 +1,5 @@
+{
+  String res="struct UnsupportedMessage{";
+  res+="}";
+  return res;
+}

@@ -1,0 +1,7 @@
+{
+  List<ApiDialogGroup> _dialogs=new ArrayList<ApiDialogGroup>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _dialogs.add(new ApiDialogGroup());
+  }
+  this.dialogs=values.getRepeatedObj(1,_dialogs);
+}

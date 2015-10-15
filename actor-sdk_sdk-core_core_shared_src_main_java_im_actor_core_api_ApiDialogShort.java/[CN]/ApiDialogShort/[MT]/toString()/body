@@ -1,0 +1,8 @@
+{
+  String res="struct DialogShort{";
+  res+="peer=" + this.peer;
+  res+=", counter=" + this.counter;
+  res+=", date=" + this.date;
+  res+="}";
+  return res;
+}

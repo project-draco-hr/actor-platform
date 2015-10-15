@@ -1,0 +1,6 @@
+{
+  String res="update ChatGroupsChanged{";
+  res+="dialogs=" + this.dialogs;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  String res="update ChatArchived{";
+  res+="peer=" + this.peer;
+  res+="}";
+  return res;
+}
