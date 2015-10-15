@@ -1,0 +1,7 @@
+{
+  this.recordType=recordType;
+  this.recordTypeSpec=recordTypeSpec;
+  this.recordData=recordData;
+  this.recordTitle=recordTitle;
+  this.recordSubtitle=recordSubtitle;
+}

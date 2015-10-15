@@ -1,0 +1,9 @@
+{
+  ArrayListUserEmail res=new ArrayListUserEmail();
+  for (  ContactRecord r : records) {
+    if (r.getRecordType() == ContactRecordType.EMAIL) {
+      res.add(new UserEmail(r.getRecordData(),r.getRecordTitle()));
+    }
+  }
+  return res;
+}

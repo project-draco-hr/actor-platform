@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  UserEmail userEmail=(UserEmail)o;
+  if (!email.equals(userEmail.email))   return false;
+  return !(title != null ? !title.equals(userEmail.title) : userEmail.title != null);
+}
