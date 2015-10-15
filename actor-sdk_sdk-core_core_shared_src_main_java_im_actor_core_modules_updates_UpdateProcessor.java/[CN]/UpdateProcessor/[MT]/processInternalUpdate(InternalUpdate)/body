@@ -46,4 +46,9 @@
     }
 );
   }
+ else   if (update instanceof RelatedResponse) {
+    RelatedResponse relatedResponse=(RelatedResponse)update;
+    applyRelated(relatedResponse.getRelatedUsers(),relatedResponse.getRelatedGroups(),false);
+    relatedResponse.getAfterApply().run();
+  }
 }
