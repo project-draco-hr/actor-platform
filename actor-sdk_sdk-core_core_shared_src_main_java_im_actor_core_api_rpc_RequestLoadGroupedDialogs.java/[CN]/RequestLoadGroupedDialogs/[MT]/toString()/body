@@ -1,0 +1,5 @@
+{
+  String res="rpc LoadGroupedDialogs{";
+  res+="}";
+  return res;
+}

@@ -1,0 +1,11 @@
+{
+  if (this.title == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.title);
+  if (this.key == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.key);
+  writer.writeRepeatedObj(3,this.dialogs);
+}

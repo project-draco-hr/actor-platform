@@ -1,0 +1,8 @@
+{
+  String res="struct DialogGroup{";
+  res+="title=" + this.title;
+  res+=", key=" + this.key;
+  res+=", dialogs=" + this.dialogs;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,9 @@
+{
+  this.title=values.getString(1);
+  this.key=values.getString(2);
+  List<ApiDialogShort> _dialogs=new ArrayList<ApiDialogShort>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _dialogs.add(new ApiDialogShort());
+  }
+  this.dialogs=values.getRepeatedObj(3,_dialogs);
+}
