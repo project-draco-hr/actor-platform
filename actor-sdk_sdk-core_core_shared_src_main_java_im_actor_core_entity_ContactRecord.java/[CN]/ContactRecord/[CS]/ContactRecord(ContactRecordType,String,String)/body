@@ -1,5 +1,0 @@
-{
-  this.recordType=recordType;
-  this.recordData=recordData;
-  this.recordTitle=recordTitle;
-}

@@ -1,0 +1,5 @@
+ContactRecordType recordType
+String recordTypeSpec
+String recordData
+String recordTitle
+String recordSubtitle

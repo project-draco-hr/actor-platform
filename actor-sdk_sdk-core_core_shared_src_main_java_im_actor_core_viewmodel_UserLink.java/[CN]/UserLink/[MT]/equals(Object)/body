@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  UserLink userWeb=(UserLink)o;
+  if (title != null ? !title.equals(userWeb.title) : userWeb.title != null)   return false;
+  return !(url != null ? !url.equals(userWeb.url) : userWeb.url != null);
+}

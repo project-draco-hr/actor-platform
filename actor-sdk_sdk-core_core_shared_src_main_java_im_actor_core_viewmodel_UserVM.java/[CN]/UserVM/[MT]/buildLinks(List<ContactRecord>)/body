@@ -1,0 +1,9 @@
+{
+  ArrayListUserLink res=new ArrayListUserLink();
+  for (  ContactRecord r : records) {
+    if (r.getRecordType() == ContactRecordType.WEB) {
+      res.add(new UserLink(r.getRecordData(),r.getRecordTitle()));
+    }
+  }
+  return res;
+}

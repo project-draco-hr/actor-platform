@@ -6,6 +6,9 @@
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
   isChanged|=phones.change(buildPhones(rawObj.getRecords()));
+  isChanged|=emails.change(buildEmails(rawObj.getRecords()));
+  isChanged|=links.change(buildLinks(rawObj.getRecords()));
+  isChanged|=contacts.change(new ArrayListContactRecord(rawObj.getRecords()));
   if (isChanged) {
     notifyChange();
   }
