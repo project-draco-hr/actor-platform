@@ -1,0 +1,26 @@
+{
+  if (dialogsGroupedList == null) {
+    ValueModel<ArrayList<DialogGroup>> dialogGroups=context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel();
+    dialogsGroupedList=new JsBindedValue<JsArray<JsDialogGroup>>();
+    dialogGroups.subscribe(new ValueChangedListener<ArrayList<DialogGroup>>(){
+      @Override public void onChanged(      ArrayList<DialogGroup> val,      Value<ArrayList<DialogGroup>> valueModel){
+        if (val == null) {
+          dialogsGroupedList.changeValue(JsArray.createArray().<JsArray<JsDialogGroup>>cast());
+        }
+ else {
+          JsArray<JsDialogGroup> res=JsArray.createArray().cast();
+          for (          DialogGroup g : val) {
+            JsArray<JsDialogShort> resd=JsArray.createArray().cast();
+            for (            DialogSmall ds : g.getDialogs()) {
+              resd.push(JsDialogShort.create(messenger.buildPeerInfo(ds.getPeer()),ds.getCounter()));
+            }
+            res.push(JsDialogGroup.create(g.getTitle(),g.getKey(),resd));
+          }
+          dialogsGroupedList.changeValue(res);
+        }
+      }
+    }
+);
+  }
+  return dialogsGroupedList;
+}
