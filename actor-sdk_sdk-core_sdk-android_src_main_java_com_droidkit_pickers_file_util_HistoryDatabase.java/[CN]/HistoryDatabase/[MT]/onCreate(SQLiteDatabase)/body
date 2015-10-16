@@ -1,0 +1,3 @@
+{
+  database.execSQL(SELECTED_HISTORY_DATABASE_CREATE);
+}

@@ -1,0 +1,3 @@
+String src
+List<StringMatch> matches
+int color

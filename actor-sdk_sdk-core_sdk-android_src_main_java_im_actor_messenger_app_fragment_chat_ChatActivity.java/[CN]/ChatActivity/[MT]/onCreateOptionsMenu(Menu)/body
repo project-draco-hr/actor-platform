@@ -1,0 +1,25 @@
+{
+  getMenuInflater().inflate(R.menu.chat_menu,menu);
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    menu.findItem(R.id.contact).setVisible(true);
+  }
+ else {
+    menu.findItem(R.id.contact).setVisible(false);
+  }
+  if (peer.getPeerType() == PeerType.GROUP) {
+    if (groups().get(peer.getPeerId()).isMember().get()) {
+      menu.findItem(R.id.leaveGroup).setVisible(true);
+      menu.findItem(R.id.groupInfo).setVisible(true);
+    }
+ else {
+      menu.findItem(R.id.leaveGroup).setVisible(false);
+      menu.findItem(R.id.groupInfo).setVisible(false);
+    }
+  }
+ else {
+    menu.findItem(R.id.groupInfo).setVisible(false);
+    menu.findItem(R.id.leaveGroup).setVisible(false);
+  }
+  menu.findItem(R.id.files).setVisible(false);
+  return super.onCreateOptionsMenu(menu);
+}

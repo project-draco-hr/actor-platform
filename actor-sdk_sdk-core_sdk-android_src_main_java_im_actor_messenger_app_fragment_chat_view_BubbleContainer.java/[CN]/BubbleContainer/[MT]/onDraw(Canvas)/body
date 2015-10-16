@@ -1,0 +1,7 @@
+{
+  super.onDraw(canvas);
+  if (isSelected) {
+    View bubble=findMessageView();
+    canvas.drawRect(0,getHeight() - bubble.getHeight(),getWidth(),getHeight(),SELECTOR_PAINT);
+  }
+}

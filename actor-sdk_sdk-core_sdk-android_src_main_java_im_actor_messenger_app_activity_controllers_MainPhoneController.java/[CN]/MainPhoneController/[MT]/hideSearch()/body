@@ -1,0 +1,18 @@
+{
+  if (!isSearchVisible) {
+    return;
+  }
+  isSearchVisible=false;
+  if (searchDisplay != null) {
+    searchDisplay.dispose();
+    searchDisplay=null;
+  }
+  searchAdapter=null;
+  searchList.setAdapter(null);
+  goneView(searchContainer);
+  if (searchMenu != null) {
+    if (searchMenu.isActionViewExpanded()) {
+      searchMenu.collapseActionView();
+    }
+  }
+}

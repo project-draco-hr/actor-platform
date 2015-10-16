@@ -1,0 +1,5 @@
+{
+  mAnchorInfo=new AnchorInfo();
+  setOrientation(orientation);
+  setReverseLayout(reverseLayout);
+}

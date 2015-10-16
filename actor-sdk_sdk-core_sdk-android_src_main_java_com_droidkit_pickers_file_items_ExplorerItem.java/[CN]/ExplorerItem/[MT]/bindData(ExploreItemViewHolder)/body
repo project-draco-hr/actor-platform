@@ -1,0 +1,6 @@
+{
+  holder.setTitle(getTitle());
+  holder.setSubtitle(getSubtitle(holder.getContext()));
+  holder.setSelected(selected);
+  holder.enableDivider();
+}

@@ -1,0 +1,6 @@
+{
+  if (mStackFromEnd == stackFromEnd) {
+    return;
+  }
+  mStackFromEnd=stackFromEnd;
+}

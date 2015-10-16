@@ -1,0 +1,3 @@
+{
+  ((BaseFragmentActivity)getActivity()).getSupportActionBar().setTitle(resId);
+}

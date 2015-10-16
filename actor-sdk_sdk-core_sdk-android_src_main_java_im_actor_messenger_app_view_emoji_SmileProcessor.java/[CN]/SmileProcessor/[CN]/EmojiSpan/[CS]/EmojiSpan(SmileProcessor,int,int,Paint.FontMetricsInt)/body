@@ -1,0 +1,10 @@
+{
+  this.processor=processor;
+  this.size=size;
+  this.originalMetrics=original;
+  int x=index / COUNT_IN_ROW;
+  int y=index % COUNT_IN_ROW;
+  section=(y / SECTION_SIDE) + (x / SECTION_SIDE) * SECTION_ROW_COUNT;
+  sectionX=y % SECTION_SIDE;
+  sectionY=x % SECTION_SIDE;
+}

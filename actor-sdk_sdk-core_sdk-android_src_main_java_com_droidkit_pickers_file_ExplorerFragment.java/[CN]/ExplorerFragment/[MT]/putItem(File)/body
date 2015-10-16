@@ -1,0 +1,10 @@
+{
+  ExplorerItem item;
+  if (file.isDirectory()) {
+    item=getFolderItem(file);
+  }
+ else {
+    item=getFileItem(file);
+  }
+  if (item != null)   items.add(item);
+}

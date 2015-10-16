@@ -1,0 +1,11 @@
+{
+  int scale=1;
+  int scaledW=metadata.getW();
+  int scaledH=metadata.getH();
+  while (scaledW * scaledH > maxPixels) {
+    scale*=2;
+    scaledH/=2;
+    scaledW/=2;
+  }
+  return scale;
+}

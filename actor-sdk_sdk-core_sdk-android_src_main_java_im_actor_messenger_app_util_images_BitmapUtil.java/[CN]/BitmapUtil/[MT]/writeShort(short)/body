@@ -1,0 +1,6 @@
+{
+  byte[] b=new byte[2];
+  b[0]=(byte)(value & 0x00FF);
+  b[1]=(byte)((value & 0xFF00) >> 8);
+  return b;
+}

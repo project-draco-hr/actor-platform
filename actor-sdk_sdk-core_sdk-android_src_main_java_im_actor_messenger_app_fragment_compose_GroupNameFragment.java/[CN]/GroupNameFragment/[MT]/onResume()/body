@@ -1,0 +1,5 @@
+{
+  super.onResume();
+  groupName.requestFocus();
+  helper.setImeVisibility(groupName,true);
+}

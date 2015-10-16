@@ -1,0 +1,3 @@
+{
+  BINDER.bind(textView,titleContainer,value);
+}

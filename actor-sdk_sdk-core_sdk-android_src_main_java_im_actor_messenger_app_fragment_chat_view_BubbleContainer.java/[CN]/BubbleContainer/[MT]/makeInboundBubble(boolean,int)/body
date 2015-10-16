@@ -1,0 +1,3 @@
+{
+  makeInboundBubble(showAvatar,uid,0);
+}

@@ -1,0 +1,5 @@
+{
+  this.phoneCode=phoneCode;
+  this.shortName=shortName;
+  this.fullNameRes=fullNameRes;
+}

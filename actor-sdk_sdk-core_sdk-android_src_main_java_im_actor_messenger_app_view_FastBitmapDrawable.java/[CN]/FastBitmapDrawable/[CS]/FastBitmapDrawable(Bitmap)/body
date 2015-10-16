@@ -1,0 +1,4 @@
+{
+  this.bitmap=bitmap;
+  this.bitmapBounds=new Rect(0,0,bitmap.getWidth(),bitmap.getHeight());
+}

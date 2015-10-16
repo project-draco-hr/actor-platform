@@ -1,0 +1,11 @@
+{
+  if (item.getItemId() == R.id.editProfile) {
+    startActivity(Intents.editMyName(getActivity()));
+    return true;
+  }
+ else   if (item.getItemId() == R.id.changePhoto) {
+    startActivity(ViewAvatarActivity.viewAvatar(myUid(),getActivity()));
+    return true;
+  }
+  return super.onOptionsItemSelected(item);
+}

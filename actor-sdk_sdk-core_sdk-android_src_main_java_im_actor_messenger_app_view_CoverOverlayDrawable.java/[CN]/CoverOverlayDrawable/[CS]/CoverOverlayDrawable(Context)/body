@@ -1,0 +1,3 @@
+{
+  bottomShadow=context.getResources().getDrawable(R.drawable.profile_avatar_bottom_shadow);
+}

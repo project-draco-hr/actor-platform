@@ -1,0 +1,8 @@
+{
+  if (mScrapList != null) {
+    return nextViewFromScrapList();
+  }
+  final View view=recycler.getViewForPosition(mCurrentPosition);
+  mCurrentPosition+=mItemDirection;
+  return view;
+}

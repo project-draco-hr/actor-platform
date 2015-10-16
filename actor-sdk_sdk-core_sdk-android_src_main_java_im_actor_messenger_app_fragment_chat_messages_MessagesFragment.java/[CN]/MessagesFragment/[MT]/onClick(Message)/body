@@ -1,0 +1,20 @@
+{
+  if (actionMode != null) {
+    if (messagesAdapter.isSelected(message)) {
+      messagesAdapter.setSelected(message,false);
+      if (messagesAdapter.getSelectedCount() == 0) {
+        actionMode.finish();
+        actionMode=null;
+      }
+ else {
+        actionMode.invalidate();
+      }
+    }
+ else {
+      messagesAdapter.setSelected(message,true);
+      actionMode.invalidate();
+    }
+    return true;
+  }
+  return false;
+}

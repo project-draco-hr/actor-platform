@@ -1,0 +1,3 @@
+{
+  return mPendingSavedState == null && mLastStackFromEnd == mStackFromEnd;
+}

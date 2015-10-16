@@ -1,0 +1,11 @@
+{
+  return new DialogsAdapter(displayList,new OnItemClickedListener<Dialog>(){
+    @Override public void onClicked(    Dialog item){
+      onItemClick(item);
+    }
+    @Override public boolean onLongClicked(    Dialog item){
+      return onItemLongClick(item);
+    }
+  }
+,activity);
+}

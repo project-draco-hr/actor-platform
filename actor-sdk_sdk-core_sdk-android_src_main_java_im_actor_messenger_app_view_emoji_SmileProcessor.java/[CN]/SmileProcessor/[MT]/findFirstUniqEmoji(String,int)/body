@@ -1,0 +1,49 @@
+{
+  long prev=0;
+  long prevLong=0;
+  int prevLongCount=0;
+  long[] res=new long[count];
+  int index=0;
+  HashSet<Long> founded=new HashSet<Long>();
+  for (int i=0; i < s.length(); i++) {
+    long current=s.charAt(i);
+    if (prevLongCount == 3) {
+      long prevId=((prevLong & 0xFFFFFFFF) << 16) + current;
+      if (EMOJI_SET.contains(prevId) && !founded.contains(prevId)) {
+        founded.add(prevId);
+        res[index++]=prevId;
+        if (index >= count)         break;
+      }
+    }
+    if (prev != 0) {
+      long prevId=((prev & 0xFFFF) << 16) + current;
+      if (EMOJI_SET.contains(prevId) && !founded.contains(prevId)) {
+        founded.add(prevId);
+        res[index++]=prevId;
+        if (index >= count)         break;
+      }
+    }
+    if (EMOJI_SET.contains(current) && !founded.contains(current)) {
+      founded.add(current);
+      res[index++]=current;
+      if (index >= count)       break;
+    }
+ else {
+      prev=current;
+      prevLong=((prevLong & 0xFFFFFFFF) << 16) + current;
+      if (prevLongCount < 3) {
+        prevLongCount++;
+      }
+    }
+  }
+  if (index == count) {
+    return res;
+  }
+ else {
+    long[] res2=new long[index];
+    for (int i=0; i < index; i++) {
+      res2[i]=res[i];
+    }
+    return res2;
+  }
+}

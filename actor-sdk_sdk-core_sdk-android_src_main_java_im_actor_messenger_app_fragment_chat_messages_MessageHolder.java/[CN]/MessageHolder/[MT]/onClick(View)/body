@@ -1,0 +1,7 @@
+{
+  if (currentMessage != null) {
+    if (!adapter.getMessagesFragment().onClick(currentMessage)) {
+      onClick(currentMessage);
+    }
+  }
+}

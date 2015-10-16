@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  setTitle(R.string.auth_profile_title);
+  focus(firstNameEditText);
+  keyboardHelper.setImeVisibility(firstNameEditText,true);
+}

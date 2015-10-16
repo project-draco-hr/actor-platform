@@ -1,0 +1,11 @@
+{
+  final Activity a=getActivity();
+  if (a != null) {
+    if (country != null) {
+      ignoreNextCodeChange=true;
+      setCountryName(country);
+      countryCodeEditText.setText(country.phoneCode);
+    }
+    focusPhone();
+  }
+}

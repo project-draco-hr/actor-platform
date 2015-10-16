@@ -1,0 +1,3 @@
+{
+  onClick(view.findViewById(id),listener);
+}

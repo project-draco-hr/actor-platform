@@ -1,0 +1,6 @@
+TextView textView
+View container
+Value<String> value
+OnChangedListener callback
+boolean hide
+String defaultValue

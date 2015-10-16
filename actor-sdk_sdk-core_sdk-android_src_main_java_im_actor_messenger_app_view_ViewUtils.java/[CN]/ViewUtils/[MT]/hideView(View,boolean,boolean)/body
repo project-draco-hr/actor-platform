@@ -1,0 +1,18 @@
+{
+  if (view == null) {
+    return;
+  }
+  if (isAnimated) {
+    if (view.getVisibility() != View.INVISIBLE) {
+      AlphaAnimation alphaAnimation=new AlphaAnimation(1,0);
+      alphaAnimation.setDuration(isSlow ? 300 : 150);
+      alphaAnimation.setInterpolator(MaterialInterpolator.getInstance());
+      view.clearAnimation();
+      view.startAnimation(alphaAnimation);
+      view.setVisibility(View.INVISIBLE);
+    }
+  }
+ else {
+    view.setVisibility(View.INVISIBLE);
+  }
+}

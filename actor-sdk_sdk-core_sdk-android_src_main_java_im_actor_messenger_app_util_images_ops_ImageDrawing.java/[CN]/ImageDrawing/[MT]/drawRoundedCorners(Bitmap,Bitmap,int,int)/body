@@ -1,0 +1,21 @@
+{
+  clearBitmap(dest,clearColor);
+  Canvas canvas=new Canvas(dest);
+  Rect sourceRect=WorkCache.RECT1.get();
+  Rect destRect=WorkCache.RECT2.get();
+  sourceRect.set(0,0,src.getWidth(),src.getHeight());
+  destRect.set(0,0,dest.getWidth(),dest.getHeight());
+  RectF roundRect=WorkCache.RECTF1.get();
+  roundRect.set(0,0,dest.getWidth(),dest.getHeight());
+  Paint paint=WorkCache.PAINT.get();
+  paint.reset();
+  paint.setStyle(Paint.Style.FILL);
+  paint.setColor(Color.RED);
+  paint.setAntiAlias(true);
+  canvas.drawRoundRect(roundRect,radius,radius,paint);
+  paint.reset();
+  paint.setFilterBitmap(true);
+  paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+  canvas.drawBitmap(src,sourceRect,destRect,paint);
+  canvas.setBitmap(null);
+}

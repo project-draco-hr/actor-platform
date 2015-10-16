@@ -1,0 +1,17 @@
+{
+  Integer[] selected=getSelected();
+  String src="";
+  for (int i=0; i < selected.length; i++) {
+    src+="!";
+  }
+  Spannable spannable=new SpannableString(src);
+  for (int i=0; i < selected.length; i++) {
+    spannable.setSpan(new UserSpan(users().get(selected[i]),Screen.dp(200)),i,i + 1,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+  }
+  searchField.removeTextChangedListener(textWatcher);
+  searchField.setText(spannable);
+  searchField.setSelection(spannable.length());
+  searchField.addTextChangedListener(textWatcher);
+  filter("");
+  getAdapter().notifyDataSetChanged();
+}

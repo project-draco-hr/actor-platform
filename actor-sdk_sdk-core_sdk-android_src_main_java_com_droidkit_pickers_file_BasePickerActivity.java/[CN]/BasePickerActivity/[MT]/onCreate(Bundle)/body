@@ -1,0 +1,22 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.picker_activity_picker);
+  if (savedInstanceState == null) {
+    getFragmentManager().beginTransaction().setCustomAnimations(R.animator.picker_fragment_explorer_welcome_enter,R.animator.picker_fragment_explorer_welcome_exit).add(R.id.container,getWelcomeFragment()).commit();
+  }
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  View select=findViewById(R.id.select);
+  select.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      returnResult();
+    }
+  }
+);
+  View cancel=findViewById(R.id.cancel);
+  cancel.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      finish();
+    }
+  }
+);
+}

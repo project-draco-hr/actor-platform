@@ -1,0 +1,10 @@
+{
+  padding=(int)paint.measureText(" ") / 3;
+  if (fm != null) {
+    fm.ascent=originalMetrics.ascent;
+    fm.descent=originalMetrics.descent;
+    fm.top=originalMetrics.top;
+    fm.bottom=originalMetrics.bottom;
+  }
+  return size + padding * 2;
+}

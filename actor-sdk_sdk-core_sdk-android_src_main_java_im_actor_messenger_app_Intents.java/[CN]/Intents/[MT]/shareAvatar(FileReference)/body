@@ -1,0 +1,3 @@
+{
+  return new Intent(Intent.ACTION_SEND).putExtra(Intent.EXTRA_STREAM,getAvatarUri(location)).setType("image/jpeg");
+}

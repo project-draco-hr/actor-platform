@@ -1,0 +1,3 @@
+{
+  return new DocumentHolder(this,inflate(R.layout.adapter_document,viewGroup));
+}

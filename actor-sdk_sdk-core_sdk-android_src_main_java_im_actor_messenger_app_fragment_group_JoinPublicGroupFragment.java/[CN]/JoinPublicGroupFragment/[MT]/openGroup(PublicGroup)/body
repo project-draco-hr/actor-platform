@@ -1,0 +1,10 @@
+{
+  GroupVM groupVM=null;
+  try {
+    groupVM=groups().get(item.getId());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  joinGroup(item,groupVM != null && groupVM.isMember().get());
+}

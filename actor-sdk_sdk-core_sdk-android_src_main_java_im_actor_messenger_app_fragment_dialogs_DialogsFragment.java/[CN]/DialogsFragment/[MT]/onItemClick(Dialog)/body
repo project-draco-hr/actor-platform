@@ -1,0 +1,3 @@
+{
+  ((ActorMainActivity)getActivity()).onDialogClicked(item);
+}

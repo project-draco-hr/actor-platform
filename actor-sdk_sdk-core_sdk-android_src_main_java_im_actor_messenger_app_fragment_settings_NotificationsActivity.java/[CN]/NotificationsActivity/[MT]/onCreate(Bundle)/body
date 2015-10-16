@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setTitle(R.string.not_title);
+  if (savedInstanceState == null) {
+    showFragment(new NotificationsFragment(),false,false);
+  }
+}

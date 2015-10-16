@@ -1,0 +1,3 @@
+{
+  super(new File(path),false,null,R.drawable.picker_folder,true);
+}

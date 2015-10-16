@@ -1,0 +1,3 @@
+{
+  print(Log.ERROR,tag,msg,t);
+}

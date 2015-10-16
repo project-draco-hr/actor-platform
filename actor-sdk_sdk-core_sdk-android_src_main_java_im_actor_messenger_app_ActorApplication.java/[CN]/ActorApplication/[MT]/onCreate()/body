@@ -1,0 +1,5 @@
+{
+  super.onCreate();
+  ActorSDK.sharedActor().createActor(this);
+  ActorSDK.sharedActor().startMessagingApp();
+}

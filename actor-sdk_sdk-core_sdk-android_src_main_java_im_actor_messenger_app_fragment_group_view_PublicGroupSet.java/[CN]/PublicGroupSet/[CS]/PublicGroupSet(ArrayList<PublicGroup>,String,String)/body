@@ -1,0 +1,5 @@
+{
+  this.groups=groups;
+  this.title=title;
+  this.subtitle=subtitle;
+}

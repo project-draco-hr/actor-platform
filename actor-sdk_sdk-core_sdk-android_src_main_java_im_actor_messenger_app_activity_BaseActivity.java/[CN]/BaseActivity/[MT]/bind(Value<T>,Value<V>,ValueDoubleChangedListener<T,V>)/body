@@ -1,0 +1,3 @@
+{
+  BINDER.bind(value1,value2,listener);
+}
