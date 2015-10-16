@@ -1,11 +1,5 @@
 {
-  List<byte[]> rawPrivatePeers=values.getRepeatedBytes(1);
-  privatePeers.clear();
-  for (  byte[] b : rawPrivatePeers) {
-    privatePeers.add(Peer.fromBytes(b));
-  }
-  List<byte[]> rawGroupPeers=values.getRepeatedBytes(2);
-  for (  byte[] b : rawGroupPeers) {
-    groupPeers.add(Peer.fromBytes(b));
+  for (  byte[] data : values.getRepeatedBytes(1)) {
+    groups.add(new GroupedItem(data));
   }
 }
