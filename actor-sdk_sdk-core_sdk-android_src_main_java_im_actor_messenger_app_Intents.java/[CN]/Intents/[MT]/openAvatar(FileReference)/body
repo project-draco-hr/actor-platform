@@ -1,0 +1,3 @@
+{
+  return new Intent(Intent.ACTION_VIEW).setDataAndType(getAvatarUri(location),"image/jpeg");
+}

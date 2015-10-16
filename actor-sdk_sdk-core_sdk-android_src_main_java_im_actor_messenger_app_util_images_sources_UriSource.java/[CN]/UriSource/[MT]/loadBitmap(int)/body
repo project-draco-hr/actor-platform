@@ -1,0 +1,36 @@
+{
+  BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inScaled=false;
+  o.inTempStorage=WorkCache.BITMAP_TMP.get();
+  o.inSampleSize=scale;
+  o.inPreferredConfig=Bitmap.Config.ARGB_8888;
+  if (Build.VERSION.SDK_INT >= 10) {
+    o.inPreferQualityOverSpeed=true;
+  }
+  if (Build.VERSION.SDK_INT >= 11) {
+    o.inMutable=true;
+  }
+  InputStream is=null;
+  Bitmap res;
+  try {
+    is=context.getContentResolver().openInputStream(uri);
+    res=BitmapFactory.decodeStream(is,null,o);
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+    throw new ImageLoadException("Unable to load image from stream");
+  }
+ finally {
+    if (is != null) {
+      try {
+        is.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+  }
+  if (res == null) {
+    throw new ImageLoadException("BitmapFactory.decodeFile return null");
+  }
+  return res;
+}

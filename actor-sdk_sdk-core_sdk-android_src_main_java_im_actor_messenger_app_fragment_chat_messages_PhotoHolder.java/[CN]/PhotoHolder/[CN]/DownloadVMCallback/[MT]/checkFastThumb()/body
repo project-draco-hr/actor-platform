@@ -1,0 +1,8 @@
+{
+  if (!isFastThumbLoaded) {
+    isFastThumbLoaded=true;
+    if (doc.getFastThumb() != null) {
+      fastThumbLoader.request(doc.getFastThumb().getImage());
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  long animationTime=SystemClock.uptimeMillis() - animationStart;
+  if (animationTime > TINT_ANIMATION_TIME) {
+    currentTintColor=destTintColor;
+  }
+ else {
+    float alpha=animationTime / (float)TINT_ANIMATION_TIME;
+    int sR=Color.red(startTintColor);
+    int sG=Color.green(startTintColor);
+    int sB=Color.blue(startTintColor);
+    int sA=Color.alpha(startTintColor);
+    int dR=Color.red(destTintColor);
+    int dG=Color.green(destTintColor);
+    int dB=Color.blue(destTintColor);
+    int dA=Color.alpha(destTintColor);
+    int r=(int)(sR * (1 - alpha) + dR * (alpha));
+    int g=(int)(sG * (1 - alpha) + dG * (alpha));
+    int b=(int)(sB * (1 - alpha) + dB * (alpha));
+    int a=(int)(sA * (1 - alpha) + dA * (alpha));
+    currentTintColor=Color.argb(a,r,g,b);
+    invalidate();
+  }
+  if (baseBitmap != null) {
+    PorterDuffColorFilter filter=new PorterDuffColorFilter(currentTintColor,PorterDuff.Mode.SRC_IN);
+    PAINT.setColorFilter(filter);
+    int x=(getWidth() - baseBitmap.getWidth()) / 2;
+    int y=(getHeight() - baseBitmap.getHeight()) / 2;
+    canvas.drawBitmap(baseBitmap,x,y,PAINT);
+  }
+}

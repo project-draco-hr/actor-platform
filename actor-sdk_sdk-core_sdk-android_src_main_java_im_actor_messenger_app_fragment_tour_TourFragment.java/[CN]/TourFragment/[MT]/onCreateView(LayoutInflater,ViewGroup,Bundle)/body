@@ -1,0 +1,28 @@
+{
+  rootView=inflater.inflate(R.layout.tour_fragment,null);
+  TextView titleView=(TextView)rootView.findViewById(R.id.title);
+  titleView.setTypeface(Fonts.medium());
+  TextView bodyView=(TextView)rootView.findViewById(R.id.body);
+  ImageView imageView=(ImageView)rootView.findViewById(R.id.image);
+  Bundle args=getArguments();
+  int position=args.getInt(ARG_POSITION);
+switch (position) {
+default :
+case 1:
+    titleView.setText(R.string.tour_groups_title);
+  bodyView.setText(R.string.tour_groups_text);
+imageView.setImageResource(R.drawable.intro_groups);
+break;
+case 2:
+titleView.setText(R.string.tour_everywhere_title);
+bodyView.setText(R.string.tour_everywhere_text);
+imageView.setImageResource(R.drawable.intro_subway);
+break;
+case 3:
+titleView.setText(R.string.tour_secure_title);
+bodyView.setText(R.string.tour_secure_text);
+imageView.setImageResource(R.drawable.intro_secure);
+break;
+}
+return rootView;
+}

@@ -1,0 +1,15 @@
+{
+  super(itemView);
+  this.adapter=adapter;
+  this.container=(BubbleContainer)itemView;
+  this.isFullSize=isFullSize;
+  if (isFullSize) {
+    container.makeFullSizeBubble();
+  }
+ else {
+    container.setOnClickListener((View.OnClickListener)this);
+    container.setOnClickListener((BubbleContainer.OnAvatarClickListener)this);
+    container.setOnLongClickListener((View.OnLongClickListener)this);
+    container.setOnLongClickListener((BubbleContainer.OnAvatarLongClickListener)this);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  bindRawText(text,message,true);
+}

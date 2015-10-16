@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  setTitle(R.string.auth_email_title);
+  focusEmail();
+  keyboardHelper.setImeVisibility(emailEditText,true);
+}

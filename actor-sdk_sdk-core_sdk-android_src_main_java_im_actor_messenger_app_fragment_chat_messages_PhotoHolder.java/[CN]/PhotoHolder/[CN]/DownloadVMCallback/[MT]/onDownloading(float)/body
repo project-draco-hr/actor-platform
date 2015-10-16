@@ -1,0 +1,10 @@
+{
+  checkFastThumb();
+  showView(progressContainer);
+  goneView(progressIcon);
+  int val=(int)(100 * progress);
+  progressValue.setText(val + "");
+  progressView.setValue(val);
+  showView(progressView);
+  showView(progressValue);
+}

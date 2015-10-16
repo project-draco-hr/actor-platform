@@ -1,0 +1,4 @@
+LayoutInflater inflater
+ViewGroup container
+int resource
+BindedDisplayList<T> displayList

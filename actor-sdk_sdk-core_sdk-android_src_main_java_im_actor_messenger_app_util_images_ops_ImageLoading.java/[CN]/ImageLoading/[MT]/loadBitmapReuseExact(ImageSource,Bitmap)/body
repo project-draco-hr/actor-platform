@@ -1,0 +1,20 @@
+{
+  ImageMetadata metadata=source.getImageMetadata();
+  boolean tryReuse=false;
+  if (dest.isMutable() && dest.getWidth() == metadata.getW() && dest.getHeight() == metadata.getH()) {
+    if (Build.VERSION.SDK_INT >= 19) {
+      tryReuse=true;
+    }
+ else     if (Build.VERSION.SDK_INT >= 11) {
+      if (metadata.getFormat() == ImageFormat.JPEG || metadata.getFormat() == ImageFormat.PNG) {
+        tryReuse=true;
+      }
+    }
+  }
+  if (tryReuse) {
+    return source.loadBitmap(dest);
+  }
+ else {
+    return new ReuseResult(loadBitmap(source),false);
+  }
+}

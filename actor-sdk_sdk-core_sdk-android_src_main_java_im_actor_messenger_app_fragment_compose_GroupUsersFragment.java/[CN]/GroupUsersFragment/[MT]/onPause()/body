@@ -1,0 +1,4 @@
+{
+  super.onPause();
+  searchField.removeTextChangedListener(textWatcher);
+}

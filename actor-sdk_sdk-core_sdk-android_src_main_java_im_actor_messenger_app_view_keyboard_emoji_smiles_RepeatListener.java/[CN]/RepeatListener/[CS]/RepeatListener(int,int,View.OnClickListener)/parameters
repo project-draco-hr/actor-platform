@@ -1,0 +1,3 @@
+int initialInterval
+int normalInterval
+View.OnClickListener clickListener

@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < getChildCount(); i++) {
+    View v=getChildAt(i);
+    if (v != dateDiv && v != unreadDiv && v != avatarView) {
+      return v;
+    }
+  }
+  throw new RuntimeException("Unable to find bubble view!");
+}

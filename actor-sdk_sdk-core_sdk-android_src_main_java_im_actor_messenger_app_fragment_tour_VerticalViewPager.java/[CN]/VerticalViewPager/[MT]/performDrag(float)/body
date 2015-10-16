@@ -1,0 +1,40 @@
+{
+  boolean needsInvalidate=false;
+  final float deltaY=mLastMotionY - y;
+  mLastMotionY=y;
+  float oldScrollY=getScrollY();
+  float scrollY=oldScrollY + deltaY;
+  final int height=getClientHeight();
+  float topBound=height * mFirstOffset;
+  float bottomBound=height * mLastOffset;
+  boolean topAbsolute=true;
+  boolean bottomAbsolute=true;
+  final ItemInfo firstItem=mItems.get(0);
+  final ItemInfo lastItem=mItems.get(mItems.size() - 1);
+  if (firstItem.position != 0) {
+    topAbsolute=false;
+    topBound=firstItem.offset * height;
+  }
+  if (lastItem.position != mAdapter.getCount() - 1) {
+    bottomAbsolute=false;
+    bottomBound=lastItem.offset * height;
+  }
+  if (scrollY < topBound) {
+    if (topAbsolute) {
+      float over=topBound - scrollY;
+      needsInvalidate=mTopEdge.onPull(Math.abs(over) / height);
+    }
+    scrollY=topBound;
+  }
+ else   if (scrollY > bottomBound) {
+    if (bottomAbsolute) {
+      float over=scrollY - bottomBound;
+      needsInvalidate=mBottomEdge.onPull(Math.abs(over) / height);
+    }
+    scrollY=bottomBound;
+  }
+  mLastMotionX+=scrollY - (int)scrollY;
+  scrollTo(getScrollX(),(int)scrollY);
+  pageScrolled((int)scrollY);
+  return needsInvalidate;
+}

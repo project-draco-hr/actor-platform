@@ -1,0 +1,21 @@
+{
+  if (Build.VERSION.SDK_INT < 11) {
+    throw new ImageLoadException("Bitmap reuse not available before HONEYCOMB");
+  }
+  if (!new File(fileName).exists()) {
+    throw new ImageLoadException("File not exists");
+  }
+  BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inScaled=false;
+  o.inTempStorage=WorkCache.BITMAP_TMP.get();
+  o.inPreferQualityOverSpeed=true;
+  o.inBitmap=reuse;
+  o.inMutable=true;
+  o.inPreferredConfig=Bitmap.Config.ARGB_8888;
+  o.inSampleSize=1;
+  Bitmap res=BitmapFactory.decodeFile(fileName,o);
+  if (res == null) {
+    throw new ImageLoadException("BitmapFactory.decodeFile return null");
+  }
+  return new ReuseResult(res,true);
+}

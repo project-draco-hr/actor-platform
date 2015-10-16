@@ -1,0 +1,10 @@
+{
+  if (holder instanceof AnimatorViewHolder) {
+    if (!((AnimatorViewHolder)holder).performAnimation()) {
+      return false;
+    }
+  }
+  endAnimation(holder);
+  mPendingRemovals.add(holder);
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  ViewUtils.hideView(view);
+}

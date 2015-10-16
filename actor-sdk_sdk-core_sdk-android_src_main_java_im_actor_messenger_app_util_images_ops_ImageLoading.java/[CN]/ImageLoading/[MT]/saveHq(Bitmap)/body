@@ -1,0 +1,3 @@
+{
+  return save(src,Bitmap.CompressFormat.JPEG,JPEG_QUALITY_HQ);
+}

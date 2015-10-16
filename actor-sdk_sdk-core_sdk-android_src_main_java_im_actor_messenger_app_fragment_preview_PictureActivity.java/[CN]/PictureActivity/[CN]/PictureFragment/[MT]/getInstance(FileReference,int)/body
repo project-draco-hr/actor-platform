@@ -1,0 +1,11 @@
+{
+  Bundle bundle=new Bundle();
+  bundle.putLong(ARG_FILE_ID,ref.getFileId());
+  bundle.putInt(ARG_FILE_SIZE,ref.getFileSize());
+  bundle.putLong(ARG_FILE_ACCESS_HASH,ref.getAccessHash());
+  bundle.putString(ARG_FILE_NAME,ref.getFileName());
+  bundle.putInt(ARG_OWNER,senderId);
+  Fragment fragment=new PictureFragment();
+  fragment.setArguments(bundle);
+  return fragment;
+}

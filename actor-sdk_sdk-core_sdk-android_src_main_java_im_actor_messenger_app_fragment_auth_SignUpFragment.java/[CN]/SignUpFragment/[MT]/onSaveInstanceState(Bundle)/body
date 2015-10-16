@@ -1,0 +1,6 @@
+{
+  super.onSaveInstanceState(outState);
+  if (avatarPath != null) {
+    outState.putString("avatarPath",avatarPath);
+  }
+}

@@ -1,0 +1,3 @@
+int resourceId
+int colorId
+Context context

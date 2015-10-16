@@ -1,0 +1,33 @@
+{
+  final View view=holder.itemView;
+  final int deltaX=toX - fromX;
+  final int deltaY=toY - fromY;
+  if (deltaX != 0) {
+    ViewCompat.animate(view).translationX(0);
+  }
+  if (deltaY != 0) {
+    ViewCompat.animate(view).translationY(0);
+  }
+  final ViewPropertyAnimatorCompat animation=ViewCompat.animate(view);
+  mMoveAnimations.add(holder);
+  animation.setDuration(getMoveDuration()).setListener(new VpaListenerAdapter(){
+    @Override public void onAnimationStart(    View view){
+      dispatchMoveStarting(holder);
+    }
+    @Override public void onAnimationCancel(    View view){
+      if (deltaX != 0) {
+        ViewCompat.setTranslationX(view,0);
+      }
+      if (deltaY != 0) {
+        ViewCompat.setTranslationY(view,0);
+      }
+    }
+    @Override public void onAnimationEnd(    View view){
+      animation.setListener(null);
+      dispatchMoveFinished(holder);
+      mMoveAnimations.remove(holder);
+      dispatchFinishedWhenDone();
+    }
+  }
+).start();
+}

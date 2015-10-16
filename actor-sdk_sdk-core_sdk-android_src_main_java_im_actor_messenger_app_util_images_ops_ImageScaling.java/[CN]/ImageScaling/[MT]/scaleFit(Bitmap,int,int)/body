@@ -1,0 +1,6 @@
+{
+  float ratio=Math.min(maxW / (float)src.getWidth(),maxH / (float)src.getHeight());
+  int newW=(int)(src.getWidth() * ratio);
+  int newH=(int)(src.getHeight() * ratio);
+  return scale(src,newW,newH);
+}

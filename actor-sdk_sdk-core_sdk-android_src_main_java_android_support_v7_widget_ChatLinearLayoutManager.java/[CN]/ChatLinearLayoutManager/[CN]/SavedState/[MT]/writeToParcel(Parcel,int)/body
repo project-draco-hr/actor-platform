@@ -1,0 +1,5 @@
+{
+  dest.writeInt(mAnchorPosition);
+  dest.writeInt(mAnchorOffset);
+  dest.writeInt(mAnchorLayoutFromEnd ? 1 : 0);
+}

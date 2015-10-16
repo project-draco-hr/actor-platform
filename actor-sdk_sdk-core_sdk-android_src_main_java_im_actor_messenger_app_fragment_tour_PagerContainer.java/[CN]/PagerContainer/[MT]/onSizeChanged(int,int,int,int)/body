@@ -1,0 +1,4 @@
+{
+  mCenter.x=w / 2;
+  mCenter.y=h / 2;
+}

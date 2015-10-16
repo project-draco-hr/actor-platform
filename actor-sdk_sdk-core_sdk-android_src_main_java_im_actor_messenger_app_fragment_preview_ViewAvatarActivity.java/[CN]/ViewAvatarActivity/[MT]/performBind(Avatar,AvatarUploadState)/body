@@ -1,0 +1,81 @@
+{
+  unbind();
+  if (uploadState != null && uploadState.isUploading()) {
+    if (uploadState.getDescriptor() != null) {
+      photoView.setImageURI(Uri.fromFile(new File(uploadState.getDescriptor())));
+    }
+ else {
+      photoView.setImageURI(null);
+    }
+    showView(progress);
+    goneView(noPhoto);
+    return;
+  }
+  if (avatar == null || avatar.getFullImage() == null) {
+    photoView.setImageBitmap(null);
+    showView(noPhoto);
+    goneView(progress);
+  }
+ else {
+    goneView(noPhoto);
+    String file=messenger().findDownloadedDescriptor(avatar.getFullImage().getFileReference().getFileId());
+    if (file != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(file);
+        photoView.setImageBitmap(bitmap);
+        photoView.setZoomable(true);
+        goneView(progress);
+        return;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+    showView(progress);
+    boolean isAppliedPreview=false;
+    String largeFile=messenger().findDownloadedDescriptor(avatar.getLargeImage().getFileReference().getFileId());
+    if (largeFile != null) {
+      try {
+        Bitmap bitmap=ImageLoading.loadBitmapOptimized(largeFile);
+        photoView.setImageBitmap(bitmap);
+        photoView.setZoomable(false);
+        isAppliedPreview=true;
+      }
+ catch (      ImageLoadException e) {
+        e.printStackTrace();
+      }
+    }
+    if (!isAppliedPreview) {
+      String smallFile=messenger().findDownloadedDescriptor(avatar.getSmallImage().getFileReference().getFileId());
+      if (smallFile != null) {
+        try {
+          Bitmap bitmap=ImageLoading.loadBitmapOptimized(smallFile);
+          photoView.setImageBitmap(bitmap);
+          photoView.setZoomable(false);
+        }
+ catch (        ImageLoadException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    bindedDownloadFile=messenger().bindFile(avatar.getFullImage().getFileReference(),true,new FileVMCallback(){
+      @Override public void onNotDownloaded(){
+      }
+      @Override public void onDownloading(      float progressV){
+      }
+      @Override public void onDownloaded(      FileSystemReference reference){
+        try {
+          Bitmap bitmap=ImageLoading.loadBitmapOptimized(reference.getDescriptor());
+          photoView.setImageBitmap(bitmap);
+          photoView.setZoomable(true);
+          showView(photoView);
+          goneView(progress);
+        }
+ catch (        ImageLoadException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+);
+  }
+}

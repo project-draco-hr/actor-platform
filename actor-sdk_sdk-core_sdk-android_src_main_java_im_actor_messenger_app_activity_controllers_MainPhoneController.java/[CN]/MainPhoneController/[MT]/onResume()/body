@@ -1,0 +1,48 @@
+{
+  ActionBar ab=getActionBar();
+  ab.setDisplayShowCustomEnabled(true);
+  ab.setDisplayHomeAsUpEnabled(false);
+  ab.setDisplayShowHomeEnabled(false);
+  ab.setDisplayShowTitleEnabled(false);
+  FrameLayout tabsContainer=new FrameLayout(getActivity());
+  barTabs=new PagerSlidingTabStrip(getActivity());
+  barTabs.setTabBackground(R.drawable.selector_bar);
+  barTabs.setIndicatorHeight(Screen.dp(2));
+  barTabs.setDividerColorResource(R.color.primary);
+  barTabs.setTextSize(Screen.dp(14));
+  barTabs.setUnderlineHeight(0);
+  barTabs.setViewPager(pager);
+  int width=Screen.dp(120 * 2 + 72);
+  tabsContainer.addView(barTabs,new FrameLayout.LayoutParams(width,Screen.dp(56)));
+  Toolbar.LayoutParams lp=new Toolbar.LayoutParams(width,Screen.dp(56));
+  tabsContainer.setLayoutParams(lp);
+  ab.setCustomView(tabsContainer);
+  barTabs.setVisibility(View.VISIBLE);
+  emptyContactsView.setVisibility(View.GONE);
+  syncInProgressView.setVisibility(View.GONE);
+  getActivity().bind(messenger().getAppState().getIsAppLoaded(),messenger().getAppState().getIsAppEmpty(),new ValueDoubleChangedListener<Boolean,Boolean>(){
+    @Override public void onChanged(    Boolean isAppLoaded,    Value<Boolean> Value,    Boolean isAppEmpty,    Value<Boolean> Value2){
+      if (isAppEmpty) {
+        if (isAppLoaded) {
+          barTabs.setVisibility(View.GONE);
+          emptyContactsView.setVisibility(View.VISIBLE);
+          syncInProgressView.setVisibility(View.GONE);
+          getActivity().invalidateOptionsMenu();
+        }
+ else {
+          barTabs.setVisibility(View.GONE);
+          emptyContactsView.setVisibility(View.GONE);
+          syncInProgressView.setVisibility(View.VISIBLE);
+          getActivity().invalidateOptionsMenu();
+        }
+      }
+ else {
+        barTabs.setVisibility(View.VISIBLE);
+        emptyContactsView.setVisibility(View.GONE);
+        syncInProgressView.setVisibility(View.GONE);
+        getActivity().invalidateOptionsMenu();
+      }
+    }
+  }
+);
+}

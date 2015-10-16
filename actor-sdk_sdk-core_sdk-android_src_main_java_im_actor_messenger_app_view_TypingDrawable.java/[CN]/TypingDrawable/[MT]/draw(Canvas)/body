@@ -1,0 +1,11 @@
+{
+  float size1=0.7f + (0.3f * process(ANIMATION_OFFSET * 2));
+  float size2=0.7f + (0.3f * process(ANIMATION_OFFSET));
+  float size3=0.7f + (0.3f * process(0));
+  Rect bounds=getBounds();
+  int top=((getBounds().height() - Screen.dp(DIAMETER)) / 2) + bounds.top;
+  canvas.drawCircle(Screen.dp(RADIUS),Screen.dp(RADIUS) + top,size1 * Screen.dp(RADIUS),paint);
+  canvas.drawCircle(Screen.dp(RADIUS + DIAMETER + OFFSET),Screen.dp(RADIUS) + top,size2 * Screen.dp(RADIUS),paint);
+  canvas.drawCircle(Screen.dp(RADIUS + (DIAMETER + OFFSET) * 2),Screen.dp(RADIUS) + top,size3 * Screen.dp(RADIUS),paint);
+  invalidateSelf();
+}

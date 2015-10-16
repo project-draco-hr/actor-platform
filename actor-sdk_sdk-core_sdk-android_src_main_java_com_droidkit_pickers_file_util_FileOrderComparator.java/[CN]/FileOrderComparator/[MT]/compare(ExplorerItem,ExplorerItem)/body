@@ -1,0 +1,14 @@
+{
+  if (explorerItem.isDirectory()) {
+    if (explorerItem2.isDirectory()) {
+      return compareFiles(explorerItem,explorerItem2);
+    }
+ else {
+      return -1;
+    }
+  }
+  if (!explorerItem2.isDirectory()) {
+    return compareFiles(explorerItem,explorerItem2);
+  }
+  return 1;
+}

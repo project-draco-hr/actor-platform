@@ -1,0 +1,4 @@
+{
+  super.onPause();
+  helper.setImeVisibility(searchQuery,false);
+}

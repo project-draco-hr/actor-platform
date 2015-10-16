@@ -1,0 +1,8 @@
+{
+  int size=(int)textPaint.measureText(userText);
+  Paint debug=new Paint();
+  debug.setColor(0xffebebeb);
+  debug.setStyle(Paint.Style.FILL_AND_STROKE);
+  canvas.drawRoundRect(new RectF(x + Screen.dp(4),y - Screen.dp(20),x + size + Screen.dp(4 + 24),y + Screen.dp(8)),Screen.dp(14),Screen.dp(14),debug);
+  canvas.drawText(userText,x + Screen.dp(4 + 12),y,textPaint);
+}

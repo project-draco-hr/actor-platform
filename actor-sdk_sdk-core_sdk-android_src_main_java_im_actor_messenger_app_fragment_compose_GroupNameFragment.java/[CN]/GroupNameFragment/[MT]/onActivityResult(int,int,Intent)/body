@@ -1,0 +1,13 @@
+{
+  if (requestCode == REQUEST_AVATAR && resultCode == Activity.RESULT_OK) {
+    int res=data.getIntExtra(Intents.EXTRA_RESULT,Intents.RESULT_IMAGE);
+    if (res == Intents.RESULT_DELETE) {
+      this.avatarPath=null;
+      this.avatarView.unbind();
+    }
+ else     if (res == Intents.RESULT_IMAGE) {
+      this.avatarPath=data.getStringExtra(Intents.EXTRA_IMAGE);
+      this.avatarView.bindRaw(avatarPath);
+    }
+  }
+}

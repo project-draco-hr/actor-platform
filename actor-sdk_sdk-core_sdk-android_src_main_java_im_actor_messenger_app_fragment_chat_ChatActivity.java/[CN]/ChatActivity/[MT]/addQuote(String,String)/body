@@ -1,0 +1,10 @@
+{
+  if (quote != null && !quote.isEmpty()) {
+    quoteText.setText(quote);
+  }
+ else {
+    quoteText.setText(rawQuote);
+  }
+  currentQuote=rawQuote;
+  showView(quoteContainer);
+}

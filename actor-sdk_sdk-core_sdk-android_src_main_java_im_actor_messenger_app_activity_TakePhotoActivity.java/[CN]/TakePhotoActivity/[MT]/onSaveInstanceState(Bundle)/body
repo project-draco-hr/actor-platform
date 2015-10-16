@@ -1,0 +1,11 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putBoolean("isPerformedAction",isPerformedAction);
+  outState.putBoolean("isAllowDelete",isAllowDelete);
+  if (externalFile != null) {
+    outState.putString("externalFile",externalFile);
+  }
+  if (tempAvatarPath != null) {
+    outState.putString("tempAvatarPath",tempAvatarPath);
+  }
+}

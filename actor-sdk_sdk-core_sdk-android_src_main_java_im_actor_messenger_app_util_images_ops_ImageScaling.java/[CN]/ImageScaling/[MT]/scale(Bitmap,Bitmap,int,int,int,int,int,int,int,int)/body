@@ -1,0 +1,3 @@
+{
+  scale(src,dest,CLEAR_COLOR,x,y,sw,sh,dx,dy,dw,dh);
+}

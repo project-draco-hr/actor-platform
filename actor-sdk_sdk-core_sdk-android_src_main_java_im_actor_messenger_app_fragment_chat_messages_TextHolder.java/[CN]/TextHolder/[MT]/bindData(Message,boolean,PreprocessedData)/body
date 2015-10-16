@@ -1,0 +1,11 @@
+{
+  PreprocessedTextData textData=(PreprocessedTextData)preprocessedData;
+  CharSequence text;
+  if (textData.getSpannableString() != null) {
+    text=textData.getSpannableString();
+  }
+ else {
+    text=textData.getText();
+  }
+  bindRawText(text,message,false);
+}

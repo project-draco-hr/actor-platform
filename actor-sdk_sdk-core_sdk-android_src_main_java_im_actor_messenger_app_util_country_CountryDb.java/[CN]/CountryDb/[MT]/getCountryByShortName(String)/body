@@ -1,0 +1,11 @@
+{
+  if (!TextUtils.isEmpty(shortName)) {
+    final String upperCaseShortName=shortName.toUpperCase();
+    for (    Country c : countries) {
+      if (c.shortName.equals(upperCaseShortName)) {
+        return c;
+      }
+    }
+  }
+  return null;
+}

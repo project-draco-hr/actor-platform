@@ -1,0 +1,4 @@
+{
+  super(Environment.getExternalStorageDirectory(),false,"",imageId,true);
+  this.name=name;
+}

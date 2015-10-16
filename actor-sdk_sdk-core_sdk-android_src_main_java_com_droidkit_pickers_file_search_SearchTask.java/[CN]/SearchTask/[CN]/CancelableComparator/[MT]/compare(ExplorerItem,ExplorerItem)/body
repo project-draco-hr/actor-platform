@@ -1,0 +1,6 @@
+{
+  if (isCancelled()) {
+    return 0;
+  }
+  return super.compare(explorerItem,explorerItem2);
+}

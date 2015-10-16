@@ -1,0 +1,4 @@
+{
+  name.setText("");
+  code.setText("");
+}

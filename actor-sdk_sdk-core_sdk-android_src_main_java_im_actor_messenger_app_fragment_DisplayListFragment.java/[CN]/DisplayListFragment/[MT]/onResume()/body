@@ -1,0 +1,11 @@
+{
+  super.onResume();
+  adapter.resume();
+  displayList.addListener(this);
+  if (displayList.getSize() == 0) {
+    hideView(collection,false);
+  }
+ else {
+    showView(collection,false);
+  }
+}

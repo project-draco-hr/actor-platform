@@ -1,0 +1,5 @@
+{
+  super.onResume();
+  onPerformBind();
+  notifyOnResume();
+}

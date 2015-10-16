@@ -1,0 +1,8 @@
+{
+  final ImageView holder=(ImageView)itemView.findViewById(R.id.image);
+  try {
+  }
+ catch (  Exception exp) {
+  }
+  super.bindImage(itemView);
+}

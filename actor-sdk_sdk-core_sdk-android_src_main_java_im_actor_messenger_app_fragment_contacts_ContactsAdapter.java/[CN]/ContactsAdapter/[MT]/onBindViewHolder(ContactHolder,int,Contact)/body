@@ -1,0 +1,14 @@
+{
+  String fastName=null;
+  if (index == 0) {
+    fastName=messenger().getFormatter().formatFastName(item.getName());
+  }
+ else {
+    String prevName=messenger().getFormatter().formatFastName(getItem(index - 1).getName());
+    String currentFastName=messenger().getFormatter().formatFastName(item.getName());
+    if (!prevName.equals(currentFastName)) {
+      fastName=currentFastName;
+    }
+  }
+  contactHolder.bind(item,fastName,query,selectedUsers.contains(item.getUid()));
+}

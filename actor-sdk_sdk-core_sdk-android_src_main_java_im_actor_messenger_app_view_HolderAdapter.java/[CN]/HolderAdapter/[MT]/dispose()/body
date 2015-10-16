@@ -1,0 +1,5 @@
+{
+  for (  ViewHolder holder : holders) {
+    holder.dispose();
+  }
+}

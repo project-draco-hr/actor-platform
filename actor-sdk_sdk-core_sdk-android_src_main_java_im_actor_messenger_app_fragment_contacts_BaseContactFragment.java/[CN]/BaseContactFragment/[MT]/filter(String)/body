@@ -1,0 +1,10 @@
+{
+  query=query.trim();
+  if (query.length() == 0) {
+    getDisplayList().initTop(false);
+  }
+ else {
+    getDisplayList().initSearch(query,false);
+  }
+  ((ContactsAdapter)getAdapter()).setQuery(query.toLowerCase());
+}

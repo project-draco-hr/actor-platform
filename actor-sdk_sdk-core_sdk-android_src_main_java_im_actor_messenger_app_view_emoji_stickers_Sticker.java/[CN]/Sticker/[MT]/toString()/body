@@ -1,0 +1,3 @@
+{
+  return packId + "_" + stickerId;
+}

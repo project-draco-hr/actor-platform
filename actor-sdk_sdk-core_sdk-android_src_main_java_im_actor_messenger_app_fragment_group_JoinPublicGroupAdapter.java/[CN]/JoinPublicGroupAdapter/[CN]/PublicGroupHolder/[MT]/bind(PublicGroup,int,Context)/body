@@ -1,0 +1,24 @@
+{
+  publicGroup=data;
+  avatarView.bind(data);
+  CharSequence title=data.getTitle();
+  if (query != null && !query.isEmpty()) {
+    title=SearchHighlight.highlightMentionsQuery((String)title,query,highlightColor);
+  }
+  this.title.setText(title);
+  this.description.setText(data.getDescription());
+  this.description.setVisibility(data.getDescription().length() > 0 ? View.VISIBLE : View.GONE);
+  this.membersCount.setText(Integer.toString(data.getMembers()));
+  this.friendsCount.setText(Integer.toString(data.getFriends()));
+  if (data.getAvatar() != null && data.getAvatar().getFullImage() != null) {
+    messenger().bindFile(data.getAvatar().getFullImage().getFileReference(),true,new FileVMCallback(){
+      @Override public void onNotDownloaded(){
+      }
+      @Override public void onDownloading(      float progress){
+      }
+      @Override public void onDownloaded(      FileSystemReference reference){
+      }
+    }
+);
+  }
+}

@@ -1,0 +1,15 @@
+{
+  try {
+    for (int i=0; i < tabsContainer.getChildCount(); ++i) {
+      View tmp=tabsContainer.getChildAt(i);
+      if (i == currentPosition) {
+        tmp.setSelected(true);
+      }
+ else {
+        tmp.setSelected(false);
+      }
+    }
+  }
+ catch (  Exception e) {
+  }
+}

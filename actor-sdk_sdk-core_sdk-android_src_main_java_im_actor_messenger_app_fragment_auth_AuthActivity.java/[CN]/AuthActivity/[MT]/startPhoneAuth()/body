@@ -1,0 +1,3 @@
+{
+  updateState(AuthState.AUTH_PHONE);
+}

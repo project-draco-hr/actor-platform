@@ -1,0 +1,3 @@
+String nick
+int userId
+boolean hideUrlStyle

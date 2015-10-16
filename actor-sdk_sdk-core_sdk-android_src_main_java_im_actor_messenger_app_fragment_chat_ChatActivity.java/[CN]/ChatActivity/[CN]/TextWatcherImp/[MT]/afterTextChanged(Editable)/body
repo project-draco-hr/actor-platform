@@ -1,0 +1,10 @@
+{
+  if (s.length() > 0) {
+    sendButton.setTint(getResources().getColor(R.color.conv_send_enabled));
+    sendButton.setEnabled(true);
+  }
+ else {
+    sendButton.setTint(getResources().getColor(R.color.conv_send_disabled));
+    sendButton.setEnabled(false);
+  }
+}
