@@ -1,30 +1,27 @@
 {
-  ArrayListDialogSmall groupSpecs=new ArrayListDialogSmall();
-  for (  Peer p : storage.getGroupPeers()) {
-    DialogSpec spec=specs.getEngine().getValue(p.getUnuqueId());
-    if (p.getPeerType() == PeerType.GROUP) {
-      Group group=getGroup(p.getPeerId());
-      groupSpecs.add(new DialogSmall(p,group.getTitle(),group.getAvatar(),spec.getCounter()));
-    }
- else     if (p.getPeerType() == PeerType.PRIVATE) {
-      User user=getUser(p.getPeerId());
-      groupSpecs.add(new DialogSmall(p,user.getName(),user.getAvatar(),spec.getCounter()));
-    }
-  }
-  ArrayListDialogSmall privateSpecs=new ArrayListDialogSmall();
-  for (  Peer p : storage.getPrivatePeers()) {
-    DialogSpec spec=specs.getEngine().getValue(p.getUnuqueId());
-    if (p.getPeerType() == PeerType.GROUP) {
-      Group group=getGroup(p.getPeerId());
-      privateSpecs.add(new DialogSmall(p,group.getTitle(),group.getAvatar(),spec.getCounter()));
-    }
- else     if (p.getPeerType() == PeerType.PRIVATE) {
-      User user=getUser(p.getPeerId());
-      privateSpecs.add(new DialogSmall(p,user.getName(),user.getAvatar(),spec.getCounter()));
-    }
-  }
   ArrayList<DialogGroup> groups=new ArrayList<DialogGroup>();
-  groups.add(new DialogGroup("Groups","groups",groupSpecs));
-  groups.add(new DialogGroup("Private","private",privateSpecs));
+  for (  GroupedItem i : storage.getGroups()) {
+    ArrayListDialogSmall dialogSmalls=new ArrayListDialogSmall();
+    for (    Peer p : i.getPeers()) {
+      DialogSpec spec=specs.getEngine().getValue(p.getUnuqueId());
+      String title;
+      Avatar avatar;
+      if (p.getPeerType() == PeerType.GROUP) {
+        Group group=getGroup(p.getPeerId());
+        title=group.getTitle();
+        avatar=group.getAvatar();
+      }
+ else       if (p.getPeerType() == PeerType.PRIVATE) {
+        User user=getUser(p.getPeerId());
+        title=user.getName();
+        avatar=user.getAvatar();
+      }
+ else {
+        continue;
+      }
+      dialogSmalls.add(new DialogSmall(p,title,avatar,spec.getCounter()));
+    }
+    groups.add(new DialogGroup(i.getTitle(),i.getKey(),dialogSmalls));
+  }
   context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel().change(groups);
 }

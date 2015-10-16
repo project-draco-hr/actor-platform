@@ -1,0 +1,7 @@
+{
+  writer.writeString(1,key);
+  writer.writeString(2,title);
+  for (  Peer peer : peers) {
+    writer.writeObject(3,peer);
+  }
+}

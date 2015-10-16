@@ -102,4 +102,13 @@
  else   if (update instanceof UpdateCountersChanged) {
     messagesProcessor.onCountersChanged(((UpdateCountersChanged)update).getCounters());
   }
+ else   if (update instanceof UpdateChatGroupsChanged) {
+    messagesProcessor.onChatGroupsChanged(((UpdateChatGroupsChanged)update).getDialogs());
+  }
+ else   if (update instanceof UpdateChatArchived) {
+    messagesProcessor.onChatArchived(convert(((UpdateChatArchived)update).getPeer()));
+  }
+ else   if (update instanceof UpdateChatRestored) {
+    messagesProcessor.onChatRestored(convert(((UpdateChatRestored)update).getPeer()));
+  }
 }

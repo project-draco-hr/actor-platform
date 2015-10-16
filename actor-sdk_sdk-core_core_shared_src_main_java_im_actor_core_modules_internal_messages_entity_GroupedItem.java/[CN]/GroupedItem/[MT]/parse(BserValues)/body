@@ -1,0 +1,8 @@
+{
+  key=values.getString(1);
+  title=values.getString(2);
+  peers.clear();
+  for (  byte[] b : values.getRepeatedBytes(3)) {
+    peers.add(Peer.fromBytes(b));
+  }
+}

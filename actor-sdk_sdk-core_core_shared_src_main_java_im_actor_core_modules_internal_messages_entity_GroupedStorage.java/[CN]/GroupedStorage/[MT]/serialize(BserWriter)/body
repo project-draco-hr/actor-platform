@@ -1,8 +1,5 @@
 {
-  for (  Peer peer : privatePeers) {
-    writer.writeObject(1,peer);
-  }
-  for (  Peer peer : groupPeers) {
-    writer.writeObject(2,peer);
+  for (  GroupedItem g : groups) {
+    writer.writeObject(1,g);
   }
 }

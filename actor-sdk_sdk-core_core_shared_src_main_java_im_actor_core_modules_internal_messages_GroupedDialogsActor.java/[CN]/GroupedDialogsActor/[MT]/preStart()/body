@@ -11,15 +11,15 @@
       e.printStackTrace();
     }
   }
-  notifyVM();
   isLoaded=preferences().getBool(PREFERENCE_GROUPED_LOADED,false);
   if (!isLoaded) {
     request(new RequestLoadGroupedDialogs(),new RpcCallback<ResponseLoadGroupedDialogs>(){
       @Override public void onResult(      final ResponseLoadGroupedDialogs response){
         updates().executeRelatedResponse(response.getUsers(),response.getGroups(),self(),new Runnable(){
           @Override public void run(){
-            List<ApiDialogGroup> dialogGroups=response.getDialogs();
-            storage.getGroupPeers().clear();
+            applyGroups(response.getDialogs());
+            isLoaded=true;
+            preferences().putBool(PREFERENCE_GROUPED_LOADED,true);
           }
         }
 );
@@ -28,5 +28,8 @@
       }
     }
 );
+  }
+ else {
+    notifyVM();
   }
 }
