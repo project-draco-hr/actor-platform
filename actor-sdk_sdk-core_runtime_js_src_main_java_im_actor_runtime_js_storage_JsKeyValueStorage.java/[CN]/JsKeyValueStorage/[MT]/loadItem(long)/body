@@ -1,5 +1,5 @@
 {
-  String res=storage.getItem(getId(id));
+  String res=storage.getItem(getId(key));
   if (res == null) {
     return null;
   }
