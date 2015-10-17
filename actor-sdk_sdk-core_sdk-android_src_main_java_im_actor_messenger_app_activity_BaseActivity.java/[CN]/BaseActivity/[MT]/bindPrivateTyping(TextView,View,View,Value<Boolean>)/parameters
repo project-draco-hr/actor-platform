@@ -1,0 +1,4 @@
+TextView textView
+View container
+View titleContainer
+Value<Boolean> typing

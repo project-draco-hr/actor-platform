@@ -1,0 +1,7 @@
+{
+  if (showDateDiv) {
+    dateDiv.setVisibility(GONE);
+    showDateDiv=false;
+    requestLayout();
+  }
+}

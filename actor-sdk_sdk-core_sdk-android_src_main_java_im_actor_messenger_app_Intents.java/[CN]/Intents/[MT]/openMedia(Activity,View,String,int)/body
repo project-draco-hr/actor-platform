@@ -1,0 +1,3 @@
+{
+  PictureActivity.launchPhoto(activity,photoView,path,senderId);
+}

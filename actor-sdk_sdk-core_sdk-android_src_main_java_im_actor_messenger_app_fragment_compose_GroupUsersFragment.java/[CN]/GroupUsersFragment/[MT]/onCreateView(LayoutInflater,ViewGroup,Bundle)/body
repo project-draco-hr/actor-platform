@@ -1,0 +1,22 @@
+{
+  title=getArguments().getString("title");
+  avatarPath=getArguments().getString("avatarPath");
+  View res=onCreateContactsView(R.layout.fragment_create_group_participants,inflater,container,savedInstanceState);
+  searchField=(EditText)res.findViewById(R.id.searchField);
+  textWatcher=new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      checkForDeletions(s);
+      String filter=s.toString().trim();
+      while (filter.length() > 0 && filter.charAt(0) == '!') {
+        filter=filter.substring(1);
+      }
+      filter(filter);
+    }
+  }
+;
+  return res;
+}

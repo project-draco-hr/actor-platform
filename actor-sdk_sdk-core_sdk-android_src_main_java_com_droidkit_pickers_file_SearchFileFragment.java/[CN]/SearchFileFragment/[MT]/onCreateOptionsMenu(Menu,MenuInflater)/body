@@ -1,0 +1,90 @@
+{
+  inflater.inflate(R.menu.picker_search,menu);
+  MenuItem searchMenuItem=menu.getItem(0);
+  searchView=(android.support.v7.widget.SearchView)searchMenuItem.getActionView();
+  searchView.setIconified(false);
+  int searchPlateId=searchView.getContext().getResources().getIdentifier("android:id/search_plate",null,null);
+  View searchPlate=searchView.findViewById(searchPlateId);
+  if (searchPlate != null) {
+    int searchTextId=searchPlate.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+    TextView searchText=(TextView)searchPlate.findViewById(searchTextId);
+    if (searchText != null) {
+      searchText.setTextColor(Color.WHITE);
+      searchText.setHintTextColor(Color.WHITE);
+    }
+  }
+  searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener(){
+    @Override public boolean onQueryTextSubmit(    String s){
+      hideKeyBoard();
+      return true;
+    }
+    @Override public boolean onQueryTextChange(    String query){
+      if (query.equals("")) {
+        SearchViewHacker.disableCloseButton(searchView);
+        return true;
+      }
+ else {
+        SearchViewHacker.setCloseIcon(searchView,R.drawable.bar_clear_search);
+      }
+      SearchFileFragment.this.query=query;
+      if (searchingTask != null) {
+        searchingTask.cancel(true);
+        searchingTask=null;
+      }
+      File rootFile=new File(root);
+      if (root == null || root.equals("")) {
+        rootFile=null;
+      }
+      searchingTask=new SearchTask(rootFile,query,index){
+        @Override public void onSearchEnded(        final ArrayList<ExplorerItem> files){
+          searchingTask=null;
+          if (files.isEmpty()) {
+            status.setVisibility(View.VISIBLE);
+            status.setText(R.string.picker_empty);
+            items.clear();
+            adapter.notifyDataSetChanged();
+          }
+ else {
+            showItems(files);
+          }
+        }
+      }
+;
+      if (indexingTask == null || !index.isEmpty()) {
+        searchingTask.execute();
+      }
+      return false;
+    }
+  }
+);
+  searchView.setOnCloseListener(new android.support.v7.widget.SearchView.OnCloseListener(){
+    @Override public boolean onClose(){
+      hideKeyBoard();
+      getActivity().onBackPressed();
+      return false;
+    }
+  }
+);
+  searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener(){
+    @Override public void onFocusChange(    View view,    boolean b){
+      if (searchView.getQuery().length() == 0) {
+        searchView.postDelayed(new Runnable(){
+          @Override public void run(){
+            SearchViewHacker.disableCloseButton(searchView);
+          }
+        }
+,0);
+        SearchViewHacker.disableCloseButton(searchView);
+      }
+ else       SearchViewHacker.setCloseIcon(searchView,R.drawable.bar_clear_search);
+    }
+  }
+);
+  searchView.requestFocusFromTouch();
+  SearchViewHacker.disableCloseButton(searchView);
+  InputMethodManager inputMethodManager=(InputMethodManager)pickerActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
+  inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+  if (query != null) {
+    searchView.setQuery(query,false);
+  }
+}

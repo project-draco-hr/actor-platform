@@ -1,0 +1,3 @@
+{
+  ((ContactsAdapter)getAdapter()).unselect(uid);
+}

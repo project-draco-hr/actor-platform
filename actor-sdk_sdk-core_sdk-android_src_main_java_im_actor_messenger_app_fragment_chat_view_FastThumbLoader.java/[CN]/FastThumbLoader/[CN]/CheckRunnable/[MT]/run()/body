@@ -1,0 +1,39 @@
+{
+  final int req;
+  byte[] d;
+synchronized (LOCKER) {
+    if (!isActive) {
+      return;
+    }
+    req=currentRequest;
+    d=data;
+  }
+  try {
+    final Bitmap res=blur ? BitmapUtil.fastBlur(ImageLoading.loadBitmap(d),blurRadius) : ImageLoading.loadBitmap(d);
+    im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+      @Override public void run(){
+synchronized (LOCKER) {
+          if (!isActive) {
+            return;
+          }
+          if (req == currentRequest) {
+            preview.getHierarchy().setPlaceholderImage(new FastBitmapDrawable(res));
+            isActive=false;
+          }
+ else {
+            return;
+          }
+        }
+      }
+    }
+);
+  }
+ catch (  ImageLoadException e) {
+    e.printStackTrace();
+synchronized (LOCKER) {
+      if (isActive && currentRequest == req) {
+        isActive=false;
+      }
+    }
+  }
+}

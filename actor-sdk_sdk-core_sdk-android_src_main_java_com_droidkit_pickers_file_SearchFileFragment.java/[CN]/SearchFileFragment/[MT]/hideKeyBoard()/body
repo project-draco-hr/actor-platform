@@ -1,0 +1,9 @@
+{
+  if (searchView != null)   searchView.clearFocus();
+  pickerActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+  View focusedView=pickerActivity.getCurrentFocus();
+  if (focusedView != null) {
+    InputMethodManager inputMethodManager=(InputMethodManager)pickerActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(),InputMethodManager.HIDE_IMPLICIT_ONLY);
+  }
+}

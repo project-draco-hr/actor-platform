@@ -1,0 +1,3 @@
+{
+  save(src,fileName,Bitmap.CompressFormat.PNG,100);
+}

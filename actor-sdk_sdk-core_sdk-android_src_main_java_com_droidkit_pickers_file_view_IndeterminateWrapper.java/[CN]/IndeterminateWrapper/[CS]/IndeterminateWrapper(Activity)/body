@@ -1,0 +1,13 @@
+{
+  View decorView=activity.getWindow().getDecorView();
+  indeterminateView=new IndeterminateView(activity);
+  indeterminateView.setVisibility(View.GONE);
+  int actionBarId=activity.getResources().getIdentifier("action_bar_container","id","android");
+  FrameLayout f=(FrameLayout)decorView.findViewById(actionBarId);
+  if (f == null) {
+    return;
+  }
+  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+  params.gravity=Gravity.BOTTOM;
+  f.addView(indeterminateView,params);
+}

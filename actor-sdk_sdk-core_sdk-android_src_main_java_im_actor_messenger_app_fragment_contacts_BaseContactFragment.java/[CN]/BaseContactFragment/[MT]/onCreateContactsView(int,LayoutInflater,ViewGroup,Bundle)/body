@@ -1,0 +1,23 @@
+{
+  View res=inflate(inflater,container,layoutId,messenger().buildContactsDisplayList());
+  emptyView=res.findViewById(R.id.emptyCollection);
+  View headerPadding=new View(getActivity());
+  headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_main));
+  headerPadding.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(0)));
+  addHeaderView(headerPadding);
+  addFootersAndHeaders();
+  bind(messenger().getAppState().getIsContactsEmpty(),new ValueChangedListener<Boolean>(){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> Value){
+      if (emptyView != null) {
+        if (val) {
+          emptyView.setVisibility(View.VISIBLE);
+        }
+ else {
+          emptyView.setVisibility(View.GONE);
+        }
+      }
+    }
+  }
+);
+  return res;
+}

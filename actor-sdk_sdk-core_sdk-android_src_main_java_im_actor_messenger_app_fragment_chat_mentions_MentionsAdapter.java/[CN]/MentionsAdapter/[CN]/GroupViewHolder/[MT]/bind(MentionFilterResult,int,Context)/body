@@ -1,0 +1,15 @@
+{
+  UserVM user=users().get(data.getUid());
+  this.data=data;
+  avatarView.bind(user);
+  CharSequence name=data.getMentionString();
+  if (name != null && name.length() > 0 && data.getMentionMatches() != null) {
+    name=SearchHighlight.highlightMentionsQuery((String)name,data.getMentionMatches(),highlightColor);
+  }
+  userName.setText(name);
+  CharSequence hint=data.getOriginalString();
+  if (hint != null && hint.length() > 0 && data.getOriginalMatches() != null) {
+    hint=SearchHighlight.highlightMentionsQuery((String)hint,data.getOriginalMatches(),highlightColor);
+  }
+  mentionHint.setText(hint);
+}

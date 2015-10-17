@@ -1,0 +1,3 @@
+{
+  BINDER.bindGroupTyping(textView,container,titleContainer,typing);
+}

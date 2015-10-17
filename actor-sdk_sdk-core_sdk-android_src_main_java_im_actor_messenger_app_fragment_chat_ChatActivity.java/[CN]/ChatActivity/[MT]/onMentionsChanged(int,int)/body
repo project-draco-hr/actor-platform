@@ -1,0 +1,5 @@
+{
+  if (mentionsAdapter != null) {
+    expandMentions(mentionsList,oldRowsCount,newRowsCount);
+  }
+}

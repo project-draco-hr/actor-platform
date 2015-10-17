@@ -1,0 +1,33 @@
+{
+  super.draw(canvas);
+  boolean needsInvalidate=false;
+  final int overScrollMode=ViewCompat.getOverScrollMode(this);
+  if (overScrollMode == ViewCompat.OVER_SCROLL_ALWAYS || (overScrollMode == ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS && mAdapter != null && mAdapter.getCount() > 1)) {
+    if (!mTopEdge.isFinished()) {
+      final int restoreCount=canvas.save();
+      final int height=getHeight();
+      final int width=getWidth() - getPaddingLeft() - getPaddingRight();
+      canvas.translate(getPaddingLeft(),mFirstOffset * height);
+      mTopEdge.setSize(width,height);
+      needsInvalidate|=mTopEdge.draw(canvas);
+      canvas.restoreToCount(restoreCount);
+    }
+    if (!mBottomEdge.isFinished()) {
+      final int restoreCount=canvas.save();
+      final int height=getHeight();
+      final int width=getWidth() - getPaddingLeft() - getPaddingRight();
+      canvas.rotate(180);
+      canvas.translate(-width - getPaddingLeft(),-(mLastOffset + 1) * height);
+      mBottomEdge.setSize(width,height);
+      needsInvalidate|=mBottomEdge.draw(canvas);
+      canvas.restoreToCount(restoreCount);
+    }
+  }
+ else {
+    mTopEdge.finish();
+    mBottomEdge.finish();
+  }
+  if (needsInvalidate) {
+    ViewCompat.postInvalidateOnAnimation(this);
+  }
+}

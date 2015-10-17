@@ -1,0 +1,8 @@
+{
+  try {
+    BitmapUtil.save(src,fileName);
+  }
+ catch (  IOException e) {
+    throw new ImageSaveException(e);
+  }
+}

@@ -1,0 +1,6 @@
+TextView textView
+View container
+ValueModel<String> value
+ActorBinder.OnChangedListener callback
+boolean hide
+String defaultValue

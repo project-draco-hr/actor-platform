@@ -1,0 +1,9 @@
+{
+synchronized (log) {
+    String res="";
+    for (    String s : log) {
+      res+=s + "<br/>";
+    }
+    return res;
+  }
+}

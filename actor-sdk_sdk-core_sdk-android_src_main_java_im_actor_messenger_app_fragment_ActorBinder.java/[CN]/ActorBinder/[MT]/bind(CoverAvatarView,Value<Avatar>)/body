@@ -1,0 +1,14 @@
+{
+  bind(avatar,new ValueChangedListener<Avatar>(){
+    @Override public void onChanged(    Avatar val,    Value<Avatar> Value){
+      if (val != null) {
+        avatarView.bind(val);
+      }
+ else {
+        avatarView.unbind();
+        avatarView.setImageURI(null);
+      }
+    }
+  }
+);
+}

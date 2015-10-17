@@ -1,0 +1,128 @@
+{
+  Log.d("Explorer animation","CreateAnimator: " + transit + " "+ enter+ " "+ nextAnim);
+  int animationLength=0;
+  if (nextAnim == R.animator.picker_fragment_explorer_welcome_enter) {
+    list.setAlpha(0);
+    list.post(new Runnable(){
+      @Override public void run(){
+        list.setAlpha(1);
+        int offsetIncreaseOffset=0;
+        for (int i=0; i < list.getChildCount(); i++) {
+          View searchItemView=list.getChildAt(i);
+          AnimationSet slideInAnimation=new AnimationSet(true);
+          slideInAnimation.setInterpolator(new MaterialInterpolator());
+          slideInAnimation.setDuration(180);
+          if (items.get(i) instanceof HeaderItem) {
+            offsetIncreaseOffset+=150;
+            slideInAnimation.setStartOffset(i * 50 + offsetIncreaseOffset);
+            offsetIncreaseOffset+=200;
+          }
+ else           slideInAnimation.setStartOffset(i * 50 + offsetIncreaseOffset);
+          AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
+          slideInAnimation.addAnimation(alphaAnimation);
+          TranslateAnimation translateAnimation=new TranslateAnimation(0,0,150,0);
+          slideInAnimation.addAnimation(translateAnimation);
+          searchItemView.startAnimation(slideInAnimation);
+        }
+      }
+    }
+);
+    animationLength=list.getChildCount() * 100 + 50;
+    Log.d("Explorer animation","CreateAnimator: enter");
+  }
+ else   if (nextAnim == R.animator.picker_fragment_explorer_enter) {
+    list.setAlpha(0);
+    list.post(new Runnable(){
+      @Override public void run(){
+        list.setAlpha(1);
+        int offsetIncreaseOffset=0;
+        for (int i=0; i < list.getChildCount(); i++) {
+          View searchItemView=list.getChildAt(i);
+          AnimationSet slideInAnimation=new AnimationSet(true);
+          slideInAnimation.setInterpolator(new MaterialInterpolator());
+          slideInAnimation.setDuration(100);
+          slideInAnimation.setStartOffset(i * 50 + offsetIncreaseOffset);
+          AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
+          slideInAnimation.addAnimation(alphaAnimation);
+          TranslateAnimation translateAnimation=new TranslateAnimation(100,0,0,0);
+          slideInAnimation.addAnimation(translateAnimation);
+          searchItemView.startAnimation(slideInAnimation);
+        }
+      }
+    }
+);
+    animationLength=list.getChildCount() * 100 + 50;
+    Log.d("Explorer animation","CreateAnimator: enter");
+  }
+ else   if (nextAnim == R.animator.picker_fragment_explorer_welcome_exit || nextAnim == R.animator.picker_fragment_explorer_exit) {
+    for (int i=0; i < list.getChildCount(); i++) {
+      View searchItemView=list.getChildAt(i);
+      AnimationSet slideInAnimation=new AnimationSet(true);
+      slideInAnimation.setInterpolator(new MaterialInterpolator());
+      slideInAnimation.setDuration(100);
+      slideInAnimation.setStartOffset(i * 50);
+      slideInAnimation.setFillAfter(true);
+      AlphaAnimation alphaAnimation=new AlphaAnimation(1,0);
+      alphaAnimation.setFillAfter(true);
+      slideInAnimation.addAnimation(alphaAnimation);
+      TranslateAnimation translateAnimation=new TranslateAnimation(0,-100,0,0);
+      slideInAnimation.addAnimation(translateAnimation);
+      searchItemView.startAnimation(slideInAnimation);
+    }
+    animationLength=0;
+    Log.d("Explorer animation","CreateAnimator: exit");
+  }
+ else   if (nextAnim == R.animator.picker_fragment_explorer_return) {
+    list.setAlpha(0);
+    list.post(new Runnable(){
+      @Override public void run(){
+        list.setAlpha(1);
+        for (int i=0; i < list.getChildCount(); i++) {
+          View searchItemView=list.getChildAt(i);
+          AnimationSet slideInAnimation=new AnimationSet(true);
+          slideInAnimation.setInterpolator(new MaterialInterpolator());
+          slideInAnimation.setDuration(100);
+          slideInAnimation.setStartOffset(i * 50);
+          AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
+          slideInAnimation.addAnimation(alphaAnimation);
+          TranslateAnimation translateAnimation=new TranslateAnimation(-100,0,0,0);
+          slideInAnimation.addAnimation(translateAnimation);
+          searchItemView.startAnimation(slideInAnimation);
+        }
+      }
+    }
+);
+    animationLength=list.getChildCount() * 100 + 50;
+    Log.d("Explorer animation","CreateAnimator: return");
+  }
+ else   if (nextAnim == R.animator.picker_fragment_explorer_out) {
+    for (int i=0; i < list.getChildCount(); i++) {
+      View searchItemView=list.getChildAt(i);
+      AnimationSet slideInAnimation=new AnimationSet(true);
+      slideInAnimation.setInterpolator(new MaterialInterpolator());
+      slideInAnimation.setDuration(100);
+      slideInAnimation.setStartOffset(i * 50);
+      slideInAnimation.setFillAfter(true);
+      AlphaAnimation alphaAnimation=new AlphaAnimation(1,0);
+      alphaAnimation.setFillAfter(true);
+      slideInAnimation.addAnimation(alphaAnimation);
+      TranslateAnimation translateAnimation=new TranslateAnimation(0,100,0,0);
+      slideInAnimation.addAnimation(translateAnimation);
+      searchItemView.startAnimation(slideInAnimation);
+    }
+    if (items.size() == 1) {
+      AlphaAnimation alphaAnimation=new AlphaAnimation(1,0);
+      alphaAnimation.setInterpolator(new MaterialInterpolator());
+      alphaAnimation.setDuration(100);
+      alphaAnimation.setFillAfter(true);
+      emptyView.startAnimation(alphaAnimation);
+      statusView.startAnimation(alphaAnimation);
+      animationLength=250;
+    }
+    animationLength=0;
+    Log.d("Explorer animation","CreateAnimator: out");
+  }
+  AnimatorSet animator=(AnimatorSet)AnimatorInflater.loadAnimator(pickerActivity,R.animator.picker_fragment_explorer_enter);
+  animator.setDuration(animationLength);
+  return animator;
+}

@@ -1,0 +1,19 @@
+{
+  ExplorerItem item=(ExplorerItem)parent.getItemAtPosition(position);
+  if (item instanceof BackItem) {
+    onBackPressed();
+    return;
+  }
+  if (item.isDirectory()) {
+    String path=item.getPath();
+    Bundle bundle=new Bundle();
+    bundle.putString("path",path);
+    Fragment fragment=new ExplorerFragment();
+    fragment.setArguments(bundle);
+    getFragmentManager().beginTransaction().setCustomAnimations(R.animator.picker_fragment_explorer_enter,R.animator.picker_fragment_explorer_exit,R.animator.picker_fragment_explorer_return,R.animator.picker_fragment_explorer_out).replace(R.id.container,fragment).addToBackStack(path).commit();
+  }
+ else {
+    selectItem(item,itemView);
+    returnResult();
+  }
+}

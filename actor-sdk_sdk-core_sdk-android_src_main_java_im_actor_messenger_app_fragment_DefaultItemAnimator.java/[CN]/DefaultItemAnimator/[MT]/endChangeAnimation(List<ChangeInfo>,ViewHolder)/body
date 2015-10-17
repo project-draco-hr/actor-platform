@@ -1,0 +1,10 @@
+{
+  for (int i=infoList.size() - 1; i >= 0; i--) {
+    ChangeInfo changeInfo=infoList.get(i);
+    if (endChangeAnimationIfNecessary(changeInfo,item)) {
+      if (changeInfo.oldHolder == null && changeInfo.newHolder == null) {
+        infoList.remove(changeInfo);
+      }
+    }
+  }
+}

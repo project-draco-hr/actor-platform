@@ -1,0 +1,7 @@
+{
+  Integer[] res=new Integer[src.length];
+  for (int i=0; i < res.length; i++) {
+    res[i]=src[i];
+  }
+  return res;
+}

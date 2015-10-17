@@ -1,0 +1,4 @@
+RecyclerView.Recycler recycler
+RecyclerView.State state
+int startOffset
+int endOffset

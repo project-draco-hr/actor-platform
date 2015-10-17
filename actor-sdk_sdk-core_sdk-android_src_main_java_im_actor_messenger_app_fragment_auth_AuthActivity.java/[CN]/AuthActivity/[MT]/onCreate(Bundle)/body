@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  signType=getIntent().getIntExtra(SIGN_TYPE_KEY,SIGN_TYPE_IN);
+  if (savedInstanceState == null) {
+    updateState();
+  }
+}

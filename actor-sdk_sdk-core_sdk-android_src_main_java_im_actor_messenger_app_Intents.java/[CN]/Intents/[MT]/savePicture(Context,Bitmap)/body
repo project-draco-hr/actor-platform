@@ -1,0 +1,20 @@
+{
+  File actorPicturesFolder=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+  actorPicturesFolder=new File(actorPicturesFolder,"Actor");
+  actorPicturesFolder.mkdirs();
+  try {
+    File pictureFile=new File(actorPicturesFolder,System.currentTimeMillis() + ".jpg");
+    pictureFile.createNewFile();
+    FileOutputStream ostream=new FileOutputStream(pictureFile);
+    bitmap.compress(Bitmap.CompressFormat.JPEG,100,ostream);
+    ostream.close();
+    Intent mediaScanIntent=new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+    Uri contentUri=Uri.fromFile(pictureFile);
+    mediaScanIntent.setData(contentUri);
+    context.sendBroadcast(mediaScanIntent);
+    Log.d("Picture saving","Saved as " + pictureFile.getPath());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

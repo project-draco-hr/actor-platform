@@ -1,0 +1,4 @@
+{
+  mFooterViews.add(view);
+  notifyDataSetChanged();
+}

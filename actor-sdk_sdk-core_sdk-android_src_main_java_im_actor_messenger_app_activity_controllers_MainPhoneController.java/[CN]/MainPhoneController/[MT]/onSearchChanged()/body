@@ -1,0 +1,15 @@
+{
+  if (!searchDisplay.isInSearchState()) {
+    showView(searchHintView);
+    goneView(searchEmptyView);
+  }
+ else {
+    goneView(searchHintView);
+    if (searchDisplay.getSize() == 0) {
+      showView(searchEmptyView);
+    }
+ else {
+      goneView(searchEmptyView);
+    }
+  }
+}

@@ -1,0 +1,4 @@
+FrameLayout fl
+boolean isSelectable
+Context context
+OnItemClickedListener<Contact> onItemClickedListener

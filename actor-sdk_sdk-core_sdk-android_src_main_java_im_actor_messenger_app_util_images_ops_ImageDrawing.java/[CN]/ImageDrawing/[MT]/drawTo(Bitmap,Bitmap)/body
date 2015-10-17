@@ -1,0 +1,3 @@
+{
+  drawTo(src,dest,CLEAR_COLOR);
+}

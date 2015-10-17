@@ -1,0 +1,4 @@
+{
+  this.rowCount=(int)Math.ceil((float)smileyIds.size() / smileysInRow);
+  super.invalidate();
+}

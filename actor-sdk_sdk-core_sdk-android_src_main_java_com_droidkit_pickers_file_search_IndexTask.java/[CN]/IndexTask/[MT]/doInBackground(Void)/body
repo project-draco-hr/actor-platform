@@ -1,0 +1,24 @@
+{
+  handler.post(new Runnable(){
+    @Override public void run(){
+    }
+  }
+);
+  handler.post(new Runnable(){
+    @Override public void run(){
+    }
+  }
+);
+  Log.i("Searching","Indexing started. Root path: " + root);
+  if (!root.getPath().equals("")) {
+    scanFolder(root);
+  }
+ else {
+    scanFolder(Environment.getExternalStorageDirectory());
+  }
+  if (isCancelled()) {
+    return null;
+  }
+ else   Log.i("Search","Indexing ended. " + index.size() + " items indexed");
+  return foundCount;
+}

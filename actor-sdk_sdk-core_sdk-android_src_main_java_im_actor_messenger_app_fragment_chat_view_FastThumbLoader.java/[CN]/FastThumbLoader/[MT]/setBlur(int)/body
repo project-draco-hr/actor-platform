@@ -1,0 +1,10 @@
+{
+  if (radius > 0) {
+    blur=true;
+    blurRadius=radius;
+  }
+ else {
+    blur=false;
+    blurRadius=0;
+  }
+}

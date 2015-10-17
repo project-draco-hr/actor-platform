@@ -1,0 +1,13 @@
+{
+  super.updateDrawState(ds);
+  if (hideUrlStyle) {
+    ds.setUnderlineText(false);
+    ds.setColor(Color.BLACK);
+  }
+  if (tf == null) {
+    tf=Typeface.createFromAsset(AppContext.getContext().getAssets(),"Roboto-Medium.ttf");
+  }
+  ds.setColor(colors[Math.abs(userId) % colors.length]);
+  ds.setTypeface(tf);
+  ds.setUnderlineText(false);
+}

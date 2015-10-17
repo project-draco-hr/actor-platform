@@ -1,0 +1,4 @@
+{
+  baseBitmap=bitmap;
+  invalidate();
+}

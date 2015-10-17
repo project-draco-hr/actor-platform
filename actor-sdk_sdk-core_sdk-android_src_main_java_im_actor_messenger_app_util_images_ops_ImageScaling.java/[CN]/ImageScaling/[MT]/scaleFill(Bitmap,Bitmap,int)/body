@@ -1,0 +1,8 @@
+{
+  float ratio=Math.max(dest.getWidth() / (float)src.getWidth(),dest.getHeight() / (float)src.getHeight());
+  int newW=(int)(src.getWidth() * ratio);
+  int newH=(int)(src.getHeight() * ratio);
+  int paddingTop=(dest.getHeight() - (int)(src.getHeight() * ratio)) / 2;
+  int paddingLeft=(dest.getWidth() - (int)(src.getWidth() * ratio)) / 2;
+  scale(src,dest,clearColor,0,0,src.getWidth(),src.getHeight(),paddingLeft,paddingTop,newW + paddingLeft,newH + paddingTop);
+}

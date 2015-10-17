@@ -1,0 +1,9 @@
+{
+  editText.post(new Runnable(){
+    @Override public void run(){
+      editText.requestFocus();
+      editText.setSelection(editText.getText().length());
+    }
+  }
+);
+}

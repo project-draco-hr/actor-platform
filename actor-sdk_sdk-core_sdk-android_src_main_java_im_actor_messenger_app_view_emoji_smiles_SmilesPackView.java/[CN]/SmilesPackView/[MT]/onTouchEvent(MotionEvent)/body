@@ -1,0 +1,42 @@
+{
+switch (event.getAction()) {
+case MotionEvent.ACTION_DOWN:
+    touchX=event.getX();
+  touchY=event.getY();
+return true;
+case MotionEvent.ACTION_UP:
+float slop=ViewConfiguration.get(getContext()).getScaledTouchSlop();
+if (Math.abs(event.getX() - touchX) < slop && Math.abs(event.getY() - touchY) < slop) {
+int offsetLeft=(getWidth() - countInRow * smileySize) / 2;
+if (touchX > offsetLeft || touchX < offsetLeft + smileySize * countInRow) {
+int row=(int)(touchY / smileySize);
+int col=(int)((touchX - offsetLeft) / smileySize);
+int index=row * countInRow + col;
+if (index >= 0 && index < smileyIds.size()) {
+  if (onSmileClickListener != null) {
+    playSoundEffect(SoundEffectConstants.CLICK);
+    long smileId=smileyIds.get(index);
+    String smile=null;
+    char a=(char)(smileId & 0xFFFFFFFF);
+    char b=(char)((smileId >> 16) & 0xFFFFFFFF);
+    char c=(char)((smileId >> 32) & 0xFFFFFFFF);
+    char d=(char)((smileId >> 48) & 0xFFFFFFFF);
+    if (c != 0 && d != 0) {
+      smile="" + d + c+ b+ a;
+    }
+ else     if (b != 0) {
+      smile=b + "" + a;
+    }
+ else {
+      smile="" + a;
+    }
+    getSmileProcessor().upRecent(smileId);
+    onSmileClickListener.onEmojiClicked(smile);
+  }
+}
+}
+}
+return true;
+}
+return false;
+}

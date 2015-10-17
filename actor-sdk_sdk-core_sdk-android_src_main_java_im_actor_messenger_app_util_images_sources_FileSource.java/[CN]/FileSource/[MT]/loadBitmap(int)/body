@@ -1,0 +1,21 @@
+{
+  BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inScaled=false;
+  o.inTempStorage=WorkCache.BITMAP_TMP.get();
+  o.inSampleSize=scale;
+  o.inPreferredConfig=Bitmap.Config.ARGB_8888;
+  if (Build.VERSION.SDK_INT >= 10) {
+    o.inPreferQualityOverSpeed=true;
+  }
+  if (Build.VERSION.SDK_INT >= 11) {
+    o.inMutable=true;
+  }
+  if (!new File(fileName).exists()) {
+    throw new ImageLoadException("File not exists");
+  }
+  Bitmap res=BitmapFactory.decodeFile(fileName,o);
+  if (res == null) {
+    throw new ImageLoadException("BitmapFactory.decodeFile return null");
+  }
+  return res;
+}

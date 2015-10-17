@@ -1,0 +1,6 @@
+{
+  if (selected != isSelected) {
+    return;
+  }
+  super.setSelected(selected);
+}

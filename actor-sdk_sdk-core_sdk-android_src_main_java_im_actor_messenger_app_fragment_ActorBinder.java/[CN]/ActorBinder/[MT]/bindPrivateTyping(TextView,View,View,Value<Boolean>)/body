@@ -1,0 +1,16 @@
+{
+  bind(typing,new ValueChangedListener<Boolean>(){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> Value){
+      if (val) {
+        textView.setText(messenger().getFormatter().formatTyping());
+        container.setVisibility(View.VISIBLE);
+        titleContainer.setVisibility(View.INVISIBLE);
+      }
+ else {
+        container.setVisibility(View.INVISIBLE);
+        titleContainer.setVisibility(View.VISIBLE);
+      }
+    }
+  }
+);
+}

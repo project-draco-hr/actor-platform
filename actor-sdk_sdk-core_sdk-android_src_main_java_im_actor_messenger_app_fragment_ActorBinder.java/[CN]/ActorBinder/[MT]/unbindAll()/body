@@ -1,0 +1,6 @@
+{
+  for (  Binding b : bindings) {
+    b.unbind();
+  }
+  bindings.clear();
+}

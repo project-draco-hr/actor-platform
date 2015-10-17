@@ -1,0 +1,7 @@
+{
+synchronized (RANDOM) {
+    byte[] res=new byte[len];
+    RANDOM.nextBytes(res);
+    return res;
+  }
+}

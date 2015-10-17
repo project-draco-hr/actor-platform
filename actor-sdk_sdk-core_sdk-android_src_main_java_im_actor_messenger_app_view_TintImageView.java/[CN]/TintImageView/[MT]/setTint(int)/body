@@ -1,0 +1,7 @@
+{
+  this.currentTintColor=color;
+  this.startTintColor=color;
+  this.destTintColor=color;
+  this.animationStart=0;
+  invalidate();
+}

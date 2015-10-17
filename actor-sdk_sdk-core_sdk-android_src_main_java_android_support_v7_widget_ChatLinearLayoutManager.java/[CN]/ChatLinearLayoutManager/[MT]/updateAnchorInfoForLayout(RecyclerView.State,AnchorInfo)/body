@@ -1,0 +1,19 @@
+{
+  if (updateAnchorFromPendingData(state,anchorInfo)) {
+    if (DEBUG) {
+      Log.d(TAG,"updated anchor info from pending information");
+    }
+    return;
+  }
+  if (updateAnchorFromChildren(state,anchorInfo)) {
+    if (DEBUG) {
+      Log.d(TAG,"updated anchor info from existing children");
+    }
+    return;
+  }
+  if (DEBUG) {
+    Log.d(TAG,"deciding anchor info for fresh state");
+  }
+  anchorInfo.assignCoordinateFromPadding();
+  anchorInfo.mPosition=mStackFromEnd ? state.getItemCount() - 1 : 0;
+}

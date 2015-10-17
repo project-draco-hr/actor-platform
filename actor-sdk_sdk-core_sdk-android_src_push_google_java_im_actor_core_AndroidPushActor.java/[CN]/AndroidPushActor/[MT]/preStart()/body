@@ -1,0 +1,41 @@
+{
+  super.preStart();
+  isRegistered=messenger.getPreferences().getBool("push_registered",false);
+  if (!isRegistered) {
+    Log.d(TAG,"Requesting push token...");
+    new Thread(){
+      @Override public void run(){
+        while (true) {
+          GoogleCloudMessaging cloudMessaging=GoogleCloudMessaging.getInstance(context);
+          try {
+            Log.d(TAG,"Requesting push token iteration...");
+            String regId=cloudMessaging.register("" + ActorSDK.sharedActor().getGcmProjectId());
+            if (regId != null) {
+              Log.d(TAG,"Token loaded");
+              self().send(new PushRegistered(regId));
+              return;
+            }
+ else {
+              Log.d(TAG,"Unable to load Token");
+            }
+          }
+ catch (          IOException e) {
+            e.printStackTrace();
+          }
+          Log.d(TAG,"Waiting for next attempt");
+          try {
+            Thread.sleep(1000);
+          }
+ catch (          InterruptedException e1) {
+            e1.printStackTrace();
+            return;
+          }
+        }
+      }
+    }
+.start();
+  }
+ else {
+    Log.d(TAG,"Already registered token");
+  }
+}

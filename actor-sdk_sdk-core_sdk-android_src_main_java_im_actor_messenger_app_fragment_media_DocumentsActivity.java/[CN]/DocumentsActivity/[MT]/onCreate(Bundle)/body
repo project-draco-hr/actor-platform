@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  peer=Peer.fromUniqueId(getIntent().getExtras().getLong(EXTRA_CHAT_PEER));
+  getSupportActionBar().setTitle("Documents");
+  if (savedInstanceState == null) {
+    showFragment(new DocumentsFragment(peer),false,false);
+  }
+}

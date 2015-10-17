@@ -1,0 +1,12 @@
+{
+  int i=item.getItemId();
+  if (i == R.id.help) {
+    startActivity(new Intent(getActivity(),HelpActivity.class));
+    return true;
+  }
+ else   if (i == R.id.profile) {
+    startActivity(new Intent(getActivity(),MyProfileActivity.class));
+    return true;
+  }
+  return false;
+}

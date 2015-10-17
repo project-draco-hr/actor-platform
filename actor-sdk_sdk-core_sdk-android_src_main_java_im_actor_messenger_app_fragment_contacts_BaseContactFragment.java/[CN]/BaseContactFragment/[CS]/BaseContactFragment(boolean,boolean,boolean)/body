@@ -1,0 +1,5 @@
+{
+  this.useCompactVersion=useCompactVersion;
+  this.userSearch=userSearch;
+  this.useSelection=useSelection;
+}

@@ -1,0 +1,3 @@
+{
+  HistoryDatabase.save(this,selectedItems);
+}

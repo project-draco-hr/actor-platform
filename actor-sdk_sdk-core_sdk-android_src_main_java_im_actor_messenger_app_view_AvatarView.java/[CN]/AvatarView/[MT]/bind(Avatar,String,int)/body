@@ -1,0 +1,28 @@
+{
+  if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == currentId) {
+    return;
+  }
+  getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext()));
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
+  }
+  setImageURI(null);
+  if (avatar == null || avatar.getSmallImage() == null) {
+    currentId=0;
+    return;
+  }
+  currentId=avatar.getSmallImage().getFileReference().getFileId();
+  bindedFile=messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+    @Override public void onNotDownloaded(){
+    }
+    @Override public void onDownloading(    float progress){
+    }
+    @Override public void onDownloaded(    FileSystemReference reference){
+      ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(reference.getDescriptor()))).setResizeOptions(new ResizeOptions(size,size)).build();
+      PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(getController()).setImageRequest(request).build();
+      setController(controller);
+    }
+  }
+);
+}

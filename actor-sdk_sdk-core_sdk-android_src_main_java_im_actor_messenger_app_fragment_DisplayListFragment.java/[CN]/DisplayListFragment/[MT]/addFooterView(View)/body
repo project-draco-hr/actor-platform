@@ -1,0 +1,11 @@
+{
+  if (collection.getAdapter() instanceof HeaderViewRecyclerAdapter) {
+    HeaderViewRecyclerAdapter h=(HeaderViewRecyclerAdapter)collection.getAdapter();
+    h.addFooterView(header);
+  }
+ else {
+    HeaderViewRecyclerAdapter headerViewRecyclerAdapter=new HeaderViewRecyclerAdapter(adapter);
+    headerViewRecyclerAdapter.addFooterView(header);
+    collection.setAdapter(headerViewRecyclerAdapter);
+  }
+}

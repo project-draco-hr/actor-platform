@@ -1,0 +1,6 @@
+{
+  foundItems.addAll(strongRegexFolders);
+  foundItems.addAll(weakRegexFolders);
+  foundItems.addAll(strongRegexFiles);
+  foundItems.addAll(weakRegexFiles);
+}

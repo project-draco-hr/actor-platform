@@ -1,0 +1,4 @@
+{
+  value.subscribe(listener,notify);
+  bindings.add(new Binding(value,listener));
+}

@@ -1,0 +1,3 @@
+{
+  return Converter.getFileItem(file,pickerActivity.isSelected(file.getPath()));
+}

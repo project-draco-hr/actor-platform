@@ -1,0 +1,8 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    return bitmap.getByteCount();
+  }
+ else {
+    return bitmap.getRowBytes() * bitmap.getHeight();
+  }
+}

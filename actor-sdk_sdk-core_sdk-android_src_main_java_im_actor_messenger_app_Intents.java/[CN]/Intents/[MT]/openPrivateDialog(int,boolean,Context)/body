@@ -1,0 +1,3 @@
+{
+  return openDialog(Peer.user(uid),compose,context);
+}

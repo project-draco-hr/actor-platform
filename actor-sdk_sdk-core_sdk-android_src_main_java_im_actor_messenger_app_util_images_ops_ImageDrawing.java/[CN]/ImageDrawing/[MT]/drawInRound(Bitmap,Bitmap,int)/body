@@ -1,0 +1,23 @@
+{
+  if (dest.getWidth() != dest.getHeight()) {
+    throw new RuntimeException("dest Bitmap must have square size");
+  }
+  clearBitmap(dest,clearColor);
+  Canvas canvas=new Canvas(dest);
+  int r=dest.getWidth() / 2;
+  Rect sourceRect=WorkCache.RECT1.get();
+  Rect destRect=WorkCache.RECT2.get();
+  sourceRect.set(0,0,src.getWidth(),src.getHeight());
+  destRect.set(0,0,dest.getWidth(),dest.getHeight());
+  Paint paint=WorkCache.PAINT.get();
+  paint.reset();
+  paint.setStyle(Paint.Style.FILL);
+  paint.setColor(Color.RED);
+  paint.setAntiAlias(true);
+  canvas.drawCircle(r,r,r,paint);
+  paint.reset();
+  paint.setFilterBitmap(true);
+  paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+  canvas.drawBitmap(src,sourceRect,destRect,paint);
+  canvas.setBitmap(null);
+}

@@ -1,0 +1,7 @@
+{
+  progressValue.setText(100 + "");
+  progressView.setValue(100);
+  goneView(progressContainer);
+  goneView(progressView);
+  goneView(progressValue);
+}

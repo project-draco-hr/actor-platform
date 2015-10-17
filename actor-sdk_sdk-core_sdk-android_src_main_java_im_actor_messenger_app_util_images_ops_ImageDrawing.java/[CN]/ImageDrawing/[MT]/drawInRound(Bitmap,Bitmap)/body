@@ -1,0 +1,3 @@
+{
+  drawInRound(src,dest,CLEAR_COLOR);
+}

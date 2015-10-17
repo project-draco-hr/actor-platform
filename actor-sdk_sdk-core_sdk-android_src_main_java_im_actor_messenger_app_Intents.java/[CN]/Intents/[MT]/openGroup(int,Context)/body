@@ -1,0 +1,5 @@
+{
+  Intent res=new Intent(context,GroupInfoActivity.class);
+  res.putExtra(EXTRA_GROUP_ID,chatId);
+  return res;
+}

@@ -1,0 +1,3 @@
+{
+  SmilesRecentsController.getInstance().push(smileId);
+}

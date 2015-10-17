@@ -1,0 +1,3 @@
+{
+  return openDialog(Peer.group(chatId),compose,context);
+}

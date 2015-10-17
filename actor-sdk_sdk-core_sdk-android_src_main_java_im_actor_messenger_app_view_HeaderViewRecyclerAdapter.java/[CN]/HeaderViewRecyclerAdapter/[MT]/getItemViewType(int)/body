@@ -1,0 +1,11 @@
+{
+  int hCount=getHeaderCount();
+  if (position < hCount)   return HEADERS_START + position;
+ else {
+    int itemCount=mWrappedAdapter.getItemCount();
+    if (position < hCount + itemCount) {
+      return getAdapterTypeOffset() + mWrappedAdapter.getItemViewType(position - hCount);
+    }
+ else     return FOOTERS_START + position - hCount - itemCount;
+  }
+}

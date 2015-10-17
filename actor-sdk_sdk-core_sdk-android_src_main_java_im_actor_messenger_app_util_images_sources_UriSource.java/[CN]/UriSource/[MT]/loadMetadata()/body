@@ -1,0 +1,42 @@
+{
+  BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inJustDecodeBounds=true;
+  o.inTempStorage=WorkCache.BITMAP_TMP.get();
+  InputStream is=null;
+  try {
+    is=context.getContentResolver().openInputStream(uri);
+    BitmapFactory.decodeStream(is,null,o);
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+    throw new ImageLoadException("Unable to load image from stream");
+  }
+ finally {
+    if (is != null) {
+      try {
+        is.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+  }
+  if (o.outWidth == 0 || o.outHeight == 0) {
+    throw new ImageLoadException("BitmapFactory.decodeFile: unable to load file");
+  }
+  ImageFormat format=ImageFormat.UNKNOWN;
+  if ("image/jpeg".equals(o.outMimeType) || "image/jpg".equals(o.outMimeType)) {
+    format=ImageFormat.JPEG;
+  }
+ else   if ("image/gif".equals(o.outMimeType)) {
+    format=ImageFormat.GIF;
+  }
+ else   if ("image/bmp".equals(o.outMimeType)) {
+    format=ImageFormat.BMP;
+  }
+ else   if ("image/webp".equals(o.outMimeType)) {
+    format=ImageFormat.WEBP;
+  }
+  int w=o.outWidth;
+  int h=o.outHeight;
+  return new ImageMetadata(w,h,0,format);
+}

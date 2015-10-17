@@ -1,0 +1,6 @@
+{
+  super.onDestroyView();
+  messagesAdapter=null;
+  linearLayoutManager=null;
+  linearLayoutManager=null;
+}

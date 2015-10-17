@@ -1,0 +1,78 @@
+{
+  if (mobileInvitePattern == null) {
+    mobileInvitePattern=Pattern.compile("(actor:\\\\/\\\\/)(invite\\\\?token=)([0-9-a-z]{1,64})");
+  }
+  if (invitePattern == null) {
+    invitePattern=Pattern.compile("(https:\\/\\/)(quit\\.email\\/join\\/)([0-9-a-z]{1,64})");
+  }
+  if (peoplePattern == null) {
+    peoplePattern=Pattern.compile("(people:\\\\/\\\\/)([0-9]{1,20})");
+  }
+  if (mentionPattern == null) {
+    mentionPattern=Pattern.compile("(@)([0-9a-zA-Z_]{5,32})");
+  }
+  ArrayList<PreprocessedData> preprocessedDatas=new ArrayList<PreprocessedData>();
+  for (  Message msg : items) {
+    messenger().getUser(msg.getSenderId());
+    if (msg.getContent() instanceof TextContent) {
+      if (!preprocessedTexts.containsKey(msg.getRid())) {
+        TextContent text=(TextContent)msg.getContent();
+        Spannable spannableString=new SpannableString(text.getText());
+        boolean hasSpannable=false;
+        emoji().waitForEmoji();
+        Spannable markdown=AndroidMarkdown.processText(text.getText());
+        if (markdown != null) {
+          spannableString=markdown;
+          hasSpannable=true;
+        }
+        if (Linkify.addLinks(spannableString,Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS)) {
+          hasSpannable=true;
+        }
+        if (fixLinkifyCustomLinks(spannableString,mobileInvitePattern,false)) {
+          hasSpannable=true;
+        }
+        if (fixLinkifyCustomLinks(spannableString,invitePattern,false)) {
+          hasSpannable=true;
+        }
+        if (fixLinkifyCustomLinks(spannableString,peoplePattern,true)) {
+          hasSpannable=true;
+        }
+        if (fixLinkifyCustomLinks(spannableString,mentionPattern,true)) {
+          hasSpannable=true;
+        }
+        if (isGroup && msg.getSenderId() != myUid()) {
+          String name;
+          UserVM userModel=users().get(msg.getSenderId());
+          if (userModel != null) {
+            String userName=userModel.getName().get();
+            if (userName.equals("Bot")) {
+              name=group.getName().get();
+            }
+ else {
+              name=userName;
+            }
+          }
+ else {
+            name="???";
+          }
+          SpannableStringBuilder builder=new SpannableStringBuilder();
+          builder.append(name);
+          builder.setSpan(new ForegroundColorSpan(colors[Math.abs(msg.getSenderId()) % colors.length]),0,name.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+          builder.append("\n");
+          spannableString=builder.append(spannableString);
+          hasSpannable=true;
+        }
+        if (SmileProcessor.containsEmoji(spannableString)) {
+          spannableString=emoji().processEmojiCompatMutable(spannableString,SmileProcessor.CONFIGURATION_BUBBLES);
+          hasSpannable=true;
+        }
+        preprocessedTexts.put(msg.getRid(),new PreprocessedTextData(text.getText(),hasSpannable ? spannableString : null));
+      }
+      preprocessedDatas.add(preprocessedTexts.get(msg.getRid()));
+    }
+ else {
+      preprocessedDatas.add(null);
+    }
+  }
+  return new PreprocessedList(preprocessedDatas.toArray(new PreprocessedData[preprocessedDatas.size()]));
+}

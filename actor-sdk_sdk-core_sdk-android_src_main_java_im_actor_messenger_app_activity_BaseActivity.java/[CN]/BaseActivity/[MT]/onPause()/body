@@ -1,0 +1,5 @@
+{
+  super.onPause();
+  BINDER.unbindAll();
+  notifyOnPause();
+}
