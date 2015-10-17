@@ -1,5 +1,5 @@
 {
   context().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
-  context().getMessagesModule().getDialogsGroupedActor().send(new GroupedDialogsActor.PeerInformationChanged(Peer.user(u.getUid()),u.getName(),u.getAvatar()));
+  context().getMessagesModule().getDialogsGroupedActor().send(new GroupedDialogsActor.PeerInformationChanged(Peer.user(u.getUid())));
   context().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(u));
 }
