@@ -1,4 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  ActorSDK.sharedActor().startMessagingApp();
+  ActorSDK.sharedActor().startMessagingApp(this);
+  finish();
 }

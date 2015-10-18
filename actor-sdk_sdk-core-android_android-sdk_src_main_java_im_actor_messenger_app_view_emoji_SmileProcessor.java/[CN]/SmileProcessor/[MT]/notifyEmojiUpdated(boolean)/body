@@ -1,7 +1,7 @@
 {
   handler.post(new Runnable(){
     @Override public void run(){
-      Logger.d(TAG,"notify");
+      Log.d(TAG,"notify");
       for (      SmilesListener listener : listeners) {
         listener.onSmilesUpdated(completed);
       }

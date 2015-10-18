@@ -1,3 +1,0 @@
-{
-  return groupsToShow[position].getId();
-}

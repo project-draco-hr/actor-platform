@@ -22,7 +22,7 @@
       builder.append(url.getUrlTitle());
       builder.setSpan(new ClickableSpan(){
         @Override public void onClick(        View view){
-          AppContext.getContext().startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url.getUrl())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+          AndroidContext.getContext().startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url.getUrl())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
       }
 ,start,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

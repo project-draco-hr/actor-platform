@@ -11,7 +11,7 @@
     }
   }
 );
-  adapter=new CountryAdapter(CountryDb.getInstance().getCountries());
+  adapter=new CountryAdapter(Countries.getInstance().getCountries());
   countriesListView.setAdapter(adapter);
   return v;
 }

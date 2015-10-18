@@ -1,0 +1,12 @@
+{
+  String sender;
+  if (pendingNotification.getPeer().getPeerType() == PeerType.GROUP) {
+    sender=messenger().getUser(pendingNotification.getSender()).getName().get();
+    sender+="@";
+    sender+=messenger().getGroup(pendingNotification.getPeer().getPeerId()).getName().get();
+  }
+ else {
+    sender=messenger().getUser(pendingNotification.getSender()).getName().get();
+  }
+  return sender;
+}

@@ -1,8 +1,8 @@
 {
   if (hasNavigationBar()) {
-    int resourceId=AppContext.getContext().getResources().getIdentifier("navigation_bar_height","dimen","android");
+    int resourceId=AndroidContext.getContext().getResources().getIdentifier("navigation_bar_height","dimen","android");
     if (resourceId > 0) {
-      return AppContext.getContext().getResources().getDimensionPixelSize(resourceId);
+      return AndroidContext.getContext().getResources().getDimensionPixelSize(resourceId);
     }
   }
   return 0;

@@ -2,7 +2,7 @@
   String matchString=src.toLowerCase();
   SpannableStringBuilder builder=new SpannableStringBuilder(src);
   int index=matchString.indexOf(" " + query);
-  if (matchString.startsWith(query) || TextUtils.transliterate(matchString).startsWith(query)) {
+  if (matchString.startsWith(query) || Strings.transliterate(matchString).startsWith(query)) {
     builder.setSpan(new ForegroundColorSpan(color),0,query.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
   }
  else   if (index >= 0) {

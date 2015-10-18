@@ -3,5 +3,5 @@
     return;
   }
   isResumed=false;
-  ActorSDK.messenger().onActivityClosed();
+  messenger().onActivityClosed();
 }

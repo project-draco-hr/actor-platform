@@ -5,7 +5,7 @@
     ds.setColor(Color.BLACK);
   }
   if (tf == null) {
-    tf=Typeface.createFromAsset(AppContext.getContext().getAssets(),"Roboto-Medium.ttf");
+    tf=Typeface.createFromAsset(AndroidContext.getContext().getAssets(),"Roboto-Medium.ttf");
   }
   ds.setColor(colors[Math.abs(userId) % colors.length]);
   ds.setTypeface(tf);

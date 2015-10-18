@@ -4,9 +4,8 @@
   ((TextView)v.findViewById(R.id.button_why)).setTypeface(Fonts.medium());
   keyboardHelper=new KeyboardHelper(getActivity());
   initView(v);
-  countryDb=CountryDb.getInstance();
-  Activity a=getActivity();
-  String deviceCountry=CountryUtil.getDeviceCountry(a);
+  countryDb=Countries.getInstance();
+  String deviceCountry=Devices.getDeviceCountry();
   if (!TextUtils.isEmpty(deviceCountry)) {
     Country country=countryDb.getCountryByShortName(deviceCountry);
     setCountryName(country);

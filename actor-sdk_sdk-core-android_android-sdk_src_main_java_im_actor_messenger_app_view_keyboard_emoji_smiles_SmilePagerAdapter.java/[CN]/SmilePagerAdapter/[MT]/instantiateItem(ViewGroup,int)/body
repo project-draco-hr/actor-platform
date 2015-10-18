@@ -25,15 +25,15 @@ int emojiPadding=emojiSize / 5;
 if (Screen.getWidth() / emojiSize < emojisMaxRowCount) {
 emojisMaxRowCount=Screen.getWidth() / emojiSize;
 }
-final SmilesPackView smilesPackView=new SmilesPackView(container.getContext(),getSmileProcessor(),emojiPack,emojisMaxRowCount,emojiSize,emojiPadding);
+final SmilesPackView smilesPackView=new SmilesPackView(container.getContext(),SmileProcessor.emoji(),emojiPack,emojisMaxRowCount,emojiSize,emojiPadding);
 FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
 params.gravity=Gravity.CENTER;
 emojicontainer.addView(smilesPackView,params);
-if (!getSmileProcessor().isLoaded()) {
-getSmileProcessor().registerListener(new SmilesListener(){
+if (!SmileProcessor.emoji().isLoaded()) {
+SmileProcessor.emoji().registerListener(new SmilesListener(){
 @Override public void onSmilesUpdated(boolean completed){
 smilesPackView.update();
-getSmileProcessor().unregisterListener(this);
+SmileProcessor.emoji().unregisterListener(this);
 }
 }
 );

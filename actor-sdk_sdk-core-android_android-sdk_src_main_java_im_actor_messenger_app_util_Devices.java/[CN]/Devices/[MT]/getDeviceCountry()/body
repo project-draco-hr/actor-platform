@@ -1,0 +1,11 @@
+{
+  TelephonyManager tm=(TelephonyManager)AndroidContext.getContext().getSystemService(Context.TELEPHONY_SERVICE);
+  String country=tm.getSimCountryIso();
+  if (android.text.TextUtils.isEmpty(country)) {
+    country=tm.getNetworkCountryIso();
+  }
+  if (android.text.TextUtils.isEmpty(country)) {
+    country=AndroidContext.getContext().getResources().getConfiguration().locale.getCountry();
+  }
+  return country;
+}

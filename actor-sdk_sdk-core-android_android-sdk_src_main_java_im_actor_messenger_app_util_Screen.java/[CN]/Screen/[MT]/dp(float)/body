@@ -1,4 +1,4 @@
 {
-  if (density == 0f)   density=AppContext.getContext().getResources().getDisplayMetrics().density;
+  if (density == 0f)   density=AndroidContext.getContext().getResources().getDisplayMetrics().density;
   return (int)(dp * density + .5f);
 }

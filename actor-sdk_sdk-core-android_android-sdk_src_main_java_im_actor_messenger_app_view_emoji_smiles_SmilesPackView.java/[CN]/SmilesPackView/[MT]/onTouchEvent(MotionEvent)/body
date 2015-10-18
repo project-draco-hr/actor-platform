@@ -30,7 +30,7 @@ if (index >= 0 && index < smileyIds.size()) {
  else {
       smile="" + a;
     }
-    getSmileProcessor().upRecent(smileId);
+    SmileProcessor.emoji().upRecent(smileId);
     onSmileClickListener.onEmojiClicked(smile);
   }
 }

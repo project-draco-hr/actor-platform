@@ -1,8 +1,8 @@
 {
   String externalPath;
-  File externalFile=AppContext.getContext().getFilesDir();
+  File externalFile=AndroidContext.getContext().getFilesDir();
   if (externalFile == null) {
-    externalPath="data/data/".concat(context.getPackageName()).concat("/files");
+    externalPath="data/data/".concat(AndroidContext.getContext().getPackageName()).concat("/files");
   }
  else {
     externalPath=externalFile.getAbsolutePath();
@@ -10,6 +10,6 @@
   File dest=new File(externalPath + "/actor/tmp/");
   dest.mkdirs();
   if (!dest.exists())   return null;
-  File outputFile=new File(dest,prefix + "_" + RandomUtil.randomId()+ ""+ postfix);
+  File outputFile=new File(dest,prefix + "_" + Randoms.randomId()+ ""+ postfix);
   return outputFile.getAbsolutePath();
 }

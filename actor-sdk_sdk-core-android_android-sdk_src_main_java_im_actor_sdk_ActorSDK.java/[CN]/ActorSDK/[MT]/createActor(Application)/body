@@ -1,0 +1,22 @@
+{
+  this.application=application;
+  Fresco.initialize(application);
+  AndroidContext.setContext(application);
+  new SmileProcessor(application).loadEmoji();
+  ConfigurationBuilder builder=new ConfigurationBuilder();
+  for (  String s : endpoints) {
+    builder.addEndpoint(s);
+  }
+  builder.setPhoneBookProvider(new AndroidPhoneBook());
+  builder.setNotificationProvider(new AndroidNotifications(AndroidContext.getContext()));
+  builder.setDeviceCategory(DeviceCategory.MOBILE);
+  builder.setPlatformType(PlatformType.ANDROID);
+  builder.setApiConfiguration(new ApiConfiguration("Title?",apiAppId,apiAppKey,Devices.getDeviceName(),AndroidContext.getContext().getPackageName() + ":" + Build.SERIAL));
+  this.messenger=new AndroidMessenger(AndroidContext.getContext(),builder.build());
+  if (isKeepAliveEnabled) {
+    Intent keepAliveService=new Intent(application,KeepAliveService.class);
+    PendingIntent pendingIntent=PendingIntent.getService(application,0,keepAliveService,0);
+    AlarmManager alarm=(AlarmManager)application.getSystemService(Context.ALARM_SERVICE);
+    alarm.setRepeating(AlarmManager.RTC,System.currentTimeMillis(),30 * 1000,pendingIntent);
+  }
+}

@@ -6,6 +6,6 @@
   if (selectionEnd < 0) {
     selectionEnd=messageBody.getText().length();
   }
-  CharSequence appendString=getSmileProcessor().processEmojiMutable(smile,SmileProcessor.CONFIGURATION_BUBBLES);
+  CharSequence appendString=SmileProcessor.emoji().processEmojiMutable(smile,SmileProcessor.CONFIGURATION_BUBBLES);
   messageBody.getText().insert(selectionEnd,appendString);
 }
