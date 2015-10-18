@@ -1,6 +1,6 @@
 {
   ImageView searchImageView=(ImageView)findView(searchView,"mSearchButton");
   searchImageView.setImageResource(res);
-  TintImageView searchHintView=(TintImageView)findView(searchView,"mSearchHintIcon");
+  ImageView searchHintView=(ImageView)findView(searchView,"mSearchHintIcon");
   searchHintView.setImageResource(res);
 }
