@@ -1,8 +1,0 @@
-{
-  if (changeInfo.oldHolder != null) {
-    endChangeAnimationIfNecessary(changeInfo,changeInfo.oldHolder);
-  }
-  if (changeInfo.newHolder != null) {
-    endChangeAnimationIfNecessary(changeInfo,changeInfo.newHolder);
-  }
-}

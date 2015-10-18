@@ -1,5 +1,0 @@
-ViewHolder holder
-int fromX
-int fromY
-int toX
-int toY
