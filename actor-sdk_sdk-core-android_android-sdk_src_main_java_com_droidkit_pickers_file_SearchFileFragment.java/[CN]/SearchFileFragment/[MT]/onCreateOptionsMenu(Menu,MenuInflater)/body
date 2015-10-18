@@ -1,7 +1,7 @@
 {
   inflater.inflate(R.menu.picker_search,menu);
   MenuItem searchMenuItem=menu.getItem(0);
-  searchView=(android.support.v7.widget.SearchView)searchMenuItem.getActionView();
+  searchView=(SearchView)searchMenuItem.getActionView();
   searchView.setIconified(false);
   int searchPlateId=searchView.getContext().getResources().getIdentifier("android:id/search_plate",null,null);
   View searchPlate=searchView.findViewById(searchPlateId);
@@ -13,7 +13,7 @@
       searchText.setHintTextColor(Color.WHITE);
     }
   }
-  searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener(){
+  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
     @Override public boolean onQueryTextSubmit(    String s){
       hideKeyBoard();
       return true;
@@ -57,7 +57,7 @@
     }
   }
 );
-  searchView.setOnCloseListener(new android.support.v7.widget.SearchView.OnCloseListener(){
+  searchView.setOnCloseListener(new SearchView.OnCloseListener(){
     @Override public boolean onClose(){
       hideKeyBoard();
       getActivity().onBackPressed();
