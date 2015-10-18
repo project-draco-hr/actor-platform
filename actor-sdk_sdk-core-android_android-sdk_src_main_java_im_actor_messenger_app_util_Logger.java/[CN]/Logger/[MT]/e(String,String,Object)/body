@@ -1,4 +1,0 @@
-{
-  msg=format(msg,args);
-  print(Log.ERROR,tag,msg);
-}

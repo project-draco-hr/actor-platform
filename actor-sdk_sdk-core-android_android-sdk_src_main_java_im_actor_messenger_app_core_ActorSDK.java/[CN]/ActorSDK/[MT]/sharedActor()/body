@@ -1,6 +1,0 @@
-{
-  if (sdk == null) {
-    sdk=new ActorSDK();
-  }
-  return sdk;
-}

@@ -4,7 +4,7 @@
   if (textPaint == null) {
     textPaint=new TextPaint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
     textPaint.setTextSize(Screen.sp(16));
-    textPaint.setColor(AppContext.getContext().getResources().getColor(R.color.text_primary));
+    textPaint.setColor(AndroidContext.getContext().getResources().getColor(R.color.text_primary));
   }
   int padding=Screen.dp(18);
   int maxWidth=maxW - padding;

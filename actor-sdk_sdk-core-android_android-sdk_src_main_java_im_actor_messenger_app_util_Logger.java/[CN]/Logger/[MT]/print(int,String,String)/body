@@ -1,3 +1,0 @@
-{
-  print(level,tag,msg,null);
-}

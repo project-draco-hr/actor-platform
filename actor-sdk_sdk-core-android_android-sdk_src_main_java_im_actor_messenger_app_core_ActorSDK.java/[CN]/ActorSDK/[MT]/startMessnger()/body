@@ -1,3 +1,0 @@
-{
-  AppContext.getContext().startActivity(new Intent(AppContext.getContext(),ActorMainActivity.class));
-}

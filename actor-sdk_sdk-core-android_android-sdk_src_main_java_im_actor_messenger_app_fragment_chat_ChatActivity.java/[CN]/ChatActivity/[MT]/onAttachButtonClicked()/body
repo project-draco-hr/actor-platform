@@ -34,7 +34,7 @@
         }
         String externalPath=externalFile.getAbsolutePath();
         new File(externalPath + "/actor/").mkdirs();
-        pending_fileName=externalPath + "/actor/capture_" + RandomUtil.randomId()+ ".jpg";
+        pending_fileName=externalPath + "/actor/capture_" + Randoms.randomId()+ ".jpg";
         startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pending_fileName))),REQUEST_PHOTO);
       }
  else       if (item.getItemId() == R.id.takeVideo) {
@@ -45,7 +45,7 @@
         }
         String externalPath=externalFile.getAbsolutePath();
         new File(externalPath + "/actor/").mkdirs();
-        pending_fileName=externalPath + "/actor/capture_" + RandomUtil.randomId()+ ".mp4";
+        pending_fileName=externalPath + "/actor/capture_" + Randoms.randomId()+ ".mp4";
         Intent i=new Intent(MediaStore.ACTION_VIDEO_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pending_fileName)));
         startActivityForResult(i,REQUEST_VIDEO);
         return true;

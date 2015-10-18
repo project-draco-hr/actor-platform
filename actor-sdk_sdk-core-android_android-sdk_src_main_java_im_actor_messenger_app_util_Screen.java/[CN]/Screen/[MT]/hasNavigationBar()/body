@@ -1,5 +1,5 @@
 {
-  Resources resources=AppContext.getContext().getResources();
+  Resources resources=AndroidContext.getContext().getResources();
   int id=resources.getIdentifier("config_showNavigationBar","bool","android");
   return (id > 0) && resources.getBoolean(id);
 }

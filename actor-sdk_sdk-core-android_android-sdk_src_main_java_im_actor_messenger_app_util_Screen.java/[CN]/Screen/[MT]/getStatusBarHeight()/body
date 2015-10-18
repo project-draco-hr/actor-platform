@@ -1,8 +1,8 @@
 {
   int result=0;
-  int resourceId=AppContext.getContext().getResources().getIdentifier("status_bar_height","dimen","android");
+  int resourceId=AndroidContext.getContext().getResources().getIdentifier("status_bar_height","dimen","android");
   if (resourceId > 0) {
-    result=AppContext.getContext().getResources().getDimensionPixelSize(resourceId);
+    result=AndroidContext.getContext().getResources().getDimensionPixelSize(resourceId);
   }
   return result;
 }

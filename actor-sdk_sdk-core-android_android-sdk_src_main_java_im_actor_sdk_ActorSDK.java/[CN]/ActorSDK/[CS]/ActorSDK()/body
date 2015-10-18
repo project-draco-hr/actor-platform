@@ -1,0 +1,4 @@
+{
+  endpoints.add("tls://front1-mtproto-api-rev2.actor.im");
+  endpoints.add("tls://front2-mtproto-api-rev2.actor.im");
+}
