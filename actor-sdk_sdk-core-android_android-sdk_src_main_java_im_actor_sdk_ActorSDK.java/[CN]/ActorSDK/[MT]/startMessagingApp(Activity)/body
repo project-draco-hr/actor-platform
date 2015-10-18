@@ -1,3 +1,8 @@
 {
-  context.startActivity(new Intent(AndroidContext.getContext(),ActorMainActivity.class));
+  if (messenger.isLoggedIn()) {
+    context.startActivity(new Intent(AndroidContext.getContext(),ActorMainActivity.class));
+  }
+ else {
+    context.startActivity(new Intent(context,AuthActivity.class));
+  }
 }
