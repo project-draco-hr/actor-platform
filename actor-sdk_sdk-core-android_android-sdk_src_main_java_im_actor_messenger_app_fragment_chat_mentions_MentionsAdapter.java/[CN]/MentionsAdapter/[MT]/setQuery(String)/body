@@ -1,8 +1,0 @@
-{
-  query=q;
-  membersToShow=messenger().findMentions(gid,q);
-  int newRowsCount=new Integer(membersToShow.size());
-  updatedCallback.onMentionsUpdated(oldRowsCount,newRowsCount);
-  oldRowsCount=newRowsCount;
-  notifyDataSetChanged();
-}
