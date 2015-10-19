@@ -1,11 +1,14 @@
 {
-  final MaterialDialog materialDialog=new MaterialDialog.Builder(getActivity()).content(title).progress(true,0).cancelable(false).show();
+  final AppCompatDialog dialog=new AppCompatDialog(getActivity());
+  dialog.setTitle(title);
+  dialog.setCancelable(false);
+  dialog.show();
   cmd.start(new CommandCallback<T>(){
     @Override public void onResult(    T res){
-      materialDialog.dismiss();
+      dialog.dismiss();
     }
     @Override public void onError(    Exception e){
-      materialDialog.dismiss();
+      dialog.dismiss();
     }
   }
 );

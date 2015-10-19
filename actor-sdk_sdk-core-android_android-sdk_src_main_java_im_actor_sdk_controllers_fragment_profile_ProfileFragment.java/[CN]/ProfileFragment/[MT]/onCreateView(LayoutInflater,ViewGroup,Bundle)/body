@@ -15,7 +15,7 @@
     ((TextView)about.findViewById(R.id.value)).setText(getString(R.string.about_user));
     about.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
-        new MaterialDialog.Builder(getActivity()).title(getString(R.string.about_user)).content(aboutText).show();
+        new AlertDialog.Builder(getActivity()).setTitle(R.string.about_user).setMessage(aboutText).show();
       }
     }
 );

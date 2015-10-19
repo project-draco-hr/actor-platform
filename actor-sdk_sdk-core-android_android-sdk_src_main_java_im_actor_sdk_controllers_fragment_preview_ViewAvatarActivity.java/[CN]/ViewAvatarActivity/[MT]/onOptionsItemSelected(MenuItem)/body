@@ -7,8 +7,8 @@
  else {
       args=new CharSequence[]{getString(R.string.pick_photo_camera),getString(R.string.pick_photo_gallery)};
     }
-    new MaterialDialog.Builder(this).items(args).itemsCallback(new MaterialDialog.ListCallback(){
-      @Override public void onSelection(      MaterialDialog materialDialog,      View view,      int which,      CharSequence charSequence){
+    new AlertDialog.Builder(this).setItems(args,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface d,      int which){
         if (which == 0) {
           externalFile=Files.getExternalTempFile("capture","jpg");
           if (externalFile == null) {

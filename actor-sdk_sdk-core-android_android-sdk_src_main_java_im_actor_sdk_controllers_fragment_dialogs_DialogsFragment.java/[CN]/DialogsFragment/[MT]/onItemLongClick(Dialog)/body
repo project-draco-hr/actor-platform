@@ -1,7 +1,7 @@
 {
   if (dialog.getPeer().getPeerType() == PeerType.PRIVATE) {
-    new MaterialDialog.Builder(getActivity()).items(new CharSequence[]{getString(R.string.dialogs_menu_contact_view),getString(R.string.dialogs_menu_contact_rename),getString(R.string.dialogs_menu_conversation_delete)}).itemsCallback(new MaterialDialog.ListCallback(){
-      @Override public void onSelection(      MaterialDialog materialDialog,      View view,      int which,      CharSequence charSequence){
+    new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.dialogs_menu_contact_view),getString(R.string.dialogs_menu_contact_rename),getString(R.string.dialogs_menu_conversation_delete)},new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface d,      int which){
         if (which == 0) {
           startActivity(Intents.openProfile(dialog.getPeer().getPeerId(),getActivity()));
         }
@@ -9,8 +9,8 @@
           startActivity(Intents.editUserName(dialog.getPeer().getPeerId(),getActivity()));
         }
  else         if (which == 2) {
-          new MaterialDialog.Builder(getActivity()).content(R.string.alert_delete_chat_message,dialog.getDialogTitle()).positiveText(R.string.alert_delete_chat_yes).negativeText(R.string.dialog_cancel).callback(new MaterialDialog.ButtonCallback(){
-            @Override public void onPositive(            MaterialDialog materialDialog1){
+          new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_delete_chat_message,dialog.getDialogTitle())).setNegativeButton(R.string.dialog_cancel,null).setPositiveButton(R.string.alert_delete_chat_yes,new DialogInterface.OnClickListener(){
+            @Override public void onClick(            DialogInterface d,            int which){
               execute(messenger().deleteChat(dialog.getPeer()));
             }
           }
@@ -24,8 +24,8 @@
  else   if (dialog.getPeer().getPeerType() == PeerType.GROUP) {
     GroupVM groupVM=groups().get(dialog.getPeer().getPeerId());
     final boolean isMember=groupVM.isMember().get();
-    new MaterialDialog.Builder(getActivity()).items(new CharSequence[]{getString(R.string.dialogs_menu_group_view),getString(R.string.dialogs_menu_group_rename),isMember ? getString(R.string.dialogs_menu_group_leave) : getString(R.string.dialogs_menu_group_delete)}).itemsCallback(new MaterialDialog.ListCallback(){
-      @Override public void onSelection(      MaterialDialog materialDialog,      View view,      int which,      CharSequence charSequence){
+    new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.dialogs_menu_group_view),getString(R.string.dialogs_menu_group_rename),isMember ? getString(R.string.dialogs_menu_group_leave) : getString(R.string.dialogs_menu_group_delete)},new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface d,      int which){
         if (which == 0) {
           startActivity(Intents.openGroup(dialog.getPeer().getPeerId(),getActivity()));
         }
@@ -34,16 +34,16 @@
         }
  else         if (which == 2) {
           if (isMember) {
-            new MaterialDialog.Builder(getActivity()).content(R.string.alert_leave_group_message,dialog.getDialogTitle()).positiveText(R.string.alert_leave_group_yes).negativeText(R.string.dialog_cancel).callback(new MaterialDialog.ButtonCallback(){
-              @Override public void onPositive(              MaterialDialog materialDialog1){
+            new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_leave_group_message,dialog.getDialogTitle())).setNegativeButton(R.string.dialog_cancel,null).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
+              @Override public void onClick(              DialogInterface d,              int which){
                 execute(messenger().leaveGroup(dialog.getPeer().getPeerId()));
               }
             }
 ).show();
           }
  else {
-            new MaterialDialog.Builder(getActivity()).content(R.string.alert_delete_group_title,dialog.getDialogTitle()).positiveText(R.string.alert_delete_group_yes).negativeText(R.string.dialog_cancel).callback(new MaterialDialog.ButtonCallback(){
-              @Override public void onPositive(              MaterialDialog materialDialog){
+            new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_delete_group_title,dialog.getDialogTitle())).setNegativeButton(R.string.dialog_cancel,null).setPositiveButton(R.string.alert_delete_group_yes,new DialogInterface.OnClickListener(){
+              @Override public void onClick(              DialogInterface d,              int which){
                 execute(messenger().deleteChat(dialog.getPeer()));
               }
             }
@@ -52,7 +52,7 @@
         }
       }
     }
-).show();
+);
     return true;
   }
   return false;
