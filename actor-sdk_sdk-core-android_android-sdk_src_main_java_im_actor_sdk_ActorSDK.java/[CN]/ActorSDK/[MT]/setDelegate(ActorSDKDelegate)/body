@@ -1,0 +1,4 @@
+{
+  this.delegate=delegate;
+  activityManager.setSdkDelegate(delegate);
+}

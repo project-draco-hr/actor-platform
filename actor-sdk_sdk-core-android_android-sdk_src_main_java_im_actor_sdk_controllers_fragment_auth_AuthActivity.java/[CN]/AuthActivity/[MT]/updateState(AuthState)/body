@@ -4,9 +4,13 @@
   }
   this.state=state;
 switch (state) {
-case AUTH_START:
-    showFragment(new SignPhoneFragment(),false,false);
-  authType=AUTH_TYPE_PHONE;
+case AUTH_EMAIL:
+    showFragment(new SignEmailFragment(),false,false);
+  authType=AUTH_TYPE_EMAIL;
+break;
+case AUTH_PHONE:
+showFragment(new SignPhoneFragment(),false,false);
+authType=AUTH_TYPE_PHONE;
 break;
 case CODE_VALIDATION_PHONE:
 case CODE_VALIDATION_EMAIL:

@@ -14,18 +14,18 @@
   ((TextView)findViewById(R.id.signIn)).setTypeface(Fonts.medium());
   findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      Intent authIntent=new Intent(TourActivity.this,AuthActivity.class);
-      authIntent.putExtra(AuthActivity.SIGN_TYPE_KEY,AuthActivity.SIGN_TYPE_UP);
-      startActivity(authIntent);
+      Bundle authExtras=new Bundle();
+      authExtras.putInt(AuthActivity.SIGN_TYPE_KEY,AuthActivity.SIGN_TYPE_UP);
+      ActorSDK.sharedActor().getActivityManager().startAuthActivity(TourActivity.this,authExtras);
       finish();
     }
   }
 );
   findViewById(R.id.signIn).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      Intent authIntent=new Intent(TourActivity.this,AuthActivity.class);
-      authIntent.putExtra(AuthActivity.SIGN_TYPE_KEY,AuthActivity.SIGN_TYPE_IN);
-      startActivity(authIntent);
+      Bundle authExtras=new Bundle();
+      authExtras.putInt(AuthActivity.SIGN_TYPE_KEY,AuthActivity.SIGN_TYPE_IN);
+      ActorSDK.sharedActor().getActivityManager().startAuthActivity(TourActivity.this,authExtras);
       finish();
     }
   }

@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(context,cls);
+  if (extras != null) {
+    intent.putExtras(extras);
+  }
+  context.startActivity(intent);
+}

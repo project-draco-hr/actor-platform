@@ -1,0 +1,5 @@
+{
+  if (!startDelegateActivity(context,sdkDelegate.getAuthStartIntent(),extras)) {
+    startActivity(context,extras,AuthActivity.class);
+  }
+}

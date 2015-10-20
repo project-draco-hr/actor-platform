@@ -1,0 +1,3 @@
+{
+  return AuthState.AUTH_PHONE;
+}
