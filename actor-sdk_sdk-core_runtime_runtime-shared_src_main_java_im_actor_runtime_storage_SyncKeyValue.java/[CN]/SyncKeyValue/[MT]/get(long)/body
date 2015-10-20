@@ -1,3 +1,6 @@
 {
+  if (cached.containsKey(key)) {
+    return cached.get(key);
+  }
   return storage.loadItem(key);
 }
