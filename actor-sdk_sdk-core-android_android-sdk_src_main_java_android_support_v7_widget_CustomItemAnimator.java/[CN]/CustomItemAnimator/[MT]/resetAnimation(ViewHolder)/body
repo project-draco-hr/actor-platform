@@ -1,0 +1,4 @@
+{
+  AnimatorCompatHelper.clearInterpolator(holder.itemView);
+  endAnimation(holder);
+}

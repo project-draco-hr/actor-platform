@@ -1,5 +1,10 @@
 {
   super.onCreate(savedInstanceState);
+  if (messenger().getAuthState() != AuthState.LOGGED_IN) {
+    startActivity(new Intent(this,TourActivity.class));
+    finish();
+    return;
+  }
   ActorSDK.sharedActor().startMessagingApp(this);
   finish();
 }
