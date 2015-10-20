@@ -1,6 +1,6 @@
 {
   if (intent != null && intent instanceof ActorIntentActivity) {
-    Intent startIntent=((ActorIntentActivity)sdkDelegate.getAuthStartIntent()).getIntent();
+    Intent startIntent=((ActorIntentActivity)ActorSDK.sharedActor().getDelegate().getAuthStartIntent()).getIntent();
     if (extras != null) {
       startIntent.putExtras(extras);
     }

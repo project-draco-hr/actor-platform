@@ -1,0 +1,15 @@
+{
+  final String ACTION="Request code email";
+  if (emailEditText.getText().toString().trim().length() == 0) {
+    String message=getString(R.string.auth_error_empty_email);
+    new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_email).setPositiveButton(R.string.dialog_ok,null).show();
+    return;
+  }
+  String rawEmail=emailEditText.getText().toString();
+  if (rawEmail.length() == 0) {
+    String message=getString(R.string.auth_error_empty_email);
+    new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_email).setPositiveButton(R.string.dialog_ok,null).show();
+    return;
+  }
+  executeAuth(ActorSDK.sharedActor().getMessenger().requestStartEmailAuth(rawEmail),ACTION);
+}
