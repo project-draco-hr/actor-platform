@@ -3,7 +3,7 @@
   if (len < 0) {
     throw new IOException();
   }
-  if (len > Limits.MAX_BLOCK_SIZE) {
+  if (len > BserLimits.MAX_BLOCK_SIZE) {
     throw new IOException();
   }
   return readBytes((int)len);

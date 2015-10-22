@@ -2,7 +2,7 @@
   if (values == null) {
     throw new IllegalArgumentException("Values can not be null");
   }
-  if (values.size() > Limits.MAX_PROTO_REPEATED) {
+  if (values.size() > BserLimits.MAX_PROTO_REPEATED) {
     throw new IllegalArgumentException("Too many values");
   }
   writtenFields.put(fieldNumber,true);

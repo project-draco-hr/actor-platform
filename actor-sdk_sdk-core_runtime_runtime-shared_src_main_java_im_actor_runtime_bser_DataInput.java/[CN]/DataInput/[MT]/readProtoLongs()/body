@@ -3,7 +3,7 @@
   if (len < 0) {
     throw new IOException();
   }
-  if (len > Limits.MAX_PROTO_REPEATED) {
+  if (len > BserLimits.MAX_PROTO_REPEATED) {
     throw new IOException();
   }
   long[] res=new long[(int)len];
