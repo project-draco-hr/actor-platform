@@ -1,0 +1,3 @@
+String email
+JsAuthSuccessClosure success
+JsAuthErrorClosure error
