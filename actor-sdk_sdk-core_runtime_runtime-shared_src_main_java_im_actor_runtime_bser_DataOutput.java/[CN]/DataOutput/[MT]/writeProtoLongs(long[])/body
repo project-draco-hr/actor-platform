@@ -1,6 +1,6 @@
 {
-  if (values.length > Limits.MAX_PROTO_REPEATED) {
-    throw new IllegalArgumentException("Values can't be more than " + Limits.MAX_PROTO_REPEATED);
+  if (values.length > BserLimits.MAX_PROTO_REPEATED) {
+    throw new IllegalArgumentException("Values can't be more than " + BserLimits.MAX_PROTO_REPEATED);
   }
   writeVarInt(values.length);
   for (  long l : values) {

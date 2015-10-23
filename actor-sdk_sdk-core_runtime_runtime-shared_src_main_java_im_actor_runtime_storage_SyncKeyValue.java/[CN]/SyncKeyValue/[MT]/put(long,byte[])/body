@@ -1,3 +1,4 @@
 {
   storage.addOrUpdateItem(key,data);
+  cached.put(key,data);
 }

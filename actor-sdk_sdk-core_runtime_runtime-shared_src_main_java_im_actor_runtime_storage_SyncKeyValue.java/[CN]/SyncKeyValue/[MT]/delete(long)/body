@@ -1,3 +1,4 @@
 {
   storage.removeItem(key);
+  cached.put(key,null);
 }
