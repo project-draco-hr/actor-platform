@@ -32,6 +32,7 @@
       nickContainer.addView(recordView,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));
       recordView.setOnClickListener(new View.OnClickListener(){
         @Override public void onClick(        View v){
+          getActivity().startActivity(Intents.editUserNick(getActivity()));
         }
       }
 );
