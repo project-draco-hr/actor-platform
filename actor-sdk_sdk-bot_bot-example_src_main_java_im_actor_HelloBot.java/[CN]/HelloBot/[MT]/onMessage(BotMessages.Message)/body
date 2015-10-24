@@ -1,0 +1,22 @@
+{
+  if (message.message() instanceof BotMessages.TextMessage) {
+    BotMessages.TextMessage text=(BotMessages.TextMessage)message.message();
+    if (text.text().trim().toLowerCase().startsWith("hello")) {
+      BotMessages.User user=getUser(message.sender().id());
+      requestSendMessage(message.peer(),nextRandomId(),new BotMessages.TextMessage("Hi, " + user.name() + "!"));
+    }
+ else     if (text.text().trim().toLowerCase().startsWith("last")) {
+      Optional<String> res=localKeyValue.syncGet("last_message");
+      if (res.isPresent()) {
+        requestSendMessage(message.peer(),nextRandomId(),new BotMessages.TextMessage("Last message:  " + res.get()));
+      }
+ else {
+        requestSendMessage(message.peer(),nextRandomId(),new BotMessages.TextMessage("I'm alone :'("));
+      }
+    }
+ else {
+      requestSendMessage(message.peer(),nextRandomId(),new BotMessages.TextMessage("Please, say hello"));
+    }
+    localKeyValue.syncUpsert("last_message",text.text());
+  }
+}

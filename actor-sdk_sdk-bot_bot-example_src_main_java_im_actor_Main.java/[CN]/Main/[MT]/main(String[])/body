@@ -5,6 +5,7 @@
   String token=scanner.nextLine();
   scanner.close();
   ActorSystem system=ActorSystem.create();
-  system.actorOf(Props.create(HelloBot.class,token,RemoteBot.DefaultEndpoint()),"HelloBot");
+  Props botProps=Props.create(HelloBot.class,token,RemoteBot.DefaultEndpoint());
+  system.actorOf(botProps);
   system.awaitTermination();
 }
