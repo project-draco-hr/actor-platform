@@ -1,3 +1,3 @@
 {
-  return AuthState.AUTH_PHONE;
+  return AuthState.AUTH_START;
 }

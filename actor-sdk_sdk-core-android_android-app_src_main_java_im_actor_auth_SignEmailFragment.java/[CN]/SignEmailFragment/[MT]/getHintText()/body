@@ -1,0 +1,3 @@
+{
+  return getString(R.string.auth_code_email_hint).replace("{0}","<b>" + getAuthId() + "</b>");
+}

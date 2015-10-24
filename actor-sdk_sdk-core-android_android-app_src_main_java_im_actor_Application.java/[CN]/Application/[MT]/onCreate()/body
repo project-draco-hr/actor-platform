@@ -1,8 +1,5 @@
 {
   super.onCreate();
-  ArrayList<String> endpoints=new ArrayList<String>();
-  endpoints.add("tls://front1-tcp.llectro.com");
-  endpoints.add("tls://front1-tcp.llectro.com");
-  ActorSDK.sharedActor().setEndpoints(endpoints);
+  ActorSDK.sharedActor().setDelegate(new ActorSDKDelegate());
   ActorSDK.sharedActor().createActor(this);
 }

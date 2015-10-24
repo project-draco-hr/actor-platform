@@ -11,5 +11,6 @@
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_email).setPositiveButton(R.string.dialog_ok,null).show();
     return;
   }
+  setAuthId(rawEmail);
   executeAuth(ActorSDK.sharedActor().getMessenger().requestStartEmailAuth(rawEmail),ACTION);
 }
