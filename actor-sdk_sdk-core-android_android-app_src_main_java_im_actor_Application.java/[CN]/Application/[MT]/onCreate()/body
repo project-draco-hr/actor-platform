@@ -1,5 +1,6 @@
 {
   super.onCreate();
   ActorSDK.sharedActor().setDelegate(new ActorSDKDelegate());
+  ActorSDK.sharedActor().setPushId(209133700967L);
   ActorSDK.sharedActor().createActor(this);
 }
