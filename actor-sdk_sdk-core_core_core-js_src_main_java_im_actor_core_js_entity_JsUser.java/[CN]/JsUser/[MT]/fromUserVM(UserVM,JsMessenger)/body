@@ -1,6 +1,11 @@
 {
   UserPresence presence=userVM.getPresence().get();
   String presenceString=messenger.getFormatter().formatPresence(presence,userVM.getSex());
+  boolean isOnline=presence != null && presence.getState() == UserPresence.State.ONLINE;
+  if (userVM.isBot()) {
+    isOnline=true;
+    presenceString="bot";
+  }
   String fileUrl=null;
   String bigFileUrl=null;
   Avatar avatar=userVM.getAvatar().get();
@@ -22,5 +27,5 @@
   for (  UserEmail p : emails) {
     convertedEmails.push(JsEmail.create(p.getEmail(),p.getTitle()));
   }
-  return create(userVM.getId(),userVM.getName().get(),userVM.getNick().get(),userVM.getAbout().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,convertedPhones,convertedEmails);
+  return create(userVM.getId(),userVM.getName().get(),userVM.getNick().get(),userVM.getAbout().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,isOnline,convertedPhones,convertedEmails);
 }

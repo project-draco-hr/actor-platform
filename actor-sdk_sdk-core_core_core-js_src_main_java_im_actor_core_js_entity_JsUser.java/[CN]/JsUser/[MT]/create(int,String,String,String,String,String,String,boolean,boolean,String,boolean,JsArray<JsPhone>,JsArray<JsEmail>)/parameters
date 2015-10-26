@@ -8,5 +8,6 @@ String placeholder
 boolean isContact
 boolean isBot
 String presence
+boolean isOnline
 JsArray<JsPhone> phones
 JsArray<JsEmail> emails
