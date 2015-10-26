@@ -1,16 +1,15 @@
 {
-  super.preStart();
-  isRegistered=messenger.getPreferences().getBool("push_registered",false);
+  isRegistered=ActorSDK.sharedActor().getMessenger().getPreferences().getBool("push_registered",false);
   if (!isRegistered) {
     Log.d(TAG,"Requesting push token...");
     new Thread(){
       @Override public void run(){
         while (true) {
           try {
-            String regId=pushManager.tryRegisterPush(context);
+            String regId=tryRegisterPush(context);
             if (regId != null) {
               Log.d(TAG,"Token loaded");
-              self().send(new PushRegistered(regId));
+              onPushRegistered(regId);
               return;
             }
  else {

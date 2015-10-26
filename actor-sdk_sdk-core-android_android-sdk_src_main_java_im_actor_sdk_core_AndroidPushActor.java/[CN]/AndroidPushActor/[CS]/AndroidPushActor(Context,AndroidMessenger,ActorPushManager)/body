@@ -1,5 +1,0 @@
-{
-  this.messenger=messenger;
-  this.context=context;
-  this.pushManager=pushManager;
-}

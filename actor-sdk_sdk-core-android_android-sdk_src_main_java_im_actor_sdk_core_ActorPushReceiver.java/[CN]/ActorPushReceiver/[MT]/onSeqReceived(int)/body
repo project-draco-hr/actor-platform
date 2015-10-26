@@ -1,3 +1,0 @@
-{
-  ActorSDK.sharedActor().getMessenger().onPushReceived(seq);
-}

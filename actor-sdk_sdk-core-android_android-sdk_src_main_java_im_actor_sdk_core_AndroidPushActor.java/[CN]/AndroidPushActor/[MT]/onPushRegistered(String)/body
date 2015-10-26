@@ -1,4 +1,0 @@
-{
-  isRegistered=true;
-  pushManager.registerOnActorServer(messenger,token);
-}
