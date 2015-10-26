@@ -19,12 +19,24 @@
     AlarmManager alarm=(AlarmManager)application.getSystemService(Context.ALARM_SERVICE);
     alarm.setRepeating(AlarmManager.RTC,System.currentTimeMillis(),30 * 1000,pendingIntent);
   }
-  if (pushId != 0) {
-    system().actorOf(Props.create(AndroidPushActor.class,new ActorCreator<AndroidPushActor>(){
-      @Override public AndroidPushActor create(){
-        return new AndroidPushActor(application,messenger);
+  try {
+    final ActorPushManager pushManager=(ActorPushManager)Class.forName("im.actor.PushManager").newInstance();
+    if (pushId != 0) {
+      system().actorOf(Props.create(AndroidPushActor.class,new ActorCreator<AndroidPushActor>(){
+        @Override public AndroidPushActor create(){
+          return new AndroidPushActor(application,messenger,pushManager);
+        }
       }
-    }
 ),"actor/android/push");
+    }
+  }
+ catch (  ClassNotFoundException e) {
+    e.printStackTrace();
+  }
+catch (  InstantiationException e) {
+    e.printStackTrace();
+  }
+catch (  IllegalAccessException e) {
+    e.printStackTrace();
   }
 }

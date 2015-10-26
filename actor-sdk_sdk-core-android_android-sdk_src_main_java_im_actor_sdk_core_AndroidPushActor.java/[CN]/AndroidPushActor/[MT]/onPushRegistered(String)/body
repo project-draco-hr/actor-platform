@@ -1,5 +1,4 @@
 {
   isRegistered=true;
-  messenger.getPreferences().putBool("push_registered",true);
-  messenger.registerGooglePush(ActorSDK.sharedActor().getPushId(),token);
+  pushManager.registerOnActorServer(messenger,token);
 }

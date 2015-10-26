@@ -1,0 +1,11 @@
+{
+  GoogleCloudMessaging cloudMessaging=GoogleCloudMessaging.getInstance(context);
+  Log.d("Actor GCM","Requesting push token iteration...");
+  try {
+    return cloudMessaging.register("" + ActorSDK.sharedActor().getPushId());
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return null;
+  }
+}

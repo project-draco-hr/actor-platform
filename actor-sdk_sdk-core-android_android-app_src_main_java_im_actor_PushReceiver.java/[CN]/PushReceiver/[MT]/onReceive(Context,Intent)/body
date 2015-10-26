@@ -6,7 +6,7 @@
     if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
       if (extras.containsKey("seq")) {
         int seq=Integer.parseInt(extras.getString("seq"));
-        ActorSDK.sharedActor().getMessenger().onPushReceived(seq);
+        onSeqReceived(seq);
         setResultCode(Activity.RESULT_OK);
         Log.d(TAG,"Push received");
       }
