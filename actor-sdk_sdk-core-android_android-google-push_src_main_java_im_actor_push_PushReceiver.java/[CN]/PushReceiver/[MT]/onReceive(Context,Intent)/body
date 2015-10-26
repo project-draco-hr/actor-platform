@@ -12,5 +12,5 @@
       }
     }
   }
-  completeWakefulIntent(intent);
+  WakefulBroadcastReceiver.completeWakefulIntent(intent);
 }
