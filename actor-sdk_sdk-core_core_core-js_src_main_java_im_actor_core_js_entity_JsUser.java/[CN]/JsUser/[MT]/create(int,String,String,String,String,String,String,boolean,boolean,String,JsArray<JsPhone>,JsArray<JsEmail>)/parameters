@@ -9,3 +9,4 @@ boolean isContact
 boolean isBot
 String presence
 JsArray<JsPhone> phones
+JsArray<JsEmail> emails
