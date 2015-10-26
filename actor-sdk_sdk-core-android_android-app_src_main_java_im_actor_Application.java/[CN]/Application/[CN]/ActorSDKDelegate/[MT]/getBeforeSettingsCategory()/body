@@ -1,0 +1,13 @@
+{
+  return new ActorSettingsCategory(){
+    @Override public String getCategoryName(){
+      return "BeforeSettingsCategory";
+    }
+    @Override public View getView(    Context context){
+      TextView tv=new TextView(context);
+      tv.setText("BeforeSettings");
+      return tv;
+    }
+  }
+;
+}
