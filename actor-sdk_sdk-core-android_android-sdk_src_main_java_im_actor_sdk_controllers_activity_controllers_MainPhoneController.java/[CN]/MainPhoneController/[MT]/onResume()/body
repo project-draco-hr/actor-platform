@@ -4,11 +4,14 @@
   ab.setDisplayHomeAsUpEnabled(false);
   ab.setDisplayShowHomeEnabled(false);
   ab.setDisplayShowTitleEnabled(false);
+  if (ActorSDK.sharedActor().style.toolBarColor != 0) {
+    ab.setBackgroundDrawable(new ColorDrawable(ActorSDK.sharedActor().style.toolBarColor));
+  }
   FrameLayout tabsContainer=new FrameLayout(getActivity());
   barTabs=new PagerSlidingTabStrip(getActivity());
   barTabs.setTabBackground(R.drawable.selector_bar);
   barTabs.setIndicatorHeight(Screen.dp(2));
-  barTabs.setDividerColorResource(R.color.primary);
+  barTabs.setDividerColorResource(android.R.color.transparent);
   barTabs.setTextSize(Screen.dp(14));
   barTabs.setUnderlineHeight(0);
   barTabs.setViewPager(pager);
