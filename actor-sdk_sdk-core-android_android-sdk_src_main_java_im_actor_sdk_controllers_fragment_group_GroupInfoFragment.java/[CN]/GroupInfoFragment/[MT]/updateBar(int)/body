@@ -1,6 +1,10 @@
 {
   avatarView.setOffset(offset);
   int baseColor=getResources().getColor(R.color.primary);
+  ActorStyle style=ActorSDK.sharedActor().style;
+  if (style.getToolBarColor() != 0) {
+    baseColor=style.getToolBarColor();
+  }
   if (offset > Screen.dp(248 - 56)) {
     ((BaseActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(baseColor));
   }
