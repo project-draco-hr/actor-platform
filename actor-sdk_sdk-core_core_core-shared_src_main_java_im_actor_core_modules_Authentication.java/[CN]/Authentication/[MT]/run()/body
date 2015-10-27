@@ -11,6 +11,6 @@
     }
   }
  else {
-    state=ActorSDK.sharedActor().getDelegate().getAuthStartState();
+    state=AuthState.AUTH_START;
   }
 }
