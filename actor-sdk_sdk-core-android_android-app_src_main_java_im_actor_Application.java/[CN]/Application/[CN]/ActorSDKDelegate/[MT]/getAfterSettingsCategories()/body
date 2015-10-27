@@ -1,0 +1,43 @@
+{
+  return new BaseActorSettingsCategory[]{new BaseActorSettingsCategory(){
+    @Override public String getCategoryName(){
+      return "AfterSettingsCategory";
+    }
+    @Override public BaseActorSettingsField[] getFields(){
+      return new BaseActorSettingsField[]{new BaseActorSettingsField(){
+        @Override public int getIconResourceId(){
+          return R.drawable.ic_cloud_download_white_36dp;
+        }
+        @Override public String getName(){
+          return "Field";
+        }
+        @Override public View.OnClickListener getOnclickListener(){
+          return new View.OnClickListener(){
+            @Override public void onClick(            View v){
+              Toast.makeText(getApplicationContext(),"Yo",Toast.LENGTH_SHORT).show();
+            }
+          }
+;
+        }
+        @Override public int getIconColor(){
+          return getResources().getColor(R.color.accent);
+        }
+        @Override public View getRightView(        Context context){
+          return new SwitchCompat(context);
+        }
+      }
+,new BaseActorSettingsField(){
+        @Override public boolean addBottomDivider(){
+          return false;
+        }
+        @Override public View getView(        Context context){
+          TextView tv=new TextView(context);
+          tv.setText("Custom");
+          return tv;
+        }
+      }
+};
+    }
+  }
+};
+}
