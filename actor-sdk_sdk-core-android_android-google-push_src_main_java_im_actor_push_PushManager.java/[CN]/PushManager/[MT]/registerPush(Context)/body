@@ -1,0 +1,38 @@
+{
+  isRegistered=ActorSDK.sharedActor().getMessenger().getPreferences().getBool("push_registered",false);
+  if (!isRegistered) {
+    Log.d(TAG,"Requesting push token...");
+    new Thread(){
+      @Override public void run(){
+        while (true) {
+          try {
+            String regId=tryRegisterPush(context);
+            if (regId != null) {
+              Log.d(TAG,"Token loaded");
+              onPushRegistered(regId);
+              return;
+            }
+ else {
+              Log.d(TAG,"Unable to load Token");
+            }
+          }
+ catch (          Exception e) {
+            e.printStackTrace();
+          }
+          Log.d(TAG,"Waiting for next attempt");
+          try {
+            Thread.sleep(1000);
+          }
+ catch (          InterruptedException e1) {
+            e1.printStackTrace();
+            return;
+          }
+        }
+      }
+    }
+.start();
+  }
+ else {
+    Log.d(TAG,"Already registered token");
+  }
+}

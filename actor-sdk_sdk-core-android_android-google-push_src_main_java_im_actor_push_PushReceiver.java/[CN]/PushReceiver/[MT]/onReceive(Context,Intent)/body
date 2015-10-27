@@ -1,0 +1,16 @@
+{
+  GoogleCloudMessaging gcm=GoogleCloudMessaging.getInstance(context);
+  Bundle extras=intent.getExtras();
+  String messageType=gcm.getMessageType(intent);
+  if (!extras.isEmpty()) {
+    if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
+      if (extras.containsKey("seq")) {
+        int seq=Integer.parseInt(extras.getString("seq"));
+        ActorSDK.sharedActor().getMessenger().onPushReceived(seq);
+        setResultCode(Activity.RESULT_OK);
+        Log.d(TAG,"Push received");
+      }
+    }
+  }
+  WakefulBroadcastReceiver.completeWakefulIntent(intent);
+}

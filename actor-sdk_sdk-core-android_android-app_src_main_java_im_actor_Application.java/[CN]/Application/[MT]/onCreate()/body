@@ -1,4 +1,10 @@
 {
   super.onCreate();
+  ActorSDK.sharedActor().setDelegate(new ActorSDKDelegate());
+  ActorSDK.sharedActor().setPushId(209133700967L);
   ActorSDK.sharedActor().createActor(this);
+  Style style=ActorSDK.sharedActor().style;
+  style.toolBarColor=getResources().getColor(R.color.accent);
+  style.fabColor=getResources().getColor(R.color.accent);
+  style.fabColorPressed=getResources().getColor(R.color.accent_pressed);
 }

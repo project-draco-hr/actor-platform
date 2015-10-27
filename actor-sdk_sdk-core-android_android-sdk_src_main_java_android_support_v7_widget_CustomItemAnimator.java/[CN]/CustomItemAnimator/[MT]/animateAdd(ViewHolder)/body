@@ -1,0 +1,11 @@
+{
+  if (holder instanceof AnimatorViewHolder) {
+    if (!((AnimatorViewHolder)holder).performAnimation()) {
+      return false;
+    }
+  }
+  resetAnimation(holder);
+  ViewCompat.setAlpha(holder.itemView,0);
+  mPendingAdditions.add(holder);
+  return true;
+}

@@ -1,0 +1,5 @@
+{
+  isRegistered=true;
+  ActorSDK.sharedActor().getMessenger().getPreferences().putBool("push_registered",true);
+  ActorSDK.sharedActor().getMessenger().registerGooglePush(ActorSDK.sharedActor().getPushId(),token);
+}

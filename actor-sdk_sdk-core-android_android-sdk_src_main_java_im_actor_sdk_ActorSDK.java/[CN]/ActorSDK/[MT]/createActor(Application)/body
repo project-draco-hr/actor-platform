@@ -19,4 +19,19 @@
     AlarmManager alarm=(AlarmManager)application.getSystemService(Context.ALARM_SERVICE);
     alarm.setRepeating(AlarmManager.RTC,System.currentTimeMillis(),30 * 1000,pendingIntent);
   }
+  try {
+    final ActorPushManager pushManager=(ActorPushManager)Class.forName("im.actor.push.PushManager").newInstance();
+    if (pushId != 0) {
+      pushManager.registerPush(application);
+    }
+  }
+ catch (  ClassNotFoundException e) {
+    e.printStackTrace();
+  }
+catch (  InstantiationException e) {
+    e.printStackTrace();
+  }
+catch (  IllegalAccessException e) {
+    e.printStackTrace();
+  }
 }

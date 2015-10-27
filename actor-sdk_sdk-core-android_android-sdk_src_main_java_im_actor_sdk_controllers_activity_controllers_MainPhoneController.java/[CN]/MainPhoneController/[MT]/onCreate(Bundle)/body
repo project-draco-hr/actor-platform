@@ -45,7 +45,13 @@
   ((TextView)findViewById(R.id.inviteButtonText)).setTypeface(Fonts.medium());
   isFabVisible=false;
   fabContent=findViewById(R.id.fabContainer);
-  fabRoot=findViewById(R.id.rootFab);
+  fabRoot=(FloatingActionButton)findViewById(R.id.rootFab);
+  if (ActorSDK.sharedActor().style.fabColor != 0) {
+    fabRoot.setColorNormal(ActorSDK.sharedActor().style.fabColor);
+  }
+  if (ActorSDK.sharedActor().style.fabColorPressed != 0) {
+    fabRoot.setColorPressed(ActorSDK.sharedActor().style.fabColorPressed);
+  }
   fabRoot.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showFab();
@@ -94,21 +100,43 @@
     }
   }
 );
-  findViewById(R.id.composeContainer).setOnClickListener(new View.OnClickListener(){
+  Style style=ActorSDK.sharedActor().style;
+  com.getbase.floatingactionbutton.FloatingActionButton fabCompose=(FloatingActionButton)findViewById(R.id.composeContainer);
+  if (style.fabColor != 0) {
+    fabCompose.setColorNormal(style.fabColor);
+  }
+  if (style.fabColorPressed != 0) {
+    fabCompose.setColorPressed(style.fabColorPressed);
+  }
+  fabCompose.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       goneFab();
       startActivity(new Intent(getActivity(),ComposeActivity.class));
     }
   }
 );
-  findViewById(R.id.createGroupContainer).setOnClickListener(new View.OnClickListener(){
+  com.getbase.floatingactionbutton.FloatingActionButton fabCreateGroup=(FloatingActionButton)findViewById(R.id.createGroupContainer);
+  if (style.fabColor != 0) {
+    fabCreateGroup.setColorNormal(style.fabColor);
+  }
+  if (style.fabColorPressed != 0) {
+    fabCreateGroup.setColorPressed(style.fabColorPressed);
+  }
+  fabCreateGroup.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       goneFab();
       startActivity(new Intent(getActivity(),CreateGroupActivity.class));
     }
   }
 );
-  findViewById(R.id.addContactContainer).setOnClickListener(new View.OnClickListener(){
+  com.getbase.floatingactionbutton.FloatingActionButton fabAddContact=(FloatingActionButton)findViewById(R.id.addContactContainer);
+  if (style.fabColor != 0) {
+    fabAddContact.setColorNormal(style.fabColor);
+  }
+  if (style.fabColorPressed != 0) {
+    fabAddContact.setColorPressed(style.fabColorPressed);
+  }
+  fabAddContact.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       goneFab();
       startActivity(new Intent(getActivity(),AddContactActivity.class));

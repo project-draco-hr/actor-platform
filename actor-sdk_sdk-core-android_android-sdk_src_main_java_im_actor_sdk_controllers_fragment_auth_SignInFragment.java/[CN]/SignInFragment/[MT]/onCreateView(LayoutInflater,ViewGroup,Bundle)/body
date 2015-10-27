@@ -15,9 +15,13 @@
     }
     ((TextView)v.findViewById(R.id.sendHint)).setText(Html.fromHtml(getString(R.string.auth_code_phone_hint).replace("{0}","<b>" + phoneNumber + "</b>")));
   }
- else {
+ else   if (authType.equals(AUTH_TYPE_EMAIL)) {
     String email=messenger().getAuthEmail();
     ((TextView)v.findViewById(R.id.sendHint)).setText(Html.fromHtml(getString(R.string.auth_code_email_hint).replace("{0}","<b>" + email + "</b>")));
+  }
+ else {
+    String authId=getArguments().getString("authId");
+    ((TextView)v.findViewById(R.id.sendHint)).setText(Html.fromHtml(getArguments().getString("authHint")));
   }
   codeEnterEditText=(EditText)v.findViewById(R.id.et_sms_code_enter);
   codeEnterEditText.addTextChangedListener(new TextWatcher(){
