@@ -1,5 +1,0 @@
-boolean addBottomDivider
-int iconResourceId
-String name
-int iconColor
-View.OnClickListener onClickListener

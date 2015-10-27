@@ -17,53 +17,24 @@
         }
       }
 );
-      return new ActorSettingsField[]{zero,new ActorSettingsField(){
-        @Override public int getIconResourceId(){
-          return R.drawable.ic_cloud_download_white_36dp;
-        }
-        @Override public String getName(){
-          return "Field";
-        }
-        @Override public View.OnClickListener getOnclickListener(){
-          return new View.OnClickListener(){
-            @Override public void onClick(            View v){
-              Toast.makeText(getApplicationContext(),"Yo",Toast.LENGTH_SHORT).show();
-            }
-          }
-;
-        }
-        @Override public int getIconColor(){
-          return getResources().getColor(R.color.accent);
-        }
-        @Override public View getRightView(        Context context){
-          return new SwitchCompat(context);
+      return new ActorSettingsField[]{zero,new ActorSettingsField("Field",new View.OnClickListener(){
+        @Override public void onClick(        View v){
+          Toast.makeText(getApplicationContext(),"Yo",Toast.LENGTH_SHORT).show();
         }
       }
-,new ActorSettingsField(){
+,R.drawable.ic_cloud_download_white_36dp,getResources().getColor(R.color.accent)),new ActorSettingsField(){
         @Override public View getView(        Context context){
           TextView tv=new TextView(context);
           tv.setText("Custom");
           return tv;
         }
       }
-,new ActorSettingsField(){
-        @Override public int getIconResourceId(){
-          return R.drawable.ic_camera_alt_white_24dp;
+,new ActorSettingsField("Field 3",new View.OnClickListener(){
+        @Override public void onClick(        View v){
+          Toast.makeText(getApplicationContext(),"Yo 3",Toast.LENGTH_SHORT).show();
         }
-        @Override public String getName(){
-          return "Field 3";
-        }
-        @Override public View.OnClickListener getOnclickListener(){
-          return new View.OnClickListener(){
-            @Override public void onClick(            View v){
-              Toast.makeText(getApplicationContext(),"Yo 3",Toast.LENGTH_SHORT).show();
-            }
-          }
-;
-        }
-        @Override public int getIconColor(){
-          return getResources().getColor(R.color.action);
-        }
+      }
+,R.drawable.ic_camera_alt_white_24dp,getResources().getColor(R.color.action)){
         @Override public View getRightView(        Context context){
           return new SwitchCompat(context);
         }
