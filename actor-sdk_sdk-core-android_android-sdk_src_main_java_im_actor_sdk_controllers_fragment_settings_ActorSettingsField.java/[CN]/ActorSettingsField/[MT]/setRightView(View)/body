@@ -1,0 +1,4 @@
+{
+  this.rightView=rightView;
+  return this;
+}

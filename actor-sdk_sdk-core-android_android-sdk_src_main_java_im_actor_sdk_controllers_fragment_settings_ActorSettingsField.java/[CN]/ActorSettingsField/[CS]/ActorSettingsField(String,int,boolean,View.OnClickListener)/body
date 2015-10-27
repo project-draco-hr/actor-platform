@@ -1,0 +1,6 @@
+{
+  this.name=name;
+  this.iconResourceId=iconResourceId;
+  this.addBottomDivider=addBottomDivider;
+  this.onClickListener=onClickListener;
+}

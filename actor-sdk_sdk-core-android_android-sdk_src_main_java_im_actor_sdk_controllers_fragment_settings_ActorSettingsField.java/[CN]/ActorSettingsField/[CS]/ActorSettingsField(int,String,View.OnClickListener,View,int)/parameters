@@ -1,0 +1,5 @@
+int iconResourceId
+String name
+View.OnClickListener onClickListener
+View rightView
+int iconColor

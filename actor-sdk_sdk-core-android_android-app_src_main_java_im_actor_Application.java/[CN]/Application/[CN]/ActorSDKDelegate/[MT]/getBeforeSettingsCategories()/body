@@ -1,8 +1,8 @@
 {
-  BaseActorSettingsCategory[] settings=new BaseActorSettingsCategory[3];
+  ActorSettingsCategory[] settings=new ActorSettingsCategory[3];
   for (int i=0; i < 3; i++) {
     final int finalI=i;
-    settings[i]=new BaseActorSettingsCategory(){
+    settings[i]=new ActorSettingsCategory(){
       @Override public String getCategoryName(){
         return "BeforeSettingsCategory" + finalI;
       }

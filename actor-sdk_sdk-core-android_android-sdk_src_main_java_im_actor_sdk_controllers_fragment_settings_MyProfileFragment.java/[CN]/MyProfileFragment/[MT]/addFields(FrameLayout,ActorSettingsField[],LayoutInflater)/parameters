@@ -1,0 +1,3 @@
+FrameLayout container
+ActorSettingsField[] fields
+LayoutInflater inflater

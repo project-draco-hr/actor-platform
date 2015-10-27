@@ -1,0 +1,3 @@
+String name
+boolean addBottomDivider
+View.OnClickListener onClickListener

@@ -1,10 +1,23 @@
 {
-  return new BaseActorSettingsCategory[]{new BaseActorSettingsCategory(){
+  return new ActorSettingsCategory[]{new ActorSettingsCategory(){
     @Override public String getCategoryName(){
       return "AfterSettingsCategory";
     }
-    @Override public BaseActorSettingsField[] getFields(){
-      return new BaseActorSettingsField[]{new BaseActorSettingsField(){
+    @Override public ActorSettingsField[] getFields(){
+      final ActorSettingsField zero=new ActorSettingsField(){
+        @Override public View getRightView(        Context context){
+          return new CheckBox(context);
+        }
+      }
+.setIconResourceId(R.drawable.ic_notifications_white_18dp).setName("Zero!");
+      zero.setOnClickListener(new View.OnClickListener(){
+        @Override public void onClick(        View v){
+          CheckBox chb=(CheckBox)zero.getRightView();
+          chb.setChecked(!chb.isChecked());
+        }
+      }
+);
+      return new ActorSettingsField[]{zero,new ActorSettingsField(){
         @Override public int getIconResourceId(){
           return R.drawable.ic_cloud_download_white_36dp;
         }
@@ -26,17 +39,14 @@
           return new SwitchCompat(context);
         }
       }
-,new BaseActorSettingsField(){
+,new ActorSettingsField(){
         @Override public View getView(        Context context){
           TextView tv=new TextView(context);
           tv.setText("Custom");
           return tv;
         }
       }
-,new BaseActorSettingsField(){
-        @Override public boolean addBottomDivider(){
-          return false;
-        }
+,new ActorSettingsField(){
         @Override public int getIconResourceId(){
           return R.drawable.ic_camera_alt_white_24dp;
         }
@@ -56,6 +66,22 @@
         }
         @Override public View getRightView(        Context context){
           return new SwitchCompat(context);
+        }
+      }
+,new ActorSettingsField(false){
+        @Override public String getName(){
+          return "Field 4";
+        }
+        @Override public View.OnClickListener getOnclickListener(){
+          return new View.OnClickListener(){
+            @Override public void onClick(            View v){
+              Toast.makeText(getApplicationContext(),"Yo 4",Toast.LENGTH_SHORT).show();
+            }
+          }
+;
+        }
+        @Override public View getRightView(        Context context){
+          return new AppCompatCheckBox(context);
         }
       }
 };

@@ -1,0 +1,16 @@
+{
+  Context context=getActivity();
+  for (  IActorSettingsCategory category : categories) {
+    LinearLayout categoryContainer=(LinearLayout)inflater.inflate(R.layout.actor_settings_category,null);
+    FrameLayout settingsContainer=(FrameLayout)categoryContainer.findViewById(R.id.settings_container);
+    TextView beforeSettingsName=(TextView)categoryContainer.findViewById(R.id.category_name);
+    beforeSettingsName.setText(category.getCategoryName());
+    if (category.getView(context) != null) {
+      settingsContainer.addView(category.getView(getActivity()),FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+    }
+ else     if (category.getFields() != null) {
+      addFields(settingsContainer,category.getFields(),inflater);
+    }
+    container.addView(categoryContainer,FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+  }
+}

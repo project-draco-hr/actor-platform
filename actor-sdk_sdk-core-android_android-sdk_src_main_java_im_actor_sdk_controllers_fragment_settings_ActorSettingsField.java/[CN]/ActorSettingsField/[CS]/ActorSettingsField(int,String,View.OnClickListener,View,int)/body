@@ -1,0 +1,7 @@
+{
+  this.iconResourceId=iconResourceId;
+  this.name=name;
+  this.onClickListener=onClickListener;
+  this.rightView=rightView;
+  this.iconColor=iconColor;
+}
