@@ -1,0 +1,8 @@
+{
+  if (fabColor != 0) {
+    return fabColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

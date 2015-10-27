@@ -4,8 +4,8 @@
   ab.setDisplayHomeAsUpEnabled(false);
   ab.setDisplayShowHomeEnabled(false);
   ab.setDisplayShowTitleEnabled(false);
-  if (ActorSDK.sharedActor().style.toolBarColor != 0) {
-    ab.setBackgroundDrawable(new ColorDrawable(ActorSDK.sharedActor().style.toolBarColor));
+  if (ActorSDK.sharedActor().style.getToolBarColor() != 0) {
+    ab.setBackgroundDrawable(new ColorDrawable(ActorSDK.sharedActor().style.getToolBarColor()));
   }
   FrameLayout tabsContainer=new FrameLayout(getActivity());
   barTabs=new PagerSlidingTabStrip(getActivity());

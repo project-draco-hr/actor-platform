@@ -1,0 +1,3 @@
+{
+  return Color.argb(Color.alpha(color),(int)Math.round(Color.red(color) * percent),(int)Math.round(Color.green(color) * percent),(int)Math.round(Color.blue(color) * percent));
+}
