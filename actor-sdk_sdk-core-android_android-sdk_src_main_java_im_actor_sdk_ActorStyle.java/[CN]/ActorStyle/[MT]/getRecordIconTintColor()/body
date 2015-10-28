@@ -1,0 +1,8 @@
+{
+  if (recordIconTintColor != 0) {
+    return recordIconTintColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

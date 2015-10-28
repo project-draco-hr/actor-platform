@@ -1,0 +1,8 @@
+{
+  if (avatarBackgroundColor != 0) {
+    return avatarBackgroundColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

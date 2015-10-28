@@ -1,0 +1,8 @@
+{
+  if (categoryTextColor != 0) {
+    return categoryTextColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

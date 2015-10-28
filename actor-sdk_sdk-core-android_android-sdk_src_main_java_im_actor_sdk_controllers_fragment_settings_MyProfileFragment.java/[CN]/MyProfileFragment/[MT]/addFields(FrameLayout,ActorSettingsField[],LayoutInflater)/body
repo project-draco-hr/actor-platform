@@ -5,7 +5,9 @@
   container.addView(ll,FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
   for (  ActorSettingsField field : fields) {
     if (field.getView(context) != null) {
-      ll.addView(field.getView(context),LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+      View view=field.getView(context);
+      ll.addView(view,LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+      field.bindCreatedView(view);
     }
  else {
       LinearLayout fieldLayout=(LinearLayout)inflater.inflate(R.layout.actor_settings_field,null);
