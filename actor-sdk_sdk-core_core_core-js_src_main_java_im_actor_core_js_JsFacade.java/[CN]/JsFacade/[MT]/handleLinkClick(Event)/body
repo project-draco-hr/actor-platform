@@ -1,0 +1,8 @@
+{
+  if (JsElectronApp.isElectron()) {
+    Element target=Element.as(event.getEventTarget());
+    String href=target.getAttribute("href");
+    JsElectronApp.openUrlExternal(href);
+    event.preventDefault();
+  }
+}
