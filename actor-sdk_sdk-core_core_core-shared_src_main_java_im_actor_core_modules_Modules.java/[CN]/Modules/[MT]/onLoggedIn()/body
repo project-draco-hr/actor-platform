@@ -30,10 +30,14 @@
   mentions=new MentionsModule(this);
   timing.section("DisplayLists");
   displayLists=new DisplayLists(this);
+  timing.section("DeviceInfo");
+  deviceInfoModule=new DeviceInfoModule(this);
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");
   settings.run();
+  timing.section("DeviceInfo");
+  deviceInfoModule.run();
   timing.section("Files");
   filesModule.run();
   timing.section("Search");

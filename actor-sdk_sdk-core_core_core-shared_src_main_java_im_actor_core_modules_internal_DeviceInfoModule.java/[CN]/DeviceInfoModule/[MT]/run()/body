@@ -1,0 +1,8 @@
+{
+  ArrayList<String> langs=new ArrayList<String>();
+  for (  String s : context().getConfiguration().getPreferredLanguages()) {
+    langs.add(s);
+  }
+  String timeZone=context().getConfiguration().getTimeZone();
+  request(new RequestNotifyAboutDeviceInfo(langs,timeZone));
+}

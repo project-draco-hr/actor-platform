@@ -11,7 +11,15 @@
   builder.setNotificationProvider(new AndroidNotifications(AndroidContext.getContext()));
   builder.setDeviceCategory(DeviceCategory.MOBILE);
   builder.setPlatformType(PlatformType.ANDROID);
-  builder.setApiConfiguration(new ApiConfiguration("Title?",apiAppId,apiAppKey,Devices.getDeviceName(),AndroidContext.getContext().getPackageName() + ":" + Build.SERIAL));
+  builder.setApiConfiguration(new ApiConfiguration(appName,apiAppId,apiAppKey,Devices.getDeviceName(),AndroidContext.getContext().getPackageName() + ":" + Build.SERIAL));
+  Locale defaultLocale=Locale.getDefault();
+  Log.d(TAG,"Found Locale: " + defaultLocale.getLanguage() + "-"+ defaultLocale.getCountry());
+  Log.d(TAG,"Found Locale: " + defaultLocale.getLanguage());
+  builder.addPreferredLanguage(defaultLocale.getLanguage() + "-" + defaultLocale.getCountry());
+  builder.addPreferredLanguage(defaultLocale.getLanguage());
+  String timeZone=TimeZone.getDefault().getID();
+  Log.d(TAG,"Found TimeZone: " + timeZone);
+  builder.setTimeZone(timeZone);
   this.messenger=new AndroidMessenger(AndroidContext.getContext(),builder.build());
   if (isKeepAliveEnabled) {
     Intent keepAliveService=new Intent(application,KeepAliveService.class);
