@@ -12,7 +12,7 @@
   title.setText(data.getDialogTitle());
   Drawable left=null;
   if (data.getPeer().getPeerType() == PeerType.GROUP) {
-    left=new TintDrawable(R.drawable.dialogs_group,R.color.chats_title,context);
+    left=new TintDrawable(context.getResources().getDrawable(R.drawable.dialogs_group),ActorSDK.sharedActor().style.getDialogsTitle());
   }
   title.setCompoundDrawablesWithIntrinsicBounds(left,null,null,null);
   if (data.getDate() > 0) {
@@ -55,11 +55,11 @@
       @Override public void onChanged(      Boolean val,      Value<Boolean> Value){
         if (val) {
           text.setText(messenger().getFormatter().formatTyping());
-          text.setTextColor(context.getResources().getColor(R.color.chats_typing));
+          text.setTextColor(ActorSDK.sharedActor().style.getDialogsTyping());
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(context.getResources().getColor(R.color.chats_text));
+          text.setTextColor(ActorSDK.sharedActor().style.getDialogsText());
         }
       }
     }
@@ -77,11 +77,11 @@
  else {
             text.setText(messenger().getFormatter().formatTyping(val.length));
           }
-          text.setTextColor(context.getResources().getColor(R.color.chats_typing));
+          text.setTextColor(ActorSDK.sharedActor().style.getDialogsTyping());
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(context.getResources().getColor(R.color.chats_text));
+          text.setTextColor(ActorSDK.sharedActor().style.getDialogsText());
         }
       }
     }
@@ -90,7 +90,7 @@
   }
  else {
     text.setText(bindedText);
-    text.setTextColor(context.getResources().getColor(R.color.chats_text));
+    text.setTextColor(ActorSDK.sharedActor().style.getDialogsText());
   }
   if (data.getSenderId() != myUid()) {
     state.setVisibility(View.GONE);

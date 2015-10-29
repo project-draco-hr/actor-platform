@@ -1,0 +1,8 @@
+{
+  if (dialogsCounterTextColor != 0) {
+    return dialogsCounterTextColor;
+  }
+ else {
+    return getTextPrimaryInv();
+  }
+}

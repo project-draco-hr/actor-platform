@@ -1,0 +1,8 @@
+{
+  if (dialogsCounterBackgroundColor != 0) {
+    return dialogsCounterBackgroundColor;
+  }
+ else {
+    return getPrimaryAlt();
+  }
+}

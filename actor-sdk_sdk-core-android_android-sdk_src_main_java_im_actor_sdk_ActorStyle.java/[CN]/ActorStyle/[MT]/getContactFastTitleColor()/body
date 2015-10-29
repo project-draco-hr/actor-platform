@@ -1,0 +1,8 @@
+{
+  if (contactFastTitleColor != 0) {
+    return contactFastTitleColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

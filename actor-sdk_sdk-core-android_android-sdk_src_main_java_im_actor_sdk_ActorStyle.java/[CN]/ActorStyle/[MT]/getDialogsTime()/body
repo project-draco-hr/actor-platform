@@ -1,0 +1,8 @@
+{
+  if (dialogsTime != 0) {
+    return dialogsTime;
+  }
+ else {
+    return getTextSecondary();
+  }
+}
