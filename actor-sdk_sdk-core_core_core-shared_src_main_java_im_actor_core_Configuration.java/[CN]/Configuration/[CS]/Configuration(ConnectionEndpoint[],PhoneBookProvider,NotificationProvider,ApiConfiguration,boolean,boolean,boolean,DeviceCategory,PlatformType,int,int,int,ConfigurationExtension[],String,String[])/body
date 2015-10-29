@@ -12,4 +12,6 @@
   this.maxDelay=maxDelay;
   this.maxFailureCount=maxFailureCount;
   this.extensions=extensions;
+  this.timeZone=timeZone;
+  this.preferredLanguages=preferredLanguages;
 }

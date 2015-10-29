@@ -11,3 +11,5 @@ int minDelay
 int maxDelay
 int maxFailureCount
 ConfigurationExtension[] extensions
+String timeZone
+String[] preferredLanguages

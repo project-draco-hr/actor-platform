@@ -6,6 +6,19 @@
   configuration.setApiConfiguration(new ApiConfiguration(APP_NAME,APP_ID,APP_KEY,clientName,uniqueId));
   configuration.setPhoneBookProvider(new JsPhoneBookProvider());
   configuration.setNotificationProvider(new JsNotificationsProvider());
+  String locale=LocaleInfo.getCurrentLocale().getLocaleName();
+  if (locale.equals("default")) {
+    Log.d(TAG,"Default locale found");
+    configuration.addPreferredLanguage("en");
+  }
+ else {
+    Log.d(TAG,"Locale found:" + locale);
+    configuration.addPreferredLanguage(locale.toLowerCase());
+  }
+  int offset=new Date().getTimezoneOffset();
+  String timeZone=TimeZone.createTimeZone(offset).getID();
+  Log.d(TAG,"TimeZone found:" + timeZone + " for delta "+ offset);
+  configuration.setTimeZone(timeZone);
   configuration.setPlatformType(PlatformType.WEB);
   configuration.setDeviceCategory(DeviceCategory.DESKTOP);
   for (  String endpoint : endpoints) {

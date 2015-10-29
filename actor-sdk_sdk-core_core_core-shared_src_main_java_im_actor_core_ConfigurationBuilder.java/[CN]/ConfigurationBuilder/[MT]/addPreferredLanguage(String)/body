@@ -1,0 +1,6 @@
+{
+  if (!preferredLanguages.contains(language)) {
+    preferredLanguages.add(language);
+  }
+  return this;
+}
