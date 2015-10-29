@@ -12,6 +12,10 @@ case 209:
 return UpdateUserNickChanged.fromBytes(payload);
 case 210:
 return UpdateUserAboutChanged.fromBytes(payload);
+case 212:
+return UpdateUserPreferredLanguagesChanged.fromBytes(payload);
+case 216:
+return UpdateUserTimeZoneChanged.fromBytes(payload);
 case 5:
 return UpdateContactRegistered.fromBytes(payload);
 case 40:
@@ -38,10 +42,6 @@ case 47:
 return UpdateChatClear.fromBytes(payload);
 case 48:
 return UpdateChatDelete.fromBytes(payload);
-case 65:
-return UpdateChatArchived.fromBytes(payload);
-case 66:
-return UpdateChatRestored.fromBytes(payload);
 case 1:
 return UpdateChatGroupsChanged.fromBytes(payload);
 case 36:
@@ -64,6 +64,8 @@ case 39:
 return UpdateGroupAvatarChanged.fromBytes(payload);
 case 6:
 return UpdateTyping.fromBytes(payload);
+case 81:
+return UpdateTypingStop.fromBytes(payload);
 case 7:
 return UpdateUserOnline.fromBytes(payload);
 case 8:

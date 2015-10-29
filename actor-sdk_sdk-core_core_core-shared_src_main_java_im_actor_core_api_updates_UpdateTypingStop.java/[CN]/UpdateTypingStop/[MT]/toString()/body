@@ -1,0 +1,7 @@
+{
+  String res="update TypingStop{";
+  res+="peer=" + this.peer;
+  res+=", uid=" + this.uid;
+  res+="}";
+  return res;
+}

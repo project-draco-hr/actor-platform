@@ -13,4 +13,8 @@
     throw new IOException();
   }
   writer.writeString(5,this.deviceTitle);
+  if (this.timeZone != null) {
+    writer.writeString(6,this.timeZone);
+  }
+  writer.writeRepeatedString(7,this.preferredLanguages);
 }

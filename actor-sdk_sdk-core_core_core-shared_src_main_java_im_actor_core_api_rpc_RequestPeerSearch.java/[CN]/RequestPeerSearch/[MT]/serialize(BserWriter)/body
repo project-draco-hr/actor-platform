@@ -1,0 +1,5 @@
+{
+  for (  ApiSearchCondition i : this.query) {
+    writer.writeBytes(1,i.buildContainer());
+  }
+}

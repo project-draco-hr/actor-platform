@@ -1,0 +1,3 @@
+{
+  this.preferredLanguages=values.getRepeatedString(1);
+}

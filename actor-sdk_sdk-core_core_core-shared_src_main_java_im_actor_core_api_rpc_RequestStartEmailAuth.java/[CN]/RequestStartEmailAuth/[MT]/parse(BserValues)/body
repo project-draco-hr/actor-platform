@@ -4,4 +4,6 @@
   this.apiKey=values.getString(3);
   this.deviceHash=values.getBytes(4);
   this.deviceTitle=values.getString(5);
+  this.timeZone=values.optString(6);
+  this.preferredLanguages=values.getRepeatedString(7);
 }

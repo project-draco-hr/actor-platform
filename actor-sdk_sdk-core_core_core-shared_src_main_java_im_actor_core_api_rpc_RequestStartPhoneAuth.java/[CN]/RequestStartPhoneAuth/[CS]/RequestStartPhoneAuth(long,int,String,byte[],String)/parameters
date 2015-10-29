@@ -1,5 +1,0 @@
-long phoneNumber
-int appId
-String apiKey
-byte[] deviceHash
-String deviceTitle

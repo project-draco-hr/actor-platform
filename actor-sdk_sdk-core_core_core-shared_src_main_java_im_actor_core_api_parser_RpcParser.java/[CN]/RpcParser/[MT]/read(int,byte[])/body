@@ -44,6 +44,10 @@ case 31:
 return RequestEditAvatar.fromBytes(payload);
 case 91:
 return RequestRemoveAvatar.fromBytes(payload);
+case 144:
+return RequestEditMyTimeZone.fromBytes(payload);
+case 145:
+return RequestEditMyPreferredLanguages.fromBytes(payload);
 case 7:
 return RequestImportContacts.fromBytes(payload);
 case 87:
@@ -72,8 +76,10 @@ case 104:
 return RequestLoadDialogs.fromBytes(payload);
 case 225:
 return RequestLoadGroupedDialogs.fromBytes(payload);
-case 227:
-return RequestArchiveDialog.fromBytes(payload);
+case 231:
+return RequestHideDialog.fromBytes(payload);
+case 232:
+return RequestShowDialog.fromBytes(payload);
 case 65:
 return RequestCreateGroup.fromBytes(payload);
 case 199:
@@ -102,6 +108,8 @@ case 179:
 return RequestRevokeInviteUrl.fromBytes(payload);
 case 180:
 return RequestJoinGroup.fromBytes(payload);
+case 233:
+return RequestPeerSearch.fromBytes(payload);
 case 201:
 return RequestGetPublicGroups.fromBytes(payload);
 case 182:
@@ -110,6 +118,8 @@ case 184:
 return RequestRevokeIntegrationToken.fromBytes(payload);
 case 27:
 return RequestTyping.fromBytes(payload);
+case 30:
+return RequestStopTyping.fromBytes(payload);
 case 29:
 return RequestSetOnline.fromBytes(payload);
 case 77:
@@ -146,6 +156,8 @@ case 74:
 return RequestSubscribeToGroupOnline.fromBytes(payload);
 case 75:
 return RequestSubscribeFromGroupOnline.fromBytes(payload);
+case 229:
+return RequestNotifyAboutDeviceInfo.fromBytes(payload);
 case 116:
 return RequestInitWebaction.fromBytes(payload);
 case 123:
@@ -188,6 +200,8 @@ case 178:
 return ResponseInviteUrl.fromBytes(payload);
 case 181:
 return ResponseJoinGroup.fromBytes(payload);
+case 234:
+return ResponsePeerSearch.fromBytes(payload);
 case 202:
 return ResponseGetPublicGroups.fromBytes(payload);
 case 183:

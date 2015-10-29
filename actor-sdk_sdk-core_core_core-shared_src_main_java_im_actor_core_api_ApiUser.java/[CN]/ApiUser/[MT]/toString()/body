@@ -10,6 +10,8 @@
   res+=", nick=" + this.nick;
   res+=", about=" + this.about;
   res+=", external=" + this.external;
+  res+=", preferredLanguages=" + this.preferredLanguages;
+  res+=", timeZone=" + this.timeZone;
   res+="}";
   return res;
 }
