@@ -3,6 +3,7 @@
   id=getArguments().getInt("EXTRA_ID");
   helper=new KeyboardHelper(getActivity());
   View res=inflater.inflate(R.layout.fragment_edit_about,container,false);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
   aboutEdit=(EditText)res.findViewById(R.id.nameEdit);
   if (type == EditAboutActivity.TYPE_ME) {
     UserVM userModel=users().get(myUid());

@@ -1,6 +1,6 @@
 {
   FrameLayout container=new FrameLayout(getActivity());
-  container.setBackgroundColor(getResources().getColor(R.color.bg_main));
+  container.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
 {
     container.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
   }
@@ -19,7 +19,7 @@
     container.addView(invitePanel);
   }
   TintImageView inviteIcon=new TintImageView(getActivity());
-  inviteIcon.setTint(getResources().getColor(color));
+  inviteIcon.setTint(color);
   inviteIcon.setResource(icon);
 {
     FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(Screen.dp(52),Screen.dp(52));
@@ -31,7 +31,7 @@
   }
   TextView inviteText=new TextView(getActivity());
   inviteText.setText(text);
-  inviteText.setTextColor(getResources().getColor(color));
+  inviteText.setTextColor(color);
   inviteText.setPadding(Screen.dp(72),0,Screen.dp(8),0);
   inviteText.setTextSize(16);
   inviteText.setSingleLine(true);

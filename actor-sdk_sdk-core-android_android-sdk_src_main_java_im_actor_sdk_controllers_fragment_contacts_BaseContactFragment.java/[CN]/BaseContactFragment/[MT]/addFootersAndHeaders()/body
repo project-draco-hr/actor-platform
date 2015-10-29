@@ -2,10 +2,11 @@
   if (useCompactVersion) {
     View footer=new View(getActivity());
     footer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
+    footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
     addFooterView(footer);
   }
  else {
-    addFooterOrHeaderAction(R.color.contacts_action_share,R.drawable.ic_share_white_24dp,R.string.contacts_share,false,new Runnable(){
+    addFooterOrHeaderAction(ActorSDK.sharedActor().style.getActionShareColor(),R.drawable.ic_share_white_24dp,R.string.contacts_share,false,new Runnable(){
       @Override public void run(){
         String inviteMessage=getResources().getString(R.string.invite_message);
         Intent sendIntent=new Intent(Intent.ACTION_SEND);
@@ -15,7 +16,7 @@
       }
     }
 ,false);
-    addFooterOrHeaderAction(R.color.contacts_action_add,R.drawable.ic_person_add_white_24dp,R.string.contacts_add,true,new Runnable(){
+    addFooterOrHeaderAction(ActorSDK.sharedActor().style.getActionAddContactColor(),R.drawable.ic_person_add_white_24dp,R.string.contacts_add,true,new Runnable(){
       @Override public void run(){
         startActivity(new Intent(getActivity(),AddContactActivity.class));
       }
@@ -28,6 +29,7 @@
     shadow.setScaleType(ImageView.ScaleType.FIT_XY);
     shadow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
     footer.addView(shadow);
+    footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
     addFooterView(footer);
   }
 }

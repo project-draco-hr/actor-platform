@@ -2,7 +2,7 @@
   View res=inflate(inflater,container,layoutId,messenger().buildContactsDisplayList());
   emptyView=res.findViewById(R.id.emptyCollection);
   View headerPadding=new View(getActivity());
-  headerPadding.setBackgroundColor(getResources().getColor(R.color.bg_main));
+  headerPadding.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
   headerPadding.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(0)));
   addHeaderView(headerPadding);
   addFootersAndHeaders();
@@ -19,5 +19,6 @@
     }
   }
 );
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
   return res;
 }

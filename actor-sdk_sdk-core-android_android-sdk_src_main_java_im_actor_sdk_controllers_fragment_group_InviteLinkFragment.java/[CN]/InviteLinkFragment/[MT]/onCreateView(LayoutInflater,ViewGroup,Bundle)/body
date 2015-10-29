@@ -16,7 +16,9 @@
 );
   final ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
   View res=inflater.inflate(R.layout.fragment_list,container,false);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
   listView=(ListView)res.findViewById(R.id.listView);
+  listView.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
   emptyView=(TextView)res.findViewById(R.id.emptyView);
   emptyView.setText(getString(R.string.invite_link_empty_view));
   adapter=new InviteLincActionsAdapter(getActivity());
@@ -67,6 +69,7 @@ break;
 }
 );
 View footer=inflater.inflate(R.layout.fragment_link_item_footer,listView,false);
+footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
 listView.addFooterView(footer,null,false);
 return res;
 }

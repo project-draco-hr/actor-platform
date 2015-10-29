@@ -1,0 +1,8 @@
+{
+  if (actionAddContactColor != 0) {
+    return actionAddContactColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

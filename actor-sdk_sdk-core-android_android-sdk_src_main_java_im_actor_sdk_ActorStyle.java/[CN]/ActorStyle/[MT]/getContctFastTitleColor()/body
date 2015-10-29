@@ -1,0 +1,8 @@
+{
+  if (contctFastTitleColor != 0) {
+    return contctFastTitleColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

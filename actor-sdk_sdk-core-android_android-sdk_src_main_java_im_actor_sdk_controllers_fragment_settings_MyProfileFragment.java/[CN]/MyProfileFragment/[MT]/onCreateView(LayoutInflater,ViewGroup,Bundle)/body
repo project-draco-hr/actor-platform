@@ -156,6 +156,8 @@
 );
   TextView settingsHeaderText=(TextView)view.findViewById(R.id.settings_header_text);
   settingsHeaderText.setTextColor(ActorSDK.sharedActor().style.getCategoryTextColor());
+  view.findViewById(R.id.after_phone_divider).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
+  view.findViewById(R.id.bottom_divider).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
   if (delegate.getBeforeNickSettingsView(getActivity()) != null) {
     FrameLayout beforeNick=(FrameLayout)view.findViewById(R.id.before_nick_container);
     beforeNick.addView(delegate.getBeforeNickSettingsView(getActivity()),FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -181,10 +183,9 @@
     addCategories(afterSettings,delegate.getAfterSettingsCategories(),inflater);
   }
   avatarView=(CoverAvatarView)view.findViewById(R.id.avatar);
-  avatarView.setBackgroundColor(ActorSDK.sharedActor().style.getCategoryTextColor());
-  ImageView avatarBckgrnd=(ImageView)view.findViewById(R.id.avatar_bgrnd);
-  avatarBckgrnd.setBackgroundColor(ActorSDK.sharedActor().style.getCategoryTextColor());
-  avatarView.setBkgrnd(avatarBckgrnd);
+  ImageView avatarBkgrnd=(ImageView)view.findViewById(R.id.avatar_bgrnd);
+  avatarBkgrnd.setBackgroundColor(ActorSDK.sharedActor().style.getAvatarBackgroundColor());
+  avatarView.setBkgrnd(avatarBkgrnd);
   bind(avatarView,users().get(myUid()).getAvatar());
   view.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
@@ -193,6 +194,7 @@
   }
 );
   final ScrollView scrollView=((ScrollView)view.findViewById(R.id.scrollContainer));
+  scrollView.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
   scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener(){
     @Override public void onScrollChanged(){
       updateActionBar(scrollView.getScrollY());

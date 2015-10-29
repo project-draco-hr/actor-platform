@@ -1,0 +1,8 @@
+{
+  if (actionShareColor != 0) {
+    return actionShareColor;
+  }
+ else {
+    return getMainColor();
+  }
+}
