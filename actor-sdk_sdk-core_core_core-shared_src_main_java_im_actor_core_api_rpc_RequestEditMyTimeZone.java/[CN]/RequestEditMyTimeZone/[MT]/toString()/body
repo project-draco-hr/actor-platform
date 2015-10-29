@@ -1,0 +1,6 @@
+{
+  String res="rpc EditMyTimeZone{";
+  res+="tz=" + this.tz;
+  res+="}";
+  return res;
+}

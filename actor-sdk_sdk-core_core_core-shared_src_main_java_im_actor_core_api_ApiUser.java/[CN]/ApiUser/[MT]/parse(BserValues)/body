@@ -17,6 +17,8 @@
   this.nick=values.optString(13);
   this.about=values.optString(14);
   this.external=values.optString(15);
+  this.preferredLanguages=values.getRepeatedString(16);
+  this.timeZone=values.optString(17);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

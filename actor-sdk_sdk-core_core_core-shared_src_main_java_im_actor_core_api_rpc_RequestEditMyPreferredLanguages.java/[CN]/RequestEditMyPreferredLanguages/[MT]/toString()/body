@@ -1,0 +1,6 @@
+{
+  String res="rpc EditMyPreferredLanguages{";
+  res+="preferredLanguages=" + this.preferredLanguages;
+  res+="}";
+  return res;
+}

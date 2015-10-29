@@ -1,0 +1,10 @@
+{
+  this.peer=peer;
+  this.title=title;
+  this.description=description;
+  this.membersCount=membersCount;
+  this.dateCreated=dateCreated;
+  this.creator=creator;
+  this.isPublic=isPublic;
+  this.isJoined=isJoined;
+}

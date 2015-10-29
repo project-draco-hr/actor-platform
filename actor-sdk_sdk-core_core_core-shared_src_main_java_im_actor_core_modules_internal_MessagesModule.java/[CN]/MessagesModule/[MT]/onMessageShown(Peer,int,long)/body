@@ -1,4 +1,7 @@
 {
+  if (!context().getAppStateModule().getAppStateVM().getIsAppVisible().get()) {
+    return;
+  }
   im.actor.runtime.Runtime.dispatch(new Runnable(){
     @Override public void run(){
       if (sender != myUid()) {

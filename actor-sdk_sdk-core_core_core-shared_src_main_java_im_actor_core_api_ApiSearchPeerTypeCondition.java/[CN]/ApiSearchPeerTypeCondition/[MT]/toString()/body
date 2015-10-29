@@ -1,0 +1,6 @@
+{
+  String res="struct SearchPeerTypeCondition{";
+  res+="peerType=" + this.peerType;
+  res+="}";
+  return res;
+}

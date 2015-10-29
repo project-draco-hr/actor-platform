@@ -1,0 +1,6 @@
+{
+  if (this.peerType == null) {
+    throw new IOException();
+  }
+  writer.writeInt(1,this.peerType.getValue());
+}

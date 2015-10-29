@@ -1,0 +1,17 @@
+{
+  this.endpoints=endpoints;
+  this.phoneBookProvider=phoneBookProvider;
+  this.enableContactsLogging=enableContactsLogging;
+  this.enableNetworkLogging=enableNetworkLogging;
+  this.enableFilesLogging=enableFilesLogging;
+  this.notificationProvider=notificationProvider;
+  this.apiConfiguration=apiConfiguration;
+  this.deviceCategory=deviceCategory;
+  this.platformType=platformType;
+  this.minDelay=minDelay;
+  this.maxDelay=maxDelay;
+  this.maxFailureCount=maxFailureCount;
+  this.extensions=extensions;
+  this.timeZone=timeZone;
+  this.preferredLanguages=preferredLanguages;
+}

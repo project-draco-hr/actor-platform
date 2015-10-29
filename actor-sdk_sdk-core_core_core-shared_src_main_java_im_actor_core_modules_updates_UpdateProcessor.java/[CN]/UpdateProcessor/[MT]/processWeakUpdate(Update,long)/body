@@ -19,4 +19,8 @@
     UpdateTyping typing=(UpdateTyping)update;
     typingProcessor.onTyping(typing.getPeer(),typing.getUid(),typing.getTypingType());
   }
+ else   if (update instanceof UpdateTypingStop) {
+    UpdateTypingStop typing=(UpdateTypingStop)update;
+    typingProcessor.onTypingStop(typing.getPeer(),typing.getUid(),typing.getTypingType());
+  }
 }

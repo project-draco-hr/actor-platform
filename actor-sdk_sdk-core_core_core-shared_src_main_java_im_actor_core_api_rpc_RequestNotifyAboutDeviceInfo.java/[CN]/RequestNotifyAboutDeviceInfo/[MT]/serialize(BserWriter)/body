@@ -1,0 +1,6 @@
+{
+  writer.writeRepeatedString(1,this.preferredLanguages);
+  if (this.timeZone != null) {
+    writer.writeString(2,this.timeZone);
+  }
+}

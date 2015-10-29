@@ -27,6 +27,10 @@
   if (this.external != null) {
     writer.writeString(15,this.external);
   }
+  writer.writeRepeatedString(16,this.preferredLanguages);
+  if (this.timeZone != null) {
+    writer.writeString(17,this.timeZone);
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

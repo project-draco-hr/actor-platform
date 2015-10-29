@@ -1,0 +1,7 @@
+{
+  String res="update UserTimeZoneChanged{";
+  res+="uid=" + this.uid;
+  res+=", timeZone=" + this.timeZone;
+  res+="}";
+  return res;
+}

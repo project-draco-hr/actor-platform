@@ -1,0 +1,7 @@
+{
+  String res="rpc NotifyAboutDeviceInfo{";
+  res+="preferredLanguages=" + this.preferredLanguages;
+  res+=", timeZone=" + this.timeZone;
+  res+="}";
+  return res;
+}

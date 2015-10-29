@@ -1,0 +1,6 @@
+{
+  String res="struct SearchPieceText{";
+  res+="query=" + this.query;
+  res+="}";
+  return res;
+}

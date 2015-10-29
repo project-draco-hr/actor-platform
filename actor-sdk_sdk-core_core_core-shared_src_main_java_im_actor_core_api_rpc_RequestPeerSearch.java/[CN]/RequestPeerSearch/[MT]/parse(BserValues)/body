@@ -1,0 +1,6 @@
+{
+  this.query=new ArrayList<ApiSearchCondition>();
+  for (  byte[] b : values.getRepeatedBytes(1)) {
+    query.add(ApiSearchCondition.fromBytes(b));
+  }
+}

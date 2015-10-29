@@ -1,0 +1,7 @@
+{
+  String res="update UserPreferredLanguagesChanged{";
+  res+="uid=" + this.uid;
+  res+=", preferredLanguages=" + this.preferredLanguages;
+  res+="}";
+  return res;
+}
