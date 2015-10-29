@@ -2,6 +2,12 @@
   if (message instanceof Typing) {
     onTyping(((Typing)message).getPeer());
   }
+ else   if (message instanceof MessageSent) {
+    onMessageSent(((MessageSent)message).getPeer());
+  }
+ else   if (message instanceof AbortTyping) {
+    onAbortTyping(((AbortTyping)message).getPeer());
+  }
  else {
     drop(message);
   }

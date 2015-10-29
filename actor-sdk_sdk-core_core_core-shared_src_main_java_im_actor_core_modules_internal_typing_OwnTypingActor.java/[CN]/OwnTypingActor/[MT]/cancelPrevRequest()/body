@@ -1,0 +1,6 @@
+{
+  if (prevRid != 0) {
+    cancelRequest(prevRid);
+    prevRid=0;
+  }
+}

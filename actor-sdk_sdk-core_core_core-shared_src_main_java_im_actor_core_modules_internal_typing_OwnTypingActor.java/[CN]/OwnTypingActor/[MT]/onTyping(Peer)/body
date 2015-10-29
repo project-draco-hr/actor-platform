@@ -7,5 +7,7 @@
   if (outPeer == null) {
     return;
   }
-  request(new RequestTyping(outPeer,ApiTypingType.TEXT));
+  cancelPrevRequest();
+  prevRid=request(new RequestTyping(outPeer,ApiTypingType.TEXT));
+  self().sendOnce(new AbortTyping(peer),TYPING_CANCEL_DELAY);
 }

@@ -1,0 +1,8 @@
+{
+  ApiOutPeer outPeer=buidOutPeer(peer);
+  if (outPeer == null) {
+    return;
+  }
+  cancelPrevRequest();
+  prevRid=request(new RequestStopTyping(outPeer,ApiTypingType.TEXT));
+}

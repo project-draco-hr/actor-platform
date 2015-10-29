@@ -1,4 +1,5 @@
 {
+  this.rid=rid;
   this.message=message;
   this.callback=callback;
 }

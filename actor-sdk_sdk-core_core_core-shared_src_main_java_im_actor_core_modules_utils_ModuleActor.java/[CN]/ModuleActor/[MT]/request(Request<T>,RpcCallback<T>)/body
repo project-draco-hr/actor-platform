@@ -1,5 +1,5 @@
 {
-  context.getActorApi().request(request,new RpcCallback<T>(){
+  return context.getActorApi().request(request,new RpcCallback<T>(){
     @Override public void onResult(    final T response){
       self().send(new Runnable(){
         @Override public void run(){

@@ -1,7 +1,7 @@
 {
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
-      request(new RequestStartEmailAuth(email,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle()),new RpcCallback<ResponseStartEmailAuth>(){
+      request(new RequestStartEmailAuth(email,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle(),null,new ArrayList<String>()),new RpcCallback<ResponseStartEmailAuth>(){
         @Override public void onResult(        ResponseStartEmailAuth response){
           modules.getPreferences().putString(KEY_EMAIL,email);
           modules.getPreferences().putString(KEY_TRANSACTION_HASH,response.getTransactionHash());
