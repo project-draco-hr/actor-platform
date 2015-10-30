@@ -13,6 +13,7 @@
               jsRes.push(JsPeerSearchResult.create(messenger.buildPeerInfo(s.getPeer())));
             }
           }
+          resolve(jsRes);
         }
         @Override public void onError(        Exception e){
           Log.d(TAG,"findGroups:error");
