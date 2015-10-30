@@ -1,0 +1,8 @@
+Peer peer
+String title
+String description
+Integer membersCount
+Long date
+Integer creatorUid
+Boolean isPublic
+Boolean isJoined

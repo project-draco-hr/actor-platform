@@ -1,0 +1,7 @@
+JsPeerInfo peerInfo
+String description
+int membersCount
+int created
+JsPeerInfo creator
+boolean isPublic
+boolean isJoined
