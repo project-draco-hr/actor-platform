@@ -1,4 +1,5 @@
 {
   super(fragment,itemView,true);
   messageText=(TextView)itemView.findViewById(R.id.serviceMessage);
+  messageText.setTextColor(ActorSDK.sharedActor().style.getConvDatetext());
 }

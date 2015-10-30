@@ -1,0 +1,8 @@
+{
+  if (convText != 0) {
+    return convText;
+  }
+ else {
+    return getTextPrimary();
+  }
+}
