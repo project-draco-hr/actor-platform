@@ -1,6 +1,6 @@
 {
-  if (categoryTextColor != 0) {
-    return categoryTextColor;
+  if (settingsCategoryTextColor != 0) {
+    return settingsCategoryTextColor;
   }
  else {
     return getMainColor();

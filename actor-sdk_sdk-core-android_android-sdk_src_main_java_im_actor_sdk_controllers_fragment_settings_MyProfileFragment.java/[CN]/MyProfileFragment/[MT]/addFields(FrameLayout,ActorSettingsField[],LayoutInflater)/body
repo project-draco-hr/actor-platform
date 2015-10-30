@@ -46,6 +46,7 @@
       params.leftMargin=Screen.dp(72);
       params.rightMargin=Screen.dp(16);
       View divider=inflater.inflate(R.layout.actor_settings_divider,null);
+      divider.setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
       ll.addView(divider,params);
     }
   }

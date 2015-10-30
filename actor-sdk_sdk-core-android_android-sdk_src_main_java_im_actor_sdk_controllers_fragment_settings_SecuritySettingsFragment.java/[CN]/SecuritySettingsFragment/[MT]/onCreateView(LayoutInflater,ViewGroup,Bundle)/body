@@ -10,6 +10,7 @@
   }
 );
   authItems=(LinearLayout)res.findViewById(R.id.authItems);
+  res.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
   res.findViewById(R.id.terminateSessions).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       new AlertDialog.Builder(getActivity()).setMessage(R.string.security_terminate_message).setPositiveButton(R.string.dialog_yes,new DialogInterface.OnClickListener(){

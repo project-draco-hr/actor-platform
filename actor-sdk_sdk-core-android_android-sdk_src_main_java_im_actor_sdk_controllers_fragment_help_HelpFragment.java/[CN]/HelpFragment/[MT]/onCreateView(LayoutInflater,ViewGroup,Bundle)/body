@@ -1,5 +1,8 @@
 {
   View res=inflater.inflate(R.layout.help_main,container,false);
+  res.findViewById(R.id.divider1).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.divider2).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.divider3).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
   res.findViewById(R.id.openFaq).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://actor.im")));

@@ -1,5 +1,10 @@
 {
   View res=inflater.inflate(R.layout.fr_settings_notifications,container,false);
+  res.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.divider1).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.divider2).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.divider3).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.divider4).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
   final CheckBox enableTones=(CheckBox)res.findViewById(R.id.enableConversationTones);
   enableTones.setChecked(messenger().isConversationTonesEnabled());
   View.OnClickListener enableTonesListener=new View.OnClickListener(){
