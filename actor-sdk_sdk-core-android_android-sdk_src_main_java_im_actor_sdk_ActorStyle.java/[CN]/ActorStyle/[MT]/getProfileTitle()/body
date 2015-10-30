@@ -1,0 +1,8 @@
+{
+  if (profileTitle != 0) {
+    return profileTitle;
+  }
+ else {
+    return getTextPrimaryInv();
+  }
+}

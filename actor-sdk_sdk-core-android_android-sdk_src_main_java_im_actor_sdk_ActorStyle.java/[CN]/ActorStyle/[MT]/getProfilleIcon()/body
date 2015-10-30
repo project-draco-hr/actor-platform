@@ -1,0 +1,8 @@
+{
+  if (profilleIcon != 0) {
+    return profilleIcon;
+  }
+ else {
+    return getSectionIconLarge();
+  }
+}

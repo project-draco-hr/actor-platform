@@ -1,0 +1,8 @@
+{
+  if (groupActionAddIcon != 0) {
+    return groupActionAddIcon;
+  }
+ else {
+    return getListAction();
+  }
+}

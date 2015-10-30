@@ -5,7 +5,8 @@
     FrameLayout settingsContainer=(FrameLayout)categoryContainer.findViewById(R.id.settings_container);
     categoryContainer.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
     TextView categoryName=(TextView)categoryContainer.findViewById(R.id.category_name);
-    categoryName.setTextColor(ActorSDK.sharedActor().style.getCategoryTextColor());
+    categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsMainTitle());
+    categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsCategoryTextColor());
     categoryName.setText(category.getCategoryName());
     if (category.getView(context) != null) {
       settingsContainer.addView(category.getView(getActivity()),FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);

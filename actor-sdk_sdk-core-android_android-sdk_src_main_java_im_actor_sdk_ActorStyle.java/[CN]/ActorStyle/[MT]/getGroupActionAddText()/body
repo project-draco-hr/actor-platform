@@ -1,0 +1,8 @@
+{
+  if (groupActionAddText != 0) {
+    return groupActionAddText;
+  }
+ else {
+    return getListAction();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (settingsTitle != 0) {
+    return settingsTitle;
+  }
+ else {
+    return getTextPrimary();
+  }
+}

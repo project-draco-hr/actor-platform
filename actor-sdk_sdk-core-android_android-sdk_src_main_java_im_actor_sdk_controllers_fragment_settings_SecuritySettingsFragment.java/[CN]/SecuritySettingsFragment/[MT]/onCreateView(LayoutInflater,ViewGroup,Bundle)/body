@@ -1,5 +1,6 @@
 {
   View res=inflater.inflate(R.layout.fr_settings_encryption,container,false);
+  ((TextView)res.findViewById(R.id.security_settings_title)).setTextColor(ActorSDK.sharedActor().style.getSettingsMainTitle());
   loading=(TextView)res.findViewById(R.id.loading);
   loading.setVisibility(View.GONE);
   loading.setOnClickListener(new View.OnClickListener(){

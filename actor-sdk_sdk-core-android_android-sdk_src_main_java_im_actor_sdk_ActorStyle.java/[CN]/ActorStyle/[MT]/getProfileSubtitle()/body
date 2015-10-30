@@ -1,0 +1,8 @@
+{
+  if (profileSubtitle != 0) {
+    return profileSubtitle;
+  }
+ else {
+    return getTextSecondaryInv();
+  }
+}

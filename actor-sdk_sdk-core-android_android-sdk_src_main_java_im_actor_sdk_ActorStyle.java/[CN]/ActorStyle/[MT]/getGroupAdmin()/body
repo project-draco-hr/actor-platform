@@ -1,0 +1,8 @@
+{
+  if (groupAdmin != 0) {
+    return groupAdmin;
+  }
+ else {
+    return getAccent();
+  }
+}

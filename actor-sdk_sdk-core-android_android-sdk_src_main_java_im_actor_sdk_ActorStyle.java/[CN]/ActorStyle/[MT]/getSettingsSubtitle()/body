@@ -1,0 +1,8 @@
+{
+  if (settingsSubtitle != 0) {
+    return settingsSubtitle;
+  }
+ else {
+    return getTextSecondary();
+  }
+}
