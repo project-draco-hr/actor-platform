@@ -1,10 +1,10 @@
 {
   if (s.length() > 0) {
-    sendButton.setTint(getResources().getColor(R.color.conv_send_enabled));
+    sendButton.setTint(ActorSDK.sharedActor().style.getConvSendEnabled());
     sendButton.setEnabled(true);
   }
  else {
-    sendButton.setTint(getResources().getColor(R.color.conv_send_disabled));
+    sendButton.setTint(ActorSDK.sharedActor().style.getConvSendDisabled());
     sendButton.setEnabled(false);
   }
 }

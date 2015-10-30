@@ -9,7 +9,7 @@
   dateDiv.setIncludeFontPadding(false);
   dateDiv.setBackgroundResource(R.drawable.conv_bubble_date_bg);
   dateDiv.setGravity(Gravity.CENTER);
-  dateDiv.setTextColor(getResources().getColor(R.color.conv_date_text));
+  dateDiv.setTextColor(ActorSDK.sharedActor().style.getConvDatetext());
   if (!showDateDiv) {
     dateDiv.setVisibility(GONE);
   }
@@ -22,9 +22,9 @@
   unreadDiv.setTextSize(13);
   unreadDiv.setTypeface(Fonts.regular());
   unreadDiv.setIncludeFontPadding(false);
-  unreadDiv.setBackgroundColor(getResources().getColor(R.color.conv_date_bg));
+  unreadDiv.setBackgroundColor(ActorSDK.sharedActor().style.getConvDateBg());
   unreadDiv.setGravity(Gravity.CENTER);
-  unreadDiv.setTextColor(getResources().getColor(R.color.conv_date_text));
+  unreadDiv.setTextColor(ActorSDK.sharedActor().style.getConvDatetext());
   unreadDiv.setPadding(0,Screen.dp(6),0,Screen.dp(6));
   unreadDiv.setText(R.string.chat_new_messages);
   if (!showUnreadDiv) {
