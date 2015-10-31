@@ -1,0 +1,3 @@
+{
+  messenger.deleteMessages(peer.convert(),new long[]{Long.parseLong(id)});
+}
