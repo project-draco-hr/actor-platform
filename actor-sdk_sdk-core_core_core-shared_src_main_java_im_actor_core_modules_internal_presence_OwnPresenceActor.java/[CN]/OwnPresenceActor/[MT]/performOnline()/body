@@ -1,5 +1,9 @@
 {
-  request(new RequestSetOnline(isVisible,TIMEOUT),new RpcCallback<ResponseVoid>(){
+  if (prevRid != 0) {
+    cancelRequest(prevRid);
+    prevRid=0;
+  }
+  prevRid=request(new RequestSetOnline(isVisible,TIMEOUT),new RpcCallback<ResponseVoid>(){
     @Override public void onResult(    ResponseVoid response){
     }
     @Override public void onError(    RpcException e){
