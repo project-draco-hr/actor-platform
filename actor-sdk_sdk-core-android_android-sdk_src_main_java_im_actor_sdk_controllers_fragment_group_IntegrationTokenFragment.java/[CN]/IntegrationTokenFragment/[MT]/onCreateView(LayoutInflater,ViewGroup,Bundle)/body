@@ -23,6 +23,7 @@
   listView=(ListView)res.findViewById(R.id.listView);
   emptyView=(TextView)res.findViewById(R.id.emptyView);
   emptyView.setText(getString(R.string.integration_token_empty_view));
+  emptyView.setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
   adapter=new IntegrationTokenActionsAdapter(getActivity());
   listView.setAdapter(adapter);
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){

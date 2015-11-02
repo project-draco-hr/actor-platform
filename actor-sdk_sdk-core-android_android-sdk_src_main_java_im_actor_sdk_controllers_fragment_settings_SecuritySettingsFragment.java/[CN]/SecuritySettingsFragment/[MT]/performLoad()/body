@@ -19,8 +19,11 @@
         boolean isThisDevice=item.getAuthHolder() == ApiAuthHolder.OTHERDEVICE;
         String deviceTitle=(isThisDevice ? "(This) " : "") + item.getDeviceTitle();
         ((TextView)view.findViewById(R.id.date)).setText(messenger().getFormatter().formatShortDate(item.getAuthTime() * 1000L));
+        ((TextView)view.findViewById(R.id.date)).setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
         ((TextView)view.findViewById(R.id.appTitle)).setText(item.getAppTitle());
+        ((TextView)view.findViewById(R.id.appTitle)).setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
         ((TextView)view.findViewById(R.id.deviceTitle)).setText(deviceTitle);
+        ((TextView)view.findViewById(R.id.deviceTitle)).setTextColor(ActorSDK.sharedActor().style.getTextPrimary());
         if (!isThisDevice) {
           view.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(            View v){

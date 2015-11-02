@@ -3,6 +3,8 @@
   avatarPath=getArguments().getString("avatarPath");
   View res=onCreateContactsView(R.layout.fragment_create_group_participants,inflater,container,savedInstanceState);
   searchField=(EditText)res.findViewById(R.id.searchField);
+  searchField.setTextColor(ActorSDK.sharedActor().style.getTextPrimary());
+  searchField.setHintTextColor(ActorSDK.sharedActor().style.getTextHint());
   textWatcher=new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
     }

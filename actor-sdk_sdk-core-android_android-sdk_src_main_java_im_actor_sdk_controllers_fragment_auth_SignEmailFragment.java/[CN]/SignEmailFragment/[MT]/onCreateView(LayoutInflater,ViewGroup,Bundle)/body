@@ -1,6 +1,8 @@
 {
   View v=inflater.inflate(R.layout.fragment_sign_email,container,false);
-  ((TextView)v.findViewById(R.id.button_continue_text)).setTypeface(Fonts.medium());
+  TextView buttonCotinueText=(TextView)v.findViewById(R.id.button_continue_text);
+  buttonCotinueText.setTypeface(Fonts.medium());
+  buttonCotinueText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryInv());
   keyboardHelper=new KeyboardHelper(getActivity());
   initView(v);
   return v;

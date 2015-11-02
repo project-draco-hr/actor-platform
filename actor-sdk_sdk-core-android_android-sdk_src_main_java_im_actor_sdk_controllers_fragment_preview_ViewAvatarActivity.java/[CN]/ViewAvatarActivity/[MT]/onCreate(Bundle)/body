@@ -23,5 +23,6 @@
   setContentView(R.layout.activity_avatar);
   photoView=(PhotoView)findViewById(R.id.avatar);
   progress=findViewById(R.id.uploadProgress);
-  noPhoto=findViewById(R.id.noPhoto);
+  noPhoto=(TextView)findViewById(R.id.noPhoto);
+  noPhoto.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryInv());
 }

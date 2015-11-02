@@ -3,6 +3,7 @@
   TextView titleView=(TextView)rootView.findViewById(R.id.title);
   titleView.setTypeface(Fonts.medium());
   TextView bodyView=(TextView)rootView.findViewById(R.id.body);
+  bodyView.setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
   ImageView imageView=(ImageView)rootView.findViewById(R.id.image);
   Bundle args=getArguments();
   int position=args.getInt(ARG_POSITION);

@@ -6,6 +6,8 @@
     getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,onCreateFragment()).commit();
   }
   messageEditText=(EditText)findViewById(R.id.et_message);
+  messageEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimary());
+  messageEditText.setHintTextColor(ActorSDK.sharedActor().style.getTextHint());
   messageEditText.setOnKeyListener(new View.OnKeyListener(){
     @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
       if (messenger().isSendByEnterEnabled()) {

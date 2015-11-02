@@ -21,6 +21,7 @@
   listView.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
   emptyView=(TextView)res.findViewById(R.id.emptyView);
   emptyView.setText(getString(R.string.invite_link_empty_view));
+  emptyView.setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
   adapter=new InviteLincActionsAdapter(getActivity());
   listView.setAdapter(adapter);
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
