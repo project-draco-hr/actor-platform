@@ -1,7 +1,7 @@
 {
-  ((TextView)v.findViewById(R.id.email_login_hint)).setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
+  ((TextView)v.findViewById(R.id.email_login_hint)).setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
   emailEditText=(EditText)v.findViewById(R.id.tv_email);
-  emailEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimary());
+  emailEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   emailEditText.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
   String email=messenger().getAuthEmail();
   if (email != null && !email.isEmpty()) {

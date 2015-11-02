@@ -1,0 +1,8 @@
+{
+  if (groupActionAddIconColor != 0) {
+    return groupActionAddIconColor;
+  }
+ else {
+    return getListActionColor();
+  }
+}

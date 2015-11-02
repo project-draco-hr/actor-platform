@@ -1,6 +1,7 @@
 {
-  ((TextView)v.findViewById(R.id.phone_sign_hint)).setTextColor(ActorSDK.sharedActor().style.getTextSecondary());
+  ((TextView)v.findViewById(R.id.phone_sign_hint)).setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
   countrySelectButton=(Button)v.findViewById(R.id.button_country_select);
+  countrySelectButton.setTextColor(ActorSDK.sharedActor().style.getMainColor());
   onClick(countrySelectButton,new View.OnClickListener(){
     @Override public void onClick(    View v){
       keyboardHelper.setImeVisibility(phoneNumberEditText,false);
@@ -9,6 +10,7 @@
   }
 );
   countryCodeEditText=(EditText)v.findViewById(R.id.tv_country_code);
+  countryCodeEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   countryCodeEditText.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
     }
@@ -65,7 +67,7 @@
   }
 );
   phoneNumberEditText=(BackspaceKeyEditText)v.findViewById(R.id.tv_phone_number);
-  phoneNumberEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimary());
+  phoneNumberEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   phoneNumberEditText.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
   phoneNumberEditText.setBackspaceListener(new BackspaceKeyEditText.BackspacePressListener(){
     @Override public boolean onBackspacePressed(){

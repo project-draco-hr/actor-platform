@@ -1,8 +1,0 @@
-{
-  if (settingsIcon != 0) {
-    return settingsIcon;
-  }
- else {
-    return getSectonIconSmall();
-  }
-}

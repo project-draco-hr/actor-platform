@@ -1,0 +1,3 @@
+{
+  return getDarkenArgb(getMainColor(),0.95);
+}

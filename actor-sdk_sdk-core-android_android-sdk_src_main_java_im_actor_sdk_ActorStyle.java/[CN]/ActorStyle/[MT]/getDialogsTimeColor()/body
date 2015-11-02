@@ -1,0 +1,8 @@
+{
+  if (dialogsTimeColor != 0) {
+    return dialogsTimeColor;
+  }
+ else {
+    return getTextSecondaryColor();
+  }
+}

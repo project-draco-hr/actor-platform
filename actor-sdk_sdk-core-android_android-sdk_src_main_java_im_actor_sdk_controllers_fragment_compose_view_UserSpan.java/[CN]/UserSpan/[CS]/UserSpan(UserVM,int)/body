@@ -4,7 +4,7 @@
   if (textPaint == null) {
     textPaint=new TextPaint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
     textPaint.setTextSize(Screen.sp(16));
-    textPaint.setColor(ActorSDK.sharedActor().style.getTextPrimary());
+    textPaint.setColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   }
   int padding=Screen.dp(18);
   int maxWidth=maxW - padding;

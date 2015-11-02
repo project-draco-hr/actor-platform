@@ -1,8 +1,0 @@
-{
-  if (dialogsTitle != 0) {
-    return dialogsTitle;
-  }
- else {
-    return getTextPrimary();
-  }
-}

@@ -6,8 +6,8 @@
     getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,onCreateFragment()).commit();
   }
   messageEditText=(EditText)findViewById(R.id.et_message);
-  messageEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimary());
-  messageEditText.setHintTextColor(ActorSDK.sharedActor().style.getTextHint());
+  messageEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
+  messageEditText.setHintTextColor(ActorSDK.sharedActor().style.getTextHintColor());
   messageEditText.setOnKeyListener(new View.OnKeyListener(){
     @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
       if (messenger().isSendByEnterEnabled()) {
@@ -56,6 +56,7 @@
   }
 );
   removedFromGroup=findViewById(R.id.kickedFromChat);
+  ((TextView)removedFromGroup.findViewById(R.id.kicked_text)).setTextColor(ActorSDK.sharedActor().style.getMainColor());
   final ImageView emojiButton=(ImageView)findViewById(R.id.ib_emoji);
   emojiKeyboard=new EmojiKeyboard(this);
   emojiKeyboard.setKeyboardStatusListener(new KeyboardStatusListener(){

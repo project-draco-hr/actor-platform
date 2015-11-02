@@ -1,0 +1,8 @@
+{
+  if (dialogsTitleColor != 0) {
+    return dialogsTitleColor;
+  }
+ else {
+    return getTextPrimaryColor();
+  }
+}

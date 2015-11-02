@@ -1,8 +1,0 @@
-{
-  if (backyardBackground != 0) {
-    return backyardBackground;
-  }
- else {
-    return getDarkenArgb(getMainBackground(),0.9375);
-  }
-}

@@ -2,7 +2,7 @@
   if (useCompactVersion) {
     View footer=new View(getActivity());
     footer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
-    footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
+    footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
     addFooterView(footer);
   }
  else {
@@ -29,7 +29,7 @@
     shadow.setScaleType(ImageView.ScaleType.FIT_XY);
     shadow.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(4)));
     footer.addView(shadow);
-    footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
+    footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
     addFooterView(footer);
   }
 }

@@ -1,0 +1,8 @@
+{
+  if (profileSubtitleColor != 0) {
+    return profileSubtitleColor;
+  }
+ else {
+    return getTextSecondaryInvColor();
+  }
+}

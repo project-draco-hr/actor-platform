@@ -1,0 +1,8 @@
+{
+  if (profileTitleColor != 0) {
+    return profileTitleColor;
+  }
+ else {
+    return getTextPrimaryInvColor();
+  }
+}

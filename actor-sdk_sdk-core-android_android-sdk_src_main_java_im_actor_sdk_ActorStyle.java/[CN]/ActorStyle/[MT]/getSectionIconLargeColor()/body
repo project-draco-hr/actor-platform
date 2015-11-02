@@ -1,0 +1,8 @@
+{
+  if (sectionIconLargeColor != 0) {
+    return sectionIconLargeColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

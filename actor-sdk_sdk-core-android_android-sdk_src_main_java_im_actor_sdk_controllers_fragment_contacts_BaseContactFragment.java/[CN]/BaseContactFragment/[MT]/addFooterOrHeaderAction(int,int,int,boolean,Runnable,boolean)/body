@@ -1,6 +1,6 @@
 {
   FrameLayout container=new FrameLayout(getActivity());
-  container.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackground());
+  container.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
 {
     container.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
   }
@@ -46,7 +46,7 @@
   }
   if (!isLast) {
     View div=new View(getActivity());
-    div.setBackgroundColor(ActorSDK.sharedActor().style.getContactDivider());
+    div.setBackgroundColor(ActorSDK.sharedActor().style.getContactDividerColor());
 {
       FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,getResources().getDimensionPixelSize(R.dimen.div_size));
       layoutParams.gravity=Gravity.BOTTOM;

@@ -1,0 +1,8 @@
+{
+  if (settingsSubtitleColor != 0) {
+    return settingsSubtitleColor;
+  }
+ else {
+    return getTextSecondaryColor();
+  }
+}

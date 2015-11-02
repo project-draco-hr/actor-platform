@@ -1,8 +1,0 @@
-{
-  if (listAction != 0) {
-    return listAction;
-  }
- else {
-    return getSettingsCategoryTextColor();
-  }
-}

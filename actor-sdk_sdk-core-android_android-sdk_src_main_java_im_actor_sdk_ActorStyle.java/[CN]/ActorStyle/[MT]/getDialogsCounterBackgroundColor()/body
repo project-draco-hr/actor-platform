@@ -3,6 +3,6 @@
     return dialogsCounterBackgroundColor;
   }
  else {
-    return getPrimaryAlt();
+    return getPrimaryAltColor();
   }
 }

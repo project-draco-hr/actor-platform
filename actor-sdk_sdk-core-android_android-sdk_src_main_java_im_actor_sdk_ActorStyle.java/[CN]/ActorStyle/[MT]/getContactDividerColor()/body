@@ -1,0 +1,8 @@
+{
+  if (contactDividerColor != 0) {
+    return contactDividerColor;
+  }
+ else {
+    return getDividerColor();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (convTextColor != 0) {
+    return convTextColor;
+  }
+ else {
+    return getTextPrimaryColor();
+  }
+}

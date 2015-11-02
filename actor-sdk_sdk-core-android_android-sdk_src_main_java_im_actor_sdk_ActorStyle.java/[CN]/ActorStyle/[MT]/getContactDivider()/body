@@ -1,8 +1,0 @@
-{
-  if (contactDivider != 0) {
-    return contactDivider;
-  }
- else {
-    return getDivider();
-  }
-}

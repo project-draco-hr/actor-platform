@@ -1,8 +1,0 @@
-{
-  if (dialogsText != 0) {
-    return dialogsText;
-  }
- else {
-    return getTextSecondary();
-  }
-}

@@ -1,0 +1,8 @@
+{
+  if (convSendEnabledColor != 0) {
+    return convSendEnabledColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

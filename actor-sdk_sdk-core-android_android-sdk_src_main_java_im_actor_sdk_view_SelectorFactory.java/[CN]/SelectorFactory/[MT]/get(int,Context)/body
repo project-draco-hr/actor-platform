@@ -1,0 +1,10 @@
+{
+  GradientDrawable bg=(GradientDrawable)context.getResources().getDrawable(R.drawable.btn_bg);
+  bg.setColor(color);
+  GradientDrawable bgPressed=(GradientDrawable)context.getResources().getDrawable(R.drawable.btn_bg_pressed);
+  bgPressed.setColor(ActorStyle.getDarkenArgb(color,0.95));
+  StateListDrawable states=new StateListDrawable();
+  states.addState(new int[]{android.R.attr.state_pressed},bgPressed);
+  states.addState(StateSet.WILD_CARD,bg);
+  return states;
+}

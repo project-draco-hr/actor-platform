@@ -1,0 +1,8 @@
+{
+  if (dialogsDividerColor != 0) {
+    return dialogsDividerColor;
+  }
+ else {
+    return getDividerColor();
+  }
+}

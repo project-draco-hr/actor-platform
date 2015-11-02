@@ -1,0 +1,8 @@
+{
+  if (listActionColor != 0) {
+    return listActionColor;
+  }
+ else {
+    return getMainColor();
+  }
+}

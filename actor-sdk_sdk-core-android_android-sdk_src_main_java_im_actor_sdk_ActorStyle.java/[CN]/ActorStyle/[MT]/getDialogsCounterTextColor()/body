@@ -3,6 +3,6 @@
     return dialogsCounterTextColor;
   }
  else {
-    return getTextPrimaryInv();
+    return getTextPrimaryInvColor();
   }
 }

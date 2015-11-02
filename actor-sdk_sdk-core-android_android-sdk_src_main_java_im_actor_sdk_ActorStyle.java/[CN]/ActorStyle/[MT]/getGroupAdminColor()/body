@@ -1,0 +1,8 @@
+{
+  if (groupAdminColor != 0) {
+    return groupAdminColor;
+  }
+ else {
+    return getAccentColor();
+  }
+}

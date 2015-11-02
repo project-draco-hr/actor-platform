@@ -3,9 +3,9 @@
   for (  IActorSettingsCategory category : categories) {
     LinearLayout categoryContainer=(LinearLayout)inflater.inflate(R.layout.actor_settings_category,null);
     FrameLayout settingsContainer=(FrameLayout)categoryContainer.findViewById(R.id.settings_container);
-    categoryContainer.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackground());
+    categoryContainer.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
     TextView categoryName=(TextView)categoryContainer.findViewById(R.id.category_name);
-    categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsMainTitle());
+    categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsMainTitleColor());
     categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsCategoryTextColor());
     categoryName.setText(category.getCategoryName());
     if (category.getView(context) != null) {

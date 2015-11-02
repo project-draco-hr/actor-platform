@@ -1,9 +1,0 @@
-{
-  if (fabColorPressed != 0) {
-    return fabColorPressed;
-  }
- else {
-    double percent=0.95;
-    return getDarkenArgb(getFabColor(),percent);
-  }
-}

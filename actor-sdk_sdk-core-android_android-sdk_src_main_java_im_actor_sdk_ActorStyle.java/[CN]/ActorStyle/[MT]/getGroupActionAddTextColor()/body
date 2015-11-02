@@ -1,0 +1,8 @@
+{
+  if (groupActionAddTextColor != 0) {
+    return groupActionAddTextColor;
+  }
+ else {
+    return getListActionColor();
+  }
+}

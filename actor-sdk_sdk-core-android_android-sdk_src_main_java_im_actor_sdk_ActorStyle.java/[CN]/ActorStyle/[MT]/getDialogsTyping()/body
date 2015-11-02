@@ -1,8 +1,0 @@
-{
-  if (dialogsTyping != 0) {
-    return dialogsTyping;
-  }
- else {
-    return getMainColor();
-  }
-}

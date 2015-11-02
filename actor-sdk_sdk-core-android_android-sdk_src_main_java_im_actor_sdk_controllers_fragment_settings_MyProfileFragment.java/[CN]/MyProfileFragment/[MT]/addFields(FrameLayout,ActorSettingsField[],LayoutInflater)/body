@@ -12,9 +12,9 @@
  else {
       LinearLayout fieldLayout=(LinearLayout)inflater.inflate(R.layout.actor_settings_field,null);
       TintImageView icon=(TintImageView)fieldLayout.findViewById(R.id.icon);
-      icon.setTint(ActorSDK.sharedActor().style.getSettingsIcon());
+      icon.setTint(ActorSDK.sharedActor().style.getSettingsIconColor());
       TextView name=(TextView)fieldLayout.findViewById(R.id.name);
-      name.setTextColor(ActorSDK.sharedActor().style.getSettingsTitle());
+      name.setTextColor(ActorSDK.sharedActor().style.getSettingsTitleColor());
       View rightView=field.getRightView(context);
       field.bindCreatedRightView(rightView);
       field.bindCreatedTextView(name);

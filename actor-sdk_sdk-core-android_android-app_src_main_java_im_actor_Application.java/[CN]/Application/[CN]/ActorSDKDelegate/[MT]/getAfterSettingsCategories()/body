@@ -22,7 +22,7 @@
           Toast.makeText(getApplicationContext(),"Yo",Toast.LENGTH_SHORT).show();
         }
       }
-,R.drawable.ic_cloud_download_white_36dp,getResources().getColor(R.color.accent)),new ActorSettingsField(){
+,R.drawable.ic_cloud_download_white_36dp,ActorSDK.sharedActor().style.getAccentColor()),new ActorSettingsField(){
         @Override public View getView(        Context context){
           TextView tv=new TextView(context);
           tv.setText("Custom");
