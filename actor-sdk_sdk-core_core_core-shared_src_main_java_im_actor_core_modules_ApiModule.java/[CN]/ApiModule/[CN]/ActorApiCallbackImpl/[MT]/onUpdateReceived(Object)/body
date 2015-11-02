@@ -1,3 +1,5 @@
 {
-  context().getUpdatesModule().onUpdateReceived(obj);
+  if (context().getUpdatesModule() != null) {
+    context().getUpdatesModule().onUpdateReceived(obj);
+  }
 }
