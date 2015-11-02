@@ -1,4 +1,0 @@
-{
-  super.onPause();
-  helper.setImeVisibility(groupName,false);
-}

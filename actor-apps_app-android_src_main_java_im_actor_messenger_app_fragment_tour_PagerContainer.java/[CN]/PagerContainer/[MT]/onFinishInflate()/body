@@ -1,9 +1,0 @@
-{
-  try {
-    mPager=(VerticalViewPager)getChildAt(0);
-    mPager.setOnPageChangeListener(this);
-  }
- catch (  Exception e) {
-    throw new IllegalStateException("The root child of PagerContainer must be a ViewPager");
-  }
-}

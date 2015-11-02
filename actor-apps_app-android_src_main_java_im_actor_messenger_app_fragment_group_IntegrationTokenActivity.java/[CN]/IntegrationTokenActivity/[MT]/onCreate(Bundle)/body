@@ -1,8 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  getSupportActionBar().setTitle(R.string.integration_token_title);
-  int chatId=getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0);
-  if (savedInstanceState == null) {
-    showFragment(IntegrationTokenFragment.create(chatId),false,false);
-  }
-}

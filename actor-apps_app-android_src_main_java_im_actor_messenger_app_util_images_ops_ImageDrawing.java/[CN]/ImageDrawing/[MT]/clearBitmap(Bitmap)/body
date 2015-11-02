@@ -1,3 +1,0 @@
-{
-  clearBitmap(bitmap,CLEAR_COLOR);
-}

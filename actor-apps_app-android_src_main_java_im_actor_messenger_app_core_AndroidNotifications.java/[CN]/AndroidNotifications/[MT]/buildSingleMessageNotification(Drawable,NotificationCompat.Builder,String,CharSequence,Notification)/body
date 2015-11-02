@@ -1,3 +1,0 @@
-{
-  return builder.setContentTitle(sender).setContentText(text).setLargeIcon(drawableToBitmap(d)).setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_UPDATE_CURRENT)).setStyle(new NotificationCompat.BigTextStyle().bigText(text)).build();
-}

@@ -1,3 +1,0 @@
-{
-  mItemTypesOffset.put(adapterClass,ITEMS_START + mItemTypesOffset.size() * ADAPTER_MAX_TYPES);
-}

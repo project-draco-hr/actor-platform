@@ -1,3 +1,0 @@
-{
-  bind(dialog.getDialogAvatar(),dialog.getDialogTitle(),dialog.getPeer().getPeerId());
-}

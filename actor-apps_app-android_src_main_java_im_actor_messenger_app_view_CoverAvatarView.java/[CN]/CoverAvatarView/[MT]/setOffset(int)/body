@@ -1,3 +1,0 @@
-{
-  setScrollY(-offset / 2);
-}

@@ -1,6 +1,0 @@
-{
-  if (mOrientation == HORIZONTAL) {
-    return 0;
-  }
-  return scrollBy(dy,recycler,state);
-}

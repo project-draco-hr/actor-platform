@@ -1,5 +1,0 @@
-{
-  Intent res=new Intent(context,ViewAvatarActivity.class);
-  res.putExtra(Intents.EXTRA_CHAT_PEER,Peer.group(gid).getUnuqueId());
-  return res;
-}

@@ -1,3 +1,0 @@
-{
-  save(src,fileName,Bitmap.CompressFormat.JPEG,quality);
-}

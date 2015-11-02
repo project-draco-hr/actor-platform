@@ -1,4 +1,0 @@
-{
-  TextView historyView=(TextView)itemView.findViewById(R.id.title);
-  historyView.setText(name);
-}

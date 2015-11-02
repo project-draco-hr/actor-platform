@@ -1,9 +1,0 @@
-{
-  if (fm != null) {
-    fm.ascent=-Screen.dp(21 + 3);
-    fm.descent=Screen.dp(10 + 3);
-    fm.top=fm.ascent;
-    fm.bottom=fm.descent;
-  }
-  return (int)textPaint.measureText(userText) + Screen.dp(24 + 8);
-}

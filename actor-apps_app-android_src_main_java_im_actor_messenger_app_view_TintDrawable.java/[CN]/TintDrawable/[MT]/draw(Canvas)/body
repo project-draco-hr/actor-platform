@@ -1,5 +1,0 @@
-{
-  int x=(getBounds().width() - src.getWidth()) / 2;
-  int y=(getBounds().height() - src.getHeight()) / 2;
-  canvas.drawBitmap(src,x,y,PAINT);
-}

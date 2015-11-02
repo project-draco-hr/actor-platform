@@ -1,4 +1,0 @@
-{
-  int hCount=getHeaderCount();
-  if (position >= hCount && position < hCount + mWrappedAdapter.getItemCount())   mWrappedAdapter.onBindViewHolder(viewHolder,position - hCount);
-}

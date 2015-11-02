@@ -1,3 +1,0 @@
-{
-  print(Log.DEBUG,tag,msg,t);
-}

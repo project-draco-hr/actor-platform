@@ -1,7 +1,0 @@
-{
-  super.updateDrawState(ds);
-  if (hideUrlStyle) {
-    ds.setUnderlineText(false);
-    ds.setColor(Color.BLACK);
-  }
-}

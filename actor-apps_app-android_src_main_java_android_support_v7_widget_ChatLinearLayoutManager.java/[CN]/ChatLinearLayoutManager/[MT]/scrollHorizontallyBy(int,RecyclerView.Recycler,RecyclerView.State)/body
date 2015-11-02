@@ -1,6 +1,0 @@
-{
-  if (mOrientation == VERTICAL) {
-    return 0;
-  }
-  return scrollBy(dx,recycler,state);
-}

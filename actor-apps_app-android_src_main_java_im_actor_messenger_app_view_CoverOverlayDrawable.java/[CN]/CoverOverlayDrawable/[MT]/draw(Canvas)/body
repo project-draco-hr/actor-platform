@@ -1,5 +1,0 @@
-{
-  Rect rect=getBounds();
-  bottomShadow.setBounds(rect.left,rect.bottom - Screen.dp(64),rect.right,rect.bottom);
-  bottomShadow.draw(canvas);
-}

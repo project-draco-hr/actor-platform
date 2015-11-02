@@ -1,3 +1,0 @@
-{
-  if (files != null)   onSearchEnded(files);
-}

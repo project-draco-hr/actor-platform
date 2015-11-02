@@ -1,8 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-    return src;
-  }
- else {
-    return cutEmoji(src);
-  }
-}

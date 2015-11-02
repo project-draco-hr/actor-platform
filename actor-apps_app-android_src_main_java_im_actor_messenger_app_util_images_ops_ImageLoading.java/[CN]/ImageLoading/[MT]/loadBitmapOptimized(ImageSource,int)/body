@@ -1,4 +1,0 @@
-{
-  int scale=getScaleFactor(source.getImageMetadata(),limit);
-  return loadBitmap(source,scale);
-}

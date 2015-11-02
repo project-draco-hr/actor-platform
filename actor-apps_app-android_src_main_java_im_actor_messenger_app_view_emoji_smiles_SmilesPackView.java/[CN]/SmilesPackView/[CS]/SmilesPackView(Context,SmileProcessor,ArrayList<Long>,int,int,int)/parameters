@@ -1,6 +1,0 @@
-Context context
-SmileProcessor processor
-ArrayList<Long> smileyIds
-int smileysInRow
-int smileySize
-int smileyPadding

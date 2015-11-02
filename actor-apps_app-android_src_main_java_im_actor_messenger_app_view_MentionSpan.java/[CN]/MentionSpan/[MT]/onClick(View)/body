@@ -1,7 +1,0 @@
-{
-  if (hideUrlStyle) {
-  }
- else {
-    widget.getContext().startActivity(Intents.openProfile(userId,widget.getContext()));
-  }
-}

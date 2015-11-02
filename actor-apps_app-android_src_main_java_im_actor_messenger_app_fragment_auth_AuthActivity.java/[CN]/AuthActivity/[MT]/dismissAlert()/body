@@ -1,6 +1,0 @@
-{
-  if (alertDialog != null) {
-    alertDialog.dismiss();
-    alertDialog=null;
-  }
-}

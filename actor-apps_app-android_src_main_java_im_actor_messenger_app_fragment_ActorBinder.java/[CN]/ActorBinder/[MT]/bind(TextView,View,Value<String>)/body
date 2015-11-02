@@ -1,3 +1,0 @@
-{
-  bind(textView,container,value,null,true,"");
-}

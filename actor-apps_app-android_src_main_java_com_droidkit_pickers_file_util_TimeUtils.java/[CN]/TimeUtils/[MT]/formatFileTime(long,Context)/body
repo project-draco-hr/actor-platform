@@ -1,7 +1,0 @@
-{
-  Date currentDate=new Date(System.currentTimeMillis());
-  Date convertableDate=new Date(time);
-  String convertedDate=dateInstanceGetter.get().format(convertableDate);
-  String convertedTime=timeInstanceGetter.get().format(convertableDate);
-  return context.getString(R.string.picker_time_at,convertedDate,convertedTime);
-}

@@ -1,3 +1,0 @@
-{
-  typeView.setText(fileType);
-}

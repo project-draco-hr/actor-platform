@@ -1,8 +1,0 @@
-{
-synchronized (LOCKER) {
-    this.currentRequest++;
-    this.data=null;
-    this.isActive=false;
-  }
-  preview.getHierarchy().setPlaceholderImage(null);
-}

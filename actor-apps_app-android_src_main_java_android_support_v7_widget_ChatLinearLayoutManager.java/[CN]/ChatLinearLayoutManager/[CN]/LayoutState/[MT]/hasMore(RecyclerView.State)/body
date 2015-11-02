@@ -1,3 +1,0 @@
-{
-  return mCurrentPosition >= 0 && mCurrentPosition < state.getItemCount();
-}

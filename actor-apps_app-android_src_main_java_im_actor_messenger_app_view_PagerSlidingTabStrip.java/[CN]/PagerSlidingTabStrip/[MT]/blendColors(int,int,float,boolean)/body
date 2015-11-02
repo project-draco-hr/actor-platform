@@ -1,8 +1,0 @@
-{
-  final float inverseRation=1f - ratio;
-  float a=(Color.alpha(color1)) - (Color.alpha(color2) * (inverse ? inverseRation : ratio));
-  float r=(Color.red(color1)) - (Color.red(color2) * (inverse ? inverseRation : ratio));
-  float g=(Color.green(color1)) - (Color.green(color2) * (inverse ? inverseRation : ratio));
-  float b=(Color.blue(color1)) - (Color.blue(color2) * (inverse ? inverseRation : ratio));
-  return Color.argb((int)a,(int)r,(int)g,(int)b);
-}

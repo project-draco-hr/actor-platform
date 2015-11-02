@@ -1,4 +1,0 @@
-{
-  this.stickerId=stickerId;
-  this.packId=packId;
-}

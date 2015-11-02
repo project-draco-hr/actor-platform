@@ -1,7 +1,0 @@
-{
-  if (showUnreadDiv) {
-    showUnreadDiv=false;
-    unreadDiv.setVisibility(GONE);
-    requestLayout();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  mAnchorPosition=other.mAnchorPosition;
-  mAnchorOffset=other.mAnchorOffset;
-  mAnchorLayoutFromEnd=other.mAnchorLayoutFromEnd;
-}

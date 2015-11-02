@@ -1,3 +1,0 @@
-{
-  saveJpeg(src,fileName,JPEG_QUALITY_HQ);
-}

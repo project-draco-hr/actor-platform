@@ -1,8 +1,0 @@
-{
-  Drawable drawable=context.getResources().getDrawable(resourceId);
-  if (!(drawable instanceof BitmapDrawable)) {
-    throw new RuntimeException("BitmapDrawable is required");
-  }
-  src=((BitmapDrawable)drawable).getBitmap();
-  PAINT.setColorFilter(new PorterDuffColorFilter(context.getResources().getColor(colorId),PorterDuff.Mode.SRC_IN));
-}

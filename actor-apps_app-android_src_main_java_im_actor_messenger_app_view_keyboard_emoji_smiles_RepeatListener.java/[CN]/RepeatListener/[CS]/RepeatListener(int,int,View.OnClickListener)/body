@@ -1,7 +1,0 @@
-{
-  if (clickListener == null)   throw new IllegalArgumentException("null runnable");
-  if (initialInterval < 0 || normalInterval < 0)   throw new IllegalArgumentException("negative interval");
-  this.initialInterval=initialInterval;
-  this.normalInterval=normalInterval;
-  this.clickListener=clickListener;
-}

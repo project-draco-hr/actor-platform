@@ -1,7 +1,0 @@
-{
-  showView(progressContainer);
-  progressIcon.setImageResource(R.drawable.conv_media_upload);
-  showView(progressIcon);
-  goneView(progressView);
-  goneView(progressValue);
-}

@@ -1,8 +1,0 @@
-{
-  if (peer.getPeerType() == PeerType.GROUP) {
-    return groups().get(peer.getPeerId()).getAvatar();
-  }
- else {
-    return users().get(peer.getPeerId()).getAvatar();
-  }
-}

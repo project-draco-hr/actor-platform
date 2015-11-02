@@ -1,4 +1,0 @@
-{
-  subTitleView.setVisibility(View.VISIBLE);
-  subTitleView.setText(subtitle);
-}

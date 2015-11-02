@@ -1,4 +1,0 @@
-{
-  super.onAttach(activity);
-  this.pickerActivity=(BasePickerActivity)activity;
-}

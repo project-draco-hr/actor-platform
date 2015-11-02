@@ -1,6 +1,0 @@
-{
-  if (name != null) {
-    return name;
-  }
-  return super.getTitle();
-}

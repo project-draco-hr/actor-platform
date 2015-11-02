@@ -1,7 +1,0 @@
-{
-  SpannableStringBuilder builder=new SpannableStringBuilder(src);
-  for (  StringMatch sm : matches) {
-    builder.setSpan(new ForegroundColorSpan(color),sm.getStart(),sm.getStart() + sm.getLength(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-  }
-  return builder;
-}

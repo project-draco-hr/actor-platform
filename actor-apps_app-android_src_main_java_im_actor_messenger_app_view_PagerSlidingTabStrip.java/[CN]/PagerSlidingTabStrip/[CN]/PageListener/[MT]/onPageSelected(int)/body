@@ -1,6 +1,0 @@
-{
-  redrawTabs(position);
-  if (delegatePageListener != null) {
-    delegatePageListener.onPageSelected(position);
-  }
-}

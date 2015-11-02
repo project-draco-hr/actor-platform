@@ -1,3 +1,0 @@
-{
-  return new Intent(context,ProfileActivity.class).putExtra(EXTRA_UID,uid);
-}

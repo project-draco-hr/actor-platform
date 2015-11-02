@@ -1,5 +1,0 @@
-{
-  Sticker[] array=new Sticker[size()];
-  this.toArray(array);
-  return new StickersPack(array);
-}

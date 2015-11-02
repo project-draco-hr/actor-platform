@@ -1,8 +1,0 @@
-{
-  Bundle bundle=new Bundle();
-  bundle.putString(ARG_FILE_PATH,path);
-  bundle.putInt(ARG_OWNER,senderId);
-  Fragment fragment=new PictureFragment();
-  fragment.setArguments(bundle);
-  return fragment;
-}

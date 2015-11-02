@@ -1,4 +1,0 @@
-{
-  if (density == 0f)   density=AppContext.getContext().getResources().getDisplayMetrics().density;
-  return (int)(dp * density + .5f);
-}

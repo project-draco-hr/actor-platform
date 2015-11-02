@@ -1,6 +1,0 @@
-{
-  if (currentMessage != null) {
-    return adapter.getMessagesFragment().onLongClick(currentMessage);
-  }
-  return false;
-}

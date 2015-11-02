@@ -1,7 +1,0 @@
-{
-  if (!isResumed) {
-    return;
-  }
-  isResumed=false;
-  Core.messenger().onActivityClosed();
-}

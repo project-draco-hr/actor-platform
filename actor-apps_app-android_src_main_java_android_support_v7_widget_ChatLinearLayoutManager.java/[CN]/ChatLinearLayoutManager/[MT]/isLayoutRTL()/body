@@ -1,3 +1,0 @@
-{
-  return getLayoutDirection() == ViewCompat.LAYOUT_DIRECTION_RTL;
-}

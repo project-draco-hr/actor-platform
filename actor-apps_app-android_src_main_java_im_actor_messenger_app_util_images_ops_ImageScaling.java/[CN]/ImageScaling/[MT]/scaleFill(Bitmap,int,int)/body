@@ -1,5 +1,0 @@
-{
-  Bitmap res=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
-  scaleFill(src,res);
-  return res;
-}

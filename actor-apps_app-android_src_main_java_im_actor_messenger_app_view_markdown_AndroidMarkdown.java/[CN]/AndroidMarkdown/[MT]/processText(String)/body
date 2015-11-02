@@ -1,3 +1,0 @@
-{
-  return processtext(markdown,MarkdownParser.MODE_FULL);
-}

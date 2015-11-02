@@ -1,3 +1,0 @@
-{
-  return loadBitmapReuse(new FileSource(fileName),dest);
-}

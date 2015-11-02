@@ -1,3 +1,0 @@
-{
-  view.animate().setInterpolator(MaterialInterpolator.getInstance()).alpha(150).setDuration(300).start();
-}

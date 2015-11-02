@@ -1,6 +1,0 @@
-{
-  final Intent intent=new Intent(context,ChatActivity.class);
-  intent.putExtra(EXTRA_CHAT_PEER,peer.getUnuqueId());
-  intent.putExtra(EXTRA_CHAT_COMPOSE,compose);
-  return intent;
-}

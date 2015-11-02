@@ -1,7 +1,0 @@
-{
-  Integer res=TYPES.get(extension.toLowerCase());
-  if (res != null) {
-    return res;
-  }
-  return TYPE_UNKNOWN;
-}

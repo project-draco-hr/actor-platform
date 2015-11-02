@@ -1,5 +1,0 @@
-{
-  if (item.getItemId() == android.R.id.home) {
-  }
-  return super.onOptionsItemSelected(item);
-}

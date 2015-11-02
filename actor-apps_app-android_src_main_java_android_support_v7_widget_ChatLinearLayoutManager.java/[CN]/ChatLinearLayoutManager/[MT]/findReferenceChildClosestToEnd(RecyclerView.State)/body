@@ -1,3 +1,0 @@
-{
-  return mShouldReverseLayout ? findFirstReferenceChild(state.getItemCount()) : findLastReferenceChild(state.getItemCount());
-}

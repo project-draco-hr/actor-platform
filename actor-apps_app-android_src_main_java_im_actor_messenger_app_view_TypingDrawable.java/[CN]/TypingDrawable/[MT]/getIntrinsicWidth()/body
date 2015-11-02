@@ -1,3 +1,0 @@
-{
-  return Screen.dp(((DIAMETER + OFFSET) * 3 + PADDING));
-}

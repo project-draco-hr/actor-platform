@@ -1,6 +1,0 @@
-{
-  if (isFabVisible) {
-    isFabVisible=false;
-    goneView(fabContent,true,false);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  if (requestCode == REQUEST_COUNTRY && resultCode == Activity.RESULT_OK) {
-    setCountry(new Country(data.getStringExtra("country_code"),data.getStringExtra("country_shortname"),data.getIntExtra("country_id",0)));
-  }
-}

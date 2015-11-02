@@ -1,9 +1,0 @@
-{
-  super.onCreate(savedInstance);
-  if (messenger().getAuthState() != AuthState.LOGGED_IN) {
-    startActivity(new Intent(this,TourActivity.class));
-    finish();
-    return;
-  }
-  getWindow().setBackgroundDrawable(null);
-}

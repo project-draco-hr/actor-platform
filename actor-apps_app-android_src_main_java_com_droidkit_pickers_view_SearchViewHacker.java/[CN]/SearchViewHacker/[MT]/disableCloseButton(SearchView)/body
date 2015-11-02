@@ -1,6 +1,0 @@
-{
-  ImageView searchImageView=(ImageView)findView(searchView,"mCloseButton");
-  searchImageView.setVisibility(View.GONE);
-  searchImageView.setImageBitmap(null);
-  searchImageView.setAdjustViewBounds(true);
-}

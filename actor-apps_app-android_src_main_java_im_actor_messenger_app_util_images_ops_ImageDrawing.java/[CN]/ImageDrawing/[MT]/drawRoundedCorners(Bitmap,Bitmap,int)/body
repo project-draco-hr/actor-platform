@@ -1,3 +1,0 @@
-{
-  drawRoundedCorners(src,dest,radius,CLEAR_COLOR);
-}

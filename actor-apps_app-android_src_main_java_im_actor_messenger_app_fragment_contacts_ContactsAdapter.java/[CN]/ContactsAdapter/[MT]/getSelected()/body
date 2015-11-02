@@ -1,3 +1,0 @@
-{
-  return selectedUsers.toArray(new Integer[selectedUsers.size()]);
-}

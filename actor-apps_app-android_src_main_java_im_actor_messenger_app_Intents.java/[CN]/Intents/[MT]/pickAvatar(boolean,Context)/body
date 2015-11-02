@@ -1,3 +1,0 @@
-{
-  return new Intent(context,TakePhotoActivity.class).putExtra(EXTRA_ALLOW_DELETE,isAllowDelete);
-}

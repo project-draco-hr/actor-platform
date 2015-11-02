@@ -1,6 +1,0 @@
-{
-  if (!isFabVisible) {
-    isFabVisible=true;
-    showView(fabContent,true,false);
-  }
-}

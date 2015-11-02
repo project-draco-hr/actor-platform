@@ -1,8 +1,0 @@
-{
-  mLayoutState.mAvailable=mOrientationHelper.getEndAfterPadding() - offset;
-  mLayoutState.mItemDirection=mShouldReverseLayout ? LayoutState.ITEM_DIRECTION_HEAD : LayoutState.ITEM_DIRECTION_TAIL;
-  mLayoutState.mCurrentPosition=itemPosition;
-  mLayoutState.mLayoutDirection=LayoutState.LAYOUT_END;
-  mLayoutState.mOffset=offset;
-  mLayoutState.mScrollingOffset=LayoutState.SCOLLING_OFFSET_NaN;
-}

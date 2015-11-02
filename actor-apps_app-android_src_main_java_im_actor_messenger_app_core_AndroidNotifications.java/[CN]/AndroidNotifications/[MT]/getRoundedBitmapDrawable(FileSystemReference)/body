@@ -1,7 +1,0 @@
-{
-  Bitmap b=BitmapFactory.decodeFile(reference.getDescriptor());
-  RoundedBitmapDrawable d=RoundedBitmapDrawableFactory.create(context.getResources(),Bitmap.createScaledBitmap(b,Screen.dp(55),Screen.dp(55),false));
-  d.setCornerRadius(d.getIntrinsicHeight() / 2);
-  d.setAntiAlias(true);
-  return d;
-}

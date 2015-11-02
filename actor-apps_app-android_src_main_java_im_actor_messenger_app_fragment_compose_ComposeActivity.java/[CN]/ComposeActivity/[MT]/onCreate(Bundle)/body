@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  getSupportActionBar().setTitle(R.string.compose_title);
-  showFragment(new ComposeFragment(),false,false);
-}

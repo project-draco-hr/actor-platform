@@ -1,8 +1,0 @@
-{
-  if (mOrientation == VERTICAL || !isLayoutRTL()) {
-    mShouldReverseLayout=mReverseLayout;
-  }
- else {
-    mShouldReverseLayout=!mReverseLayout;
-  }
-}

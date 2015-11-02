@@ -1,3 +1,0 @@
-{
-  soundPool.play(soundId,1.0f,1.0f,0,0,1.0f);
-}

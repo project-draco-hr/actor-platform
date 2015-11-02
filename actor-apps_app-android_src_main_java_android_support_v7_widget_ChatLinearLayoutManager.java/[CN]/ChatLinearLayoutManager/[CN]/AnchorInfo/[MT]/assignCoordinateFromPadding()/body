@@ -1,3 +1,0 @@
-{
-  mCoordinate=mLayoutFromEnd ? mOrientationHelper.getEndAfterPadding() : mOrientationHelper.getStartAfterPadding();
-}

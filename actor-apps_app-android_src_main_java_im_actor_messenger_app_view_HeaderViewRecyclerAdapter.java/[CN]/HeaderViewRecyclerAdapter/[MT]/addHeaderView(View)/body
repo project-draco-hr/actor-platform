@@ -1,4 +1,0 @@
-{
-  mHeaderViews.add(view);
-  notifyDataSetChanged();
-}

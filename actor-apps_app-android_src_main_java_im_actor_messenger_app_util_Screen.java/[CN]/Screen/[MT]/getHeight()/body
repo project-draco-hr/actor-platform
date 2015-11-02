@@ -1,3 +1,0 @@
-{
-  return AppContext.getContext().getResources().getDisplayMetrics().heightPixels;
-}

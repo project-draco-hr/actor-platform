@@ -1,5 +1,0 @@
-{
-  this.isSelected=isSelected;
-  setSelected(isSelected);
-  invalidate();
-}

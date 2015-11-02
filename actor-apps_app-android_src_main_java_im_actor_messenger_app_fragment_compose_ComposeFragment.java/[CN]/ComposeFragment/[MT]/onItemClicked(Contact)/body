@@ -1,4 +1,0 @@
-{
-  getActivity().startActivity(Intents.openPrivateDialog(contact.getUid(),true,getActivity()));
-  getActivity().finish();
-}

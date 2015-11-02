@@ -1,4 +1,0 @@
-{
-  super(file,false,"",imageId,true);
-  this.name=name;
-}

@@ -1,8 +1,0 @@
-{
-  mPendingScrollPosition=position;
-  mPendingScrollPositionOffset=INVALID_OFFSET;
-  if (mPendingSavedState != null) {
-    mPendingSavedState.invalidateAnchor();
-  }
-  requestLayout();
-}

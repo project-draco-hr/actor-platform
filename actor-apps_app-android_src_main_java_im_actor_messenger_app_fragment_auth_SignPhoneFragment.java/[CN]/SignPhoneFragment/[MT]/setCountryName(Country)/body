@@ -1,8 +1,0 @@
-{
-  if (country == null) {
-    countrySelectButton.setText(getString(R.string.auth_phone_country_title));
-  }
- else {
-    countrySelectButton.setText(getString(country.fullNameRes));
-  }
-}

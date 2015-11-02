@@ -1,3 +1,0 @@
-{
-  return new BackspaceInputConnection(super.onCreateInputConnection(outAttrs),true);
-}

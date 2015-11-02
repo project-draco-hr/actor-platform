@@ -1,7 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  if (controller == null) {
-    controller=onCreateController();
-  }
-  controller.onCreate(savedInstanceState);
-}

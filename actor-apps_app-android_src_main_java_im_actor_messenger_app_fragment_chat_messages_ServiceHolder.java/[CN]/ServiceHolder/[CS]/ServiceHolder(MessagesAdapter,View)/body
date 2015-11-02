@@ -1,4 +1,0 @@
-{
-  super(fragment,itemView,true);
-  messageText=(TextView)itemView.findViewById(R.id.serviceMessage);
-}

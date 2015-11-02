@@ -1,5 +1,0 @@
-Paint paint
-CharSequence charSequence
-int start
-int end
-Paint.FontMetricsInt fm

@@ -1,6 +1,0 @@
-{
-  showDateDiv=true;
-  dateDiv.setText(TextUtils.formatDate(time));
-  dateDiv.setVisibility(VISIBLE);
-  requestLayout();
-}

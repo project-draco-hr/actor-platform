@@ -1,8 +1,0 @@
-{
-  Bundle args=new Bundle();
-  args.putInt("EXTRA_TYPE",type);
-  args.putInt("EXTRA_ID",id);
-  EditAboutFragment res=new EditAboutFragment();
-  res.setArguments(args);
-  return res;
-}

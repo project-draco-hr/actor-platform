@@ -1,3 +1,0 @@
-{
-  return MessagesFragment.create(peer);
-}

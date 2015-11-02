@@ -1,5 +1,0 @@
-{
-  super.onPause();
-  adapter.pause();
-  displayList.removeListener(this);
-}

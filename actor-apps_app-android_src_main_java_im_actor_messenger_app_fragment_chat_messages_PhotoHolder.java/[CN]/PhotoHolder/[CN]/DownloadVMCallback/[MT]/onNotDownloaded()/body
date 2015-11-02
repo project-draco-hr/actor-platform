@@ -1,8 +1,0 @@
-{
-  checkFastThumb();
-  showView(progressContainer);
-  progressIcon.setImageResource(R.drawable.conv_media_download);
-  showView(progressIcon);
-  goneView(progressView);
-  goneView(progressValue);
-}

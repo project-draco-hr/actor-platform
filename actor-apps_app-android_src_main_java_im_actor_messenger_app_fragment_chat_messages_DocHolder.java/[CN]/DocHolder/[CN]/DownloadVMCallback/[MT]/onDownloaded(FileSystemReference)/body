@@ -1,9 +1,0 @@
-{
-  status.setText(R.string.chat_doc_open);
-  showView(status);
-  showView(menu);
-  showView(fileIcon);
-  goneView(downloadIcon);
-  goneView(progressValue);
-  goneView(progressView);
-}

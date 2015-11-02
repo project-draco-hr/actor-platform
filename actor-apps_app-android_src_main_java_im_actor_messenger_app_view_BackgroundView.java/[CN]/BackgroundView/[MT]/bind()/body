@@ -1,5 +1,0 @@
-{
-  if (background == null) {
-    background=getResources().getDrawable(R.drawable.img_chat_background_default);
-  }
-}

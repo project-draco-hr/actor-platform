@@ -1,4 +1,0 @@
-{
-  recyclerView.setHasFixedSize(true);
-  recyclerView.setLayoutManager(new ChatLinearLayoutManager(getActivity(),ChatLinearLayoutManager.VERTICAL,false));
-}

@@ -1,7 +1,0 @@
-{
-  if (getChildCount() == 0) {
-    return 0;
-  }
-  ensureLayoutState();
-  return ScrollbarHelper.computeScrollOffset(state,mOrientationHelper,findFirstVisibleChildClosestToStart(!mSmoothScrollbarEnabled,true),findFirstVisibleChildClosestToEnd(!mSmoothScrollbarEnabled,true),this,mSmoothScrollbarEnabled,mShouldReverseLayout);
-}

@@ -1,5 +1,0 @@
-{
-  super.onResume();
-  aboutEdit.requestFocus();
-  helper.setImeVisibility(aboutEdit,true);
-}

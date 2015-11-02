@@ -1,3 +1,0 @@
-{
-  bind(group.getAvatar().get(),group.getName().get(),group.getId());
-}

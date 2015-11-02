@@ -1,3 +1,0 @@
-{
-  return loadBitmapReuse(new UriSource(uri,context),dest);
-}

@@ -1,4 +1,0 @@
-Value<T> value1
-Value<V> value2
-Value<S> value3
-ValueTripleChangedListener<T,V,S> listener

@@ -1,3 +1,0 @@
-{
-  setMeasuredDimension(smileySize * countInRow,smileySize * rowCount);
-}

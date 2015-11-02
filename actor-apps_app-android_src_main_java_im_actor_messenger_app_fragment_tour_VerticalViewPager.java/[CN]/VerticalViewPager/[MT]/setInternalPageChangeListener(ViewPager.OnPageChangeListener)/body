@@ -1,5 +1,0 @@
-{
-  ViewPager.OnPageChangeListener oldListener=mInternalPageChangeListener;
-  mInternalPageChangeListener=listener;
-  return oldListener;
-}

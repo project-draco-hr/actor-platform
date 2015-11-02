@@ -1,3 +1,0 @@
-{
-  print(Log.VERBOSE,tag,msg,t);
-}

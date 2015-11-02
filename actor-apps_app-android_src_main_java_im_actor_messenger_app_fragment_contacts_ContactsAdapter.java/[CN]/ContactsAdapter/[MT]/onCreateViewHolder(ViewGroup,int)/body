@@ -1,3 +1,0 @@
-{
-  return new ContactHolder(new FrameLayout(context),selectable,context,onItemClickedListener);
-}

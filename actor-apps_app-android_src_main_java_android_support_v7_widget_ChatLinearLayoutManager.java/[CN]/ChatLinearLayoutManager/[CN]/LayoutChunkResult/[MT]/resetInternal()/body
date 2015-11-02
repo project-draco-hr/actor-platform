@@ -1,6 +1,0 @@
-{
-  mConsumed=0;
-  mFinished=false;
-  mIgnoreConsumed=false;
-  mFocusable=false;
-}

@@ -1,9 +1,0 @@
-{
-  view=recycleView;
-  if (view == null) {
-    view=init(data,viewGroup,context);
-    view.setTag(this);
-  }
-  bind(data,pos,context);
-  return view;
-}

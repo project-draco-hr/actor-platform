@@ -1,6 +1,0 @@
-{
-  this.peer=peer;
-  Bundle bundle=new Bundle();
-  bundle.putByteArray("EXTRA_PEER",peer.toByteArray());
-  setArguments(bundle);
-}

@@ -1,5 +1,0 @@
-{
-  View res=inflater.inflate(resource,container,false);
-  afterViewInflate(res,displayList);
-  return res;
-}

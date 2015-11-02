@@ -1,3 +1,0 @@
-{
-  return Uri.parse("content://im.actor.avatar/" + location.getFileId());
-}

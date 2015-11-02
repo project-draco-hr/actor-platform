@@ -1,3 +1,0 @@
-{
-  return getChildAt(mShouldReverseLayout ? 0 : getChildCount() - 1);
-}

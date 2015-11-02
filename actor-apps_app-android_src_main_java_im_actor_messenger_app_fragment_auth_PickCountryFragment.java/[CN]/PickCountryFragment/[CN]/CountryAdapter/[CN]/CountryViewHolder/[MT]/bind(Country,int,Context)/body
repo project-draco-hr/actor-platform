@@ -1,4 +1,0 @@
-{
-  name.setText(context.getString(data.fullNameRes));
-  code.setText("+" + data.phoneCode);
-}

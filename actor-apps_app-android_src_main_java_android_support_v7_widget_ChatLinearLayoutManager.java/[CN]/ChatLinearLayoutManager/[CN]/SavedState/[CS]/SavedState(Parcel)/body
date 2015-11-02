@@ -1,5 +1,0 @@
-{
-  mAnchorPosition=in.readInt();
-  mAnchorOffset=in.readInt();
-  mAnchorLayoutFromEnd=in.readInt() == 1;
-}

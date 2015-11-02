@@ -1,9 +1,0 @@
-{
-  if (isSelected) {
-    selected.put(msg.getRid(),msg);
-  }
- else {
-    selected.remove(msg.getRid());
-  }
-  notifyDataSetChanged();
-}

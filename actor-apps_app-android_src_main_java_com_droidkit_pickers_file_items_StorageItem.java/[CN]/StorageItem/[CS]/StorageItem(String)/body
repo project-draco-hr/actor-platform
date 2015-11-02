@@ -1,4 +1,0 @@
-{
-  super(new File("/"),false,"",R.drawable.picker_memory,true);
-  this.name=name;
-}

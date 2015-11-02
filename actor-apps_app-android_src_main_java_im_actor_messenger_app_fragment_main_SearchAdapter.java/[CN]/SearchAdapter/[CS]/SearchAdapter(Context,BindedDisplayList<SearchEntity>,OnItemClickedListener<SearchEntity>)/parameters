@@ -1,3 +1,0 @@
-Context context
-BindedDisplayList<SearchEntity> displayList
-OnItemClickedListener<SearchEntity> onItemClickedListener

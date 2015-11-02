@@ -1,7 +1,0 @@
-{
-  if (mCurTransaction != null) {
-    mCurTransaction.commitAllowingStateLoss();
-    mCurTransaction=null;
-    mFragmentManager.executePendingTransactions();
-  }
-}

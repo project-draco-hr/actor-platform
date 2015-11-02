@@ -1,3 +1,0 @@
-{
-  return selected.values().toArray(new Message[selected.size()]);
-}

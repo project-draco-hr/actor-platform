@@ -1,3 +1,0 @@
-{
-  adapter.getMessagesFragment().onAvatarLongClick(uid);
-}

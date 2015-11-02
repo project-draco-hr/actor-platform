@@ -1,6 +1,0 @@
-{
-  toolbar.setVisibility(View.VISIBLE);
-  ownerContainer.setVisibility(View.VISIBLE);
-  uiIsHidden=false;
-  syncUiState();
-}

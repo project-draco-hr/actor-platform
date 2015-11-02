@@ -1,8 +1,0 @@
-{
-  currentPosition=position;
-  currentPositionOffset=positionOffset;
-  invalidate();
-  if (delegatePageListener != null) {
-    delegatePageListener.onPageScrolled(position,positionOffset,positionOffsetPixels);
-  }
-}

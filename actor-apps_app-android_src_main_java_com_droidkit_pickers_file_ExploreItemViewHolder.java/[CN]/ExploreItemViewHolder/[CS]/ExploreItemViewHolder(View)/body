@@ -1,9 +1,0 @@
-{
-  context=itemView.getContext();
-  titleView=(TextView)itemView.findViewById(R.id.title);
-  subTitleView=(TextView)itemView.findViewById(R.id.subtitle);
-  imageView=(ImageView)itemView.findViewById(R.id.image);
-  selectedView=itemView.findViewById(R.id.selected);
-  divider=itemView.findViewById(R.id.divider);
-  typeView=(TextView)itemView.findViewById(R.id.type);
-}

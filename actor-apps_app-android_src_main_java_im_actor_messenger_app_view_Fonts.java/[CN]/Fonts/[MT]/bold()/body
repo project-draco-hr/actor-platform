@@ -1,3 +1,0 @@
-{
-  return load(AppContext.getContext(),"Bold");
-}

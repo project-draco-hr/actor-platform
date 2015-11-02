@@ -1,6 +1,0 @@
-{
-  clearBitmap(src,color);
-  Canvas canvas=new Canvas(dest);
-  canvas.drawBitmap(src,0,0,null);
-  canvas.setBitmap(null);
-}

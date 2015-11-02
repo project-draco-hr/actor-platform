@@ -1,9 +1,0 @@
-{
-  if (userSearch) {
-    if (item.getItemId() == R.id.help) {
-      startActivity(new Intent(getActivity(),HelpActivity.class));
-      return true;
-    }
-  }
-  return super.onOptionsItemSelected(item);
-}

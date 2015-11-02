@@ -1,7 +1,0 @@
-{
-  Intent returnIntent=new Intent();
-  returnIntent.putExtra("picked",selectedItems);
-  setResult(RESULT_OK,returnIntent);
-  save();
-  finish();
-}

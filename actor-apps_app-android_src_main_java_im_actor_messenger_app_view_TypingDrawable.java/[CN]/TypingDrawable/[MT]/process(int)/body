@@ -1,8 +1,0 @@
-{
-  long time=(System.currentTimeMillis() + offset) % (DURATION + ANIMATION_DELTA);
-  if (time > DURATION) {
-    return 0;
-  }
-  float p=time / (float)(DURATION);
-  return (float)Math.abs(Math.sin(Math.PI * p));
-}

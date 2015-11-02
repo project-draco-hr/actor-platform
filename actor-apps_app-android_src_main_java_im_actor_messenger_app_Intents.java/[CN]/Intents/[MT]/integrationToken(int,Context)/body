@@ -1,5 +1,0 @@
-{
-  Intent res=new Intent(context,IntegrationTokenActivity.class);
-  res.putExtra(EXTRA_GROUP_ID,chatId);
-  return res;
-}

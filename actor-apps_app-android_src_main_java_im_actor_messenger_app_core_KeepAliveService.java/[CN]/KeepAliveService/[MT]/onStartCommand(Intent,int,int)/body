@@ -1,4 +1,0 @@
-{
-  Log.d("KL","KEEP ALIVE SERVICE STARTED");
-  return START_STICKY;
-}

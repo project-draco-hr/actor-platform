@@ -1,3 +1,0 @@
-{
-  return getSection(emojiString.charAt(0));
-}

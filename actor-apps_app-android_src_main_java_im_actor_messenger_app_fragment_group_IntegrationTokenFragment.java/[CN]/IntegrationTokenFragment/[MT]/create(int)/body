@@ -1,7 +1,0 @@
-{
-  IntegrationTokenFragment res=new IntegrationTokenFragment();
-  Bundle arguments=new Bundle();
-  arguments.putInt(EXTRA_GROUP_ID,gid);
-  res.setArguments(arguments);
-  return res;
-}

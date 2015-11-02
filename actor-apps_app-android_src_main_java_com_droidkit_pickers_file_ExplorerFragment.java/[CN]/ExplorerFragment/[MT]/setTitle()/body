@@ -1,3 +1,0 @@
-{
-  pickerActivity.getSupportActionBar().setTitle(title);
-}

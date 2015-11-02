@@ -1,6 +1,0 @@
-{
-  Intent intent=new Intent(Intent.ACTION_ATTACH_DATA);
-  intent.setDataAndType(getAvatarUri(location),"image/jpg");
-  intent.putExtra("mimeType","image/jpg");
-  return intent;
-}

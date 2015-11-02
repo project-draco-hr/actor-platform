@@ -1,3 +1,0 @@
-{
-  return mItemTypesOffset.get(mWrappedAdapter.getClass());
-}

@@ -1,3 +1,0 @@
-{
-  updateLayoutStateToFillStart(anchorInfo.mPosition,anchorInfo.mCoordinate);
-}

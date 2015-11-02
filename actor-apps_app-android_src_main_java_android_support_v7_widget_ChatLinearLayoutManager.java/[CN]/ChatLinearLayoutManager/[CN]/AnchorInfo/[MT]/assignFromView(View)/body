@@ -1,9 +1,0 @@
-{
-  if (mLayoutFromEnd) {
-    mCoordinate=mOrientationHelper.getDecoratedEnd(child) + mOrientationHelper.getTotalSpaceChange();
-  }
- else {
-    mCoordinate=mOrientationHelper.getDecoratedStart(child);
-  }
-  mPosition=getPosition(child);
-}

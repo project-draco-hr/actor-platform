@@ -1,7 +1,0 @@
-{
-  final int oldMargin=mPageMargin;
-  mPageMargin=marginPixels;
-  final int height=getHeight();
-  recomputeScrollPosition(height,height,marginPixels,oldMargin);
-  requestLayout();
-}

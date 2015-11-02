@@ -1,6 +1,0 @@
-{
-  if (allHeight == 0) {
-    allHeight=getClientHeight() + getPageMargin();
-  }
-  return allHeight;
-}

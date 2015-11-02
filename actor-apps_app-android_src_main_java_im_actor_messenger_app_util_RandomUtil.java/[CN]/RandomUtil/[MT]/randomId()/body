@@ -1,5 +1,0 @@
-{
-synchronized (RANDOM) {
-    return Math.abs(RANDOM.nextLong());
-  }
-}

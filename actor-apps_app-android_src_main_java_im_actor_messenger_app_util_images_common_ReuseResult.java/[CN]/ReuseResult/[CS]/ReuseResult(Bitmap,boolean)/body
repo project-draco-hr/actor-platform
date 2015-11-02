@@ -1,4 +1,0 @@
-{
-  this.res=res;
-  this.isReused=isReused;
-}

@@ -1,5 +1,0 @@
-{
-  return loadBitmapOptimized(new UriSource(uri,context){
-  }
-,limit);
-}

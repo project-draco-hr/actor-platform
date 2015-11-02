@@ -1,5 +1,0 @@
-{
-  int w=getBounds().width();
-  int h=getBounds().height();
-  canvas.drawCircle(getBounds().centerX(),getBounds().centerY(),(Math.min(w,h)) / 2,CIRCLE_BORDER_PAINT);
-}

@@ -1,3 +1,0 @@
-Value<T> value1
-Value<V> value2
-ValueDoubleChangedListener<T,V> listener

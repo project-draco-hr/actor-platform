@@ -1,3 +1,0 @@
-{
-  messageText.setText(messenger().getFormatter().formatFullServiceMessage(message.getSenderId(),(ServiceContent)message.getContent()));
-}

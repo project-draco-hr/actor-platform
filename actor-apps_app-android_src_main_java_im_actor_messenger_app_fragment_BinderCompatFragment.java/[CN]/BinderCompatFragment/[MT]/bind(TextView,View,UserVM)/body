@@ -1,3 +1,0 @@
-{
-  BINDER.bind(textView,container,user);
-}

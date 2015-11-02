@@ -1,7 +1,0 @@
-{
-  height=Screen.dp(DIAMETER);
-  paint=new Paint();
-  paint.setColor(0xffdae1ea);
-  paint.setStyle(Paint.Style.FILL);
-  paint.setAntiAlias(true);
-}

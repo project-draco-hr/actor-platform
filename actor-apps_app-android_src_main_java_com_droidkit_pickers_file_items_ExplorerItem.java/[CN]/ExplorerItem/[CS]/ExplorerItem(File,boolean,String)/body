@@ -1,4 +1,0 @@
-{
-  this(file,selected);
-  this.fileType=fileType;
-}

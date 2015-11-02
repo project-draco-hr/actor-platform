@@ -1,3 +1,0 @@
-{
-  return "AnchorInfo{" + "mPosition=" + mPosition + ", mCoordinate="+ mCoordinate+ ", mLayoutFromEnd="+ mLayoutFromEnd+ '}';
-}

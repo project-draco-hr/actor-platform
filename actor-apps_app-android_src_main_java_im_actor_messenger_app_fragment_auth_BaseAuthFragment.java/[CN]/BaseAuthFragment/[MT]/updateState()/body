@@ -1,3 +1,0 @@
-{
-  ((AuthActivity)getActivity()).updateState();
-}

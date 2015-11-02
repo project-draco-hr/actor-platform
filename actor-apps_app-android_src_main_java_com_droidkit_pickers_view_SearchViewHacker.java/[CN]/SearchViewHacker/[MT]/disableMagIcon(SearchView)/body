@@ -1,7 +1,0 @@
-{
-  ImageView searchImageView=(ImageView)findView(searchView,"mSearchHintIcon");
-  searchImageView.setMaxWidth(0);
-  searchImageView.setImageBitmap(null);
-  searchImageView.setVisibility(View.GONE);
-  searchImageView.setAdjustViewBounds(true);
-}

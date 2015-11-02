@@ -1,4 +1,0 @@
-{
-  this.countries=countries;
-  this.context=getActivity();
-}

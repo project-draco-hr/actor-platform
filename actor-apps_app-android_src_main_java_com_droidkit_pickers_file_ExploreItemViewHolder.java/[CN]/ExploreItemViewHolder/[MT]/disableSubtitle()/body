@@ -1,3 +1,0 @@
-{
-  subTitleView.setVisibility(View.GONE);
-}

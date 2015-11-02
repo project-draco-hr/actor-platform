@@ -1,5 +1,0 @@
-{
-  super.onPause();
-  hideKeyBoard();
-  pickerActivity.getSupportActionBar().setIcon(R.drawable.picker_bar_filepicker_icon);
-}

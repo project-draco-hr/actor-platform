@@ -1,7 +1,0 @@
-{
-  Fragment fragment=new TourFragment();
-  Bundle args=new Bundle();
-  args.putInt(ARG_POSITION,position);
-  fragment.setArguments(args);
-  return fragment;
-}

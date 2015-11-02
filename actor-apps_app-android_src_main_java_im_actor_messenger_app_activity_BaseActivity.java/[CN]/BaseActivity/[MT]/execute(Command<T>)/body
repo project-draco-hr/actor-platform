@@ -1,3 +1,0 @@
-{
-  execute(cmd,R.string.progress_common);
-}

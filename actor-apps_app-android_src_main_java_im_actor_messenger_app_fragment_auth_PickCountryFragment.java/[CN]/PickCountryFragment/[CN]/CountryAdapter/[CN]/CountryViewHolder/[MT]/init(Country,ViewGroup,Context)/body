@@ -1,6 +1,0 @@
-{
-  View v=LayoutInflater.from(context).inflate(R.layout.adapter_country_select,null);
-  name=(TextView)v.findViewById(R.id.tv_country_name);
-  code=(TextView)v.findViewById(R.id.tv_country_code);
-  return v;
-}

@@ -1,7 +1,0 @@
-{
-  super.onPause();
-  if (dialog != null) {
-    dialog.dismiss();
-    dialog=null;
-  }
-}

@@ -1,5 +1,0 @@
-{
-  if (mPendingSavedState == null) {
-    super.assertNotInLayoutOrScroll(message);
-  }
-}

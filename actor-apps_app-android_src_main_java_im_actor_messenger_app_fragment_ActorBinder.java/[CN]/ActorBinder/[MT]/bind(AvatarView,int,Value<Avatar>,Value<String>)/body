@@ -1,8 +1,0 @@
-{
-  bind(avatar,name,new ValueDoubleChangedListener<Avatar,String>(){
-    @Override public void onChanged(    Avatar val,    Value<Avatar> Value,    String val2,    Value<String> Value2){
-      avatarView.bind(val,val2,id);
-    }
-  }
-);
-}

@@ -1,4 +1,0 @@
-{
-  super.onResume();
-  setTitle(R.string.choose_auth_type_title);
-}

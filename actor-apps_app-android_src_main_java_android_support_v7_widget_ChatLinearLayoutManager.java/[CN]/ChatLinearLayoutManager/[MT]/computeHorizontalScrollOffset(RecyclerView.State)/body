@@ -1,3 +1,0 @@
-{
-  return computeScrollOffset(state);
-}

@@ -1,6 +1,0 @@
-{
-  if (imageMetadata == null) {
-    imageMetadata=loadMetadata();
-  }
-  return imageMetadata;
-}

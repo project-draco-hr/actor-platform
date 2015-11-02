@@ -1,8 +1,0 @@
-{
-  this.fragment=fragment;
-  isGroup=fragment.getPeer().getPeerType() == PeerType.GROUP;
-  if (isGroup) {
-    group=groups().get(fragment.getPeer().getPeerId());
-  }
-  colors=new int[]{fragment.getResources().getColor(R.color.placeholder_0),fragment.getResources().getColor(R.color.placeholder_1),fragment.getResources().getColor(R.color.placeholder_2),fragment.getResources().getColor(R.color.placeholder_3),fragment.getResources().getColor(R.color.placeholder_4),fragment.getResources().getColor(R.color.placeholder_5),fragment.getResources().getColor(R.color.placeholder_6)};
-}

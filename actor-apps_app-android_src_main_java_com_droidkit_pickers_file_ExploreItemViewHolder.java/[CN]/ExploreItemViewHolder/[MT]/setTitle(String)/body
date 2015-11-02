@@ -1,4 +1,0 @@
-{
-  titleView.setVisibility(View.VISIBLE);
-  titleView.setText(title);
-}

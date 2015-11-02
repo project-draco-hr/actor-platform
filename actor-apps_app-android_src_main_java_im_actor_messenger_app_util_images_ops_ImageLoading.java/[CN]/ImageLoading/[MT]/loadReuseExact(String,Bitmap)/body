@@ -1,3 +1,0 @@
-{
-  return loadBitmapReuseExact(new FileSource(fileName),dest);
-}

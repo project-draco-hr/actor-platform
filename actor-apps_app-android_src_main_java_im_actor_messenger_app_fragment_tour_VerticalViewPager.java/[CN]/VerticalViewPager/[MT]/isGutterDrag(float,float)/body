@@ -1,3 +1,0 @@
-{
-  return (y < mGutterSize && dy > 0) || (y > getHeight() - mGutterSize && dy < 0);
-}

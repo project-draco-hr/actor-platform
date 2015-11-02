@@ -1,3 +1,0 @@
-{
-  return loadBitmap(new FileSource(fileName));
-}

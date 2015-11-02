@@ -1,8 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  findViewById(R.id.controllers).setVisibility(View.GONE);
-  getSupportActionBar().setIcon(R.drawable.picker_bar_filepicker_icon);
-  getSupportActionBar().setLogo(R.drawable.picker_bar_filepicker_icon);
-  getSupportActionBar().setDisplayShowHomeEnabled(true);
-  getSupportActionBar().setDisplayUseLogoEnabled(true);
-}

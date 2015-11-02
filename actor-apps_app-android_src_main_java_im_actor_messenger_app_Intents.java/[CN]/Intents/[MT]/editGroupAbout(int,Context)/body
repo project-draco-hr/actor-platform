@@ -1,3 +1,0 @@
-{
-  return new Intent(context,EditAboutActivity.class).putExtra(EXTRA_EDIT_TYPE,EditAboutActivity.TYPE_GROUP).putExtra(EXTRA_EDIT_ID,groupId);
-}
