@@ -2,7 +2,7 @@
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
       ApiOutPeer outPeer;
-      final ApiPeer apiPeer=buildApiPeer(peer);
+      final ApiPeer apiPeer;
       if (peer.getPeerType() == PeerType.PRIVATE) {
         User user=users().getValue(peer.getPeerId());
         if (user == null) {
@@ -15,6 +15,7 @@
           return;
         }
         outPeer=new ApiOutPeer(ApiPeerType.PRIVATE,user.getUid(),user.getAccessHash());
+        apiPeer=new ApiPeer(ApiPeerType.PRIVATE,user.getUid());
       }
  else       if (peer.getPeerType() == PeerType.GROUP) {
         Group group=groups().getValue(peer.getPeerId());
@@ -28,6 +29,7 @@
           return;
         }
         outPeer=new ApiOutPeer(ApiPeerType.GROUP,group.getGroupId(),group.getAccessHash());
+        apiPeer=new ApiPeer(ApiPeerType.GROUP,group.getGroupId());
       }
  else {
         runOnUiThread(new Runnable(){
@@ -38,12 +40,16 @@
 );
         return;
       }
-      request(new RequestDeleteChat(outPeer),new RpcCallback<ResponseSeq>(){
+      request(new RequestHideDialog(outPeer),new RpcCallback<ResponseSeq>(){
         @Override public void onResult(        ResponseSeq response){
-          updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateChatDelete.HEADER,new UpdateChatDelete(apiPeer).toByteArray()));
-          runOnUiThread(new Runnable(){
+          updates().executeAfter(response.getSeq(),new Runnable(){
             @Override public void run(){
-              callback.onResult(true);
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(true);
+                }
+              }
+);
             }
           }
 );
