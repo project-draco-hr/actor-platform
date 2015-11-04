@@ -1,6 +1,6 @@
 {
   if (index.size() > 0) {
-    return index.get(0).getId();
+    return index.get(0).id;
   }
  else {
     return null;

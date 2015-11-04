@@ -12,10 +12,10 @@
         long order=dataInput.readLong();
         index.add(new Index(id,order));
       }
+      Collections.sort(index,comparator);
     }
  catch (    Exception e) {
       e.printStackTrace();
     }
   }
-  updateIndex();
 }

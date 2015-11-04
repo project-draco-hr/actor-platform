@@ -1,7 +1,7 @@
 {
   for (  Index i : index) {
-    storage.removeItem(getId(i.getId()));
+    storage.removeItem(getId(i.id));
   }
   index.clear();
-  updateIndex();
+  saveIndex();
 }

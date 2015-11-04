@@ -1,9 +1,9 @@
 {
   for (  Index i : index) {
-    if (i.getId() == key) {
+    if (i.id == key) {
       index.remove(i);
       storage.removeItem(getId(key));
-      updateIndex();
+      saveIndex();
       break;
     }
   }
