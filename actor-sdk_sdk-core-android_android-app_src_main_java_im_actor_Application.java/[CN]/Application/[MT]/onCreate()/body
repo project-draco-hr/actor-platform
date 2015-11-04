@@ -4,10 +4,5 @@
   ActorSDK.sharedActor().setPushId(209133700967L);
   ActorSDK.sharedActor().createActor(this);
   ActorStyle style=ActorSDK.sharedActor().style;
-  style.setMainColor(Color.CYAN);
-  style.setMainBackgroundColor(Color.DKGRAY);
-  style.setTextPrimaryColor(Color.GREEN);
-  style.setTextSecondaryColor(Color.RED);
-  style.setSettingsIconColor(Color.GREEN);
-  style.setDividerColor(Color.WHITE);
+  style.setMainColor(Color.parseColor("#529a88"));
 }
