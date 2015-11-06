@@ -1,10 +1,10 @@
 {
   for (  long key : keys) {
     for (    Index i : index) {
-      if (i.id == key) {
+      if (i.getId() == key) {
         index.remove(i);
         storage.removeItem(getId(key));
-        saveIndex();
+        updateIndex();
         break;
       }
     }

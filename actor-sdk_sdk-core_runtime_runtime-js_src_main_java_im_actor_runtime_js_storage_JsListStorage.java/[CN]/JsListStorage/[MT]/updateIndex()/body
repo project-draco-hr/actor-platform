@@ -1,4 +1,10 @@
 {
   Collections.sort(index,comparator);
-  saveIndex();
+  DataOutput dataOutput=new DataOutput();
+  dataOutput.writeInt(index.size());
+  for (  Index i : index) {
+    dataOutput.writeLong(i.getId());
+    dataOutput.writeLong(i.getSortKey());
+  }
+  storage.setItem("list_" + prefix + "_index",toBase64(dataOutput.toByteArray()));
 }

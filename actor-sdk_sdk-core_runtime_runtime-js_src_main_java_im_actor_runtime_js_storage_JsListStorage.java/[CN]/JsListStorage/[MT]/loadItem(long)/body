@@ -1,7 +1,7 @@
 {
   Index indexValue=null;
   for (  Index i : index) {
-    if (i.id == key) {
+    if (i.getId() == key) {
       indexValue=i;
       break;
     }
@@ -12,7 +12,7 @@
   String item=storage.getItem(getId(key));
   if (item != null) {
     byte[] res=fromBase64(item);
-    return new ListEngineRecord(key,indexValue.sortKey,null,res);
+    return new ListEngineRecord(key,indexValue.getSortKey(),null,res);
   }
   return null;
 }

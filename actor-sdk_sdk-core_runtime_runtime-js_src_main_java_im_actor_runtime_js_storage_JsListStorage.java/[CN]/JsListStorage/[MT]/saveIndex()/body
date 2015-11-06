@@ -1,9 +1,0 @@
-{
-  DataOutput dataOutput=new DataOutput();
-  dataOutput.writeInt(index.size());
-  for (  Index i : index) {
-    dataOutput.writeLong(i.id);
-    dataOutput.writeLong(i.sortKey);
-  }
-  storage.setItem("list_" + prefix + "_index",toBase64(dataOutput.toByteArray()));
-}
