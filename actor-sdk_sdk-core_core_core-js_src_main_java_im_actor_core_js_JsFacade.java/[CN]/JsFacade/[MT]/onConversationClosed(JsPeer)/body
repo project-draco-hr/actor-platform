@@ -1,3 +1,6 @@
 {
+  if (lastVisiblePeer == peer.convert()) {
+    lastVisiblePeer=null;
+  }
   messenger.onConversationClosed(peer.convert());
 }

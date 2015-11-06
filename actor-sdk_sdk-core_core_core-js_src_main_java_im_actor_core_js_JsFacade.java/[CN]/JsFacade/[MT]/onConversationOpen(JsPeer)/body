@@ -1,3 +1,4 @@
 {
-  messenger.onConversationOpen(peer.convert());
+  lastVisiblePeer=peer.convert();
+  messenger.onConversationOpen(lastVisiblePeer);
 }

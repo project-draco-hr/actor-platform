@@ -1,8 +1,17 @@
 {
+  Element target=Element.as(event.getEventTarget());
+  String href=target.getAttribute("href");
   if (JsElectronApp.isElectron()) {
-    Element target=Element.as(event.getEventTarget());
-    String href=target.getAttribute("href");
     JsElectronApp.openUrlExternal(href);
     event.preventDefault();
+  }
+ else {
+    if (href.startsWith("send:")) {
+      String msg=href.substring("send:".length());
+      if (lastVisiblePeer != null) {
+        messenger.sendMessage(lastVisiblePeer,msg);
+        event.preventDefault();
+      }
+    }
   }
 }
