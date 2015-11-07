@@ -1,6 +1,8 @@
 {
-  if (lastVisiblePeer == peer.convert()) {
+  Log.d(TAG,"onConversationClosed | " + peer);
+  if (lastVisiblePeer != null && lastVisiblePeer.equals(peer.convert())) {
     lastVisiblePeer=null;
+    Log.d(TAG,"onConversationClosed | Closing");
   }
   messenger.onConversationClosed(peer.convert());
 }
