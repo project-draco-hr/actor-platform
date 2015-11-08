@@ -1,8 +1,11 @@
 {
+  Log.d(TAG,"Resizing photo");
   JsImageResize.resize(blob,new JsResizeListener(){
     @Override public void onResized(    String thumb,    int thumbW,    int thumbH,    int fullW,    int fullH){
+      Log.d(TAG,"Photo resized");
       int index=thumb.indexOf("base64,");
       if (index < 0) {
+        Log.d(TAG,"Unable to find base64");
         return;
       }
       String rawData=thumb.substring(index + "base64,".length());
