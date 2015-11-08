@@ -3,14 +3,15 @@
     cancelRequest(prevRid);
     prevRid=0;
   }
-  prevRid=request(new RequestSetOnline(isVisible,TIMEOUT),new RpcCallback<ResponseVoid>(){
+  boolean isOnline=isVisible || isAlwaysOnline;
+  prevRid=request(new RequestSetOnline(isOnline,TIMEOUT),new RpcCallback<ResponseVoid>(){
     @Override public void onResult(    ResponseVoid response){
     }
     @Override public void onError(    RpcException e){
     }
   }
 );
-  if (isVisible) {
+  if (isOnline) {
     self().sendOnce(new PerformOnline(),RESEND_TIMEOUT);
   }
 }

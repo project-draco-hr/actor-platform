@@ -1,3 +1,9 @@
 {
-  context().getEvents().subscribe(this,AppVisibleChanged.EVENT);
+  isAlwaysOnline=config().getDeviceCategory() == DeviceCategory.DESKTOP;
+  if (isAlwaysOnline) {
+    self().sendOnce(new PerformOnline());
+  }
+ else {
+    context().getEvents().subscribe(this,AppVisibleChanged.EVENT);
+  }
 }
