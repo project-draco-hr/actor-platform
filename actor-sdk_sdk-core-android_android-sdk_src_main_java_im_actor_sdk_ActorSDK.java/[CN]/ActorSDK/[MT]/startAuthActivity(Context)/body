@@ -1,0 +1,3 @@
+{
+  startAuthActivity(context,null);
+}

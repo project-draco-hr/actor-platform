@@ -1,0 +1,5 @@
+{
+  if (!startDelegateActivity(context,delegate.getStartAfterLoginIntent(),extras)) {
+    startMessagingActivity(context,extras);
+  }
+}

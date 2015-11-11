@@ -1,8 +1,8 @@
 {
   if (messenger.isLoggedIn()) {
-    getActivityManager().startMessagingActivity(context);
+    startMessagingActivity(context);
   }
  else {
-    getActivityManager().startAuthActivity(context);
+    startAuthActivity(context);
   }
 }
