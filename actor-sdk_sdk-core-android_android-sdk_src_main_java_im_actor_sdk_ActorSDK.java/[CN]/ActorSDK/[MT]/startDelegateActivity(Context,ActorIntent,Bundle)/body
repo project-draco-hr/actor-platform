@@ -4,8 +4,13 @@
     if (extras != null) {
       startIntent.putExtras(extras);
     }
-    context.startActivity(startIntent);
-    return true;
+    if (startIntent != null) {
+      context.startActivity(startIntent);
+      return true;
+    }
+ else {
+      return false;
+    }
   }
  else {
     return false;

@@ -1,0 +1,5 @@
+{
+  if (!startDelegateActivity(context,delegate.getSettingsIntent(),extras)) {
+    startActivity(context,extras,MyProfileActivity.class);
+  }
+}

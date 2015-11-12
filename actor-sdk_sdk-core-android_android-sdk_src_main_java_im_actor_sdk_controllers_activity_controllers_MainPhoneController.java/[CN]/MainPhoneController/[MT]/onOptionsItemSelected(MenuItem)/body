@@ -5,7 +5,7 @@
     return true;
   }
  else   if (i == R.id.profile) {
-    startActivity(new Intent(getActivity(),MyProfileActivity.class));
+    ActorSDK.sharedActor().startSettingActivity(getActivity());
     return true;
   }
   return false;
