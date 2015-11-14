@@ -1,0 +1,9 @@
+{
+  this.text=values.optString(1);
+  this.senderNameOverride=values.optString(2);
+  this.senderPhotoOverride=values.optObj(3,new ApiAvatar());
+  this.style=values.optObj(4,new ApiParagraphStyle());
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

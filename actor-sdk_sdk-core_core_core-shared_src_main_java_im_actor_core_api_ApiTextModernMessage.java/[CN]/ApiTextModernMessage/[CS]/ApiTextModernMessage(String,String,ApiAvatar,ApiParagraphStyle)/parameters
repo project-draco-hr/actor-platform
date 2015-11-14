@@ -1,0 +1,4 @@
+String text
+String senderNameOverride
+ApiAvatar senderPhotoOverride
+ApiParagraphStyle style

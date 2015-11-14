@@ -1,0 +1,6 @@
+{
+  String res="struct RgbColor{";
+  res+="rgb=" + this.rgb;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,13 @@
+{
+  if (this.peer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.peer);
+  writer.writeLong(2,this.rid);
+  writer.writeLong(3,this.date);
+  writer.writeInt(4,this.senderId);
+  if (this.content == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(5,this.content.buildContainer());
+}

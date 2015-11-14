@@ -1,0 +1,6 @@
+{
+  String res="struct SearchAndCondition{";
+  res+="andQuery=" + this.andQuery;
+  res+="}";
+  return res;
+}

@@ -2,7 +2,6 @@
   return new Command<Boolean>(){
     @Override public void start(    final CommandCallback<Boolean> callback){
       ApiOutPeer outPeer;
-      final ApiPeer apiPeer;
       if (peer.getPeerType() == PeerType.PRIVATE) {
         User user=users().getValue(peer.getPeerId());
         if (user == null) {
@@ -15,7 +14,6 @@
           return;
         }
         outPeer=new ApiOutPeer(ApiPeerType.PRIVATE,user.getUid(),user.getAccessHash());
-        apiPeer=new ApiPeer(ApiPeerType.PRIVATE,user.getUid());
       }
  else       if (peer.getPeerType() == PeerType.GROUP) {
         Group group=groups().getValue(peer.getPeerId());
@@ -29,7 +27,6 @@
           return;
         }
         outPeer=new ApiOutPeer(ApiPeerType.GROUP,group.getGroupId(),group.getAccessHash());
-        apiPeer=new ApiPeer(ApiPeerType.GROUP,group.getGroupId());
       }
  else {
         runOnUiThread(new Runnable(){
@@ -40,8 +37,9 @@
 );
         return;
       }
-      request(new RequestHideDialog(outPeer),new RpcCallback<ResponseSeq>(){
-        @Override public void onResult(        ResponseSeq response){
+      request(new RequestHideDialog(outPeer),new RpcCallback<ResponseDialogsOrder>(){
+        @Override public void onResult(        ResponseDialogsOrder response){
+          updates().onSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateChatGroupsChanged(response.getGroups()));
           updates().executeAfter(response.getSeq(),new Runnable(){
             @Override public void run(){
               runOnUiThread(new Runnable(){

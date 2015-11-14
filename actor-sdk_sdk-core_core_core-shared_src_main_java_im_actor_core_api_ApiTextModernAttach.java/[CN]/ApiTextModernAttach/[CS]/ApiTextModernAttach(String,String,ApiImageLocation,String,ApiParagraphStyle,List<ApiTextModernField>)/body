@@ -1,0 +1,8 @@
+{
+  this.title=title;
+  this.titleUrl=titleUrl;
+  this.titleIcon=titleIcon;
+  this.text=text;
+  this.style=style;
+  this.fields=fields;
+}

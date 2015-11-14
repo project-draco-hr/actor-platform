@@ -1,0 +1,9 @@
+{
+  this.peer=values.getObj(1,new ApiPeer());
+  this.rid=values.getLong(2);
+  List<ApiMessageReaction> _reactions=new ArrayList<ApiMessageReaction>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _reactions.add(new ApiMessageReaction());
+  }
+  this.reactions=values.getRepeatedObj(3,_reactions);
+}

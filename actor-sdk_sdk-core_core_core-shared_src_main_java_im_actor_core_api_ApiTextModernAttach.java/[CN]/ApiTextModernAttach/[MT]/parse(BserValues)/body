@@ -1,0 +1,15 @@
+{
+  this.title=values.optString(1);
+  this.titleUrl=values.optString(2);
+  this.titleIcon=values.optObj(3,new ApiImageLocation());
+  this.text=values.optString(4);
+  this.style=values.optObj(5,new ApiParagraphStyle());
+  List<ApiTextModernField> _fields=new ArrayList<ApiTextModernField>();
+  for (int i=0; i < values.getRepeatedCount(6); i++) {
+    _fields.add(new ApiTextModernField());
+  }
+  this.fields=values.getRepeatedObj(6,_fields);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

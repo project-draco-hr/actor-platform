@@ -1,0 +1,9 @@
+{
+  this.seq=values.getInt(1);
+  this.state=values.getBytes(2);
+  List<ApiDialogGroup> _groups=new ArrayList<ApiDialogGroup>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _groups.add(new ApiDialogGroup());
+  }
+  this.groups=values.getRepeatedObj(3,_groups);
+}

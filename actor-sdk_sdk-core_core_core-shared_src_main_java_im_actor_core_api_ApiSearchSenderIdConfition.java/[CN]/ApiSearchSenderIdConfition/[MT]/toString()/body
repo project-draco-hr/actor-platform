@@ -1,0 +1,6 @@
+{
+  String res="struct SearchSenderIdConfition{";
+  res+="senderId=" + this.senderId;
+  res+="}";
+  return res;
+}

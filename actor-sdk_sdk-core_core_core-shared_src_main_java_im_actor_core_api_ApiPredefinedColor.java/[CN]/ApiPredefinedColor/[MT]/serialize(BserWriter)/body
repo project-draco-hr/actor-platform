@@ -1,0 +1,6 @@
+{
+  if (this.color == null) {
+    throw new IOException();
+  }
+  writer.writeInt(1,this.color.getValue());
+}

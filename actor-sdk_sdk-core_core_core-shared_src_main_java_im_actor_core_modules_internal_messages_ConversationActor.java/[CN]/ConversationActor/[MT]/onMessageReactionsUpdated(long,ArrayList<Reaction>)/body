@@ -1,0 +1,14 @@
+{
+  Message message=messages.getValue(rid);
+  if (message == null) {
+    return;
+  }
+  Message updatedMsg=message.changeReactions(reactions);
+  messages.addOrUpdateItem(updatedMsg);
+  if (updatedMsg.getContent() instanceof DocumentContent) {
+    docs.addOrUpdateItem(updatedMsg);
+  }
+ else {
+    docs.removeItem(rid);
+  }
+}

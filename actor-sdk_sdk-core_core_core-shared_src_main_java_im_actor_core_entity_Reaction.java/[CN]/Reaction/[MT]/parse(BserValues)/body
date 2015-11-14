@@ -1,0 +1,5 @@
+{
+  code=values.getString(1);
+  uids.clear();
+  uids.addAll(values.getRepeatedInt(2));
+}

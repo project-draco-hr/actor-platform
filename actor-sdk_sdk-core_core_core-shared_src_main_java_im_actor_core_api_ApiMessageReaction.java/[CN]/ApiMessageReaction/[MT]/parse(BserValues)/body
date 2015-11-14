@@ -1,0 +1,4 @@
+{
+  this.users=values.getRepeatedInt(1);
+  this.code=values.getString(2);
+}

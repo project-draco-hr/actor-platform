@@ -1,0 +1,8 @@
+{
+  String res="response DialogsOrder{";
+  res+="seq=" + this.seq;
+  res+=", state=" + byteArrayToString(this.state);
+  res+=", groups=" + this.groups;
+  res+="}";
+  return res;
+}

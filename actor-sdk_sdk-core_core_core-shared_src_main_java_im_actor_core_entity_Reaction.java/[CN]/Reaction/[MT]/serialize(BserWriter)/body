@@ -1,0 +1,4 @@
+{
+  writer.writeString(1,code);
+  writer.writeRepeatedInt(2,uids);
+}

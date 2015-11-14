@@ -1,0 +1,3 @@
+{
+  this.result=values.getObj(1,new ApiMessageSearchResult());
+}

@@ -44,6 +44,8 @@ case 48:
 return UpdateChatDelete.fromBytes(payload);
 case 1:
 return UpdateChatGroupsChanged.fromBytes(payload);
+case 222:
+return UpdateReactionsUpdate.fromBytes(payload);
 case 36:
 return UpdateGroupInvite.fromBytes(payload);
 case 21:
@@ -76,6 +78,8 @@ case 33:
 return UpdateGroupOnline.fromBytes(payload);
 case 131:
 return UpdateParameterChanged.fromBytes(payload);
+case 80:
+return UpdateRawUpdate.fromBytes(payload);
 case 215:
 return UpdateCountersChanged.fromBytes(payload);
 case 42:

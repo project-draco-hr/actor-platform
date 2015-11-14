@@ -1,0 +1,6 @@
+String title
+String titleUrl
+ApiImageLocation titleIcon
+String text
+ApiParagraphStyle style
+List<ApiTextModernField> fields

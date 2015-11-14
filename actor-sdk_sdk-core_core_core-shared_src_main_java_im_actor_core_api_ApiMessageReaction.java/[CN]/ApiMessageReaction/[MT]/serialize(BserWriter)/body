@@ -1,0 +1,7 @@
+{
+  writer.writeRepeatedInt(1,this.users);
+  if (this.code == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.code);
+}

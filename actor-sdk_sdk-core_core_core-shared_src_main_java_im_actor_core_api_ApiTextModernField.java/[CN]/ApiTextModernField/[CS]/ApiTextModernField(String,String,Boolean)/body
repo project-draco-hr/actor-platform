@@ -1,0 +1,5 @@
+{
+  this.title=title;
+  this.value=value;
+  this.isShort=isShort;
+}

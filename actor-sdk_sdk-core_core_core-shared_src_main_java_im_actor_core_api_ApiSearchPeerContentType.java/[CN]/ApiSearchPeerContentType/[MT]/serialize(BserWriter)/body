@@ -1,0 +1,6 @@
+{
+  if (this.contentType == null) {
+    throw new IOException();
+  }
+  writer.writeInt(1,this.contentType.getValue());
+}

@@ -9,7 +9,7 @@
     return;
   }
   boolean isOut=myUid() == senderUid;
-  Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
+  Message message=new Message(rid,date,date,senderUid,isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent,new ArrayList<Reaction>());
   conversationActor(peer).send(message);
   if (!isOut) {
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));

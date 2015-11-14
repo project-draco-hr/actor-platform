@@ -1,0 +1,8 @@
+{
+  String res="struct ParagraphStyle{";
+  res+="showParagraph=" + this.showParagraph;
+  res+=", paragraphColor=" + this.paragraphColor;
+  res+=", bgColor=" + this.bgColor;
+  res+="}";
+  return res;
+}

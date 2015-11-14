@@ -1,7 +1,10 @@
 {
-  this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
-  this.seq=values.getInt(3);
-  this.state=values.getBytes(4);
-  this.users=values.getRepeatedInt(5);
-  this.date=values.getLong(6);
+  this.seq=values.getInt(1);
+  this.state=values.getBytes(2);
+  this.group=values.getObj(3,new ApiGroup());
+  List<ApiUser> _users=new ArrayList<ApiUser>();
+  for (int i=0; i < values.getRepeatedCount(4); i++) {
+    _users.add(new ApiUser());
+  }
+  this.users=values.getRepeatedObj(4,_users);
 }

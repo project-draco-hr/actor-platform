@@ -1,0 +1,8 @@
+{
+  String res="update ReactionsUpdate{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", reactions=" + this.reactions;
+  res+="}";
+  return res;
+}

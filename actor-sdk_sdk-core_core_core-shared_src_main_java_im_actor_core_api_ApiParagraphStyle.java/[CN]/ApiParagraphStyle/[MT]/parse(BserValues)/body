@@ -1,0 +1,9 @@
+{
+  this.showParagraph=values.optBool(1);
+  if (values.optBytes(2) != null) {
+    this.paragraphColor=ApiColor.fromBytes(values.getBytes(2));
+  }
+  if (values.optBytes(3) != null) {
+    this.bgColor=ApiColor.fromBytes(values.getBytes(3));
+  }
+}

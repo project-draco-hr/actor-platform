@@ -1,0 +1,5 @@
+{
+  this.showParagraph=showParagraph;
+  this.paragraphColor=paragraphColor;
+  this.bgColor=bgColor;
+}

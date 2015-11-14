@@ -111,4 +111,7 @@
  else   if (update instanceof UpdateChatRestored) {
     messagesProcessor.onChatRestored(convert(((UpdateChatRestored)update).getPeer()));
   }
+ else   if (update instanceof UpdateReactionsUpdate) {
+    messagesProcessor.onReactionsChanged(((UpdateReactionsUpdate)update).getPeer(),((UpdateReactionsUpdate)update).getRid(),((UpdateReactionsUpdate)update).getReactions());
+  }
 }

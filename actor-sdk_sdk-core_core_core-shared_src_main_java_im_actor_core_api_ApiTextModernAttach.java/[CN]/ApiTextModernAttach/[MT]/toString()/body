@@ -1,0 +1,10 @@
+{
+  String res="struct TextModernAttach{";
+  res+="title=" + this.title;
+  res+=", titleUrl=" + this.titleUrl;
+  res+=", titleIcon=" + this.titleIcon;
+  res+=", text=" + this.text;
+  res+=", style=" + this.style;
+  res+="}";
+  return res;
+}

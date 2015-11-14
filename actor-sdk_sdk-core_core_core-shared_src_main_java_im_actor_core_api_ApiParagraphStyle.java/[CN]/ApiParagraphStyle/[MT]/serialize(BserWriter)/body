@@ -1,0 +1,11 @@
+{
+  if (this.showParagraph != null) {
+    writer.writeBool(1,this.showParagraph);
+  }
+  if (this.paragraphColor != null) {
+    writer.writeBytes(2,this.paragraphColor.buildContainer());
+  }
+  if (this.bgColor != null) {
+    writer.writeBytes(3,this.bgColor.buildContainer());
+  }
+}

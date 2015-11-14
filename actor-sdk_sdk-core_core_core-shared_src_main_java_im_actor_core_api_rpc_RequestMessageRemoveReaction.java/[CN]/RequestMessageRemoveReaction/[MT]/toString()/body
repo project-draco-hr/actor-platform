@@ -1,0 +1,8 @@
+{
+  String res="rpc MessageRemoveReaction{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", code=" + this.code;
+  res+="}";
+  return res;
+}

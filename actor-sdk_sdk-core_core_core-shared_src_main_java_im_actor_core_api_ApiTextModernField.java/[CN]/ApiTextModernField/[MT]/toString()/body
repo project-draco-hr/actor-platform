@@ -1,0 +1,8 @@
+{
+  String res="struct TextModernField{";
+  res+="title=" + this.title;
+  res+=", value=" + this.value;
+  res+=", isShort=" + this.isShort;
+  res+="}";
+  return res;
+}

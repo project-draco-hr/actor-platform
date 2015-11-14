@@ -13,7 +13,7 @@
       continue;
     }
     boolean isOut=myUid() == u.getSenderUid();
-    nMesages.add(new Message(u.getRid(),u.getDate(),u.getDate(),u.getSenderUid(),isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent));
+    nMesages.add(new Message(u.getRid(),u.getDate(),u.getDate(),u.getSenderUid(),isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent,new ArrayList<Reaction>()));
     if (!isOut) {
       intMessageSortDate=Math.max(intMessageSortDate,u.getDate());
     }

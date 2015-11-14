@@ -1,0 +1,6 @@
+{
+  String res="struct SearchOrCondition{";
+  res+="orQuery=" + this.orQuery;
+  res+="}";
+  return res;
+}

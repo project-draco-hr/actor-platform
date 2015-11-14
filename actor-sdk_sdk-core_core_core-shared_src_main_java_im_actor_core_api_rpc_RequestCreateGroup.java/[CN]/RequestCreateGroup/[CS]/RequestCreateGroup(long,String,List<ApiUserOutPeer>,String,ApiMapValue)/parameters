@@ -1,0 +1,5 @@
+long rid
+String title
+List<ApiUserOutPeer> users
+String groupType
+ApiMapValue userData

@@ -1,0 +1,8 @@
+{
+  this.title=values.getString(1);
+  this.value=values.getString(2);
+  this.isShort=values.optBool(3);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

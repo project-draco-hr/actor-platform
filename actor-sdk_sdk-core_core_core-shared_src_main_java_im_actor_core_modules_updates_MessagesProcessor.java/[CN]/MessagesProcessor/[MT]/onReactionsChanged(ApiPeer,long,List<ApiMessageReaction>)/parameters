@@ -1,0 +1,3 @@
+ApiPeer _peer
+long rid
+List<ApiMessageReaction> apiReactions

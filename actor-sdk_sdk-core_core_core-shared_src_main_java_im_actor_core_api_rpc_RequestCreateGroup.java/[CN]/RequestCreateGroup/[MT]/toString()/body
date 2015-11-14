@@ -2,7 +2,6 @@
   String res="rpc CreateGroup{";
   res+="rid=" + this.rid;
   res+=", title=" + this.title;
-  res+=", users=" + this.users.size();
   res+="}";
   return res;
 }

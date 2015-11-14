@@ -9,4 +9,5 @@
   if (this.state != null) {
     writer.writeInt(6,this.state.getValue());
   }
+  writer.writeRepeatedObj(7,this.reactions);
 }

@@ -1,0 +1,9 @@
+{
+  if (this.type != null) {
+    writer.writeString(1,this.type);
+  }
+  if (this.bytes == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.bytes);
+}

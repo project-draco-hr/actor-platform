@@ -1,0 +1,5 @@
+ApiPeer peer
+long rid
+long date
+int senderId
+ApiMessage content

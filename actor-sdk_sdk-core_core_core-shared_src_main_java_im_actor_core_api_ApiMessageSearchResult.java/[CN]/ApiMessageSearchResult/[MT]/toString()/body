@@ -1,0 +1,10 @@
+{
+  String res="struct MessageSearchResult{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", date=" + this.date;
+  res+=", senderId=" + this.senderId;
+  res+=", content=" + this.content;
+  res+="}";
+  return res;
+}

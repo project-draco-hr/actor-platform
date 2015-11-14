@@ -1,5 +1,6 @@
 {
   String res="rpc PeerSearch{";
+  res+="query=" + this.query;
   res+="}";
   return res;
 }

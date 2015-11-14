@@ -1,0 +1,4 @@
+{
+  this.type=values.optString(1);
+  this.bytes=values.getBytes(2);
+}

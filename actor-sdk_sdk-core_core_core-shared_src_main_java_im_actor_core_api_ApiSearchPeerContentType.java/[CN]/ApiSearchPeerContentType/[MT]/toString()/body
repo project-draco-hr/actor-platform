@@ -1,0 +1,6 @@
+{
+  String res="struct SearchPeerContentType{";
+  res+="contentType=" + this.contentType;
+  res+="}";
+  return res;
+}

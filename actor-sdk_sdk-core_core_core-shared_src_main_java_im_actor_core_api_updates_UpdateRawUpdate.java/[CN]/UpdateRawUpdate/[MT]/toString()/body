@@ -1,0 +1,7 @@
+{
+  String res="update RawUpdate{";
+  res+="type=" + this.type;
+  res+=", bytes=" + byteArrayToString(this.bytes);
+  res+="}";
+  return res;
+}

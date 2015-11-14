@@ -70,6 +70,10 @@ case 99:
 return RequestClearChat.fromBytes(payload);
 case 100:
 return RequestDeleteChat.fromBytes(payload);
+case 210:
+return RequestMessageSetReaction.fromBytes(payload);
+case 220:
+return RequestMessageRemoveReaction.fromBytes(payload);
 case 118:
 return RequestLoadHistory.fromBytes(payload);
 case 104:
@@ -81,6 +85,8 @@ return RequestHideDialog.fromBytes(payload);
 case 232:
 return RequestShowDialog.fromBytes(payload);
 case 65:
+return RequestCreateGroupObsolete.fromBytes(payload);
+case 230:
 return RequestCreateGroup.fromBytes(payload);
 case 199:
 return RequestEnterGroup.fromBytes(payload);
@@ -110,6 +116,8 @@ case 180:
 return RequestJoinGroup.fromBytes(payload);
 case 233:
 return RequestPeerSearch.fromBytes(payload);
+case 217:
+return RequestMessageSearch.fromBytes(payload);
 case 201:
 return RequestGetPublicGroups.fromBytes(payload);
 case 182:
@@ -182,13 +190,19 @@ case 88:
 return ResponseGetContacts.fromBytes(payload);
 case 113:
 return ResponseSearchContacts.fromBytes(payload);
+case 219:
+return ResponseReactionsResponse.fromBytes(payload);
 case 119:
 return ResponseLoadHistory.fromBytes(payload);
 case 105:
 return ResponseLoadDialogs.fromBytes(payload);
 case 226:
 return ResponseLoadGroupedDialogs.fromBytes(payload);
+case 235:
+return ResponseDialogsOrder.fromBytes(payload);
 case 66:
+return ResponseCreateGroupObsolete.fromBytes(payload);
+case 216:
 return ResponseCreateGroup.fromBytes(payload);
 case 200:
 return ResponseEnterGroup.fromBytes(payload);
@@ -202,6 +216,8 @@ case 181:
 return ResponseJoinGroup.fromBytes(payload);
 case 234:
 return ResponsePeerSearch.fromBytes(payload);
+case 218:
+return ResponseMessageSearch.fromBytes(payload);
 case 202:
 return ResponseGetPublicGroups.fromBytes(payload);
 case 183:

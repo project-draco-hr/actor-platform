@@ -6,4 +6,6 @@
     _users.add(new ApiUserOutPeer());
   }
   this.users=values.getRepeatedObj(3,_users);
+  this.groupType=values.optString(5);
+  this.userData=values.optObj(4,new ApiMapValue());
 }
