@@ -2,13 +2,13 @@
   Group group=groups().getValue(groupId);
   if (group != null) {
     if (uid == myUid()) {
-      groups().addOrUpdateItem(group.clearMembers().changeMember(false));
+      groups().addOrUpdateItem(group.clearMembers());
     }
  else {
       groups().addOrUpdateItem(group.removeMember(uid));
     }
     if (!isSilent) {
-      Message message=new Message(rid,date,date,kicker,kicker == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupUserKicked.create(uid));
+      Message message=new Message(rid,date,date,kicker,kicker == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupUserKicked.create(uid),new ArrayList<Reaction>());
       conversationActor(group.peer()).send(message);
     }
   }
