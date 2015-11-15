@@ -3,7 +3,7 @@
   isChanged|=theme.change(rawObj.getTheme());
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
-  isChanged|=isMember.change(rawObj.isMember());
+  isChanged|=isMember.change(isHaveMember(myUid,rawObj.getMembers()));
   isChanged|=members.change(new HashSet<GroupMember>(rawObj.getMembers()));
   if (isChanged) {
     notifyChange();

@@ -1,0 +1,8 @@
+{
+  for (  GroupMember m : members) {
+    if (m.getUid() == uid) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,8 @@
+{
+  return new ValueModelCreator<Group,GroupVM>(){
+    @Override public GroupVM create(    Group baseValue){
+      return new GroupVM(baseValue,myUid);
+    }
+  }
+;
+}
