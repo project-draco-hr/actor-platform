@@ -16,11 +16,12 @@
   about.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
   TextView aboutTitle=(TextView)about.findViewById(R.id.title);
   aboutTitle.setTextColor(style.getTextSecondaryColor());
+  aboutTitle.setMaxLines(2);
+  aboutTitle.setEllipsize(TextUtils.TruncateAt.END);
   TextView aboutValue=(TextView)about.findViewById(R.id.value);
   aboutValue.setTextColor(style.getTextPrimaryColor());
   ((TintImageView)about.findViewById(R.id.recordIcon)).setTint(ActorSDK.sharedActor().style.getProfilleIconColor());
   if (aboutText != null && !aboutText.isEmpty()) {
-    about.findViewById(R.id.title).setVisibility(View.GONE);
     about.findViewById(R.id.recordIcon).setVisibility(View.INVISIBLE);
     ((TextView)about.findViewById(R.id.value)).setText(getString(R.string.about_user));
     about.setOnClickListener(new View.OnClickListener(){
@@ -33,6 +34,7 @@
  else {
     about.setVisibility(View.GONE);
   }
+  bind(aboutTitle,user.getAbout());
   final LinearLayout nickContainer=(LinearLayout)res.findViewById(R.id.nickContainer);
   if (nick != null && !nick.isEmpty()) {
     final View recordView=inflater.inflate(R.layout.contact_record,nickContainer,false);
