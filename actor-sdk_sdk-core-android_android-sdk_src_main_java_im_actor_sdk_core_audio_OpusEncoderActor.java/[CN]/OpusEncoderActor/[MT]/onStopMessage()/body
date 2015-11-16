@@ -1,0 +1,8 @@
+{
+  if (state != STATE_STARTED) {
+    return;
+  }
+  opusLib.stopRecord();
+  state=STATE_COMPLETED;
+  self().send(PoisonPill.INSTANCE);
+}

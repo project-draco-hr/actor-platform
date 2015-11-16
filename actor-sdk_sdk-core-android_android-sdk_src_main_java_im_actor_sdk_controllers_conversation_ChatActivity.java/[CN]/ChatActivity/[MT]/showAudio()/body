@@ -1,0 +1,24 @@
+{
+  if (isAudioVisible) {
+    return;
+  }
+  isAudioVisible=true;
+  audioFile=ActorSDK.sharedActor().getMessenger().getInternalTempFile("voice_msg","opus");
+  long id=VoiceCaptureActor.LAST_ID.incrementAndGet();
+  voiceRecordActor.send(new VoiceCaptureActor.Start(audioFile));
+  slideAudio(0);
+  audioTimer.setText("00:00");
+  TranslateAnimation animation=new TranslateAnimation(Screen.getWidth(),0,0,0);
+  animation.setDuration(160);
+  audioContainer.clearAnimation();
+  audioContainer.setAnimation(animation);
+  audioContainer.animate();
+  audioContainer.setVisibility(View.VISIBLE);
+  AlphaAnimation alphaAnimation=new AlphaAnimation(1f,0.2f);
+  alphaAnimation.setDuration(800);
+  alphaAnimation.setRepeatMode(AlphaAnimation.REVERSE);
+  alphaAnimation.setRepeatCount(AlphaAnimation.INFINITE);
+  recordPoint.clearAnimation();
+  recordPoint.setAnimation(alphaAnimation);
+  recordPoint.animate();
+}

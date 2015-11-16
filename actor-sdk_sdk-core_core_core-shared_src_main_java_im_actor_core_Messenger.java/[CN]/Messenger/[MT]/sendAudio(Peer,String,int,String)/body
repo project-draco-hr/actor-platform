@@ -1,0 +1,3 @@
+{
+  modules.getMessagesModule().sendAudio(peer,fileName,duration,descriptor);
+}

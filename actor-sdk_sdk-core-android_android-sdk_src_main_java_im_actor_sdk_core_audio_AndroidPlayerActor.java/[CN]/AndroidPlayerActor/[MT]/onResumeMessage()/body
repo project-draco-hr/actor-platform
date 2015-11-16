@@ -1,0 +1,8 @@
+{
+  if (mplayer != null) {
+    if (!mplayer.isPlaying()) {
+      mplayer.start();
+    }
+    state=STATE_STARTED;
+  }
+}

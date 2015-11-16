@@ -20,6 +20,10 @@
       VideoContent videoContent=(VideoContent)content;
       documentEx=new ApiDocumentExVideo(videoContent.getW(),videoContent.getH(),videoContent.getDuration());
     }
+ else     if (content instanceof VoiceContent) {
+      VoiceContent voiceContent=(VoiceContent)content;
+      documentEx=new ApiDocumentExVoice(voiceContent.getDuration());
+    }
     ApiFastThumb fastThumb=null;
     if (documentContent.getFastThumb() != null) {
       fastThumb=new ApiFastThumb(documentContent.getFastThumb().getW(),documentContent.getFastThumb().getH(),documentContent.getFastThumb().getImage());

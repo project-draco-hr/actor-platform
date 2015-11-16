@@ -1,0 +1,7 @@
+{
+  this.peer=peer;
+  this.descriptor=descriptor;
+  this.fileName=fileName;
+  this.fileSize=fileSize;
+  this.duration=duration;
+}

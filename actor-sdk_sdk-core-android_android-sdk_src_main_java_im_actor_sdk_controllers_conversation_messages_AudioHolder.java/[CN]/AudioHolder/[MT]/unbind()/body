@@ -1,0 +1,13 @@
+{
+  super.unbind();
+  if (downloadFileVM != null) {
+    downloadFileVM.detach();
+    downloadFileVM=null;
+  }
+  if (uploadFileVM != null) {
+    uploadFileVM.detach();
+    uploadFileVM=null;
+  }
+  audioActor.send(new AudioPlayerActor.RemoveCallback(callback));
+  messageBubble.getBackground().setColorFilter(null);
+}

@@ -1,0 +1,7 @@
+{
+  opusLib.closeOpusFile();
+  if (audioTrack != null) {
+    audioTrack.release();
+    audioTrack=null;
+  }
+}

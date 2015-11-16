@@ -19,6 +19,9 @@
  else     if (content instanceof LocalVideo) {
       return new VideoContent(localContainer);
     }
+ else     if (content instanceof LocalVoice) {
+      return new VoiceContent(localContainer);
+    }
  else     if (content instanceof LocalDocument) {
       return new DocumentContent(localContainer);
     }
@@ -37,6 +40,9 @@
         }
  else         if (d.getExt() instanceof ApiDocumentExVideo) {
           return new VideoContent(remoteContainer);
+        }
+ else         if (d.getExt() instanceof ApiDocumentExVoice) {
+          return new VoiceContent(remoteContainer);
         }
  else {
           return new DocumentContent(remoteContainer);

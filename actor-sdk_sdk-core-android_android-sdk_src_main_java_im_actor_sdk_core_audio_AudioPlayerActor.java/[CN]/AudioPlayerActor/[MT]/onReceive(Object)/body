@@ -1,0 +1,20 @@
+{
+  if (message instanceof Play) {
+    onPlayMessage(((Play)message).getFilename());
+  }
+ else   if (message instanceof Stop) {
+    onStopMessage();
+  }
+ else   if (message instanceof Toggle) {
+    onToggleMessage(((Toggle)message).getFilename());
+  }
+ else   if (message instanceof RegisterCallback) {
+    addCallback(((RegisterCallback)message).getCallback());
+  }
+ else   if (message instanceof RemoveCallback) {
+    removeCallback(((RemoveCallback)message).getCallback());
+  }
+ else   if (message instanceof Seek) {
+    onSeek(((Seek)message).getPosition(),((Seek)message).getFilename());
+  }
+}

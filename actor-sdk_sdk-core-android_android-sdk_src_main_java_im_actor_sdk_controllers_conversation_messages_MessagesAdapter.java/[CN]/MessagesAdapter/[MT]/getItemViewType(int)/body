@@ -12,10 +12,13 @@
  else   if (content instanceof VideoContent) {
     return 2;
   }
+ else   if (content instanceof VoiceContent) {
+    return 4;
+  }
  else   if (content instanceof DocumentContent) {
     return 3;
   }
  else {
-    return 4;
+    return 5;
   }
 }

@@ -1,0 +1,33 @@
+{
+  this.context=context;
+  opusLib=new OpusLib();
+  callbacks=new ArrayList<AudioPlayerCallback>();
+  this.callback=new AudioPlayerCallback(){
+    @Override public void onStart(    String fileName){
+      for (      AudioPlayerCallback callback : callbacks) {
+        callback.onStart(fileName);
+      }
+    }
+    @Override public void onStop(    String fileName){
+      for (      AudioPlayerCallback callback : callbacks) {
+        callback.onStop(fileName);
+      }
+    }
+    @Override public void onPause(    String fileName,    float progress){
+      for (      AudioPlayerCallback callback : callbacks) {
+        callback.onPause(fileName,progress);
+      }
+    }
+    @Override public void onProgress(    String fileName,    float progress){
+      for (      AudioPlayerCallback callback : callbacks) {
+        callback.onProgress(fileName,progress);
+      }
+    }
+    @Override public void onError(    String fileName){
+      for (      AudioPlayerCallback callback : callbacks) {
+        callback.onError(fileName);
+      }
+    }
+  }
+;
+}

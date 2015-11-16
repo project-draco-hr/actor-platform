@@ -1,0 +1,7 @@
+{
+  if (state == STATE_PAUSED) {
+    audioTrack.play();
+    state=STATE_STARTED;
+    onIterateMessage();
+  }
+}

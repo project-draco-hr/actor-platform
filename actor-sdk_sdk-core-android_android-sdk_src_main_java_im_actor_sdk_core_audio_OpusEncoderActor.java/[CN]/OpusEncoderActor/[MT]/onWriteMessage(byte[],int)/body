@@ -1,0 +1,26 @@
+{
+  if (state != STATE_STARTED) {
+    return;
+  }
+  ByteBuffer finalBuffer=ByteBuffer.allocateDirect(size);
+  finalBuffer.put(buffer,0,size);
+  finalBuffer.rewind();
+  boolean flush=false;
+  while (finalBuffer.hasRemaining()) {
+    int oldLimit=-1;
+    if (finalBuffer.remaining() > fileBuffer.remaining()) {
+      oldLimit=finalBuffer.limit();
+      finalBuffer.limit(fileBuffer.remaining() + finalBuffer.position());
+    }
+    fileBuffer.put(finalBuffer);
+    if (fileBuffer.position() == fileBuffer.limit() || flush) {
+      int length=!flush ? fileBuffer.limit() : finalBuffer.position();
+      if (opusLib.writeFrame(fileBuffer,length) != 0) {
+        fileBuffer.rewind();
+      }
+    }
+    if (oldLimit != -1) {
+      finalBuffer.limit(oldLimit);
+    }
+  }
+}

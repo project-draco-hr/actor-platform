@@ -6,6 +6,6 @@
   String externalPath=externalFile.getAbsolutePath();
   File dest=new File(externalPath + "/actor/tmp/");
   dest.mkdirs();
-  File outputFile=new File(dest,prefix + "_" + random.nextLong()+ ""+ postfix);
+  File outputFile=new File(dest,prefix + "_" + random.nextLong()+ "."+ postfix);
   return outputFile.getAbsolutePath();
 }

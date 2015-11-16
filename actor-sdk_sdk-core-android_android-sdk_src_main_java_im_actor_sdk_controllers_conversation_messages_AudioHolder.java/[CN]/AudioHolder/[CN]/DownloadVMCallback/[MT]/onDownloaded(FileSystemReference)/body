@@ -1,0 +1,6 @@
+{
+  currentAudio=reference.getDescriptor();
+  goneView(progressView);
+  stop();
+  bindPlayButton();
+}

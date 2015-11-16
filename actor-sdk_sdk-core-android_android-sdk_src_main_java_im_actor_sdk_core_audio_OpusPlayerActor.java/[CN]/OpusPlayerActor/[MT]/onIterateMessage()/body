@@ -1,0 +1,28 @@
+{
+  if (state != STATE_STARTED) {
+    return;
+  }
+  ByteBuffer buffer=ByteBuffer.allocateDirect(bufferSize);
+  opusLib.readOpusFile(buffer,bufferSize);
+  int size=opusLib.getSize();
+  long pmcOffset=opusLib.getPcmOffset();
+  boolean isFinished=opusLib.getFinished() == 1;
+  if (size != 0) {
+    buffer.rewind();
+    byte[] data=new byte[size];
+    buffer.get(data);
+    audioTrack.write(data,0,size);
+  }
+  offset=pmcOffset;
+  float scale=0;
+  if (duration != 0) {
+    scale=offset / (float)duration;
+  }
+  callback.onProgress(currentFileName,scale);
+  if (!isFinished) {
+    self().send(new Iterate());
+  }
+ else {
+    self().send(new Stop());
+  }
+}

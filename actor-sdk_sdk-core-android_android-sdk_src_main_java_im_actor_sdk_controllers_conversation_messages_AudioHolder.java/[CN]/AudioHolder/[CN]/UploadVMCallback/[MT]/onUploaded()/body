@@ -1,0 +1,5 @@
+{
+  goneView(progressView);
+  stop();
+  bindPlayButton();
+}

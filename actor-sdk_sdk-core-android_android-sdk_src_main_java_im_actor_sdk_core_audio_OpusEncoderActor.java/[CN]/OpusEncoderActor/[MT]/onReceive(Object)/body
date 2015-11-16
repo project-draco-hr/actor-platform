@@ -1,0 +1,11 @@
+{
+  if (message instanceof Start) {
+    onStartMessage(((Start)message).getFileName());
+  }
+ else   if (message instanceof Write) {
+    onWriteMessage(((Write)message).getBuffer(),((Write)message).getSize());
+  }
+ else   if (message instanceof Stop) {
+    onStopMessage();
+  }
+}

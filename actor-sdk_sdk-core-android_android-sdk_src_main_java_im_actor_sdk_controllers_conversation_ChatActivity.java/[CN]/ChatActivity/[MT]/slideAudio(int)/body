@@ -1,0 +1,5 @@
+{
+  ObjectAnimator oa=ObjectAnimator.ofFloat(audioSlide,"translationX",audioSlide.getX(),-value);
+  oa.setDuration(0);
+  oa.start();
+}

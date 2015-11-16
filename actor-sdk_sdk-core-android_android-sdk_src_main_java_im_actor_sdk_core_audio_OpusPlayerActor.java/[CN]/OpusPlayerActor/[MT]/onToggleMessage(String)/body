@@ -1,0 +1,11 @@
+{
+  if (state == STATE_PAUSED) {
+    onResumeMessage();
+  }
+ else   if (state == STATE_STARTED) {
+    onPauseMessage();
+  }
+ else {
+    onPlayMessage(fileName);
+  }
+}

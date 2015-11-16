@@ -1,0 +1,11 @@
+{
+synchronized (freeBuffers) {
+    if (freeBuffers.containsKey(size)) {
+      ArrayList<byte[]> b=freeBuffers.get(size);
+      if (b.size() > 0) {
+        return b.remove(0);
+      }
+    }
+  }
+  return new byte[size];
+}

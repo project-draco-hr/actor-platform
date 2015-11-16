@@ -1,0 +1,11 @@
+{
+  if (state == STATE_STARTED) {
+    audioTrack.pause();
+    state=STATE_PAUSED;
+  }
+  float scale=0;
+  if (duration != 0) {
+    scale=offset / (float)duration;
+  }
+  callback.onPause(currentFileName,scale);
+}

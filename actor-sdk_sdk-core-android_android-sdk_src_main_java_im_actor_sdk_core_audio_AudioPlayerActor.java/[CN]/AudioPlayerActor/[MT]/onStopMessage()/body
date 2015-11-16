@@ -1,0 +1,16 @@
+{
+  if (isInited) {
+    if (usedAndroid) {
+      androidPlayerActor.send(new AndroidPlayerActor.Stop());
+    }
+ else {
+      opusPlayerActor.send(new OpusPlayerActor.Stop());
+    }
+  }
+ else {
+    for (    AudioPlayerCallback callback : callbacks) {
+      callback.onStop(null);
+    }
+  }
+  isInited=false;
+}

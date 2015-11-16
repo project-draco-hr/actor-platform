@@ -1,0 +1,12 @@
+{
+  if (audioRecord != null) {
+    audioRecord.stop();
+    audioRecord.release();
+    audioRecord=null;
+  }
+  if (opusActor != null) {
+    opusActor.send(new OpusEncoderActor.Stop());
+  }
+  callback.onRecordCrash();
+  state=STATE_STOPPED;
+}

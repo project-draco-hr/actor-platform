@@ -1,0 +1,69 @@
+{
+  VoiceContent audioMsg=(VoiceContent)message.getContent();
+  if (message.getSenderId() == myUid()) {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_out);
+  }
+ else {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_in);
+    messageBubble.getBackground().setColorFilter(null);
+  }
+  if (message.getSenderId() == myUid()) {
+    stateIcon.setVisibility(View.VISIBLE);
+switch (message.getMessageState()) {
+case ERROR:
+      stateIcon.setResource(R.drawable.msg_error);
+    stateIcon.setTint(errorColor);
+  break;
+default :
+case PENDING:
+stateIcon.setResource(R.drawable.msg_clock);
+stateIcon.setTint(waitColor);
+break;
+case READ:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(readColor);
+break;
+case RECEIVED:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(deliveredColor);
+break;
+case SENT:
+stateIcon.setResource(R.drawable.msg_check_1);
+stateIcon.setTint(sentColor);
+break;
+}
+}
+ else {
+stateIcon.setVisibility(View.GONE);
+}
+time.setText(Strings.formatTime(message.getDate()));
+currentDuration=((VoiceContent)message.getContent()).getDuration();
+duration.setText(ActorSDK.sharedActor().getMessenger().getFormatter().formatDuration((int)(currentDuration / 1000)));
+boolean needRebind=false;
+if (isUpdated) {
+if (downloadFileVM != null) {
+downloadFileVM.detach();
+downloadFileVM=null;
+}
+if (uploadFileVM != null) {
+uploadFileVM.detach();
+uploadFileVM=null;
+}
+needRebind=true;
+}
+if (needRebind) {
+if (audioMsg.getSource() instanceof FileRemoteSource) {
+boolean autoDownload=audioMsg instanceof VoiceContent;
+downloadFileVM=ActorSDK.sharedActor().getMessenger().bindFile(((FileRemoteSource)audioMsg.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(audioMsg));
+}
+ else if (audioMsg.getSource() instanceof FileLocalSource) {
+uploadFileVM=ActorSDK.sharedActor().getMessenger().bindUpload(message.getRid(),new UploadVMCallback());
+currentAudio=((FileLocalSource)audioMsg.getSource()).getFileDescriptor();
+stop();
+bindPlayButton();
+}
+ else {
+throw new RuntimeException("Unknown file source type: " + audioMsg.getSource());
+}
+}
+}

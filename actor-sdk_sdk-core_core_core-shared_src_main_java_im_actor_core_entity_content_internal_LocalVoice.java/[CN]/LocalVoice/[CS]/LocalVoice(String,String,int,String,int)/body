@@ -1,0 +1,4 @@
+{
+  super(fileName,fileDescriptor,fileSize,mimeType,null);
+  this.duration=duration;
+}

@@ -1,0 +1,4 @@
+{
+  progressView.setValue((int)(progress * 100));
+  showView(progressView);
+}

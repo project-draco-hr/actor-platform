@@ -31,6 +31,10 @@
     SendVideo sendVideo=(SendVideo)message;
     doSendVideo(sendVideo.getPeer(),sendVideo.getFileName(),sendVideo.getW(),sendVideo.getH(),sendVideo.getDuration(),sendVideo.getFastThumb(),sendVideo.getDescriptor(),sendVideo.getFileSize());
   }
+ else   if (message instanceof SendAudio) {
+    SendAudio sendAudio=(SendAudio)message;
+    doSendAudio(sendAudio.getPeer(),sendAudio.getDescriptor(),sendAudio.getFileName(),sendAudio.getFileSize(),sendAudio.getDuration());
+  }
  else {
     drop(message);
   }

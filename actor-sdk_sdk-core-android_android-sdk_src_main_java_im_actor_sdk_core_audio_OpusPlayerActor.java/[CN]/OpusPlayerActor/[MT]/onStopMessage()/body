@@ -1,0 +1,5 @@
+{
+  destroyPlayer();
+  state=STATE_NONE;
+  callback.onStop(currentFileName);
+}

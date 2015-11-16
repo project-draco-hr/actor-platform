@@ -2,9 +2,13 @@
   if (s.length() > 0) {
     sendButton.setTint(ActorSDK.sharedActor().style.getConvSendEnabledColor());
     sendButton.setEnabled(true);
+    showView(sendButton);
+    goneView(audioButton);
   }
  else {
     sendButton.setTint(ActorSDK.sharedActor().style.getConvSendDisabledColor());
     sendButton.setEnabled(false);
+    showView(audioButton);
+    goneView(sendButton);
   }
 }

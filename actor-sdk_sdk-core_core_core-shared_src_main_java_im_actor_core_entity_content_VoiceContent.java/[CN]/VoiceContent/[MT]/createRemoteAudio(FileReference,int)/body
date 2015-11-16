@@ -1,0 +1,3 @@
+{
+  return new VoiceContent(new ContentRemoteContainer(new ApiDocumentMessage(reference.getFileId(),reference.getAccessHash(),reference.getFileSize(),reference.getFileName(),"audio/mp3",null,new ApiDocumentExVoice(duration))));
+}

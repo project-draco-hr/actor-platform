@@ -1,0 +1,13 @@
+{
+  if (state != STATE_STARTED) {
+    return;
+  }
+  audioRecord.stop();
+  audioRecord.release();
+  audioRecord=null;
+  opusActor.send(new OpusEncoderActor.Stop());
+  if (!cancel) {
+    callback.onRecordStop(SystemClock.uptimeMillis() - playStartTime);
+  }
+  state=STATE_STOPPED;
+}

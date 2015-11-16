@@ -1,0 +1,8 @@
+{
+  if (mplayer != null) {
+    mplayer.stop();
+    mplayer.reset();
+    mplayer.release();
+    mplayer=null;
+  }
+}

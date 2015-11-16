@@ -8,6 +8,45 @@
   }
   super.onCreate(saveInstance);
   messageEditText.addTextChangedListener(new TextWatcherImp());
+  SLIDE_LIMIT=(int)(Screen.getDensity() * 180);
+  audioContainer=findViewById(R.id.audioContainer);
+  audioTimer=(TextView)findViewById(R.id.audioTimer);
+  audioSlide=findViewById(R.id.audioSlide);
+  recordPoint=findViewById(R.id.record_point);
+  ActorSystem.system().addDispatcher("voice_capture_dispatcher");
+  audioButton=(ImageView)findViewById(R.id.record_btn);
+  audioButton.setVisibility(View.VISIBLE);
+  audioButton.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (!isAudioVisible) {
+          showAudio();
+          slideStart=(int)event.getX();
+        }
+      }
+ else       if (event.getAction() == MotionEvent.ACTION_UP) {
+        if (isAudioVisible) {
+          hideAudio(false);
+        }
+      }
+ else       if (event.getAction() == MotionEvent.ACTION_MOVE) {
+        if (isAudioVisible) {
+          int slide=slideStart - (int)event.getX();
+          if (slide < 0) {
+            slide=0;
+          }
+          if (slide > SLIDE_LIMIT) {
+            hideAudio(true);
+          }
+ else {
+            slideAudio(slide);
+          }
+        }
+      }
+      return true;
+    }
+  }
+);
   mentionsList=(ListView)findViewById(R.id.mentionsList);
   quoteContainer=(FrameLayout)findViewById(R.id.quoteContainer);
   quoteText=(TextView)findViewById(R.id.quote_text);

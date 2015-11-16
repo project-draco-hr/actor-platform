@@ -13,6 +13,10 @@
     VideoContent baseVideoContent=(VideoContent)msg.getContent();
     nContent=VideoContent.createRemoteVideo(fileReference,baseVideoContent.getW(),baseVideoContent.getH(),baseVideoContent.getDuration(),baseVideoContent.getFastThumb());
   }
+ else   if (msg.getContent() instanceof VoiceContent) {
+    VoiceContent baseVoiceContent=(VoiceContent)msg.getContent();
+    nContent=VoiceContent.createRemoteAudio(fileReference,baseVoiceContent.getDuration());
+  }
  else   if (msg.getContent() instanceof DocumentContent) {
     DocumentContent baseDocContent=(DocumentContent)msg.getContent();
     nContent=DocumentContent.createRemoteDocument(fileReference,baseDocContent.getFastThumb());

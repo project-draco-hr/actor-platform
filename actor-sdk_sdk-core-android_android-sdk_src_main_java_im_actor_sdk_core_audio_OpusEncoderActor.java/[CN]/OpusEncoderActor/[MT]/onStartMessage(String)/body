@@ -1,0 +1,7 @@
+{
+  if (state != STATE_NONE) {
+    return;
+  }
+  int result=opusLib.startRecord(fileName);
+  state=STATE_STARTED;
+}

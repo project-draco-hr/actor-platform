@@ -1,4 +1,5 @@
 {
   super.onPause();
+  voiceRecordActor.send(PoisonPill.INSTANCE);
   messenger().saveDraft(peer,messageEditText.getText().toString());
 }

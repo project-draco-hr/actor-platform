@@ -1,0 +1,23 @@
+{
+  if (message instanceof Play) {
+    onPlayMessage(((Play)message).getFilename());
+  }
+ else   if (message instanceof Stop) {
+    onStopMessage();
+  }
+ else   if (message instanceof Iterate) {
+    onIterateMessage();
+  }
+ else   if (message instanceof Pause) {
+    onPauseMessage();
+  }
+ else   if (message instanceof Resume) {
+    onResumeMessage();
+  }
+ else   if (message instanceof Toggle) {
+    onToggleMessage(((Toggle)message).getFilename());
+  }
+ else   if (message instanceof Seek) {
+    onPlayMessage(((Seek)message).getFilename(),((Seek)message).getPosition());
+  }
+}

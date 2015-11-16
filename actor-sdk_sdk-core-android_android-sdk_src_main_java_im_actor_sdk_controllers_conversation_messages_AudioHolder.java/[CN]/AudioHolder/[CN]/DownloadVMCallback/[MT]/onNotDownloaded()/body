@@ -1,0 +1,5 @@
+{
+  goneView(progressView);
+  playBtn.setImageResource(R.drawable.msg_audio_download_selector);
+  playBtn.setOnClickListener(null);
+}

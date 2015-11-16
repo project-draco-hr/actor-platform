@@ -1,0 +1,4 @@
+{
+  destroyPlayer();
+  callback.onError(currentFileName);
+}

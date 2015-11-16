@@ -1,0 +1,9 @@
+{
+  currenFile=fileName;
+  this.isInited=true;
+  if (usedAndroid) {
+  }
+ else {
+    opusPlayerActor.send(new OpusPlayerActor.Seek(position,fileName));
+  }
+}

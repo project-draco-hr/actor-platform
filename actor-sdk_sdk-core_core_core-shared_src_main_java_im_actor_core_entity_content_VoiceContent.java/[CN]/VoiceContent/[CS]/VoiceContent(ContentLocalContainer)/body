@@ -1,0 +1,5 @@
+{
+  super(contentLocalContainer);
+  LocalVoice photo=((LocalVoice)contentLocalContainer.getContent());
+  duration=photo.getDuration();
+}

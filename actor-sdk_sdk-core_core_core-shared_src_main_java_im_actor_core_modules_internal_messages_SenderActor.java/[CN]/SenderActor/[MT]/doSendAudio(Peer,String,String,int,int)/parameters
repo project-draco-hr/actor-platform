@@ -1,0 +1,5 @@
+Peer peer
+String descriptor
+String fileName
+int fileSize
+int duration

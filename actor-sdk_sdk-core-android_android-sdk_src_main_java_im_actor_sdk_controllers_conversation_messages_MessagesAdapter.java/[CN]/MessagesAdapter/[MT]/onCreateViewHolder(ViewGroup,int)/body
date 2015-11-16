@@ -8,6 +8,8 @@ case 2:
 return new PhotoHolder(this,inflate(R.layout.adapter_dialog_photo,viewGroup));
 case 3:
 return new DocHolder(this,inflate(R.layout.adapter_dialog_doc,viewGroup));
+case 4:
+return new AudioHolder(this,inflate(R.layout.adapter_dialog_audio,viewGroup));
 default :
 return new UnsupportedHolder(this,inflate(R.layout.adapter_dialog_text,viewGroup));
 }

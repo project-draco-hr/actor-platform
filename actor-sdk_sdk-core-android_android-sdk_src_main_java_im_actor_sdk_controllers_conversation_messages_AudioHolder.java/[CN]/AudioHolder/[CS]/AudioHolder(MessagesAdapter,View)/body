@@ -1,0 +1,96 @@
+{
+  super(fragment,itemView,false);
+  context=fragment.getMessagesFragment().getActivity();
+  waitColor=ActorSDK.sharedActor().style.getConvStatePendingColor();
+  sentColor=ActorSDK.sharedActor().style.getConvStateSentColor();
+  deliveredColor=ActorSDK.sharedActor().style.getConvStateDeliveredColor();
+  readColor=ActorSDK.sharedActor().style.getConvStateReadColor();
+  errorColor=ActorSDK.sharedActor().style.getConvStateErrorColor();
+  if (audioActor == null) {
+    audioActor=ActorSystem.system().actorOf(Props.create(AudioPlayerActor.class,new ActorCreator<AudioPlayerActor>(){
+      @Override public AudioPlayerActor create(){
+        return new AudioPlayerActor(context);
+      }
+    }
+),"actor/audio_player");
+  }
+  stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);
+  time=(TextView)itemView.findViewById(R.id.time);
+  time.setTextColor(ActorSDK.sharedActor().style.getConvTimeColor());
+  duration=(TextView)itemView.findViewById(R.id.duration);
+  duration.setTextColor(ActorSDK.sharedActor().style.getConvTimeColor());
+  seekBar=(SeekBar)itemView.findViewById(R.id.audioSlide);
+  progressView=(CircularView)itemView.findViewById(R.id.progressView);
+  progressView.setColor(context.getResources().getColor(R.color.primary_alt));
+  progressView.setMaxValue(100);
+  seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+    @Override public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
+      float seek=(float)seekBar.getProgress() / (float)seekBar.getMax();
+      duration.setText(ActorSDK.sharedActor().getMessenger().getFormatter().formatDuration((int)(seek * currentDuration / 1000)));
+    }
+    @Override public void onStartTrackingTouch(    SeekBar seekBar){
+      treckingTouch=true;
+      audioActor.send(new AudioPlayerActor.Stop());
+    }
+    @Override public void onStopTrackingTouch(    SeekBar seekBar){
+      float progress=(float)seekBar.getProgress() / (float)seekBar.getMax();
+      audioActor.send(new AudioPlayerActor.Seek(progress,currentAudio));
+      currentPlayingAudio=currentAudio;
+    }
+  }
+);
+  mainContainer=(ViewGroup)itemView.findViewById(R.id.mainContainer);
+  messageBubble=(FrameLayout)itemView.findViewById(R.id.fl_bubble);
+  playBtn=(ImageView)itemView.findViewById(R.id.contact_avatar);
+  activity=(Activity)playBtn.getContext();
+  callback=new AudioPlayerActor.AudioPlayerCallback(){
+    @Override public void onStart(    final String fileName){
+      activity.runOnUiThread(new Runnable(){
+        @Override public void run(){
+          play(fileName);
+        }
+      }
+);
+    }
+    @Override public void onStop(    final String fileName){
+      activity.runOnUiThread(new Runnable(){
+        @Override public void run(){
+          stop();
+        }
+      }
+);
+    }
+    @Override public void onPause(    final String fileName,    float progress){
+      activity.runOnUiThread(new Runnable(){
+        @Override public void run(){
+          if (currentAudio != null && currentAudio.equals(fileName)) {
+            pause();
+          }
+        }
+      }
+);
+    }
+    @Override public void onProgress(    final String fileName,    final float progress){
+      activity.runOnUiThread(new Runnable(){
+        @Override public void run(){
+          if (currentAudio != null && currentAudio.equals(fileName) && currentPlayingAudio.equals(currentAudio)) {
+            if (!treckingTouch)             progress(progress);
+          }
+        }
+      }
+);
+    }
+    @Override public void onError(    final String fileName){
+      activity.runOnUiThread(new Runnable(){
+        @Override public void run(){
+          if (currentAudio != null && currentAudio.equals(fileName)) {
+            Toast.makeText(activity,"error playing this file",Toast.LENGTH_SHORT).show();
+          }
+        }
+      }
+);
+    }
+  }
+;
+  audioActor.send(new AudioPlayerActor.RegisterCallback(callback));
+}

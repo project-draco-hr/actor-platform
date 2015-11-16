@@ -1,5 +1,36 @@
 {
   super.onResume();
+  voiceRecordActor=ActorSystem.system().actorOf(Props.create(VoiceCaptureActor.class,new ActorCreator<VoiceCaptureActor>(){
+    @Override public VoiceCaptureActor create(){
+      return new VoiceCaptureActor(ChatActivity.this,new VoiceCaptureActor.VoiceCaptureCallback(){
+        @Override public void onRecordProgress(        final long time){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              audioTimer.setText(messenger().getFormatter().formatDuration((int)(time / 1000)));
+            }
+          }
+);
+        }
+        @Override public void onRecordCrash(){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              hideAudio(true);
+            }
+          }
+);
+        }
+        @Override public void onRecordStop(        long progress){
+          if (progress < 1200) {
+          }
+ else {
+            messenger().sendVoice(peer,(int)progress,audioFile);
+          }
+        }
+      }
+);
+    }
+  }
+).changeDispatcher("voice_capture_dispatcher"),"actor/voice_capture");
   if (isCompose) {
     messageEditText.requestFocus();
     keyboardUtils.setImeVisibility(messageEditText,true);

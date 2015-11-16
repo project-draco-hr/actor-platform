@@ -1,0 +1,5 @@
+String fileName
+String fileDescriptor
+int fileSize
+String mimeType
+int duration

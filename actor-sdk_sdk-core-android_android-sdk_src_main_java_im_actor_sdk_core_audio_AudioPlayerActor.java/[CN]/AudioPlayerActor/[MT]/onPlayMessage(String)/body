@@ -1,0 +1,17 @@
+{
+  ;
+  currenFile=fileName;
+  if (isInited) {
+    onStopMessage();
+  }
+  this.usedAndroid=opusLib.isOpusFile(fileName) <= 0;
+  this.isInited=true;
+  if (usedAndroid) {
+    androidPlayerActor.send(new AndroidPlayerActor.Play(fileName));
+    opusPlayerActor.send(new OpusPlayerActor.Stop());
+  }
+ else {
+    androidPlayerActor.send(new AndroidPlayerActor.Stop());
+    opusPlayerActor.send(new OpusPlayerActor.Play(fileName));
+  }
+}

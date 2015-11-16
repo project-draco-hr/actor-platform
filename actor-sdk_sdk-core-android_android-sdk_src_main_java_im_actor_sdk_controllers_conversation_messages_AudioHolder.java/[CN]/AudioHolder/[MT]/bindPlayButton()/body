@@ -1,0 +1,9 @@
+{
+  playBtn.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      audioActor.send(new AudioPlayerActor.Toggle(currentAudio));
+      currentPlayingAudio=currentAudio;
+    }
+  }
+);
+}

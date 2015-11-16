@@ -1,0 +1,15 @@
+{
+  if (mplayer != null) {
+    if (state == STATE_STARTED) {
+      int duration=mplayer.getDuration();
+      if (duration == 0) {
+        callback.onProgress(currentFileName,0);
+      }
+ else {
+        float progress=((float)mplayer.getCurrentPosition()) / duration;
+        callback.onProgress(currentFileName,progress);
+      }
+      self().send(new Notify(),500);
+    }
+  }
+}

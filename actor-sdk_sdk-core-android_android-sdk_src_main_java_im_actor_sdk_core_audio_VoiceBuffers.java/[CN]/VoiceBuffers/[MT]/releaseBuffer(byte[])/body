@@ -1,0 +1,13 @@
+{
+synchronized (freeBuffers) {
+    if (freeBuffers.containsKey(b.length)) {
+      freeBuffers.get(b.length).add(b);
+      return;
+    }
+ else {
+      ArrayList<byte[]> res=new ArrayList<byte[]>();
+      res.add(b);
+      freeBuffers.put(b.length,res);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  if (message instanceof Start) {
+    onStartMessage(((Start)message).getFilename());
+  }
+ else   if (message instanceof Iterate) {
+    onIterateMessage();
+  }
+ else   if (message instanceof Stop) {
+    onStopMessage(((Stop)message).isCancel());
+  }
+ else   if (message instanceof Crash) {
+    onCrashMessage();
+  }
+}

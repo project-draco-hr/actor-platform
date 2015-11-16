@@ -1,0 +1,18 @@
+{
+  if (isInited) {
+    if (currenFile == fileName) {
+      if (usedAndroid) {
+        androidPlayerActor.send(new AndroidPlayerActor.Toggle(fileName));
+      }
+ else {
+        opusPlayerActor.send(new OpusPlayerActor.Toggle(fileName));
+      }
+    }
+ else {
+      onStopMessage();
+    }
+  }
+  if (!isInited) {
+    onPlayMessage(fileName);
+  }
+}
