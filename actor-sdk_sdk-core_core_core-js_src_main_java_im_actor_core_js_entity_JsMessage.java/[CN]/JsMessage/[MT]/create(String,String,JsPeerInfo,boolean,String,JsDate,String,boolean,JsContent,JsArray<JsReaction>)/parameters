@@ -7,3 +7,4 @@ JsDate fullDate
 String state
 boolean isOnServer
 JsContent content
+JsArray<JsReaction> reactions
