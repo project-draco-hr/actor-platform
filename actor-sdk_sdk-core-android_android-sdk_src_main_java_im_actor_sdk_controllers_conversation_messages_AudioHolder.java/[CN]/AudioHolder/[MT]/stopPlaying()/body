@@ -1,0 +1,5 @@
+{
+  if (audioActor != null) {
+    audioActor.send(new AudioPlayerActor.Stop());
+  }
+}
