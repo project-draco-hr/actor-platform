@@ -58,14 +58,14 @@
   final TextView themeHeader=(TextView)header.findViewById(R.id.theme_header);
   themeHeader.setTextColor(style.getProfileSubtitleColor());
   final boolean finalIsAdmin=isAdmin;
-  bind(themeTV,header.findViewById(R.id.themeContainer),groupInfo.getTheme(),new ActorBinder.OnChangedListener(){
+  bind(themeTV,header.findViewById(R.id.themeContainer),groupInfo.getTheme(),new ActorBinder.OnChangedListener<String>(){
     @Override public void onChanged(    String s){
       theme[0]=s;
       updateDescriptionVisibility(descriptionContainer,finalIsAdmin,header);
     }
   }
 ,!isAdmin,getString(R.string.theme_group_empty));
-  bind(aboutTV,header.findViewById(R.id.aboutContainer),groupInfo.getAbout(),new ActorBinder.OnChangedListener(){
+  bind(aboutTV,header.findViewById(R.id.aboutContainer),groupInfo.getAbout(),new ActorBinder.OnChangedListener<String>(){
     @Override public void onChanged(    String s){
       about[0]=s;
       updateDescriptionVisibility(descriptionContainer,finalIsAdmin,header);

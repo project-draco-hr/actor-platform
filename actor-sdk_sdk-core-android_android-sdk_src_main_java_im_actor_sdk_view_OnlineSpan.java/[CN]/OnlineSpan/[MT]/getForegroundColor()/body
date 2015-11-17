@@ -1,0 +1,3 @@
+{
+  return online ? COLOR_ONLINE : COLOR_OFFLINE;
+}

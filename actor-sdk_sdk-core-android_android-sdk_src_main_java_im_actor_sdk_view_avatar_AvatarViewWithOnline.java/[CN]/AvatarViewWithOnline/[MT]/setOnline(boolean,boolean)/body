@@ -1,0 +1,12 @@
+{
+  if (!isBot && DRAW_ONLINES) {
+    this.online.setVisibility(VISIBLE);
+    if (isOnline != online) {
+      isOnline=online;
+      this.online.setImageResource(isOnline ? R.drawable.indicator_online : R.drawable.indicator_offline);
+    }
+  }
+ else {
+    this.online.setVisibility(INVISIBLE);
+  }
+}

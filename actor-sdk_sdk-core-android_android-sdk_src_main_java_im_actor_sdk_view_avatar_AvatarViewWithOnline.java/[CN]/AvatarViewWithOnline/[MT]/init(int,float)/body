@@ -1,0 +1,8 @@
+{
+  avatarView=new AvatarView(getContext());
+  avatarView.init(size,text);
+  addView(avatarView);
+  online=new ImageView(getContext());
+  online.setImageResource(R.drawable.indicator_offline);
+  addView(online,new LayoutParams(Screen.dp(11),Screen.dp(11),Gravity.RIGHT | Gravity.BOTTOM));
+}

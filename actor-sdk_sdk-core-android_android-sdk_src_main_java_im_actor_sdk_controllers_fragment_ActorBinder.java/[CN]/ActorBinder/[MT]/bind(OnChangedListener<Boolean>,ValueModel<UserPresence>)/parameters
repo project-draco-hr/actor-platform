@@ -1,0 +1,2 @@
+OnChangedListener<Boolean> callback
+ValueModel<UserPresence> up
