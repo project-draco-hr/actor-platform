@@ -1,0 +1,7 @@
+{
+  int bkgrnd=getBackground(i);
+  Uri uri=new Uri.Builder().scheme(UriUtil.LOCAL_RESOURCE_SCHEME).path(String.valueOf(bkgrnd)).build();
+  ImageRequest request=ImageRequestBuilder.newBuilderWithSource(uri).setResizeOptions(new ResizeOptions(width,height)).build();
+  PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(getController()).setImageRequest(request).build();
+  setController(controller);
+}

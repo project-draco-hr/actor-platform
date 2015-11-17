@@ -1,5 +1,6 @@
 {
   if (background == null) {
-    background=getResources().getDrawable(R.drawable.img_chat_background_default);
+    shp=getContext().getSharedPreferences("wallpaper",Context.MODE_PRIVATE);
+    background=getResources().getDrawable(BackgroundPreviewView.getBackground(shp.getInt("wallpaper",R.drawable.img_chat_background_default)));
   }
 }

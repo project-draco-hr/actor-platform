@@ -1,0 +1,8 @@
+{
+  if (i >= 0 && BACKGROUNDS.length > i) {
+    return BACKGROUNDS[i];
+  }
+ else {
+    return R.drawable.img_chat_background_default;
+  }
+}

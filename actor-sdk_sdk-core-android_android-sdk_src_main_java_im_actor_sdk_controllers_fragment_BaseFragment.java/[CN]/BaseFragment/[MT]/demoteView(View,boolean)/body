@@ -1,0 +1,3 @@
+{
+  ViewUtils.demoteView(view,isAnimated);
+}
