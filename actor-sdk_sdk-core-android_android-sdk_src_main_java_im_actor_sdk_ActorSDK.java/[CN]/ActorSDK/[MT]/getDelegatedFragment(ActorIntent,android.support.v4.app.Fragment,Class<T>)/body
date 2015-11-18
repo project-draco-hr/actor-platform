@@ -1,9 +1,8 @@
 {
-  Class type=baseFragment.getClass().getSuperclass();
   if (delegatedIntent != null && delegatedIntent instanceof ActorIntentFragmentActivity && ((ActorIntentFragmentActivity)delegatedIntent).getFragment() != null && type.isInstance(((ActorIntentFragmentActivity)delegatedIntent).getFragment())) {
     return (T)((ActorIntentFragmentActivity)delegatedIntent).getFragment();
   }
  else {
-    return baseFragment;
+    return (T)baseFragment;
   }
 }
