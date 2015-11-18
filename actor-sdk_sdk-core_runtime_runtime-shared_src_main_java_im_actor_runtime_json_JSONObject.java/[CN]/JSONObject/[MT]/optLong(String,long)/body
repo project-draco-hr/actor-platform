@@ -1,8 +1,5 @@
 {
-  try {
-    return this.getLong(key);
-  }
- catch (  Exception e) {
-    return defaultValue;
-  }
+  Object object=opt(name);
+  Long result=JSON.toLong(object);
+  return result != null ? result : fallback;
 }

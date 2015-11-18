@@ -1,15 +1,8 @@
 {
-  if (n == 0) {
-    return "";
+  if (pos + length > in.length()) {
+    throw syntaxError(length + " is out of bounds");
   }
-  char[] chars=new char[n];
-  int pos=0;
-  while (pos < n) {
-    chars[pos]=this.next();
-    if (this.end()) {
-      throw this.syntaxError("Substring bounds error");
-    }
-    pos+=1;
-  }
-  return new String(chars);
+  String result=in.substring(pos,pos + length);
+  pos+=length;
+  return result;
 }

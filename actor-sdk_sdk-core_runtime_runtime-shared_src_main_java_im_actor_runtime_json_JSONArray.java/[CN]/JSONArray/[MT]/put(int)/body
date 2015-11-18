@@ -1,4 +1,4 @@
 {
-  this.put(new Integer(value));
+  values.add(value);
   return this;
 }

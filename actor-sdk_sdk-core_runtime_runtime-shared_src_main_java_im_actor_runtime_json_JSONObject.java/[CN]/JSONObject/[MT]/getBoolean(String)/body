@@ -1,10 +1,8 @@
 {
-  Object object=this.get(key);
-  if (object.equals(Boolean.FALSE) || (object instanceof String && ((String)object).equalsIgnoreCase("false"))) {
-    return false;
+  Object object=get(name);
+  Boolean result=JSON.toBoolean(object);
+  if (result == null) {
+    throw JSON.typeMismatch(name,object,"boolean");
   }
- else   if (object.equals(Boolean.TRUE) || (object instanceof String && ((String)object).equalsIgnoreCase("true"))) {
-    return true;
-  }
-  throw new JSONException("JSONObject[" + key + "] is not a Boolean.");
+  return result;
 }

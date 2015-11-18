@@ -1,7 +1,8 @@
 {
-  Object object=this.get(index);
-  if (object instanceof String) {
-    return (String)object;
+  Object object=get(index);
+  String result=JSON.toString(object);
+  if (result == null) {
+    throw JSON.typeMismatch(index,object,"String");
   }
-  throw new JSONException("JSONArray[" + index + "] not a string.");
+  return result;
 }

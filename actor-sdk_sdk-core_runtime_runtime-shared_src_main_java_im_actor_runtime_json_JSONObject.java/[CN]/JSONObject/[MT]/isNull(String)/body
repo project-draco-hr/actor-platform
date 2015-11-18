@@ -1,3 +1,4 @@
 {
-  return JSONObject.NULL.equals(this.opt(key));
+  Object value=nameValuePairs.get(name);
+  return value == null || value == NULL;
 }

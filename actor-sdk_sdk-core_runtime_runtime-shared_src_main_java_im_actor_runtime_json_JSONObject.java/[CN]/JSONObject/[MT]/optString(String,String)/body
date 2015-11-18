@@ -1,4 +1,5 @@
 {
-  Object object=this.opt(key);
-  return NULL.equals(object) ? defaultValue : object.toString();
+  Object object=opt(name);
+  String result=JSON.toString(object);
+  return result != null ? result : fallback;
 }

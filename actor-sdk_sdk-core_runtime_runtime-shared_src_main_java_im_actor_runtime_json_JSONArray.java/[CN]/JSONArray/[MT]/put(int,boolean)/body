@@ -1,4 +1,3 @@
 {
-  this.put(index,value ? Boolean.TRUE : Boolean.FALSE);
-  return this;
+  return put(index,(Boolean)value);
 }

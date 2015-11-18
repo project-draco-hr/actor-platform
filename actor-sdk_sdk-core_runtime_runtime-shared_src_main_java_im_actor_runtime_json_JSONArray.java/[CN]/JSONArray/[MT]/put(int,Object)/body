@@ -1,16 +1,10 @@
 {
-  JSONObject.testValidity(value);
-  if (index < 0) {
-    throw new JSONException("JSONArray[" + index + "] not found.");
+  if (value instanceof Number) {
+    JSON.checkDouble(((Number)value).doubleValue());
   }
-  if (index < this.length()) {
-    this.myArrayList.set(index,value);
+  while (values.size() <= index) {
+    values.add(null);
   }
- else {
-    while (index != this.length()) {
-      this.put(JSONObject.NULL);
-    }
-    this.put(value);
-  }
+  values.set(index,value);
   return this;
 }

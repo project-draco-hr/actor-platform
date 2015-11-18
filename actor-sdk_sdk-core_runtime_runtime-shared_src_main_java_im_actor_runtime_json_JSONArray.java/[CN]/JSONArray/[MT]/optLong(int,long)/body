@@ -1,8 +1,5 @@
 {
-  try {
-    return this.getLong(index);
-  }
- catch (  Exception e) {
-    return defaultValue;
-  }
+  Object object=opt(index);
+  Long result=JSON.toLong(object);
+  return result != null ? result : fallback;
 }

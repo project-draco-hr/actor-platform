@@ -1,4 +1,4 @@
 {
-  Object o=this.opt(index);
-  return o instanceof JSONArray ? (JSONArray)o : null;
+  Object object=opt(index);
+  return object instanceof JSONArray ? (JSONArray)object : null;
 }

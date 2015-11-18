@@ -1,4 +1,4 @@
 {
-  Object o=this.opt(index);
-  return o instanceof JSONObject ? (JSONObject)o : null;
+  Object object=opt(index);
+  return object instanceof JSONObject ? (JSONObject)object : null;
 }

@@ -1,8 +1,5 @@
 {
-  try {
-    return this.getBoolean(index);
-  }
- catch (  Exception e) {
-    return defaultValue;
-  }
+  Object object=opt(index);
+  Boolean result=JSON.toBoolean(object);
+  return result != null ? result : fallback;
 }

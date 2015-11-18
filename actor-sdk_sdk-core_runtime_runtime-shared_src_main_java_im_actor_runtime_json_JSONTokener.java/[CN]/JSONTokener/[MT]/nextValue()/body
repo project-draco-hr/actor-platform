@@ -1,26 +1,17 @@
 {
-  char c=this.nextClean();
-  String string;
+  int c=nextCleanInternal();
 switch (c) {
-case '"':
-case '\'':
-    return this.nextString(c);
+case -1:
+    throw syntaxError("End of input");
 case '{':
-  this.back();
-return new JSONObject(this);
+  return readObject();
 case '[':
-this.back();
-return new JSONArray(this);
+return readArray();
+case '\'':
+case '"':
+return nextString((char)c);
+default :
+pos--;
+return readLiteral();
 }
-StringBuilder sb=new StringBuilder();
-while (c >= ' ' && !END_VALUES.contains("" + c)) {
-sb.append(c);
-c=this.next();
-}
-this.back();
-string=sb.toString().trim();
-if ("".equals(string)) {
-throw this.syntaxError("Missing value");
-}
-return JSONObject.stringToValue(string);
 }

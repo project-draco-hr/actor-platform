@@ -1,6 +1,6 @@
 {
-  if (key != null && value != null) {
-    this.put(key,value);
+  if (name == null || value == null) {
+    return this;
   }
-  return this;
+  return put(name,value);
 }

@@ -1,9 +1,8 @@
 {
-  Object object=this.get(key);
-  try {
-    return object instanceof Number ? ((Number)object).doubleValue() : Double.parseDouble((String)object);
+  Object object=get(name);
+  Double result=JSON.toDouble(object);
+  if (result == null) {
+    throw JSON.typeMismatch(name,object,"double");
   }
- catch (  Exception e) {
-    throw new JSONException("JSONObject[" + key + "] is not a number.");
-  }
+  return result;
 }

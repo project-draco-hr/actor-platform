@@ -1,31 +1,9 @@
 {
-  this();
-  if (x.nextClean() != '[') {
-    throw x.syntaxError("A JSONArray text must start with '['");
+  Object object=readFrom.nextValue();
+  if (object instanceof JSONArray) {
+    values=((JSONArray)object).values;
   }
-  if (x.nextClean() != ']') {
-    x.back();
-    for (; ; ) {
-      if (x.nextClean() == ',') {
-        x.back();
-        this.myArrayList.add(JSONObject.NULL);
-      }
  else {
-        x.back();
-        this.myArrayList.add(x.nextValue());
-      }
-switch (x.nextClean()) {
-case ',':
-        if (x.nextClean() == ']') {
-          return;
-        }
-      x.back();
-    break;
-case ']':
-  return;
-default :
-throw x.syntaxError("Expected a ',' or ']'");
-}
-}
-}
+    throw JSON.typeMismatch(object,"JSONArray");
+  }
 }

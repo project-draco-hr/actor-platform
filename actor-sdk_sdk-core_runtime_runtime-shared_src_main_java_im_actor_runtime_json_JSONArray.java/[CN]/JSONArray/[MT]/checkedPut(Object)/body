@@ -1,0 +1,6 @@
+{
+  if (value instanceof Number) {
+    JSON.checkDouble(((Number)value).doubleValue());
+  }
+  put(value);
+}

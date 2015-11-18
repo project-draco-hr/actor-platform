@@ -1,14 +1,17 @@
 {
-  testValidity(value);
-  Object object=this.opt(key);
-  if (object == null) {
-    this.put(key,new JSONArray().put(value));
+  Object current=nameValuePairs.get(checkName(name));
+  final JSONArray array;
+  if (current instanceof JSONArray) {
+    array=(JSONArray)current;
   }
- else   if (object instanceof JSONArray) {
-    this.put(key,((JSONArray)object).put(value));
+ else   if (current == null) {
+    JSONArray newArray=new JSONArray();
+    nameValuePairs.put(name,newArray);
+    array=newArray;
   }
  else {
-    throw new JSONException("JSONObject[" + key + "] is not a JSONArray.");
+    throw new JSONException("Key " + name + " is not a JSONArray");
   }
+  array.checkedPut(value);
   return this;
 }

@@ -1,7 +1,9 @@
 {
-  Object object=this.get(index);
+  Object object=get(index);
   if (object instanceof JSONArray) {
     return (JSONArray)object;
   }
-  throw new JSONException("JSONArray[" + index + "] is not a JSONArray.");
+ else {
+    throw JSON.typeMismatch(index,object,"JSONArray");
+  }
 }

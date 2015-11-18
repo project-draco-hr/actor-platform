@@ -1,8 +1,5 @@
 {
-  try {
-    return this.getInt(index);
-  }
- catch (  Exception e) {
-    return defaultValue;
-  }
+  Object object=opt(index);
+  Integer result=JSON.toInteger(object);
+  return result != null ? result : fallback;
 }

@@ -1,6 +1,4 @@
 {
-  Double d=new Double(value);
-  JSONObject.testValidity(d);
-  this.put(d);
+  values.add(JSON.checkDouble(value));
   return this;
 }

@@ -1,9 +1,5 @@
 {
-  if (this.usePrevious || this.index <= 0) {
-    throw new JSONException("Stepping back two steps is not supported");
+  if (--pos == -1) {
+    pos=0;
   }
-  this.index-=1;
-  this.character-=1;
-  this.usePrevious=true;
-  this.eof=false;
 }

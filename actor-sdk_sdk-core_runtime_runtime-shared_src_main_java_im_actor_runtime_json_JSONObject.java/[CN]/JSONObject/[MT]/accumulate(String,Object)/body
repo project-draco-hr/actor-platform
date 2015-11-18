@@ -1,14 +1,17 @@
 {
-  testValidity(value);
-  Object object=this.opt(key);
-  if (object == null) {
-    this.put(key,value instanceof JSONArray ? new JSONArray().put(value) : value);
+  Object current=nameValuePairs.get(checkName(name));
+  if (current == null) {
+    return put(name,value);
   }
- else   if (object instanceof JSONArray) {
-    ((JSONArray)object).put(value);
+  if (current instanceof JSONArray) {
+    JSONArray array=(JSONArray)current;
+    array.checkedPut(value);
   }
  else {
-    this.put(key,new JSONArray().put(object).put(value));
+    JSONArray array=new JSONArray();
+    array.checkedPut(current);
+    array.checkedPut(value);
+    nameValuePairs.put(name,array);
   }
   return this;
 }

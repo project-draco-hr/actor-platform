@@ -1,10 +1,12 @@
 {
-  if (names == null || names.length() == 0 || this.length() == 0) {
+  JSONObject result=new JSONObject();
+  int length=Math.min(names.length(),values.size());
+  if (length == 0) {
     return null;
   }
-  JSONObject jo=new JSONObject();
-  for (int i=0; i < names.length(); i+=1) {
-    jo.put(names.getString(i),this.opt(i));
+  for (int i=0; i < length; i++) {
+    String name=JSON.toString(names.opt(i));
+    result.put(name,opt(i));
   }
-  return jo;
+  return result;
 }

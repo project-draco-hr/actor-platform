@@ -1,2 +1,2 @@
-String key
-long defaultValue
+String name
+long fallback

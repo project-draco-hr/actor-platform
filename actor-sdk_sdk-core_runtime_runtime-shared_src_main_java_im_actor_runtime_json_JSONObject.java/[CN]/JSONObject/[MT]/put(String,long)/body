@@ -1,4 +1,4 @@
 {
-  this.put(key,new Long(value));
+  nameValuePairs.put(checkName(name),value);
   return this;
 }

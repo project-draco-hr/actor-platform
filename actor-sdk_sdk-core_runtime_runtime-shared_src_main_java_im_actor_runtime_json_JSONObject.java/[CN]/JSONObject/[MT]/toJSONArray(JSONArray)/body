@@ -1,10 +1,15 @@
 {
-  if (names == null || names.length() == 0) {
+  JSONArray result=new JSONArray();
+  if (names == null) {
     return null;
   }
-  JSONArray ja=new JSONArray();
-  for (int i=0; i < names.length(); i+=1) {
-    ja.put(this.opt(names.getString(i)));
+  int length=names.length();
+  if (length == 0) {
+    return null;
   }
-  return ja;
+  for (int i=0; i < length; i++) {
+    String name=JSON.toString(names.opt(i));
+    result.put(opt(name));
+  }
+  return result;
 }

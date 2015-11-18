@@ -1,4 +1,4 @@
 {
-  this.myArrayList.add(value);
+  values.add(value);
   return this;
 }

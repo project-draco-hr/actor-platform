@@ -1,3 +1,6 @@
 {
-  this(new DataInput(s.getBytes()));
+  if (in != null && in.startsWith("\ufeff")) {
+    in=in.substring(1);
+  }
+  this.in=in;
 }

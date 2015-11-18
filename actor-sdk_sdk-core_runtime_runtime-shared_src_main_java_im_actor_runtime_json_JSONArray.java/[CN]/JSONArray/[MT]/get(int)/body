@@ -1,7 +1,12 @@
 {
-  Object object=this.opt(index);
-  if (object == null) {
-    throw new JSONException("JSONArray[" + index + "] not found.");
+  try {
+    Object value=values.get(index);
+    if (value == null) {
+      throw new JSONException("Value at " + index + " is null.");
+    }
+    return value;
   }
-  return object;
+ catch (  IndexOutOfBoundsException e) {
+    throw new JSONException("Index " + index + " out of range [0.."+ values.size()+ ")");
+  }
 }

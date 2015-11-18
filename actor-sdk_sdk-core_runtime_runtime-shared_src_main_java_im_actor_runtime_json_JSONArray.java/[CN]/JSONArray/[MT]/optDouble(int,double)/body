@@ -1,8 +1,5 @@
 {
-  try {
-    return this.getDouble(index);
-  }
- catch (  Exception e) {
-    return defaultValue;
-  }
+  Object object=opt(index);
+  Double result=JSON.toDouble(object);
+  return result != null ? result : fallback;
 }

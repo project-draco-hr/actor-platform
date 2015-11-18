@@ -1,3 +1,6 @@
 {
-  return index >= 0 && index < this.length() ? this.myArrayList.remove(index) : null;
+  if (index < 0 || index >= values.size()) {
+    return null;
+  }
+  return values.remove(index);
 }

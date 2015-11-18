@@ -1,4 +1,4 @@
 {
-  this.put(key,new Double(value));
+  nameValuePairs.put(checkName(name),JSON.checkDouble(value));
   return this;
 }

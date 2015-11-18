@@ -1,3 +1,4 @@
 {
-  return JSONObject.NULL.equals(this.opt(index));
+  Object value=opt(index);
+  return value == null || value == JSONObject.NULL;
 }
