@@ -53,6 +53,10 @@
  else       if (item.getItemId() == R.id.file) {
         startActivityForResult(Intents.pickFile(ChatActivity.this),REQUEST_DOC);
       }
+ else       if (item.getItemId() == R.id.contact) {
+        Intent intent=new Intent(Intent.ACTION_PICK,ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(intent,REQUEST_CONTACT);
+      }
       return false;
     }
   }

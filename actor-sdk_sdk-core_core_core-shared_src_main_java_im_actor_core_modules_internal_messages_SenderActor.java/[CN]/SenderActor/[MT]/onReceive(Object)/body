@@ -35,6 +35,10 @@
     SendAudio sendAudio=(SendAudio)message;
     doSendAudio(sendAudio.getPeer(),sendAudio.getDescriptor(),sendAudio.getFileName(),sendAudio.getFileSize(),sendAudio.getDuration());
   }
+ else   if (message instanceof SendContact) {
+    SendContact sendContact=(SendContact)message;
+    doSendContact(sendContact.getPeer(),sendContact.getEmails(),sendContact.getPhones(),sendContact.getName(),sendContact.getBase64photo());
+  }
  else {
     drop(message);
   }

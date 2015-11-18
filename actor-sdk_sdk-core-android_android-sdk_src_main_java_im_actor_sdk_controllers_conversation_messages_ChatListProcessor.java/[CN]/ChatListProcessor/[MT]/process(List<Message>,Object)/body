@@ -70,6 +70,25 @@
       }
       preprocessedDatas.add(preprocessedTexts.get(msg.getRid()));
     }
+ else     if (msg.getContent() instanceof ContactContent) {
+      ContactContent contact=(ContactContent)msg.getContent();
+      String text="";
+      for (      String phone : contact.getPhones()) {
+        text+="\n".concat(phone);
+      }
+      for (      String email : contact.getEmails()) {
+        text+="\n".concat(email);
+      }
+      Spannable spannableString=new SpannableString(text);
+      SpannableStringBuilder builder=new SpannableStringBuilder();
+      String name;
+      name=contact.getName();
+      builder.append(name);
+      builder.setSpan(new ForegroundColorSpan(colors[Math.abs(msg.getSenderId()) % colors.length]),0,name.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+      spannableString=builder.append(spannableString);
+      preprocessedTexts.put(msg.getRid(),new PreprocessedTextData(text,spannableString));
+      preprocessedDatas.add(preprocessedTexts.get(msg.getRid()));
+    }
  else {
       preprocessedDatas.add(null);
     }

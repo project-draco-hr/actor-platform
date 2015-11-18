@@ -30,6 +30,9 @@
     }
     message=new ApiDocumentMessage(source.getFileReference().getFileId(),source.getFileReference().getAccessHash(),source.getFileReference().getFileSize(),source.getFileReference().getFileName(),documentContent.getMimeType(),fastThumb,documentEx);
   }
+ else   if (content instanceof ContactContent) {
+    message=new ApiJsonMessage(((ContactContent)content).getRawJson());
+  }
  else {
     return;
   }

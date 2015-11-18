@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendContact(peer,phones,emails,name,base64photo));
+}

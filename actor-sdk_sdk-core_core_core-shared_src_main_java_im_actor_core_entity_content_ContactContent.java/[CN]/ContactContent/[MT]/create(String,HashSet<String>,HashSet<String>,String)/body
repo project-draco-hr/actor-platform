@@ -1,0 +1,26 @@
+{
+  String emailsJsonString="";
+  for (  String email : emails) {
+    emailsJsonString=emailsJsonString.concat("\"").concat(email).concat("\",");
+  }
+  if (!emailsJsonString.isEmpty()) {
+    emailsJsonString=emailsJsonString.substring(0,emailsJsonString.length() - 1);
+  }
+  String phonesJsonString="";
+  for (  String phone : phones) {
+    phonesJsonString=phonesJsonString.concat("\"").concat(phone).concat("\",");
+  }
+  if (!phonesJsonString.isEmpty()) {
+    phonesJsonString=phonesJsonString.substring(0,phonesJsonString.length() - 1);
+  }
+  String jsonString="{\"dataType\":\"contact\"," + "\"data\":{" + "\"contact\":{"+ "\"name\":\"" + name + "\","+ "\"phones\":["+ phonesJsonString+ "],"+ "\"emails\":["+ emailsJsonString+ "]"+ (base64photo != null ? (",\"photo\":\"" + base64photo + "\"") : (""))+ "}"+ "}"+ "}";
+  ContactContent lc=null;
+  try {
+    lc=new ContactContent(new ContentRemoteContainer(new ApiJsonMessage(jsonString)));
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
+  if (lc != null)   lc.rawJson=jsonString;
+  return lc;
+}

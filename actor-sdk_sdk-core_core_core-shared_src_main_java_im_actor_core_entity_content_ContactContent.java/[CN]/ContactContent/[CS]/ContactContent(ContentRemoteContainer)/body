@@ -1,0 +1,23 @@
+{
+  super(contentContainer);
+  rawJson=((ApiJsonMessage)contentContainer.getMessage()).getRawJson();
+  JSONObject data=new JSONObject(rawJson).getJSONObject("data");
+  JSONObject contact=data.getJSONObject("contact");
+  name=contact.getString("name");
+  try {
+    photo64=contact.getString("photo");
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  phones=new ArrayList<String>();
+  JSONArray phonesJson=contact.getJSONArray("phones");
+  for (int i=0; i < phonesJson.length(); i++) {
+    phones.add(phonesJson.getString(i));
+  }
+  emails=new ArrayList<String>();
+  JSONArray emailsJson=contact.getJSONArray("emails");
+  for (int i=0; i < emailsJson.length(); i++) {
+    emails.add(emailsJson.getString(i));
+  }
+}

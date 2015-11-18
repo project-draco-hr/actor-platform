@@ -1,0 +1,24 @@
+{
+  final ContactContent contact=(ContactContent)currentMessage.getContent();
+  CharSequence[] items=new CharSequence[contact.getEmails().size() + contact.getPhones().size()];
+  int i=0;
+  for (  String phone : contact.getPhones()) {
+    items[i++]=phone;
+  }
+  for (  String email : contact.getEmails()) {
+    items[i++]=email;
+  }
+  new AlertDialog.Builder(itemView.getContext()).setItems(items,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface d,    int which){
+      if (which + 1 <= contact.getPhones().size()) {
+        Intent intent=new Intent(Intent.ACTION_DIAL,Uri.fromParts("tel",contact.getPhones().get(which),null));
+        itemView.getContext().startActivity(intent);
+      }
+ else {
+        Intent intent=new Intent(Intent.ACTION_SENDTO,Uri.fromParts("mailto",contact.getEmails().get(which - contact.getPhones().size()),null));
+        itemView.getContext().startActivity(intent);
+      }
+    }
+  }
+).show();
+}

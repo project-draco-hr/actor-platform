@@ -1,0 +1,7 @@
+{
+  this.peer=peer;
+  this.phones=phones;
+  this.emails=emails;
+  this.name=name;
+  this.base64photo=base64photo;
+}

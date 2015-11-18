@@ -18,7 +18,10 @@
  else   if (content instanceof DocumentContent) {
     return 3;
   }
- else {
+ else   if (content instanceof ContactContent) {
     return 5;
+  }
+ else {
+    return 6;
   }
 }

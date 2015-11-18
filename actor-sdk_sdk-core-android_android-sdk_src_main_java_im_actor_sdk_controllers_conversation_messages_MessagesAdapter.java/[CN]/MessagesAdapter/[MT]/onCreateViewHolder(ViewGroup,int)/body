@@ -10,6 +10,8 @@ case 3:
 return new DocHolder(this,inflate(R.layout.adapter_dialog_doc,viewGroup));
 case 4:
 return new AudioHolder(this,inflate(R.layout.adapter_dialog_audio,viewGroup));
+case 5:
+return new ContactHolder(this,inflate(R.layout.adapter_dialog_contact,viewGroup));
 default :
 return new UnsupportedHolder(this,inflate(R.layout.adapter_dialog_text,viewGroup));
 }
