@@ -8,8 +8,17 @@
  else   if (msg instanceof VideoContent) {
     return new ContentDescription(ContentType.DOCUMENT_VIDEO);
   }
+ else   if (msg instanceof VoiceContent) {
+    return new ContentDescription(ContentType.DOCUMENT_AUDIO);
+  }
  else   if (msg instanceof DocumentContent) {
     return new ContentDescription(ContentType.DOCUMENT);
+  }
+ else   if (msg instanceof LocationContent) {
+    return new ContentDescription(ContentType.LOCATION);
+  }
+ else   if (msg instanceof ContactContent) {
+    return new ContentDescription(ContentType.CONTACT);
   }
  else   if (msg instanceof ServiceUserRegistered) {
     return new ContentDescription(ContentType.SERVICE_REGISTERED);
