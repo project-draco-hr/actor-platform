@@ -1,8 +1,0 @@
-{
-  if (array instanceof boolean[]) {
-    ((boolean[])array)[index]=value;
-  }
- else {
-    throw badArray(array);
-  }
-}
