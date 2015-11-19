@@ -1,0 +1,6 @@
+{
+  markers=new HashMap<String,Marker>();
+  for (  MapItem mapItem : array) {
+    markers.put(mapItem.id,mMap.addMarker(new MarkerOptions().position(mapItem.getLatLng()).draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.picker_map_marker))));
+  }
+}

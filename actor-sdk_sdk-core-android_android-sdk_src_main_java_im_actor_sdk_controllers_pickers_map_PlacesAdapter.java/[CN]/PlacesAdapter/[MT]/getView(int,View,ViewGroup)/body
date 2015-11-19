@@ -1,0 +1,17 @@
+{
+  View itemView;
+  if (convertView != null) {
+    itemView=convertView;
+  }
+ else {
+    itemView=((LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.picker_item_place,null);
+  }
+  TextView titleView=(TextView)itemView.findViewById(R.id.title);
+  TextView subtitleView=(TextView)itemView.findViewById(R.id.subtitle);
+  final ImageView iconView=(ImageView)itemView.findViewById(R.id.icon);
+  final MapItem item=getItem(position);
+  titleView.setText(item.name);
+  subtitleView.setText(item.vicinity);
+  iconView.setImageResource(R.drawable.example_user_placeholder);
+  return itemView;
+}

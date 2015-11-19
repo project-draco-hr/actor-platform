@@ -1,0 +1,3 @@
+{
+  return im.actor.sdk.controllers.pickers.Intents.pickLocation(context);
+}

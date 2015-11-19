@@ -1,0 +1,4 @@
+{
+  resultList=items;
+  this.context=context;
+}

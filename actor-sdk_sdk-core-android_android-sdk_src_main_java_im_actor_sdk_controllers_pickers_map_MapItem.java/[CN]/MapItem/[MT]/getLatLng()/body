@@ -1,0 +1,3 @@
+{
+  return new LatLng(geometry.location.lat,geometry.location.lng);
+}

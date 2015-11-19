@@ -1,0 +1,10 @@
+{
+  MapItem mapItem=(MapItem)adapterView.getItemAtPosition(position);
+  Intent returnIntent=new Intent();
+  returnIntent.putExtra("latitude",mapItem.getLatLng().latitude);
+  returnIntent.putExtra("longitude",mapItem.getLatLng().longitude);
+  returnIntent.putExtra("street",mapItem.vicinity);
+  returnIntent.putExtra("place",mapItem.name);
+  setResult(RESULT_OK,returnIntent);
+  finish();
+}
