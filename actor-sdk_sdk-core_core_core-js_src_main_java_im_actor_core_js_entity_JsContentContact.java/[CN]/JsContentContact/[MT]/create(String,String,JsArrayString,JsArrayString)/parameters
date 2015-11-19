@@ -1,0 +1,4 @@
+String name
+String photo64
+JsArrayString phones
+JsArrayString emails

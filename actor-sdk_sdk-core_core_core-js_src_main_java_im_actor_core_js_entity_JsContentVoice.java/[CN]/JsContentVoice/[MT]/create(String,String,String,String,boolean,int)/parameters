@@ -1,0 +1,6 @@
+String fileName
+String fileExtension
+String fileSize
+String fileUrl
+boolean isUploading
+int duration

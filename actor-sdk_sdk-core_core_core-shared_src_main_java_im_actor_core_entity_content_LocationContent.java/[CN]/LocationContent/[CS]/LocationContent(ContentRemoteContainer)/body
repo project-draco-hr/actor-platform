@@ -1,0 +1,10 @@
+{
+  super(contentContainer);
+  String json=((ApiJsonMessage)contentContainer.getMessage()).getRawJson();
+  JSONObject data=new JSONObject(json).getJSONObject("data");
+  JSONObject location=data.getJSONObject("location");
+  latitude=location.getDouble("latitude");
+  longitude=location.getDouble("longitude");
+  street=location.optString("street");
+  place=location.optString("place");
+}

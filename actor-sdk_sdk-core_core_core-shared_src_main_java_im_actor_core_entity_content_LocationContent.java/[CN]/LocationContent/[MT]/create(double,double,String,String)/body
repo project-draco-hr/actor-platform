@@ -1,0 +1,22 @@
+{
+  try {
+    JSONObject obj=new JSONObject();
+    obj.put("dataType","location");
+    JSONObject location=new JSONObject();
+    location.put("latitude",latitude);
+    location.put("longitude",longitude);
+    if (street != null) {
+      location.put("street",street);
+    }
+    if (place != null) {
+      location.put("place",place);
+    }
+    JSONObject data=new JSONObject();
+    data.put("location",location);
+    obj.put("data",data);
+    return new LocationContent(new ContentRemoteContainer(new ApiJsonMessage(obj.toString())));
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e);
+  }
+}

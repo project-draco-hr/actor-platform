@@ -1,0 +1,4 @@
+double longitude
+double latitude
+String street
+String place
