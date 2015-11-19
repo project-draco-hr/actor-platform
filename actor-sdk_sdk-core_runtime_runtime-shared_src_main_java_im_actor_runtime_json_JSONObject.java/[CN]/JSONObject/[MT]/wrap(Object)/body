@@ -21,9 +21,6 @@
     if (o instanceof Boolean || o instanceof Byte || o instanceof Character|| o instanceof Double|| o instanceof Float|| o instanceof Integer|| o instanceof Long|| o instanceof Short|| o instanceof String) {
       return o;
     }
-    if (o.getClass().getPackage().getName().startsWith("java.")) {
-      return o.toString();
-    }
   }
  catch (  Exception ignored) {
   }

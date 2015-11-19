@@ -1,0 +1,6 @@
+{
+  if (array instanceof char[]) {
+    return ((char[])array)[index];
+  }
+  throw badArray(array);
+}

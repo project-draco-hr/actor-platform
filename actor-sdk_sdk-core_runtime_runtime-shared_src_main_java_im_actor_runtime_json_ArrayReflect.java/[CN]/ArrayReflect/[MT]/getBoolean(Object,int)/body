@@ -1,0 +1,6 @@
+{
+  if (array instanceof boolean[]) {
+    return ((boolean[])array)[index];
+  }
+  throw badArray(array);
+}

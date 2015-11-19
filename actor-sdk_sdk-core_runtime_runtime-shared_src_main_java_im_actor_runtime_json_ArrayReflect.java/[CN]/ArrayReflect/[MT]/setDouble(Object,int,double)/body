@@ -1,0 +1,8 @@
+{
+  if (array instanceof double[]) {
+    ((double[])array)[index]=value;
+  }
+ else {
+    throw badArray(array);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (array instanceof byte[]) {
+    return ((byte[])array)[index];
+  }
+  throw badArray(array);
+}
