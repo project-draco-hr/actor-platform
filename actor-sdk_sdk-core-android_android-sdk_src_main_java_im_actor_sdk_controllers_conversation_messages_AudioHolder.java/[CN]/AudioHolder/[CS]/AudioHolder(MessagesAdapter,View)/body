@@ -21,7 +21,7 @@
   duration.setTextColor(ActorSDK.sharedActor().style.getConvTimeColor());
   seekBar=(SeekBar)itemView.findViewById(R.id.audioSlide);
   progressView=(CircularView)itemView.findViewById(R.id.progressView);
-  progressView.setColor(context.getResources().getColor(R.color.primary_alt));
+  progressView.setColor(context.getResources().getColor(R.color.primary));
   progressView.setMaxValue(100);
   seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
     @Override public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
