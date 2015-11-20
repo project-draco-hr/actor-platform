@@ -1,0 +1,35 @@
+{
+  return new Command<List<MessageSearchEntity>>(){
+    @Override public void start(    final CommandCallback<List<MessageSearchEntity>> callback){
+      request(new RequestMessageSearch(condition),new RpcCallback<ResponseMessageSearch>(){
+        @Override public void onResult(        final ResponseMessageSearch response){
+          updates().executeRelatedResponse(response.getUsers(),response.getGroups(),new Runnable(){
+            @Override public void run(){
+              ArrayList<MessageSearchEntity> res=new ArrayList<MessageSearchEntity>();
+              for (              ApiMessageSearchItem r : response.getSearchResults()) {
+                ApiMessageSearchResult itm=r.getResult();
+                try {
+                  res.add(new MessageSearchEntity(convert(itm.getPeer()),itm.getRid(),itm.getDate(),itm.getSenderId(),AbsContent.fromMessage(itm.getContent())));
+                }
+ catch (                IOException e) {
+                  e.printStackTrace();
+                }
+              }
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

@@ -1,0 +1,3 @@
+{
+  return findAllContent(peer,ApiSearchContentType.LINKS);
+}
