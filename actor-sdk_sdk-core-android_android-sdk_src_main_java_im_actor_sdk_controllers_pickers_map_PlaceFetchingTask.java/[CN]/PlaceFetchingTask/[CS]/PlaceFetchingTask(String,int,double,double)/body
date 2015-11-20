@@ -1,0 +1,6 @@
+{
+  this.query=query;
+  this.radius=radius;
+  this.latitude=latitude;
+  this.longitude=longitude;
+}

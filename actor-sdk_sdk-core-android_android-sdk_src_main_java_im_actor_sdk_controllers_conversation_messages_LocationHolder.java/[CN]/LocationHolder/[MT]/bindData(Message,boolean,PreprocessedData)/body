@@ -1,0 +1,41 @@
+{
+  LocationContent locationContent=(LocationContent)message.getContent();
+  if (message.getSenderId() == myUid()) {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_out);
+  }
+ else {
+    messageBubble.setBackgroundResource(R.drawable.conv_bubble_media_in);
+  }
+  if (message.getSenderId() == myUid()) {
+    stateIcon.setVisibility(View.VISIBLE);
+switch (message.getMessageState()) {
+case ERROR:
+      stateIcon.setResource(R.drawable.msg_error);
+    stateIcon.setTint(COLOR_ERROR);
+  break;
+default :
+case PENDING:
+stateIcon.setResource(R.drawable.msg_clock);
+stateIcon.setTint(COLOR_PENDING);
+break;
+case READ:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(COLOR_READ);
+break;
+case RECEIVED:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(COLOR_RECEIVED);
+break;
+case SENT:
+stateIcon.setResource(R.drawable.msg_check_1);
+stateIcon.setTint(COLOR_SENT);
+break;
+}
+}
+ else {
+stateIcon.setVisibility(View.GONE);
+}
+time.setText(ActorSDK.sharedActor().getMessenger().getFormatter().formatTime(message.getDate()));
+previewView.setTag(message.getRid());
+new DownloadImageTask(previewView,message.getRid()).execute("https://maps.googleapis.com/maps/api/staticmap?center=" + locationContent.getLatitude() + ","+ locationContent.getLongitude()+ "&zoom=15&size=200x100&scale=2&maptype=roadmap&markers=color:red%7C"+ locationContent.getLatitude()+ ","+ locationContent.getLongitude());
+}

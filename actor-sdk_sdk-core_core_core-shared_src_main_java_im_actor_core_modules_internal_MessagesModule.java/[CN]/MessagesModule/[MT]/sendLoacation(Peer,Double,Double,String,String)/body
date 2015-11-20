@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendLocation(peer,longitude,latitude,street,place));
+}

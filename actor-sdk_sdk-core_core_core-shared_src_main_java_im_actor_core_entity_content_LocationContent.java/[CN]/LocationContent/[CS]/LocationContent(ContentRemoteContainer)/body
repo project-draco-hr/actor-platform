@@ -1,7 +1,7 @@
 {
   super(contentContainer);
-  String json=((ApiJsonMessage)contentContainer.getMessage()).getRawJson();
-  JSONObject data=new JSONObject(json).getJSONObject("data");
+  rawJson=((ApiJsonMessage)contentContainer.getMessage()).getRawJson();
+  JSONObject data=new JSONObject(rawJson).getJSONObject("data");
   JSONObject location=data.getJSONObject("location");
   latitude=location.getDouble("latitude");
   longitude=location.getDouble("longitude");

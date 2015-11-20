@@ -6,5 +6,6 @@
     quoteText.setText(rawQuote);
   }
   currentQuote=rawQuote;
+  hideShareMenu();
   showView(quoteContainer);
 }

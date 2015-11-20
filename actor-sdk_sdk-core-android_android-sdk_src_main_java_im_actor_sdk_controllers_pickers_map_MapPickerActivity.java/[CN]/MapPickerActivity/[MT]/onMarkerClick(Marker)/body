@@ -1,0 +1,27 @@
+{
+  if (currentPick != null)   currentPick.remove();
+  String placeId=null;
+  for (  Map.Entry<String,Marker> markerIterator : markers.entrySet()) {
+    if (markerIterator.getValue().equals(marker)) {
+      placeId=markerIterator.getKey();
+      break;
+    }
+  }
+  int position=-1;
+  for (int i=0; i < places.size(); i++) {
+    MapItem place=places.get(i);
+    if (place.id.equals(placeId)) {
+      position=i;
+      break;
+    }
+  }
+  if (position != -1) {
+    list.setItemChecked(position,true);
+    list.smoothScrollToPosition(position);
+    if (listHolder.getVisibility() == View.GONE) {
+      togglePlacesList();
+    }
+  }
+  mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(marker.getPosition().latitude,marker.getPosition().longitude),16));
+  return true;
+}

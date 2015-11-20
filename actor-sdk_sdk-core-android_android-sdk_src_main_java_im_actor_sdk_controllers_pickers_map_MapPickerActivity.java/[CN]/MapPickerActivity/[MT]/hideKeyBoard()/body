@@ -1,0 +1,9 @@
+{
+  searchView.clearFocus();
+  this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+  View focusedView=this.getCurrentFocus();
+  if (focusedView != null) {
+    InputMethodManager inputMethodManager=(InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(),InputMethodManager.HIDE_IMPLICIT_ONLY);
+  }
+}

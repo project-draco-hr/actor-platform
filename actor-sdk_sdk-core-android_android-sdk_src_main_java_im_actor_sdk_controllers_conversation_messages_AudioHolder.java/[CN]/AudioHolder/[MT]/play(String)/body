@@ -1,6 +1,6 @@
 {
   if (currentAudio.equals(fileName)) {
-    playBtn.setImageResource(R.drawable.msg_audio_pause_selector);
+    playBtn.setImageResource(R.drawable.ic_pause_white_24dp);
   }
  else {
     stop();

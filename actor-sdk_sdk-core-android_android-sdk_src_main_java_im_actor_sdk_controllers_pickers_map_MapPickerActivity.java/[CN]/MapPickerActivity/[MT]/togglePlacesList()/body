@@ -1,0 +1,74 @@
+{
+  if (listHolder.getVisibility() == View.GONE) {
+    fullSizeButton.setEnabled(false);
+    float startSize=findViewById(R.id.container).getHeight();
+    final ValueAnimator valueAnimator=ValueAnimator.ofFloat(startSize,defaultHeight);
+    valueAnimator.setDuration(300);
+    valueAnimator.setInterpolator(new AccelerateInterpolator());
+    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+      @Override public void onAnimationUpdate(      ValueAnimator valueAnimator){
+        mapHolder.getLayoutParams().height=((Float)valueAnimator.getAnimatedValue()).intValue();
+        mapHolder.requestLayout();
+      }
+    }
+);
+    valueAnimator.addListener(new Animator.AnimatorListener(){
+      @Override public void onAnimationStart(      Animator animator){
+      }
+      @Override public void onAnimationEnd(      Animator animator){
+        fullSizeButton.setEnabled(true);
+      }
+      @Override public void onAnimationCancel(      Animator animator){
+      }
+      @Override public void onAnimationRepeat(      Animator animator){
+      }
+    }
+);
+    valueAnimator.start();
+    listHolder.setVisibility(View.VISIBLE);
+    fullSizeButton.setImageResource(R.drawable.picker_map_fullscreen_icon);
+  }
+ else {
+    fullSizeButton.setEnabled(false);
+    float endSize=findViewById(R.id.container).getHeight();
+    defaultHeight=mapHolder.getHeight();
+    final ValueAnimator valueAnimator=ValueAnimator.ofFloat(defaultHeight,endSize);
+    valueAnimator.setDuration(300);
+    valueAnimator.setInterpolator(new AccelerateInterpolator());
+    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+      @Override public void onAnimationUpdate(      ValueAnimator valueAnimator){
+        mapHolder.getLayoutParams().height=((Float)valueAnimator.getAnimatedValue()).intValue();
+        mapHolder.requestLayout();
+      }
+    }
+);
+    valueAnimator.addListener(new Animator.AnimatorListener(){
+      @Override public void onAnimationStart(      Animator animator){
+      }
+      @Override public void onAnimationEnd(      Animator animator){
+        fullSizeButton.setEnabled(true);
+      }
+      @Override public void onAnimationCancel(      Animator animator){
+      }
+      @Override public void onAnimationRepeat(      Animator animator){
+      }
+    }
+);
+    AlphaAnimation hideAnimation=new AlphaAnimation(1,0);
+    hideAnimation.setDuration(300);
+    hideAnimation.setInterpolator(new AccelerateInterpolator());
+    hideAnimation.setAnimationListener(new Animation.AnimationListener(){
+      @Override public void onAnimationStart(      Animation animation){
+      }
+      @Override public void onAnimationEnd(      Animation animation){
+        fullSizeButton.setImageResource(R.drawable.picker_map_halfscreen_icon);
+        listHolder.setVisibility(View.GONE);
+        valueAnimator.start();
+      }
+      @Override public void onAnimationRepeat(      Animation animation){
+      }
+    }
+);
+    listHolder.startAnimation(hideAnimation);
+  }
+}

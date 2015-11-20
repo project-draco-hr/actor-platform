@@ -1,0 +1,16 @@
+{
+  longitude=getArguments().getDouble("longitude");
+  latitude=getArguments().getDouble("latitude");
+  final MapView map=new MapView(getActivity());
+  map.onCreate(null);
+  map.getMapAsync(new OnMapReadyCallback(){
+    @Override public void onMapReady(    GoogleMap googleMap){
+      mapController=googleMap;
+      googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude,longitude)).title(""));
+      googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude),16));
+      map.onResume();
+    }
+  }
+);
+  return map;
+}

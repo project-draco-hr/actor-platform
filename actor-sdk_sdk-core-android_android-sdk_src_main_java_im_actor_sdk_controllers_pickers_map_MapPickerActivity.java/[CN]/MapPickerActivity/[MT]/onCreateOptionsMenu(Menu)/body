@@ -1,0 +1,24 @@
+{
+  getMenuInflater().inflate(R.menu.picker_map,menu);
+  searchView=(SearchView)menu.getItem(0).getActionView();
+  searchView.setIconifiedByDefault(true);
+  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+    @Override public boolean onQueryTextSubmit(    String s){
+      fetchPlaces(s);
+      hideKeyBoard();
+      return true;
+    }
+    @Override public boolean onQueryTextChange(    String s){
+      return false;
+    }
+  }
+);
+  searchView.setOnCloseListener(new SearchView.OnCloseListener(){
+    @Override public boolean onClose(){
+      hideKeyBoard();
+      return false;
+    }
+  }
+);
+  return true;
+}

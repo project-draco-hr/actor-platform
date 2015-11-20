@@ -1,7 +1,7 @@
 {
   if (!treckingTouch) {
     seekBar.setProgress(0);
-    playBtn.setImageResource(R.drawable.msg_audio_play_selector);
+    playBtn.setImageResource(R.drawable.ic_play_arrow_white_24dp);
     duration.setText(ActorSDK.sharedActor().getMessenger().getFormatter().formatDuration((int)(currentDuration / 1000)));
   }
   treckingTouch=false;

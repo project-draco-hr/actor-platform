@@ -8,7 +8,7 @@
   final int initialHeight=new Integer(v.getLayoutParams().height);
   v.getLayoutParams().height=initialHeight;
   v.setVisibility(View.VISIBLE);
-  Animation a=new ExpandMentionsAnimation(v,targetHeight,initialHeight);
+  Animation a=new ExpandAnimation(v,targetHeight,initialHeight);
   a.setDuration((newRowsCount > oldRowsCount ? targetHeight : initialHeight / Screen.dp(1)));
   a.setInterpolator(MaterialInterpolator.getInstance());
   v.startAnimation(a);

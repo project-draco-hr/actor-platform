@@ -1,0 +1,9 @@
+{
+  select.setEnabled(true);
+  findViewById(R.id.select_text).setEnabled(true);
+  if (currentPick == null) {
+    MarkerOptions currentPickOptions=new MarkerOptions().draggable(true).position(geoData);
+  }
+ else {
+  }
+}

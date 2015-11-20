@@ -1,0 +1,16 @@
+{
+  super(fragment,itemView,false);
+  this.context=fragment.getMessagesFragment().getActivity();
+  COLOR_PENDING=ActorSDK.sharedActor().style.getConvMediaStatePendingColor();
+  COLOR_SENT=ActorSDK.sharedActor().style.getConvMediaStateSentColor();
+  COLOR_RECEIVED=ActorSDK.sharedActor().style.getConvMediaStateDeliveredColor();
+  COLOR_READ=ActorSDK.sharedActor().style.getConvMediaStateReadColor();
+  COLOR_ERROR=ActorSDK.sharedActor().style.getConvMediaStateErrorColor();
+  messageBubble=(FrameLayout)itemView.findViewById(R.id.bubbleContainer);
+  previewView=(SimpleDraweeView)itemView.findViewById(R.id.image);
+  GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(context.getResources());
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setRoundingParams(new RoundingParams().setCornersRadius(Screen.dp(2)).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
+  previewView.setHierarchy(hierarchy);
+  time=(TextView)itemView.findViewById(R.id.time);
+  stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);
+}

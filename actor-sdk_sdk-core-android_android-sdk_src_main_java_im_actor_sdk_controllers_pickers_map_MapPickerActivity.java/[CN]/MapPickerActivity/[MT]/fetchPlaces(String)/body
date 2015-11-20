@@ -1,0 +1,38 @@
+{
+  mMap.clear();
+  if (currentLocation == null) {
+    Toast.makeText(this,R.string.picker_map_sory_notdefined,Toast.LENGTH_SHORT).show();
+    return;
+  }
+  list.setAdapter(null);
+  status.setVisibility(View.GONE);
+  loading.setVisibility(View.VISIBLE);
+  fetchingTask=new PlaceFetchingTask(query,50,currentLocation.getLatitude(),currentLocation.getLongitude()){
+    @Override protected void onPostExecute(    Object o){
+      Log.i(LOG_TAG,o.toString());
+      if (o instanceof ArrayList) {
+        loading.setVisibility(View.GONE);
+        status.setVisibility(View.GONE);
+        header.setVisibility(View.VISIBLE);
+        list.setVisibility(View.VISIBLE);
+        places=(ArrayList<MapItem>)o;
+        if (places.isEmpty()) {
+          status.setText(R.string.picker_map_nearby_empty);
+        }
+ else {
+          list.setAdapter(new PlacesAdapter(MapPickerActivity.this,places));
+          showItemsOnTheMap(places);
+        }
+      }
+ else {
+        places=new ArrayList<MapItem>();
+        list.setAdapter(null);
+        header.setVisibility(View.GONE);
+        status.setText(R.string.picker_internalerror);
+        Toast.makeText(MapPickerActivity.this,o.toString(),Toast.LENGTH_SHORT).show();
+      }
+    }
+  }
+;
+  fetchingTask.execute();
+}
