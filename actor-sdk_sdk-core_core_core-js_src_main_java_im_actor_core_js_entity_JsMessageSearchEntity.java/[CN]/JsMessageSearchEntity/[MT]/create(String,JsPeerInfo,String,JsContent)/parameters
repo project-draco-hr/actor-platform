@@ -1,0 +1,4 @@
+String rid
+JsPeerInfo sender
+String date
+JsContent content
