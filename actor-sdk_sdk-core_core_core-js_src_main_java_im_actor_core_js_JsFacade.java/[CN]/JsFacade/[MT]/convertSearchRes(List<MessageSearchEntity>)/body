@@ -1,0 +1,7 @@
+{
+  JsArray<JsMessageSearchEntity> jsRes=JsArray.createArray().cast();
+  for (  MessageSearchEntity e : res) {
+    jsRes.push(JsMessageSearchEntity.create(e.getRid() + "",messenger.buildPeerInfo(Peer.user(e.getSenderId())),messenger.getFormatter().formatDate(e.getDate()),JsContent.createContent(e.getContent(),e.getSenderId())));
+  }
+  return jsRes;
+}

@@ -1,7 +1,7 @@
 {
   return JsPromise.create(new JsPromiseExecutor(){
     @Override public void execute(){
-      messenger.findTextMessages(peer.convert(),query).start(new CommandCallback<List<MessageSearchEntity>>(){
+      messenger.findAllDocs(peer.convert()).start(new CommandCallback<List<MessageSearchEntity>>(){
         @Override public void onResult(        List<MessageSearchEntity> res){
           resolve(convertSearchRes(res));
         }
