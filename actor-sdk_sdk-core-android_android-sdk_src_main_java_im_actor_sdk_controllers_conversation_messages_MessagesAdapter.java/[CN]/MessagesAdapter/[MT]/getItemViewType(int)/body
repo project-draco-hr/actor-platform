@@ -21,7 +21,10 @@
  else   if (content instanceof ContactContent) {
     return 5;
   }
- else {
+ else   if (content instanceof LocationContent) {
     return 6;
+  }
+ else {
+    return 7;
   }
 }

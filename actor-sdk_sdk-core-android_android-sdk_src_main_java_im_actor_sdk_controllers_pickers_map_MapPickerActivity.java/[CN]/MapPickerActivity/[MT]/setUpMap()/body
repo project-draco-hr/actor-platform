@@ -1,9 +1,6 @@
 {
   LocationManager locationManager=(LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
   for (  String provider : locationManager.getAllProviders()) {
-    if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-      return;
-    }
     currentLocation=locationManager.getLastKnownLocation(provider);
     if (currentLocation != null) {
       break;

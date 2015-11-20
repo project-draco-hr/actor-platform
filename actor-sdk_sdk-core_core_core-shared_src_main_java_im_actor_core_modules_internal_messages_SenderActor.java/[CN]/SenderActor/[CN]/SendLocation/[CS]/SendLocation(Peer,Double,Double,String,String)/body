@@ -1,0 +1,7 @@
+{
+  this.peer=peer;
+  this.longitude=longitude;
+  this.latitude=latitude;
+  this.place=place;
+  this.street=street;
+}

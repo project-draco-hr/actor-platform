@@ -1,0 +1,4 @@
+{
+  this.bmImage=bmImage;
+  this.id=id;
+}

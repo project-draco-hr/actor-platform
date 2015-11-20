@@ -39,6 +39,10 @@
     SendContact sendContact=(SendContact)message;
     doSendContact(sendContact.getPeer(),sendContact.getEmails(),sendContact.getPhones(),sendContact.getName(),sendContact.getBase64photo());
   }
+ else   if (message instanceof SendLocation) {
+    SendLocation sendLocation=(SendLocation)message;
+    doSendLocation(sendLocation.getPeer(),sendLocation.getLongitude(),sendLocation.getLatitude(),sendLocation.getStreet(),sendLocation.getPlace());
+  }
  else {
     drop(message);
   }

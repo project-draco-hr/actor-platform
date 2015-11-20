@@ -1,0 +1,8 @@
+{
+  MapFragment res=new MapFragment();
+  Bundle arguments=new Bundle();
+  arguments.putDouble("longitude",longitude);
+  arguments.putDouble("latitude",latitude);
+  res.setArguments(arguments);
+  return res;
+}

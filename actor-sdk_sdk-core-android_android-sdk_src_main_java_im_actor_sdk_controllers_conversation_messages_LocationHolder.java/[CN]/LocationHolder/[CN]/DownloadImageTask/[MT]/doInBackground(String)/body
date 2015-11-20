@@ -1,0 +1,41 @@
+{
+  String urldisplay=params[0];
+  InputStream in=null;
+  try {
+    file=new File(context.getCacheDir(),id + "_map");
+    if (!file.exists()) {
+      in=new java.net.URL(urldisplay).openStream();
+      OutputStream output=new FileOutputStream(file);
+      try {
+        try {
+          byte[] buffer=new byte[4 * 1024];
+          int read;
+          while ((read=in.read(buffer)) != -1) {
+            output.write(buffer,0,read);
+          }
+          output.flush();
+        }
+  finally {
+          output.close();
+        }
+      }
+ catch (      Exception e) {
+        e.printStackTrace();
+      }
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+ finally {
+    if (in != null) {
+      try {
+        in.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+  return file;
+}
