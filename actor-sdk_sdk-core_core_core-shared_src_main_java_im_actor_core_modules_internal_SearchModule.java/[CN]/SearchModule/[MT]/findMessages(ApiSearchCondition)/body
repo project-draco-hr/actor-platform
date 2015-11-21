@@ -5,7 +5,7 @@
         @Override public void onResult(        final ResponseMessageSearch response){
           updates().executeRelatedResponse(response.getUsers(),response.getGroups(),new Runnable(){
             @Override public void run(){
-              ArrayList<MessageSearchEntity> res=new ArrayList<MessageSearchEntity>();
+              final ArrayList<MessageSearchEntity> res=new ArrayList<MessageSearchEntity>();
               for (              ApiMessageSearchItem r : response.getSearchResults()) {
                 ApiMessageSearchResult itm=r.getResult();
                 try {
@@ -15,6 +15,12 @@
                   e.printStackTrace();
                 }
               }
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(res);
+                }
+              }
+);
             }
           }
 );
