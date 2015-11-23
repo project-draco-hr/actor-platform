@@ -1,0 +1,6 @@
+{
+  if (searchList == null) {
+    searchList=(JsDisplayList<JsSearchEntity,SearchEntity>)context().getDisplayListsModule().buildSearchList(true);
+  }
+  return searchList;
+}
