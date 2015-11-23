@@ -1,0 +1,54 @@
+{
+  ActorStyle style=ActorSDK.sharedActor().style;
+  shp=getActivity().getSharedPreferences("wallpaper",Context.MODE_PRIVATE);
+  ed=shp.edit();
+  selectedWallpaper=getArguments().getInt("EXTRA_ID");
+  if (selectedWallpaper == -1) {
+    selectedWallpaper=shp.getInt("wallpaper",0);
+  }
+  View res=inflater.inflate(R.layout.fragment_pick_wallpaper,container,false);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  ((TextView)res.findViewById(R.id.cancel)).setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
+  ((TextView)res.findViewById(R.id.ok)).setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
+  res.findViewById(R.id.dividerTop).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.dividerBot).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  res.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      getActivity().finish();
+    }
+  }
+);
+  res.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      ed.putInt("wallpaper",selectedWallpaper);
+      ed.commit();
+      getActivity().finish();
+    }
+  }
+);
+  wallpaper=(ChatBackgroundView)res.findViewById(R.id.wallpaper);
+  wallpaper.bind(selectedWallpaper);
+  LinearLayout botContainer=(LinearLayout)res.findViewById(R.id.wallpaper_preview_container);
+  LinearLayout wallpaperContainer=(LinearLayout)res.findViewById(R.id.background_container);
+  botContainer.setBackgroundColor(style.getMainBackgroundColor());
+  View.OnClickListener ocl=new View.OnClickListener(){
+    @Override public void onClick(    final View v){
+      selectedWallpaper=(int)v.getTag();
+      wallpaper.bind(selectedWallpaper);
+    }
+  }
+;
+  int previewSize=90;
+  LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(Screen.dp(previewSize),Screen.dp(previewSize));
+  for (int i=0; i < BackgroundPreviewView.getSize(); i++) {
+    FrameLayout frame=new FrameLayout(getActivity());
+    BackgroundPreviewView bckgrnd=new BackgroundPreviewView(getActivity());
+    bckgrnd.init(Screen.dp(previewSize),Screen.dp(previewSize));
+    bckgrnd.bind(i);
+    frame.setTag(i);
+    frame.setOnClickListener(ocl);
+    frame.addView(bckgrnd);
+    wallpaperContainer.addView(frame,params);
+  }
+  return res;
+}

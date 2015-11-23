@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  int id=getIntent().getIntExtra("EXTRA_ID",0);
+  getSupportActionBar().setTitle(R.string.wallpaper);
+  if (savedInstanceState == null) {
+    showFragment(PickWallpaperFragment.chooseWallpaper(id),false,false);
+  }
+}
