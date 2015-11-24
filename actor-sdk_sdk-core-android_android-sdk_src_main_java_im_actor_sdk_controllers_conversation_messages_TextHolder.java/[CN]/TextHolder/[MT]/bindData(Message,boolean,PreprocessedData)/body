@@ -1,5 +1,6 @@
 {
   PreprocessedTextData textData=(PreprocessedTextData)preprocessedData;
+  Spannable reactions=preprocessedData.getReactionsSpannable();
   CharSequence text;
   if (textData.getSpannableString() != null) {
     text=textData.getSpannableString();
@@ -7,5 +8,5 @@
  else {
     text=textData.getText();
   }
-  bindRawText(text,message,false);
+  bindRawText(text,reactions,message,false);
 }

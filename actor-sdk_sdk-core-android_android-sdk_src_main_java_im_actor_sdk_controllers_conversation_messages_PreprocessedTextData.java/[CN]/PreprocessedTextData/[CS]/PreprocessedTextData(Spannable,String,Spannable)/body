@@ -1,4 +1,5 @@
 {
+  super(reactions);
   this.text=text;
   this.spannableString=spannableString;
 }

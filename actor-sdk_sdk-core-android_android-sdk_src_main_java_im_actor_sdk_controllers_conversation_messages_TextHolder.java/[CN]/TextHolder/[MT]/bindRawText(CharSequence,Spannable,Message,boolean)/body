@@ -42,24 +42,10 @@ break;
  else {
 status.setVisibility(View.GONE);
 }
-boolean hasReactions=message.getReactions() != null && message.getReactions().size() > 0;
 Spannable timeWithReactions=null;
-if (hasReactions) {
-SpannableStringBuilder builder=new SpannableStringBuilder();
-SpannableString s;
-boolean hasMyReaction=false;
-for (Reaction r : message.getReactions()) {
-s=new SpannableString(Integer.toString(r.getUids().size()).concat(r.getCode()).concat("  "));
-for (Integer uid : r.getUids()) {
-if (uid == myUid()) {
-hasMyReaction=true;
-break;
-}
-}
-s.setSpan(new ForegroundColorSpan(hasMyReaction ? ActorSDK.sharedActor().style.getConvLikeColor() : ActorSDK.sharedActor().style.getConvTimeColor()),0,s.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-builder.append(s);
-}
+if (reactions != null) {
+SpannableStringBuilder builder=new SpannableStringBuilder(reactions);
 timeWithReactions=builder.append(Strings.formatTime(message.getDate()));
 }
-time.setText(hasReactions ? timeWithReactions : Strings.formatTime(message.getDate()));
+time.setText(timeWithReactions != null ? timeWithReactions : Strings.formatTime(message.getDate()));
 }

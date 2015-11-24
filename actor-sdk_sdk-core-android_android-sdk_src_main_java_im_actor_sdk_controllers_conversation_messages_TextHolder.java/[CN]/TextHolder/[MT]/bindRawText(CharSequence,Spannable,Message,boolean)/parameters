@@ -1,3 +1,4 @@
 CharSequence rawText
+Spannable reactions
 Message message
 boolean isItalic
