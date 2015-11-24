@@ -60,7 +60,6 @@ String sender=getNotificationSender(topNotification);
 builder.setContentTitle(sender);
 builder.setContentText(messagesCount + " messages");
 visiblePeer=topNotification.getPeer();
-builder.setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_UPDATE_CURRENT));
 final NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
 for (Notification n : topNotifications) {
 if (topNotification.getPeer().getPeerType() == PeerType.GROUP) {
@@ -87,7 +86,7 @@ avatarTitle=messenger().getGroups().get(visiblePeer.getPeerId()).getName().get()
 break;
 }
 Drawable avatarDrawable=new AvatarPlaceholderDrawable(avatarTitle,id,18,context);
-result=buildSingleConversationNotification(builder,inboxStyle,avatarDrawable);
+result=buildSingleConversationNotification(builder,inboxStyle,avatarDrawable,topNotification);
 final NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(NOTIFICATION_ID,result);
 if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference() != null) {
@@ -98,7 +97,7 @@ messenger.bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCall
 }
 @Override public void onDownloaded(FileSystemReference reference){
 RoundedBitmapDrawable d=getRoundedBitmapDrawable(reference);
-android.app.Notification result=buildSingleConversationNotification(builder,inboxStyle,d);
+android.app.Notification result=buildSingleConversationNotification(builder,inboxStyle,d,topNotification);
 manager.notify(NOTIFICATION_ID,result);
 }
 }

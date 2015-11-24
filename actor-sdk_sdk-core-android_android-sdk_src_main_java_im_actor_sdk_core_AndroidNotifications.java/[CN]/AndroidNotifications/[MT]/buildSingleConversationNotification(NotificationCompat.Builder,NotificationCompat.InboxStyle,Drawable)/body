@@ -1,3 +1,0 @@
-{
-  return builder.setLargeIcon(drawableToBitmap(avatarDrawable)).setStyle(inboxStyle).build();
-}
