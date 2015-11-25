@@ -48,4 +48,5 @@ SpannableStringBuilder builder=new SpannableStringBuilder(reactions);
 timeWithReactions=builder.append(Strings.formatTime(message.getDate()));
 }
 time.setText(timeWithReactions != null ? timeWithReactions : Strings.formatTime(message.getDate()));
+time.setMovementMethod(LinkMovementMethod.getInstance());
 }
