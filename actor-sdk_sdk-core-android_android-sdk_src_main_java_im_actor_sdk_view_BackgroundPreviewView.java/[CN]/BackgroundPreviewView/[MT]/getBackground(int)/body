@@ -3,6 +3,6 @@
     return BACKGROUNDS[i];
   }
  else {
-    return R.drawable.img_chat_background_default;
+    return BACKGROUNDS[0];
   }
 }
