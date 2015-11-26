@@ -35,7 +35,7 @@ break;
  else {
 stateIcon.setVisibility(View.GONE);
 }
-time.setText(ActorSDK.sharedActor().getMessenger().getFormatter().formatTime(message.getDate()));
+setTimeAndReactions(time);
 previewView.setTag(message.getRid());
 new DownloadImageTask(previewView,message.getRid()).execute("https://maps.googleapis.com/maps/api/staticmap?center=" + locationContent.getLatitude() + ","+ locationContent.getLongitude()+ "&zoom=15&size=200x100&scale=2&maptype=roadmap&markers=color:red%7C"+ locationContent.getLatitude()+ ","+ locationContent.getLongitude());
 }

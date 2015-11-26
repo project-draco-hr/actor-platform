@@ -14,6 +14,7 @@
   ArrayList<PreprocessedData> preprocessedDatas=new ArrayList<PreprocessedData>();
   for (  Message msg : items) {
     messenger().getUser(msg.getSenderId());
+    boolean isImage=msg.getContent() instanceof PhotoContent || msg.getContent() instanceof VideoContent || msg.getContent() instanceof LocationContent;
     boolean hasReactions=msg.getReactions() != null && msg.getReactions().size() > 0;
     Spannable reactions=null;
     if (hasReactions) {
@@ -28,7 +29,7 @@
             break;
           }
         }
-        s.setSpan(new ReactionSpan(r.getCode(),hasMyReaction,fragment.getPeer(),msg.getRid()),0,s.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new ReactionSpan(r.getCode(),hasMyReaction,fragment.getPeer(),msg.getRid(),isImage ? Color.WHITE : ActorSDK.sharedActor().style.getConvTimeColor()),0,s.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         reactions=builder.append(s);
       }
     }
@@ -112,7 +113,7 @@
       preprocessedDatas.add(preprocessedTexts.get(msg.getRid()));
     }
  else {
-      preprocessedDatas.add(null);
+      preprocessedDatas.add(new PreprocessedData(reactions));
     }
   }
   return new PreprocessedList(preprocessedDatas.toArray(new PreprocessedData[preprocessedDatas.size()]));

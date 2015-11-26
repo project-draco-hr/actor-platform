@@ -1,30 +1,60 @@
 {
   document=(DocumentContent)message.getContent();
-  fileName.setText(document.getName());
-  fileSize.setText(messenger().getFormatter().formatFileSize(document.getSource().getSize()) + " " + document.getExt().toUpperCase());
-  if (isUpdated) {
-    boolean isAppliedThumb=false;
-    if (document.getFastThumb() != null) {
-      try {
-        Bitmap img=ImageLoading.loadBitmap(document.getFastThumb().getImage());
-        fileIcon.setImageBitmap(img);
-        fileIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        isAppliedThumb=true;
-      }
- catch (      ImageLoadException e) {
-        e.printStackTrace();
-      }
-    }
-    if (!isAppliedThumb) {
-      int type=FileTypes.getType(document.getExt());
+  if (message.getSenderId() == myUid()) {
+    stateIcon.setVisibility(View.VISIBLE);
+switch (message.getMessageState()) {
+case ERROR:
+      stateIcon.setResource(R.drawable.msg_error);
+    stateIcon.setTint(errorColor);
+  break;
+default :
+case PENDING:
+stateIcon.setResource(R.drawable.msg_clock);
+stateIcon.setTint(waitColor);
+break;
+case READ:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(readColor);
+break;
+case RECEIVED:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(deliveredColor);
+break;
+case SENT:
+stateIcon.setResource(R.drawable.msg_check_1);
+stateIcon.setTint(sentColor);
+break;
+}
+}
+ else {
+stateIcon.setVisibility(View.GONE);
+}
+setTimeAndReactions(time);
+fileName.setText(document.getName());
+fileSize.setText(messenger().getFormatter().formatFileSize(document.getSource().getSize()) + " " + document.getExt().toUpperCase());
+if (isUpdated) {
+boolean isAppliedThumb=false;
+if (document.getFastThumb() != null) {
+try {
+Bitmap img=ImageLoading.loadBitmap(document.getFastThumb().getImage());
+fileIcon.setImageBitmap(img);
+fileIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+isAppliedThumb=true;
+}
+ catch (ImageLoadException e) {
+e.printStackTrace();
+}
+}
+if (!isAppliedThumb) {
+int type=FileTypes.getType(document.getExt());
 switch (type) {
 default :
 case FileTypes.TYPE_UNKNOWN:
-        fileIcon.setImageResource(R.drawable.picker_unknown);
-      break;
+fileIcon.setImageResource(R.drawable.picker_unknown);
+break;
 case FileTypes.TYPE_APK:
-    fileIcon.setImageResource(R.drawable.picker_apk);
-  break;
+fileIcon.setImageResource(R.drawable.picker_apk);
+break;
 case FileTypes.TYPE_MUSIC:
 fileIcon.setImageResource(R.drawable.picker_music);
 break;

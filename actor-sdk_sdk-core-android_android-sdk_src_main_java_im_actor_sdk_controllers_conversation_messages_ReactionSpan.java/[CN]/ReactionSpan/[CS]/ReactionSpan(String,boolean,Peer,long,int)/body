@@ -4,4 +4,5 @@
   this.hasMyReaction=hasMyReaction;
   this.peer=peer;
   this.rid=rid;
+  this.baseColor=baseColor;
 }

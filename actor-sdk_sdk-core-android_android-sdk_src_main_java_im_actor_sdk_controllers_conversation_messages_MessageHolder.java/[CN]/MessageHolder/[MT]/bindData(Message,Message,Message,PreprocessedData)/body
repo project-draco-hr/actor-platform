@@ -41,6 +41,17 @@
   }
 ,user.getPresence());
   setOnline(user.getPresence().get().getState().equals(UserPresence.State.ONLINE),user.isBot());
+  hasMyReaction=false;
+  if (preprocessedData != null) {
+    reactions=preprocessedData.getReactionsSpannable();
+    if (reactions != null) {
+      for (      ReactionSpan r : reactions.getSpans(0,reactions.length(),ReactionSpan.class)) {
+        if (r.hasMyReaction()) {
+          hasMyReaction=true;
+        }
+      }
+    }
+  }
   bindData(message,isUpdated,preprocessedData);
   ActorSDK.sharedActor().getMessenger().onUserVisible(message.getSenderId());
 }

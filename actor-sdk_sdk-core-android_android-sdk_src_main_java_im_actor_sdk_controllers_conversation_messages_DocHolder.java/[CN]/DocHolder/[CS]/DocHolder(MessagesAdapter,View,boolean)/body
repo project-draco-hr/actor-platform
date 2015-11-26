@@ -1,5 +1,13 @@
 {
   super(fragment,itemView,isFullSize);
+  waitColor=ActorSDK.sharedActor().style.getConvStatePendingColor();
+  sentColor=ActorSDK.sharedActor().style.getConvStateSentColor();
+  deliveredColor=ActorSDK.sharedActor().style.getConvStateDeliveredColor();
+  readColor=ActorSDK.sharedActor().style.getConvStateReadColor();
+  errorColor=ActorSDK.sharedActor().style.getConvStateErrorColor();
+  stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);
+  time=(TextView)itemView.findViewById(R.id.time);
+  time.setTextColor(ActorSDK.sharedActor().style.getConvTimeColor());
   View bubbleView=itemView.findViewById(R.id.bubbleContainer);
   bubbleView.setBackgroundResource(R.drawable.conv_bubble_media_in);
   menu=itemView.findViewById(R.id.menu);
