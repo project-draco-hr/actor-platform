@@ -1,0 +1,20 @@
+{
+  if (hasMyReaction) {
+    ActorSDK.sharedActor().getMessenger().removeReaction(peer,rid,code).start(new CommandCallback<Boolean>(){
+      @Override public void onResult(      Boolean res){
+      }
+      @Override public void onError(      Exception e){
+      }
+    }
+);
+  }
+ else {
+    ActorSDK.sharedActor().getMessenger().addReaction(peer,rid,code).start(new CommandCallback<Boolean>(){
+      @Override public void onResult(      Boolean res){
+      }
+      @Override public void onError(      Exception e){
+      }
+    }
+);
+  }
+}

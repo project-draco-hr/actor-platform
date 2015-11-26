@@ -1,0 +1,5 @@
+{
+  super.updateDrawState(ds);
+  ds.setColor(hasMyReaction && code.equals("\u2764") ? ActorSDK.sharedActor().style.getConvLikeColor() : ActorSDK.sharedActor().style.getConvTimeColor());
+  ds.setUnderlineText(false);
+}

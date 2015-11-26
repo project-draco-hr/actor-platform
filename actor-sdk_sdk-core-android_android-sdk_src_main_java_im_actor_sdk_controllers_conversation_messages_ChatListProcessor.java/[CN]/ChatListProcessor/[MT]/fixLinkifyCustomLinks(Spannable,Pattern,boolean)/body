@@ -20,7 +20,7 @@
     if (isMention && !found) {
       return false;
     }
-    URLSpan span=(isMention && isGroup && found) ? new MentionSpan(nick,userId,false) : new URLSpan(m.group());
+    URLSpan span=(isMention && isGroup && found) ? new MentionSpan(nick,userId,false) : new BaseUrlSpan(m.group(),false);
     spannable.setSpan(span,m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     res=true;
   }
