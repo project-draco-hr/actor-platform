@@ -2,3 +2,4 @@ String code
 boolean hasMyReaction
 Peer peer
 long rid
+int baseColor

@@ -35,7 +35,7 @@ break;
  else {
 stateIcon.setVisibility(View.GONE);
 }
-time.setText(Strings.formatTime(message.getDate()));
+setTimeAndReactions(time);
 if (isNewMessage) {
 int w, h;
 if (message.getContent() instanceof PhotoContent) {

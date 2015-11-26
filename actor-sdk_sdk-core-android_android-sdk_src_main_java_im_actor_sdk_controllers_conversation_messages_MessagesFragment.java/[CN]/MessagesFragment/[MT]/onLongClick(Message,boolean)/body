@@ -22,6 +22,7 @@
         menu.findItem(R.id.copy).setVisible(isAllText);
         menu.findItem(R.id.quote).setVisible(isAllText);
         menu.findItem(R.id.forward).setVisible(selected.length == 1 || isAllText);
+        menu.findItem(R.id.like).setVisible(selected.length == 1);
         return false;
       }
       @Override public boolean onActionItemClicked(      final ActionMode actionMode,      MenuItem menuItem){
@@ -46,6 +47,29 @@
           android.content.ClipData clip=android.content.ClipData.newPlainText("Messages",text);
           clipboard.setPrimaryClip(clip);
           Toast.makeText(getActivity(),R.string.toast_messages_copied,Toast.LENGTH_SHORT).show();
+          actionMode.finish();
+          return true;
+        }
+ else         if (menuItem.getItemId() == R.id.like) {
+          Message currentMessage=messagesAdapter.getSelected()[0];
+          if (hasMyReaction) {
+            ActorSDK.sharedActor().getMessenger().removeReaction(getPeer(),currentMessage.getRid(),"\u2764").start(new CommandCallback<Boolean>(){
+              @Override public void onResult(              Boolean res){
+              }
+              @Override public void onError(              Exception e){
+              }
+            }
+);
+          }
+ else {
+            ActorSDK.sharedActor().getMessenger().addReaction(getPeer(),currentMessage.getRid(),"\u2764").start(new CommandCallback<Boolean>(){
+              @Override public void onResult(              Boolean res){
+              }
+              @Override public void onError(              Exception e){
+              }
+            }
+);
+          }
           actionMode.finish();
           return true;
         }

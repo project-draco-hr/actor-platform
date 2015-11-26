@@ -42,11 +42,5 @@ break;
  else {
 status.setVisibility(View.GONE);
 }
-Spannable timeWithReactions=null;
-if (reactions != null) {
-SpannableStringBuilder builder=new SpannableStringBuilder(reactions);
-timeWithReactions=builder.append(Strings.formatTime(message.getDate()));
-}
-time.setText(timeWithReactions != null ? timeWithReactions : Strings.formatTime(message.getDate()));
-time.setMovementMethod(LinkMovementMethod.getInstance());
+setTimeAndReactions(time);
 }

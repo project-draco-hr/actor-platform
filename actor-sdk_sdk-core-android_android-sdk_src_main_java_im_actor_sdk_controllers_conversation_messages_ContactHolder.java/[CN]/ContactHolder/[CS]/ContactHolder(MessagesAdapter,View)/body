@@ -1,5 +1,13 @@
 {
   super(fragment,itemView,false);
+  waitColor=ActorSDK.sharedActor().style.getConvStatePendingColor();
+  sentColor=ActorSDK.sharedActor().style.getConvStateSentColor();
+  deliveredColor=ActorSDK.sharedActor().style.getConvStateDeliveredColor();
+  readColor=ActorSDK.sharedActor().style.getConvStateReadColor();
+  errorColor=ActorSDK.sharedActor().style.getConvStateErrorColor();
+  stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);
+  time=(TextView)itemView.findViewById(R.id.time);
+  time.setTextColor(ActorSDK.sharedActor().style.getConvTimeColor());
   mainContainer=(ViewGroup)itemView.findViewById(R.id.mainContainer);
   messageBubble=(FrameLayout)itemView.findViewById(R.id.fl_bubble);
   text=(TextView)itemView.findViewById(R.id.tv_text);
