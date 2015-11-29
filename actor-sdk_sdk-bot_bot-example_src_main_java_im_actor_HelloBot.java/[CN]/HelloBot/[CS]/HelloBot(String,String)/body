@@ -1,4 +1,0 @@
-{
-  super(token,endpoint);
-  localKeyValue=ShardakkaExtension.get(context().system()).simpleKeyValue("msgs").asJava();
-}
