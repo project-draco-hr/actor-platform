@@ -3,7 +3,7 @@
     joinGroupUrl=getArguments().getString("invite_url",null);
   }
   View res=inflate(inflater,container,R.layout.fragment_dialogs,messenger().getDialogsDisplayList());
-  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
   FrameLayout footer=new FrameLayout(getActivity());
   footer.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(160)));
   footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
