@@ -1,0 +1,8 @@
+{
+  super.onNewIntent(intent);
+  peer=Peer.fromUniqueId(intent.getExtras().getLong(EXTRA_CHAT_PEER));
+  setFragment(null);
+  onPerformBind();
+  this.intent=intent;
+  handleIntent();
+}

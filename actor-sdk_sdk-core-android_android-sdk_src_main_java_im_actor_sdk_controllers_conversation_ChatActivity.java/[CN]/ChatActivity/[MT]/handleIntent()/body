@@ -1,0 +1,10 @@
+{
+  sendUri=intent.getStringExtra("send_uri");
+  sendUriMultiple=intent.getStringArrayListExtra("send_uri_multiple");
+  shareUser=intent.getIntExtra("share_user",0);
+  forwardText=intent.getStringExtra("forward_text");
+  forwardTextRaw=intent.getStringExtra("forward_text_raw");
+  sendText=intent.getStringExtra("send_text");
+  forwardDocDescriptor=intent.getStringExtra("forward_doc_descriptor");
+  forwardDocIsDoc=intent.getBooleanExtra("forward_doc_is_doc",true);
+}

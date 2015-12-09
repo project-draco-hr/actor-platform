@@ -2,9 +2,7 @@
   super.onCreate(savedInstanceState);
   getWindow().setBackgroundDrawable(null);
   setContentView(R.layout.activity_dialog);
-  if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,onCreateFragment()).commit();
-  }
+  setFragment(savedInstanceState);
   messageEditText=(EditText)findViewById(R.id.et_message);
   messageEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   messageEditText.setHintTextColor(ActorSDK.sharedActor().style.getTextHintColor());

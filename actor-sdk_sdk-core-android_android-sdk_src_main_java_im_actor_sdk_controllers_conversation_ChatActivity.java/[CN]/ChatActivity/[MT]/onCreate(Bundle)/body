@@ -1,7 +1,8 @@
 {
-  peer=Peer.fromUniqueId(getIntent().getExtras().getLong(EXTRA_CHAT_PEER));
+  intent=getIntent();
+  peer=Peer.fromUniqueId(intent.getExtras().getLong(EXTRA_CHAT_PEER));
   if (saveInstance == null) {
-    isCompose=getIntent().getExtras().getBoolean(EXTRA_CHAT_COMPOSE,false);
+    isCompose=intent.getExtras().getBoolean(EXTRA_CHAT_COMPOSE,false);
   }
  else {
     pending_fileName=saveInstance.getString(STATE_FILE_NAME,null);
@@ -143,12 +144,5 @@ catch (  NullPointerException e) {
   findViewById(R.id.share_file).setOnClickListener(shareMenuOCL);
   findViewById(R.id.share_hide).setOnClickListener(shareMenuOCL);
   findViewById(R.id.share_contact).setOnClickListener(shareMenuOCL);
-  sendUri=getIntent().getStringExtra("send_uri");
-  sendUriMultiple=getIntent().getStringArrayListExtra("send_uri_multiple");
-  shareUser=getIntent().getIntExtra("share_user",0);
-  forwardText=getIntent().getStringExtra("forward_text");
-  forwardTextRaw=getIntent().getStringExtra("forward_text_raw");
-  sendText=getIntent().getStringExtra("send_text");
-  forwardDocDescriptor=getIntent().getStringExtra("forward_doc_descriptor");
-  forwardDocIsDoc=getIntent().getBooleanExtra("forward_doc_is_doc",true);
+  handleIntent();
 }
