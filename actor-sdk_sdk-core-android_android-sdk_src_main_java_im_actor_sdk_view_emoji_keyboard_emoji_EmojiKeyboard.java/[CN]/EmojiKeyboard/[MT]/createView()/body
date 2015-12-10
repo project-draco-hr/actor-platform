@@ -18,5 +18,8 @@
   final SmilePagerAdapter mEmojisAdapter=new SmilePagerAdapter(this);
   emojiPager.setAdapter(mEmojisAdapter);
   emojiPagerIndicator.setViewPager(emojiPager);
+  if (SmilesPack.getRecent().size() == 0) {
+    emojiPager.setCurrentItem(1);
+  }
   return emojiPagerView;
 }
