@@ -1,6 +1,7 @@
 {
   View itemView=LayoutInflater.from(container.getContext()).inflate(R.layout.emoji_smiles_page,null);
   ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojiPackContainer);
+  View noEmojiTV=itemView.findViewById(R.id.text);
   ArrayList<Long> emojiPack=new ArrayList<Long>();
 switch (position) {
 case 0:
@@ -37,6 +38,12 @@ SmileProcessor.emoji().unregisterListener(this);
 }
 }
 );
+}
+if (emojiPack.size() == 0) {
+noEmojiTV.setVisibility(View.VISIBLE);
+}
+ else {
+noEmojiTV.setVisibility(View.GONE);
 }
 smilesPackView.setOnSmileClickListener(new OnSmileClickListener(){
 @Override public void onEmojiClicked(String smile){
