@@ -1,6 +1,6 @@
 {
   if (background == null) {
     shp=getContext().getSharedPreferences("wallpaper",Context.MODE_PRIVATE);
-    background=getResources().getDrawable(BackgroundPreviewView.getBackground(shp.getInt("wallpaper",0)));
+    background=getResources().getDrawable(BackgroundPreviewView.getBackground(BackgroundPreviewView.getBackgroundIdByUri(messenger().getSelectedWallpaper(),getContext(),shp.getInt("wallpaper",0))));
   }
 }
