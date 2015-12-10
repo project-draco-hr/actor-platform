@@ -3,6 +3,11 @@
     return;
   }
   isMentionsVisible=true;
+  ignoreTextChange=true;
+  int cursor=messageEditText.getSelectionStart();
+  messageEditText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+  messageEditText.setSelection(cursor);
+  ignoreTextChange=false;
   GroupVM groupInfo=groups().get(peer.getPeerId());
   mentionsAdapter=new MentionsAdapter(groupInfo.getId(),this,new MentionsAdapter.MentionsUpdatedCallback(){
     @Override public void onMentionsUpdated(    int oldRowsCount,    int newRowsCount){
