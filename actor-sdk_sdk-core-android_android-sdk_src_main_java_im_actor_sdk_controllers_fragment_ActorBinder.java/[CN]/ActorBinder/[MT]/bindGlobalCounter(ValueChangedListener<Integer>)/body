@@ -1,0 +1,4 @@
+{
+  callback.onChanged(messenger().getAppState().getGlobalCounter().get(),messenger().getAppState().getGlobalCounter());
+  bind(messenger().getAppState().getGlobalCounter(),callback);
+}

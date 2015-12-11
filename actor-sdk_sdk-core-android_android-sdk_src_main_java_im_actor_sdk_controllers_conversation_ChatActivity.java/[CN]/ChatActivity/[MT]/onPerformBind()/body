@@ -30,4 +30,16 @@
     }
 );
   }
+  bindGlobalCounter(new ValueChangedListener<Integer>(){
+    @Override public void onChanged(    Integer val,    Value<Integer> valueModel){
+      if (val > 0) {
+        counter.setText(Integer.toString(val));
+        showView(counter);
+      }
+ else {
+        hideView(counter);
+      }
+    }
+  }
+);
 }

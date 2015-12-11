@@ -1,10 +1,16 @@
 {
   getSupportActionBar().setDisplayShowCustomEnabled(true);
   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-  if (enableBack) {
-    getSupportActionBar().setDisplayShowHomeEnabled(true);
-  }
   getSupportActionBar().setDisplayShowTitleEnabled(false);
   getSupportActionBar().setDisplayUseLogoEnabled(false);
   getSupportActionBar().setCustomView(view,params);
+  if (enableBack) {
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+  }
+ else {
+    getSupportActionBar().setDisplayShowHomeEnabled(false);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    Toolbar parent=(Toolbar)view.getParent();
+    parent.setContentInsetsAbsolute(0,0);
+  }
 }

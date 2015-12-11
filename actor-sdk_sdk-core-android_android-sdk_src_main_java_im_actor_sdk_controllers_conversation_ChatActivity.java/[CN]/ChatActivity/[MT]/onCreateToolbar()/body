@@ -1,7 +1,18 @@
 {
+  ActorStyle style=ActorSDK.sharedActor().style;
   barView=LayoutInflater.from(this).inflate(R.layout.bar_conversation,null);
   ActionBar.LayoutParams layout=new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,ActionBar.LayoutParams.MATCH_PARENT);
-  setToolbar(barView,layout);
+  setToolbar(barView,layout,false);
+  findViewById(R.id.home).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onBackPressed();
+    }
+  }
+);
+  counter=(TextView)barView.findViewById(R.id.counter);
+  counter.setTextColor(style.getDialogsCounterTextColor());
+  counter.setBackgroundResource(R.drawable.ic_counter_circle);
+  counter.getBackground().setColorFilter(style.getDialogsCounterBackgroundColor(),PorterDuff.Mode.MULTIPLY);
   barTitle=(TextView)barView.findViewById(R.id.title);
   barSubtitleContainer=barView.findViewById(R.id.subtitleContainer);
   barTypingIcon=(ImageView)barView.findViewById(R.id.typingImage);
