@@ -3,11 +3,6 @@
     return;
   }
   isMentionsVisible=false;
-  ignoreTextChange=true;
-  int cursor=messageEditText.getSelectionStart();
-  messageEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT| InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-  messageEditText.setSelection(cursor);
-  ignoreTextChange=false;
   expandMentions(mentionsList,mentionsAdapter.getCount(),0);
   mentionsAdapter=null;
   mentionsList.setAdapter(null);

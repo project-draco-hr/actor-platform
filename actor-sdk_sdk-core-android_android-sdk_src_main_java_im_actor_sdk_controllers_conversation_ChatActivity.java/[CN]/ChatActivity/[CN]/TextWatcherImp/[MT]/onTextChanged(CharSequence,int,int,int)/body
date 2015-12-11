@@ -1,42 +1,40 @@
 {
-  if (!ignoreTextChange) {
-    String str=s.toString();
-    String firstPeace=str.substring(0,start + count);
-    int startSelection=messageEditText.getSelectionStart();
-    String currentWord="";
-    int length=0;
-    for (    String word : str.split(" ")) {
-      length=length + word.length() + 1;
-      if (length > startSelection) {
-        currentWord=word;
-        break;
-      }
+  String str=s.toString();
+  String firstPeace=str.substring(0,start + count);
+  int startSelection=messageEditText.getSelectionStart();
+  String currentWord="";
+  int length=0;
+  for (  String word : str.split(" ")) {
+    length=length + word.length() + 1;
+    if (length > startSelection) {
+      currentWord=word;
+      break;
     }
-    currentWord=currentWord.isEmpty() ? str : currentWord;
-    if (peer.getPeerType() == PeerType.GROUP) {
-      if (count == 1 && s.charAt(start) == '@' && !str.endsWith(" ")) {
-        showMentions(false);
-        mentionSearchString="";
-      }
- else       if (currentWord.startsWith("@") && !str.endsWith(" ")) {
-        showMentions(true);
-      }
+  }
+  currentWord=currentWord.isEmpty() ? str : currentWord;
+  if (peer.getPeerType() == PeerType.GROUP) {
+    if (count == 1 && s.charAt(start) == '@' && !str.endsWith(" ")) {
+      showMentions(false);
+      mentionSearchString="";
+    }
+ else     if (currentWord.startsWith("@") && !str.endsWith(" ")) {
+      showMentions(true);
+    }
  else {
-        hideMentions();
-      }
-      mentionStart=firstPeace.lastIndexOf("@");
-      if (currentWord.startsWith("@") && currentWord.length() > 1) {
-        mentionSearchString=currentWord.substring(1,currentWord.length());
-      }
+      hideMentions();
+    }
+    mentionStart=firstPeace.lastIndexOf("@");
+    if (currentWord.startsWith("@") && currentWord.length() > 1) {
+      mentionSearchString=currentWord.substring(1,currentWord.length());
+    }
  else {
-        mentionSearchString="";
-      }
-      if (mentionSearchString.equals(" ")) {
-        hideMentions();
-      }
- else       if (mentionsAdapter != null) {
-        mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
-      }
+      mentionSearchString="";
+    }
+    if (mentionSearchString.equals(" ")) {
+      hideMentions();
+    }
+ else     if (mentionsAdapter != null) {
+      mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
     }
   }
 }
