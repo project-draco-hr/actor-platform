@@ -23,7 +23,12 @@
       }
     }
  else {
-      showNotification();
+      for (      Peer p : notificationsDuringPause.keySet()) {
+        if (isNotificationsEnabled(p,notificationsDuringPause.get(p))) {
+          showNotification();
+          break;
+        }
+      }
     }
     notificationsDuringPause.clear();
   }
