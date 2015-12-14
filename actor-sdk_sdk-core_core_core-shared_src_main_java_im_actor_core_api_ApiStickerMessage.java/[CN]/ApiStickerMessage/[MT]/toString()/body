@@ -1,0 +1,11 @@
+{
+  String res="struct StickerMessage{";
+  res+="stickerId=" + this.stickerId;
+  res+=", fastPreview=" + this.fastPreview;
+  res+=", image512=" + this.image512;
+  res+=", image256=" + this.image256;
+  res+=", stickerCollectionId=" + this.stickerCollectionId;
+  res+=", stickerCollectionAccessHash=" + this.stickerCollectionAccessHash;
+  res+="}";
+  return res;
+}

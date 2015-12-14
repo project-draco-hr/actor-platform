@@ -1,0 +1,7 @@
+{
+  String res="rpc AddStickerCollection{";
+  res+="id=" + this.id;
+  res+=", accessHash=" + this.accessHash;
+  res+="}";
+  return res;
+}

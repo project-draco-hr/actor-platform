@@ -3,7 +3,11 @@
   int key=values.getInt(1);
   byte[] content=values.getBytes(2);
 switch (key) {
+case 1:
+    return Bser.parse(new ApiRgbColor(),content);
+case 2:
+  return Bser.parse(new ApiPredefinedColor(),content);
 default :
-    return new ApiColorUnsupported(key,content);
+return new ApiColorUnsupported(key,content);
 }
 }

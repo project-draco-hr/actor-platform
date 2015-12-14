@@ -1,6 +1,0 @@
-{
-  String res="struct ObjectPatch{";
-  res+="rules=" + this.rules;
-  res+="}";
-  return res;
-}

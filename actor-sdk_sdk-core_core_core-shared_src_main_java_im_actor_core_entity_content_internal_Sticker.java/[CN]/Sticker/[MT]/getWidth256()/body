@@ -1,0 +1,6 @@
+{
+  if (apiImageLocation256 == null) {
+    return 0;
+  }
+  return apiImageLocation256.getWidth();
+}

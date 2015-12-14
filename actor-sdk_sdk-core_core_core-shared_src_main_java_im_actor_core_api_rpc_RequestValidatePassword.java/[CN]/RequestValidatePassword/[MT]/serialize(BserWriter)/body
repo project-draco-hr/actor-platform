@@ -1,0 +1,10 @@
+{
+  if (this.transactionHash == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.transactionHash);
+  if (this.password == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.password);
+}

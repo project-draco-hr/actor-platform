@@ -1,0 +1,9 @@
+{
+  if (view != null) {
+    if (stickerIndicatorContainer.getTag(TAG_KEY) != null && !stickerIndicatorContainer.getTag(TAG_KEY).equals(view.getTag(TAG_KEY))) {
+      stickerIndicatorContainer.setTag(TAG_KEY,view.getTag(TAG_KEY));
+      position=view.getTag(TAG_KEY);
+      selectCurrentPack((Integer)position);
+    }
+  }
+}

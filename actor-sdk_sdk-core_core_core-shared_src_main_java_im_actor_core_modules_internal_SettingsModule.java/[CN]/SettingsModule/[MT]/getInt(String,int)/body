@@ -1,0 +1,13 @@
+{
+  String sValue=readValue(key);
+  int res=defaultVal;
+  if (sValue != null) {
+    try {
+      res=Integer.parseInt(sValue);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+  return res;
+}

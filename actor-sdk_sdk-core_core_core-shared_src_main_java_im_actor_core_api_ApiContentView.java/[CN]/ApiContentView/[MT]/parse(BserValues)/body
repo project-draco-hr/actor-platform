@@ -1,9 +1,0 @@
-{
-  this.contentId=values.getString(1);
-  if (values.optBytes(3) != null) {
-    this.params=ApiRawValue.fromBytes(values.getBytes(3));
-  }
-  if (values.hasRemaining()) {
-    setUnmappedObjects(values.buildRemaining());
-  }
-}

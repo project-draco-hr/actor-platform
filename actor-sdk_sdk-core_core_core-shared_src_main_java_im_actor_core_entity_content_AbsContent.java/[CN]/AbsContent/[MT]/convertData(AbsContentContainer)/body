@@ -25,6 +25,9 @@
  else     if (content instanceof LocalDocument) {
       return new DocumentContent(localContainer);
     }
+ else     if (content instanceof Sticker) {
+      return new StickerContent(localContainer);
+    }
  else {
       throw new IOException("Unknown type");
     }
@@ -93,6 +96,9 @@
  else         if (object.getString("dataType").equals("location")) {
           return new LocationContent(remoteContainer);
         }
+      }
+ else       if (content instanceof ApiStickerMessage) {
+        return new StickerContent(remoteContainer);
       }
     }
  catch (    Exception e) {

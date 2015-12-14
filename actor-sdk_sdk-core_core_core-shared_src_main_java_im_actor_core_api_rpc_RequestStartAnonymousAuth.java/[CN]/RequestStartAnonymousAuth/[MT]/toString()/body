@@ -1,0 +1,6 @@
+{
+  String res="rpc StartAnonymousAuth{";
+  res+="name=" + this.name;
+  res+="}";
+  return res;
+}

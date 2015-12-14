@@ -1,0 +1,12 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+  List<ApiStickerDescriptor> _stickers=new ArrayList<ApiStickerDescriptor>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _stickers.add(new ApiStickerDescriptor());
+  }
+  this.stickers=values.getRepeatedObj(3,_stickers);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

@@ -1,5 +1,0 @@
-{
-  this.action=ApiAction.parse(values.getInt(1));
-  this.longValues=values.getRepeatedLong(2);
-  this.rawValues=values.getRepeatedBytes(3);
-}

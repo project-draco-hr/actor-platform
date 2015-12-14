@@ -1,0 +1,5 @@
+{
+  this.collections=collections;
+  this.seq=seq;
+  this.state=state;
+}

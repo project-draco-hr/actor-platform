@@ -1,0 +1,8 @@
+{
+  int key=0;
+  for (  ApiStickerCollection stickerCollection : collections) {
+    setBytes(KEY_STICKERS.concat(Integer.toString(key)),stickerCollection.toByteArray());
+    key++;
+  }
+  setInt(KEY_STICKERS_PAKS_COUNT,key);
+}

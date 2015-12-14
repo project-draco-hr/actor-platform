@@ -1,0 +1,11 @@
+{
+  this.stickerId=values.optInt(1);
+  this.fastPreview=values.optBytes(2);
+  this.image512=values.optObj(3,new ApiImageLocation());
+  this.image256=values.optObj(4,new ApiImageLocation());
+  this.stickerCollectionId=values.optInt(5);
+  this.stickerCollectionAccessHash=values.optLong(6);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

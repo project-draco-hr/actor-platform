@@ -1,0 +1,34 @@
+{
+  StickerContent content=(StickerContent)message.getContent();
+  sticker.bind(content.getSticker().getFileReference512(),Screen.dp(100));
+  if (message.getSenderId() == myUid()) {
+    stateIcon.setVisibility(View.VISIBLE);
+switch (message.getMessageState()) {
+case ERROR:
+      stateIcon.setResource(R.drawable.msg_error);
+    stateIcon.setTint(COLOR_ERROR);
+  break;
+default :
+case PENDING:
+stateIcon.setResource(R.drawable.msg_clock);
+stateIcon.setTint(COLOR_PENDING);
+break;
+case READ:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(COLOR_READ);
+break;
+case RECEIVED:
+stateIcon.setResource(R.drawable.msg_check_2);
+stateIcon.setTint(COLOR_RECEIVED);
+break;
+case SENT:
+stateIcon.setResource(R.drawable.msg_check_1);
+stateIcon.setTint(COLOR_SENT);
+break;
+}
+}
+ else {
+stateIcon.setVisibility(View.GONE);
+}
+time.setText(Strings.formatTime(message.getDate()));
+}

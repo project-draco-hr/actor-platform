@@ -14,6 +14,8 @@ case 5:
 return new ContactHolder(this,inflate(R.layout.adapter_dialog_contact,viewGroup));
 case 6:
 return new LocationHolder(this,inflate(R.layout.adapter_dialog_locaton,viewGroup));
+case 7:
+return new StickerHolder(this,inflate(R.layout.adapter_dialog_sticker,viewGroup));
 default :
 return new UnsupportedHolder(this,inflate(R.layout.adapter_dialog_text,viewGroup));
 }

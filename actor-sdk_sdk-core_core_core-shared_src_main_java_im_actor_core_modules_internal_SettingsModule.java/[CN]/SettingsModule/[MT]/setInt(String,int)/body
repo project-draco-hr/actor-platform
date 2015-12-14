@@ -1,0 +1,3 @@
+{
+  changeValue(key,Integer.toString(val));
+}

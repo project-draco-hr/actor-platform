@@ -24,7 +24,10 @@
  else   if (content instanceof LocationContent) {
     return 6;
   }
- else {
+ else   if (content instanceof StickerContent) {
     return 7;
+  }
+ else {
+    return 8;
   }
 }

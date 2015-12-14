@@ -1,8 +1,0 @@
-{
-  String res="struct Rule{";
-  res+="action=" + this.action;
-  res+=", longValues=" + this.longValues.size();
-  res+=", rawValues=" + this.rawValues.size();
-  res+="}";
-  return res;
-}

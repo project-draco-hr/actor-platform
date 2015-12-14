@@ -1,0 +1,8 @@
+{
+  writer.writeRepeatedObj(1,this.collections);
+  writer.writeInt(2,this.seq);
+  if (this.state == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(3,this.state);
+}

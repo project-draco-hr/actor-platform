@@ -1,0 +1,6 @@
+{
+  String res="struct ServiceExChangedTopic{";
+  res+="topic=" + this.topic;
+  res+="}";
+  return res;
+}

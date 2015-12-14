@@ -1,0 +1,7 @@
+{
+  String res="rpc RemoveStickerCollection{";
+  res+="id=" + this.id;
+  res+=", accessHash=" + this.accessHash;
+  res+="}";
+  return res;
+}

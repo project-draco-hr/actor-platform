@@ -1,0 +1,53 @@
+{
+  keyboard.getStickerIndicatorContainer().removeAllViews();
+  int packCount=0;
+  for (  final StickersPack pack : packs) {
+    if (pack.size() < 1 || pack.getLogoStickerId() == null || pack.getLogoStickerId().getFileReference128() == null) {
+      continue;
+    }
+    int linesInPack=(int)Math.ceil((double)pack.size() / stickerInLine);
+    totalLines+=linesInPack;
+    final StickerView sv=new StickerView(context);
+    sv.bind(pack.getLogoStickerId().getFileReference128(),Screen.dp(48));
+    sv.setPadding(padding,padding,padding,padding);
+    sv.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        scrollTo.requestScroll(packFirstLineMap.get(pack));
+        selectCurrentPack((Integer)sv.getTag(TAG_KEY));
+      }
+    }
+);
+    sv.setTag(TAG_KEY,packCount);
+    keyboard.getStickerIndicatorContainer().addView(sv,stickerSwitchLp);
+    packCount++;
+  }
+  if (stickerIndicatorContainer.getChildAt(0) != null) {
+    stickerIndicatorContainer.getChildAt(0).setBackgroundColor(context.getResources().getColor(R.color.selector_selected));
+  }
+  stickerLines=new StickerLine[totalLines];
+  int allLinesCount=0;
+  int linePackCount=0;
+  for (  StickersPack pack : packs) {
+    if (pack.size() < 1) {
+      continue;
+    }
+    int stickerInPack=0;
+    int linesInPack=(int)Math.ceil((double)pack.size() / stickerInLine);
+    for (int lineInPackCount=0; lineInPackCount < linesInPack; lineInPackCount++, allLinesCount++) {
+      StickerLine line=new StickerLine(new Sticker[stickerInLine],linePackCount);
+      if (lineInPackCount == 0) {
+        packFirstLineMap.put(pack,allLinesCount);
+      }
+      for (int stickerInLine=0; stickerInLine < this.stickerInLine; stickerInLine++, stickerInPack++) {
+        if (stickerInPack < pack.size()) {
+          line.getLine()[stickerInLine]=pack.get(stickerInPack);
+        }
+ else {
+          break;
+        }
+      }
+      stickerLines[allLinesCount]=line;
+    }
+    linePackCount++;
+  }
+}

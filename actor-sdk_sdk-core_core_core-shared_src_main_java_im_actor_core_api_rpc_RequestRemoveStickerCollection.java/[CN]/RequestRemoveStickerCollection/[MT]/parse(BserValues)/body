@@ -1,0 +1,4 @@
+{
+  this.id=values.getInt(1);
+  this.accessHash=values.getLong(2);
+}

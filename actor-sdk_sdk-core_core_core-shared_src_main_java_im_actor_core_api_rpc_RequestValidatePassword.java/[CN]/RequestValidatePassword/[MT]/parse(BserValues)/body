@@ -1,0 +1,4 @@
+{
+  this.transactionHash=values.getString(1);
+  this.password=values.getString(2);
+}

@@ -1,0 +1,5 @@
+{
+  String res="tuple LoadStickerCollection{";
+  res+="}";
+  return res;
+}

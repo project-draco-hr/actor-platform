@@ -1,0 +1,8 @@
+{
+  this.stickerId=stickerId;
+  this.fastPreview=fastPreview;
+  this.image512=image512;
+  this.image256=image256;
+  this.stickerCollectionId=stickerCollectionId;
+  this.stickerCollectionAccessHash=stickerCollectionAccessHash;
+}

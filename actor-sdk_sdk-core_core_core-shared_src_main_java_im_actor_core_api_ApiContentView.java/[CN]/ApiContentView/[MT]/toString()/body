@@ -1,7 +1,0 @@
-{
-  String res="struct ContentView{";
-  res+="contentId=" + this.contentId;
-  res+=", params=" + this.params;
-  res+="}";
-  return res;
-}

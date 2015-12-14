@@ -1,0 +1,5 @@
+{
+  String res="rpc LoadOwnStickers{";
+  res+="}";
+  return res;
+}

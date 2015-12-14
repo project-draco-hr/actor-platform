@@ -1,0 +1,6 @@
+{
+  String res="update StickerCollectionsChanged{";
+  res+="collections=" + this.collections;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,12 @@
+{
+  super(fragment,itemView,false);
+  this.context=fragment.getMessagesFragment().getActivity();
+  COLOR_PENDING=ActorSDK.sharedActor().style.getConvMediaStatePendingColor();
+  COLOR_SENT=ActorSDK.sharedActor().style.getConvMediaStateSentColor();
+  COLOR_RECEIVED=ActorSDK.sharedActor().style.getConvMediaStateDeliveredColor();
+  COLOR_READ=ActorSDK.sharedActor().style.getConvMediaStateReadColor();
+  COLOR_ERROR=ActorSDK.sharedActor().style.getConvMediaStateErrorColor();
+  sticker=(StickerView)itemView.findViewById(R.id.sticker);
+  time=(TextView)itemView.findViewById(R.id.time);
+  stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);
+}

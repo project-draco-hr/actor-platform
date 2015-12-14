@@ -1,0 +1,6 @@
+Integer stickerId
+byte[] fastPreview
+ApiImageLocation image512
+ApiImageLocation image256
+Integer stickerCollectionId
+Long stickerCollectionAccessHash

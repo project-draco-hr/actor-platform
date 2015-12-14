@@ -1,4 +1,0 @@
-{
-  String[] tokens=string.split("_");
-  return new Sticker(tokens[1],tokens[0]);
-}

@@ -105,12 +105,6 @@
  else   if (update instanceof UpdateChatGroupsChanged) {
     messagesProcessor.onChatGroupsChanged(((UpdateChatGroupsChanged)update).getDialogs());
   }
- else   if (update instanceof UpdateChatArchived) {
-    messagesProcessor.onChatArchived(convert(((UpdateChatArchived)update).getPeer()));
-  }
- else   if (update instanceof UpdateChatRestored) {
-    messagesProcessor.onChatRestored(convert(((UpdateChatRestored)update).getPeer()));
-  }
  else   if (update instanceof UpdateReactionsUpdate) {
     messagesProcessor.onReactionsChanged(((UpdateReactionsUpdate)update).getPeer(),((UpdateReactionsUpdate)update).getRid(),((UpdateReactionsUpdate)update).getReactions());
   }

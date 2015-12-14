@@ -1,7 +1,6 @@
 {
-  List<ApiSearchOrCondition> _orQuery=new ArrayList<ApiSearchOrCondition>();
-  for (int i=0; i < values.getRepeatedCount(2); i++) {
-    _orQuery.add(new ApiSearchOrCondition());
+  this.orQuery=new ArrayList<ApiSearchCondition>();
+  for (  byte[] b : values.getRepeatedBytes(2)) {
+    orQuery.add(ApiSearchCondition.fromBytes(b));
   }
-  this.orQuery=values.getRepeatedObj(2,_orQuery);
 }

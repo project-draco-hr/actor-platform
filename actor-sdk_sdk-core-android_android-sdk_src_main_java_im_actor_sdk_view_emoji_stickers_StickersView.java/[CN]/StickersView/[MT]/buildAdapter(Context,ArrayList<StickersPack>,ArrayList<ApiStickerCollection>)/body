@@ -1,0 +1,34 @@
+{
+  for (  ApiStickerCollection apiPack : apiPacks) {
+    Sticker[] stickers=new Sticker[apiPack.getStickers().size()];
+    int i=0;
+    for (    ApiStickerDescriptor stickerDescriptor : apiPack.getStickers()) {
+      stickers[i++]=new Sticker(stickerDescriptor,apiPack.getId(),apiPack.getAccessHash());
+    }
+    StickersPack pack=new StickersPack(apiPack.getId() + "",apiPack.getId() + "",stickers.length > 0 ? stickers[0] : null,stickers);
+    packs.add(pack);
+  }
+  adapter=new StickerAdapter(context,packs,keyboard,new StickerAdapter.ScrollTo(){
+    @Override public void requestScroll(    final int position){
+      disableWhileFastScroll=true;
+      post(new Runnable(){
+        @Override public void run(){
+          setSelection(position);
+          View v=getChildAt(position);
+          if (v != null) {
+            v.requestFocus();
+          }
+        }
+      }
+);
+      postDelayed(new Runnable(){
+        @Override public void run(){
+          disableWhileFastScroll=false;
+        }
+      }
+,50);
+    }
+  }
+);
+  setAdapter(adapter);
+}

@@ -1,0 +1,8 @@
+{
+  String res="response StickersReponse{";
+  res+="collections=" + this.collections;
+  res+=", seq=" + this.seq;
+  res+=", state=" + byteArrayToString(this.state);
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  if (this.collection == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.collection);
+}

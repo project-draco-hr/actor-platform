@@ -1,0 +1,5 @@
+{
+  this.id=id;
+  this.accessHash=accessHash;
+  this.stickers=stickers;
+}

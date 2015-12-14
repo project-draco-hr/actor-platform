@@ -1,0 +1,10 @@
+{
+  this.id=values.getInt(1);
+  this.emoji=values.optString(2);
+  this.image128=values.getObj(3,new ApiImageLocation());
+  this.image512=values.optObj(4,new ApiImageLocation());
+  this.image256=values.optObj(5,new ApiImageLocation());
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

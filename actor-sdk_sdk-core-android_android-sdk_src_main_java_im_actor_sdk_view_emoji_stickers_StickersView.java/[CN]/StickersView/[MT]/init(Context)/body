@@ -1,0 +1,18 @@
+{
+  setDivider(new ColorDrawable(Color.TRANSPARENT));
+  final ArrayList<StickersPack> packs=new ArrayList<StickersPack>();
+  ArrayList<ApiStickerCollection> apiPacks=messenger().getOwnStickers();
+  if (apiPacks.size() > 0) {
+    buildAdapter(context,packs,apiPacks);
+  }
+ else {
+    messenger().loadStickers().start(new CommandCallback<ResponseLoadOwnStickers>(){
+      @Override public void onResult(      ResponseLoadOwnStickers res){
+        buildAdapter(context,packs,(ArrayList<ApiStickerCollection>)res.getOwnStickers());
+      }
+      @Override public void onError(      Exception e){
+      }
+    }
+);
+  }
+}

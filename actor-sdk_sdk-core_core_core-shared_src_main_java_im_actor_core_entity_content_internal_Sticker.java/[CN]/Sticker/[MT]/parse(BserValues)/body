@@ -1,0 +1,8 @@
+{
+  apiImageLocation128=values.getObj(1,new ApiImageLocation());
+  apiImageLocation256=values.getObj(2,new ApiImageLocation());
+  apiImageLocation512=values.getObj(3,new ApiImageLocation());
+  stickerId=values.getInt(4);
+  stickerCollectionId=values.getInt(5);
+  collectionAccessHash=values.getLong(6);
+}

@@ -1,5 +1,0 @@
-{
-  this.action=action;
-  this.longValues=longValues;
-  this.rawValues=rawValues;
-}

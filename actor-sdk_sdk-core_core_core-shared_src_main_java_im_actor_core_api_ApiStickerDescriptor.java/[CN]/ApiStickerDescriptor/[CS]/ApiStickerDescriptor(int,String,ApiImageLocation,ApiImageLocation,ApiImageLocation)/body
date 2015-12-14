@@ -1,0 +1,7 @@
+{
+  this.id=id;
+  this.emoji=emoji;
+  this.image128=image128;
+  this.image512=image512;
+  this.image256=image256;
+}

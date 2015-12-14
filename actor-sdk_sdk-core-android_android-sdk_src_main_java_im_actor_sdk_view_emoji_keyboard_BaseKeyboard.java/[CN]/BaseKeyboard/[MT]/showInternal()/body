@@ -1,11 +1,14 @@
 {
-  if (showing == (emojiKeyboardView != null)) {
-    return;
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    if (!Settings.canDrawOverlays(activity)) {
+      Intent intent=new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,Uri.parse("package:" + activity.getPackageName()));
+      activity.startActivityForResult(intent,OVERLAY_PERMISSION_REQ_CODE);
+    }
+ else {
+      showChecked();
+    }
   }
-  emojiKeyboardView=createView();
-  WindowManager.LayoutParams params=new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,(keyboardHeight),WindowManager.LayoutParams.TYPE_PHONE,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,PixelFormat.TRANSLUCENT);
-  params.gravity=Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-  windowManager.addView(emojiKeyboardView,params);
-  if (keyboardStatusListener != null)   keyboardStatusListener.onShow();
-  onShow();
+ else {
+    showChecked();
+  }
 }

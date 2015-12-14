@@ -1,0 +1,5 @@
+int id
+String emoji
+ApiImageLocation image128
+ApiImageLocation image512
+ApiImageLocation image256

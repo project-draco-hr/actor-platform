@@ -1,0 +1,6 @@
+{
+  if (apiImageLocation256 == null) {
+    return null;
+  }
+  return new FileReference(apiImageLocation256.getFileLocation(),"",apiImageLocation256.getFileSize());
+}

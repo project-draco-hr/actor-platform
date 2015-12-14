@@ -1,7 +1,0 @@
-{
-  List<ApiRule> _rules=new ArrayList<ApiRule>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _rules.add(new ApiRule());
-  }
-  this.rules=values.getRepeatedObj(1,_rules);
-}

@@ -15,6 +15,10 @@ case 4:
 return Bser.parse(new ApiServiceExGroupCreated(),content);
 case 5:
 return Bser.parse(new ApiServiceExChangedTitle(),content);
+case 18:
+return Bser.parse(new ApiServiceExChangedTopic(),content);
+case 19:
+return Bser.parse(new ApiServiceExChangedAbout(),content);
 case 6:
 return Bser.parse(new ApiServiceExChangedAvatar(),content);
 case 8:

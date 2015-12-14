@@ -1,0 +1,21 @@
+{
+  return new Command<ResponseLoadOwnStickers>(){
+    @Override public void start(    final CommandCallback<ResponseLoadOwnStickers> callback){
+      request(new RequestLoadOwnStickers(),new RpcCallback<ResponseLoadOwnStickers>(){
+        @Override public void onResult(        final ResponseLoadOwnStickers response){
+          saveOwnStickers((ArrayList<ApiStickerCollection>)response.getOwnStickers());
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onResult(response);
+            }
+          }
+);
+        }
+        @Override public void onError(        RpcException e){
+        }
+      }
+);
+    }
+  }
+;
+}

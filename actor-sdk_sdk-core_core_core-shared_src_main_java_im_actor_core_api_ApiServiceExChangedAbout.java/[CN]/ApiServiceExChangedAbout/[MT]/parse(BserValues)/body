@@ -1,0 +1,6 @@
+{
+  this.about=values.optString(1);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

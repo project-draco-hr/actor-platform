@@ -1,8 +1,0 @@
-{
-  if (this.action == null) {
-    throw new IOException();
-  }
-  writer.writeInt(1,this.action.getValue());
-  writer.writeRepeatedLong(2,this.longValues);
-  writer.writeRepeatedBytes(3,this.rawValues);
-}

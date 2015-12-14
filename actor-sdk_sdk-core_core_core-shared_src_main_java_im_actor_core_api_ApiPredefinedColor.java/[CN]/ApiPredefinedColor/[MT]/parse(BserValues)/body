@@ -1,3 +1,6 @@
 {
   this.color=ApiColors.parse(values.getInt(1));
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

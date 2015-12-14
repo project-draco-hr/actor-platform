@@ -1,0 +1,6 @@
+{
+  String res="update OwnStickersChanged{";
+  res+="collections=" + this.collections.size();
+  res+="}";
+  return res;
+}

@@ -1,0 +1,3 @@
+{
+  preferences().putBytes(STORAGE_PREFIX + key,val);
+}

@@ -1,0 +1,4 @@
+{
+  super(remoteContainer);
+  sticker=new Sticker((ApiStickerMessage)remoteContainer.getMessage());
+}

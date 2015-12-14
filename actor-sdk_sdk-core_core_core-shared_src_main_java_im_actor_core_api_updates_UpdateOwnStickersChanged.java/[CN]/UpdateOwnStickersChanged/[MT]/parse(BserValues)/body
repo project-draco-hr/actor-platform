@@ -1,0 +1,7 @@
+{
+  List<ApiStickerCollection> _collections=new ArrayList<ApiStickerCollection>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _collections.add(new ApiStickerCollection());
+  }
+  this.collections=values.getRepeatedObj(1,_collections);
+}

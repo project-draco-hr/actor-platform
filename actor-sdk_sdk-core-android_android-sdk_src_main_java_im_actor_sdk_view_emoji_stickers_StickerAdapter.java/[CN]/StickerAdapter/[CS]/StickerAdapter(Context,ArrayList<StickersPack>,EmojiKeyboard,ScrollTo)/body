@@ -1,0 +1,18 @@
+{
+  super(context);
+  this.context=context;
+  this.packs=packs;
+  this.keyboard=keyboard;
+  if (stickersCache == null) {
+    stickersCache=new HashMap<Long,StickerView>();
+  }
+  this.scrollTo=scrollTo;
+  stickerIndicatorContainer=keyboard.getStickerIndicatorContainer();
+  stickerIndicatorContainer.setTag(TAG_KEY,0);
+  stickerInLine=(Screen.getWidth() / STICKER_SIZE);
+  leftPadding=(Screen.getWidth() - (stickerInLine * STICKER_SIZE)) / 2;
+  packFirstLineMap=new HashMap<StickersPack,Integer>();
+  stickerSwitchLp=new LinearLayout.LayoutParams(Screen.dp(48),Screen.dp(48));
+  padding=Screen.dp(8);
+  buildStickerLines(scrollTo);
+}

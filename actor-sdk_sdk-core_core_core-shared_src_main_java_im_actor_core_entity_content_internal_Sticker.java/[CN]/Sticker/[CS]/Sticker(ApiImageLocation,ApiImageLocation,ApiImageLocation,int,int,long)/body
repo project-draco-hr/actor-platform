@@ -1,0 +1,8 @@
+{
+  this.apiImageLocation128=apiImageLocation128;
+  this.apiImageLocation256=apiImageLocation256;
+  this.apiImageLocation512=apiImageLocation512;
+  this.stickerId=stickerId;
+  this.stickerCollectionId=stickerCollectionId;
+  this.collectionAccessHash=collectionAccessHash;
+}

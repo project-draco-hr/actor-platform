@@ -1,0 +1,7 @@
+{
+  String res="rpc ValidatePassword{";
+  res+="transactionHash=" + this.transactionHash;
+  res+=", password=" + this.password;
+  res+="}";
+  return res;
+}

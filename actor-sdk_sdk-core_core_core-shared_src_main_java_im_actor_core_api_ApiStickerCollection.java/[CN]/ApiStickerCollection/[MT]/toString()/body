@@ -1,0 +1,8 @@
+{
+  String res="struct StickerCollection{";
+  res+="id=" + this.id;
+  res+=", accessHash=" + this.accessHash;
+  res+=", stickers=" + this.stickers.size();
+  res+="}";
+  return res;
+}

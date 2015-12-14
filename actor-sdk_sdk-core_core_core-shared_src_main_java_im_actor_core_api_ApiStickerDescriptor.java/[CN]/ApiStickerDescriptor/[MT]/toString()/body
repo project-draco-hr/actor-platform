@@ -1,0 +1,10 @@
+{
+  String res="struct StickerDescriptor{";
+  res+="id=" + this.id;
+  res+=", emoji=" + this.emoji;
+  res+=", image128=" + this.image128;
+  res+=", image512=" + this.image512;
+  res+=", image256=" + this.image256;
+  res+="}";
+  return res;
+}

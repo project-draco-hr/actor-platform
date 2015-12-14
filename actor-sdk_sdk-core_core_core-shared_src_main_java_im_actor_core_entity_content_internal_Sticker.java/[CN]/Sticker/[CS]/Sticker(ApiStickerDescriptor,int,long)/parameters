@@ -1,0 +1,3 @@
+ApiStickerDescriptor apiStickerDescriptor
+int collectionId
+long accessHash

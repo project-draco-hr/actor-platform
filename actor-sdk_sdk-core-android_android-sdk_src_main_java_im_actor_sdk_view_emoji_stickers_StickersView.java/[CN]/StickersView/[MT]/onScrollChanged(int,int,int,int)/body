@@ -1,0 +1,6 @@
+{
+  super.onScrollChanged(l,t,oldl,oldt);
+  if (adapter != null && !disableWhileFastScroll) {
+    adapter.onScroll(getChildAt(0));
+  }
+}

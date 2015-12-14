@@ -1,0 +1,8 @@
+{
+  writer.writeObject(1,apiImageLocation128);
+  writer.writeObject(2,apiImageLocation256);
+  writer.writeObject(3,apiImageLocation512);
+  writer.writeInt(4,stickerId);
+  writer.writeInt(5,stickerCollectionId);
+  writer.writeLong(6,collectionAccessHash);
+}

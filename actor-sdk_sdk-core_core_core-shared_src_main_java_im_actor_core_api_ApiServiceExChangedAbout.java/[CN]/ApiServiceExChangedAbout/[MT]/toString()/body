@@ -1,0 +1,6 @@
+{
+  String res="struct ServiceExChangedAbout{";
+  res+="about=" + this.about;
+  res+="}";
+  return res;
+}

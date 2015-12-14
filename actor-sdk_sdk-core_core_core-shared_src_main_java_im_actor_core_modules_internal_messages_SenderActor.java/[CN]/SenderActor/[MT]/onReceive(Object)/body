@@ -43,6 +43,10 @@
     SendLocation sendLocation=(SendLocation)message;
     doSendLocation(sendLocation.getPeer(),sendLocation.getLongitude(),sendLocation.getLatitude(),sendLocation.getStreet(),sendLocation.getPlace());
   }
+ else   if (message instanceof SendSticker) {
+    SendSticker sendSticker=(SendSticker)message;
+    doSendSticker(sendSticker.getPeer(),sendSticker.getSticker());
+  }
  else {
     drop(message);
   }

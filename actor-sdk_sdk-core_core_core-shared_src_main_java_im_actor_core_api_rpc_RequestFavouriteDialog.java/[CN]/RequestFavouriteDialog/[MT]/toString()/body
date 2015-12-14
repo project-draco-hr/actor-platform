@@ -1,0 +1,6 @@
+{
+  String res="rpc FavouriteDialog{";
+  res+="peer=" + this.peer;
+  res+="}";
+  return res;
+}

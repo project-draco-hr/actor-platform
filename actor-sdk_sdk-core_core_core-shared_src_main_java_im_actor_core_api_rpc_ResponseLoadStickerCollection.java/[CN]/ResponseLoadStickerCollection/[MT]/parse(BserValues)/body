@@ -1,0 +1,3 @@
+{
+  this.collection=values.getObj(1,new ApiStickerCollection());
+}

@@ -1,3 +1,5 @@
 {
-  writer.writeRepeatedObj(2,this.orQuery);
+  for (  ApiSearchCondition i : this.orQuery) {
+    writer.writeBytes(2,i.buildContainer());
+  }
 }

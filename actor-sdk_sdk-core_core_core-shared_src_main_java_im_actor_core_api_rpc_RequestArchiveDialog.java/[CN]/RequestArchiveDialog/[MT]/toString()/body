@@ -1,6 +1,0 @@
-{
-  String res="rpc ArchiveDialog{";
-  res+="peer=" + this.peer;
-  res+="}";
-  return res;
-}
