@@ -1,0 +1,29 @@
+{
+  UpdateOwnStickersChanged old=new UpdateOwnStickersChanged();
+  try {
+    Bser.parse(old,stickerPacksStorage().loadItem(0));
+    List<ApiStickerCollection> oldPacks=old.getCollections();
+    boolean needUpdate=false;
+    for (    ApiStickerCollection oldPack : oldPacks) {
+      for (      ApiStickerCollection newPack : updated) {
+        if (oldPack.getId() == newPack.getId()) {
+          needUpdate=true;
+          oldPacks.remove(oldPack);
+          oldPacks.add(newPack);
+        }
+      }
+    }
+    if (needUpdate) {
+      stickerPacksStorage().addOrUpdateItem(0,new UpdateOwnStickersChanged(oldPacks).toByteArray());
+      context().getEvents().post(new Event(){
+        @Override public String getType(){
+          return "sticker_collections_changed";
+        }
+      }
+);
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

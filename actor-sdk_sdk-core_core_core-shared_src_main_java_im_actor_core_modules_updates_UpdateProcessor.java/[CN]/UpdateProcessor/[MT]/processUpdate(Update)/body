@@ -112,5 +112,6 @@
     stickersProcessor.onOwnStickerCollectionsChanged(((UpdateOwnStickersChanged)update).getCollections());
   }
  else   if (update instanceof UpdateStickerCollectionsChanged) {
+    stickersProcessor.onStickerCollectionsChanged(((UpdateStickerCollectionsChanged)update).getCollections());
   }
 }
