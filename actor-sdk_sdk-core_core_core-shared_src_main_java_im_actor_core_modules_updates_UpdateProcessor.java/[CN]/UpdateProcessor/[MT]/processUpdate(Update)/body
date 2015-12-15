@@ -108,4 +108,10 @@
  else   if (update instanceof UpdateReactionsUpdate) {
     messagesProcessor.onReactionsChanged(((UpdateReactionsUpdate)update).getPeer(),((UpdateReactionsUpdate)update).getRid(),((UpdateReactionsUpdate)update).getReactions());
   }
+ else   if (update instanceof UpdateOwnStickersChanged) {
+    stickersProcessor.onOwnStickerCollectionsChanged(((UpdateOwnStickersChanged)update).getCollections());
+  }
+ else   if (update instanceof UpdateStickerCollectionsChanged) {
+    stickersProcessor.onStickerCollectionsChanged(((UpdateStickerCollectionsChanged)update).getCollections());
+  }
 }

@@ -4,6 +4,8 @@
   users=new UsersModule(this);
   timing.section("Groups");
   groups=new GroupsModule(this);
+  timing.section("Stickers");
+  stickers=new StickersModule(this);
   timing.section("Search");
   search=new SearchModule(this);
   timing.section("Security");

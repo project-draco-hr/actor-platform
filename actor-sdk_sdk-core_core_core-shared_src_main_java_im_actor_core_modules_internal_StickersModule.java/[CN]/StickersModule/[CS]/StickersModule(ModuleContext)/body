@@ -1,0 +1,13 @@
+{
+  super(context);
+  this.stickerPacksList=Storage.createList(STORAGE_STICKER_PACKS,StickersPack.CREATOR);
+  this.collection=Storage.createKeyValue(STORAGE_STICKER_PACKS,StickerPackVM.CREATOR(),StickersPack.CREATOR);
+  this.stickerPacksKeyValue=collection.getEngine();
+  stickerPacks=new ValueModel<ArrayList<StickerPackVM>>("sticker_packs_vms",buildStickerPacks());
+  context().getEvents().subscribe(new BusSubscriber(){
+    @Override public void onBusEvent(    Event event){
+      stickerPacks.change(buildStickerPacks());
+    }
+  }
+,"sticker_collections_changed");
+}

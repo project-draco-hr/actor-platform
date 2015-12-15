@@ -17,6 +17,9 @@ break;
 case 4:
 icon=R.drawable.ic_smiles_grid;
 break;
+case 5:
+icon=R.drawable.ic_smiles_sticker;
+break;
 default :
 icon=R.drawable.ic_smiles_smile;
 }

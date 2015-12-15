@@ -1,0 +1,10 @@
+{
+  im.actor.runtime.Runtime.postToMainThread(new Runnable(){
+    @Override public void run(){
+      for (      ModelChangedListener<StickerPackVM> l : listeners.toArray(new ModelChangedListener[listeners.size()])) {
+        l.onChanged(StickerPackVM.this);
+      }
+    }
+  }
+);
+}

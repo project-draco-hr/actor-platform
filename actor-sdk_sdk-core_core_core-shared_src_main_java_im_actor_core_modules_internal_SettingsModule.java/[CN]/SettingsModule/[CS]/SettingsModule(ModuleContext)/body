@@ -47,6 +47,4 @@ KEY_NOTIFICATION_GROUP_ENABLED="account.notifications.group.enabled";
 KEY_NOTIFICATION_GROUP_ONLY_MENTIONS="account.notifications.group.mentions";
 KEY_RENAME_HINT_SHOWN="hint.contact.rename";
 KEY_WALLPAPPER="wallpaper.uri";
-KEY_STICKERS="own_stickers.key";
-KEY_STICKERS_PAKS_COUNT="own_stickers_count";
 }
