@@ -1,2 +1,14 @@
 {
+  ArrayList<StickerPackVM> vms=new ArrayList<StickerPackVM>();
+  try {
+    UpdateOwnStickersChanged update=new UpdateOwnStickersChanged();
+    Bser.parse(update,stickerPacksList.loadItem(0));
+    for (    ApiStickerCollection apiCollection : update.getCollections()) {
+      vms.add(new StickerPackVM(new StickersPack(apiCollection)));
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return vms;
 }
