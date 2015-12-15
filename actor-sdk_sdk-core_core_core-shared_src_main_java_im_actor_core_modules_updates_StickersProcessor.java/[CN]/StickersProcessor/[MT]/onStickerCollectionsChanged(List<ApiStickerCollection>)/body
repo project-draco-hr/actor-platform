@@ -1,0 +1,13 @@
+{
+  ArrayList<StickersPack> add=new ArrayList<StickersPack>();
+  for (  ApiStickerCollection pack : updated) {
+    StickersPack p=stickerPacksKeyValue().getValue(pack.getId());
+    if (p != null) {
+      add.add(new StickersPack(pack));
+      stickerPacksKeyValue().addOrUpdateItem(p.updateStickers(pack.getStickers()));
+    }
+  }
+  if (add.size() > 0) {
+    stickerPacksList().addOrUpdateItems(add);
+  }
+}

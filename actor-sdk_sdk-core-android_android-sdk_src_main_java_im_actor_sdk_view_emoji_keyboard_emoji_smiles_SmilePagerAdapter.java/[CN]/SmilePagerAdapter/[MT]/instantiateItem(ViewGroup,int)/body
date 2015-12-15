@@ -1,14 +1,16 @@
 {
-  View itemView=LayoutInflater.from(container.getContext()).inflate(R.layout.emoji_smiles_page,null);
-  ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojiPackContainer);
-  View noEmojiTV=itemView.findViewById(R.id.text);
-  ArrayList<Long> emojiPack=new ArrayList<Long>();
+  View itemView;
+  if (position <= 4) {
+    itemView=LayoutInflater.from(container.getContext()).inflate(R.layout.emoji_smiles_page,null);
+    ViewGroup emojicontainer=(ViewGroup)itemView.findViewById(R.id.emojiPackContainer);
+    View noEmojiTV=itemView.findViewById(R.id.text);
+    ArrayList<Long> emojiPack=new ArrayList<Long>();
 switch (position) {
 case 0:
-    emojiPack=SmilesPack.getRecent();
-  break;
+      emojiPack=SmilesPack.getRecent();
+    break;
 case 1:
-emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.STANDART));
+  emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.STANDART));
 break;
 case 2:
 emojiPack=new ArrayList<Long>(Arrays.asList(SmilesPack.NATURE));
@@ -57,6 +59,10 @@ smilesPackView.update();
 }
 }
 );
+}
+ else {
+itemView=new StickersView(container.getContext(),emojiKeyboard);
+}
 container.addView(itemView,0);
 return itemView;
 }

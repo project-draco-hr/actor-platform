@@ -1,0 +1,6 @@
+{
+  boolean isChanged=stickers.change(new ArrayList<Sticker>(rawObj.getStickers()));
+  if (isChanged) {
+    notifyChange();
+  }
+}

@@ -1,18 +1,25 @@
 {
   keyboard.getStickerIndicatorContainer().removeAllViews();
   int packCount=0;
-  for (  final StickersPack pack : packs) {
-    if (pack.size() < 1 || pack.getLogoStickerId() == null || pack.getLogoStickerId().getFileReference128() == null) {
+  for (  final StickerPackVM pack : packs.get()) {
+    ((BaseActivity)context).bind(pack.getStickers(),new ValueChangedListener<ArrayList<Sticker>>(){
+      @Override public void onChanged(      ArrayList<Sticker> val,      Value<ArrayList<Sticker>> valueModel){
+        buildStickerLines(scrollTo);
+        notifyDataSetChanged();
+      }
+    }
+);
+    if (pack.getStickers().get().size() < 1) {
       continue;
     }
-    int linesInPack=(int)Math.ceil((double)pack.size() / stickerInLine);
+    int linesInPack=(int)Math.ceil((double)pack.getStickers().get().size() / stickerInLine);
     totalLines+=linesInPack;
     final StickerView sv=new StickerView(context);
-    sv.bind(pack.getLogoStickerId().getFileReference128(),Screen.dp(48));
+    sv.bind(pack.getStickers().get().get(0).getFileReference128(),Screen.dp(48));
     sv.setPadding(padding,padding,padding,padding);
     sv.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
-        scrollTo.requestScroll(packFirstLineMap.get(pack));
+        scrollTo.requestScroll(packFirstLineMap.get(pack.getId()));
         selectCurrentPack((Integer)sv.getTag(TAG_KEY));
       }
     }
@@ -27,20 +34,20 @@
   stickerLines=new StickerLine[totalLines];
   int allLinesCount=0;
   int linePackCount=0;
-  for (  StickersPack pack : packs) {
-    if (pack.size() < 1) {
+  for (  StickerPackVM pack : packs.get()) {
+    if (pack.getStickers().get().size() < 1) {
       continue;
     }
     int stickerInPack=0;
-    int linesInPack=(int)Math.ceil((double)pack.size() / stickerInLine);
+    int linesInPack=(int)Math.ceil((double)pack.getStickers().get().size() / stickerInLine);
     for (int lineInPackCount=0; lineInPackCount < linesInPack; lineInPackCount++, allLinesCount++) {
       StickerLine line=new StickerLine(new Sticker[stickerInLine],linePackCount);
       if (lineInPackCount == 0) {
-        packFirstLineMap.put(pack,allLinesCount);
+        packFirstLineMap.put(pack.getId(),allLinesCount);
       }
       for (int stickerInLine=0; stickerInLine < this.stickerInLine; stickerInLine++, stickerInPack++) {
-        if (stickerInPack < pack.size()) {
-          line.getLine()[stickerInLine]=pack.get(stickerInPack);
+        if (stickerInPack < pack.getStickers().get().size()) {
+          line.getLine()[stickerInLine]=pack.getStickers().get().get(stickerInPack);
         }
  else {
           break;

@@ -1,0 +1,5 @@
+{
+  super(rawObj);
+  this.id=rawObj.getId();
+  this.stickers=new ValueModel<ArrayList<Sticker>>("stickerpack." + id + ".stickers",new ArrayList<Sticker>(rawObj.getStickers()));
+}

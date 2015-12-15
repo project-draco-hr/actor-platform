@@ -1,0 +1,2 @@
+ModelChangedListener<StickerPackVM> listener
+boolean notify
