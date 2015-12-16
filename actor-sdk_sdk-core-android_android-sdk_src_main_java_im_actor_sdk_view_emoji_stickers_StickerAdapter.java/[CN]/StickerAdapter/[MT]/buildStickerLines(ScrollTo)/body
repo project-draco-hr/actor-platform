@@ -1,6 +1,7 @@
 {
   keyboard.getStickerIndicatorContainer().removeAllViews();
   int packCount=0;
+  totalLines=0;
   for (  final StickerPackVM pack : packs.get()) {
     ((BaseActivity)context).bind(pack.getStickers(),new ValueChangedListener<ArrayList<Sticker>>(){
       @Override public void onChanged(      ArrayList<Sticker> val,      Value<ArrayList<Sticker>> valueModel){
@@ -8,7 +9,7 @@
         notifyDataSetChanged();
       }
     }
-);
+,false);
     if (pack.getStickers().get().size() < 1) {
       continue;
     }

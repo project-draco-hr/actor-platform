@@ -21,5 +21,4 @@
     }
   }
 );
-  buildStickerLines(scrollTo);
 }
