@@ -1,0 +1,7 @@
+{
+  String res="struct Team{";
+  res+="id=" + this.id;
+  res+=", name=" + this.name;
+  res+="}";
+  return res;
+}

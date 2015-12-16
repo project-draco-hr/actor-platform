@@ -1,0 +1,10 @@
+{
+  if (this.user == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.user);
+  if (this.destTeam == null) {
+    throw new IOException();
+  }
+  writer.writeObject(3,this.destTeam);
+}

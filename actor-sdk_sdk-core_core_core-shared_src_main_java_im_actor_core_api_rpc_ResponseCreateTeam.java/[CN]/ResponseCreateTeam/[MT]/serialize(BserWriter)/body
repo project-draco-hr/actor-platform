@@ -1,0 +1,6 @@
+{
+  if (this.createdTeam == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.createdTeam);
+}

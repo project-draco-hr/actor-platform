@@ -1,0 +1,5 @@
+{
+  String res="rpc LoadOwnTeams{";
+  res+="}";
+  return res;
+}

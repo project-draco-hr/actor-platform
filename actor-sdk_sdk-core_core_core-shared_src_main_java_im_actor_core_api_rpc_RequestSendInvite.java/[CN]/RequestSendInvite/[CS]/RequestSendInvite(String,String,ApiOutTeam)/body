@@ -1,0 +1,5 @@
+{
+  this.email=email;
+  this.name=name;
+  this.destTeam=destTeam;
+}

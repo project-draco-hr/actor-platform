@@ -1,0 +1,7 @@
+{
+  String res="struct OutTeam{";
+  res+="id=" + this.id;
+  res+=", accessHash=" + this.accessHash;
+  res+="}";
+  return res;
+}

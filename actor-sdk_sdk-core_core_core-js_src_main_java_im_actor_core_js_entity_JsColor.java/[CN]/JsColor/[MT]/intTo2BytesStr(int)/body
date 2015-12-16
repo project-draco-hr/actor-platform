@@ -1,0 +1,3 @@
+{
+  return pad(Integer.toHexString(intTo2Bytes(i)));
+}

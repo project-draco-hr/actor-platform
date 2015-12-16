@@ -1,0 +1,7 @@
+{
+  List<ApiTeam> _teams=new ArrayList<ApiTeam>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _teams.add(new ApiTeam());
+  }
+  this.teams=values.getRepeatedObj(1,_teams);
+}

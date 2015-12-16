@@ -1,0 +1,6 @@
+{
+  this.email=email;
+  this.name=name;
+  this.uid=uid;
+  this.tid=tid;
+}

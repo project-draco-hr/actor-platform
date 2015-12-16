@@ -1,0 +1,4 @@
+{
+  this.user=values.getObj(1,new ApiUserOutPeer());
+  this.destTeam=values.getObj(3,new ApiOutTeam());
+}

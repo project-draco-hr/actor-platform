@@ -1,0 +1,24 @@
+{
+  if (color == null) {
+    return null;
+  }
+  if (color instanceof ApiPredefinedColor) {
+switch (((ApiPredefinedColor)color).getColor()) {
+case GREEN:
+      return createNamed("green");
+case RED:
+    return createNamed("red");
+case YELLOW:
+  return createNamed("yellow");
+case UNSUPPORTED_VALUE:
+return null;
+}
+}
+ else if (color instanceof ApiRgbColor) {
+String r=intTo2BytesStr((((ApiRgbColor)color).getRgb() & 0xFF0000) >> 16);
+String g=intTo2BytesStr((((ApiRgbColor)color).getRgb() & 0xFF00) >> 8);
+String b=intTo2BytesStr((((ApiRgbColor)color).getRgb() & 0xFF));
+return createHex("#" + r + g+ b);
+}
+return null;
+}

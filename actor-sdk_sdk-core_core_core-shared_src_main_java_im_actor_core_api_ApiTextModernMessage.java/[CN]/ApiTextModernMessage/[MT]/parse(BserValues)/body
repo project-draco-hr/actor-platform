@@ -3,6 +3,11 @@
   this.senderNameOverride=values.optString(2);
   this.senderPhotoOverride=values.optObj(3,new ApiAvatar());
   this.style=values.optObj(4,new ApiParagraphStyle());
+  List<ApiTextModernAttach> _attaches=new ArrayList<ApiTextModernAttach>();
+  for (int i=0; i < values.getRepeatedCount(5); i++) {
+    _attaches.add(new ApiTextModernAttach());
+  }
+  this.attaches=values.getRepeatedObj(5,_attaches);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

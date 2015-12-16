@@ -1,0 +1,5 @@
+{
+  this.email=values.getString(1);
+  this.name=values.optString(2);
+  this.destTeam=values.optObj(3,new ApiOutTeam());
+}

@@ -1,0 +1,6 @@
+{
+  if (this.title == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.title);
+}

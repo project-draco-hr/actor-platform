@@ -1,0 +1,5 @@
+{
+  String res="response TeamsList{";
+  res+="}";
+  return res;
+}

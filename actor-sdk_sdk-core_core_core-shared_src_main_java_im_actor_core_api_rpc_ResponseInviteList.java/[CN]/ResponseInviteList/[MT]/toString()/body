@@ -1,0 +1,9 @@
+{
+  String res="response InviteList{";
+  res+="invites=" + this.invites;
+  res+=", relatedUsers=" + this.relatedUsers;
+  res+=", relatedGroups=" + this.relatedGroups;
+  res+=", relatedTeams=" + this.relatedTeams;
+  res+="}";
+  return res;
+}

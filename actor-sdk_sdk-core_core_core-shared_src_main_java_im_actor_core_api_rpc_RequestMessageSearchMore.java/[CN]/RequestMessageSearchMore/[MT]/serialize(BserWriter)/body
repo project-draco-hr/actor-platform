@@ -1,0 +1,6 @@
+{
+  if (this.loadMoreState == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(1,this.loadMoreState);
+}

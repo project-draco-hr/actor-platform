@@ -2,6 +2,9 @@
   String res="struct TextModernMessage{";
   res+="text=" + this.text;
   res+=", senderNameOverride=" + this.senderNameOverride;
+  res+=", senderPhotoOverride=" + this.senderPhotoOverride;
+  res+=", style=" + this.style;
+  res+=", attaches=" + this.attaches;
   res+="}";
   return res;
 }

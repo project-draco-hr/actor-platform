@@ -1,0 +1,8 @@
+{
+  String res="response MessageSearchResponse{";
+  res+="searchResults=" + this.searchResults;
+  res+=", users=" + this.users;
+  res+=", groups=" + this.groups;
+  res+="}";
+  return res;
+}

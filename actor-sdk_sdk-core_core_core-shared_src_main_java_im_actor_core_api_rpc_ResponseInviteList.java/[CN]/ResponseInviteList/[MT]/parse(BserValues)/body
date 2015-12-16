@@ -1,0 +1,22 @@
+{
+  List<ApiInviteState> _invites=new ArrayList<ApiInviteState>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _invites.add(new ApiInviteState());
+  }
+  this.invites=values.getRepeatedObj(1,_invites);
+  List<ApiUser> _relatedUsers=new ArrayList<ApiUser>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _relatedUsers.add(new ApiUser());
+  }
+  this.relatedUsers=values.getRepeatedObj(2,_relatedUsers);
+  List<ApiGroup> _relatedGroups=new ArrayList<ApiGroup>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _relatedGroups.add(new ApiGroup());
+  }
+  this.relatedGroups=values.getRepeatedObj(3,_relatedGroups);
+  List<ApiTeam> _relatedTeams=new ArrayList<ApiTeam>();
+  for (int i=0; i < values.getRepeatedCount(4); i++) {
+    _relatedTeams.add(new ApiTeam());
+  }
+  this.relatedTeams=values.getRepeatedObj(4,_relatedTeams);
+}

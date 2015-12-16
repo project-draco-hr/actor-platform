@@ -1,0 +1,12 @@
+{
+  if (this.email == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.email);
+  if (this.name != null) {
+    writer.writeString(2,this.name);
+  }
+  if (this.destTeam != null) {
+    writer.writeObject(3,this.destTeam);
+  }
+}

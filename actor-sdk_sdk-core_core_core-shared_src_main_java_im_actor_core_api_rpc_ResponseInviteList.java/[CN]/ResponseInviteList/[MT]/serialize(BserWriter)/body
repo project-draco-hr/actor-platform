@@ -1,0 +1,6 @@
+{
+  writer.writeRepeatedObj(1,this.invites);
+  writer.writeRepeatedObj(2,this.relatedUsers);
+  writer.writeRepeatedObj(3,this.relatedGroups);
+  writer.writeRepeatedObj(4,this.relatedTeams);
+}

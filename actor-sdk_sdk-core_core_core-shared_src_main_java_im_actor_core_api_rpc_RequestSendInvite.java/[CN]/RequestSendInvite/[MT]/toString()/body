@@ -1,0 +1,8 @@
+{
+  String res="rpc SendInvite{";
+  res+="email=" + this.email;
+  res+=", name=" + this.name;
+  res+=", destTeam=" + this.destTeam;
+  res+="}";
+  return res;
+}

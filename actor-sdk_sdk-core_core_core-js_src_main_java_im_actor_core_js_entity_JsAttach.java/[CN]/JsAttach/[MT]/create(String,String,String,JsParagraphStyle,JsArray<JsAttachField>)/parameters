@@ -1,0 +1,5 @@
+String title
+String titleUrl
+String text
+JsParagraphStyle paragraphStyle
+JsArray<JsAttachField> fields

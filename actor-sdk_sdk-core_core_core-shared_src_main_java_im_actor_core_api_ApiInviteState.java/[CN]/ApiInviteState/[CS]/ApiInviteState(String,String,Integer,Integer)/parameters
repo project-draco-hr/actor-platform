@@ -1,0 +1,4 @@
+String email
+String name
+Integer uid
+Integer tid

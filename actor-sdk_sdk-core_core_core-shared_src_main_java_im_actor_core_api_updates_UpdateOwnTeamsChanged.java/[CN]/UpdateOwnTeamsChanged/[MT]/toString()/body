@@ -1,0 +1,6 @@
+{
+  String res="update OwnTeamsChanged{";
+  res+="ownTeams=" + this.ownTeams;
+  res+="}";
+  return res;
+}

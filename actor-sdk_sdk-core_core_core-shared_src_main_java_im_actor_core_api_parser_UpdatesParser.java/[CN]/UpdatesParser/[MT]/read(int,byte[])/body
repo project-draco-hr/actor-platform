@@ -68,6 +68,8 @@ case 161:
 return UpdateOwnStickersChanged.fromBytes(payload);
 case 164:
 return UpdateStickerCollectionsChanged.fromBytes(payload);
+case 165:
+return UpdateOwnTeamsChanged.fromBytes(payload);
 case 6:
 return UpdateTyping.fromBytes(payload);
 case 81:

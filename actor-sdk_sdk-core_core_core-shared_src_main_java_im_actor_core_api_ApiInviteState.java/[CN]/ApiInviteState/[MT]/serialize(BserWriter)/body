@@ -1,0 +1,15 @@
+{
+  if (this.email == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.email);
+  if (this.name != null) {
+    writer.writeString(2,this.name);
+  }
+  if (this.uid != null) {
+    writer.writeInt(3,this.uid);
+  }
+  if (this.tid != null) {
+    writer.writeInt(4,this.tid);
+  }
+}

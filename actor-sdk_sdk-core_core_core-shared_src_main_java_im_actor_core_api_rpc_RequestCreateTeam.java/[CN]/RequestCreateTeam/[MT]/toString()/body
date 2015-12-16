@@ -1,0 +1,6 @@
+{
+  String res="rpc CreateTeam{";
+  res+="title=" + this.title;
+  res+="}";
+  return res;
+}

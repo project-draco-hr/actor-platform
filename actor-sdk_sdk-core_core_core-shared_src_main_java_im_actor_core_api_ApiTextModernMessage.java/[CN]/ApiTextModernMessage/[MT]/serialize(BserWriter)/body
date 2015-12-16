@@ -11,6 +11,7 @@
   if (this.style != null) {
     writer.writeObject(4,this.style);
   }
+  writer.writeRepeatedObj(5,this.attaches);
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

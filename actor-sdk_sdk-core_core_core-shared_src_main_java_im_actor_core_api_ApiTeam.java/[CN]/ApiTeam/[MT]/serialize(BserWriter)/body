@@ -1,0 +1,8 @@
+{
+  writer.writeInt(1,this.id);
+  writer.writeLong(2,this.accessHash);
+  if (this.name == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.name);
+}

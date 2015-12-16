@@ -1,0 +1,7 @@
+{
+  StringBuilder sb=new StringBuilder(str);
+  if (sb.length() < 2) {
+    sb.insert(0,'0');
+  }
+  return sb.toString();
+}

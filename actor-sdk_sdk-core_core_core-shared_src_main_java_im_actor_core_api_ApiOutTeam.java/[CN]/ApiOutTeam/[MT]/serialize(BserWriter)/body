@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.id);
+  writer.writeLong(2,this.accessHash);
+}

@@ -1,0 +1,6 @@
+{
+  this.invites=invites;
+  this.relatedUsers=relatedUsers;
+  this.relatedGroups=relatedGroups;
+  this.relatedTeams=relatedTeams;
+}

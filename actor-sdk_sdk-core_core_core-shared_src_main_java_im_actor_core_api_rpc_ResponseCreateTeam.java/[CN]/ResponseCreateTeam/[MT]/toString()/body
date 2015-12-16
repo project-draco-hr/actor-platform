@@ -1,0 +1,5 @@
+{
+  String res="tuple CreateTeam{";
+  res+="}";
+  return res;
+}

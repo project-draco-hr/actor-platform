@@ -1,0 +1,9 @@
+{
+  String res="struct InviteState{";
+  res+="email=" + this.email;
+  res+=", name=" + this.name;
+  res+=", uid=" + this.uid;
+  res+=", tid=" + this.tid;
+  res+="}";
+  return res;
+}

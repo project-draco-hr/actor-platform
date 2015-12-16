@@ -1,0 +1,7 @@
+{
+  this.text=text;
+  this.senderNameOverride=senderNameOverride;
+  this.senderPhotoOverride=senderPhotoOverride;
+  this.style=style;
+  this.attaches=attaches;
+}
