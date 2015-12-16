@@ -1,5 +1,0 @@
-{
-  writer.writeRepeatedObj(1,this.searchResults);
-  writer.writeRepeatedObj(2,this.users);
-  writer.writeRepeatedObj(3,this.groups);
-}

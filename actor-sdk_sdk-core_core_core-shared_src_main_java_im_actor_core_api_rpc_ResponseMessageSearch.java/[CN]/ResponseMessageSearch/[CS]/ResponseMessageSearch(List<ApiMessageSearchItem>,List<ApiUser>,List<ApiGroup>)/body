@@ -1,5 +1,0 @@
-{
-  this.searchResults=searchResults;
-  this.users=users;
-  this.groups=groups;
-}

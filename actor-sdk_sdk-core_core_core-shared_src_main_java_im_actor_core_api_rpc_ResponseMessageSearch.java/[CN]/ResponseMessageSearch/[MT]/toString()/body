@@ -1,5 +1,0 @@
-{
-  String res="tuple MessageSearch{";
-  res+="}";
-  return res;
-}

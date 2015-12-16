@@ -1,8 +1,8 @@
 {
   return new Command<List<MessageSearchEntity>>(){
     @Override public void start(    final CommandCallback<List<MessageSearchEntity>> callback){
-      request(new RequestMessageSearch(condition),new RpcCallback<ResponseMessageSearch>(){
-        @Override public void onResult(        final ResponseMessageSearch response){
+      request(new RequestMessageSearch(condition),new RpcCallback<ResponseMessageSearchResponse>(){
+        @Override public void onResult(        final ResponseMessageSearchResponse response){
           updates().executeRelatedResponse(response.getUsers(),response.getGroups(),new Runnable(){
             @Override public void run(){
               final ArrayList<MessageSearchEntity> res=new ArrayList<MessageSearchEntity>();
