@@ -1,0 +1,13 @@
+{
+  if (requestCode == BaseKeyboard.OVERLAY_PERMISSION_REQ_CODE) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      if (!Settings.canDrawOverlays(this)) {
+        Toast.makeText(this,"Ooops, emoji Keyboard needs overlay permission",Toast.LENGTH_LONG).show();
+      }
+ else {
+        emojiKeyboard.showChecked();
+      }
+    }
+  }
+  super.onActivityResult(requestCode,resultCode,data);
+}
