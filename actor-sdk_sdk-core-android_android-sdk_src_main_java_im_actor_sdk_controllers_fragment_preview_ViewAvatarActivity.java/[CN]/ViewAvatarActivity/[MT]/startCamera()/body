@@ -1,0 +1,3 @@
+{
+  startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(externalFile))),REQUEST_PHOTO);
+}

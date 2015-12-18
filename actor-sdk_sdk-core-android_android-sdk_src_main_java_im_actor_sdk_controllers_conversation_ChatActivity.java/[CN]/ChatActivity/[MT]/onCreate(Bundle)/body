@@ -108,7 +108,13 @@ catch (  NullPointerException e) {
         String externalPath=externalFile.getAbsolutePath();
         new File(externalPath + "/actor/").mkdirs();
         pending_fileName=externalPath + "/actor/capture_" + Randoms.randomId()+ ".jpg";
-        startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pending_fileName))),REQUEST_PHOTO);
+        if (ContextCompat.checkSelfPermission(ChatActivity.this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+          Log.d("Permissions","camera - no permission :c");
+          ActivityCompat.requestPermissions(ChatActivity.this,new String[]{Manifest.permission.CAMERA},PERMISSIONS_REQUEST_CAMERA);
+        }
+ else {
+          startCamera();
+        }
       }
  else       if (item.getId() == R.id.share_video) {
         File externalFile=getExternalFilesDir(null);

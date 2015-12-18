@@ -15,7 +15,13 @@
             Toast.makeText(ViewAvatarActivity.this,R.string.toast_no_sdcard,Toast.LENGTH_LONG).show();
             return;
           }
-          startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(externalFile))),REQUEST_PHOTO);
+          if (ContextCompat.checkSelfPermission(ViewAvatarActivity.this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("Permissions","camera - no permission :c");
+            ActivityCompat.requestPermissions(ViewAvatarActivity.this,new String[]{Manifest.permission.CAMERA},PERMISSIONS_REQUEST_CAMERA);
+          }
+ else {
+            startCamera();
+          }
         }
  else         if (which == 1) {
           Intent i=new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
