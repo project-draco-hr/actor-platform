@@ -1,6 +1,18 @@
 {
   StickerContent content=(StickerContent)message.getContent();
   sticker.bind(content.getSticker().getFileReference512(),Screen.dp(100));
+  int w=((StickerContent)message.getContent()).getSticker().getWidth512();
+  int h=((StickerContent)message.getContent()).getSticker().getHeight512();
+  int maxHeight=context.getResources().getDisplayMetrics().heightPixels - Screen.dp(96 + 32);
+  maxHeight=Math.min(Screen.dp(200),maxHeight);
+  int maxWidth=context.getResources().getDisplayMetrics().widthPixels - Screen.dp(32 + 48);
+  maxWidth=Math.min(Screen.dp(200),maxWidth);
+  float scale=Math.min(maxWidth / (float)w,maxHeight / (float)h);
+  int bubbleW=(int)(scale * w);
+  int bubbleH=(int)(scale * h);
+  ViewGroup.LayoutParams params=sticker.getLayoutParams();
+  params.height=bubbleH;
+  params.width=bubbleW;
   if (message.getSenderId() == myUid()) {
     stateIcon.setVisibility(View.VISIBLE);
 switch (message.getMessageState()) {
