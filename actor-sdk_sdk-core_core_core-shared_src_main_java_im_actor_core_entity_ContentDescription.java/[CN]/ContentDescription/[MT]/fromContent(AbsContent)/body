@@ -20,6 +20,9 @@
  else   if (msg instanceof ContactContent) {
     return new ContentDescription(ContentType.CONTACT);
   }
+ else   if (msg instanceof StickerContent) {
+    return new ContentDescription(ContentType.STICKER);
+  }
  else   if (msg instanceof ServiceUserRegistered) {
     return new ContentDescription(ContentType.SERVICE_REGISTERED);
   }

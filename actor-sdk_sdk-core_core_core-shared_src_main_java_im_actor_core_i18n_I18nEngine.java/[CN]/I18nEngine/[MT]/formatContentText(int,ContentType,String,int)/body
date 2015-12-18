@@ -17,6 +17,8 @@ case CONTACT:
 return locale.get("Contact");
 case LOCATION:
 return locale.get("Location");
+case STICKER:
+return locale.get("Sticker");
 case SERVICE:
 return text;
 case SERVICE_REGISTERED:
