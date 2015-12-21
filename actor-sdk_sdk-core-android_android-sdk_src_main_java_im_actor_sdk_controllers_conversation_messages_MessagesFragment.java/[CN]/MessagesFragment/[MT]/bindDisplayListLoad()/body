@@ -1,11 +1,3 @@
 {
-  final BindedDisplayList<Message> list=getDisplayList();
-  DisplayList.AndroidChangeListener<Message> listener=new DisplayList.AndroidChangeListener<Message>(){
-    @Override public void onCollectionChanged(    AndroidListUpdate<Message> modification){
-      ondisplayListLoaded();
-    }
-  }
-;
-  list.addAndroidListener(listener);
-  ondisplayListLoaded();
+  bindDisplayListLoad(true);
 }

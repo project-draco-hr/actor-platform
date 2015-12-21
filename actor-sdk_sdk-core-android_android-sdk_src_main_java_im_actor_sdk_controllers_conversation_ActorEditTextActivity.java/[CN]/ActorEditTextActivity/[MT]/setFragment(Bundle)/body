@@ -1,5 +1,5 @@
 {
   if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().add(R.id.messagesFragment,onCreateFragment()).commit();
+    getSupportFragmentManager().beginTransaction().replace(R.id.messagesFragment,onCreateFragment()).commit();
   }
 }
