@@ -8,7 +8,7 @@
         if ("text/plain".equals(getIntent().getType())) {
           sendText=intent.getStringExtra(Intent.EXTRA_TEXT);
         }
- else {
+ else         if (intent.getParcelableExtra(Intent.EXTRA_STREAM) != null) {
           sendUriString=intent.getParcelableExtra(Intent.EXTRA_STREAM).toString();
         }
       }

@@ -1,5 +1,5 @@
 {
-  ArrayList<StickerPackVM> vms=stickerPacks.get();
+  ArrayList<StickerPackVM> vms=new ArrayList<StickerPackVM>(stickerPacks.get());
   ArrayList<StickerPackVM> remove=new ArrayList<StickerPackVM>(vms);
   try {
     UpdateOwnStickersChanged update=new UpdateOwnStickersChanged();

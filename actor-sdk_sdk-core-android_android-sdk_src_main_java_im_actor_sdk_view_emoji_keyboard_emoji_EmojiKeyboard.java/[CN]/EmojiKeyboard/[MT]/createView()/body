@@ -20,6 +20,7 @@
   }
 ));
   final SmilePagerAdapter mEmojisAdapter=new SmilePagerAdapter(this);
+  mEmojisAdapter.setTabs(emojiPagerIndicator);
   emojiPager.setAdapter(mEmojisAdapter);
   emojiPagerIndicator.setViewPager(emojiPager);
   backToSmiles.setOnClickListener(new OnClickListener(){
