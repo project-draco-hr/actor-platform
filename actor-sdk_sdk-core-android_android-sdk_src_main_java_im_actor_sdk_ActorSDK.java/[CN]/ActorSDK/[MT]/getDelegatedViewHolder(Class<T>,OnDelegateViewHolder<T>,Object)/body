@@ -1,0 +1,9 @@
+{
+  T delegated=delegate.getViewHolder(base,args);
+  if (delegated != null) {
+    return delegated;
+  }
+ else {
+    return callback.onNotDelegated();
+  }
+}

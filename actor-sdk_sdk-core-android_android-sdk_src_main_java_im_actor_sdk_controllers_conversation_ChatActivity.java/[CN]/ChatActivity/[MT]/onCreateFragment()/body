@@ -1,3 +1,15 @@
 {
-  return MessagesFragment.create(peer);
+  MessagesFragment fragment;
+  if (ActorSDK.sharedActor().getDelegate().getChatIntent() != null) {
+    ActorIntent chatIntent=ActorSDK.sharedActor().getDelegate().getChatIntent();
+    if (chatIntent instanceof BaseActorChatActivity) {
+      return ((BaseActorChatActivity)chatIntent).getChatFragment(peer);
+    }
+ else {
+      return MessagesFragment.create(peer);
+    }
+  }
+ else {
+    return MessagesFragment.create(peer);
+  }
 }

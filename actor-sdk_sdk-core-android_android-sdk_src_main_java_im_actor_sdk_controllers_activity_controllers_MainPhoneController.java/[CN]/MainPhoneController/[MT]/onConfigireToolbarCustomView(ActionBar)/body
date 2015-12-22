@@ -1,0 +1,15 @@
+{
+  FrameLayout tabsContainer=new FrameLayout(getActivity());
+  barTabs=new PagerSlidingTabStrip(getActivity());
+  barTabs.setTabBackground(R.drawable.selector_bar);
+  barTabs.setIndicatorHeight(Screen.dp(2));
+  barTabs.setDividerColorResource(android.R.color.transparent);
+  barTabs.setTextSize(Screen.dp(14));
+  barTabs.setUnderlineHeight(0);
+  barTabs.setViewPager(pager);
+  int width=Screen.dp(120 * 2 + 72);
+  tabsContainer.addView(barTabs,new FrameLayout.LayoutParams(width,Screen.dp(56)));
+  Toolbar.LayoutParams lp=new Toolbar.LayoutParams(width,Screen.dp(56));
+  tabsContainer.setLayoutParams(lp);
+  ab.setCustomView(tabsContainer);
+}

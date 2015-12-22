@@ -250,7 +250,7 @@
 );
   view.findViewById(R.id.askQuestion).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
-      execute(messenger().findUsers("75551234567"),R.string.progress_common,new CommandCallback<UserVM[]>(){
+      execute(messenger().findUsers(ActorSDK.sharedActor().getDelegate().getHelpPhone()),R.string.progress_common,new CommandCallback<UserVM[]>(){
         @Override public void onResult(        UserVM[] res){
           if (res.length >= 1) {
             startActivity(Intents.openPrivateDialog(res[0].getId(),true,getActivity()));
@@ -320,41 +320,48 @@
   avatarBkgrnd.setBackgroundColor(ActorSDK.sharedActor().style.getAvatarBackgroundColor());
   avatarView.setBkgrnd(avatarBkgrnd);
   bind(avatarView,users().get(myUid()).getAvatar());
-  LinearLayout wallpaperContainer=(LinearLayout)view.findViewById(R.id.background_container);
-  wallpaperContainer.setBackgroundColor(style.getMainBackgroundColor());
-  ((TextView)view.findViewById(R.id.settings_wallpaper_title)).setTextColor(style.getSettingsCategoryTextColor());
-  view.findViewById(R.id.wallpaperDivider).setBackgroundColor(style.getBackyardBackgroundColor());
-  View.OnClickListener ocl=new View.OnClickListener(){
-    @Override public void onClick(    final View v){
-      Intent i=new Intent(getActivity(),PickWallpaperActivity.class);
-      int j=0;
-      Object tag=v.getTag();
-      if (tag != null && tag instanceof Integer) {
-        j=(int)tag;
+  if (showWallpaperCategory()) {
+    LinearLayout wallpaperContainer=(LinearLayout)view.findViewById(R.id.background_container);
+    wallpaperContainer.setBackgroundColor(style.getMainBackgroundColor());
+    ((TextView)view.findViewById(R.id.settings_wallpaper_title)).setTextColor(style.getSettingsCategoryTextColor());
+    view.findViewById(R.id.wallpaperDivider).setBackgroundColor(style.getBackyardBackgroundColor());
+    View.OnClickListener ocl=new View.OnClickListener(){
+      @Override public void onClick(      final View v){
+        Intent i=new Intent(getActivity(),PickWallpaperActivity.class);
+        int j=0;
+        Object tag=v.getTag();
+        if (tag != null && tag instanceof Integer) {
+          j=(int)tag;
+        }
+        i.putExtra("EXTRA_ID",j);
+        startActivity(i);
       }
-      i.putExtra("EXTRA_ID",j);
-      startActivity(i);
     }
-  }
 ;
-  int previewSize=80;
-  LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(Screen.dp(previewSize),Screen.dp(previewSize));
-  for (int i=0; i < 3; i++) {
-    FrameLayout frame=new FrameLayout(getActivity());
-    BackgroundPreviewView bckgrnd=new BackgroundPreviewView(getActivity());
-    bckgrnd.init(Screen.dp(previewSize),Screen.dp(previewSize));
-    bckgrnd.bind(i);
-    frame.setTag(i);
-    frame.setOnClickListener(ocl);
-    frame.addView(bckgrnd);
-    wallpaperContainer.addView(frame,params);
+    int previewSize=80;
+    LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(Screen.dp(previewSize),Screen.dp(previewSize));
+    for (int i=0; i < 3; i++) {
+      FrameLayout frame=new FrameLayout(getActivity());
+      BackgroundPreviewView bckgrnd=new BackgroundPreviewView(getActivity());
+      bckgrnd.init(Screen.dp(previewSize),Screen.dp(previewSize));
+      bckgrnd.bind(i);
+      frame.setTag(i);
+      frame.setOnClickListener(ocl);
+      frame.addView(bckgrnd);
+      wallpaperContainer.addView(frame,params);
+    }
+    TintImageView next=new TintImageView(getActivity());
+    next.setResource(R.drawable.ic_keyboard_arrow_right_white_36dp);
+    next.setTint(style.getSettingsIconColor());
+    next.setOnClickListener(ocl);
+    next.setTag(-1);
+    wallpaperContainer.addView(next,new LinearLayout.LayoutParams(Screen.dp(40),Screen.dp(previewSize)));
   }
-  TintImageView next=new TintImageView(getActivity());
-  next.setResource(R.drawable.ic_keyboard_arrow_right_white_36dp);
-  next.setTint(style.getSettingsIconColor());
-  next.setOnClickListener(ocl);
-  next.setTag(-1);
-  wallpaperContainer.addView(next,new LinearLayout.LayoutParams(Screen.dp(40),Screen.dp(previewSize)));
+ else {
+    view.findViewById(R.id.background_container).setVisibility(View.GONE);
+    view.findViewById(R.id.wallpaperDivider).setVisibility(View.GONE);
+    view.findViewById(R.id.settings_wallpaper_title).setVisibility(View.GONE);
+  }
   view.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(ViewAvatarActivity.viewAvatar(myUid(),getActivity()));

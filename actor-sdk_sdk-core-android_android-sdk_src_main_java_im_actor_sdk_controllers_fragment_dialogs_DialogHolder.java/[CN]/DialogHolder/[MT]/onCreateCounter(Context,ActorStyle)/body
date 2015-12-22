@@ -1,0 +1,12 @@
+{
+  counter=new TextView(context);
+  counter.setTextColor(style.getDialogsCounterTextColor());
+  counter.setBackgroundColor(style.getDialogsCounterBackgroundColor());
+  counter.setPadding(Screen.dp(4),0,Screen.dp(4),0);
+  counter.setTextSize(10);
+  counter.setTypeface(Fonts.regular());
+  counter.setGravity(Gravity.CENTER);
+  counter.setIncludeFontPadding(false);
+  counter.setMinWidth(Screen.dp(14));
+  counter.setMinHeight(Screen.dp(14));
+}

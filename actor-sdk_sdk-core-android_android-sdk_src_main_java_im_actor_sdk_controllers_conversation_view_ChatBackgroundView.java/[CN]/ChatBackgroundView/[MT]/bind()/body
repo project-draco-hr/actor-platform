@@ -1,6 +1,11 @@
 {
   if (background == null) {
     shp=getContext().getSharedPreferences("wallpaper",Context.MODE_PRIVATE);
-    background=getResources().getDrawable(BackgroundPreviewView.getBackground(BackgroundPreviewView.getBackgroundIdByUri(messenger().getSelectedWallpaper(),getContext(),shp.getInt("wallpaper",0))));
+    if (shp.getInt("wallpaper",0) == ActorSDK.sharedActor().style.getDefaultBackgrouds().length) {
+      background=Drawable.createFromPath(BaseActorSettingsFragment.getWallpaperFile());
+    }
+ else {
+      background=getResources().getDrawable(BackgroundPreviewView.getBackground(BackgroundPreviewView.getBackgroundIdByUri(messenger().getSelectedWallpaper(),getContext(),shp.getInt("wallpaper",0))));
+    }
   }
 }
