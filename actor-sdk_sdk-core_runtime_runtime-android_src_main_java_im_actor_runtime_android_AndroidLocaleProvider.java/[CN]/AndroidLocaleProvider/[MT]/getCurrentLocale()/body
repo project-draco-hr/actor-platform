@@ -1,3 +1,10 @@
 {
+  Locale current=AndroidContext.getContext().getResources().getConfiguration().locale;
+  if (current != null) {
+    String res=current.getLanguage();
+    if (res != null) {
+      return res.substring(0,1).toUpperCase() + res.substring(1,2).toLowerCase();
+    }
+  }
   return null;
 }
