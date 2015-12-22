@@ -1,0 +1,3 @@
+{
+  changeValue(KEY_PRIVACY,privacy);
+}

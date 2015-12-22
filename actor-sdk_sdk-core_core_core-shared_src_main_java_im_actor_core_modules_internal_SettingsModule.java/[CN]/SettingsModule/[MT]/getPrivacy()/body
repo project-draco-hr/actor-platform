@@ -1,0 +1,4 @@
+{
+  String privacy=readValue(KEY_PRIVACY);
+  return privacy != null ? privacy : "always";
+}
