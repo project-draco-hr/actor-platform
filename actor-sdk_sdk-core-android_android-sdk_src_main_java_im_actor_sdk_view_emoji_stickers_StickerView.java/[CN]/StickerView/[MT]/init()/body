@@ -1,5 +1,5 @@
 {
   builder=new GenericDraweeHierarchyBuilder(getResources());
-  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).build();
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setActualImageScaleType(ScalingUtils.ScaleType.CENTER_INSIDE).build();
   setHierarchy(hierarchy);
 }
