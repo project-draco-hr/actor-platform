@@ -1,5 +1,5 @@
 {
-  String res=preferences().getString("draft_" + peer.getUnuqueId());
+  String res=context().getSettingsModule().getStringValue("drafts_" + peer.getUnuqueId(),null);
   if (res == null) {
     return "";
   }

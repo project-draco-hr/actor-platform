@@ -1,3 +1,3 @@
 {
-  preferences().putString("draft_" + peer.getUnuqueId(),draft);
+  context().getSettingsModule().setStringValue("drafts_" + peer.getUnuqueId(),draft);
 }
