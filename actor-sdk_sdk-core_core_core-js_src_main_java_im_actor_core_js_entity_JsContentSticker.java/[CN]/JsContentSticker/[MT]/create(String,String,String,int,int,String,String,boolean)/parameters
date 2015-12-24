@@ -1,0 +1,8 @@
+String fileName
+String fileExtension
+String fileSize
+int w
+int h
+String preview
+String fileUrl
+boolean isUploading
