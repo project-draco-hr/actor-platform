@@ -5,4 +5,5 @@
   writer.writeInt(4,stickerId);
   writer.writeInt(5,stickerCollectionId);
   writer.writeLong(6,collectionAccessHash);
+  writer.writeBytes(7,thumb);
 }

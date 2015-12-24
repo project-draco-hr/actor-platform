@@ -1,4 +1,5 @@
 {
+  thumb=msg.getFastPreview();
   this.stickerId=msg.getStickerId();
   this.stickerCollectionId=msg.getStickerCollectionId();
   this.collectionAccessHash=msg.getStickerCollectionAccessHash();

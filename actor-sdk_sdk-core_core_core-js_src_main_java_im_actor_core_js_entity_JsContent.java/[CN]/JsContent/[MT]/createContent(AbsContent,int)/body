@@ -52,6 +52,19 @@
       content=JsContentDocument.create(fileName,fileExtension,fileSize,thumb,fileUrl,isUploading);
     }
   }
+ else   if (src instanceof StickerContent) {
+    FileReference fileReference512=((StickerContent)src).getSticker().getFileReference512();
+    ApiImageLocation imageLocation512=((StickerContent)src).getSticker().getApiImageLocation512();
+    String fileUrl=messenger.getFileUrl(fileReference512);
+    String fileSize=messenger.getFormatter().formatFileSize(fileReference512.getFileSize());
+    String thumb=null;
+    byte[] thumbRaw=((StickerContent)src).getSticker().getThumb();
+    if (thumbRaw != null) {
+      String thumbBase64=Base64Utils.toBase64(thumbRaw);
+      thumb="data:image/jpg;base64," + thumbBase64;
+    }
+    content=JsContentPhoto.create(fileReference512.getFileName(),".webp",fileSize,imageLocation512.getWidth(),imageLocation512.getHeight(),thumb,fileUrl,false);
+  }
  else   if (src instanceof ContactContent) {
     ContactContent contactContent=(ContactContent)src;
     JsArrayString phones=JsArray.createArray().cast();

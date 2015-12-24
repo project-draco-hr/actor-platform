@@ -5,4 +5,5 @@
   stickerId=values.getInt(4);
   stickerCollectionId=values.getInt(5);
   collectionAccessHash=values.getLong(6);
+  thumb=values.getBytes(7);
 }
