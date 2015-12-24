@@ -1,0 +1,68 @@
+{
+  return new Command<Boolean>(){
+    @Override public void start(    final CommandCallback<Boolean> callback){
+      ApiOutPeer outPeer;
+      if (peer.getPeerType() == PeerType.PRIVATE) {
+        User user=users().getValue(peer.getPeerId());
+        if (user == null) {
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(new RpcInternalException());
+            }
+          }
+);
+          return;
+        }
+        outPeer=new ApiOutPeer(ApiPeerType.PRIVATE,user.getUid(),user.getAccessHash());
+      }
+ else       if (peer.getPeerType() == PeerType.GROUP) {
+        Group group=groups().getValue(peer.getPeerId());
+        if (group == null) {
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(new RpcInternalException());
+            }
+          }
+);
+          return;
+        }
+        outPeer=new ApiOutPeer(ApiPeerType.GROUP,group.getGroupId(),group.getAccessHash());
+      }
+ else {
+        runOnUiThread(new Runnable(){
+          @Override public void run(){
+            callback.onError(new RpcInternalException());
+          }
+        }
+);
+        return;
+      }
+      request(new RequestFavouriteDialog(outPeer),new RpcCallback<ResponseDialogsOrder>(){
+        @Override public void onResult(        ResponseDialogsOrder response){
+          updates().onSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateChatGroupsChanged(response.getGroups()));
+          updates().executeAfter(response.getSeq(),new Runnable(){
+            @Override public void run(){
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(true);
+                }
+              }
+);
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}
