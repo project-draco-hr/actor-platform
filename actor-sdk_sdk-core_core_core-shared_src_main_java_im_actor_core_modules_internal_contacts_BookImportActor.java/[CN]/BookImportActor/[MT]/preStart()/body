@@ -1,4 +1,13 @@
 {
   super.preStart();
+  byte[] data=context().getContactsModule().getBookImportState().get(0);
+  if (data != null) {
+    try {
+      storage=new BookImportStorage(data);
+    }
+ catch (    Exception e) {
+      e.getLocalizedMessage();
+    }
+  }
   self().send(new PerformSync());
 }

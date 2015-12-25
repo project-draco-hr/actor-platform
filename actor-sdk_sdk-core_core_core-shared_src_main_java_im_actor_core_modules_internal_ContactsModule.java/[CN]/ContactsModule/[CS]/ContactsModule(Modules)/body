@@ -1,4 +1,5 @@
 {
   super(modules);
   contacts=Storage.createList(STORAGE_CONTACTS,Contact.CREATOR);
+  bookImportState=new SyncKeyValue(Storage.createKeyValue(STORAGE_BOOK_IMPORT));
 }
