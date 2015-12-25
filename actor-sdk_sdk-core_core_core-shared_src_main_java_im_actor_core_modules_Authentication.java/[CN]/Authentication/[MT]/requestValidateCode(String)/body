@@ -1,4 +1,7 @@
 {
+  if (code == null) {
+    throw new RuntimeException("Code couldn't be null!");
+  }
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
       String transactionHash=modules.getPreferences().getString(KEY_TRANSACTION_HASH);
