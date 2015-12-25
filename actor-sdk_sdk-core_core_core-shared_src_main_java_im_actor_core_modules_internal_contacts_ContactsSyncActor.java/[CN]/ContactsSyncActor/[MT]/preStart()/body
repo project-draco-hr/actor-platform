@@ -17,5 +17,4 @@
     }
   }
   notifyState();
-  self().send(new PerformSync());
 }

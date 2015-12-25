@@ -1,8 +1,8 @@
 {
-  ArrayList<String> langs=new ArrayList<String>();
-  for (  String s : context().getConfiguration().getPreferredLanguages()) {
-    langs.add(s);
+  actorRef=system().actorOf(Props.create(DeviceInfoActor.class,new ActorCreator<DeviceInfoActor>(){
+    @Override public DeviceInfoActor create(){
+      return new DeviceInfoActor(context());
+    }
   }
-  String timeZone=context().getConfiguration().getTimeZone();
-  request(new RequestNotifyAboutDeviceInfo(langs,timeZone));
+),"device_info/notifier");
 }

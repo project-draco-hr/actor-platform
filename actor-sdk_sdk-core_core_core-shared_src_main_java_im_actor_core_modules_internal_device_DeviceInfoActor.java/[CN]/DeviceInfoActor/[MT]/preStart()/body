@@ -1,0 +1,28 @@
+{
+  super.preStart();
+  ArrayList<String> langs=new ArrayList<String>();
+  for (  String s : context().getConfiguration().getPreferredLanguages()) {
+    langs.add(s);
+  }
+  final String timeZone=context().getConfiguration().getTimeZone();
+  String expectedLangs="";
+  for (  String s : langs) {
+    if (!"".equals(expectedLangs)) {
+      expectedLangs+=",";
+    }
+    expectedLangs+=s.toLowerCase();
+  }
+  if (expectedLangs.equals(preferences().getString("device_info_langs")) && JavaUtil.equalsE(timeZone,preferences().getString("device_info_timezone"))) {
+    return;
+  }
+  final String finalExpectedLangs=expectedLangs;
+  request(new RequestNotifyAboutDeviceInfo(langs,timeZone),new RpcCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid response){
+      preferences().putString("device_info_langs",finalExpectedLangs);
+      preferences().putString("device_info_timezone",timeZone);
+    }
+    @Override public void onError(    RpcException e){
+    }
+  }
+);
+}
