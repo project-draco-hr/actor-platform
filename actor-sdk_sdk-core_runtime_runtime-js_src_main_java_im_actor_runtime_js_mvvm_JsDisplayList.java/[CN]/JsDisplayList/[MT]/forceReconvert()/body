@@ -1,7 +1,0 @@
-{
-  clear(jsValues);
-  for (int i=0; i < values.size(); i++) {
-    jsValues.push(entityConverter.convert(values.get(i)));
-  }
-  notifySubscribers();
-}

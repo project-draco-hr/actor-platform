@@ -1,0 +1,6 @@
+{
+  if (isForceReconverted) {
+    isForceReconverted=false;
+    notifySubscribers();
+  }
+}

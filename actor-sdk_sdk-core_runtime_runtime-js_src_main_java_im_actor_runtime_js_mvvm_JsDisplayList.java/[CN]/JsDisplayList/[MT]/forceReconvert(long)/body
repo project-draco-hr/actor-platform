@@ -3,6 +3,7 @@
     if (values.get(i).getEngineId() == id) {
       remove(jsValues,i);
       insert(jsValues,i,entityConverter.convert(values.get(i)));
+      isForceReconverted=true;
     }
   }
 }
