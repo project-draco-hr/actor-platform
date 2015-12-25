@@ -2,13 +2,13 @@
   if (ENABLE_LOG) {
     Log.d(TAG,"Checking sync...");
   }
-  if (isSyncInProgress) {
+  if (phoneBookReadingIsInProgress) {
     if (ENABLE_LOG) {
       Log.d(TAG,"Sync already in progress");
     }
     return;
   }
-  isSyncInProgress=true;
+  phoneBookReadingIsInProgress=true;
   if (ENABLE_LOG) {
     Log.d(TAG,"Starting book loading...");
   }
