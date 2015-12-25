@@ -1,0 +1,8 @@
+{
+  String res="rpc RawRequest{";
+  res+="service=" + this.service;
+  res+=", method=" + this.method;
+  res+=", params=" + this.params;
+  res+="}";
+  return res;
+}

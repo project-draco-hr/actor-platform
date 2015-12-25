@@ -1,0 +1,34 @@
+{
+  if (isLoading) {
+    return;
+  }
+  ArrayList<ApiFileLocation> fileLocations=new ArrayList<ApiFileLocation>();
+  for (int i=0; i < MAX_FILE_SIZE && filesQueue.size() > 0; i++) {
+    FileRequest request=filesQueue.get(0);
+    fileLocations.add(new ApiFileLocation(request.getId(),request.getAccessHash()));
+  }
+  if (fileLocations.size() == 0) {
+    return;
+  }
+  isLoading=true;
+  request(new RequestGetFileUrls(fileLocations),new RpcCallback<ResponseGetFileUrls>(){
+    @Override public void onResult(    ResponseGetFileUrls response){
+      long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime();
+      ArrayList<FileResponse> responses=new ArrayList<FileResponse>();
+      for (      ApiFileUrlDescription u : response.getFileUrls()) {
+        long urlTime=currentTime + u.getTimeout() * 1000L;
+        responses.add(new FileResponse(u.getFileId(),u.getUrl(),urlTime));
+      }
+      filesModule.onFileUrlLoaded(responses);
+      isLoading=false;
+      self().sendOnce(new PerformLoad(),DELAY);
+    }
+    @Override public void onError(    RpcException e){
+      isLoading=false;
+      Log.e(TAG,e);
+      isLoading=false;
+      self().sendOnce(new PerformLoad(),DELAY);
+    }
+  }
+);
+}

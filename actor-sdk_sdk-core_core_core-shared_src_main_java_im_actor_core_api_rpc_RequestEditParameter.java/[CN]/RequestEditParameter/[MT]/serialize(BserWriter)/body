@@ -3,8 +3,7 @@
     throw new IOException();
   }
   writer.writeString(1,this.key);
-  if (this.value == null) {
-    throw new IOException();
+  if (this.value != null) {
+    writer.writeString(2,this.value);
   }
-  writer.writeString(2,this.value);
 }

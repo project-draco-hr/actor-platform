@@ -1,0 +1,15 @@
+{
+  if (avatar == null) {
+    return false;
+  }
+  if (avatar.getSmallImage() != null && fileIds.contains(avatar.getSmallImage().getFileReference().getFileId())) {
+    return true;
+  }
+  if (avatar.getFullImage() != null && fileIds.contains(avatar.getFullImage().getFileReference().getFileId())) {
+    return true;
+  }
+  if (avatar.getLargeImage() != null && fileIds.contains(avatar.getLargeImage().getFileReference().getFileId())) {
+    return true;
+  }
+  return false;
+}

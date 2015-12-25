@@ -1,0 +1,5 @@
+{
+  this.fileId=values.getLong(1);
+  this.url=values.getString(2);
+  this.timeout=values.getInt(3);
+}

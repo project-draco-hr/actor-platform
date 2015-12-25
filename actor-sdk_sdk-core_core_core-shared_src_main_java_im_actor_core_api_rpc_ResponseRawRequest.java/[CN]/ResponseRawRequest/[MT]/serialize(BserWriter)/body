@@ -1,0 +1,6 @@
+{
+  if (this.result == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(1,this.result.buildContainer());
+}

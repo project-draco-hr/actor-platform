@@ -1,0 +1,5 @@
+{
+  String res="tuple StartUsernameAuth{";
+  res+="}";
+  return res;
+}

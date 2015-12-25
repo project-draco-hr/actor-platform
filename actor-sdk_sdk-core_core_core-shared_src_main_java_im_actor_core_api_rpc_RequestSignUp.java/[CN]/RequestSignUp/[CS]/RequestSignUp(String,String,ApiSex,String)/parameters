@@ -1,0 +1,4 @@
+String transactionHash
+String name
+ApiSex sex
+String password

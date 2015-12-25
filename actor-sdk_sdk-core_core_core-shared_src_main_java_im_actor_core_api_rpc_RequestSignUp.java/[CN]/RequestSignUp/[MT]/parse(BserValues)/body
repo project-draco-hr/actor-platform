@@ -5,4 +5,5 @@
   if (val_sex != 0) {
     this.sex=ApiSex.parse(val_sex);
   }
+  this.password=values.optString(4);
 }

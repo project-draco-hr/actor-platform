@@ -1,0 +1,7 @@
+{
+  List<ApiFileLocation> _files=new ArrayList<ApiFileLocation>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _files.add(new ApiFileLocation());
+  }
+  this.files=values.getRepeatedObj(1,_files);
+}

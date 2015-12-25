@@ -1,0 +1,13 @@
+{
+  if (this.service == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.service);
+  if (this.method == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.method);
+  if (this.params != null) {
+    writer.writeBytes(3,this.params.buildContainer());
+  }
+}

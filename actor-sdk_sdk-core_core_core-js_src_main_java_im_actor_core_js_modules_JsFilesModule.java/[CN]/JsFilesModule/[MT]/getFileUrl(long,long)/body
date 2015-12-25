@@ -1,13 +1,19 @@
 {
   CachedFileUrl cachedFileUrl=keyValueStorage.getValue(id);
   if (cachedFileUrl != null) {
-    if (cachedFileUrl.getTimeout() <= im.actor.runtime.Runtime.getCurrentSyncedTime()) {
+    long urlTime=cachedFileUrl.getTimeout();
+    long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime();
+    if (urlTime <= currentTime) {
+      Log.w("JsFilesModule","URL #" + id + " timeout (urlTime: "+ urlTime+ ", current:"+ currentTime+ ")");
       keyValueStorage.removeItem(id);
     }
  else {
       return cachedFileUrl.getUrl();
     }
   }
-  requestFileUrl(id,accessHash);
+  if (!requestedFiles.contains(id)) {
+    requestedFiles.add(id);
+    urlLoader.send(new FileRequest(id,accessHash));
+  }
   return null;
 }

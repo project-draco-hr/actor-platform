@@ -2,6 +2,7 @@
   String res="rpc SignUp{";
   res+="name=" + this.name;
   res+=", sex=" + this.sex;
+  res+=", password=" + this.password;
   res+="}";
   return res;
 }

@@ -1,0 +1,5 @@
+{
+  String res="rpc GetFileUrls{";
+  res+="}";
+  return res;
+}
