@@ -1,0 +1,23 @@
+{
+  if (!usersOnlines.containsKey(uid)) {
+    final JsBindedValue<JsOnlineUser> value=new JsBindedValue<JsOnlineUser>();
+    final UserVM userVM=context().getUsersModule().getUsers().get(uid);
+    userVM.getPresence().subscribe(new ValueChangedListener<UserPresence>(){
+      @Override public void onChanged(      UserPresence val,      Value<UserPresence> valueModel){
+        if (val.getState() == UserPresence.State.UNKNOWN) {
+          value.changeValue(null);
+        }
+ else {
+          String presenceString=messenger.getFormatter().formatPresence(val,userVM.getSex());
+          if (userVM.isBot()) {
+            presenceString="bot";
+          }
+          value.changeValue(JsOnlineUser.create(presenceString,val.getState() == UserPresence.State.ONLINE));
+        }
+      }
+    }
+);
+    usersOnlines.put(uid,value);
+  }
+  return usersOnlines.get(uid);
+}

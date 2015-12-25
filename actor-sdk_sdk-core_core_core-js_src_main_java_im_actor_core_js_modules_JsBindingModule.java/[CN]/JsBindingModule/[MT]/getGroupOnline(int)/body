@@ -1,0 +1,26 @@
+{
+  if (!groupOnlines.containsKey(gid)) {
+    final JsBindedValue<JsOnlineGroup> value=new JsBindedValue<JsOnlineGroup>();
+    final GroupVM groupVM=context().getGroupsModule().getGroupsCollection().get(gid);
+    groupVM.getPresence().subscribe(new ValueChangedListener<Integer>(){
+      @Override public void onChanged(      Integer val,      Value<Integer> valueModel){
+        if (groupVM.isMember().get()) {
+          if (val == null) {
+            value.changeValue(null);
+            return;
+          }
+          String presence=messenger.getFormatter().formatGroupMembers(groupVM.getMembersCount());
+          if (val > 0) {
+            presence+=", " + messenger.getFormatter().formatGroupOnline(val);
+          }
+          value.changeValue(JsOnlineGroup.create(groupVM.getMembersCount(),val,presence,false));
+        }
+ else {
+          value.changeValue(JsOnlineGroup.create(0,0,"Not member",false));
+        }
+      }
+    }
+);
+  }
+  return groupOnlines.get(gid);
+}

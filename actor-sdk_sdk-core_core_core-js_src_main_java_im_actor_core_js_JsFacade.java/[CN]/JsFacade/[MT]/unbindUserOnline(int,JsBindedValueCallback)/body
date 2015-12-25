@@ -1,0 +1,6 @@
+{
+  if (callback == null) {
+    return;
+  }
+  messenger.getJsUserOnline(uid).unsubscribe(callback);
+}

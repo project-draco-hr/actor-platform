@@ -1,0 +1,4 @@
+int total
+int online
+String message
+boolean isNotMember
