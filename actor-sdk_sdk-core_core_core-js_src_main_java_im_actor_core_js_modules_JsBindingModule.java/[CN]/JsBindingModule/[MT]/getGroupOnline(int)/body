@@ -21,6 +21,7 @@
       }
     }
 );
+    groupOnlines.put(gid,value);
   }
   return groupOnlines.get(gid);
 }
