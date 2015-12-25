@@ -1,4 +1,5 @@
 {
+  this.thumb=thumb;
   this.apiImageLocation128=apiImageLocation128;
   this.apiImageLocation256=apiImageLocation256;
   this.apiImageLocation512=apiImageLocation512;

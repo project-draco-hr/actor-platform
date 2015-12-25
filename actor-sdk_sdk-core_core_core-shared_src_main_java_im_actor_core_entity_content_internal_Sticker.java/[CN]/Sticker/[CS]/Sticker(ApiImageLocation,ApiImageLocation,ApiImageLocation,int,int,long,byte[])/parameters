@@ -4,3 +4,4 @@ ApiImageLocation apiImageLocation512
 int stickerId
 int stickerCollectionId
 long collectionAccessHash
+byte[] thumb

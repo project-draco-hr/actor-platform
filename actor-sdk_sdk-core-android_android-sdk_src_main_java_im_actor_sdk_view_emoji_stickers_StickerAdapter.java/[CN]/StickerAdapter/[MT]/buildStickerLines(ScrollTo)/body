@@ -16,7 +16,7 @@
     int linesInPack=(int)Math.ceil((double)pack.getStickers().get().size() / stickerInLine);
     totalLines+=linesInPack;
     final StickerView sv=new StickerView(context);
-    sv.bind(pack.getStickers().get().get(0).getFileReference128(),Screen.dp(48));
+    sv.bind(pack.getStickers().get().get(0),StickerView.STICKER_SMALL);
     sv.setPadding(padding,padding,padding,padding);
     sv.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){

@@ -1,6 +1,6 @@
 {
   StickerContent content=(StickerContent)message.getContent();
-  sticker.bind(content.getSticker().getFileReference512(),Screen.dp(100));
+  sticker.bind(content.getSticker(),StickerView.STICKER_FULL);
   int w=((StickerContent)message.getContent()).getSticker().getWidth512();
   int h=((StickerContent)message.getContent()).getSticker().getHeight512();
   int maxHeight=context.getResources().getDisplayMetrics().heightPixels - Screen.dp(96 + 32);

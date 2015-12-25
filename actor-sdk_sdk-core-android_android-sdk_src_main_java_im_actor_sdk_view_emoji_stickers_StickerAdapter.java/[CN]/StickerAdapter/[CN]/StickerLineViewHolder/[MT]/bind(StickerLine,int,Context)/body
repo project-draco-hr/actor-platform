@@ -3,22 +3,26 @@
   ll.setTag(TAG_KEY,data.getPackCount());
   for (  final Sticker s : data.getLine()) {
     StickerView sv;
-    if (s != null && s.getFileReference256() != null) {
+    if (s != null && s.getFileReference128() != null) {
       sv=stickersCache.get(s.getFileReference128().getFileId());
       if (sv == null) {
         sv=new StickerView(context);
         sv.setPadding(STICKER_PADDING,STICKER_PADDING,STICKER_PADDING,STICKER_PADDING);
-        sv.bind(s.getFileReference128(),STICKER_SIZE);
+        sv.bind(s,StickerView.STICKER_SMALL);
         stickersCache.put(s.getFileReference128().getFileId(),sv);
       }
  else       if (sv.isLoaded()) {
-        if (sv.getParent() != null) {
-          ((LinearLayout)sv.getParent()).removeView(sv);
-        }
         sv.shortenFade();
       }
+      if (sv.getParent() != null) {
+        ((LinearLayout)sv.getParent()).removeView(sv);
+      }
+      final StickerView finalSv=sv;
       sv.setOnClickListener(new View.OnClickListener(){
         @Override public void onClick(        View v){
+          if (s.getThumb() == null && finalSv.isLoaded()) {
+            s.setThumb(finalSv.getThumb());
+          }
           keyboard.onStickerClicked(s);
         }
       }
