@@ -1,0 +1,10 @@
+{
+  importedEmails=new HashSet<String>();
+  importedPhones=new HashSet<Long>();
+  for (  String s : values.getRepeatedString(1)) {
+    importedEmails.add(s);
+  }
+  for (  Long p : values.getRepeatedLong(2)) {
+    importedPhones.add(p);
+  }
+}

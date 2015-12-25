@@ -1,0 +1,3 @@
+{
+  return importedPhones.contains(phone);
+}

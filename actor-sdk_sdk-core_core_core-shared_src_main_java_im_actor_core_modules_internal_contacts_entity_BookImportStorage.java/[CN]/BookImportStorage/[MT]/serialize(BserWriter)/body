@@ -1,0 +1,8 @@
+{
+  for (  String s : importedEmails) {
+    writer.writeString(1,s);
+  }
+  for (  Long p : importedPhones) {
+    writer.writeLong(2,p);
+  }
+}
