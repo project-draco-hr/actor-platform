@@ -2,5 +2,10 @@
   if (!callbacks.contains(callback)) {
     callbacks.add(callback);
   }
-  callback.onCollectionChanged(jsValues);
+  if (isOverlaysSupported) {
+    callback.onCollectionChanged(jsValues,jsOverlays);
+  }
+ else {
+    callback.onCollectionChanged(jsValues,null);
+  }
 }

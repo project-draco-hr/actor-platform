@@ -2,5 +2,6 @@
   for (  long id : ids) {
     remoteItemImpl(id);
   }
+  processDirtyOverlays();
   notifySubscribers();
 }
