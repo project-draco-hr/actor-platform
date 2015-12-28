@@ -8,27 +8,27 @@
     ab.setBackgroundDrawable(new ColorDrawable(ActorSDK.sharedActor().style.getToolBarColor()));
   }
   onConfigireToolbarCustomView(ab);
-  barTabs.setVisibility(View.VISIBLE);
+  onShowToolbarCustomView();
   emptyContactsView.setVisibility(View.GONE);
   syncInProgressView.setVisibility(View.GONE);
   getActivity().bind(messenger().getAppState().getIsAppLoaded(),messenger().getAppState().getIsAppEmpty(),new ValueDoubleChangedListener<Boolean,Boolean>(){
     @Override public void onChanged(    Boolean isAppLoaded,    Value<Boolean> Value,    Boolean isAppEmpty,    Value<Boolean> Value2){
       if (isAppEmpty) {
         if (isAppLoaded) {
-          barTabs.setVisibility(View.GONE);
+          onHideToolbarCustomView();
           emptyContactsView.setVisibility(View.VISIBLE);
           syncInProgressView.setVisibility(View.GONE);
           getActivity().invalidateOptionsMenu();
         }
  else {
-          barTabs.setVisibility(View.GONE);
+          onHideToolbarCustomView();
           emptyContactsView.setVisibility(View.GONE);
           syncInProgressView.setVisibility(View.VISIBLE);
           getActivity().invalidateOptionsMenu();
         }
       }
  else {
-        barTabs.setVisibility(View.VISIBLE);
+        onShowToolbarCustomView();
         emptyContactsView.setVisibility(View.GONE);
         syncInProgressView.setVisibility(View.GONE);
         getActivity().invalidateOptionsMenu();
