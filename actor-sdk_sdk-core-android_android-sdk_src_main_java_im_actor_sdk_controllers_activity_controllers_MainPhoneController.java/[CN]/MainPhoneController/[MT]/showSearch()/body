@@ -20,6 +20,7 @@
   recyclerAdapter.addHeaderView(header);
   searchList.setAdapter(recyclerAdapter);
   searchDisplay.addListener(searchListener);
+  onHideToolbarCustomView();
   showView(searchHintView,false);
   goneView(searchEmptyView,false);
   showView(searchContainer);
