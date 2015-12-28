@@ -1,5 +1,11 @@
 {
   super(modules);
+  urlLoader=system().actorOf(Props.create(FileBinderActor.class,new ActorCreator<FileBinderActor>(){
+    @Override public FileBinderActor create(){
+      return new FileBinderActor(JsFilesModule.this,modules);
+    }
+  }
+),"files/url_loader");
   keyValueStorage=new BaseKeyValueEngine<CachedFileUrl>(Storage.createKeyValue("file_url_cache")){
     @Override protected byte[] serialize(    CachedFileUrl value){
       return value.toByteArray();

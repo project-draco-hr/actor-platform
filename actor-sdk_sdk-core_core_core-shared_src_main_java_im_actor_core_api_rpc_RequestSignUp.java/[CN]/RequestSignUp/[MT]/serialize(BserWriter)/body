@@ -10,4 +10,7 @@
   if (this.sex != null) {
     writer.writeInt(3,this.sex.getValue());
   }
+  if (this.password != null) {
+    writer.writeString(4,this.password);
+  }
 }

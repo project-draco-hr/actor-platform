@@ -1,0 +1,3 @@
+String transactionHash
+boolean isRegistered
+ApiPhoneActivationType activationType

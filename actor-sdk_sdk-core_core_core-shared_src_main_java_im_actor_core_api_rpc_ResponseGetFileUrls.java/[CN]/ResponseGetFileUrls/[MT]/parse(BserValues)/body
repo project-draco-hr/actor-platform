@@ -1,0 +1,7 @@
+{
+  List<ApiFileUrlDescription> _fileUrls=new ArrayList<ApiFileUrlDescription>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _fileUrls.add(new ApiFileUrlDescription());
+  }
+  this.fileUrls=values.getRepeatedObj(1,_fileUrls);
+}

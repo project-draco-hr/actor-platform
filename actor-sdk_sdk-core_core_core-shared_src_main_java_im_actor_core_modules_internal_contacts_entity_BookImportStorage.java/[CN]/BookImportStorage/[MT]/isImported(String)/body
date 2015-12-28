@@ -1,0 +1,3 @@
+{
+  return importedEmails.contains(email);
+}

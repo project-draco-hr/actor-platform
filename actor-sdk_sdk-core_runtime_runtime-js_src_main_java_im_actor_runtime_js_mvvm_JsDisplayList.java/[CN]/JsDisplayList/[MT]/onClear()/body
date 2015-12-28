@@ -1,5 +1,9 @@
 {
   values.clear();
-  clear(jsValues);
+  jsValues.clear();
+  if (isOverlaysSupported) {
+    jsOverlays.clear();
+    isOverlayDirty.clear();
+  }
   notifySubscribers();
 }

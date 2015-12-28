@@ -1,0 +1,23 @@
+{
+  if (this.username == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.username);
+  writer.writeInt(2,this.appId);
+  if (this.apiKey == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.apiKey);
+  if (this.deviceHash == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(4,this.deviceHash);
+  if (this.deviceTitle == null) {
+    throw new IOException();
+  }
+  writer.writeString(5,this.deviceTitle);
+  if (this.timeZone != null) {
+    writer.writeString(6,this.timeZone);
+  }
+  writer.writeRepeatedString(7,this.preferredLanguages);
+}

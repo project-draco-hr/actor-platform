@@ -1,6 +1,10 @@
 {
   String res="rpc StartTokenAuth{";
   res+="token=" + this.token;
+  res+=", deviceHash=" + byteArrayToString(this.deviceHash);
+  res+=", deviceTitle=" + this.deviceTitle;
+  res+=", timeZone=" + this.timeZone;
+  res+=", preferredLanguages=" + this.preferredLanguages;
   res+="}";
   return res;
 }

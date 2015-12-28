@@ -1,0 +1,5 @@
+{
+  String res="tuple GetFileUrls{";
+  res+="}";
+  return res;
+}

@@ -2,5 +2,10 @@
   if (!callbacksInverted.contains(callback)) {
     callbacksInverted.add(callback);
   }
-  callback.onCollectionChanged(reverse(jsValues));
+  if (isOverlaysSupported) {
+    callback.onCollectionChanged(jsValues.reverse(),jsOverlays.reverse());
+  }
+ else {
+    callback.onCollectionChanged(jsValues.reverse(),null);
+  }
 }

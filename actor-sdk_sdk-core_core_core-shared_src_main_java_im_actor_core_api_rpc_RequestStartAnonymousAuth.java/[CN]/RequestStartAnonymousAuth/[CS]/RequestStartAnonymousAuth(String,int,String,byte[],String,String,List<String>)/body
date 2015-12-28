@@ -1,0 +1,9 @@
+{
+  this.name=name;
+  this.appId=appId;
+  this.apiKey=apiKey;
+  this.deviceHash=deviceHash;
+  this.deviceTitle=deviceTitle;
+  this.timeZone=timeZone;
+  this.preferredLanguages=preferredLanguages;
+}

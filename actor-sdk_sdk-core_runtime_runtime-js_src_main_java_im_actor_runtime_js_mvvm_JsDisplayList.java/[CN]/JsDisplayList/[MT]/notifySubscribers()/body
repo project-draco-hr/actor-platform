@@ -1,11 +1,26 @@
 {
-  for (  JsDisplayListCallback<T> callback : callbacks) {
-    callback.onCollectionChanged(jsValues);
+  if (isOverlaysSupported) {
+    for (    JsDisplayListCallback<T> callback : callbacks) {
+      callback.onCollectionChanged(jsValues,jsOverlays);
+    }
+  }
+ else {
+    for (    JsDisplayListCallback<T> callback : callbacks) {
+      callback.onCollectionChanged(jsValues,null);
+    }
   }
   if (callbacksInverted.size() > 0) {
-    JsArray<T> rev=reverse(jsValues);
-    for (    JsDisplayListCallback<T> callback : callbacksInverted) {
-      callback.onCollectionChanged(rev);
+    JsArray<T> rev=jsValues.reverse();
+    if (isOverlaysSupported) {
+      JsArray<JavaScriptObject> revOverlays=jsOverlays.reverse();
+      for (      JsDisplayListCallback<T> callback : callbacksInverted) {
+        callback.onCollectionChanged(rev,revOverlays);
+      }
+    }
+ else {
+      for (      JsDisplayListCallback<T> callback : callbacksInverted) {
+        callback.onCollectionChanged(rev,null);
+      }
     }
   }
 }

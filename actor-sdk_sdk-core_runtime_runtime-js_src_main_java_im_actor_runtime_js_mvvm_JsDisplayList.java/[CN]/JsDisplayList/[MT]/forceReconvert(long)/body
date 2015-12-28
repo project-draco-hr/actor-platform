@@ -1,8 +1,10 @@
 {
   for (int i=0; i < values.size(); i++) {
-    if (values.get(i).getEngineId() == id) {
-      remove(jsValues,i);
-      insert(jsValues,i,entityConverter.convert(values.get(i)));
+    V value=values.get(i);
+    if (value.getEngineId() == id) {
+      jsValues.update(i,entityConverter.convert(value));
+      isForceReconverted=true;
+      break;
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  this.service=values.getString(1);
+  this.method=values.getString(2);
+  if (values.optBytes(3) != null) {
+    this.params=ApiRawValue.fromBytes(values.getBytes(3));
+  }
+}

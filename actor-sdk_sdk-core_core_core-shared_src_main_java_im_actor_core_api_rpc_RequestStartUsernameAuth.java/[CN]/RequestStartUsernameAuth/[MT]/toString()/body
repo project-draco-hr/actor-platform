@@ -1,0 +1,10 @@
+{
+  String res="rpc StartUsernameAuth{";
+  res+="username=" + this.username;
+  res+=", deviceHash=" + byteArrayToString(this.deviceHash);
+  res+=", deviceTitle=" + this.deviceTitle;
+  res+=", timeZone=" + this.timeZone;
+  res+=", preferredLanguages=" + this.preferredLanguages;
+  res+="}";
+  return res;
+}

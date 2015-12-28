@@ -1,4 +1,8 @@
 {
   this.transactionHash=values.getString(1);
   this.isRegistered=values.getBool(2);
+  int val_activationType=values.getInt(3,0);
+  if (val_activationType != 0) {
+    this.activationType=ApiPhoneActivationType.parse(val_activationType);
+  }
 }

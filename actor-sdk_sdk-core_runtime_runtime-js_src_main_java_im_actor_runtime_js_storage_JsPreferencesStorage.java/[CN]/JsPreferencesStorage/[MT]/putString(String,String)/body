@@ -1,3 +1,9 @@
 {
-  storage.setItem(convertKey(key),v);
+  key=convertKey(key);
+  if (v == null) {
+    storage.removeItem(key);
+  }
+ else {
+    storage.setItem(key,v);
+  }
 }

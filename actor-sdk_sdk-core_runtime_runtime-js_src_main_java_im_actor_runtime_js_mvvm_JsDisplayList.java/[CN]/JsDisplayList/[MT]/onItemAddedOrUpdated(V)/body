@@ -1,4 +1,5 @@
 {
   addItemOrUpdateImpl(item);
+  processDirtyOverlays();
   notifySubscribers();
 }

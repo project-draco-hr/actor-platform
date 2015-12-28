@@ -1,0 +1,8 @@
+{
+  String res="struct FileUrlDescription{";
+  res+="fileId=" + this.fileId;
+  res+=", url=" + this.url;
+  res+=", timeout=" + this.timeout;
+  res+="}";
+  return res;
+}

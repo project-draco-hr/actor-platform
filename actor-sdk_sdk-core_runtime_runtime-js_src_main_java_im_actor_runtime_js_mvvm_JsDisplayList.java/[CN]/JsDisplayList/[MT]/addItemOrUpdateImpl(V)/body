@@ -4,17 +4,29 @@
   for (int i=0; i < values.size(); i++) {
     if (values.get(i).getEngineId() == id) {
       values.remove(i);
-      remove(jsValues,i);
+      jsValues.remove(i);
+      if (isOverlaysSupported) {
+        markAsDirty(i);
+        jsOverlays.remove(i);
+      }
       break;
     }
   }
   for (int i=0; i < values.size(); i++) {
     if (sortKey > values.get(i).getEngineSort()) {
       values.add(i,item);
-      insert(jsValues,i,entityConverter.convert(item));
+      jsValues.insert(i,entityConverter.convert(item));
+      if (isOverlaysSupported) {
+        jsOverlays.insert(i,null);
+        markAsDirty(i);
+      }
       return;
     }
   }
   values.add(item);
   jsValues.push(entityConverter.convert(item));
+  if (isOverlaysSupported) {
+    jsOverlays.push(null);
+    markAsDirty(values.size() - 1);
+  }
 }

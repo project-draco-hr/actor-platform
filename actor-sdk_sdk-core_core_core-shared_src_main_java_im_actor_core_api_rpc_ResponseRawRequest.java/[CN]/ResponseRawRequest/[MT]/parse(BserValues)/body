@@ -1,0 +1,3 @@
+{
+  this.result=ApiRawValue.fromBytes(values.getBytes(1));
+}

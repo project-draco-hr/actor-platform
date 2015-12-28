@@ -2,5 +2,6 @@
   for (  V item : items) {
     addItemOrUpdateImpl(item);
   }
+  processDirtyOverlays();
   notifySubscribers();
 }

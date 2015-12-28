@@ -4,4 +4,7 @@
   }
   writer.writeString(1,this.transactionHash);
   writer.writeBool(2,this.isRegistered);
+  if (this.activationType != null) {
+    writer.writeInt(3,this.activationType.getValue());
+  }
 }

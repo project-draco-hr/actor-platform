@@ -1,0 +1,7 @@
+String name
+int appId
+String apiKey
+byte[] deviceHash
+String deviceTitle
+String timeZone
+List<String> preferredLanguages

@@ -1,0 +1,8 @@
+{
+  writer.writeLong(1,this.fileId);
+  if (this.url == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.url);
+  writer.writeInt(3,this.timeout);
+}
