@@ -1,0 +1,3 @@
+{
+  return modules.getApiModule().getActorApi().getKeyStorage().getAuthKey();
+}
