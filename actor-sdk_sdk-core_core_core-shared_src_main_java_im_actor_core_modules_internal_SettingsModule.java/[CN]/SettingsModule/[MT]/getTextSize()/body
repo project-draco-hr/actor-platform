@@ -1,0 +1,3 @@
+{
+  return getInt(KEY_CHAT_TEXT_SIZE,15);
+}

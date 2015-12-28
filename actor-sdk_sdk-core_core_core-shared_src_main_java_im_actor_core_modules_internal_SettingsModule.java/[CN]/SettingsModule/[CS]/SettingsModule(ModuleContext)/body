@@ -34,6 +34,7 @@ break;
 KEY_SOUND_EFFECTS="app." + platformType + ""+ deviceType+ ".tones_enabled";
 KEY_CHAT_SEND_BY_ENTER="app." + platformType + ""+ deviceType+ ".send_by_enter";
 KEY_MARKDOWN_ENABLED="app." + platformType + ""+ deviceType+ ".use_markdown";
+KEY_CHAT_TEXT_SIZE="app." + platformType + "."+ deviceType+ ".text_size";
 KEY_NOTIFICATION_ENABLED="category." + deviceType + ".notification.enabled";
 KEY_NOTIFICATION_SOUND_ENABLED="category." + deviceType + ".notification.sound.enabled";
 KEY_NOTIFICATION_VIBRATION="category." + deviceType + ".notification.vibration.enabled";

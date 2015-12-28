@@ -15,4 +15,5 @@
   deliveredColor=ActorSDK.sharedActor().style.getConvStateDeliveredColor();
   readColor=ActorSDK.sharedActor().style.getConvStateReadColor();
   errorColor=ActorSDK.sharedActor().style.getConvStateErrorColor();
+  onConfigureViewHolder();
 }

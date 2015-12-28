@@ -1,7 +1,15 @@
 {
   super.onCreate(savedInstanceState);
   getSupportActionBar().setTitle(R.string.security_title);
+  SecuritySettingsFragment fragment;
+  ActorIntentFragmentActivity securitySettingsIntent=ActorSDK.sharedActor().getDelegate().getSecuritySettingsIntent();
+  if (securitySettingsIntent != null) {
+    fragment=(SecuritySettingsFragment)securitySettingsIntent.getFragment();
+  }
+ else {
+    fragment=new SecuritySettingsFragment();
+  }
   if (savedInstanceState == null) {
-    showFragment(new SecuritySettingsFragment(),false,false);
+    showFragment(fragment,false,false);
   }
 }

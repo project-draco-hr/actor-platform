@@ -12,4 +12,5 @@
     container.setOnLongClickListener((View.OnLongClickListener)this);
     container.setOnLongClickListener((BubbleContainer.OnAvatarLongClickListener)this);
   }
+  onConfigureViewHolder();
 }

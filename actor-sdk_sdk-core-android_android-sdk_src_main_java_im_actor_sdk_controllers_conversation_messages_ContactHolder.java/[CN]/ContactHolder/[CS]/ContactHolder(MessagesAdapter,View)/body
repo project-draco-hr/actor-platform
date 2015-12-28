@@ -13,4 +13,5 @@
   text=(TextView)itemView.findViewById(R.id.tv_text);
   text.setTextColor(ActorSDK.sharedActor().style.getConvTextColor());
   contactAvatar=(ImageView)itemView.findViewById(R.id.contact_avatar);
+  onConfigureViewHolder();
 }

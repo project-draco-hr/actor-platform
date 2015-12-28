@@ -55,4 +55,5 @@
   progressView.setColor(ActorSDK.sharedActor().style.getMainColor());
   progressValue=(TextView)itemView.findViewById(R.id.progressValue);
   progressValue.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  onConfigureViewHolder();
 }

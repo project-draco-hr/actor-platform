@@ -13,4 +13,5 @@
   previewView.setHierarchy(hierarchy);
   time=(TextView)itemView.findViewById(R.id.time);
   stateIcon=(TintImageView)itemView.findViewById(R.id.stateIcon);
+  onConfigureViewHolder();
 }

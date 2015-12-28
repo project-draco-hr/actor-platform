@@ -1,7 +1,15 @@
 {
   super.onCreate(savedInstanceState);
   getSupportActionBar().setTitle(R.string.settings_chat_title);
+  ChatSettingsFragment fragment;
+  ActorIntent chatSettingsIntent=ActorSDK.sharedActor().getDelegate().getChatSettingsIntent();
+  if (chatSettingsIntent != null && chatSettingsIntent instanceof ActorIntentFragmentActivity) {
+    fragment=(ChatSettingsFragment)((ActorIntentFragmentActivity)chatSettingsIntent).getFragment();
+  }
+ else {
+    fragment=new ChatSettingsFragment();
+  }
   if (savedInstanceState == null) {
-    showFragment(new ChatSettingsFragment(),false,false);
+    showFragment(fragment,false,false);
   }
 }

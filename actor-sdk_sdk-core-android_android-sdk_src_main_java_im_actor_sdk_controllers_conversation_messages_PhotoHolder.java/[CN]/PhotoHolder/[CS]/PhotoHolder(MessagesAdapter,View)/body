@@ -22,4 +22,5 @@
   progressView=(CircularView)itemView.findViewById(R.id.progressView);
   progressView.setColor(Color.WHITE);
   progressIcon=(ImageView)itemView.findViewById(R.id.contentIcon);
+  onConfigureViewHolder();
 }
