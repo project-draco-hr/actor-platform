@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.SendJson(peer,jsonObject));
+}

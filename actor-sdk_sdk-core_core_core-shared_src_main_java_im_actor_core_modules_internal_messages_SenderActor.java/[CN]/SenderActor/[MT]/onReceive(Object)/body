@@ -47,6 +47,10 @@
     SendSticker sendSticker=(SendSticker)message;
     doSendSticker(sendSticker.getPeer(),sendSticker.getSticker());
   }
+ else   if (message instanceof SendJson) {
+    SendJson sendJson=(SendJson)message;
+    doSendJson(sendJson.getPeer(),sendJson.getJson());
+  }
  else {
     drop(message);
   }
