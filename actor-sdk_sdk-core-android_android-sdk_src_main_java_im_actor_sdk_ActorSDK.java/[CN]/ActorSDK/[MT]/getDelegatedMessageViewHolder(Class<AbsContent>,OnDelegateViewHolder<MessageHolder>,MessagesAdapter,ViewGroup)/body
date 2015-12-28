@@ -1,0 +1,9 @@
+{
+  MessageHolder delegated=delegate.getCustomMessageViewHolder(base,messagesAdapter,viewGroup);
+  if (delegated != null) {
+    return delegated;
+  }
+ else {
+    return callback.onNotDelegated();
+  }
+}

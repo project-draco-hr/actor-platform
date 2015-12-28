@@ -1,0 +1,4 @@
+Class<AbsContent> base
+OnDelegateViewHolder<MessageHolder> callback
+MessagesAdapter messagesAdapter
+ViewGroup viewGroup

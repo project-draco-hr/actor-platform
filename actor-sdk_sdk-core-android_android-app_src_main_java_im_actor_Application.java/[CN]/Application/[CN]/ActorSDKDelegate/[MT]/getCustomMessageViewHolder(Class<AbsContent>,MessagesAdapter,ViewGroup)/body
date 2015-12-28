@@ -1,0 +1,8 @@
+{
+  if (content.isAssignableFrom(TextExContent.class)) {
+    return new TextExHolder(messagesAdapter,LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_dialog_text,viewGroup,false));
+  }
+ else {
+    return null;
+  }
+}

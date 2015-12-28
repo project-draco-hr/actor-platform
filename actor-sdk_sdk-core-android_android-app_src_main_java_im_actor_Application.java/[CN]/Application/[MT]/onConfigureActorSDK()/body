@@ -3,4 +3,19 @@
   ActorSDK.sharedActor().setPushId(209133700967L);
   ActorStyle style=ActorSDK.sharedActor().style;
   style.setMainColor(Color.parseColor("#529a88"));
+  AbsContent.registerConverter(new ContentConverter(){
+    @Override public AbsContent convert(    AbsContentContainer container){
+      if (container instanceof ContentRemoteContainer) {
+        ApiMessage msg=((ContentRemoteContainer)container).getMessage();
+        if (msg instanceof ApiTextMessage) {
+          return new TextContent((ContentRemoteContainer)container);
+        }
+      }
+      return null;
+    }
+    @Override public Class destinationType(){
+      return TextExContent.class;
+    }
+  }
+);
 }
