@@ -1,11 +1,16 @@
 {
+  Log.d(TAG,"notifySubscribers");
   if (isOverlaysSupported) {
+    Log.d(TAG,"notifySubscribers:isOverlaysSupported");
     for (    JsDisplayListCallback<T> callback : callbacks) {
+      Log.d(TAG,"notifySubscribers:isOverlaysSupported:item");
       callback.onCollectionChanged(jsValues,jsOverlays);
     }
   }
  else {
+    Log.d(TAG,"notifySubscribers:isOverlaysSupported:false");
     for (    JsDisplayListCallback<T> callback : callbacks) {
+      Log.d(TAG,"notifySubscribers:isOverlaysSupported:item");
       callback.onCollectionChanged(jsValues,null);
     }
   }
