@@ -1,0 +1,4 @@
+MessagesAdapter adapter
+ViewGroup viewGroup
+int resourceId
+boolean isFullSize

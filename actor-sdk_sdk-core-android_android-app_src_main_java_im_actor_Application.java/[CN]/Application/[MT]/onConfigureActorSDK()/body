@@ -5,16 +5,19 @@
   style.setMainColor(Color.parseColor("#529a88"));
   AbsContent.registerConverter(new ContentConverter(){
     @Override public AbsContent convert(    AbsContentContainer container){
-      if (container instanceof ContentRemoteContainer) {
-        ApiMessage msg=((ContentRemoteContainer)container).getMessage();
-        if (msg instanceof ApiTextMessage) {
-          return new TextContent((ContentRemoteContainer)container);
-        }
-      }
-      return null;
+      return JsonContent.convert(container,Custom.class);
     }
     @Override public Class destinationType(){
-      return TextExContent.class;
+      return Custom.class;
+    }
+  }
+);
+  AbsContent.registerConverter(new ContentConverter(){
+    @Override public AbsContent convert(    AbsContentContainer container){
+      return JsonContent.convert(container,CustomTwo.class);
+    }
+    @Override public Class destinationType(){
+      return CustomTwo.class;
     }
   }
 );

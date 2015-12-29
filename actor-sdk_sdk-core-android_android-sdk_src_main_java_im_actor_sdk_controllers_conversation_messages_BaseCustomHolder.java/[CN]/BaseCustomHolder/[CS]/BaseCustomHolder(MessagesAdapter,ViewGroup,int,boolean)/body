@@ -1,0 +1,3 @@
+{
+  super(adapter,LayoutInflater.from(viewGroup.getContext()).inflate(resourceId,viewGroup,false),isFullSize);
+}

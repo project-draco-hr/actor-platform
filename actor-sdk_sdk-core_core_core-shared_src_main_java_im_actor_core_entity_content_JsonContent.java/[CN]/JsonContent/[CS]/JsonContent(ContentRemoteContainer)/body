@@ -1,5 +1,0 @@
-{
-  super(contentContainer);
-  rawJson=((ApiJsonMessage)contentContainer.getMessage()).getRawJson();
-  jsonObject=new JSONObject(rawJson);
-}

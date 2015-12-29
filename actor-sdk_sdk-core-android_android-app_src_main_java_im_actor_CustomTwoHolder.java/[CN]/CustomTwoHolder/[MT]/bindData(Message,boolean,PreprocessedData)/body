@@ -1,0 +1,3 @@
+{
+  text.setText(((Application.CustomTwo)message.getContent()).getText());
+}

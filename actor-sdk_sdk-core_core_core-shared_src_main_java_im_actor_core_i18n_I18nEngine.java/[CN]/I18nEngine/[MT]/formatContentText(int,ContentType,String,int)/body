@@ -19,6 +19,8 @@ case LOCATION:
 return locale.get("Location");
 case STICKER:
 return locale.get("Sticker");
+case CUSTOM_JSON_MESSAGE:
+return text;
 case SERVICE:
 return text;
 case SERVICE_REGISTERED:

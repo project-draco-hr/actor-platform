@@ -1,0 +1,26 @@
+{
+  if (container instanceof ContentRemoteContainer) {
+    try {
+      T type=classToConvert.newInstance();
+      ApiMessage msg=((ContentRemoteContainer)container).getMessage();
+      if (msg instanceof ApiJsonMessage) {
+        try {
+          JSONObject object=new JSONObject(((ApiJsonMessage)msg).getRawJson());
+          if (object.get("dataType").equals(type.getDataType())) {
+            return type.create(classToConvert,object.getJSONObject("data"));
+          }
+        }
+ catch (        JSONException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+ catch (    InstantiationException e) {
+      e.printStackTrace();
+    }
+catch (    IllegalAccessException e) {
+      e.printStackTrace();
+    }
+  }
+  return null;
+}

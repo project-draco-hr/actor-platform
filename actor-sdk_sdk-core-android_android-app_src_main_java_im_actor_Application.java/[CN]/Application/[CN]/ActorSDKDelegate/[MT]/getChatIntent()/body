@@ -1,0 +1,13 @@
+{
+  return new BaseActorChatActivity(){
+    @Override public MessagesFragment getChatFragment(    Peer peer){
+      return new MessagesFragment(peer){
+        @Override public View onCreateView(        LayoutInflater inflater,        @Nullable ViewGroup container,        @Nullable Bundle savedInstanceState){
+          return super.onCreateView(inflater,container,savedInstanceState);
+        }
+      }
+;
+    }
+  }
+;
+}

@@ -1,0 +1,24 @@
+{
+  Locale locale=Locale.getDefault();
+  if (locale.getLanguage().equals("ru")) {
+    return fallback(getContentDescriptionRu());
+  }
+ else   if (locale.equals(new Locale("pt","PT"))) {
+    return fallback(getContentDescriptionPtPT());
+  }
+ else   if (locale.equals(new Locale("pt","BR"))) {
+    return fallback(getContentDescriptionPtBR());
+  }
+ else   if (locale.getLanguage().equals("ar")) {
+    return fallback(getContentDescriptionAr());
+  }
+ else   if (locale.getLanguage().equals("cn")) {
+    return fallback(getContentDescriptionCn());
+  }
+ else   if (locale.getLanguage().equals("es")) {
+    return fallback(getContentDescriptionEs());
+  }
+ else {
+    return fallback(getContentDescriptionEn());
+  }
+}
