@@ -6,6 +6,7 @@
       callback.onItemAddedOrUpdated(item);
     }
  catch (    Exception e) {
+      Log.d(TAG,"Exception during update (addOrUpdateItem)");
       e.printStackTrace();
     }
   }

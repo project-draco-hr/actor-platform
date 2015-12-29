@@ -6,6 +6,7 @@
       callback.onClear();
     }
  catch (    Exception e) {
+      Log.d(TAG,"Exception during update (clear)");
       e.printStackTrace();
     }
   }

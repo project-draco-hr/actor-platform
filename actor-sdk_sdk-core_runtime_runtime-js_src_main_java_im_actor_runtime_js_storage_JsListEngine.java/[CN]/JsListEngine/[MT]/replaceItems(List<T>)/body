@@ -12,6 +12,7 @@
       callback.onItemsReplaced(items);
     }
  catch (    Exception e) {
+      Log.d(TAG,"Exception during update (replaceItems)");
       e.printStackTrace();
     }
   }

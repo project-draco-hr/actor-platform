@@ -6,6 +6,7 @@
       callback.onItemRemoved(key);
     }
  catch (    Exception e) {
+      Log.d(TAG,"Exception during update (removeItem)");
       e.printStackTrace();
     }
   }
