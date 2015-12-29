@@ -1,0 +1,19 @@
+{
+  Bitmap b=null;
+  byte[] decodedByte;
+  try {
+    decodedByte=Base64.decode(contact.getPhoto64(),Base64.NO_WRAP);
+    b=BitmapFactory.decodeByteArray(decodedByte,0,decodedByte.length);
+  }
+ catch (  Exception e) {
+  }
+  if (b == null) {
+    try {
+      decodedByte=Base64.decode(contact.getPhoto64(),Base64.URL_SAFE | Base64.NO_WRAP);
+      b=BitmapFactory.decodeByteArray(decodedByte,0,decodedByte.length);
+    }
+ catch (    Exception e1) {
+    }
+  }
+  return b;
+}
