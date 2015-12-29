@@ -1,0 +1,15 @@
+{
+  JSONObject json=new JSONObject();
+  try {
+    json.put("dataType",content.getDataType());
+    json.put("data",data);
+    ContentRemoteContainer container=new ContentRemoteContainer(new ApiJsonMessage(json.toString()));
+    content.setJsonObject(json);
+    content.setRawJson(json.toString());
+    content.setContentContainer(container);
+    return content;
+  }
+ catch (  JSONException e) {
+    throw new RuntimeException(e);
+  }
+}

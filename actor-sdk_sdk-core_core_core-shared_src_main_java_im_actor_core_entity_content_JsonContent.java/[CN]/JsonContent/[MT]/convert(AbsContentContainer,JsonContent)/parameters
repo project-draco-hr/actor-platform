@@ -1,2 +1,2 @@
 AbsContentContainer container
-Class<T> classToConvert
+JsonContent content

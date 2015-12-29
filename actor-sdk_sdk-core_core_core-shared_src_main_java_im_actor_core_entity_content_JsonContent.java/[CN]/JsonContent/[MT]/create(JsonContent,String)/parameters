@@ -1,2 +1,2 @@
-Class<T> c
+JsonContent content
 String simpleStringData
