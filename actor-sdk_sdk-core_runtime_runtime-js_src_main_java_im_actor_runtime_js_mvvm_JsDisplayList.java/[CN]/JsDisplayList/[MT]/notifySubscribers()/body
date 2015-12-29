@@ -1,34 +1,24 @@
 {
-  Log.d(TAG,"notifySubscribers");
   if (isOverlaysSupported) {
-    Log.d(TAG,"notifySubscribers:isOverlaysSupported");
     for (    JsDisplayListCallback<T> callback : callbacks) {
-      Log.d(TAG,"notifySubscribers:isOverlaysSupported:item");
       callback.onCollectionChanged(jsValues,jsOverlays);
     }
   }
  else {
-    Log.d(TAG,"notifySubscribers:isOverlaysSupported:false");
     for (    JsDisplayListCallback<T> callback : callbacks) {
-      Log.d(TAG,"notifySubscribers:isOverlaysSupported:item");
       callback.onCollectionChanged(jsValues,null);
     }
   }
   if (callbacksInverted.size() > 0) {
-    Log.d(TAG,"notifySubscribers:inverted");
     JsArray<T> rev=jsValues.reverse();
     if (isOverlaysSupported) {
-      Log.d(TAG,"notifySubscribers:inverted:isOverlaysSupported");
       JsArray<JavaScriptObject> revOverlays=jsOverlays.reverse();
       for (      JsDisplayListCallback<T> callback : callbacksInverted) {
-        Log.d(TAG,"notifySubscribers:inverted:isOverlaysSupported:item");
         callback.onCollectionChanged(rev,revOverlays);
       }
     }
  else {
-      Log.d(TAG,"notifySubscribers:inverted:isOverlaysSupported:false");
       for (      JsDisplayListCallback<T> callback : callbacksInverted) {
-        Log.d(TAG,"notifySubscribers:inverted:isOverlaysSupported:false:item");
         callback.onCollectionChanged(rev,null);
       }
     }
