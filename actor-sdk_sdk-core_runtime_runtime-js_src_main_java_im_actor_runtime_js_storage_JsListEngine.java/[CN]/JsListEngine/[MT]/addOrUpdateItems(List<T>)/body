@@ -10,6 +10,7 @@
       callback.onItemsAddedOrUpdated(items);
     }
  catch (    Exception e) {
+      Log.d(TAG,"Exception during update (addOrUpdateItems)");
       e.printStackTrace();
     }
   }

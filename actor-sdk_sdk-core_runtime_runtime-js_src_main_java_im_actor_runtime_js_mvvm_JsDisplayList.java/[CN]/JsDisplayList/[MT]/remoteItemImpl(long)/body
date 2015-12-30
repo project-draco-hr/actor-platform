@@ -6,6 +6,7 @@
       if (isOverlaysSupported) {
         markAsDirty(i);
         jsOverlays.remove(i);
+        isOverlayDirty.add(true);
       }
       break;
     }

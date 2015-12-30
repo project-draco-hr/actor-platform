@@ -8,6 +8,7 @@
       if (isOverlaysSupported) {
         markAsDirty(i);
         jsOverlays.remove(i);
+        isOverlayDirty.remove(i);
       }
       break;
     }
@@ -18,6 +19,7 @@
       jsValues.insert(i,entityConverter.convert(item));
       if (isOverlaysSupported) {
         jsOverlays.insert(i,null);
+        isOverlayDirty.add(i,true);
         markAsDirty(i);
       }
       return;
@@ -27,6 +29,7 @@
   jsValues.push(entityConverter.convert(item));
   if (isOverlaysSupported) {
     jsOverlays.push(null);
+    isOverlayDirty.add(true);
     markAsDirty(values.size() - 1);
   }
 }
