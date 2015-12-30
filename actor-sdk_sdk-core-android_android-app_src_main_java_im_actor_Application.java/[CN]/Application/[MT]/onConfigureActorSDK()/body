@@ -5,19 +5,10 @@
   style.setMainColor(Color.parseColor("#529a88"));
   AbsContent.registerConverter(new ContentConverter(){
     @Override public AbsContent convert(    AbsContentContainer container){
-      return JsonContent.convert(container,new Custom());
+      return JsonContent.convert(container,new TCBotMesaage());
     }
     @Override public boolean validate(    AbsContent content){
-      return content instanceof Custom;
-    }
-  }
-);
-  AbsContent.registerConverter(new ContentConverter(){
-    @Override public AbsContent convert(    AbsContentContainer container){
-      return JsonContent.convert(container,new CustomTwo());
-    }
-    @Override public boolean validate(    AbsContent content){
-      return content instanceof CustomTwo;
+      return content instanceof TCBotMesaage;
     }
   }
 );

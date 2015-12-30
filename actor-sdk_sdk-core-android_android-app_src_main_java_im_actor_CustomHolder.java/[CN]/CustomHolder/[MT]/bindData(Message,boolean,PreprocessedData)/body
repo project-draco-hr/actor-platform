@@ -1,3 +1,0 @@
-{
-  text.setText(((Application.Custom)message.getContent()).getText());
-}
