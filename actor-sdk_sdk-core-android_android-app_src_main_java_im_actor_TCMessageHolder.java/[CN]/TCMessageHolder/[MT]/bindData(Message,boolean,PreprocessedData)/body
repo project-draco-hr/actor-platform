@@ -1,3 +1,0 @@
-{
-  text.setText(((Application.TCBotMesaage)message.getContent()).getRawJson());
-}

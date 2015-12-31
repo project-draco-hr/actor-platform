@@ -1,0 +1,5 @@
+{
+  this.id=id;
+  this.rid=rid;
+  this.peer=peer;
+}

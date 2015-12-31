@@ -1,0 +1,29 @@
+{
+  String render="";
+  JSONObject json=((Application.TCBotMesaage)message.getContent()).getJson();
+  try {
+    final JSONObject data=json.getJSONObject("data");
+    int id=data.getInt("id");
+    render+="id: " + id + "\n";
+    String state=data.getString("state");
+    render+="state: " + state;
+    int pr=data.optInt("percentageComplete",0);
+    if (state.equals("running")) {
+      render+="progress: " + pr + "%\n";
+    }
+    final String usr=data.getString("url");
+    if (tcActor == null) {
+      tcActor=ActorSystem.system().actorOf(Props.create(TCActor.class,new ActorCreator<TCActor>(){
+        @Override public TCActor create(){
+          return new TCActor(usr);
+        }
+      }
+),"actor/tc");
+    }
+    tcActor.send(new TCActor.Bind(id,message.getRid(),getPeer()));
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
+  text.setText(render);
+}

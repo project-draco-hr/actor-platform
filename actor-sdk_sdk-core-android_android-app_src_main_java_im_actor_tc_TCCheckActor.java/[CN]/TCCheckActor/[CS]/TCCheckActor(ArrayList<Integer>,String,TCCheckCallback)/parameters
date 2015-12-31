@@ -1,0 +1,3 @@
+ArrayList<Integer> ids
+String url
+TCCheckCallback callback

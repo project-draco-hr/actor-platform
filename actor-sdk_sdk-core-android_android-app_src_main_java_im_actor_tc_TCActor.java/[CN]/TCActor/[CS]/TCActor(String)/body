@@ -1,0 +1,5 @@
+{
+  this.reidMap=new HashMap<>();
+  this.peerMap=new HashMap<>();
+  this.url=url;
+}
