@@ -9,7 +9,7 @@
     }
  catch (    Exception e) {
       Log.d(TAG,"Exception during update (removeItems)");
-      e.printStackTrace();
+      Log.e(TAG,e);
     }
   }
 }

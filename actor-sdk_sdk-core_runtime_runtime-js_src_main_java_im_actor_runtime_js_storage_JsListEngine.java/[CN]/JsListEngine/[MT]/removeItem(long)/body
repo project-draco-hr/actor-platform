@@ -7,7 +7,7 @@
     }
  catch (    Exception e) {
       Log.d(TAG,"Exception during update (removeItem)");
-      e.printStackTrace();
+      Log.e(TAG,e);
     }
   }
 }

@@ -11,7 +11,7 @@
     }
  catch (    IOException e) {
       Log.d("JsListEngine","Unable to decode: " + e.getMessage());
-      e.printStackTrace();
+      Log.e(TAG,e);
     }
   }
   return null;

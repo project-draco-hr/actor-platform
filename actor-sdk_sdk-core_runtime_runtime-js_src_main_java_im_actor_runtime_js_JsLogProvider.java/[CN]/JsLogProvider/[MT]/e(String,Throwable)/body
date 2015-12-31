@@ -1,3 +1,7 @@
 {
-  error(formatTime() + "[E] " + tag+ ":"+ throwable);
+  String stackTrace="";
+  for (  StackTraceElement element : throwable.getStackTrace()) {
+    stackTrace+=element + "\n";
+  }
+  error(formatTime() + "[E] " + tag+ ":"+ throwable+ "\n"+ stackTrace);
 }
