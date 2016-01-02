@@ -1,5 +1,11 @@
 {
-  if (message instanceof Start) {
-    onStart();
+  if (message instanceof Check) {
+    check();
+  }
+ else   if (message instanceof Add) {
+    onAdd(((Add)message).getId());
+  }
+ else   if (message instanceof Remove) {
+    onRemove(((Remove)message).getId());
   }
 }

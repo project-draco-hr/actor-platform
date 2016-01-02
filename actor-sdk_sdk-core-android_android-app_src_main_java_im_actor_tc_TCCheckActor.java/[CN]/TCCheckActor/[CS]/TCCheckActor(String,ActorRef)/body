@@ -1,0 +1,5 @@
+{
+  this.ids=new HashSet<Integer>();
+  this.url=url;
+  this.tc=tc;
+}

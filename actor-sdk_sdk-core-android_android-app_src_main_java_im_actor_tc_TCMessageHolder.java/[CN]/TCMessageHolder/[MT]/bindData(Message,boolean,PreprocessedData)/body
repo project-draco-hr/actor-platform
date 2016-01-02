@@ -9,7 +9,12 @@
     render+="state: " + state;
     int pr=data.optInt("percentageComplete",0);
     if (state.equals("running")) {
-      render+="progress: " + pr + "%\n";
+      render+=", progress: " + pr + "%\n";
+      progress.setProgress(pr);
+      progress.setVisibility(View.VISIBLE);
+    }
+ else {
+      progress.setVisibility(View.GONE);
     }
     final String usr=data.getString("url");
     if (tcActor == null) {
@@ -19,8 +24,11 @@
         }
       }
 ),"actor/tc");
+      Log.d("TC","create tc actor");
     }
-    tcActor.send(new TCActor.Bind(id,message.getRid(),getPeer()));
+    if (!data.getString("state").equals("finished")) {
+      tcActor.send(new TCActor.Bind(id,message.getRid(),getPeer()));
+    }
   }
  catch (  JSONException e) {
     e.printStackTrace();

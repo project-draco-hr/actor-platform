@@ -2,4 +2,7 @@
   if (message instanceof Bind) {
     bind(((Bind)message).getId(),((Bind)message).getRid(),((Bind)message).getPeer());
   }
+ else   if (message instanceof IdChecked) {
+    onIdchecked(((IdChecked)message).getId(),((IdChecked)message).getJson());
+  }
 }

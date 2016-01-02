@@ -1,26 +1,10 @@
 {
-  ids=new ArrayList<>();
+  ids=new HashSet<Integer>();
   check=ActorSystem.system().actorOf(Props.create(TCCheckActor.class,new ActorCreator<TCCheckActor>(){
     @Override public TCCheckActor create(){
-      return new TCCheckActor(ids,url,new TCCheckActor.TCCheckCallback(){
-        @Override public void onIdchecked(        int id,        JSONObject json){
-          try {
-            for (            long rid : reidMap.get(id)) {
-              messenger().updateJsonMessageContentLocal(peerMap.get(id),rid,JsonContent.create(new Application.TCBotMesaage(),json));
-            }
-            if (json.getJSONObject("data").getString("state").equals("finished")) {
-              ids.remove(id);
-              reidMap.remove(id);
-              peerMap.remove(id);
-            }
-          }
- catch (          JSONException e) {
-            e.printStackTrace();
-          }
-        }
-      }
-);
+      return new TCCheckActor(url,self());
     }
   }
-),"actor/tc");
+),"actor/tc_check");
+  Log.d("TC","create checker");
 }

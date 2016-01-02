@@ -1,0 +1,30 @@
+{
+  String end="/httpAuth/app/rest/builds/id:";
+  String getUrl;
+  Log.d("TC ids",ids.toString());
+  if (ids != null && url != null) {
+    for (    int i : ids) {
+      getUrl=url + end + i;
+      try {
+        HttpURLConnection connection=(HttpURLConnection)new URL(getUrl).openConnection();
+        connection.setRequestProperty("Accept","application/json");
+        String username="kor_ka";
+        String password="Xw9YJk6VHRXGKB";
+        String encoded=Base64.encodeToString(new String(username + ":" + password).getBytes("UTF-8"),Base64.DEFAULT);
+        connection.setRequestProperty("Authorization","Basic " + encoded);
+        connection.connect();
+        InputStream in=new BufferedInputStream(connection.getInputStream());
+        JSONObject data=new JSONObject(readStream(in));
+        data.put("url",url);
+        tc.send(new TCActor.IdChecked(i,data));
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+catch (      JSONException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+  self().send(new Check(),1000);
+}

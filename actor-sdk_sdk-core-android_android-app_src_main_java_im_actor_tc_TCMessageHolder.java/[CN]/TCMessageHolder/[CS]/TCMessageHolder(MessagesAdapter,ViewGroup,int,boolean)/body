@@ -1,4 +1,5 @@
 {
   super(adapter,viewGroup,id,isFullSize);
   text=(TextView)itemView.findViewById(R.id.tv_text);
+  progress=(ProgressBar)itemView.findViewById(R.id.progress);
 }

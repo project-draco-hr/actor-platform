@@ -1,5 +1,0 @@
-{
-  this.ids=ids;
-  this.url=url;
-  this.callback=callback;
-}
