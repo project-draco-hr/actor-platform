@@ -24,7 +24,7 @@ return text;
 case SERVICE:
 return text;
 case SERVICE_REGISTERED:
-return getTemplateNamed(senderId,"ServiceRegistered");
+return getTemplateNamed(senderId,"ServiceRegistered").replace("{app_name}",getApplicationName());
 case SERVICE_CREATED:
 return getTemplateNamed(senderId,"ServiceGroupCreated");
 case SERVICE_ADD:

@@ -13,3 +13,4 @@ int maxFailureCount
 ConfigurationExtension[] extensions
 String timeZone
 String[] preferredLanguages
+String customAppName

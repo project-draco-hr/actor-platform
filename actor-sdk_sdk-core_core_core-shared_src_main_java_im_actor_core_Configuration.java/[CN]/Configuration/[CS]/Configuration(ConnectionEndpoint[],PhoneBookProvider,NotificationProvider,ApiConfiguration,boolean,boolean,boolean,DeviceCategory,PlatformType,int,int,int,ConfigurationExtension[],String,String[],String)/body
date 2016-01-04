@@ -14,4 +14,5 @@
   this.extensions=extensions;
   this.timeZone=timeZone;
   this.preferredLanguages=preferredLanguages;
+  this.customAppName=customAppName;
 }

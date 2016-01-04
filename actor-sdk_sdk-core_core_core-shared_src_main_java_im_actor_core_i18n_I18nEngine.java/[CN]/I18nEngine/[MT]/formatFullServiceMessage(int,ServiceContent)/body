@@ -1,6 +1,6 @@
 {
   if (content instanceof ServiceUserRegistered) {
-    return getTemplateNamed(senderId,"ServiceRegisteredFull");
+    return getTemplateNamed(senderId,"ServiceRegisteredFull").replace("{app_name}",getApplicationName());
   }
  else   if (content instanceof ServiceGroupCreated) {
     return getTemplateNamed(senderId,"ServiceGroupCreatedFull");

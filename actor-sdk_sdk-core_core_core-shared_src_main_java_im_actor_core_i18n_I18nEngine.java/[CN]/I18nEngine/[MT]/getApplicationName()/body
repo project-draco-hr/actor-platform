@@ -1,0 +1,7 @@
+{
+  String appName=modules.getConfiguration().getCustomAppName();
+  if (appName == null) {
+    appName=locale.get("AppName");
+  }
+  return appName;
+}

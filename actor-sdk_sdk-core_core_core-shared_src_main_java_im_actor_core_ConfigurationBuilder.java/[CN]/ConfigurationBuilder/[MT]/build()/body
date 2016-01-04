@@ -14,5 +14,5 @@
   if (platformType == null) {
     throw new RuntimeException("App Category not set");
   }
-  return new Configuration(endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),phoneBookProvider,notificationProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,deviceCategory,platformType,minDelay,maxDelay,maxFailureCount,extensions.toArray(new ConfigurationExtension[extensions.size()]),timeZone,preferredLanguages.toArray(new String[preferredLanguages.size()]));
+  return new Configuration(endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),phoneBookProvider,notificationProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,deviceCategory,platformType,minDelay,maxDelay,maxFailureCount,extensions.toArray(new ConfigurationExtension[extensions.size()]),timeZone,preferredLanguages.toArray(new String[preferredLanguages.size()]),customAppName);
 }
