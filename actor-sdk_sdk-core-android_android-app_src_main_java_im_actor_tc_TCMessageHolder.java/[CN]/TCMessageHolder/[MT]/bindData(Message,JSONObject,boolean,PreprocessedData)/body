@@ -1,8 +1,6 @@
 {
   String render="";
-  JSONObject json=((Application.TCBotMesaage)message.getContent()).getJson();
   try {
-    final JSONObject data=json.getJSONObject("data");
     int id=data.getInt("id");
     render+="id: " + id + "\n";
     String state=data.getString("state");

@@ -7,7 +7,7 @@
       return getContentDescriptionEn();
     }
  else {
-      return "";
+      return getDataType();
     }
   }
 }

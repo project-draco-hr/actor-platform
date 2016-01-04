@@ -1,7 +1,7 @@
 {
 switch (id) {
 case 0:
-    return new TCMessageHolder(messagesAdapter,viewGroup,R.layout.custom_holder,false);
+    return new TCMessageHolder(messagesAdapter,viewGroup,R.layout.tc_holder,false);
 default :
   return null;
 }
