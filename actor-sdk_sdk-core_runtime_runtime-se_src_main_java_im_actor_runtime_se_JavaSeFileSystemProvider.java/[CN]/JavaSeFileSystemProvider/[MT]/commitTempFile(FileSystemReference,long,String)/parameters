@@ -1,0 +1,3 @@
+FileSystemReference sourceFile
+long fileId
+String fileName

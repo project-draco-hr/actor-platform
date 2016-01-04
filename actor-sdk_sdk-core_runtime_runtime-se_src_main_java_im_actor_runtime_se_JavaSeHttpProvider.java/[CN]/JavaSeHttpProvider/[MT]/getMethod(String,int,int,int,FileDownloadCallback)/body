@@ -1,0 +1,21 @@
+{
+  final Request request=new Request.Builder().url(url).addHeader("Range","bytes=" + startOffset + "-"+ (startOffset + size)).build();
+  Log.d(TAG,"Downloading part: " + request.toString());
+  client.newCall(request).enqueue(new Callback(){
+    @Override public void onFailure(    Request request,    IOException e){
+      Log.d(TAG,"Downloading part error: " + request.toString());
+      e.printStackTrace();
+      callback.onDownloadFailure();
+    }
+    @Override public void onResponse(    Response response) throws IOException {
+      Log.d(TAG,"Downloading part response: " + request.toString() + " -> "+ response.toString());
+      if (response.code() == 206) {
+        callback.onDownloaded(response.body().bytes());
+      }
+ else {
+        callback.onDownloadFailure();
+      }
+    }
+  }
+);
+}

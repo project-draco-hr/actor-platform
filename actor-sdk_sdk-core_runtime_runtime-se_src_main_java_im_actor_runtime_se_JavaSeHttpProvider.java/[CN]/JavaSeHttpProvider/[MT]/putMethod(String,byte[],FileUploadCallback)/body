@@ -1,0 +1,21 @@
+{
+  final Request request=new Request.Builder().url(url).method("PUT",RequestBody.create(MEDIA_TYPE,contents)).build();
+  Log.d(TAG,"Uploading part: " + request.toString());
+  client.newCall(request).enqueue(new Callback(){
+    @Override public void onFailure(    Request request,    IOException e){
+      Log.d(TAG,"Uploading part error: " + request.toString());
+      e.printStackTrace();
+      callback.onUploadFailure();
+    }
+    @Override public void onResponse(    Response response) throws IOException {
+      Log.d(TAG,"Upload part response: " + request.toString() + " -> "+ response.toString());
+      if (response.code() == 200) {
+        callback.onUploaded();
+      }
+ else {
+        callback.onUploadFailure();
+      }
+    }
+  }
+);
+}
