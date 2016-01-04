@@ -13,12 +13,4 @@
   packFirstLineMap=new HashMap<Integer,Integer>();
   stickerSwitchLp=new LinearLayout.LayoutParams(Screen.dp(48),Screen.dp(48));
   padding=Screen.dp(8);
-  packs=messenger().getOwnStickerPacks();
-  ((BaseActivity)context).bind(packs,new ValueChangedListener<ArrayList<StickerPackVM>>(){
-    @Override public void onChanged(    ArrayList<StickerPackVM> val,    Value<ArrayList<StickerPackVM>> valueModel){
-      buildStickerLines(scrollTo);
-      notifyDataSetChanged();
-    }
-  }
-);
 }

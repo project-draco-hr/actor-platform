@@ -1,6 +1,6 @@
 {
   builder=new GenericDraweeHierarchyBuilder(getResources());
-  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setActualImageScaleType(ScalingUtils.ScaleType.CENTER_INSIDE).build();
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER).build();
   setHierarchy(hierarchy);
   fastThumbLoader=new FastThumbLoader(this);
 }

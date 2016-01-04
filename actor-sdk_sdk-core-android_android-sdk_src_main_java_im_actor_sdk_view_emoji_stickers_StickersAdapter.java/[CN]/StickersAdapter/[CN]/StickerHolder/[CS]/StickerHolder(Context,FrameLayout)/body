@@ -1,0 +1,16 @@
+{
+  super(fl);
+  sv=new StickerView(context);
+  int padding=Screen.dp(5);
+  sv.setPadding(padding,padding,padding,padding);
+  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(Screen.dp(70),Screen.dp(70),Gravity.CENTER);
+  fl.addView(sv,params);
+  fl.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (s != null) {
+        keyboard.onStickerClicked(s);
+      }
+    }
+  }
+);
+}

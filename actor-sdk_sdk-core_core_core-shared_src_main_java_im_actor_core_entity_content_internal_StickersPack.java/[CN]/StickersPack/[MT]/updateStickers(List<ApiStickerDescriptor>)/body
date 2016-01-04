@@ -1,6 +1,0 @@
-{
-  ApiStickerCollection w=getWrapped();
-  ApiStickerCollection res=new ApiStickerCollection(w.getId(),w.getAccessHash(),nStickers);
-  res.setUnmappedObjects(w.getUnmappedObjects());
-  return new StickersPack(res);
-}

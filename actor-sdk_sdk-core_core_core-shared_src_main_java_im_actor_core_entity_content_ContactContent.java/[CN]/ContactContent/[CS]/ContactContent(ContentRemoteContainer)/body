@@ -8,7 +8,6 @@
     photo64=contact.getString("photo");
   }
  catch (  Exception e) {
-    e.printStackTrace();
   }
   phones=new ArrayList<String>();
   JSONArray phonesJson=contact.getJSONArray("phones");

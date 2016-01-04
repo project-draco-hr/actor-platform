@@ -3,6 +3,6 @@
   this.accessHash=wrapped.getAccessHash();
   this.stickers=new ArrayList<Sticker>();
   for (  ApiStickerDescriptor m : wrapped.getStickers()) {
-    this.stickers.add(new Sticker(m,id,accessHash));
+    this.stickers.add(new Sticker(m,id,localId,accessHash));
   }
 }

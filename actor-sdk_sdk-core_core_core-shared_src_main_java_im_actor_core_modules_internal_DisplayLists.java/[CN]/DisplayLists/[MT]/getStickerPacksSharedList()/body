@@ -1,0 +1,7 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  if (stickerPacksList == null) {
+    stickerPacksList=buildStickerPacksList(true);
+  }
+  return stickerPacksList;
+}

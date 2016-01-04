@@ -1,0 +1,7 @@
+{
+  this.packs=context().getStickersModule().getPacksEngine();
+  this.stickers=context().getStickersModule().getStickersEngine();
+  if (packs.getCount() == 0) {
+    loadStickers();
+  }
+}

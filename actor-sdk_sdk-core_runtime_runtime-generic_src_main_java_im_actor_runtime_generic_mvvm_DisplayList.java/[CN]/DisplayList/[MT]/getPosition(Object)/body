@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < lists[currentList].size(); i++) {
+    if (lists[currentList].get(i).equals(find)) {
+      return i;
+    }
+  }
+  return -1;
+}

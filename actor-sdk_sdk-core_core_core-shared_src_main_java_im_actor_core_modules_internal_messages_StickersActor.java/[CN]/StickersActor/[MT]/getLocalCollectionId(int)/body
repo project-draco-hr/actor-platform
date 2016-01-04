@@ -1,0 +1,9 @@
+{
+  int id=context().getPreferences().getInt("sticker_packs_local_id_map" + collectionId,-1);
+  if (id == -1) {
+    id=context().getPreferences().getInt("sticker_packs_local_id_increment",0);
+    context().getPreferences().putInt("sticker_packs_local_id_map" + collectionId,id);
+    context().getPreferences().putInt("sticker_packs_local_id_increment",++id);
+  }
+  return id;
+}

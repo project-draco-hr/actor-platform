@@ -1,0 +1,16 @@
+{
+  super(fl);
+  sv=new StickerView(context);
+  int padding=Screen.dp(2);
+  sv.setPadding(padding,padding,padding,padding);
+  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(Screen.dp(20),Screen.dp(20),Gravity.CENTER);
+  fl.addView(sv,params);
+  fl.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (sp != null) {
+        stickersAdapter.scrollToSticker(new Sticker(null,0,s.getLocalCollectionId(),0,true));
+      }
+    }
+  }
+);
+}

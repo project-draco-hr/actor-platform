@@ -1,0 +1,13 @@
+{
+  if (stickersList == null) {
+    stickersList=(BindedDisplayList<Sticker>)modules.getDisplayListsModule().getStickersSharedList();
+    stickersList.setBindHook(new BindedDisplayList.BindHook<Sticker>(){
+      @Override public void onScrolledToEnd(){
+      }
+      @Override public void onItemTouched(      Sticker item){
+      }
+    }
+);
+  }
+  return stickersList;
+}
