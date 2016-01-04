@@ -1,0 +1,4 @@
+{
+  ConfigurationBuilder builder=new ConfigurationBuilder();
+  JavaSeMessenger messenger=new JavaSeMessenger(builder.build());
+}
