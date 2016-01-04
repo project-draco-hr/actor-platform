@@ -20,6 +20,9 @@
   String timeZone=TimeZone.getDefault().getID();
   Log.d(TAG,"Found TimeZone: " + timeZone);
   builder.setTimeZone(timeZone);
+  if (customApplicationName != null) {
+    builder.setCustomAppName(customApplicationName);
+  }
   this.messenger=new AndroidMessenger(AndroidContext.getContext(),builder.build());
   if (isKeepAliveEnabled) {
     Intent keepAliveService=new Intent(application,KeepAliveService.class);
