@@ -9,6 +9,17 @@
     dialogsList.stopReconverting();
   }
   if (dialogsGroupedList != null) {
+    ArrayList<DialogGroup> groups=context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel().get();
+    if (groups != null) {
+      outer:       for (      DialogGroup g : groups) {
+        for (        DialogSmall ds : g.getDialogs()) {
+          if (checkAvatar(ds.getAvatar(),fileId)) {
+            context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel().forceNotify();
+            break outer;
+          }
+        }
+      }
+    }
   }
   if (contactsList != null) {
     contactsList.startReconverting();
