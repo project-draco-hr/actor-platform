@@ -1,0 +1,3 @@
+{
+  sha512Digest.update(src,offset,length);
+}

@@ -1,7 +1,0 @@
-byte[] secret
-byte[] message
-int offset
-int length
-byte[] dest
-int destOffset
-Hash hash

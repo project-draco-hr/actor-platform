@@ -1,18 +1,16 @@
 {
-  byte[] content=cbcCipher.decrypt(iv,encryptedContent);
-  byte[] hmac=new byte[32];
+  byte[] content=cbcBlockCipher.decrypt(iv,encryptedContent);
+  byte[] hmacValue=new byte[32];
   int length=ByteStrings.bytesToInt(content);
-  HMAC.hmac(hmacKey,content,4,length,hmac,0,new SHA256());
+  hmac.calculate(hmacKey,content,0,length + 4,hmacValue,0);
   for (int i=0; i < 32; i++) {
-    if (hmac[i] != content[length + 4 + i]) {
+    if (hmacValue[i] != content[length + 4 + i]) {
       throw new RuntimeException("Broken package!");
     }
   }
-  int padding=content[content.length - 1] & 0xFF;
-  for (int i=0; i < padding; i++) {
-    if ((content[content.length - 1 - i] & 0xFF) != padding) {
-      throw new RuntimeException("Broken package!");
-    }
+  int paddingSize=content[content.length - 1] & 0xFF;
+  if (!padding.validate(content,content.length - paddingSize,paddingSize)) {
+    throw new RuntimeException("Broken package!");
   }
   return ByteStrings.substring(content,4,length);
 }

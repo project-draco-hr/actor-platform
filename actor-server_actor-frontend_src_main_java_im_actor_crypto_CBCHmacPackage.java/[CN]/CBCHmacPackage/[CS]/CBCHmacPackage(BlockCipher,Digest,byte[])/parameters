@@ -1,0 +1,3 @@
+BlockCipher baseCipher
+Digest baseDigest
+byte[] hmacKey

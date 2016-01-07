@@ -1,3 +1,0 @@
-BlockCipher baseCipher
-Hash baseHash
-byte[] hmacKey

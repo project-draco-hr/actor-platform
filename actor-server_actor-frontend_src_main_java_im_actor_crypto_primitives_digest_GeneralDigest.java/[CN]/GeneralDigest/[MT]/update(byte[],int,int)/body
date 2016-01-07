@@ -1,0 +1,22 @@
+{
+  len=Math.max(0,len);
+  int i=0;
+  if (xBufOff != 0) {
+    while (i < len) {
+      xBuf[xBufOff++]=in[inOff + i++];
+      if (xBufOff == 4) {
+        processWord(xBuf,0);
+        xBufOff=0;
+        break;
+      }
+    }
+  }
+  int limit=((len - i) & ~3) + i;
+  for (; i < limit; i+=4) {
+    processWord(in,inOff + i);
+  }
+  while (i < len) {
+    xBuf[xBufOff++]=in[inOff + i++];
+  }
+  byteCount+=len;
+}

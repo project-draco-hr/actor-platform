@@ -8,7 +8,7 @@
   byte[] res=new byte[length];
   ByteStrings.write(res,0,ByteStrings.intToBytes(content.length),0,4);
   ByteStrings.write(res,4,content,0,content.length);
-  HMAC.hmac(hmacKey,res,0,content.length + 4,res,content.length + 4,new SHA256());
-  padding.padding(res,res.length - paddingLength,paddingLength);
-  return cbcCipher.encrypt(iv,res);
+  hmac.calculate(hmacKey,res,0,content.length + 4,res,content.length + 4);
+  padding.padding(res,res.length - paddingLength - 1,paddingLength + 1);
+  return cbcBlockCipher.encrypt(iv,res);
 }
