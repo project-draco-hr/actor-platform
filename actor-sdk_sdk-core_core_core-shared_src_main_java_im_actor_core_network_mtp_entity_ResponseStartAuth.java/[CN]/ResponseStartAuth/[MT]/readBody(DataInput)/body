@@ -1,0 +1,5 @@
+{
+  randomId=bs.readLong();
+  availableKeys=bs.readProtoLongs();
+  serverNonce=bs.readProtoBytes();
+}

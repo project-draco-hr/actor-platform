@@ -1,0 +1,6 @@
+{
+  Log.w(TAG,"Auth id created #" + authId);
+  keyStorage.saveAuthKey(authId);
+  keyStorage.saveMasterKey(authKey);
+  self().send(new InitMTProto(authId));
+}

@@ -1,0 +1,22 @@
+{
+  goToState(new ActorState(){
+    @Override public ProtoStruct sendStartMessage() throws IOException {
+      Log.d(TAG,"Sending RequestStartAuth");
+      return new RequestStartAuth(randomId);
+    }
+    @Override public void onMessage(    ProtoStruct struct) throws IOException {
+      if (struct instanceof ResponseStartAuth) {
+        ResponseStartAuth startAuth=(ResponseStartAuth)struct;
+        if (startAuth.getRandomId() != randomId) {
+          throw new IOException("Incorrect RandomId");
+        }
+        long[] keys=startAuth.getAvailableKeys();
+        gotoKeyDownloadState(keys[0],startAuth.getServerNonce());
+      }
+ else {
+        throw new IOException("Expected: ResponseStartAuth, got: " + struct.getClass().getName());
+      }
+    }
+  }
+);
+}

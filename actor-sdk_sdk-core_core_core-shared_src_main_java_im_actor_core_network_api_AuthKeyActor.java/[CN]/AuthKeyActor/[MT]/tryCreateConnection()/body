@@ -1,0 +1,24 @@
+{
+  Log.d(TAG,"Trying to connect...");
+  final int currentConnection=++connectionId;
+  Network.createConnection(currentConnection,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(),new ConnectionCallback(){
+    @Override public void onConnectionRedirect(    String host,    int port,    int timeout){
+      self().send(new AuthKeyActor.OnConnectionDie(currentConnection));
+    }
+    @Override public void onMessage(    byte[] data,    int offset,    int len){
+      self().send(new AuthKeyActor.OnMessage(currentConnection,data,offset,len));
+    }
+    @Override public void onConnectionDie(){
+      self().send(new AuthKeyActor.OnConnectionDie(currentConnection));
+    }
+  }
+,new CreateConnectionCallback(){
+    @Override public void onConnectionCreated(    Connection connection){
+      AuthKeyActor.this.onConnectionCreated(currentConnection,connection);
+    }
+    @Override public void onConnectionCreateError(){
+      self().send(new AuthKeyActor.OnConnectionDie(currentConnection));
+    }
+  }
+);
+}

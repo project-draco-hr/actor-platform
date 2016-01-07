@@ -1,0 +1,3 @@
+long keyId
+byte[] key
+byte[] serverNonce

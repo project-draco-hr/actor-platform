@@ -1,0 +1,3 @@
+{
+  return preferencesStorage.getBytes("auth_master_key");
+}

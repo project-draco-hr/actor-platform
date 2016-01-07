@@ -1,0 +1,5 @@
+{
+  randomId=bs.readLong();
+  verify=bs.readProtoBytes();
+  verifySign=bs.readProtoBytes();
+}

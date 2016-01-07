@@ -1,0 +1,39 @@
+{
+  final byte[] clientNonce=new byte[32];
+  random.nextBytes(clientNonce);
+  final Curve25519KeyPair clientKeyPair=curve25519.keyGen();
+  goToState(new ActorState(){
+    @Override public ProtoStruct sendStartMessage() throws IOException {
+      Log.d(TAG,"Sending RequestDH");
+      return new RequestDH(randomId,keyId,clientNonce,clientKeyPair.getPublicKey());
+    }
+    @Override public void onMessage(    ProtoStruct struct) throws IOException {
+      if (struct instanceof ResponseDoDH) {
+        ResponseDoDH r=(ResponseDoDH)struct;
+        if (r.getRandomId() != randomId) {
+          throw new IOException("Incorrect RandomId");
+        }
+        PRF masterPRF=new PRF(new SHA256(),"master secret",256);
+        PRF clientPRF=new PRF(new SHA256(),"client finished",256);
+        byte[] nonce=ByteStrings.merge(clientNonce,serverNonce);
+        byte[] pre_master_secret=curve25519.calculateAgreement(clientKeyPair.getPrivateKey(),key);
+        byte[] master_secret=masterPRF.calculate(pre_master_secret,nonce);
+        byte[] verify=clientPRF.calculate(master_secret,nonce);
+        if (!curve25519.verifySignature(key,verify,r.getVerifySign())) {
+          throw new IOException("Incorrect Signature");
+        }
+        SHA256 sha256=new SHA256();
+        sha256.update(master_secret,0,master_secret.length);
+        byte[] authIdHash=new byte[32];
+        sha256.doFinal(authIdHash,0);
+        long authId=ByteStrings.bytesToLong(authIdHash);
+        Log.d(TAG,"Key successfully created #" + authId);
+        gotoSuccess(master_secret,authId);
+      }
+ else {
+        throw new IOException("Expected: ResponseGetServerKey, got: " + struct.getClass().getName());
+      }
+    }
+  }
+);
+}

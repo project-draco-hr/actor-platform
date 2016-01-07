@@ -1,0 +1,6 @@
+{
+  bs.writeLong(randomId);
+  bs.writeLong(keyId);
+  bs.writeProtoBytes(clientNonce,0,clientNonce.length);
+  bs.writeProtoBytes(clientKey,0,clientKey.length);
+}

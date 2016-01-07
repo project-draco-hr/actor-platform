@@ -1,0 +1,5 @@
+{
+  bs.writeLong(randomId);
+  bs.writeProtoBytes(verify,0,verify.length);
+  bs.writeProtoBytes(verifySign,0,verifySign.length);
+}

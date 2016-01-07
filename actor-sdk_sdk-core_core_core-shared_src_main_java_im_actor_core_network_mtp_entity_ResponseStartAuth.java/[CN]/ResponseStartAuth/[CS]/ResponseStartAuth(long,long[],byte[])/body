@@ -1,0 +1,5 @@
+{
+  this.randomId=randomId;
+  this.availableKeys=availableKeys;
+  this.serverNonce=serverNonce;
+}

@@ -1,0 +1,14 @@
+{
+  try {
+    if (currentState == null) {
+      throw new IOException();
+    }
+    ProtoStruct struct=currentState.sendStartMessage();
+    byte[] data=new ProtoPackage(0,0,new ProtoMessage(0,struct.toByteArray())).toByteArray();
+    connection.post(data,0,data.length);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    crashConnection();
+  }
+}

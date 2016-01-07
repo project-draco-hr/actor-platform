@@ -1,0 +1,4 @@
+{
+  keyId=bs.readLong();
+  key=bs.readProtoBytes();
+}

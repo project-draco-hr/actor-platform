@@ -1,0 +1,6 @@
+{
+  randomId=bs.readLong();
+  keyId=bs.readLong();
+  clientNonce=bs.readProtoBytes();
+  clientKey=bs.readProtoBytes();
+}

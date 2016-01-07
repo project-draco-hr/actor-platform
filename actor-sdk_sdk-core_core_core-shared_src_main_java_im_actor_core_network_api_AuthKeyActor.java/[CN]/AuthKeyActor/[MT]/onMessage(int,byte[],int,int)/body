@@ -1,0 +1,36 @@
+{
+  if (connectionId != this.connectionId) {
+    Log.d(TAG,"Too old: ignoring");
+    return;
+  }
+  ProtoStruct protoStruct;
+  try {
+    DataInput dataInput=new DataInput(data,offset,len);
+    ProtoPackage protoPackage=new ProtoPackage(dataInput);
+    if (protoPackage.getAuthId() != 0) {
+      throw new IOException("AuthId != 0");
+    }
+    if (protoPackage.getSessionId() != 0) {
+      throw new IOException("Session != 0");
+    }
+    if (protoPackage.getPayload().getMessageId() != 0) {
+      throw new IOException("MessageId != 0");
+    }
+    protoStruct=ProtoSerializer.readMessagePayload(protoPackage.getPayload().getPayload());
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    crashConnection();
+    return;
+  }
+  try {
+    if (currentState == null) {
+      throw new IOException();
+    }
+    currentState.onMessage(protoStruct);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    crashConnection();
+  }
+}

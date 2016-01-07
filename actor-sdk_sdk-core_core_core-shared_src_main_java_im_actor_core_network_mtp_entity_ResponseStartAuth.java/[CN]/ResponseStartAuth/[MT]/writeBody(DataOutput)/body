@@ -1,0 +1,5 @@
+{
+  bs.writeLong(randomId);
+  bs.writeProtoLongs(availableKeys);
+  bs.writeBytes(serverNonce);
+}

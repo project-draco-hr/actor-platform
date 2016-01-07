@@ -1,7 +1,13 @@
 {
   this.currentAuthId=keyStorage.getAuthKey();
+  this.keyManager=system().actorOf(Props.create(AuthKeyActor.class,new ActorCreator<AuthKeyActor>(){
+    @Override public AuthKeyActor create(){
+      return new AuthKeyActor();
+    }
+  }
+),getPath() + "/key");
   if (currentAuthId == 0) {
-    self().send(new RequestAuthId());
+    this.keyManager.send(new AuthKeyActor.StartKeyCreation(this.endpoints),self());
   }
  else {
     if (isEnableLog) {

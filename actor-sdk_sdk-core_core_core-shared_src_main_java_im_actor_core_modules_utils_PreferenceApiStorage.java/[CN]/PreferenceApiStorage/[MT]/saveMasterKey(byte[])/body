@@ -1,0 +1,3 @@
+{
+  preferencesStorage.putBytes("auth_master_key",masterKey);
+}

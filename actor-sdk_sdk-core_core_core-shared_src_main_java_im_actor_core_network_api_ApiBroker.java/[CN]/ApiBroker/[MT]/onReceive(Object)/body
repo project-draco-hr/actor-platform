@@ -1,8 +1,5 @@
 {
-  if (message instanceof RequestAuthId) {
-    requestAuthId();
-  }
- else   if (message instanceof InitMTProto) {
+  if (message instanceof InitMTProto) {
     InitMTProto initMTProto=(InitMTProto)message;
     createMtProto(initMTProto.getAuthId());
   }
@@ -43,6 +40,9 @@
   }
  else   if (message instanceof ConnectionsCountChanged) {
     connectionCountChanged(((ConnectionsCountChanged)message).getCount());
+  }
+ else   if (message instanceof AuthKeyActor.KeyCreated) {
+    onKeyCreated(((AuthKeyActor.KeyCreated)message).getAuthKeyId(),((AuthKeyActor.KeyCreated)message).getAuthKey());
   }
  else {
     drop(message);

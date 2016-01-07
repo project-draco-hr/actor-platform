@@ -1,0 +1,4 @@
+{
+  bs.writeLong(keyId);
+  bs.writeProtoBytes(key,0,key.length);
+}

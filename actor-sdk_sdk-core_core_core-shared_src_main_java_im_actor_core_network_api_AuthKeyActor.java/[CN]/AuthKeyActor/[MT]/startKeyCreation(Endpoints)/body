@@ -1,0 +1,16 @@
+{
+  Log.d(TAG,"startKeyCreation");
+  if (sender() == null) {
+    return;
+  }
+  if (connection != null) {
+    connection.close();
+    connection=null;
+  }
+  this.parentActor=sender();
+  this.endpoints=endpoints;
+  this.randomId=random.nextLong();
+  this.exponentialBackoff.reset();
+  goToStartState();
+  self().send(new TryCreateConnection());
+}

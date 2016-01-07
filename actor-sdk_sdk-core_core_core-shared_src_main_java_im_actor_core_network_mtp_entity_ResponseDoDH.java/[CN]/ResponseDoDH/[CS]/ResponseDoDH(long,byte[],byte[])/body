@@ -1,0 +1,5 @@
+{
+  this.randomId=randomId;
+  this.verify=verify;
+  this.verifySign=verifySign;
+}

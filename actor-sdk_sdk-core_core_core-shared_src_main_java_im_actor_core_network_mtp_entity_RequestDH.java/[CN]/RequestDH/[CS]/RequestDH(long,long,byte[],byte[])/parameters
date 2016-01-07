@@ -1,0 +1,4 @@
+long randomId
+long keyId
+byte[] clientNonce
+byte[] clientKey

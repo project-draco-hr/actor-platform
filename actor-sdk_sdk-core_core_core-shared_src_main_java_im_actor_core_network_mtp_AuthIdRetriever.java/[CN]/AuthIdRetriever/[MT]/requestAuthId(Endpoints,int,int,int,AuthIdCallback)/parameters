@@ -1,5 +1,0 @@
-Endpoints endpoints
-int minDelay
-int maxDelay
-int maxFailureCount
-AuthIdCallback callback

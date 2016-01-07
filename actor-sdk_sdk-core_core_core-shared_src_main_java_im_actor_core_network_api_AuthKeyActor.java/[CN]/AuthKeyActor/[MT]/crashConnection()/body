@@ -1,0 +1,8 @@
+{
+  Log.d(TAG,"Crashing connection");
+  this.connectionId++;
+  if (this.connection != null) {
+    this.connection.close();
+    this.connection=null;
+  }
+}

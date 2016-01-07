@@ -1,0 +1,6 @@
+{
+  this.randomId=randomId;
+  this.keyId=keyId;
+  this.clientNonce=clientNonce;
+  this.clientKey=clientKey;
+}

@@ -1,0 +1,4 @@
+{
+  parentActor.send(new KeyCreated(authId,masterKey));
+  crashConnectionAndState();
+}

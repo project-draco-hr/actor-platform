@@ -1,0 +1,20 @@
+{
+  if (message instanceof StartKeyCreation) {
+    startKeyCreation(((StartKeyCreation)message).getEndpoints());
+  }
+ else   if (message instanceof OnConnectionDie) {
+    onConnectionDie(((OnConnectionDie)message).getConnectionId());
+  }
+ else   if (message instanceof OnConnectionCreated) {
+    onConnectionCreated(((OnConnectionCreated)message).getConnectionId(),((OnConnectionCreated)message).getConnection());
+  }
+ else   if (message instanceof OnMessage) {
+    onMessage(((OnMessage)message).getConnectionId(),((OnMessage)message).getData(),((OnMessage)message).getOffset(),((OnMessage)message).getLength());
+  }
+ else   if (message instanceof TryCreateConnection) {
+    tryCreateConnection();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

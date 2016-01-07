@@ -1,0 +1,11 @@
+{
+  Log.d(TAG,"onConnectionCreated");
+  if (connectionId != this.connectionId) {
+    connection.close();
+    Log.d(TAG,"Too old: ignoring");
+    return;
+  }
+  exponentialBackoff.onSuccess();
+  this.connection=connection;
+  onConnectionStarted();
+}
