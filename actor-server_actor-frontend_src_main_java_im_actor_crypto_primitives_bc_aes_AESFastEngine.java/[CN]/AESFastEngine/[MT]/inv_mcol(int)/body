@@ -1,0 +1,9 @@
+{
+  int t0, t1;
+  t0=x;
+  t1=t0 ^ shift(t0,8);
+  t0^=FFmulX(t1);
+  t1^=FFmulX2(t0);
+  t0^=t1 ^ shift(t1,16);
+  return t0;
+}

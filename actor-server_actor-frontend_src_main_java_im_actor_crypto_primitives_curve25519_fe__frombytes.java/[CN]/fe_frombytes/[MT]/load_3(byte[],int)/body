@@ -1,0 +1,7 @@
+{
+  long result;
+  result=((long)in[index + 0]) & 0xFF;
+  result|=(((long)in[index + 1]) << 8) & 0xFF00;
+  result|=(((long)in[index + 2]) << 16) & 0xFF0000;
+  return result;
+}

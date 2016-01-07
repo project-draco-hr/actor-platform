@@ -1,0 +1,9 @@
+{
+  byte[] randomBytes=new byte[32];
+  random.nextBytes(randomBytes);
+  byte[] privateKey=SHA256.calc(randomBytes);
+  privateKey[0]&=248;
+  privateKey[31]&=127;
+  privateKey[31]|=64;
+  return privateKey;
+}

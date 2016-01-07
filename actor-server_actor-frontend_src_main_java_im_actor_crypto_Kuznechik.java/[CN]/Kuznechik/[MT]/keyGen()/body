@@ -1,0 +1,5 @@
+{
+  byte[] key=new byte[32];
+  random.nextBytes(key);
+  return new KuznechikKey(key);
+}

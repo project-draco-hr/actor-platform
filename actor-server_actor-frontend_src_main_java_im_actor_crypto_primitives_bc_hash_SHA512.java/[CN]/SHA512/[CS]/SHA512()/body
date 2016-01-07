@@ -1,0 +1,9 @@
+{
+  try {
+    md=MessageDigest.getInstance("SHA-512");
+  }
+ catch (  NoSuchAlgorithmException e) {
+    e.printStackTrace();
+    throw new RuntimeException("SHA-512 is not available");
+  }
+}

@@ -1,0 +1,7 @@
+{
+  this.cbcCipher=new CBCCipher(baseCipher);
+  this.baseCipher=baseCipher;
+  this.baseHash=baseHash;
+  this.hmacKey=hmacKey;
+  this.padding=new TLSPadding();
+}

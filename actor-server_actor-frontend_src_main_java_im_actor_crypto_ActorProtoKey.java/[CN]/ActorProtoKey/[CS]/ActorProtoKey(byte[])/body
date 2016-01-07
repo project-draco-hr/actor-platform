@@ -1,0 +1,6 @@
+{
+  clientMacKey=ByteStrings.substring(masterKey,0,32);
+  serverMacKey=ByteStrings.substring(masterKey,32,32);
+  clientKey=ByteStrings.substring(masterKey,64,32);
+  serverKey=ByteStrings.substring(masterKey,96,32);
+}

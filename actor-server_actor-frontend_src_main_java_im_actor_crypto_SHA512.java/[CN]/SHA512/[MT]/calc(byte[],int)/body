@@ -1,0 +1,12 @@
+{
+  MessageDigest md;
+  try {
+    md=MessageDigest.getInstance("SHA-512");
+  }
+ catch (  NoSuchAlgorithmException e) {
+    e.printStackTrace();
+    throw new RuntimeException("SHA-256 is not available");
+  }
+  md.update(arg,0,length);
+  return md.digest();
+}

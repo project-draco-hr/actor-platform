@@ -1,0 +1,4 @@
+{
+  CBCCipher cbcCipher=new CBCCipher(new KuznechikCipher(key));
+  return cbcCipher.decrypt(iv,data);
+}
