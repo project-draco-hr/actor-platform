@@ -1,0 +1,18 @@
+{
+  System.arraycopy(xBuf,0,state,0,xBufOff);
+  Pack.intToBigEndian(xBufOff,state,8);
+  Pack.longToBigEndian(byteCount1,state,12);
+  Pack.longToBigEndian(byteCount2,state,20);
+  Pack.longToBigEndian(H1,state,28);
+  Pack.longToBigEndian(H2,state,36);
+  Pack.longToBigEndian(H3,state,44);
+  Pack.longToBigEndian(H4,state,52);
+  Pack.longToBigEndian(H5,state,60);
+  Pack.longToBigEndian(H6,state,68);
+  Pack.longToBigEndian(H7,state,76);
+  Pack.longToBigEndian(H8,state,84);
+  Pack.intToBigEndian(wOff,state,92);
+  for (int i=0; i < wOff; i++) {
+    Pack.longToBigEndian(W[i],state,96 + (i * 8));
+  }
+}

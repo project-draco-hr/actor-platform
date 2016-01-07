@@ -1,0 +1,5 @@
+{
+  yplusx=new int[10];
+  yminusx=new int[10];
+  xy2d=new int[10];
+}

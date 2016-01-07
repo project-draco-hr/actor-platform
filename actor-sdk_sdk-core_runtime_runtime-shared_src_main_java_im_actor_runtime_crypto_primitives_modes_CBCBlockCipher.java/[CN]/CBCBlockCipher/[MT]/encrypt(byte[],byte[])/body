@@ -1,0 +1,25 @@
+{
+  if (data.length % blockSize != 0) {
+    throw new RuntimeException("Incorrect data size");
+  }
+  if (iv.length != blockSize) {
+    throw new RuntimeException("Incorrect iv size");
+  }
+  byte[] currentBlock=new byte[blockSize];
+  byte[] res=new byte[data.length];
+  byte[] currentIV=new byte[blockSize];
+  for (int i=0; i < blockSize; i++) {
+    currentIV[i]=iv[i];
+  }
+  int count=data.length / blockSize;
+  for (int i=0; i < count; i++) {
+    for (int j=0; j < blockSize; j++) {
+      currentBlock[j]=(byte)((data[i * blockSize + j] & 0xFF) ^ (currentIV[j] & 0xFF));
+    }
+    blockCipher.encryptBlock(currentBlock,0,res,i * blockSize);
+    for (int j=0; j < blockSize; j++) {
+      currentIV[j]=res[i * blockSize + j];
+    }
+  }
+  return res;
+}

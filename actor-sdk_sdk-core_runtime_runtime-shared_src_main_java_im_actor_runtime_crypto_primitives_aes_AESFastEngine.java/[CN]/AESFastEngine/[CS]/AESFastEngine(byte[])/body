@@ -1,0 +1,4 @@
+{
+  encryptionKey=generateWorkingKey(key,true);
+  decryptionKey=generateWorkingKey(key,false);
+}

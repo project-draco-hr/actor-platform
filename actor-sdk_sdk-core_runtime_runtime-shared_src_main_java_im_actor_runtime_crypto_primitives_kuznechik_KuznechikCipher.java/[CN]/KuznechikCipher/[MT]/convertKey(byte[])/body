@@ -1,0 +1,34 @@
+{
+  if (key.length != 32) {
+    throw new RuntimeException("Key might be 32 bytes length");
+  }
+  KuzIntKey kuz=new KuzIntKey();
+  Kuz128 c=new Kuz128(), x=new Kuz128(), y=new Kuz128(), z=new Kuz128();
+  for (int i=0; i < 16; i++) {
+    x.getB()[i]=key[i];
+    y.getB()[i]=key[i + 16];
+  }
+  kuz.getK()[0].set(x);
+  kuz.getK()[1].set(y);
+  for (int i=1; i <= 32; i++) {
+    c.setQ(0,0);
+    c.setQ(1,0);
+    c.getB()[15]=(byte)i;
+    KuznechikMath.kuz_l(c);
+    z.setQ(0,x.getQ(0) ^ c.getQ(0));
+    z.setQ(1,x.getQ(1) ^ c.getQ(1));
+    for (int j=0; j < 16; j++) {
+      z.getB()[j]=KuznechikTables.kuz_pi[(z.getB()[j] & 0xFF)];
+    }
+    KuznechikMath.kuz_l(z);
+    z.setQ(0,z.getQ(0) ^ y.getQ(0));
+    z.setQ(1,z.getQ(1) ^ y.getQ(1));
+    y.set(x);
+    x.set(z);
+    if ((i & 7) == 0) {
+      kuz.getK()[(i >> 2)].set(x);
+      kuz.getK()[(i >> 2) + 1].set(y);
+    }
+  }
+  return kuz;
+}

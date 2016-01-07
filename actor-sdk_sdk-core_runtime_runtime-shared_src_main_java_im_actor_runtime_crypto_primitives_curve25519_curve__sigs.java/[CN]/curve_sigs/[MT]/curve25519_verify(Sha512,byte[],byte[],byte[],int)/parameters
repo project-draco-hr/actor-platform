@@ -1,0 +1,5 @@
+Sha512 sha512provider
+byte[] signature
+byte[] curve25519_pubkey
+byte[] msg
+int msg_len

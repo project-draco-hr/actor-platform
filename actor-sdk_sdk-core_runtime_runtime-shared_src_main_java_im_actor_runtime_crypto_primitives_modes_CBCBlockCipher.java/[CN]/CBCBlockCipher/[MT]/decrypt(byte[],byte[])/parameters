@@ -1,0 +1,2 @@
+byte[] iv
+byte[] data

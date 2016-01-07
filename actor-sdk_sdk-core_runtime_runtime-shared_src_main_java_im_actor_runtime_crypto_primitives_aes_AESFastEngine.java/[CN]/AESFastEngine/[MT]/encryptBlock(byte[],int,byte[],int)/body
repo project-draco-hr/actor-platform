@@ -1,0 +1,11 @@
+{
+  if ((offset + (32 / 2)) > data.length) {
+    throw new RuntimeException("input buffer too short");
+  }
+  if ((destOffset + (32 / 2)) > dest.length) {
+    throw new RuntimeException("output buffer too short");
+  }
+  unpackBlock(data,offset);
+  encryptBlock(encryptionKey);
+  packBlock(dest,destOffset);
+}

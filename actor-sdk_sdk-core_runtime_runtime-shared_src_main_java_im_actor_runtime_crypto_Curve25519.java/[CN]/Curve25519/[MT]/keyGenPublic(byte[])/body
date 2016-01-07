@@ -1,0 +1,5 @@
+{
+  byte[] publicKey=new byte[32];
+  curve_sigs.curve25519_keygen(publicKey,privateKey);
+  return publicKey;
+}

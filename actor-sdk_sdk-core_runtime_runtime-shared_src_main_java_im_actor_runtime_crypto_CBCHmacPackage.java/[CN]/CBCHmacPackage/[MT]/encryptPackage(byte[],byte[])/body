@@ -1,0 +1,14 @@
+{
+  int paddingLength=0;
+  int length=32 + 4 + content.length+ 1;
+  if (length % 32 != 0) {
+    paddingLength=32 - length % 32;
+    length+=paddingLength;
+  }
+  byte[] res=new byte[length];
+  ByteStrings.write(res,0,ByteStrings.intToBytes(content.length),0,4);
+  ByteStrings.write(res,4,content,0,content.length);
+  hmac.calculate(hmacKey,res,0,content.length + 4,res,content.length + 4);
+  padding.padding(res,res.length - paddingLength,paddingLength);
+  return cbcBlockCipher.encrypt(iv,res);
+}

@@ -1,0 +1,15 @@
+{
+  long a1=data[offset + 3] & 0xFF;
+  long a2=data[offset + 2] & 0xFF;
+  long a3=data[offset + 1] & 0xFF;
+  long a4=data[offset + 0] & 0xFF;
+  long res1=(a1) + (a2 << 8) + (a3 << 16)+ (a4 << 24);
+  offset+=4;
+  long b1=data[offset + 3] & 0xFF;
+  long b2=data[offset + 2] & 0xFF;
+  long b3=data[offset + 1] & 0xFF;
+  long b4=data[offset + 0] & 0xFF;
+  long res2=(b1) + (b2 << 8) + (b3 << 16)+ (b4 << 24);
+  offset+=4;
+  return res2 + (res1 << 32);
+}

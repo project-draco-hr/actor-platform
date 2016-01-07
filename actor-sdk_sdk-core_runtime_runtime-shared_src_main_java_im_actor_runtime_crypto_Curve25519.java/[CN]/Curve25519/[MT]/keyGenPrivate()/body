@@ -1,0 +1,12 @@
+{
+  byte[] randomBytes=new byte[32];
+  random.nextBytes(randomBytes);
+  byte[] privateKey=new byte[32];
+  SHA256 sha256=new SHA256();
+  sha256.update(randomBytes,0,32);
+  sha256.doFinal(privateKey,0);
+  privateKey[0]&=248;
+  privateKey[31]&=127;
+  privateKey[31]|=64;
+  return privateKey;
+}
