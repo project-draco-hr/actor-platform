@@ -1,5 +1,0 @@
-{
-  super(displayList);
-  this.context=context;
-  this.stickersAdapter=stickersAdapter;
-}

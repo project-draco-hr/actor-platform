@@ -8,6 +8,7 @@
   fl.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (s != null) {
+        s.setThumb(sv.getThumb());
         keyboard.onStickerClicked(s);
       }
     }

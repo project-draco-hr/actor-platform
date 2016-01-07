@@ -5,7 +5,8 @@
   for (  ApiStickerCollection collection : updated) {
     add.add(StickersPack.createLocalStickerPack(collection,getLocalCollectionId(collection.getId())));
     if (collection.getStickers().size() > 0) {
-      stickers.addOrUpdateItem(new Sticker(collection.getStickers().get(0),collection.getId(),getLocalCollectionId(collection.getId()),collection.getAccessHash(),true));
+      Sticker stickerHeader=new Sticker(collection.getStickers().get(0),collection.getId(),getLocalCollectionId(collection.getId()),collection.getAccessHash(),true);
+      stickers.addOrUpdateItem(stickerHeader);
     }
     StickersPack oldPack=packs.getValue(collection.getId());
     if (oldPack != null) {

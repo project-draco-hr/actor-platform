@@ -1,6 +1,7 @@
 {
   request(new RequestLoadOwnStickers(),new RpcCallback<ResponseLoadOwnStickers>(){
     @Override public void onResult(    final ResponseLoadOwnStickers response){
+      context().getPreferences().putBool("stickers_loaded",true);
       updates().onUpdateReceived(new StickersLoaded(response.getOwnStickers()));
     }
     @Override public void onError(    RpcException e){

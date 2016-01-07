@@ -4,7 +4,7 @@
   this.stickerCollectionId=collectionId;
   this.stickerId=isHeader ? localCollectionId : apiStickerDescriptor.getId();
   this.localCollectionId=localCollectionId;
-  if (isHeader) {
+  if (apiStickerDescriptor == null) {
     this.apiImageLocation128=new ApiImageLocation();
     this.apiImageLocation256=new ApiImageLocation();
     this.apiImageLocation512=new ApiImageLocation();

@@ -1,7 +1,0 @@
-{
-  ll=new LinearLayout(context);
-  ll.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,STICKER_SIZE));
-  ll.setPadding(leftPadding,0,0,0);
-  ll.setOrientation(LinearLayout.HORIZONTAL);
-  return ll;
-}

@@ -16,4 +16,20 @@
     }
   }
 );
+  recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+    Sticker s;
+    @Override public void onScrolled(    RecyclerView recyclerView,    int dx,    int dy){
+      super.onScrolled(recyclerView,dx,dy);
+      int firstVisiblePosition=layoutManager.findFirstCompletelyVisibleItemPosition();
+      s=getItem(firstVisiblePosition);
+      int newTopPack=s.getLocalCollectionId();
+      if (newTopPack != topPack) {
+        topPack=newTopPack;
+        if (packsAdapter != null) {
+          packsAdapter.selectPack(newTopPack);
+        }
+      }
+    }
+  }
+);
 }

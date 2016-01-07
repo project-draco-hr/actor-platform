@@ -7,5 +7,6 @@
   collectionAccessHash=values.getLong(6);
   thumb=values.getBytes(7);
   localCollectionId=values.getInt(8);
+  Log.d("StICKER","parse, localCollectionId: " + localCollectionId);
   isHeader=values.getBool(9,false);
 }

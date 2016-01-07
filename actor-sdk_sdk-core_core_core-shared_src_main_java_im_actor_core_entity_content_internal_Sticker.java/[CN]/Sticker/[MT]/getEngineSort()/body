@@ -6,6 +6,5 @@
  else {
     uid=((long)stickerId & 0xFFFFFFFFL) + (((long)localCollectionId & 0xFFFFFFFFL) * 10000000000L);
   }
-  Log.d("STICKER","ID: " + stickerId + " Collection ID: "+ localCollectionId+ " Unique id: "+ uid);
-  return uid;
+  return uid * -1;
 }
