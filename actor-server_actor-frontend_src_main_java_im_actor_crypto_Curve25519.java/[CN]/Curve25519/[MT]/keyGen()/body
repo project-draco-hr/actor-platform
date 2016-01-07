@@ -1,0 +1,5 @@
+{
+  byte[] privateKey=keyGenPrivate();
+  byte[] publicKey=keyGenPublic(privateKey);
+  return new Curve25519KeyPair(publicKey,privateKey);
+}

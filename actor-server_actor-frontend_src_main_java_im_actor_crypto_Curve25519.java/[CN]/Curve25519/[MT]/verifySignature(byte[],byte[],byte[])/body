@@ -1,0 +1,3 @@
+{
+  return curve_sigs.curve25519_verify(SHA512Provider,signature,publicKey,message,message.length) == 0;
+}

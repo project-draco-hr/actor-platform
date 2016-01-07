@@ -1,0 +1,11 @@
+{
+  byte z=0;
+  while ((y & 0xFF) != 0) {
+    if ((y & 1) != 0) {
+      z^=x;
+    }
+    x=(byte)(((x & 0xFF) << 1) ^ ((x & 0x80) != 0 ? 0xC3 : 0x00));
+    y=(byte)((y & 0xFF) >> 1);
+  }
+  return z;
+}

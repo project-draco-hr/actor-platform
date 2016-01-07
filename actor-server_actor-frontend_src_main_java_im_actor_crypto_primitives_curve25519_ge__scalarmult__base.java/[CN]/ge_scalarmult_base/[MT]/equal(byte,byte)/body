@@ -1,0 +1,9 @@
+{
+  int ub=b;
+  int uc=c;
+  int x=ub ^ uc;
+  int y=x;
+  y-=1;
+  y>>>=31;
+  return y;
+}

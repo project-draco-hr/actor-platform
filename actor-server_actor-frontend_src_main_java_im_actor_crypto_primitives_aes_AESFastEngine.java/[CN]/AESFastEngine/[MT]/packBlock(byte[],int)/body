@@ -1,0 +1,6 @@
+{
+  Pack.intToLittleEndian(this.C0,bytes,off);
+  Pack.intToLittleEndian(this.C1,bytes,off + 4);
+  Pack.intToLittleEndian(this.C2,bytes,off + 8);
+  Pack.intToLittleEndian(this.C3,bytes,off + 12);
+}

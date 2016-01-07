@@ -1,0 +1,5 @@
+byte[] dest
+int destOffset
+byte[] src
+int srcOffset
+int length

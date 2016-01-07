@@ -1,0 +1,4 @@
+{
+  this.rawKey=rawKey;
+  this.key=convertKey(rawKey);
+}

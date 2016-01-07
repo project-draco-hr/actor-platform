@@ -1,0 +1,7 @@
+{
+  int a1=data[offset + 3] & 0xFF;
+  int a2=data[offset + 2] & 0xFF;
+  int a3=data[offset + 1] & 0xFF;
+  int a4=data[offset + 0] & 0xFF;
+  return (a1) + (a2 << 8) + (a3 << 16)+ (a4 << 24);
+}
