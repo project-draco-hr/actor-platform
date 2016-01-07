@@ -1,0 +1,14 @@
+{
+  if (requested.contains(id)) {
+    return;
+  }
+  request(new RequestGetFileUrl(new ApiFileLocation(id,accessHash)),new RpcCallback<ResponseGetFileUrl>(){
+    @Override public void onResult(    ResponseGetFileUrl response){
+      onAvatarUrlLoaded(id,response.getUrl());
+    }
+    @Override public void onError(    RpcException e){
+      cachedImages.put(id,null);
+    }
+  }
+);
+}

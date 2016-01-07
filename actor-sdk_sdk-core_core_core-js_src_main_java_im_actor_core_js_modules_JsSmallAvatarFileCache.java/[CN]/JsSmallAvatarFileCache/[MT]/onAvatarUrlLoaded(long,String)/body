@@ -1,0 +1,19 @@
+{
+  JsHttpRequest request=JsHttpRequest.create();
+  request.open("GET",url);
+  request.setOnLoadHandler(new JsHttpRequestHandler(){
+    @Override public void onStateChanged(    JsHttpRequest request){
+      if (request.getReadyState() == 4) {
+        if (request.getStatus() == 200) {
+          JsBlob blob=request.getResponseBlob();
+          onAvatarDownloaded(id,blob);
+        }
+ else {
+          cachedImages.put(id,null);
+        }
+      }
+    }
+  }
+);
+  request.send();
+}

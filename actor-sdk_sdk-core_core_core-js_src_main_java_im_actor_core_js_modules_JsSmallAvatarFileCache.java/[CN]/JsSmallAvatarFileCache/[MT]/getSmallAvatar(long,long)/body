@@ -1,0 +1,7 @@
+{
+  if (cachedImages.containsKey(id)) {
+    return cachedImages.get(id);
+  }
+  loadAvatar(id,accessHash);
+  return null;
+}
