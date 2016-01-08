@@ -3,6 +3,10 @@
     return;
   }
   isAudioVisible=false;
+  showView(attachButton);
+  showView(messageEditText);
+  showView(emojiButton);
+  showView(sendContainer);
   voiceRecordActor.send(new VoiceCaptureActor.Stop(cancel));
   TranslateAnimation animation=new TranslateAnimation(0,Screen.getWidth(),0,0);
   animation.setDuration(160);

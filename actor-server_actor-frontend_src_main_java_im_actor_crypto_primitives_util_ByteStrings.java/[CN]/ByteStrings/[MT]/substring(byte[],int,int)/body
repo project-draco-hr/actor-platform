@@ -1,0 +1,7 @@
+{
+  byte[] res=new byte[size];
+  for (int i=0; i < size; i++) {
+    res[i]=data[i + offset];
+  }
+  return res;
+}

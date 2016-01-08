@@ -1,0 +1,4 @@
+{
+  this.blockCipher=blockCipher;
+  this.blockSize=blockCipher.getBlockSize();
+}

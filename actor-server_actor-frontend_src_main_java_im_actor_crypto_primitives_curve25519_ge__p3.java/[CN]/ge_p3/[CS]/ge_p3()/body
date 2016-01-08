@@ -1,0 +1,6 @@
+{
+  X=new int[10];
+  Y=new int[10];
+  Z=new int[10];
+  T=new int[10];
+}

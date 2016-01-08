@@ -1,0 +1,3 @@
+{
+  this.b=new byte[16];
+}

@@ -1,0 +1,6 @@
+Sha512 sha512provider
+byte[] signature_out
+byte[] curve25519_privkey
+byte[] msg
+int msg_len
+byte[] random

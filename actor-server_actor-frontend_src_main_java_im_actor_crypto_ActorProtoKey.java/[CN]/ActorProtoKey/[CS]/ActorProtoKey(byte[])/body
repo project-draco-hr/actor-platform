@@ -1,0 +1,11 @@
+{
+  int offset=0;
+  clientMacKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  serverMacKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  clientKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  serverKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  clientMacRussianKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  serverMacRussianKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  clientRussianKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+  serverRussianKey=ByteStrings.substring(masterKey,(offset++) * 32,32);
+}

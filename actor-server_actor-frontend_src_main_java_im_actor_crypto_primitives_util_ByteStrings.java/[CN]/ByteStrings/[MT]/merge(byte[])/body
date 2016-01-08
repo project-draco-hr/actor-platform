@@ -1,0 +1,14 @@
+{
+  int size=0;
+  for (  byte[] d : data) {
+    size+=d.length;
+  }
+  byte[] res=new byte[size];
+  int offset=0;
+  for (  byte[] d : data) {
+    for (int i=0; i < d.length; i++) {
+      res[offset++]=d[i];
+    }
+  }
+  return res;
+}

@@ -1,0 +1,3 @@
+{
+  return bytesToInt(data,0);
+}

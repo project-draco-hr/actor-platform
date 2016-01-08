@@ -1,0 +1,15 @@
+{
+  Kuz128 x=new Kuz128();
+  x.setQ(0,ByteStrings.bytesToLong(data,offset));
+  x.setQ(1,ByteStrings.bytesToLong(data,offset + 8));
+  for (int i=0; i < 9; i++) {
+    x.setQ(0,x.getQ(0) ^ key.getK()[i].getQ(0));
+    x.setQ(1,x.getQ(1) ^ key.getK()[i].getQ(1));
+    for (int j=0; j < 16; j++) {
+      x.getB()[j]=KuznechikTables.kuz_pi[(x.getB()[j] & 0xFF)];
+    }
+    KuznechikMath.kuz_l(x);
+  }
+  ByteStrings.write(dest,destOffset,ByteStrings.longToBytes(x.getQ(0) ^ key.getK()[9].getQ(0)),0,8);
+  ByteStrings.write(dest,destOffset + 8,ByteStrings.longToBytes(x.getQ(1) ^ key.getK()[9].getQ(1)),0,8);
+}

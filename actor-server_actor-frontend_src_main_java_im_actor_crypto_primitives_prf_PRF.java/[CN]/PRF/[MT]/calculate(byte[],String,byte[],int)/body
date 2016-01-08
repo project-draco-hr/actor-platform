@@ -1,0 +1,23 @@
+{
+  HMAC hmac=new HMAC(secret,digest);
+  byte[] rSeed=ByteStrings.merge(label.getBytes(),seed);
+  byte[] res=new byte[length];
+  byte[] A=rSeed;
+  byte[] tHash=new byte[digest.getDigestSize()];
+  int offset=0;
+  while (offset * 32 < length) {
+    hmac.reset();
+    hmac.update(A,0,A.length);
+    hmac.doFinal(tHash,0);
+    A=new byte[digest.getDigestSize()];
+    ByteStrings.write(A,0,tHash,0,A.length);
+    digest.reset();
+    digest.update(secret,0,secret.length);
+    digest.update(A,0,A.length);
+    digest.update(rSeed,0,rSeed.length);
+    digest.doFinal(tHash,0);
+    ByteStrings.write(res,offset * digest.getDigestSize(),tHash,0,Math.min(tHash.length,res.length - offset * digest.getDigestSize()));
+    offset++;
+  }
+  return res;
+}
