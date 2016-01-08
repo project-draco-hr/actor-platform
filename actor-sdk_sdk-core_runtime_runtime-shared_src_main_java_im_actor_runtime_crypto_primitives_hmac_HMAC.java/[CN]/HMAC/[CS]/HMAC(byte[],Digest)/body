@@ -1,0 +1,25 @@
+{
+  this.digest=digest;
+  byte[] fixedSecret=new byte[digest.getDigestSize()];
+  if (secret.length > digest.getDigestSize()) {
+    digest.reset();
+    digest.update(secret,0,secret.length);
+    digest.doFinal(fixedSecret,0);
+  }
+ else   if (secret.length < digest.getDigestSize()) {
+    ByteStrings.write(fixedSecret,0,secret,0,secret.length);
+    for (int i=secret.length; i < fixedSecret.length; i++) {
+      fixedSecret[i]=0;
+    }
+  }
+ else {
+    fixedSecret=secret;
+  }
+  this.secret=fixedSecret;
+  outerKeyPad=new byte[digest.getDigestSize()];
+  innerKeyPad=new byte[digest.getDigestSize()];
+  for (int i=0; i < outerKeyPad.length; i++) {
+    outerKeyPad[i]=(byte)(0x5c ^ this.secret[i]);
+    innerKeyPad[i]=(byte)(0x36 ^ this.secret[i]);
+  }
+}

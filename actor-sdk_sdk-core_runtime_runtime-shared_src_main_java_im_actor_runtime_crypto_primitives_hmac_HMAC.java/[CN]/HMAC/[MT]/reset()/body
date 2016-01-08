@@ -1,0 +1,4 @@
+{
+  digest.reset();
+  digest.update(innerKeyPad,0,innerKeyPad.length);
+}
