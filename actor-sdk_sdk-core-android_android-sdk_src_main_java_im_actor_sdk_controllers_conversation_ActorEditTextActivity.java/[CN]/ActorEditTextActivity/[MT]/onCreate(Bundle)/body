@@ -55,7 +55,7 @@
 );
   removedFromGroup=findViewById(R.id.kickedFromChat);
   ((TextView)removedFromGroup.findViewById(R.id.kicked_text)).setTextColor(ActorSDK.sharedActor().style.getMainColor());
-  final ImageView emojiButton=(ImageView)findViewById(R.id.ib_emoji);
+  emojiButton=(ImageView)findViewById(R.id.ib_emoji);
   emojiKeyboard=new EmojiKeyboard(this);
   emojiKeyboard.setKeyboardStatusListener(new KeyboardStatusListener(){
     @Override public void onDismiss(){
@@ -72,5 +72,6 @@
     }
   }
 );
+  sendContainer=(FrameLayout)findViewById(R.id.sendContainer);
   keyboardUtils=new KeyboardHelper(this);
 }
