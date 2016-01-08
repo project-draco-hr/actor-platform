@@ -12,7 +12,25 @@
           throw new IOException("Incorrect RandomId");
         }
         long[] keys=startAuth.getAvailableKeys();
-        gotoKeyDownloadState(keys[0],startAuth.getServerNonce());
+        if (endpoints.getTrustedKeys().length == 0) {
+          gotoKeyDownloadState(keys[0],startAuth.getServerNonce());
+        }
+ else {
+          for (          long l : keys) {
+            for (            TrustedKey tk : endpoints.getTrustedKeys()) {
+              if (tk.getKeyId() == l) {
+                if (tk.getKey() != null) {
+                  gotoDHState(tk.getKeyId(),tk.getKey(),startAuth.getServerNonce());
+                }
+ else {
+                  gotoKeyDownloadState(tk.getKeyId(),startAuth.getServerNonce());
+                }
+                return;
+              }
+            }
+          }
+          throw new IOException("No trusted keys found!");
+        }
       }
  else {
         throw new IOException("Expected: ResponseStartAuth, got: " + struct.getClass().getName());

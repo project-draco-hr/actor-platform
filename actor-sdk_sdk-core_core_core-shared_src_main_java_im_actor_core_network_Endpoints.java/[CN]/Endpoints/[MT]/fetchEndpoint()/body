@@ -1,4 +1,0 @@
-{
-  roundRobin=(roundRobin + 1) % endpoints.length;
-  return endpoints[roundRobin];
-}

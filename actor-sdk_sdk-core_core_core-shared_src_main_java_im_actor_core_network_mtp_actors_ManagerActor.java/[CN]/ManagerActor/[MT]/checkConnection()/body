@@ -10,7 +10,7 @@
     Log.d(TAG,"Trying to create connection...");
     isCheckingConnections=true;
     final int id=NEXT_CONNECTION.getAndIncrement();
-    Network.createConnection(id,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(),new ConnectionCallback(){
+    Network.createConnection(id,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(authKey == null),new ConnectionCallback(){
       @Override public void onConnectionRedirect(      String host,      int port,      int timeout){
         self().send(new ConnectionDie(id));
       }

@@ -1,0 +1,4 @@
+{
+  trustedKeys.add(new TrustedKey(Hex.fromHex(trustedKey)));
+  return this;
+}

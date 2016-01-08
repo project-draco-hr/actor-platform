@@ -1,7 +1,7 @@
 {
   Log.d(TAG,"Trying to connect...");
   final int currentConnection=++connectionId;
-  Network.createConnection(currentConnection,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(),new ConnectionCallback(){
+  Network.createConnection(currentConnection,ActorApi.MTPROTO_VERSION,ActorApi.API_MAJOR_VERSION,ActorApi.API_MINOR_VERSION,endpoints.fetchEndpoint(false),new ConnectionCallback(){
     @Override public void onConnectionRedirect(    String host,    int port,    int timeout){
       self().send(new AuthKeyActor.OnConnectionDie(currentConnection));
     }

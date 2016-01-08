@@ -1,7 +1,7 @@
 {
   super(context);
   this.parserConfig.addExtension(new ParsingExtension(new RpcParser(),new UpdatesParser()));
-  this.actorApi=new ActorApi(new Endpoints(context().getConfiguration().getEndpoints()),new PreferenceApiStorage(context().getPreferences()),new ActorApiCallbackImpl(),context().getConfiguration().isEnableNetworkLogging(),context().getConfiguration().getMinDelay(),context().getConfiguration().getMaxDelay(),context().getConfiguration().getMaxFailureCount(),parserConfig);
+  this.actorApi=new ActorApi(new Endpoints(context().getConfiguration().getEndpoints(),context().getConfiguration().getTrustedKeys()),new PreferenceApiStorage(context().getPreferences()),new ActorApiCallbackImpl(),context().getConfiguration().isEnableNetworkLogging(),context().getConfiguration().getMinDelay(),context().getConfiguration().getMaxDelay(),context().getConfiguration().getMaxFailureCount(),parserConfig);
   context.getEvents().subscribe(this,AppVisibleChanged.EVENT);
   persistentRequests=system().actorOf(Props.create(PersistentRequestsActor.class,new ActorCreator<PersistentRequestsActor>(){
     @Override public PersistentRequestsActor create(){

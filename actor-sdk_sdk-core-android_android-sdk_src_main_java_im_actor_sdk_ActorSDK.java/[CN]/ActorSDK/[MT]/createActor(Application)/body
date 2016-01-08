@@ -7,6 +7,9 @@
   for (  String s : endpoints) {
     builder.addEndpoint(s);
   }
+  for (  String t : trustedKeys) {
+    builder.addTrustedKey(t);
+  }
   builder.setPhoneBookProvider(new AndroidPhoneBook());
   builder.setNotificationProvider(new AndroidNotifications(AndroidContext.getContext()));
   builder.setDeviceCategory(DeviceCategory.MOBILE);

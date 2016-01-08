@@ -14,3 +14,4 @@ ConfigurationExtension[] extensions
 String timeZone
 String[] preferredLanguages
 String customAppName
+TrustedKey[] trustedKeys

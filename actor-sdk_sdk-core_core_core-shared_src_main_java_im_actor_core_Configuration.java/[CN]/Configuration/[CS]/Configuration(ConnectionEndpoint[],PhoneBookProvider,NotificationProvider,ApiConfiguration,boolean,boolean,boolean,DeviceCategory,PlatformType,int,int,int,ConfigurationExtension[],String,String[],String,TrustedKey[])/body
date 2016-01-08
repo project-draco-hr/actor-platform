@@ -15,4 +15,5 @@
   this.timeZone=timeZone;
   this.preferredLanguages=preferredLanguages;
   this.customAppName=customAppName;
+  this.trustedKeys=trustedKeys;
 }

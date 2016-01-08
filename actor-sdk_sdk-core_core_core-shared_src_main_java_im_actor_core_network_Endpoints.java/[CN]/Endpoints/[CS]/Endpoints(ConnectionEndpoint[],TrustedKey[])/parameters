@@ -1,1 +1,2 @@
 ConnectionEndpoint[] endpoints
+TrustedKey[] trustedKeys

@@ -1,0 +1,8 @@
+{
+  byte[] hash=new byte[32];
+  SHA256 sha256=new SHA256();
+  sha256.update(key,0,key.length);
+  sha256.doFinal(hash,0);
+  this.keyId=ByteStrings.bytesToLong(hash);
+  this.key=key;
+}
