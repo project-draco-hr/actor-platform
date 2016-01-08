@@ -1,0 +1,4 @@
+{
+  this.seqNumber=seqNumber;
+  this.encryptedPackage=encryptedPackage;
+}

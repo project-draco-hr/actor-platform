@@ -6,6 +6,7 @@
     }
     @Override public void onMessage(    ProtoStruct struct) throws IOException {
       if (struct instanceof ResponseStartAuth) {
+        Log.d(TAG,"Received ResponseStartAuth");
         ResponseStartAuth startAuth=(ResponseStartAuth)struct;
         if (startAuth.getRandomId() != randomId) {
           throw new IOException("Incorrect RandomId");

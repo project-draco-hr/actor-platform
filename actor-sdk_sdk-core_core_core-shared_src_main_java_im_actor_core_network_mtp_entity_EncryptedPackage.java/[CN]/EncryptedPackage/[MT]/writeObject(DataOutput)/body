@@ -1,0 +1,4 @@
+{
+  bs.writeLong(seqNumber);
+  bs.writeProtoBytes(encryptedPackage,0,encryptedPackage.length);
+}

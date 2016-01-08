@@ -3,6 +3,8 @@
   if (currentConnectionId == id) {
     currentConnectionId=0;
     currentConnection=null;
+    outSeq=0;
+    inSeq=0;
     connectionStateChanged();
     requestCheckConnection();
   }

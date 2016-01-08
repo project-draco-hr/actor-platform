@@ -1,3 +1,4 @@
 {
   this.authId=authId;
+  this.authKey=authKey;
 }

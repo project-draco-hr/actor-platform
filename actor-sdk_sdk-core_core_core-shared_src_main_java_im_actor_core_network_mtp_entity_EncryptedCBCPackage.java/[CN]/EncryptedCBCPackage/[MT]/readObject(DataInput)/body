@@ -1,0 +1,5 @@
+{
+  iv=bs.readProtoBytes();
+  encryptedContent=bs.readProtoBytes();
+  return this;
+}

@@ -1,5 +1,6 @@
 {
   this.authId=authId;
+  this.authKey=authKey;
   this.sessionId=sessionId;
   this.endpoints=endpoints;
   this.callback=callback;

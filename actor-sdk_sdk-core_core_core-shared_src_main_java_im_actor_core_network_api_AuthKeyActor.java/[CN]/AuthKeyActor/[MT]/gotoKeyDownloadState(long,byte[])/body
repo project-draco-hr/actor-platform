@@ -6,6 +6,7 @@
     }
     @Override public void onMessage(    ProtoStruct struct) throws IOException {
       if (struct instanceof ResponseGetServerKey) {
+        Log.d(TAG,"Received ResponseGetServerKey");
         ResponseGetServerKey r=(ResponseGetServerKey)struct;
         if (r.getKeyId() != keyId) {
           throw new IOException("Incorrect KeyId");

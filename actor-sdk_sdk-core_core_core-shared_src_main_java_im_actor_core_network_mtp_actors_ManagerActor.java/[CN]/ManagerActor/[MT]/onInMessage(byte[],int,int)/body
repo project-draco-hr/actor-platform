@@ -6,17 +6,42 @@
     if (authId != this.authId || sessionId != this.sessionId) {
       throw new IOException("Incorrect header");
     }
-    long messageId=bis.readLong();
-    byte[] payload=bis.readProtoBytes();
-    receiver.send(new ProtoMessage(messageId,payload));
+    if (authKey != null) {
+      EncryptedPackage encryptedPackage=new EncryptedPackage(bis);
+      int seq=(int)encryptedPackage.getSeqNumber();
+      if (seq != inSeq) {
+        throw new IOException("Expected " + inSeq + ", got: "+ seq);
+      }
+      inSeq++;
+      EncryptedCBCPackage usEncryptedPackage=new EncryptedCBCPackage(new DataInput(encryptedPackage.getEncryptedPackage()));
+      byte[] ruPackage=serverUSDecryptor.decryptPackage(seq,usEncryptedPackage.getIv(),usEncryptedPackage.getEncryptedContent());
+      EncryptedCBCPackage ruEncryptedPackage=new EncryptedCBCPackage(new DataInput(ruPackage));
+      byte[] plainText=serverRUDecryptor.decryptPackage(seq,ruEncryptedPackage.getIv(),ruEncryptedPackage.getEncryptedContent());
+      DataInput ptInput=new DataInput(plainText);
+      long messageId=ptInput.readLong();
+      byte[] ptPayload=ptInput.readProtoBytes();
+      receiver.send(new ProtoMessage(messageId,ptPayload));
+    }
+ else {
+      long messageId=bis.readLong();
+      byte[] payload=bis.readProtoBytes();
+      receiver.send(new ProtoMessage(messageId,payload));
+    }
   }
  catch (  IOException e) {
     Log.w(TAG,"Closing connection: incorrect package");
-    e.printStackTrace();
+    Log.e(TAG,e);
     if (currentConnection != null) {
-      currentConnection.close();
+      try {
+        currentConnection.close();
+      }
+ catch (      Exception e2) {
+        e2.printStackTrace();
+      }
       currentConnection=null;
       currentConnectionId=0;
+      outSeq=0;
+      inSeq=0;
     }
     checkConnection();
   }

@@ -1,0 +1,4 @@
+{
+  bs.writeProtoBytes(iv,0,iv.length);
+  bs.writeProtoBytes(encryptedContent,0,encryptedContent.length);
+}

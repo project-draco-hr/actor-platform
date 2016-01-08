@@ -13,6 +13,6 @@
     if (isEnableLog) {
       Log.d(TAG,"Key loaded: " + currentAuthId);
     }
-    self().send(new InitMTProto(currentAuthId));
+    self().send(new InitMTProto(currentAuthId,keyStorage.getAuthMasterKey()));
   }
 }

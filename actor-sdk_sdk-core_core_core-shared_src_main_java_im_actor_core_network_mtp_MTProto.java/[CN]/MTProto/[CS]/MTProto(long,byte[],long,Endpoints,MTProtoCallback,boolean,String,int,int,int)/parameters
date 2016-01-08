@@ -1,4 +1,5 @@
 long authId
+byte[] authKey
 long sessionId
 Endpoints endpoints
 MTProtoCallback callback

@@ -2,6 +2,21 @@
   this.mtProto=mtProto;
   this.endpoints=mtProto.getEndpoints();
   this.authId=mtProto.getAuthId();
+  this.authKey=mtProto.getAuthKey();
+  if (this.authKey != null) {
+    this.authProtoKey=new ActorProtoKey(this.authKey);
+    this.serverUSDecryptor=new CBCHmacPackage(new AESFastEngine(this.authProtoKey.getServerKey()),new SHA256(),this.authProtoKey.getServerMacKey());
+    this.serverRUDecryptor=new CBCHmacPackage(new KuznechikCipher(this.authProtoKey.getServerRussianKey()),new Streebog256(),this.authProtoKey.getServerMacRussianKey());
+    this.clientUSEncryptor=new CBCHmacPackage(new AESFastEngine(this.authProtoKey.getClientKey()),new SHA256(),this.authProtoKey.getClientMacKey());
+    this.clientRUEncryptor=new CBCHmacPackage(new KuznechikCipher(this.authProtoKey.getClientRussianKey()),new Streebog256(),this.authProtoKey.getClientMacRussianKey());
+  }
+ else {
+    this.authProtoKey=null;
+    this.serverUSDecryptor=null;
+    this.serverRUDecryptor=null;
+    this.clientUSEncryptor=null;
+    this.clientRUEncryptor=null;
+  }
   this.sessionId=mtProto.getSessionId();
   this.isEnableLog=mtProto.isEnableLog();
   backoff=new ExponentialBackoff(mtProto.getMinDelay(),mtProto.getMaxDelay(),mtProto.getMaxFailureCount());

@@ -1,7 +1,7 @@
 {
   if (message instanceof InitMTProto) {
     InitMTProto initMTProto=(InitMTProto)message;
-    createMtProto(initMTProto.getAuthId());
+    createMtProto(initMTProto.getAuthId(),initMTProto.getAuthKey());
   }
  else   if (message instanceof PerformRequest) {
     PerformRequest request=(PerformRequest)message;

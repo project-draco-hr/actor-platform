@@ -18,6 +18,8 @@
   }
   currentConnectionId=id;
   currentConnection=connection;
+  outSeq=0;
+  inSeq=0;
   connectionStateChanged();
   backoff.onSuccess();
   isCheckingConnections=false;

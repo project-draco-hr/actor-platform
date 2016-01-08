@@ -1,0 +1,5 @@
+{
+  seqNumber=bs.readLong();
+  encryptedPackage=bs.readProtoBytes();
+  return this;
+}
