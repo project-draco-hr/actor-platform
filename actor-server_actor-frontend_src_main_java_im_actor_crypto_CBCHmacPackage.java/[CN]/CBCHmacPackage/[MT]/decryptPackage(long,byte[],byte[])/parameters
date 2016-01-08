@@ -1,0 +1,3 @@
+long seqNo
+byte[] iv
+byte[] encryptedContent

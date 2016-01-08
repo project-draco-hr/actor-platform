@@ -1,0 +1,4 @@
+byte[] secret
+String label
+byte[] seed
+int length

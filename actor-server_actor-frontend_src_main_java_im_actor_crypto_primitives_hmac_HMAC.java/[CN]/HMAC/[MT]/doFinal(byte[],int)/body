@@ -1,0 +1,9 @@
+{
+  byte[] innnerHash=new byte[digest.getDigestSize()];
+  digest.doFinal(innnerHash,0);
+  digest.reset();
+  digest.update(outerKeyPad,0,outerKeyPad.length);
+  digest.update(innnerHash,0,innnerHash.length);
+  digest.doFinal(dest,destOffset);
+  reset();
+}

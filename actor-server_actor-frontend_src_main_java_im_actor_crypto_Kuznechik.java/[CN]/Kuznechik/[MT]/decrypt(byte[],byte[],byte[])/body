@@ -1,4 +1,0 @@
-{
-  CBCBlockCipher cbcBlockCipher=new CBCBlockCipher(new KuznechikCipher(key));
-  return cbcBlockCipher.decrypt(iv,data);
-}

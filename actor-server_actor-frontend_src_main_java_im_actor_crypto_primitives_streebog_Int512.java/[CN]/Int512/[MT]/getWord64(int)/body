@@ -1,0 +1,3 @@
+{
+  return ByteStrings.bytesToLong(value,index * 8);
+}

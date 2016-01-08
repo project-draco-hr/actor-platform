@@ -1,0 +1,3 @@
+{
+  streebogDigest.update(src,offset,length);
+}

@@ -1,6 +1,0 @@
-{
-  this.digest=digest;
-  this.label=label;
-  this.length=length;
-  this.hmac=new HMAC(digest);
-}

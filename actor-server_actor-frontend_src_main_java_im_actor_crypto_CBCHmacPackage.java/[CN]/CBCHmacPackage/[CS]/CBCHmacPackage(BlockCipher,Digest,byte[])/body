@@ -4,5 +4,5 @@
   this.baseDigest=baseDigest;
   this.hmacKey=hmacKey;
   this.padding=new TLSPadding();
-  this.hmac=new HMAC(baseDigest);
+  this.hmac=new HMAC(hmacKey,baseDigest);
 }

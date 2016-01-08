@@ -1,0 +1,3 @@
+{
+  ByteStrings.write(value,index * 8,ByteStrings.longToBytes(val),0,8);
+}

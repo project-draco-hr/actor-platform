@@ -1,9 +1,9 @@
 {
   if (data.length % blockSize != 0) {
-    throw new RuntimeException("Incorrect data size");
+    throw new IntegrityException("Incorrect data size");
   }
   if (iv.length != blockSize) {
-    throw new RuntimeException("Incorrect iv size");
+    throw new IntegrityException("Incorrect iv size");
   }
   byte[] currentBlock=new byte[blockSize];
   byte[] res=new byte[data.length];
