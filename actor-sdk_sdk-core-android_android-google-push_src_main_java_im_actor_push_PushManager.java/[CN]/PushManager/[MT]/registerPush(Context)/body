@@ -1,5 +1,4 @@
 {
-  isRegistered=ActorSDK.sharedActor().getMessenger().getPreferences().getBool("push_registered",false);
   if (!isRegistered) {
     Log.d(TAG,"Requesting push token...");
     new Thread(){
