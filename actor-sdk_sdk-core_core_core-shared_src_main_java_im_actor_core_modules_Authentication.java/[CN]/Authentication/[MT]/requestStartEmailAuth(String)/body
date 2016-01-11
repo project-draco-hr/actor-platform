@@ -16,6 +16,9 @@
  else           if (emailActivationType.equals(ApiEmailActivationType.CODE)) {
             state=AuthState.CODE_VALIDATION_EMAIL;
           }
+ else           if (emailActivationType.equals(ApiEmailActivationType.PASSWORD)) {
+            state=AuthState.PASSWORD_VALIDATION;
+          }
           im.actor.runtime.Runtime.postToMainThread(new Runnable(){
             @Override public void run(){
               callback.onResult(state);
