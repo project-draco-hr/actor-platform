@@ -108,7 +108,7 @@ manager.notify(NOTIFICATION_ID,result);
 }
 }
  else {
-builder.setContentTitle(context.getString(R.string.app_name));
+builder.setContentTitle(ActorSDK.sharedActor().getAppName());
 builder.setContentText(messagesCount + " messages in " + conversationsCount+ " chats");
 visiblePeer=null;
 intent=new Intent(context,ActorMainActivity.class);
