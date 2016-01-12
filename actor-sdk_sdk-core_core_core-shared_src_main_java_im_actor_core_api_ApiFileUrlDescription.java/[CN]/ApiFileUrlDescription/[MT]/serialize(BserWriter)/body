@@ -5,4 +5,8 @@
   }
   writer.writeString(2,this.url);
   writer.writeInt(3,this.timeout);
+  if (this.unsignedUrl != null) {
+    writer.writeString(4,this.unsignedUrl);
+  }
+  writer.writeRepeatedObj(5,this.unsignedUrlHeaders);
 }

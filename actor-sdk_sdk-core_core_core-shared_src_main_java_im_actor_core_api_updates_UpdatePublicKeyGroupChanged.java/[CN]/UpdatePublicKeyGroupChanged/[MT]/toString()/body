@@ -1,0 +1,7 @@
+{
+  String res="update PublicKeyGroupChanged{";
+  res+="uid=" + this.uid;
+  res+=", keyGroup=" + this.keyGroup;
+  res+="}";
+  return res;
+}

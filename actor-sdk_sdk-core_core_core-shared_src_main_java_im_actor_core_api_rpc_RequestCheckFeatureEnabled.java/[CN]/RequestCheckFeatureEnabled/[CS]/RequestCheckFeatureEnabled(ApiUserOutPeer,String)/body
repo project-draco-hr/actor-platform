@@ -1,0 +1,4 @@
+{
+  this.userOutPeer=userOutPeer;
+  this.featureName=featureName;
+}

@@ -1,0 +1,6 @@
+{
+  this.url=url;
+  this.timeout=timeout;
+  this.unsignedUrl=unsignedUrl;
+  this.unsignedUrlHeaders=unsignedUrlHeaders;
+}

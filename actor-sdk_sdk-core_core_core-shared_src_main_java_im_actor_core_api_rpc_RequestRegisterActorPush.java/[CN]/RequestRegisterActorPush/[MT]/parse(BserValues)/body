@@ -1,0 +1,8 @@
+{
+  this.endpoint=values.getString(1);
+  List<ApiEncryptionKey> _publicKeys=new ArrayList<ApiEncryptionKey>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _publicKeys.add(new ApiEncryptionKey());
+  }
+  this.publicKeys=values.getRepeatedObj(2,_publicKeys);
+}

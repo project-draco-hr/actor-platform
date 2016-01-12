@@ -1,0 +1,2 @@
+int keyGroupId
+List<ApiEncryptionPublicKey> publicKeys

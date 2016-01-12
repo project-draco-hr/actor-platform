@@ -1,0 +1,4 @@
+{
+  this.userPeer=values.getObj(1,new ApiUserOutPeer());
+  this.keyIds=values.getRepeatedString(2);
+}

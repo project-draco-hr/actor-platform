@@ -1,0 +1,6 @@
+{
+  String res="update PublicKeyGroupRemoved{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,7 @@
+{
+  List<ApiEncryptionDevice> _devices=new ArrayList<ApiEncryptionDevice>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _devices.add(new ApiEncryptionDevice());
+  }
+  this.devices=values.getRepeatedObj(1,_devices);
+}

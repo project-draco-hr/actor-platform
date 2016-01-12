@@ -1,0 +1,7 @@
+{
+  if (this.userPeer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.userPeer);
+  writer.writeLong(2,this.keyGroupId);
+}

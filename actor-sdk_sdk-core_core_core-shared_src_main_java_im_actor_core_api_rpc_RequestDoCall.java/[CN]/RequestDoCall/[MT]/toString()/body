@@ -1,0 +1,6 @@
+{
+  String res="rpc DoCall{";
+  res+="peer=" + this.peer;
+  res+="}";
+  return res;
+}

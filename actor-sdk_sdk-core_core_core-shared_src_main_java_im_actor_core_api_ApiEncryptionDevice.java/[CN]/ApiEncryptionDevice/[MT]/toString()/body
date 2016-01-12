@@ -1,0 +1,7 @@
+{
+  String res="struct EncryptionDevice{";
+  res+="deviceId=" + this.deviceId;
+  res+=", keys=" + this.keys;
+  res+="}";
+  return res;
+}

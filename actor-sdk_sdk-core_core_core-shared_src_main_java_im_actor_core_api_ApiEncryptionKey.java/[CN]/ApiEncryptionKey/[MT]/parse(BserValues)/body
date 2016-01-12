@@ -1,0 +1,6 @@
+{
+  this.keyId=values.getString(1);
+  this.keyType=values.getString(2);
+  this.keyAlg=values.getString(3);
+  this.keyMaterial=values.optBytes(4);
+}

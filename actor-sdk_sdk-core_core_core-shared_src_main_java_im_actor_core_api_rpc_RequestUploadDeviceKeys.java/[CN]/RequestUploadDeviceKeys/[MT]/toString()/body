@@ -1,0 +1,6 @@
+{
+  String res="rpc UploadDeviceKeys{";
+  res+="keys=" + this.keys;
+  res+="}";
+  return res;
+}

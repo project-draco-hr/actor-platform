@@ -1,0 +1,4 @@
+String keyId
+String keyType
+String keyAlg
+byte[] keyMaterial

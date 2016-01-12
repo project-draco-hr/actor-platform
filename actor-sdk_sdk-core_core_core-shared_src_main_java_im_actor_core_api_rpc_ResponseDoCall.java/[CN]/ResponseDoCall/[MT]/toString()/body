@@ -1,0 +1,5 @@
+{
+  String res="tuple DoCall{";
+  res+="}";
+  return res;
+}

@@ -1,0 +1,17 @@
+{
+  if (this.keyId == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.keyId);
+  if (this.keyType == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.keyType);
+  if (this.keyAlg == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.keyAlg);
+  if (this.keyMaterial != null) {
+    writer.writeBytes(4,this.keyMaterial);
+  }
+}

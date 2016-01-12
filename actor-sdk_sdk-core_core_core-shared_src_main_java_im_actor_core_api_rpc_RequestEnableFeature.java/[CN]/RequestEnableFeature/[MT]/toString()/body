@@ -1,0 +1,6 @@
+{
+  String res="rpc EnableFeature{";
+  res+="featureName=" + this.featureName;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,10 @@
+{
+  if (this.key == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.key);
+  if (this.value == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.value);
+}

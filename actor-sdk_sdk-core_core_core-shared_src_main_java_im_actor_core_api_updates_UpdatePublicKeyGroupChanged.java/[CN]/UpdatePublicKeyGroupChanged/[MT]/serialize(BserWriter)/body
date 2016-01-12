@@ -1,0 +1,7 @@
+{
+  writer.writeInt(1,this.uid);
+  if (this.keyGroup == null) {
+    throw new IOException();
+  }
+  writer.writeObject(2,this.keyGroup);
+}

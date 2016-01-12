@@ -1,0 +1,6 @@
+{
+  String res="rpc LoadPublicKeyGroups{";
+  res+="userPeer=" + this.userPeer;
+  res+="}";
+  return res;
+}

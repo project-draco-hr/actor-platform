@@ -1,0 +1,5 @@
+long fileId
+String url
+int timeout
+String unsignedUrl
+List<ApiHTTPHeader> unsignedUrlHeaders

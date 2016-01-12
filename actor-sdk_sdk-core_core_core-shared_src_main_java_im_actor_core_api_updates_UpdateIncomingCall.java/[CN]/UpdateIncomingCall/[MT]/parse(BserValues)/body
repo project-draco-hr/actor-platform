@@ -1,0 +1,4 @@
+{
+  this.callId=values.getLong(1);
+  this.uid=values.getInt(2);
+}

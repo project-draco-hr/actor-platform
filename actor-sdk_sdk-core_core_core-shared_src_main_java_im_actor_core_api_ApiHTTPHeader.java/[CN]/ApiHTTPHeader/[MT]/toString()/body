@@ -1,0 +1,7 @@
+{
+  String res="struct HTTPHeader{";
+  res+="key=" + this.key;
+  res+=", value=" + this.value;
+  res+="}";
+  return res;
+}

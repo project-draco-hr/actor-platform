@@ -1,0 +1,6 @@
+{
+  String res="rpc GetUserDevices{";
+  res+="userPeer=" + this.userPeer;
+  res+="}";
+  return res;
+}

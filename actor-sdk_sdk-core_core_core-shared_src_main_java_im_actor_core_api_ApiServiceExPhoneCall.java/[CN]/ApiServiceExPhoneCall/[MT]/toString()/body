@@ -1,5 +1,6 @@
 {
   String res="struct ServiceExPhoneCall{";
+  res+="duration=" + this.duration;
   res+="}";
   return res;
 }

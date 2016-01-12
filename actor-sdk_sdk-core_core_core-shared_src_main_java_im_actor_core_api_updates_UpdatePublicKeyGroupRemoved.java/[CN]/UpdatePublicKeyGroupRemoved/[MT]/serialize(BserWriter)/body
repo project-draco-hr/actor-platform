@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.uid);
+  writer.writeInt(2,this.keyGroupId);
+}

@@ -1,0 +1,9 @@
+{
+  String res="struct EncryptionKey{";
+  res+="keyId=" + this.keyId;
+  res+=", keyType=" + this.keyType;
+  res+=", keyAlg=" + this.keyAlg;
+  res+=", keyMaterial=" + byteArrayToStringCompact(this.keyMaterial);
+  res+="}";
+  return res;
+}
