@@ -248,7 +248,8 @@
     }
   }
 );
-  view.findViewById(R.id.askQuestion).setOnClickListener(new View.OnClickListener(){
+  View askQuestion=view.findViewById(R.id.askQuestion);
+  askQuestion.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
       execute(messenger().findUsers(ActorSDK.sharedActor().getDelegate().getHelpPhone()),R.string.progress_common,new CommandCallback<UserVM[]>(){
         @Override public void onResult(        UserVM[] res){
@@ -263,6 +264,10 @@
     }
   }
 );
+  if (!showAskQuestion()) {
+    askQuestion.setVisibility(View.GONE);
+    view.findViewById(R.id.divider3).setVisibility(View.GONE);
+  }
   TextView settingsHeaderText=(TextView)view.findViewById(R.id.settings_header_text);
   settingsHeaderText.setTextColor(ActorSDK.sharedActor().style.getSettingsCategoryTextColor());
   TextView settingsNotificationsTitle=(TextView)view.findViewById(R.id.settings_notifications_title);
