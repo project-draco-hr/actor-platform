@@ -1,0 +1,5 @@
+Peer peer
+ArrayList<String> phones
+ArrayList<String> emails
+String name
+String base64photo

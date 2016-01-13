@@ -1,5 +1,0 @@
-Peer peer
-String name
-HashSet<String> phones
-HashSet<String> emails
-String base64photo

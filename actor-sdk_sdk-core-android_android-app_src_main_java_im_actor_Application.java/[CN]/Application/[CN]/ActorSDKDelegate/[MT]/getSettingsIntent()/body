@@ -17,6 +17,9 @@
         @Override public boolean showWallpaperCategory(){
           return true;
         }
+        @Override public boolean showAskQuestion(){
+          return true;
+        }
         @Override public ActorSettingsCategory[] getBeforeSettingsCategories(){
           return new ActorSettingsCategory[]{new ActorSettingsCategory(){
             @Override public String getCategoryName(){

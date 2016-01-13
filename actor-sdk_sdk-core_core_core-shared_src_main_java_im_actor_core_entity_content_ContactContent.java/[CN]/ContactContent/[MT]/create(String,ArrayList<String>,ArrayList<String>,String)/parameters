@@ -1,0 +1,4 @@
+String name
+ArrayList<String> phones
+ArrayList<String> emails
+String base64photo
