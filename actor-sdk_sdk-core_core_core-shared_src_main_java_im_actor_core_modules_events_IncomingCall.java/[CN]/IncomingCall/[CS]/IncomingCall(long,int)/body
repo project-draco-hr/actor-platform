@@ -1,3 +1,4 @@
 {
   this.callId=callId;
+  this.uid=uid;
 }
