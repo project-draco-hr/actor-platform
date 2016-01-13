@@ -1,0 +1,17 @@
+{
+  if (message instanceof CallInProgress) {
+    onCallInProgress(((CallInProgress)message).getTimeout());
+  }
+ else   if (message instanceof CheckAlive) {
+    checkAlive();
+  }
+ else   if (message instanceof SendCallInProgress) {
+    sendCallInProgress();
+  }
+ else   if (message instanceof EndCall) {
+    onEndCall();
+  }
+ else   if (message instanceof Signal) {
+    onSignal(((Signal)message).getData());
+  }
+}

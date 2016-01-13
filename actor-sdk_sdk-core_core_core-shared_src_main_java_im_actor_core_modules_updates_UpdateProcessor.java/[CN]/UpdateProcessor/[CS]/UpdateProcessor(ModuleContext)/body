@@ -8,4 +8,5 @@
   this.presenceProcessor=new PresenceProcessor(context);
   this.typingProcessor=new TypingProcessor(context);
   this.stickersProcessor=new StickersProcessor(context);
+  this.callsProcessor=new CallsProcessor(context);
 }

@@ -1,0 +1,7 @@
+{
+  request(new RequestEndCall(callId));
+  ActorRef call=calls.get(callId);
+  if (call != null) {
+    call.send(new CallActor.EndCall());
+  }
+}

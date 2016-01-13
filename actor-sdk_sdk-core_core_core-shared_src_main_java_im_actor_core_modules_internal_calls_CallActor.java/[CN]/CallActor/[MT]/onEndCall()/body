@@ -1,0 +1,5 @@
+{
+  callback.onCallEnd();
+  context().getCallsModule().onCallEnded(callId);
+  self().send(PoisonPill.INSTANCE);
+}

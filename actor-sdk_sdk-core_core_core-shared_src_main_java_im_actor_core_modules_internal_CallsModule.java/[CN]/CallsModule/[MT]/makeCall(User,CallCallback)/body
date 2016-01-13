@@ -1,0 +1,22 @@
+{
+  return new Command<ResponseDoCall>(){
+    @Override public void start(    final CommandCallback<ResponseDoCall> callback){
+      request(new RequestDoCall(new ApiOutPeer(ApiPeerType.PRIVATE,u.getUid(),u.getAccessHash()),CALL_TIMEOUT),new RpcCallback<ResponseDoCall>(){
+        @Override public void onResult(        final ResponseDoCall response){
+          callback.onResult(response);
+          calls.put(response.getCallId(),ActorSystem.system().actorOf(Props.create(CallActor.class,new ActorCreator<CallActor>(){
+            @Override public CallActor create(){
+              return new CallActor(response.getCallId(),callCallback,context());
+            }
+          }
+),"actor/call"));
+        }
+        @Override public void onError(        RpcException e){
+          callback.onError(e);
+        }
+      }
+);
+    }
+  }
+;
+}

@@ -1,0 +1,5 @@
+{
+  if (!calls.keySet().contains(callId)) {
+    context().getEvents().post(new IncomingCall(callId));
+  }
+}

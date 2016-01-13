@@ -1,0 +1,10 @@
+{
+  if (alive) {
+    alive=false;
+    self().send(new CheckAlive(),timeout);
+  }
+ else {
+    context().getCallsModule().endCall(callId);
+    self().send(PoisonPill.INSTANCE);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  if (callsEnabled) {
+    request(new RequestSubscribeToCalls());
+  }
+}

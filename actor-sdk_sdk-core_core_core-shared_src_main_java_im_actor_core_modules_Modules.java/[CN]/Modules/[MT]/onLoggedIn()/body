@@ -6,6 +6,8 @@
   groups=new GroupsModule(this);
   timing.section("Stickers");
   stickers=new StickersModule(this);
+  timing.section("Calls");
+  calls=new CallsModule(this);
   timing.section("Search");
   search=new SearchModule(this);
   timing.section("Security");
@@ -54,6 +56,8 @@
   messages.run();
   timing.section("Updates");
   updates.run();
+  timing.section("Calls");
+  calls.run();
   timing.section("Extensions");
   extensions.runExtensions();
   timing.end();
