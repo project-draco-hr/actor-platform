@@ -1,2 +1,2 @@
-User u
+int uid
 CallCallback callCallback

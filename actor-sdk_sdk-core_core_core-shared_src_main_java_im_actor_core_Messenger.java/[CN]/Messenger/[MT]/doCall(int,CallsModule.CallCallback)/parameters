@@ -1,2 +1,2 @@
-User user
+int uid
 CallsModule.CallCallback callCallback

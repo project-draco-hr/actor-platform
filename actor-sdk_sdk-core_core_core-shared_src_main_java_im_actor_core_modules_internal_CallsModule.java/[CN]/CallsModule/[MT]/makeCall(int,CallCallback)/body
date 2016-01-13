@@ -1,6 +1,7 @@
 {
   return new Command<ResponseDoCall>(){
     @Override public void start(    final CommandCallback<ResponseDoCall> callback){
+      User u=users().getValue(uid);
       request(new RequestDoCall(new ApiOutPeer(ApiPeerType.PRIVATE,u.getUid(),u.getAccessHash()),CALL_TIMEOUT),new RpcCallback<ResponseDoCall>(){
         @Override public void onResult(        final ResponseDoCall response){
           callback.onResult(response);
