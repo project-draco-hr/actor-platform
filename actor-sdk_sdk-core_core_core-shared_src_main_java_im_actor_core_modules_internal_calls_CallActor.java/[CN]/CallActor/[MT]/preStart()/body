@@ -1,5 +1,4 @@
 {
   super.preStart();
-  self().send(new CheckAlive(),CallsModule.CALL_TIMEOUT);
   self().send(new SendCallInProgress());
 }

@@ -1,0 +1,3 @@
+{
+  return modules.getCallsModule().makeCall(user,callCallback);
+}

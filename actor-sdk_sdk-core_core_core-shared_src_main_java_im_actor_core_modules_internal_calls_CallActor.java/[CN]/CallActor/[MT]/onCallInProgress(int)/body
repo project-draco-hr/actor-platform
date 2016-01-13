@@ -1,4 +1,8 @@
 {
   alive=true;
   this.timeout=timeout;
+  if (!inited) {
+    inited=true;
+    self().send(new CheckAlive(),CallsModule.CALL_TIMEOUT);
+  }
 }
