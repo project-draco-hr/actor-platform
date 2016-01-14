@@ -3,7 +3,6 @@
     alive=false;
   }
  else {
-    context().getCallsModule().endCall(callId);
-    self().send(PoisonPill.INSTANCE);
+    Log.d(TAG,"call probably dead, ignore for now");
   }
 }
