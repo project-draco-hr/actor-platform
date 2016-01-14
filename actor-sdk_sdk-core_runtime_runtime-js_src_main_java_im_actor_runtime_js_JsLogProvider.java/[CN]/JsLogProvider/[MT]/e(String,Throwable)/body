@@ -3,5 +3,5 @@
   for (  StackTraceElement element : throwable.getStackTrace()) {
     stackTrace+=element + "\n";
   }
-  error(formatTime() + "[E] " + tag+ ":"+ throwable+ "\n"+ stackTrace);
+  error(formatTime() + "[E] " + tag+ ":"+ throwable.getMessage()+ "\n"+ stackTrace);
 }

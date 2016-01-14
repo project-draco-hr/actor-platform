@@ -1,5 +1,5 @@
 {
-  long bitLength=(byteCount << 3);
+  long bitLength=((byteCount << 3)) & 0xFFFFFFFFFFFFFFFFL;
   update((byte)128);
   while (xBufOff != 0) {
     update((byte)0);

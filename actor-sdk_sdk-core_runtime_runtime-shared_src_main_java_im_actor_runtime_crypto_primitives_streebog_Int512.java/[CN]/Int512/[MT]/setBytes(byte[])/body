@@ -1,6 +1,6 @@
 {
   this.value=new byte[64];
   for (int i=0; i < 64; i++) {
-    this.value[i]=value[i];
+    this.value[i]=(byte)(value[i] & 0xFF);
   }
 }

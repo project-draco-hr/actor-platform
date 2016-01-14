@@ -9,7 +9,7 @@
   for (i=63; i >= 0; i--) {
     c+=(e.getByte(i) & 0xFF) + (m.getByte(i) & 0xFF);
     e.setByte(i,(byte)(c & 0xFF));
-    c>>=8;
+    c=c >> 8;
   }
   for (int j=0; j < 64; j++) {
     m.setByte(j,(byte)0x00);
@@ -17,7 +17,7 @@
   n+=(63 - pt) << 3;
   for (i=63; n > 0; i--) {
     m.setByte(i,(byte)(n & 0xFF));
-    n>>=8;
+    n=n >> 8;
   }
   StreebogMath.streebog_g(h,m,0);
   StreebogMath.streebog_g(h,e,0);

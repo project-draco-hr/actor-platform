@@ -1,3 +1,3 @@
 {
-  return ((x >>> 2) | (x << 30)) ^ ((x >>> 13) | (x << 19)) ^ ((x >>> 22) | (x << 10));
+  return jsWrap((jsWrap(x >>> 2) | jsWrap(x << 30)) ^ (jsWrap(x >>> 13) | jsWrap(x << 19)) ^ (jsWrap(x >>> 22) | jsWrap(x << 10)));
 }

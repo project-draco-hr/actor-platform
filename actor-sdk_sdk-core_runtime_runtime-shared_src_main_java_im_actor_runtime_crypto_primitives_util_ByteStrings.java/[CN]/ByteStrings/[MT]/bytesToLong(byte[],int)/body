@@ -11,5 +11,5 @@
   long b4=data[offset + 0] & 0xFF;
   long res2=(b1) + (b2 << 8) + (b3 << 16)+ (b4 << 24);
   offset+=4;
-  return res2 + (res1 << 32);
+  return (res2 + (res1 << 32)) & 0xFFFFFFFFFFFFFFFFL;
 }
