@@ -3,6 +3,7 @@
   this.timeout=timeout;
   if (!inited) {
     inited=true;
-    self().send(new CheckAlive(),CallsModule.CALL_TIMEOUT);
+    alive=false;
   }
+  self().send(new CheckAlive(),CallsModule.CALL_TIMEOUT + SAFE_TIMEOUT);
 }
