@@ -1,4 +1,4 @@
 {
-  Log.w(TAG,"Die(" + ref.getPath() + ") by "+ envelope.getMessage());
-  e.printStackTrace();
+  Log.w(TAG,"Die(" + ref.getPath() + ") by "+ envelope.getMessage()+ " with "+ e.getMessage());
+  Log.e(TAG,e);
 }
