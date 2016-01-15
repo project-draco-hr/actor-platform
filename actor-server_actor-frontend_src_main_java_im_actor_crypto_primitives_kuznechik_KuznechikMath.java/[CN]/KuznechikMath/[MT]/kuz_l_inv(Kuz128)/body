@@ -3,7 +3,7 @@
     byte x=w.getB()[0];
     for (int i=0; i < 15; i++) {
       w.getB()[i]=w.getB()[i + 1];
-      x^=kuz_mul_gf256(w.getB()[i],KuznechikTables.kuz_lvec[i]);
+      x^=kuz_mul_gf256_fast(w.getB()[i],KuznechikTables.kuz_lvec[i]);
     }
     w.getB()[15]=x;
   }
