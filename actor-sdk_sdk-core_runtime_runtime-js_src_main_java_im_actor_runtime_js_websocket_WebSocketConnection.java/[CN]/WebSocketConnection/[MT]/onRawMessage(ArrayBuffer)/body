@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"onRawMessage");
   if (isClosed) {
     return;
   }

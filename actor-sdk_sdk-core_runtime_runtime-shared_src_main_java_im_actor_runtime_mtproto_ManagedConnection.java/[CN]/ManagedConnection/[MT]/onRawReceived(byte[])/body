@@ -52,7 +52,7 @@
     }
   }
  catch (  IOException e) {
-    e.printStackTrace();
+    Log.e(TAG,e);
     close();
   }
 }
