@@ -1,20 +1,16 @@
 {
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
-      request(new RequestCompleteOAuth2(modules.getPreferences().getString(KEY_TRANSACTION_HASH),code),new RpcCallback<ResponseAuth>(){
+      ArrayList<String> langs=new ArrayList<String>();
+      for (      String s : modules.getConfiguration().getPreferredLanguages()) {
+        langs.add(s);
+      }
+      request(new RequestStartAnonymousAuth(userName,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle(),modules.getConfiguration().getTimeZone(),langs),new RpcCallback<ResponseAuth>(){
         @Override public void onResult(        ResponseAuth response){
           onLoggedIn(callback,response);
         }
         @Override public void onError(        final RpcException e){
-          if ("EMAIL_EXPIRED".equals(e.getTag())) {
-            resetAuth();
-          }
- else           if ("EMAIL_UNOCCUPIED".equals(e.getTag())) {
-            state=AuthState.SIGN_UP;
-            callback.onResult(AuthState.SIGN_UP);
-            return;
-          }
-          Runtime.postToMainThread(new Runnable(){
+          im.actor.runtime.Runtime.postToMainThread(new Runnable(){
             @Override public void run(){
               Log.e(TAG,e);
               callback.onError(e);

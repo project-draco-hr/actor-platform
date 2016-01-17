@@ -25,6 +25,7 @@
           }
           Runtime.postToMainThread(new Runnable(){
             @Override public void run(){
+              Log.e(TAG,e);
               callback.onError(e);
             }
           }

@@ -29,8 +29,8 @@
         @Override public void onError(        final RpcException e){
           im.actor.runtime.Runtime.postToMainThread(new Runnable(){
             @Override public void run(){
+              Log.e(TAG,e);
               callback.onError(e);
-              e.printStackTrace();
             }
           }
 );
