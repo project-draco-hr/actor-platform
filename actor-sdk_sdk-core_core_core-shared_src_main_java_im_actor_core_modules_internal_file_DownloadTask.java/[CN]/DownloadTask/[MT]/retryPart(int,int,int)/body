@@ -1,0 +1,9 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  if (LOG) {
+    Log.d(TAG,"Trying again part #" + blockIndex + " download");
+  }
+  downloadPart(blockIndex,fileOffset,attempt);
+}

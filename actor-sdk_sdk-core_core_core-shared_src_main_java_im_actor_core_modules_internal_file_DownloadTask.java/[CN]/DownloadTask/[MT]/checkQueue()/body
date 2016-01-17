@@ -15,7 +15,7 @@
     if (LOG) {
       Log.d(TAG,"Starting part #" + blockIndex + " download");
     }
-    downloadPart(blockIndex,offset);
+    downloadPart(blockIndex,offset,0);
     checkQueue();
   }
  else {

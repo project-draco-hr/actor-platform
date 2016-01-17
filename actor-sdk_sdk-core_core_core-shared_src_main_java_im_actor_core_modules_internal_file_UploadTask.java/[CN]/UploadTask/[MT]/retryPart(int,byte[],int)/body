@@ -1,0 +1,9 @@
+{
+  if (isCompleted) {
+    return;
+  }
+  if (LOG) {
+    Log.d(TAG,"Retrying block upload #" + blockIndex);
+  }
+  uploadPart(blockIndex,data,attempt);
+}

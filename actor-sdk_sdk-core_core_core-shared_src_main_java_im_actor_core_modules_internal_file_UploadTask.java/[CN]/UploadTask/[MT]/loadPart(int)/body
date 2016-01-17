@@ -30,7 +30,7 @@
             Log.d(TAG,"Starting block upload #" + blockIndex);
           }
           uploadCount++;
-          uploadPart(blockIndex,fileOffset,data);
+          uploadPart(blockIndex,data,0);
           checkQueue();
         }
       }

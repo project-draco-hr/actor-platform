@@ -1,0 +1,45 @@
+{
+  HTTP.getMethod(fileUrl,fileOffset,blockSize,fileReference.getFileSize(),new FileDownloadCallback(){
+    @Override public void onDownloaded(    final byte[] data){
+      self().send(new Runnable(){
+        @Override public void run(){
+          downloaded++;
+          if (LOG) {
+            Log.d(TAG,"Download part #" + blockIndex + " completed");
+          }
+          if (!outputFile.write(fileOffset,data,0,data.length)) {
+            reportError();
+            return;
+          }
+          currentDownloads--;
+          reportProgress(downloaded / (float)blocksCount);
+          checkQueue();
+        }
+      }
+);
+    }
+    @Override public void onDownloadFailure(    int error,    int retryInSecs){
+      if ((error >= 500 && error < 600) || error == 0) {
+        if (retryInSecs <= 0) {
+          retryInSecs=DEFAULT_RETRY;
+        }
+        if (LOG) {
+          Log.w(TAG,"Download part #" + blockIndex + " failure #"+ error+ " trying again in "+ retryInSecs+ " sec, attempt #"+ (attempt + 1));
+        }
+        self().send(new Retry(blockIndex,fileOffset,attempt + 1));
+      }
+ else {
+        self().send(new Runnable(){
+          @Override public void run(){
+            if (LOG) {
+              Log.d(TAG,"Download part #" + blockIndex + " failure");
+            }
+            reportError();
+          }
+        }
+);
+      }
+    }
+  }
+);
+}

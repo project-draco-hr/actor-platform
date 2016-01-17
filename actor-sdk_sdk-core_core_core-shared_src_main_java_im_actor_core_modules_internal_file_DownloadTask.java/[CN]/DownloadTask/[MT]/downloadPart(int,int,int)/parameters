@@ -1,2 +1,3 @@
 int blockIndex
 int fileOffset
+int attempt
