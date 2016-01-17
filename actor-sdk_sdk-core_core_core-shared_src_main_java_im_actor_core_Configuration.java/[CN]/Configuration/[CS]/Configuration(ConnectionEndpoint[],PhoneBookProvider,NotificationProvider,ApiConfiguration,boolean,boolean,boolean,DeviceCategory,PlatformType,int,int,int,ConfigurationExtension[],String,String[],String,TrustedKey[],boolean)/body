@@ -16,4 +16,5 @@
   this.preferredLanguages=preferredLanguages;
   this.customAppName=customAppName;
   this.trustedKeys=trustedKeys;
+  this.enablePhoneBookImport=enablePhoneBookImport;
 }
