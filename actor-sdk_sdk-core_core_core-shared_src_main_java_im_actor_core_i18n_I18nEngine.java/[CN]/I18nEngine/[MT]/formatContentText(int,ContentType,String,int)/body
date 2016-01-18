@@ -41,6 +41,10 @@ case SERVICE_TITLE:
 return getTemplateNamed(senderId,"ServiceGroupTitle");
 case SERVICE_JOINED:
 return getTemplateNamed(senderId,"ServiceGroupJoined");
+case SERVICE_CALL_ENDED:
+return locale.get("ServiceCallEnded");
+case SERVICE_CALL_MISSED:
+return locale.get("ServiceCallMissed");
 case NONE:
 return "";
 default :

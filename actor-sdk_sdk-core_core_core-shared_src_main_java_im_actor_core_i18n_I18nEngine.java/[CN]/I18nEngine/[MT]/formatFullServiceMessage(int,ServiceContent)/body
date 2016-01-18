@@ -28,5 +28,11 @@
  else   if (content instanceof ServiceGroupUserJoined) {
     return getTemplateNamed(senderId,"ServiceGroupJoined");
   }
+ else   if (content instanceof ServiceCallEnded) {
+    return locale.get("ServiceCallEnded");
+  }
+ else   if (content instanceof ServiceCallMissed) {
+    return locale.get("ServiceCallMissed");
+  }
   return content.getCompatText();
 }

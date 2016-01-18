@@ -80,6 +80,12 @@
  else         if (ext instanceof ApiServiceExUserJoined) {
           return new ServiceGroupUserJoined(remoteContainer);
         }
+ else         if (ext instanceof ApiServiceExPhoneCall) {
+          return new ServiceCallEnded(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExPhoneMissed) {
+          return new ServiceCallMissed(remoteContainer);
+        }
  else {
           return new ServiceContent(remoteContainer);
         }
