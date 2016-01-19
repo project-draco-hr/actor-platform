@@ -1,5 +1,5 @@
 {
-  isAlwaysOnline=config().getDeviceCategory() == DeviceCategory.DESKTOP;
+  isAlwaysOnline=false;
   if (isAlwaysOnline) {
     self().sendOnce(new PerformOnline());
   }
