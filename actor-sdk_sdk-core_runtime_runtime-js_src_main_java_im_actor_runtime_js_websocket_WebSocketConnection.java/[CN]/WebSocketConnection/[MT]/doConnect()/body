@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"doConnect");
   isClosed=true;
   String url;
   if (getEndpoint().getType() == ConnectionEndpoint.Type.WS) {

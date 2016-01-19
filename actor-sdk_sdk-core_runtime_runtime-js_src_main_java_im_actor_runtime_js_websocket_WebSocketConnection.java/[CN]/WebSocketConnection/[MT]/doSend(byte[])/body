@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"doSend");
   if (isClosed) {
     return;
   }

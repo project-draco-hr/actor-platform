@@ -40,10 +40,17 @@
       }
     }
  else {
+      if (m.getSortDate() > inReadStateNew) {
+        inReadStateNew=m.getSortDate();
+        preferences().putLong(IN_READ_STATE_NEW_PREF,inReadStateNew);
+      }
       if (m.getSortDate() > inReadState) {
         inPendingIndex.put(m.getRid(),m.getDate());
       }
     }
+  }
+  if (isConversationAutoRead()) {
+    checkReadState(false);
   }
   if (topMessage != null) {
     if (!isHiddenPeer) {

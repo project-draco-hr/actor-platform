@@ -1,11 +1,13 @@
 {
   messages=context().getMessagesModule().getConversationEngine(peer);
   docs=context().getMessagesModule().getConversationDocsEngine(peer);
+  readerActor=context().getMessagesModule().getOwnReadActor();
   dialogsActor=context().getMessagesModule().getDialogsActor();
   dialogsGroupedActor=context().getMessagesModule().getDialogsGroupedActor();
-  outPendingIndex=Storage.createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
-  inPendingIndex=Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId());
+  outPendingIndex=new IndexEngine(Storage.createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
+  inPendingIndex=new IndexEngine(Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
   inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);
+  inReadStateNew=context().getPreferences().getLong(IN_READ_STATE_NEW_PREF,0);
   outReadState=context().getPreferences().getLong(OUT_READ_STATE_PREF,0);
   outReceiveState=context().getPreferences().getLong(OUT_RECEIVE_STATE_PREF,0);
   if (peer.getPeerType() == PeerType.GROUP) {

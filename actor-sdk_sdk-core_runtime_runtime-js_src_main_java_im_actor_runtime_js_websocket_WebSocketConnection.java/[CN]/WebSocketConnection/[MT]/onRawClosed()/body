@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"onRawClosed");
   isClosed=true;
   onClosed();
 }

@@ -1,0 +1,15 @@
+{
+  if (inReadStateNew > inReadState) {
+    inReadState=inReadStateNew;
+    preferences().putLong(IN_READ_STATE_PREF,inReadState);
+    boolean wasNotNull=inPendingIndex.getCount() != 0;
+    inPendingIndex.clear();
+    readerActor.send(new OwnReadActor.MessageRead(peer,inReadState));
+    if (wasNotNull && updateDialogs) {
+      if (!isHiddenPeer) {
+        dialogsActor.send(new DialogsActor.CounterChanged(peer,0));
+      }
+      dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,0));
+    }
+  }
+}

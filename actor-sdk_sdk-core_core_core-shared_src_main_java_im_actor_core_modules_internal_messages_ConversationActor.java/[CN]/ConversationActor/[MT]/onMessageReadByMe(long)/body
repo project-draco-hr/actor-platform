@@ -3,7 +3,9 @@
     return;
   }
   inReadState=date;
+  inReadStateNew=Math.max(date,inReadStateNew);
   preferences().putLong(IN_READ_STATE_PREF,date);
+  preferences().putLong(IN_READ_STATE_NEW_PREF,inReadStateNew);
   inPendingIndex.removeBeforeValue(date);
   if (!isHiddenPeer) {
     dialogsActor.send(new DialogsActor.CounterChanged(peer,inPendingIndex.getCount()));

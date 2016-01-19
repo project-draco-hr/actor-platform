@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"doClose");
   isClosed=true;
   close();
 }

@@ -4,4 +4,8 @@
   inPendingIndex.clear();
   outPendingIndex.clear();
   dialogsActor.send(new DialogsActor.ChatDelete(peer));
+  inReadStateNew=0;
+  inReadState=0;
+  preferences().putLong(IN_READ_STATE_PREF,inReadState);
+  preferences().putLong(IN_READ_STATE_NEW_PREF,inReadStateNew);
 }

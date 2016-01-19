@@ -23,9 +23,16 @@
       }
     }
  else {
+      if (message.getSortDate() > inReadStateNew) {
+        inReadStateNew=message.getSortDate();
+        preferences().putLong(IN_READ_STATE_NEW_PREF,inReadStateNew);
+      }
       if (message.getSortDate() > inReadState) {
         inPendingIndex.put(message.getRid(),message.getDate());
       }
+    }
+    if (isConversationAutoRead()) {
+      checkReadState(false);
     }
     if (!isHiddenPeer) {
       dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));

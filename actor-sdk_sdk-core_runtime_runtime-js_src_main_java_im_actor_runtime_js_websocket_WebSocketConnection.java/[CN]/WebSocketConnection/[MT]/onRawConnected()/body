@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"onRawConnected");
   isClosed=false;
   onConnected();
 }
