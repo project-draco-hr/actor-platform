@@ -1,0 +1,4 @@
+{
+  Log.d("AuthKeyCreation","Key created");
+  keyCreation.send(new AuthKeyActor.StartKeyCreation(endpoints),self());
+}
