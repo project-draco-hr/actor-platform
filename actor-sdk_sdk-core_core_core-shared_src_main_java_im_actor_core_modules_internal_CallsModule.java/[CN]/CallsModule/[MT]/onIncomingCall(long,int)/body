@@ -1,5 +1,11 @@
 {
   if (!calls.keySet().contains(callId)) {
+    calls.put(callId,ActorSystem.system().actorOf(Props.create(CallActor.class,new ActorCreator<CallActor>(){
+      @Override public CallActor create(){
+        return new CallActor(callId,context());
+      }
+    }
+),"actor/call"));
     context().getEvents().post(new IncomingCall(callId,uid));
   }
 }

@@ -1,5 +1,4 @@
 {
   super(context);
   this.callId=callId;
-  this.callback=callCallback;
 }

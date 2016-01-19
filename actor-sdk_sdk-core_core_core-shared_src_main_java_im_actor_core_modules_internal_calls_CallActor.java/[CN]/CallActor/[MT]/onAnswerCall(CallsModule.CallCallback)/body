@@ -1,0 +1,6 @@
+{
+  this.callback=callCallback;
+  for (  byte[] s : signals) {
+    callback.onSignal(s);
+  }
+}
