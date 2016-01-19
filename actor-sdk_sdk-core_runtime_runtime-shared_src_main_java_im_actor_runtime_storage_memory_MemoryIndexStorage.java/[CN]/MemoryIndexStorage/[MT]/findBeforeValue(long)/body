@@ -1,3 +1,9 @@
 {
-  return null;
+  ArrayList<Long> ids=new ArrayList<Long>();
+  for (  long k : index.keySet()) {
+    if (index.get(k) < value) {
+      ids.add(k);
+    }
+  }
+  return ids;
 }

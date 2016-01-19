@@ -1,2 +1,5 @@
 {
+  for (  long l : keys) {
+    remove(l);
+  }
 }
