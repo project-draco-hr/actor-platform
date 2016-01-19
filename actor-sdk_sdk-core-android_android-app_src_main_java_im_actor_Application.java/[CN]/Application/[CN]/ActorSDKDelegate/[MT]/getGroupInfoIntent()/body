@@ -1,0 +1,8 @@
+{
+  return new BaseGroupInfoActivity(){
+    @Override public GroupInfoFragment getGroupInfoFragment(    int chatId){
+      return GroupInfoEx.create(chatId);
+    }
+  }
+;
+}

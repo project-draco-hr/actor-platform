@@ -1,0 +1,7 @@
+{
+  Bundle bundle=new Bundle();
+  bundle.putInt(EXTRA_UID,uid);
+  ProfileFragment res=new ProfileFragmentEx();
+  res.setArguments(bundle);
+  return res;
+}

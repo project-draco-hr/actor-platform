@@ -17,6 +17,14 @@
     return;
   }
   if (savedInstanceState == null) {
-    showFragment(ProfileFragment.create(uid),false,false);
+    ProfileFragment fragment;
+    BaseActorProfileActivity profileIntent=ActorSDK.sharedActor().getDelegate().getProfileIntent();
+    if (profileIntent != null) {
+      fragment=profileIntent.getProfileFragment(uid);
+    }
+ else {
+      fragment=ProfileFragment.create(uid);
+    }
+    showFragment(fragment,false,false);
   }
 }

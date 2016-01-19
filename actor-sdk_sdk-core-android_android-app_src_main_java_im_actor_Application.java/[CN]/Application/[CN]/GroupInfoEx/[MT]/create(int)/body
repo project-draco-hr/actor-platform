@@ -1,0 +1,7 @@
+{
+  Bundle bundle=new Bundle();
+  bundle.putInt(EXTRA_CHAT_ID,chatId);
+  GroupInfoFragment res=new GroupInfoEx();
+  res.setArguments(bundle);
+  return res;
+}
