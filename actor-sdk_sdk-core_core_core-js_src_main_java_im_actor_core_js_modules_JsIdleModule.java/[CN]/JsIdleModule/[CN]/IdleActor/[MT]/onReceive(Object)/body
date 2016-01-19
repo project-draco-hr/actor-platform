@@ -1,0 +1,14 @@
+{
+  if (message instanceof FlushTimeout) {
+    onTimeoutDetected();
+  }
+ else   if (message instanceof OnHidden) {
+    onHidden();
+  }
+ else   if (message instanceof OnVisible) {
+    onVisible();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

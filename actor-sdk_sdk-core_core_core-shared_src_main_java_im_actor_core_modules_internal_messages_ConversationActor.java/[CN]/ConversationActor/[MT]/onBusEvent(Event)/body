@@ -1,0 +1,11 @@
+{
+  if (event instanceof AppVisibleChanged) {
+    if (((AppVisibleChanged)event).isVisible()) {
+      onAppVisible();
+    }
+ else {
+      onAppHidden();
+    }
+  }
+  super.onBusEvent(event);
+}

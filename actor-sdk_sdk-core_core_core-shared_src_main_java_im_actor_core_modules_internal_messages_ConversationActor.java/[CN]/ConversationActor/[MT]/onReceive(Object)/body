@@ -41,6 +41,12 @@
  else   if (message instanceof MessageReactionsChanged) {
     onMessageReactionsUpdated(((MessageReactionsChanged)message).getRid(),((MessageReactionsChanged)message).getReactions());
   }
+ else   if (message instanceof ConversationVisible) {
+    onConversationVisible();
+  }
+ else   if (message instanceof ConversationHidden) {
+    onConversationHidden();
+  }
  else {
     drop(message);
   }

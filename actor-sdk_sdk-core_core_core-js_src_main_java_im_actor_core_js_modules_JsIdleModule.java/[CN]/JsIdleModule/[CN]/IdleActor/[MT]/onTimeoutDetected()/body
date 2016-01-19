@@ -1,0 +1,7 @@
+{
+  Log.d("JsIdle","onTimeoutDetected");
+  if (isAppVisible) {
+    isAppVisible=false;
+    messenger.onAppHidden();
+  }
+}

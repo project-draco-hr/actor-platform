@@ -1,0 +1,6 @@
+{
+  isConversationVisible=true;
+  if (isConversationAutoRead()) {
+    checkReadState();
+  }
+}

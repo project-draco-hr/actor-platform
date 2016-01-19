@@ -11,4 +11,5 @@
   if (peer.getPeerType() == PeerType.GROUP) {
     isHiddenPeer=getGroup(peer.getPeerId()).isHidden();
   }
+  subscribe(AppVisibleChanged.EVENT);
 }

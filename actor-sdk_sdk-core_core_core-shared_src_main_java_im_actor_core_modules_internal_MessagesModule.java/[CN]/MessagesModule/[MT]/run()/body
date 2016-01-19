@@ -54,4 +54,6 @@
   }
 ),"actor/shown");
   context().getEvents().subscribe(this,PeerChatOpened.EVENT);
+  context().getEvents().subscribe(this,PeerChatClosed.EVENT);
+  context().getEvents().subscribe(this,AppVisibleChanged.EVENT);
 }

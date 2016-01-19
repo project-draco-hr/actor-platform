@@ -25,18 +25,5 @@
     configuration.addEndpoint(endpoint);
   }
   messenger=new JsMessenger(configuration.build());
-  if (isElectron()) {
-    JsElectronApp.subscribe("window",new JsElectronListener(){
-      @Override public void onEvent(      String content){
-        if ("focus".equals(content)) {
-          messenger.onAppVisible();
-        }
- else         if ("blur".equals(content)) {
-          messenger.onAppHidden();
-        }
-      }
-    }
-);
-  }
   Log.d(TAG,"JsMessenger created");
 }

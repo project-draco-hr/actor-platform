@@ -1,0 +1,3 @@
+{
+  idleActor.send(new IdleActor.OnHidden());
+}

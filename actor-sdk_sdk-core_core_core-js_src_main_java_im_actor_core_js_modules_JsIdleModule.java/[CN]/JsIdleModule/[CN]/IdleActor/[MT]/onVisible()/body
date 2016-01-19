@@ -1,0 +1,4 @@
+{
+  onActionDetected();
+  Log.d("JsIdle","onVisible");
+}

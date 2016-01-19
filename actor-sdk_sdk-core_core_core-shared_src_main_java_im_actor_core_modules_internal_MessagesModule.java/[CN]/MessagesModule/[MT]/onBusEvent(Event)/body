@@ -1,5 +1,12 @@
 {
   if (event instanceof PeerChatOpened) {
-    assumeConvActor(((PeerChatOpened)event).getPeer());
+    Peer peer=((PeerChatOpened)event).getPeer();
+    assumeConvActor(peer);
+    conversationActors.get(peer).send(new ConversationActor.ConversationVisible());
+  }
+ else   if (event instanceof PeerChatClosed) {
+    Peer peer=((PeerChatClosed)event).getPeer();
+    assumeConvActor(peer);
+    conversationActors.get(peer).send(new ConversationActor.ConversationHidden());
   }
 }
