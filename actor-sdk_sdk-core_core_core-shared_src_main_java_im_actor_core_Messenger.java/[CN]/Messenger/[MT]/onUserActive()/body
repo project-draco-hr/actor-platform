@@ -1,0 +1,3 @@
+{
+  modules.getEvents().postSticky(new UserIDLEChanged(false));
+}
