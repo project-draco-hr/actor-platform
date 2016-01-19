@@ -1,3 +1,8 @@
 {
-  return provider.SHA256(data);
+  SHA256 sha256=new SHA256();
+  sha256.reset();
+  sha256.update(data,0,data.length);
+  byte[] res=new byte[32];
+  sha256.doFinal(res,0);
+  return res;
 }

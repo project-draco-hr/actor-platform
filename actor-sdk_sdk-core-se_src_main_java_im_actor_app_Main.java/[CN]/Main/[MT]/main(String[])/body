@@ -1,4 +1,13 @@
 {
   ConfigurationBuilder builder=new ConfigurationBuilder();
+  builder.addEndpoint("tcp://front1-mtproto-api-rev3.actor.im:443");
+  builder.addEndpoint("tcp://front2-mtproto-api-rev3.actor.im:443");
+  builder.setPhoneBookProvider(new PhoneBookProvider(){
+    @Override public void loadPhoneBook(    Callback callback){
+    }
+  }
+);
+  builder.setPhoneBookImportEnabled(false);
+  builder.setApiConfiguration(new ApiConfiguration("",0,"","",""));
   JavaSeMessenger messenger=new JavaSeMessenger(builder.build());
 }

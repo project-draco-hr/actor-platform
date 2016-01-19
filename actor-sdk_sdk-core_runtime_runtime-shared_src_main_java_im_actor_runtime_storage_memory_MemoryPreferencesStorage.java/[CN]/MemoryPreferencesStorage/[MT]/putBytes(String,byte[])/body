@@ -1,3 +1,8 @@
 {
-  keys.put(key,v);
+  if (v != null) {
+    keys.put(key,v);
+  }
+ else {
+    keys.remove(key);
+  }
 }

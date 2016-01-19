@@ -1,7 +1,0 @@
-{
-  SHA512Digest digest=new SHA512Digest();
-  digest.update(data,0,data.length);
-  byte[] res=new byte[64];
-  digest.doFinal(res,0);
-  return res;
-}
