@@ -1,0 +1,9 @@
+{
+  if (message instanceof CheckUsers) {
+    checkUsers(((CheckUsers)message).uids,future);
+    return false;
+  }
+ else {
+    return super.onAsk(message,future);
+  }
+}

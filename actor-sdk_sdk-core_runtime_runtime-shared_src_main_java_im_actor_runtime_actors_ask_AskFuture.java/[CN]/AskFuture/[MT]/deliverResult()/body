@@ -1,6 +1,6 @@
 {
   if (isSuccess()) {
-    receiver.send(new AskResult<T>(id,getResult()));
+    receiver.send(new AskResult(id,getResult()));
   }
  else {
     receiver.send(new AskError(id,getException()));

@@ -2,4 +2,10 @@
   super(context);
   this.collection=Storage.createKeyValue(STORAGE_USERS,UserVM.CREATOR(context()),User.CREATOR);
   this.users=collection.getEngine();
+  usersUpdatesActor=system().actorOf(Props.create(UsersUpdatesActor.class,new ActorCreator<UsersUpdatesActor>(){
+    @Override public UsersUpdatesActor create(){
+      return new UsersUpdatesActor(context);
+    }
+  }
+),"sequence/user");
 }

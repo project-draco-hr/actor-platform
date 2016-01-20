@@ -1,6 +1,6 @@
 {
-  int seq;
-  byte[] state;
+  final int seq;
+  final byte[] state;
   int type;
   byte[] body;
   if (u instanceof SeqUpdate) {
@@ -45,37 +45,30 @@
     }
     return;
   }
-  Update update=null;
-  try {
-    update=new UpdatesParser().read(type,body);
+  List<ApiUser> users=null;
+  List<ApiGroup> groups=null;
+  if (u instanceof FatSeqUpdate) {
+    FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
+    users=fatSeqUpdate.getUsers();
+    groups=fatSeqUpdate.getGroups();
   }
- catch (  IOException e) {
-    Log.w(TAG,"Unable to parse update: ignoring");
-    e.printStackTrace();
-  }
-  if (update != null) {
-    if ((!(u instanceof FatSeqUpdate)) && processor.isCausesInvalidation(update)) {
-      Log.w(TAG,"Message causes invalidation");
+  ask(sequenceHandler,new SequenceHandlerActor.SeqUpdate(type,body,users,groups),new AskCallback(){
+    @Override public void onResult(    Object obj){
+      Log.d(TAG,"Seq Update onResult");
+      SequenceActor.this.seq=seq;
+      SequenceActor.this.state=state;
+      preferences().putInt(KEY_SEQ,seq);
+      preferences().putBytes(KEY_STATE,state);
+      checkRunnables();
+      checkFuture();
+      isTimerStarted=false;
+      self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
+    }
+    @Override public void onError(    Exception e){
+      e.printStackTrace();
+      Log.d(TAG,"Seq Update required difference");
       invalidate();
-      return;
-    }
-    Log.d(TAG,"Processing update: " + update);
-    if (u instanceof FatSeqUpdate) {
-      FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-      processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),false);
-    }
-    processor.processUpdate(update);
-    if (u instanceof FatSeqUpdate) {
-      FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-      processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),true);
     }
   }
-  this.seq=seq;
-  this.state=state;
-  preferences().putInt(KEY_SEQ,seq);
-  preferences().putBytes(KEY_STATE,state);
-  checkRunnables();
-  checkFuture();
-  isTimerStarted=false;
-  self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
+);
 }
