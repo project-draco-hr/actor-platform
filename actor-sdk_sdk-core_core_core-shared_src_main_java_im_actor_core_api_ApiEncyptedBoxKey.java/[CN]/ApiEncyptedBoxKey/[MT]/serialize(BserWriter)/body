@@ -1,0 +1,12 @@
+{
+  writer.writeInt(1,this.usersId);
+  writer.writeInt(2,this.keyGroupId);
+  if (this.algType == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.algType);
+  if (this.encryptedKey == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(4,this.encryptedKey);
+}

@@ -1,0 +1,9 @@
+{
+  String res="update KeysAdded{";
+  res+="uid=" + this.uid;
+  res+=", keyGroupId=" + this.keyGroupId;
+  res+=", keys=" + this.keys.size();
+  res+=", signatures=" + this.signatures.size();
+  res+="}";
+  return res;
+}

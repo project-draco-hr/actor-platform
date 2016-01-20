@@ -3,5 +3,5 @@
     throw new IOException();
   }
   writer.writeString(1,this.endpoint);
-  writer.writeRepeatedObj(2,this.publicKeys);
+  writer.writeRepeatedObj(2,this.encryptionKeys);
 }

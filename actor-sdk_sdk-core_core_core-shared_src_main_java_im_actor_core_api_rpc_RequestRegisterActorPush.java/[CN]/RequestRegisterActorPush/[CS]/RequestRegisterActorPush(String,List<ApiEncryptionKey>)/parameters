@@ -1,2 +1,2 @@
 String endpoint
-List<ApiEncryptionKey> publicKeys
+List<ApiEncryptionKey> encryptionKeys

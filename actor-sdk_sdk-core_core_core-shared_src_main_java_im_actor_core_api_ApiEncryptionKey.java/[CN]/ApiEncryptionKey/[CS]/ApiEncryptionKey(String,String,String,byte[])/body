@@ -1,6 +1,0 @@
-{
-  this.keyId=keyId;
-  this.keyType=keyType;
-  this.keyAlg=keyAlg;
-  this.keyMaterial=keyMaterial;
-}

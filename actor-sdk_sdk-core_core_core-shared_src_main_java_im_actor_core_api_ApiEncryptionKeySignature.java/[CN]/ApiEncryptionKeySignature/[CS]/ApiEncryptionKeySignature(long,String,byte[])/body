@@ -1,0 +1,5 @@
+{
+  this.keyId=keyId;
+  this.signatureAlg=signatureAlg;
+  this.signature=signature;
+}

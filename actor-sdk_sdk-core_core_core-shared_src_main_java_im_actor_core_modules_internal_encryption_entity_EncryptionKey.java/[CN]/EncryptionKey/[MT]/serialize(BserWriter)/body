@@ -1,0 +1,8 @@
+{
+  writer.writeLong(1,keyId);
+  writer.writeString(2,keyAlg);
+  writer.writeBytes(3,publicKey);
+  if (privateKey != null) {
+    writer.writeBytes(4,privateKey);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.usersId=usersId;
+  this.keyGroupId=keyGroupId;
+  this.algType=algType;
+  this.encryptedKey=encryptedKey;
+}

@@ -1,0 +1,5 @@
+{
+  writer.writeInt(1,this.keyGroupId);
+  writer.writeRepeatedObj(2,this.keys);
+  writer.writeRepeatedObj(3,this.signatures);
+}

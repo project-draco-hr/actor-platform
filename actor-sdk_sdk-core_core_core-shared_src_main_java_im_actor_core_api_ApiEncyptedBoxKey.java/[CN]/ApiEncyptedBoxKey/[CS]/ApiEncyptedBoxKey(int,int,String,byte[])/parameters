@@ -1,0 +1,4 @@
+int usersId
+int keyGroupId
+String algType
+byte[] encryptedKey

@@ -1,0 +1,5 @@
+{
+  writer.writeObject(1,identityKey);
+  writer.writeLong(2,keyGroupId);
+  writer.writeRepeatedObj(3,keys);
+}

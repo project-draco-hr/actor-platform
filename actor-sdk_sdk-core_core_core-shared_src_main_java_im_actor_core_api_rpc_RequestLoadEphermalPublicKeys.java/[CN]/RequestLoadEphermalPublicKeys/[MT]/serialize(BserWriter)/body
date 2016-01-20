@@ -3,5 +3,5 @@
     throw new IOException();
   }
   writer.writeObject(1,this.userPeer);
-  writer.writeLong(2,this.keyGroupId);
+  writer.writeInt(2,this.keyGroupId);
 }

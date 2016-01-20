@@ -1,0 +1,5 @@
+{
+  this.uid=values.getInt(1);
+  this.keyGroupId=values.getInt(2);
+  this.keyIds=values.getRepeatedLong(3);
+}

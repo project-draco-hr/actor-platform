@@ -1,0 +1,8 @@
+{
+  keyManager=system().actorOf(Props.create(KeyManagerActor.class,new ActorCreator<KeyManagerActor>(){
+    @Override public KeyManagerActor create(){
+      return new KeyManagerActor(context());
+    }
+  }
+),"encryption/keys");
+}

@@ -1,0 +1,8 @@
+{
+  String res="update KeysRemoved{";
+  res+="uid=" + this.uid;
+  res+=", keyGroupId=" + this.keyGroupId;
+  res+=", keyIds=" + this.keyIds;
+  res+="}";
+  return res;
+}

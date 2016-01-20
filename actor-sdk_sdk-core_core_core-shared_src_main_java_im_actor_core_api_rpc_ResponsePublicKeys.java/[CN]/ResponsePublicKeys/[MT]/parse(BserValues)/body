@@ -1,7 +1,12 @@
 {
-  List<ApiEncryptionPublicKey> _publicKey=new ArrayList<ApiEncryptionPublicKey>();
+  List<ApiEncryptionKey> _publicKey=new ArrayList<ApiEncryptionKey>();
   for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _publicKey.add(new ApiEncryptionPublicKey());
+    _publicKey.add(new ApiEncryptionKey());
   }
   this.publicKey=values.getRepeatedObj(1,_publicKey);
+  List<ApiEncryptionKeySignature> _signatures=new ArrayList<ApiEncryptionKeySignature>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _signatures.add(new ApiEncryptionKeySignature());
+  }
+  this.signatures=values.getRepeatedObj(2,_signatures);
 }

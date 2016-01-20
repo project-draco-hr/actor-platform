@@ -1,0 +1,4 @@
+ApiEncryptionKey identityKey
+int encryptionVersion
+List<ApiEncryptionKey> keys
+List<ApiEncryptionKeySignature> signatures

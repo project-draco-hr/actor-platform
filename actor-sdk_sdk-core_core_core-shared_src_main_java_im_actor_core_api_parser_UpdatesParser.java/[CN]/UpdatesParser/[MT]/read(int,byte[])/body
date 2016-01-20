@@ -94,6 +94,10 @@ case 131:
 return UpdateParameterChanged.fromBytes(payload);
 case 103:
 return UpdatePublicKeyGroupChanged.fromBytes(payload);
+case 112:
+return UpdateKeysAdded.fromBytes(payload);
+case 113:
+return UpdateKeysRemoved.fromBytes(payload);
 case 104:
 return UpdatePublicKeyGroupAdded.fromBytes(payload);
 case 105:

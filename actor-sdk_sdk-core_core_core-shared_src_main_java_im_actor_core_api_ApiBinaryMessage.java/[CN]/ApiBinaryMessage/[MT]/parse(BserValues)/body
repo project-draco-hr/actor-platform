@@ -1,0 +1,7 @@
+{
+  this.contentTag=values.getString(1);
+  this.msg=values.getBytes(2);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

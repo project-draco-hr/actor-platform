@@ -1,0 +1,3 @@
+{
+  this(keyId,"curve25519",keyPair.getPublicKey(),keyPair.getPrivateKey());
+}

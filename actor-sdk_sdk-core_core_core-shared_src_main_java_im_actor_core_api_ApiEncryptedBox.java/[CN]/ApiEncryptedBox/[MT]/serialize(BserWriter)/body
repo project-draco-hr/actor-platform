@@ -1,0 +1,11 @@
+{
+  writer.writeRepeatedObj(1,this.keys);
+  if (this.algType == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.algType);
+  if (this.encPackage == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(3,this.encPackage);
+}

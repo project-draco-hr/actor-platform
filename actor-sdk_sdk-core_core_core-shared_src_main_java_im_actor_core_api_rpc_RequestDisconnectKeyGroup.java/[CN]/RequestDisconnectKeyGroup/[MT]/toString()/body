@@ -1,0 +1,6 @@
+{
+  String res="rpc DisconnectKeyGroup{";
+  res+="keyGroupId=" + this.keyGroupId;
+  res+="}";
+  return res;
+}

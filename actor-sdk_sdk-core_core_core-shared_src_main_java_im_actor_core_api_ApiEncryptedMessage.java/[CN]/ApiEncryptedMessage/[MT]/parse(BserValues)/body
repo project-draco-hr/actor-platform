@@ -1,0 +1,6 @@
+{
+  this.box=values.getObj(1,new ApiEncryptedBox());
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

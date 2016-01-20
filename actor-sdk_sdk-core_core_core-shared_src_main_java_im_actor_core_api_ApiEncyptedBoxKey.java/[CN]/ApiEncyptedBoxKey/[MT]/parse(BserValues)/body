@@ -1,0 +1,6 @@
+{
+  this.usersId=values.getInt(1);
+  this.keyGroupId=values.getInt(2);
+  this.algType=values.getString(3);
+  this.encryptedKey=values.getBytes(4);
+}

@@ -1,0 +1,8 @@
+{
+  String res="struct EncryptionKeySignature{";
+  res+="keyId=" + this.keyId;
+  res+=", signatureAlg=" + this.signatureAlg;
+  res+=", signature=" + byteArrayToString(this.signature);
+  res+="}";
+  return res;
+}

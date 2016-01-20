@@ -1,0 +1,14 @@
+{
+  this.identityKey=values.getObj(1,new ApiEncryptionKey());
+  this.encryptionVersion=values.getInt(2);
+  List<ApiEncryptionKey> _keys=new ArrayList<ApiEncryptionKey>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _keys.add(new ApiEncryptionKey());
+  }
+  this.keys=values.getRepeatedObj(3,_keys);
+  List<ApiEncryptionKeySignature> _signatures=new ArrayList<ApiEncryptionKeySignature>();
+  for (int i=0; i < values.getRepeatedCount(4); i++) {
+    _signatures.add(new ApiEncryptionKeySignature());
+  }
+  this.signatures=values.getRepeatedObj(4,_signatures);
+}

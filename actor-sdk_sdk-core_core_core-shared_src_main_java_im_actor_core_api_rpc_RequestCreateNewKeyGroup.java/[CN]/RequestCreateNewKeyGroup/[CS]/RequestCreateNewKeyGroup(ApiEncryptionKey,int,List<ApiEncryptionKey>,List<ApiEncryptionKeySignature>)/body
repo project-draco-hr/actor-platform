@@ -1,0 +1,6 @@
+{
+  this.identityKey=identityKey;
+  this.encryptionVersion=encryptionVersion;
+  this.keys=keys;
+  this.signatures=signatures;
+}

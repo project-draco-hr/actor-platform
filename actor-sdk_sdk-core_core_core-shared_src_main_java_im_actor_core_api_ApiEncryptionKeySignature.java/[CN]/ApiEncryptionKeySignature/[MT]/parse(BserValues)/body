@@ -1,0 +1,5 @@
+{
+  this.keyId=values.getLong(1);
+  this.signatureAlg=values.getString(2);
+  this.signature=values.getBytes(3);
+}

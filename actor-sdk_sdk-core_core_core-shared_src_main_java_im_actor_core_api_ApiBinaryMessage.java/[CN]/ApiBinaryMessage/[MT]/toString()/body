@@ -1,0 +1,7 @@
+{
+  String res="struct BinaryMessage{";
+  res+="contentTag=" + this.contentTag;
+  res+=", msg=" + byteArrayToStringCompact(this.msg);
+  res+="}";
+  return res;
+}
