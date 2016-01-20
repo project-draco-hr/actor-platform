@@ -1,6 +1,7 @@
 {
   String res="rpc CreateNewKeyGroup{";
   res+="identityKey=" + this.identityKey;
+  res+=", supportedEncryptions=" + this.supportedEncryptions;
   res+=", keys=" + this.keys;
   res+=", signatures=" + this.signatures;
   res+="}";

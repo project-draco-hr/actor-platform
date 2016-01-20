@@ -1,6 +1,6 @@
 {
   this.identityKey=values.getObj(1,new ApiEncryptionKey());
-  this.encryptionVersion=values.getInt(2);
+  this.supportedEncryptions=values.getRepeatedString(2);
   List<ApiEncryptionKey> _keys=new ArrayList<ApiEncryptionKey>();
   for (int i=0; i < values.getRepeatedCount(3); i++) {
     _keys.add(new ApiEncryptionKey());
