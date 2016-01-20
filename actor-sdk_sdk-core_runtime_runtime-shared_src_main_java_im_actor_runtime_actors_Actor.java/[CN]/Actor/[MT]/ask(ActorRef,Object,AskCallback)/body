@@ -1,0 +1,36 @@
+{
+  final long id=RandomUtils.nextRid();
+  become(new Receiver(){
+    @Override public void onReceive(    Object message){
+      if (message instanceof AskResult) {
+        AskResult askResult=((AskResult)message);
+        if (askResult.getId() != id) {
+          stash();
+          return;
+        }
+        if (callback != null) {
+          callback.onResult(askResult.getResult());
+        }
+        unbecome();
+        unstashAll();
+      }
+ else       if (message instanceof AskError) {
+        AskError error=((AskError)message);
+        if (error.getId() != id) {
+          stash();
+          return;
+        }
+        if (callback != null) {
+          callback.onError(error.getException());
+        }
+        unbecome();
+        unstashAll();
+      }
+ else {
+        stash();
+      }
+    }
+  }
+);
+  dest.send(new AskRequest<Object>(message,new AskFuture<Object>(id,self())));
+}

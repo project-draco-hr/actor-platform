@@ -1,0 +1,4 @@
+{
+  drop(message);
+  return false;
+}

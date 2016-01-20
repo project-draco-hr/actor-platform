@@ -1,5 +1,10 @@
 {
   context.setSender(sender);
+  context.setMessage(message);
+  if (receivers.size() > 0) {
+    receivers.get(receivers.size() - 1).onReceive(message);
+    return;
+  }
   if (message instanceof Runnable) {
     ((Runnable)message).run();
     return;

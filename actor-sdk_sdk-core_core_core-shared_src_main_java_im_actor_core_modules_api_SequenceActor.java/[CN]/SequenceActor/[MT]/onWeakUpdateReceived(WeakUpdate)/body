@@ -1,0 +1,13 @@
+{
+  Update update;
+  try {
+    update=parser.read(weakUpdate.getUpdateHeader(),weakUpdate.getUpdate());
+    Log.d(TAG,"Weak Update: " + update);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    Log.w(TAG,"Unable to parse update: ignoring");
+    return;
+  }
+  ask(sequenceHandler,new SequenceHandlerActor.WeakUpdate(update,weakUpdate.getDate()));
+}

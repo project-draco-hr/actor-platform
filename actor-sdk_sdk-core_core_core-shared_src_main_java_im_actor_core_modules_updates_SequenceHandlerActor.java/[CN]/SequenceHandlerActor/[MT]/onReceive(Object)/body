@@ -1,8 +1,0 @@
-{
-  if (message instanceof WeakUpdate) {
-    onWeakUpdateReceived(((WeakUpdate)message).getUpdate(),((WeakUpdate)message).getDate());
-  }
- else {
-    super.onReceive(message);
-  }
-}

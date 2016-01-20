@@ -1,0 +1,3 @@
+{
+  stashed.add(new StashedMessage(context.message(),context.sender()));
+}

@@ -1,0 +1,10 @@
+{
+  if (message instanceof WeakUpdate) {
+    WeakUpdate weakUpdate=(WeakUpdate)message;
+    onWeakUpdateReceived(weakUpdate.getUpdate(),weakUpdate.getDate());
+    return true;
+  }
+ else {
+    return super.onAsk(message,future);
+  }
+}

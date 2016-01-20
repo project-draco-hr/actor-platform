@@ -62,8 +62,6 @@
   updates.run();
   timing.section("Calls");
   calls.run();
-  timing.section("Extensions");
-  extensions.runExtensions();
   timing.end();
   messenger.onLoggedIn();
 }

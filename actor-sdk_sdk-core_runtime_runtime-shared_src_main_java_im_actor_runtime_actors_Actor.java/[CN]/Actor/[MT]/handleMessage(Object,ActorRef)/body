@@ -1,18 +1,3 @@
 {
-  if (message instanceof StashEnd) {
-    endStash();
-  }
- else   if (message instanceof StashBegin) {
-    beginStash(null);
-  }
- else   if (message instanceof StashIgnore) {
-    intHandle(((StashIgnore)message).getMessage(),sender);
-  }
- else {
-    if (isStashing) {
-      stashed.add(new StashedMessage(message,sender));
-      return;
-    }
-    intHandle(message,sender);
-  }
+  intHandle(message,sender);
 }
