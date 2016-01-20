@@ -1,3 +1,11 @@
 {
   Log.d(TAG,"Main Keys are ready");
+  List<KeyValueRecord> records=ephermalStorage.loadAllItems();
+  for (int i=0; i < records.size() - 100; i++) {
+    long randomId=Randoms.randomId();
+    EncryptionKey encryptionKey=new EncryptionKey(randomId,Curve25519.keyGen(Crypto.randomBytes(64)));
+    EphermalEncryptionKey ephermalEncryptionKey=new EphermalEncryptionKey(encryptionKey,false);
+    ephermalStorage.addOrUpdateItem(randomId,ephermalEncryptionKey.toByteArray());
+  }
+  records=ephermalStorage.loadAllItems();
 }

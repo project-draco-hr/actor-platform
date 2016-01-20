@@ -1,0 +1,4 @@
+{
+  writer.writeBytes(1,encryptionKey.toByteArray());
+  writer.writeBool(2,isUploaded);
+}

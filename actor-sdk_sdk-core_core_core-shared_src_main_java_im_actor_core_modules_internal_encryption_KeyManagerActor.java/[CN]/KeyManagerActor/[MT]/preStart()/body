@@ -1,4 +1,5 @@
 {
+  ephermalStorage=Storage.createKeyValue("ephermal_keys");
   byte[] data=preferences().getBytes(PRIVATE_KEYS);
   if (data != null) {
     try {
