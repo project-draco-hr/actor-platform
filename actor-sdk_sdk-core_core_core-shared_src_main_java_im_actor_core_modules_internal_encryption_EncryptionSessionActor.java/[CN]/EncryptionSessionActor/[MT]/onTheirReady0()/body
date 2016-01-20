@@ -1,0 +1,24 @@
+{
+  Log.w(TAG,"Their identity ephemeral keys ready");
+  if (currentTheirKey == null) {
+    request(new RequestLoadEphermalPublicKeys(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),encryptionKeyGroup.getKeyGroupId()),new RpcCallback<ResponsePublicKeys>(){
+      @Override public void onResult(      ResponsePublicKeys response){
+        if (response.getPublicKey().size() == 0) {
+          Log.w(TAG,"No ephemeral keys found");
+          return;
+        }
+        ApiEncryptionKey encryptionKey=response.getPublicKey().get(RandomUtils.randomId(response.getPublicKey().size()));
+        currentTheirKey=new EncryptionKey(encryptionKey.getKeyId(),encryptionKey.getKeyAlg(),encryptionKey.getKeyMaterial(),null);
+        allSet();
+      }
+      @Override public void onError(      RpcException e){
+        Log.w(TAG,"Their ephemeral error");
+        Log.e(TAG,e);
+      }
+    }
+);
+  }
+ else {
+    onTheirReady0();
+  }
+}
