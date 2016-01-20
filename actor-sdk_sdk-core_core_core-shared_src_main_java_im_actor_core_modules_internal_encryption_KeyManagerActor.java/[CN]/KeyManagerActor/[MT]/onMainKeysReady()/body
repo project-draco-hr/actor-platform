@@ -33,7 +33,7 @@
       @Override public void onResult(      ResponseVoid response){
         List<KeyValueRecord> updated=new ArrayList<KeyValueRecord>();
         for (        EphemeralEncryptionKey k : pendingEphermalKeys) {
-          updated.add(new KeyValueRecord(k.getEncryptionKey().getKeyId(),k.toByteArray()));
+          updated.add(new KeyValueRecord(k.getEncryptionKey().getKeyId(),k.markUploaded().toByteArray()));
         }
         ephemeralStorage.addOrUpdateItems(updated);
         onAllKeysReady();

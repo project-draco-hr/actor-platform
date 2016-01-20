@@ -1,0 +1,24 @@
+{
+  super.preStart();
+  if (ownIdentityKey == null || ownEphermalKey0 == null || currentOwnKey == null) {
+    Log.d(TAG,"Loading own keys for conversation");
+    ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchOwnKey(),new AskCallback(){
+      @Override public void onResult(      Object obj){
+        Log.d(TAG,"Own keys loaded");
+        KeyManagerActor.FetchOwnKeyResult res=(KeyManagerActor.FetchOwnKeyResult)obj;
+        ownIdentityKey=res.getIdentityKey();
+        ownEphermalKey0=res.getEphemeralKey();
+        currentOwnKey=new EncryptionKey(RandomUtils.nextRid(),Curve25519.keyGen(Crypto.randomBytes(64)));
+        onOwnReady();
+      }
+      @Override public void onError(      Exception e){
+        Log.w(TAG,"Own keys error");
+        Log.e(TAG,e);
+      }
+    }
+);
+  }
+ else {
+    onOwnReady();
+  }
+}

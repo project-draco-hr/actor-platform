@@ -1,0 +1,13 @@
+{
+synchronized (encryptedStates) {
+    if (!encryptedStates.containsKey(uid)) {
+      encryptedStates.put(uid,system().actorOf(Props.create(EncryptedStateActor.class,new ActorCreator<EncryptedStateActor>(){
+        @Override public EncryptedStateActor create(){
+          return new EncryptedStateActor(uid,context());
+        }
+      }
+),"encryption/uid_" + uid));
+    }
+    return encryptedStates.get(uid);
+  }
+}

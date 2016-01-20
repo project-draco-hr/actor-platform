@@ -1,0 +1,4 @@
+{
+  this.identityKey=identityKey;
+  this.ephemeralKey=ephemeralKey;
+}

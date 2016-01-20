@@ -1,0 +1,7 @@
+{
+  if (message instanceof FetchOwnKey) {
+    fetchOwnKey(future);
+    return false;
+  }
+  return super.onAsk(message,future);
+}
