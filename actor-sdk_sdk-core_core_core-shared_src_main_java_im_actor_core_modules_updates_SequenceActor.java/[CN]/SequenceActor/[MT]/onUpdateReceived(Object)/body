@@ -15,45 +15,6 @@
     type=((FatSeqUpdate)u).getUpdateHeader();
     body=((FatSeqUpdate)u).getUpdate();
   }
- else   if (u instanceof WeakUpdate) {
-    WeakUpdate w=(WeakUpdate)u;
-    try {
-      Update update=parser.read(w.getUpdateHeader(),w.getUpdate());
-      processor.processWeakUpdate(update,w.getDate());
-      Log.d(TAG,"Weak Update: " + update);
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-      Log.w(TAG,"Unable to parse update: ignoring");
-    }
-    return;
-  }
- else   if (u instanceof InternalUpdate) {
-    Log.d(TAG,"Received internal update");
-    processor.processInternalUpdate((InternalUpdate)u);
-    return;
-  }
- else   if (u instanceof ExecuteAfter) {
-    ExecuteAfter after=(ExecuteAfter)u;
-    if (after.getSeq() <= this.seq) {
-      after.getRunnable().run();
-    }
- else {
-      pendingRunnables.add(after);
-    }
-    return;
-  }
- else   if (u instanceof PushSeq) {
-    PushSeq pushSeq=(PushSeq)u;
-    if (pushSeq.seq <= this.seq) {
-      Log.d(TAG,"Ignored PushSeq {seq:" + pushSeq.seq + "}");
-    }
- else {
-      Log.w(TAG,"External Out of sequence: starting timer for invalidation");
-      self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
-    }
-    return;
-  }
  else {
     return;
   }
@@ -67,7 +28,7 @@
     further.put(seq,u);
     return;
   }
-  if (!isValidSeq(seq)) {
+  if (seq != this.seq + 1) {
     further.put(seq,u);
     if (seq - this.seq > INVALIDATE_MAX_SEC_HOLE) {
       Log.w(TAG,"Out of sequence: Too big hole. Force invalidate immediately");

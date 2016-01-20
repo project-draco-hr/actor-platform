@@ -1,0 +1,7 @@
+{
+  if (isStashing) {
+    throw new RuntimeException("Actor is already stashed");
+  }
+  this.beforeUnstash=beforeUnstash;
+  isStashing=true;
+}

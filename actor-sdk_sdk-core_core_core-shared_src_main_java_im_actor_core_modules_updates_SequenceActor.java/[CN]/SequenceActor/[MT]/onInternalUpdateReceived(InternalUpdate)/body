@@ -1,0 +1,4 @@
+{
+  Log.d(TAG,"Received internal update");
+  processor.processInternalUpdate(internalUpdate);
+}

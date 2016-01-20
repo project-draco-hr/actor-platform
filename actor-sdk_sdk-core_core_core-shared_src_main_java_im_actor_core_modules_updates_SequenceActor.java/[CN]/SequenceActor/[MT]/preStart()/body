@@ -3,5 +3,11 @@
   state=preferences().getBytes(KEY_STATE);
   parser=new UpdatesParser();
   processor=new UpdateProcessor(context());
+  sequenceHandler=system().actorOf(Props.create(SequenceHandlerActor.class,new ActorCreator<SequenceHandlerActor>(){
+    @Override public SequenceHandlerActor create(){
+      return new SequenceHandlerActor(processor,context());
+    }
+  }
+),getPath() + "/handler");
   self().send(new Invalidate());
 }
