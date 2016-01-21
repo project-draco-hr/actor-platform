@@ -1,2 +1,33 @@
 {
+  int senderKeyGroup=ByteStrings.bytesToInt(ByteStrings.substring(data.getEncryptedPackage(),0,4));
+  byte[] encPackage=ByteStrings.substring(data.getEncryptedPackage(),4,data.getEncryptedPackage().length - 4);
+  if (sessions.containsKey(senderKeyGroup)) {
+    Log.d(TAG,"Decryption with key group");
+    byte[] encKey=null;
+    for (    EncryptedBoxKey k : data.getKeys()) {
+      if (k.getKeyGroupId() == ownKeyGroupId && k.getUid() == myUid()) {
+        encKey=k.getEncryptedKey();
+        break;
+      }
+    }
+    Log.d(TAG,"EncPackage: " + Hex.toHex(encPackage));
+    for (    EncryptedBoxKey k : data.getKeys()) {
+      Log.d(TAG,"Key: " + Hex.toHex(k.getEncryptedKey()));
+    }
+    ask(sessions.get(senderKeyGroup),new EncryptionSessionActor.DecryptPackage(encKey),new AskCallback(){
+      @Override public void onResult(      Object obj){
+        Log.d(TAG,"Decryption with key group:onResult");
+        future.onResult();
+      }
+      @Override public void onError(      Exception e){
+        Log.d(TAG,"Decryption with key group:onError");
+        future.onError(e);
+      }
+    }
+);
+  }
+ else {
+    Log.w(TAG,"Unable to find appropriate session #" + senderKeyGroup);
+    future.onError(new RuntimeException());
+  }
 }

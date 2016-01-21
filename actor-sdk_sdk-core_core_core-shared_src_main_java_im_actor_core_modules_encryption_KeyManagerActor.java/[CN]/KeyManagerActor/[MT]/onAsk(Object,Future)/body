@@ -3,5 +3,9 @@
     fetchOwnKey(future);
     return false;
   }
+ else   if (message instanceof FetchOwnKeyGroup) {
+    fetchKeyGroup(future);
+    return false;
+  }
   return super.onAsk(message,future);
 }

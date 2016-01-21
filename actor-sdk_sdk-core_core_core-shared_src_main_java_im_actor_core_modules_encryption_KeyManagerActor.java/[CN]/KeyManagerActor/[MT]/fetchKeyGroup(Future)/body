@@ -1,0 +1,3 @@
+{
+  future.onResult(new FetchOwnKeyGroupResult(privateKeyStorage.getKeyGroupId()));
+}

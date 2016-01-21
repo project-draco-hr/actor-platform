@@ -1,0 +1,5 @@
+{
+  Log.w(TAG,"onOwnKeysReady");
+  isReady=true;
+  unstashAll();
+}

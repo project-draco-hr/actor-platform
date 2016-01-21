@@ -3,6 +3,11 @@
     onEncrypt(((EncryptPackage)message).getData(),future);
     return false;
   }
+ else   if (message instanceof DecryptPackage) {
+    DecryptPackage decryptPackage=(DecryptPackage)message;
+    onDecrypt(decryptPackage.getData(),future);
+    return false;
+  }
  else {
     return super.onAsk(message,future);
   }

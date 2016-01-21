@@ -7,7 +7,7 @@
           Log.w(TAG,"No ephemeral keys found");
           return;
         }
-        ApiEncryptionKey encryptionKey=response.getPublicKey().get(0);
+        ApiEncryptionKey encryptionKey=response.getPublicKey().get(RandomUtils.randomId(response.getPublicKey().size()));
         theirEphermalKey0=new EncryptionKey(encryptionKey.getKeyId(),encryptionKey.getKeyAlg(),encryptionKey.getKeyMaterial(),null);
         onTheirReady0();
       }

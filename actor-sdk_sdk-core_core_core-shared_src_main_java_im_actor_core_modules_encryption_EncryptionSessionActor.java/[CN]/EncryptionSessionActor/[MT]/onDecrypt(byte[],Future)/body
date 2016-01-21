@@ -1,0 +1,13 @@
+{
+  int keyGroupId=ByteStrings.bytesToInt(data,0);
+  long ownEphermalKey0Id=ByteStrings.bytesToLong(data,4);
+  long theirEphermalKey0Id=ByteStrings.bytesToLong(data,12);
+  byte[] ownEphermalKey=ByteStrings.substring(data,20,32);
+  byte[] theirEphermalKey=ByteStrings.substring(data,52,32);
+  int messageIndex=ByteStrings.bytesToInt(data,84);
+  Log.d(TAG,"onDecrypt: " + Hex.toHex(data));
+  Log.d(TAG,"onDecrypt:key group id: " + keyGroupId + ", "+ data.length);
+  Log.d(TAG,"onDecrypt:ownEphermalKey0Id: " + ownEphermalKey0Id);
+  Log.d(TAG,"onDecrypt:theirEphermalKey0Id: " + theirEphermalKey0Id);
+  Log.d(TAG,"onDecrypt:messageIndex: " + messageIndex);
+}

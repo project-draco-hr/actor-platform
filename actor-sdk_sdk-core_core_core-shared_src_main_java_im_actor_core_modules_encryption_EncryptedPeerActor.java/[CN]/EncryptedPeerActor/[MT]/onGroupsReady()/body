@@ -8,6 +8,14 @@
     }
 ),getPath() + "/k_" + g.getKeyGroupId()));
   }
-  isReady=true;
-  unstashAll();
+  ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchOwnKeyGroup(),new AskCallback(){
+    @Override public void onResult(    Object obj){
+      KeyManagerActor.FetchOwnKeyGroupResult res=(KeyManagerActor.FetchOwnKeyGroupResult)obj;
+      ownKeyGroupId=res.getKeyGroupId();
+      onOwnKeysReady();
+    }
+    @Override public void onError(    Exception e){
+    }
+  }
+);
 }
