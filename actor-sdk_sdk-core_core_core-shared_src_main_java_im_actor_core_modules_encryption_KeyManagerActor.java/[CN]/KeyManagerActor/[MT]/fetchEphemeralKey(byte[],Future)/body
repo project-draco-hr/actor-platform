@@ -1,0 +1,9 @@
+{
+  for (  EphemeralEncryptionKey encryptionKey : ephemeralKeys.values()) {
+    if (ByteStrings.isEquals(encryptionKey.getEncryptionKey().getPublicKey(),publicKey)) {
+      future.onResult(new FetchEphemeralPrivateKeyRes(encryptionKey.getEncryptionKey().getPrivateKey()));
+      return;
+    }
+  }
+  future.onError(new RuntimeException("Unable to find ephemeral key"));
+}

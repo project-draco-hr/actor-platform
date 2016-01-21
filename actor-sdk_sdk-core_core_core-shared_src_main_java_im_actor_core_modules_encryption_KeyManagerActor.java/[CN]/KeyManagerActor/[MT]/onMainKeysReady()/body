@@ -1,23 +1,25 @@
 {
   Log.d(TAG,"Main Keys are ready");
-  List<KeyValueRecord> records=ephemeralStorage.loadAllItems();
-  for (int i=0; i < 100 - records.size(); i++) {
+  for (  KeyValueRecord r : ephemeralStorage.loadAllItems()) {
+    try {
+      EphemeralEncryptionKey encryptionKey=new EphemeralEncryptionKey(r.getData());
+      ephemeralKeys.put(encryptionKey.getEncryptionKey().getKeyId(),encryptionKey);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  for (int i=0; i < 100 - ephemeralKeys.size(); i++) {
     long randomId=RandomUtils.nextRid();
     EncryptionKey encryptionKey=new EncryptionKey(randomId,Curve25519.keyGen(Crypto.randomBytes(64)));
     EphemeralEncryptionKey ephemeralEncryptionKey=new EphemeralEncryptionKey(encryptionKey,false);
     ephemeralStorage.addOrUpdateItem(randomId,ephemeralEncryptionKey.toByteArray());
+    ephemeralKeys.put(randomId,ephemeralEncryptionKey);
   }
-  records=ephemeralStorage.loadAllItems();
   final ArrayList<EphemeralEncryptionKey> pendingEphermalKeys=new ArrayList<EphemeralEncryptionKey>();
-  for (  KeyValueRecord record : records) {
-    try {
-      EphemeralEncryptionKey encryptionKey=new EphemeralEncryptionKey(record.getData());
-      if (!encryptionKey.isUploaded()) {
-        pendingEphermalKeys.add(encryptionKey);
-      }
-    }
- catch (    IOException e) {
-      e.printStackTrace();
+  for (  EphemeralEncryptionKey record : ephemeralKeys.values()) {
+    if (!record.isUploaded()) {
+      pendingEphermalKeys.add(record);
     }
   }
   if (pendingEphermalKeys.size() > 0) {
@@ -33,7 +35,9 @@
       @Override public void onResult(      ResponseVoid response){
         List<KeyValueRecord> updated=new ArrayList<KeyValueRecord>();
         for (        EphemeralEncryptionKey k : pendingEphermalKeys) {
-          updated.add(new KeyValueRecord(k.getEncryptionKey().getKeyId(),k.markUploaded().toByteArray()));
+          EphemeralEncryptionKey uploaded=k.markUploaded();
+          updated.add(new KeyValueRecord(uploaded.getEncryptionKey().getKeyId(),uploaded.toByteArray()));
+          ephemeralKeys.put(uploaded.getEncryptionKey().getKeyId(),uploaded);
         }
         ephemeralStorage.addOrUpdateItems(updated);
         onAllKeysReady();

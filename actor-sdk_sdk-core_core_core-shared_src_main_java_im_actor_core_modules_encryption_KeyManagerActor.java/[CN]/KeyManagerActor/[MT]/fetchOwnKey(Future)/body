@@ -1,13 +1,5 @@
 {
-  List<KeyValueRecord> records=ephemeralStorage.loadAllItems();
-  EphemeralEncryptionKey ephemeralEncryptionKey;
-  try {
-    ephemeralEncryptionKey=new EphemeralEncryptionKey(records.get(RandomUtils.randomId(records.size())).getData());
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-    future.onError(e);
-    return;
-  }
+  Long[] keys=ephemeralKeys.keySet().toArray(new Long[ephemeralKeys.size()]);
+  EphemeralEncryptionKey ephemeralEncryptionKey=ephemeralKeys.get(keys[RandomUtils.randomId(keys.length)]);
   future.onResult(new FetchOwnKeyResult(privateKeyStorage.getIdentityKey(),ephemeralEncryptionKey.getEncryptionKey()));
 }

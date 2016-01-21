@@ -7,5 +7,13 @@
     fetchKeyGroup(future);
     return false;
   }
+ else   if (message instanceof FetchEphemeralPrivateKey) {
+    fetchEphemeralKey(((FetchEphemeralPrivateKey)message).getPublicKey(),future);
+    return false;
+  }
+ else   if (message instanceof FetchEphemeralPrivateKeyById) {
+    fetchEphemeralKey(((FetchEphemeralPrivateKeyById)message).getKeyId(),future);
+    return false;
+  }
   return super.onAsk(message,future);
 }
