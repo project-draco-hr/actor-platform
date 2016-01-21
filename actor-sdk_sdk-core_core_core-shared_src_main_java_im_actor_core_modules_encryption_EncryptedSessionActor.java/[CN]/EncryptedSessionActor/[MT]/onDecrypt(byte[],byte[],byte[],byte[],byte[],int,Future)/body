@@ -1,0 +1,6 @@
+{
+  byte[] ms=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getPrivateKey()),new RatchetPrivateKey(ownEphemeralPrivateKey0),new RatchetPublicKey(encryptionKeyGroup.getIdentityKey().getKeyMaterial()),new RatchetPublicKey(theirEphemeralKey0));
+  byte[] rc=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(ownEphemeralPrivateKey),new RatchetPublicKey(theirEphemeralKey),ms);
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rc,index);
+  future.onResult();
+}

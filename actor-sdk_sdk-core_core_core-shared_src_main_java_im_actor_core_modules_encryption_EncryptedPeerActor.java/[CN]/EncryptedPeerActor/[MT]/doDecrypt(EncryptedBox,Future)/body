@@ -14,7 +14,7 @@
     for (    EncryptedBoxKey k : data.getKeys()) {
       Log.d(TAG,"Key: " + Hex.toHex(k.getEncryptedKey()));
     }
-    ask(sessions.get(senderKeyGroup),new EncryptionSessionActor.DecryptPackage(encKey),new AskCallback(){
+    ask(sessions.get(senderKeyGroup),new EncryptedSessionActor.DecryptPackage(encKey),new AskCallback(){
       @Override public void onResult(      Object obj){
         Log.d(TAG,"Decryption with key group:onResult");
         future.onResult();

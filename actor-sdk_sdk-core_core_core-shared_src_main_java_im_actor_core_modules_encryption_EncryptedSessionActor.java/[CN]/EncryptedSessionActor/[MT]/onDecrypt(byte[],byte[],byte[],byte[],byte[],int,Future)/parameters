@@ -1,0 +1,7 @@
+byte[] data
+byte[] ownEphemeralPrivateKey0
+byte[] ownEphemeralPrivateKey
+byte[] theirEphemeralKey0
+byte[] theirEphemeralKey
+int index
+Future future
