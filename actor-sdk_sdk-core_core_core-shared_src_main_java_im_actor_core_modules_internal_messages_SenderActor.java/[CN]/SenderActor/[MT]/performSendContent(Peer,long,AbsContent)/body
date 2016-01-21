@@ -1,9 +1,4 @@
 {
-  final ApiOutPeer outPeer=buidOutPeer(peer);
-  final ApiPeer apiPeer=buildApiPeer(peer);
-  if (outPeer == null || apiPeer == null) {
-    return;
-  }
   ApiMessage message;
   if (content instanceof TextContent) {
     message=new ApiTextMessage(((TextContent)content).getText(),((TextContent)content).getMentions(),((TextContent)content).getTextMessageEx());
@@ -46,14 +41,18 @@
  else {
     return;
   }
-  request(new RequestSendMessage(outPeer,rid,message),new RpcCallback<ResponseSeqDate>(){
-    @Override public void onResult(    ResponseSeqDate response){
-      self().send(new MessageSent(peer,rid));
-      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    ask(context().getEncryption().getMessageEncryptor(),new MessageEncryptionActor.EncryptMessage(peer.getPeerId(),message),new AskCallback(){
+      @Override public void onResult(      Object obj){
+        MessageEncryptionActor.EncryptedMessage encryptedMessage=(MessageEncryptionActor.EncryptedMessage)obj;
+        performSendApiContent(peer,rid,encryptedMessage.getEncryptedMessage());
+      }
+      @Override public void onError(      Exception e){
+      }
     }
-    @Override public void onError(    RpcException e){
-      self().send(new MessageError(peer,rid));
-    }
-  }
 );
+  }
+ else {
+    performSendApiContent(peer,rid,message);
+  }
 }

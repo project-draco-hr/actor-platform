@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"doEncrypt2");
+  byte[] encData;
+  try {
+    encData=ActorBox.closeBox(new byte[0],data,Crypto.randomBytes(32),new ActorBoxKey(encKey));
+  }
+ catch (  IntegrityException e) {
+    e.printStackTrace();
+    future.onError(e);
+    return;
+  }
+  EncryptedBox encryptedBox=new EncryptedBox(encryptedKeys.toArray(new EncryptedBoxKey[0]),encData);
+  future.onResult(encryptedBox);
+}

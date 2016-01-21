@@ -5,4 +5,10 @@
     }
   }
 ),"encryption/keys");
+  messageEncryptor=system().actorOf(Props.create(MessageEncryptionActor.class,new ActorCreator<MessageEncryptionActor>(){
+    @Override public MessageEncryptionActor create(){
+      return new MessageEncryptionActor(context());
+    }
+  }
+),"encryption/messaging");
 }

@@ -1,0 +1,13 @@
+{
+  Log.w(TAG,"Groups ready #" + keyGroups.size());
+  for (  final ApiEncryptionKeyGroup g : keyGroups) {
+    sessions.put(g.getKeyGroupId(),system().actorOf(Props.create(EncryptionSessionActor.class,new ActorCreator<EncryptionSessionActor>(){
+      @Override public EncryptionSessionActor create(){
+        return new EncryptionSessionActor(context(),uid,g);
+      }
+    }
+),getPath() + "/k_" + g.getKeyGroupId()));
+  }
+  isReady=true;
+  unstashAll();
+}
