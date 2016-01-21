@@ -1,0 +1,5 @@
+{
+  this.sdp=values.getString(2);
+  this.id=values.getString(3);
+  this.label=values.getInt(4);
+}

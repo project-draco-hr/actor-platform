@@ -14,7 +14,7 @@
  else   if (message instanceof Signal) {
     onSignal(((Signal)message).getData());
   }
- else   if (message instanceof AnswerCall) {
-    onAnswerCall(((AnswerCall)message).getCallback());
+ else   if (message instanceof HandleCall) {
+    onHandleCall(((HandleCall)message).getCallback());
   }
 }

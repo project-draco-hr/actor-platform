@@ -1,0 +1,4 @@
+{
+  writer.writeString(1,getType());
+  serializeSignal(writer);
+}
