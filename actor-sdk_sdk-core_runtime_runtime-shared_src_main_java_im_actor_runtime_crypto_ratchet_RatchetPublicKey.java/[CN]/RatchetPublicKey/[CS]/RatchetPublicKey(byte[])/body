@@ -1,0 +1,9 @@
+{
+  if (key == null) {
+    throw new IllegalArgumentException("Key can't be null");
+  }
+  if (key.length != 32) {
+    throw new IllegalArgumentException("Key MUST be 32 bytes length");
+  }
+  this.key=key;
+}

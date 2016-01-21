@@ -1,3 +1,9 @@
 {
-  return super.onAsk(message,future);
+  if (message instanceof EncryptPackage) {
+    onEncrypt(((EncryptPackage)message).getData(),future);
+    return false;
+  }
+ else {
+    return super.onAsk(message,future);
+  }
 }

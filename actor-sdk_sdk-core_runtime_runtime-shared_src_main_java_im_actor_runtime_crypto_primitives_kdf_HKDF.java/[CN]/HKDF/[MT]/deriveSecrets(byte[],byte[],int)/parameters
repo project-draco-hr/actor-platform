@@ -1,0 +1,3 @@
+byte[] keyMaterial
+byte[] info
+int outputLength

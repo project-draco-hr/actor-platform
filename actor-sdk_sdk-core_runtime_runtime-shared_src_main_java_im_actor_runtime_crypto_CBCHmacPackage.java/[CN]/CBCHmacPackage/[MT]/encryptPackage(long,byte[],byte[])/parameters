@@ -1,3 +1,0 @@
-long seqNo
-byte[] iv
-byte[] content

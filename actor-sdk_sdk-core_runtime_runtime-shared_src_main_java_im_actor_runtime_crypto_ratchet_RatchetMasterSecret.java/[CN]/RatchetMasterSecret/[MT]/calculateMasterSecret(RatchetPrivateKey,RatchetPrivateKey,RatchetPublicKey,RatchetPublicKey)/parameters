@@ -1,0 +1,4 @@
+RatchetPrivateKey ownIdentity
+RatchetPrivateKey ownEphermal
+RatchetPublicKey foreignIdentity
+RatchetPublicKey foreignEphermal

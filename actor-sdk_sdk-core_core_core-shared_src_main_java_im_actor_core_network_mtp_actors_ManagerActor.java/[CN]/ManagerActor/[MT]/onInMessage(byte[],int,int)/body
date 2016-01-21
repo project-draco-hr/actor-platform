@@ -14,9 +14,9 @@
       }
       inSeq++;
       EncryptedCBCPackage usEncryptedPackage=new EncryptedCBCPackage(new DataInput(encryptedPackage.getEncryptedPackage()));
-      byte[] ruPackage=serverUSDecryptor.decryptPackage(seq,usEncryptedPackage.getIv(),usEncryptedPackage.getEncryptedContent());
+      byte[] ruPackage=serverUSDecryptor.decryptPackage(ByteStrings.longToBytes(seq),usEncryptedPackage.getIv(),usEncryptedPackage.getEncryptedContent());
       EncryptedCBCPackage ruEncryptedPackage=new EncryptedCBCPackage(new DataInput(ruPackage));
-      byte[] plainText=serverRUDecryptor.decryptPackage(seq,ruEncryptedPackage.getIv(),ruEncryptedPackage.getEncryptedContent());
+      byte[] plainText=serverRUDecryptor.decryptPackage(ByteStrings.longToBytes(seq),ruEncryptedPackage.getIv(),ruEncryptedPackage.getEncryptedContent());
       DataInput ptInput=new DataInput(plainText);
       long messageId=ptInput.readLong();
       byte[] ptPayload=ptInput.readProtoBytes();

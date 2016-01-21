@@ -14,9 +14,9 @@
         Crypto.nextBytes(ruIv);
         byte[] usIv=new byte[16];
         Crypto.nextBytes(usIv);
-        byte[] ruCipherText=clientRUEncryptor.encryptPackage(seq,ruIv,ByteStrings.substring(data,offset,len));
+        byte[] ruCipherText=clientRUEncryptor.encryptPackage(ByteStrings.longToBytes(seq),ruIv,ByteStrings.substring(data,offset,len));
         byte[] ruPackage=new EncryptedCBCPackage(ruIv,ruCipherText).toByteArray();
-        byte[] usCipherText=clientUSEncryptor.encryptPackage(seq,usIv,ruPackage);
+        byte[] usCipherText=clientUSEncryptor.encryptPackage(ByteStrings.longToBytes(seq),usIv,ruPackage);
         byte[] usPackage=new EncryptedCBCPackage(usIv,usCipherText).toByteArray();
         EncryptedPackage encryptedPackage=new EncryptedPackage(seq,usPackage);
         byte[] cipherData=encryptedPackage.toByteArray();

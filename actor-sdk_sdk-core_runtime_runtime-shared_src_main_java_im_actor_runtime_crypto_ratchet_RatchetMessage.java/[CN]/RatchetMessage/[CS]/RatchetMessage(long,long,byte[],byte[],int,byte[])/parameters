@@ -1,0 +1,6 @@
+long senderEphermalId
+long receiverEphermalId
+byte[] senderEphermal
+byte[] receiverEphermal
+int messageIndex
+byte[] cipherBox

@@ -1,9 +1,9 @@
 {
 synchronized (encryptedStates) {
     if (!encryptedStates.containsKey(uid)) {
-      encryptedStates.put(uid,system().actorOf(Props.create(EncryptedStateActor.class,new ActorCreator<EncryptedStateActor>(){
-        @Override public EncryptedStateActor create(){
-          return new EncryptedStateActor(uid,context());
+      encryptedStates.put(uid,system().actorOf(Props.create(EncryptedPeerActor.class,new ActorCreator<EncryptedPeerActor>(){
+        @Override public EncryptedPeerActor create(){
+          return new EncryptedPeerActor(uid,context());
         }
       }
 ),"encryption/uid_" + uid));

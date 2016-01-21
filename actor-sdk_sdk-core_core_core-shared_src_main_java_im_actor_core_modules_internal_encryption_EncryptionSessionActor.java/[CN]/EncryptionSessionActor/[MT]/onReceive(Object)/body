@@ -1,3 +1,7 @@
 {
+  if (!isReady && message instanceof AskRequest) {
+    stash();
+    return;
+  }
   super.onReceive(message);
 }

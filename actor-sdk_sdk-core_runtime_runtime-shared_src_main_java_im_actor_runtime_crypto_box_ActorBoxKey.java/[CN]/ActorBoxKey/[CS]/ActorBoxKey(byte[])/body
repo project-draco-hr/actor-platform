@@ -1,0 +1,3 @@
+{
+  this(ByteStrings.substring(key,0,32),ByteStrings.substring(key,32,32),ByteStrings.substring(key,64,32),ByteStrings.substring(key,96,32));
+}

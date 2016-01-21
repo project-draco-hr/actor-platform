@@ -1,0 +1,6 @@
+{
+  this.keyAES=keyAES;
+  this.macAES=macAES;
+  this.keyKuz=keyKuz;
+  this.macKuz=macKuz;
+}

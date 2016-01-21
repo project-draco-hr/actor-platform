@@ -1,0 +1,15 @@
+{
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,0);
+  byte[] header=ByteStrings.merge(ByteStrings.longToBytes(ownEphermalKey0.getKeyId()),ByteStrings.longToBytes(theirEphermalKey0.getKeyId()),currentOwnKey.getPublicKey(),currentTheirKey.getPublicKey(),ByteStrings.intToBytes(outIndex++));
+  byte[] encrypted;
+  try {
+    encrypted=ActorBox.closeBox(header,data,Crypto.randomBytes(32),ratchetMessageKey);
+  }
+ catch (  IntegrityException e) {
+    e.printStackTrace();
+    future.onError(e);
+    return;
+  }
+  byte[] pkg=ByteStrings.merge(header,encrypted);
+  future.onResult(new EncryptedPackageRes(pkg));
+}

@@ -1,3 +1,7 @@
 {
   Log.d(TAG,"All keys are ready");
+  isReady=true;
+  byte[] master_secret=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getPrivateKey()),new RatchetPrivateKey(ownEphermalKey0.getPrivateKey()),new RatchetPublicKey(theirIdentityKey.getPublicKey()),new RatchetPublicKey(theirEphermalKey0.getPublicKey()));
+  rootChainKey=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(ownEphermalKey0.getPrivateKey()),new RatchetPublicKey(theirEphermalKey0.getPublicKey()),master_secret);
+  unstashAll();
 }
