@@ -1,9 +1,0 @@
-{
-  if (message instanceof InMessage) {
-    InMessage inMessage=(InMessage)message;
-    onDecrypt(inMessage.senderUid,inMessage.encryptedMessage);
-  }
- else {
-    super.onReceive(message);
-  }
-}

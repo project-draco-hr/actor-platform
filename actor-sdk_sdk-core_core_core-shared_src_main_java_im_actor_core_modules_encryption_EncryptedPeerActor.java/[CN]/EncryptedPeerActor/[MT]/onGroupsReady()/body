@@ -1,20 +1,15 @@
 {
-  Log.w(TAG,"Groups ready #" + keyGroups.size());
-  for (  final ApiEncryptionKeyGroup g : keyGroups) {
-    sessions.put(g.getKeyGroupId(),system().actorOf(Props.create(EncryptedSessionActor.class,new ActorCreator<EncryptedSessionActor>(){
-      @Override public EncryptedSessionActor create(){
-        return new EncryptedSessionActor(context(),uid,g);
-      }
-    }
-),getPath() + "/k_" + g.getKeyGroupId()));
-  }
+  Log.w(TAG,"Groups ready #" + userKeys.getUserKeysGroups().length);
   ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchOwnKeyGroup(),new AskCallback(){
     @Override public void onResult(    Object obj){
+      Log.w(TAG,"FetchOwnKeyGroup: onResult");
       KeyManagerActor.FetchOwnKeyGroupResult res=(KeyManagerActor.FetchOwnKeyGroupResult)obj;
       ownKeyGroupId=res.getKeyGroupId();
       onOwnKeysReady();
     }
     @Override public void onError(    Exception e){
+      Log.w(TAG,"FetchOwnKeyGroup: onError");
+      Log.e(TAG,e);
     }
   }
 );

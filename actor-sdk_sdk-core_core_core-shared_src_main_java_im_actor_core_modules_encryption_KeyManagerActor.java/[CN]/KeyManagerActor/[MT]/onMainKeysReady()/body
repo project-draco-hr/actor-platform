@@ -1,45 +1,33 @@
 {
   Log.d(TAG,"Main Keys are ready");
-  for (  KeyValueRecord r : ephemeralStorage.loadAllItems()) {
-    try {
-      EphemeralEncryptionKey encryptionKey=new EphemeralEncryptionKey(r.getData());
-      ephemeralKeys.put(encryptionKey.getEncryptionKey().getKeyId(),encryptionKey);
+  int missingKeysCount=Math.max(0,Configuration.EPHEMERAL_KEYS_COUNT - ownKeys.getEphemeralKeys().length);
+  if (missingKeysCount > 0) {
+    OwnPrivateKeyUploadable[] nKeys=new OwnPrivateKeyUploadable[missingKeysCount];
+    for (int i=0; i < missingKeysCount; i++) {
+      nKeys[i]=new OwnPrivateKeyUploadable(RandomUtils.nextRid(),"curve25519",Curve25519.keyGenPrivate(Crypto.randomBytes(64)),false);
     }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
+    ownKeys=ownKeys.appendEphemeralKeys(nKeys);
+    encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
   }
-  for (int i=0; i < 100 - ephemeralKeys.size(); i++) {
-    long randomId=RandomUtils.nextRid();
-    EncryptionKey encryptionKey=new EncryptionKey(randomId,Curve25519.keyGen(Crypto.randomBytes(64)));
-    EphemeralEncryptionKey ephemeralEncryptionKey=new EphemeralEncryptionKey(encryptionKey,false);
-    ephemeralStorage.addOrUpdateItem(randomId,ephemeralEncryptionKey.toByteArray());
-    ephemeralKeys.put(randomId,ephemeralEncryptionKey);
-  }
-  final ArrayList<EphemeralEncryptionKey> pendingEphermalKeys=new ArrayList<EphemeralEncryptionKey>();
-  for (  EphemeralEncryptionKey record : ephemeralKeys.values()) {
-    if (!record.isUploaded()) {
-      pendingEphermalKeys.add(record);
+  final ArrayList<OwnPrivateKeyUploadable> pendingEphermalKeys=new ArrayList<OwnPrivateKeyUploadable>();
+  for (  OwnPrivateKeyUploadable key : ownKeys.getEphemeralKeys()) {
+    if (!key.isUploaded()) {
+      pendingEphermalKeys.add(key);
     }
   }
   if (pendingEphermalKeys.size() > 0) {
-    ArrayList<ApiEncryptionKey> uploadingKeys=new ArrayList<ApiEncryptionKey>();
+    final ArrayList<ApiEncryptionKey> uploadingKeys=new ArrayList<ApiEncryptionKey>();
     ArrayList<ApiEncryptionKeySignature> uploadingSignatures=new ArrayList<ApiEncryptionKeySignature>();
-    for (    EphemeralEncryptionKey k : pendingEphermalKeys) {
-      ApiEncryptionKey apiKey=new ApiEncryptionKey(k.getEncryptionKey().getKeyId(),k.getEncryptionKey().getKeyAlg(),k.getEncryptionKey().getPublicKey(),null);
+    for (    OwnPrivateKeyUploadable k : pendingEphermalKeys) {
+      ApiEncryptionKey apiKey=new ApiEncryptionKey(k.getKeyId(),k.getKeyAlg(),Curve25519.keyGenPublic(k.getKey()),null);
       uploadingKeys.add(apiKey);
-      byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKeyStorage.getIdentityKey().getPrivateKey(),apiKey.toByteArray());
-      uploadingSignatures.add(new ApiEncryptionKeySignature(k.getEncryptionKey().getKeyId(),"Ed25519",signature));
+      byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),ownKeys.getIdentityKey().getKey(),apiKey.toByteArray());
+      uploadingSignatures.add(new ApiEncryptionKeySignature(k.getKeyId(),"Ed25519",signature));
     }
-    request(new RequestUploadEphermalKey(privateKeyStorage.getKeyGroupId(),uploadingKeys,uploadingSignatures),new RpcCallback<ResponseVoid>(){
+    request(new RequestUploadEphermalKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures),new RpcCallback<ResponseVoid>(){
       @Override public void onResult(      ResponseVoid response){
-        List<KeyValueRecord> updated=new ArrayList<KeyValueRecord>();
-        for (        EphemeralEncryptionKey k : pendingEphermalKeys) {
-          EphemeralEncryptionKey uploaded=k.markUploaded();
-          updated.add(new KeyValueRecord(uploaded.getEncryptionKey().getKeyId(),uploaded.toByteArray()));
-          ephemeralKeys.put(uploaded.getEncryptionKey().getKeyId(),uploaded);
-        }
-        ephemeralStorage.addOrUpdateItems(updated);
+        ownKeys=ownKeys.markAsUploaded(pendingEphermalKeys.toArray(new OwnPrivateKeyUploadable[pendingEphermalKeys.size()]));
+        encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
         onAllKeysReady();
       }
       @Override public void onError(      RpcException e){

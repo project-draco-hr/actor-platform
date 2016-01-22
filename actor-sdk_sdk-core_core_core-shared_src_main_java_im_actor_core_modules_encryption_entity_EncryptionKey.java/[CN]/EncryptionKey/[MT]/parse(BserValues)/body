@@ -1,6 +1,0 @@
-{
-  keyId=values.getLong(1);
-  keyAlg=values.getString(2);
-  publicKey=values.getBytes(3);
-  privateKey=values.optBytes(4);
-}

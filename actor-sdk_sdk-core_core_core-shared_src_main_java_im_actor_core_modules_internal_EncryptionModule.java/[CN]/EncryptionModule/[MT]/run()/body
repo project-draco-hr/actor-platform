@@ -5,9 +5,9 @@
     }
   }
 ),"encryption/keys");
-  messageEncryptor=system().actorOf(Props.create(MessageEncryptionActor.class,new ActorCreator<MessageEncryptionActor>(){
-    @Override public MessageEncryptionActor create(){
-      return new MessageEncryptionActor(context());
+  messageEncryptor=system().actorOf(Props.create(EncryptedMsgActor.class,new ActorCreator<EncryptedMsgActor>(){
+    @Override public EncryptedMsgActor create(){
+      return new EncryptedMsgActor(context());
     }
   }
 ),"encryption/messaging");

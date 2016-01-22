@@ -1,3 +1,0 @@
-{
-  return new PrivateKeyStorage(identityKey,keys,keyGroupId);
-}

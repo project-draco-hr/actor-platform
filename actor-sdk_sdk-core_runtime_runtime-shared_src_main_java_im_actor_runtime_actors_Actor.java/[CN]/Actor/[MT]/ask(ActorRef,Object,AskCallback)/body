@@ -8,11 +8,11 @@
           stash();
           return;
         }
+        unbecome();
+        unstashAll();
         if (callback != null) {
           callback.onResult(askResult.getResult());
         }
-        unbecome();
-        unstashAll();
       }
  else       if (message instanceof AskError) {
         AskError error=((AskError)message);
@@ -20,11 +20,11 @@
           stash();
           return;
         }
+        unbecome();
+        unstashAll();
         if (callback != null) {
           callback.onError(error.getException());
         }
-        unbecome();
-        unstashAll();
       }
  else {
         stash();

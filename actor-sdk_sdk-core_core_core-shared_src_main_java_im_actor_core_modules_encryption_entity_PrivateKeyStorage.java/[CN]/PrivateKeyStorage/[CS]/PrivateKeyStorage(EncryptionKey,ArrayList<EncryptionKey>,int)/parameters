@@ -1,3 +1,0 @@
-EncryptionKey identityKey
-ArrayList<EncryptionKey> keys
-int keyGroupId

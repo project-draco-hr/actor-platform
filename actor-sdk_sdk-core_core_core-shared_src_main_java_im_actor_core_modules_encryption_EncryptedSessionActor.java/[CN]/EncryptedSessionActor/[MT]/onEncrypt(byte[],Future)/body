@@ -1,6 +1,6 @@
 {
   ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,0);
-  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(encryptionKeyGroup.getKeyGroupId()),ByteStrings.longToBytes(ownEphermalKey0.getKeyId()),ByteStrings.longToBytes(theirEphermalKey0.getKeyId()),currentOwnKey.getPublicKey(),currentTheirKey.getPublicKey(),ByteStrings.intToBytes(outIndex++));
+  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(encryptionKeyGroup.getKeyGroupId()),ByteStrings.longToBytes(ownEphermalKey0.getKeyId()),ByteStrings.longToBytes(theirEphermalKey0.getKeyId()),Curve25519.keyGenPublic(currentOwnKey.getKey()),currentTheirKey.getPublicKey(),ByteStrings.intToBytes(outIndex++));
   byte[] encrypted;
   try {
     encrypted=ActorBox.closeBox(header,data,Crypto.randomBytes(32),ratchetMessageKey);

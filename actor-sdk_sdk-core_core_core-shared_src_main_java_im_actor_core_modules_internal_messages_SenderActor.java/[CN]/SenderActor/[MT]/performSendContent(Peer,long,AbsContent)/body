@@ -42,9 +42,9 @@
     return;
   }
   if (peer.getPeerType() == PeerType.PRIVATE) {
-    ask(context().getEncryption().getMessageEncryptor(),new MessageEncryptionActor.EncryptMessage(peer.getPeerId(),message),new AskCallback(){
+    ask(context().getEncryption().getMessageEncryptor(),new EncryptedMsgActor.EncryptMessage(peer.getPeerId(),message),new AskCallback(){
       @Override public void onResult(      Object obj){
-        MessageEncryptionActor.EncryptedMessage encryptedMessage=(MessageEncryptionActor.EncryptedMessage)obj;
+        EncryptedMsgActor.EncryptedMessage encryptedMessage=(EncryptedMsgActor.EncryptedMessage)obj;
         performSendApiContent(peer,rid,encryptedMessage.getEncryptedMessage());
       }
       @Override public void onError(      Exception e){

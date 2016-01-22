@@ -1,0 +1,4 @@
+long keyId
+String keyAlg
+byte[] key
+boolean isUploaded

@@ -1,7 +1,4 @@
 {
-  if (!isReady && message instanceof AskRequest) {
-    stash();
-    return;
-  }
+  Log.d(TAG,"msg: " + message);
   super.onReceive(message);
 }

@@ -1,0 +1,19 @@
+{
+  OwnPrivateKeyUploadable[] nKeys=new OwnPrivateKeyUploadable[ephemeralKeys.length];
+  for (int i=0; i < ephemeralKeys.length; i++) {
+    boolean found=false;
+    for (int j=0; j < uploadedEphemeralKeys.length; j++) {
+      if (uploadedEphemeralKeys[j].getKeyId() == ephemeralKeys[i].getKeyId()) {
+        found=true;
+        break;
+      }
+    }
+    if (found) {
+      nKeys[i]=ephemeralKeys[i].markAsUploaded();
+    }
+ else {
+      nKeys[i]=ephemeralKeys[i];
+    }
+  }
+  return new OwnKeys(keyGroupId,identityKey,keys,nKeys);
+}

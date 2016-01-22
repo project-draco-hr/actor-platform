@@ -1,7 +1,8 @@
 {
-  for (  EphemeralEncryptionKey encryptionKey : ephemeralKeys.values()) {
-    if (encryptionKey.getEncryptionKey().getKeyId() == keyId) {
-      future.onResult(new FetchEphemeralPrivateKeyRes(encryptionKey.getEncryptionKey().getPrivateKey()));
+  Log.d(TAG,"fetchEphemeralKey");
+  for (  OwnPrivateKey k : ownKeys.getEphemeralKeys()) {
+    if (k.getKeyId() == keyId) {
+      future.onResult(new FetchEphemeralPrivateKeyRes(k.getKey()));
       return;
     }
   }

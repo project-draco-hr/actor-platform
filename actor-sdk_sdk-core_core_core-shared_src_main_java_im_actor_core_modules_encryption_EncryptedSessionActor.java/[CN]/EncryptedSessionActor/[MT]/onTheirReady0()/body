@@ -8,7 +8,7 @@
           return;
         }
         ApiEncryptionKey encryptionKey=response.getPublicKey().get(RandomUtils.randomId(response.getPublicKey().size()));
-        currentTheirKey=new EncryptionKey(encryptionKey.getKeyId(),encryptionKey.getKeyAlg(),encryptionKey.getKeyMaterial(),null);
+        currentTheirKey=new UserPublicKey(encryptionKey.getKeyId(),encryptionKey.getKeyAlg(),encryptionKey.getKeyMaterial());
         allSet();
       }
       @Override public void onError(      RpcException e){

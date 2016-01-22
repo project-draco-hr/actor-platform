@@ -1,5 +1,4 @@
 {
-  Long[] keys=ephemeralKeys.keySet().toArray(new Long[ephemeralKeys.size()]);
-  EphemeralEncryptionKey ephemeralEncryptionKey=ephemeralKeys.get(keys[RandomUtils.randomId(keys.length)]);
-  future.onResult(new FetchOwnKeyResult(privateKeyStorage.getIdentityKey(),ephemeralEncryptionKey.getEncryptionKey()));
+  Log.d(TAG,"fetchOwnKey");
+  future.onResult(new FetchOwnKeyResult(ownKeys.getIdentityKey(),ownKeys.pickRandomEphemeralKey()));
 }

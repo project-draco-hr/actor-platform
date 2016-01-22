@@ -1,0 +1,8 @@
+{
+  uid=values.getInt(1);
+  List<byte[]> g=values.getRepeatedBytes(2);
+  userKeysGroups=new UserKeysGroup[g.size()];
+  for (int i=0; i < userKeysGroups.length; i++) {
+    userKeysGroups[i]=new UserKeysGroup(g.get(i));
+  }
+}

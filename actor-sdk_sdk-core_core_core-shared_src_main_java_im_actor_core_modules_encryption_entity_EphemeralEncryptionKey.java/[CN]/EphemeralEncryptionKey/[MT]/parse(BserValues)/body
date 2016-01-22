@@ -1,4 +1,0 @@
-{
-  encryptionKey=new EncryptionKey(values.getBytes(1));
-  isUploaded=values.getBool(2);
-}

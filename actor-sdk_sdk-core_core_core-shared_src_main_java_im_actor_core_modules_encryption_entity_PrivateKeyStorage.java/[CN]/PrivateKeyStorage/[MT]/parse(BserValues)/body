@@ -1,7 +1,0 @@
-{
-  identityKey=new EncryptionKey(values.getBytes(1));
-  keyGroupId=values.optInt(2);
-  for (  byte[] b : values.getRepeatedBytes(3)) {
-    keys.add(new EncryptionKey(b));
-  }
-}

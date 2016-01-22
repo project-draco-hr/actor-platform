@@ -1,0 +1,3 @@
+{
+  return ephemeralKeys[RandomUtils.randomId(ephemeralKeys.length)];
+}

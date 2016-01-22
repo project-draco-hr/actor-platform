@@ -15,5 +15,9 @@
     fetchEphemeralKey(((FetchEphemeralPrivateKeyById)message).getKeyId(),future);
     return false;
   }
+ else   if (message instanceof FetchUserKeyGroups) {
+    fetchUserGroups(((FetchUserKeyGroups)message).getUid(),future);
+    return false;
+  }
   return super.onAsk(message,future);
 }

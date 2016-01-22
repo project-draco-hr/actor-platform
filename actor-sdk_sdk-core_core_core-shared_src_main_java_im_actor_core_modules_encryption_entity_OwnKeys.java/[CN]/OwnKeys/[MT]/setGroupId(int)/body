@@ -1,0 +1,3 @@
+{
+  return new OwnKeys(groupId,identityKey,keys,ephemeralKeys);
+}

@@ -1,21 +1,16 @@
 {
   super.preStart();
-  if (keyGroups == null) {
-    Log.d(TAG,"Loading own keys for conversation");
-    User user=getUser(uid);
-    request(new RequestLoadPublicKeyGroups(new ApiUserOutPeer(user.getUid(),user.getAccessHash())),new RpcCallback<ResponsePublicKeyGroups>(){
-      @Override public void onResult(      ResponsePublicKeyGroups response){
-        keyGroups=new ArrayList<ApiEncryptionKeyGroup>(response.getPublicKeyGroups());
-        onGroupsReady();
-      }
-      @Override public void onError(      RpcException e){
-        Log.d(TAG,"Error during loading public key groups");
-        Log.e(TAG,e);
-      }
+  Log.d(TAG,"Loading groups...");
+  ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchUserKeyGroups(uid),new AskCallback(){
+    @Override public void onResult(    Object obj){
+      KeyManagerActor.FetchUserKeyGroupsResponse response=(KeyManagerActor.FetchUserKeyGroupsResponse)obj;
+      userKeys=response.getUserKeys();
+      onGroupsReady();
     }
+    @Override public void onError(    Exception e){
+      Log.d(TAG,"Unable to load key groups");
+      Log.e(TAG,e);
+    }
+  }
 );
-  }
- else {
-    onGroupsReady();
-  }
 }
