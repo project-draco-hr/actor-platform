@@ -1,0 +1,6 @@
+{
+  values.clear();
+  jsValues.clear();
+  jsOverlays.clear();
+  isOverlayDirty.clear();
+}

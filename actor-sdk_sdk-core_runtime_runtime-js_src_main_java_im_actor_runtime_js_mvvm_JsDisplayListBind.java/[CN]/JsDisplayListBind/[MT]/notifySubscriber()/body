@@ -1,0 +1,8 @@
+{
+  if (isOverlaysSupported) {
+    callback.onCollectionChanged(jsValues,jsOverlays);
+  }
+ else {
+    callback.onCollectionChanged(jsValues,null);
+  }
+}

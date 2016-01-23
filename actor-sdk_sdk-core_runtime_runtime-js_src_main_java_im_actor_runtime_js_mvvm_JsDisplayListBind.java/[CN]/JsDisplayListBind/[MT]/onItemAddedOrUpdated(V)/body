@@ -1,0 +1,8 @@
+{
+  if (!isInited) {
+    return;
+  }
+  addItemOrUpdateImpl(item);
+  processDirtyOverlays();
+  notifySubscriber();
+}
