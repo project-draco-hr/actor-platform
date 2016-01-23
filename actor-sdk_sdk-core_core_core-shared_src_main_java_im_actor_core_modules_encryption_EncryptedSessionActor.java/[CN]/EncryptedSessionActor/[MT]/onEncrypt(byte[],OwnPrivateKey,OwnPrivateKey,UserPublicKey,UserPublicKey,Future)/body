@@ -2,9 +2,22 @@
   Log.w(TAG,"Encrypting with: OwnKey0: " + ownEphermalKey0.getKeyId());
   Log.w(TAG,"Encrypting with: TheirKey0: " + theirEphermalKey0.getKeyId());
   byte[] master_secret=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getKey()),new RatchetPrivateKey(ownEphermalKey0.getKey()),new RatchetPublicKey(theirIdentityKey.getPublicKey()),new RatchetPublicKey(theirEphermalKey0.getPublicKey()));
-  byte[] rootChainKey=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(ownEphermalKey0.getKey()),new RatchetPublicKey(theirEphermalKey0.getPublicKey()),master_secret);
-  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,0);
-  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(encryptionKeyGroup.getKeyGroupId()),ByteStrings.longToBytes(ownEphermalKey0.getKeyId()),ByteStrings.longToBytes(theirEphermalKey0.getKeyId()),Curve25519.keyGenPublic(ownEphermalKey.getKey()),theirEphermalKey.getPublicKey(),ByteStrings.intToBytes(outIndex++));
+  byte[] rootChainKey=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(ownEphermalKey.getKey()),new RatchetPublicKey(theirEphermalKey.getPublicKey()),master_secret);
+  int messageIndex=outIndex++;
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,messageIndex);
+  Log.d(TAG,"MS: " + Hex.toHex(master_secret));
+  Log.d(TAG,"MS_11: " + Hex.toHex(Curve25519.keyGenPublic(ownIdentityKey.getKey())));
+  Log.d(TAG,"MS_21: " + Hex.toHex(Curve25519.keyGenPublic(ownEphermalKey0.getKey())));
+  Log.d(TAG,"MS_31: " + Hex.toHex(encryptionKeyGroup.getIdentityKey().getPublicKey()));
+  Log.d(TAG,"MS_41: " + Hex.toHex(theirEphermalKey.getPublicKey()));
+  Log.d(TAG,"RC: " + Hex.toHex(rootChainKey));
+  Log.d(TAG,"RC_1: " + Hex.toHex(Curve25519.keyGenPublic(ownEphermalKey.getKey())));
+  Log.d(TAG,"RC_2: " + Hex.toHex(theirEphermalKey.getPublicKey()));
+  Log.d(TAG,"AES: " + Hex.toHex(ratchetMessageKey.getKeyAES()));
+  Log.d(TAG,"AES_MAC: " + Hex.toHex(ratchetMessageKey.getMacAES()));
+  Log.d(TAG,"KUZ: " + Hex.toHex(ratchetMessageKey.getKeyKuz()));
+  Log.d(TAG,"KUZ_MAC: " + Hex.toHex(ratchetMessageKey.getMacKuz()));
+  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(encryptionKeyGroup.getKeyGroupId()),ByteStrings.longToBytes(ownEphermalKey0.getKeyId()),ByteStrings.longToBytes(theirEphermalKey0.getKeyId()),Curve25519.keyGenPublic(ownEphermalKey.getKey()),theirEphermalKey.getPublicKey(),ByteStrings.intToBytes(messageIndex));
   byte[] encrypted;
   try {
     encrypted=ActorBox.closeBox(header,data,Crypto.randomBytes(32),ratchetMessageKey);

@@ -7,24 +7,22 @@
   final byte[] ownEphermalKey=ByteStrings.substring(data,20,32);
   final byte[] theirEphermalKey=ByteStrings.substring(data,52,32);
   final int messageIndex=ByteStrings.bytesToInt(data,84);
-  Log.d(TAG,"onDecrypt:key group id: " + ownKeyGroupId + ", "+ data.length);
-  Log.d(TAG,"onDecrypt:ownEphermalKey0Id: " + ownEphermalKey0Id);
-  Log.d(TAG,"onDecrypt:theirEphermalKey0Id: " + theirEphermalKey0Id);
-  Log.d(TAG,"onDecrypt:messageIndex: " + messageIndex);
+  Log.d(TAG,"ownEphermalKey0Id: " + ownEphermalKey0Id);
+  Log.d(TAG,"theirEphermalKey0Id: " + theirEphermalKey0Id);
   ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchEphemeralPrivateKey(theirEphermalKey),new AskCallback(){
     @Override public void onResult(    Object obj){
-      Log.d(TAG,"onDecrypt:onResultEphermal");
-      final KeyManagerActor.FetchEphemeralPrivateKeyRes ownEphermalKey=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
+      final KeyManagerActor.FetchEphemeralPrivateKeyRes theirEphermalKey=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
       ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchEphemeralPrivateKeyById(theirEphermalKey0Id),new AskCallback(){
         @Override public void onResult(        Object obj){
-          Log.d(TAG,"onDecrypt:onResultPrivate");
-          final KeyManagerActor.FetchEphemeralPrivateKeyRes ownEphermalKey0=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
+          final KeyManagerActor.FetchEphemeralPrivateKeyRes theirEphermalKey0=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
+          Log.d(TAG,"theirEphermalKey0: " + Hex.toHex(Curve25519.keyGenPublic(theirEphermalKey0.getPrivateKey())));
           ArrayList<Long> keys=new ArrayList<Long>();
           keys.add(ownEphermalKey0Id);
           request(new RequestLoadPublicKey(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),encryptionKeyGroup.getKeyGroupId(),keys),new RpcCallback<ResponsePublicKeys>(){
             @Override public void onResult(            ResponsePublicKeys response){
-              Log.d(TAG,"onDecrypt:RequestLoadPublicKey");
-              onDecrypt(data,ownEphermalKey0.getPrivateKey(),ownEphermalKey.getPrivateKey(),theirEphermalKey,response.getPublicKey().get(0).getKeyMaterial(),messageIndex,future);
+              byte[] ownEphermalKey0=response.getPublicKey().get(0).getKeyMaterial();
+              Log.d(TAG,"ownEphermalKey0: " + Hex.toHex(ownEphermalKey0));
+              onDecrypt(data,ownEphermalKey0,ownEphermalKey,theirEphermalKey0.getPrivateKey(),theirEphermalKey.getPrivateKey(),messageIndex,future);
             }
             @Override public void onError(            RpcException e){
               Log.d(TAG,"onDecrypt:RequestLoadPublicKey:onError");
