@@ -1,0 +1,3 @@
+{
+  return binds.values().toArray(new JsDisplayListBind[0]);
+}

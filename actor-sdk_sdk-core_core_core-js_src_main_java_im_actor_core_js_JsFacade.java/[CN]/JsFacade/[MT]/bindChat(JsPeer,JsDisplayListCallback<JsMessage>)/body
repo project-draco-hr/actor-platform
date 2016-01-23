@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getSharedChatList(peer.convert()).subscribeInverted(callback);
+  messenger.getSharedChatList(peer.convert()).subscribe(callback);
 }

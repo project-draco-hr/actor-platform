@@ -1,3 +1,0 @@
-{
-  return isOverlayDirty.get(index);
-}

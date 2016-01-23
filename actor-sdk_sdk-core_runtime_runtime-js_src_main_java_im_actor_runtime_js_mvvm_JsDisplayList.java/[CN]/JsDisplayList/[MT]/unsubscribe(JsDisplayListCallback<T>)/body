@@ -1,3 +1,5 @@
 {
-  callbacks.remove(callback);
+  if (binds.containsKey(callback)) {
+    binds.remove(callback).dispose();
+  }
 }

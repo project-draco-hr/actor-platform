@@ -1,11 +1,9 @@
 {
-  if (!callbacks.contains(callback)) {
-    callbacks.add(callback);
+  if (binds.containsKey(callback)) {
+    binds.remove(callback).dispose();
   }
-  if (isOverlaysSupported) {
-    callback.onCollectionChanged(jsValues,jsOverlays);
-  }
- else {
-    callback.onCollectionChanged(jsValues,null);
-  }
+  JsDisplayListBind<T,V> b=new JsDisplayListBind<T,V>(callback,listEngine,entityConverter);
+  b.initAll();
+  binds.put(callback,b);
+  return b;
 }

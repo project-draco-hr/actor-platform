@@ -1,6 +1,8 @@
 {
   values.clear();
   jsValues.clear();
-  jsOverlays.clear();
-  isOverlayDirty.clear();
+  if (isOverlaysSupported) {
+    jsOverlays.clear();
+    isOverlayDirty.clear();
+  }
 }

@@ -18,4 +18,5 @@
   isInited=true;
   isOpenBottom=true;
   isOpenTop=true;
+  notifySubscriber();
 }
