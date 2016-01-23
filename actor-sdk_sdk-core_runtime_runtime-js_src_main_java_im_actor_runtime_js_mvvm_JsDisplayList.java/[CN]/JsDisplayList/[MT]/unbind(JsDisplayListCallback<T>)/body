@@ -1,0 +1,9 @@
+{
+  for (  SubscriberHolder s : binds) {
+    if (s.callback.equals(callback)) {
+      s.bind.dispose();
+      binds.remove(s);
+      break;
+    }
+  }
+}

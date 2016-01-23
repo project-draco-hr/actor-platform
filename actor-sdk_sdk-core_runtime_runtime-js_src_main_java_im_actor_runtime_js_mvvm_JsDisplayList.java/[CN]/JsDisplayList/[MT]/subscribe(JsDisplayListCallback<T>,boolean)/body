@@ -1,9 +1,7 @@
 {
-  if (binds.containsKey(callback)) {
-    binds.remove(callback).dispose();
-  }
+  unbind(callback);
   JsDisplayListBind<T,V> b=new JsDisplayListBind<T,V>(callback,isInverted,listEngine,entityConverter);
   b.initAll();
-  binds.put(callback,b);
+  binds.add(new SubscriberHolder(callback,b));
   return b;
 }
