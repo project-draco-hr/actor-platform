@@ -2,7 +2,7 @@
   if (binds.containsKey(callback)) {
     binds.remove(callback).dispose();
   }
-  JsDisplayListBind<T,V> b=new JsDisplayListBind<T,V>(callback,listEngine,entityConverter);
+  JsDisplayListBind<T,V> b=new JsDisplayListBind<T,V>(callback,isInverted,listEngine,entityConverter);
   b.initAll();
   binds.put(callback,b);
   return b;

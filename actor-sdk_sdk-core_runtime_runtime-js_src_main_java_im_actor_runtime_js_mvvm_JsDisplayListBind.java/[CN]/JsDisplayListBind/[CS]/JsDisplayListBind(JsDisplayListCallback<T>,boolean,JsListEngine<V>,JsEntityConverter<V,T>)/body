@@ -1,5 +1,6 @@
 {
   this.callback=callback;
+  this.isInverted=isInverted;
   this.listEngine=listEngine;
   this.entityConverter=entityConverter;
   this.isOverlaysSupported=entityConverter.isSupportOverlays();

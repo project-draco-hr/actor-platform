@@ -1,1 +1,2 @@
 JsDisplayListCallback<T> callback
+boolean isInverted

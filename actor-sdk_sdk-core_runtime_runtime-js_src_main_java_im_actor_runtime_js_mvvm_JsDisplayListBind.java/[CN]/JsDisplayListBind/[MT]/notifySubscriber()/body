@@ -1,8 +1,18 @@
 {
-  if (isOverlaysSupported) {
-    callback.onCollectionChanged(jsValues,jsOverlays);
+  if (isInverted) {
+    if (isOverlaysSupported) {
+      callback.onCollectionChanged(jsValues.reverse(),jsOverlays.reverse());
+    }
+ else {
+      callback.onCollectionChanged(jsValues.reverse(),null);
+    }
   }
  else {
-    callback.onCollectionChanged(jsValues,null);
+    if (isOverlaysSupported) {
+      callback.onCollectionChanged(jsValues,jsOverlays);
+    }
+ else {
+      callback.onCollectionChanged(jsValues,null);
+    }
   }
 }

@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getSharedContactList().subscribe(callback);
+  messenger.getSharedContactList().subscribe(callback,true);
 }
