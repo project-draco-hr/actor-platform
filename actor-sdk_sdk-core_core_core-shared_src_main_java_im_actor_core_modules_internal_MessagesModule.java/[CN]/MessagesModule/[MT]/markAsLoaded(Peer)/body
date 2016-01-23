@@ -1,0 +1,4 @@
+{
+  preferences().putBool("chat.state_" + peer,true);
+  getConversationVM(peer).getIsLoaded().change(true);
+}

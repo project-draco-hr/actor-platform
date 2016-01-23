@@ -1,10 +1,10 @@
 {
   clearState();
   long[] rids=listEngine.getOrderedIds();
-  for (  long rid : rids) {
-    V item=listEngine.getValue(rid);
+  for (int i=0; i < rids.length && i < limit; i++) {
+    V item=listEngine.getValue(rids[i]);
     if (item == null) {
-      Log.w("JsDisplayList","Unable to find item #" + rid);
+      Log.w("JsDisplayList","Unable to find item #" + rids[i]);
       continue;
     }
     values.add(item);
@@ -18,7 +18,13 @@
   isInited=true;
   windowTop=0;
   isOpenTop=true;
-  windowBottom=0;
-  isOpenBottom=true;
+  if (rids.length > 0) {
+    windowBottom=rids[rids.length - 1];
+    isOpenBottom=false;
+  }
+ else {
+    windowBottom=0;
+    isOpenBottom=true;
+  }
   notifySubscriber();
 }

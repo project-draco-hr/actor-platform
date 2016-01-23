@@ -1,0 +1,32 @@
+{
+  if (!isInited) {
+    return;
+  }
+  if (isOpenBottom) {
+    return;
+  }
+  long[] rids=listEngine.getPrevIdsExclusive(windowBottom);
+  for (int i=0; i < rids.length && i < limit; i++) {
+    V item=listEngine.getValue(rids[i]);
+    if (item == null) {
+      Log.w("JsDisplayList","Unable to find item #" + rids[i]);
+      continue;
+    }
+    values.add(item);
+    jsValues.push(entityConverter.convert(item));
+    if (isOverlaysSupported) {
+      jsOverlays.push(null);
+      isOverlayDirty.add(true);
+    }
+  }
+  processDirtyOverlays();
+  if (rids.length > 0) {
+    windowBottom=rids[rids.length - 1];
+    isOpenBottom=false;
+  }
+ else {
+    windowBottom=0;
+    isOpenBottom=true;
+  }
+  notifySubscriber();
+}

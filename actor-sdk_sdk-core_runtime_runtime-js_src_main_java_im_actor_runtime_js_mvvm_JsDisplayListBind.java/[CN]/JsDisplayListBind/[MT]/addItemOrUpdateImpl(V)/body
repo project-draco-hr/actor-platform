@@ -1,6 +1,12 @@
 {
   long id=item.getEngineId();
   long sortKey=item.getEngineSort();
+  if (!isOpenTop && windowTop > sortKey) {
+    return;
+  }
+  if (!isOpenBottom && windowBottom < sortKey) {
+    return;
+  }
   for (int i=0; i < values.size(); i++) {
     if (values.get(i).getEngineId() == id) {
       values.remove(i);

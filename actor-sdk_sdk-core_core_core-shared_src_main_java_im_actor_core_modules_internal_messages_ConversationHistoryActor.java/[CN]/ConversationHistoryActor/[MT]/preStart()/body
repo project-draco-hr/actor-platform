@@ -5,4 +5,7 @@
   if (!preferences().getBool(KEY_LOADED_INIT,false)) {
     self().sendOnce(new LoadMore());
   }
+ else {
+    context().getMessagesModule().markAsLoaded(peer);
+  }
 }

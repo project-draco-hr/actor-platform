@@ -1,0 +1,3 @@
+{
+  return preferences().getBool("chat.state_" + peer,false);
+}
