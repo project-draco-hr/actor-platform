@@ -1,0 +1,6 @@
+byte[] data
+OwnPrivateKey ownEphermalKey0
+OwnPrivateKey ownEphermalKey
+UserPublicKey theirEphermalKey0
+UserPublicKey theirEphermalKey
+Future future

@@ -1,0 +1,18 @@
+{
+  Log.w(TAG,"Encrypting with: OwnKey0: " + ownEphermalKey0.getKeyId());
+  Log.w(TAG,"Encrypting with: TheirKey0: " + theirEphermalKey0.getKeyId());
+  byte[] master_secret=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getKey()),new RatchetPrivateKey(ownEphermalKey0.getKey()),new RatchetPublicKey(theirIdentityKey.getPublicKey()),new RatchetPublicKey(theirEphermalKey0.getPublicKey()));
+  byte[] rootChainKey=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(ownEphermalKey0.getKey()),new RatchetPublicKey(theirEphermalKey0.getPublicKey()),master_secret);
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,0);
+  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(encryptionKeyGroup.getKeyGroupId()),ByteStrings.longToBytes(ownEphermalKey0.getKeyId()),ByteStrings.longToBytes(theirEphermalKey0.getKeyId()),Curve25519.keyGenPublic(ownEphermalKey.getKey()),theirEphermalKey.getPublicKey(),ByteStrings.intToBytes(outIndex++));
+  byte[] encrypted;
+  try {
+    encrypted=ActorBox.closeBox(header,data,Crypto.randomBytes(32),ratchetMessageKey);
+  }
+ catch (  IntegrityException e) {
+    e.printStackTrace();
+    future.onError(e);
+    return;
+  }
+  future.onResult(new EncryptedPackageRes(ByteStrings.merge(header,encrypted)));
+}

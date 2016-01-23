@@ -1,3 +1,9 @@
 {
-  return ephemeralKeys[RandomUtils.randomId(ephemeralKeys.length)];
+  ArrayList<OwnPrivateKeyUploadable> uploadedKeys=new ArrayList<OwnPrivateKeyUploadable>();
+  for (  OwnPrivateKeyUploadable u : ephemeralKeys) {
+    if (u.isUploaded()) {
+      uploadedKeys.add(u);
+    }
+  }
+  return uploadedKeys.get(RandomUtils.randomId(uploadedKeys.size()));
 }

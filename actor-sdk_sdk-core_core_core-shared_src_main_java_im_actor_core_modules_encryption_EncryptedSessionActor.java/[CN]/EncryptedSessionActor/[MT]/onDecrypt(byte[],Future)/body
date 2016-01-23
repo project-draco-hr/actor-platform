@@ -1,12 +1,13 @@
 {
-  final int keyGroupId=ByteStrings.bytesToInt(data,0);
+  Log.d(TAG,"onDecrypt");
+  Log.d(TAG,"onDecrypt: " + Hex.toHex(data));
+  final int ownKeyGroupId=ByteStrings.bytesToInt(data,0);
   final long ownEphermalKey0Id=ByteStrings.bytesToLong(data,4);
   final long theirEphermalKey0Id=ByteStrings.bytesToLong(data,12);
   final byte[] ownEphermalKey=ByteStrings.substring(data,20,32);
   final byte[] theirEphermalKey=ByteStrings.substring(data,52,32);
   final int messageIndex=ByteStrings.bytesToInt(data,84);
-  Log.d(TAG,"onDecrypt: " + Hex.toHex(data));
-  Log.d(TAG,"onDecrypt:key group id: " + keyGroupId + ", "+ data.length);
+  Log.d(TAG,"onDecrypt:key group id: " + ownKeyGroupId + ", "+ data.length);
   Log.d(TAG,"onDecrypt:ownEphermalKey0Id: " + ownEphermalKey0Id);
   Log.d(TAG,"onDecrypt:theirEphermalKey0Id: " + theirEphermalKey0Id);
   Log.d(TAG,"onDecrypt:messageIndex: " + messageIndex);
@@ -20,7 +21,7 @@
           final KeyManagerActor.FetchEphemeralPrivateKeyRes ownEphermalKey0=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
           ArrayList<Long> keys=new ArrayList<Long>();
           keys.add(ownEphermalKey0Id);
-          request(new RequestLoadPublicKey(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),keyGroupId,keys),new RpcCallback<ResponsePublicKeys>(){
+          request(new RequestLoadPublicKey(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),encryptionKeyGroup.getKeyGroupId(),keys),new RpcCallback<ResponsePublicKeys>(){
             @Override public void onResult(            ResponsePublicKeys response){
               Log.d(TAG,"onDecrypt:RequestLoadPublicKey");
               onDecrypt(data,ownEphermalKey0.getPrivateKey(),ownEphermalKey.getPrivateKey(),theirEphermalKey,response.getPublicKey().get(0).getKeyMaterial(),messageIndex,future);
