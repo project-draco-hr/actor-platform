@@ -2,6 +2,7 @@
   if (this.attemptIndex == attempt) {
     this.isConnecting=false;
     this.mqttClient=mqttClient;
+    exponentialBackoff.onSuccess();
   }
  else {
     try {

@@ -19,6 +19,13 @@
     }
   }
   mqttClient=null;
+  try {
+    Thread.sleep(exponentialBackoff.exponentialWait());
+  }
+ catch (  InterruptedException e) {
+    e.printStackTrace();
+    return;
+  }
   connectOptions.setUserName(mqttUsername);
   connectOptions.setPassword(mqttPassword.toCharArray());
   final int attempt=++attemptIndex;

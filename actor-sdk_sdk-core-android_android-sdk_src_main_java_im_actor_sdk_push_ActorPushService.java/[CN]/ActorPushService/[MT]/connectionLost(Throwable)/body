@@ -15,5 +15,6 @@
     }
   }
   this.mqttClient=null;
+  exponentialBackoff.onFailure();
   tryConnect();
 }
