@@ -2,6 +2,7 @@
   try {
     JSONObject object=new JSONObject(payload);
     int seq=object.getJSONObject("data").getInt("seq");
+    Log.d("SDKPushReceiver","Seq Received: " + seq);
     ActorSDK.sharedActor().getMessenger().onPushReceived(seq);
   }
  catch (  Exception e) {

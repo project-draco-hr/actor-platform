@@ -1,5 +1,6 @@
 {
   if (this.attemptIndex == attempt) {
+    this.isConnecting=false;
     this.mqttClient=mqttClient;
   }
  else {
