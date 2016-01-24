@@ -1,3 +1,10 @@
 {
-  Log.d("TestPushReceiver","On push received: " + payload);
+  try {
+    JSONObject object=new JSONObject(payload);
+    int seq=object.getJSONObject("data").getInt("seq");
+    ActorSDK.sharedActor().getMessenger().onPushReceived(seq);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
 }
