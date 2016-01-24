@@ -1,0 +1,19 @@
+{
+  if (this.attemptIndex == attempt) {
+    this.mqttClient=mqttClient;
+  }
+ else {
+    try {
+      mqttClient.disconnect();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+    try {
+      mqttClient.close();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+  }
+}

@@ -1,0 +1,4 @@
+String[] hosts
+String topic
+String username
+String password

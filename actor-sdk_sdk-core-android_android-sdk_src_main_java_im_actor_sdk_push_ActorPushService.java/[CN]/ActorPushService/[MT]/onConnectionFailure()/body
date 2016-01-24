@@ -1,0 +1,5 @@
+{
+  Log.d(TAG,"Connect Failure");
+  isConnecting=false;
+  tryConnect();
+}

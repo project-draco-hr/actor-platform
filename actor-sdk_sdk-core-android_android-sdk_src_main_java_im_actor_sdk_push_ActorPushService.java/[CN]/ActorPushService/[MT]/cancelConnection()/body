@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"cancelConnection");
+  isConnecting=false;
+  attemptIndex++;
+  if (mqttClient != null) {
+    try {
+      mqttClient.close();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+  }
+  mqttClient=null;
+}

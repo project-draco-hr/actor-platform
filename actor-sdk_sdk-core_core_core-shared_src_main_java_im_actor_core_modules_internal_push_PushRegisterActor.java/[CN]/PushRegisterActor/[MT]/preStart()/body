@@ -13,4 +13,10 @@
       registerApplePush(apnsId,token);
     }
   }
+  if (preferences().getBool("push.actor",false)) {
+    if (!preferences().getBool("push.actor.registered",false)) {
+      String endpoint=preferences().getString("push.actor.endpoint");
+      registerActorPush(endpoint);
+    }
+  }
 }
