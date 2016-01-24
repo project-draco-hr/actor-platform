@@ -14,7 +14,7 @@
       sharedPreferences.edit().clear().commit();
     }
   }
-  final Request request=new Request.Builder().url("https://push.actor.im/apps/31337/subscriptions").method("POST",RequestBody.create(MediaType.parse("application/json"),"{}")).build();
+  final Request request=new Request.Builder().url(endpoint).method("POST",RequestBody.create(MediaType.parse("application/json"),"{}")).build();
   client.newCall(request).enqueue(new com.squareup.okhttp.Callback(){
     @Override public void onFailure(    Request request,    IOException e){
     }
