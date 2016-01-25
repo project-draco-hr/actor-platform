@@ -1,40 +1,37 @@
 {
-  final long start=im.actor.runtime.Runtime.getActorTime();
-  Log.d(TAG,"onDecrypt");
-  Log.d(TAG,"onDecrypt: " + Hex.toHex(data));
-  final int ownKeyGroupId=ByteStrings.bytesToInt(data,0);
-  final long ownEphermalKey0Id=ByteStrings.bytesToLong(data,4);
-  final long theirEphermalKey0Id=ByteStrings.bytesToLong(data,12);
-  final byte[] ownEphermalKey=ByteStrings.substring(data,20,32);
-  final byte[] theirEphermalKey=ByteStrings.substring(data,52,32);
+  if (isUnavailable) {
+    future.onError(new RuntimeException("Encryption session is unavailable"));
+    return;
+  }
+  final byte[] senderEphemeralKey=ByteStrings.substring(data,20,32);
+  final byte[] receiverEphemeralKey=ByteStrings.substring(data,52,32);
   final int messageIndex=ByteStrings.bytesToInt(data,84);
-  ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchEphemeralPrivateKey(theirEphermalKey),new AskCallback(){
-    @Override public void onResult(    Object obj){
-      final KeyManagerActor.FetchEphemeralPrivateKeyRes theirEphermalKey=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
-      Log.d(TAG,"Before plain text in " + (im.actor.runtime.Runtime.getActorTime() - start) + " ms");
-      byte[] rc=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(theirEphermalKey.getPrivateKey()),new RatchetPublicKey(ownEphermalKey),masterKey);
-      Log.d(TAG,"Before plain text 2 in " + (im.actor.runtime.Runtime.getActorTime() - start) + " ms");
-      ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rc,messageIndex);
-      Log.d(TAG,"Before plain text 3 in " + (im.actor.runtime.Runtime.getActorTime() - start) + " ms");
-      byte[] header=ByteStrings.substring(data,0,88);
-      byte[] pkg=ByteStrings.substring(data,88,data.length - 88);
-      byte[] plainText;
-      try {
-        plainText=ActorBox.openBox(header,pkg,ratchetMessageKey);
-        Log.d(TAG,"Plain Text in " + (im.actor.runtime.Runtime.getActorTime() - start) + " ms");
-      }
- catch (      IntegrityException e) {
-        Log.d(TAG,"Plain Text error");
-        e.printStackTrace();
-        future.onError(e);
-        return;
-      }
-      future.onResult(new DecryptedPackage(plainText));
-    }
-    @Override public void onError(    Exception e){
-      Log.d(TAG,"onDecrypt:onResultEphermal:onError");
-      future.onError(e);
+  EncryptedSessionChain pickedChain=null;
+  for (  EncryptedSessionChain c : chains) {
+    if (ByteStrings.isEquals(Curve25519.keyGenPublic(c.getOwnPrivateKey()),receiverEphemeralKey)) {
+      pickedChain=c;
+      break;
     }
   }
+  if (pickedChain == null) {
+    ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchEphemeralPrivateKey(receiverEphemeralKey),new AskCallback(){
+      @Override public void onResult(      Object obj){
+        final KeyManagerActor.FetchEphemeralPrivateKeyRes theirEphermalKey=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
+        spawnChain(theirEphermalKey.getPrivateKey(),senderEphemeralKey);
+        onDecrypt(data,future);
+      }
+      @Override public void onError(      Exception e){
+        future.onError(e);
+      }
+    }
 );
+    return;
+  }
+  try {
+    future.onResult(new DecryptedPackage(pickedChain.decrypt(data)));
+  }
+ catch (  IntegrityException e) {
+    e.printStackTrace();
+    future.onError(e);
+  }
 }

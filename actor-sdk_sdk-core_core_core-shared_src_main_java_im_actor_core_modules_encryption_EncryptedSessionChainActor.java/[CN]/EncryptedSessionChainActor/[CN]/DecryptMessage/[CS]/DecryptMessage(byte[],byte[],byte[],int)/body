@@ -1,6 +1,0 @@
-{
-  this.header=header;
-  this.cipherText=cipherText;
-  this.senderPublicKey=senderPublicKey;
-  this.messageIndex=messageIndex;
-}

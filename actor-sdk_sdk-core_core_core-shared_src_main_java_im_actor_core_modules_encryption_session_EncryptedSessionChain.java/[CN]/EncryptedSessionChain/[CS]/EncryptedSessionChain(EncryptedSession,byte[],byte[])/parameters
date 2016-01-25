@@ -1,0 +1,3 @@
+EncryptedSession session
+byte[] ownPrivateKey
+byte[] theirPublicKey

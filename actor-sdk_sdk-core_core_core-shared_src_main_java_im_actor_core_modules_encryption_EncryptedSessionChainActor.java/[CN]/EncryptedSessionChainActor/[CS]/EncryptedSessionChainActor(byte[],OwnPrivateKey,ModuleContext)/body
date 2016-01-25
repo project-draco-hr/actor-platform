@@ -1,5 +1,0 @@
-{
-  super(context);
-  this.masterKey=masterKey;
-  this.chainOwnPrivateKey=chainOwnPrivateKey;
-}

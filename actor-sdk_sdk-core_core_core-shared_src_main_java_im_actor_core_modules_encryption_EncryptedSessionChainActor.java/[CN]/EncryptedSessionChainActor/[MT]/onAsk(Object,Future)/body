@@ -1,8 +1,0 @@
-{
-  if (message instanceof DecryptMessage) {
-    DecryptMessage decryptMessage=(DecryptMessage)message;
-    onDecrypt(decryptMessage.getHeader(),decryptMessage.getCipherText(),decryptMessage.getSenderPublicKey(),decryptMessage.getMessageIndex(),future);
-    return false;
-  }
-  return super.onAsk(message,future);
-}

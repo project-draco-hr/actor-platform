@@ -1,2 +1,6 @@
 {
+  if (isUnavailable) {
+    future.onError(new RuntimeException("Encryption session is unavailable"));
+    return;
+  }
 }

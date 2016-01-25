@@ -1,0 +1,5 @@
+{
+  EncryptedSessionChain chain=new EncryptedSessionChain(session,privateKey,publicKey);
+  chains.add(0,chain);
+  return chain;
+}

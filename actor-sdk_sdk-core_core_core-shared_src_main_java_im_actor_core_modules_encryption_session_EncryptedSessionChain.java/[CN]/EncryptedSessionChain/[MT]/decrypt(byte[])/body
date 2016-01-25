@@ -1,0 +1,15 @@
+{
+  if (data.length < 88) {
+    throw new IntegrityException("Data length is too small");
+  }
+  final int senderKeyGroupId=ByteStrings.bytesToInt(data,0);
+  final long senderEphermalKey0Id=ByteStrings.bytesToLong(data,4);
+  final long receiverEphermalKey0Id=ByteStrings.bytesToLong(data,12);
+  final byte[] senderEphemeralKey=ByteStrings.substring(data,20,32);
+  final byte[] receiverEphemeralKey=ByteStrings.substring(data,52,32);
+  final int messageIndex=ByteStrings.bytesToInt(data,84);
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,messageIndex);
+  byte[] header=ByteStrings.substring(data,0,88);
+  byte[] message=ByteStrings.substring(data,88,data.length - 88);
+  return ActorBox.openBox(header,message,ratchetMessageKey);
+}

@@ -23,5 +23,9 @@
     fetchUserEphemeralKey(((FetchUserEphemeralKey)message).getUid(),((FetchUserEphemeralKey)message).getKeyGroup(),((FetchUserEphemeralKey)message).getKeyId(),future);
     return false;
   }
+ else   if (message instanceof FetchUserEphemeralKeyRandom) {
+    fetchUserEphemeralKey(((FetchUserEphemeralKeyRandom)message).getUid(),((FetchUserEphemeralKeyRandom)message).getKeyGroup(),future);
+    return false;
+  }
   return super.onAsk(message,future);
 }

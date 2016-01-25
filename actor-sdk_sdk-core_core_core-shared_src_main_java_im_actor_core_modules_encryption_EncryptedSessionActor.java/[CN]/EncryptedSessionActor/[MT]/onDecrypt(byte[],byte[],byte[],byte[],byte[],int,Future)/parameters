@@ -1,7 +1,0 @@
-byte[] data
-byte[] theirEphemeralKey0
-byte[] theirEphemeralKey
-byte[] ownEphemeralPrivateKey0
-byte[] ownEphemeralPrivateKey
-int index
-Future future
