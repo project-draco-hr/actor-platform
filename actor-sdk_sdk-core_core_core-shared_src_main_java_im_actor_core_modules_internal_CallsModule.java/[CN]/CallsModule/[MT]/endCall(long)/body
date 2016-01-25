@@ -4,4 +4,7 @@
   if (call != null) {
     call.send(new CallActor.EndCall());
   }
+ else {
+    onCallEnded(callId);
+  }
 }
