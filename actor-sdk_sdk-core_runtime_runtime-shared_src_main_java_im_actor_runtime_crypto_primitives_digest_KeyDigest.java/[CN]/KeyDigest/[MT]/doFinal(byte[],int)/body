@@ -1,0 +1,5 @@
+{
+  byte[] res=new byte[32];
+  sha256.doFinal(res,0);
+  System.arraycopy(res,0,dest,0,8);
+}

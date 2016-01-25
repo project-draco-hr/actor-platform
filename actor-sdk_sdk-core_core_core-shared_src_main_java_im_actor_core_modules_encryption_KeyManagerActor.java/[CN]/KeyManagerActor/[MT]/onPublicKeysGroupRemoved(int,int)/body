@@ -1,0 +1,7 @@
+{
+  UserKeys userKeys=getCachedUserKeys(uid);
+  if (userKeys == null) {
+    return;
+  }
+  cacheUserKeys(userKeys.removeUserKeyGroup(keyGroupId));
+}

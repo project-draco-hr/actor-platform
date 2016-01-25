@@ -1,7 +1,17 @@
 {
-  if (message instanceof AskRequest && !isReady) {
+  if (!isReady && (message instanceof AskRequest || message instanceof PublicKeysGroupAdded || message instanceof PublicKeysGroupRemoved)) {
     stash();
     return;
   }
-  super.onReceive(message);
+  if (message instanceof PublicKeysGroupAdded) {
+    PublicKeysGroupAdded publicKeysGroupAdded=(PublicKeysGroupAdded)message;
+    onPublicKeysGroupAdded(publicKeysGroupAdded.getUid(),publicKeysGroupAdded.getPublicKeyGroup());
+  }
+ else   if (message instanceof PublicKeysGroupRemoved) {
+    PublicKeysGroupRemoved publicKeysGroupRemoved=(PublicKeysGroupRemoved)message;
+    onPublicKeysGroupRemoved(publicKeysGroupRemoved.getUid(),publicKeysGroupRemoved.getKeyGroupId());
+  }
+ else {
+    super.onReceive(message);
+  }
 }

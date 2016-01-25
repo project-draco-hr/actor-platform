@@ -1,0 +1,10 @@
+{
+  UserKeys userKeys=getCachedUserKeys(uid);
+  if (userKeys == null) {
+    return;
+  }
+  UserKeysGroup validatedKeysGroup=validateUserKeysGroup(uid,keyGroup);
+  if (validatedKeysGroup != null) {
+    cacheUserKeys(userKeys.addUserKeyGroup(validatedKeysGroup));
+  }
+}

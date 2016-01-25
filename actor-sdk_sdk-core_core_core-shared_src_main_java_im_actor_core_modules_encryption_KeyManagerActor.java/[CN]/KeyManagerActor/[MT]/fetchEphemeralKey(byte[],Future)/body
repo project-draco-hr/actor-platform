@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"fetchEphemeralKey");
   for (  OwnPrivateKey k : ownKeys.getEphemeralKeys()) {
     if (ByteStrings.isEquals(Curve25519.keyGenPublic(k.getKey()),publicKey)) {
       future.onResult(new FetchEphemeralPrivateKeyRes(k.getKey()));

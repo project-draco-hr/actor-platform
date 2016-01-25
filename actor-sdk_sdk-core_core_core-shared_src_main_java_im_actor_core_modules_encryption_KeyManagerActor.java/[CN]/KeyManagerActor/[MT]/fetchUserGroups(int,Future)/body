@@ -1,27 +1,33 @@
 {
   Log.d(TAG,"fetchUserGroups");
-  UserKeys userKeys=null;
-  Log.d(TAG,"Requesting");
+  final UserKeys userKeys=getCachedUserKeys(uid);
+  if (userKeys != null) {
+    Log.d(TAG,"fetchUserGroups:cached");
+    future.onResult(new FetchUserKeyGroupsResponse(userKeys));
+    return;
+  }
+  Log.d(TAG,"fetchUserGroups:loading");
   User user=users().getValue(uid);
   request(new RequestLoadPublicKeyGroups(new ApiUserOutPeer(uid,user.getAccessHash())),new RpcCallback<ResponsePublicKeyGroups>(){
     @Override public void onResult(    ResponsePublicKeyGroups response){
-      Log.d(TAG,"onResult");
-      UserKeysGroup[] groups=new UserKeysGroup[response.getPublicKeyGroups().size()];
-      for (int i=0; i < groups.length; i++) {
-        ApiEncryptionKeyGroup encryptionKey=response.getPublicKeyGroups().get(i);
-        UserPublicKey identity=new UserPublicKey(encryptionKey.getIdentityKey().getKeyId(),encryptionKey.getIdentityKey().getKeyAlg(),encryptionKey.getIdentityKey().getKeyMaterial());
-        UserPublicKey[] keys=new UserPublicKey[encryptionKey.getKeys().size()];
-        for (int j=0; j < keys.length; j++) {
-          keys[j]=new UserPublicKey(encryptionKey.getKeys().get(j).getKeyId(),encryptionKey.getKeys().get(j).getKeyAlg(),encryptionKey.getKeys().get(j).getKeyMaterial());
+      ArrayList<UserKeysGroup> keysGroups=new ArrayList<UserKeysGroup>();
+      for (      ApiEncryptionKeyGroup keyGroup : response.getPublicKeyGroups()) {
+        UserKeysGroup validatedKeysGroup=validateUserKeysGroup(uid,keyGroup);
+        if (validatedKeysGroup != null) {
+          keysGroups.add(validatedKeysGroup);
         }
-        groups[i]=new UserKeysGroup(encryptionKey.getKeyGroupId(),identity,keys,new UserPublicKey[0]);
       }
-      UserKeys userKeys1=new UserKeys(uid,groups);
-      encryptionKeysStorage.addOrUpdateItem(uid,userKeys1.toByteArray());
-      future.onResult(new FetchUserKeyGroupsResponse(userKeys1));
+      if (keysGroups.size() != 0) {
+        UserKeys userKeys1=new UserKeys(uid,keysGroups.toArray(new UserKeysGroup[keysGroups.size()]));
+        cacheUserKeys(userKeys1);
+        future.onResult(new FetchUserKeyGroupsResponse(userKeys1));
+      }
+ else {
+        Log.w(TAG,"(uid:" + uid + ") No valid key groups found");
+        future.onError(new RuntimeException("No key groups found"));
+      }
     }
     @Override public void onError(    RpcException e){
-      Log.d(TAG,"onError");
       future.onError(e);
     }
   }

@@ -126,4 +126,10 @@
  else   if (update instanceof UpdateCallEnded) {
     callsProcessor.onCallEnd((UpdateCallEnded)update);
   }
+ else   if (update instanceof UpdatePublicKeyGroupAdded) {
+    context().getEncryption().getKeyManager().send(new KeyManagerActor.PublicKeysGroupAdded(((UpdatePublicKeyGroupAdded)update).getUid(),((UpdatePublicKeyGroupAdded)update).getKeyGroup()));
+  }
+ else   if (update instanceof UpdatePublicKeyGroupRemoved) {
+    context().getEncryption().getKeyManager().send(new KeyManagerActor.PublicKeysGroupRemoved(((UpdatePublicKeyGroupRemoved)update).getUid(),((UpdatePublicKeyGroupRemoved)update).getKeyGroupId()));
+  }
 }

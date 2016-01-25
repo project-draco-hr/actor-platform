@@ -32,9 +32,8 @@
     ArrayList<ApiEncryptionKeySignature> keySignatures=new ArrayList<ApiEncryptionKeySignature>();
     for (    OwnPrivateKey key : ownKeys.getKeys()) {
       byte[] publicKey2=Curve25519.keyGenPublic(privateKey.getKey());
-      ApiEncryptionKey apiKey=new ApiEncryptionKey(key.getKeyId(),key.getKeyAlg(),publicKey2,null);
-      keys.add(apiKey);
-      byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKey.getKey(),apiKey.toByteArray());
+      keys.add(new ApiEncryptionKey(key.getKeyId(),key.getKeyAlg(),publicKey2,null));
+      byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKey.getKey(),RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),publicKey2));
       keySignatures.add(new ApiEncryptionKeySignature(key.getKeyId(),"Ed25519",signature));
     }
     request(new RequestCreateNewKeyGroup(apiEncryptionKey,encryption,keys,keySignatures),new RpcCallback<ResponseCreateNewKeyGroup>(){

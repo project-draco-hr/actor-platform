@@ -1,0 +1,4 @@
+{
+  encryptionKeysStorage.addOrUpdateItem(userKeys.getUid(),userKeys.toByteArray());
+  cachedUserKeys.put(userKeys.getUid(),userKeys);
+}

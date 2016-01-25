@@ -1,5 +1,5 @@
 {
-  Log.d(TAG,"Ephemeral Keys are ready");
+  Log.d(TAG,"All Keys are ready");
   isReady=true;
   unstashAll();
 }
