@@ -6,7 +6,7 @@
       }
     }
 ),"actor/call"));
-    if (!MULTIPLE_CALLS_ENABLED & calls.keySet().size() > 0) {
+    if (!MULTIPLE_CALLS_ENABLED & calls.keySet().size() > MAX_CALLS_COUNT) {
       calls.get(callId).send(new CallActor.EndCall());
     }
  else {
