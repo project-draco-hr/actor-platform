@@ -1,4 +1,5 @@
 {
+  Log.w(TAG,"loadTheirKey0");
   ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchUserEphemeralKey(uid,theirKeyGroup,theirKey0),new AskCallback(){
     @Override public void onResult(    Object obj){
       KeyManagerActor.FetchUserEphemeralKeyResponse r=(KeyManagerActor.FetchUserEphemeralKeyResponse)obj;

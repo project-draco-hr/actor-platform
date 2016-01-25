@@ -27,5 +27,9 @@
     fetchUserEphemeralKey(((FetchUserEphemeralKeyRandom)message).getUid(),((FetchUserEphemeralKeyRandom)message).getKeyGroup(),future);
     return false;
   }
+ else   if (message instanceof FetchOwnEphemeralKey) {
+    fetchOwnEphemeralKey(future);
+    return false;
+  }
   return super.onAsk(message,future);
 }

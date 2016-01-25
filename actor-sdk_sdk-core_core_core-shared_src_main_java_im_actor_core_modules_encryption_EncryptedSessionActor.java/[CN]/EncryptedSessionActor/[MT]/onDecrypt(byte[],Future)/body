@@ -28,7 +28,9 @@
     return;
   }
   try {
-    future.onResult(new DecryptedPackage(pickedChain.decrypt(data)));
+    byte[] decrypted=pickedChain.decrypt(data);
+    theirEphemeralKey=senderEphemeralKey;
+    future.onResult(new DecryptedPackage(decrypted));
   }
  catch (  IntegrityException e) {
     e.printStackTrace();

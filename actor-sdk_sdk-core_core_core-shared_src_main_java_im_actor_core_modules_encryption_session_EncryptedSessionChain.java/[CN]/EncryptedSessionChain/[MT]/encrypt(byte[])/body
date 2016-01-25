@@ -1,0 +1,8 @@
+{
+  int messageIndex=sentCounter++;
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,messageIndex);
+  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(session.getPeerKeyGroupId()),ByteStrings.longToBytes(session.getOwnPreKey().getKeyId()),ByteStrings.longToBytes(session.getTheirPreKey().getKeyId()),Curve25519.keyGenPublic(ownPrivateKey),theirPublicKey,ByteStrings.intToBytes(messageIndex));
+  Log.d("EncryptedSessionChain","Own Pre Key: " + session.getOwnPreKey().getKeyId());
+  Log.d("EncryptedSessionChain","Their Pre Key: " + session.getTheirPreKey().getKeyId());
+  return ByteStrings.merge(header,ActorBox.closeBox(header,data,Crypto.randomBytes(32),ratchetMessageKey));
+}

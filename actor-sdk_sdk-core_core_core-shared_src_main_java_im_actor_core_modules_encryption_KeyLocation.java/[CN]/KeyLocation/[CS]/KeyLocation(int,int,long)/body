@@ -1,5 +1,0 @@
-{
-  this.uid=uid;
-  this.keyGroup=keyGroup;
-  this.keyId=keyId;
-}
