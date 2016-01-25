@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"incoming call " + callId);
   if (!calls.keySet().contains(callId)) {
     calls.put(callId,ActorSystem.system().actorOf(Props.create(CallActor.class,new ActorCreator<CallActor>(){
       @Override public CallActor create(){

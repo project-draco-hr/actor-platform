@@ -1,3 +1,4 @@
 {
+  Log.d(TAG,"on callActor ended call");
   calls.remove(callId);
 }
