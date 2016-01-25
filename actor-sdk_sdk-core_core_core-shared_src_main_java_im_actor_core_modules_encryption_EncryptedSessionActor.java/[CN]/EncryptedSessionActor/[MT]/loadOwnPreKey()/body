@@ -1,0 +1,15 @@
+{
+  ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchEphemeralPrivateKeyById(ownKey0),new AskCallback(){
+    @Override public void onResult(    Object obj){
+      KeyManagerActor.FetchEphemeralPrivateKeyRes keyRes=(KeyManagerActor.FetchEphemeralPrivateKeyRes)obj;
+      ownPreKey=new OwnPrivateKey(ownKey0,"curve25519",keyRes.getPrivateKey());
+      loadTheirIdentity();
+    }
+    @Override public void onError(    Exception e){
+      Log.w(TAG,"Own pre key error");
+      Log.e(TAG,e);
+      isUnavailable=true;
+    }
+  }
+);
+}

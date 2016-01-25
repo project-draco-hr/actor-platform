@@ -1,32 +1,3 @@
 {
   Log.d(TAG,"onDecrypt2");
-  byte[] ms=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getKey()),new RatchetPrivateKey(ownEphemeralPrivateKey0),new RatchetPublicKey(encryptionKeyGroup.getIdentityKey().getPublicKey()),new RatchetPublicKey(theirEphemeralKey0));
-  byte[] rc=RatchetRootChainKey.makeRootChainKey(new RatchetPrivateKey(ownEphemeralPrivateKey),new RatchetPublicKey(theirEphemeralKey),ms);
-  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rc,index);
-  Log.d(TAG,"MS: " + Hex.toHex(ms));
-  Log.d(TAG,"MS_11: " + Hex.toHex(Curve25519.keyGenPublic(ownIdentityKey.getKey())));
-  Log.d(TAG,"MS_21: " + Hex.toHex(Curve25519.keyGenPublic(ownEphemeralPrivateKey0)));
-  Log.d(TAG,"MS_31: " + Hex.toHex(encryptionKeyGroup.getIdentityKey().getPublicKey()));
-  Log.d(TAG,"MS_41: " + Hex.toHex(theirEphemeralKey0));
-  Log.d(TAG,"RC: " + Hex.toHex(rc));
-  Log.d(TAG,"RC_1: " + Hex.toHex(Curve25519.keyGenPublic(ownEphemeralPrivateKey)));
-  Log.d(TAG,"RC_2: " + Hex.toHex(theirEphemeralKey));
-  Log.d(TAG,"AES: " + Hex.toHex(ratchetMessageKey.getKeyAES()));
-  Log.d(TAG,"AES_MAC: " + Hex.toHex(ratchetMessageKey.getMacAES()));
-  Log.d(TAG,"KUZ: " + Hex.toHex(ratchetMessageKey.getKeyKuz()));
-  Log.d(TAG,"KUZ_MAC: " + Hex.toHex(ratchetMessageKey.getMacKuz()));
-  byte[] header=ByteStrings.substring(data,0,88);
-  byte[] pkg=ByteStrings.substring(data,88,data.length - 88);
-  byte[] plainText;
-  try {
-    plainText=ActorBox.openBox(header,pkg,ratchetMessageKey);
-    Log.d(TAG,"Plain Text");
-  }
- catch (  IntegrityException e) {
-    Log.d(TAG,"Plain Text error");
-    e.printStackTrace();
-    future.onError(e);
-    return;
-  }
-  future.onResult(new DecryptedPackage(plainText));
 }

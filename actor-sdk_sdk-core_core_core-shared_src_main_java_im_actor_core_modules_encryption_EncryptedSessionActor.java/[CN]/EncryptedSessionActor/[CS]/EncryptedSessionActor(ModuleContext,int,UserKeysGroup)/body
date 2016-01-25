@@ -1,7 +1,0 @@
-{
-  super(context);
-  this.TAG="EncryptionSessionActor#" + uid + "_"+ encryptionKeyGroup.getKeyGroupId();
-  this.uid=uid;
-  this.encryptionKeyGroup=encryptionKeyGroup;
-  this.theirIdentityKey=encryptionKeyGroup.getIdentityKey();
-}

@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  SessionId sessionId=(SessionId)o;
+  if (ownKeyGroupId != sessionId.ownKeyGroupId)   return false;
+  if (theirKeyGroupId != sessionId.theirKeyGroupId)   return false;
+  if (ownKeyId0 != sessionId.ownKeyId0)   return false;
+  return theirKeyId0 == sessionId.theirKeyId0;
+}

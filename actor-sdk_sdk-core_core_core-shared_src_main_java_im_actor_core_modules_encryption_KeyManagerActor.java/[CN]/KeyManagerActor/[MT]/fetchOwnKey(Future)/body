@@ -1,4 +1,4 @@
 {
   Log.d(TAG,"fetchOwnKey");
-  future.onResult(new FetchOwnKeyResult(ownKeys.getIdentityKey(),ownKeys.pickRandomEphemeralKey()));
+  future.onResult(new FetchOwnKeyResult(ownKeys.getIdentityKey()));
 }

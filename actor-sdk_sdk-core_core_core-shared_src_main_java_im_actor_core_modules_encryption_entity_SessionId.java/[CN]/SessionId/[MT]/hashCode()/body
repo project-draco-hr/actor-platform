@@ -1,0 +1,7 @@
+{
+  int result=ownKeyGroupId;
+  result=31 * result + theirKeyGroupId;
+  result=31 * result + (int)(ownKeyId0 ^ (ownKeyId0 >>> 32));
+  result=31 * result + (int)(theirKeyId0 ^ (theirKeyId0 >>> 32));
+  return result;
+}

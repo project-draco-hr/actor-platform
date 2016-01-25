@@ -1,0 +1,4 @@
+int ownKeyGroupId
+long ownKeyId0
+int theirKeyGroupId
+long theirKeyId0

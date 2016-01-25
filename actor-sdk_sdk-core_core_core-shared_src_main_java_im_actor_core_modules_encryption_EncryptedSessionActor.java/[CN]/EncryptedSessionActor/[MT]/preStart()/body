@@ -1,16 +1,4 @@
 {
-  ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchOwnKey(),new AskCallback(){
-    @Override public void onResult(    Object obj){
-      KeyManagerActor.FetchOwnKeyResult res=(KeyManagerActor.FetchOwnKeyResult)obj;
-      ownIdentityKey=res.getIdentityKey();
-      ownEphermalKey0=res.getEphemeralKey();
-      currentOwnKey=new OwnPrivateKey(RandomUtils.nextRid(),"curve25519",Curve25519.keyGenPrivate(Crypto.randomBytes(64)));
-    }
-    @Override public void onError(    Exception e){
-      Log.w(TAG,"Own keys error");
-      Log.e(TAG,e);
-      throw new RuntimeException(e);
-    }
-  }
-);
+  Log.d(TAG,"preStart");
+  loadOwnIdentity();
 }

@@ -1,11 +1,2 @@
 {
-  if (!assumeEnabled(new Runnable(){
-    @Override public void run(){
-      onEncrypt(data,future);
-    }
-  }
-)) {
-    return;
-  }
-  onEncrypt(data,ownEphermalKey0,currentOwnKey,theirEphermalKey0,currentTheirKey,future);
 }

@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"onAsk");
   if (message instanceof EncryptPackage) {
     onEncrypt(((EncryptPackage)message).getData(),future);
     return false;

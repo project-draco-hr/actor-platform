@@ -1,0 +1,42 @@
+{
+  final UserKeys keys=getCachedUserKeys(uid);
+  UserKeysGroup keysGroup=null;
+  for (  UserKeysGroup g : keys.getUserKeysGroups()) {
+    if (g.getKeyGroupId() == keyGroupId) {
+      keysGroup=g;
+    }
+  }
+  if (keysGroup == null) {
+    future.onError(new RuntimeException("Key Group not found"));
+    return;
+  }
+  for (  UserPublicKey p : keysGroup.getEphemeralKeys()) {
+    if (p.getKeyId() == keyId) {
+      future.onResult(new FetchUserEphemeralKeyResponse(p));
+      return;
+    }
+  }
+  ArrayList<Long> ids=new ArrayList<Long>();
+  ids.add(keyId);
+  final UserKeysGroup finalKeysGroup=keysGroup;
+  request(new RequestLoadPublicKey(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),keyGroupId,ids),new RpcCallback<ResponsePublicKeys>(){
+    @Override public void onResult(    ResponsePublicKeys response){
+      if (response.getPublicKey().size() == 0) {
+        Log.w(TAG,"Public key error");
+        future.onError(new RuntimeException());
+        return;
+      }
+      ApiEncryptionKey key=response.getPublicKey().get(0);
+      UserPublicKey pkey=new UserPublicKey(keyId,key.getKeyAlg(),key.getKeyMaterial());
+      UserKeysGroup userKeysGroup=finalKeysGroup.addUserKeyGroup(pkey);
+      cacheUserKeys(keys.removeUserKeyGroup(userKeysGroup.getKeyGroupId()).addUserKeyGroup(userKeysGroup));
+      future.onResult(new FetchUserEphemeralKeyResponse(pkey));
+    }
+    @Override public void onError(    RpcException e){
+      Log.w(TAG,"Public key error");
+      Log.e(TAG,e);
+      future.onError(e);
+    }
+  }
+);
+}

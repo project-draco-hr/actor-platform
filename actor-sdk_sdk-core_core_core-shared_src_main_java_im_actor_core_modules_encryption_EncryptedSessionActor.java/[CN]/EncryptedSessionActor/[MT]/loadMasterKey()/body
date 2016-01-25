@@ -1,0 +1,3 @@
+{
+  masterKey=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getKey()),new RatchetPrivateKey(ownPreKey.getKey()),new RatchetPublicKey(theirIdentityKey.getPublicKey()),new RatchetPublicKey(theirPreKey.getPublicKey()));
+}

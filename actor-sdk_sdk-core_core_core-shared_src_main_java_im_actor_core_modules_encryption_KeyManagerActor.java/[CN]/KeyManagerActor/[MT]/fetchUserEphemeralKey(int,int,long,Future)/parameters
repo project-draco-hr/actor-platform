@@ -1,0 +1,4 @@
+int uid
+int keyGroupId
+long keyId
+Future future

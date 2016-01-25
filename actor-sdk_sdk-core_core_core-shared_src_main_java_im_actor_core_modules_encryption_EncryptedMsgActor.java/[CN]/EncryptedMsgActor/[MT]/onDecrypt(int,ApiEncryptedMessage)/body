@@ -1,5 +1,6 @@
 {
   Log.d(TAG,"onDecrypt:" + uid);
+  final long start=im.actor.runtime.Runtime.getActorTime();
   ArrayList<EncryptedBoxKey> encryptedBoxKeys=new ArrayList<EncryptedBoxKey>();
   for (  ApiEncyptedBoxKey key : message.getBox().getKeys()) {
     if (key.getUsersId() == myUid()) {
@@ -9,7 +10,7 @@
   EncryptedBox encryptedBox=new EncryptedBox(encryptedBoxKeys.toArray(new EncryptedBoxKey[0]),message.getBox().getEncPackage());
   ask(context().getEncryption().getEncryptedChatManager(uid),new EncryptedPeerActor.DecryptPackage(encryptedBox),new AskCallback(){
     @Override public void onResult(    Object obj){
-      Log.d(TAG,"onDecrypt:onResult");
+      Log.d(TAG,"onDecrypt:onResult in " + (Runtime.getActorTime() - start) + " ms");
     }
     @Override public void onError(    Exception e){
       Log.d(TAG,"onDecrypt:onError");

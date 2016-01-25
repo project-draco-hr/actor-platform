@@ -1,0 +1,4 @@
+byte[] header
+byte[] cipherText
+byte[] senderPublicKey
+int messageIndex
