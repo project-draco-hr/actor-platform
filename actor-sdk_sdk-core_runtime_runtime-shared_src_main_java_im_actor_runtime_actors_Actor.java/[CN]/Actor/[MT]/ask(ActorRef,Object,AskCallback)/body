@@ -37,12 +37,12 @@
       dest.send(new AskIntRequest(message,executor));
     }
   }
-.then(new Supplier<Object>(){
+.then(new Consumer<Object>(){
     @Override public void apply(    Object o){
       self().send(new AskIntResult(id,o));
     }
   }
-).failure(new Supplier<Exception>(){
+).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
       self().send(new AskIntError(id,e));
     }
