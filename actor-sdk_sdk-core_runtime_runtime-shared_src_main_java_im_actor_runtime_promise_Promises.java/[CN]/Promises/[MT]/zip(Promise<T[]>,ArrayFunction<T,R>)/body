@@ -19,7 +19,7 @@
         }
       }
 );
-      promises.done();
+      promises.done(promises.getDispatchActor());
     }
   }
 ;

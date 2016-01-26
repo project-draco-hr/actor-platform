@@ -1,19 +1,2 @@
 {
-  super.preStart();
-  keyManager=context().getEncryption().getKeyManager();
-  sequence(ask(keyManager,new FetchOwnKeyGroup()).cast(),ask(keyManager,new FetchUserKeyGroups(uid)).cast()).then(new Supplier<Object[]>(){
-    @Override public void apply(    Object[] objects){
-      ownKeyGroupId=((FetchOwnKeyGroupResult)objects[0]).getKeyGroupId();
-      theirKeys=((FetchUserKeyGroupsResponse)objects[1]).getUserKeys();
-      isReady=true;
-      unstashAll();
-    }
-  }
-).failure(new Supplier<Exception>(){
-    @Override public void apply(    Exception e){
-      Log.w(TAG,"Unable to fetch initial parameters");
-      Log.e(TAG,e);
-    }
-  }
-).dispatch(self()).done();
 }

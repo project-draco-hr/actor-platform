@@ -3,6 +3,7 @@
     throw new RuntimeException("Promise already started");
   }
   isStarted=true;
+  dispatchActor=ref;
   exec(new PromiseResolver<T>(this));
   return this;
 }

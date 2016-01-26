@@ -47,5 +47,5 @@
       self().send(new AskIntError(id,e));
     }
   }
-).done();
+).done(self());
 }

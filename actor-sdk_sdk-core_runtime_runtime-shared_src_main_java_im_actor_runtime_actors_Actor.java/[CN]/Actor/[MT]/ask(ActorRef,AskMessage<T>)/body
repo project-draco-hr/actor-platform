@@ -4,5 +4,5 @@
       dest.send(new AskIntRequest(msg,executor));
     }
   }
-.dispatch(self());
+;
 }

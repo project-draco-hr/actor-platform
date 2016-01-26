@@ -1,6 +1,6 @@
 {
   if (isFinished) {
-    dispatcher.dispatch(new Runnable(){
+    dispatchActor.send(new Runnable(){
       @Override public void run(){
         if (exception != null) {
           callback.onError(exception);
