@@ -1,0 +1,10 @@
+{
+  if (!isInited) {
+    return;
+  }
+  for (  long id : ids) {
+    remoteItemImpl(id);
+  }
+  processDirtyOverlays();
+  notifySubscriber();
+}

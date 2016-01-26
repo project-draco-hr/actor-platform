@@ -1,0 +1,7 @@
+{
+  if ("im.actor.push.intent.RECEIVE".equals(intent.getAction())) {
+    onPushReceived(intent.getStringExtra("push_payload"));
+  }
+ else {
+  }
+}

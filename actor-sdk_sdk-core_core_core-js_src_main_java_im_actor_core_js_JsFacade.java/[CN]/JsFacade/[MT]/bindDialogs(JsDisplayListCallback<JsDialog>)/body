@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getSharedDialogList().subscribe(callback);
+  messenger.getSharedDialogList().subscribe(callback,false);
 }

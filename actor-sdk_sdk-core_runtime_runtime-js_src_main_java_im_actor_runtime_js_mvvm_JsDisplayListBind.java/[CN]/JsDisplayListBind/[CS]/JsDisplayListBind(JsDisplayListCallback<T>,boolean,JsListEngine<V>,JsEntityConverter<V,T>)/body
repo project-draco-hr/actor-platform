@@ -1,0 +1,15 @@
+{
+  this.callback=callback;
+  this.isInverted=isInverted;
+  this.listEngine=listEngine;
+  this.entityConverter=entityConverter;
+  this.isOverlaysSupported=entityConverter.isSupportOverlays();
+  this.values=new ArrayList<>();
+  this.jsValues=JsModernArray.createArray().cast();
+  if (isOverlaysSupported) {
+    this.isOverlayDirty=new ArrayList<>();
+    this.jsOverlays=JsModernArray.createArray().cast();
+  }
+  isInited=false;
+  listEngine.addListener(this);
+}

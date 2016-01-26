@@ -7,6 +7,10 @@
     RegisterApplePush applePush=(RegisterApplePush)message;
     registerApplePush(applePush.getApnsKey(),applePush.getToken());
   }
+ else   if (message instanceof RegisterActorPush) {
+    RegisterActorPush actorPush=(RegisterActorPush)message;
+    registerActorPush(actorPush.getEndpoint());
+  }
  else   if (message instanceof ResendPush) {
     resendPush();
   }

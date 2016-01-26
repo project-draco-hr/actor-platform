@@ -1,3 +1,0 @@
-{
-  callbacksInverted.remove(callback);
-}

@@ -1,5 +1,0 @@
-{
-  remoteItemImpl(id);
-  processDirtyOverlays();
-  notifySubscribers();
-}

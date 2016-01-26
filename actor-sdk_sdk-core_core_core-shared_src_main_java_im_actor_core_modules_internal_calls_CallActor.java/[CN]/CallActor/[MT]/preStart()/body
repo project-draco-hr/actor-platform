@@ -1,4 +1,5 @@
 {
   super.preStart();
   self().send(new SendCallInProgress());
+  self().send(new CheckCallIsHandled(),1500);
 }

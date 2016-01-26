@@ -1,0 +1,55 @@
+{
+  Log.d(TAG,"tryConnect");
+  if (mqttClient != null && mqttClient.isConnected()) {
+    Log.d(TAG,"Already connected");
+    return;
+  }
+  if (isConnecting) {
+    Log.d(TAG,"Already connecting");
+    return;
+  }
+  isConnecting=true;
+  Log.d(TAG,"Starting connecting...");
+  if (mqttClient != null) {
+    try {
+      mqttClient.close();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+  }
+  mqttClient=null;
+  try {
+    Thread.sleep(exponentialBackoff.exponentialWait());
+  }
+ catch (  InterruptedException e) {
+    e.printStackTrace();
+    return;
+  }
+  connectOptions.setUserName(mqttUsername);
+  connectOptions.setPassword(mqttPassword.toCharArray());
+  final int attempt=++attemptIndex;
+  connectionExecutor.execute(new Runnable(){
+    @Override public void run(){
+      Log.d(TAG,"Connecting...");
+      MqttClient mqttClient;
+      try {
+        mqttClient=new MqttClient(mqttUrls[random.nextInt(mqttUrls.length)],mqttClientId,persistence);
+        mqttClient.connect(connectOptions);
+        Log.d(TAG,"Connected");
+        mqttClient.setCallback(ActorPushService.this);
+        mqttClient.subscribe(mqttTopic,1);
+        Log.d(TAG,"Complete");
+      }
+ catch (      MqttException e) {
+        Log.d(TAG,"Exception");
+        e.printStackTrace();
+        onConnectionFailure();
+        return;
+      }
+      Log.d(TAG,"Success");
+      onConnected(attempt,mqttClient);
+    }
+  }
+);
+}

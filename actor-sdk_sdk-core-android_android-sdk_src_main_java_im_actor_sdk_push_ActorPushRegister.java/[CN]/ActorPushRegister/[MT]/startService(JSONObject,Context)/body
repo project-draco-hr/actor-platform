@@ -1,0 +1,17 @@
+{
+  try {
+    JSONObject object=config.getJSONObject("mqttServer");
+    JSONArray hostsJ=object.getJSONArray("hosts");
+    String[] hosts=new String[hostsJ.length()];
+    for (int i=0; i < hosts.length; i++) {
+      hosts[i]=hostsJ.getString(i);
+    }
+    String username=object.getString("username");
+    String password=object.getString("password");
+    String topic=config.getString("topic");
+    context.startService(new Intent(context,ActorPushService.class).putExtra("mqtt_urls",hosts).putExtra("mqtt_topic",topic).putExtra("mqtt_username",username).putExtra("mqtt_password",password));
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
+}

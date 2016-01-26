@@ -1,0 +1,4 @@
+{
+  type=values.getString(1);
+  parseSignal(values);
+}

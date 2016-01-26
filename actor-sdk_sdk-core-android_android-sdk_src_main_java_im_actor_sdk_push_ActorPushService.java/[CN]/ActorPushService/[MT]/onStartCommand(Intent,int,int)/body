@@ -1,0 +1,10 @@
+{
+  if (intent != null && intent.hasExtra("mqtt_urls") && intent.hasExtra("mqtt_topic") && intent.hasExtra("mqtt_username") && intent.hasExtra("mqtt_password")) {
+    String[] url=intent.getStringArrayExtra("mqtt_urls");
+    String topic=intent.getStringExtra("mqtt_topic");
+    String username=intent.getStringExtra("mqtt_username");
+    String password=intent.getStringExtra("mqtt_password");
+    connectToBroker(url,topic,username,password);
+  }
+  return START_STICKY;
+}

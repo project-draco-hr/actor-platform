@@ -1,0 +1,21 @@
+{
+  if (this.attemptIndex == attempt) {
+    this.isConnecting=false;
+    this.mqttClient=mqttClient;
+    exponentialBackoff.onSuccess();
+  }
+ else {
+    try {
+      mqttClient.disconnect();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+    try {
+      mqttClient.close();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+  }
+}

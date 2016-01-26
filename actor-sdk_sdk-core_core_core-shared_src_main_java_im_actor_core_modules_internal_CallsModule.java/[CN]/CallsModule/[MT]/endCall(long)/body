@@ -1,7 +1,13 @@
 {
+  Log.d(TAG,"do end call" + callId);
   request(new RequestEndCall(callId));
   ActorRef call=calls.get(callId);
   if (call != null) {
+    Log.d(TAG,"call exist - end it");
     call.send(new CallActor.EndCall());
+  }
+ else {
+    Log.d(TAG,"call not exist - remove it");
+    onCallEnded(callId);
   }
 }

@@ -1,0 +1,4 @@
+{
+  String descriptor=provider.registerUploadFile(blob);
+  messenger.sendAudio(peer.convert(),"voice.opus",duration,descriptor);
+}

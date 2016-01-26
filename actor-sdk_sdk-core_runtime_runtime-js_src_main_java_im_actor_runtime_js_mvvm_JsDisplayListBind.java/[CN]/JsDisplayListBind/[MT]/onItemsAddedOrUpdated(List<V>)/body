@@ -1,0 +1,10 @@
+{
+  if (!isInited) {
+    return;
+  }
+  for (  V item : items) {
+    addItemOrUpdateImpl(item);
+  }
+  processDirtyOverlays();
+  notifySubscriber();
+}

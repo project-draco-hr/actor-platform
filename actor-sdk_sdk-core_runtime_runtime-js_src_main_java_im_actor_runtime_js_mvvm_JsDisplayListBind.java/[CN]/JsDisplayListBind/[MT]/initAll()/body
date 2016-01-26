@@ -1,0 +1,24 @@
+{
+  clearState();
+  long[] rids=listEngine.getOrderedIds();
+  for (  long rid : rids) {
+    V item=listEngine.getValue(rid);
+    if (item == null) {
+      Log.w("JsDisplayList","Unable to find item #" + rid);
+      continue;
+    }
+    values.add(item);
+    jsValues.push(entityConverter.convert(item));
+    if (isOverlaysSupported) {
+      jsOverlays.push(null);
+      isOverlayDirty.add(true);
+    }
+  }
+  processDirtyOverlays();
+  isInited=true;
+  windowTop=0;
+  isOpenTop=true;
+  windowBottom=0;
+  isOpenBottom=true;
+  notifySubscriber();
+}

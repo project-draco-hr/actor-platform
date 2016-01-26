@@ -1,0 +1,20 @@
+{
+  Log.d(TAG,"Connection Lost");
+  if (mqttClient != null) {
+    try {
+      mqttClient.disconnect();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+    try {
+      mqttClient.close();
+    }
+ catch (    MqttException e) {
+      e.printStackTrace();
+    }
+  }
+  this.mqttClient=null;
+  exponentialBackoff.onFailure();
+  tryConnect();
+}

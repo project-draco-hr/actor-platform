@@ -1,0 +1,7 @@
+{
+  String msg=new String(message.getPayload(),"utf-8");
+  Log.d(TAG,"Received " + topic + " "+ msg);
+  if (packageName != null && receiverName != null) {
+    sendBroadcast(new Intent("im.actor.push.intent.RECEIVE").setClassName(packageName,receiverName).putExtra("push_payload",msg));
+  }
+}

@@ -2,5 +2,5 @@
   if (callback == null) {
     return;
   }
-  messenger.getSharedSearchList().subscribe(callback);
+  messenger.getSharedSearchList().subscribe(callback,false);
 }

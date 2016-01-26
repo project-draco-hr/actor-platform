@@ -1,0 +1,8 @@
+{
+  if (!isInited) {
+    return;
+  }
+  remoteItemImpl(id);
+  processDirtyOverlays();
+  notifySubscriber();
+}

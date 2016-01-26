@@ -1,0 +1,37 @@
+{
+  Log.d(TAG,"onCreate");
+  super.onCreate();
+  packageName=getApplicationContext().getPackageName();
+  PackageManager packageManager=getPackageManager();
+  Intent intent=new Intent("im.actor.push.intent.RECEIVE");
+  List<ResolveInfo> resolveInfoList=packageManager.queryBroadcastReceivers(intent,0);
+  for (  ResolveInfo r : resolveInfoList) {
+    if (packageName.equals(r.activityInfo.packageName)) {
+      receiverName=r.activityInfo.name;
+      break;
+    }
+  }
+  preferences=getSharedPreferences("actor_push_service",MODE_PRIVATE);
+  mqttClientId=preferences.getString("mqtt_clientId",null);
+  if (mqttClientId == null) {
+    mqttClientId=UUID.randomUUID().toString();
+    preferences.edit().putString("mqtt_clientId",mqttClientId).commit();
+  }
+  String urls=preferences.getString("mqtt_hosts",null);
+  if (urls != null) {
+    mqttUrls=urls.split(",");
+  }
+  mqttTopic=preferences.getString("mqtt_topic",null);
+  mqttUsername=preferences.getString("mqtt_username",null);
+  mqttPassword=preferences.getString("mqtt_password",null);
+  if (mqttUrls == null || mqttTopic == null || mqttUsername == null || mqttPassword == null) {
+    mqttUrls=null;
+    mqttTopic=null;
+    mqttUsername=null;
+    mqttPassword=null;
+    Log.d(TAG,"Not started");
+  }
+ else {
+    tryConnect();
+  }
+}

@@ -1,0 +1,3 @@
+JsMessagesBindClosure closure
+JsDisplayList<JsMessage,Message> displayList
+ConversationVM conversationVM

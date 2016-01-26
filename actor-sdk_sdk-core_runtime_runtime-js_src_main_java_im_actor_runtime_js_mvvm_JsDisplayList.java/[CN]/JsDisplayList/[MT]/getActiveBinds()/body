@@ -1,0 +1,7 @@
+{
+  JsDisplayListBind[] res=new JsDisplayListBind[binds.size()];
+  for (int i=0; i < res.length; i++) {
+    res[i]=binds.get(i).bind;
+  }
+  return res;
+}

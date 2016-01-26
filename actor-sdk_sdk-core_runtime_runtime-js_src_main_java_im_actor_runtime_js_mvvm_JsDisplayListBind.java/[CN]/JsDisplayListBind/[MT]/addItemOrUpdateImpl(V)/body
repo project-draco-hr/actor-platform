@@ -1,0 +1,41 @@
+{
+  long id=item.getEngineId();
+  long sortKey=item.getEngineSort();
+  if (!isOpenTop && windowTop > sortKey) {
+    return;
+  }
+  if (!isOpenBottom && windowBottom < sortKey) {
+    return;
+  }
+  for (int i=0; i < values.size(); i++) {
+    if (values.get(i).getEngineId() == id) {
+      values.remove(i);
+      jsValues.remove(i);
+      if (isOverlaysSupported) {
+        markAsDirty(i);
+        jsOverlays.remove(i);
+        isOverlayDirty.remove(i);
+      }
+      break;
+    }
+  }
+  for (int i=0; i < values.size(); i++) {
+    if (sortKey > values.get(i).getEngineSort()) {
+      values.add(i,item);
+      jsValues.insert(i,entityConverter.convert(item));
+      if (isOverlaysSupported) {
+        jsOverlays.insert(i,null);
+        isOverlayDirty.add(i,true);
+        markAsDirty(i);
+      }
+      return;
+    }
+  }
+  values.add(item);
+  jsValues.push(entityConverter.convert(item));
+  if (isOverlaysSupported) {
+    jsOverlays.push(null);
+    isOverlayDirty.add(true);
+    markAsDirty(values.size() - 1);
+  }
+}

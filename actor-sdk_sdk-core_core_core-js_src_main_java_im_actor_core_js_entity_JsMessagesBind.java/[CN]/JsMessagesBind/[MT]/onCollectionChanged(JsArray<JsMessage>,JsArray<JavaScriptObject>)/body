@@ -1,0 +1,7 @@
+{
+  this.arrays=array;
+  this.overlays=overlays;
+  if (!isLocked) {
+    notifySubscriber();
+  }
+}

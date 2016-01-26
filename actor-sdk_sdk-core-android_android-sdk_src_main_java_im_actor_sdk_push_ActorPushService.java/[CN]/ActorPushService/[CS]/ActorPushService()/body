@@ -1,0 +1,5 @@
+{
+  connectOptions.setCleanSession(false);
+  connectOptions.setConnectionTimeout(5);
+  connectOptions.setKeepAliveInterval(15 * 60);
+}
