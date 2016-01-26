@@ -1,11 +1,11 @@
 {
   final long id=RandomUtils.nextRid();
   new Promise<Object>(){
-    @Override protected void exec(    @NotNull PromiseExecutor<Object> executor){
+    @Override protected void exec(    @NotNull PromiseResolver<Object> executor){
       become(new Receiver(){
         @Override public void onReceive(        Object message){
-          if (message instanceof AskResult) {
-            AskResult askResult=((AskResult)message);
+          if (message instanceof AskIntResult) {
+            AskIntResult askResult=((AskIntResult)message);
             if (askResult.getId() != id) {
               stash();
               return;
@@ -16,8 +16,8 @@
               callback.onResult(askResult.getResult());
             }
           }
- else           if (message instanceof AskError) {
-            AskError error=((AskError)message);
+ else           if (message instanceof AskIntError) {
+            AskIntError error=((AskIntError)message);
             if (error.getId() != id) {
               stash();
               return;
@@ -34,17 +34,17 @@
         }
       }
 );
-      dest.send(new AskRequest(message,executor));
+      dest.send(new AskIntRequest(message,executor));
     }
   }
 .then(new Supplier<Object>(){
     @Override public void apply(    Object o){
-      self().send(new AskResult(id,o));
+      self().send(new AskIntResult(id,o));
     }
   }
 ).failure(new Supplier<Exception>(){
     @Override public void apply(    Exception e){
-      self().send(new AskError(id,e));
+      self().send(new AskIntError(id,e));
     }
   }
 ).done();

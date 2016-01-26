@@ -1,0 +1,4 @@
+byte[] encKey
+byte[] data
+ArrayList<EncryptedBoxKey> encryptedKeys
+PromiseResolver future

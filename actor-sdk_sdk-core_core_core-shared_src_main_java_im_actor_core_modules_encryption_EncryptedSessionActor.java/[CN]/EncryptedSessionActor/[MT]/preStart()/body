@@ -1,4 +1,38 @@
 {
   Log.d(TAG,"preStart");
-  loadOwnIdentity();
+  keyManager=context().getEncryption().getKeyManager();
+  Promises.sequence(ask(keyManager,new FetchOwnKey()).cast(),ask(keyManager,new FetchEphemeralPrivateKeyById(ownKey0)).cast(),ask(keyManager,new FetchUserEphemeralKey(uid,theirKeyGroup,theirKey0)).cast(),ask(keyManager,new FetchUserKeyGroups(uid)).cast()).cast().zip(new ArrayFunction<Object,EncryptedSession>(){
+    @Override public EncryptedSession apply(    Object[] objects){
+      OwnPrivateKey ownIdentityKey=((FetchOwnKeyResult)objects[0]).getIdentityKey();
+      OwnPrivateKey ownPreKey=new OwnPrivateKey(ownKey0,"curve25519",((FetchEphemeralPrivateKeyRes)objects[1]).getPrivateKey());
+      UserPublicKey theirPreKey=((FetchUserEphemeralKeyResponse)objects[2]).getEphemeralKey();
+      FetchUserKeyGroupsResponse keyGroups=(FetchUserKeyGroupsResponse)objects[3];
+      UserKeysGroup keysGroup=null;
+      for (      UserKeysGroup g : keyGroups.getUserKeys().getUserKeysGroups()) {
+        if (g.getKeyGroupId() == theirKeyGroup) {
+          keysGroup=g;
+          break;
+        }
+      }
+      if (keysGroup == null) {
+        Log.w(TAG,"Their key group not found");
+        throw new RuntimeException("Their key group not found");
+      }
+      UserPublicKey theirIdentityKey=keysGroup.getIdentityKey();
+      return new EncryptedSession(ownIdentityKey,ownPreKey,theirIdentityKey,theirPreKey,theirKeyGroup);
+    }
+  }
+).dispatch(self()).then(new Supplier<EncryptedSession>(){
+    @Override public void apply(    EncryptedSession encryptedSession){
+      EncryptedSessionActor.this.session=encryptedSession;
+      unstashAll();
+    }
+  }
+).failure(new Supplier<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.w(TAG,"Session load error");
+      Log.e(TAG,e);
+    }
+  }
+).dispatch(self()).done();
 }

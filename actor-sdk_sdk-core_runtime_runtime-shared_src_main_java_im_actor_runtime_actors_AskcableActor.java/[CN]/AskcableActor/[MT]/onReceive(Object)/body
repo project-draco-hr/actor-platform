@@ -1,6 +1,6 @@
 {
-  if (message instanceof AskRequest) {
-    AskRequest askRequest=(AskRequest)message;
+  if (message instanceof AskIntRequest) {
+    AskIntRequest askRequest=(AskIntRequest)message;
     onAsk(askRequest.getMessage(),askRequest.getFuture());
   }
  else {

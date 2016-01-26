@@ -1,0 +1,3 @@
+{
+  return Promises.zip((Promise<T[]>)this,zip);
+}

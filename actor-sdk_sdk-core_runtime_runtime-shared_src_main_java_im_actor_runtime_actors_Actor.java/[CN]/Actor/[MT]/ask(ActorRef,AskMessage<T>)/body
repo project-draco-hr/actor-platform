@@ -1,0 +1,8 @@
+{
+  return new Promise<T>(){
+    @Override protected void exec(    @NotNull PromiseResolver<T> executor){
+      dest.send(new AskIntRequest(msg,executor));
+    }
+  }
+.dispatch(self());
+}

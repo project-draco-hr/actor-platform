@@ -1,3 +1,0 @@
-{
-  session=new EncryptedSession(ownIdentityKey,ownPreKey,theirIdentityKey,theirPreKey,theirKeyGroup);
-}

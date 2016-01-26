@@ -3,5 +3,6 @@
     throw new RuntimeException("Promise already started");
   }
   isStarted=true;
-  exec(new PromiseExecutor<T>(this));
+  exec(new PromiseResolver<T>(this));
+  return this;
 }

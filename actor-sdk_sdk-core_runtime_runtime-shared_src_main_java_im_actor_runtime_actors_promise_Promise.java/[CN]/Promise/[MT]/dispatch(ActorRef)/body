@@ -1,0 +1,4 @@
+{
+  dispatcher=PromiseDispatcher.forActor(ref);
+  return this;
+}

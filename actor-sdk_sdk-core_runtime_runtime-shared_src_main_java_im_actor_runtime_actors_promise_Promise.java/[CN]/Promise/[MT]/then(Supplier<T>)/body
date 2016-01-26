@@ -1,7 +1,7 @@
 {
   if (isFinished) {
     if (exception == null) {
-      im.actor.runtime.Runtime.dispatch(new Runnable(){
+      dispatcher.dispatch(new Runnable(){
         @Override public void run(){
           then.apply(result);
         }

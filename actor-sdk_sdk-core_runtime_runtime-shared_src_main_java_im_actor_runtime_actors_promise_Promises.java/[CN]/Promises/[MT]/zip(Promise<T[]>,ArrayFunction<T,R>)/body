@@ -1,0 +1,26 @@
+{
+  return new Promise<R>(){
+    @Override protected void exec(    @NotNull final PromiseResolver<R> executor){
+      promises.complete(new PromiseCallback<T[]>(){
+        @Override public void onResult(        T[] ts){
+          R res;
+          try {
+            res=zip.apply(ts);
+          }
+ catch (          Exception e) {
+            e.printStackTrace();
+            executor.error(e);
+            return;
+          }
+          executor.result(res);
+        }
+        @Override public void onError(        Exception e){
+          executor.error(e);
+        }
+      }
+);
+      promises.done();
+    }
+  }
+;
+}
