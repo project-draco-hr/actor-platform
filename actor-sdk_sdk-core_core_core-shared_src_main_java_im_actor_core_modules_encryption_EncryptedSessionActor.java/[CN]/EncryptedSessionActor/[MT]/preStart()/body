@@ -1,7 +1,7 @@
 {
   Log.d(TAG,"preStart");
-  keyManager=context().getEncryption().getKeyManager();
-  Promises.sequence(ask(keyManager,new FetchOwnKey()).cast(),ask(keyManager,new FetchEphemeralPrivateKeyById(ownKey0)).cast(),ask(keyManager,new FetchUserEphemeralKey(uid,theirKeyGroup,theirKey0)).cast(),ask(keyManager,new FetchUserKeyGroups(uid)).cast()).cast().zip(new ArrayFunction<Object,EncryptedSession>(){
+  ActorRef keyManager=context().getEncryption().getKeyManager();
+  Promises.zip(Promises.sequence(ask(keyManager,new FetchOwnKey()).cast(),ask(keyManager,new FetchEphemeralPrivateKeyById(ownKey0)).cast(),ask(keyManager,new FetchUserEphemeralKey(uid,theirKeyGroup,theirKey0)).cast(),ask(keyManager,new FetchUserKeyGroups(uid)).cast()),new ArrayFunction<Object,EncryptedSession>(){
     @Override public EncryptedSession apply(    Object[] objects){
       OwnPrivateKey ownIdentityKey=((FetchOwnKeyResult)objects[0]).getIdentityKey();
       OwnPrivateKey ownPreKey=new OwnPrivateKey(ownKey0,"curve25519",((FetchEphemeralPrivateKeyRes)objects[1]).getPrivateKey());

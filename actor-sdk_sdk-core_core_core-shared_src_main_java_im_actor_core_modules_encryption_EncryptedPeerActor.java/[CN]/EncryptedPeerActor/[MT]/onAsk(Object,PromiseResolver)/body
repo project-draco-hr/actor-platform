@@ -1,9 +1,17 @@
 {
-  if (message instanceof EncryptPackage) {
-    doEncrypt(((EncryptPackage)message).getData(),future);
+  if (message instanceof EncryptBox) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    doEncrypt(((EncryptBox)message).getData(),future);
   }
- else   if (message instanceof DecryptPackage) {
-    doDecrypt(((DecryptPackage)message).getEncryptedBox(),future);
+ else   if (message instanceof DecryptBox) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    doDecrypt(((DecryptBox)message).getEncryptedBox(),future);
   }
  else {
     super.onAsk(message,future);

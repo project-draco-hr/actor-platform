@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"msg: " + message);
-  super.onReceive(message);
-}

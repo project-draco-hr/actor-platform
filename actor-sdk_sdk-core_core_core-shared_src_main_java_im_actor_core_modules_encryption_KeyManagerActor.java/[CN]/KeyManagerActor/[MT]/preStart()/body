@@ -36,13 +36,15 @@
       byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKey.getKey(),RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),publicKey2));
       keySignatures.add(new ApiEncryptionKeySignature(key.getKeyId(),"Ed25519",signature));
     }
-    request(new RequestCreateNewKeyGroup(apiEncryptionKey,encryption,keys,keySignatures),new RpcCallback<ResponseCreateNewKeyGroup>(){
-      @Override public void onResult(      ResponseCreateNewKeyGroup response){
+    api(new RequestCreateNewKeyGroup(apiEncryptionKey,encryption,keys,keySignatures)).then(new Supplier<ResponseCreateNewKeyGroup>(){
+      @Override public void apply(      ResponseCreateNewKeyGroup response){
         ownKeys=ownKeys.setGroupId(response.getKeyGroupId());
         encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
         onMainKeysReady();
       }
-      @Override public void onError(      RpcException e){
+    }
+).failure(new Supplier<Exception>(){
+      @Override public void apply(      Exception e){
         Log.w(TAG,"Keys upload error");
         Log.e(TAG,e);
       }

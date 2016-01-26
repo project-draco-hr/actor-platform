@@ -1,15 +1,19 @@
 {
   super.preStart();
-  ask(context().getEncryption().getKeyManager(),new KeyManagerActor.FetchOwnKeyGroup(),new AskCallback(){
-    @Override public void onResult(    Object obj){
-      KeyManagerActor.FetchOwnKeyGroupResult res=(KeyManagerActor.FetchOwnKeyGroupResult)obj;
-      ownKeyGroupId=res.getKeyGroupId();
-    }
-    @Override public void onError(    Exception e){
-      Log.w(TAG,"Unable to fetch own key groups");
-      Log.e(TAG,e);
-      halt("Unable to fetch own key groups",e);
+  keyManager=context().getEncryption().getKeyManager();
+  sequence(ask(keyManager,new FetchOwnKeyGroup()).cast(),ask(keyManager,new FetchUserKeyGroups(uid)).cast()).then(new Supplier<Object[]>(){
+    @Override public void apply(    Object[] objects){
+      ownKeyGroupId=((FetchOwnKeyGroupResult)objects[0]).getKeyGroupId();
+      theirKeys=((FetchUserKeyGroupsResponse)objects[1]).getUserKeys();
+      isReady=true;
+      unstashAll();
     }
   }
-);
+).failure(new Supplier<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.w(TAG,"Unable to fetch initial parameters");
+      Log.e(TAG,e);
+    }
+  }
+).dispatch(self()).done();
 }
