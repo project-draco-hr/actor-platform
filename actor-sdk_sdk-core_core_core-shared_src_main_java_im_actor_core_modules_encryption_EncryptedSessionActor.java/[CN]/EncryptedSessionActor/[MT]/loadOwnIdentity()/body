@@ -7,7 +7,6 @@
     @Override public void onError(    Exception e){
       Log.w(TAG,"Own identity error");
       Log.e(TAG,e);
-      isUnavailable=true;
     }
   }
 );

@@ -8,7 +8,6 @@
     @Override public void onError(    Exception e){
       Log.w(TAG,"Own pre key error");
       Log.e(TAG,e);
-      isUnavailable=true;
     }
   }
 );

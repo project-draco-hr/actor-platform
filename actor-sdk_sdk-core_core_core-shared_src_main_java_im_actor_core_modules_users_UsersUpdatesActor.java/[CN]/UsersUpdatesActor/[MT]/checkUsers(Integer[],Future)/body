@@ -1,9 +1,0 @@
-{
-  for (  int uid : uids) {
-    if (users().getValue(uid) == null) {
-      future.onResult(false);
-      return;
-    }
-  }
-  future.onResult(true);
-}

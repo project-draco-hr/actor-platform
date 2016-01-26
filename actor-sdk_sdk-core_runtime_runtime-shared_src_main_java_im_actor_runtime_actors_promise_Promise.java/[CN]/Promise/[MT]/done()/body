@@ -1,0 +1,7 @@
+{
+  if (isStarted) {
+    throw new RuntimeException("Promise already started");
+  }
+  isStarted=true;
+  exec(new PromiseExecutor<T>(this));
+}

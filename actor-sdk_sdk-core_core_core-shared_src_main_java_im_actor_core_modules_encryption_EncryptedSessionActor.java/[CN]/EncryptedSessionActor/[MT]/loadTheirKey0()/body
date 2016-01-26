@@ -9,7 +9,6 @@
     @Override public void onError(    Exception e){
       Log.w(TAG,"Their pre key error");
       Log.e(TAG,e);
-      isUnavailable=true;
     }
   }
 );

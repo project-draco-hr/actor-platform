@@ -1,0 +1,19 @@
+{
+  if (callbacks.size() > 0) {
+    im.actor.runtime.Runtime.dispatch(new Runnable(){
+      @Override public void run(){
+        if (exception != null) {
+          for (          PromiseCallback<T> callback : callbacks) {
+            callback.onError(exception);
+          }
+        }
+ else {
+          for (          PromiseCallback<T> callback : callbacks) {
+            callback.onResult(result);
+          }
+        }
+      }
+    }
+);
+  }
+}

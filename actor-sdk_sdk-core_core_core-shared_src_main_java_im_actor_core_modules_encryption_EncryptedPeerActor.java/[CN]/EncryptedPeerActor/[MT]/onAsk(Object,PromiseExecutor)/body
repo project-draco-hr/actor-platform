@@ -1,0 +1,11 @@
+{
+  if (message instanceof EncryptPackage) {
+    doEncrypt(((EncryptPackage)message).getData(),future);
+  }
+ else   if (message instanceof DecryptPackage) {
+    doDecrypt(((DecryptPackage)message).getEncryptedBox(),future);
+  }
+ else {
+    super.onAsk(message,future);
+  }
+}

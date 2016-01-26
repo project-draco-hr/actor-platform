@@ -1,0 +1,29 @@
+{
+  if (message instanceof FetchOwnKey) {
+    fetchOwnKey(future);
+  }
+ else   if (message instanceof FetchOwnKeyGroup) {
+    fetchKeyGroup(future);
+  }
+ else   if (message instanceof FetchEphemeralPrivateKey) {
+    fetchEphemeralKey(((FetchEphemeralPrivateKey)message).getPublicKey(),future);
+  }
+ else   if (message instanceof FetchEphemeralPrivateKeyById) {
+    fetchEphemeralKey(((FetchEphemeralPrivateKeyById)message).getKeyId(),future);
+  }
+ else   if (message instanceof FetchUserKeyGroups) {
+    fetchUserGroups(((FetchUserKeyGroups)message).getUid(),future);
+  }
+ else   if (message instanceof FetchUserEphemeralKey) {
+    fetchUserEphemeralKey(((FetchUserEphemeralKey)message).getUid(),((FetchUserEphemeralKey)message).getKeyGroup(),((FetchUserEphemeralKey)message).getKeyId(),future);
+  }
+ else   if (message instanceof FetchUserEphemeralKeyRandom) {
+    fetchUserEphemeralKey(((FetchUserEphemeralKeyRandom)message).getUid(),((FetchUserEphemeralKeyRandom)message).getKeyGroup(),future);
+  }
+ else   if (message instanceof FetchOwnEphemeralKey) {
+    fetchOwnEphemeralKey(future);
+  }
+ else {
+    super.onAsk(message,future);
+  }
+}

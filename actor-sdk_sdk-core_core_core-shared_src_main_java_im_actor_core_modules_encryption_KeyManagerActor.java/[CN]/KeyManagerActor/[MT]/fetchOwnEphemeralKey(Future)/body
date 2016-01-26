@@ -1,5 +1,0 @@
-{
-  Log.d(TAG,"fetchOwnEphemeralKey");
-  OwnPrivateKeyUploadable ownEphemeralKey=ownKeys.pickRandomEphemeralKey();
-  future.onResult(new FetchOwnEphemeralKeyResult(ownEphemeralKey.getKeyId(),ownEphemeralKey.getKey()));
-}

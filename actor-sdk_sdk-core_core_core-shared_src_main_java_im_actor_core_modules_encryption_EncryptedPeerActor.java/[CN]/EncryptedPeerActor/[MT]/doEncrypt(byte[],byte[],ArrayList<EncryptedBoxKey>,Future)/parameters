@@ -1,4 +1,0 @@
-byte[] encKey
-byte[] data
-ArrayList<EncryptedBoxKey> encryptedKeys
-Future future

@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"fetchKeyGroup");
-  future.onResult(new FetchOwnKeyGroupResult(ownKeys.getKeyGroupId()));
-}

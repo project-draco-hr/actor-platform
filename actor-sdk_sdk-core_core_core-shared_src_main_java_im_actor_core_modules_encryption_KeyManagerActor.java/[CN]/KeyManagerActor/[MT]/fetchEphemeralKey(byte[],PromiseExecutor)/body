@@ -1,0 +1,9 @@
+{
+  for (  OwnPrivateKey k : ownKeys.getEphemeralKeys()) {
+    if (ByteStrings.isEquals(Curve25519.keyGenPublic(k.getKey()),publicKey)) {
+      future.result(new FetchEphemeralPrivateKeyRes(k.getKey()));
+      return;
+    }
+  }
+  future.error(new RuntimeException("Unable to find ephemeral key"));
+}

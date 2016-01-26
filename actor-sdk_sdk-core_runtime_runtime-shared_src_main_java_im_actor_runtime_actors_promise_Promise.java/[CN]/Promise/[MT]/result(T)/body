@@ -1,0 +1,8 @@
+{
+  if (isFinished) {
+    throw new RuntimeException("Promise already completed!");
+  }
+  isFinished=true;
+  result=res;
+  deliverResult();
+}

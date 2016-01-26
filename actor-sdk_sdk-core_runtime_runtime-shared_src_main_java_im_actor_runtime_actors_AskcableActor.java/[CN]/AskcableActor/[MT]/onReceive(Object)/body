@@ -1,9 +1,7 @@
 {
   if (message instanceof AskRequest) {
     AskRequest askRequest=(AskRequest)message;
-    if (onAsk(askRequest.getMessage(),askRequest.getFuture())) {
-      askRequest.getFuture().onResult(Void.INSTANCE);
-    }
+    onAsk(askRequest.getMessage(),askRequest.getFuture());
   }
  else {
     super.onReceive(message);

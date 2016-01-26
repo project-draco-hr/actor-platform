@@ -1,0 +1,23 @@
+{
+  if (isFinished) {
+    if (exception != null) {
+      im.actor.runtime.Runtime.dispatch(new Runnable(){
+        @Override public void run(){
+          failure.apply(exception);
+        }
+      }
+);
+    }
+  }
+ else {
+    callbacks.add(new PromiseCallback<T>(){
+      @Override public void onResult(      T t){
+      }
+      @Override public void onError(      Exception e){
+        failure.apply(e);
+      }
+    }
+);
+  }
+  return this;
+}

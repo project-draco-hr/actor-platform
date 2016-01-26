@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"fetchOwnKey");
-  future.onResult(new FetchOwnKeyResult(ownKeys.getIdentityKey()));
-}

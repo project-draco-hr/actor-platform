@@ -11,7 +11,6 @@
       }
       if (keysGroup == null) {
         Log.w(TAG,"Their key group not found");
-        isUnavailable=true;
         return;
       }
       theirIdentityKey=keysGroup.getIdentityKey();
@@ -20,7 +19,6 @@
     @Override public void onError(    Exception e){
       Log.w(TAG,"Their key groups error");
       Log.e(TAG,e);
-      isUnavailable=true;
     }
   }
 );
