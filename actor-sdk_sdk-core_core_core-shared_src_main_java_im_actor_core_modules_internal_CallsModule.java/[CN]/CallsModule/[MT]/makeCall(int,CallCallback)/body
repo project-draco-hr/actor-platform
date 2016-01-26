@@ -11,7 +11,7 @@
               return new CallActor(response.getCallId(),callCallback,context());
             }
           }
-),"actor/call"));
+),"actor/call_" + response.getCallId()));
         }
         @Override public void onError(        RpcException e){
           callback.onError(e);
