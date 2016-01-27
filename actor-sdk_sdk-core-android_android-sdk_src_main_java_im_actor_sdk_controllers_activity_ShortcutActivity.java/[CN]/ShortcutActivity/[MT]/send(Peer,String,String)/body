@@ -1,0 +1,7 @@
+{
+  if (users().get(p.getPeerId()).isBot()) {
+    messenger().sendMessage(p,text);
+    Toast.makeText(getApplicationContext(),"\"" + text + "\" sent to "+ name+ " bot",Toast.LENGTH_SHORT).show();
+  }
+  finish();
+}

@@ -1,0 +1,16 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.AlertDialogStyle);
+  input=new EditText(this);
+  input.setVisibility(View.INVISIBLE);
+  builder.setView(input);
+  AlertDialog adHide=builder.create();
+  adHide.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+  adHide.setOnShowListener(new DialogInterface.OnShowListener(){
+    @Override public void onShow(    DialogInterface dialog){
+      dialog.dismiss();
+      finish();
+    }
+  }
+);
+  adHide.show();
+}

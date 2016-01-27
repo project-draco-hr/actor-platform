@@ -1,7 +1,78 @@
 {
-  Peer p=Peer.fromUniqueId(i.getLongExtra("peer",0));
+  final Peer p=Peer.fromUniqueId(i.getLongExtra("peer",0));
   String text=i.getStringExtra("text");
-  if (users().get(p.getPeerId()).isBot()) {
-    messenger().sendMessage(p,text);
+  final String name=users().get(p.getPeerId()).getName().get();
+  if (text.contains("{input}") || text.contains("{input/num}")) {
+    boolean num=text.contains("{input/num}");
+    if (num) {
+      text=text.replace("{input/num}","{input}");
+    }
+    AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.AlertDialogStyle);
+    String title=text.replace("{input}","") + " \u2192 " + name;
+    builder.setTitle(title);
+    LinearLayout ll=new LinearLayout(this);
+    ll.setPadding(Screen.dp(20),0,Screen.dp(20),0);
+    input=new EditText(this);
+    if (num) {
+      input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
+    }
+    input.setTextColor(Color.BLACK);
+    ll.addView(input,LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+    builder.setView(ll);
+    final String finalText=text;
+    builder.setPositiveButton(getString(R.string.dialog_ok),new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        send(p,finalText.replace("{input}",input.getText().toString()),name);
+      }
+    }
+);
+    builder.setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        dialog.cancel();
+      }
+    }
+);
+    builder.setOnDismissListener(this);
+    AlertDialog ad=builder.create();
+    ad.setOnShowListener(new DialogInterface.OnShowListener(){
+      @Override public void onShow(      DialogInterface dialog){
+        InputMethodManager inputMethodManager=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        input.requestFocus();
+        inputMethodManager.showSoftInput(input,0);
+      }
+    }
+);
+    ad.show();
+  }
+ else   if (text.contains("{choose}") && text.contains("{/choose}")) {
+    final String rawVars=text.substring(text.indexOf("{choose}") + 8,text.indexOf("{/choose}"));
+    final String[] vars=rawVars.split("/");
+    AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.AlertDialogStyle);
+    final String rawCommand=text.replace(rawVars,"").replace("{choose}","").replace("{/choose}","");
+    builder.setTitle(rawCommand + " \u2192 " + name);
+    textToSend=rawCommand + vars[0];
+    builder.setSingleChoiceItems(vars,0,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        textToSend=rawCommand + vars[which];
+      }
+    }
+);
+    builder.setPositiveButton(getString(R.string.dialog_ok),new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        send(p,textToSend,name);
+      }
+    }
+);
+    builder.setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        dialog.cancel();
+      }
+    }
+);
+    builder.setOnDismissListener(this);
+    builder.show();
+  }
+ else {
+    send(p,text,name);
   }
 }
