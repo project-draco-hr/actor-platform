@@ -1,7 +1,6 @@
 {
   return new Promise<T>(){
     @Override void exec(    PromiseResolver resolver){
-      Log.d("Promises","success:" + val);
       resolver.result(val);
     }
   }

@@ -1,13 +1,12 @@
 {
-  Log.d("PromisesArray","done " + this + " ("+ ref.getPath()+ ")");
   if (isStarted) {
-    throw new RuntimeException("Promise already started");
+    throw new RuntimeException("Promise already started!");
   }
   isStarted=true;
   dispatchActor=ref;
   dispatchActor.send(new PromiseDispatch(this){
     @Override public void run(){
-      exec(new PromiseResolver<T>(Promise.this));
+      exec(new PromiseResolver<T>(Promise.this,dispatchActor));
     }
   }
 );

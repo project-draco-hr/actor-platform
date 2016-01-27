@@ -4,7 +4,5 @@
   }
   isFinished=true;
   result=res;
-  Log.d("Promise","result:1");
   deliverResult();
-  Log.d("Promise","result:2");
 }

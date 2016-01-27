@@ -1,33 +1,24 @@
 {
-  Log.d("Promise","result:4");
   if (callbacks.size() > 0) {
-    Log.d("Promise","result:5");
     dispatchActor.send(new PromiseDispatch(this){
       @Override public void run(){
-        Log.d("Promise","result:6");
         if (exception != null) {
-          Log.d("Promise","result:7");
           for (          PromiseCallback<T> callback : callbacks) {
             try {
-              Log.d("Promise","result:callback:" + callback);
               callback.onError(exception);
             }
  catch (            Exception e) {
               e.printStackTrace();
-              Log.d("Promise","result:callback_error");
             }
           }
         }
  else {
-          Log.d("Promise","result:8");
           for (          PromiseCallback<T> callback : callbacks) {
             try {
-              Log.d("Promise","result:callback:" + callback);
               callback.onResult(result);
             }
  catch (            Exception e) {
               e.printStackTrace();
-              Log.d("Promise","result:callback_error2");
             }
           }
         }

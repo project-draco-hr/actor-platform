@@ -1,8 +1,0 @@
-{
-  return new PromiseDispatcher(){
-    @Override public void dispatch(    Runnable runnable){
-      ref.send(runnable);
-    }
-  }
-;
-}
