@@ -1,0 +1,7 @@
+{
+  Peer p=Peer.fromUniqueId(i.getLongExtra("peer",0));
+  String text=i.getStringExtra("text");
+  if (users().get(p.getPeerId()).isBot()) {
+    messenger().sendMessage(p,text);
+  }
+}
