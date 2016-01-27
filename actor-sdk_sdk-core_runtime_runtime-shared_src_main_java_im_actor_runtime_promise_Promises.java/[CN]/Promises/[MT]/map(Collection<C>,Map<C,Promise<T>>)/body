@@ -1,7 +1,0 @@
-{
-  ArrayList<Promise<T>> res=new ArrayList<Promise<T>>();
-  for (  C c : items) {
-    res.add(map.map(c));
-  }
-  return res.toArray(new Promise[0]);
-}

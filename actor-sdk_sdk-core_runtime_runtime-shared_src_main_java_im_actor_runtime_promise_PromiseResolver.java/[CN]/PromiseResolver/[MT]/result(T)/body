@@ -1,3 +1,4 @@
 {
+  Log.d("Promise","Result: " + promise);
   promise.result(res);
 }

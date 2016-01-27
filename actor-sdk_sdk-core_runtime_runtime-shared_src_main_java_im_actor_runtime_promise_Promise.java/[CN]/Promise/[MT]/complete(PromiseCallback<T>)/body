@@ -1,6 +1,6 @@
 {
   if (isFinished) {
-    dispatchActor.send(new Runnable(){
+    dispatchActor.send(new PromiseDispatch(this){
       @Override public void run(){
         if (exception != null) {
           callback.onError(exception);

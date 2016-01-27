@@ -1,8 +1,10 @@
 {
   if (isFinished) {
-    throw new RuntimeException("Promise already completed!");
+    throw new RuntimeException("Promise " + this + " already completed!");
   }
   isFinished=true;
   result=res;
+  Log.d("Promise","result:1");
   deliverResult();
+  Log.d("Promise","result:2");
 }

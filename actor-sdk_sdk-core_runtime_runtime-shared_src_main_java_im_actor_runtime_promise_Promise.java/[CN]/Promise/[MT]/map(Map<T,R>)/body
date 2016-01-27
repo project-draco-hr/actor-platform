@@ -1,0 +1,30 @@
+{
+  final Promise<T> self=this;
+  return new Promise<R>(){
+    @Override void exec(    PromiseResolver<R> resolver){
+      self.then(new Consumer<T>(){
+        @Override public void apply(        T t){
+          R r;
+          try {
+            r=res.map(t);
+          }
+ catch (          Exception e) {
+            e.printStackTrace();
+            resolver.tryError(e);
+            return;
+          }
+          resolver.tryResult(r);
+        }
+      }
+);
+      self.failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          resolver.error(e);
+        }
+      }
+);
+      self.done(resolver.getDispatcher());
+    }
+  }
+;
+}

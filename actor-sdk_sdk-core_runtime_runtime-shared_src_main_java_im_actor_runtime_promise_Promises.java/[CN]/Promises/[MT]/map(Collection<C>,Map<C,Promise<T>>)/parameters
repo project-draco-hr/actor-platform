@@ -1,2 +1,0 @@
-Collection<C> items
-Map<C,Promise<T>> map

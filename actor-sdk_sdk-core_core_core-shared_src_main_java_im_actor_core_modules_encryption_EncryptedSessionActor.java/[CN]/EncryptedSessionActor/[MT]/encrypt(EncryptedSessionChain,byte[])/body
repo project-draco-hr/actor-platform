@@ -1,0 +1,11 @@
+{
+  byte[] encrypted;
+  try {
+    encrypted=chain.encrypt(data);
+  }
+ catch (  IntegrityException e) {
+    e.printStackTrace();
+    throw new RuntimeException(e);
+  }
+  return new EncryptedPackageRes(encrypted,theirKeyGroup);
+}

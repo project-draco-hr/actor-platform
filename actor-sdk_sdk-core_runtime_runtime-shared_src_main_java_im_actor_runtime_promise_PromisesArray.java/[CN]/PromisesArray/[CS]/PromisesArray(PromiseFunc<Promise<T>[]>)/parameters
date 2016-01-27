@@ -1,0 +1,1 @@
+PromiseFunc<Promise<T>[]> executor

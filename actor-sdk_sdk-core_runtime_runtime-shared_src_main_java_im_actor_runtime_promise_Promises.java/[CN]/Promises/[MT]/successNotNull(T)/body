@@ -1,0 +1,6 @@
+{
+  if (val == null) {
+    throw new RuntimeException("Val can't be null");
+  }
+  return success(val);
+}

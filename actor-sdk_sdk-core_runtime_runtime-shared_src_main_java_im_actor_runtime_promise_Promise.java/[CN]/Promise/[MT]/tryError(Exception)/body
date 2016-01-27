@@ -1,0 +1,6 @@
+{
+  if (isFinished) {
+    return;
+  }
+  error(e);
+}

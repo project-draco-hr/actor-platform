@@ -1,0 +1,4 @@
+Promise<T1> t1
+Promise<T2> t2
+Promise<T3> t3
+Promise<T4> t4

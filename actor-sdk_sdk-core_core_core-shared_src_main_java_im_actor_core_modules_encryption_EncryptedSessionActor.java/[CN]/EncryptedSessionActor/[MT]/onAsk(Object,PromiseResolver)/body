@@ -1,13 +1,12 @@
 {
-  Log.d(TAG,"onAsk");
   if (message instanceof EncryptPackage) {
-    onEncrypt(((EncryptPackage)message).getData(),future);
+    onEncrypt(((EncryptPackage)message).getData(),resolver);
   }
  else   if (message instanceof DecryptPackage) {
     DecryptPackage decryptPackage=(DecryptPackage)message;
-    onDecrypt(decryptPackage.getData(),future);
+    onDecrypt(decryptPackage.getData(),resolver);
   }
  else {
-    super.onAsk(message,future);
+    super.onAsk(message,resolver);
   }
 }
