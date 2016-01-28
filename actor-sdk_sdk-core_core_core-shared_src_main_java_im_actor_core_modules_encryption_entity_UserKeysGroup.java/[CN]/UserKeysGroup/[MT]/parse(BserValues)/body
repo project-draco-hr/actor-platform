@@ -1,14 +1,14 @@
 {
   keyGroupId=values.getInt(1);
-  identityKey=new UserPublicKey(values.getBytes(2));
+  identityKey=new PublicKey(values.getBytes(2));
   List<byte[]> r=values.getRepeatedBytes(3);
-  keys=new UserPublicKey[r.size()];
+  keys=new PublicKey[r.size()];
   for (int i=0; i < keys.length; i++) {
-    keys[i]=new UserPublicKey(r.get(i));
+    keys[i]=new PublicKey(r.get(i));
   }
   r=values.getRepeatedBytes(4);
-  ephemeralKeys=new UserPublicKey[r.size()];
+  ephemeralKeys=new PublicKey[r.size()];
   for (int i=0; i < ephemeralKeys.length; i++) {
-    ephemeralKeys[i]=new UserPublicKey(r.get(i));
+    ephemeralKeys[i]=new PublicKey(r.get(i));
   }
 }

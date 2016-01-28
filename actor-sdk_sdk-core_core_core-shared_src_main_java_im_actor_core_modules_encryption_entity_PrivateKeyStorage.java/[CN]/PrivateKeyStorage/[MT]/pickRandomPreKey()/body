@@ -1,0 +1,9 @@
+{
+  ArrayList<PrivateKey> uploadedKeys=new ArrayList<PrivateKey>();
+  for (  PrivateKey u : preKeys) {
+    if (u.isUploaded()) {
+      uploadedKeys.add(u);
+    }
+  }
+  return uploadedKeys.get(RandomUtils.randomId(uploadedKeys.size()));
+}

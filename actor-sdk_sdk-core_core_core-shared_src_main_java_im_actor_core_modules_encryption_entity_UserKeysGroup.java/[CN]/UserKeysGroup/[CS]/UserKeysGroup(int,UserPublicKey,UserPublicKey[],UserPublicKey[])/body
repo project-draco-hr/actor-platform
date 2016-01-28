@@ -1,6 +1,0 @@
-{
-  this.keyGroupId=keyGroupId;
-  this.identityKey=identityKey;
-  this.keys=keys;
-  this.ephemeralKeys=ephemeralKeys;
-}

@@ -1,5 +1,5 @@
 {
-  for (  OwnPrivateKey k : ownKeys.getEphemeralKeys()) {
+  for (  PrivateKey k : ownKeys.getPreKeys()) {
     if (ByteStrings.isEquals(Curve25519.keyGenPublic(k.getKey()),publicKey)) {
       future.result(new FetchEphemeralPrivateKeyRes(k.getKey()));
       return;

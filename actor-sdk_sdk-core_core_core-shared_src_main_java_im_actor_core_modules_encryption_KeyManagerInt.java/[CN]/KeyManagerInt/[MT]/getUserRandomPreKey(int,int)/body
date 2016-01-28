@@ -1,3 +1,8 @@
 {
-  return ask(new KeyManagerActor.FetchUserEphemeralKeyRandom(uid,keyGroupId));
+  return ask(new KeyManagerActor.FetchUserEphemeralKeyRandom(uid,keyGroupId)).map(new Function<KeyManagerActor.FetchUserEphemeralKeyResponse,PublicKey>(){
+    @Override public PublicKey apply(    KeyManagerActor.FetchUserEphemeralKeyResponse fetchUserEphemeralKeyResponse){
+      return fetchUserEphemeralKeyResponse.getEphemeralKey();
+    }
+  }
+);
 }

@@ -1,0 +1,11 @@
+{
+  return first(1).zip().map(new Function<T[],T>(){
+    @Override public T apply(    T[] src){
+      if (src.length == 0) {
+        throw new RuntimeException("Array is empty");
+      }
+      return src[0];
+    }
+  }
+);
+}

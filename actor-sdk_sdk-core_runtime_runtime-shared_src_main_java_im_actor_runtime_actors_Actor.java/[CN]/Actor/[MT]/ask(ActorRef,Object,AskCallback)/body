@@ -1,2 +1,43 @@
 {
+  new Promise<Object>(new PromiseFunc<Object>(){
+    @Override public void exec(    final PromiseResolver<Object> executor){
+      become(new Receiver(){
+        @Override public void onReceive(        Object message){
+          if (message instanceof PromiseDispatch) {
+            PromiseDispatch dispatch=(PromiseDispatch)message;
+            if (dispatch.getPromise() == executor.getPromise()) {
+              dispatch.run();
+            }
+ else {
+              stash();
+            }
+          }
+ else {
+            stash();
+          }
+        }
+      }
+);
+      dest.send(new AskIntRequest(message,executor));
+    }
+  }
+).then(new Consumer<Object>(){
+    @Override public void apply(    Object o){
+      unbecome();
+      unstashAll();
+      if (callback != null) {
+        callback.onResult(o);
+      }
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      unbecome();
+      unstashAll();
+      if (callback != null) {
+        callback.onError(e);
+      }
+    }
+  }
+).done(self());
 }

@@ -1,0 +1,3 @@
+{
+  return sessions.toArray(new PeerSession[sessions.size()]);
+}

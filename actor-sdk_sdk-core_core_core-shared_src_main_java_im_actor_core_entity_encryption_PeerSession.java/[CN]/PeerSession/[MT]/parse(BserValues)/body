@@ -1,0 +1,8 @@
+{
+  sid=values.getLong(1);
+  uid=values.getInt(2);
+  ownKeyGroupId=values.getInt(3);
+  theirKeyGroupId=values.getInt(4);
+  ownPreKeyId=values.getLong(5);
+  theirPreKeyId=values.getLong(6);
+}

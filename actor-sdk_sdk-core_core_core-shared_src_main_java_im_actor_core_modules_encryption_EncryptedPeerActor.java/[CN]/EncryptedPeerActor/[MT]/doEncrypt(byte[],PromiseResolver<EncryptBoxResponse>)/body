@@ -1,2 +1,46 @@
 {
+  if (!isReady) {
+    stash();
+    return;
+  }
+  final byte[] encKey=Crypto.randomBytes(128);
+  Log.d(TAG,"doEncrypt");
+  PromisesArray.of(theirKeys.getUserKeysGroups()).map(new Function<UserKeysGroup,Promise<SessionActor>>(){
+    @Override public Promise<SessionActor> apply(    UserKeysGroup keysGroup){
+      if (activeSessions.containsKey(keysGroup.getKeyGroupId())) {
+        return success(activeSessions.get(keysGroup.getKeyGroupId()).getSessions().get(0));
+      }
+      return context().getEncryption().getSessionManagerInt().pickSession(uid,keysGroup.getKeyGroupId()).map(new Function<PeerSession,SessionActor>(){
+        @Override public SessionActor apply(        PeerSession src){
+          return spawnSession(src.getTheirKeyGroupId(),src.getTheirPreKeyId(),src.getOwnPreKeyId());
+        }
+      }
+).log(TAG + ":session#" + keysGroup.getKeyGroupId());
+    }
+  }
+).map(new Function<SessionActor,Promise<EncryptedSessionActor.EncryptedPackageRes>>(){
+    @Override public Promise<EncryptedSessionActor.EncryptedPackageRes> apply(    SessionActor sessionActor){
+      return ask(sessionActor.getActorRef(),new EncryptedSessionActor.EncryptPackage(encKey));
+    }
+  }
+).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
+    @Override public EncryptBoxResponse apply(    EncryptedSessionActor.EncryptedPackageRes[] src){
+      Log.d(TAG,"map 3");
+      ArrayList<EncryptedBoxKey> encryptedKeys=new ArrayList<>();
+      for (      EncryptedSessionActor.EncryptedPackageRes r : src) {
+        Log.d(TAG,"KeyGroup (uid: " + uid + "): "+ r.getKeyGroupId());
+        encryptedKeys.add(new EncryptedBoxKey(uid,r.getKeyGroupId(),"curve25519",r.getData()));
+      }
+      byte[] encData;
+      try {
+        encData=ActorBox.closeBox(ByteStrings.intToBytes(ownKeyGroupId),data,Crypto.randomBytes(32),new ActorBoxKey(encKey));
+      }
+ catch (      IntegrityException e) {
+        e.printStackTrace();
+        throw new RuntimeException(e);
+      }
+      return new EncryptBoxResponse(new EncryptedBox(encryptedKeys.toArray(new EncryptedBoxKey[encryptedKeys.size()]),ByteStrings.merge(ByteStrings.intToBytes(ownKeyGroupId),encData)));
+    }
+  }
+).pipeTo(future).done(self());
 }

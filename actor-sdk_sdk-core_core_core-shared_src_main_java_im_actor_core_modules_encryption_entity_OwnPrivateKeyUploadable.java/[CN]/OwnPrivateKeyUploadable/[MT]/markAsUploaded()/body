@@ -1,3 +1,0 @@
-{
-  return new OwnPrivateKeyUploadable(getKeyId(),getKeyAlg(),getKey(),true);
-}

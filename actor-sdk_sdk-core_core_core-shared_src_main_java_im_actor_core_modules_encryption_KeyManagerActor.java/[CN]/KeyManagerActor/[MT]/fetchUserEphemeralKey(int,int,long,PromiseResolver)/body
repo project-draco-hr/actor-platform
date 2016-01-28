@@ -2,15 +2,16 @@
   final UserKeys keys=getCachedUserKeys(uid);
   UserKeysGroup keysGroup=null;
   for (  UserKeysGroup g : keys.getUserKeysGroups()) {
+    Log.d(TAG,"KeyGroup (uid: " + uid + "): "+ g.getKeyGroupId());
     if (g.getKeyGroupId() == keyGroupId) {
       keysGroup=g;
     }
   }
   if (keysGroup == null) {
-    future.error(new RuntimeException("Key Group not found"));
+    future.error(new RuntimeException("Key Group #" + keyGroupId + " not found"));
     return;
   }
-  for (  UserPublicKey p : keysGroup.getEphemeralKeys()) {
+  for (  PublicKey p : keysGroup.getEphemeralKeys()) {
     if (p.getKeyId() == keyId) {
       future.result(new FetchUserEphemeralKeyResponse(p));
       return;
@@ -27,7 +28,7 @@
         return;
       }
       ApiEncryptionKey key=response.getPublicKey().get(0);
-      UserPublicKey pkey=new UserPublicKey(keyId,key.getKeyAlg(),key.getKeyMaterial());
+      PublicKey pkey=new PublicKey(keyId,key.getKeyAlg(),key.getKeyMaterial());
       UserKeysGroup userKeysGroup=finalKeysGroup.addUserKeyGroup(pkey);
       cacheUserKeys(keys.removeUserKeyGroup(userKeysGroup.getKeyGroupId()).addUserKeyGroup(userKeysGroup));
       future.result(new FetchUserEphemeralKeyResponse(pkey));

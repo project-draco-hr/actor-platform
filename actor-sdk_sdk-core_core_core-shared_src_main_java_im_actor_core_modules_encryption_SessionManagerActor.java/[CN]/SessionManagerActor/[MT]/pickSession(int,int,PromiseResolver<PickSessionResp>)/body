@@ -1,0 +1,29 @@
+{
+  pickSession(uid,keyGroupId).then(new Consumer<PeerSession>(){
+    @Override public void apply(    PeerSession session){
+      resolver.result(new PickSessionResp(session));
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Promises.tuple(keyManager.getUserRandomPreKey(uid,keyGroupId),keyManager.getOwnRandomPreKey(),keyManager.getOwnGroup()).then(new Consumer<Tuple3<PublicKey,KeyManagerActor.FetchOwnEphemeralKeyResult,KeyManagerActor.FetchOwnKeyGroupResult>>(){
+        @Override public void apply(        Tuple3<PublicKey,KeyManagerActor.FetchOwnEphemeralKeyResult,KeyManagerActor.FetchOwnKeyGroupResult> res){
+          spawnSession(uid,res.getT3().getKeyGroupId(),keyGroupId,res.getT2().getId(),res.getT1().getKeyId());
+          pickSession(uid,keyGroupId).map(new Function<PeerSession,PickSessionResp>(){
+            @Override public PickSessionResp apply(            PeerSession session){
+              return new PickSessionResp(session);
+            }
+          }
+).pipeTo(resolver).done(self()).log(TAG + ":pick(internal)");
+        }
+      }
+).failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          resolver.error(e);
+        }
+      }
+).log(TAG + ":pick(key_manager)").done(self());
+    }
+  }
+).log(TAG + ":pick(outer)").done(self());
+}

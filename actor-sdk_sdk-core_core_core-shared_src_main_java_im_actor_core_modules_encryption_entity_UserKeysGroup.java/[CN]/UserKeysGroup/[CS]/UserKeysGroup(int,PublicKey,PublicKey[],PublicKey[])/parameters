@@ -1,0 +1,4 @@
+int keyGroupId
+PublicKey identityKey
+PublicKey[] keys
+PublicKey[] ephemeralKeys

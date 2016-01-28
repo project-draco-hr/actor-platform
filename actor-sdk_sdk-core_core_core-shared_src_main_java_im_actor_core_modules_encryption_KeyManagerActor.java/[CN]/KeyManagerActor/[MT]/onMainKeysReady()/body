@@ -1,16 +1,16 @@
 {
   Log.d(TAG,"Main Keys are ready");
-  int missingKeysCount=Math.max(0,Configuration.EPHEMERAL_KEYS_COUNT - ownKeys.getEphemeralKeys().length);
+  int missingKeysCount=Math.max(0,Configuration.EPHEMERAL_KEYS_COUNT - ownKeys.getPreKeys().length);
   if (missingKeysCount > 0) {
-    OwnPrivateKeyUploadable[] nKeys=new OwnPrivateKeyUploadable[missingKeysCount];
+    PrivateKey[] nKeys=new PrivateKey[missingKeysCount];
     for (int i=0; i < missingKeysCount; i++) {
-      nKeys[i]=new OwnPrivateKeyUploadable(RandomUtils.nextRid(),"curve25519",Curve25519.keyGenPrivate(Crypto.randomBytes(64)),false);
+      nKeys[i]=new PrivateKey(RandomUtils.nextRid(),"curve25519",Curve25519.keyGenPrivate(Crypto.randomBytes(64)),false);
     }
-    ownKeys=ownKeys.appendEphemeralKeys(nKeys);
+    ownKeys=ownKeys.appendPreKeys(nKeys);
     encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
   }
-  final ArrayList<OwnPrivateKeyUploadable> pendingEphermalKeys=new ArrayList<OwnPrivateKeyUploadable>();
-  for (  OwnPrivateKeyUploadable key : ownKeys.getEphemeralKeys()) {
+  final ArrayList<PrivateKey> pendingEphermalKeys=new ArrayList<PrivateKey>();
+  for (  PrivateKey key : ownKeys.getPreKeys()) {
     if (!key.isUploaded()) {
       pendingEphermalKeys.add(key);
     }
@@ -18,7 +18,7 @@
   if (pendingEphermalKeys.size() > 0) {
     final ArrayList<ApiEncryptionKey> uploadingKeys=new ArrayList<ApiEncryptionKey>();
     ArrayList<ApiEncryptionKeySignature> uploadingSignatures=new ArrayList<ApiEncryptionKeySignature>();
-    for (    OwnPrivateKeyUploadable k : pendingEphermalKeys) {
+    for (    PrivateKey k : pendingEphermalKeys) {
       ApiEncryptionKey apiKey=new ApiEncryptionKey(k.getKeyId(),k.getKeyAlg(),Curve25519.keyGenPublic(k.getKey()),null);
       uploadingKeys.add(apiKey);
       byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),ownKeys.getIdentityKey().getKey(),apiKey.toByteArray());
@@ -26,7 +26,7 @@
     }
     request(new RequestUploadEphermalKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures),new RpcCallback<ResponseVoid>(){
       @Override public void onResult(      ResponseVoid response){
-        ownKeys=ownKeys.markAsUploaded(pendingEphermalKeys.toArray(new OwnPrivateKeyUploadable[pendingEphermalKeys.size()]));
+        ownKeys=ownKeys.markAsUploaded(pendingEphermalKeys.toArray(new PrivateKey[pendingEphermalKeys.size()]));
         encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
         onAllKeysReady();
       }

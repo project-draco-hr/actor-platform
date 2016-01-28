@@ -1,4 +1,0 @@
-int keyGroupId
-UserPublicKey identityKey
-UserPublicKey[] keys
-UserPublicKey[] ephemeralKeys

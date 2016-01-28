@@ -1,0 +1,8 @@
+{
+  uid=values.getInt(1);
+  sessionDescriptors=new ArrayList<>();
+  List<byte[]> desc=values.getRepeatedBytes(2);
+  for (  byte[] b : desc) {
+    sessionDescriptors.add(new PeerSession(b));
+  }
+}

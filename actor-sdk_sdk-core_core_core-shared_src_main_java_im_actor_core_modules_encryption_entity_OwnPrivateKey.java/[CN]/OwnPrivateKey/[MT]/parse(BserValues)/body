@@ -1,5 +1,0 @@
-{
-  keyId=values.getLong(1);
-  keyAlg=values.getString(2);
-  key=values.getBytes(3);
-}

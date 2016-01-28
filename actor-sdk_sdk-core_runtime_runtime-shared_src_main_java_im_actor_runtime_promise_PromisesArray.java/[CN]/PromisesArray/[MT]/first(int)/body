@@ -1,0 +1,11 @@
+{
+  return flatMapAll(new Function<T[],T[]>(){
+    @Override public T[] apply(    T[] ts){
+      int len=Math.min(count,ts.length);
+      T[] res=(T[])new Object[len];
+      System.arraycopy(ts,0,res,0,len);
+      return res;
+    }
+  }
+);
+}

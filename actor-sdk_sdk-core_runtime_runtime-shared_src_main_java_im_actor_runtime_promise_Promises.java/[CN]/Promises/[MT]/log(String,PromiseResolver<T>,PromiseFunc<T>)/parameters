@@ -1,0 +1,3 @@
+String TAG
+PromiseResolver<T> resolver
+PromiseFunc<T> func

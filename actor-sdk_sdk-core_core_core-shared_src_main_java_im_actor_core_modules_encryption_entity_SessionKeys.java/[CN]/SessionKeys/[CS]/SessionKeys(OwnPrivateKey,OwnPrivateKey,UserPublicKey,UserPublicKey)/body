@@ -1,6 +1,0 @@
-{
-  this.ownIdentityKey=ownIdentityKey;
-  this.ownPreKey=ownPreKey;
-  this.theirIdentityKey=theirIdentityKey;
-  this.theirPreKey=theirPreKey;
-}

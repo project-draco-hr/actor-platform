@@ -1,0 +1,10 @@
+{
+  this.sid=sid;
+  this.uid=uid;
+  this.theirKeyGroupId=theirKeyGroupId;
+  this.ownKeyGroupId=ownKeyGroupId;
+  this.ownPreKeyId=ownPreKeyId;
+  this.theirPreKeyId=theirPreKeyId;
+  this.theirKeys=new ArrayList<>(theirKeys);
+  this.ownKeys=new ArrayList<>(ownKeys);
+}

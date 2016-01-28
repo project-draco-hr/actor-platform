@@ -1,2 +1,53 @@
 {
+  return new PromisesArray<R>(new PromiseFunc<Promise<R>[]>(){
+    @Override public void exec(    final PromiseResolver<Promise<R>[]> executor){
+      promises.then(new Consumer<Promise<T>[]>(){
+        @Override public void apply(        final Promise<T>[] sourcePromises){
+          final Promise<R>[] mappedPromises=new Promise[sourcePromises.length];
+          for (int i=0; i < mappedPromises.length; i++) {
+            final int finalI=i;
+            mappedPromises[finalI]=new Promise<R>(){
+              @Override void exec(              final PromiseResolver<R> resolver){
+                sourcePromises[finalI].then(new Consumer<T>(){
+                  @Override public void apply(                  T t){
+                    Promise<R> mapped=fun.apply(t);
+                    mapped.then(new Consumer<R>(){
+                      @Override public void apply(                      R r){
+                        resolver.result(r);
+                      }
+                    }
+).failure(new Consumer<Exception>(){
+                      @Override public void apply(                      Exception e){
+                        resolver.error(e);
+                      }
+                    }
+).done(resolver.getDispatcher());
+                  }
+                }
+);
+                sourcePromises[finalI].failure(new Consumer<Exception>(){
+                  @Override public void apply(                  Exception e){
+                    resolver.error(e);
+                  }
+                }
+);
+                sourcePromises[finalI].done(resolver.getDispatcher());
+              }
+            }
+;
+          }
+          executor.result(mappedPromises);
+        }
+      }
+);
+      promises.failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          executor.error(e);
+        }
+      }
+);
+      promises.done(executor.getDispatcher());
+    }
+  }
+);
 }

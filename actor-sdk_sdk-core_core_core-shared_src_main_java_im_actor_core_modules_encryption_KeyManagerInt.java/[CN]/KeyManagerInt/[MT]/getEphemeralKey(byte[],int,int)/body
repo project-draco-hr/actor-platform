@@ -1,2 +1,16 @@
 {
+  return Promises.success(defaultVal).mapPromise(new Function<byte[],Promise<byte[]>>(){
+    @Override public Promise<byte[]> apply(    byte[] src){
+      if (src != null) {
+        return Promises.success(src);
+      }
+      return getUserRandomPreKey(uid,keyGroupId).map(new Function<PublicKey,byte[]>(){
+        @Override public byte[] apply(        PublicKey publicKey){
+          return publicKey.getPublicKey();
+        }
+      }
+);
+    }
+  }
+);
 }

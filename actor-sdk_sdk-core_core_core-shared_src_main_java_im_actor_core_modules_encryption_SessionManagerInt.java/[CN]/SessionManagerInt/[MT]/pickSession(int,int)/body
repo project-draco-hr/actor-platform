@@ -1,0 +1,8 @@
+{
+  return ask(new SessionManagerActor.PickSessionForEncrypt(uid,keyGroup)).map(new Function<SessionManagerActor.PickSessionResp,PeerSession>(){
+    @Override public PeerSession apply(    SessionManagerActor.PickSessionResp src){
+      return src.getSession();
+    }
+  }
+);
+}

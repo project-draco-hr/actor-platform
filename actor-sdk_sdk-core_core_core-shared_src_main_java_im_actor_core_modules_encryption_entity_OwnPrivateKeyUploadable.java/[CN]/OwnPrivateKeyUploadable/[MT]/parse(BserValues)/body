@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  isUploaded=values.getBool(4);
-}

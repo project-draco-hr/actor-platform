@@ -1,0 +1,5 @@
+PrivateKey ownIdentityKey
+PrivateKey ownPreKey
+PublicKey theirIdentityKey
+PublicKey theirPreKey
+int peerKeyGroupId

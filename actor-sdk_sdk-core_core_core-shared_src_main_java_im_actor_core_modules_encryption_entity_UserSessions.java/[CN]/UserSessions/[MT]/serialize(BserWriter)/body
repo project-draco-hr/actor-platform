@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,uid);
+  writer.writeRepeatedObj(2,sessionDescriptors);
+}

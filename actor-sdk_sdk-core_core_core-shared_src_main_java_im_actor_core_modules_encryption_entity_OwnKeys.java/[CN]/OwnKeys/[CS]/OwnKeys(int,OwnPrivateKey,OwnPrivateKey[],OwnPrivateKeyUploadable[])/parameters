@@ -1,4 +1,0 @@
-int keyGroupId
-OwnPrivateKey identityKey
-OwnPrivateKey[] keys
-OwnPrivateKeyUploadable[] ephemeralKeys

@@ -3,8 +3,8 @@
     Log.w(TAG,"(uid:" + uid + ") Unsupported identity key alg "+ keyGroup.getIdentityKey().getKeyAlg());
     return null;
   }
-  UserPublicKey identity=new UserPublicKey(keyGroup.getIdentityKey().getKeyId(),keyGroup.getIdentityKey().getKeyAlg(),keyGroup.getIdentityKey().getKeyMaterial());
-  ArrayList<UserPublicKey> keys=new ArrayList<UserPublicKey>();
+  PublicKey identity=new PublicKey(keyGroup.getIdentityKey().getKeyId(),keyGroup.getIdentityKey().getKeyAlg(),keyGroup.getIdentityKey().getKeyMaterial());
+  ArrayList<PublicKey> keys=new ArrayList<PublicKey>();
   key_loop:   for (  ApiEncryptionKey key : keyGroup.getKeys()) {
     for (    ApiEncryptionKeySignature sig : keyGroup.getSignatures()) {
       if (!sig.getSignatureAlg().equals("Ed25519")) {
@@ -20,10 +20,10 @@
         continue key_loop;
       }
     }
-    keys.add(new UserPublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial()));
+    keys.add(new PublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial()));
   }
   if (keys.size() > 0) {
-    return new UserKeysGroup(keyGroup.getKeyGroupId(),identity,keys.toArray(new UserPublicKey[keys.size()]),new UserPublicKey[0]);
+    return new UserKeysGroup(keyGroup.getKeyGroupId(),identity,keys.toArray(new PublicKey[keys.size()]),new PublicKey[0]);
   }
  else {
     Log.w(TAG,"(uid:" + uid + ") No valid keys in key group #"+ keyGroup.getKeyGroupId());

@@ -7,7 +7,7 @@
         return;
       }
       ApiEncryptionKey key=response.getPublicKey().get(0);
-      UserPublicKey pkey=new UserPublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial());
+      PublicKey pkey=new PublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial());
       future.result(new FetchUserEphemeralKeyResponse(pkey));
     }
     @Override public void onError(    RpcException e){

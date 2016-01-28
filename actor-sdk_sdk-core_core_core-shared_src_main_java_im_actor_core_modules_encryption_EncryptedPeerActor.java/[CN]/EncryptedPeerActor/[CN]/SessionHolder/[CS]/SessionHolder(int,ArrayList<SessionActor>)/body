@@ -1,0 +1,4 @@
+{
+  this.keyGroupId=keyGroupId;
+  this.sessions=sessions;
+}

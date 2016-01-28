@@ -1,0 +1,4 @@
+int keyGroupId
+PrivateKey identityKey
+PrivateKey[] keys
+PrivateKey[] preKeys

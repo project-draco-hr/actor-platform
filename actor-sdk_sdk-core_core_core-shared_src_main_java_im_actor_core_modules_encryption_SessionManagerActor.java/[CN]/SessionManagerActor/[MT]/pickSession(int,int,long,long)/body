@@ -1,0 +1,16 @@
+{
+  return PromisesArray.of(peerSessions.getValue(uid)).flatMap(new Function<PeerSessionsStorage,PeerSession[]>(){
+    @Override public PeerSession[] apply(    PeerSessionsStorage peerSessionsStorage){
+      if (peerSessionsStorage == null) {
+        return new PeerSession[0];
+      }
+      return peerSessionsStorage.getSessions();
+    }
+  }
+).filter(new Predicate<PeerSession>(){
+    @Override public boolean apply(    PeerSession session){
+      return session.getTheirKeyGroupId() == keyGroupId && session.getOwnPreKeyId() == ownKeyId && session.getTheirPreKeyId() == theirKeyId;
+    }
+  }
+).first().cast();
+}

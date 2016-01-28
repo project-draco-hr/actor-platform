@@ -1,2 +1,16 @@
 {
+  return new Promise<T>(new PromiseFunc<T>(){
+    @Override public void exec(    final PromiseResolver<T> executor){
+      context.getActorApi().request(request,new RpcCallback<T>(){
+        @Override public void onResult(        T response){
+          executor.result(response);
+        }
+        @Override public void onError(        RpcException e){
+          executor.error(e);
+        }
+      }
+);
+    }
+  }
+);
 }

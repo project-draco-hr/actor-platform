@@ -1,6 +1,6 @@
 {
   Log.d(TAG,"fetchEphemeralKey: " + keyId);
-  for (  OwnPrivateKey k : ownKeys.getEphemeralKeys()) {
+  for (  PrivateKey k : ownKeys.getPreKeys()) {
     if (k.getKeyId() == keyId) {
       future.result(new FetchEphemeralPrivateKeyRes(k.getKey()));
       return;

@@ -1,4 +1,0 @@
-{
-  super(keyId,keyAlg,key);
-  this.isUploaded=isUploaded;
-}

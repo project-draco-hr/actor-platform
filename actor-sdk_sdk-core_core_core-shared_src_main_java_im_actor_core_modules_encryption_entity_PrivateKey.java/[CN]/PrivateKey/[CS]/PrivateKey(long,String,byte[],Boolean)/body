@@ -1,0 +1,6 @@
+{
+  this.keyId=keyId;
+  this.keyAlg=keyAlg;
+  this.key=key;
+  this.isUploaded=isUploaded;
+}

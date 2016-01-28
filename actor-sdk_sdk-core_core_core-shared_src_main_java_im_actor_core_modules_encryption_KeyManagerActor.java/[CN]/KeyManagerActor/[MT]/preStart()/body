@@ -4,7 +4,7 @@
   byte[] ownKeysStorage=encryptionKeysStorage.loadItem(0);
   if (ownKeysStorage != null) {
     try {
-      ownKeys=new OwnKeys(ownKeysStorage);
+      ownKeys=new PrivateKeyStorage(ownKeysStorage);
     }
  catch (    IOException e) {
       e.printStackTrace();
@@ -13,11 +13,11 @@
   if (ownKeys == null) {
     byte[] identityPrivate=Curve25519.keyGenPrivate(Crypto.randomBytes(64));
     byte[] key0=Curve25519.keyGenPrivate(Crypto.randomBytes(64));
-    ownKeys=new OwnKeys(0,new OwnPrivateKey(RandomUtils.nextRid(),"curve25519",identityPrivate),new OwnPrivateKey[]{new OwnPrivateKey(RandomUtils.nextRid(),"curve25519",key0)},new OwnPrivateKeyUploadable[0]);
+    ownKeys=new PrivateKeyStorage(0,new PrivateKey(RandomUtils.nextRid(),"curve25519",identityPrivate),new PrivateKey[]{new PrivateKey(RandomUtils.nextRid(),"curve25519",key0)},new PrivateKey[0]);
     encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
   }
   if (ownKeys.getKeyGroupId() == 0) {
-    OwnPrivateKey privateKey=ownKeys.getIdentityKey();
+    PrivateKey privateKey=ownKeys.getIdentityKey();
     byte[] publicKey=Curve25519.keyGenPublic(privateKey.getKey());
     ApiEncryptionKey apiEncryptionKey=new ApiEncryptionKey(privateKey.getKeyId(),privateKey.getKeyAlg(),publicKey,null);
     ArrayList<String> encryption=new ArrayList<String>();
@@ -30,7 +30,7 @@
     encryption.add("aes128");
     ArrayList<ApiEncryptionKey> keys=new ArrayList<ApiEncryptionKey>();
     ArrayList<ApiEncryptionKeySignature> keySignatures=new ArrayList<ApiEncryptionKeySignature>();
-    for (    OwnPrivateKey key : ownKeys.getKeys()) {
+    for (    PrivateKey key : ownKeys.getKeys()) {
       byte[] publicKey2=Curve25519.keyGenPublic(privateKey.getKey());
       keys.add(new ApiEncryptionKey(key.getKeyId(),key.getKeyAlg(),publicKey2,null));
       byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKey.getKey(),RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),publicKey2));

@@ -1,0 +1,6 @@
+{
+  this.actorRef=actorRef;
+  this.ownKeyId=ownKeyId;
+  this.theirKeyId=theirKeyId;
+  this.theirKeyGroupId=theirKeyGroupId;
+}

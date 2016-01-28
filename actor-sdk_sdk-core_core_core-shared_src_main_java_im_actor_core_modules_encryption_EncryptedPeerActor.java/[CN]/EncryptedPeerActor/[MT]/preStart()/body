@@ -1,2 +1,20 @@
 {
+  super.preStart();
+  keyManager=context().getEncryption().getKeyManagerInt();
+  Promises.tuple(keyManager.getOwnGroup(),keyManager.getUserKeyGroups(uid)).then(new Consumer<Tuple2<KeyManagerActor.FetchOwnKeyGroupResult,KeyManagerActor.FetchUserKeyGroupsResponse>>(){
+    @Override public void apply(    Tuple2<KeyManagerActor.FetchOwnKeyGroupResult,KeyManagerActor.FetchUserKeyGroupsResponse> res){
+      Log.d(TAG,"then");
+      ownKeyGroupId=res.getT1().getKeyGroupId();
+      theirKeys=res.getT2().getUserKeys();
+      isReady=true;
+      unstashAll();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.w(TAG,"Unable to fetch initial parameters");
+      Log.e(TAG,e);
+    }
+  }
+).done(self());
 }

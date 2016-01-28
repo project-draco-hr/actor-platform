@@ -2,7 +2,7 @@
   return new Promise<R>(){
     @Override void exec(    final PromiseResolver resolver){
       promises.then(new Consumer<Promise<T>[]>(){
-        @Override public void apply(        Promise<T>[] promises1){
+        @Override public void apply(        final Promise<T>[] promises1){
           final Object[] res=new Object[promises1.length];
           final Boolean[] ended=new Boolean[promises1.length];
           for (int i=0; i < promises1.length; i++) {
@@ -40,6 +40,22 @@
             }
 );
             promises1[i].done(resolver.getDispatcher());
+          }
+          if (promises1.length == 0) {
+            Promise<R> promise=fuc.apply((T[])new Object[0]);
+            promise.then(new Consumer<R>(){
+              @Override public void apply(              R r){
+                resolver.result(r);
+              }
+            }
+);
+            promise.failure(new Consumer<Exception>(){
+              @Override public void apply(              Exception e){
+                resolver.error(e);
+              }
+            }
+);
+            promise.done(resolver.getDispatcher());
           }
         }
       }

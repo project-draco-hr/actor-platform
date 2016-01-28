@@ -1,6 +1,0 @@
-{
-  OwnPrivateKeyUploadable[] nKeys=new OwnPrivateKeyUploadable[addedEphemeralKeys.length + ephemeralKeys.length];
-  System.arraycopy(ephemeralKeys,0,nKeys,0,ephemeralKeys.length);
-  System.arraycopy(addedEphemeralKeys,0,nKeys,ephemeralKeys.length,addedEphemeralKeys.length);
-  return new OwnKeys(keyGroupId,identityKey,keys,nKeys);
-}
