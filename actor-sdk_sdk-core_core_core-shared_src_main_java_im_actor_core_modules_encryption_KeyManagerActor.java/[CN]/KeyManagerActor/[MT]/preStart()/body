@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"Starting KeyManager...");
   encryptionKeysStorage=Storage.createKeyValue("encryption_keys");
   ownKeys=null;
   byte[] ownKeysStorage=encryptionKeysStorage.loadItem(0);
@@ -36,6 +37,7 @@
       byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKey.getKey(),RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),publicKey2));
       keySignatures.add(new ApiEncryptionKeySignature(key.getKeyId(),"Ed25519",signature));
     }
+    Log.d(TAG,"Creation of new key group");
     api(new RequestCreateNewKeyGroup(apiEncryptionKey,encryption,keys,keySignatures)).then(new Consumer<ResponseCreateNewKeyGroup>(){
       @Override public void apply(      ResponseCreateNewKeyGroup response){
         ownKeys=ownKeys.setGroupId(response.getKeyGroupId());
@@ -49,7 +51,7 @@
         Log.e(TAG,e);
       }
     }
-);
+).done(self());
   }
  else {
     onMainKeysReady();

@@ -1,5 +1,5 @@
 {
-  Log.d(TAG,"All Keys are ready");
+  Log.d(TAG,"Key Manager started");
   isReady=true;
   unstashAll();
 }

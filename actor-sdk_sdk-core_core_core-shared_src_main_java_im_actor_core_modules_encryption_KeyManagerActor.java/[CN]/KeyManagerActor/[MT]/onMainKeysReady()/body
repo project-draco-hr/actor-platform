@@ -24,18 +24,20 @@
       byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),ownKeys.getIdentityKey().getKey(),apiKey.toByteArray());
       uploadingSignatures.add(new ApiEncryptionKeySignature(k.getKeyId(),"Ed25519",signature));
     }
-    request(new RequestUploadEphermalKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures),new RpcCallback<ResponseVoid>(){
-      @Override public void onResult(      ResponseVoid response){
+    api(new RequestUploadEphermalKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures)).then(new Consumer<ResponseVoid>(){
+      @Override public void apply(      ResponseVoid responseVoid){
         ownKeys=ownKeys.markAsUploaded(pendingEphermalKeys.toArray(new PrivateKey[pendingEphermalKeys.size()]));
         encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
         onAllKeysReady();
       }
-      @Override public void onError(      RpcException e){
+    }
+).failure(new Consumer<Exception>(){
+      @Override public void apply(      Exception e){
         Log.w(TAG,"Ephemeral keys upload error");
         Log.e(TAG,e);
       }
     }
-);
+).done(self());
   }
  else {
     onAllKeysReady();
