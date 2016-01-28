@@ -5,6 +5,10 @@
     if (cached != null) {
       try {
         userKeys=new UserKeys(cached);
+        Log.d(TAG,"Loaded (uid: " + uid + "): "+ Crypto.hex(cached));
+        for (        UserKeysGroup g : userKeys.getUserKeysGroups()) {
+          Log.d(TAG,"Loaded (uid: " + uid + "): "+ g.getKeyGroupId());
+        }
       }
  catch (      IOException e) {
         e.printStackTrace();

@@ -1,6 +1,6 @@
 {
   ArrayList<UserKeysGroup> userKeysGroups=new ArrayList<UserKeysGroup>();
-  for (  UserKeysGroup g : userKeysGroups) {
+  for (  UserKeysGroup g : this.userKeysGroups) {
     if (g.getKeyGroupId() != keyGroupId) {
       userKeysGroups.add(g);
     }

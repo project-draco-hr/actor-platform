@@ -5,5 +5,9 @@
       return;
     }
   }
+  Log.d(TAG,"No key found: " + Crypto.keyHash(publicKey));
+  for (  PrivateKey k : ownKeys.getPreKeys()) {
+    Log.d(TAG,"Have: " + Crypto.keyHash(Curve25519.keyGenPublic(k.getKey())));
+  }
   future.error(new RuntimeException("Unable to find ephemeral key"));
 }

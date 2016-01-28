@@ -7,5 +7,8 @@
   writer.writeRepeatedObj(3,this.users);
   writer.writeRepeatedObj(6,this.groups);
   writer.writeRepeatedObj(4,this.updates);
+  writer.writeRepeatedObj(7,this.messages);
   writer.writeBool(5,this.needMore);
+  writer.writeRepeatedObj(8,this.usersRefs);
+  writer.writeRepeatedObj(9,this.groupsRefs);
 }

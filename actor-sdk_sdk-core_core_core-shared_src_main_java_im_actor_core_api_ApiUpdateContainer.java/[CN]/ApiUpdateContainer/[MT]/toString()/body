@@ -1,0 +1,7 @@
+{
+  String res="struct UpdateContainer{";
+  res+="updateHeader=" + this.updateHeader;
+  res+=", update=" + byteArrayToStringCompact(this.update);
+  res+="}";
+  return res;
+}

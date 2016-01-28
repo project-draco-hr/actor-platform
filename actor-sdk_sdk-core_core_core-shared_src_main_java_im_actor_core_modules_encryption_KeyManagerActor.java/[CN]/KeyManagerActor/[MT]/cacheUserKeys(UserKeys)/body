@@ -1,4 +1,17 @@
 {
+  for (  UserKeysGroup g : userKeys.getUserKeysGroups()) {
+    Log.d(TAG,"Cache (uid: " + userKeys.getUid() + "): "+ g.getKeyGroupId());
+  }
+  try {
+    UserKeys upd=new UserKeys(userKeys.toByteArray());
+    Log.d(TAG,"Cache2 (uid: " + userKeys.getUid() + "): "+ Crypto.hex(userKeys.toByteArray()));
+    for (    UserKeysGroup g : upd.getUserKeysGroups()) {
+      Log.d(TAG,"Cache2 (uid: " + userKeys.getUid() + "): "+ g.getKeyGroupId());
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
   encryptionKeysStorage.addOrUpdateItem(userKeys.getUid(),userKeys.toByteArray());
   cachedUserKeys.put(userKeys.getUid(),userKeys);
 }

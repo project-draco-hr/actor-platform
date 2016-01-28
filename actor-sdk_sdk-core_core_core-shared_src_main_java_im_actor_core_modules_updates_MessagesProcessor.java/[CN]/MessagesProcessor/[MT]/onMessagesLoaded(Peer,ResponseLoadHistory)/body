@@ -1,7 +1,7 @@
 {
   ArrayList<Message> messages=new ArrayList<Message>();
   long maxLoadedDate=Long.MAX_VALUE;
-  for (  ApiHistoryMessage historyMessage : historyResponse.getHistory()) {
+  for (  ApiMessageContainer historyMessage : historyResponse.getHistory()) {
     maxLoadedDate=Math.min(historyMessage.getDate(),maxLoadedDate);
     AbsContent content=null;
     try {

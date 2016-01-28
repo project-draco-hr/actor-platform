@@ -43,7 +43,7 @@
         Log.d(TAG,"Difference loaded {seq=" + response.getSeq() + "} in "+ (im.actor.runtime.Runtime.getCurrentTime() - loadStart)+ " ms");
         long parseStart=im.actor.runtime.Runtime.getCurrentTime();
         ArrayList<Update> updates=new ArrayList<Update>();
-        for (        ApiDifferenceUpdate u : response.getUpdates()) {
+        for (        ApiUpdateContainer u : response.getUpdates()) {
           try {
             updates.add(parser.read(u.getUpdateHeader(),u.getUpdate()));
           }

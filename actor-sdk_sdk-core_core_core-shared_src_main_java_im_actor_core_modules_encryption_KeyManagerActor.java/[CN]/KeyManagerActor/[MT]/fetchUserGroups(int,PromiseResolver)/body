@@ -1,12 +1,12 @@
 {
-  Log.d(TAG,"fetchUserGroups");
   final UserKeys userKeys=getCachedUserKeys(uid);
   if (userKeys != null) {
-    Log.d(TAG,"fetchUserGroups:cached");
+    for (    UserKeysGroup g : userKeys.getUserKeysGroups()) {
+      Log.d(TAG,"Group (uid: " + uid + ") "+ g.getKeyGroupId());
+    }
     future.result(new FetchUserKeyGroupsResponse(userKeys));
     return;
   }
-  Log.d(TAG,"fetchUserGroups:loading");
   User user=users().getValue(uid);
   request(new RequestLoadPublicKeyGroups(new ApiUserOutPeer(uid,user.getAccessHash())),new RpcCallback<ResponsePublicKeyGroups>(){
     @Override public void onResult(    ResponsePublicKeyGroups response){

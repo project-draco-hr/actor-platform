@@ -1,5 +1,0 @@
-{
-  String res="tuple GetUserDevices{";
-  res+="}";
-  return res;
-}

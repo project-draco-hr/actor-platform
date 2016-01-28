@@ -1,6 +1,6 @@
 {
   writer.writeInt(1,uid);
   for (  UserKeysGroup ukg : userKeysGroups) {
-    writer.writeBytes(2,ukg.toByteArray());
+    writer.writeObject(2,ukg);
   }
 }

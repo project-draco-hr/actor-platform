@@ -1,7 +1,0 @@
-{
-  String res="rpc DownloadUserKeys{";
-  res+="userPeer=" + this.userPeer;
-  res+=", keyIds=" + this.keyIds;
-  res+="}";
-  return res;
-}

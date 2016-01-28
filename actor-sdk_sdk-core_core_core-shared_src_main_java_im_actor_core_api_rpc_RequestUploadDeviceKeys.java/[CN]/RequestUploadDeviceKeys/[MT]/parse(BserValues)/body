@@ -1,7 +1,0 @@
-{
-  List<ApiEncryptionKey> _keys=new ArrayList<ApiEncryptionKey>();
-  for (int i=0; i < values.getRepeatedCount(1); i++) {
-    _keys.add(new ApiEncryptionKey());
-  }
-  this.keys=values.getRepeatedObj(1,_keys);
-}

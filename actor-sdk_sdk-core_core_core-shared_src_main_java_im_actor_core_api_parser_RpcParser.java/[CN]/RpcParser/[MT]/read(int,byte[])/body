@@ -228,6 +228,8 @@ case 9:
 return RequestGetState.fromBytes(payload);
 case 11:
 return RequestGetDifference.fromBytes(payload);
+case 2628:
+return RequestGetReferencedEntitites.fromBytes(payload);
 case 32:
 return RequestSubscribeToOnline.fromBytes(payload);
 case 33:
@@ -334,6 +336,8 @@ case 2610:
 return ResponseCreateNewKeyGroup.fromBytes(payload);
 case 12:
 return ResponseGetDifference.fromBytes(payload);
+case 2629:
+return ResponseGetReferencedEntitites.fromBytes(payload);
 case 50:
 return ResponseVoid.fromBytes(payload);
 case 72:
@@ -354,6 +358,8 @@ case 26:
 return WeakUpdate.fromBytes(payload);
 case 25:
 return SeqUpdateTooLong.fromBytes(payload);
+case 2625:
+return CombinedUpdate.fromBytes(payload);
 }
 throw new IOException();
 }

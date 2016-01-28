@@ -1,0 +1,12 @@
+{
+  String res="update box CombinedUpdate{";
+  res+="seqStart=" + this.seqStart;
+  res+=", seqEnd=" + this.seqEnd;
+  res+=", state=" + byteArrayToString(this.state);
+  res+=", users=" + this.users.size();
+  res+=", groups=" + this.groups.size();
+  res+=", updates=" + this.updates;
+  res+=", messages=" + this.messages;
+  res+="}";
+  return res;
+}

@@ -29,8 +29,9 @@
       }
       ApiEncryptionKey key=response.getPublicKey().get(0);
       PublicKey pkey=new PublicKey(keyId,key.getKeyAlg(),key.getKeyMaterial());
-      UserKeysGroup userKeysGroup=finalKeysGroup.addUserKeyGroup(pkey);
+      UserKeysGroup userKeysGroup=finalKeysGroup.addPublicKey(pkey);
       cacheUserKeys(keys.removeUserKeyGroup(userKeysGroup.getKeyGroupId()).addUserKeyGroup(userKeysGroup));
+      Log.d(TAG,"(uid: " + uid + ") Fetched PreKey "+ Crypto.keyHash(key.getKeyMaterial()));
       future.result(new FetchUserEphemeralKeyResponse(pkey));
     }
     @Override public void onError(    RpcException e){

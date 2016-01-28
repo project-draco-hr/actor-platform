@@ -1,0 +1,7 @@
+int seqStart
+int seqEnd
+byte[] state
+List<ApiUser> users
+List<ApiGroup> groups
+List<ApiUpdateContainer> updates
+List<ApiMessageContainer> messages

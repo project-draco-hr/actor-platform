@@ -11,13 +11,13 @@
       final long senderEphermalKey0Id=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),4);
       final long receiverEphermalKey0Id=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),12);
       if (activeSessions.containsKey(boxKey.getKeyGroupId())) {
-        for (        SessionActor s : activeSessions.get(boxKey.getKeyGroupId()).getSessions()) {
+        for (        SessionActor s : activeSessions.get(senderKeyGroup).getSessions()) {
           if (s.getOwnKeyId() == receiverEphermalKey0Id && s.getTheirKeyId() == senderEphermalKey0Id) {
             return success(s);
           }
         }
       }
-      return context().getEncryption().getSessionManagerInt().pickSession(uid,boxKey.getKeyGroupId(),receiverEphermalKey0Id,senderEphermalKey0Id).map(new Function<PeerSession,SessionActor>(){
+      return context().getEncryption().getSessionManagerInt().pickSession(uid,senderKeyGroup,receiverEphermalKey0Id,senderEphermalKey0Id).map(new Function<PeerSession,SessionActor>(){
         @Override public SessionActor apply(        PeerSession src){
           return spawnSession(src.getTheirKeyGroupId(),src.getTheirPreKeyId(),src.getOwnPreKeyId());
         }
@@ -46,6 +46,7 @@
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
+      e.printStackTrace();
       resolver.error(e);
     }
   }

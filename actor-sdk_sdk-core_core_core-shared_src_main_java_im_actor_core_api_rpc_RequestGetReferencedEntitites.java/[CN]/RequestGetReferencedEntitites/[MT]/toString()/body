@@ -1,0 +1,7 @@
+{
+  String res="rpc GetReferencedEntitites{";
+  res+="users=" + this.users.size();
+  res+=", groups=" + this.groups.size();
+  res+="}";
+  return res;
+}

@@ -1,0 +1,5 @@
+{
+  String res="update EmptyUpdate{";
+  res+="}";
+  return res;
+}
