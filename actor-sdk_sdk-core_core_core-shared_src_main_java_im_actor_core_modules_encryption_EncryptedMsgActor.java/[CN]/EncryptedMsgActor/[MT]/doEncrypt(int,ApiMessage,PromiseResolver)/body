@@ -15,6 +15,7 @@
       }
       @Override public void onError(      Exception e){
         Log.d(TAG,"doEncrypt:onError");
+        e.printStackTrace();
         future.error(e);
       }
     }

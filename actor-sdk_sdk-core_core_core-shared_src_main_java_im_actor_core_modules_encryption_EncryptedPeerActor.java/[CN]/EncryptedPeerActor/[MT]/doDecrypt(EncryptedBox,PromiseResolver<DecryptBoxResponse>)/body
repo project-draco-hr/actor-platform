@@ -6,28 +6,28 @@
       return boxKey.getUid() == myUid() && boxKey.getKeyGroupId() == ownKeyGroupId && "curve25519".equals(boxKey.getKeyAlg());
     }
   }
-).first().mapPromise(new Function<EncryptedBoxKey,Promise<SessionActor>>(){
-    @Override public Promise<SessionActor> apply(    EncryptedBoxKey boxKey){
+).first().mapPromise(new Function<EncryptedBoxKey,Promise<Tuple2<SessionActor,EncryptedBoxKey>>>(){
+    @Override public Promise<Tuple2<SessionActor,EncryptedBoxKey>> apply(    final EncryptedBoxKey boxKey){
       final long senderEphermalKey0Id=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),4);
       final long receiverEphermalKey0Id=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),12);
       if (activeSessions.containsKey(boxKey.getKeyGroupId())) {
         for (        SessionActor s : activeSessions.get(senderKeyGroup).getSessions()) {
           if (s.getOwnKeyId() == receiverEphermalKey0Id && s.getTheirKeyId() == senderEphermalKey0Id) {
-            return success(s);
+            return success(new Tuple2<>(s,boxKey));
           }
         }
       }
-      return context().getEncryption().getSessionManagerInt().pickSession(uid,senderKeyGroup,receiverEphermalKey0Id,senderEphermalKey0Id).map(new Function<PeerSession,SessionActor>(){
-        @Override public SessionActor apply(        PeerSession src){
-          return spawnSession(src.getTheirKeyGroupId(),src.getTheirPreKeyId(),src.getOwnPreKeyId());
+      return context().getEncryption().getSessionManagerInt().pickSession(uid,senderKeyGroup,receiverEphermalKey0Id,senderEphermalKey0Id).map(new Function<PeerSession,Tuple2<SessionActor,EncryptedBoxKey>>(){
+        @Override public Tuple2<SessionActor,EncryptedBoxKey> apply(        PeerSession src){
+          return new Tuple2<>(spawnSession(src.getTheirKeyGroupId(),src.getTheirPreKeyId(),src.getOwnPreKeyId()),boxKey);
         }
       }
 );
     }
   }
-).mapPromise(new Function<SessionActor,Promise<EncryptedSessionActor.DecryptedPackage>>(){
-    @Override public Promise<EncryptedSessionActor.DecryptedPackage> apply(    SessionActor src){
-      return ask(src.getActorRef(),new EncryptedSessionActor.DecryptPackage(data.getEncryptedPackage()));
+).mapPromise(new Function<Tuple2<SessionActor,EncryptedBoxKey>,Promise<EncryptedSessionActor.DecryptedPackage>>(){
+    @Override public Promise<EncryptedSessionActor.DecryptedPackage> apply(    Tuple2<SessionActor,EncryptedBoxKey> src){
+      return ask(src.getT1().getActorRef(),new EncryptedSessionActor.DecryptPackage(src.getT2().getEncryptedKey()));
     }
   }
 ).map(new Function<EncryptedSessionActor.DecryptedPackage,byte[]>(){

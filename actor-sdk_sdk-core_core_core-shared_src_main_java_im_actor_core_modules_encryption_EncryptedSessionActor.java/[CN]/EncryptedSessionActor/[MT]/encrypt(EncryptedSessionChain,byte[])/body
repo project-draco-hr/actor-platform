@@ -7,5 +7,6 @@
     e.printStackTrace();
     throw new RuntimeException(e);
   }
+  Log.d(TAG,"Encrypt " + Crypto.hex(encrypted));
   return new EncryptedPackageRes(encrypted,theirKeyGroup);
 }

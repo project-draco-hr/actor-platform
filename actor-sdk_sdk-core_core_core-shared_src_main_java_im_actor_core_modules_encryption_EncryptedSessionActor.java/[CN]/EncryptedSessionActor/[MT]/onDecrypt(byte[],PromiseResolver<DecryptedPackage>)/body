@@ -9,9 +9,11 @@
     return;
   }
   Log.w(TAG,"onDecrypt");
+  Log.d(TAG,"Decrypt " + Crypto.hex(data));
   final byte[] senderEphemeralKey=ByteStrings.substring(data,20,32);
   final byte[] receiverEphemeralKey=ByteStrings.substring(data,52,32);
-  Log.d(TAG,"Receiver Ephemeral " + Crypto.keyHash(receiverEphemeralKey));
+  Log.d(TAG,"Sender Ephemeral " + Crypto.hex(senderEphemeralKey));
+  Log.d(TAG,"Receiver Ephemeral " + Crypto.hex(receiverEphemeralKey));
   pickDecryptChain(senderEphemeralKey,receiverEphemeralKey).map(new Function<EncryptedSessionChain,DecryptedPackage>(){
     @Override public DecryptedPackage apply(    EncryptedSessionChain encryptedSessionChain){
       return decrypt(encryptedSessionChain,data);

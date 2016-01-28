@@ -2,7 +2,6 @@
   final UserKeys keys=getCachedUserKeys(uid);
   UserKeysGroup keysGroup=null;
   for (  UserKeysGroup g : keys.getUserKeysGroups()) {
-    Log.d(TAG,"KeyGroup (uid: " + uid + "): "+ g.getKeyGroupId());
     if (g.getKeyGroupId() == keyGroupId) {
       keysGroup=g;
     }
@@ -31,7 +30,6 @@
       PublicKey pkey=new PublicKey(keyId,key.getKeyAlg(),key.getKeyMaterial());
       UserKeysGroup userKeysGroup=finalKeysGroup.addPublicKey(pkey);
       cacheUserKeys(keys.removeUserKeyGroup(userKeysGroup.getKeyGroupId()).addUserKeyGroup(userKeysGroup));
-      Log.d(TAG,"(uid: " + uid + ") Fetched PreKey "+ Crypto.keyHash(key.getKeyMaterial()));
       future.result(new FetchUserEphemeralKeyResponse(pkey));
     }
     @Override public void onError(    RpcException e){

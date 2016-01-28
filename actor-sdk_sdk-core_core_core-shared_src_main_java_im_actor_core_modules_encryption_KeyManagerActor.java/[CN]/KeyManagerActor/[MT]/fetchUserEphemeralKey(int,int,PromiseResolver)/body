@@ -8,7 +8,6 @@
       }
       ApiEncryptionKey key=response.getPublicKey().get(0);
       PublicKey pkey=new PublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial());
-      Log.d(TAG,"(uid: " + uid + ") Fetched ephemeral "+ Crypto.keyHash(key.getKeyMaterial()));
       future.result(new FetchUserEphemeralKeyResponse(pkey));
     }
     @Override public void onError(    RpcException e){
