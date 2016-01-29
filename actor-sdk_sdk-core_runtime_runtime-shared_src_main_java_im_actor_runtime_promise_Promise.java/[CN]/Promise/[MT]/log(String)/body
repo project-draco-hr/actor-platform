@@ -5,8 +5,6 @@
     }
     @Override public void onError(    Exception e){
       Log.w(TAG,"Error: " + e);
-      Log.e(TAG,e);
-      e.printStackTrace();
     }
   }
 );

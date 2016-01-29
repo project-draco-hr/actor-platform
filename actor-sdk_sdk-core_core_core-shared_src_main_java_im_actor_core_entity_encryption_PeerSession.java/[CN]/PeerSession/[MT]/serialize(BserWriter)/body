@@ -5,4 +5,5 @@
   writer.writeInt(4,theirKeyGroupId);
   writer.writeLong(5,ownPreKeyId);
   writer.writeLong(6,theirPreKeyId);
+  writer.writeBytes(7,masterKey);
 }

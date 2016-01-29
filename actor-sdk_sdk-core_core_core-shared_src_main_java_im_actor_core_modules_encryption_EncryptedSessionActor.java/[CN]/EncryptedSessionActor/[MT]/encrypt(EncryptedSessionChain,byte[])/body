@@ -7,5 +7,7 @@
     e.printStackTrace();
     throw new RuntimeException(e);
   }
+  Log.d(TAG,"!Sender Ephemeral " + Crypto.keyHash(Curve25519.keyGenPublic(chain.getOwnPrivateKey())));
+  Log.d(TAG,"!Receiver Ephemeral " + Crypto.keyHash(chain.getTheirPublicKey()));
   return new EncryptedPackageRes(encrypted,session.getTheirKeyGroupId());
 }

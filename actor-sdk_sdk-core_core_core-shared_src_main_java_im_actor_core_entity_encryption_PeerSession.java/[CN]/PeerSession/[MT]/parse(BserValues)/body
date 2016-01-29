@@ -5,4 +5,5 @@
   theirKeyGroupId=values.getInt(4);
   ownPreKeyId=values.getLong(5);
   theirPreKeyId=values.getLong(6);
+  masterKey=values.getBytes(7);
 }

@@ -1,7 +1,7 @@
 {
   return new Predicate<PrivateKey>(){
     @Override public boolean apply(    PrivateKey privateKey){
-      return ByteStrings.isEquals(privateKey.publicKey,privateKey.getKey());
+      return ByteStrings.isEquals(publicKey,privateKey.getPublicKey());
     }
   }
 ;

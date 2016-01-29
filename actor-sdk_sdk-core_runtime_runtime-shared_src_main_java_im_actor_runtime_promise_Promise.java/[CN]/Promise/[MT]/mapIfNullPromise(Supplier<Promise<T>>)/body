@@ -14,8 +14,8 @@
               return;
             }
             promise.then(new Consumer<T>(){
-              @Override public void apply(              T t){
-                resolver.result(t);
+              @Override public void apply(              T t1){
+                resolver.result(t1);
               }
             }
 );
