@@ -57,6 +57,7 @@
   }
 );
   removedFromGroup=findViewById(R.id.kickedFromChat);
+  removedFromGroup.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   ((TextView)removedFromGroup.findViewById(R.id.kicked_text)).setTextColor(style.getMainColor());
   emojiButton=(ImageView)findViewById(R.id.ib_emoji);
   emojiKeyboard=new EmojiKeyboard(this);

@@ -17,7 +17,7 @@ action.setText(getString(R.string.integration_token_action_share));
 break;
 }
 if (position == 1) {
-container.setBackgroundColor(getActivity().getResources().getColor(R.color.bg_backyard));
+container.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
 topShadow.setVisibility(View.VISIBLE);
 botShadow.setVisibility(View.VISIBLE);
 divider.setVisibility(View.INVISIBLE);

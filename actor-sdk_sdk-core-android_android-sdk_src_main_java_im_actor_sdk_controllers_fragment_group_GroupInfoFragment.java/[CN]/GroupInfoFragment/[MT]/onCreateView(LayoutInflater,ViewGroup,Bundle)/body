@@ -2,7 +2,9 @@
   chatId=getArguments().getInt(EXTRA_CHAT_ID);
   groupInfo=groups().get(chatId);
   View res=inflater.inflate(R.layout.fragment_group,container,false);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   notMemberView=res.findViewById(R.id.notMember);
+  notMemberView.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   ActorStyle style=ActorSDK.sharedActor().style;
   ((TextView)notMemberView.findViewById(R.id.not_member_text)).setTextColor(style.getTextPrimaryColor());
   bind(groupInfo.isMember(),new ValueChangedListener<Boolean>(){
@@ -35,7 +37,7 @@
   TextView title=(TextView)header.findViewById(R.id.title);
   title.setTextColor(style.getProfileTitleColor());
   bind(title,groupInfo.getName());
-  boolean isAdmin=false;
+  isAdmin=false;
   final TextView createdBy=(TextView)header.findViewById(R.id.createdBy);
   createdBy.setTextColor(style.getProfileSubtitleColor());
   if (groupInfo.getCreatorId() == myUid()) {

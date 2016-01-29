@@ -1,5 +1,7 @@
 {
   View res=onCreateContactsView(R.layout.fragment_contacts,inflater,container,savedInstanceState);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  res.findViewById(R.id.emptyCollection).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   res.findViewById(R.id.inviteButton).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       String inviteMessage=getResources().getString(R.string.invite_message).replace("{inviteUrl}",ActorSDK.sharedActor().getInviteUrl()).replace("{appName}",ActorSDK.sharedActor().getAppName());
