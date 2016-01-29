@@ -1,3 +1,0 @@
-int uid
-int keyGroupId
-PromiseResolver<PickSessionResp> resolver

@@ -1,4 +1,0 @@
-ActorRef actorRef
-long ownKeyId
-long theirKeyId
-int theirKeyGroupId

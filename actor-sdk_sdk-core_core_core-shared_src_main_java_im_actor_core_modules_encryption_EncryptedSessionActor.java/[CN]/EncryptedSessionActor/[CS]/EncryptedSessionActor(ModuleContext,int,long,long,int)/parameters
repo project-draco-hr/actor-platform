@@ -1,5 +1,0 @@
-ModuleContext context
-int uid
-long ownKey0
-long theirKey0
-int theirKeyGroup

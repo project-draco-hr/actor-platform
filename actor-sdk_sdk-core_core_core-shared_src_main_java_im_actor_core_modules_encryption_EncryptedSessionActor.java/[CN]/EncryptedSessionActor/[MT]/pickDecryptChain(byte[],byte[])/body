@@ -11,9 +11,9 @@
       if (src != null) {
         return Promises.success(src);
       }
-      return ask(context().getEncryption().getKeyManager(),new FetchEphemeralPrivateKey(ephemeralKey)).map(new Function<FetchEphemeralPrivateKeyRes,EncryptedSessionChain>(){
-        @Override public EncryptedSessionChain apply(        FetchEphemeralPrivateKeyRes src){
-          EncryptedSessionChain chain=new EncryptedSessionChain(session,src.getPrivateKey(),theirEphemeralKey);
+      return ask(context().getEncryption().getKeyManager(),new FetchOwnPreKeyByPublic(ephemeralKey)).map(new Function<PrivateKey,EncryptedSessionChain>(){
+        @Override public EncryptedSessionChain apply(        PrivateKey src){
+          EncryptedSessionChain chain=new EncryptedSessionChain(session,src.getKey(),theirEphemeralKey);
           decryptionChains.add(0,chain);
           if (decryptionChains.size() > MAX_DECRYPT_CHAINS) {
             decryptionChains.remove(MAX_DECRYPT_CHAINS).safeErase();

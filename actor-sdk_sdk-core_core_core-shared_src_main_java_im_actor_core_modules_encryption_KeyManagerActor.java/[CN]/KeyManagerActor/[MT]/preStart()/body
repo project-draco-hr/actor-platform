@@ -18,27 +18,11 @@
     encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
   }
   if (ownKeys.getKeyGroupId() == 0) {
-    PrivateKey privateKey=ownKeys.getIdentityKey();
-    byte[] publicKey=Curve25519.keyGenPublic(privateKey.getKey());
-    ApiEncryptionKey apiEncryptionKey=new ApiEncryptionKey(privateKey.getKeyId(),privateKey.getKeyAlg(),publicKey,null);
-    ArrayList<String> encryption=new ArrayList<String>();
-    encryption.add("curve25519");
-    encryption.add("Ed25519");
-    encryption.add("kuznechik128");
-    encryption.add("streebog256");
-    encryption.add("sha256");
-    encryption.add("sha512");
-    encryption.add("aes128");
-    ArrayList<ApiEncryptionKey> keys=new ArrayList<ApiEncryptionKey>();
-    ArrayList<ApiEncryptionKeySignature> keySignatures=new ArrayList<ApiEncryptionKeySignature>();
-    for (    PrivateKey key : ownKeys.getKeys()) {
-      byte[] publicKey2=Curve25519.keyGenPublic(privateKey.getKey());
-      keys.add(new ApiEncryptionKey(key.getKeyId(),key.getKeyAlg(),publicKey2,null));
-      byte[] signature=Curve25519.calculateSignature(Crypto.randomBytes(64),privateKey.getKey(),RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),publicKey2));
-      keySignatures.add(new ApiEncryptionKeySignature(key.getKeyId(),"Ed25519",signature));
-    }
+    ApiEncryptionKey identityKey=ownKeys.getIdentityKey().toApiKey();
+    ArrayList<ApiEncryptionKey> keys=ManagedList.of(ownKeys.getKeys()).map(PrivateKey.TO_API);
+    ArrayList<ApiEncryptionKeySignature> signatures=ManagedList.of(ownKeys.getKeys()).map(PrivateKey.SIGN(ownKeys.getIdentityKey()));
     Log.d(TAG,"Creation of new key group");
-    api(new RequestCreateNewKeyGroup(apiEncryptionKey,encryption,keys,keySignatures)).then(new Consumer<ResponseCreateNewKeyGroup>(){
+    api(new RequestCreateNewKeyGroup(identityKey,Configuration.SUPPORTED,keys,signatures)).then(new Consumer<ResponseCreateNewKeyGroup>(){
       @Override public void apply(      ResponseCreateNewKeyGroup response){
         ownKeys=ownKeys.setGroupId(response.getKeyGroupId());
         encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());

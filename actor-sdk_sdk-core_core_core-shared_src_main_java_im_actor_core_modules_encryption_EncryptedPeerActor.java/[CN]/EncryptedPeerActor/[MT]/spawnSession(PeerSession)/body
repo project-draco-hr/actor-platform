@@ -1,0 +1,18 @@
+{
+  ActorRef res=system().actorOf(Props.create(EncryptedSessionActor.class,new ActorCreator<EncryptedSessionActor>(){
+    @Override public EncryptedSessionActor create(){
+      return new EncryptedSessionActor(context(),session);
+    }
+  }
+),getPath() + "/k_" + RandomUtils.nextRid());
+  SessionActor cont=new SessionActor(res,session);
+  if (activeSessions.containsKey(session.getTheirKeyGroupId())) {
+    activeSessions.get(session.getTheirKeyGroupId()).getSessions().add(cont);
+  }
+ else {
+    ArrayList<SessionActor> l=new ArrayList<>();
+    l.add(cont);
+    activeSessions.put(session.getTheirKeyGroupId(),new SessionHolder(session.getTheirKeyGroupId(),l));
+  }
+  return cont;
+}

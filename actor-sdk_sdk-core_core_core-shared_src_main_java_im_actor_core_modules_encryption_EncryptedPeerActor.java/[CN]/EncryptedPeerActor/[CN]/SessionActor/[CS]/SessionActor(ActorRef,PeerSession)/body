@@ -1,0 +1,4 @@
+{
+  this.actorRef=actorRef;
+  this.session=session;
+}

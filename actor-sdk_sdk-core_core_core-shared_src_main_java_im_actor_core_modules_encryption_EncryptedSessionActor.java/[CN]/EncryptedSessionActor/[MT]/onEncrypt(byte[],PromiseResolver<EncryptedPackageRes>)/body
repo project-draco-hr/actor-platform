@@ -1,6 +1,6 @@
 {
   if (session == null) {
-    if (isFailured) {
+    if (isUnavailable) {
       future.error(new RuntimeException("Session is not available"));
     }
  else {
@@ -8,10 +8,9 @@
     }
     return;
   }
-  Log.w(TAG,"onEncrypt");
-  keyManager.getEphemeralKey(latestTheirEphemeralKey,uid,theirKeyGroup).map(new Function<byte[],EncryptedSessionChain>(){
-    @Override public EncryptedSessionChain apply(    byte[] bytes){
-      return pickEncryptChain(bytes);
+  Promises.success(latestTheirEphemeralKey).mapIfNullPromise(keyManager.supplyUserPreKey(uid,theirKeyGroup)).map(new Function<byte[],EncryptedSessionChain>(){
+    @Override public EncryptedSessionChain apply(    byte[] publicKey){
+      return pickEncryptChain(publicKey);
     }
   }
 ).map(new Function<EncryptedSessionChain,EncryptedPackageRes>(){

@@ -1,0 +1,4 @@
+{
+  this.keyGroup=keyGroup;
+  this.identityKey=identityKey;
+}

@@ -1,5 +1,0 @@
-int uid
-int ownKeyGroup
-int theirKeyGroup
-long ownPreKeyId
-long theirPreKeyId

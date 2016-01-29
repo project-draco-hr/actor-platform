@@ -3,4 +3,5 @@
   this.keyAlg=keyAlg;
   this.key=key;
   this.isUploaded=isUploaded;
+  this.publicKey=Curve25519.keyGenPublic(key);
 }

@@ -2,14 +2,14 @@
   this.keyManager=context().getEncryption().getKeyManagerInt();
   ActorRef keyManager=context().getEncryption().getKeyManager();
   Log.d(TAG,"preStart");
-  Promises.tuple(ask(keyManager,new FetchOwnKey()),ask(keyManager,new FetchEphemeralPrivateKeyById(ownKey0)),ask(keyManager,new FetchUserEphemeralKey(uid,theirKeyGroup,theirKey0)),ask(keyManager,new FetchUserKeyGroups(uid))).map(new Function<Tuple4<FetchOwnKeyResult,FetchEphemeralPrivateKeyRes,FetchUserEphemeralKeyResponse,FetchUserKeyGroupsResponse>,EncryptedSession>(){
-    @Override public EncryptedSession apply(    Tuple4<FetchOwnKeyResult,FetchEphemeralPrivateKeyRes,FetchUserEphemeralKeyResponse,FetchUserKeyGroupsResponse> res){
+  Promises.tuple(ask(keyManager,new FetchOwnKey()),ask(keyManager,new FetchOwnPreKeyById(ownKey0)),ask(keyManager,new FetchUserPreKey(uid,theirKeyGroup,theirKey0)),ask(keyManager,new FetchUserKeys(uid))).map(new Function<Tuple4<OwnIdentity,PrivateKey,PublicKey,UserKeys>,EncryptedSession>(){
+    @Override public EncryptedSession apply(    Tuple4<OwnIdentity,PrivateKey,PublicKey,UserKeys> res){
       PrivateKey ownIdentityKey=res.getT1().getIdentityKey();
-      PrivateKey ownPreKey=new PrivateKey(ownKey0,"curve25519",res.getT2().getPrivateKey());
-      PublicKey theirPreKey=res.getT3().getEphemeralKey();
-      FetchUserKeyGroupsResponse keyGroups=res.getT4();
+      PrivateKey ownPreKey=res.getT2();
+      PublicKey theirPreKey=res.getT3();
+      UserKeys keyGroups=res.getT4();
       UserKeysGroup keysGroup=null;
-      for (      UserKeysGroup g : keyGroups.getUserKeys().getUserKeysGroups()) {
+      for (      UserKeysGroup g : keyGroups.getUserKeysGroups()) {
         if (g.getKeyGroupId() == theirKeyGroup) {
           keysGroup=g;
           break;
@@ -34,7 +34,7 @@
     @Override public void apply(    Exception e){
       Log.w(TAG,"Session load error");
       Log.e(TAG,e);
-      isFailured=true;
+      isUnavailable=true;
       unstashAll();
     }
   }

@@ -1,0 +1,13 @@
+{
+  return new Supplier<Promise<byte[]>>(){
+    @Override public Promise<byte[]> get(){
+      return getUserRandomPreKey(uid,keyGroupId).map(new Function<PublicKey,byte[]>(){
+        @Override public byte[] apply(        PublicKey publicKey){
+          return publicKey.getPublicKey();
+        }
+      }
+);
+    }
+  }
+;
+}

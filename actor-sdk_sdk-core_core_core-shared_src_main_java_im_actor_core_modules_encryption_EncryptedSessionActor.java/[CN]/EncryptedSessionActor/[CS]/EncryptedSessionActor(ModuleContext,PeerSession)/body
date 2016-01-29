@@ -1,0 +1,8 @@
+{
+  super(context);
+  this.TAG="EncryptionSessionActor#" + session.getUid() + "_"+ session.getTheirKeyGroupId();
+  this.uid=session.getUid();
+  this.ownKey0=session.getOwnPreKeyId();
+  this.theirKey0=session.getTheirPreKeyId();
+  this.theirKeyGroup=session.getTheirKeyGroupId();
+}

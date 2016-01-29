@@ -1,0 +1,3 @@
+{
+  PromisesArray.of(ownKeys.getPreKeys()).filter(PrivateKey.PRE_KEY_EQUALS(publicKey)).first().pipeTo(resolver).done(self());
+}

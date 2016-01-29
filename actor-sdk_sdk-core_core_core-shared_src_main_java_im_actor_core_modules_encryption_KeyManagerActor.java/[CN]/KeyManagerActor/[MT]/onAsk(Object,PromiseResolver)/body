@@ -1,29 +1,26 @@
 {
   if (message instanceof FetchOwnKey) {
-    fetchOwnKey(future);
+    fetchOwnIdentity(resolver);
   }
- else   if (message instanceof FetchOwnKeyGroup) {
-    fetchKeyGroup(future);
+ else   if (message instanceof FetchOwnPreKeyByPublic) {
+    fetchPreKey(((FetchOwnPreKeyByPublic)message).getPublicKey(),resolver);
   }
- else   if (message instanceof FetchEphemeralPrivateKey) {
-    fetchEphemeralKey(((FetchEphemeralPrivateKey)message).getPublicKey(),future);
+ else   if (message instanceof FetchOwnPreKeyById) {
+    fetchPreKey(((FetchOwnPreKeyById)message).getKeyId(),resolver);
   }
- else   if (message instanceof FetchEphemeralPrivateKeyById) {
-    fetchEphemeralKey(((FetchEphemeralPrivateKeyById)message).getKeyId(),future);
+ else   if (message instanceof FetchUserKeys) {
+    fetchUserGroups(((FetchUserKeys)message).getUid(),resolver);
   }
- else   if (message instanceof FetchUserKeyGroups) {
-    fetchUserGroups(((FetchUserKeyGroups)message).getUid(),future);
+ else   if (message instanceof FetchUserPreKey) {
+    fetchUserPreKey(((FetchUserPreKey)message).getUid(),((FetchUserPreKey)message).getKeyGroup(),((FetchUserPreKey)message).getKeyId(),resolver);
   }
- else   if (message instanceof FetchUserEphemeralKey) {
-    fetchUserEphemeralKey(((FetchUserEphemeralKey)message).getUid(),((FetchUserEphemeralKey)message).getKeyGroup(),((FetchUserEphemeralKey)message).getKeyId(),future);
+ else   if (message instanceof FetchUserPreKeyRandom) {
+    fetchUserPreKey(((FetchUserPreKeyRandom)message).getUid(),((FetchUserPreKeyRandom)message).getKeyGroup(),resolver);
   }
- else   if (message instanceof FetchUserEphemeralKeyRandom) {
-    fetchUserEphemeralKey(((FetchUserEphemeralKeyRandom)message).getUid(),((FetchUserEphemeralKeyRandom)message).getKeyGroup(),future);
-  }
- else   if (message instanceof FetchOwnEphemeralKey) {
-    fetchOwnEphemeralKey(future);
+ else   if (message instanceof FetchOwnRandomPreKey) {
+    fetchPreKey(resolver);
   }
  else {
-    super.onAsk(message,future);
+    super.onAsk(message,resolver);
   }
 }

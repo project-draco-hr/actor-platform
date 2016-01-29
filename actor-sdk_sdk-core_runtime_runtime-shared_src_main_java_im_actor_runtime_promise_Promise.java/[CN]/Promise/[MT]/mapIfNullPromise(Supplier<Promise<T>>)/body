@@ -1,0 +1,46 @@
+{
+  final Promise<T> self=this;
+  return new Promise<T>(new PromiseFunc<T>(){
+    @Override public void exec(    final PromiseResolver<T> resolver){
+      self.then(new Consumer<T>(){
+        @Override public void apply(        T t){
+          if (t == null) {
+            Promise<T> promise;
+            try {
+              promise=producer.get();
+            }
+ catch (            Exception e) {
+              resolver.error(e);
+              return;
+            }
+            promise.then(new Consumer<T>(){
+              @Override public void apply(              T t){
+                resolver.result(t);
+              }
+            }
+);
+            promise.failure(new Consumer<Exception>(){
+              @Override public void apply(              Exception e){
+                resolver.error(e);
+              }
+            }
+);
+            promise.done(resolver.getDispatcher());
+          }
+ else {
+            resolver.result(t);
+          }
+        }
+      }
+);
+      self.failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          resolver.error(e);
+        }
+      }
+);
+      self.done(resolver.getDispatcher());
+    }
+  }
+);
+}

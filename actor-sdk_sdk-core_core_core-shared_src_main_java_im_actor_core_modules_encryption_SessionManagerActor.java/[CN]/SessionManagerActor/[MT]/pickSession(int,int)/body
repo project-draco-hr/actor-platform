@@ -1,16 +1,3 @@
 {
-  return PromisesArray.of(peerSessions.getValue(uid)).flatMap(new Function<PeerSessionsStorage,PeerSession[]>(){
-    @Override public PeerSession[] apply(    PeerSessionsStorage peerSessionsStorage){
-      if (peerSessionsStorage == null) {
-        return new PeerSession[0];
-      }
-      return peerSessionsStorage.getSessions();
-    }
-  }
-).filter(new Predicate<PeerSession>(){
-    @Override public boolean apply(    PeerSession session){
-      return session.getTheirKeyGroupId() == keyGroupId;
-    }
-  }
-).first().cast();
+  return ManagedList.of(peerSessions.getValue(uid)).flatMap(PeerSessionsStorage.SESSIONS).filter(PeerSession.BY_THEIR_GROUP(keyGroupId)).firstPromise();
 }

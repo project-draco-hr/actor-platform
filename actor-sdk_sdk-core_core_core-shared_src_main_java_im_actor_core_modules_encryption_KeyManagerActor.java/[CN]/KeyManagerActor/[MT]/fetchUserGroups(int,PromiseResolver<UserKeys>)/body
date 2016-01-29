@@ -1,0 +1,38 @@
+{
+  User user=users().getValue(uid);
+  if (user == null) {
+    resolver.error(new RuntimeException("Unable to find user #" + uid));
+    return;
+  }
+  final UserKeys userKeys=getCachedUserKeys(uid);
+  if (userKeys != null) {
+    resolver.result(userKeys);
+    return;
+  }
+  api(new RequestLoadPublicKeyGroups(new ApiUserOutPeer(uid,user.getAccessHash()))).map(new Function<ResponsePublicKeyGroups,ArrayList<UserKeysGroup>>(){
+    @Override public ArrayList<UserKeysGroup> apply(    ResponsePublicKeyGroups response){
+      ArrayList<UserKeysGroup> keysGroups=new ArrayList<UserKeysGroup>();
+      for (      ApiEncryptionKeyGroup keyGroup : response.getPublicKeyGroups()) {
+        UserKeysGroup validatedKeysGroup=validateUserKeysGroup(uid,keyGroup);
+        if (validatedKeysGroup != null) {
+          keysGroups.add(validatedKeysGroup);
+        }
+      }
+      return keysGroups;
+    }
+  }
+).then(new Consumer<ArrayList<UserKeysGroup>>(){
+    @Override public void apply(    ArrayList<UserKeysGroup> userKeysGroups){
+      UserKeys userKeys=new UserKeys(uid,userKeysGroups.toArray(new UserKeysGroup[userKeysGroups.size()]));
+      cacheUserKeys(userKeys);
+      resolver.result(userKeys);
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.w(TAG,"(uid:" + uid + ") Unable to download keys");
+      resolver.error(e);
+    }
+  }
+).done(self());
+}

@@ -1,0 +1,9 @@
+{
+  this.sid=sid;
+  this.uid=uid;
+  this.ownKeyGroupId=ownKeyGroupId;
+  this.theirKeyGroupId=theirKeyGroupId;
+  this.ownPreKeyId=ownPreKeyId;
+  this.theirPreKeyId=theirPreKeyId;
+  this.masterKey=masterKey;
+}

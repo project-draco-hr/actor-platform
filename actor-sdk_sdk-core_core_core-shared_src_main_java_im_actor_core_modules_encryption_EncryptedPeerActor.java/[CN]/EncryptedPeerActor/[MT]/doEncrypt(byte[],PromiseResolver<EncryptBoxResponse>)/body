@@ -6,7 +6,7 @@
   final byte[] encKey=Crypto.randomBytes(128);
   Log.d(TAG,"doEncrypt");
   final long start=Runtime.getActorTime();
-  PromisesArray.of(theirKeys.getUserKeysGroups()).map(new Function<UserKeysGroup,Promise<SessionActor>>(){
+  PromisesArray.of(theirKeys.getUserKeysGroups()).mapOptional(new Function<UserKeysGroup,Promise<SessionActor>>(){
     @Override public Promise<SessionActor> apply(    UserKeysGroup keysGroup){
       Log.d(TAG,"Key Group " + keysGroup.getKeyGroupId());
       if (activeSessions.containsKey(keysGroup.getKeyGroupId())) {
@@ -14,19 +14,22 @@
       }
       return context().getEncryption().getSessionManagerInt().pickSession(uid,keysGroup.getKeyGroupId()).map(new Function<PeerSession,SessionActor>(){
         @Override public SessionActor apply(        PeerSession src){
-          return spawnSession(src.getTheirKeyGroupId(),src.getTheirPreKeyId(),src.getOwnPreKeyId());
+          return spawnSession(src);
         }
       }
 ).log(TAG + ":session#" + keysGroup.getKeyGroupId());
     }
   }
-).map(new Function<SessionActor,Promise<EncryptedSessionActor.EncryptedPackageRes>>(){
+).mapOptional(new Function<SessionActor,Promise<EncryptedSessionActor.EncryptedPackageRes>>(){
     @Override public Promise<EncryptedSessionActor.EncryptedPackageRes> apply(    SessionActor sessionActor){
       return ask(sessionActor.getActorRef(),new EncryptedSessionActor.EncryptPackage(encKey));
     }
   }
 ).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
     @Override public EncryptBoxResponse apply(    EncryptedSessionActor.EncryptedPackageRes[] src){
+      if (src.length == 0) {
+        throw new RuntimeException("No sessions available");
+      }
       Log.d(TAG,"Keys Encrypted in " + (Runtime.getActorTime() - start) + " ms");
       ArrayList<EncryptedBoxKey> encryptedKeys=new ArrayList<>();
       for (      EncryptedSessionActor.EncryptedPackageRes r : src) {

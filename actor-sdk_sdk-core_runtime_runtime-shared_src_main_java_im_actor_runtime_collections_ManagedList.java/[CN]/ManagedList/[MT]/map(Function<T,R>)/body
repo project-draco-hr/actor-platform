@@ -1,0 +1,7 @@
+{
+  ManagedList<R> res=new ManagedList<>();
+  for (  T t : this) {
+    res.add(map.apply(t));
+  }
+  return res;
+}

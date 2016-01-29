@@ -1,9 +1,0 @@
-{
-  for (  PrivateKey k : ownKeys.getPreKeys()) {
-    if (k.getKeyId() == keyId) {
-      future.result(new FetchEphemeralPrivateKeyRes(k.getKey()));
-      return;
-    }
-  }
-  future.error(new RuntimeException("Unable to find ephemeral key"));
-}

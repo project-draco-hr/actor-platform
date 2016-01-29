@@ -1,11 +1,11 @@
 {
   super.preStart();
   keyManager=context().getEncryption().getKeyManagerInt();
-  Promises.tuple(keyManager.getOwnGroup(),keyManager.getUserKeyGroups(uid)).then(new Consumer<Tuple2<KeyManagerActor.FetchOwnKeyGroupResult,KeyManagerActor.FetchUserKeyGroupsResponse>>(){
-    @Override public void apply(    Tuple2<KeyManagerActor.FetchOwnKeyGroupResult,KeyManagerActor.FetchUserKeyGroupsResponse> res){
+  Promises.tuple(keyManager.getOwnIdentity(),keyManager.getUserKeyGroups(uid)).then(new Consumer<Tuple2<KeyManagerActor.OwnIdentity,UserKeys>>(){
+    @Override public void apply(    Tuple2<KeyManagerActor.OwnIdentity,UserKeys> res){
       Log.d(TAG,"then");
-      ownKeyGroupId=res.getT1().getKeyGroupId();
-      theirKeys=res.getT2().getUserKeys();
+      ownKeyGroupId=res.getT1().getKeyGroup();
+      theirKeys=res.getT2();
       isReady=true;
       unstashAll();
     }
