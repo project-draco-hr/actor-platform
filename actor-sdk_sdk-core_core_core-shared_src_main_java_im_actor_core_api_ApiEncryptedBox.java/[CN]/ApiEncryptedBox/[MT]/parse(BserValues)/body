@@ -1,9 +1,11 @@
 {
+  this.senderKeyGroupId=values.getInt(4);
   List<ApiEncyptedBoxKey> _keys=new ArrayList<ApiEncyptedBoxKey>();
   for (int i=0; i < values.getRepeatedCount(1); i++) {
     _keys.add(new ApiEncyptedBoxKey());
   }
   this.keys=values.getRepeatedObj(1,_keys);
+  this.ignoredKeyGroups=values.getRepeatedInt(5);
   this.algType=values.getString(2);
   this.encPackage=values.getBytes(3);
 }

@@ -22,11 +22,8 @@
     }
     keys.add(new PublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial()));
   }
-  if (keys.size() > 0) {
-    return new UserKeysGroup(keyGroup.getKeyGroupId(),identity,keys.toArray(new PublicKey[keys.size()]),new PublicKey[0]);
-  }
- else {
+  if (keys.size() == 0) {
     Log.w(TAG,"(uid:" + uid + ") No valid keys in key group #"+ keyGroup.getKeyGroupId());
-    return null;
   }
+  return new UserKeysGroup(keyGroup.getKeyGroupId(),identity,keys.toArray(new PublicKey[keys.size()]),new PublicKey[0]);
 }

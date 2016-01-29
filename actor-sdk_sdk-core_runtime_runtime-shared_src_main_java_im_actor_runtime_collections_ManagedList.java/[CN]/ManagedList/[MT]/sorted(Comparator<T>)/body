@@ -1,0 +1,5 @@
+{
+  ManagedList<T> res=new ManagedList<>(this);
+  Collections.sort(res,comparator);
+  return res;
+}

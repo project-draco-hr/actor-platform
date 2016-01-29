@@ -1,5 +1,5 @@
 {
-  pickSession(uid,keyGroupId).fallback(new Function<Exception,Promise<PeerSession>>(){
+  pickCachedSession(uid,keyGroupId).fallback(new Function<Exception,Promise<PeerSession>>(){
     @Override public Promise<PeerSession> apply(    Exception e){
       return Promises.tuple(keyManager.getOwnIdentity(),keyManager.getOwnRandomPreKey(),keyManager.getUserKeyGroups(uid),keyManager.getUserRandomPreKey(uid,keyGroupId)).mapPromise(new FunctionTupled4<KeyManagerActor.OwnIdentity,PrivateKey,UserKeys,PublicKey,Promise<PeerSession>>(){
         @Override public Promise<PeerSession> apply(        KeyManagerActor.OwnIdentity ownIdentity,        PrivateKey ownPreKey,        UserKeys userKeys,        PublicKey theirPreKey){
@@ -13,7 +13,7 @@
   }
 ).afterVoid(new Supplier<Promise<PeerSession>>(){
     @Override public Promise<PeerSession> get(){
-      return pickSession(uid,keyGroupId);
+      return pickCachedSession(uid,keyGroupId);
     }
   }
 ).pipeTo(resolver).done(self());

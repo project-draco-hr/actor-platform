@@ -1,5 +1,7 @@
 {
+  writer.writeInt(4,this.senderKeyGroupId);
   writer.writeRepeatedObj(1,this.keys);
+  writer.writeRepeatedInt(5,this.ignoredKeyGroups);
   if (this.algType == null) {
     throw new IOException();
   }
