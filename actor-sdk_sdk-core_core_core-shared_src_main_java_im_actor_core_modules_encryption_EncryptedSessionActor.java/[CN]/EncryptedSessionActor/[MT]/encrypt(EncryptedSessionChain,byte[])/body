@@ -7,5 +7,5 @@
     e.printStackTrace();
     throw new RuntimeException(e);
   }
-  return new EncryptedPackageRes(encrypted,theirKeyGroup);
+  return new EncryptedPackageRes(encrypted,session.getTheirKeyGroupId());
 }

@@ -20,12 +20,7 @@
 ).log(TAG + ":session#" + keysGroup.getKeyGroupId());
     }
   }
-).mapOptional(new Function<SessionActor,Promise<EncryptedSessionActor.EncryptedPackageRes>>(){
-    @Override public Promise<EncryptedSessionActor.EncryptedPackageRes> apply(    SessionActor sessionActor){
-      return ask(sessionActor.getActorRef(),new EncryptedSessionActor.EncryptPackage(encKey));
-    }
-  }
-).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
+).mapOptional(encrypt(encKey)).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
     @Override public EncryptBoxResponse apply(    EncryptedSessionActor.EncryptedPackageRes[] src){
       if (src.length == 0) {
         throw new RuntimeException("No sessions available");

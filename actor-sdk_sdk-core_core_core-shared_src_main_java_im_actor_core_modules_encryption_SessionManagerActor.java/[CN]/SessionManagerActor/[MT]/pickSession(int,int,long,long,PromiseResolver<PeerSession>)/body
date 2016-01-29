@@ -10,5 +10,5 @@
 );
     }
   }
-).pipeTo(srcResolver);
+).pipeTo(srcResolver).done(self());
 }

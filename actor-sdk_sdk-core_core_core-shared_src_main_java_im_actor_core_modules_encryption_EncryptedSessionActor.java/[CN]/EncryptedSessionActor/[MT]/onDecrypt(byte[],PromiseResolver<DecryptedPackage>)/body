@@ -1,13 +1,4 @@
 {
-  if (session == null) {
-    if (isUnavailable) {
-      future.error(new RuntimeException("Session is not available"));
-    }
- else {
-      stash();
-    }
-    return;
-  }
   final byte[] senderEphemeralKey=ByteStrings.substring(data,20,32);
   final byte[] receiverEphemeralKey=ByteStrings.substring(data,52,32);
   Log.d(TAG,"Sender Ephemeral " + Crypto.hex(senderEphemeralKey));

@@ -1,14 +1,5 @@
 {
-  if (session == null) {
-    if (isUnavailable) {
-      future.error(new RuntimeException("Session is not available"));
-    }
- else {
-      stash();
-    }
-    return;
-  }
-  Promises.success(latestTheirEphemeralKey).mapIfNullPromise(keyManager.supplyUserPreKey(uid,theirKeyGroup)).map(new Function<byte[],EncryptedSessionChain>(){
+  Promises.success(latestTheirEphemeralKey).mapIfNullPromise(keyManager.supplyUserPreKey(uid,session.getTheirKeyGroupId())).map(new Function<byte[],EncryptedSessionChain>(){
     @Override public EncryptedSessionChain apply(    byte[] publicKey){
       return pickEncryptChain(publicKey);
     }
