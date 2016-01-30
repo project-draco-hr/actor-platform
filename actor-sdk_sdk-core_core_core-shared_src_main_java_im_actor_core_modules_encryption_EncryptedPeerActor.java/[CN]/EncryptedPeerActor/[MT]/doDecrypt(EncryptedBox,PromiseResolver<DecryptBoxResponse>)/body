@@ -1,4 +1,8 @@
 {
+  if (!isReady) {
+    stash();
+    return;
+  }
   final int senderKeyGroup=ByteStrings.bytesToInt(ByteStrings.substring(data.getEncryptedPackage(),0,4));
   final byte[] encPackage=ByteStrings.substring(data.getEncryptedPackage(),4,data.getEncryptedPackage().length - 4);
   PromisesArray.of(data.getKeys()).filter(EncryptedBoxKey.FILTER(myUid(),ownKeyGroupId)).first().mapPromise(new Function<EncryptedBoxKey,Promise<Tuple2<SessionActor,EncryptedBoxKey>>>(){
