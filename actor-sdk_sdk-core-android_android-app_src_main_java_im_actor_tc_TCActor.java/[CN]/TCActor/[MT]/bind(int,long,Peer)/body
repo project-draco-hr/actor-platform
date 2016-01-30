@@ -6,7 +6,7 @@
     reidMap.get(id).add(rid);
   }
  else {
-    HashSet<Long> rids=new HashSet<>();
+    HashSet<Long> rids=new HashSet<Long>();
     rids.add(rid);
     reidMap.put(id,rids);
   }
