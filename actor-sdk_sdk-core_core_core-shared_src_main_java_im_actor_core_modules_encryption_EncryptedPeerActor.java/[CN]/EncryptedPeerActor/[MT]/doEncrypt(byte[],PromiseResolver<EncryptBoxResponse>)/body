@@ -3,24 +3,34 @@
     stash();
     return;
   }
-  final byte[] encKey=Crypto.randomBytes(128);
+  final byte[] encKey=Crypto.randomBytes(32);
+  final byte[] encKeyExtended=keyPrf.calculate(encKey,"ActorPackage",128);
   Log.d(TAG,"doEncrypt");
   final long start=Runtime.getActorTime();
-  PromisesArray.of(theirKeys.getUserKeysGroups()).mapOptional(new Function<UserKeysGroup,Promise<SessionActor>>(){
-    @Override public Promise<SessionActor> apply(    UserKeysGroup keysGroup){
-      Log.d(TAG,"Key Group " + keysGroup.getKeyGroupId());
+  PromisesArray.of(theirKeys.getUserKeysGroups()).filter(new Predicate<UserKeysGroup>(){
+    @Override public boolean apply(    UserKeysGroup keysGroup){
+      return !ignoredKeyGroups.contains(keysGroup.getKeyGroupId());
+    }
+  }
+).mapOptional(new Function<UserKeysGroup,Promise<SessionActor>>(){
+    @Override public Promise<SessionActor> apply(    final UserKeysGroup keysGroup){
       if (activeSessions.containsKey(keysGroup.getKeyGroupId())) {
         return success(activeSessions.get(keysGroup.getKeyGroupId()).getSessions().get(0));
       }
-      return context().getEncryption().getSessionManagerInt().pickSession(uid,keysGroup.getKeyGroupId()).map(new Function<PeerSession,SessionActor>(){
+      return context().getEncryption().getSessionManagerInt().pickSession(uid,keysGroup.getKeyGroupId()).failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          ignoredKeyGroups.add(keysGroup.getKeyGroupId());
+        }
+      }
+).map(new Function<PeerSession,SessionActor>(){
         @Override public SessionActor apply(        PeerSession src){
           return spawnSession(src);
         }
       }
-).log(TAG + ":session#" + keysGroup.getKeyGroupId());
+);
     }
   }
-).mapOptional(encrypt(encKey)).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
+).mapOptional(encrypt(encKeyExtended)).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
     @Override public EncryptBoxResponse apply(    EncryptedSessionActor.EncryptedPackageRes[] src){
       if (src.length == 0) {
         throw new RuntimeException("No sessions available");
@@ -33,7 +43,7 @@
       }
       byte[] encData;
       try {
-        encData=ActorBox.closeBox(ByteStrings.intToBytes(ownKeyGroupId),data,Crypto.randomBytes(32),new ActorBoxKey(encKey));
+        encData=ActorBox.closeBox(ByteStrings.intToBytes(ownKeyGroupId),data,Crypto.randomBytes(32),new ActorBoxKey(encKeyExtended));
       }
  catch (      IntegrityException e) {
         e.printStackTrace();

@@ -5,6 +5,10 @@
   }
   final int senderKeyGroup=ByteStrings.bytesToInt(ByteStrings.substring(data.getEncryptedPackage(),0,4));
   final byte[] encPackage=ByteStrings.substring(data.getEncryptedPackage(),4,data.getEncryptedPackage().length - 4);
+  if (ignoredKeyGroups.contains(senderKeyGroup)) {
+    resolver.error(new RuntimeException("This key group is ignored"));
+    return;
+  }
   PromisesArray.of(data.getKeys()).filter(EncryptedBoxKey.FILTER(myUid(),ownKeyGroupId)).first().mapPromise(new Function<EncryptedBoxKey,Promise<Tuple2<SessionActor,EncryptedBoxKey>>>(){
     @Override public Promise<Tuple2<SessionActor,EncryptedBoxKey>> apply(    final EncryptedBoxKey boxKey){
       final long senderPreKeyId=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),4);
@@ -26,6 +30,7 @@
   }
 ).mapPromise(new Function<Tuple2<SessionActor,EncryptedBoxKey>,Promise<EncryptedSessionActor.DecryptedPackage>>(){
     @Override public Promise<EncryptedSessionActor.DecryptedPackage> apply(    Tuple2<SessionActor,EncryptedBoxKey> src){
+      Log.d(TAG,"Key size:" + src.getT2().getEncryptedKey().length);
       return ask(src.getT1().getActorRef(),new EncryptedSessionActor.DecryptPackage(src.getT2().getEncryptedKey()));
     }
   }
@@ -33,9 +38,10 @@
     @Override public DecryptBoxResponse apply(    EncryptedSessionActor.DecryptedPackage decryptedPackage){
       byte[] encData;
       try {
-        encData=ActorBox.openBox(ByteStrings.intToBytes(senderKeyGroup),encPackage,new ActorBoxKey(decryptedPackage.getData()));
+        byte[] encKeyExtended=decryptedPackage.getData().length == 128 ? decryptedPackage.getData() : keyPrf.calculate(decryptedPackage.getData(),"ActorPackage",128);
+        encData=ActorBox.openBox(ByteStrings.intToBytes(senderKeyGroup),encPackage,new ActorBoxKey(encKeyExtended));
         ApiMessage message=ApiMessage.fromBytes(encData);
-        Log.d(TAG,"Box open:" + message);
+        Log.d(TAG,"Box open:" + message + ", size: "+ encData.length);
       }
  catch (      IOException e) {
         e.printStackTrace();

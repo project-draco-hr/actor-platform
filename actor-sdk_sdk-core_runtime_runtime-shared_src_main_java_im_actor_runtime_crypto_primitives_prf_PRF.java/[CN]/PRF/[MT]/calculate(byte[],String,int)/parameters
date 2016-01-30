@@ -1,0 +1,3 @@
+byte[] secret
+String label
+int length

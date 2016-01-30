@@ -1,0 +1,3 @@
+{
+  return calculate(secret,label,new byte[0],length);
+}
