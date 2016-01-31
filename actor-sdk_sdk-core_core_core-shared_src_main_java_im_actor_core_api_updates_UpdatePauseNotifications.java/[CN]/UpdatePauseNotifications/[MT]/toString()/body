@@ -1,0 +1,6 @@
+{
+  String res="update PauseNotifications{";
+  res+="timeout=" + this.timeout;
+  res+="}";
+  return res;
+}

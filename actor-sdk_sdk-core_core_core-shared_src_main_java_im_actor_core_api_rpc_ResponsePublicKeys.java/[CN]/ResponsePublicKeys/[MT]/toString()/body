@@ -1,6 +1,7 @@
 {
   String res="response PublicKeys{";
   res+="publicKey=" + this.publicKey;
+  res+=", signatures=" + this.signatures;
   res+="}";
   return res;
 }

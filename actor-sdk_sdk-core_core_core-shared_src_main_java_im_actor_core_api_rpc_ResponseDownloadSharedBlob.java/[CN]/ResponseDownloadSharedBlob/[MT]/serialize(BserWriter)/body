@@ -1,0 +1,6 @@
+{
+  if (this.blob == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(1,this.blob);
+}

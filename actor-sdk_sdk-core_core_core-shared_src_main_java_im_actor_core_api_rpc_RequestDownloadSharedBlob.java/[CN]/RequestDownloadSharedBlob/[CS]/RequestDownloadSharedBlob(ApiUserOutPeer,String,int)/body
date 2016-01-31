@@ -1,0 +1,5 @@
+{
+  this.destPeer=destPeer;
+  this.bucket=bucket;
+  this.objectId=objectId;
+}

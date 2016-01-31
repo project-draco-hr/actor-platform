@@ -1,3 +1,4 @@
 {
   writer.writeRepeatedObj(1,this.publicKey);
+  writer.writeRepeatedObj(2,this.signatures);
 }

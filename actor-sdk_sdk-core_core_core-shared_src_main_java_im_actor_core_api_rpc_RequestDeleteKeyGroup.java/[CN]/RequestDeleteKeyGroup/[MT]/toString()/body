@@ -1,0 +1,6 @@
+{
+  String res="rpc DeleteKeyGroup{";
+  res+="keyGroupId=" + this.keyGroupId;
+  res+="}";
+  return res;
+}

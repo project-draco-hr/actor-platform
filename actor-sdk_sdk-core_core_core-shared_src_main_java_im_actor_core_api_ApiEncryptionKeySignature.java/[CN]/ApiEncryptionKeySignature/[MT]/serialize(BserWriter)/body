@@ -1,0 +1,11 @@
+{
+  writer.writeLong(1,this.keyId);
+  if (this.signatureAlg == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.signatureAlg);
+  if (this.signature == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(3,this.signature);
+}

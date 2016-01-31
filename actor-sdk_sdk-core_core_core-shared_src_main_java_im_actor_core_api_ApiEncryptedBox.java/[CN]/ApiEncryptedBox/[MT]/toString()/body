@@ -1,0 +1,9 @@
+{
+  String res="struct EncryptedBox{";
+  res+="senderKeyGroupId=" + this.senderKeyGroupId;
+  res+=", keys=" + this.keys;
+  res+=", algType=" + this.algType;
+  res+=", encPackage=" + byteArrayToString(this.encPackage);
+  res+="}";
+  return res;
+}

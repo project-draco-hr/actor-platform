@@ -1,0 +1,5 @@
+Integer seq
+byte[] state
+Long date
+List<ApiKeyGroupId> obsoleteKeyGroups
+List<ApiKeyGroupId> missedKeyGroups

@@ -1,0 +1,6 @@
+{
+  this.uid=uid;
+  this.date=date;
+  this.deviceType=deviceType;
+  this.deviceCategory=deviceCategory;
+}

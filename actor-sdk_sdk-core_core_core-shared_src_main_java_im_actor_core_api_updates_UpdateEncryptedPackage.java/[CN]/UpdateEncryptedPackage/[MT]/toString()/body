@@ -1,0 +1,9 @@
+{
+  String res="update EncryptedPackage{";
+  res+="randomId=" + this.randomId;
+  res+=", date=" + this.date;
+  res+=", senderId=" + this.senderId;
+  res+=", encryptedBox=" + this.encryptedBox;
+  res+="}";
+  return res;
+}

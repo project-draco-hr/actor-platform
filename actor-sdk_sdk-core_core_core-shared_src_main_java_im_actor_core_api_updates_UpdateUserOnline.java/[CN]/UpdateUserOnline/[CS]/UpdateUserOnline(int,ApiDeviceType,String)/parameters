@@ -1,0 +1,3 @@
+int uid
+ApiDeviceType deviceType
+String deviceCategory

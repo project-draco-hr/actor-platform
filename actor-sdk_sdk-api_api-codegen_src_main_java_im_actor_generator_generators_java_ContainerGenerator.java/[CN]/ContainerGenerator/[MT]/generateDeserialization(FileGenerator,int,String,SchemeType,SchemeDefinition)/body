@@ -134,6 +134,16 @@
       generator.decreaseDepth();
       generator.appendLn("}");
     }
+ else     if (childType instanceof SchemeEnumType) {
+      SchemeEnumType enumType=(SchemeEnumType)childType;
+      String enumName=JavaConfig.getEnumName(enumType.getName());
+      generator.appendLn("this." + attributeName + " = new ArrayList<"+ enumName+ ">();");
+      generator.appendLn("for (int b : values.getRepeatedInt(" + attributeId + ")) {");
+      generator.increaseDepth();
+      generator.appendLn(attributeName + ".add(" + enumName+ ".parse(b));");
+      generator.decreaseDepth();
+      generator.appendLn("}");
+    }
  else {
       throw new IOException();
     }

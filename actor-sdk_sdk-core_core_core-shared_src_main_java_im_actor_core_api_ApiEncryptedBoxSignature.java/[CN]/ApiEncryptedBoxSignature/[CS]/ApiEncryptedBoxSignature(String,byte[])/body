@@ -1,0 +1,4 @@
+{
+  this.algType=algType;
+  this.signature=signature;
+}

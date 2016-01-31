@@ -1,0 +1,5 @@
+{
+  String res="rpc RestoreNotifications{";
+  res+="}";
+  return res;
+}

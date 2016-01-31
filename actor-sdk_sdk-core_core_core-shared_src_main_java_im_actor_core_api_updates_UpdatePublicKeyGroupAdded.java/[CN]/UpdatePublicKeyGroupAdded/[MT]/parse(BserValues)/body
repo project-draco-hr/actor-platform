@@ -1,4 +1,4 @@
 {
   this.uid=values.getInt(1);
-  this.keyGroup=values.getObj(2,new ApiEncryptionPublicKeyGroup());
+  this.keyGroup=values.getObj(2,new ApiEncryptionKeyGroup());
 }

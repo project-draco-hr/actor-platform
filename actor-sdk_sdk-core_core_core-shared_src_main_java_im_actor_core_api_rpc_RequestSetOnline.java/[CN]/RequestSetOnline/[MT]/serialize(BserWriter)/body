@@ -1,4 +1,10 @@
 {
   writer.writeBool(1,this.isOnline);
   writer.writeLong(2,this.timeout);
+  if (this.deviceType != null) {
+    writer.writeInt(3,this.deviceType.getValue());
+  }
+  if (this.deviceCategory != null) {
+    writer.writeString(4,this.deviceCategory);
+  }
 }

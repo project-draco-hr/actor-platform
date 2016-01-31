@@ -1,0 +1,9 @@
+{
+  writer.writeLong(1,this.randomId);
+  writer.writeRepeatedObj(2,this.destPeers);
+  writer.writeRepeatedObj(3,this.ignoredKeyGroups);
+  if (this.encryptedBox == null) {
+    throw new IOException();
+  }
+  writer.writeObject(4,this.encryptedBox);
+}

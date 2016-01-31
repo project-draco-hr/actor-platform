@@ -1,0 +1,14 @@
+{
+  this.randomId=values.getLong(1);
+  List<ApiUserOutPeer> _destPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _destPeers.add(new ApiUserOutPeer());
+  }
+  this.destPeers=values.getRepeatedObj(2,_destPeers);
+  List<ApiKeyGroupId> _ignoredKeyGroups=new ArrayList<ApiKeyGroupId>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _ignoredKeyGroups.add(new ApiKeyGroupId());
+  }
+  this.ignoredKeyGroups=values.getRepeatedObj(3,_ignoredKeyGroups);
+  this.encryptedBox=values.getObj(4,new ApiEncryptedBox());
+}

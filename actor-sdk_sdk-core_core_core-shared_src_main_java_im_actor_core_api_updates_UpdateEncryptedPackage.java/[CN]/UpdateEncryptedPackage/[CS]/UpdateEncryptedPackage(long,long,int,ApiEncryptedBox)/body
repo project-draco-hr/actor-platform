@@ -1,0 +1,6 @@
+{
+  this.randomId=randomId;
+  this.date=date;
+  this.senderId=senderId;
+  this.encryptedBox=encryptedBox;
+}

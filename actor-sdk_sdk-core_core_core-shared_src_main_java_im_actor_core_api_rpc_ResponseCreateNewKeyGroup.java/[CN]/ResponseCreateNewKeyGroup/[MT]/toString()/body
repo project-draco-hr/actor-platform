@@ -1,0 +1,5 @@
+{
+  String res="tuple CreateNewKeyGroup{";
+  res+="}";
+  return res;
+}

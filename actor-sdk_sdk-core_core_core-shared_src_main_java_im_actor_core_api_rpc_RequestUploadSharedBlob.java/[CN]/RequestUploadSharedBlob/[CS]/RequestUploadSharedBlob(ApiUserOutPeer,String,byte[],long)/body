@@ -1,0 +1,6 @@
+{
+  this.destPeer=destPeer;
+  this.bucket=bucket;
+  this.blob=blob;
+  this.randomId=randomId;
+}

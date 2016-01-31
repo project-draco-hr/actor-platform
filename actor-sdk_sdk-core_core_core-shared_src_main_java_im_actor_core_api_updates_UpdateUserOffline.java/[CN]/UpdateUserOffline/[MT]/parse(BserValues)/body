@@ -1,3 +1,8 @@
 {
   this.uid=values.getInt(1);
+  int val_deviceType=values.getInt(2,0);
+  if (val_deviceType != 0) {
+    this.deviceType=ApiDeviceType.parse(val_deviceType);
+  }
+  this.deviceCategory=values.optString(3);
 }

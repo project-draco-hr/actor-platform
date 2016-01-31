@@ -1,0 +1,9 @@
+{
+  if (this.identityKey == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.identityKey);
+  writer.writeRepeatedString(2,this.supportedEncryptions);
+  writer.writeRepeatedObj(3,this.keys);
+  writer.writeRepeatedObj(4,this.signatures);
+}

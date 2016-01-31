@@ -1,0 +1,3 @@
+ApiUserOutPeer userPeer
+int keyGroupId
+List<Long> keyIds

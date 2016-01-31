@@ -1,0 +1,9 @@
+{
+  this.seqStart=seqStart;
+  this.seqEnd=seqEnd;
+  this.state=state;
+  this.users=users;
+  this.groups=groups;
+  this.updates=updates;
+  this.messages=messages;
+}

@@ -1,0 +1,11 @@
+{
+  this.seq=seq;
+  this.state=state;
+  this.users=users;
+  this.groups=groups;
+  this.updates=updates;
+  this.messages=messages;
+  this.needMore=needMore;
+  this.usersRefs=usersRefs;
+  this.groupsRefs=groupsRefs;
+}

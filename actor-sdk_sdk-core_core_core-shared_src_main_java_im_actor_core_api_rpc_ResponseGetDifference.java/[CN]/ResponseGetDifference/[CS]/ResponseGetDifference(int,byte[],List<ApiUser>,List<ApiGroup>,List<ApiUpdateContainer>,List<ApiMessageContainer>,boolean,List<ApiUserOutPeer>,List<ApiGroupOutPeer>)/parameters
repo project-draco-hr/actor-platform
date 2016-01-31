@@ -1,0 +1,9 @@
+int seq
+byte[] state
+List<ApiUser> users
+List<ApiGroup> groups
+List<ApiUpdateContainer> updates
+List<ApiMessageContainer> messages
+boolean needMore
+List<ApiUserOutPeer> usersRefs
+List<ApiGroupOutPeer> groupsRefs

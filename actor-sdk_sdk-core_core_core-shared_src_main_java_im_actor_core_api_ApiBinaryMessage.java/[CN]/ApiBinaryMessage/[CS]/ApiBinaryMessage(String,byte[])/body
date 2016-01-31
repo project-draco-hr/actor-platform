@@ -1,0 +1,4 @@
+{
+  this.contentTag=contentTag;
+  this.msg=msg;
+}

@@ -1,2 +1,5 @@
 {
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(1,i.getValue());
+  }
 }

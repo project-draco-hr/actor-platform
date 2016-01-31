@@ -2,6 +2,8 @@
   String res="rpc SetOnline{";
   res+="isOnline=" + this.isOnline;
   res+=", timeout=" + this.timeout;
+  res+=", deviceType=" + this.deviceType;
+  res+=", deviceCategory=" + this.deviceCategory;
   res+="}";
   return res;
 }

@@ -1,0 +1,7 @@
+{
+  this.keyGroupId=keyGroupId;
+  this.supportedEncryption=supportedEncryption;
+  this.identityKey=identityKey;
+  this.keys=keys;
+  this.signatures=signatures;
+}

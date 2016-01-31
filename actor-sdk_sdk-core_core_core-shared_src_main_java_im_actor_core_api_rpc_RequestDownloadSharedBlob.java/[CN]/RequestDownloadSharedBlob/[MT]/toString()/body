@@ -1,0 +1,8 @@
+{
+  String res="rpc DownloadSharedBlob{";
+  res+="destPeer=" + this.destPeer;
+  res+=", bucket=" + this.bucket;
+  res+=", objectId=" + this.objectId;
+  res+="}";
+  return res;
+}

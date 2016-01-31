@@ -1,0 +1,10 @@
+{
+  if (this.algType == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.algType);
+  if (this.signature == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.signature);
+}

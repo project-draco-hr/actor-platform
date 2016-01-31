@@ -1,0 +1,5 @@
+int keyGroupId
+List<String> supportedEncryption
+ApiEncryptionKey identityKey
+List<ApiEncryptionKey> keys
+List<ApiEncryptionKeySignature> signatures

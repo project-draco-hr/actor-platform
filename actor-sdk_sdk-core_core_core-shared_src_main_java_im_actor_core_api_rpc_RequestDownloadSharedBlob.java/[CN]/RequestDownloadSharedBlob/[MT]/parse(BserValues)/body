@@ -1,0 +1,5 @@
+{
+  this.destPeer=values.getObj(1,new ApiUserOutPeer());
+  this.bucket=values.getString(2);
+  this.objectId=values.getInt(3);
+}

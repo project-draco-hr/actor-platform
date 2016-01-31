@@ -1,0 +1,9 @@
+{
+  writer.writeLong(1,this.randomId);
+  writer.writeLong(2,this.date);
+  writer.writeInt(3,this.senderId);
+  if (this.encryptedBox == null) {
+    throw new IOException();
+  }
+  writer.writeObject(4,this.encryptedBox);
+}

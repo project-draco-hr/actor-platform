@@ -1,0 +1,6 @@
+{
+  String res="struct EncryptedMessage{";
+  res+="box=" + this.box;
+  res+="}";
+  return res;
+}

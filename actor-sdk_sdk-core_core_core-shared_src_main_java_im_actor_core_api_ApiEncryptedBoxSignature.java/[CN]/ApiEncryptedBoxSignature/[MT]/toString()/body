@@ -1,0 +1,7 @@
+{
+  String res="struct EncryptedBoxSignature{";
+  res+="algType=" + this.algType;
+  res+=", signature=" + byteArrayToString(this.signature);
+  res+="}";
+  return res;
+}
