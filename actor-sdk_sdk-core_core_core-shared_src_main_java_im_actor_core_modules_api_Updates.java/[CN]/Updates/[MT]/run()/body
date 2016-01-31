@@ -1,6 +1,6 @@
 {
-  this.updateActor=system().actorOf(Props.create(SequenceActor.class,new ActorCreator<SequenceActor>(){
-    @Override public SequenceActor create(){
+  this.updateActor=system().actorOf(Props.create(new ActorCreator(){
+    @Override public Actor create(){
       return new SequenceActor(context());
     }
   }

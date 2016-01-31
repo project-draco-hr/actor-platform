@@ -1,13 +1,13 @@
 {
 synchronized (conversationActors) {
     if (!conversationActors.containsKey(peer)) {
-      conversationActors.put(peer,system().actorOf(Props.create(ConversationActor.class,new ActorCreator<ConversationActor>(){
+      conversationActors.put(peer,system().actorOf(Props.create(new ActorCreator(){
         @Override public ConversationActor create(){
           return new ConversationActor(peer,context());
         }
       }
 ),"actor/conv_" + peer.getPeerType() + "_"+ peer.getPeerId()));
-      conversationHistoryActors.put(peer,system().actorOf(Props.create(ConversationHistoryActor.class,new ActorCreator<ConversationHistoryActor>(){
+      conversationHistoryActors.put(peer,system().actorOf(Props.create(new ActorCreator(){
         @Override public ConversationHistoryActor create(){
           return new ConversationHistoryActor(peer,context());
         }

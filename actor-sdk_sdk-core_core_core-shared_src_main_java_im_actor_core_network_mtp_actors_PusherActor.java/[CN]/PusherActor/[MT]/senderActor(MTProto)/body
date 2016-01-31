@@ -1,5 +1,5 @@
 {
-  return ActorSystem.system().actorOf(new ActorSelection(Props.create(PusherActor.class,new ActorCreator<PusherActor>(){
+  return ActorSystem.system().actorOf(new ActorSelection(Props.create(new ActorCreator(){
     @Override public PusherActor create(){
       return new PusherActor(proto);
     }

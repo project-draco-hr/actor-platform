@@ -1,5 +1,5 @@
 {
-  return ActorSystem.system().actorOf(Props.create(ApiBroker.class,new ActorCreator<ApiBroker>(){
+  return ActorSystem.system().actorOf(Props.create(new ActorCreator(){
     @Override public ApiBroker create(){
       return new ApiBroker(endpoints,keyStorage,callback,isEnableLog,minDelay,maxDelay,maxFailureCount,parserConfig);
     }

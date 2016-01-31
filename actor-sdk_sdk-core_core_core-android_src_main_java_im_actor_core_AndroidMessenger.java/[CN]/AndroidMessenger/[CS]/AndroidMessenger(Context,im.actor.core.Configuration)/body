@@ -1,7 +1,7 @@
 {
   super(configuration);
   this.context=context;
-  this.appStateActor=system().actorOf(Props.create(AppStateActor.class,new ActorCreator<AppStateActor>(){
+  this.appStateActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public AppStateActor create(){
       return new AppStateActor(AndroidMessenger.this);
     }

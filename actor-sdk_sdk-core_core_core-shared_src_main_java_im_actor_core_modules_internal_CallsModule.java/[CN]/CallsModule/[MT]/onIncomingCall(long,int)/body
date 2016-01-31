@@ -1,12 +1,12 @@
 {
   Log.d(TAG,"incoming call " + callId);
   if (!calls.keySet().contains(callId)) {
-    calls.put(callId,ActorSystem.system().actorOf(Props.create(CallActor.class,new ActorCreator<CallActor>(){
-      @Override public CallActor create(){
+    calls.put(callId,ActorSystem.system().actorOf("actor/call_" + callId,new ActorCreator(){
+      @Override public Actor create(){
         return new CallActor(callId,context());
       }
     }
-),"actor/call_" + callId));
+));
     if (!MULTIPLE_CALLS_ENABLED & calls.keySet().size() > MAX_CALLS_COUNT) {
       calls.get(callId).send(new CallActor.EndCall());
     }

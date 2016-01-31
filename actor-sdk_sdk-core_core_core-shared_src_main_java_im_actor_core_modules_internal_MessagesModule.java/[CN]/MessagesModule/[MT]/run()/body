@@ -1,58 +1,52 @@
 {
-  this.dialogsActor=system().actorOf(Props.create(DialogsActor.class,new ActorCreator<DialogsActor>(){
+  this.dialogsActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public DialogsActor create(){
       return new DialogsActor(context());
     }
   }
 ),"actor/dialogs");
-  this.dialogsHistoryActor=system().actorOf(Props.create(DialogsHistoryActor.class,new ActorCreator<DialogsHistoryActor>(){
+  this.dialogsHistoryActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public DialogsHistoryActor create(){
       return new DialogsHistoryActor(context());
     }
   }
 ),"actor/dialogs/history");
-  this.dialogsGroupedActor=system().actorOf(Props.create(GroupedDialogsActor.class,new ActorCreator<GroupedDialogsActor>(){
+  this.dialogsGroupedActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public GroupedDialogsActor create(){
       return new GroupedDialogsActor(context());
     }
   }
 ),"actor/dialogs/grouped");
-  this.ownReadActor=system().actorOf(Props.create(OwnReadActor.class,new ActorCreator<OwnReadActor>(){
+  this.ownReadActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public OwnReadActor create(){
       return new OwnReadActor(context());
     }
   }
 ),"actor/read/own");
-  this.plainReadActor=system().actorOf(Props.create(CursorReaderActor.class,new ActorCreator<CursorReaderActor>(){
+  this.plainReadActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public CursorReaderActor create(){
       return new CursorReaderActor(context());
     }
   }
 ).changeDispatcher("heavy"),"actor/plain/read");
-  this.plainReceiverActor=system().actorOf(Props.create(CursorReceiverActor.class,new ActorCreator<CursorReceiverActor>(){
+  this.plainReceiverActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public CursorReceiverActor create(){
       return new CursorReceiverActor(context());
     }
   }
 ).changeDispatcher("heavy"),"actor/plain/receive");
-  this.sendMessageActor=system().actorOf(Props.create(SenderActor.class,new ActorCreator<SenderActor>(){
+  this.sendMessageActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public SenderActor create(){
       return new SenderActor(context());
     }
   }
 ),"actor/sender/small");
-  this.deletionsActor=system().actorOf(Props.create(MessageDeleteActor.class,new ActorCreator<MessageDeleteActor>(){
+  this.deletionsActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public MessageDeleteActor create(){
       return new MessageDeleteActor(context());
     }
   }
 ),"actor/deletions");
-  this.messageShownActor=system().actorOf(Props.create(MessageShownActor.class,new ActorCreator<MessageShownActor>(){
-    @Override public MessageShownActor create(){
-      return new MessageShownActor(context());
-    }
-  }
-),"actor/shown");
   context().getEvents().subscribe(this,PeerChatOpened.EVENT);
   context().getEvents().subscribe(this,PeerChatClosed.EVENT);
   context().getEvents().subscribe(this,AppVisibleChanged.EVENT);

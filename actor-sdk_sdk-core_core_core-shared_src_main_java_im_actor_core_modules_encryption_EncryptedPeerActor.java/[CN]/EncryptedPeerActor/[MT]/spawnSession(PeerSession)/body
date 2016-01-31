@@ -1,5 +1,5 @@
 {
-  ActorRef res=system().actorOf(Props.create(EncryptedSessionActor.class,new ActorCreator<EncryptedSessionActor>(){
+  ActorRef res=system().actorOf(Props.create(new ActorCreator(){
     @Override public EncryptedSessionActor create(){
       return new EncryptedSessionActor(context(),session);
     }

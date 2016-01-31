@@ -1,17 +1,6 @@
 {
   if (!docsLists.containsKey(peer)) {
     BindedDisplayList<Message> list=(BindedDisplayList<Message>)modules.getDisplayListsModule().getDocsSharedList(peer);
-    list.setBindHook(new BindedDisplayList.BindHook<Message>(){
-      @Override public void onScrolledToEnd(){
-        modules.getMessagesModule().loadMoreHistory(peer);
-      }
-      @Override public void onItemTouched(      Message item){
-        if (item.isOnServer()) {
-          modules.getMessagesModule().onMessageShown(peer,item.getSenderId(),item.getSortDate());
-        }
-      }
-    }
-);
     docsLists.put(peer,list);
   }
   return docsLists.get(peer);

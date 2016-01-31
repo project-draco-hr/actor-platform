@@ -1,5 +1,5 @@
 {
-  return ActorSystem.system().actorOf(Props.create(OwnTypingActor.class,new ActorCreator<OwnTypingActor>(){
+  return ActorSystem.system().actorOf(Props.create(new ActorCreator(){
     @Override public OwnTypingActor create(){
       return new OwnTypingActor(context);
     }

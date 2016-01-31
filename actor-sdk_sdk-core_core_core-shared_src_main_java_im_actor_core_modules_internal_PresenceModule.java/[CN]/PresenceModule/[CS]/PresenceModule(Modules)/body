@@ -1,6 +1,6 @@
 {
   super(modules);
-  system().actorOf(Props.create(OwnPresenceActor.class,new ActorCreator<OwnPresenceActor>(){
+  system().actorOf(Props.create(new ActorCreator(){
     @Override public OwnPresenceActor create(){
       return new OwnPresenceActor(modules);
     }

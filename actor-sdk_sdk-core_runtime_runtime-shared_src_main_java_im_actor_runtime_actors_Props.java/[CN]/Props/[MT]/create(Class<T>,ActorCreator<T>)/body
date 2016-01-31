@@ -1,3 +1,0 @@
-{
-  return new Props<T>(clazz,null,null,creator,null);
-}

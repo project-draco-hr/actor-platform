@@ -1,5 +1,5 @@
 {
-  storageActor=system().actorOf(Props.create(AsyncStorageActor.class,new ActorCreator<AsyncStorageActor>(){
+  storageActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public AsyncStorageActor<T> create(){
       return new AsyncStorageActor<T>(storage,creator);
     }

@@ -1,6 +1,4 @@
 {
-  this.aClass=aClass;
-  this.args=args;
   this.creator=creator;
   this.mailboxCreator=mailboxCreator;
   this.dispatcher=dispatcher;
