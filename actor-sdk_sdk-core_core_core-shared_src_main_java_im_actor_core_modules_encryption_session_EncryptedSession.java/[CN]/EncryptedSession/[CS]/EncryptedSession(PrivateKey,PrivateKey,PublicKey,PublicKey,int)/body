@@ -1,0 +1,8 @@
+{
+  this.ownIdentityKey=ownIdentityKey;
+  this.ownPreKey=ownPreKey;
+  this.theirIdentityKey=theirIdentityKey;
+  this.theirPreKey=theirPreKey;
+  this.peerKeyGroupId=peerKeyGroupId;
+  this.masterKey=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentityKey.getKey()),new RatchetPrivateKey(ownPreKey.getKey()),new RatchetPublicKey(theirIdentityKey.getPublicKey()),new RatchetPublicKey(theirPreKey.getPublicKey()));
+}

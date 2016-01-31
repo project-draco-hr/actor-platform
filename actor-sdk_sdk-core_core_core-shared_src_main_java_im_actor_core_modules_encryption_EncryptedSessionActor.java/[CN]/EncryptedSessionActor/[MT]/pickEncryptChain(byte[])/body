@@ -1,0 +1,11 @@
+{
+  if (latestTheirEphemeralKey == null) {
+    latestTheirEphemeralKey=ephemeralKey;
+  }
+  if (encryptionChains.size() > 0) {
+    return encryptionChains.get(0);
+  }
+  EncryptedSessionChain chain=new EncryptedSessionChain(session,Curve25519.keyGenPrivate(Crypto.randomBytes(32)),ephemeralKey);
+  encryptionChains.add(0,chain);
+  return chain;
+}

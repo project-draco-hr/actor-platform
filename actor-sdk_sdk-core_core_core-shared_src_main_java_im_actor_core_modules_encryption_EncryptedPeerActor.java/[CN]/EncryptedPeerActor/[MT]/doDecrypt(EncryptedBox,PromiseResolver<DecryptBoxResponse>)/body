@@ -1,0 +1,53 @@
+{
+  if (!isReady) {
+    stash();
+    return;
+  }
+  final int senderKeyGroup=ByteStrings.bytesToInt(ByteStrings.substring(data.getEncryptedPackage(),0,4));
+  final byte[] encPackage=ByteStrings.substring(data.getEncryptedPackage(),4,data.getEncryptedPackage().length - 4);
+  if (ignoredKeyGroups.contains(senderKeyGroup)) {
+    resolver.error(new RuntimeException("This key group is ignored"));
+    return;
+  }
+  PromisesArray.of(data.getKeys()).filter(EncryptedBoxKey.FILTER(myUid(),ownKeyGroupId)).first().mapPromise(new Function<EncryptedBoxKey,Promise<Tuple2<SessionActor,EncryptedBoxKey>>>(){
+    @Override public Promise<Tuple2<SessionActor,EncryptedBoxKey>> apply(    final EncryptedBoxKey boxKey){
+      final long senderPreKeyId=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),4);
+      final long receiverPreKeyId=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),12);
+      if (activeSessions.containsKey(boxKey.getKeyGroupId())) {
+        for (        SessionActor s : activeSessions.get(senderKeyGroup).getSessions()) {
+          if (s.getSession().getOwnPreKeyId() == receiverPreKeyId && s.getSession().getTheirPreKeyId() == senderPreKeyId) {
+            return success(new Tuple2<>(s,boxKey));
+          }
+        }
+      }
+      return context().getEncryption().getSessionManagerInt().pickSession(uid,senderKeyGroup,receiverPreKeyId,senderPreKeyId).map(new Function<PeerSession,Tuple2<SessionActor,EncryptedBoxKey>>(){
+        @Override public Tuple2<SessionActor,EncryptedBoxKey> apply(        PeerSession src){
+          return new Tuple2<>(spawnSession(src),boxKey);
+        }
+      }
+);
+    }
+  }
+).mapPromise(new Function<Tuple2<SessionActor,EncryptedBoxKey>,Promise<EncryptedSessionActor.DecryptedPackage>>(){
+    @Override public Promise<EncryptedSessionActor.DecryptedPackage> apply(    Tuple2<SessionActor,EncryptedBoxKey> src){
+      Log.d(TAG,"Key size:" + src.getT2().getEncryptedKey().length);
+      return ask(src.getT1().getActorRef(),new EncryptedSessionActor.DecryptPackage(src.getT2().getEncryptedKey()));
+    }
+  }
+).map(new Function<EncryptedSessionActor.DecryptedPackage,DecryptBoxResponse>(){
+    @Override public DecryptBoxResponse apply(    EncryptedSessionActor.DecryptedPackage decryptedPackage){
+      byte[] encData;
+      try {
+        byte[] encKeyExtended=decryptedPackage.getData().length >= 128 ? decryptedPackage.getData() : keyPrf.calculate(decryptedPackage.getData(),"ActorPackage",128);
+        encData=ActorBox.openBox(ByteStrings.intToBytes(senderKeyGroup),encPackage,new ActorBoxKey(encKeyExtended));
+        Log.d(TAG,"Box size: " + encData.length);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        throw new RuntimeException(e);
+      }
+      return new DecryptBoxResponse(encData);
+    }
+  }
+).pipeTo(resolver).done(self());
+}

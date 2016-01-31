@@ -1,6 +1,0 @@
-{
-  String res="struct EncryptionPublicKeyGroup{";
-  res+="keyGroupId=" + this.keyGroupId;
-  res+="}";
-  return res;
-}

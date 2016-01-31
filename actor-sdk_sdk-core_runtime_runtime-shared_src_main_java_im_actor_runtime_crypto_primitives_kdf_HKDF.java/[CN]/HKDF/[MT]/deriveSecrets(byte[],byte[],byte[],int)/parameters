@@ -1,0 +1,4 @@
+byte[] keyMaterial
+byte[] salt
+byte[] info
+int outputLength

@@ -1,9 +1,0 @@
-{
-  this.keyId=values.getLong(1);
-  this.keyAlg=values.getString(2);
-  this.keyMaterial=values.optBytes(3);
-  this.keyHash=values.optBytes(4);
-  if (values.hasRemaining()) {
-    setUnmappedObjects(values.buildRemaining());
-  }
-}

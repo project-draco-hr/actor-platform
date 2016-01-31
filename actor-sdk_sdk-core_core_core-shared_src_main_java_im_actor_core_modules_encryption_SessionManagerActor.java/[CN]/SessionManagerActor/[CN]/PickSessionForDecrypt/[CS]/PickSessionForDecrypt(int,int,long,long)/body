@@ -1,0 +1,6 @@
+{
+  this.uid=uid;
+  this.keyGroupId=keyGroupId;
+  this.theirPreKey=theirPreKey;
+  this.ownPreKey=ownPreKey;
+}

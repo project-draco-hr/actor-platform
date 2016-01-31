@@ -1,0 +1,30 @@
+{
+  Log.d(TAG,"Main Keys are ready");
+  int missingKeysCount=Math.max(0,Configuration.EPHEMERAL_KEYS_COUNT - ownKeys.getPreKeys().length);
+  if (missingKeysCount > 0) {
+    ownKeys=ownKeys.appendPreKeys(ManagedList.of(PrivateKey.GENERATOR,missingKeysCount).toArray(new PrivateKey[0]));
+    encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
+  }
+  final ManagedList<PrivateKey> pendingEphermalKeys=ManagedList.of(ownKeys.getPreKeys()).filter(PrivateKey.NOT_UPLOADED);
+  if (pendingEphermalKeys.size() > 0) {
+    ArrayList<ApiEncryptionKey> uploadingKeys=pendingEphermalKeys.map(PrivateKey.TO_API);
+    ArrayList<ApiEncryptionKeySignature> uploadingSignatures=pendingEphermalKeys.map(PrivateKey.SIGN(ownKeys.getIdentityKey()));
+    api(new RequestUploadEphermalKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures)).then(new Consumer<ResponseVoid>(){
+      @Override public void apply(      ResponseVoid responseVoid){
+        ownKeys=ownKeys.markAsUploaded(pendingEphermalKeys.toArray(new PrivateKey[pendingEphermalKeys.size()]));
+        encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
+        onAllKeysReady();
+      }
+    }
+).failure(new Consumer<Exception>(){
+      @Override public void apply(      Exception e){
+        Log.w(TAG,"Ephemeral keys upload error");
+        Log.e(TAG,e);
+      }
+    }
+).done(self());
+  }
+ else {
+    onAllKeysReady();
+  }
+}

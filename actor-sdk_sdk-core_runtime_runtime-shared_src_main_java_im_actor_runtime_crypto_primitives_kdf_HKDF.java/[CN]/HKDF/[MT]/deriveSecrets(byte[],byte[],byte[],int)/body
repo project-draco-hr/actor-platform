@@ -1,0 +1,4 @@
+{
+  byte[] prk=hkdfExtract(salt,keyMaterial);
+  return hkdfExpand(prk,info,outputLength);
+}

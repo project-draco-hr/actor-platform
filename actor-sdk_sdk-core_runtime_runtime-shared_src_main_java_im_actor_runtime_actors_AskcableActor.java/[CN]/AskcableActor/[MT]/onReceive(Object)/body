@@ -1,0 +1,9 @@
+{
+  if (message instanceof AskIntRequest) {
+    AskIntRequest askRequest=(AskIntRequest)message;
+    onAsk(askRequest.getMessage(),askRequest.getFuture());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

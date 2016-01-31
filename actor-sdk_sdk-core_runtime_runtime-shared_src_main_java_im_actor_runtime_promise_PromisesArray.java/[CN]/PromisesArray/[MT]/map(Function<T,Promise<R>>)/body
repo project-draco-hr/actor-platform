@@ -1,0 +1,36 @@
+{
+  return mapSourcePromises(new Function<Promise<T>,Promise<R>>(){
+    @Override public Promise<R> apply(    final Promise<T> srcPromise){
+      return new Promise<R>(){
+        @Override void exec(        final PromiseResolver<R> resolver){
+          srcPromise.then(new Consumer<T>(){
+            @Override public void apply(            T t){
+              Promise<R> mapped=fun.apply(t);
+              mapped.then(new Consumer<R>(){
+                @Override public void apply(                R r){
+                  resolver.result(r);
+                }
+              }
+).failure(new Consumer<Exception>(){
+                @Override public void apply(                Exception e){
+                  resolver.error(e);
+                }
+              }
+).done(resolver.getDispatcher());
+            }
+          }
+);
+          srcPromise.failure(new Consumer<Exception>(){
+            @Override public void apply(            Exception e){
+              resolver.error(e);
+            }
+          }
+);
+          srcPromise.done(resolver.getDispatcher());
+        }
+      }
+;
+    }
+  }
+);
+}

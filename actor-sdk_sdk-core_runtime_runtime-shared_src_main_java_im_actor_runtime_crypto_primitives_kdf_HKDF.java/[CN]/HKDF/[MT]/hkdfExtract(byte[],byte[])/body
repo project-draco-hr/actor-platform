@@ -1,0 +1,8 @@
+{
+  HMAC hmac=new HMAC(salt,baseDigest);
+  hmac.reset();
+  hmac.update(keyMaterial,0,keyMaterial.length);
+  byte[] res=new byte[baseDigest.getDigestSize()];
+  hmac.doFinal(res,0);
+  return res;
+}

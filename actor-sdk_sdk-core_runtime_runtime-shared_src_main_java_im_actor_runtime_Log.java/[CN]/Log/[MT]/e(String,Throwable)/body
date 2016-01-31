@@ -1,3 +1,4 @@
 {
   logRuntime.e(tag,throwable);
+  throwable.printStackTrace();
 }

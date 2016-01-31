@@ -1,0 +1,4 @@
+{
+  this.sessions=new ArrayList<>(sessions);
+  this.uid=uid;
+}

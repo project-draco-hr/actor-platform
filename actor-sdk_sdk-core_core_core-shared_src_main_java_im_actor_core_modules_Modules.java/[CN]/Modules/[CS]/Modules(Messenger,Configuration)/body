@@ -10,19 +10,12 @@
   this.events=new EventBus();
   timing.section("API");
   this.api=new ApiModule(this);
-  timing.section("Extensions");
-  this.extensions=new Extensions(this);
   timing.section("App State");
   this.appStateModule=new AppStateModule(this);
   timing.section("External");
   this.external=new ExternalModule(this);
   timing.section("Pushes");
   this.pushes=new PushesModule(this);
-  timing.section("Extensions");
-  for (  ConfigurationExtension e : configuration.getExtensions()) {
-    this.extensions.registerExtension(e.getKey(),e.getExtension());
-  }
-  this.extensions.registerExtensions();
   timing.section("Auth");
   this.authentication=new Authentication(this);
   this.authentication.run();

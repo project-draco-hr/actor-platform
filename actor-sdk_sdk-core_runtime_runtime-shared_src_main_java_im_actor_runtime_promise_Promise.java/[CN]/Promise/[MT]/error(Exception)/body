@@ -1,0 +1,11 @@
+{
+  if (isFinished) {
+    throw new RuntimeException("Promise already completed!");
+  }
+  if (e == null) {
+    throw new RuntimeException("Error can't be null");
+  }
+  isFinished=true;
+  exception=e;
+  deliverResult();
+}

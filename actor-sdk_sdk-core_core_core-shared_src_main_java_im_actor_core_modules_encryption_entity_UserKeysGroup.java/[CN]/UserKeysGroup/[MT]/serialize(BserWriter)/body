@@ -1,0 +1,10 @@
+{
+  writer.writeInt(1,keyGroupId);
+  writer.writeBytes(2,identityKey.toByteArray());
+  for (  PublicKey k : keys) {
+    writer.writeBytes(3,k.toByteArray());
+  }
+  for (  PublicKey k : ephemeralKeys) {
+    writer.writeBytes(4,k.toByteArray());
+  }
+}

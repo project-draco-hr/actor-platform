@@ -1,0 +1,5 @@
+{
+  Log.d(TAG,"Key Manager started with key group #" + ownKeys.getKeyGroupId());
+  isReady=true;
+  unstashAll();
+}

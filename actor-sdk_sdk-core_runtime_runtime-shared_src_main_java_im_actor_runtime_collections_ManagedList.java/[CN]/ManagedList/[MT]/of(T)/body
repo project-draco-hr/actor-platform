@@ -1,0 +1,7 @@
+{
+  ManagedList<T> res=new ManagedList<>();
+  for (  T t : vals) {
+    res.add(t);
+  }
+  return res;
+}

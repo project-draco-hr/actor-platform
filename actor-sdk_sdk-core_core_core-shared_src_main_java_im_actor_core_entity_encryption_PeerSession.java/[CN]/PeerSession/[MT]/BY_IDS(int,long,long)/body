@@ -1,0 +1,8 @@
+{
+  return new Predicate<PeerSession>(){
+    @Override public boolean apply(    PeerSession session){
+      return session.getTheirKeyGroupId() == theirKeyGroupId && session.getOwnPreKeyId() == ownPreKeyId && session.getTheirPreKeyId() == theirPreKeyId;
+    }
+  }
+;
+}

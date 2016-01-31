@@ -1,0 +1,19 @@
+{
+  PrivateKey[] nKeys=new PrivateKey[preKeys.length];
+  for (int i=0; i < preKeys.length; i++) {
+    boolean found=false;
+    for (int j=0; j < uploadedPreKeys.length; j++) {
+      if (uploadedPreKeys[j].getKeyId() == preKeys[i].getKeyId()) {
+        found=true;
+        break;
+      }
+    }
+    if (found) {
+      nKeys[i]=preKeys[i].markAsUploaded();
+    }
+ else {
+      nKeys[i]=preKeys[i];
+    }
+  }
+  return new PrivateKeyStorage(keyGroupId,identityKey,keys,nKeys);
+}

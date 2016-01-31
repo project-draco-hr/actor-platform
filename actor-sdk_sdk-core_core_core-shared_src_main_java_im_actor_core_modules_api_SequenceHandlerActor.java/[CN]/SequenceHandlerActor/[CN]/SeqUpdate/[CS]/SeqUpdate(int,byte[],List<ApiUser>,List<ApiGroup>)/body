@@ -1,0 +1,6 @@
+{
+  this.type=type;
+  this.body=body;
+  this.users=users;
+  this.groups=groups;
+}

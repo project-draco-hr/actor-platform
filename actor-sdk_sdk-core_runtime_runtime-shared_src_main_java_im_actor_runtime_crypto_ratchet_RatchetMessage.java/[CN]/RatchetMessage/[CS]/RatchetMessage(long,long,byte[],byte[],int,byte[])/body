@@ -1,0 +1,8 @@
+{
+  this.senderEphermalId=senderEphermalId;
+  this.receiverEphermalId=receiverEphermalId;
+  this.senderEphermal=senderEphermal;
+  this.receiverEphermal=receiverEphermal;
+  this.messageIndex=messageIndex;
+  this.cipherBox=cipherBox;
+}

@@ -1,0 +1,5 @@
+{
+  dateCreated=values.getLong(1);
+  publicKey=values.getBytes(2);
+  privateKey=values.optBytes(3);
+}

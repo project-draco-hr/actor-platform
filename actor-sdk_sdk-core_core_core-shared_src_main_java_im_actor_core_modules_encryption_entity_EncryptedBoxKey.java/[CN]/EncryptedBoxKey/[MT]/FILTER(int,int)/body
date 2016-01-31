@@ -1,0 +1,8 @@
+{
+  return new Predicate<EncryptedBoxKey>(){
+    @Override public boolean apply(    EncryptedBoxKey boxKey){
+      return boxKey.getUid() == myUid && boxKey.getKeyGroupId() == keyGroupId;
+    }
+  }
+;
+}

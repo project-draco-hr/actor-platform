@@ -1,0 +1,4 @@
+{
+  future.error(new RuntimeException("Not implemented"));
+  drop(message);
+}

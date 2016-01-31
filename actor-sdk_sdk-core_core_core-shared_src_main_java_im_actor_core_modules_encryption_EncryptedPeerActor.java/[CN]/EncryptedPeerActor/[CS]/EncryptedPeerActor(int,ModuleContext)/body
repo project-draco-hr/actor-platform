@@ -1,0 +1,5 @@
+{
+  super(context);
+  this.uid=uid;
+  TAG="EncryptedPeerActor#" + uid;
+}

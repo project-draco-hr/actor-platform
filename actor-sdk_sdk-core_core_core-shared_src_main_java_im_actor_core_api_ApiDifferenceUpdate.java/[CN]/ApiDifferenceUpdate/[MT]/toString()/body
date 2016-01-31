@@ -1,7 +1,0 @@
-{
-  String res="struct DifferenceUpdate{";
-  res+="updateHeader=" + this.updateHeader;
-  res+=", update=" + byteArrayToStringCompact(this.update);
-  res+="}";
-  return res;
-}

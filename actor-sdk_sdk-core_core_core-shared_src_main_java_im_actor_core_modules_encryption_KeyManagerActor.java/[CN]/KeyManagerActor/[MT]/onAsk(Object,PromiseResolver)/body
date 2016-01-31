@@ -1,0 +1,26 @@
+{
+  if (message instanceof FetchOwnKey) {
+    fetchOwnIdentity(resolver);
+  }
+ else   if (message instanceof FetchOwnPreKeyByPublic) {
+    fetchPreKey(((FetchOwnPreKeyByPublic)message).getPublicKey(),resolver);
+  }
+ else   if (message instanceof FetchOwnPreKeyById) {
+    fetchPreKey(((FetchOwnPreKeyById)message).getKeyId(),resolver);
+  }
+ else   if (message instanceof FetchUserKeys) {
+    fetchUserGroups(((FetchUserKeys)message).getUid(),resolver);
+  }
+ else   if (message instanceof FetchUserPreKey) {
+    fetchUserPreKey(((FetchUserPreKey)message).getUid(),((FetchUserPreKey)message).getKeyGroup(),((FetchUserPreKey)message).getKeyId(),resolver);
+  }
+ else   if (message instanceof FetchUserPreKeyRandom) {
+    fetchUserPreKey(((FetchUserPreKeyRandom)message).getUid(),((FetchUserPreKeyRandom)message).getKeyGroup(),resolver);
+  }
+ else   if (message instanceof FetchOwnRandomPreKey) {
+    fetchPreKey(resolver);
+  }
+ else {
+    super.onAsk(message,resolver);
+  }
+}

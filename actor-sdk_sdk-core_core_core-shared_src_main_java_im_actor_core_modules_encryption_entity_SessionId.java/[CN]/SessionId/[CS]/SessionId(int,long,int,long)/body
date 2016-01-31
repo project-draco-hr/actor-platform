@@ -1,0 +1,6 @@
+{
+  this.theirKeyGroupId=theirKeyGroupId;
+  this.ownKeyId0=ownKeyId0;
+  this.theirKeyId0=theirKeyId0;
+  this.ownKeyGroupId=ownKeyGroupId;
+}

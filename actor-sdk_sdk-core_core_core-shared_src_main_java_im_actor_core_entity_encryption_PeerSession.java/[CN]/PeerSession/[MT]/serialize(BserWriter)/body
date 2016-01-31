@@ -1,0 +1,9 @@
+{
+  writer.writeLong(1,sid);
+  writer.writeInt(2,uid);
+  writer.writeInt(3,ownKeyGroupId);
+  writer.writeInt(4,theirKeyGroupId);
+  writer.writeLong(5,ownPreKeyId);
+  writer.writeLong(6,theirPreKeyId);
+  writer.writeBytes(7,masterKey);
+}

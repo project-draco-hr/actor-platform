@@ -1,0 +1,7 @@
+long sid
+int uid
+int ownKeyGroupId
+int theirKeyGroupId
+long ownPreKeyId
+long theirPreKeyId
+byte[] masterKey

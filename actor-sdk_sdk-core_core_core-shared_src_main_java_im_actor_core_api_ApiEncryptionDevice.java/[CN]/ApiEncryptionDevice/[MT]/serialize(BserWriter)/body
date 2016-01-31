@@ -1,4 +1,0 @@
-{
-  writer.writeLong(1,this.deviceId);
-  writer.writeRepeatedObj(2,this.keys);
-}

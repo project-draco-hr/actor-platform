@@ -1,0 +1,11 @@
+{
+  return complete(new PromiseCallback<T>(){
+    @Override public void onResult(    T t){
+      Log.d(TAG,"Result: " + t);
+    }
+    @Override public void onError(    Exception e){
+      Log.w(TAG,"Error: " + e);
+    }
+  }
+);
+}

@@ -1,0 +1,11 @@
+{
+  ArrayList<Promise<T>> res=new ArrayList<>();
+  Collections.addAll(res,items);
+  final Promise[] promises=(Promise[])res.toArray();
+  return new PromisesArray<>(new PromiseFunc<Promise<T>[]>(){
+    @Override public void exec(    PromiseResolver<Promise<T>[]> executor){
+      executor.result(promises);
+    }
+  }
+);
+}

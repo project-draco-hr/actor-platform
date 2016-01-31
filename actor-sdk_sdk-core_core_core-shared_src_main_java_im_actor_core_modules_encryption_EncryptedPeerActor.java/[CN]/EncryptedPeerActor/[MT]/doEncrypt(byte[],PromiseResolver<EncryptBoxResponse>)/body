@@ -1,0 +1,57 @@
+{
+  if (!isReady) {
+    stash();
+    return;
+  }
+  final byte[] encKey=Crypto.randomBytes(32);
+  final byte[] encKeyExtended=keyPrf.calculate(encKey,"ActorPackage",128);
+  Log.d(TAG,"doEncrypt");
+  final long start=Runtime.getActorTime();
+  PromisesArray.of(theirKeys.getUserKeysGroups()).filter(new Predicate<UserKeysGroup>(){
+    @Override public boolean apply(    UserKeysGroup keysGroup){
+      return !ignoredKeyGroups.contains(keysGroup.getKeyGroupId());
+    }
+  }
+).mapOptional(new Function<UserKeysGroup,Promise<SessionActor>>(){
+    @Override public Promise<SessionActor> apply(    final UserKeysGroup keysGroup){
+      if (activeSessions.containsKey(keysGroup.getKeyGroupId())) {
+        return success(activeSessions.get(keysGroup.getKeyGroupId()).getSessions().get(0));
+      }
+      return context().getEncryption().getSessionManagerInt().pickSession(uid,keysGroup.getKeyGroupId()).failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          ignoredKeyGroups.add(keysGroup.getKeyGroupId());
+        }
+      }
+).map(new Function<PeerSession,SessionActor>(){
+        @Override public SessionActor apply(        PeerSession src){
+          return spawnSession(src);
+        }
+      }
+);
+    }
+  }
+).mapOptional(encrypt(encKeyExtended)).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
+    @Override public EncryptBoxResponse apply(    EncryptedSessionActor.EncryptedPackageRes[] src){
+      if (src.length == 0) {
+        throw new RuntimeException("No sessions available");
+      }
+      Log.d(TAG,"Keys Encrypted in " + (Runtime.getActorTime() - start) + " ms");
+      ArrayList<EncryptedBoxKey> encryptedKeys=new ArrayList<>();
+      for (      EncryptedSessionActor.EncryptedPackageRes r : src) {
+        Log.d(TAG,"Keys: " + r.getKeyGroupId());
+        encryptedKeys.add(new EncryptedBoxKey(uid,r.getKeyGroupId(),"curve25519",r.getData()));
+      }
+      byte[] encData;
+      try {
+        encData=ActorBox.closeBox(ByteStrings.intToBytes(ownKeyGroupId),data,Crypto.randomBytes(32),new ActorBoxKey(encKeyExtended));
+      }
+ catch (      IntegrityException e) {
+        e.printStackTrace();
+        throw new RuntimeException(e);
+      }
+      Log.d(TAG,"All Encrypted in " + (Runtime.getActorTime() - start) + " ms");
+      return new EncryptBoxResponse(new EncryptedBox(encryptedKeys.toArray(new EncryptedBoxKey[encryptedKeys.size()]),ByteStrings.merge(ByteStrings.intToBytes(ownKeyGroupId),encData)));
+    }
+  }
+).pipeTo(future).done(self());
+}

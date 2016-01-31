@@ -1,0 +1,8 @@
+{
+  return PromisesArray.ofPromises(t1.cast(),t2.cast()).zip().map(new Function<Object[],Tuple2<T1,T2>>(){
+    @Override public Tuple2<T1,T2> apply(    Object[] src){
+      return new Tuple2<T1,T2>((T1)src[0],(T2)src[1]);
+    }
+  }
+);
+}

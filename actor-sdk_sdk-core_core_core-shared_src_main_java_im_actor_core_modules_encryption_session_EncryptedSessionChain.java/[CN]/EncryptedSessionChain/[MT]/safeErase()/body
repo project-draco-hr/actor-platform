@@ -1,0 +1,13 @@
+{
+  for (int i=0; i < ownPrivateKey.length; i++) {
+    ownPrivateKey[i]=(byte)RandomUtils.randomId(255);
+  }
+  for (int i=0; i < theirPublicKey.length; i++) {
+    theirPublicKey[i]=(byte)RandomUtils.randomId(255);
+  }
+  for (int i=0; i < rootChainKey.length; i++) {
+    rootChainKey[i]=(byte)RandomUtils.randomId(255);
+  }
+  receivedCounters.clear();
+  sentCounter=0;
+}

@@ -1,0 +1,4 @@
+byte[] keyAES
+byte[] macAES
+byte[] keyKuz
+byte[] macKuz

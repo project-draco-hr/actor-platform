@@ -2,7 +2,7 @@
   long outMessageSortDate=0;
   long intMessageSortDate=0;
   Peer peer=convert(_peer);
-  ArrayList<Message> nMesages=new ArrayList<Message>();
+  ArrayList<Message> nMessages=new ArrayList<Message>();
   for (  UpdateMessage u : messages) {
     AbsContent msgContent;
     try {
@@ -13,7 +13,7 @@
       continue;
     }
     boolean isOut=myUid() == u.getSenderUid();
-    nMesages.add(new Message(u.getRid(),u.getDate(),u.getDate(),u.getSenderUid(),isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent,new ArrayList<Reaction>()));
+    nMessages.add(new Message(u.getRid(),u.getDate(),u.getDate(),u.getSenderUid(),isOut ? MessageState.SENT : MessageState.UNKNOWN,msgContent,new ArrayList<Reaction>()));
     if (!isOut) {
       intMessageSortDate=Math.max(intMessageSortDate,u.getDate());
     }
@@ -21,14 +21,14 @@
       outMessageSortDate=Math.max(outMessageSortDate,u.getDate());
     }
   }
-  conversationActor(peer).send(new ConversationActor.Messages(nMesages));
+  conversationActor(peer).send(new ConversationActor.Messages(nMessages));
   if (intMessageSortDate > 0) {
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,intMessageSortDate));
   }
   if (outMessageSortDate > 0) {
     ownReadActor().send(new OwnReadActor.OutMessage(peer,outMessageSortDate));
   }
-  for (  Message m : nMesages) {
+  for (  Message m : nMessages) {
     if (m.getSenderId() != myUid()) {
       ownReadActor().send(new OwnReadActor.InMessage(peer,m));
     }

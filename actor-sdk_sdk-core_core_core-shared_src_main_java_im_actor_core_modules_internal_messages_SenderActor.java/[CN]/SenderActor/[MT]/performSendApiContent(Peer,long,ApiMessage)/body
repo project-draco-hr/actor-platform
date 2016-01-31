@@ -1,0 +1,17 @@
+{
+  final ApiOutPeer outPeer=buidOutPeer(peer);
+  final ApiPeer apiPeer=buildApiPeer(peer);
+  if (outPeer == null || apiPeer == null) {
+    return;
+  }
+  request(new RequestSendMessage(outPeer,rid,message),new RpcCallback<ResponseSeqDate>(){
+    @Override public void onResult(    ResponseSeqDate response){
+      self().send(new MessageSent(peer,rid));
+      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));
+    }
+    @Override public void onError(    RpcException e){
+      self().send(new MessageError(peer,rid));
+    }
+  }
+);
+}

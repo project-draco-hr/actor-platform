@@ -1,0 +1,7 @@
+int uid
+int ownKeyGroup
+int theirKeyGroup
+PrivateKey ownIdentity
+PublicKey theirIdentity
+PrivateKey ownPreKey
+PublicKey theirPreKey

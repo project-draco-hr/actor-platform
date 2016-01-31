@@ -1,0 +1,2 @@
+long keyId
+PromiseResolver<PrivateKey> resolver

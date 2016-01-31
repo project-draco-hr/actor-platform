@@ -1,0 +1,9 @@
+{
+  UserKeys userKeys=getCachedUserKeys(uid);
+  if (userKeys == null) {
+    return;
+  }
+  UserKeys updatedUserKeys=userKeys.removeUserKeyGroup(keyGroupId);
+  cacheUserKeys(updatedUserKeys);
+  context().getEncryption().getEncryptedChatManager(uid).send(new EncryptedPeerActor.KeyGroupUpdated(userKeys));
+}

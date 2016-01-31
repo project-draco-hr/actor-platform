@@ -1,0 +1,43 @@
+{
+  Log.d(TAG,"Starting KeyManager...");
+  encryptionKeysStorage=Storage.createKeyValue("encryption_keys");
+  ownKeys=null;
+  byte[] ownKeysStorage=encryptionKeysStorage.loadItem(0);
+  if (ownKeysStorage != null) {
+    try {
+      ownKeys=new PrivateKeyStorage(ownKeysStorage);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  if (ownKeys == null) {
+    byte[] identityPrivate=Curve25519.keyGenPrivate(Crypto.randomBytes(64));
+    byte[] key0=Curve25519.keyGenPrivate(Crypto.randomBytes(64));
+    ownKeys=new PrivateKeyStorage(0,new PrivateKey(RandomUtils.nextRid(),"curve25519",identityPrivate),new PrivateKey[]{new PrivateKey(RandomUtils.nextRid(),"curve25519",key0)},new PrivateKey[0]);
+    encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
+  }
+  if (ownKeys.getKeyGroupId() == 0) {
+    ApiEncryptionKey identityKey=ownKeys.getIdentityKey().toApiKey();
+    ArrayList<ApiEncryptionKey> keys=ManagedList.of(ownKeys.getKeys()).map(PrivateKey.TO_API);
+    ArrayList<ApiEncryptionKeySignature> signatures=ManagedList.of(ownKeys.getKeys()).map(PrivateKey.SIGN(ownKeys.getIdentityKey()));
+    Log.d(TAG,"Creation of new key group");
+    api(new RequestCreateNewKeyGroup(identityKey,Configuration.SUPPORTED,keys,signatures)).then(new Consumer<ResponseCreateNewKeyGroup>(){
+      @Override public void apply(      ResponseCreateNewKeyGroup response){
+        ownKeys=ownKeys.setGroupId(response.getKeyGroupId());
+        encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
+        onMainKeysReady();
+      }
+    }
+).failure(new Consumer<Exception>(){
+      @Override public void apply(      Exception e){
+        Log.w(TAG,"Keys upload error");
+        Log.e(TAG,e);
+      }
+    }
+).done(self());
+  }
+ else {
+    onMainKeysReady();
+  }
+}

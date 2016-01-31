@@ -1,0 +1,3 @@
+{
+  dispatcher.sendMessageFirst(endpoint,message,null);
+}

@@ -1,0 +1,13 @@
+{
+  if (message instanceof PickSessionForEncrypt) {
+    PickSessionForEncrypt encrypt=(PickSessionForEncrypt)message;
+    pickSession(encrypt.getUid(),encrypt.getKeyGroupId(),resolver);
+  }
+ else   if (message instanceof PickSessionForDecrypt) {
+    PickSessionForDecrypt decrypt=(PickSessionForDecrypt)message;
+    pickSession(decrypt.getUid(),decrypt.getKeyGroupId(),decrypt.getOwnPreKey(),decrypt.getTheirPreKey(),resolver);
+  }
+ else {
+    super.onAsk(message,resolver);
+  }
+}

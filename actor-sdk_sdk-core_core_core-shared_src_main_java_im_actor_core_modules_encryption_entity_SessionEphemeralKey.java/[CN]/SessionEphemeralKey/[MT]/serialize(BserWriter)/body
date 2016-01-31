@@ -1,0 +1,5 @@
+{
+  writer.writeLong(1,dateCreated);
+  writer.writeBytes(2,publicKey);
+  writer.writeBytes(3,privateKey);
+}

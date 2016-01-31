@@ -1,0 +1,7 @@
+{
+  keyId=values.getLong(1);
+  keyAlg=values.getString(2);
+  key=values.getBytes(3);
+  isUploaded=values.optBool(4);
+  this.publicKey=Curve25519.keyGenPublic(key);
+}

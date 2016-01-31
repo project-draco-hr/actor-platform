@@ -1,0 +1,11 @@
+{
+  byte[] masterSecret=RatchetMasterSecret.calculateMasterSecret(new RatchetPrivateKey(ownIdentity.getKey()),new RatchetPrivateKey(ownPreKey.getKey()),new RatchetPublicKey(theirIdentity.getPublicKey()),new RatchetPublicKey(theirPreKey.getPublicKey()));
+  PeerSession peerSession=new PeerSession(RandomUtils.nextRid(),uid,ownKeyGroup,theirKeyGroup,ownPreKey.getKeyId(),theirPreKey.getKeyId(),masterSecret);
+  PeerSessionsStorage sessionsStorage=peerSessions.getValue(uid);
+  if (sessionsStorage == null) {
+    sessionsStorage=new PeerSessionsStorage(uid,new ArrayList<PeerSession>());
+  }
+  sessionsStorage=sessionsStorage.addSession(peerSession);
+  peerSessions.addOrUpdateItem(sessionsStorage);
+  return peerSession;
+}

@@ -32,6 +32,8 @@
   profile=new ProfileModule(this);
   timing.section("Mentions");
   mentions=new MentionsModule(this);
+  timing.section("Encryption");
+  encryptionModule=new EncryptionModule(this);
   timing.section("DisplayLists");
   displayLists=new DisplayLists(this);
   timing.section("DeviceInfo");
@@ -50,6 +52,8 @@
   notifications.run();
   timing.section("AppState");
   appStateModule.run();
+  timing.section("Encryption");
+  encryptionModule.run();
   timing.section("Contacts");
   contacts.run();
   timing.section("Messages");
@@ -58,8 +62,6 @@
   updates.run();
   timing.section("Calls");
   calls.run();
-  timing.section("Extensions");
-  extensions.runExtensions();
   timing.end();
   messenger.onLoggedIn();
 }

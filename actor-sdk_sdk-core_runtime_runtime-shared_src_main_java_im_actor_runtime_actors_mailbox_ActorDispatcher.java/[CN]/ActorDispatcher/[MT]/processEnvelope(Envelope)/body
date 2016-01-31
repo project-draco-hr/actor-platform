@@ -44,12 +44,7 @@ synchronized (LOCK) {
       }
     }
  else {
-      scope.setSender(envelope.getSender());
-      if (envelope.getMessage() instanceof Runnable) {
-        ((Runnable)envelope.getMessage()).run();
-        return;
-      }
-      scope.getActor().onReceive(envelope.getMessage());
+      scope.getActor().handleMessage(envelope.getMessage(),envelope.getSender());
     }
   }
  catch (  Exception e) {

@@ -1,0 +1,4 @@
+byte[] header
+byte[] plainText
+byte[] random32
+ActorBoxKey key

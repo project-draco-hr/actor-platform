@@ -1,0 +1,3 @@
+{
+  resolver.result(new OwnIdentity(ownKeys.getKeyGroupId(),ownKeys.getIdentityKey()));
+}

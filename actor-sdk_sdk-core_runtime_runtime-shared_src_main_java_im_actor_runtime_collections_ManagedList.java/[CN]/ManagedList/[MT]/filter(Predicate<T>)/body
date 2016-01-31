@@ -1,0 +1,9 @@
+{
+  ManagedList<T> res=new ManagedList<>();
+  for (  T t : this) {
+    if (predicate.apply(t)) {
+      res.add(t);
+    }
+  }
+  return res;
+}

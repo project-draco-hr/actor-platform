@@ -1,0 +1,8 @@
+long sid
+int uid
+int theirKeyGroupId
+int ownKeyGroupId
+long ownPreKeyId
+long theirPreKeyId
+ArrayList<SessionEphemeralKey> theirKeys
+ArrayList<SessionEphemeralKey> ownKeys

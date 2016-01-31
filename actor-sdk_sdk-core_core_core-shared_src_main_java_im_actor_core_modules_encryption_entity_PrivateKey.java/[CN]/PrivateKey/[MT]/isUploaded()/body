@@ -1,0 +1,6 @@
+{
+  if (isUploaded == null) {
+    return false;
+  }
+  return isUploaded;
+}

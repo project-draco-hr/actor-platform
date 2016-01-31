@@ -1,0 +1,5 @@
+int uid
+int keyGroupId
+long ownKeyId
+long theirKeyId
+PromiseResolver<PeerSession> srcResolver

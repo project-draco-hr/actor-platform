@@ -1,0 +1,19 @@
+{
+  super.preStart();
+  keyManager=context().getEncryption().getKeyManagerInt();
+  peerSessions=new BaseKeyValueEngine<PeerSessionsStorage>(Storage.createKeyValue("encryption_sessions")){
+    @Override protected byte[] serialize(    PeerSessionsStorage value){
+      return value.toByteArray();
+    }
+    @Override protected PeerSessionsStorage deserialize(    byte[] data){
+      try {
+        return new PeerSessionsStorage(data);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        return null;
+      }
+    }
+  }
+;
+}

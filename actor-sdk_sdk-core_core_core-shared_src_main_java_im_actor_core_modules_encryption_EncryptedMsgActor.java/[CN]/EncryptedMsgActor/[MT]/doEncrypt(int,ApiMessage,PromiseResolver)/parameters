@@ -1,0 +1,3 @@
+int uid
+ApiMessage message
+PromiseResolver future

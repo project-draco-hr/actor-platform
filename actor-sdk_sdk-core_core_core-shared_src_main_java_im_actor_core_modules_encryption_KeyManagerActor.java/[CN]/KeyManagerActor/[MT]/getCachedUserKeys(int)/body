@@ -1,0 +1,15 @@
+{
+  UserKeys userKeys=cachedUserKeys.get(uid);
+  if (userKeys == null) {
+    byte[] cached=encryptionKeysStorage.loadItem(uid);
+    if (cached != null) {
+      try {
+        userKeys=new UserKeys(cached);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+  return userKeys;
+}

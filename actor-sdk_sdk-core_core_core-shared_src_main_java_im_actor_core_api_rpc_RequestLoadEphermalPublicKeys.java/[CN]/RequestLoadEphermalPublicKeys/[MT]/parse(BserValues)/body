@@ -1,4 +1,4 @@
 {
   this.userPeer=values.getObj(1,new ApiUserOutPeer());
-  this.keyGroupId=values.getLong(2);
+  this.keyGroupId=values.getInt(2);
 }

@@ -1,0 +1,6 @@
+{
+  int messageIndex=sentCounter++;
+  ActorBoxKey ratchetMessageKey=RatchetMessageKey.buildKey(rootChainKey,messageIndex);
+  byte[] header=ByteStrings.merge(ByteStrings.intToBytes(session.getOwnKeyGroupId()),ByteStrings.longToBytes(session.getOwnPreKeyId()),ByteStrings.longToBytes(session.getTheirPreKeyId()),Curve25519.keyGenPublic(ownPrivateKey),theirPublicKey,ByteStrings.intToBytes(messageIndex));
+  return ByteStrings.merge(header,ActorBox.closeBox(header,data,Crypto.randomBytes(32),ratchetMessageKey));
+}

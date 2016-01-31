@@ -1,4 +1,0 @@
-{
-  this.keyGroupId=keyGroupId;
-  this.publicKeys=publicKeys;
-}

@@ -1,0 +1,3 @@
+long keyId
+String keyAlg
+byte[] publicKey

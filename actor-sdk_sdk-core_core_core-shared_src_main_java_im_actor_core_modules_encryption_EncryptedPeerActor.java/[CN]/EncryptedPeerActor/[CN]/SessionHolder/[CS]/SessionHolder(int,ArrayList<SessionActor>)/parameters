@@ -1,0 +1,2 @@
+int keyGroupId
+ArrayList<SessionActor> sessions

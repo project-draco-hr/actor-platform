@@ -1,0 +1,3 @@
+{
+  return ManagedList.of(peerSessions.getValue(uid)).flatMap(PeerSessionsStorage.SESSIONS).filter(PeerSession.BY_IDS(keyGroupId,ownKeyId,theirKeyId)).sorted(PeerSession.COMPARATOR).firstPromise();
+}

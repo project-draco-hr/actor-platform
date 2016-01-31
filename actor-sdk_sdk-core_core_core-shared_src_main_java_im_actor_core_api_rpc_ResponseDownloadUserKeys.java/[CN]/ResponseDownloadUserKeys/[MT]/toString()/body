@@ -1,5 +1,0 @@
-{
-  String res="tuple DownloadUserKeys{";
-  res+="}";
-  return res;
-}

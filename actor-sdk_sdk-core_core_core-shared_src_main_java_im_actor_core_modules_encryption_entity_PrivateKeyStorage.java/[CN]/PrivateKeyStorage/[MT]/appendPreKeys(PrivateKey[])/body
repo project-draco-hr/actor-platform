@@ -1,0 +1,6 @@
+{
+  PrivateKey[] nKeys=new PrivateKey[addedPreKeys.length + preKeys.length];
+  System.arraycopy(preKeys,0,nKeys,0,preKeys.length);
+  System.arraycopy(addedPreKeys,0,nKeys,preKeys.length,addedPreKeys.length);
+  return new PrivateKeyStorage(keyGroupId,identityKey,keys,nKeys);
+}

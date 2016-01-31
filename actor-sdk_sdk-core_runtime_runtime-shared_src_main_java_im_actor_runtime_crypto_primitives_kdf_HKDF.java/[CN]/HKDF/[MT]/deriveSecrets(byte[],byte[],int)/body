@@ -1,0 +1,3 @@
+{
+  return deriveSecrets(keyMaterial,new byte[baseDigest.getDigestSize()],info,outputLength);
+}

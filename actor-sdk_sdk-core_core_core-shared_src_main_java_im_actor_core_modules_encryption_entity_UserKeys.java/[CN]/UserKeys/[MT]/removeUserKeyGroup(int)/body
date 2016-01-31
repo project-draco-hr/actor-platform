@@ -1,0 +1,9 @@
+{
+  ArrayList<UserKeysGroup> userKeysGroups=new ArrayList<UserKeysGroup>();
+  for (  UserKeysGroup g : this.userKeysGroups) {
+    if (g.getKeyGroupId() != keyGroupId) {
+      userKeysGroups.add(g);
+    }
+  }
+  return new UserKeys(uid,userKeysGroups.toArray(new UserKeysGroup[userKeysGroups.size()]));
+}

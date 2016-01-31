@@ -1,0 +1,3 @@
+{
+  return map(fun).ignoreFailed().filterNull();
+}

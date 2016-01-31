@@ -1,0 +1,3 @@
+{
+  apply(tuple.getT1(),tuple.getT2(),tuple.getT3(),tuple.getT4());
+}

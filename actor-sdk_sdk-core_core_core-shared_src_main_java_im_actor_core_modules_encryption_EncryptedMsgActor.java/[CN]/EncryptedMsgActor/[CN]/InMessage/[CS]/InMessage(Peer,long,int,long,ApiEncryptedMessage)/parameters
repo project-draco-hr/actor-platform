@@ -1,0 +1,5 @@
+Peer peer
+long date
+int senderUid
+long rid
+ApiEncryptedMessage encryptedMessage
