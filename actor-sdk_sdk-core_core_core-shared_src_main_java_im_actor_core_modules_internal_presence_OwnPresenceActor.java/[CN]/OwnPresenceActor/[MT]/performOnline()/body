@@ -4,7 +4,7 @@
     prevRid=0;
   }
   boolean isOnline=isVisible || isAlwaysOnline;
-  prevRid=request(new RequestSetOnline(isOnline,TIMEOUT),new RpcCallback<ResponseVoid>(){
+  prevRid=request(new RequestSetOnline(isOnline,TIMEOUT,null,null),new RpcCallback<ResponseVoid>(){
     @Override public void onResult(    ResponseVoid response){
     }
     @Override public void onError(    RpcException e){
