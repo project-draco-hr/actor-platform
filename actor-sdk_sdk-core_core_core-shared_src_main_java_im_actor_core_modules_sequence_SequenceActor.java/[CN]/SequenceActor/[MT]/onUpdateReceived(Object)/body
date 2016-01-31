@@ -28,7 +28,7 @@
     further.put(seq,u);
     return;
   }
-  if (!isValidSeq(seq)) {
+  if (seq != this.seq + 1) {
     further.put(seq,u);
     if (seq - this.seq > INVALIDATE_MAX_SEC_HOLE) {
       Log.w(TAG,"Out of sequence: Too big hole. Force invalidate immediately");
@@ -51,8 +51,10 @@
     users=((FatSeqUpdate)u).getUsers();
     groups=((FatSeqUpdate)u).getGroups();
   }
+  Log.d(TAG,"Handling update #" + seq);
   handler.onSeqUpdate(type,body,users,groups).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
     @Override public void apply(    SequenceHandlerActor.UpdateProcessed updateProcessed){
+      Log.d(TAG,"Update handled #" + seq);
       finishedSeq=seq;
       preferences().putInt(KEY_SEQ,finishedSeq);
       preferences().putBytes(KEY_STATE,state);

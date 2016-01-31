@@ -46,10 +46,7 @@
         state=response.getState();
         handler.onDifferenceUpdate(response).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
           @Override public void apply(          SequenceHandlerActor.UpdateProcessed updateProcessed){
-            finishedSeq=response.getSeq();
-            preferences().putInt(KEY_SEQ,seq);
-            preferences().putBytes(KEY_STATE,state);
-            checkRunnables();
+            onUpdatesApplied(response.getSeq(),response.getState());
           }
         }
 ).failure(new Consumer<Exception>(){
