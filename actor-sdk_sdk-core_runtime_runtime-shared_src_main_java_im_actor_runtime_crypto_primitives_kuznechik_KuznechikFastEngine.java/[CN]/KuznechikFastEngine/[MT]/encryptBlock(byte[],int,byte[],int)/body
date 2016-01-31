@@ -1,0 +1,20 @@
+{
+  int[] x=new int[4];
+  Pack.bigEndianToInt(data,offset,x);
+  for (int i=0; i < 9; i++) {
+    x[0]=x[0] ^ key[i][0];
+    x[1]=x[1] ^ key[i][1];
+    x[2]=x[2] ^ key[i][2];
+    x[3]=x[3] ^ key[i][3];
+    x[0]=(kuz_pi[x[0] & 0xFF] & 0xFF) + ((kuz_pi[(x[0] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(x[0] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(x[0] >> 24) & 0xFF] & 0xFF) << 24);
+    x[1]=(kuz_pi[x[1] & 0xFF] & 0xFF) + ((kuz_pi[(x[1] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(x[1] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(x[1] >> 24) & 0xFF] & 0xFF) << 24);
+    x[2]=(kuz_pi[x[2] & 0xFF] & 0xFF) + ((kuz_pi[(x[2] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(x[2] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(x[2] >> 24) & 0xFF] & 0xFF) << 24);
+    x[3]=(kuz_pi[x[3] & 0xFF] & 0xFF) + ((kuz_pi[(x[3] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(x[3] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(x[3] >> 24) & 0xFF] & 0xFF) << 24);
+    kuz_l(x,tmp);
+  }
+  x[0]=x[0] ^ key[9][0];
+  x[1]=x[1] ^ key[9][1];
+  x[2]=x[2] ^ key[9][2];
+  x[3]=x[3] ^ key[9][3];
+  Pack.intToBigEndian(x,dest,destOffset);
+}
