@@ -1,0 +1,6 @@
+{
+  this.randomId=randomId;
+  this.destPeers=destPeers;
+  this.ignoredKeyGroups=ignoredKeyGroups;
+  this.encryptedBox=encryptedBox;
+}

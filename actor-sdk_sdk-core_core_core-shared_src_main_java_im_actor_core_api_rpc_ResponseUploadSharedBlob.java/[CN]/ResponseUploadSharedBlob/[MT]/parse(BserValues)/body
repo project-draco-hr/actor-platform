@@ -1,0 +1,3 @@
+{
+  this.sharedObjectId=values.getInt(1);
+}

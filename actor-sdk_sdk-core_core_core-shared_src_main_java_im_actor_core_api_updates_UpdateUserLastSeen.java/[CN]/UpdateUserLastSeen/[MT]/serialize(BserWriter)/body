@@ -1,4 +1,10 @@
 {
   writer.writeInt(1,this.uid);
   writer.writeLong(2,this.date);
+  if (this.deviceType != null) {
+    writer.writeInt(3,this.deviceType.getValue());
+  }
+  if (this.deviceCategory != null) {
+    writer.writeString(4,this.deviceCategory);
+  }
 }

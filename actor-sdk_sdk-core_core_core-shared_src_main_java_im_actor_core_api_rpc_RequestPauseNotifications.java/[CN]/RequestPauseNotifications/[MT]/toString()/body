@@ -1,0 +1,5 @@
+{
+  String res="rpc PauseNotifications{";
+  res+="}";
+  return res;
+}

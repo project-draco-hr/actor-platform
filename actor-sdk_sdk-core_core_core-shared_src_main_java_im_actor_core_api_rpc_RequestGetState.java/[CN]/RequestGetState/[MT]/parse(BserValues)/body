@@ -1,2 +1,6 @@
 {
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(1)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

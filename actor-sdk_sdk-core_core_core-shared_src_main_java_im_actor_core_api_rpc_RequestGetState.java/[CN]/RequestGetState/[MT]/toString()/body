@@ -1,5 +1,6 @@
 {
   String res="rpc GetState{";
+  res+="optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

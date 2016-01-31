@@ -1,0 +1,5 @@
+{
+  String res="update RestoreNotifications{";
+  res+="}";
+  return res;
+}

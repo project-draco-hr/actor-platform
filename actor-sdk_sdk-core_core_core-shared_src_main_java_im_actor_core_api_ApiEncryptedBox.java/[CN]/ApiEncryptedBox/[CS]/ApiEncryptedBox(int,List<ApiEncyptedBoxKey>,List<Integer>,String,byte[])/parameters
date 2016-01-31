@@ -1,5 +1,0 @@
-int senderKeyGroupId
-List<ApiEncyptedBoxKey> keys
-List<Integer> ignoredKeyGroups
-String algType
-byte[] encPackage

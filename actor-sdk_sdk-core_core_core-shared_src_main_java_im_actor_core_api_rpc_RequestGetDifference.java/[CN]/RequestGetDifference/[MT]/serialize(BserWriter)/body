@@ -4,4 +4,7 @@
     throw new IOException();
   }
   writer.writeBytes(2,this.state);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(3,i.getValue());
+  }
 }

@@ -1,0 +1,3 @@
+{
+  this.timeout=values.getInt(1);
+}

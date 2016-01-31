@@ -1,4 +1,9 @@
 {
   this.uid=values.getInt(1);
   this.date=values.getLong(2);
+  int val_deviceType=values.getInt(3,0);
+  if (val_deviceType != 0) {
+    this.deviceType=ApiDeviceType.parse(val_deviceType);
+  }
+  this.deviceCategory=values.optString(4);
 }

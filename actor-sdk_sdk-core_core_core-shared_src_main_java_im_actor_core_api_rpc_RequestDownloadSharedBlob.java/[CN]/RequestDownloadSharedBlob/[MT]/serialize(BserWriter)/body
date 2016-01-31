@@ -1,0 +1,11 @@
+{
+  if (this.destPeer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.destPeer);
+  if (this.bucket == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.bucket);
+  writer.writeInt(3,this.objectId);
+}

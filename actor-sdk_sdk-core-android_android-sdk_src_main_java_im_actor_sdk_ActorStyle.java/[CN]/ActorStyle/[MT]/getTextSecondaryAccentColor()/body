@@ -1,0 +1,8 @@
+{
+  if (textSecondaryAccentColor != 0) {
+    return getTextSecondaryColor();
+  }
+ else {
+    return textSecondaryAccentColor;
+  }
+}

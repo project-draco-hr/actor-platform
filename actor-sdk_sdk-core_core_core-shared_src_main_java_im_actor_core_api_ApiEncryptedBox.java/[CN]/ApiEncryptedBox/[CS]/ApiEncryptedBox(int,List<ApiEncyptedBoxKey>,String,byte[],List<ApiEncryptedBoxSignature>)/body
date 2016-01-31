@@ -1,0 +1,7 @@
+{
+  this.senderKeyGroupId=senderKeyGroupId;
+  this.keys=keys;
+  this.algType=algType;
+  this.encPackage=encPackage;
+  this.signatures=signatures;
+}

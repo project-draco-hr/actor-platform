@@ -1,0 +1,4 @@
+long randomId
+long date
+int senderId
+ApiEncryptedBox encryptedBox

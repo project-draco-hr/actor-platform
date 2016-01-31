@@ -1,0 +1,7 @@
+{
+  this.seq=seq;
+  this.state=state;
+  this.date=date;
+  this.obsoleteKeyGroups=obsoleteKeyGroups;
+  this.missedKeyGroups=missedKeyGroups;
+}

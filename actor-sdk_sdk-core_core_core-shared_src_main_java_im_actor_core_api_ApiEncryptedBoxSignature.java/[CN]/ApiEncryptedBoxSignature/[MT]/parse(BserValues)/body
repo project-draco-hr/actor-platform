@@ -1,0 +1,4 @@
+{
+  this.algType=values.getString(1);
+  this.signature=values.getBytes(2);
+}

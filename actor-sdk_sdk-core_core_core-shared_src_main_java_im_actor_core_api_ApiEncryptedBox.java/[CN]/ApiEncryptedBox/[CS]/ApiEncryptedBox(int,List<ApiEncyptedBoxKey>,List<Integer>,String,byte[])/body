@@ -1,7 +1,0 @@
-{
-  this.senderKeyGroupId=senderKeyGroupId;
-  this.keys=keys;
-  this.ignoredKeyGroups=ignoredKeyGroups;
-  this.algType=algType;
-  this.encPackage=encPackage;
-}

@@ -1,0 +1,6 @@
+{
+  this.randomId=values.getLong(1);
+  this.date=values.getLong(2);
+  this.senderId=values.getInt(3);
+  this.encryptedBox=values.getObj(4,new ApiEncryptedBox());
+}

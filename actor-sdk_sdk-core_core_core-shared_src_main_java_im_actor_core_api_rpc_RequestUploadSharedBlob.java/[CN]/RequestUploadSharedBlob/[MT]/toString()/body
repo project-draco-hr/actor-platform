@@ -1,0 +1,9 @@
+{
+  String res="rpc UploadSharedBlob{";
+  res+="destPeer=" + this.destPeer;
+  res+=", bucket=" + this.bucket;
+  res+=", blob=" + byteArrayToString(this.blob);
+  res+=", randomId=" + this.randomId;
+  res+="}";
+  return res;
+}

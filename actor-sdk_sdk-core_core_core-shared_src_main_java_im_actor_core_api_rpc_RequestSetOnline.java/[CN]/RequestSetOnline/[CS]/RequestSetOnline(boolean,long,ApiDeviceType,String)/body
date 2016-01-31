@@ -1,0 +1,6 @@
+{
+  this.isOnline=isOnline;
+  this.timeout=timeout;
+  this.deviceType=deviceType;
+  this.deviceCategory=deviceCategory;
+}

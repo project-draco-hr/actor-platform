@@ -1,0 +1,4 @@
+long randomId
+List<ApiUserOutPeer> destPeers
+List<ApiKeyGroupId> ignoredKeyGroups
+ApiEncryptedBox encryptedBox

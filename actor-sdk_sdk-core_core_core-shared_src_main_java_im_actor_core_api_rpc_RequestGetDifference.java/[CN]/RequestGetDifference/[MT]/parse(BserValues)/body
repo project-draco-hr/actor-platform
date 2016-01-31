@@ -1,4 +1,8 @@
 {
   this.seq=values.getInt(1);
   this.state=values.getBytes(2);
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(3)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

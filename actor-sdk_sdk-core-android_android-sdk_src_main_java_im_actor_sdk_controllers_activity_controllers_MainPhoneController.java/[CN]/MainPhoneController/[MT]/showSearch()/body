@@ -16,7 +16,7 @@
   HeaderViewRecyclerAdapter recyclerAdapter=new HeaderViewRecyclerAdapter(searchAdapter);
   View header=new View(getActivity());
   header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(0)));
-  header.setBackgroundColor(getActivity().getResources().getColor(R.color.bg_main));
+  header.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   recyclerAdapter.addHeaderView(header);
   searchList.setAdapter(recyclerAdapter);
   searchDisplay.addListener(searchListener);

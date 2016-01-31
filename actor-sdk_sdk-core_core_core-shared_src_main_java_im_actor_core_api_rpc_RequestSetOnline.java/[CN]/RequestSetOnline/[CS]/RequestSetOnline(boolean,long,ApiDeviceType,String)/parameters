@@ -1,0 +1,4 @@
+boolean isOnline
+long timeout
+ApiDeviceType deviceType
+String deviceCategory

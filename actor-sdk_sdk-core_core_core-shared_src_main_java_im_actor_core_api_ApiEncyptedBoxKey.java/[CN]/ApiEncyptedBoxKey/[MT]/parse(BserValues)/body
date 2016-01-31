@@ -3,4 +3,7 @@
   this.keyGroupId=values.getInt(2);
   this.algType=values.getString(3);
   this.encryptedKey=values.getBytes(4);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

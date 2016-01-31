@@ -3,9 +3,12 @@
   getWindow().setBackgroundDrawable(null);
   setContentView(R.layout.activity_dialog);
   setFragment(savedInstanceState);
+  ActorStyle style=ActorSDK.sharedActor().style;
+  FrameLayout messageContainer=(FrameLayout)findViewById(R.id.fl_send_panel);
+  messageContainer.setBackgroundColor(style.getMainBackgroundColor());
   messageEditText=(EditText)findViewById(R.id.et_message);
-  messageEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
-  messageEditText.setHintTextColor(ActorSDK.sharedActor().style.getTextHintColor());
+  messageEditText.setTextColor(style.getTextPrimaryColor());
+  messageEditText.setHintTextColor(style.getTextHintColor());
   messageEditText.setOnKeyListener(new View.OnKeyListener(){
     @Override public boolean onKey(    View view,    int keycode,    KeyEvent keyEvent){
       if (messenger().isSendByEnterEnabled()) {
@@ -54,7 +57,8 @@
   }
 );
   removedFromGroup=findViewById(R.id.kickedFromChat);
-  ((TextView)removedFromGroup.findViewById(R.id.kicked_text)).setTextColor(ActorSDK.sharedActor().style.getMainColor());
+  removedFromGroup.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  ((TextView)removedFromGroup.findViewById(R.id.kicked_text)).setTextColor(style.getMainColor());
   emojiButton=(ImageView)findViewById(R.id.ib_emoji);
   emojiKeyboard=new EmojiKeyboard(this);
   emojiKeyboard.setKeyboardStatusListener(new KeyboardStatusListener(){

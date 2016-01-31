@@ -173,6 +173,14 @@
       generator.decreaseDepth();
       generator.appendLn("}");
     }
+ else     if (childType instanceof SchemeEnumType) {
+      String enumName=JavaConfig.getEnumName(((SchemeEnumType)childType).getName());
+      generator.appendLn("for (" + enumName + " i : this."+ attributeName+ ") {");
+      generator.increaseDepth();
+      generator.appendLn("writer.writeInt(" + attributeId + ", i.getValue());");
+      generator.decreaseDepth();
+      generator.appendLn("}");
+    }
  else {
       throw new IOException();
     }

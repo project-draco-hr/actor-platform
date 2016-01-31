@@ -1,0 +1,6 @@
+{
+  String res="struct KeyGroupId{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

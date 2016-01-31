@@ -1,0 +1,5 @@
+int senderKeyGroupId
+List<ApiEncyptedBoxKey> keys
+String algType
+byte[] encPackage
+List<ApiEncryptedBoxSignature> signatures

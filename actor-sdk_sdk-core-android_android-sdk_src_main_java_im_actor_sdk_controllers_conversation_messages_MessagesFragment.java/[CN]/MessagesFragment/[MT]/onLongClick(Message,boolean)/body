@@ -23,10 +23,17 @@
         menu.findItem(R.id.quote).setVisible(isAllText);
         menu.findItem(R.id.forward).setVisible(selected.length == 1 || isAllText);
         menu.findItem(R.id.like).setVisible(selected.length == 1);
+        menu.findItem(R.id.shortcut).setVisible(peer.getPeerType() == PeerType.PRIVATE & selected.length == 1 && isAllText && users().get(peer.getPeerId()).isBot());
         return false;
       }
       @Override public boolean onActionItemClicked(      final ActionMode actionMode,      MenuItem menuItem){
-        if (menuItem.getItemId() == R.id.delete) {
+        if (menuItem.getItemId() == R.id.shortcut) {
+          shortcutText=messenger().getFormatter().formatMessagesExport(messagesAdapter.getSelected());
+          Drawable shortCutDrawable=getResources().getDrawable(R.drawable.ic_message_white_24dp);
+          createShortcutDialog(menuItem.getTitle().toString(),shortCutDrawable);
+          actionMode.finish();
+        }
+ else         if (menuItem.getItemId() == R.id.delete) {
           Message[] selected=messagesAdapter.getSelected();
           final long[] rids=new long[selected.length];
           for (int i=0; i < rids.length; i++) {
