@@ -4,10 +4,6 @@
   Peer peer=convert(_peer);
   ArrayList<Message> nMessages=new ArrayList<Message>();
   for (  UpdateMessage u : messages) {
-    if (u.getMessage() instanceof ApiEncryptedMessage) {
-      context().getEncryption().getMessageEncryptor().send(new EncryptedMsgActor.InMessage(peer,u.getDate(),u.getSenderUid(),u.getRid(),(ApiEncryptedMessage)u.getMessage()));
-      continue;
-    }
     AbsContent msgContent;
     try {
       msgContent=AbsContent.fromMessage(u.getMessage());

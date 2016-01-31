@@ -1,8 +1,5 @@
 {
   Peer peer=convert(_peer);
-  if (content instanceof ApiEncryptedMessage) {
-    context().getEncryption().getMessageEncryptor().send(new EncryptedMsgActor.InMessage(peer,date,senderUid,rid,(ApiEncryptedMessage)content));
-  }
   AbsContent msgContent;
   try {
     msgContent=AbsContent.fromMessage(content);
