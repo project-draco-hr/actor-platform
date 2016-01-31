@@ -1,0 +1,21 @@
+{
+  Update update;
+  try {
+    update=updatesParser.read(type,body);
+  }
+ catch (  IOException e) {
+    Log.w(TAG,"Unable to parse update: ignoring");
+    Log.e(TAG,e);
+    return Promises.success(new UpdateProcessed());
+  }
+  Log.d(TAG,"Processing update: " + update);
+  if (groups != null && users != null) {
+    processor.applyRelated(users,groups,false);
+  }
+  processor.processUpdate(update);
+  if (groups != null && users != null) {
+    processor.applyRelated(users,groups,true);
+  }
+  Log.d(TAG,"Processing update success");
+  return Promises.success(new UpdateProcessed());
+}

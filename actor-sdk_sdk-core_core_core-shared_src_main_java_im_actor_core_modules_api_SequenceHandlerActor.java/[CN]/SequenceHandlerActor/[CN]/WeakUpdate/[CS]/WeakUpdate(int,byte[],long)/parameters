@@ -1,0 +1,3 @@
+int type
+byte[] body
+long date

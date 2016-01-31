@@ -1,0 +1,17 @@
+{
+  if (message instanceof WeakUpdate) {
+    WeakUpdate weakUpdate=(WeakUpdate)message;
+    try {
+      onWeakUpdateReceived(weakUpdate.type,weakUpdate.body,weakUpdate.date);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+ else   if (message instanceof InternalUpdate) {
+    onInternalUpdate((InternalUpdate)message);
+  }
+ else {
+    super.onReceive(message);
+  }
+}

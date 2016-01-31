@@ -1,0 +1,4 @@
+{
+  super(context);
+  this.processor=new UpdateProcessor(context);
+}

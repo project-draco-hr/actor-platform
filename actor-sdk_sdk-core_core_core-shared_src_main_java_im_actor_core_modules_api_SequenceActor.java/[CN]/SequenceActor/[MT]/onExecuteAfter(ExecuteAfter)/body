@@ -1,0 +1,8 @@
+{
+  if (after.getSeq() <= this.seq) {
+    after.getRunnable().run();
+  }
+ else {
+    pendingRunnables.add(after);
+  }
+}

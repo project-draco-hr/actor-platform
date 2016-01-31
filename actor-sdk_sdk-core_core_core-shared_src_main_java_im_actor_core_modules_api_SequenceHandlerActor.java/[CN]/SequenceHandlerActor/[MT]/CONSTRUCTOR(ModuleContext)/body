@@ -1,0 +1,8 @@
+{
+  return new Constructor<SequenceHandlerActor>(){
+    @Override public SequenceHandlerActor create(){
+      return new SequenceHandlerActor(context);
+    }
+  }
+;
+}

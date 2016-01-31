@@ -1,3 +1,12 @@
 {
-  updateActor.send(update);
+  if (update instanceof WeakUpdate) {
+    WeakUpdate weakUpdate=(WeakUpdate)update;
+    updateHandlerInt.onWeakUpdate(weakUpdate.getUpdateHeader(),weakUpdate.getUpdate(),weakUpdate.getDate());
+  }
+ else   if (update instanceof InternalUpdate) {
+    updateHandlerInt.onInternalUpdate((InternalUpdate)update);
+  }
+ else {
+    updateActor.send(update);
+  }
 }

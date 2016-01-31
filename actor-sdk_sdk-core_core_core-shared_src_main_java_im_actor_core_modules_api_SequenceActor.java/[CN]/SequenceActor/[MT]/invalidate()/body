@@ -11,6 +11,7 @@
           return;
         }
         seq=response.getSeq();
+        finishedSeq=seq;
         state=response.getState();
         isValidated=true;
         preferences().putInt(KEY_SEQ,seq);
@@ -36,39 +37,27 @@
     onUpdateStarted();
     final long loadStart=im.actor.runtime.Runtime.getCurrentTime();
     request(new RequestGetDifference(seq,state,new ArrayList<ApiUpdateOptimization>()),new RpcCallback<ResponseGetDifference>(){
-      @Override public void onResult(      ResponseGetDifference response){
+      @Override public void onResult(      final ResponseGetDifference response){
         if (isValidated) {
           return;
         }
         Log.d(TAG,"Difference loaded {seq=" + response.getSeq() + "} in "+ (im.actor.runtime.Runtime.getCurrentTime() - loadStart)+ " ms");
-        long parseStart=im.actor.runtime.Runtime.getCurrentTime();
-        ArrayList<Update> updates=new ArrayList<Update>();
-        for (        ApiUpdateContainer u : response.getUpdates()) {
-          try {
-            updates.add(parser.read(u.getUpdateHeader(),u.getUpdate()));
-          }
- catch (          IOException e) {
-            e.printStackTrace();
-            Log.d(TAG,"Broken update #" + u.getUpdateHeader() + ": ignoring");
-          }
-        }
-        Log.d(TAG,"Difference parsed  in " + (im.actor.runtime.Runtime.getCurrentTime() - parseStart) + " ms");
-        if (updates.size() > 0) {
-          String command="Difference updates:";
-          for (          Update u : updates) {
-            command+="\n| " + u;
-          }
-          Log.d(TAG,command);
-        }
-        long applyStart=im.actor.runtime.Runtime.getCurrentTime();
-        processor.applyDifferenceUpdate(response.getUsers(),response.getGroups(),updates);
-        Log.d(TAG,"Difference applied in " + (im.actor.runtime.Runtime.getCurrentTime() - applyStart) + " ms");
         seq=response.getSeq();
         state=response.getState();
+        handler.onDifferenceUpdate(response).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
+          @Override public void apply(          SequenceHandlerActor.UpdateProcessed updateProcessed){
+            finishedSeq=response.getSeq();
+            preferences().putInt(KEY_SEQ,seq);
+            preferences().putBytes(KEY_STATE,state);
+            checkRunnables();
+          }
+        }
+).failure(new Consumer<Exception>(){
+          @Override public void apply(          Exception e){
+          }
+        }
+);
         isValidated=true;
-        preferences().putInt(KEY_SEQ,seq);
-        preferences().putBytes(KEY_STATE,state);
-        checkRunnables();
         checkFuture();
         isTimerStarted=false;
         self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);

@@ -1,7 +1,7 @@
 {
   if (pendingRunnables.size() > 0) {
     for (    ExecuteAfter e : pendingRunnables.toArray(new ExecuteAfter[pendingRunnables.size()])) {
-      if (e.getSeq() <= this.seq) {
+      if (e.getSeq() <= this.finishedSeq) {
         e.getRunnable().run();
         pendingRunnables.remove(e);
       }

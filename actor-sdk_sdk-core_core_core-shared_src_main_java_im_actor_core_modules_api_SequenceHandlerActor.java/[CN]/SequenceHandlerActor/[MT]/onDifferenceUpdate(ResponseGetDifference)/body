@@ -1,0 +1,25 @@
+{
+  long parseStart=im.actor.runtime.Runtime.getCurrentTime();
+  ArrayList<Update> updates=new ArrayList<Update>();
+  for (  ApiUpdateContainer u : difference.getUpdates()) {
+    try {
+      updates.add(updatesParser.read(u.getUpdateHeader(),u.getUpdate()));
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      Log.d(TAG,"Broken update #" + u.getUpdateHeader() + ": ignoring");
+    }
+  }
+  Log.d(TAG,"Difference parsed  in " + (im.actor.runtime.Runtime.getCurrentTime() - parseStart) + " ms");
+  if (updates.size() > 0) {
+    String command="Difference updates:";
+    for (    Update u : updates) {
+      command+="\n| " + u;
+    }
+    Log.d(TAG,command);
+  }
+  long applyStart=im.actor.runtime.Runtime.getCurrentTime();
+  processor.applyDifferenceUpdate(difference.getUsers(),difference.getGroups(),updates);
+  Log.d(TAG,"Difference applied in " + (im.actor.runtime.Runtime.getCurrentTime() - applyStart) + " ms");
+  return Promises.success(new UpdateProcessed());
+}

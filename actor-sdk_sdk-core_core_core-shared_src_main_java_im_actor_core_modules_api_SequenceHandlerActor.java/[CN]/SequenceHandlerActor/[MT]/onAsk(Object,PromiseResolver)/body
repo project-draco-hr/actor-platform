@@ -1,14 +1,18 @@
 {
-  if (message instanceof WeakUpdate) {
-    WeakUpdate weakUpdate=(WeakUpdate)message;
-    onWeakUpdateReceived(weakUpdate.getUpdate(),weakUpdate.getDate());
-    future.result(null);
-  }
- else   if (message instanceof SeqUpdate) {
+  if (message instanceof SeqUpdate) {
     SeqUpdate seqUpdate=(SeqUpdate)message;
-    onSeqUpdate(seqUpdate.type,seqUpdate.body,seqUpdate.users,seqUpdate.groups,future);
+    try {
+      onSeqUpdate(seqUpdate.type,seqUpdate.body,seqUpdate.users,seqUpdate.groups).pipeTo(resolver);
+    }
+ catch (    Exception e) {
+      resolver.tryError(e);
+    }
+  }
+ else   if (message instanceof DifferenceUpdate) {
+    DifferenceUpdate differenceUpdate=(DifferenceUpdate)message;
+    onDifferenceUpdate(differenceUpdate.getDifference()).pipeTo(resolver);
   }
  else {
-    super.onAsk(message,future);
+    super.onAsk(message,resolver);
   }
 }

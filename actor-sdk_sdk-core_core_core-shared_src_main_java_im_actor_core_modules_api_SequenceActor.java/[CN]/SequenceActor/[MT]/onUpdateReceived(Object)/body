@@ -1,6 +1,6 @@
 {
-  int seq;
-  byte[] state;
+  final int seq;
+  final byte[] state;
   int type;
   byte[] body;
   if (u instanceof SeqUpdate) {
@@ -15,47 +15,8 @@
     type=((FatSeqUpdate)u).getUpdateHeader();
     body=((FatSeqUpdate)u).getUpdate();
   }
- else   if (u instanceof WeakUpdate) {
-    WeakUpdate w=(WeakUpdate)u;
-    try {
-      Update update=parser.read(w.getUpdateHeader(),w.getUpdate());
-      processor.processWeakUpdate(update,w.getDate());
-      Log.d(TAG,"Weak Update: " + update);
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-      Log.w(TAG,"Unable to parse update: ignoring");
-    }
-    return;
-  }
- else   if (u instanceof InternalUpdate) {
-    Log.d(TAG,"Received internal update");
-    processor.processInternalUpdate((InternalUpdate)u);
-    return;
-  }
- else   if (u instanceof ExecuteAfter) {
-    ExecuteAfter after=(ExecuteAfter)u;
-    if (after.getSeq() <= this.seq) {
-      after.getRunnable().run();
-    }
  else {
-      pendingRunnables.add(after);
-    }
-    return;
-  }
- else   if (u instanceof PushSeq) {
-    PushSeq pushSeq=(PushSeq)u;
-    if (pushSeq.seq <= this.seq) {
-      Log.d(TAG,"Ignored PushSeq {seq:" + pushSeq.seq + "}");
-    }
- else {
-      Log.w(TAG,"External Out of sequence: starting timer for invalidation");
-      self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
-    }
-    return;
-  }
- else {
-    return;
+    throw new RuntimeException();
   }
   if (seq <= this.seq) {
     Log.d(TAG,"Ignored SeqUpdate {seq:" + seq + ", currentSeq: "+ this.seq+ "}");
@@ -84,36 +45,27 @@
     }
     return;
   }
-  Update update=null;
-  try {
-    update=new UpdatesParser().read(type,body);
+  List<ApiUser> users=null;
+  List<ApiGroup> groups=null;
+  if (u instanceof FatSeqUpdate) {
+    users=((FatSeqUpdate)u).getUsers();
+    groups=((FatSeqUpdate)u).getGroups();
   }
- catch (  IOException e) {
-    Log.w(TAG,"Unable to parse update: ignoring");
-    e.printStackTrace();
-  }
-  if (update != null) {
-    if ((!(u instanceof FatSeqUpdate)) && processor.isCausesInvalidation(update)) {
-      Log.w(TAG,"Message causes invalidation");
-      invalidate();
-      return;
-    }
-    Log.d(TAG,"Processing update: " + update);
-    if (u instanceof FatSeqUpdate) {
-      FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-      processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),false);
-    }
-    processor.processUpdate(update);
-    if (u instanceof FatSeqUpdate) {
-      FatSeqUpdate fatSeqUpdate=(FatSeqUpdate)u;
-      processor.applyRelated(fatSeqUpdate.getUsers(),fatSeqUpdate.getGroups(),true);
+  handler.onSeqUpdate(type,body,users,groups).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
+    @Override public void apply(    SequenceHandlerActor.UpdateProcessed updateProcessed){
+      finishedSeq=seq;
+      preferences().putInt(KEY_SEQ,finishedSeq);
+      preferences().putBytes(KEY_STATE,state);
+      checkRunnables();
     }
   }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+    }
+  }
+);
   this.seq=seq;
   this.state=state;
-  preferences().putInt(KEY_SEQ,seq);
-  preferences().putBytes(KEY_STATE,state);
-  checkRunnables();
   checkFuture();
   isTimerStarted=false;
   self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
