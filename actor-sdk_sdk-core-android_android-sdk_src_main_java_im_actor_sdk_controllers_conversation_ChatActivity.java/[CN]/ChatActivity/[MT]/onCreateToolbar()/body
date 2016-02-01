@@ -26,7 +26,7 @@
   barView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (peer.getPeerType() == PeerType.PRIVATE) {
-        startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
+        ActorSDK.sharedActor().startProfileActivity(ChatActivity.this,peer.getPeerId());
       }
  else       if (peer.getPeerType() == PeerType.GROUP) {
         startActivity(Intents.openGroup(peer.getPeerId(),ChatActivity.this));

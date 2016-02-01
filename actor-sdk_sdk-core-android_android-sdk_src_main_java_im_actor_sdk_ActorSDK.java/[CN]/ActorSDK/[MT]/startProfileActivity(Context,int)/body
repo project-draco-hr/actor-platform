@@ -1,0 +1,7 @@
+{
+  Bundle b=new Bundle();
+  b.putInt(Intents.EXTRA_UID,uid);
+  if (!startDelegateActivity(context,delegate.getProfileIntent(uid),b)) {
+    startActivity(context,b,ProfileActivity.class);
+  }
+}
