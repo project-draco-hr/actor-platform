@@ -14,4 +14,5 @@
   audioContainer.setAnimation(animation);
   audioContainer.animate();
   audioContainer.setVisibility(View.GONE);
+  messageEditText.requestFocus();
 }
