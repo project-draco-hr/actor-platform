@@ -8,5 +8,8 @@ case PRIVATE:
 case GROUP:
 writer.writeInt(2,3);
 break;
+case PRIVATE_ENCRYPTED:
+writer.writeInt(2,4);
+break;
 }
 }

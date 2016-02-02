@@ -8,5 +8,8 @@ case 1:
 case 3:
 peerType=PeerType.GROUP;
 break;
+case 4:
+peerType=PeerType.PRIVATE_ENCRYPTED;
+break;
 }
 }

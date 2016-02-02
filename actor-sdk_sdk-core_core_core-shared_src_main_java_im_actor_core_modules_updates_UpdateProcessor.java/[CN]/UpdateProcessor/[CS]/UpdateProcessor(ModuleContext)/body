@@ -9,4 +9,5 @@
   this.typingProcessor=new TypingProcessor(context);
   this.stickersProcessor=new StickersProcessor(context);
   this.callsProcessor=new CallsProcessor(context);
+  this.encryptedProcessor=new EncryptedProcessor(context);
 }
