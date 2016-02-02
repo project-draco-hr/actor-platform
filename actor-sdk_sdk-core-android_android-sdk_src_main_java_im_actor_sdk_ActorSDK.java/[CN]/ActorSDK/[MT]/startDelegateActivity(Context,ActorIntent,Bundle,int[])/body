@@ -1,0 +1,21 @@
+{
+  if (intent != null && intent instanceof ActorIntentActivity) {
+    Intent startIntent=((ActorIntentActivity)intent).getIntent();
+    if (startIntent != null) {
+      for (      int flag : flags) {
+        startIntent.addFlags(flag);
+      }
+      if (extras != null) {
+        startIntent.putExtras(extras);
+      }
+      context.startActivity(startIntent);
+      return true;
+    }
+ else {
+      return false;
+    }
+  }
+ else {
+    return false;
+  }
+}

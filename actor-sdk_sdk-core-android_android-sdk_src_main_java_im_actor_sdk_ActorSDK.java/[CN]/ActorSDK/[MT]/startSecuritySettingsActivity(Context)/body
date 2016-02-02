@@ -1,0 +1,5 @@
+{
+  if (!startDelegateActivity(context,delegate.getSecuritySettingsIntent(),null)) {
+    startActivity(context,null,SecuritySettingsActivity.class);
+  }
+}

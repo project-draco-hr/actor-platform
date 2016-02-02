@@ -1,18 +1,3 @@
 {
-  if (intent != null && intent instanceof ActorIntentActivity) {
-    Intent startIntent=((ActorIntentActivity)intent).getIntent();
-    if (extras != null) {
-      startIntent.putExtras(extras);
-    }
-    if (startIntent != null) {
-      context.startActivity(startIntent);
-      return true;
-    }
- else {
-      return false;
-    }
-  }
- else {
-    return false;
-  }
+  return startDelegateActivity(context,intent,extras,new int[]{});
 }

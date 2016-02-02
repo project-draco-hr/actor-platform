@@ -27,7 +27,7 @@
     new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.dialogs_menu_group_view),getString(R.string.dialogs_menu_group_rename),isMember ? getString(R.string.dialogs_menu_group_leave) : getString(R.string.dialogs_menu_group_delete)},new DialogInterface.OnClickListener(){
       @Override public void onClick(      DialogInterface d,      int which){
         if (which == 0) {
-          startActivity(Intents.openGroup(dialog.getPeer().getPeerId(),getActivity()));
+          ActorSDK.sharedActor().startGroupInfoActivity(getActivity(),dialog.getPeer().getPeerId());
         }
  else         if (which == 1) {
           startActivity(Intents.editGroupTitle(dialog.getPeer().getPeerId(),getActivity()));
