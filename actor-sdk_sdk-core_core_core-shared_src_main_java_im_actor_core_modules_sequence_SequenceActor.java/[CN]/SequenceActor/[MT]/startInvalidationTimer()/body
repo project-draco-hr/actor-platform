@@ -1,0 +1,6 @@
+{
+  if (!isTimerStarted) {
+    self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+    isTimerStarted=true;
+  }
+}

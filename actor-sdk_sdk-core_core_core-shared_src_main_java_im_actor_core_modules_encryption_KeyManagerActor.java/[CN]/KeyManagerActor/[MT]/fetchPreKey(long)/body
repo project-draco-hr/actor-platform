@@ -1,0 +1,9 @@
+{
+  try {
+    return Promises.success(ManagedList.of(ownKeys.getPreKeys()).filter(PrivateKey.PRE_KEY_EQUALS_ID(keyId)).first());
+  }
+ catch (  Exception e) {
+    Log.d(TAG,"Unable to find own pre key #" + keyId);
+    throw e;
+  }
+}

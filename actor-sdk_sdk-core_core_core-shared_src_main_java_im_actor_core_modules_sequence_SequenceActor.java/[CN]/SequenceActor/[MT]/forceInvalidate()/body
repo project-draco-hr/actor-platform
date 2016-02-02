@@ -1,0 +1,4 @@
+{
+  self().sendOnce(new ForceInvalidate());
+  isTimerStarted=false;
+}

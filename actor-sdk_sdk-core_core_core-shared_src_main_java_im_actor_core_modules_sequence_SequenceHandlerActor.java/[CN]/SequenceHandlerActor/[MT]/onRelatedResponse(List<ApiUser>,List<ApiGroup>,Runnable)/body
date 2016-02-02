@@ -1,0 +1,4 @@
+{
+  processor.applyRelated(relatedUsers,relatedGroups,false);
+  afterApply.run();
+}

@@ -1,9 +1,0 @@
-{
-  this.updateActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public Actor create(){
-      return new SequenceActor(context());
-    }
-  }
-).changeDispatcher("updates"),"actor/updates");
-  context().getEvents().subscribe(this,NewSessionCreated.EVENT);
-}

@@ -1,0 +1,23 @@
+{
+  final byte[] senderEphemeralKey=ByteStrings.substring(data,20,32);
+  final byte[] receiverEphemeralKey=ByteStrings.substring(data,52,32);
+  Log.d(TAG,"Sender Ephemeral " + Crypto.keyHash(senderEphemeralKey));
+  Log.d(TAG,"Receiver Ephemeral " + Crypto.keyHash(receiverEphemeralKey));
+  return pickDecryptChain(senderEphemeralKey,receiverEphemeralKey).map(new Function<EncryptedSessionChain,DecryptedPackage>(){
+    @Override public DecryptedPackage apply(    EncryptedSessionChain encryptedSessionChain){
+      return decrypt(encryptedSessionChain,data);
+    }
+  }
+).then(new Consumer<DecryptedPackage>(){
+    @Override public void apply(    DecryptedPackage decryptedPackage){
+      Log.d(TAG,"onDecrypted");
+      latestTheirEphemeralKey=senderEphemeralKey;
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.d(TAG,"onError");
+    }
+  }
+);
+}

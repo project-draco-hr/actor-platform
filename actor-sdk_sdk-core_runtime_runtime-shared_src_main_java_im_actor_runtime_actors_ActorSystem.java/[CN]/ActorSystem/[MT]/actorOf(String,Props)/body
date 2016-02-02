@@ -1,0 +1,3 @@
+{
+  return actorOf(props,path);
+}

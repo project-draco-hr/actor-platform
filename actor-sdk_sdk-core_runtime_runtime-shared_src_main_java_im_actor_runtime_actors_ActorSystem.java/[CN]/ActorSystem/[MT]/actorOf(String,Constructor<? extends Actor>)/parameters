@@ -1,0 +1,2 @@
+String path
+Constructor<? extends Actor> constructor

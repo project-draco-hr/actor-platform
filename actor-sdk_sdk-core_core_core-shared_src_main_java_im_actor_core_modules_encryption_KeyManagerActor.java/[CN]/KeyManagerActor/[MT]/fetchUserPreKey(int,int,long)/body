@@ -1,0 +1,46 @@
+{
+  User user=users().getValue(uid);
+  if (user == null) {
+    throw new RuntimeException("Unable to find user #" + uid);
+  }
+  return pickUserGroup(uid,keyGroupId).mapPromise(new Function<Tuple2<UserKeysGroup,UserKeys>,Promise<PublicKey>>(){
+    @Override public Promise<PublicKey> apply(    final Tuple2<UserKeysGroup,UserKeys> keysGroup){
+      for (      PublicKey p : keysGroup.getT1().getEphemeralKeys()) {
+        if (p.getKeyId() == keyId) {
+          return Promises.success(p);
+        }
+      }
+      ArrayList<Long> ids=new ArrayList<Long>();
+      ids.add(keyId);
+      final UserKeysGroup finalKeysGroup=keysGroup.getT1();
+      return api(new RequestLoadPublicKey(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),keyGroupId,ids)).map(new Function<ResponsePublicKeys,PublicKey>(){
+        @Override public PublicKey apply(        ResponsePublicKeys responsePublicKeys){
+          if (responsePublicKeys.getPublicKey().size() == 0) {
+            throw new RuntimeException("Unable to find public key on server");
+          }
+          ApiEncryptionKeySignature sig=null;
+          for (          ApiEncryptionKeySignature s : responsePublicKeys.getSignatures()) {
+            if (s.getKeyId() == keyId && "Ed25519".equals(s.getSignatureAlg())) {
+              sig=s;
+              break;
+            }
+          }
+          if (sig == null) {
+            throw new RuntimeException("Unable to find public key on server");
+          }
+          ApiEncryptionKey key=responsePublicKeys.getPublicKey().get(0);
+          byte[] keyHash=RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial());
+          if (!Curve25519.verifySignature(keysGroup.getT1().getIdentityKey().getPublicKey(),keyHash,sig.getSignature())) {
+            throw new RuntimeException("Key signature does not match");
+          }
+          PublicKey pkey=new PublicKey(keyId,key.getKeyAlg(),key.getKeyMaterial());
+          UserKeysGroup userKeysGroup=finalKeysGroup.addPublicKey(pkey);
+          cacheUserKeys(keysGroup.getT2().removeUserKeyGroup(userKeysGroup.getKeyGroupId()).addUserKeyGroup(userKeysGroup));
+          return pkey;
+        }
+      }
+);
+    }
+  }
+);
+}

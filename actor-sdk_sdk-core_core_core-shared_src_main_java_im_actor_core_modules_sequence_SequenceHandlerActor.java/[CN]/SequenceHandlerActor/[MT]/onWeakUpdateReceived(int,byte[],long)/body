@@ -1,0 +1,13 @@
+{
+  Update update;
+  try {
+    update=updatesParser.read(type,body);
+  }
+ catch (  IOException e) {
+    Log.w(TAG,"Unable to parse update: ignoring");
+    Log.e(TAG,e);
+    return;
+  }
+  Log.d(TAG,"Processing weak update: " + update);
+  this.processor.processWeakUpdate(update,date);
+}

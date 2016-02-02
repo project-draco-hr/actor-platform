@@ -1,0 +1,12 @@
+{
+  if (message instanceof EncryptPackage) {
+    return onEncrypt(((EncryptPackage)message).getData());
+  }
+ else   if (message instanceof DecryptPackage) {
+    DecryptPackage decryptPackage=(DecryptPackage)message;
+    return onDecrypt(decryptPackage.getData());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

@@ -1,0 +1,19 @@
+{
+  if (message instanceof EncryptBox) {
+    if (!isReady) {
+      stash();
+      return null;
+    }
+    return doEncrypt(((EncryptBox)message).getData());
+  }
+ else   if (message instanceof DecryptBox) {
+    if (!isReady) {
+      stash();
+      return null;
+    }
+    return doDecrypt(((DecryptBox)message).getEncryptedBox());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

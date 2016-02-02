@@ -1,0 +1,6 @@
+{
+  this.updateHandler=system().actorOf("actor/updates/handler","updates",SequenceHandlerActor.CONSTRUCTOR(context()));
+  this.updateHandlerInt=new SequenceHandlerInt(this.updateHandler);
+  this.updateActor=system().actorOf("actor/updates",SequenceActor.CONSTRUCTOR(context()));
+  context().getEvents().subscribe(this,NewSessionCreated.EVENT);
+}

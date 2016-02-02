@@ -1,0 +1,3 @@
+{
+  return ask(new SeqUpdate(updateKey,data,users,groups));
+}

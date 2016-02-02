@@ -1,8 +1,0 @@
-{
-  if (message instanceof CheckUsers) {
-    checkUsers(((CheckUsers)message).uids,future);
-  }
- else {
-    super.onAsk(message,future);
-  }
-}

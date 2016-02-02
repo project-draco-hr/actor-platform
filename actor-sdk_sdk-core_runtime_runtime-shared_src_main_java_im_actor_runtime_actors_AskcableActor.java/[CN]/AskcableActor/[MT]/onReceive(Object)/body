@@ -1,7 +1,17 @@
 {
   if (message instanceof AskIntRequest) {
     AskIntRequest askRequest=(AskIntRequest)message;
-    onAsk(askRequest.getMessage(),askRequest.getFuture());
+    try {
+      Promise p=onAsk(askRequest.getMessage());
+      if (p == null) {
+        return;
+      }
+      p.pipeTo(askRequest.getFuture()).done(self());
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      askRequest.getFuture().tryError(e);
+    }
   }
  else {
     super.onReceive(message);

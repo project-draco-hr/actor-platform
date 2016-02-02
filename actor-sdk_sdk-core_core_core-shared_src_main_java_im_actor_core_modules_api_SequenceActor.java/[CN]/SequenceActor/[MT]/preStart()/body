@@ -1,7 +1,0 @@
-{
-  seq=preferences().getInt(KEY_SEQ,-1);
-  state=preferences().getBytes(KEY_STATE);
-  parser=new UpdatesParser();
-  processor=new UpdateProcessor(context());
-  self().send(new Invalidate());
-}

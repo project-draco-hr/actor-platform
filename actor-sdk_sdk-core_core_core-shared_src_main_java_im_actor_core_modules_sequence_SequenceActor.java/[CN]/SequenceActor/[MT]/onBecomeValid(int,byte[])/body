@@ -1,0 +1,7 @@
+{
+  isValidated=true;
+  this.seq=seq;
+  this.state=state;
+  unstashAll();
+  stopInvalidationTimer();
+}

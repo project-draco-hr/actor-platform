@@ -1,0 +1,12 @@
+{
+  if (seq > finishedSeq) {
+    persistState(seq,state);
+    if (this.seq == seq) {
+      Log.d(TAG,"All updates applied {seq:" + seq + "}");
+    }
+ else {
+      Log.d(TAG,"Updates applied {seq:" + seq + ", finishedSeq: "+ finishedSeq+ "}");
+    }
+    checkRunnables();
+  }
+}

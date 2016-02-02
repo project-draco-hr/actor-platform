@@ -1,0 +1,52 @@
+{
+  if (message instanceof Invalidate || message instanceof SeqUpdateTooLong || message instanceof ForceInvalidate) {
+    if (!isValidated) {
+      return;
+    }
+    invalidate();
+  }
+ else   if (message instanceof SeqUpdate || message instanceof FatSeqUpdate) {
+    if (!isValidated) {
+      stash();
+      return;
+    }
+    int seq;
+    byte[] state;
+    int type;
+    byte[] body;
+    List<ApiUser> users=null;
+    List<ApiGroup> groups=null;
+    if (message instanceof SeqUpdate) {
+      seq=((SeqUpdate)message).getSeq();
+      state=((SeqUpdate)message).getState();
+      type=((SeqUpdate)message).getUpdateHeader();
+      body=((SeqUpdate)message).getUpdate();
+    }
+ else {
+      seq=((FatSeqUpdate)message).getSeq();
+      state=((FatSeqUpdate)message).getState();
+      type=((FatSeqUpdate)message).getUpdateHeader();
+      body=((FatSeqUpdate)message).getUpdate();
+      users=((FatSeqUpdate)message).getUsers();
+      groups=((FatSeqUpdate)message).getGroups();
+    }
+    onUpdateReceived(seq,state,type,body,users,groups);
+  }
+ else   if (message instanceof ExecuteAfter) {
+    if (!isValidated) {
+      stash();
+      return;
+    }
+    onExecuteAfter((ExecuteAfter)message);
+  }
+ else   if (message instanceof PushSeq) {
+    if (!isValidated) {
+      stash();
+      return;
+    }
+    onPushSeqReceived(((PushSeq)message).seq);
+  }
+ else {
+    drop(message);
+  }
+}

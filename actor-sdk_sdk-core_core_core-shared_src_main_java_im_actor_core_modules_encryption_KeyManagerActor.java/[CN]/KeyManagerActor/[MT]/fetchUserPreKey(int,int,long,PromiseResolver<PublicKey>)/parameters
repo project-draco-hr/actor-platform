@@ -1,4 +1,0 @@
-int uid
-int keyGroupId
-long keyId
-PromiseResolver<PublicKey> resolver
