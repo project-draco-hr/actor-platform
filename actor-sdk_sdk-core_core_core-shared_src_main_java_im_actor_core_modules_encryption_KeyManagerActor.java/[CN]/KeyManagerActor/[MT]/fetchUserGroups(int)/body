@@ -1,0 +1,30 @@
+{
+  User user=users().getValue(uid);
+  if (user == null) {
+    throw new RuntimeException("Unable to find user #" + uid);
+  }
+  final UserKeys userKeys=getCachedUserKeys(uid);
+  if (userKeys != null) {
+    return Promises.success(userKeys);
+  }
+  return api(new RequestLoadPublicKeyGroups(new ApiUserOutPeer(uid,user.getAccessHash()))).map(new Function<ResponsePublicKeyGroups,ArrayList<UserKeysGroup>>(){
+    @Override public ArrayList<UserKeysGroup> apply(    ResponsePublicKeyGroups response){
+      ArrayList<UserKeysGroup> keysGroups=new ArrayList<>();
+      for (      ApiEncryptionKeyGroup keyGroup : response.getPublicKeyGroups()) {
+        UserKeysGroup validatedKeysGroup=validateUserKeysGroup(uid,keyGroup);
+        if (validatedKeysGroup != null) {
+          keysGroups.add(validatedKeysGroup);
+        }
+      }
+      return keysGroups;
+    }
+  }
+).map(new Function<ArrayList<UserKeysGroup>,UserKeys>(){
+    @Override public UserKeys apply(    ArrayList<UserKeysGroup> userKeysGroups){
+      UserKeys userKeys=new UserKeys(uid,userKeysGroups.toArray(new UserKeysGroup[userKeysGroups.size()]));
+      cacheUserKeys(userKeys);
+      return userKeys;
+    }
+  }
+);
+}

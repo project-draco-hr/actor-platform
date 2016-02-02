@@ -1,0 +1,13 @@
+{
+  return Promises.success(latestTheirEphemeralKey).mapIfNullPromise(keyManager.supplyUserPreKey(uid,session.getTheirKeyGroupId())).map(new Function<byte[],EncryptedSessionChain>(){
+    @Override public EncryptedSessionChain apply(    byte[] publicKey){
+      return pickEncryptChain(publicKey);
+    }
+  }
+).map(new Function<EncryptedSessionChain,EncryptedPackageRes>(){
+    @Override public EncryptedPackageRes apply(    EncryptedSessionChain encryptedSessionChain){
+      return encrypt(encryptedSessionChain,data);
+    }
+  }
+);
+}

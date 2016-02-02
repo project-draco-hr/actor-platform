@@ -1,0 +1,6 @@
+int seq
+byte[] state
+int type
+byte[] body
+List<ApiUser> users
+List<ApiGroup> groups

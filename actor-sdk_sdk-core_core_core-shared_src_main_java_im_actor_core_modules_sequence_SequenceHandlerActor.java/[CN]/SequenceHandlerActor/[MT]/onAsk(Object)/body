@@ -1,0 +1,13 @@
+{
+  if (message instanceof SeqUpdate) {
+    SeqUpdate seqUpdate=(SeqUpdate)message;
+    return onSeqUpdate(seqUpdate.type,seqUpdate.body,seqUpdate.users,seqUpdate.groups);
+  }
+ else   if (message instanceof DifferenceUpdate) {
+    DifferenceUpdate differenceUpdate=(DifferenceUpdate)message;
+    return onDifferenceUpdate(differenceUpdate.getDifference());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

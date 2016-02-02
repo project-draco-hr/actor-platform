@@ -1,0 +1,5 @@
+{
+  finishedSeq=seq;
+  preferences().putInt(KEY_SEQ,seq);
+  preferences().putBytes(KEY_STATE,state);
+}

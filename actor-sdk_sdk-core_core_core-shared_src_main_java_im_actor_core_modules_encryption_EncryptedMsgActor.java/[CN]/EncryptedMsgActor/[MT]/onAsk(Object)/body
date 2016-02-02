@@ -1,0 +1,8 @@
+{
+  if (message instanceof EncryptMessage) {
+    return doEncrypt(((EncryptMessage)message).getUid(),((EncryptMessage)message).getMessage());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

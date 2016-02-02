@@ -1,0 +1,3 @@
+{
+  return Promises.success(new OwnIdentity(ownKeys.getKeyGroupId(),ownKeys.getIdentityKey()));
+}

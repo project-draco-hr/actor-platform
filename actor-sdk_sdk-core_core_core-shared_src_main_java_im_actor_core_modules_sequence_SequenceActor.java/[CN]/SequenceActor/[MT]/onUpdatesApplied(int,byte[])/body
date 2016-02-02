@@ -1,6 +1,12 @@
 {
-  finishedSeq=seq;
-  preferences().putInt(KEY_SEQ,seq);
-  preferences().putBytes(KEY_STATE,state);
-  checkRunnables();
+  if (seq > finishedSeq) {
+    persistState(seq,state);
+    if (this.seq == seq) {
+      Log.d(TAG,"All updates applied {seq:" + seq + "}");
+    }
+ else {
+      Log.d(TAG,"Updates applied {seq:" + seq + ", finishedSeq: "+ finishedSeq+ "}");
+    }
+    checkRunnables();
+  }
 }

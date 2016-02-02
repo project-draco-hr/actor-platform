@@ -1,0 +1,3 @@
+{
+  return PromisesArray.of(ownKeys.getPreKeys()).random();
+}

@@ -1,3 +1,0 @@
-{
-  PromisesArray.of(ownKeys.getPreKeys()).random().pipeTo(resolve).done(self());
-}
