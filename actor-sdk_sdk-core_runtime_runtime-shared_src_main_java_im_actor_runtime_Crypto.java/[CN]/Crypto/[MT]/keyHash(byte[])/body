@@ -3,5 +3,5 @@
   keyDigest.update(publicKey,0,publicKey.length);
   byte[] res=new byte[8];
   keyDigest.doFinal(res,0);
-  return hex.toHex(res);
+  return provider.toHex(res);
 }
