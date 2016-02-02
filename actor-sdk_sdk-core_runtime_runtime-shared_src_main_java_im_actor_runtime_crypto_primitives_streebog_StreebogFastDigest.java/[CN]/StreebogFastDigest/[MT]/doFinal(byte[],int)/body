@@ -20,6 +20,6 @@
   }
   streebog_g(m,0);
   streebog_g(e,0);
-  Pack.longToBigEndian(h,out,offset,hashLength / 8);
+  Pack.longToBigEndian(new long[]{H0,H1,H2,H3,H4,H5,H6,H7},out,offset,hashLength / 8);
   reset();
 }
