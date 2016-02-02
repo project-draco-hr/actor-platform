@@ -56,7 +56,7 @@
             isUpdating=false;
           }
         }
-);
+).done(self());
       }
     }
 );
