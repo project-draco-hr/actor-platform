@@ -1,0 +1,4 @@
+{
+  this.hashLength=hashLength;
+  reset();
+}

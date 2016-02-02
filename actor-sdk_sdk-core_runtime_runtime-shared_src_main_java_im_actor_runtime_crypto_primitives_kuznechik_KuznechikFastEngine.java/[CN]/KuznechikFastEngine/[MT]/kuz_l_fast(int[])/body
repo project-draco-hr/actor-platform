@@ -1,0 +1,14 @@
+{
+  int a0=0, a1=0, a2=0, a3=0;
+  for (int ind=0; ind < 16; ind++) {
+    int dataByte=(ind + ((w[ind / 4] >> (3 - ind % 4) * 8) & 0xFF) * 16) * 4;
+    a0=a0 ^ gf256res[dataByte + 0];
+    a1=a1 ^ gf256res[dataByte + 1];
+    a2=a2 ^ gf256res[dataByte + 2];
+    a3=a3 ^ gf256res[dataByte + 3];
+  }
+  w[0]=a0;
+  w[1]=a1;
+  w[2]=a2;
+  w[3]=a3;
+}

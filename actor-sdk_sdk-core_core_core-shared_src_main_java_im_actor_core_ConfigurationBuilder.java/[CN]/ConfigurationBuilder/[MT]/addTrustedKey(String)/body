@@ -1,4 +1,4 @@
 {
-  trustedKeys.add(new TrustedKey(Hex.fromHex(trustedKey)));
+  trustedKeys.add(new TrustedKey(Crypto.fromHex(trustedKey)));
   return this;
 }

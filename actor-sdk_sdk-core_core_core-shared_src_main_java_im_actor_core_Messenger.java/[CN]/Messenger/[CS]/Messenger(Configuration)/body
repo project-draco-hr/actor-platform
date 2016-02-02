@@ -2,8 +2,9 @@
   Timing timing=new Timing("MESSENGER_INIT");
   timing.section("Actors");
   ActorSystem.system().setTraceInterface(new ActorTrace());
-  ActorSystem.system().addDispatcher("network");
-  ActorSystem.system().addDispatcher("heavy");
+  ActorSystem.system().addDispatcher("network",2);
+  ActorSystem.system().addDispatcher("network_manager",1);
+  ActorSystem.system().addDispatcher("heavy",2);
   ActorSystem.system().addDispatcher("updates",1);
   timing.section("Modules:Create");
   this.modules=new Modules(this,configuration);

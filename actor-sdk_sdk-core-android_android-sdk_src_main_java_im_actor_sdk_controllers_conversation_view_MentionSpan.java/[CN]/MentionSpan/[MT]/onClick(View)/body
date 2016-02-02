@@ -2,6 +2,6 @@
   if (hideUrlStyle) {
   }
  else {
-    widget.getContext().startActivity(Intents.openProfile(userId,widget.getContext()));
+    ActorSDK.sharedActor().startProfileActivity(widget.getContext(),userId);
   }
 }

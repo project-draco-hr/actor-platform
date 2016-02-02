@@ -1,3 +1,2 @@
 {
-  modules.getMessagesModule().onMessageShown(peer,0,sortKey);
 }

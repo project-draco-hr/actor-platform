@@ -21,7 +21,7 @@
 ).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
   }
  else   if (i == R.id.contact) {
-    startActivity(Intents.openProfile(peer.getPeerId(),ChatActivity.this));
+    ActorSDK.sharedActor().startProfileActivity(ChatActivity.this,peer.getPeerId());
   }
  else   if (i == R.id.groupInfo) {
     startActivity(Intents.openGroup(peer.getPeerId(),ChatActivity.this));

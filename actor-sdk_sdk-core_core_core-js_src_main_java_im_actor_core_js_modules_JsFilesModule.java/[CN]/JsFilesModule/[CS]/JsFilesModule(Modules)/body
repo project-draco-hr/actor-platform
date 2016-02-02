@@ -1,6 +1,6 @@
 {
   super(modules);
-  urlLoader=system().actorOf(Props.create(FileBinderActor.class,new ActorCreator<FileBinderActor>(){
+  urlLoader=system().actorOf(Props.create(new ActorCreator(){
     @Override public FileBinderActor create(){
       return new FileBinderActor(JsFilesModule.this,modules);
     }
