@@ -4,5 +4,5 @@
       return new ManagerActor(mtProto);
     }
   }
-).changeDispatcher("network"),mtProto.getActorPath() + "/manager"));
+).changeDispatcher("network_manager"),mtProto.getActorPath() + "/manager"));
 }
