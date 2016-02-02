@@ -1,0 +1,13 @@
+{
+  for (int i=0; i < 64; i++) {
+    if (hashLength == 32) {
+      h[i]=(byte)0x01;
+    }
+ else {
+      h[i]=(byte)0x00;
+    }
+    e[i]=(byte)0x00;
+  }
+  pt=63;
+  n=0;
+}

@@ -1,5 +1,0 @@
-{
-  Pack.intToBigEndian(w,tmp,0);
-  kuz_l(tmp);
-  Pack.bigEndianToInt(tmp,0,w);
-}

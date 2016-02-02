@@ -1,0 +1,5 @@
+byte[] bs
+int off
+int[] ns
+int destOffset
+int count

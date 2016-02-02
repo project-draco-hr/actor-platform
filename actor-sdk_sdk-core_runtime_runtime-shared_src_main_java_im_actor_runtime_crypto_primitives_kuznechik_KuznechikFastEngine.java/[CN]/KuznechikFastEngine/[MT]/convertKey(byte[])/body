@@ -3,7 +3,6 @@
     throw new RuntimeException("Key might be 32 bytes length");
   }
   int[][] kuz=new int[10][4];
-  byte[] tmp=new byte[16];
   int[] c=new int[4];
   int[] x=new int[4];
   int[] y=new int[4];
@@ -21,7 +20,7 @@
     c[1]=0;
     c[2]=0;
     c[3]=i;
-    kuz_l(c,tmp);
+    kuz_l_fast(c);
     z[0]=x[0] ^ c[0];
     z[1]=x[1] ^ c[1];
     z[2]=x[2] ^ c[2];
@@ -30,7 +29,7 @@
     z[1]=(kuz_pi[z[1] & 0xFF] & 0xFF) + ((kuz_pi[(z[1] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(z[1] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(z[1] >> 24) & 0xFF] & 0xFF) << 24);
     z[2]=(kuz_pi[z[2] & 0xFF] & 0xFF) + ((kuz_pi[(z[2] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(z[2] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(z[2] >> 24) & 0xFF] & 0xFF) << 24);
     z[3]=(kuz_pi[z[3] & 0xFF] & 0xFF) + ((kuz_pi[(z[3] >> 8) & 0xFF] & 0xFF) << 8) + ((kuz_pi[(z[3] >> 16) & 0xFF] & 0xFF) << 16)+ ((kuz_pi[(z[3] >> 24) & 0xFF] & 0xFF) << 24);
-    kuz_l(z,tmp);
+    kuz_l_fast(z);
     z[0]=z[0] ^ y[0];
     z[1]=z[1] ^ y[1];
     z[2]=z[2] ^ y[2];
