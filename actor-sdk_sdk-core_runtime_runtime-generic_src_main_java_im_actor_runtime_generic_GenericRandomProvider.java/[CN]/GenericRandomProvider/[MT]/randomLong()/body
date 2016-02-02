@@ -1,0 +1,5 @@
+{
+synchronized (random) {
+    return random.nextLong();
+  }
+}
