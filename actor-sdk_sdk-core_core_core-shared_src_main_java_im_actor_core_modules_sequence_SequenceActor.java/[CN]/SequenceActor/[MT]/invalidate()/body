@@ -39,7 +39,7 @@
         if (isValidated) {
           return;
         }
-        Log.d(TAG,"Difference loaded {seq=" + response.getSeq() + "} in "+ (im.actor.runtime.Runtime.getCurrentTime() - loadStart)+ " ms");
+        Log.d(TAG,"Difference loaded {seq=" + response.getSeq() + "} in "+ (im.actor.runtime.Runtime.getCurrentTime() - loadStart)+ " ms, "+ "userRefs: "+ response.getUsersRefs().size()+ ", "+ "groupRefs: "+ response.getGroupsRefs().size());
         handler.onDifferenceUpdate(response).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
           @Override public void apply(          SequenceHandlerActor.UpdateProcessed updateProcessed){
             onUpdatesApplied(response.getSeq(),response.getState());
