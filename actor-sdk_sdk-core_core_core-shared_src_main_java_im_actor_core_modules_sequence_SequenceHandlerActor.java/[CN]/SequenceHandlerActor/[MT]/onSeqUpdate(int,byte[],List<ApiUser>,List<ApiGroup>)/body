@@ -8,6 +8,12 @@
     Log.e(TAG,e);
     return Promises.success(new UpdateProcessed());
   }
+  if (groups == null || users == null) {
+    if (processor.isCausesInvalidation(update)) {
+      Log.w(TAG,"Difference is required");
+      throw new RuntimeException("Difference is required");
+    }
+  }
   Log.d(TAG,"Processing update: " + update);
   if (groups != null && users != null) {
     processor.applyRelated(users,groups,false);

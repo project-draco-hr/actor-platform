@@ -10,9 +10,17 @@
     }
   }
  else   if (message instanceof RelatedResponse) {
+    if (isUpdating) {
+      stash();
+      return;
+    }
     onRelatedResponse(((RelatedResponse)message).getRelatedUsers(),((RelatedResponse)message).getRelatedGroups(),((RelatedResponse)message).getAfterApply());
   }
  else   if (message instanceof InternalUpdate) {
+    if (isUpdating) {
+      stash();
+      return;
+    }
     onInternalUpdate((InternalUpdate)message);
   }
  else {

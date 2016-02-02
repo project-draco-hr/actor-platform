@@ -31,6 +31,13 @@
       onUpdatesApplied(seq,state);
     }
   }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      SequenceActor.this.seq=finishedSeq;
+      SequenceActor.this.state=finishedState;
+      invalidate();
+    }
+  }
 ).done(self());
   this.seq=seq;
   this.state=state;
