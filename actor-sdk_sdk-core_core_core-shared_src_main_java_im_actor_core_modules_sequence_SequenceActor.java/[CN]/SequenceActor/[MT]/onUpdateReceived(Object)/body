@@ -54,18 +54,14 @@
   Log.d(TAG,"Handling update #" + seq);
   handler.onSeqUpdate(type,body,users,groups).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
     @Override public void apply(    SequenceHandlerActor.UpdateProcessed updateProcessed){
-      Log.d(TAG,"Update handled #" + seq);
-      finishedSeq=seq;
-      preferences().putInt(KEY_SEQ,finishedSeq);
-      preferences().putBytes(KEY_STATE,state);
-      checkRunnables();
+      onUpdatesApplied(seq,state);
     }
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
     }
   }
-);
+).done(self());
   this.seq=seq;
   this.state=state;
   checkFuture();

@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"Processing onReceive: " + message);
   if (message instanceof WeakUpdate) {
     WeakUpdate weakUpdate=(WeakUpdate)message;
     try {
@@ -7,6 +8,9 @@
  catch (    Exception e) {
       e.printStackTrace();
     }
+  }
+ else   if (message instanceof RelatedResponse) {
+    onRelatedResponse(((RelatedResponse)message).getRelatedUsers(),((RelatedResponse)message).getRelatedGroups(),((RelatedResponse)message).getAfterApply());
   }
  else   if (message instanceof InternalUpdate) {
     onInternalUpdate((InternalUpdate)message);

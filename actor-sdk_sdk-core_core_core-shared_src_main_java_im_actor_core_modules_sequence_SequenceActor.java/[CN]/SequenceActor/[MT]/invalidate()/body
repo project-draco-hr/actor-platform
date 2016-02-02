@@ -53,7 +53,7 @@
           @Override public void apply(          Exception e){
           }
         }
-);
+).done(self());
         isValidated=true;
         checkFuture();
         isTimerStarted=false;
