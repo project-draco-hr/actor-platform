@@ -1,0 +1,4 @@
+long[] ns
+byte[] bs
+int off
+int count
