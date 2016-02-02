@@ -3,7 +3,7 @@
     new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.dialogs_menu_contact_view),getString(R.string.dialogs_menu_contact_rename),getString(R.string.dialogs_menu_conversation_delete)},new DialogInterface.OnClickListener(){
       @Override public void onClick(      DialogInterface d,      int which){
         if (which == 0) {
-          startActivity(Intents.openProfile(dialog.getPeer().getPeerId(),getActivity()));
+          ActorSDK.sharedActor().startProfileActivity(getActivity(),dialog.getPeer().getPeerId());
         }
  else         if (which == 1) {
           startActivity(Intents.editUserName(dialog.getPeer().getPeerId(),getActivity()));
