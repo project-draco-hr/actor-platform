@@ -4,6 +4,7 @@
   modules.getPreferences().putBool(KEY_AUTH,true);
   modules.getPreferences().putInt(KEY_AUTH_UID,myUid);
   modules.onLoggedIn();
+  modules.getUsersModule().getUsersStorage().addOrUpdateItem(new User(response.getUser()));
   modules.getUpdatesModule().onUpdateReceived(new LoggedIn(response,new Runnable(){
     @Override public void run(){
       state=AuthState.LOGGED_IN;
@@ -17,5 +18,5 @@
       }
     }
   }
-),500L);
+));
 }
