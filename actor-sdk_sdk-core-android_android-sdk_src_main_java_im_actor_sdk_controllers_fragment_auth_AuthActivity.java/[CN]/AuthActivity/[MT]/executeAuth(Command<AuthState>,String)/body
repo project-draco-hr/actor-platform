@@ -7,8 +7,9 @@
   progressDialog.show();
   command.start(new CommandCallback<AuthState>(){
     @Override public void onResult(    final AuthState res){
-      dismissProgress();
-      updateState(res);
+      if (dismissProgress()) {
+        updateState(res);
+      }
     }
     @Override public void onError(    final Exception e){
       dismissProgress();

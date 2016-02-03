@@ -2,5 +2,7 @@
   if (progressDialog != null) {
     progressDialog.dismiss();
     progressDialog=null;
+    return true;
   }
+  return false;
 }
