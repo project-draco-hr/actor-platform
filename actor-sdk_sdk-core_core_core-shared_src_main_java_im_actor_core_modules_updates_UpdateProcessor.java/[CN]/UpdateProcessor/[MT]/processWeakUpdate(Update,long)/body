@@ -1,4 +1,7 @@
 {
+  if (callsProcessor.process(update)) {
+    return;
+  }
   if (update instanceof UpdateUserOnline) {
     UpdateUserOnline userOnline=(UpdateUserOnline)update;
     presenceProcessor.onUserOnline(userOnline.getUid(),date);
@@ -22,17 +25,5 @@
  else   if (update instanceof UpdateTypingStop) {
     UpdateTypingStop typing=(UpdateTypingStop)update;
     typingProcessor.onTypingStop(typing.getPeer(),typing.getUid(),typing.getTypingType());
-  }
- else   if (update instanceof UpdateIncomingCall) {
-    callsProcessor.onIncomingCall((UpdateIncomingCall)update);
-  }
- else   if (update instanceof UpdateCallInProgress) {
-    callsProcessor.onCallInProgress((UpdateCallInProgress)update);
-  }
- else   if (update instanceof UpdateCallSignal) {
-    callsProcessor.onSignal((UpdateCallSignal)update);
-  }
- else   if (update instanceof UpdateCallEnded) {
-    callsProcessor.onCallEnd((UpdateCallEnded)update);
   }
 }

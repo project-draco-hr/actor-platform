@@ -1,3 +1,0 @@
-{
-  context().getCallsModule().onIncomingCall(call.getCallId(),call.getUid());
-}

@@ -1,3 +1,0 @@
-{
-  context().getCallsModule().onEndCall(callEnd.getCallId());
-}

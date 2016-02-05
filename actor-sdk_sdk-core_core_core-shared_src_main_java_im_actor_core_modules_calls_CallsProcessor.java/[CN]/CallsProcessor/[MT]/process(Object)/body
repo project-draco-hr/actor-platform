@@ -1,0 +1,12 @@
+{
+  if (update instanceof UpdateIncomingCall) {
+    UpdateIncomingCall updateIncomingCall=(UpdateIncomingCall)update;
+    context.getCallsModule().getCallManager().send(new CallManagerActor.OnIncomingCall(updateIncomingCall.getCallId(),updateIncomingCall.getUid()));
+    return true;
+  }
+ else   if (update instanceof UpdateCallSignal) {
+    UpdateCallSignal updateCallSignal=(UpdateCallSignal)update;
+    context.getCallsModule().getCallManager().send(new CallManagerActor.OnSignaling(updateCallSignal.getCallId(),updateCallSignal.getContent()));
+  }
+  return false;
+}

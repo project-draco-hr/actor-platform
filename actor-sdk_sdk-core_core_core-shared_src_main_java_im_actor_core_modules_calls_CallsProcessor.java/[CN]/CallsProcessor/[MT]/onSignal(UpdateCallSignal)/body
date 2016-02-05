@@ -1,3 +1,0 @@
-{
-  context().getCallsModule().onSignal(signal.getCallId(),signal.getContent());
-}

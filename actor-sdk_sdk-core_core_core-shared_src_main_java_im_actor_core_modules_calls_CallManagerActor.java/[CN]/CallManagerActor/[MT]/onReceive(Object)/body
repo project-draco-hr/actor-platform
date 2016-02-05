@@ -3,6 +3,10 @@
     OnIncomingCall call=(OnIncomingCall)message;
     onIncomingCall(call.getCallId(),call.getUid());
   }
+ else   if (message instanceof OnSignaling) {
+    OnSignaling signaling=(OnSignaling)message;
+    onSignaling(signaling.getCallId(),signaling.getMessage());
+  }
  else {
     super.onReceive(message);
   }

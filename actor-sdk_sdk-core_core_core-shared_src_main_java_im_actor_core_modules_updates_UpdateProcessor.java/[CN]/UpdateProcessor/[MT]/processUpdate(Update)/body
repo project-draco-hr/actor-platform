@@ -5,6 +5,9 @@
   if (encryptedProcessor.process(update)) {
     return;
   }
+  if (callsProcessor.process(update)) {
+    return;
+  }
   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
     messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());
@@ -116,17 +119,5 @@
   }
  else   if (update instanceof UpdateStickerCollectionsChanged) {
     stickersProcessor.onStickerCollectionsChanged(((UpdateStickerCollectionsChanged)update).getCollections());
-  }
- else   if (update instanceof UpdateIncomingCall) {
-    callsProcessor.onIncomingCall((UpdateIncomingCall)update);
-  }
- else   if (update instanceof UpdateCallInProgress) {
-    callsProcessor.onCallInProgress((UpdateCallInProgress)update);
-  }
- else   if (update instanceof UpdateCallSignal) {
-    callsProcessor.onSignal((UpdateCallSignal)update);
-  }
- else   if (update instanceof UpdateCallEnded) {
-    callsProcessor.onCallEnd((UpdateCallEnded)update);
   }
 }

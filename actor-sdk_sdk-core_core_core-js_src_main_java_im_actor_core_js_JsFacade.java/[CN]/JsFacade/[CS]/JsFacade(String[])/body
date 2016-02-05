@@ -26,5 +26,16 @@
     configuration.addEndpoint(endpoint);
   }
   messenger=new JsMessenger(configuration.build());
+  JsWebRTC.getAudioMedia().then(new Consumer<JsUserMediaStream>(){
+    @Override public void apply(    JsUserMediaStream mediaStream){
+      Log.d(TAG,"Audio received");
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.w(TAG,"Audio Error");
+    }
+  }
+);
   Log.d(TAG,"JsMessenger created");
 }

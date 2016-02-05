@@ -1,3 +1,0 @@
-{
-  context().getCallsModule().onCallInProgress(inProgress.getCallId(),inProgress.getTimeout());
-}
