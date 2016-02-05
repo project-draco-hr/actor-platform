@@ -16,3 +16,4 @@ String[] preferredLanguages
 String customAppName
 TrustedKey[] trustedKeys
 boolean enablePhoneBookImport
+WebRTCProvider webRTCProvider

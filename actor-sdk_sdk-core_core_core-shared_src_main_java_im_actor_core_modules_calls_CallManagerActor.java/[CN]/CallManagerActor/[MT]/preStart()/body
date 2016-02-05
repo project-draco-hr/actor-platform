@@ -1,0 +1,5 @@
+{
+  super.preStart();
+  subscribeForCalls();
+  subscribe(NewSessionCreated.EVENT);
+}

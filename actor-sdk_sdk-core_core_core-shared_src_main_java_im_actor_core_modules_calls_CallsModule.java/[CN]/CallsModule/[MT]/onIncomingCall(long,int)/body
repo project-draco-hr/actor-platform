@@ -1,17 +1,6 @@
 {
-  Log.d(TAG,"incoming call " + callId);
-  if (!calls.keySet().contains(callId)) {
-    calls.put(callId,ActorSystem.system().actorOf("actor/call_" + callId,new ActorCreator(){
-      @Override public Actor create(){
-        return new CallActor(callId,context());
-      }
-    }
-));
-    if (!MULTIPLE_CALLS_ENABLED & calls.keySet().size() > MAX_CALLS_COUNT) {
-      calls.get(callId).send(new CallActor.EndCall());
-    }
- else {
-      context().getEvents().post(new IncomingCall(callId,uid));
-    }
+  if (provider == null) {
+    return;
   }
+  callManager.send(new CallManagerActor.OnIncomingCall(callId,uid));
 }

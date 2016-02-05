@@ -1,0 +1,8 @@
+{
+  if (NewSessionCreated.EVENT.equals(event.getType())) {
+    subscribeForCalls();
+  }
+ else {
+    super.onBusEvent(event);
+  }
+}

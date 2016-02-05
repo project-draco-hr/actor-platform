@@ -1,24 +1,3 @@
 {
-  return new Command<ResponseDoCall>(){
-    @Override public void start(    final CommandCallback<ResponseDoCall> callback){
-      User u=users().getValue(uid);
-      request(new RequestDoCall(new ApiOutPeer(ApiPeerType.PRIVATE,u.getUid(),u.getAccessHash()),CALL_TIMEOUT),new RpcCallback<ResponseDoCall>(){
-        @Override public void onResult(        final ResponseDoCall response){
-          callback.onResult(response);
-          Log.d(TAG,"make call " + response.getCallId());
-          calls.put(response.getCallId(),ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-            @Override public Actor create(){
-              return new CallActor(response.getCallId(),callCallback,context());
-            }
-          }
-),"actor/call_" + response.getCallId()));
-        }
-        @Override public void onError(        RpcException e){
-          callback.onError(e);
-        }
-      }
-);
-    }
-  }
-;
+  return null;
 }

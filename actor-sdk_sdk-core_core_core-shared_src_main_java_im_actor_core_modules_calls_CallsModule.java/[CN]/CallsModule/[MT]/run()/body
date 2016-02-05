@@ -1,11 +1,6 @@
 {
-  if (CALLS_ENABLED) {
-    request(new RequestSubscribeToCalls());
-    context().getEvents().subscribe(new BusSubscriber(){
-      @Override public void onBusEvent(      Event event){
-        request(new RequestSubscribeToCalls());
-      }
-    }
-,NewSessionCreated.EVENT);
+  if (provider == null) {
+    return;
   }
+  callManager=system().actorOf("calls/manager",CallManagerActor.CONSTRUCTOR(context()));
 }

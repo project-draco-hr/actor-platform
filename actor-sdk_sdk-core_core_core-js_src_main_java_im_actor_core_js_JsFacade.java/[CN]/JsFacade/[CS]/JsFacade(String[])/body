@@ -6,6 +6,7 @@
   configuration.setApiConfiguration(new ApiConfiguration(APP_NAME,APP_ID,APP_KEY,clientName,uniqueId));
   configuration.setPhoneBookProvider(new JsPhoneBookProvider());
   configuration.setNotificationProvider(new JsNotificationsProvider());
+  configuration.setWebRTCProvider(new JsWebRTCProvider());
   String locale=LocaleInfo.getCurrentLocale().getLocaleName();
   if (locale.equals("default")) {
     Log.d(TAG,"Default locale found");

@@ -1,0 +1,9 @@
+{
+  if (message instanceof OnIncomingCall) {
+    OnIncomingCall call=(OnIncomingCall)message;
+    onIncomingCall(call.getCallId(),call.getUid());
+  }
+ else {
+    super.onReceive(message);
+  }
+}
