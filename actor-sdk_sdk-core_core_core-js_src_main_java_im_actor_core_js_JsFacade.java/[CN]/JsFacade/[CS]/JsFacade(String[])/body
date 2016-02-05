@@ -26,14 +26,21 @@
     configuration.addEndpoint(endpoint);
   }
   messenger=new JsMessenger(configuration.build());
-  JsWebRTC.getAudioMedia().then(new Consumer<JsUserMediaStream>(){
-    @Override public void apply(    JsUserMediaStream mediaStream){
-      Log.d(TAG,"Audio received");
+  JsPeerConnection peerConnection=JsPeerConnection.create(null);
+  peerConnection.setListener(new JsPeerConnectionListener(){
+    @Override public void onIceCandidate(    String candidate){
+      Log.d(TAG,"OnCandidate: " + candidate);
+    }
+  }
+);
+  peerConnection.createOffer().then(new Consumer<JsSessionDescription>(){
+    @Override public void apply(    JsSessionDescription offer){
+      Log.d(TAG,"Offer Ok: " + offer);
     }
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
-      Log.w(TAG,"Audio Error");
+      Log.d(TAG,"Offer failure");
     }
   }
 );
