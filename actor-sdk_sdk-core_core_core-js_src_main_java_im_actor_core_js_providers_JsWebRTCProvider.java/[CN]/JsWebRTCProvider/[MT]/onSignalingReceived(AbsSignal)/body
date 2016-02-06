@@ -11,6 +11,11 @@
             peerConnection.setLocalDescription(jsSessionDescription);
             Log.d(TAG,"Session desc: " + jsSessionDescription);
             JsMessenger.getInstance().callSendSignaling(new AnswerSignal(jsSessionDescription.getSDP()));
+            isReady=true;
+            for (            CandidateSignal signal1 : pendingCandidates) {
+              applySignals(signal1);
+            }
+            pendingCandidates.clear();
           }
         }
 ).failure(new Consumer<Exception>(){
@@ -30,11 +35,11 @@
   }
  else   if (signal instanceof CandidateSignal) {
     CandidateSignal candidateSignal=(CandidateSignal)signal;
-    try {
-      peerConnection.addIceCandidate(candidateSignal.getLabel(),candidateSignal.getSdp());
+    if (!isReady) {
+      pendingCandidates.add(candidateSignal);
     }
- catch (    Exception e) {
-      Log.e(TAG,e);
+ else {
+      applySignals(candidateSignal);
     }
   }
 }
