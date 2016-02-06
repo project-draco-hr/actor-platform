@@ -1,0 +1,16 @@
+{
+  return new Promise<>(new PromiseFunc<JsSessionDescription>(){
+    @Override public void exec(    final PromiseResolver<JsSessionDescription> resolver){
+      createAnswer(new JsSessionDescriptionCallback(){
+        @Override public void onOfferCreated(        JsSessionDescription offer){
+          resolver.result(offer);
+        }
+        @Override public void onOfferFailure(){
+          resolver.error(new RuntimeException("Offer failure"));
+        }
+      }
+);
+    }
+  }
+).done(JsScheduller.scheduller());
+}

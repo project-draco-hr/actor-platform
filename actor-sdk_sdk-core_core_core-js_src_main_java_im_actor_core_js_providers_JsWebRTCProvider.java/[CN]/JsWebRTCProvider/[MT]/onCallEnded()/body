@@ -1,2 +1,5 @@
 {
+  Log.d(TAG,"onCallEnded");
+  peerConnection=null;
+  mediaStream=null;
 }

@@ -1,3 +1,10 @@
 {
   Log.d(TAG,"onSignaling (" + callId + ")");
+  if (runningCallId != callId) {
+    return;
+  }
+  AbsSignal signal=AbsSignal.fromBytes(message);
+  if (signal != null) {
+    config().getWebRTCProvider().onSignalingReceived(signal);
+  }
 }

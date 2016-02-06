@@ -1,0 +1,39 @@
+{
+  Log.d(TAG,"onSignalingReceived: " + signal);
+  if (signal instanceof OfferSignal) {
+    String sdp=((OfferSignal)signal).getSdp();
+    JsSessionDescription description=JsSessionDescription.createOffer(sdp);
+    peerConnection.setRemoteDescription(description).then(new Consumer<String>(){
+      @Override public void apply(      String s){
+        Log.d(TAG,"Description set");
+        peerConnection.createAnswer().then(new Consumer<JsSessionDescription>(){
+          @Override public void apply(          JsSessionDescription jsSessionDescription){
+            Log.d(TAG,"Session desc: " + jsSessionDescription);
+            JsMessenger.getInstance().callSendSignaling(new AnswerSignal(jsSessionDescription.getSDP()));
+          }
+        }
+).failure(new Consumer<Exception>(){
+          @Override public void apply(          Exception e){
+            Log.d(TAG,"Description desc error");
+          }
+        }
+);
+      }
+    }
+).failure(new Consumer<Exception>(){
+      @Override public void apply(      Exception e){
+        Log.d(TAG,"Description error");
+      }
+    }
+);
+  }
+ else   if (signal instanceof CandidateSignal) {
+    CandidateSignal candidateSignal=(CandidateSignal)signal;
+    try {
+      peerConnection.addIceCandidate(candidateSignal.getLabel(),candidateSignal.getSdp());
+    }
+ catch (    Exception e) {
+      Log.e(TAG,e);
+    }
+  }
+}

@@ -7,6 +7,11 @@
  else   if (update instanceof UpdateCallSignal) {
     UpdateCallSignal updateCallSignal=(UpdateCallSignal)update;
     context.getCallsModule().getCallManager().send(new CallManagerActor.OnSignaling(updateCallSignal.getCallId(),updateCallSignal.getContent()));
+    return true;
+  }
+ else   if (update instanceof UpdateCallEnded) {
+    UpdateCallEnded callEnded=(UpdateCallEnded)update;
+    return true;
   }
   return false;
 }

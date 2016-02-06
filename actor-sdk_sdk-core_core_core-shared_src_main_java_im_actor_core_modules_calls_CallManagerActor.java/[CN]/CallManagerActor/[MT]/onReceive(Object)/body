@@ -7,6 +7,12 @@
     OnSignaling signaling=(OnSignaling)message;
     onSignaling(signaling.getCallId(),signaling.getMessage());
   }
+ else   if (message instanceof AnswerCall) {
+    onAnswerCall();
+  }
+ else   if (message instanceof SendSignaling) {
+    onSendSignal(((SendSignaling)message).getSignal());
+  }
  else {
     super.onReceive(message);
   }

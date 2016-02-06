@@ -1,2 +1,3 @@
 {
+  Log.d(TAG,"onOutgoingCall");
 }

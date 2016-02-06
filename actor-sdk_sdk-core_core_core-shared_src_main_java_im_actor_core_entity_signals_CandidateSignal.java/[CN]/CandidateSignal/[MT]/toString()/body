@@ -1,0 +1,3 @@
+{
+  return "{type: " + TYPE + ", id: "+ id+ ", label: "+ label+ " sdp: "+ sdp+ "}";
+}

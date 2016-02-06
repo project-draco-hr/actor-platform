@@ -1,3 +1,8 @@
 {
   Log.d(TAG,"onIncomingCall (" + callId + ", "+ uid+ ")");
+  if (runningCallId != -1) {
+    return;
+  }
+  runningCallId=callId;
+  config().getWebRTCProvider().onIncomingCall();
 }

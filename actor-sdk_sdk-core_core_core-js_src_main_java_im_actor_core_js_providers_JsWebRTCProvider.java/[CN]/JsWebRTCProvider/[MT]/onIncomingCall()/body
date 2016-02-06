@@ -1,2 +1,23 @@
 {
+  Log.d(TAG,"onIncomingCall");
+  JsMessenger.getInstance().callAnswer();
+  peerConnection=JsPeerConnection.create(null);
+  peerConnection.setListener(new JsPeerConnectionListener(){
+    @Override public void onIceCandidate(    String candidate){
+      Log.d(TAG,"onIceCandidate: " + candidate);
+    }
+  }
+);
+  JsStreaming.getUserAudio().then(new Consumer<JsUserMediaStream>(){
+    @Override public void apply(    JsUserMediaStream jsUserMediaStream){
+      Log.d(TAG,"Audio is created");
+      peerConnection.setLocalDescription(JsSessionDescription.create(jsUserMediaStream));
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.d(TAG,"Audio failured");
+    }
+  }
+);
 }
