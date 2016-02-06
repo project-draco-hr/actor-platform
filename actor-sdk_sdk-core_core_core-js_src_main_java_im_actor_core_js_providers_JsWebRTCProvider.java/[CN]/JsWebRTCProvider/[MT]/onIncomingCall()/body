@@ -1,17 +1,23 @@
 {
   Log.d(TAG,"onIncomingCall");
+  pendingSignals=new ArrayList<>();
   JsMessenger.getInstance().callAnswer();
-  peerConnection=JsPeerConnection.create(null);
+  JsArray<JsIceServer> servers=JsArray.createArray().cast();
+  servers.push(JsIceServer.create("stun:62.4.22.219:3478"));
+  servers.push(JsIceServer.create("turn:62.4.22.219:3478?transport=tcp","actor","password"));
+  servers.push(JsIceServer.create("turn:62.4.22.219:3478?transport=udp","actor","password"));
+  peerConnection=JsPeerConnection.create(JsPeerConnectionConfig.create(servers));
   peerConnection.setListener(new JsPeerConnectionListener(){
-    @Override public void onIceCandidate(    String candidate){
-      Log.d(TAG,"onIceCandidate: " + candidate);
+    @Override public void onIceCandidate(    JsIceCandidateEvent candidate){
+      Log.d(TAG,"onIceCandidate: " + JsonUtils.stringify(candidate));
+      JsMessenger.getInstance().callSendSignaling(new CandidateSignal(candidate.getId(),candidate.getLabel(),candidate.getCandidate()));
     }
   }
 );
   JsStreaming.getUserAudio().then(new Consumer<JsUserMediaStream>(){
     @Override public void apply(    JsUserMediaStream jsUserMediaStream){
       Log.d(TAG,"Audio is created");
-      peerConnection.setLocalDescription(JsSessionDescription.create(jsUserMediaStream));
+      peerConnection.addStream(jsUserMediaStream);
     }
   }
 ).failure(new Consumer<Exception>(){

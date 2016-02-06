@@ -1,0 +1,18 @@
+{
+  return new Promise<>(new PromiseFunc<String>(){
+    @Override public void exec(    final PromiseResolver<String> resolver){
+      setLocalDescription(description,new JsClosure(){
+        @Override public void callback(){
+          resolver.result(null);
+        }
+      }
+,new JsClosureError(){
+        @Override public void onError(        JavaScriptObject error){
+          resolver.error(new RuntimeException());
+        }
+      }
+);
+    }
+  }
+).done(JsScheduller.scheduller());
+}

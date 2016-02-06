@@ -8,6 +8,7 @@
         Log.d(TAG,"Description set");
         peerConnection.createAnswer().then(new Consumer<JsSessionDescription>(){
           @Override public void apply(          JsSessionDescription jsSessionDescription){
+            peerConnection.setLocalDescription(jsSessionDescription);
             Log.d(TAG,"Session desc: " + jsSessionDescription);
             JsMessenger.getInstance().callSendSignaling(new AnswerSignal(jsSessionDescription.getSDP()));
           }
