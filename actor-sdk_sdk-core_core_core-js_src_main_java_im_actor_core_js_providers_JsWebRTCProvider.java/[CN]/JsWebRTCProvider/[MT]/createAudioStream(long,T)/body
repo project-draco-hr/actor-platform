@@ -1,0 +1,17 @@
+{
+  return JsStreaming.getUserAudio().map(new Function<JsMediaStream,T>(){
+    @Override public T apply(    JsMediaStream mediaStream){
+      if (runningCallId == callId) {
+        Log.d(TAG,"Audio is created");
+        voiceCapture=mediaStream;
+        peerConnection.addStream(voiceCapture);
+        return val;
+      }
+ else {
+        mediaStream.stopAll();
+        throw new RuntimeException("Obsolete connection");
+      }
+    }
+  }
+);
+}

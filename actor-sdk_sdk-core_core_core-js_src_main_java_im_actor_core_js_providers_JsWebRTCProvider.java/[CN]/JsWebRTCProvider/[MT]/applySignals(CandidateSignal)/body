@@ -1,9 +1,0 @@
-{
-  try {
-    Log.d(TAG,"applySignals: " + signal);
-    peerConnection.addIceCandidate(signal.getLabel(),signal.getSdp());
-  }
- catch (  Exception e) {
-    Log.e(TAG,e);
-  }
-}

@@ -2,7 +2,13 @@
   Log.d(TAG,"onIncomingCall (" + callId + ", "+ uid+ ")");
   if (webRTCController.getCallId() == -1) {
     webRTCController.switchCallId(callId);
-    pendingRequests=new HashSet<>();
+    pendingRequests.clear();
+    pendingCandidates.clear();
+    isReadyReceiveCandidates=false;
+    isStartedKeepAlive=false;
+    isOfferRequested=true;
+    isOfferReceived=false;
+    isAnswerReceived=true;
     provider.onIncomingCall(callId,Peer.user(uid),new UserVM[]{getUserVM(uid)});
   }
 }

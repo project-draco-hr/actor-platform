@@ -1,0 +1,16 @@
+{
+  Log.d(TAG,"onAnswerCall");
+  if (webRTCController.getCallId() == callId) {
+    long requestId=request(new RequestCallInProgress(callId,KEEP_ALIVE_TIMEOUT),new RpcCallback<ResponseVoid>(){
+      @Override public void onResult(      ResponseVoid response){
+        doStartKeepAlive(callId);
+      }
+      @Override public void onError(      RpcException e){
+        Log.d(TAG,"Unable to answer call. Aborting");
+        doAbortCall(callId);
+      }
+    }
+);
+    pendingRequests.add(requestId);
+  }
+}

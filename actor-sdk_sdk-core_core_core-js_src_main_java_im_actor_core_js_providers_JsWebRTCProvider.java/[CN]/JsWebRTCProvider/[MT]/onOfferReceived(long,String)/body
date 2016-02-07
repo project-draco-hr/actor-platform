@@ -1,0 +1,52 @@
+{
+  Log.d(TAG,"onOfferReceived");
+  createPeerConnection(callId);
+  createAudioStream(callId,"nothing").mapPromise(new Function<String,Promise<JsSessionDescription>>(){
+    @Override public Promise<JsSessionDescription> apply(    String mediaStream){
+      Log.d(TAG,"Set Remote");
+      return peerConnection.setRemoteDescription(JsSessionDescription.createOffer(offerSDP));
+    }
+  }
+).mapPromise(new Function<JsSessionDescription,Promise<JsSessionDescription>>(){
+    @Override public Promise<JsSessionDescription> apply(    JsSessionDescription s){
+      Log.d(TAG,"Create answer");
+      if (runningCallId == callId) {
+        return peerConnection.createAnswer();
+      }
+ else {
+        throw new RuntimeException("Obsolete connection");
+      }
+    }
+  }
+).mapPromise(new Function<JsSessionDescription,Promise<JsSessionDescription>>(){
+    @Override public Promise<JsSessionDescription> apply(    JsSessionDescription description){
+      Log.d(TAG,"Set Local");
+      if (runningCallId == callId) {
+        return peerConnection.setLocalDescription(description);
+      }
+ else {
+        throw new RuntimeException("Obsolete connection");
+      }
+    }
+  }
+).then(new Consumer<JsSessionDescription>(){
+    @Override public void apply(    JsSessionDescription jsSessionDescription){
+      Log.w(TAG,"Sending answer1");
+      if (runningCallId == callId) {
+        Log.w(TAG,"Sending answer");
+        controller.sendAnswer(jsSessionDescription.getSDP());
+        controller.readyForCandidates();
+      }
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.w(TAG,"Unable to create answer1");
+      if (runningCallId == callId) {
+        Log.w(TAG,"Unable to create answer");
+        controller.endCall();
+      }
+    }
+  }
+).done(JsScheduller.scheduller());
+}

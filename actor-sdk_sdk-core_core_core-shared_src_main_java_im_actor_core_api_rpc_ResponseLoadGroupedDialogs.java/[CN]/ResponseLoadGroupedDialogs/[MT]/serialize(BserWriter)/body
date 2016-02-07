@@ -2,4 +2,10 @@
   writer.writeRepeatedObj(1,this.dialogs);
   writer.writeRepeatedObj(2,this.users);
   writer.writeRepeatedObj(3,this.groups);
+  if (this.showArchived != null) {
+    writer.writeBool(4,this.showArchived);
+  }
+  if (this.showInvite != null) {
+    writer.writeBool(5,this.showInvite);
+  }
 }

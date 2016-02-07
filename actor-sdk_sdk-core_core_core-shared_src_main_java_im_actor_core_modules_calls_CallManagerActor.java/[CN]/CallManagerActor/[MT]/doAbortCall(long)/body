@@ -1,0 +1,10 @@
+{
+  if (webRTCController.getCallId() == callId) {
+    webRTCController.clearCallId();
+    provider.onCallEnd(callId);
+    for (    long r : pendingRequests) {
+      context().getActorApi().cancelRequest(r);
+    }
+    pendingRequests.clear();
+  }
+}

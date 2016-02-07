@@ -1,4 +1,0 @@
-{
-  context().getCallsModule().callInProgress(callId);
-  self().send(new SendCallInProgress(),CallsModule.CALL_TIMEOUT * 1000 / 3);
-}

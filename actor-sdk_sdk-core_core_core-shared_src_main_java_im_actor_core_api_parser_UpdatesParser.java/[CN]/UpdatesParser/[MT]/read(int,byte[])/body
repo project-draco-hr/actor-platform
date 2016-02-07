@@ -42,6 +42,8 @@ case 47:
 return UpdateChatClear.fromBytes(payload);
 case 48:
 return UpdateChatDelete.fromBytes(payload);
+case 94:
+return UpdateChatArchive.fromBytes(payload);
 case 1:
 return UpdateChatGroupsChanged.fromBytes(payload);
 case 222:

@@ -1,0 +1,6 @@
+{
+  String res="rpc ArchiveChat{";
+  res+="peer=" + this.peer;
+  res+="}";
+  return res;
+}

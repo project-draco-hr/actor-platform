@@ -1,0 +1,6 @@
+{
+  if (this.nextOffset != null) {
+    writer.writeBytes(1,this.nextOffset);
+  }
+  writer.writeInt(2,this.limit);
+}

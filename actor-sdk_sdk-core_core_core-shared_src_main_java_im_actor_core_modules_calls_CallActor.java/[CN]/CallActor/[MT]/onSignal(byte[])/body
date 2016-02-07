@@ -1,8 +1,0 @@
-{
-  if (callback != null) {
-    callback.onSignal(data);
-  }
- else {
-    signals.add(data);
-  }
-}

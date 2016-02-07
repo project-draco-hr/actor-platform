@@ -1,0 +1,5 @@
+{
+  String res="struct ServiceExChatArchived{";
+  res+="}";
+  return res;
+}

@@ -1,0 +1,14 @@
+{
+  Log.d(TAG,"onOutgoingCall (" + callId + ", "+ uid+ ")");
+  if (webRTCController.getCallId() == -1) {
+    webRTCController.switchCallId(callId);
+    pendingRequests.clear();
+    pendingCandidates.clear();
+    isReadyReceiveCandidates=false;
+    isStartedKeepAlive=false;
+    isOfferRequested=false;
+    isOfferReceived=true;
+    isAnswerReceived=false;
+    provider.onOutgoingCall(callId,Peer.user(uid),new UserVM[]{getUserVM(uid)});
+  }
+}

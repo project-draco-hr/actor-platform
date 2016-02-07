@@ -1,6 +1,0 @@
-{
-  Log.d(TAG,"onAnswerCall");
-  if (webRTCController.getCallId() == callId) {
-    request(new RequestCallInProgress(callId,IN_PROGRESS_TIMEOUT));
-  }
-}

@@ -1,0 +1,8 @@
+{
+  if (webRTCController.getCallId() == callId) {
+    if (!isOfferRequested) {
+      isOfferRequested=true;
+      provider.onOfferNeeded(callId);
+    }
+  }
+}

@@ -3,18 +3,36 @@
     OnIncomingCall call=(OnIncomingCall)message;
     onIncomingCall(call.getCallId(),call.getUid());
   }
+ else   if (message instanceof OnOutgoingCall) {
+    OnOutgoingCall call=(OnOutgoingCall)message;
+    onOutgoingCall(call.getCallId(),call.getUid());
+  }
  else   if (message instanceof OnSignaling) {
     OnSignaling signaling=(OnSignaling)message;
     onSignaling(signaling.getCallId(),signaling.getMessage());
   }
  else   if (message instanceof AnswerCall) {
-    onAnswerCall(((AnswerCall)message).getCallId());
+    doAnswerCall(((AnswerCall)message).getCallId());
   }
  else   if (message instanceof SendSignaling) {
-    onSendSignal(((SendSignaling)message).getCallId(),((SendSignaling)message).getSignal());
+    doSendSignal(((SendSignaling)message).getCallId(),((SendSignaling)message).getSignal());
+  }
+ else   if (message instanceof EndCall) {
+    doEndCall(((EndCall)message).getCallId());
   }
  else   if (message instanceof OnCallEnded) {
     onCallEnded(((OnCallEnded)message).getCallId());
+  }
+ else   if (message instanceof DoKeepAlive) {
+    doKeepAlive(((DoKeepAlive)message).getCallId());
+  }
+ else   if (message instanceof OnCallInProgress) {
+    OnCallInProgress call=(OnCallInProgress)message;
+    onKeepAlive(call.getCallId(),call.getTimeout());
+  }
+ else   if (message instanceof ReadyForCandidates) {
+    ReadyForCandidates readyForCandidates=(ReadyForCandidates)message;
+    onReadyReceiveCandidates(readyForCandidates.getCallId());
   }
  else {
     super.onReceive(message);

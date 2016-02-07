@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"doKeepAlive (" + callId + ")");
+  if (webRTCController.getCallId() == callId) {
+    pendingRequests.add(request(new RequestCallInProgress(callId,KEEP_ALIVE_TIMEOUT)));
+    self().send(new DoKeepAlive(callId),KEEP_ALIVE_DELAY);
+  }
+}

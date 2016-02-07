@@ -1,7 +1,6 @@
 {
   String res="rpc SendCallSignal{";
   res+="callId=" + this.callId;
-  res+=", content=" + byteArrayToString(this.content);
   res+="}";
   return res;
 }

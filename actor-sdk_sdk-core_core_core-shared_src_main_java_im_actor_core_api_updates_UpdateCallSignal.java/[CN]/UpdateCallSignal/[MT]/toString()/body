@@ -1,7 +1,6 @@
 {
   String res="update CallSignal{";
   res+="callId=" + this.callId;
-  res+=", content=" + byteArrayToString(this.content);
   res+="}";
   return res;
 }

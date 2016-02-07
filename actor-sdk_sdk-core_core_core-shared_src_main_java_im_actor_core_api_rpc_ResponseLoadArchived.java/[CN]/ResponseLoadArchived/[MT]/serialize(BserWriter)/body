@@ -1,0 +1,8 @@
+{
+  writer.writeRepeatedObj(1,this.groups);
+  writer.writeRepeatedObj(2,this.users);
+  writer.writeRepeatedObj(3,this.dialogs);
+  if (this.nextOffset != null) {
+    writer.writeBytes(4,this.nextOffset);
+  }
+}

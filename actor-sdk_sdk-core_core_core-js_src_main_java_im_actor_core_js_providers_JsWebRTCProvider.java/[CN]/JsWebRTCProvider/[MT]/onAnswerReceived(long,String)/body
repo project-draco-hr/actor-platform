@@ -1,0 +1,19 @@
+{
+  Log.d(TAG,"onAnswerReceived");
+  peerConnection.setRemoteDescription(JsSessionDescription.createAnswer(offerSDP)).then(new Consumer<JsSessionDescription>(){
+    @Override public void apply(    JsSessionDescription description){
+      if (runningCallId == callId) {
+        controller.readyForCandidates();
+      }
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      if (runningCallId == callId) {
+        Log.w(TAG,"Unable to process answer");
+        controller.endCall();
+      }
+    }
+  }
+).done(JsScheduller.scheduller());
+}

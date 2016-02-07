@@ -1,0 +1,7 @@
+{
+  String res="rpc LoadArchived{";
+  res+="nextOffset=" + byteArrayToStringCompact(this.nextOffset);
+  res+=", limit=" + this.limit;
+  res+="}";
+  return res;
+}

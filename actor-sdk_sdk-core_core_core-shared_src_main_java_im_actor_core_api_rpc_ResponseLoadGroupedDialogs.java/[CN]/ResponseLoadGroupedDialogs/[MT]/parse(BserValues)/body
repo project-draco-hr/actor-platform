@@ -14,4 +14,6 @@
     _groups.add(new ApiGroup());
   }
   this.groups=values.getRepeatedObj(3,_groups);
+  this.showArchived=values.optBool(4);
+  this.showInvite=values.optBool(5);
 }

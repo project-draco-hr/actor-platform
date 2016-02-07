@@ -1,9 +1,0 @@
-{
-  if (callback == null) {
-    self().send(new EndCall(),500);
-    return;
-  }
-  callback.onCallEnd();
-  context().getCallsModule().onCallEnded(callId);
-  self().send(PoisonPill.INSTANCE);
-}

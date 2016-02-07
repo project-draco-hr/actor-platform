@@ -1,9 +1,0 @@
-{
-  alive=true;
-  this.timeout=timeout;
-  if (!inited) {
-    inited=true;
-    alive=false;
-    self().send(new CheckAlive(),timeout * 1000);
-  }
-}

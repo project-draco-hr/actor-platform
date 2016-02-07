@@ -1,0 +1,4 @@
+{
+  this.nextOffset=values.optBytes(1);
+  this.limit=values.getInt(2);
+}

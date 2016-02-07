@@ -1,6 +1,0 @@
-{
-  if (provider == null) {
-    return;
-  }
-  callManager.send(new CallManagerActor.OnIncomingCall(callId,uid));
-}
