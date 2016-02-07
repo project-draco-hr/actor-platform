@@ -1,3 +1,0 @@
-{
-  modules.getCallsModule().getCallManager().send(new CallManagerActor.SendSignaling(data));
-}

@@ -1,7 +1,0 @@
-{
-  Log.d(TAG,"onAnswerCall");
-  if (runningCallId == -1) {
-    return;
-  }
-  progressRequest=request(new RequestCallInProgress(runningCallId,IN_PROGRESS_TIMEOUT));
-}

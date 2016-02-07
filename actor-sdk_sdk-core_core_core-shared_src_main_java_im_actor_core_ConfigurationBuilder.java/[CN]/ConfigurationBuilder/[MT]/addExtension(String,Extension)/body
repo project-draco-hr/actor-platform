@@ -1,4 +1,0 @@
-{
-  this.extensions.add(new ConfigurationExtension(key,extension));
-  return this;
-}

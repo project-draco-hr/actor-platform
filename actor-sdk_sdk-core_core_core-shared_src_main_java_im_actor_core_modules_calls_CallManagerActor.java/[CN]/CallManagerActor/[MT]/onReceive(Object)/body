@@ -8,10 +8,10 @@
     onSignaling(signaling.getCallId(),signaling.getMessage());
   }
  else   if (message instanceof AnswerCall) {
-    onAnswerCall();
+    onAnswerCall(((AnswerCall)message).getCallId());
   }
  else   if (message instanceof SendSignaling) {
-    onSendSignal(((SendSignaling)message).getSignal());
+    onSendSignal(((SendSignaling)message).getCallId(),((SendSignaling)message).getSignal());
   }
  else {
     super.onReceive(message);

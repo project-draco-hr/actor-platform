@@ -2,4 +2,7 @@
   super.preStart();
   subscribeForCalls();
   subscribe(NewSessionCreated.EVENT);
+  webRTCController=new WebRTCControllerImpl(self());
+  provider=config().getWebRTCProvider();
+  provider.init(webRTCController);
 }

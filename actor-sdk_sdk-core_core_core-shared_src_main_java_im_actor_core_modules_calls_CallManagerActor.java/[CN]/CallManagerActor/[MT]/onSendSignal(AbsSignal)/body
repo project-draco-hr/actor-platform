@@ -1,7 +1,0 @@
-{
-  Log.d(TAG,"onSendSignal: " + signal);
-  if (runningCallId == -1) {
-    return;
-  }
-  request(new RequestSendCallSignal(runningCallId,signal.toByteArray()));
-}

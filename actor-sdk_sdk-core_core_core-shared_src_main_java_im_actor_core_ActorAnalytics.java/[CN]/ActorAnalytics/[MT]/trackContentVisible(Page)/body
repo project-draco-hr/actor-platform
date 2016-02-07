@@ -1,3 +1,0 @@
-{
-  Log.d("ActorAnalytics","Content visible: " + page.getContentType() + " #"+ page.getContentId());
-}

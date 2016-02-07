@@ -1,0 +1,45 @@
+{
+  Log.d(TAG,"onSignalingReceived: " + signal);
+  if (signal instanceof OfferSignal) {
+    String sdp=((OfferSignal)signal).getSdp();
+    JsSessionDescription description=JsSessionDescription.createOffer(sdp);
+    peerConnection.setRemoteDescription(description).then(new Consumer<String>(){
+      @Override public void apply(      String s){
+        Log.d(TAG,"Description set");
+        peerConnection.createAnswer().then(new Consumer<JsSessionDescription>(){
+          @Override public void apply(          JsSessionDescription jsSessionDescription){
+            peerConnection.setLocalDescription(jsSessionDescription);
+            Log.d(TAG,"Session desc: " + jsSessionDescription);
+            controller.sendSignaling(new AnswerSignal(jsSessionDescription.getSDP()));
+            isReady=true;
+            for (            CandidateSignal signal1 : pendingCandidates) {
+              applySignals(signal1);
+            }
+            pendingCandidates.clear();
+          }
+        }
+).failure(new Consumer<Exception>(){
+          @Override public void apply(          Exception e){
+            Log.d(TAG,"Description desc error");
+          }
+        }
+);
+      }
+    }
+).failure(new Consumer<Exception>(){
+      @Override public void apply(      Exception e){
+        Log.d(TAG,"Description error");
+      }
+    }
+);
+  }
+ else   if (signal instanceof CandidateSignal) {
+    CandidateSignal candidateSignal=(CandidateSignal)signal;
+    if (!isReady) {
+      pendingCandidates.add(candidateSignal);
+    }
+ else {
+      applySignals(candidateSignal);
+    }
+  }
+}
