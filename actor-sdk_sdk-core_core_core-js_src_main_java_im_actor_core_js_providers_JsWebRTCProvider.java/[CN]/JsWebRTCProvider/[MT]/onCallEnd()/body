@@ -1,4 +1,0 @@
-{
-  peerConnection.close();
-  peerConnection=null;
-}

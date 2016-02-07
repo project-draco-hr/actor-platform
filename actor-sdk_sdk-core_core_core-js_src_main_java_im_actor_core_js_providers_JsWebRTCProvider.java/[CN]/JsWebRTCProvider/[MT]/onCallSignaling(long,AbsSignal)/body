@@ -6,8 +6,14 @@
     peerConnection.setRemoteDescription(description).then(new Consumer<String>(){
       @Override public void apply(      String s){
         Log.d(TAG,"Description set");
+        if (callId != runningCallId) {
+          return;
+        }
         peerConnection.createAnswer().then(new Consumer<JsSessionDescription>(){
           @Override public void apply(          JsSessionDescription jsSessionDescription){
+            if (callId != runningCallId) {
+              return;
+            }
             peerConnection.setLocalDescription(jsSessionDescription);
             Log.d(TAG,"Session desc: " + jsSessionDescription);
             controller.sendSignaling(new AnswerSignal(jsSessionDescription.getSDP()));
@@ -20,6 +26,9 @@
         }
 ).failure(new Consumer<Exception>(){
           @Override public void apply(          Exception e){
+            if (callId != runningCallId) {
+              return;
+            }
             Log.d(TAG,"Description desc error");
           }
         }
@@ -28,6 +37,9 @@
     }
 ).failure(new Consumer<Exception>(){
       @Override public void apply(      Exception e){
+        if (callId != runningCallId) {
+          return;
+        }
         Log.d(TAG,"Description error");
       }
     }
