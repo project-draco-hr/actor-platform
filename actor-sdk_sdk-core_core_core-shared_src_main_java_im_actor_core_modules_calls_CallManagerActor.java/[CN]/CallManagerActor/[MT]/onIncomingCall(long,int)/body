@@ -1,8 +1,8 @@
 {
   Log.d(TAG,"onIncomingCall (" + callId + ", "+ uid+ ")");
-  if (webRTCController.getCallId() != -1) {
-    return;
+  if (webRTCController.getCallId() == -1) {
+    webRTCController.switchCallId(callId);
+    pendingRequests=new HashSet<>();
+    provider.onIncomingCall(Peer.user(uid),new UserVM[]{getUserVM(uid)});
   }
-  webRTCController.switchCallId(callId);
-  provider.onIncomingCall(Peer.user(uid),new UserVM[]{getUserVM(uid)});
 }

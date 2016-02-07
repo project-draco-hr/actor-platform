@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"onCallEnded: " + callId);
+  if (webRTCController.getCallId() == callId) {
+    webRTCController.clearCallId();
+    provider.onCallEnd();
+  }
+}

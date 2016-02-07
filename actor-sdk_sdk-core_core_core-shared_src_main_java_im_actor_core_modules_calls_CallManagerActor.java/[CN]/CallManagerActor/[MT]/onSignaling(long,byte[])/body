@@ -1,10 +1,9 @@
 {
   Log.d(TAG,"onSignaling (" + callId + ")");
-  if (webRTCController.getCallId() != callId) {
-    return;
-  }
-  AbsSignal signal=AbsSignal.fromBytes(message);
-  if (signal != null) {
-    provider.onCallSignaling(signal);
+  if (webRTCController.getCallId() == callId) {
+    AbsSignal signal=AbsSignal.fromBytes(message);
+    if (signal != null) {
+      provider.onCallSignaling(signal);
+    }
   }
 }

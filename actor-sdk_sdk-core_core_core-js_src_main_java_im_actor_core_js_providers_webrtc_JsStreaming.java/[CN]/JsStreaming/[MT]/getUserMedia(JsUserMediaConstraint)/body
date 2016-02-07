@@ -1,8 +1,8 @@
 {
-  return new Promise<>(new PromiseFunc<JsUserMediaStream>(){
-    @Override public void exec(    final PromiseResolver<JsUserMediaStream> resolver){
+  return new Promise<>(new PromiseFunc<JsMediaStream>(){
+    @Override public void exec(    final PromiseResolver<JsMediaStream> resolver){
       getUserMediaJs(constraint,new JsMediaCallback(){
-        @Override public void onCreated(        JsUserMediaStream mediaStream){
+        @Override public void onCreated(        JsMediaStream mediaStream){
           resolver.result(mediaStream);
         }
         @Override public void onError(        JsUserMediaError error){
