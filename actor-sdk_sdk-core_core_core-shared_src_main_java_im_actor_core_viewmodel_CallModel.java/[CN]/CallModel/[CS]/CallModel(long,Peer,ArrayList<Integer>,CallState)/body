@@ -1,0 +1,7 @@
+{
+  this.callId=callId;
+  this.peer=peer;
+  this.state=new ValueModel<>("calls." + callId + ".state",state);
+  this.callStarted=new ValueModel<>("calls." + callId + ".started",null);
+  this.activeMembers=new ValueModel<>("calls." + callId + ".members",new ArrayList<>(activeMembers));
+}

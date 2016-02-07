@@ -9,6 +9,8 @@
       OfferSignal offer=(OfferSignal)signal;
       if (!isOfferReceived) {
         isOfferReceived=true;
+        context().getCallsModule().getCall(callId).getCallStarted().change(im.actor.runtime.Runtime.getCurrentTime());
+        context().getCallsModule().getCall(callId).getState().change(CallState.IN_PROGRESS);
         provider.onOfferReceived(callId,offer.getSdp());
       }
     }

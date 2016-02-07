@@ -1,0 +1,3 @@
+{
+  jsBindingModule.broadcastEvent(tag,obj);
+}

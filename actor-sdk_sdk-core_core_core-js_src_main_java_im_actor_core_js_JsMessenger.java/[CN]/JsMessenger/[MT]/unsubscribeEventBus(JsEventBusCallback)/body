@@ -1,0 +1,3 @@
+{
+  jsBindingModule.unsubscribeEventBus(callback);
+}

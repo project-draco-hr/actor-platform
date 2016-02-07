@@ -9,6 +9,10 @@
     isOfferRequested=true;
     isOfferReceived=false;
     isAnswerReceived=true;
-    provider.onIncomingCall(callId,Peer.user(uid),new UserVM[]{getUserVM(uid)});
+    ArrayList<Integer> members=new ArrayList<>();
+    members.add(myUid());
+    members.add(uid);
+    context().getCallsModule().spawnNewModel(callId,Peer.user(uid),members,CallState.CALLING_INCOMING);
+    provider.onIncomingCall(callId);
   }
 }

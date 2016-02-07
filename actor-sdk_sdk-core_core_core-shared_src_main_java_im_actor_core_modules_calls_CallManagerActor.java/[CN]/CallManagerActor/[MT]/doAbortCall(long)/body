@@ -6,5 +6,6 @@
       context().getActorApi().cancelRequest(r);
     }
     pendingRequests.clear();
+    context().getCallsModule().getCall(callId).getState().change(CallState.ENDED);
   }
 }

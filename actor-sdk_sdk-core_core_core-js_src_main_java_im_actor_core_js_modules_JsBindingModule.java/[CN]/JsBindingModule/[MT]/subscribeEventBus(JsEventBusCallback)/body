@@ -1,0 +1,5 @@
+{
+  if (!eventBusCallbacks.contains(callback)) {
+    eventBusCallbacks.add(callback);
+  }
+}

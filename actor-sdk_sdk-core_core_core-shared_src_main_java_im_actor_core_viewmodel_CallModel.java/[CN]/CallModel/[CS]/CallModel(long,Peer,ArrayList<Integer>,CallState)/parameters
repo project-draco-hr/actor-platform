@@ -1,0 +1,4 @@
+long callId
+Peer peer
+ArrayList<Integer> activeMembers
+CallState state

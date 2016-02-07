@@ -1,0 +1,26 @@
+{
+  if (!calls.containsKey(id)) {
+    final CallModel callModel=messenger.getCall(Long.parseLong(id));
+    final JsBindedValue<JsCall> jsCall=new JsBindedValue<>(JsCall.create(messenger,callModel));
+    callModel.getState().subscribe(new ValueChangedListener<CallState>(){
+      @Override public void onChanged(      CallState val,      Value<CallState> valueModel){
+        jsCall.changeValue(JsCall.create(messenger,callModel));
+      }
+    }
+);
+    callModel.getActiveMembers().subscribe(new ValueChangedListener<ArrayList<Integer>>(){
+      @Override public void onChanged(      ArrayList<Integer> val,      Value<ArrayList<Integer>> valueModel){
+        jsCall.changeValue(JsCall.create(messenger,callModel));
+      }
+    }
+);
+    callModel.getCallStarted().subscribe(new ValueChangedListener<Long>(){
+      @Override public void onChanged(      Long val,      Value<Long> valueModel){
+        jsCall.changeValue(JsCall.create(messenger,callModel));
+      }
+    }
+);
+    calls.put(id,jsCall);
+  }
+  return calls.get(id);
+}

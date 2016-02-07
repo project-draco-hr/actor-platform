@@ -1,5 +1,0 @@
-{
-  this.callId=callId;
-  this.state=new ValueModel<>("calls." + callId + ".state",state);
-  this.callStarted=new ValueModel<>("calls." + callId + ".started",null);
-}
