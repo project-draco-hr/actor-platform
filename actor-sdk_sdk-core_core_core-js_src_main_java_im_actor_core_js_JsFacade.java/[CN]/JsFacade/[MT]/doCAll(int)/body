@@ -1,0 +1,18 @@
+{
+  return JsPromise.create(new JsPromiseExecutor(){
+    @Override public void execute(){
+      messenger.doCall(uid).start(new CommandCallback<ResponseDoCall>(){
+        @Override public void onResult(        ResponseDoCall res){
+          Log.d(TAG,"doCall:result");
+          resolve();
+        }
+        @Override public void onError(        Exception e){
+          Log.d(TAG,"doCall:error");
+          reject(e.getMessage());
+        }
+      }
+);
+    }
+  }
+);
+}
