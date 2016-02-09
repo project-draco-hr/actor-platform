@@ -1,0 +1,18 @@
+{
+  int j=pt;
+  for (int i=0; i < length; i++) {
+    m[j--]=in[offset + i];
+    if (j < 0) {
+      streebog_g(m,n);
+      n+=0x200;
+      int c=0;
+      for (j=63; j >= 0; j--) {
+        c+=(e[j] & 0xFF) + (m[j] & 0xFF);
+        e[j]=(byte)(c & 0xFF);
+        c>>=8;
+      }
+      j=63;
+    }
+  }
+  pt=j;
+}

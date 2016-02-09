@@ -1,0 +1,6 @@
+{
+  Pack.intToBigEndian(C0,dest,destOffset);
+  Pack.intToBigEndian(C1,dest,destOffset + 4);
+  Pack.intToBigEndian(C2,dest,destOffset + 8);
+  Pack.intToBigEndian(C3,dest,destOffset + 12);
+}

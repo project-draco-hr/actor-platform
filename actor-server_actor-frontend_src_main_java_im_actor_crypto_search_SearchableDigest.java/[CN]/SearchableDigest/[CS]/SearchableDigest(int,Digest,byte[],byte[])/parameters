@@ -1,0 +1,4 @@
+int splitValue
+Digest digest
+byte[] preprocessSecret
+byte[] wordKeySecret

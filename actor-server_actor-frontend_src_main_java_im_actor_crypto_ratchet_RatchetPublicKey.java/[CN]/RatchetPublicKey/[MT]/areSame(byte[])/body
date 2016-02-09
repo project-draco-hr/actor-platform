@@ -1,0 +1,14 @@
+{
+  if (key == null) {
+    throw new IllegalArgumentException("Key can't be null");
+  }
+  if (key.length != 32) {
+    throw new IllegalArgumentException("Key MUST be 32 bytes length");
+  }
+  for (int i=0; i < 32; i++) {
+    if (key[i] != this.key[i]) {
+      return false;
+    }
+  }
+  return true;
+}

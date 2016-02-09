@@ -1,0 +1,7 @@
+{
+  String res="";
+  for (int i=0; i < data.length; i++) {
+    res+=Integer.toHexString(data[i] & 0xFF) + " ";
+  }
+  return res;
+}

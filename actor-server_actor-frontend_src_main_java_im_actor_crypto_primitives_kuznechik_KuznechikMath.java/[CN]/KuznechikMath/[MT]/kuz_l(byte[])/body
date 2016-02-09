@@ -1,0 +1,36 @@
+{
+  for (int j=0; j < 16; j++) {
+    byte x=w[15];
+    w[15]=w[14];
+    x^=kuz_mul_gf256_fast(w[14],KuznechikTables.kuz_lvec[14]);
+    w[14]=w[13];
+    x^=kuz_mul_gf256_fast(w[13],KuznechikTables.kuz_lvec[13]);
+    w[13]=w[12];
+    x^=kuz_mul_gf256_fast(w[12],KuznechikTables.kuz_lvec[12]);
+    w[12]=w[11];
+    x^=kuz_mul_gf256_fast(w[11],KuznechikTables.kuz_lvec[11]);
+    w[11]=w[10];
+    x^=kuz_mul_gf256_fast(w[10],KuznechikTables.kuz_lvec[10]);
+    w[10]=w[9];
+    x^=kuz_mul_gf256_fast(w[9],KuznechikTables.kuz_lvec[9]);
+    w[9]=w[8];
+    x^=kuz_mul_gf256_fast(w[8],KuznechikTables.kuz_lvec[8]);
+    w[8]=w[7];
+    x^=kuz_mul_gf256_fast(w[7],KuznechikTables.kuz_lvec[7]);
+    w[7]=w[6];
+    x^=kuz_mul_gf256_fast(w[6],KuznechikTables.kuz_lvec[6]);
+    w[6]=w[5];
+    x^=kuz_mul_gf256_fast(w[5],KuznechikTables.kuz_lvec[5]);
+    w[5]=w[4];
+    x^=kuz_mul_gf256_fast(w[4],KuznechikTables.kuz_lvec[4]);
+    w[4]=w[3];
+    x^=kuz_mul_gf256_fast(w[3],KuznechikTables.kuz_lvec[3]);
+    w[3]=w[2];
+    x^=kuz_mul_gf256_fast(w[2],KuznechikTables.kuz_lvec[2]);
+    w[2]=w[1];
+    x^=kuz_mul_gf256_fast(w[1],KuznechikTables.kuz_lvec[1]);
+    w[1]=w[0];
+    x^=kuz_mul_gf256_fast(w[0],KuznechikTables.kuz_lvec[0]);
+    w[0]=x;
+  }
+}

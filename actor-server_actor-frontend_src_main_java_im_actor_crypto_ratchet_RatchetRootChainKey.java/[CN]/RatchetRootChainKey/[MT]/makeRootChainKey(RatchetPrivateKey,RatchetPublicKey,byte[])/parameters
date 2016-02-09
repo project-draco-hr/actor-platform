@@ -1,0 +1,3 @@
+RatchetPrivateKey ownEphermal
+RatchetPublicKey theirEphermal
+byte[] masterSecret

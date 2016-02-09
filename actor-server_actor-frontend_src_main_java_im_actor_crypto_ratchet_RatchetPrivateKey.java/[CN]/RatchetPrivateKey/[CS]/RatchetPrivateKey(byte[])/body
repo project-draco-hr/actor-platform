@@ -1,0 +1,4 @@
+{
+  super(Curve25519.keyGenPublic(privateKey));
+  this.privateKey=privateKey;
+}

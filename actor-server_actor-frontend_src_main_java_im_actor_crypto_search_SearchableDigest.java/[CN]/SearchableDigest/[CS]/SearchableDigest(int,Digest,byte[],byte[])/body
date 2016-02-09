@@ -1,0 +1,9 @@
+{
+  this.digest=digest;
+  this.splitValue=splitValue;
+  this.searchableWordDigest=new SearchableWordDigest(splitValue,digest);
+  this.preprocessSecret=preprocessSecret;
+  this.wordKeySecret=wordKeySecret;
+  this.preprocesHmac=new HMAC(preprocessSecret,digest);
+  this.wordKeyHmac=new HMAC(wordKeySecret,digest);
+}

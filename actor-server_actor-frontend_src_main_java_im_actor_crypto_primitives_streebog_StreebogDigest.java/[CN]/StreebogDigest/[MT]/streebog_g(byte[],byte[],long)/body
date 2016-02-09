@@ -1,0 +1,28 @@
+{
+  copy(h,tmpT);
+  for (int i=63; n > 0; i--) {
+    tmpT[i]=(byte)(tmpT[i] ^ ((byte)(n & 0xFF)));
+    n>>=8;
+  }
+  for (int i=0; i < 8; i++) {
+    setWord64(tmpK,i,SBOG_LPSti64(tmpT,i));
+  }
+  copy(m,tmpS);
+  for (int r=0; r < 12; r++) {
+    for (int i=0; i < 8; i++) {
+      setWord64(tmpT,i,getWord64(tmpS,i) ^ getWord64(tmpK,i));
+    }
+    for (int i=0; i < 8; i++) {
+      setWord64(tmpS,i,SBOG_LPSti64(tmpT,i));
+    }
+    for (int i=0; i < 8; i++) {
+      setWord64(tmpT,i,getWord64(tmpK,i) ^ StreebogTables.sbob_rc64[r][i]);
+    }
+    for (int i=0; i < 8; i++) {
+      setWord64(tmpK,i,SBOG_LPSti64(tmpT,i));
+    }
+  }
+  for (int i=0; i < 64; i++) {
+    h[i]=(byte)((h[i] ^ tmpS[i] ^ tmpK[i]^ m[i]) & 0xFF);
+  }
+}

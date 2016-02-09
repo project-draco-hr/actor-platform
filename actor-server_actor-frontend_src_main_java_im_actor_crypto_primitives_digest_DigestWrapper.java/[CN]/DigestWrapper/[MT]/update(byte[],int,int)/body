@@ -1,0 +1,3 @@
+{
+  baseDigest.update(src,offset,length);
+}

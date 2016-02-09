@@ -1,0 +1,3 @@
+{
+  return deriveSecrets(keyMaterial,new byte[0],outputLength);
+}

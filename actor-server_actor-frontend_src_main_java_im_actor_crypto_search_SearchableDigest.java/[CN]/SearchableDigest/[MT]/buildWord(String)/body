@@ -1,0 +1,5 @@
+{
+  byte[] wordHash=hashWord(word);
+  byte[] wordKey=buildWordKey(wordHash);
+  return new SearchableHashedWord(wordHash,wordKey);
+}

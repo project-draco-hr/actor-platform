@@ -1,0 +1,10 @@
+{
+  for (int j=0; j < 16; j++) {
+    byte x=w[0];
+    for (int i=0; i < 15; i++) {
+      w[i]=w[i + 1];
+      x^=kuz_mul_gf256_fast(w[i],kuz_lvec[i]);
+    }
+    w[15]=x;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  if (word.getWord().length != baseDigest.getDigestSize()) {
+    throw new IllegalArgumentException("Word length MUST be equal to digest size");
+  }
+  if (random.length < splitValue) {
+    throw new IllegalArgumentException("random length MUST be >= split value");
+  }
+  byte[] res=new byte[baseDigest.getDigestSize()];
+  for (int i=0; i < splitValue; i++) {
+    res[i]=random[i];
+  }
+  HMAC hmac=new HMAC(word.getWordKey(),baseDigest);
+  hmac.reset();
+  hmac.update(res,0,splitValue);
+  byte[] dest=new byte[baseDigest.getDigestSize()];
+  hmac.doFinal(dest,0);
+  for (int i=0; i < baseDigest.getDigestSize() - splitValue; i++) {
+    res[i + splitValue]=dest[i];
+  }
+  for (int i=0; i < baseDigest.getDigestSize(); i++) {
+    res[i]=(byte)(res[i] ^ word.getWord()[i]);
+  }
+  return res;
+}

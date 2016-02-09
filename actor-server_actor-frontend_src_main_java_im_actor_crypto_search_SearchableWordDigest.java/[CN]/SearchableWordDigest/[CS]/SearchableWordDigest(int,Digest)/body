@@ -1,0 +1,7 @@
+{
+  if (splitValue > baseDigest.getDigestSize() - 8) {
+    throw new IllegalArgumentException("Split value can't be bigger than digest size - 6 ");
+  }
+  this.splitValue=splitValue;
+  this.baseDigest=baseDigest;
+}

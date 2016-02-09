@@ -1,0 +1,7 @@
+{
+  baseDigest.reset();
+  baseDigest.update(src,offset,length);
+  byte[] res=new byte[getDigestSize()];
+  baseDigest.doFinal(res,0);
+  return res;
+}

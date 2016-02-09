@@ -1,0 +1,7 @@
+{
+  wordKeyHmac.reset();
+  wordKeyHmac.update(wordHash,0,wordHash.length);
+  byte[] key=new byte[digest.getDigestSize()];
+  wordKeyHmac.doFinal(key,0);
+  return key;
+}

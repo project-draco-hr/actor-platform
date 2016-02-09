@@ -1,0 +1,7 @@
+{
+  if (word.length != wordKey.length) {
+    throw new IllegalArgumentException("word ad wordKey length MUST be equal");
+  }
+  this.word=word;
+  this.wordKey=wordKey;
+}

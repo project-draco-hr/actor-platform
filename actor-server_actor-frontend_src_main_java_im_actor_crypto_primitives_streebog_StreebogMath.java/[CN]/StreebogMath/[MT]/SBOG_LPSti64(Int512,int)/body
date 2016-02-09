@@ -1,3 +1,0 @@
-{
-  return (StreebogTables.sbob_sl64[0][t.getByte(i) & 0xFF] ^ StreebogTables.sbob_sl64[1][t.getByte(i + 8) & 0xFF] ^ StreebogTables.sbob_sl64[2][t.getByte(i + 16) & 0xFF]^ StreebogTables.sbob_sl64[3][t.getByte(i + 24) & 0xFF]^ StreebogTables.sbob_sl64[4][t.getByte(i + 32) & 0xFF]^ StreebogTables.sbob_sl64[5][t.getByte(i + 40) & 0xFF]^ StreebogTables.sbob_sl64[6][t.getByte(i + 48) & 0xFF]^ StreebogTables.sbob_sl64[7][t.getByte(i + 56) & 0xFF]);
-}

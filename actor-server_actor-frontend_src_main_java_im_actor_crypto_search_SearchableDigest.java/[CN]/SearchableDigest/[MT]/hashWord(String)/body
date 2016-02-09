@@ -1,0 +1,8 @@
+{
+  byte[] wordData=word.getBytes();
+  preprocesHmac.reset();
+  preprocesHmac.update(wordData,0,wordData.length);
+  byte[] key=new byte[digest.getDigestSize()];
+  preprocesHmac.doFinal(key,0);
+  return key;
+}

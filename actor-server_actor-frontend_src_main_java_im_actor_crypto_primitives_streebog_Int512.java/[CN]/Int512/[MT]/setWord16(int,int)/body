@@ -1,4 +1,0 @@
-{
-  value[index * 2]=(byte)(val & 0xFF);
-  value[index * 2 + 1]=(byte)((val & 0xFF) >> 8);
-}

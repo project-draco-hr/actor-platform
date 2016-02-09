@@ -1,0 +1,6 @@
+{
+  this.C0=Pack.bigEndianToInt(bytes,off);
+  this.C1=Pack.bigEndianToInt(bytes,off + 4);
+  this.C2=Pack.bigEndianToInt(bytes,off + 8);
+  this.C3=Pack.bigEndianToInt(bytes,off + 12);
+}
