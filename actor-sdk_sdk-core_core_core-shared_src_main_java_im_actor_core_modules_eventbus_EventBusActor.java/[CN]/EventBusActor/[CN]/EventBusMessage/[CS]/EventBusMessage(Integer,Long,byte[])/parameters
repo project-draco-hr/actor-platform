@@ -1,0 +1,3 @@
+Integer senderId
+Long senderDeviceId
+byte[] message

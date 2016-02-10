@@ -1,0 +1,8 @@
+{
+  isProcessing=true;
+  stopKeepAlive();
+  context().getEventBus().unsubscribe(busId,self());
+  onBusDisposed();
+  onBusStopped();
+  self().send(PoisonPill.INSTANCE);
+}

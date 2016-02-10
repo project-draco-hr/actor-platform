@@ -1,8 +1,0 @@
-{
-  String res="rpc UploadEphermalKey{";
-  res+="keyGroupId=" + this.keyGroupId;
-  res+=", keys=" + this.keys.size();
-  res+=", signatures=" + this.signatures.size();
-  res+="}";
-  return res;
-}

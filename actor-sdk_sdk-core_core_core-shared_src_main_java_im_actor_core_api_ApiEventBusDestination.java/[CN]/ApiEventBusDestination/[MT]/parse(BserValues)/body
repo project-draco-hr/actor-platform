@@ -1,0 +1,4 @@
+{
+  this.userId=values.getInt(1);
+  this.deviceIds=values.getRepeatedLong(2);
+}

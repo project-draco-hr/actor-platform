@@ -1,0 +1,4 @@
+String busId
+Integer senderId
+Long senderDevice
+byte[] message

@@ -2,6 +2,9 @@
   if (callsProcessor.process(update)) {
     return;
   }
+  if (eventBusProcessor.process(update)) {
+    return;
+  }
   if (update instanceof UpdateUserOnline) {
     UpdateUserOnline userOnline=(UpdateUserOnline)update;
     presenceProcessor.onUserOnline(userOnline.getUid(),date);

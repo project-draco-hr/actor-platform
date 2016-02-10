@@ -1,0 +1,4 @@
+{
+  this.timeout=values.optLong(1);
+  this.isOwned=values.optBool(2);
+}

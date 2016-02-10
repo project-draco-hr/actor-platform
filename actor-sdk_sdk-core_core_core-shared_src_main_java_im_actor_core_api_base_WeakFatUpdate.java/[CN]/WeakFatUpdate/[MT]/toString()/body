@@ -1,0 +1,10 @@
+{
+  String res="update box WeakFatUpdate{";
+  res+="date=" + this.date;
+  res+=", updateHeader=" + this.updateHeader;
+  res+=", update=" + byteArrayToString(this.update);
+  res+=", users=" + this.users;
+  res+=", groups=" + this.groups;
+  res+="}";
+  return res;
+}

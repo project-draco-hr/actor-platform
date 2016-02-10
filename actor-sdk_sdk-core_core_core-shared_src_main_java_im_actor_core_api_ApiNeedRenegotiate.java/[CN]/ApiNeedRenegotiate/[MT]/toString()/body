@@ -1,0 +1,6 @@
+{
+  String res="struct NeedRenegotiate{";
+  res+="sessionId=" + this.sessionId;
+  res+="}";
+  return res;
+}

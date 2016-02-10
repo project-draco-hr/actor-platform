@@ -1,0 +1,7 @@
+{
+  String res="rpc CreateNewEventBus{";
+  res+="timeout=" + this.timeout;
+  res+=", isOwned=" + this.isOwned;
+  res+="}";
+  return res;
+}

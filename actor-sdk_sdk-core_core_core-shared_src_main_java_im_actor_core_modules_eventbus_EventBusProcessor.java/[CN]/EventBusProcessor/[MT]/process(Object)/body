@@ -1,0 +1,7 @@
+{
+  if (update instanceof UpdateEventBusMessage || update instanceof UpdateEventBusDeviceConnected || update instanceof UpdateEventBusDeviceDisconnected|| update instanceof UpdateEventBusDisposed) {
+    context.getEventBus().onEventBusUpdate(update);
+    return true;
+  }
+  return false;
+}

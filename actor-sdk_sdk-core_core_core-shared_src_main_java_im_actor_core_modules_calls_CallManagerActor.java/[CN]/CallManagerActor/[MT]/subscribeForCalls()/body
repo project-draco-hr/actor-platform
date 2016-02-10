@@ -1,7 +1,0 @@
-{
-  if (subscribeRequest != -1) {
-    context().getActorApi().cancelRequest(subscribeRequest);
-    subscribeRequest=-1;
-  }
-  subscribeRequest=request(new RequestSubscribeToCalls());
-}

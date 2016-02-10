@@ -1,0 +1,7 @@
+{
+  if (this.id == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.id);
+  writer.writeLong(2,this.deviceId);
+}

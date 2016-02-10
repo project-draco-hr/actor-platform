@@ -1,0 +1,5 @@
+{
+  String res="struct AnswerCall{";
+  res+="}";
+  return res;
+}

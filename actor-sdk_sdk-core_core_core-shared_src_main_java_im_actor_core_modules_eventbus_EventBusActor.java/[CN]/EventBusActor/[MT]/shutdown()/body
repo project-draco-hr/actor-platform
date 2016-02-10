@@ -1,0 +1,13 @@
+{
+  isProcessing=true;
+  stopKeepAlive();
+  context().getEventBus().unsubscribe(busId,self());
+  onBusShutdown();
+  onBusStopped();
+  api(new RequestKeepAliveEventBus(busId,1L)).then(new Consumer<ResponseVoid>(){
+    @Override public void apply(    ResponseVoid responseVoid){
+      self().send(PoisonPill.INSTANCE);
+    }
+  }
+).done(self());
+}

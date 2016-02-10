@@ -1,7 +1,6 @@
 {
   String res="update IncomingCall{";
   res+="callId=" + this.callId;
-  res+=", uid=" + this.uid;
   res+="}";
   return res;
 }

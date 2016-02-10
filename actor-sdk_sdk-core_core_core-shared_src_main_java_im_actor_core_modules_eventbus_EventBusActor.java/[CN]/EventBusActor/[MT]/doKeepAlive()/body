@@ -1,0 +1,12 @@
+{
+  stopKeepAlive();
+  keepAliveRequest=request(new RequestKeepAliveEventBus(busId,TIMEOUT),new RpcCallback<ResponseVoid>(){
+    @Override public void onResult(    ResponseVoid response){
+    }
+    @Override public void onError(    RpcException e){
+      dispose();
+    }
+  }
+);
+  self().send(new EventBusKeepAlive(),KEEP_ALIVE);
+}

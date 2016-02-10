@@ -10,4 +10,5 @@
   this.stickersProcessor=new StickersProcessor(context);
   this.callsProcessor=new CallsProcessor(context);
   this.encryptedProcessor=new EncryptedProcessor(context);
+  this.eventBusProcessor=new EventBusProcessor(context);
 }

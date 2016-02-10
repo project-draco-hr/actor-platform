@@ -1,7 +1,0 @@
-{
-  String res="rpc LoadEphermalPublicKeys{";
-  res+="userPeer=" + this.userPeer;
-  res+=", keyGroupId=" + this.keyGroupId;
-  res+="}";
-  return res;
-}

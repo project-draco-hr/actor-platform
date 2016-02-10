@@ -1,0 +1,6 @@
+{
+  this.peer=peer;
+  this.groups=groups;
+  this.users=users;
+  this.eventBusId=eventBusId;
+}

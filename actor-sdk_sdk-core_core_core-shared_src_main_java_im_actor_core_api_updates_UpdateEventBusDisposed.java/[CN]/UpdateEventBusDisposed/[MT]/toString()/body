@@ -1,0 +1,6 @@
+{
+  String res="update EventBusDisposed{";
+  res+="id=" + this.id;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  String res="rpc DisposeEventBus{";
+  res+="id=" + this.id;
+  res+="}";
+  return res;
+}

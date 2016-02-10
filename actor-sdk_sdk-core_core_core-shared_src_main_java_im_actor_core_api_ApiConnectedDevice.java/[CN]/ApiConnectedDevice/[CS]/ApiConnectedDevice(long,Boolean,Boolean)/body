@@ -1,0 +1,5 @@
+{
+  this.device=device;
+  this.isConnecting=isConnecting;
+  this.isConnected=isConnected;
+}

@@ -1,0 +1,7 @@
+{
+  List<ApiConnectedUser> _users=new ArrayList<ApiConnectedUser>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _users.add(new ApiConnectedUser());
+  }
+  this.users=values.getRepeatedObj(2,_users);
+}

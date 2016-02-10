@@ -8,6 +8,9 @@
   if (callsProcessor.process(update)) {
     return;
   }
+  if (eventBusProcessor.process(update)) {
+    return;
+  }
   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
     messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());

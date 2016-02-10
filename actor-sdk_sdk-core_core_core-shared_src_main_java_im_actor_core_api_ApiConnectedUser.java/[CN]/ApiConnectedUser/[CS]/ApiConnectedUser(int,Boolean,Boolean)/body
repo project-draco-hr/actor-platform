@@ -1,0 +1,5 @@
+{
+  this.uid=uid;
+  this.isConnecting=isConnecting;
+  this.isConnected=isConnected;
+}

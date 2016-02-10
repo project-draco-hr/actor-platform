@@ -1,0 +1,5 @@
+long date
+int updateHeader
+byte[] update
+List<ApiUser> users
+List<ApiGroup> groups

@@ -1,6 +1,2 @@
 {
-  Log.d(TAG,"onSendSignal: " + signal);
-  if (webRTCController.getCallId() == callId) {
-    pendingRequests.add(request(new RequestSendCallSignal(callId,signal.toByteArray())));
-  }
 }

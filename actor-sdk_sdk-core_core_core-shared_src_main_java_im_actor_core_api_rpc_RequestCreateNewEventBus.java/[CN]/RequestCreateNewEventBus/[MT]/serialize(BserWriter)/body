@@ -1,0 +1,8 @@
+{
+  if (this.timeout != null) {
+    writer.writeLong(1,this.timeout);
+  }
+  if (this.isOwned != null) {
+    writer.writeBool(2,this.isOwned);
+  }
+}

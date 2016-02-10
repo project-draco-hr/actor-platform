@@ -1,6 +1,0 @@
-{
-  String res="rpc CallInProgress{";
-  res+="callId=" + this.callId;
-  res+="}";
-  return res;
-}

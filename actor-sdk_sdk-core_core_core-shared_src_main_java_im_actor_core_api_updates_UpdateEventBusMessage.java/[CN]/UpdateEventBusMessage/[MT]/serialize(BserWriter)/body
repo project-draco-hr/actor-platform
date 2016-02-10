@@ -1,0 +1,16 @@
+{
+  if (this.id == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.id);
+  if (this.senderId != null) {
+    writer.writeInt(2,this.senderId);
+  }
+  if (this.senderDeviceId != null) {
+    writer.writeLong(3,this.senderDeviceId);
+  }
+  if (this.message == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(4,this.message);
+}

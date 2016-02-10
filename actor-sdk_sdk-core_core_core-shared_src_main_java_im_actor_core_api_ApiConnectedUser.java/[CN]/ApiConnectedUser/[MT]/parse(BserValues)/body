@@ -1,0 +1,5 @@
+{
+  this.uid=values.getInt(1);
+  this.isConnecting=values.optBool(4);
+  this.isConnected=values.optBool(5);
+}

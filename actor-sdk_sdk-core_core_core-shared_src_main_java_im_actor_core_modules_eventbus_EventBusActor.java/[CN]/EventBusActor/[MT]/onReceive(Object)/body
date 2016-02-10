@@ -1,0 +1,50 @@
+{
+  if (message instanceof EventBusShutdown) {
+    if (isProcessing) {
+      stash();
+      return;
+    }
+    shutdown();
+  }
+ else   if (message instanceof EventBusDisposed) {
+    if (isProcessing) {
+      stash();
+      return;
+    }
+    dispose();
+  }
+ else   if (message instanceof EventBusDeviceConnected) {
+    if (isProcessing) {
+      stash();
+      return;
+    }
+    EventBusDeviceConnected deviceConnected=(EventBusDeviceConnected)message;
+    onDeviceConnected(deviceConnected.getUid(),deviceConnected.getDeviceId());
+  }
+ else   if (message instanceof EventBusDeviceDisconnected) {
+    if (isProcessing) {
+      stash();
+      return;
+    }
+    EventBusDeviceDisconnected deviceDisconnected=(EventBusDeviceDisconnected)message;
+    onDeviceDisconnected(deviceDisconnected.getUid(),deviceDisconnected.getDeviceId());
+  }
+ else   if (message instanceof EventBusMessage) {
+    if (isProcessing) {
+      stash();
+      return;
+    }
+    EventBusMessage eventBusMessage=(EventBusMessage)message;
+    onMessageReceived(eventBusMessage.getSenderId(),eventBusMessage.getSenderDeviceId(),eventBusMessage.getMessage());
+  }
+ else   if (message instanceof EventBusKeepAlive) {
+    if (isProcessing) {
+      stash();
+      return;
+    }
+    doKeepAlive();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

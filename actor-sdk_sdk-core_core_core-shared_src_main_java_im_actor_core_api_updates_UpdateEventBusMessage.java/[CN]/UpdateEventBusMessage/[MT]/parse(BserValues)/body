@@ -1,0 +1,6 @@
+{
+  this.id=values.getString(1);
+  this.senderId=values.optInt(2);
+  this.senderDeviceId=values.optLong(3);
+  this.message=values.getBytes(4);
+}

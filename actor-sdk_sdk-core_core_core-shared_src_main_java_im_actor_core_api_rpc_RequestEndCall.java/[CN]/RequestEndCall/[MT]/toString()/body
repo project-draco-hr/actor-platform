@@ -1,6 +1,0 @@
-{
-  String res="rpc EndCall{";
-  res+="callId=" + this.callId;
-  res+="}";
-  return res;
-}

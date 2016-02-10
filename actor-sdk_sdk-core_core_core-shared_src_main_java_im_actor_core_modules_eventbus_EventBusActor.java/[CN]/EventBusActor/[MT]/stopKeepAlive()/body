@@ -1,0 +1,6 @@
+{
+  if (keepAliveRequest != -1) {
+    context().getActorApi().cancelRequest(keepAliveRequest);
+    keepAliveRequest=-1;
+  }
+}

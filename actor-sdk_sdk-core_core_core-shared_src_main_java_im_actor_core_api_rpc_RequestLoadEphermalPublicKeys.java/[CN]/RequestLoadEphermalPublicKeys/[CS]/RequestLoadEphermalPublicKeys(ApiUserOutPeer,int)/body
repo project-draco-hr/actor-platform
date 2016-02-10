@@ -1,4 +1,0 @@
-{
-  this.userPeer=userPeer;
-  this.keyGroupId=keyGroupId;
-}

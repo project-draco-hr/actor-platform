@@ -1,0 +1,6 @@
+{
+  if (!subscribers.containsKey(busId)) {
+    subscribers.put(busId,new ArrayList<ActorRef>());
+  }
+  subscribers.get(busId).add(ref);
+}

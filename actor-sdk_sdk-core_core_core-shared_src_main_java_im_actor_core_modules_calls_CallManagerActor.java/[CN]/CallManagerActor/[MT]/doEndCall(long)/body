@@ -1,7 +1,2 @@
 {
-  Log.d(TAG,"endCall: " + callId);
-  if (webRTCController.getCallId() == callId) {
-    request(new RequestEndCall(callId));
-  }
-  doAbortCall(callId);
 }

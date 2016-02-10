@@ -1,7 +1,11 @@
 {
   if (message instanceof OnIncomingCall) {
     OnIncomingCall call=(OnIncomingCall)message;
-    onIncomingCall(call.getCallId(),call.getUid());
+    onIncomingCall(call.getCallId());
+  }
+ else   if (message instanceof OnIncomingCallHandled) {
+    OnIncomingCallHandled incomingCallHandled=(OnIncomingCallHandled)message;
+    onIncomingCallHandled(incomingCallHandled.getCallId());
   }
  else   if (message instanceof OnOutgoingCall) {
     OnOutgoingCall call=(OnOutgoingCall)message;

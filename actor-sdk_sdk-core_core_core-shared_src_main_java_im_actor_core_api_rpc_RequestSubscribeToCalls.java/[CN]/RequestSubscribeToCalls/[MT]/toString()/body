@@ -1,5 +1,0 @@
-{
-  String res="rpc SubscribeToCalls{";
-  res+="}";
-  return res;
-}

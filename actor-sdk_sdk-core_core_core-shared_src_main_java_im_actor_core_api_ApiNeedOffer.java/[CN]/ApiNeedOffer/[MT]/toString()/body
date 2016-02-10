@@ -1,0 +1,7 @@
+{
+  String res="struct NeedOffer{";
+  res+="uid=" + this.uid;
+  res+=", device=" + this.device;
+  res+="}";
+  return res;
+}

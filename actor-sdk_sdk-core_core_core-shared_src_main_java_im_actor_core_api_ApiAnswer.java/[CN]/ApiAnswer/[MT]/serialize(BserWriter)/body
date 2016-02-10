@@ -1,0 +1,7 @@
+{
+  writer.writeLong(1,this.sessionId);
+  if (this.sdp == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.sdp);
+}

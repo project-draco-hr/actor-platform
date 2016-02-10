@@ -1,4 +1,0 @@
-{
-  this.callId=values.getLong(1);
-  this.content=values.getBytes(2);
-}

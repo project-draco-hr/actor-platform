@@ -1,4 +1,4 @@
 {
   this.peer=values.getObj(1,new ApiOutPeer());
-  this.timeout=values.getInt(2);
+  this.eventBusId=values.getString(2);
 }

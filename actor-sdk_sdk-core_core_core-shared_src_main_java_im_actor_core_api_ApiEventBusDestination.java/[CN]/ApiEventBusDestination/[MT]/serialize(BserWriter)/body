@@ -1,0 +1,4 @@
+{
+  writer.writeInt(1,this.userId);
+  writer.writeRepeatedLong(2,this.deviceIds);
+}

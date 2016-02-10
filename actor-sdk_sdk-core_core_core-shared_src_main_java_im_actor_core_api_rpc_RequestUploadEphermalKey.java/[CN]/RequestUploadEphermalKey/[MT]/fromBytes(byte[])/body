@@ -1,3 +1,0 @@
-{
-  return Bser.parse(new RequestUploadEphermalKey(),data);
-}

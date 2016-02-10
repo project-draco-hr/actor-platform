@@ -1,0 +1,5 @@
+{
+  String res="tuple GetCallInfo{";
+  res+="}";
+  return res;
+}

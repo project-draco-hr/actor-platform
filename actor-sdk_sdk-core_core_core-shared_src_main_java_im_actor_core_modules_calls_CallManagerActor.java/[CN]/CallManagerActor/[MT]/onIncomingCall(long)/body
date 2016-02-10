@@ -1,0 +1,13 @@
+{
+  Log.d(TAG,"onIncomingCall (" + callId + ")");
+  if (webRTCController.getCallId() == -1) {
+    webRTCController.switchCallId(callId);
+    pendingRequests.clear();
+    pendingCandidates.clear();
+    isReadyReceiveCandidates=false;
+    isStartedKeepAlive=false;
+    isOfferRequested=true;
+    isOfferReceived=false;
+    isAnswerReceived=true;
+  }
+}

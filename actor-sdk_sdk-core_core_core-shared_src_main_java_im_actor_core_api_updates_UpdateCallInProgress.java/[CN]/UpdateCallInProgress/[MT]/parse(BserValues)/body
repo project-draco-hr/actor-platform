@@ -1,4 +1,0 @@
-{
-  this.callId=values.getLong(1);
-  this.timeout=values.getInt(2);
-}

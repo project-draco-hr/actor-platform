@@ -1,3 +1,0 @@
-{
-  this.callId=values.getLong(2);
-}

@@ -1,0 +1,8 @@
+{
+  String res="update EventBusDeviceDisconnected{";
+  res+="id=" + this.id;
+  res+=", userId=" + this.userId;
+  res+=", deviceId=" + this.deviceId;
+  res+="}";
+  return res;
+}

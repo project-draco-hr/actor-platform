@@ -1,0 +1,6 @@
+{
+  this.id=id;
+  this.senderId=senderId;
+  this.senderDeviceId=senderDeviceId;
+  this.message=message;
+}

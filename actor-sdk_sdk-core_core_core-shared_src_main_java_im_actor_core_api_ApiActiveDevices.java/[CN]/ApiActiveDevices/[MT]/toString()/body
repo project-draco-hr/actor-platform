@@ -1,0 +1,6 @@
+{
+  String res="struct ActiveDevices{";
+  res+="users=" + this.users;
+  res+="}";
+  return res;
+}

@@ -38,6 +38,8 @@
   displayLists=new DisplayLists(this);
   timing.section("DeviceInfo");
   deviceInfoModule=new DeviceInfoModule(this);
+  timing.section("EventBus");
+  eventBusModule=new EventBusModule(this);
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");
@@ -58,6 +60,8 @@
   contacts.run();
   timing.section("Messages");
   messages.run();
+  timing.section("EventBus");
+  eventBusModule.run();
   timing.section("Updates");
   updates.run();
   timing.section("Calls");

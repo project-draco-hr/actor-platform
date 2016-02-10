@@ -1,0 +1,9 @@
+{
+  if (this.id == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.id);
+  if (this.timeout != null) {
+    writer.writeLong(2,this.timeout);
+  }
+}

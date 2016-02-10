@@ -1,0 +1,9 @@
+{
+  writer.writeInt(1,this.uid);
+  if (this.isConnecting != null) {
+    writer.writeBool(4,this.isConnecting);
+  }
+  if (this.isConnected != null) {
+    writer.writeBool(5,this.isConnected);
+  }
+}

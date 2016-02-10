@@ -1,3 +1,0 @@
-int keyGroupId
-List<ApiEncryptionKey> keys
-List<ApiEncryptionKeySignature> signatures

@@ -1,0 +1,12 @@
+{
+  if (this.peer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.peer);
+  writer.writeRepeatedObj(2,this.groups);
+  writer.writeRepeatedObj(3,this.users);
+  if (this.eventBusId == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.eventBusId);
+}

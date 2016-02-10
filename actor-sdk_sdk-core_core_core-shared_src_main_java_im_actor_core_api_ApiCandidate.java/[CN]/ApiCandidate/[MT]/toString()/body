@@ -1,0 +1,6 @@
+{
+  String res="struct Candidate{";
+  res+="sessionId=" + this.sessionId;
+  res+="}";
+  return res;
+}

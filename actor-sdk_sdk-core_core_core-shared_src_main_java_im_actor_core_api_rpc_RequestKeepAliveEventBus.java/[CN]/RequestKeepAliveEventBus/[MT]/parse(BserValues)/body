@@ -1,0 +1,4 @@
+{
+  this.id=values.getString(1);
+  this.timeout=values.optLong(2);
+}

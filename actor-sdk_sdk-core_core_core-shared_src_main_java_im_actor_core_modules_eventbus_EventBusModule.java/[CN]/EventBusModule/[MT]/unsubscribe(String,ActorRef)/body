@@ -1,0 +1,5 @@
+{
+  if (subscribers.containsKey(busId)) {
+    subscribers.get(busId).remove(ref);
+  }
+}

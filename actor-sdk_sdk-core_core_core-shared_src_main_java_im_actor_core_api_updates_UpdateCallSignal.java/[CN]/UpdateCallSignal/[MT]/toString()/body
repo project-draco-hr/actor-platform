@@ -1,6 +1,0 @@
-{
-  String res="update CallSignal{";
-  res+="callId=" + this.callId;
-  res+="}";
-  return res;
-}
