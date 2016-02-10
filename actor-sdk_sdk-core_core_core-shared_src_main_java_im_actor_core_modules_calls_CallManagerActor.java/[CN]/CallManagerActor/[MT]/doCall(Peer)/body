@@ -1,7 +1,7 @@
 {
   system().actorOf("actor/??",new ActorCreator(){
     @Override public Actor create(){
-      return new CallMasterActor(context());
+      return new CallMasterActor(peer,context());
     }
   }
 );

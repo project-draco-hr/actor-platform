@@ -1,6 +1,7 @@
 {
   String res="rpc JoinEventBus{";
   res+="id=" + this.id;
+  res+=", timeout=" + this.timeout;
   res+="}";
   return res;
 }
