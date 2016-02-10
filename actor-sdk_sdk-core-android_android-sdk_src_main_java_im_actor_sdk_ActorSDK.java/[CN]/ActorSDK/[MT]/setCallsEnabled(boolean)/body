@@ -1,4 +1,3 @@
 {
   this.callsEnabled=callsEnabled;
-  CallsModule.CALLS_ENABLED=callsEnabled;
 }

@@ -1,5 +1,5 @@
 {
-  return new Promise<T>(new PromiseFunc<T>(){
+  return new Promise<>(new PromiseFunc<T>(){
     @Override public void exec(    final PromiseResolver<T> executor){
       context.getActorApi().request(request,new RpcCallback<T>(){
         @Override public void onResult(        T response){
