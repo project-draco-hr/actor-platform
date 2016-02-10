@@ -1,0 +1,7 @@
+{
+  String[] lines=sdp.split("\\r?\\n");
+  if (!lines[0].startsWith("v=")) {
+    throw new RuntimeException("First line doesn't start with version of SDP");
+  }
+  return null;
+}

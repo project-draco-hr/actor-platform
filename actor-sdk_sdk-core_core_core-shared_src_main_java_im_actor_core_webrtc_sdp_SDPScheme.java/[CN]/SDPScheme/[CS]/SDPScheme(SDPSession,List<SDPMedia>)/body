@@ -1,0 +1,4 @@
+{
+  this.sessionLevel=sessionLevel;
+  this.mediaLevel=new ArrayList<>(mediaLevel);
+}

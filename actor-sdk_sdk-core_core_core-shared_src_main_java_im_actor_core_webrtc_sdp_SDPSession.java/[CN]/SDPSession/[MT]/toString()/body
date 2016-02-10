@@ -1,0 +1,7 @@
+{
+  String res="v=" + version + "\r\n";
+  for (  SDPRawRecord r : records) {
+    res=r.getType() + "=" + r.getType()+ "\r\n";
+  }
+  return res;
+}

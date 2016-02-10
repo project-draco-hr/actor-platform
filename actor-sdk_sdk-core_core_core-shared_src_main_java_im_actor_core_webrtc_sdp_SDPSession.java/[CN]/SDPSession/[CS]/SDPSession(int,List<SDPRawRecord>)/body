@@ -1,0 +1,4 @@
+{
+  this.version=version;
+  this.records=new ArrayList<>(records);
+}
