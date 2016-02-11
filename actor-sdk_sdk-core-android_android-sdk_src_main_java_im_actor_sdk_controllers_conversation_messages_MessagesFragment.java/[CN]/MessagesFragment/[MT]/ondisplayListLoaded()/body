@@ -1,5 +1,6 @@
 {
   final BindedDisplayList<Message> list=getDisplayList();
+  Log.d("DIAPLAY_LIST","ondisplayListLoaded  isLoaded: " + isLoaded + " list size: "+ list.getSize());
   if (isLoaded) {
     return;
   }
@@ -7,7 +8,7 @@
     return;
   }
   isLoaded=true;
-  long firstUnread=messenger().loadFirstUnread(peer);
+  Log.d("DIAPLAY_LIST","ondisplayListLoaded  firstUnread: " + firstUnread);
   if (firstUnread == 0) {
     return;
   }

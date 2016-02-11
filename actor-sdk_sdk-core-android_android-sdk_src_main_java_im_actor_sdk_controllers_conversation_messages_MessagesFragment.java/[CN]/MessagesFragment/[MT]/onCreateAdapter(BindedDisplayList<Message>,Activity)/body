@@ -1,4 +1,7 @@
 {
   messagesAdapter=new MessagesAdapter(displayList,this,activity);
+  if (firstUnread != -1 && messagesAdapter.getFirstUnread() == -1) {
+    messagesAdapter.setFirstUnread(firstUnread);
+  }
   return messagesAdapter;
 }
