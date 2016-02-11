@@ -1,4 +1,0 @@
-{
-  this.webRTCProvider=webRTCProvider;
-  return this;
-}
