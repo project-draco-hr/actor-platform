@@ -1,5 +1,0 @@
-{
-  if (callId != -1) {
-    ref.send(new CallManagerActor.SendSignaling(callId,new CandidateSignal(id,label,sdp)));
-  }
-}

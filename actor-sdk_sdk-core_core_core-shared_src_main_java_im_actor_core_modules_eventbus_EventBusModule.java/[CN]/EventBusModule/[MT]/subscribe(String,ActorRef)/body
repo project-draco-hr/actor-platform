@@ -1,6 +1,9 @@
 {
-  if (!subscribers.containsKey(busId)) {
-    subscribers.put(busId,new ArrayList<ActorRef>());
+  subscribers.put(busId,ref);
+  if (pendingMessages.containsKey(busId)) {
+    for (    Object o : pendingMessages.get(busId)) {
+      onEventBusUpdate(o);
+    }
+    pendingMessages.remove(busId);
   }
-  subscribers.get(busId).add(ref);
 }

@@ -1,12 +1,2 @@
 {
-  Log.d(TAG,"onReadyReceiveCandidates (" + callId + ")");
-  if (webRTCController.getCallId() == callId) {
-    if (!isReadyReceiveCandidates) {
-      isReadyReceiveCandidates=true;
-      for (      Candidate c : pendingCandidates) {
-        provider.onCandidate(callId,c.getId(),c.getLabel(),c.getSdp());
-      }
-      pendingCandidates.clear();
-    }
-  }
 }

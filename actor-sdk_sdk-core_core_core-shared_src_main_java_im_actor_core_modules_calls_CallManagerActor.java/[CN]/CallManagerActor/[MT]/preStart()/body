@@ -1,6 +1,4 @@
 {
   super.preStart();
-  webRTCController=new WebRTCControllerImpl(self());
   provider=config().getCallsProvider();
-  provider.init(context().getMessenger(),webRTCController);
 }

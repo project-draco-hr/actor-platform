@@ -1,8 +1,2 @@
 {
-  if (webRTCController.getCallId() == callId) {
-    if (!isStartedKeepAlive) {
-      isStartedKeepAlive=true;
-      self().send(new DoKeepAlive(callId));
-    }
-  }
 }

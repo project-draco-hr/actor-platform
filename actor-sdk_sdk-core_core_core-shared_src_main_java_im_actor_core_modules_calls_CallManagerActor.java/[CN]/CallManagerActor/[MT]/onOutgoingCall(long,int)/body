@@ -1,18 +1,3 @@
 {
   Log.d(TAG,"onOutgoingCall (" + callId + ", "+ uid+ ")");
-  if (webRTCController.getCallId() == -1) {
-    webRTCController.switchCallId(callId);
-    pendingRequests.clear();
-    pendingCandidates.clear();
-    isReadyReceiveCandidates=false;
-    isStartedKeepAlive=false;
-    isOfferRequested=false;
-    isOfferReceived=true;
-    isAnswerReceived=false;
-    ArrayList<Integer> members=new ArrayList<>();
-    members.add(myUid());
-    members.add(uid);
-    context().getCallsModule().spawnNewModel(callId,Peer.user(uid),members,CallState.CALLING_OUTGOING);
-    provider.onOutgoingCall(callId);
-  }
 }

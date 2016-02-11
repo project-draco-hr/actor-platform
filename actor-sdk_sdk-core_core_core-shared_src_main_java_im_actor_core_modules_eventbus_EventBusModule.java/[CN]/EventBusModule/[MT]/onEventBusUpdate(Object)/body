@@ -1,2 +1,54 @@
 {
+  if (update instanceof UpdateEventBusMessage) {
+    UpdateEventBusMessage busMessage=(UpdateEventBusMessage)update;
+    ActorRef dest=subscribers.get(busMessage.getId());
+    if (dest != null) {
+      dest.send(new EventBusActor.EventBusMessage(busMessage.getSenderId(),busMessage.getSenderDeviceId(),busMessage.getMessage()));
+    }
+ else {
+      if (!pendingMessages.containsKey(busMessage.getId())) {
+        pendingMessages.put(busMessage.getId(),new ArrayList<>());
+      }
+      pendingMessages.get(busMessage.getId()).add(update);
+    }
+  }
+ else   if (update instanceof UpdateEventBusDeviceConnected) {
+    UpdateEventBusDeviceConnected deviceConnected=(UpdateEventBusDeviceConnected)update;
+    ActorRef dest=subscribers.get(deviceConnected.getId());
+    if (dest != null) {
+      dest.send(new EventBusActor.EventBusDeviceConnected(deviceConnected.getUserId(),deviceConnected.getDeviceId()));
+    }
+ else {
+      if (!pendingMessages.containsKey(deviceConnected.getId())) {
+        pendingMessages.put(deviceConnected.getId(),new ArrayList<>());
+      }
+      pendingMessages.get(deviceConnected.getId()).add(update);
+    }
+  }
+ else   if (update instanceof UpdateEventBusDeviceDisconnected) {
+    UpdateEventBusDeviceDisconnected deviceDisconnected=(UpdateEventBusDeviceDisconnected)update;
+    ActorRef dest=subscribers.get(deviceDisconnected.getId());
+    if (dest != null) {
+      dest.send(new EventBusActor.EventBusDeviceDisconnected(deviceDisconnected.getUserId(),deviceDisconnected.getDeviceId()));
+    }
+ else {
+      if (!pendingMessages.containsKey(deviceDisconnected.getId())) {
+        pendingMessages.put(deviceDisconnected.getId(),new ArrayList<>());
+      }
+      pendingMessages.get(deviceDisconnected.getId()).add(update);
+    }
+  }
+ else   if (update instanceof UpdateEventBusDisposed) {
+    UpdateEventBusDisposed disposed=(UpdateEventBusDisposed)update;
+    ActorRef dest=subscribers.get(disposed.getId());
+    if (dest != null) {
+      dest.send(new EventBusActor.EventBusDisposed());
+    }
+ else {
+      if (!pendingMessages.containsKey(disposed.getId())) {
+        pendingMessages.put(disposed.getId(),new ArrayList<>());
+      }
+      pendingMessages.get(disposed.getId()).add(update);
+    }
+  }
 }

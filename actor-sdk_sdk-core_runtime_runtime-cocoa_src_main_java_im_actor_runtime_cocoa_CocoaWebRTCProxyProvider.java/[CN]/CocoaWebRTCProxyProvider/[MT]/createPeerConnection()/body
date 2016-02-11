@@ -1,0 +1,6 @@
+{
+  if (rtcRuntime == null) {
+    throw new RuntimeException("Storage Runtime not set");
+  }
+  return rtcRuntime.createPeerConnection();
+}
