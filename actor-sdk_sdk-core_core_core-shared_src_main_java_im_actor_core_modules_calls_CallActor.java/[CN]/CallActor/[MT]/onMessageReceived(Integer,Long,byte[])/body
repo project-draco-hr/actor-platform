@@ -1,4 +1,7 @@
 {
+  if (senderId == null || senderDeviceId == null) {
+    return;
+  }
   ApiWebRTCSignaling signaling;
   try {
     signaling=ApiWebRTCSignaling.fromBytes(data);
@@ -9,4 +12,5 @@
     return;
   }
   Log.d(TAG,"onMessageReceived: " + signaling);
+  onSignalingMessage(senderId,senderDeviceId,signaling);
 }

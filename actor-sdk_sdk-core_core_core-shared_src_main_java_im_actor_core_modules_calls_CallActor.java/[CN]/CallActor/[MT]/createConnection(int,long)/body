@@ -1,0 +1,8 @@
+{
+  return WebRTC.createPeerConnection().map(new Function<WebRTCPeerConnection,PeerConnection>(){
+    @Override public PeerConnection apply(    WebRTCPeerConnection webRTCPeerConnection){
+      return new PeerConnection(userId,deviceId,webRTCPeerConnection);
+    }
+  }
+);
+}

@@ -1,3 +1,22 @@
 {
   Log.d(TAG,"onIncomingCall (" + callId + ")");
+  if (handledCalls.contains(callId)) {
+    return;
+  }
+  handledCalls.add(callId);
+  api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
+    @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
+      system().actorOf("actor/slave",new ActorCreator(){
+        @Override public Actor create(){
+          return new CallSlaveActor(responseGetCallInfo.getEventBusId(),context());
+        }
+      }
+);
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+    }
+  }
+).done(self());
 }
