@@ -3,6 +3,7 @@
   api(new RequestDoCall(buidOutPeer(peer),getBusId())).then(new Consumer<ResponseDoCall>(){
     @Override public void apply(    ResponseDoCall responseDoCall){
       Log.d(TAG,"onBusCreated:result");
+      onCallCreated();
     }
   }
 ).failure(new Consumer<Exception>(){

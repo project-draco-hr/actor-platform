@@ -1,0 +1,13 @@
+{
+  return mapPromise(new Function<T,Promise<T>>(){
+    @Override public Promise<T> apply(    final T t){
+      return res.apply(t).map(new Function<R,T>(){
+        @Override public T apply(        R r){
+          return t;
+        }
+      }
+);
+    }
+  }
+);
+}
