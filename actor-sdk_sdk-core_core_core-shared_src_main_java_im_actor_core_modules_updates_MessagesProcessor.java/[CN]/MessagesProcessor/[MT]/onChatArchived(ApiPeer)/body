@@ -1,3 +1,2 @@
 {
-  context().getMessagesModule().getDialogsActor().send(new DialogsActor.ChatDelete(convert(peer)));
 }
