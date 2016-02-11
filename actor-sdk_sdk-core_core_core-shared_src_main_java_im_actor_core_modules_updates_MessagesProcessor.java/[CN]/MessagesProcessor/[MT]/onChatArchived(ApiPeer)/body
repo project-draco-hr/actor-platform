@@ -1,3 +1,3 @@
 {
-  context().getMessagesModule().getDialogsGroupedActor().send(new GroupedDialogsActor.ChatArchived(peer));
+  context().getMessagesModule().getDialogsActor().send(new DialogsActor.ChatDelete(convert(peer)));
 }
