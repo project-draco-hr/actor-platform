@@ -11,6 +11,9 @@
     GroupedDialogsChanged g=(GroupedDialogsChanged)message;
     onGroupedChanged(g.getItems());
   }
+ else   if (message instanceof ChatArchived) {
+    onChatArchived(((ChatArchived)message).getPeer());
+  }
  else {
     super.onReceive(message);
   }
