@@ -1,0 +1,19 @@
+{
+  if (state != State.WAITING_ANSWER) {
+    return;
+  }
+  Log.d(TAG,"onAnswer");
+  peerConnection.setRemoteDescription(new WebRTCSessionDescription("answer",sdp)).then(new Consumer<WebRTCSessionDescription>(){
+    @Override public void apply(    WebRTCSessionDescription description){
+      Log.d(TAG,"onAnswer:then");
+      onHandShakeCompleted();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.d(TAG,"onAnswer:failure");
+      e.printStackTrace();
+    }
+  }
+).done(self());
+}

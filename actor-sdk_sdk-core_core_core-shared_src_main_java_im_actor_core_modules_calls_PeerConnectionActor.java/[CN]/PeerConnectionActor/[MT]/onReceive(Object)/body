@@ -1,0 +1,30 @@
+{
+  if (message instanceof OnOffer) {
+    if (!isReady) {
+      stash();
+    }
+    onOffer(((OnOffer)message).getSdp());
+  }
+ else   if (message instanceof OnAnswer) {
+    if (!isReady) {
+      stash();
+    }
+    onAnswer(((OnAnswer)message).getSdp());
+  }
+ else   if (message instanceof OnCandidate) {
+    if (!isReady || !isReadyForCandidates) {
+      stash();
+    }
+    OnCandidate candidate=(OnCandidate)message;
+    onCandidate(candidate.getIndex(),candidate.getId(),candidate.getSdp());
+  }
+ else   if (message instanceof OnOfferNeeded) {
+    if (!isReady) {
+      stash();
+    }
+    onOfferNeeded();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

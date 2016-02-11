@@ -1,0 +1,28 @@
+{
+  if (state != State.WAITING_HANDSHAKE) {
+    return;
+  }
+  Log.d(TAG,"onOfferNeeded");
+  isReady=false;
+  peerConnection.createOffer().mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+    @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
+      return peerConnection.setLocalDescription(description);
+    }
+  }
+).then(new Consumer<WebRTCSessionDescription>(){
+    @Override public void apply(    WebRTCSessionDescription description){
+      Log.d(TAG,"onOfferNeeded:then");
+      root.send(new DoOffer(uid,deviceId,description.getSdp()));
+      state=State.WAITING_ANSWER;
+      isReady=true;
+      unstashAll();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.d(TAG,"onOfferNeeded:failure");
+      e.printStackTrace();
+    }
+  }
+).done(self());
+}

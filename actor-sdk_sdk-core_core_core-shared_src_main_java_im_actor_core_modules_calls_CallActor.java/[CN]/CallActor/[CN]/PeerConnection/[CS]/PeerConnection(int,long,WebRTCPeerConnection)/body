@@ -1,5 +1,0 @@
-{
-  this.uid=uid;
-  this.deviceId=deviceId;
-  this.webRTCPeerConnection=webRTCPeerConnection;
-}

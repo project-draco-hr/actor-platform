@@ -1,3 +1,6 @@
 {
   this.sessionId=values.getLong(1);
+  this.index=values.getInt(2);
+  this.id=values.getString(3);
+  this.sdp=values.getString(4);
 }

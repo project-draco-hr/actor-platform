@@ -1,3 +1,12 @@
 {
   writer.writeLong(1,this.sessionId);
+  writer.writeInt(2,this.index);
+  if (this.id == null) {
+    throw new IOException();
+  }
+  writer.writeString(3,this.id);
+  if (this.sdp == null) {
+    throw new IOException();
+  }
+  writer.writeString(4,this.sdp);
 }

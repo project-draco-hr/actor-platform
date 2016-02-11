@@ -1,2 +1,14 @@
 {
+  if (signaling instanceof ApiOffer) {
+    ApiOffer offer=(ApiOffer)signaling;
+    getPeer(fromUid,fromDeviceId).send(new PeerConnectionActor.OnOffer(offer.getSdp()));
+  }
+ else   if (signaling instanceof ApiAnswer) {
+    ApiAnswer answer=(ApiAnswer)signaling;
+    getPeer(fromUid,fromDeviceId).send(new PeerConnectionActor.OnAnswer(answer.getSdp()));
+  }
+ else   if (signaling instanceof ApiCandidate) {
+    ApiCandidate candidate=(ApiCandidate)signaling;
+    getPeer(fromUid,fromDeviceId).send(new PeerConnectionActor.OnCandidate(candidate.getIndex(),candidate.getId(),candidate.getSdp()));
+  }
 }

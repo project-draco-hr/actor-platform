@@ -1,0 +1,5 @@
+{
+  this.uid=uid;
+  this.deviceId=deviceId;
+  this.sdp=sdp;
+}
