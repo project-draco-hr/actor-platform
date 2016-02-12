@@ -1,2 +1,3 @@
 {
+  peerConnection.addCandidate(index,id,sdp);
 }

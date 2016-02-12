@@ -1,6 +1,7 @@
 {
   return new Command<ResponseDoCall>(){
     @Override public void start(    final CommandCallback<ResponseDoCall> callback){
+      Log.d(TAG,"callsManager: " + callManager);
       callManager.send(new CallManagerActor.DoCall(Peer.user(uid)));
     }
   }

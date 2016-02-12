@@ -1,0 +1,7 @@
+{
+  ArrayList<ApiEventBusDestination> destinations=new ArrayList<>();
+  ArrayList<Long> deviceIds=new ArrayList<>();
+  deviceIds.add(deviceId);
+  destinations.add(new ApiEventBusDestination(uid,deviceIds));
+  request(new RequestPostToEventBus(busId,destinations,data));
+}
