@@ -1,0 +1,6 @@
+{
+  writer.writeBytes(1,peer.toByteArray());
+  writer.writeString(2,title);
+  writer.writeBytes(3,avatar.toByteArray());
+  writer.writeInt(4,counter);
+}

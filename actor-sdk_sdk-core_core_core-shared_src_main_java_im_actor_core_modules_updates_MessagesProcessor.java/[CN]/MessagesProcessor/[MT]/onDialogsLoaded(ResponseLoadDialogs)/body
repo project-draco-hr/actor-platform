@@ -1,26 +1,3 @@
 {
-  ArrayList<DialogHistory> dialogs=new ArrayList<DialogHistory>();
-  long maxLoadedDate=Long.MAX_VALUE;
-  for (  ApiDialog dialog : dialogsResponse.getDialogs()) {
-    maxLoadedDate=Math.min(dialog.getSortDate(),maxLoadedDate);
-    Peer peer=convert(dialog.getPeer());
-    AbsContent msgContent=null;
-    try {
-      msgContent=AbsContent.fromMessage(dialog.getMessage());
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
-    if (msgContent == null) {
-      continue;
-    }
-    dialogs.add(new DialogHistory(peer,dialog.getUnreadCount(),dialog.getSortDate(),dialog.getRid(),dialog.getDate(),dialog.getSenderUid(),msgContent,convert(dialog.getState())));
-  }
-  if (dialogs.size() > 0) {
-    dialogsActor().send(new DialogsActor.HistoryLoaded(dialogs));
-  }
- else {
-    context().getAppStateModule().onDialogsLoaded();
-  }
-  dialogsHistoryActor().send(new DialogsHistoryActor.LoadedMore(dialogsResponse.getDialogs().size(),maxLoadedDate));
+  dialogsLoaded(dialogsResponse.getDialogs(),false,null);
 }

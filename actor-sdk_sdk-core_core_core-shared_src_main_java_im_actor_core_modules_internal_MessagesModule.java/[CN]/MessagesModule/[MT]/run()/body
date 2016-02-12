@@ -11,6 +11,12 @@
     }
   }
 ),"actor/dialogs/history");
+  this.archivedDialogsActor=system().actorOf(Props.create(new ActorCreator(){
+    @Override public ArchivedDialogsActor create(){
+      return new ArchivedDialogsActor(context());
+    }
+  }
+),"actor/dialogs/archived");
   this.dialogsGroupedActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public GroupedDialogsActor create(){
       return new GroupedDialogsActor(context());

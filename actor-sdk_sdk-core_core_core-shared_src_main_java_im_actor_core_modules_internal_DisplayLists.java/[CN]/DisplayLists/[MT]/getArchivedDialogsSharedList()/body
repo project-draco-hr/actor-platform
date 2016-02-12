@@ -1,0 +1,7 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  if (archivedDialogGlobalList == null) {
+    archivedDialogGlobalList=buildArchivedDialogsList(true);
+  }
+  return archivedDialogGlobalList;
+}

@@ -1,0 +1,6 @@
+{
+  if (archivedDialogsList == null) {
+    archivedDialogsList=(JsDisplayList<JsDialog,Dialog>)context().getDisplayListsModule().getArchivedDialogsSharedList();
+  }
+  return archivedDialogsList;
+}

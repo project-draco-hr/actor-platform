@@ -1,0 +1,12 @@
+{
+  if (message instanceof LoadMore) {
+    onLoadMore();
+  }
+ else   if (message instanceof LoadedMore) {
+    LoadedMore loaded=(LoadedMore)message;
+    onLoadedMore(loaded.loaded,loaded.nextOffset);
+  }
+ else {
+    drop(message);
+  }
+}

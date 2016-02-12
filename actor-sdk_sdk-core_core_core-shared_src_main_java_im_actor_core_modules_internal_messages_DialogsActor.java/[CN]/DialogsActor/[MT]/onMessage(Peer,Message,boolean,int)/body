@@ -39,7 +39,7 @@
       forceUpdate=true;
     }
     addOrUpdateItem(builder.createDialog());
-    notifyState(forceUpdate);
+    notifyState(forceUpdate,false);
   }
   Log.d("DialogsActor","onMessage in " + (Runtime.getCurrentTime() - start) + " ms");
 }
