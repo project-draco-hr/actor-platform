@@ -1,3 +1,0 @@
-{
-  nextOffset=preferences().getBytes(KEY_LOADED_OFFSET);
-}
