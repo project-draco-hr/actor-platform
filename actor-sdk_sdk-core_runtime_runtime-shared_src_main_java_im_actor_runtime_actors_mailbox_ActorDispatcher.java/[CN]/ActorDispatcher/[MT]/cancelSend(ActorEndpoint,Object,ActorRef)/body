@@ -1,9 +1,0 @@
-{
-  if (!endpoint.isDisconnected()) {
-    endpoint.getMailbox().unschedule(new Envelope(message,endpoint.getScope(),endpoint.getMailbox(),sender));
-    TraceInterface traceInterface=actorSystem.getTraceInterface();
-    if (traceInterface != null) {
-      traceInterface.onMessageSent(endpoint.getScope().getActorRef(),message);
-    }
-  }
-}

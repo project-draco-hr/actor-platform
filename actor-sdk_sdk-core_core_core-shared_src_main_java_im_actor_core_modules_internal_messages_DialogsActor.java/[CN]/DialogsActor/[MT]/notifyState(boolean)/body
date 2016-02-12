@@ -1,9 +1,0 @@
-{
-  if (isEmpty == null || force) {
-    isEmpty=this.dialogs.isEmpty();
-  }
-  if (!isEmpty.equals(emptyNotified)) {
-    emptyNotified=isEmpty;
-    context().getAppStateModule().onDialogsUpdate(isEmpty);
-  }
-}

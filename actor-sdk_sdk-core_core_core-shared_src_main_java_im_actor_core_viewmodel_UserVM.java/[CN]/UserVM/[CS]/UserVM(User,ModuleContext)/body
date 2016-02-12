@@ -15,7 +15,7 @@
   emails=new ValueModelUserEmail("user." + id + ".emails",buildEmails(user.getRecords()));
   links=new ValueModelUserLink("user." + id + ".links",buildLinks(user.getRecords()));
   contacts=new ValueModelContactRecord("user." + id + ".contacts",new ArrayListContactRecord(user.getRecords()));
-  presenceTimer=im.actor.runtime.Runtime.createTimer(new Runnable(){
+  presenceTimer=new CommonTimer(new Runnable(){
     @Override public void run(){
       presence.forceNotify();
       presenceTimer.schedule(PRESENCE_UPDATE_DELAY);

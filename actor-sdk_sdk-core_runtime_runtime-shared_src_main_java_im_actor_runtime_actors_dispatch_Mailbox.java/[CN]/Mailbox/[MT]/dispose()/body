@@ -1,0 +1,5 @@
+{
+  Envelope[] res=queueCollection.getAllPending(queueId).toArray(new Envelope[0]);
+  queueCollection.disposeQueue(queueId);
+  return res;
+}

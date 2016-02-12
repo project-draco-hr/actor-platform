@@ -7,9 +7,9 @@
   this.callback=callback;
   this.factoryCallback=factoryCallback;
   this.rawConnection=connectionFactory.createConnection(connectionId,endpoint,connectionInterface);
-  handshakeTimeout=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
-  pingTask=im.actor.runtime.Runtime.createTimer(new PingRunnable());
-  connectionTimeout=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
+  handshakeTimeout=new CommonTimer(new TimeoutRunnable());
+  pingTask=new CommonTimer(new PingRunnable());
+  connectionTimeout=new CommonTimer(new TimeoutRunnable());
   connectionTimeout.schedule(CONNECTION_TIMEOUT);
   this.rawConnection.doConnect();
 }

@@ -1,0 +1,9 @@
+{
+  if (pending.isEmpty()) {
+    return null;
+  }
+  Queue<T> queue=pending.remove(0);
+  queue.setIsLocked(true);
+  T val=queue.getQueue().remove(0);
+  return new QueueFetchResult<>(queue.getId(),val);
+}

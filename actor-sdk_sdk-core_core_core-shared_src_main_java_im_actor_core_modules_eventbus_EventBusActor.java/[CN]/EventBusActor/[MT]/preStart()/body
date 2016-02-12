@@ -10,8 +10,7 @@
         onBusStarted();
         isProcessing=false;
         unstashAll();
-        self().send(new EventBusKeepAlive());
-        Log.d("EventBus(" + busId + ")","Joined");
+        keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
       }
     }
 ).failure(new Consumer<Exception>(){
@@ -31,8 +30,7 @@
         onBusStarted();
         isProcessing=false;
         unstashAll();
-        self().send(new EventBusKeepAlive());
-        Log.d("EventBus(" + busId + ")","Created");
+        keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
       }
     }
 ).failure(new Consumer<Exception>(){

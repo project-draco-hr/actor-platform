@@ -6,7 +6,7 @@
     throw new IOException("Incorrect pong payload size");
   }
   long pingId=dataInput.readLong();
-  AbsTimerCompat timeoutTask=schedulledPings.remove(pingId);
+  CommonTimer timeoutTask=schedulledPings.remove(pingId);
   if (timeoutTask == null) {
     return;
   }

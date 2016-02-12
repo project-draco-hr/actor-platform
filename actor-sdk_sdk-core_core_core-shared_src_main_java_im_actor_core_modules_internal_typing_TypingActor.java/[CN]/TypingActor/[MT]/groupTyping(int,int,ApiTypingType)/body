@@ -26,5 +26,12 @@
       context().getTypingModule().getGroupTyping(gid).getActive().change(ids2);
     }
   }
-  self().sendOnce(new StopGroupTyping(gid,uid),TYPING_TEXT_TIMEOUT);
+  if (!groupCancellables.containsKey(gid)) {
+    groupCancellables.put(gid,new HashMap<Integer,Cancellable>());
+  }
+  HashMap<Integer,Cancellable> cancellables=groupCancellables.get(gid);
+  if (cancellables.containsKey(uid)) {
+    cancellables.remove(uid).cancel();
+  }
+  cancellables.put(uid,schedule(new StopGroupTyping(gid,uid),TYPING_TEXT_TIMEOUT));
 }

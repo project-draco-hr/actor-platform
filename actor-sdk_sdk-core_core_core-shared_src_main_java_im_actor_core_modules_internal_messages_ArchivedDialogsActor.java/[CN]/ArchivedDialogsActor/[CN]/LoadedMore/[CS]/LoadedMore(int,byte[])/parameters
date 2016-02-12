@@ -1,0 +1,2 @@
+int loaded
+byte[] nextOffset

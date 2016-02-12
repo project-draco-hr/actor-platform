@@ -1,0 +1,7 @@
+{
+  if (performCancellable != null) {
+    performCancellable.cancel();
+    performCancellable=null;
+  }
+  performCancellable=schedule(new PerformOnline(),delay);
+}

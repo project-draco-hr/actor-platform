@@ -9,5 +9,9 @@
   }
   cancelPrevRequest();
   prevRid=request(new RequestTyping(outPeer,ApiTypingType.TEXT));
-  self().sendOnce(new AbortTyping(peer),TYPING_CANCEL_DELAY);
+  if (typingCancellable != null) {
+    typingCancellable.cancel();
+    typingCancellable=null;
+  }
+  typingCancellable=schedule(new AbortTyping(peer),TYPING_CANCEL_DELAY);
 }

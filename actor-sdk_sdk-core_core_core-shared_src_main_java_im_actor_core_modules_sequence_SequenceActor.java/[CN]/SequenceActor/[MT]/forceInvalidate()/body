@@ -1,4 +1,8 @@
 {
-  self().sendOnce(new ForceInvalidate());
+  if (forceInvalidateCancellable != null) {
+    forceInvalidateCancellable.cancel();
+    forceInvalidateCancellable=null;
+  }
+  forceInvalidateCancellable=schedule(new ForceInvalidate(),0);
   isTimerStarted=false;
 }

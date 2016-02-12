@@ -9,7 +9,7 @@
   CRC32_ENGINE.update(data,offset,len);
   dataOutput.writeInt((int)CRC32_ENGINE.getValue());
   if (header == HEADER_PROTO) {
-    AbsTimerCompat timeoutTask=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
+    CommonTimer timeoutTask=new CommonTimer(new TimeoutRunnable());
     packageTimers.put(packageId,timeoutTask);
     timeoutTask.schedule(RESPONSE_TIMEOUT);
   }

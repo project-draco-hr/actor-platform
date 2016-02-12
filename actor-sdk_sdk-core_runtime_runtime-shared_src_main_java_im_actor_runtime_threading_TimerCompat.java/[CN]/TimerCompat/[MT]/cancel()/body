@@ -1,3 +1,0 @@
-{
-  TIMER_ACTOR.send(new TimerActor.Cancel(this));
-}

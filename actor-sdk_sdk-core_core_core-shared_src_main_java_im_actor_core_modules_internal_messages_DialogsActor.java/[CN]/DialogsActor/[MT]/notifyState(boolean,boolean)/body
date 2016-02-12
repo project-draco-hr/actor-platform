@@ -1,0 +1,14 @@
+{
+  if ((isArchived ? isArchivedEmpty : isEmpty) == null || force) {
+    if (isArchived) {
+      isArchivedEmpty=this.archivedDialogs.isEmpty();
+    }
+ else {
+      isEmpty=this.dialogs.isEmpty();
+    }
+  }
+  if (!isArchived && !isEmpty.equals(emptyNotified)) {
+    emptyNotified=isEmpty;
+    context().getAppStateModule().onDialogsUpdate(isEmpty);
+  }
+}

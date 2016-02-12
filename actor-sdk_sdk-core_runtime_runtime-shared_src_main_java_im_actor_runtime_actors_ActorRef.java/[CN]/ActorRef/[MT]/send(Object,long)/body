@@ -1,3 +1,0 @@
-{
-  dispatcher.sendMessageAtTime(endpoint,message,ActorTime.currentTime() + delay,null);
-}

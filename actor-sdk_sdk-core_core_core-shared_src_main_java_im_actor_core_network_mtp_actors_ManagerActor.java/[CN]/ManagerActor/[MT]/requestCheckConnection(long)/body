@@ -8,6 +8,10 @@
         Log.w(TAG,"Requesting connection creating in " + wait + " ms");
       }
     }
-    self().sendOnce(new PerformConnectionCheck(),wait);
+    if (checkCancellable != null) {
+      checkCancellable.cancel();
+      checkCancellable=null;
+    }
+    checkCancellable=schedule(new PerformConnectionCheck(),wait);
   }
 }

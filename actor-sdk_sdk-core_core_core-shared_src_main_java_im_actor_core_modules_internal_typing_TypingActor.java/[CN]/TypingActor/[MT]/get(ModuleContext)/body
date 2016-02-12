@@ -4,15 +4,5 @@
       return new TypingActor(messenger);
     }
   }
-,new MailboxCreator(){
-    @Override public Mailbox createMailbox(    MailboxesQueue queue){
-      return new Mailbox(queue){
-        @Override protected boolean isEqualEnvelope(        Envelope a,        Envelope b){
-          return a.getMessage().equals(b.getMessage());
-        }
-      }
-;
-    }
-  }
 ),"actor/typing");
 }

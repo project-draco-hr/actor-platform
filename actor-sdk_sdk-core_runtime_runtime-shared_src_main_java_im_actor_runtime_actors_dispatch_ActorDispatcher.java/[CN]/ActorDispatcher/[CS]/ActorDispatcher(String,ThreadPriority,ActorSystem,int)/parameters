@@ -1,0 +1,4 @@
+String name
+ThreadPriority priority
+ActorSystem actorSystem
+int dispatchersCount

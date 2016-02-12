@@ -1,0 +1,3 @@
+{
+  dialogsLoaded(dialogsResponse.getDialogs(),true,dialogsResponse.getNextOffset());
+}

@@ -1,8 +1,0 @@
-{
-synchronized (dispatchers) {
-    if (dispatchers.containsKey(dispatcherId)) {
-      return;
-    }
-    dispatchers.put(dispatcherId,dispatcher);
-  }
-}

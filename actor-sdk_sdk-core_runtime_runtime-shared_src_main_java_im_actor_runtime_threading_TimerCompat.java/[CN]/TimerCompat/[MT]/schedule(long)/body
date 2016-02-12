@@ -1,3 +1,0 @@
-{
-  TIMER_ACTOR.send(new TimerActor.Schedule(this,delay));
-}

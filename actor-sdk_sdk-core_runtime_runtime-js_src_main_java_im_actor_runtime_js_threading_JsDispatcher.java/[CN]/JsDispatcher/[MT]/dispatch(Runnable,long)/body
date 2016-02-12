@@ -1,0 +1,3 @@
+{
+  dispatchJs(message,(int)delay);
+}

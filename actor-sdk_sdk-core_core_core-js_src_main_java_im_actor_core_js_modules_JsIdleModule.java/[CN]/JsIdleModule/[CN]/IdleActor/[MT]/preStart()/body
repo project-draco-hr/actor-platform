@@ -1,4 +1,4 @@
 {
   JsIdleDetection.subscribe(this);
-  self().sendOnce(new FlushTimeout(),TIMEOUT);
+  scheduleFlush();
 }

@@ -1,8 +1,0 @@
-{
-  if (isFinished) {
-    throw new RuntimeException("Already finished!");
-  }
-  this.isFinished=true;
-  this.exception=e;
-  deliverResult();
-}

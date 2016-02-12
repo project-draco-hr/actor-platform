@@ -1,9 +1,3 @@
 {
-synchronized (dispatchers) {
-    if (dispatchers.containsKey(dispatcherId)) {
-      return;
-    }
-    ActorDispatcher dispatcher=Runtime.createDefaultDispatcher(dispatcherId,ThreadPriority.LOW,this);
-    addDispatcher(dispatcherId,dispatcher);
-  }
+  addDispatcher(dispatcherId,Math.min((int)(Runtime.getCoresCount() * THREAD_MULTIPLIER),THREAD_MAX_COUNT));
 }

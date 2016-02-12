@@ -3,9 +3,9 @@
     return;
   }
   if (peer.getType() == ApiPeerType.PRIVATE) {
-    typingActor.sendOnce(new TypingActor.StopTyping(uid));
+    typingActor.send(new TypingActor.StopTyping(uid));
   }
  else   if (peer.getType() == ApiPeerType.GROUP) {
-    typingActor.sendOnce(new TypingActor.StopGroupTyping(peer.getId(),uid));
+    typingActor.send(new TypingActor.StopGroupTyping(peer.getId(),uid));
   }
 }

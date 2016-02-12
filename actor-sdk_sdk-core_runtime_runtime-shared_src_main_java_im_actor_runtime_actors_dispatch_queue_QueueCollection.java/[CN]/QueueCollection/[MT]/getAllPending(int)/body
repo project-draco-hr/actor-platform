@@ -1,0 +1,7 @@
+{
+  Queue<T> queue=queues.get(id);
+  if (queue == null) {
+    return new ArrayList<>();
+  }
+  return new ArrayList<>(queue.getQueue());
+}

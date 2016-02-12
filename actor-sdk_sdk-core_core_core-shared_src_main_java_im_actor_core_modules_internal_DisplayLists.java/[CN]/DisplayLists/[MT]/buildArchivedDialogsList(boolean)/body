@@ -1,0 +1,6 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  PlatformDisplayList<Dialog> res=Storage.createDisplayList(context().getMessagesModule().getArchivedDialogsEngine(),isShared,Dialog.ENTITY_NAME);
+  res.initTop();
+  return res;
+}

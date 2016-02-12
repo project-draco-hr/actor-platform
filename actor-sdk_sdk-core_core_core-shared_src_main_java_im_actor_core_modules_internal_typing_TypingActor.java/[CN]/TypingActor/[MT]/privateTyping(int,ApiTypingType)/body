@@ -9,5 +9,8 @@
     typings.add(uid);
     context().getTypingModule().getTyping(uid).getTyping().change(true);
   }
-  self().sendOnce(new StopTyping(uid),TYPING_TEXT_TIMEOUT);
+  if (typingsCancellables.containsKey(uid)) {
+    typingsCancellables.remove(uid).cancel();
+  }
+  typingsCancellables.put(uid,schedule(new StopTyping(uid),TYPING_TEXT_TIMEOUT));
 }

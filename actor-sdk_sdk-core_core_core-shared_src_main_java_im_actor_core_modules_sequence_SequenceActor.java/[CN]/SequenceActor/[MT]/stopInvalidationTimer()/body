@@ -1,4 +1,7 @@
 {
   isTimerStarted=false;
-  self().sendOnce(new ForceInvalidate(),24 * 60 * 60* 1000L);
+  if (forceInvalidateCancellable != null) {
+    forceInvalidateCancellable.cancel();
+    forceInvalidateCancellable=null;
+  }
 }

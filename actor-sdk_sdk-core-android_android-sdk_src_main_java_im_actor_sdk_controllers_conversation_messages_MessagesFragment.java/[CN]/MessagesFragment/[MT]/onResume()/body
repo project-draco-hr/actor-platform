@@ -1,5 +1,4 @@
 {
   super.onResume();
-  bindDisplayListLoad(onPauseSize != 0 && getDisplayList().getSize() != onPauseSize);
   messenger().onConversationOpen(peer);
 }

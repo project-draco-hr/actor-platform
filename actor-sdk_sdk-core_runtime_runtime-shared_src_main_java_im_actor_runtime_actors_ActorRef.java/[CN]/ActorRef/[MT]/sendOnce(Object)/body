@@ -1,3 +1,0 @@
-{
-  dispatcher.sendMessageOnceNow(endpoint,message,null);
-}

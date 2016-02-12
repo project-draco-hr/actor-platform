@@ -1,6 +1,0 @@
-{
-  if (envelope.getMailbox() != this) {
-    throw new RuntimeException("envelope.mailbox != this mailbox");
-  }
-  envelopes.putEnvelope(envelope,time);
-}

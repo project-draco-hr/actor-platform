@@ -1,5 +1,5 @@
 {
-  new Promise<Object>(new PromiseFunc<Object>(){
+  new Promise<>(new PromiseFunc<Object>(){
     @Override public void exec(    final PromiseResolver<Object> executor){
       become(new Receiver(){
         @Override public void onReceive(        Object message){

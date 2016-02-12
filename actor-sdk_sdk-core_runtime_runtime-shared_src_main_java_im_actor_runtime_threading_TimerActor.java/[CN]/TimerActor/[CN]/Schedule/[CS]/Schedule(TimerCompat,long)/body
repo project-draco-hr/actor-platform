@@ -1,4 +1,0 @@
-{
-  this.timerCompat=timerCompat;
-  this.delay=delay;
-}

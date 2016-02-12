@@ -1,5 +1,8 @@
 {
   Log.d(TAG,"onAppProbablyOpened");
   onAppOpened();
-  self().sendOnce(new MarkAppAsClosed(),24 * 60 * 60* 1000);
+  if (closeCancellable != null) {
+    closeCancellable.cancel();
+    closeCancellable=null;
+  }
 }

@@ -24,7 +24,7 @@
             if (LOG) {
               Log.w(TAG,"Block #" + blockIndex + " upload error #"+ error+ " trying again in "+ retryInSecs+ " sec, attempt #"+ (attempt + 1));
             }
-            self().send(new Retry(blockIndex,data,attempt + 1),retryInSecs * 1000L);
+            schedule(new Retry(blockIndex,data,attempt + 1),retryInSecs * 1000L);
           }
  else {
             self().send(new Runnable(){

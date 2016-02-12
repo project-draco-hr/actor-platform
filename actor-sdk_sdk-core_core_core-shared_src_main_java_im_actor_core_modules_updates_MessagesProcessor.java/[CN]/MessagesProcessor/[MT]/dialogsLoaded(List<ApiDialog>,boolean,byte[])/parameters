@@ -1,0 +1,3 @@
+List<ApiDialog> apiDialogs
+boolean archived
+byte[] nextOffset

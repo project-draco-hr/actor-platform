@@ -1,5 +1,0 @@
-{
-  this.key=key;
-  this.time=time;
-  this.envelope=envelope;
-}
