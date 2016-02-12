@@ -1,5 +1,6 @@
 {
-  this.callback=callback;
+  this.lastCallback.onError(new RpcException(TAG,0,"callback replaced",false,null));
+  this.lastCallback=callback;
   if (isLoading) {
     return;
   }
@@ -10,7 +11,7 @@
       updates().onUpdateReceived(new ArchivedDialogLoaded(response));
     }
     @Override public void onError(    RpcException e){
-      callback.onError(e);
+      lastCallback.onError(e);
     }
   }
 );

@@ -2,6 +2,6 @@
   isLoading=false;
   this.nextOffset=responseLoadArchiveds.getNextOffset();
   preferences().putBytes(KEY_LOADED_OFFSET,nextOffset);
-  callback.onResult(responseLoadArchiveds);
+  lastCallback.onResult(responseLoadArchiveds);
   Log.d(TAG,"Archived loaded");
 }
