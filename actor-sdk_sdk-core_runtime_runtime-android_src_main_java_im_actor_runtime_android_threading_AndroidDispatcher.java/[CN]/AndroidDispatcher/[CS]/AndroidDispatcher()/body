@@ -1,0 +1,7 @@
+{
+  handlerThread=new HandlerThread("dispatcher",Thread.NORM_PRIORITY);
+  handlerThread.start();
+  while (handlerThread.getLooper() == null) {
+  }
+  handler=new Handler(handlerThread.getLooper());
+}

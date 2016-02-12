@@ -1,5 +1,0 @@
-{
-  if (!isDisconnected(endpoint,message,sender)) {
-    endpoint.getMailbox().scheduleOnce(new Envelope(message,endpoint.getScope(),endpoint.getMailbox(),sender),0);
-  }
-}
