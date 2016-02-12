@@ -1,0 +1,47 @@
+{
+  ActorScope scope=envelope.getScope();
+  if (actorSystem.getTraceInterface() != null) {
+    actorSystem.getTraceInterface().onEnvelopeDelivered(envelope);
+  }
+  long start=ActorTime.currentTime();
+  if (scope.getActor() == null) {
+    if (envelope.getMessage() == PoisonPill.INSTANCE) {
+      return;
+    }
+    try {
+      Actor actor=scope.getProps().create();
+      actor.initActor(scope.getPath(),new ActorContext(scope),scope.getMailbox());
+      actor.preStart();
+      scope.onActorCreated(actor);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      if (envelope.getSender() != null) {
+        envelope.getSender().send(new DeadLetter("Unable to create actor"));
+      }
+      return;
+    }
+  }
+  try {
+    if (envelope.getMessage() == StartActor.INSTANCE) {
+    }
+ else     if (envelope.getMessage() == PoisonPill.INSTANCE) {
+      scope.getActor().postStop();
+      onActorDie(scope);
+    }
+ else {
+      scope.getActor().handleMessage(envelope.getMessage(),envelope.getSender());
+    }
+  }
+ catch (  Exception e) {
+    if (actorSystem.getTraceInterface() != null) {
+      actorSystem.getTraceInterface().onActorDie(scope.getActorRef(),envelope,e);
+    }
+    onActorDie(scope);
+  }
+ finally {
+    if (actorSystem.getTraceInterface() != null) {
+      actorSystem.getTraceInterface().onEnvelopeProcessed(envelope,ActorTime.currentTime() - start);
+    }
+  }
+}

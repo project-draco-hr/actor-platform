@@ -1,0 +1,5 @@
+{
+  int id=NEXT_ID.getAndIncrement();
+  queues.put(id,new Queue<T>(id));
+  return id;
+}

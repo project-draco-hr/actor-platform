@@ -1,0 +1,11 @@
+{
+synchronized (LOCK) {
+    if (isInvalidated) {
+      return;
+    }
+    isInvalidated=true;
+    if (!isProcessing) {
+      dispatcher.dispatchNow(checker);
+    }
+  }
+}

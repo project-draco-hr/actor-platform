@@ -1,0 +1,4 @@
+{
+  this.queueCollection=queueCollection;
+  this.queueId=queueCollection.spawnQueue();
+}

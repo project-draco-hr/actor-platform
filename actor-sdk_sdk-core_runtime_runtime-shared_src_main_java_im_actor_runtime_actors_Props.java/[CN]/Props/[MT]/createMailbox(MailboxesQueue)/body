@@ -1,8 +1,0 @@
-{
-  if (mailboxCreator != null) {
-    return mailboxCreator.createMailbox(queue);
-  }
- else {
-    return new Mailbox(queue);
-  }
-}

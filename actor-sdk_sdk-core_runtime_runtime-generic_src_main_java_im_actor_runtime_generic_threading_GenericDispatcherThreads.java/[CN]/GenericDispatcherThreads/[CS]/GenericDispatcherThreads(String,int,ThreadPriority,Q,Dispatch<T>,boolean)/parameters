@@ -1,6 +1,0 @@
-String name
-int count
-ThreadPriority priority
-Q queue
-Dispatch<T> dispatch
-boolean createThreads

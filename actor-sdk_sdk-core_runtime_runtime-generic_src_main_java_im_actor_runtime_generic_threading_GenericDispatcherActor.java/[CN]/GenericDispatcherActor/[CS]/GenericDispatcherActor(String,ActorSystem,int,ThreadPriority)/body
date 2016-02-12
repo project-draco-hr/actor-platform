@@ -1,9 +1,0 @@
-{
-  super(name,actorSystem);
-  initDispatcher(new GenericDispatcherThreads<Envelope,MailboxesQueue>(getName(),threadsCount,priority,new MailboxesQueue(),new Dispatch<Envelope>(){
-    @Override public void dispatchMessage(    Envelope message){
-      processEnvelope(message);
-    }
-  }
-,true));
-}

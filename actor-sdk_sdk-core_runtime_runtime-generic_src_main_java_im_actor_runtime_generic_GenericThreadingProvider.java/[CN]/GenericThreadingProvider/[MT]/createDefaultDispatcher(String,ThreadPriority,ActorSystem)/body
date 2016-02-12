@@ -1,3 +1,0 @@
-{
-  return createDispatcher(name,getCoresCount() * 2,priority,actorSystem);
-}

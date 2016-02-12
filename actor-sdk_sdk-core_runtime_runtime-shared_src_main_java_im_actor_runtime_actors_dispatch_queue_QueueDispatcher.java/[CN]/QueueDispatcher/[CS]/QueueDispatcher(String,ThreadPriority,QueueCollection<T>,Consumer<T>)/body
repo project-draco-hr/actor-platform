@@ -1,0 +1,7 @@
+{
+  this.collection=collection;
+  this.handler=handler;
+  this.dispatcher=im.actor.runtime.Runtime.createImmediateDispatcher(name,priority);
+  this.collection.addListener(this);
+  this.onChanged();
+}

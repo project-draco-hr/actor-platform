@@ -3,7 +3,7 @@ synchronized (dispatchers) {
     if (dispatchers.containsKey(dispatcherId)) {
       return;
     }
-    ActorDispatcher dispatcher=im.actor.runtime.Runtime.createDispatcher(dispatcherId,threadsCount,ThreadPriority.LOW,this);
+    ActorDispatcher dispatcher=new ActorDispatcher(dispatcherId,ThreadPriority.LOW,this,Runtime.isSingleThread() ? 1 : threadsCount);
     dispatchers.put(dispatcherId,dispatcher);
   }
 }

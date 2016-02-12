@@ -1,7 +1,0 @@
-{
-synchronized (envelopes) {
-    envelopes.clear();
-    topKey=0;
-  }
-  root.changedTopKey(this);
-}

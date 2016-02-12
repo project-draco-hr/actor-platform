@@ -1,0 +1,14 @@
+{
+  scope.onActorDie();
+  Envelope[] deadLetters;
+synchronized (LOCK) {
+    scopes.remove(scope.getPath());
+    endpoints.remove(scope.getPath());
+    deadLetters=scope.getMailbox().dispose();
+  }
+  for (  Envelope e : deadLetters) {
+    if (e.getSender() != null) {
+      e.getSender().send(new DeadLetter(e.getMessage()));
+    }
+  }
+}
