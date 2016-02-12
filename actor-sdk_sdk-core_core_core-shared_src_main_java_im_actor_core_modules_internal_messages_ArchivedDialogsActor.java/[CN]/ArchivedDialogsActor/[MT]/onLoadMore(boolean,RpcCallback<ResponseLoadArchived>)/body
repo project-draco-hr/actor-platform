@@ -1,18 +1,20 @@
 {
-  if (isLoading) {
+  if (init || isLoading) {
     lastCallback.onError(new RpcException(TAG,0,"callback replaced",false,null));
-    lastCallback=callback;
+  }
+  lastCallback=callback;
+  if (isLoading && !init) {
     return;
   }
- else {
-    lastCallback=callback;
-  }
   if (init) {
+    if (lastRequest != -1) {
+      cancelRequest(lastRequest);
+    }
     nextOffset=null;
   }
   isLoading=true;
   Log.d(TAG,"Loading archived dialogs");
-  request(new RequestLoadArchived(nextOffset,LIMIT),new RpcCallback<ResponseLoadArchived>(){
+  lastRequest=request(new RequestLoadArchived(nextOffset,LIMIT),new RpcCallback<ResponseLoadArchived>(){
     @Override public void onResult(    ResponseLoadArchived response){
       updates().onUpdateReceived(new ArchivedDialogLoaded(response));
     }
