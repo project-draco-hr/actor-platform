@@ -1,5 +1,7 @@
 {
+  Log.d("EnvelopeRoot","changedTopKey (" + collection.getTopKey() + ") #"+ collection.getId());
   if (!collections.containsKey(collection.getId())) {
+    Log.d("EnvelopeRoot","changedTopKey - ignored");
     return;
   }
   long key=collection.getTopKey();

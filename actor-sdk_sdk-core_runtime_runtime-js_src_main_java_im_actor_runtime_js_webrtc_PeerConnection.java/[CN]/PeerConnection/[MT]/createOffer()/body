@@ -1,0 +1,16 @@
+{
+  return new Promise<>(new PromiseFunc<WebRTCSessionDescription>(){
+    @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
+      peerConnection.createOffer(new JsSessionDescriptionCallback(){
+        @Override public void onOfferCreated(        JsSessionDescription offer){
+          resolver.result(new WebRTCSessionDescription(offer.getType(),offer.getSDP()));
+        }
+        @Override public void onOfferFailure(){
+          resolver.error(new RuntimeException());
+        }
+      }
+);
+    }
+  }
+);
+}

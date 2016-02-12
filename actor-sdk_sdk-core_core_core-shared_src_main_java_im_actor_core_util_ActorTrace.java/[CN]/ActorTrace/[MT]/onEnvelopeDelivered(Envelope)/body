@@ -1,2 +1,3 @@
 {
+  Log.w(TAG,"EnvelopeDelivered |" + envelope.getScope().getDispatcher().getName() + "| "+ envelope.getScope().getPath()+ " {"+ envelope.getMessage()+ "}");
 }

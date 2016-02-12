@@ -1,0 +1,5 @@
+{
+  Log.d(TAG,"onReceive");
+  super.onReceive(message);
+  Log.d(TAG,"onReceive:end");
+}

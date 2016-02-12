@@ -1,4 +1,5 @@
 {
+  Log.d("EnvelopeRoot","attachCollection (" + collection.getTopKey() + ") #"+ collection.getId());
   long key=collection.getTopKey();
   if (!collections.containsKey(collection.getId())) {
     collections.put(collection.getId(),collection);

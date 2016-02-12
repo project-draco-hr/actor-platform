@@ -1,0 +1,12 @@
+{
+  String res="[ ";
+synchronized (envelopes) {
+    for (    ScheduledEnvelope e : envelopes.values()) {
+      if (res.length() != 1) {
+        res+=", ";
+      }
+      res+=e.getEnvelope().getMessage() + " (" + e.getKey()+ ")";
+    }
+  }
+  return res + "] ";
+}

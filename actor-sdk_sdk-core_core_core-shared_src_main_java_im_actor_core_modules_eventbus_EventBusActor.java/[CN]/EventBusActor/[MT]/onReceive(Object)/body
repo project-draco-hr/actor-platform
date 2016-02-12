@@ -1,4 +1,5 @@
 {
+  Log.d("EventBus(" + busId + ")","onReceive: " + message);
   if (message instanceof EventBusShutdown) {
     if (isProcessing) {
       stash();
@@ -31,18 +32,23 @@
   }
  else   if (message instanceof EventBusMessage) {
     if (isProcessing) {
+      Log.d("EventBus(" + busId + ")","Is Processing");
       stash();
       return;
     }
     EventBusMessage eventBusMessage=(EventBusMessage)message;
+    Log.d("EventBus(" + busId + ")","Message: " + eventBusMessage);
     onMessageReceived(eventBusMessage.getSenderId(),eventBusMessage.getSenderDeviceId(),eventBusMessage.getMessage());
+    Log.d("EventBus(" + busId + ")","End");
   }
  else   if (message instanceof EventBusKeepAlive) {
+    Log.d("EventBus(" + busId + ")","Keep Alive");
     if (isProcessing) {
       stash();
       return;
     }
     doKeepAlive();
+    Log.d("EventBus(" + busId + ")","Keep Alive: End");
   }
  else {
     super.onReceive(message);

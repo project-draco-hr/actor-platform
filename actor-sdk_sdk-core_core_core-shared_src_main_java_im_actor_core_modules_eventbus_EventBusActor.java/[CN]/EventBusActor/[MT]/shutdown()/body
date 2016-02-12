@@ -1,4 +1,5 @@
 {
+  Log.d("EventBus(" + busId + ")","Shutdown");
   isProcessing=true;
   stopKeepAlive();
   context().getEventBus().unsubscribe(busId,self());

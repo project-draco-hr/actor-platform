@@ -1,0 +1,18 @@
+{
+  return new Promise<>(new PromiseFunc<WebRTCLocalStream>(){
+    @Override public void exec(    @NotNull final PromiseResolver<WebRTCLocalStream> resolver){
+      JsStreaming.getUserAudio().then(new Consumer<JsMediaStream>(){
+        @Override public void apply(        JsMediaStream jsMediaStream){
+          resolver.result(jsMediaStream);
+        }
+      }
+).failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          resolver.error(e);
+        }
+      }
+).done(JsScheduller.scheduller());
+    }
+  }
+);
+}

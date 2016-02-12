@@ -11,5 +11,6 @@ synchronized (envelopes) {
     topKey=key;
   }
   root.changedTopKey(this);
+  Log.d("Envelopes#" + id,"First (" + topKey + "): "+ allEnvelopesDebug());
   return key;
 }

@@ -4,8 +4,10 @@
     ActorRef dest=subscribers.get(busMessage.getId());
     if (dest != null) {
       dest.send(new EventBusActor.EventBusMessage(busMessage.getSenderId(),busMessage.getSenderDeviceId(),busMessage.getMessage()));
+      Log.d("EVENTBUS","Delivered");
     }
  else {
+      Log.d("EVENTBUS","Not Delivered");
       if (!pendingMessages.containsKey(busMessage.getId())) {
         pendingMessages.put(busMessage.getId(),new ArrayList<>());
       }
@@ -19,6 +21,7 @@
       dest.send(new EventBusActor.EventBusDeviceConnected(deviceConnected.getUserId(),deviceConnected.getDeviceId()));
     }
  else {
+      Log.d("EVENTBUS","Not Delivered");
       if (!pendingMessages.containsKey(deviceConnected.getId())) {
         pendingMessages.put(deviceConnected.getId(),new ArrayList<>());
       }
@@ -32,6 +35,7 @@
       dest.send(new EventBusActor.EventBusDeviceDisconnected(deviceDisconnected.getUserId(),deviceDisconnected.getDeviceId()));
     }
  else {
+      Log.d("EVENTBUS","Not Delivered");
       if (!pendingMessages.containsKey(deviceDisconnected.getId())) {
         pendingMessages.put(deviceDisconnected.getId(),new ArrayList<>());
       }
@@ -45,6 +49,7 @@
       dest.send(new EventBusActor.EventBusDisposed());
     }
  else {
+      Log.d("EVENTBUS","Not Delivered");
       if (!pendingMessages.containsKey(disposed.getId())) {
         pendingMessages.put(disposed.getId(),new ArrayList<>());
       }

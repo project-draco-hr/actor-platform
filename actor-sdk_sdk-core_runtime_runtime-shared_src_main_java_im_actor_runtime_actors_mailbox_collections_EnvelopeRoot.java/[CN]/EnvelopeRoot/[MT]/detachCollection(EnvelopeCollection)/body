@@ -1,4 +1,5 @@
 {
+  Log.d("EnvelopeRoot","detachCollection (" + collection.getTopKey() + ") #"+ collection.getId());
   if (!collections.containsKey(collection.getId())) {
     return;
   }

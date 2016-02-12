@@ -18,6 +18,7 @@
     @Override public void apply(    WebRTCSessionDescription description){
       Log.d(TAG,"onOffer:then");
       root.send(new DoAnswer(uid,deviceId,description.getSdp()));
+      Log.d(TAG,"onOffer:then:end");
       onHandShakeCompleted();
     }
   }

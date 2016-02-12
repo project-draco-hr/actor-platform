@@ -11,6 +11,7 @@
         isProcessing=false;
         unstashAll();
         self().send(new EventBusKeepAlive());
+        Log.d("EventBus(" + busId + ")","Joined");
       }
     }
 ).failure(new Consumer<Exception>(){
@@ -31,6 +32,7 @@
         isProcessing=false;
         unstashAll();
         self().send(new EventBusKeepAlive());
+        Log.d("EventBus(" + busId + ")","Created");
       }
     }
 ).failure(new Consumer<Exception>(){

@@ -1,4 +1,0 @@
-{
-  runningCallId=callId;
-  messenger.broadcastEvent("call",callEvent("" + callId,"outgoing"));
-}

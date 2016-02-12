@@ -12,7 +12,6 @@
 ).then(new Consumer<WebRTCSessionDescription>(){
     @Override public void apply(    WebRTCSessionDescription description){
       Log.d(TAG,"onOfferNeeded:then");
-      root.send(new DoOffer(uid,deviceId,description.getSdp()));
       state=State.WAITING_ANSWER;
       isReady=true;
       unstashAll();

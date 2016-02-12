@@ -15,5 +15,6 @@ synchronized (envelopes) {
   if (oldKey != topKey) {
     root.changedTopKey(this);
   }
+  Log.d("Envelopes#" + id,"Once (" + topKey + "): "+ allEnvelopesDebug());
   return key;
 }

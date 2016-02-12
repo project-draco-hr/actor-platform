@@ -13,7 +13,6 @@
       PeerConnectionActor.this.peerConnection=webRTCPeerConnection;
       PeerConnectionActor.this.peerConnection.addCallback(new WebRTCPeerConnectionCallback(){
         @Override public void onCandidate(        int label,        String id,        String candidate){
-          root.send(new DoCandidate(uid,deviceId,label,id,candidate));
         }
         @Override public void onCandidatesEnd(){
         }

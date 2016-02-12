@@ -1,4 +1,0 @@
-{
-  Log.d(TAG,"onCandidate");
-  peerConnection.addIceCandidate(label,sdp);
-}
