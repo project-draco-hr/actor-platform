@@ -1,0 +1,8 @@
+{
+  im.actor.runtime.Runtime.dispatch(new Runnable(){
+    @Override public void run(){
+      archivedDialogsActor.send(new ArchivedDialogsActor.LoadMore(callback));
+    }
+  }
+);
+}

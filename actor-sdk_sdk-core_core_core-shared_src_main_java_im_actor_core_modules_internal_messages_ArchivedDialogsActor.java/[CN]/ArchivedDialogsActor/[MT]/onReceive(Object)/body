@@ -1,10 +1,9 @@
 {
   if (message instanceof LoadMore) {
-    onLoadMore();
+    onLoadMore(((LoadMore)message).getCallback());
   }
  else   if (message instanceof LoadedMore) {
-    LoadedMore loaded=(LoadedMore)message;
-    onLoadedMore(loaded.loaded,loaded.nextOffset);
+    onLoadedMore(((LoadedMore)message).getResponseLoadArchived());
   }
  else {
     drop(message);

@@ -1,0 +1,17 @@
+{
+  this.callback=callback;
+  if (isLoading) {
+    return;
+  }
+  isLoading=true;
+  Log.d(TAG,"Loading archived");
+  request(new RequestLoadArchived(nextOffset,LIMIT),new RpcCallback<ResponseLoadArchived>(){
+    @Override public void onResult(    ResponseLoadArchived response){
+      updates().onUpdateReceived(new ArchivedDialogLoaded(response));
+    }
+    @Override public void onError(    RpcException e){
+      callback.onError(e);
+    }
+  }
+);
+}
