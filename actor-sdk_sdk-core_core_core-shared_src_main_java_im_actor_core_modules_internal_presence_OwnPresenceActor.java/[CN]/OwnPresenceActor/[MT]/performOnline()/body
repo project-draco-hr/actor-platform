@@ -12,6 +12,6 @@
   }
 );
   if (isOnline) {
-    self().sendOnce(new PerformOnline(),RESEND_TIMEOUT);
+    schedulePerform(RESEND_TIMEOUT);
   }
 }

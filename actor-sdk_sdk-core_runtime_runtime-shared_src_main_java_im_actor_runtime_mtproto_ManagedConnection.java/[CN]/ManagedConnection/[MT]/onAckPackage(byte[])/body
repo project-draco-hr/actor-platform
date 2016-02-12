@@ -1,7 +1,7 @@
 {
   DataInput ackContent=new DataInput(data);
   int frameId=ackContent.readInt();
-  AbsTimerCompat timerCompat=packageTimers.remove(frameId);
+  CommonTimer timerCompat=packageTimers.remove(frameId);
   if (timerCompat == null) {
     return;
   }

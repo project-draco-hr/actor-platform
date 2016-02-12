@@ -4,20 +4,5 @@
       return new PresenceActor(messenger);
     }
   }
-,new MailboxCreator(){
-    @Override public Mailbox createMailbox(    MailboxesQueue queue){
-      return new Mailbox(queue){
-        @Override protected boolean isEqualEnvelope(        Envelope a,        Envelope b){
-          if (a.getMessage() instanceof OnlineUserTimeout && b.getMessage() instanceof OnlineUserTimeout) {
-            if (((OnlineUserTimeout)a.getMessage()).getUid() == ((OnlineUserTimeout)b.getMessage()).getUid()) {
-              return true;
-            }
-          }
-          return super.isEqualEnvelope(a,b);
-        }
-      }
-;
-    }
-  }
 ),"actor/presence/users");
 }

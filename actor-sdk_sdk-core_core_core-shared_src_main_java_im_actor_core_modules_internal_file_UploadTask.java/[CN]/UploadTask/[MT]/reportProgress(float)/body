@@ -5,12 +5,21 @@
   if (progress > currentProgress) {
     currentProgress=progress;
   }
+  if (notifyCancellable != null) {
+    notifyCancellable.cancel();
+    notifyCancellable=null;
+  }
   long delta=im.actor.runtime.Runtime.getActorTime() - lastNotifyDate;
   if (delta > NOTIFY_THROTTLE) {
     lastNotifyDate=im.actor.runtime.Runtime.getActorTime();
-    self().send(new NotifyProgress());
+    performReportProgress();
   }
  else {
-    self().sendOnce(new NotifyProgress(),delta);
+    notifyCancellable=schedule(new Runnable(){
+      @Override public void run(){
+        performReportProgress();
+      }
+    }
+,delta);
   }
 }

@@ -1,0 +1,21 @@
+{
+  final TaskCancellable res=new TaskCancellable();
+  destDispatcher.dispatch(new Runnable(){
+    @Override public void run(){
+      if (res.isCancelled()) {
+        return;
+      }
+      ref.send(new Runnable(){
+        @Override public void run(){
+          if (res.isCancelled()) {
+            return;
+          }
+          runnable.run();
+        }
+      }
+);
+    }
+  }
+,delay);
+  return res;
+}

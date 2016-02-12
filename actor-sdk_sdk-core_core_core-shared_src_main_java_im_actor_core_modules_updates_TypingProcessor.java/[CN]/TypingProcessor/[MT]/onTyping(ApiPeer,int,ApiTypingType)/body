@@ -1,8 +1,8 @@
 {
   if (peer.getType() == ApiPeerType.PRIVATE) {
-    typingActor.sendOnce(new TypingActor.PrivateTyping(uid,type));
+    typingActor.send(new TypingActor.PrivateTyping(uid,type));
   }
  else   if (peer.getType() == ApiPeerType.GROUP) {
-    typingActor.sendOnce(new TypingActor.GroupTyping(peer.getId(),uid,type));
+    typingActor.send(new TypingActor.GroupTyping(peer.getId(),uid,type));
   }
 }

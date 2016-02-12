@@ -1,8 +1,5 @@
 {
-  if (message instanceof NotifyProgress) {
-    performReportProgress();
-  }
- else   if (message instanceof Retry) {
+  if (message instanceof Retry) {
     Retry retry=(Retry)message;
     retryPart(retry.getBlockIndex(),retry.getFileOffset(),retry.getAttempt());
   }

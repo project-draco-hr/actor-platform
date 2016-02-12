@@ -1,0 +1,16 @@
+{
+  if (scheduler == null) {
+    scheduler=new Scheduler(self());
+  }
+  if (obj instanceof Runnable) {
+    return scheduler.schedule((Runnable)obj,delay);
+  }
+ else {
+    return scheduler.schedule(new Runnable(){
+      @Override public void run(){
+        handleMessage(obj,self());
+      }
+    }
+,delay);
+  }
+}

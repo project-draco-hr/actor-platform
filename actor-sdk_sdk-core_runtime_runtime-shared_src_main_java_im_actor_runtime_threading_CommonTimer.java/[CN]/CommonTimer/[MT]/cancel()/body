@@ -1,0 +1,5 @@
+{
+  if (lastSchedule != null) {
+    lastSchedule.cancel();
+  }
+}

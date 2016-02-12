@@ -1,5 +1,8 @@
 {
   cancelPrevRequest();
   lastTypingTime=0;
-  self().sendOnce(new AbortTyping(peer),24 * 60 * 60* 1000L);
+  if (typingCancellable != null) {
+    typingCancellable.cancel();
+    typingCancellable=null;
+  }
 }

@@ -47,10 +47,18 @@
     }
     confirm.add(((ConfirmMessage)message).mid);
     if (confirm.size() >= ACK_THRESHOLD) {
-      self().sendOnce(new ForceAck());
+      if (askCancellable != null) {
+        askCancellable.cancel();
+        askCancellable=null;
+      }
+      askCancellable=schedule(new ForceAck(),0);
     }
  else     if (confirm.size() == 1) {
-      self().sendOnce(new ForceAck(),ACK_DELAY);
+      if (askCancellable != null) {
+        askCancellable.cancel();
+        askCancellable=null;
+      }
+      askCancellable=schedule(new ForceAck(),ACK_DELAY);
     }
   }
  else   if (message instanceof ForceAck) {

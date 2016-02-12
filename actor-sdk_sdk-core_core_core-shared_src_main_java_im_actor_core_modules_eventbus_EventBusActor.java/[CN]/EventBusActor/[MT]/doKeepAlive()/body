@@ -8,5 +8,5 @@
     }
   }
 );
-  self().send(new EventBusKeepAlive(),KEEP_ALIVE);
+  keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
 }

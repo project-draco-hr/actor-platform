@@ -1,7 +1,7 @@
 {
   isAlwaysOnline=false;
   if (isAlwaysOnline) {
-    self().sendOnce(new PerformOnline());
+    schedulePerform(0);
   }
  else {
     context().getEvents().subscribe(this,AppVisibleChanged.EVENT);

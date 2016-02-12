@@ -29,6 +29,6 @@
     return;
   }
   callback.onStart(currentFileName);
-  self().send(new Notify(),500);
+  schedule(new Notify(),500);
   state=STATE_STARTED;
 }

@@ -26,5 +26,5 @@ catch (      JSONException e) {
       }
     }
   }
-  self().send(new Check(),1000);
+  schedule(new Check(),1000);
 }

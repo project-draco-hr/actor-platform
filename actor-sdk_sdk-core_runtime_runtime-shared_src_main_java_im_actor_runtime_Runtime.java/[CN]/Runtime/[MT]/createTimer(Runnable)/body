@@ -1,3 +1,0 @@
-{
-  return threadingRuntime.createTimer(runnable);
-}

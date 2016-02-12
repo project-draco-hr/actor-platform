@@ -12,5 +12,9 @@
   this.randomId=random.nextLong();
   this.exponentialBackoff.reset();
   goToStartState();
-  self().send(new TryCreateConnection());
+  if (reconnectCancellable != null) {
+    reconnectCancellable.cancel();
+    reconnectCancellable=null;
+  }
+  reconnectCancellable=schedule(new TryCreateConnection(),0);
 }

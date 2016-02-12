@@ -3,5 +3,5 @@
     isAppVisible=true;
     messenger.onAppVisible();
   }
-  self().sendOnce(new FlushTimeout(),TIMEOUT);
+  scheduleFlush();
 }

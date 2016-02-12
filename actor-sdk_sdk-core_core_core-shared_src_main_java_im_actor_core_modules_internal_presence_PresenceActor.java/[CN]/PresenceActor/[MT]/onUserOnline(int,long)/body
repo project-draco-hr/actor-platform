@@ -10,5 +10,8 @@
   if (vm != null) {
     vm.getPresence().change(new UserPresence(UserPresence.State.ONLINE));
   }
-  self().sendOnce(new OnlineUserTimeout(uid,(int)((updateDate + ONLINE_TIMEOUT) / 1000L),updateDate + ONLINE_TIMEOUT),ONLINE_TIMEOUT);
+  if (uidCancellables.containsKey(uid)) {
+    uidCancellables.remove(uid).cancel();
+  }
+  uidCancellables.put(uid,schedule(new OnlineUserTimeout(uid,(int)((updateDate + ONLINE_TIMEOUT) / 1000L),updateDate + ONLINE_TIMEOUT),ONLINE_TIMEOUT));
 }

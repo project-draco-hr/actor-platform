@@ -37,7 +37,7 @@
     EventBusMessage eventBusMessage=(EventBusMessage)message;
     onMessageReceived(eventBusMessage.getSenderId(),eventBusMessage.getSenderDeviceId(),eventBusMessage.getMessage());
   }
- else   if (message instanceof EventBusKeepAlive) {
+ else   if (message instanceof KeepAlive) {
     if (isProcessing) {
       stash();
       return;

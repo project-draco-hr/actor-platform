@@ -14,7 +14,11 @@
  else {
     if (this.message == null || isOverride(this.message,message)) {
       this.message=message;
-      self().sendOnce(new Flush(),BOUNCE_DELAY - delta);
+      if (flushCancellable != null) {
+        flushCancellable.cancel();
+        flushCancellable=null;
+      }
+      flushCancellable=schedule(new Flush(),BOUNCE_DELAY - delta);
     }
   }
 }

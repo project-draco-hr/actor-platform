@@ -9,6 +9,10 @@
   if (currentState != null) {
     long delay=exponentialBackoff.exponentialWait();
     Log.d(TAG,"Trying to recreate connection in " + delay + " ms...");
-    self().sendOnce(new TryCreateConnection(),delay);
+    if (reconnectCancellable != null) {
+      reconnectCancellable.cancel();
+      reconnectCancellable=null;
+    }
+    reconnectCancellable=schedule(new TryCreateConnection(),delay);
   }
 }

@@ -1,3 +1,0 @@
-{
-  secureInterval.schedule((int)delay);
-}

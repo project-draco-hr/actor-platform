@@ -4,6 +4,6 @@
   }
  else {
     Log.w(TAG,"External Out of sequence: starting timer for invalidation");
-    self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+    startInvalidationTimer();
   }
 }

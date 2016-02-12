@@ -1,6 +1,9 @@
 {
   if (typings.contains(uid)) {
     typings.remove(uid);
+    if (typingsCancellables.containsKey(uid)) {
+      typingsCancellables.remove(uid).cancel();
+    }
     context().getTypingModule().getTyping(uid).getTyping().change(false);
   }
 }

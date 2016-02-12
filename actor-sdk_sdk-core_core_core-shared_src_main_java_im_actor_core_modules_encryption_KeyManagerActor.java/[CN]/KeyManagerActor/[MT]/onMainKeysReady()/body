@@ -9,7 +9,7 @@
   if (pendingEphermalKeys.size() > 0) {
     ArrayList<ApiEncryptionKey> uploadingKeys=pendingEphermalKeys.map(PrivateKey.TO_API);
     ArrayList<ApiEncryptionKeySignature> uploadingSignatures=pendingEphermalKeys.map(PrivateKey.SIGN(ownKeys.getIdentityKey()));
-    api(new RequestUploadEphermalKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures)).then(new Consumer<ResponseVoid>(){
+    api(new RequestUploadPreKey(ownKeys.getKeyGroupId(),uploadingKeys,uploadingSignatures)).then(new Consumer<ResponseVoid>(){
       @Override public void apply(      ResponseVoid responseVoid){
         ownKeys=ownKeys.markAsUploaded(pendingEphermalKeys.toArray(new PrivateKey[pendingEphermalKeys.size()]));
         encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());

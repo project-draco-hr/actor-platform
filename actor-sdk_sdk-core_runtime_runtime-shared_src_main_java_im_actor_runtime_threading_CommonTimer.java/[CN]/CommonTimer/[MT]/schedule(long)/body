@@ -1,0 +1,6 @@
+{
+  if (lastSchedule != null) {
+    lastSchedule.cancel();
+  }
+  lastSchedule=COMMON_SCHEDULER.schedule(runnable,time);
+}

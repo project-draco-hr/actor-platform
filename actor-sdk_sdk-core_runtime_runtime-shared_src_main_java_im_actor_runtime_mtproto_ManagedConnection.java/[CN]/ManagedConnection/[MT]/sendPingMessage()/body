@@ -8,7 +8,7 @@
 synchronized (RANDOM) {
     dataOutput.writeLong(pingId);
   }
-  AbsTimerCompat pingTimeoutTask=im.actor.runtime.Runtime.createTimer(new TimeoutRunnable());
+  CommonTimer pingTimeoutTask=new CommonTimer(new TimeoutRunnable());
   schedulledPings.put(pingId,pingTimeoutTask);
   pingTimeoutTask.schedule(RESPONSE_TIMEOUT);
   rawPost(HEADER_PING,dataOutput.toByteArray());

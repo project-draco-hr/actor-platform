@@ -10,7 +10,7 @@
         onBusStarted();
         isProcessing=false;
         unstashAll();
-        self().send(new EventBusKeepAlive());
+        keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
       }
     }
 ).failure(new Consumer<Exception>(){
@@ -30,7 +30,7 @@
         onBusStarted();
         isProcessing=false;
         unstashAll();
-        self().send(new EventBusKeepAlive());
+        keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
       }
     }
 ).failure(new Consumer<Exception>(){

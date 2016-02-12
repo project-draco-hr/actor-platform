@@ -1,0 +1,7 @@
+{
+  if (flushCancellable != null) {
+    flushCancellable.cancel();
+    flushCancellable=null;
+  }
+  flushCancellable=schedule(new FlushTimeout(),TIMEOUT);
+}

@@ -1,6 +1,10 @@
 {
   if (!isTimerStarted) {
-    self().sendOnce(new ForceInvalidate(),INVALIDATE_GAP);
+    if (forceInvalidateCancellable != null) {
+      forceInvalidateCancellable.cancel();
+      forceInvalidateCancellable=null;
+    }
+    forceInvalidateCancellable=schedule(new ForceInvalidate(),INVALIDATE_GAP);
     isTimerStarted=true;
   }
 }
