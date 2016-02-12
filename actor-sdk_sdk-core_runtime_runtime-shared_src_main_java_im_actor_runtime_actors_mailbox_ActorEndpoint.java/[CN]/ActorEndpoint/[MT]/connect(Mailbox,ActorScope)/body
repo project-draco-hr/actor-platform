@@ -1,5 +1,0 @@
-{
-  isDisconnected=false;
-  this.mailbox=mailbox;
-  this.scope=scope;
-}

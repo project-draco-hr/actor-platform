@@ -1,0 +1,6 @@
+{
+  Queue<T> q=queues.remove(id);
+  if (q != null) {
+    pending.remove(q);
+  }
+}

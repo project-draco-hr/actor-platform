@@ -1,0 +1,6 @@
+{
+  if (envelope.getMailbox() != this) {
+    throw new RuntimeException("envelope.mailbox != this mailbox");
+  }
+  queueCollection.post(queueId,envelope);
+}

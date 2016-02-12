@@ -1,0 +1,16 @@
+{
+  Queue<T> queue=queues.get(res.getId());
+  if (queue == null) {
+    return;
+  }
+  queue.setIsLocked(false);
+  if (!queue.getQueue().isEmpty()) {
+    boolean wasEmptyPending=pending.isEmpty();
+    pending.add(queue);
+    if (wasEmptyPending) {
+      for (      QueueCollectionListener l : listeners) {
+        l.onChanged();
+      }
+    }
+  }
+}

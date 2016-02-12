@@ -1,0 +1,4 @@
+String name
+ThreadPriority priority
+QueueCollection<T> collection
+Consumer<T> handler

@@ -1,0 +1,7 @@
+{
+  queue.add(runnable);
+  if (!isInvalidated) {
+    isInvalidated=true;
+    secureInterval.scheduleNow();
+  }
+}

@@ -1,9 +1,0 @@
-{
-  super(name,actorSystem);
-  initDispatcher(new JsThreads<Envelope,MailboxesQueue>(new MailboxesQueue(),new Dispatch<Envelope>(){
-    @Override public void dispatchMessage(    Envelope message){
-      processEnvelope(message);
-    }
-  }
-));
-}
