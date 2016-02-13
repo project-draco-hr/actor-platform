@@ -1,8 +1,8 @@
 {
   Log.d(TAG,"preStart");
   isReady=false;
-  Promises.tuple(WebRTC.createPeerConnection(),WebRTC.getUserAudio()).map(new FunctionTupled2<WebRTCPeerConnection,WebRTCLocalStream,WebRTCPeerConnection>(){
-    @Override public WebRTCPeerConnection apply(    WebRTCPeerConnection webRTCPeerConnection,    WebRTCLocalStream stream){
+  Promises.tuple(WebRTC.createPeerConnection(),WebRTC.getUserAudio()).map(new FunctionTupled2<WebRTCPeerConnection,WebRTCMediaStream,WebRTCPeerConnection>(){
+    @Override public WebRTCPeerConnection apply(    WebRTCPeerConnection webRTCPeerConnection,    WebRTCMediaStream stream){
       webRTCPeerConnection.addOwnStream(stream);
       return webRTCPeerConnection;
     }
@@ -17,9 +17,9 @@
         }
         @Override public void onCandidatesEnd(){
         }
-        @Override public void onStreamAdded(        WebRTCRemoteStream stream){
+        @Override public void onStreamAdded(        WebRTCMediaStream stream){
         }
-        @Override public void onStreamRemoved(        WebRTCRemoteStream stream){
+        @Override public void onStreamRemoved(        WebRTCMediaStream stream){
         }
       }
 );
