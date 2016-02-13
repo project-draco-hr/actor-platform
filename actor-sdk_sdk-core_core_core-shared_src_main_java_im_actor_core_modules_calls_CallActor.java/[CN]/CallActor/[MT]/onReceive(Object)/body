@@ -1,7 +1,5 @@
 {
-  Log.d(TAG,"onReceive");
   if (message instanceof PeerConnectionActor.DoAnswer) {
-    Log.d(TAG,"onReceive:doAnswer");
     PeerConnectionActor.DoAnswer answer=(PeerConnectionActor.DoAnswer)message;
     sendSignalingMessage(answer.getUid(),answer.getDeviceId(),new ApiAnswer(0,answer.getSdp()));
   }
@@ -16,5 +14,4 @@
  else {
     super.onReceive(message);
   }
-  Log.d(TAG,"onReceive:End");
 }

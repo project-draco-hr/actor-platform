@@ -1,4 +1,11 @@
 {
-  Log.d(TAG,"onDeviceConnected");
+  ConnectedHolder connectedHolder=new ConnectedHolder(uid,deviceId);
+  if (connectedDevices.contains(connectedHolder)) {
+    return;
+  }
   getPeer(uid,deviceId).send(new PeerConnectionActor.OnOfferNeeded());
+  for (  ConnectedHolder c : connectedDevices) {
+    sendSignalingMessage(uid,deviceId,new ApiNeedOffer(c.uid,c.deviceId));
+  }
+  connectedDevices.add(connectedHolder);
 }

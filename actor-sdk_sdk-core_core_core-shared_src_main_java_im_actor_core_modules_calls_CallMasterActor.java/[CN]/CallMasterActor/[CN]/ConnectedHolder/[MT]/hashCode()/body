@@ -1,0 +1,5 @@
+{
+  int result=uid;
+  result=31 * result + (int)(deviceId ^ (deviceId >>> 32));
+  return result;
+}

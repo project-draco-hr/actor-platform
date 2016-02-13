@@ -1,14 +1,11 @@
 {
-  Log.d(TAG,"onBusCreated");
   api(new RequestDoCall(buidOutPeer(peer),getBusId())).then(new Consumer<ResponseDoCall>(){
     @Override public void apply(    ResponseDoCall responseDoCall){
-      Log.d(TAG,"onBusCreated:result");
       onCallCreated();
     }
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
-      Log.d(TAG,"onBusCreated:error");
       dispose();
     }
   }

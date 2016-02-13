@@ -2,6 +2,7 @@
   if (state != State.WAITING_ANSWER) {
     return;
   }
+  Log.d(TAG,"Received Answer");
   Log.d(TAG,"onAnswer");
   peerConnection.setRemoteDescription(new WebRTCSessionDescription("answer",sdp)).then(new Consumer<WebRTCSessionDescription>(){
     @Override public void apply(    WebRTCSessionDescription description){

@@ -22,6 +22,5 @@
   if (groups != null && users != null) {
     processor.applyRelated(users,groups,true);
   }
-  Log.d(TAG,"Processing update success");
   return Promises.success(new UpdateProcessed());
 }

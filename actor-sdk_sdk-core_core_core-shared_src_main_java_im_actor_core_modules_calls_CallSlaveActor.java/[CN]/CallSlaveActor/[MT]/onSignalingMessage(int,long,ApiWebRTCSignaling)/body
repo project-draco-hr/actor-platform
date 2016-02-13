@@ -1,0 +1,10 @@
+{
+  if (signaling instanceof ApiNeedOffer) {
+    ApiNeedOffer needOffer=(ApiNeedOffer)signaling;
+    Log.w(TAG,"Need offer for: " + needOffer.getUid());
+    getPeer(needOffer.getUid(),needOffer.getDevice()).send(new PeerConnectionActor.OnOfferNeeded());
+  }
+ else {
+    super.onSignalingMessage(fromUid,fromDeviceId,signaling);
+  }
+}

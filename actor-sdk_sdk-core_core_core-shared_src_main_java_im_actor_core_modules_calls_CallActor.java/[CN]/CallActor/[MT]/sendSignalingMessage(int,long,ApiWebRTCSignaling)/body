@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"sendSignaling");
   try {
     sendMessage(uid,deviceId,signaling.buildContainer());
   }

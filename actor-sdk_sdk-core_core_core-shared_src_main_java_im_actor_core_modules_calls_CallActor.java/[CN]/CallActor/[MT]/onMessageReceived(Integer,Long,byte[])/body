@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"onMessageReceived:start");
   if (senderId == null || senderDeviceId == null) {
     return;
   }
@@ -14,5 +13,4 @@
   }
   Log.d(TAG,"onMessageReceived: " + signaling);
   onSignalingMessage(senderId,senderDeviceId,signaling);
-  Log.d(TAG,"onMessageReceived: " + signaling + ": end");
 }
