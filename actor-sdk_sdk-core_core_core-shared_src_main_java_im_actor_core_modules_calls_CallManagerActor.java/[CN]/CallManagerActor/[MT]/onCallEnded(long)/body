@@ -1,4 +1,3 @@
 {
-  Log.d(TAG,"onCallEnded: " + callId);
-  doAbortCall(callId);
+  currentCalls.remove(callId);
 }

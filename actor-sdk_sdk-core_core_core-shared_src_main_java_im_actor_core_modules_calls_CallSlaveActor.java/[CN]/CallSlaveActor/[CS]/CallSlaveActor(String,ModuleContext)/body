@@ -1,3 +1,4 @@
 {
-  super(busId,context);
+  super(context);
+  this.busId=busId;
 }

@@ -1,5 +1,0 @@
-{
-  this.label=label;
-  this.id=id;
-  this.sdp=sdp;
-}

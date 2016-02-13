@@ -6,12 +6,25 @@
         c.onCandidate(candidate.getLabel(),candidate.getId(),candidate.getSDP());
       }
     }
-    @Override public void onIceCandidatesEnded(){
-    }
     @Override public void onStreamAdded(    JsMediaStream stream){
-      JsAudio audio=JsAudio.create();
-      audio.setStream(stream);
-      audio.play();
+      MediaStream stream1=new MediaStream(stream);
+      streams.put(stream,stream1);
+      for (      WebRTCPeerConnectionCallback c : callbacks) {
+        c.onStreamAdded(stream1);
+      }
+    }
+    @Override public void onStreamRemoved(    JsMediaStream stream){
+      MediaStream stream1=streams.get(stream);
+      if (stream1 != null) {
+        for (        WebRTCPeerConnectionCallback c : callbacks) {
+          c.onStreamRemoved(stream1);
+        }
+      }
+    }
+    @Override public void onRenegotiationNeeded(){
+      for (      WebRTCPeerConnectionCallback c : callbacks) {
+        c.onRenegotiationNeeded();
+      }
     }
   }
 );

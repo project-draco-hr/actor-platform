@@ -1,0 +1,8 @@
+{
+  if (isEnabled) {
+    audio.play();
+  }
+ else {
+    audio.pause();
+  }
+}

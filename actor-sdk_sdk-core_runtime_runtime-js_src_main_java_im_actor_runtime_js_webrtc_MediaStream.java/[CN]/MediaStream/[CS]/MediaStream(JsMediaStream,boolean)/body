@@ -1,0 +1,8 @@
+{
+  this.stream=stream;
+  if (autoPlay) {
+    this.audio=JsAudio.create();
+    this.audio.setStream(stream);
+    this.audio.play();
+  }
+}

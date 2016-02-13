@@ -1,11 +1,16 @@
 {
   api(new RequestDoCall(buidOutPeer(peer),getBusId())).then(new Consumer<ResponseDoCall>(){
     @Override public void apply(    ResponseDoCall responseDoCall){
-      onCallCreated();
+      context().getCallsModule().getCallManager().send(new CallManagerActor.OnCallCreated(responseDoCall.getCallId()),self());
+      context().getCallsModule().spawnNewModel(responseDoCall.getCallId(),peer,new ArrayList<Integer>(),CallState.CALLING_OUTGOING);
+      callback.onResult(responseDoCall.getCallId());
+      callback=null;
     }
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
+      callback.onError(e);
+      callback=null;
       dispose();
     }
   }

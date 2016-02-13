@@ -1,0 +1,6 @@
+{
+  super.onBusDisposed();
+  if (callback != null) {
+    callback.onError(new RuntimeException("Internal Error"));
+  }
+}

@@ -7,19 +7,8 @@
     OnIncomingCallHandled incomingCallHandled=(OnIncomingCallHandled)message;
     onIncomingCallHandled(incomingCallHandled.getCallId());
   }
- else   if (message instanceof OnOutgoingCall) {
-    OnOutgoingCall call=(OnOutgoingCall)message;
-    onOutgoingCall(call.getCallId(),call.getUid());
-  }
- else   if (message instanceof OnSignaling) {
-    OnSignaling signaling=(OnSignaling)message;
-    onSignaling(signaling.getCallId(),signaling.getMessage());
-  }
  else   if (message instanceof AnswerCall) {
     doAnswerCall(((AnswerCall)message).getCallId());
-  }
- else   if (message instanceof SendSignaling) {
-    doSendSignal(((SendSignaling)message).getCallId(),((SendSignaling)message).getSignal());
   }
  else   if (message instanceof EndCall) {
     doEndCall(((EndCall)message).getCallId());
@@ -27,20 +16,13 @@
  else   if (message instanceof OnCallEnded) {
     onCallEnded(((OnCallEnded)message).getCallId());
   }
- else   if (message instanceof DoKeepAlive) {
-    doKeepAlive(((DoKeepAlive)message).getCallId());
-  }
- else   if (message instanceof OnCallInProgress) {
-    OnCallInProgress call=(OnCallInProgress)message;
-    onKeepAlive(call.getCallId(),call.getTimeout());
-  }
- else   if (message instanceof ReadyForCandidates) {
-    ReadyForCandidates readyForCandidates=(ReadyForCandidates)message;
-    onReadyReceiveCandidates(readyForCandidates.getCallId());
-  }
  else   if (message instanceof DoCall) {
     DoCall doCall=(DoCall)message;
-    doCall(doCall.getPeer());
+    doCall(doCall.getPeer(),doCall.getCallback());
+  }
+ else   if (message instanceof OnCallCreated) {
+    OnCallCreated callCreated=(OnCallCreated)message;
+    onCallCreated(callCreated.getCallId(),sender());
   }
  else {
     super.onReceive(message);

@@ -5,7 +5,7 @@
   }
   getPeer(uid,deviceId).send(new PeerConnectionActor.OnOfferNeeded());
   for (  ConnectedHolder c : connectedDevices) {
-    sendSignalingMessage(uid,deviceId,new ApiNeedOffer(c.uid,c.deviceId));
+    sendSignalingMessage(c.uid,c.deviceId,new ApiNeedOffer(uid,deviceId));
   }
   connectedDevices.add(connectedHolder);
 }
