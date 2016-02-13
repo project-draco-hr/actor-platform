@@ -4,4 +4,5 @@
     isAnswerPending=false;
     sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiAnswerCall());
   }
+  schedule(new DoAnswer(),5000);
 }
