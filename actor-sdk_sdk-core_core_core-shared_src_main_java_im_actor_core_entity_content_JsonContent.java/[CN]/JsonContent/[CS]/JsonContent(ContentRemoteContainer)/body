@@ -1,0 +1,5 @@
+{
+  super(contentRemoteContainer);
+  ApiJsonMessage json=((ApiJsonMessage)contentRemoteContainer.getMessage());
+  rawJson=json.getRawJson();
+}

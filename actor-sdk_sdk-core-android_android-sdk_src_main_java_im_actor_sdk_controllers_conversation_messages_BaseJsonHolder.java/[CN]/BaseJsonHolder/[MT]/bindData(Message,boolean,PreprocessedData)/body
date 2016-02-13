@@ -1,11 +1,2 @@
 {
-  JSONObject json=((JsonContent)message.getContent()).getJson();
-  JSONObject data=null;
-  try {
-    data=json.getJSONObject("data");
-  }
- catch (  JSONException e) {
-    e.printStackTrace();
-  }
-  bindData(message,data,isUpdated,preprocessedData);
 }

@@ -1,9 +1,0 @@
-{
-  try {
-    return getJson().getJSONObject("data").getString("data");
-  }
- catch (  JSONException e) {
-    e.printStackTrace();
-  }
-  return "";
-}
