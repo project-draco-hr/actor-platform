@@ -28,6 +28,13 @@
     }
     onOfferNeeded();
   }
+ else   if (message instanceof DoStop) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    onEnded();
+  }
  else {
     super.onReceive(message);
   }

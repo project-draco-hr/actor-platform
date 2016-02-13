@@ -1,0 +1,7 @@
+{
+  peerConnection.close();
+  stream.close();
+  isReady=false;
+  state=State.CLOSED;
+  self().send(PoisonPill.INSTANCE);
+}

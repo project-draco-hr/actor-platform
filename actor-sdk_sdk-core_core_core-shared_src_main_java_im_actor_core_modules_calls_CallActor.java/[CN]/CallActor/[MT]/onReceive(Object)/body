@@ -11,6 +11,9 @@
     PeerConnectionActor.DoCandidate candidate=(PeerConnectionActor.DoCandidate)message;
     sendSignalingMessage(candidate.getUid(),candidate.getDeviceId(),new ApiCandidate(0,candidate.getIndex(),candidate.getId(),candidate.getSdp()));
   }
+ else   if (message instanceof DoEndCall) {
+    doEndCall();
+  }
  else {
     super.onReceive(message);
   }

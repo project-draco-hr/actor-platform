@@ -1,0 +1,10 @@
+{
+  super.onBusStopped();
+  for (  int uid : peerConnections.keySet()) {
+    HashMap<Long,ActorRef> peers=peerConnections.get(uid);
+    for (    ActorRef p : peers.values()) {
+      p.send(new PeerConnectionActor.DoStop());
+    }
+  }
+  peerConnections.clear();
+}

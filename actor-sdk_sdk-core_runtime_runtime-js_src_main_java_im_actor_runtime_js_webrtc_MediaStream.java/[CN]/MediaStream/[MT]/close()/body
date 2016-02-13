@@ -1,0 +1,6 @@
+{
+  if (audio != null) {
+    audio.reset();
+  }
+  stream.stopAll();
+}

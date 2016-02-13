@@ -1,2 +1,6 @@
 {
+  ActorRef currentCall=currentCalls.remove(callId);
+  if (currentCall != null) {
+    currentCall.send(new CallActor.DoEndCall());
+  }
 }

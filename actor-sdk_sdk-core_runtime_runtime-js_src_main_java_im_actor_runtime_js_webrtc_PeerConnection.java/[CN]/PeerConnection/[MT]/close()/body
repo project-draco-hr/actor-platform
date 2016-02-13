@@ -1,6 +1,6 @@
 {
   peerConnection.close();
   for (  MediaStream s : streams.values()) {
-    s.dispose();
+    s.close();
   }
 }
