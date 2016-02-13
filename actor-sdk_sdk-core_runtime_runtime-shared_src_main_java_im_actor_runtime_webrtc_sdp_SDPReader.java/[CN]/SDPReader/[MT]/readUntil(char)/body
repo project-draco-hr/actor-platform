@@ -1,0 +1,11 @@
+{
+  if (cursor < records.length) {
+    if (records[cursor].getType() != v) {
+      return records[cursor++];
+    }
+ else {
+      return null;
+    }
+  }
+  return null;
+}

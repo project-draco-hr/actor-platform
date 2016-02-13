@@ -1,3 +1,25 @@
 {
-  SDP.parse(sdp);
+  SDPScheme sdpScheme=SDP.parse(sdp);
+  String serialized=sdpScheme.toString().replace("\r","");
+  assertEquals(sdp,serialized);
+  assertEquals(1,sdpScheme.getMediaLevel().size());
+  SDPMedia media=sdpScheme.getMediaLevel().get(0);
+  assertEquals("audio",media.getType());
+  assertEquals(4,media.getProtocols().size());
+  assertEquals("UDP",media.getProtocols().get(0));
+  assertEquals("TLS",media.getProtocols().get(1));
+  assertEquals("RTP",media.getProtocols().get(2));
+  assertEquals("SAVPF",media.getProtocols().get(3));
+  assertEquals(9,media.getCodecs().size());
+  assertEquals(111,(int)media.getCodecs().get(0));
+  assertEquals(103,(int)media.getCodecs().get(1));
+  assertEquals(9,(int)media.getCodecs().get(2));
+  assertEquals(0,(int)media.getCodecs().get(3));
+  assertEquals(8,(int)media.getCodecs().get(4));
+  assertEquals(106,(int)media.getCodecs().get(5));
+  assertEquals(105,(int)media.getCodecs().get(6));
+  assertEquals(13,(int)media.getCodecs().get(7));
+  assertEquals(126,(int)media.getCodecs().get(8));
+  assertEquals(1,media.getArgs().size());
+  assertEquals("ext_test_arg",media.getArgs().get(0));
 }

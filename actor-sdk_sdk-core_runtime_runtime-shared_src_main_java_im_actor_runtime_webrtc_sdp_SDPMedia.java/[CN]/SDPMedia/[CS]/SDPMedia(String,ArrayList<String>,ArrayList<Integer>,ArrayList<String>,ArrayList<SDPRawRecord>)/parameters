@@ -1,0 +1,5 @@
+String type
+ArrayList<String> protocols
+ArrayList<Integer> codecs
+ArrayList<String> args
+ArrayList<SDPRawRecord> records

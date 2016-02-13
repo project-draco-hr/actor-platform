@@ -1,0 +1,6 @@
+{
+  if (cursor < records.length) {
+    return records[cursor++];
+  }
+  return null;
+}

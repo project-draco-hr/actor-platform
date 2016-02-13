@@ -1,0 +1,11 @@
+{
+  if (cursor < records.length) {
+    if (records[cursor].getType() == v) {
+      return records[cursor++];
+    }
+ else {
+      throw new RuntimeException("Type mismatch. Expected: " + v + ", got: "+ records[cursor].getType());
+    }
+  }
+  return null;
+}
