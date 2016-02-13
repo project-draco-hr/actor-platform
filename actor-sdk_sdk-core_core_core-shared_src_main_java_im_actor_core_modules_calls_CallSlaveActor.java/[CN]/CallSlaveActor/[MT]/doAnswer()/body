@@ -1,0 +1,8 @@
+{
+  if (masterNode == null) {
+    isAnswerPending=true;
+  }
+ else {
+    sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiAnswerCall());
+  }
+}

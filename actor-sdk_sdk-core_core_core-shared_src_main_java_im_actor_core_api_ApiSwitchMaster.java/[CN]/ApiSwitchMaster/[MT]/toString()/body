@@ -1,0 +1,5 @@
+{
+  String res="struct SwitchMaster{";
+  res+="}";
+  return res;
+}

@@ -1,0 +1,8 @@
+{
+  if (message instanceof DoAnswer) {
+    doAnswer();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

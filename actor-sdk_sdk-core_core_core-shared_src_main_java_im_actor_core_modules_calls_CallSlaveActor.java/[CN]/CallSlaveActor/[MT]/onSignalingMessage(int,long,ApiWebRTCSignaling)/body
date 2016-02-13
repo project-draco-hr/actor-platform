@@ -1,8 +1,10 @@
 {
   if (signaling instanceof ApiNeedOffer) {
     ApiNeedOffer needOffer=(ApiNeedOffer)signaling;
-    Log.w(TAG,"Need offer for: " + needOffer.getUid());
-    getPeer(needOffer.getUid(),needOffer.getDevice()).send(new PeerConnectionActor.OnOfferNeeded());
+    onNeedOffer(needOffer.getUid(),needOffer.getDevice());
+  }
+ else   if (signaling instanceof ApiSwitchMaster) {
+    onMasterNodeChanged(fromUid,fromDeviceId);
   }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);

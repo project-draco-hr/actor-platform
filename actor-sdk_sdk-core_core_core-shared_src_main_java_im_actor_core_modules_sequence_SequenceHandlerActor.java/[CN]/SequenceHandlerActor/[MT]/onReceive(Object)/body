@@ -1,5 +1,4 @@
 {
-  Log.d(TAG,"Processing onReceive: " + message);
   if (message instanceof WeakUpdate) {
     WeakUpdate weakUpdate=(WeakUpdate)message;
     try {

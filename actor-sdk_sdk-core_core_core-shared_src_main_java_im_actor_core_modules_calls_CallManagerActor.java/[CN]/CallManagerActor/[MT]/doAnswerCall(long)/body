@@ -1,2 +1,3 @@
 {
+  answeredCalls.add(callId);
 }

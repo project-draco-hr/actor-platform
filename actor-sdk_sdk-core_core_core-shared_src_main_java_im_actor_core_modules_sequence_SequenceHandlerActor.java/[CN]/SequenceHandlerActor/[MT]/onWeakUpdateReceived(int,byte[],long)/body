@@ -8,5 +8,6 @@
     Log.e(TAG,e);
     return;
   }
+  Log.d(TAG,"Processing weak update: " + update);
   this.processor.processWeakUpdate(update,date);
 }

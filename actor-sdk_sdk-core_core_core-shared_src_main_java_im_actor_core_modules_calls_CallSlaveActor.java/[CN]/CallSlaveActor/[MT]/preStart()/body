@@ -1,4 +1,14 @@
 {
   super.preStart();
-  joinBus(busId);
+  api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
+    @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
+      joinBus(responseGetCallInfo.getEventBusId());
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      shutdown();
+    }
+  }
+).done(self());
 }
