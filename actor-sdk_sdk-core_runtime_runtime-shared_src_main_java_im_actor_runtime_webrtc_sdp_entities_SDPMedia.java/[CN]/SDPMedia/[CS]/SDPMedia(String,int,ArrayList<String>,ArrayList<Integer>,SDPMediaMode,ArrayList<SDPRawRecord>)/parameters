@@ -1,0 +1,6 @@
+String type
+int port
+ArrayList<String> protocols
+ArrayList<Integer> codecs
+SDPMediaMode mode
+ArrayList<SDPRawRecord> records

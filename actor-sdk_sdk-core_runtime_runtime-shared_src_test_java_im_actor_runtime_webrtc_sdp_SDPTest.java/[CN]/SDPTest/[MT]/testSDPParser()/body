@@ -1,10 +1,9 @@
 {
   SDPScheme sdpScheme=SDP.parse(sdp);
-  String serialized=sdpScheme.toString().replace("\r","");
-  assertEquals(sdp,serialized);
   assertEquals(1,sdpScheme.getMediaLevel().size());
   SDPMedia media=sdpScheme.getMediaLevel().get(0);
   assertEquals("audio",media.getType());
+  assertEquals(SDPMediaMode.SEND_RECEIVE,media.getMode());
   assertEquals(4,media.getProtocols().size());
   assertEquals("UDP",media.getProtocols().get(0));
   assertEquals("TLS",media.getProtocols().get(1));
@@ -20,6 +19,4 @@
   assertEquals(105,(int)media.getCodecs().get(6));
   assertEquals(13,(int)media.getCodecs().get(7));
   assertEquals(126,(int)media.getCodecs().get(8));
-  assertEquals(1,media.getArgs().size());
-  assertEquals("ext_test_arg",media.getArgs().get(0));
 }

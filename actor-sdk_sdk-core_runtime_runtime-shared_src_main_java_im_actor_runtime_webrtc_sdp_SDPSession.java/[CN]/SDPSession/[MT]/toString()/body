@@ -1,7 +1,0 @@
-{
-  String res="v=" + version + "\r\n";
-  for (  SDPRawRecord r : records) {
-    res+=r.toString() + "\r\n";
-  }
-  return res;
-}

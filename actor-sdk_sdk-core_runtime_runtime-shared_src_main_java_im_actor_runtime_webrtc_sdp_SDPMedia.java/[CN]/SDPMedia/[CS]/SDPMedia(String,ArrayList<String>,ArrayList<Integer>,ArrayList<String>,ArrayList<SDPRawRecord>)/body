@@ -1,7 +1,0 @@
-{
-  this.type=type;
-  this.protocols=protocols;
-  this.codecs=codecs;
-  this.records=records;
-  this.args=args;
-}

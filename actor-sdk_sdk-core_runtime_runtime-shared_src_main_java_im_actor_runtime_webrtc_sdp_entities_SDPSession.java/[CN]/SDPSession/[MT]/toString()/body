@@ -1,0 +1,9 @@
+{
+  String res="v=" + version + "\r\n";
+  res+="o=" + originator + "\r\n";
+  res+="s=" + name + "\r\n";
+  for (  SDPRawRecord r : records) {
+    res+=r.toString() + "\r\n";
+  }
+  return res;
+}

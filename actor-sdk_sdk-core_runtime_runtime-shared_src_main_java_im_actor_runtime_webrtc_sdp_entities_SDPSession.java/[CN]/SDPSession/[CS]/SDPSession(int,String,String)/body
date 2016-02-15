@@ -1,0 +1,6 @@
+{
+  this.version=version;
+  this.originator=originator;
+  this.name=name;
+  this.records=new ArrayList<>();
+}

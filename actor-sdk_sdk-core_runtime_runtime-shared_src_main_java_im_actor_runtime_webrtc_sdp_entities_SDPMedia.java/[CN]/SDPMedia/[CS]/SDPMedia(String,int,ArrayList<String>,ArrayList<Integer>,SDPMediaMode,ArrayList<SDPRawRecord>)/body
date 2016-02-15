@@ -1,0 +1,8 @@
+{
+  this.type=type;
+  this.port=port;
+  this.protocols=protocols;
+  this.codecs=codecs;
+  this.records=records;
+  this.mode=mode;
+}
