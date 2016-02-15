@@ -1,0 +1,28 @@
+{
+  String res="m=" + type + " "+ port+ " "+ protocol;
+  for (  SDPCodec codec : codecs) {
+    res+=" " + codec.getIndex();
+  }
+  res+="\r\n";
+switch (mode) {
+case SEND_RECEIVE:
+    res+="a=sendrecv\r\n";
+  break;
+case INACTIVE:
+res+="a=inactive\r\n";
+break;
+case RECEIVE_ONLY:
+res+="a=recvonly\r\n";
+break;
+case SEND_ONLY:
+res+="a=sendonly\r\n";
+break;
+}
+for (SDPCodec codec : codecs) {
+res+=codec.toSDP();
+}
+for (SDPRawRecord r : records) {
+res+=r.toSDP() + "\r\n";
+}
+return res;
+}

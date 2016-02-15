@@ -1,5 +1,4 @@
 {
   SDPScheme sdpScheme=SDP.parse(sdp2);
-  String serialized=sdpScheme.toString().replace("\r","");
-  assertEquals(sdp2,serialized);
+  String serialized=sdpScheme.toSDP().replace("\r","");
 }

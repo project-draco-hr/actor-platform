@@ -1,0 +1,7 @@
+{
+  this.index=index;
+  this.name=name;
+  this.clockRate=clockRate;
+  this.args=args;
+  this.format=new HashMap<>();
+}

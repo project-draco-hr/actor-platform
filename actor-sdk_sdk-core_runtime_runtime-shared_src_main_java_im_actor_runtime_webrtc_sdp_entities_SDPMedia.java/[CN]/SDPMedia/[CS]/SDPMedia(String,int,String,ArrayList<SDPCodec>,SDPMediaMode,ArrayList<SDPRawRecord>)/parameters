@@ -1,6 +1,6 @@
 String type
 int port
-ArrayList<String> protocols
-ArrayList<Integer> codecs
+String protocol
+ArrayList<SDPCodec> codecs
 SDPMediaMode mode
 ArrayList<SDPRawRecord> records

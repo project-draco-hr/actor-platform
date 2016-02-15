@@ -1,0 +1,7 @@
+{
+  String res=sessionLevel.toSDP();
+  for (  SDPMedia media : mediaLevel) {
+    res+=media.toSDP();
+  }
+  return res;
+}

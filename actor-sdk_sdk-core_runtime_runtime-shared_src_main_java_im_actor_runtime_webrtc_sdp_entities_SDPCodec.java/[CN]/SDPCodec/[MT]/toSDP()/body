@@ -1,0 +1,20 @@
+{
+  String res="a=rtpmap:" + index + " "+ name+ "/"+ clockRate;
+  if (args != null) {
+    res+="/" + args;
+  }
+  res+="\r\n";
+  if (format != null && format.size() > 0) {
+    res+="a=fmtp:" + index;
+    for (    String s : format.keySet()) {
+      res+=" " + s + "="+ format.get(s)+ ";";
+    }
+    res+="\r\n";
+  }
+  if (codecFeedback != null) {
+    for (    String s : codecFeedback) {
+      res+="a=rtcp-fb:" + index + " "+ s+ "\r\n";
+    }
+  }
+  return res;
+}
