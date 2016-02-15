@@ -1,5 +1,6 @@
 View transitionView
-Bitmap bitmap
+float bitmapWidth
+float bitmapHeight
 int transitionLeft
 int transitionTop
 int transitionWidth

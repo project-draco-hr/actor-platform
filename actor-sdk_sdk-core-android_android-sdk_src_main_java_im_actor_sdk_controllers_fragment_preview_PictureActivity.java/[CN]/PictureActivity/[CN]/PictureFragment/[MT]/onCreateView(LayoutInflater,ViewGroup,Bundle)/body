@@ -11,12 +11,15 @@
   circularView.setValue(50);
   circularView.setVisibility(View.GONE);
   imageView=(ImageView)rootView.findViewById(R.id.image);
+  Bitmap bitmap=null;
   try {
-    imageView.setImageBitmap(ImageLoading.loadBitmapOptimized(path));
+    bitmap=ImageLoading.loadBitmapOptimized(path);
+    imageView.setImageBitmap(bitmap);
   }
  catch (  ImageLoadException e) {
     e.printStackTrace();
   }
+  if (bitmap != null)   bitmap=null;
   attacher=new PhotoViewAttacher(imageView);
   attacher.setOnDoubleTapListener(new DefaultOnDoubleTapListener(attacher){
     @Override public boolean onSingleTapConfirmed(    MotionEvent e){
