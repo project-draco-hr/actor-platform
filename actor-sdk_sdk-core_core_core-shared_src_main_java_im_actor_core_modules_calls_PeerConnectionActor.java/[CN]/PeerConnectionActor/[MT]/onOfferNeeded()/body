@@ -4,7 +4,7 @@
   }
   Log.d(TAG,"onOfferNeeded");
   isReady=false;
-  peerConnection.createOffer().mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+  peerConnection.createOffer().map(OPTIMIZE_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
       return peerConnection.setLocalDescription(description);
     }
@@ -22,6 +22,7 @@
     @Override public void apply(    Exception e){
       Log.d(TAG,"onOfferNeeded:failure");
       e.printStackTrace();
+      onHandshakeFailure();
     }
   }
 ).done(self());

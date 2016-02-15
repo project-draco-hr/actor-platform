@@ -31,8 +31,9 @@
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
-      e.printStackTrace();
       Log.d(TAG,"preStart:error");
+      e.printStackTrace();
+      onHandshakeFailure();
     }
   }
 ).done(self());

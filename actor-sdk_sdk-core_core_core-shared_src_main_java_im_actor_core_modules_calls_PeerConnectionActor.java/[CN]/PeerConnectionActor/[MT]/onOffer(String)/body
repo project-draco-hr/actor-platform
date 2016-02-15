@@ -9,7 +9,7 @@
       return peerConnection.createAnswer();
     }
   }
-).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+).map(OPTIMIZE_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
       return peerConnection.setLocalDescription(description);
     }
@@ -22,7 +22,9 @@
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
+      Log.d(TAG,"onOffer:failure");
       e.printStackTrace();
+      onHandshakeFailure();
     }
   }
 ).done(self());
