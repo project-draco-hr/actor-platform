@@ -20,6 +20,9 @@
     menu.findItem(R.id.groupInfo).setVisible(false);
     menu.findItem(R.id.leaveGroup).setVisible(false);
   }
+  if (getPeer().getPeerType() != PeerType.PRIVATE || !ActorSDK.sharedActor().isCallsEnabled()) {
+    menu.findItem(R.id.call).setVisible(false);
+  }
   menu.findItem(R.id.files).setVisible(false);
   return super.onCreateOptionsMenu(menu);
 }

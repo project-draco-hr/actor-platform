@@ -1,0 +1,8 @@
+{
+  for (  AndroidMediaStream m : streams.values()) {
+    peerConnection.removeStream(m.getStream());
+    m.close();
+  }
+  peerConnection.close();
+  peerConnection.dispose();
+}

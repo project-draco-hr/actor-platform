@@ -1,0 +1,4 @@
+{
+  Command<Long> cmd=messenger().doCall(peer.getPeerId());
+  execute(cmd,R.string.progress_common);
+}

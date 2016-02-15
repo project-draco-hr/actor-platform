@@ -1,3 +1,8 @@
 {
-  return Promises.failure(new RuntimeException("Dumb"));
+  return new Promise<WebRTCMediaStream>(new PromiseFunc<WebRTCMediaStream>(){
+    @Override public void exec(    @NotNull final PromiseResolver<WebRTCMediaStream> resolver){
+      resolver.result(new AndroidMediaStream(factory.createLocalMediaStream("ARDAMS"),true,true));
+    }
+  }
+);
 }

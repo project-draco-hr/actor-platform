@@ -1,0 +1,18 @@
+{
+  super.onPause();
+  if (call.getState().get() != CallState.ENDED) {
+    final NotificationCompat.Builder builder=new NotificationCompat.Builder(getActivity());
+    builder.setAutoCancel(true);
+    builder.setSmallIcon(R.drawable.ic_app_notify);
+    builder.setPriority(NotificationCompat.PRIORITY_MAX);
+    builder.setContentTitle("return to call");
+    Intent intent=new Intent(getActivity(),CallActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+    intent.putExtra("callId",callId);
+    intent.putExtra("incoming",incoming);
+    builder.setContentIntent(PendingIntent.getActivity(getActivity(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT));
+    Notification n=builder.build();
+    n.flags+=Notification.FLAG_ONGOING_EVENT;
+    manager.notify(NOTIFICATION_ID,n);
+  }
+}

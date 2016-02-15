@@ -1,0 +1,9 @@
+{
+  if (requestCode == PERMISSIONS_REQUEST_FOR_CALL) {
+    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+    }
+ else {
+      messenger().endCall(callId);
+    }
+  }
+}

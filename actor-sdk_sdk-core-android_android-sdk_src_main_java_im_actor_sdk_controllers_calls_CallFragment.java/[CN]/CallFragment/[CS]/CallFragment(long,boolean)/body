@@ -1,0 +1,6 @@
+{
+  this.callId=callId;
+  this.call=messenger().getCall(callId);
+  this.peer=call.getPeer();
+  this.incoming=incoming;
+}

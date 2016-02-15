@@ -1,0 +1,3 @@
+{
+  manager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+}

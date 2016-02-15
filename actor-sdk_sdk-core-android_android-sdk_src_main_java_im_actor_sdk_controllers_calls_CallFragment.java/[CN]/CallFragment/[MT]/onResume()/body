@@ -1,0 +1,4 @@
+{
+  super.onResume();
+  manager.cancel(NOTIFICATION_ID);
+}

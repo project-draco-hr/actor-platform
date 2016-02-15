@@ -1,0 +1,24 @@
+{
+  if (toneActor != null) {
+    toneActor.send(new AndroidPlayerActor.Stop());
+  }
+  vibrate=false;
+  if (ringtone != null) {
+    ringtone.stop();
+  }
+  if (v != null) {
+    v.cancel();
+  }
+  if (wakeLock != null) {
+    if (wakeLock.isHeld()) {
+      wakeLock.release();
+    }
+  }
+  if (timer != null) {
+    timer.send(PoisonPill.INSTANCE);
+  }
+  manager.cancel(NOTIFICATION_ID);
+  if (getActivity() != null) {
+    getActivity().finish();
+  }
+}

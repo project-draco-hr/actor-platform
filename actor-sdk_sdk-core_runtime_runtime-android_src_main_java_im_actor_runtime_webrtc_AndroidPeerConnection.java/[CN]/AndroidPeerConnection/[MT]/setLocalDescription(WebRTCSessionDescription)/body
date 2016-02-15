@@ -1,0 +1,20 @@
+{
+  return new Promise<>(new PromiseFunc<WebRTCSessionDescription>(){
+    @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
+      peerConnection.setRemoteDescription(new SdpObserver(){
+        @Override public void onCreateSuccess(        SessionDescription sessionDescription){
+        }
+        @Override public void onSetSuccess(){
+          resolver.result(description);
+        }
+        @Override public void onCreateFailure(        String s){
+        }
+        @Override public void onSetFailure(        String s){
+          resolver.error(new Exception("setLocalDescription:onSetFailure"));
+        }
+      }
+,new SessionDescription(description.getType().equals("offer") ? SessionDescription.Type.OFFER : SessionDescription.Type.ANSWER,description.getSdp()));
+    }
+  }
+);
+}

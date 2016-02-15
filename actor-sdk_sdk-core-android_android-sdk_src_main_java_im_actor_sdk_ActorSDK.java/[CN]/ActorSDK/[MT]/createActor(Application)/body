@@ -26,6 +26,7 @@
   if (customApplicationName != null) {
     builder.setCustomAppName(customApplicationName);
   }
+  builder.setCallsProvider(new AndroidCallProvider());
   this.messenger=new AndroidMessenger(AndroidContext.getContext(),builder.build());
   if (isKeepAliveEnabled) {
     Intent keepAliveService=new Intent(application,KeepAliveService.class);

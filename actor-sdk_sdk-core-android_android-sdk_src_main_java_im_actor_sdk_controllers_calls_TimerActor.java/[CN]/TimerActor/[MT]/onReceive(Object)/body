@@ -1,0 +1,15 @@
+{
+  if (message instanceof Register) {
+    callbacks.put(((Register)message).getId(),((Register)message).getCallback());
+    if (!callbacksRegisterTime.keySet().contains(((Register)message).getId())) {
+      callbacksRegisterTime.put(((Register)message).getId(),System.currentTimeMillis());
+    }
+  }
+ else   if (message instanceof UnRegister) {
+    callbacks.remove(((UnRegister)message).getId());
+    callbacksRegisterTime.remove(((UnRegister)message).getId());
+  }
+ else   if (message instanceof Tick) {
+    onTick();
+  }
+}

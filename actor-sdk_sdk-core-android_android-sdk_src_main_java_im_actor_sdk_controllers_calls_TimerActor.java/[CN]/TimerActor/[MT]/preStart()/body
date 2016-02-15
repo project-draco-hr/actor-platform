@@ -1,0 +1,4 @@
+{
+  super.preStart();
+  schedule(new Tick(),inteval);
+}

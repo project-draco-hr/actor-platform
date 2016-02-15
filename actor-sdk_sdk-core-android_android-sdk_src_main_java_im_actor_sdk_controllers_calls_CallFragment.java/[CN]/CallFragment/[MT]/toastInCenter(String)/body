@@ -1,0 +1,5 @@
+{
+  Toast t=Toast.makeText(getActivity(),s,Toast.LENGTH_SHORT);
+  t.setGravity(Gravity.CENTER,0,0);
+  t.show();
+}

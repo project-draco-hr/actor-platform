@@ -1,0 +1,8 @@
+{
+  if (toneActor != null) {
+    toneActor.send(new AndroidPlayerActor.Stop());
+  }
+  vibrate=false;
+  v.cancel();
+  v.vibrate(200);
+}

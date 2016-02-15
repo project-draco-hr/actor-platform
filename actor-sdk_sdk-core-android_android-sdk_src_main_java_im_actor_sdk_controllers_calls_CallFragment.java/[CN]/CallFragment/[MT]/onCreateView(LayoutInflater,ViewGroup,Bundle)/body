@@ -1,0 +1,61 @@
+{
+  manager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+  FrameLayout cont=(FrameLayout)inflater.inflate(R.layout.fragment_call,container,false);
+  v=(Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+  answerContainer=cont.findViewById(R.id.answer_container);
+  ImageButton answer=(ImageButton)cont.findViewById(R.id.answer);
+  answer.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onAnswer();
+    }
+  }
+);
+  ImageButton notAnswer=(ImageButton)cont.findViewById(R.id.notAnswer);
+  ImageButton endCall=(ImageButton)cont.findViewById(R.id.end_call);
+  notAnswer.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      doEndCall();
+    }
+  }
+);
+  endCall.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      doEndCall();
+    }
+  }
+);
+  CoverAvatarView avatarView=(CoverAvatarView)cont.findViewById(R.id.avatar);
+  avatarView.setBkgrnd((ImageView)cont.findViewById(R.id.avatar_bgrnd));
+  final UserVM user=users().get(peer.getPeerId());
+  bind(avatarView,user.getAvatar());
+  TextView nameTV=(TextView)cont.findViewById(R.id.name);
+  nameTV.setTextColor(ActorSDK.sharedActor().style.getProfileTitleColor());
+  bind(nameTV,user.getName());
+  timerTV=(TextView)cont.findViewById(R.id.timer);
+  timerTV.setTextColor(ActorSDK.sharedActor().style.getProfileSubtitleColor());
+  if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
+    Log.d("Permissions","call - no permission :c");
+    CallFragment.this.requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.VIBRATE,Manifest.permission.WAKE_LOCK},PERMISSIONS_REQUEST_FOR_CALL);
+  }
+  call.getState().subscribe(new ValueChangedListener<CallState>(){
+    @Override public void onChanged(    CallState val,    Value<CallState> valueModel){
+switch (val) {
+case ENDED:
+        onCallEnd();
+      break;
+case IN_PROGRESS:
+    onConnected();
+  startTimer();
+break;
+case CALLING_INCOMING:
+initIncoming();
+break;
+case CALLING_OUTGOING:
+onConnecting();
+break;
+}
+}
+}
+,true);
+return cont;
+}

@@ -1,0 +1,21 @@
+{
+  answerContainer.setVisibility(View.VISIBLE);
+  new Thread(new Runnable(){
+    @Override public void run(){
+      try {
+        Thread.sleep(1100);
+        Uri notification=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+        ringtone=RingtoneManager.getRingtone(getActivity(),notification);
+        if (getActivity() != null & answerContainer.getVisibility() == View.VISIBLE) {
+          if (ringtone != null) {
+            ringtone.play();
+          }
+        }
+      }
+ catch (      InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+).start();
+}

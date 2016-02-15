@@ -1,0 +1,7 @@
+{
+  for (  int callbackId : callbacks.keySet()) {
+    long currentTime=System.currentTimeMillis();
+    callbacks.get(callbackId).onTick(currentTime,System.currentTimeMillis() - callbacksRegisterTime.get(callbackId));
+  }
+  schedule(new Tick(),inteval);
+}
