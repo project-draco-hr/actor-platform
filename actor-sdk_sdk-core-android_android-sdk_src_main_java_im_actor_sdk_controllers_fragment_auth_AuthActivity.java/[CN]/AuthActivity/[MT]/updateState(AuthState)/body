@@ -2,6 +2,7 @@
   if (this.state != null && this.state == state) {
     return;
   }
+  if (state != AuthState.LOGGED_IN && getIsResumed() == false)   return;
   this.state=state;
 switch (state) {
 case AUTH_START:
