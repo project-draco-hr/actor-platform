@@ -3,8 +3,7 @@
   callManager=context().getCallsModule().getCallManager();
   api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
     @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
-      spawnNewVM(callId,convert(responseGetCallInfo.getPeer()),new ArrayList<CallMember>(),CallState.CALLING_INCOMING);
-      callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
+      peer=convert(responseGetCallInfo.getPeer());
       joinBus(responseGetCallInfo.getEventBusId());
     }
   }
