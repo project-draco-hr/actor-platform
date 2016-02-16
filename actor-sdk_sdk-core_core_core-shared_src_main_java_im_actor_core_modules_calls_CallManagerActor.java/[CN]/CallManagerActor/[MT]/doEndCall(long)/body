@@ -5,7 +5,7 @@
     currentCallActor.send(new CallActor.DoEndCall());
   }
   if (currentCall == callId) {
-    currentCall=callId;
+    currentCall=null;
     provider.onCallEnd(callId);
   }
 }
