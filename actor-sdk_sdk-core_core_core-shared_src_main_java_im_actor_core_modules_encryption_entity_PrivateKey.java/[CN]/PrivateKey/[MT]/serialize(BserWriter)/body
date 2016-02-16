@@ -2,6 +2,7 @@
   writer.writeLong(1,keyId);
   writer.writeString(2,keyAlg);
   writer.writeBytes(3,key);
+  writer.writeBytes(5,publicKey);
   if (isUploaded != null) {
     writer.writeBool(4,isUploaded);
   }

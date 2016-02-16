@@ -1,4 +1,5 @@
 long keyId
 String keyAlg
-byte[] key
+byte[] privateKey
+byte[] publicKey
 Boolean isUploaded

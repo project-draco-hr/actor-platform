@@ -6,15 +6,18 @@
   if (ownKeysStorage != null) {
     try {
       ownKeys=new PrivateKeyStorage(ownKeysStorage);
+      if (ownKeys.isWasRegenerated()) {
+        encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
+      }
     }
  catch (    IOException e) {
       e.printStackTrace();
     }
   }
   if (ownKeys == null) {
-    byte[] identityPrivate=Curve25519.keyGenPrivate(Crypto.randomBytes(64));
-    byte[] key0=Curve25519.keyGenPrivate(Crypto.randomBytes(64));
-    ownKeys=new PrivateKeyStorage(0,new PrivateKey(RandomUtils.nextRid(),"curve25519",identityPrivate),new PrivateKey[]{new PrivateKey(RandomUtils.nextRid(),"curve25519",key0)},new PrivateKey[0]);
+    Curve25519KeyPair identityPrivate=Curve25519.keyGen(Crypto.randomBytes(64));
+    Curve25519KeyPair key0=Curve25519.keyGen(Crypto.randomBytes(64));
+    ownKeys=new PrivateKeyStorage(0,new PrivateKey(RandomUtils.nextRid(),"curve25519",identityPrivate.getPrivateKey(),identityPrivate.getPublicKey()),new PrivateKey[]{new PrivateKey(RandomUtils.nextRid(),"curve25519",key0.getPrivateKey(),key0.getPublicKey())},new PrivateKey[0]);
     encryptionKeysStorage.addOrUpdateItem(0,ownKeys.toByteArray());
   }
   if (ownKeys.getKeyGroupId() == 0) {

@@ -1,3 +1,14 @@
 {
+synchronized (LOCk) {
+    if (!isLoaded) {
+      try {
+        LOCk.wait();
+      }
+ catch (      InterruptedException e) {
+        e.printStackTrace();
+        throw new RuntimeException(e);
+      }
+    }
+  }
   this.key=convertKey(key);
 }

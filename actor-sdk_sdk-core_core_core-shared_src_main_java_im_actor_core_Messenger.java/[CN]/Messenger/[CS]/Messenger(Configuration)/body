@@ -1,12 +1,16 @@
 {
   Timing timing=new Timing("MESSENGER_INIT");
   timing.section("Encryption");
-  byte[] asset=Assets.loadBinAsset("kuz_tables.bin");
-  if (asset != null) {
-    KuznechikFastEngine.initDump(asset);
+  if (Runtime.isSingleThread()) {
+    KuznechikFastEngine.initCalc();
   }
  else {
-    KuznechikFastEngine.initCalc();
+    Runtime.dispatch(new Runnable(){
+      @Override public void run(){
+        KuznechikFastEngine.initDump(Assets.loadBinAsset("kuz_tables.bin"));
+      }
+    }
+);
   }
   timing.section("Actors");
   ActorSystem.system().setTraceInterface(new ActorTrace());
