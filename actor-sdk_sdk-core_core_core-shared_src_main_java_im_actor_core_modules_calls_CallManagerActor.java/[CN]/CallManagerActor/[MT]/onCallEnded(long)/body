@@ -1,3 +1,4 @@
 {
+  Log.d(TAG,"onCallEnded (" + callId + ")");
   runningCalls.remove(callId);
 }
