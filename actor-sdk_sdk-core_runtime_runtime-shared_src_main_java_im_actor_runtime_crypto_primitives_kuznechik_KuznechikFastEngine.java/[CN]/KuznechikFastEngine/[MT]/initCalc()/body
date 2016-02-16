@@ -1,0 +1,24 @@
+{
+  if (gf256res != null || gf256resInv != null) {
+    return;
+  }
+  gf256res=new int[16 * 256 * 4];
+  gf256resInv=new int[16 * 256 * 4];
+  byte[] tmp=new byte[16];
+  for (int index=0; index < 16; index++) {
+    for (int i=0; i < 256; i++) {
+      for (int l=0; l < 16; l++) {
+        tmp[l]=0;
+      }
+      tmp[index]=(byte)i;
+      kuz_l(tmp);
+      Pack.bigEndianToInt(tmp,0,gf256res,(index + (16 * i)) * 4,4);
+      for (int l=0; l < 16; l++) {
+        tmp[l]=0;
+      }
+      tmp[index]=(byte)i;
+      kuz_l_inv(tmp);
+      Pack.bigEndianToInt(tmp,0,gf256resInv,(index + (16 * i)) * 4,4);
+    }
+  }
+}
