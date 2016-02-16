@@ -1,9 +1,0 @@
-{
-  if (currentCall != null) {
-    ActorRef dest=runningCalls.remove(currentCall);
-    if (dest != null) {
-      dest.send(new CallActor.DoEndCall());
-    }
-  }
-  currentCall=null;
-}

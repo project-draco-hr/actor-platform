@@ -1,4 +1,12 @@
 {
-  if (handledCalls.contains(callId) && !answeredCalls.contains(callId)) {
+  if (!answeredCalls.contains(callId)) {
+    if (currentCall == callId) {
+      currentCall=null;
+      provider.onCallEnd(callId);
+    }
+    ActorRef ref=runningCalls.remove(callId);
+    if (ref != null) {
+      ref.send(new CallActor.EventBusShutdown());
+    }
   }
 }

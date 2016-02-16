@@ -1,7 +1,11 @@
 {
   Log.d(TAG,"doEndCall (" + callId + ")");
-  ActorRef currentCall=runningCalls.remove(callId);
-  if (currentCall != null) {
-    currentCall.send(new CallActor.DoEndCall());
+  ActorRef currentCallActor=runningCalls.remove(callId);
+  if (currentCallActor != null) {
+    currentCallActor.send(new CallActor.DoEndCall());
+  }
+  if (currentCall == callId) {
+    currentCall=callId;
+    provider.onCallEnd(callId);
   }
 }

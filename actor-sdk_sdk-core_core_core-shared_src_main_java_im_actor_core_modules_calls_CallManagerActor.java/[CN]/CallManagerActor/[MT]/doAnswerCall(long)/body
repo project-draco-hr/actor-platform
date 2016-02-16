@@ -1,4 +1,10 @@
 {
   Log.d(TAG,"onIncomingCall (" + callId + ")");
-  answeredCalls.add(callId);
+  if (!answeredCalls.contains(callId)) {
+    answeredCalls.add(callId);
+    ActorRef ref=runningCalls.get(callId);
+    if (ref != null) {
+      ref.send(new CallSlaveActor.DoAnswer());
+    }
+  }
 }

@@ -1,4 +1,8 @@
 {
   Log.d(TAG,"onCallEnded (" + callId + ")");
   runningCalls.remove(callId);
+  if (currentCall == callId) {
+    currentCall=callId;
+    provider.onCallEnd(callId);
+  }
 }
