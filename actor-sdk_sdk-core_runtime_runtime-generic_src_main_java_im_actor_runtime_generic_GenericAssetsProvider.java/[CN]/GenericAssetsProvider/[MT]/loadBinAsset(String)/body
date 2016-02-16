@@ -1,0 +1,20 @@
+{
+  InputStream stream=getClass().getClassLoader().getResourceAsStream(name);
+  try {
+    return readFully(stream);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+ finally {
+    if (stream != null) {
+      try {
+        stream.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+  return null;
+}
