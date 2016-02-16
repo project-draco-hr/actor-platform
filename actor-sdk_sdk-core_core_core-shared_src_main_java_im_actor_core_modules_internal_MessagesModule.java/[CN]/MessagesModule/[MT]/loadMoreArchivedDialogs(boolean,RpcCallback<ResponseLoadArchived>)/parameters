@@ -1,0 +1,2 @@
+boolean init
+RpcCallback<ResponseLoadArchived> callback

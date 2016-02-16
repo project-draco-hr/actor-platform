@@ -1,6 +1,4 @@
 {
   dialogs.removeItem(peer.getUnuqueId());
-  archivedDialogs.removeItem(peer.getUnuqueId());
-  notifyState(true,true);
-  notifyState(true,false);
+  notifyState(true);
 }

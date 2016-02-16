@@ -1,0 +1,6 @@
+{
+  isLoading=false;
+  this.nextOffset=responseLoadArchiveds.getNextOffset();
+  lastCallback.onResult(responseLoadArchiveds);
+  Log.d(TAG,"Archived dialogs loaded");
+}

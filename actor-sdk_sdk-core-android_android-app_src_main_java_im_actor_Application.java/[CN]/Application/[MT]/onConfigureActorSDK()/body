@@ -7,13 +7,4 @@
   ActorSDK.sharedActor().setCallsEnabled(true);
   ActorStyle style=ActorSDK.sharedActor().style;
   style.setMainColor(Color.parseColor("#529a88"));
-  AbsContent.registerConverter(new ContentConverter(){
-    @Override public AbsContent convert(    AbsContentContainer container){
-      return JsonContent.convert(container,new TCBotMesaage());
-    }
-    @Override public boolean validate(    AbsContent content){
-      return content instanceof TCBotMesaage;
-    }
-  }
-);
 }

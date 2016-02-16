@@ -1,3 +1,0 @@
-{
-  (isArchived ? archivedDialogs : dialogs).addOrUpdateItems(updated);
-}

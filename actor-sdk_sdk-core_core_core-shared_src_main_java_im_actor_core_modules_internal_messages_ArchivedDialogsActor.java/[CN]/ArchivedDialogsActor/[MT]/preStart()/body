@@ -1,7 +1,0 @@
-{
-  nextOffset=preferences().getBytes(KEY_LOADED_DATE);
-  archivedLoaded=preferences().getBool(KEY_LOADED,false);
-  if (!preferences().getBool(KEY_LOADED_INIT,false)) {
-    self().send(new LoadMore());
-  }
-}

@@ -1,7 +1,5 @@
 {
   super.preStart();
   this.dialogs=context().getMessagesModule().getDialogsEngine();
-  this.archivedDialogs=context().getMessagesModule().getArchivedDialogsEngine();
-  notifyState(true,true);
-  notifyState(true,false);
+  notifyState(true);
 }
