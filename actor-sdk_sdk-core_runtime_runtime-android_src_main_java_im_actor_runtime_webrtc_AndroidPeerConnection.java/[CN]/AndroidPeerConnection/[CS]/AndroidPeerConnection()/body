@@ -1,11 +1,14 @@
 {
+  if (LIBJINGLE_LOGS) {
+    Logging.enableTracing("logcat:",EnumSet.of(Logging.TraceLevel.TRACE_ALL),Logging.Severity.LS_SENSITIVE);
+  }
   if (iceServers == null) {
     iceServers=new ArrayList<PeerConnection.IceServer>();
     iceServers.add(new PeerConnection.IceServer("stun:62.4.22.219:3478"));
     iceServers.add(new PeerConnection.IceServer("turn:62.4.22.219:3478?transport=tcp","actor","password"));
     iceServers.add(new PeerConnection.IceServer("turn:62.4.22.219:3478?transport=udp","actor","password"));
   }
-  this.pc=factory().createPeerConnection(iceServers,new MediaConstraints(),new PeerConnection.Observer(){
+  this.peerConnection=factory().createPeerConnection(iceServers,new MediaConstraints(),new PeerConnection.Observer(){
     @Override public void onSignalingChange(    PeerConnection.SignalingState signalingState){
     }
     @Override public void onIceConnectionChange(    PeerConnection.IceConnectionState iceConnectionState){

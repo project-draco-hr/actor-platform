@@ -51,7 +51,6 @@ case CALLING_INCOMING:
 initIncoming();
 break;
 case CALLING_OUTGOING:
-onConnecting();
 break;
 }
 }

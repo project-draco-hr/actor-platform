@@ -1,7 +1,7 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCSessionDescription>(){
     @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
-      peerConnection.setRemoteDescription(new SdpObserver(){
+      peerConnection.setLocalDescription(new SdpObserver(){
         @Override public void onCreateSuccess(        SessionDescription sessionDescription){
         }
         @Override public void onSetSuccess(){

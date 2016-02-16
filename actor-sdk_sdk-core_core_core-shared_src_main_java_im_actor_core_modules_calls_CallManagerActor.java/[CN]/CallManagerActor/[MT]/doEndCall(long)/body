@@ -4,7 +4,7 @@
   if (currentCallActor != null) {
     currentCallActor.send(new CallActor.DoEndCall());
   }
-  if (currentCall == callId) {
+  if (currentCall != null && currentCall == callId) {
     currentCall=null;
     provider.onCallEnd(callId);
   }

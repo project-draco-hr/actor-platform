@@ -1,6 +1,6 @@
 {
   if (!answeredCalls.contains(callId)) {
-    if (currentCall == callId) {
+    if (currentCall != null && currentCall == callId) {
       currentCall=null;
       provider.onCallEnd(callId);
     }

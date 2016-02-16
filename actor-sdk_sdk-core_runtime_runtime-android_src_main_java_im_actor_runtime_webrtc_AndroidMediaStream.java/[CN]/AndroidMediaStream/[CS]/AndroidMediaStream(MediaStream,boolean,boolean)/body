@@ -1,4 +1,5 @@
 {
+  this.local=local;
   this.stream=stream;
   if (!local) {
     audioTrack=stream.audioTracks.get(0);
