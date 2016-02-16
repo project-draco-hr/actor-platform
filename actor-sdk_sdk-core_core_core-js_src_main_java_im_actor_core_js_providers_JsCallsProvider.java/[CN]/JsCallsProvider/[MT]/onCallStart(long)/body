@@ -1,2 +1,9 @@
 {
+  JsMessenger.getInstance().broadcastEvent("calls",callEvent("" + callId,"started"));
+  if (JsMessenger.getInstance().getCall(callId).getState().get() == CallState.CALLING_OUTGOING) {
+    JsMessenger.getInstance().broadcastEvent("call",callEvent("" + callId,"ongoing"));
+  }
+ else {
+    JsMessenger.getInstance().broadcastEvent("call",callEvent("" + callId,"incoming"));
+  }
 }

@@ -2,7 +2,7 @@
   if (!typing.containsKey(peer)) {
     if (peer.getPeerType() == PeerType.PRIVATE) {
       UserTypingVM userTypingVM=context().getTypingModule().getTyping(peer.getPeerId());
-      final JsBindedValue<JsTyping> value=new JsBindedValue<JsTyping>();
+      final JsBindedValue<JsTyping> value=new JsBindedValue<>();
       userTypingVM.getTyping().subscribe(new ValueChangedListener<Boolean>(){
         @Override public void onChanged(        Boolean val,        Value<Boolean> valueModel){
           String typingValue=null;
@@ -17,7 +17,7 @@
     }
  else     if (peer.getPeerType() == PeerType.GROUP) {
       GroupTypingVM groupTypingVM=context().getTypingModule().getGroupTyping(peer.getPeerId());
-      final JsBindedValue<JsTyping> value=new JsBindedValue<JsTyping>();
+      final JsBindedValue<JsTyping> value=new JsBindedValue<>();
       groupTypingVM.getActive().subscribe(new ValueChangedListener<int[]>(){
         @Override public void onChanged(        int[] val,        Value<int[]> valueModel){
           String typingValue=null;

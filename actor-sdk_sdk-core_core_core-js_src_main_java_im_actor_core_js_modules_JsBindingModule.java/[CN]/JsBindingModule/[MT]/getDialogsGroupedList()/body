@@ -1,7 +1,7 @@
 {
   if (dialogsGroupedList == null) {
     ValueModel<ArrayList<DialogGroup>> dialogGroups=context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel();
-    dialogsGroupedList=new JsBindedValue<JsArray<JsDialogGroup>>();
+    dialogsGroupedList=new JsBindedValue<>();
     dialogGroups.subscribe(new ValueChangedListener<ArrayList<DialogGroup>>(){
       @Override public void onChanged(      ArrayList<DialogGroup> val,      Value<ArrayList<DialogGroup>> valueModel){
         if (val == null) {

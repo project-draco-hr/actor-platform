@@ -4,11 +4,10 @@
     return;
   }
   handledCalls.add(callId);
-  currentCalls.put(callId,system().actorOf("actor/slave",new ActorCreator(){
+  system().actorOf("actor/slave/" + RandomUtils.nextRid(),new ActorCreator(){
     @Override public Actor create(){
       return new CallSlaveActor(callId,context());
     }
   }
-));
-  provider.onCallStart(callId);
+);
 }

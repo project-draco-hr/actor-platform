@@ -1,6 +1,6 @@
 {
   if (!usersOnlines.containsKey(uid)) {
-    final JsBindedValue<JsOnlineUser> value=new JsBindedValue<JsOnlineUser>();
+    final JsBindedValue<JsOnlineUser> value=new JsBindedValue<>();
     final UserVM userVM=context().getUsersModule().getUsers().get(uid);
     userVM.getPresence().subscribe(new ValueChangedListener<UserPresence>(){
       @Override public void onChanged(      UserPresence val,      Value<UserPresence> valueModel){

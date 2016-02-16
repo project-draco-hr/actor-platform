@@ -1,0 +1,7 @@
+{
+  runningCalls.put(callId,ref);
+  if (currentCall == null) {
+    currentCall=callId;
+    provider.onCallStart(callId);
+  }
+}

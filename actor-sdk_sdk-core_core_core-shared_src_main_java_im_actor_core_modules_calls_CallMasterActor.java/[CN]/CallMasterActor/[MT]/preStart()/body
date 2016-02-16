@@ -1,4 +1,5 @@
 {
   super.preStart();
+  callManager=context().getCallsModule().getCallManager();
   createBus();
 }

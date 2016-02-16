@@ -1,4 +1,6 @@
 {
-  currentCalls.put(callId,ref);
+  stopRunningCall();
+  runningCalls.put(callId,ref);
+  currentCall=callId;
   provider.onCallStart(callId);
 }

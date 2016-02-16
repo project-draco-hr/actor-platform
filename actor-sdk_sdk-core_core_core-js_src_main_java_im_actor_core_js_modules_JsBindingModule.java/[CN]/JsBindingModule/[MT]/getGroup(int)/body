@@ -1,7 +1,7 @@
 {
   if (!groups.containsKey(gid)) {
     final GroupVM groupVM=context().getGroupsModule().getGroupsCollection().get(gid);
-    final JsBindedValue<JsGroup> value=new JsBindedValue<JsGroup>(JsGroup.fromGroupVM(groupVM,messenger));
+    final JsBindedValue<JsGroup> value=new JsBindedValue<>(JsGroup.fromGroupVM(groupVM,messenger));
     groupVM.subscribe(new ModelChangedListener<GroupVM>(){
       @Override public void onChanged(      GroupVM model){
         value.changeValue(JsGroup.fromGroupVM(groupVM,messenger));

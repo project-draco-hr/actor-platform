@@ -20,9 +20,13 @@
     DoCall doCall=(DoCall)message;
     doCall(doCall.getPeer(),doCall.getCallback());
   }
- else   if (message instanceof OnCallCreated) {
-    OnCallCreated callCreated=(OnCallCreated)message;
+ else   if (message instanceof DoCallComplete) {
+    DoCallComplete callCreated=(DoCallComplete)message;
     onCallCreated(callCreated.getCallId(),sender());
+  }
+ else   if (message instanceof IncomingCallReady) {
+    IncomingCallReady callComplete=(IncomingCallReady)message;
+    onIncomingCallReady(callComplete.getCallId(),sender());
   }
  else {
     super.onReceive(message);
