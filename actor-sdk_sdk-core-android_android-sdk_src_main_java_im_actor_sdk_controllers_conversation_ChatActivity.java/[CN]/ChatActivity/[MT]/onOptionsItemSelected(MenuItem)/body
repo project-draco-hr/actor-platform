@@ -28,7 +28,7 @@
   }
  else   if (i == R.id.files) {
   }
-  if (getPeer().getPeerType() == PeerType.PRIVATE && ActorSDK.sharedActor().isCallsEnabled()) {
+  if (ActorSDK.sharedActor().isCallsEnabled()) {
     if (item.getItemId() == R.id.call) {
       if (ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
         Log.d("Permissions","call - no permission :c");

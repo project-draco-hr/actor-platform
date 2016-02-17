@@ -1,4 +1,10 @@
 {
-  Command<Long> cmd=messenger().doCall(peer.getPeerId());
+  Command<Long> cmd;
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    cmd=messenger().doCall(peer.getPeerId());
+  }
+ else {
+    cmd=messenger().doGroupCall(peer.getPeerId());
+  }
   execute(cmd,R.string.progress_common);
 }

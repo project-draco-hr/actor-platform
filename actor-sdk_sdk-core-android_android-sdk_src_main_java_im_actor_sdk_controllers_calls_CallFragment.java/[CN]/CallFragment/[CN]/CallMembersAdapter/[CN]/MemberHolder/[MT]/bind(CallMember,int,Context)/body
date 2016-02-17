@@ -1,0 +1,7 @@
+{
+  UserVM user=users().get(data.getUid());
+  this.data=data;
+  avatarView.bind(user);
+  userName.setText(user.getName().get());
+  status.setText(data.getState().name());
+}

@@ -26,11 +26,21 @@
 );
   CoverAvatarView avatarView=(CoverAvatarView)cont.findViewById(R.id.avatar);
   avatarView.setBkgrnd((ImageView)cont.findViewById(R.id.avatar_bgrnd));
-  final UserVM user=users().get(peer.getPeerId());
-  bind(avatarView,user.getAvatar());
   TextView nameTV=(TextView)cont.findViewById(R.id.name);
   nameTV.setTextColor(ActorSDK.sharedActor().style.getProfileTitleColor());
-  bind(nameTV,user.getName());
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    UserVM user=users().get(peer.getPeerId());
+    bind(avatarView,user.getAvatar());
+    bind(nameTV,user.getName());
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    GroupVM g=groups().get(peer.getPeerId());
+    bind(avatarView,g.getAvatar());
+    bind(nameTV,g.getName());
+  }
+  ListView membersList=(ListView)cont.findViewById(R.id.members_list);
+  CallMembersAdapter membersAdapter=new CallMembersAdapter(getActivity(),call.getMembers());
+  membersList.setAdapter(membersAdapter);
   timerTV=(TextView)cont.findViewById(R.id.timer);
   timerTV.setTextColor(ActorSDK.sharedActor().style.getProfileSubtitleColor());
   if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
