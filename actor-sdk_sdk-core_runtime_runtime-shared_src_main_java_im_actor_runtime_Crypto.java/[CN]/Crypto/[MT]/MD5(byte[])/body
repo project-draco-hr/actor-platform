@@ -1,3 +1,7 @@
 {
-  return provider.MD5(data);
+  MD5 md5=new MD5();
+  md5.update(data,0,data.length);
+  byte[] res=new byte[16];
+  md5.doFinal(res,0);
+  return res;
 }

@@ -1,5 +1,0 @@
-byte[] bs
-int bOff
-int[] ns
-int nOff
-int count

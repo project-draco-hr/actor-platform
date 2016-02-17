@@ -1,0 +1,25 @@
+{
+  Runtime.dispatch(new Runnable(){
+    @Override public void run(){
+      try {
+        Thread.sleep(100);
+      }
+ catch (      InterruptedException e) {
+        e.printStackTrace();
+        throw new RuntimeException(e);
+      }
+      byte[] tables=Assets.loadBinAsset("kuz_tables.bin");
+      if (tables != null) {
+        KuznechikFastEngine.initDump(tables);
+      }
+ else {
+        KuznechikFastEngine.initCalc();
+      }
+synchronized (LOCk) {
+        isLoaded=true;
+        LOCk.notifyAll();
+      }
+    }
+  }
+);
+}

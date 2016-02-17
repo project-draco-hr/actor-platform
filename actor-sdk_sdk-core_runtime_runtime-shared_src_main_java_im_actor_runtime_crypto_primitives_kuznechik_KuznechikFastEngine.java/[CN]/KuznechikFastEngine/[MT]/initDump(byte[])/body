@@ -1,32 +1,23 @@
 {
-  im.actor.runtime.Runtime.dispatch(new Runnable(){
-    @Override public void run(){
-      if (gf256res != null || gf256resInv != null) {
-        return;
-      }
-      gf256res=new int[16 * 256 * 4];
-      gf256resInv=new int[16 * 256 * 4];
-      int offset=0;
-      int n;
-      for (int i=0; i < gf256res.length; ++i) {
-        n=data[offset++] << 24;
-        n|=(data[offset++] & 0xff) << 16;
-        n|=(data[offset++] & 0xff) << 8;
-        n|=(data[offset++] & 0xff);
-        gf256res[i]=n;
-      }
-      for (int i=0; i < gf256resInv.length; ++i) {
-        n=data[offset++] << 24;
-        n|=(data[offset++] & 0xff) << 16;
-        n|=(data[offset++] & 0xff) << 8;
-        n|=(data[offset++] & 0xff);
-        gf256resInv[i]=n;
-      }
-synchronized (LOCk) {
-        isLoaded=true;
-        LOCk.notifyAll();
-      }
-    }
+  if (gf256res != null || gf256resInv != null) {
+    return;
   }
-);
+  gf256res=new int[16 * 256 * 4];
+  gf256resInv=new int[16 * 256 * 4];
+  int offset=0;
+  int n;
+  for (int i=0; i < gf256res.length; ++i) {
+    n=data[offset++] << 24;
+    n|=(data[offset++] & 0xff) << 16;
+    n|=(data[offset++] & 0xff) << 8;
+    n|=(data[offset++] & 0xff);
+    gf256res[i]=n;
+  }
+  for (int i=0; i < gf256resInv.length; ++i) {
+    n=data[offset++] << 24;
+    n|=(data[offset++] & 0xff) << 16;
+    n|=(data[offset++] & 0xff) << 8;
+    n|=(data[offset++] & 0xff);
+    gf256resInv[i]=n;
+  }
 }

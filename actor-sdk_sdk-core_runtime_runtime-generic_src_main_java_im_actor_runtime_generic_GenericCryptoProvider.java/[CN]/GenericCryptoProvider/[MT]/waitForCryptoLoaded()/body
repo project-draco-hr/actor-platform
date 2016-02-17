@@ -1,0 +1,17 @@
+{
+  if (isLoaded) {
+    return;
+  }
+synchronized (LOCk) {
+    if (isLoaded) {
+      return;
+    }
+    try {
+      LOCk.wait();
+    }
+ catch (    InterruptedException e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
+  }
+}

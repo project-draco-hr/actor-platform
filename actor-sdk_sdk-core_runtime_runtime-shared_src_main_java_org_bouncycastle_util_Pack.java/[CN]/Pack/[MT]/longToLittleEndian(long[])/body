@@ -1,5 +1,0 @@
-{
-  byte[] bs=new byte[8 * ns.length];
-  longToLittleEndian(ns,bs,0);
-  return bs;
-}

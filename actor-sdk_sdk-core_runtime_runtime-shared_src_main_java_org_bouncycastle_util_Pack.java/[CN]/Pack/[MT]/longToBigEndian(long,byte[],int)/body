@@ -1,4 +1,0 @@
-{
-  intToBigEndian((int)(n >>> 32),bs,off);
-  intToBigEndian((int)(n & 0xffffffffL),bs,off + 4);
-}

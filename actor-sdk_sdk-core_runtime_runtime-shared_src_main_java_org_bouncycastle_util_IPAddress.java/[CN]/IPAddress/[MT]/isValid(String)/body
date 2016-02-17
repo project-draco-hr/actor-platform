@@ -1,3 +1,0 @@
-{
-  return isValidIPv4(address) || isValidIPv6(address);
-}

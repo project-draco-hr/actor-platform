@@ -1,7 +1,0 @@
-{
-  MD5Digest digest=new MD5Digest();
-  digest.update(data,0,data.length);
-  byte[] res=new byte[16];
-  digest.doFinal(res,0);
-  return res;
-}

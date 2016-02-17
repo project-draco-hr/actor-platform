@@ -1,3 +1,0 @@
-{
-  return isValidIPv4WithNetmask(address) || isValidIPv6WithNetmask(address);
-}

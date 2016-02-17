@@ -1,3 +1,0 @@
-{
-  return new SHA512Digest(this);
-}
