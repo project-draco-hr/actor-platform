@@ -1,0 +1,16 @@
+{
+  byte[] r=new byte[blockSize];
+  for (int i=0; i < blockSize; i++) {
+    r[i]=iv[i];
+  }
+  int count=data.length / blockSize;
+  for (int i=0; i < count; i++) {
+    blockCipher.decryptBlock(data,i * blockSize,res,i * blockSize);
+    for (int j=0; j < blockSize; j++) {
+      res[i * blockSize + j]=(byte)((res[i * blockSize + j] & 0xFF) ^ (r[j] & 0xFF));
+    }
+    for (int j=0; j < blockSize; j++) {
+      r[j]=data[i * blockSize + j];
+    }
+  }
+}

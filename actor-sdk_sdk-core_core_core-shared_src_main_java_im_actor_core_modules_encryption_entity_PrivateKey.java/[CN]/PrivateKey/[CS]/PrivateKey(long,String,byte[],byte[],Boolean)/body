@@ -1,7 +1,7 @@
 {
   this.keyId=keyId;
   this.keyAlg=keyAlg;
-  this.key=key;
+  this.key=privateKey;
   this.isUploaded=isUploaded;
-  this.publicKey=Curve25519.keyGenPublic(key);
+  this.publicKey=publicKey;
 }

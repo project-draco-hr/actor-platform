@@ -21,4 +21,8 @@
       Pack.bigEndianToInt(tmp,0,gf256resInv,(index + (16 * i)) * 4,4);
     }
   }
+synchronized (LOCk) {
+    isLoaded=true;
+    LOCk.notifyAll();
+  }
 }

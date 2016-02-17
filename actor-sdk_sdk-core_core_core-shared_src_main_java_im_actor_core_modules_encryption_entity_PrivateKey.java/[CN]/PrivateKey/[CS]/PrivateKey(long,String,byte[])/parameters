@@ -1,3 +1,0 @@
-long keyId
-String keyAlg
-byte[] key
