@@ -1,7 +1,4 @@
 {
-  if (toneActor != null) {
-    toneActor.send(new AndroidPlayerActor.Stop());
-  }
   vibrate=false;
   if (ringtone != null) {
     ringtone.stop();

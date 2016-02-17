@@ -1,3 +1,2 @@
 {
-  messenger().getCall(callId).getState().change(CallState.ENDED);
 }

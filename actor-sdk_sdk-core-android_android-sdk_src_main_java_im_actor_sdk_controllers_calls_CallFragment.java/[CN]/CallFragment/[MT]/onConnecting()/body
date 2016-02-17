@@ -1,46 +1,4 @@
 {
-  if (toneActor == null) {
-    toneActor=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-      @Override public AudioActorEx create(){
-        return new AudioActorEx(getActivity(),new AudioPlayerActor.AudioPlayerCallback(){
-          @Override public void onStart(          String fileName){
-          }
-          @Override public void onStop(          String fileName){
-          }
-          @Override public void onPause(          String fileName,          float progress){
-          }
-          @Override public void onProgress(          String fileName,          float progress){
-          }
-          @Override public void onError(          String fileName){
-          }
-        }
-);
-      }
-    }
-),"actor/android_tone");
-  }
-  toneActor.send(new AndroidPlayerActor.Play(""));
-  vibrate=true;
-  new Thread(new Runnable(){
-    @Override public void run(){
-      while (vibrate) {
-        try {
-          v.vibrate(10);
-          Thread.sleep(5);
-          v.vibrate(10);
-          Thread.sleep(200);
-          v.vibrate(10);
-          Thread.sleep(5);
-          v.vibrate(10);
-          Thread.sleep(600);
-        }
- catch (        InterruptedException e) {
-          e.printStackTrace();
-        }
-      }
-    }
-  }
-).start();
   powerManager=(PowerManager)getActivity().getSystemService(Context.POWER_SERVICE);
   wakeLock=powerManager.newWakeLock(field,getActivity().getLocalClassName());
   if (!wakeLock.isHeld()) {

@@ -1,2 +1,23 @@
 {
+  if (toneActor == null) {
+    toneActor=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
+      @Override public AudioActorEx create(){
+        return new AudioActorEx(messenger().getContext(),new AudioPlayerActor.AudioPlayerCallback(){
+          @Override public void onStart(          String fileName){
+          }
+          @Override public void onStop(          String fileName){
+          }
+          @Override public void onPause(          String fileName,          float progress){
+          }
+          @Override public void onProgress(          String fileName,          float progress){
+          }
+          @Override public void onError(          String fileName){
+          }
+        }
+);
+      }
+    }
+),"actor/android_tone");
+  }
+  toneActor.send(new AndroidPlayerActor.Play(""));
 }
