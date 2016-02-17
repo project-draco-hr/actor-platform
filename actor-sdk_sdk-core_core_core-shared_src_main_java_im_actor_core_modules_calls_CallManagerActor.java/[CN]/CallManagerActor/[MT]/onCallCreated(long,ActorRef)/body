@@ -4,9 +4,15 @@
     if (dest != null) {
       dest.send(new CallActor.DoEndCall());
     }
+    if (isBeeping) {
+      isBeeping=false;
+      provider.stopOutgoingBeep();
+    }
     currentCall=null;
   }
   runningCalls.put(callId,ref);
   currentCall=callId;
   provider.onCallStart(callId);
+  isBeeping=true;
+  provider.startOutgoingBeep();
 }

@@ -28,6 +28,10 @@
     IncomingCallReady callComplete=(IncomingCallReady)message;
     onIncomingCallReady(callComplete.getCallId(),sender());
   }
+ else   if (message instanceof OnCallAnswered) {
+    OnCallAnswered answered=(OnCallAnswered)message;
+    onCallAnswered(answered.getCallId());
+  }
  else {
     super.onReceive(message);
   }

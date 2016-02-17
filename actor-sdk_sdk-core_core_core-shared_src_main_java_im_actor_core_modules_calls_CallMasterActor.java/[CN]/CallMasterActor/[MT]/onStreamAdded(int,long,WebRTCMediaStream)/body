@@ -1,0 +1,9 @@
+{
+  if (callVM.getState().get() == CallState.CALLING_OUTGOING) {
+    callVM.getState().change(CallState.IN_PROGRESS);
+  }
+  if (!isAnswered) {
+    isAnswered=true;
+    callManager.send(new CallManagerActor.AnswerCall(callId));
+  }
+}

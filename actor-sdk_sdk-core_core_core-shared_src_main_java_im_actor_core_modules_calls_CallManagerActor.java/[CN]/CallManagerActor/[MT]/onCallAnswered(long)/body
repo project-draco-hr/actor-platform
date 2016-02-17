@@ -1,0 +1,9 @@
+{
+  Log.d(TAG,"onCallAnswered (" + callId + ")");
+  if (currentCall == callId) {
+    if (isBeeping) {
+      isBeeping=false;
+      provider.stopOutgoingBeep();
+    }
+  }
+}

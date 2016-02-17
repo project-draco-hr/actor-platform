@@ -4,5 +4,9 @@
   if (currentCall != null && currentCall == callId) {
     currentCall=callId;
     provider.onCallEnd(callId);
+    if (isBeeping) {
+      isBeeping=false;
+      provider.stopOutgoingBeep();
+    }
   }
 }

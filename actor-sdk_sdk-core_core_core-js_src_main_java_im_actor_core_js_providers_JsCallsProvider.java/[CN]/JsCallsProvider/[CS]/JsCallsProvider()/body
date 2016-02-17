@@ -1,0 +1,6 @@
+{
+  callBeep=Audio.createIfSupported();
+  if (callBeep != null) {
+    callBeep.setLoop(true);
+  }
+}
