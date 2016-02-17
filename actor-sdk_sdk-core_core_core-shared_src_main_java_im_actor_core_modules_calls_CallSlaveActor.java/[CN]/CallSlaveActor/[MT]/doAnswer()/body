@@ -1,4 +1,5 @@
 {
+  callVM.getState().change(CallState.CONNECTING);
   if (masterNode == null) {
     isAnswerPending=true;
   }

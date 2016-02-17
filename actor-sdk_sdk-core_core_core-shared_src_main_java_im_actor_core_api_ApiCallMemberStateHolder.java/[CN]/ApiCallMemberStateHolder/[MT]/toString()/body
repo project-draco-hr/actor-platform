@@ -1,0 +1,9 @@
+{
+  String res="struct CallMemberStateHolder{";
+  res+="state=" + this.state;
+  res+=", fallbackIsRinging=" + this.fallbackIsRinging;
+  res+=", fallbackIsConnected=" + this.fallbackIsConnected;
+  res+=", fallbackIsConnecting=" + this.fallbackIsConnecting;
+  res+="}";
+  return res;
+}

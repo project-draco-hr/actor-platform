@@ -1,0 +1,3 @@
+{
+  this.memberAdded=memberAdded;
+}

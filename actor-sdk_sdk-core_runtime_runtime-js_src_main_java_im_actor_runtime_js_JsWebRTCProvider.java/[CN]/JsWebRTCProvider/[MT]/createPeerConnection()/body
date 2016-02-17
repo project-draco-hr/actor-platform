@@ -1,7 +1,11 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCPeerConnection>(){
     @Override public void exec(    @NotNull PromiseResolver<WebRTCPeerConnection> resolver){
-      resolver.result(new PeerConnection(JsPeerConnection.create(null)));
+      JsArray<JsIceServer> servers=JsArray.createArray().cast();
+      servers.push(JsIceServer.create("stun:62.4.22.219:3478"));
+      servers.push(JsIceServer.create("turn:62.4.22.219:3478?transport=tcp","actor","password"));
+      servers.push(JsIceServer.create("turn:62.4.22.219:3478?transport=udp","actor","password"));
+      resolver.result(new PeerConnection(JsPeerConnection.create(JsPeerConnectionConfig.create(servers))));
     }
   }
 );

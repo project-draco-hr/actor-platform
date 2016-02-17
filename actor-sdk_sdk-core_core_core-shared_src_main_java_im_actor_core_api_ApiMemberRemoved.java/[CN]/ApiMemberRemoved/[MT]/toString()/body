@@ -1,0 +1,7 @@
+{
+  String res="struct MemberRemoved{";
+  res+="uid=" + this.uid;
+  res+=", deviceId=" + this.deviceId;
+  res+="}";
+  return res;
+}

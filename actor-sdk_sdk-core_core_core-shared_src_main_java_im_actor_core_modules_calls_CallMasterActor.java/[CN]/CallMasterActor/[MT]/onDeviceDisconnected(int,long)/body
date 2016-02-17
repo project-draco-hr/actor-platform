@@ -1,0 +1,17 @@
+{
+  ConnectedHolder connectedHolder=new ConnectedHolder(uid,deviceId);
+  if (connectedDevices.contains(connectedHolder)) {
+    connectedDevices.remove(connectedHolder);
+    if (connectedDevices.size() == 0) {
+      shutdown();
+      return;
+    }
+    for (    CallMember m : members) {
+      if (m.getUid() == uid) {
+        members.remove(m);
+        break;
+      }
+    }
+    sendSignalingMessage(createMembersChanged());
+  }
+}

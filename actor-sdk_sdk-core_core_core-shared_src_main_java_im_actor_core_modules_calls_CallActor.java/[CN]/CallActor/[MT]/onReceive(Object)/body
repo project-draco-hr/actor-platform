@@ -14,6 +14,14 @@
  else   if (message instanceof DoEndCall) {
     doEndCall();
   }
+ else   if (message instanceof PeerConnectionActor.OnStreamAdded) {
+    PeerConnectionActor.OnStreamAdded streamAdded=(PeerConnectionActor.OnStreamAdded)message;
+    onStreamAdded(streamAdded.getUid(),streamAdded.getDeviceId(),streamAdded.getStream());
+  }
+ else   if (message instanceof PeerConnectionActor.OnStreamRemoved) {
+    PeerConnectionActor.OnStreamRemoved streamRemoved=(PeerConnectionActor.OnStreamRemoved)message;
+    onStreamRemoved(streamRemoved.getUid(),streamRemoved.getDeviceId(),streamRemoved.getStream());
+  }
  else {
     super.onReceive(message);
   }

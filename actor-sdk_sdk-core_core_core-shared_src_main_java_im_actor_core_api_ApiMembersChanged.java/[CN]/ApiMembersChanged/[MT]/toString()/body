@@ -1,0 +1,6 @@
+{
+  String res="struct MembersChanged{";
+  res+="allMembers=" + this.allMembers;
+  res+="}";
+  return res;
+}

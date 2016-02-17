@@ -1,0 +1,15 @@
+{
+  if (this.state == null) {
+    throw new IOException();
+  }
+  writer.writeInt(1,this.state.getValue());
+  if (this.fallbackIsRinging != null) {
+    writer.writeBool(2,this.fallbackIsRinging);
+  }
+  if (this.fallbackIsConnected != null) {
+    writer.writeBool(3,this.fallbackIsConnected);
+  }
+  if (this.fallbackIsConnecting != null) {
+    writer.writeBool(4,this.fallbackIsConnecting);
+  }
+}

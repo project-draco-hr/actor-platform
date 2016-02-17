@@ -1,5 +1,5 @@
 {
   super.onBusStarted();
-  spawnNewVM(callId,peer,new ArrayList<CallMember>(),CallState.CALLING_INCOMING);
+  callVM=spawnNewVM(callId,peer,new ArrayList<CallMember>(),CallState.CALLING_INCOMING);
   callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
 }

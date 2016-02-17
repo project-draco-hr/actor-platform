@@ -1,0 +1,4 @@
+ApiCallMemberState state
+Boolean fallbackIsRinging
+Boolean fallbackIsConnected
+Boolean fallbackIsConnecting

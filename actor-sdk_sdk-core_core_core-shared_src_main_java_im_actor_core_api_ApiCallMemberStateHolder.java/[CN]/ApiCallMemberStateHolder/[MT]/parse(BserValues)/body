@@ -1,0 +1,6 @@
+{
+  this.state=ApiCallMemberState.parse(values.getInt(1));
+  this.fallbackIsRinging=values.optBool(2);
+  this.fallbackIsConnected=values.optBool(3);
+  this.fallbackIsConnecting=values.optBool(4);
+}

@@ -9,6 +9,13 @@
       sendSignalingMessage(c.uid,c.deviceId,new ApiNeedOffer(fromUid,fromDeviceId));
     }
     connectedDevices.add(connectedHolder);
+    for (    CallMember m : members) {
+      if (m.getUid() == fromUid) {
+        m.setState(CallMemberState.CONNECTED);
+        break;
+      }
+    }
+    sendSignalingMessage(createMembersChanged());
   }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);

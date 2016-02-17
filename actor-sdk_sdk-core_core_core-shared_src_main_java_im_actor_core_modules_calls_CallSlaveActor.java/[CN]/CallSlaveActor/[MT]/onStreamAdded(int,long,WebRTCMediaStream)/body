@@ -1,0 +1,5 @@
+{
+  if (uid != myUid() && callVM.getState().get() == CallState.CONNECTING) {
+    callVM.getState().change(CallState.IN_PROGRESS);
+  }
+}

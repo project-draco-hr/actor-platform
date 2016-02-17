@@ -1,0 +1,8 @@
+{
+  String res="struct CallMember{";
+  res+="userId=" + this.userId;
+  res+=", deviceId=" + this.deviceId;
+  res+=", state=" + this.state;
+  res+="}";
+  return res;
+}

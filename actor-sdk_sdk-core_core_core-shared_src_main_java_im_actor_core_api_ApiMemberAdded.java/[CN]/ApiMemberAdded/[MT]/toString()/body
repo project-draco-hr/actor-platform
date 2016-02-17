@@ -1,0 +1,6 @@
+{
+  String res="struct MemberAdded{";
+  res+="memberAdded=" + this.memberAdded;
+  res+="}";
+  return res;
+}

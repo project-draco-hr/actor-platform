@@ -1,6 +1,7 @@
 {
   api(new RequestDoCall(buidOutPeer(peer),getBusId())).then(new Consumer<ResponseDoCall>(){
     @Override public void apply(    ResponseDoCall responseDoCall){
+      callId=responseDoCall.getCallId();
       callVM=spanNewOutgoingVM(responseDoCall.getCallId(),peer);
       callManager.send(new CallManagerActor.DoCallComplete(responseDoCall.getCallId()),self());
       callback.onResult(responseDoCall.getCallId());

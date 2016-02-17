@@ -1,0 +1,5 @@
+{
+  String res="struct RejectCall{";
+  res+="}";
+  return res;
+}

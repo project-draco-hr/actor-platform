@@ -1,0 +1,5 @@
+{
+  this.userId=values.getInt(1);
+  this.deviceId=values.getLong(2);
+  this.state=values.getObj(3,new ApiCallMemberStateHolder());
+}

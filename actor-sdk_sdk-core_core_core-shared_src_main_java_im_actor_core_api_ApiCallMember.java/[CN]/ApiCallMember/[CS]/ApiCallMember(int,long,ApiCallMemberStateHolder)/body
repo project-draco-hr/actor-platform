@@ -1,0 +1,5 @@
+{
+  this.userId=userId;
+  this.deviceId=deviceId;
+  this.state=state;
+}

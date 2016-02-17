@@ -1,0 +1,6 @@
+{
+  this.state=state;
+  this.fallbackIsRinging=fallbackIsRinging;
+  this.fallbackIsConnected=fallbackIsConnected;
+  this.fallbackIsConnecting=fallbackIsConnecting;
+}

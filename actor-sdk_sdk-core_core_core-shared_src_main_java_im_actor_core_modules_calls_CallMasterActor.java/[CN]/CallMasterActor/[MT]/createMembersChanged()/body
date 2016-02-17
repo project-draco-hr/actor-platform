@@ -1,0 +1,7 @@
+{
+  ArrayList<ApiCallMember> callMembers=new ArrayList<>();
+  for (  CallMember m : members) {
+    callMembers.add(new ApiCallMember(m.getUid(),0,m.getState().toApiState()));
+  }
+  return new ApiMembersChanged(callMembers);
+}

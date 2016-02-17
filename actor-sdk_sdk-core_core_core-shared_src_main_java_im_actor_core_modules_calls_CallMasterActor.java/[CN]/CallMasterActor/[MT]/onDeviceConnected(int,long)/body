@@ -1,3 +1,15 @@
 {
   sendSignalingMessage(uid,deviceId,new ApiSwitchMaster());
+  boolean found=false;
+  for (  CallMember m : members) {
+    if (m.getUid() == uid) {
+      m.setState(CallMemberState.CONNECTING);
+      found=true;
+      break;
+    }
+  }
+  if (!found) {
+    members.add(new CallMember(uid,CallMemberState.CONNECTING));
+  }
+  sendSignalingMessage(createMembersChanged());
 }
