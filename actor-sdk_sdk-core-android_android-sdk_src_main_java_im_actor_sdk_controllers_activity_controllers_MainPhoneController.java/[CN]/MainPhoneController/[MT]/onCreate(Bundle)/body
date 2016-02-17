@@ -59,7 +59,7 @@
   searchEmptyView.setVisibility(View.GONE);
   pager=(ViewPager)findViewById(R.id.vp_pager);
   pager.setOffscreenPageLimit(2);
-  homePagerAdapter=new HomePagerAdapter(getFragmentManager());
+  homePagerAdapter=getHomePagerAdapter();
   pager.setAdapter(homePagerAdapter);
   pager.setCurrentItem(0);
   pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
