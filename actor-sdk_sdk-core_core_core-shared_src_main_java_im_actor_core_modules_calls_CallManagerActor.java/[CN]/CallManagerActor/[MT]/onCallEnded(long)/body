@@ -1,8 +1,8 @@
 {
   Log.d(TAG,"onCallEnded (" + callId + ")");
   runningCalls.remove(callId);
-  if (currentCall != null && currentCall == callId) {
-    currentCall=callId;
+  if (currentCall == callId) {
+    currentCall=null;
     provider.onCallEnd(callId);
     if (isBeeping) {
       isBeeping=false;

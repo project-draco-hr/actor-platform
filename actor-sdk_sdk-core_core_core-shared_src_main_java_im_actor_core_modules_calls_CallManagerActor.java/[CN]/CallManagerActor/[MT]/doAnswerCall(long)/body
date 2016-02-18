@@ -6,5 +6,8 @@
     if (ref != null) {
       ref.send(new CallSlaveActor.DoAnswer());
     }
+    if (currentCall == callId) {
+      provider.onCallAnswered(callId);
+    }
   }
 }
