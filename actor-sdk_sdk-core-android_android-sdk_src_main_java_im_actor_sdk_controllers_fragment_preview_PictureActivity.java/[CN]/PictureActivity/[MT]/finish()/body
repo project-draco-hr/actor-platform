@@ -8,15 +8,7 @@
     @Override public void run(){
       getSupportFragmentManager().beginTransaction().remove(fragment).commit();
       containerView.setVisibility(View.GONE);
-      Bitmap bitmap;
-      try {
-        bitmap=ImageLoading.loadBitmapOptimized(path);
-      }
- catch (      ImageLoadException e) {
-        e.printStackTrace();
-        return;
-      }
-      MediaFullscreenAnimationUtils.animateBack(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
+      MediaFullscreenAnimationUtils.animateBack(transitionView,bitmapWidth,bitmapHeight,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
         @Override public void onAnimationEnd(        Animator animation){
           PictureActivity.super.finish();
           overridePendingTransition(0,0);

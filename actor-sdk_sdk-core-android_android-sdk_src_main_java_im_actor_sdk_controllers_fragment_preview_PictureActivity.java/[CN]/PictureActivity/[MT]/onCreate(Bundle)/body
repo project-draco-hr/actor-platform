@@ -29,16 +29,19 @@
   fragment=new PictureFragment();
   fragment.setArguments(bundle);
   getSupportFragmentManager().beginTransaction().add(R.id.container,fragment).commit();
-  Bitmap bitmap;
+  Bitmap bitmap=null;
   try {
     bitmap=ImageLoading.loadBitmapOptimized(path);
+    bitmapWidth=bitmap.getWidth();
+    bitmapHeight=bitmap.getHeight();
   }
  catch (  ImageLoadException e) {
     e.printStackTrace();
     return;
   }
   transitionView.setImageBitmap(bitmap);
-  MediaFullscreenAnimationUtils.animateForward(transitionView,bitmap,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
+  if (bitmap != null)   bitmap=null;
+  MediaFullscreenAnimationUtils.animateForward(transitionView,bitmapWidth,bitmapHeight,transitionLeft,transitionTop,transitionWidth,transitionHeight,new AnimatorListenerAdapter(){
     @Override public void onAnimationEnd(    Animator animation){
       containerView.setAlpha(1);
       transitionView.setAlpha(0f);
