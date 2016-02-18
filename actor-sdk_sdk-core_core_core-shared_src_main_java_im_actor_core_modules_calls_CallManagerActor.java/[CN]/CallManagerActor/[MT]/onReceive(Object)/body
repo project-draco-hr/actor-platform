@@ -32,6 +32,12 @@
     OnCallAnswered answered=(OnCallAnswered)message;
     onCallAnswered(answered.getCallId());
   }
+ else   if (message instanceof MuteCall) {
+    onCallMute(((MuteCall)message).getCallId());
+  }
+ else   if (message instanceof UnmuteCall) {
+    onCallUnmute(((UnmuteCall)message).getCallId());
+  }
  else {
     super.onReceive(message);
   }

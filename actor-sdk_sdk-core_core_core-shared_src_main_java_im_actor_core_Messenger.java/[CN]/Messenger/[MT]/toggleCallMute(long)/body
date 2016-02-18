@@ -1,0 +1,8 @@
+{
+  if (modules.getCallsModule().getCall(callId).getIsMuted().get()) {
+    modules.getCallsModule().unmuteCall(callId);
+  }
+ else {
+    modules.getCallsModule().muteCall(callId);
+  }
+}
