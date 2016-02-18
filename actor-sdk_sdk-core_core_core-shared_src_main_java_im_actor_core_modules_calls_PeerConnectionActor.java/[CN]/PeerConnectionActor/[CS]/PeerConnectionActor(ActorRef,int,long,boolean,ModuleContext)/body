@@ -1,8 +1,0 @@
-{
-  super(context);
-  TAG="PeerConnection#" + uid + "("+ deviceId+ ")";
-  this.isMuted=isMuted;
-  this.root=root;
-  this.uid=uid;
-  this.deviceId=deviceId;
-}

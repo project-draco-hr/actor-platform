@@ -1,5 +1,0 @@
-{
-  this.device=values.getLong(1);
-  this.isConnecting=values.optBool(2);
-  this.isConnected=values.optBool(3);
-}

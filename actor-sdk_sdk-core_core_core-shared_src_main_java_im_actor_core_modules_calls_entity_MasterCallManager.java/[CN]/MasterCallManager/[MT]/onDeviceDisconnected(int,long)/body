@@ -8,10 +8,10 @@
     return false;
   }
   connectedDevices.remove(device);
-  if (device.isActive()) {
+  if (device.isAnswered()) {
     boolean isConnected=false;
     for (    MasterCallDevice m : connectedDevices.filter(MasterCallDevice.PREDICATE(uid))) {
-      if (m.isActive()) {
+      if (m.isAnswered()) {
         isConnected=true;
         break;
       }

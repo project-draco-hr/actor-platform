@@ -1,4 +1,6 @@
 {
   this.uid=values.getInt(1);
   this.device=values.getLong(2);
+  this.peerSettings=values.optObj(3,new ApiPeerSettings());
+  this.isSilent=values.optBool(4);
 }

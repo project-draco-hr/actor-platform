@@ -1,0 +1,6 @@
+{
+  String res="struct AdvertiseSelf{";
+  res+="peerSettings=" + this.peerSettings;
+  res+="}";
+  return res;
+}

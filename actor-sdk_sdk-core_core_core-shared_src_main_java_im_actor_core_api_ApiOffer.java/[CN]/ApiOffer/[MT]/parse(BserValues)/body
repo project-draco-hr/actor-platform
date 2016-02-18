@@ -1,4 +1,5 @@
 {
   this.sessionId=values.getLong(1);
   this.sdp=values.getString(2);
+  this.ownPeerSettings=values.optObj(3,new ApiPeerSettings());
 }

@@ -1,5 +1,4 @@
 {
-  if (stream != null) {
-    stream.setEnabled(false);
-  }
+  isMuted=true;
+  setEnabled(stream);
 }

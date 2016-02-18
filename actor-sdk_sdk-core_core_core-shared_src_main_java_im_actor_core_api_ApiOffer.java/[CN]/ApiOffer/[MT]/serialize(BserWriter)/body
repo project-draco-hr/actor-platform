@@ -4,4 +4,7 @@
     throw new IOException();
   }
   writer.writeString(2,this.sdp);
+  if (this.ownPeerSettings != null) {
+    writer.writeObject(3,this.ownPeerSettings);
+  }
 }

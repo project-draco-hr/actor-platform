@@ -49,6 +49,13 @@
     }
     onUnmute();
   }
+ else   if (message instanceof DoUnsilence) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    onUnsilence();
+  }
  else {
     super.onReceive(message);
   }

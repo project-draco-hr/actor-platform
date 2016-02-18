@@ -1,0 +1,14 @@
+{
+  if (this.is3DESSupported != null) {
+    writer.writeBool(1,this.is3DESSupported);
+  }
+  if (this.isMobile != null) {
+    writer.writeBool(2,this.isMobile);
+  }
+  if (this.canBeAudioRelay != null) {
+    writer.writeBool(3,this.canBeAudioRelay);
+  }
+  if (this.canConnect != null) {
+    writer.writeBool(4,this.canConnect);
+  }
+}

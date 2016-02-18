@@ -1,9 +1,0 @@
-{
-  writer.writeLong(1,this.device);
-  if (this.isConnecting != null) {
-    writer.writeBool(2,this.isConnecting);
-  }
-  if (this.isConnected != null) {
-    writer.writeBool(3,this.isConnected);
-  }
-}

@@ -1,0 +1,6 @@
+{
+  String res="struct NeedDisconnect{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

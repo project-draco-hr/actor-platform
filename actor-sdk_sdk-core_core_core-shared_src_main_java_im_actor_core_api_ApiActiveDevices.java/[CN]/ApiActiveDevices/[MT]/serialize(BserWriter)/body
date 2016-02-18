@@ -1,3 +1,0 @@
-{
-  writer.writeRepeatedObj(2,this.users);
-}

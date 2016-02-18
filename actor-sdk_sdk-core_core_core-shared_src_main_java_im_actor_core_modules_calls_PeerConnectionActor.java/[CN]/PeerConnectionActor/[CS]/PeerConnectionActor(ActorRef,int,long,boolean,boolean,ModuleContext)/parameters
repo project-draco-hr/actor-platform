@@ -1,0 +1,6 @@
+ActorRef root
+int uid
+long deviceId
+boolean isMuted
+boolean isSilentMode
+ModuleContext context

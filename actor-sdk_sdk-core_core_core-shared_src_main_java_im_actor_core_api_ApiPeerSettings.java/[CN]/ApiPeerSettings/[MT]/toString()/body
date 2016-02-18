@@ -1,0 +1,8 @@
+{
+  String res="struct PeerSettings{";
+  res+="is3DESSupported=" + this.is3DESSupported;
+  res+=", isMobile=" + this.isMobile;
+  res+=", canBeAudioRelay=" + this.canBeAudioRelay;
+  res+="}";
+  return res;
+}

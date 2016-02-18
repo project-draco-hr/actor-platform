@@ -6,7 +6,7 @@
   if (!connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).isEmpty()) {
     return false;
   }
-  connectedDevices.add(new MasterCallDevice(uid,deviceId,false));
+  connectedDevices.add(new MasterCallDevice(uid,deviceId));
   if (member.getState() == MasterCallMemberState.RINGING) {
     member.setState(MasterCallMemberState.RINGING_REACHED);
   }

@@ -2,6 +2,7 @@
   String res="struct Offer{";
   res+="sessionId=" + this.sessionId;
   res+=", sdp=" + this.sdp;
+  res+=", ownPeerSettings=" + this.ownPeerSettings;
   res+="}";
   return res;
 }

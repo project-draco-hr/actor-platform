@@ -1,8 +1,0 @@
-{
-  String res="struct ConnectedDevice{";
-  res+="device=" + this.device;
-  res+=", isConnecting=" + this.isConnecting;
-  res+=", isConnected=" + this.isConnected;
-  res+="}";
-  return res;
-}

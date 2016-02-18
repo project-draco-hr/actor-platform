@@ -1,0 +1,13 @@
+{
+  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
+  if (device == null) {
+    return false;
+  }
+switch (device.getDeviceState()) {
+case SILENCED:
+case CONNECTING_SILENCED:
+    return true;
+default :
+  return false;
+}
+}

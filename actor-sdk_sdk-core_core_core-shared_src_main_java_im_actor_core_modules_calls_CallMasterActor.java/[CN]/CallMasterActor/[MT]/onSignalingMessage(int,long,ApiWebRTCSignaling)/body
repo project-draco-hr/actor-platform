@@ -5,6 +5,9 @@
  else   if (signaling instanceof ApiRejectCall) {
     onDeviceRejected(fromUid,fromDeviceId);
   }
+ else   if (signaling instanceof ApiAdvertiseSelf) {
+    onDeviceAdvertised(fromUid,fromDeviceId,((ApiAdvertiseSelf)signaling).getPeerSettings());
+  }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);
   }

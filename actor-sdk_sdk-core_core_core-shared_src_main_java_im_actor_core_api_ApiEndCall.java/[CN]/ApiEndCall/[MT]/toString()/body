@@ -1,5 +1,0 @@
-{
-  String res="struct EndCall{";
-  res+="}";
-  return res;
-}

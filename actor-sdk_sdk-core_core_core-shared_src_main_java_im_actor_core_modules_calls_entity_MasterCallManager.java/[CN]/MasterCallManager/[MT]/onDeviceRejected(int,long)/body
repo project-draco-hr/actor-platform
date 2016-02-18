@@ -7,14 +7,16 @@
   if (member == null) {
     return false;
   }
-  if (device.isActive()) {
+switch (device.getDeviceState()) {
+case IN_PROGRESS:
+case CONNECTING:
     return false;
-  }
+}
 switch (member.getState()) {
 case RINGING_REACHED:
 case RINGING:
-    member.setState(MasterCallMemberState.ENDED);
-  break;
+  member.setState(MasterCallMemberState.ENDED);
+break;
 }
 return true;
 }

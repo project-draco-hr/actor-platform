@@ -1,0 +1,8 @@
+{
+  isSilented=false;
+  for (  WebRTCMediaStream s : silencedStreams) {
+    s.setEnabled(true);
+  }
+  silencedStreams.clear();
+  setEnabled(stream);
+}

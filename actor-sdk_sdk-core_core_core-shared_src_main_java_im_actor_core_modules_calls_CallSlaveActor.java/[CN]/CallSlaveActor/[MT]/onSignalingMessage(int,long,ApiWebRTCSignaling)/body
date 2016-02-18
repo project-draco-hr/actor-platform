@@ -1,7 +1,7 @@
 {
   if (signaling instanceof ApiNeedOffer) {
     ApiNeedOffer needOffer=(ApiNeedOffer)signaling;
-    onNeedOffer(needOffer.getUid(),needOffer.getDevice());
+    onNeedOffer(needOffer.getUid(),needOffer.getDevice(),needOffer.isSilent(),needOffer.getPeerSettings());
   }
  else   if (signaling instanceof ApiSwitchMaster) {
     onMasterNodeChanged(fromUid,fromDeviceId);

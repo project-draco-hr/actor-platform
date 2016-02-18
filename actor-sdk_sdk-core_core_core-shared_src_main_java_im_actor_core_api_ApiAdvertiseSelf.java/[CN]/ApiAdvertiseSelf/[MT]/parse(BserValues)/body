@@ -1,0 +1,3 @@
+{
+  this.peerSettings=values.optObj(1,new ApiPeerSettings());
+}

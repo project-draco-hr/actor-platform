@@ -1,0 +1,5 @@
+{
+  this.sessionId=sessionId;
+  this.sdp=sdp;
+  this.ownPeerSettings=ownPeerSettings;
+}

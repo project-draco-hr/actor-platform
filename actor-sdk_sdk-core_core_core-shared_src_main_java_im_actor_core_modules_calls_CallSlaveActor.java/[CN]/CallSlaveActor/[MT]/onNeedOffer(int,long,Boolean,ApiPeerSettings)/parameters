@@ -1,0 +1,4 @@
+int destUid
+long destDeviceId
+Boolean isSilent
+ApiPeerSettings peerSettings
