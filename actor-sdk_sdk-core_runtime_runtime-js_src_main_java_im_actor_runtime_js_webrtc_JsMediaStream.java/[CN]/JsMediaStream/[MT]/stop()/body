@@ -1,0 +1,6 @@
+{
+  JsArray<JsMediaStreamTrack> tracks=getTracks();
+  for (int i=0; i < tracks.length(); i++) {
+    tracks.get(i).stop();
+  }
+}
