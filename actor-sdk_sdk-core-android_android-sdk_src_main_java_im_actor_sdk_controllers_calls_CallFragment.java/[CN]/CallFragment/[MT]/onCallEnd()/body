@@ -1,4 +1,5 @@
 {
+  audioManager.setSpeakerphoneOn(false);
   vibrate=false;
   if (ringtone != null) {
     ringtone.stop();

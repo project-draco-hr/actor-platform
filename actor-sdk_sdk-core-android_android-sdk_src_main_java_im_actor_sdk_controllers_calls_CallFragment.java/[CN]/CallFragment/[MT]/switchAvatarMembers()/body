@@ -1,0 +1,12 @@
+{
+  if (peer.getPeerType() == PeerType.GROUP) {
+    if (avatarView.getVisibility() == View.VISIBLE) {
+      hideView(avatarView);
+      showView(membersList);
+    }
+ else {
+      hideView(membersList);
+      showView(avatarView);
+    }
+  }
+}

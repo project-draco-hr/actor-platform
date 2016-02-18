@@ -13,7 +13,9 @@
         if (getActivity() != null) {
           getActivity().runOnUiThread(new Runnable(){
             @Override public void run(){
-              timerTV.setText(formatter.format(new Date(timeFromRegister)));
+              if (currentState == CallState.IN_PROGRESS) {
+                statusTV.setText(formatter.format(new Date(timeFromRegister)));
+              }
             }
           }
 );

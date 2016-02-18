@@ -11,7 +11,7 @@
   }
 );
   ImageButton notAnswer=(ImageButton)cont.findViewById(R.id.notAnswer);
-  ImageButton endCall=(ImageButton)cont.findViewById(R.id.end_call);
+  endCall=(ImageButton)cont.findViewById(R.id.end_call);
   notAnswer.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       doEndCall();
@@ -24,45 +24,110 @@
     }
   }
 );
-  CoverAvatarView avatarView=(CoverAvatarView)cont.findViewById(R.id.avatar);
-  avatarView.setBkgrnd((ImageView)cont.findViewById(R.id.avatar_bgrnd));
+  avatarView=(AvatarView)cont.findViewById(R.id.avatar);
+  avatarView.init(Screen.dp(130),50);
   TextView nameTV=(TextView)cont.findViewById(R.id.name);
-  nameTV.setTextColor(ActorSDK.sharedActor().style.getProfileTitleColor());
+  nameTV.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   if (peer.getPeerType() == PeerType.PRIVATE) {
     UserVM user=users().get(peer.getPeerId());
-    bind(avatarView,user.getAvatar());
+    avatarView.bind(user);
     bind(nameTV,user.getName());
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     GroupVM g=groups().get(peer.getPeerId());
-    bind(avatarView,g.getAvatar());
+    avatarView.bind(g);
     bind(nameTV,g.getName());
   }
-  ListView membersList=(ListView)cont.findViewById(R.id.members_list);
+  membersList=(ListView)cont.findViewById(R.id.members_list);
   CallMembersAdapter membersAdapter=new CallMembersAdapter(getActivity(),call.getMembers());
   membersList.setAdapter(membersAdapter);
-  timerTV=(TextView)cont.findViewById(R.id.timer);
-  timerTV.setTextColor(ActorSDK.sharedActor().style.getProfileSubtitleColor());
-  if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
-    Log.d("Permissions","call - no permission :c");
-    CallFragment.this.requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.VIBRATE,Manifest.permission.WAKE_LOCK},PERMISSIONS_REQUEST_FOR_CALL);
+  View.OnClickListener listener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      switchAvatarMembers();
+    }
   }
+;
+  avatarView.setOnClickListener(listener);
+  cont.findViewById(R.id.background).setOnClickListener(listener);
+  membersList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      switchAvatarMembers();
+    }
+  }
+);
+  statusTV=(TextView)cont.findViewById(R.id.status);
+  statusTV.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.MODIFY_AUDIO_SETTINGS) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
+    Log.d("Permissions","call - no permission :c");
+    CallFragment.this.requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.VIBRATE,Manifest.permission.MODIFY_AUDIO_SETTINGS,Manifest.permission.WAKE_LOCK},PERMISSIONS_REQUEST_FOR_CALL);
+  }
+  audioManager=(AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
+  final TintImageView speaker=(TintImageView)cont.findViewById(R.id.speaker);
+  speaker.setResource(R.drawable.ic_volume_up_white_36dp);
+  speaker.setTint(getResources().getColor(R.color.primary));
+  speaker.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      speakerOn=!speakerOn;
+      audioManager.setSpeakerphoneOn(speakerOn);
+      if (speakerOn) {
+        speaker.setBackgroundResource(R.drawable.call_action_background_active);
+        speaker.setTint(Color.WHITE);
+      }
+ else {
+        speaker.setBackgroundResource(R.drawable.call_action_background);
+        speaker.setTint(getResources().getColor(R.color.primary));
+      }
+    }
+  }
+);
+  final TintImageView muteCall=(TintImageView)cont.findViewById(R.id.mute);
+  muteCall.setResource(R.drawable.ic_mic_off_white_36dp);
+  muteCall.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      messenger().toggleCallMute(callId);
+    }
+  }
+);
+  call.getIsMuted().subscribe(new ValueChangedListener<Boolean>(){
+    @Override public void onChanged(    Boolean val,    Value<Boolean> valueModel){
+      if (val) {
+        muteCall.setBackgroundResource(R.drawable.call_action_background_active);
+        muteCall.setTint(Color.WHITE);
+      }
+ else {
+        muteCall.setBackgroundResource(R.drawable.call_action_background);
+        muteCall.setTint(getResources().getColor(R.color.primary));
+      }
+    }
+  }
+);
   call.getState().subscribe(new ValueChangedListener<CallState>(){
     @Override public void onChanged(    CallState val,    Value<CallState> valueModel){
+      if (currentState != val) {
+        currentState=val;
 switch (val) {
-case ENDED:
-        onCallEnd();
+case CALLING:
+          if (call.isOutgoing()) {
+            statusTV.setText(R.string.call_outgoing);
+          }
+ else {
+            statusTV.setText(R.string.call_incoming);
+            initIncoming();
+          }
+        enableWakeLock();
       break;
+case CONNECTING:
+    statusTV.setText(R.string.call_connecting);
+  break;
 case IN_PROGRESS:
-    onConnected();
-  startTimer();
+onConnected();
+startTimer();
 break;
-case CALLING_INCOMING:
-initIncoming();
+case ENDED:
+statusTV.setText(R.string.call_ended);
+onCallEnd();
 break;
-case CALLING_OUTGOING:
-onConnecting();
-break;
+}
 }
 }
 }

@@ -1,5 +1,5 @@
 {
-  if (avatar != null && avatar.getSmallImage() != null && avatar.getSmallImage().getFileReference().getFileId() == currentId) {
+  if (avatar != null && getImage(avatar) != null && getImage(avatar).getFileReference().getFileId() == currentId) {
     return;
   }
   getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext()));
@@ -8,12 +8,12 @@
     bindedFile=null;
   }
   setImageURI(null);
-  if (avatar == null || avatar.getSmallImage() == null) {
+  if (avatar == null || getImage(avatar) == null) {
     currentId=0;
     return;
   }
-  currentId=avatar.getSmallImage().getFileReference().getFileId();
-  bindedFile=messenger().bindFile(avatar.getSmallImage().getFileReference(),true,new FileVMCallback(){
+  currentId=getImage(avatar).getFileReference().getFileId();
+  bindedFile=messenger().bindFile(getImage(avatar).getFileReference(),true,new FileVMCallback(){
     @Override public void onNotDownloaded(){
     }
     @Override public void onDownloading(    float progress){

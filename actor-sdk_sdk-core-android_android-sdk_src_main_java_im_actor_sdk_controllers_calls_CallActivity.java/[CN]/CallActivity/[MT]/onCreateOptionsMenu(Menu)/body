@@ -1,0 +1,7 @@
+{
+  getMenuInflater().inflate(R.menu.call_menu,menu);
+  if (messenger().getCall(callId).getPeer().getPeerType() != PeerType.GROUP) {
+    menu.findItem(R.id.members).setVisible(false);
+  }
+  return super.onCreateOptionsMenu(menu);
+}

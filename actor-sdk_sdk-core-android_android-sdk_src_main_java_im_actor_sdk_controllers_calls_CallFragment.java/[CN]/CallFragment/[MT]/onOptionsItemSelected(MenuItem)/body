@@ -1,0 +1,6 @@
+{
+  if (item.getItemId() == R.id.members) {
+    switchAvatarMembers();
+  }
+  return super.onOptionsItemSelected(item);
+}
