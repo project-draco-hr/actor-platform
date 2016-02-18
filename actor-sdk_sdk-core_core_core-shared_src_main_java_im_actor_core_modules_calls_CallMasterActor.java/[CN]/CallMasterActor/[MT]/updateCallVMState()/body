@@ -1,0 +1,18 @@
+{
+  Log.d(TAG,"Call State:\n" + state);
+  if (callVM.getState().get() == CallState.ENDED) {
+    return;
+  }
+  if (state.getConnectedMembers().isAll(MasterCallMember.IS_ENDED)) {
+    callVM.getState().change(CallState.ENDED);
+    return;
+  }
+  if (state.getConnectedMembers().isAny(MasterCallMember.IS_IN_PROGRESS)) {
+    callVM.getState().change(CallState.IN_PROGRESS);
+    return;
+  }
+  if (state.getConnectedMembers().isAny(MasterCallMember.IS_CONNECTING)) {
+    callVM.getState().change(CallState.CONNECTING);
+    return;
+  }
+}

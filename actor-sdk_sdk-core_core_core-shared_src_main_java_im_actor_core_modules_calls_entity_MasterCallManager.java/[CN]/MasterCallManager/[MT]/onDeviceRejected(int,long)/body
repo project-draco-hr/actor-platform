@@ -1,0 +1,20 @@
+{
+  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
+  if (device == null) {
+    return false;
+  }
+  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
+  if (member == null) {
+    return false;
+  }
+  if (device.isActive()) {
+    return false;
+  }
+switch (member.getState()) {
+case RINGING_REACHED:
+case RINGING:
+    member.setState(MasterCallMemberState.ENDED);
+  break;
+}
+return true;
+}

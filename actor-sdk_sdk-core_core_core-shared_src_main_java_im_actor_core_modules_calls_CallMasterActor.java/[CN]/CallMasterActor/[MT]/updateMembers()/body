@@ -1,20 +1,26 @@
 {
   ArrayList<im.actor.core.viewmodel.CallMember> callMembers=new ArrayList<>();
-  for (  CallMember m : members) {
-    im.actor.core.viewmodel.CallMemberState state;
-switch (m.getState()) {
-case RINGING:
-      state=im.actor.core.viewmodel.CallMemberState.CALLING;
+  for (  MasterCallMember callMember : state.getConnectedMembers()) {
+    CallMemberState callMemberState;
+switch (callMember.getState()) {
+case RINGING_REACHED:
+      callMemberState=CallMemberState.RINGING_REACHED;
     break;
-case CONNECTED:
-  state=im.actor.core.viewmodel.CallMemberState.IN_PROGRESS;
+case RINGING:
+  callMemberState=CallMemberState.RINGING;
 break;
 case CONNECTING:
+callMemberState=CallMemberState.CONNECTING;
+break;
+case IN_PROGRESS:
+callMemberState=CallMemberState.IN_PROGRESS;
+break;
 default :
-state=im.actor.core.viewmodel.CallMemberState.CALLING_REACHED;
+case ENDED:
+callMemberState=CallMemberState.ENDED;
+break;
 }
-callMembers.add(new im.actor.core.viewmodel.CallMember(m.getUid(),state));
+callMembers.add(new CallMember(callMember.getUid(),callMemberState));
 }
 callVM.getMembers().change(callMembers);
-sendSignalingMessage(createMembersChanged());
 }

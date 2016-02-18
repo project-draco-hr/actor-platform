@@ -1,0 +1,24 @@
+{
+  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
+  if (member == null) {
+    return false;
+  }
+  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
+  if (device == null) {
+    return false;
+  }
+  connectedDevices.remove(device);
+  if (device.isActive()) {
+    boolean isConnected=false;
+    for (    MasterCallDevice m : connectedDevices.filter(MasterCallDevice.PREDICATE(uid))) {
+      if (m.isActive()) {
+        isConnected=true;
+        break;
+      }
+    }
+    if (!isConnected) {
+      member.setState(MasterCallMemberState.ENDED);
+    }
+  }
+  return true;
+}

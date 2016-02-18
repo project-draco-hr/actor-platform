@@ -1,0 +1,5 @@
+long callId
+Peer peer
+boolean isOutgoing
+ArrayList<CallMember> initialMembers
+CallState state

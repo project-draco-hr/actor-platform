@@ -1,7 +1,0 @@
-{
-  CallVM callVM=new CallVM(callId,peer,members,callState);
-synchronized (callModels) {
-    callModels.put(callId,callVM);
-  }
-  return callVM;
-}

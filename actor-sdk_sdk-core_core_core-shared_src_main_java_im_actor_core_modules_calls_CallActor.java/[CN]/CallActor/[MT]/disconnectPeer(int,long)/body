@@ -1,0 +1,11 @@
+{
+  HashMap<Long,ActorRef> deviceRefs=peerConnections.get(uid);
+  if (deviceRefs == null) {
+    return;
+  }
+  ActorRef ref=deviceRefs.get(deviceId);
+  if (ref == null) {
+    return;
+  }
+  ref.send(new PeerConnectionActor.DoStop());
+}

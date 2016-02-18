@@ -1,7 +1,7 @@
 {
-  if (!isAnswered) {
-    isAnswered=true;
-    callVM.getState().change(CallState.IN_PROGRESS);
+  if (state.onDeviceStreamAdded(uid,deviceId)) {
     callManager.send(new CallManagerActor.OnCallAnswered(callId));
+    updateCallVMState();
+    updateMembers();
   }
 }

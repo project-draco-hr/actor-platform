@@ -5,11 +5,11 @@
   }
   String state;
 switch (model.getState().get()) {
-case CALLING_INCOMING:
-    state="calling_in";
+case CALLING:
+    state="calling";
   break;
-case CALLING_OUTGOING:
-state="calling_out";
+case CONNECTING:
+state="connecting";
 break;
 case IN_PROGRESS:
 state="in_progress";
@@ -19,5 +19,5 @@ case ENDED:
 state="ended";
 break;
 }
-return create(JsPeer.create(model.getPeer()),members,state);
+return create(JsPeer.create(model.getPeer()),model.isOutgoing(),members,state);
 }

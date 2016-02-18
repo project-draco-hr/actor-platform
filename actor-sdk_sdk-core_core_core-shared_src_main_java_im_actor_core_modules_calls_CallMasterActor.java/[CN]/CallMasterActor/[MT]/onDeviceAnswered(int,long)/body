@@ -1,0 +1,10 @@
+{
+  if (state.onDeviceAnswered(uid,deviceId)) {
+    getPeer(uid,deviceId).send(new PeerConnectionActor.OnOfferNeeded());
+    for (    MasterCallDevice device : state.getConnectedDevices()) {
+      sendSignalingMessage(device.getUid(),device.getDeviceId(),new ApiNeedOffer(uid,deviceId));
+    }
+    updateCallVMState();
+    updateMembers();
+  }
+}

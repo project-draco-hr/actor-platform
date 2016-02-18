@@ -1,9 +1,9 @@
 {
   if (signaling instanceof ApiAnswerCall) {
-    onCallAnswered(fromUid,fromDeviceId);
+    onDeviceAnswered(fromUid,fromDeviceId);
   }
  else   if (signaling instanceof ApiRejectCall) {
-    onCallRejected(fromUid,fromDeviceId);
+    onDeviceRejected(fromUid,fromDeviceId);
   }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);

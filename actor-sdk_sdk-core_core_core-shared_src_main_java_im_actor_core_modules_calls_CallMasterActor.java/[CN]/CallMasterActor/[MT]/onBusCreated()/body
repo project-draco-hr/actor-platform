@@ -1,18 +1,19 @@
 {
   api(new RequestDoCall(buidOutPeer(peer),getBusId())).then(new Consumer<ResponseDoCall>(){
     @Override public void apply(    ResponseDoCall responseDoCall){
+      state=new MasterCallManager();
       if (peer.getPeerType() == PeerType.GROUP) {
-        members=ManagedList.of(getGroup(peer.getPeerId()).getMembers()).filter(new Predicate<GroupMember>(){
-          @Override public boolean apply(          GroupMember groupMember){
-            return groupMember.getUid() != myUid();
+        for (        GroupMember gm : getGroup(peer.getPeerId()).getMembers()) {
+          if (gm.getUid() != myUid()) {
+            state.addMember(gm.getUid(),MasterCallMemberState.RINGING);
           }
         }
-).map(MasterCallMember.FROM_MEMBER);
       }
  else       if (peer.getPeerType() == PeerType.PRIVATE) {
-        members=ManagedList.of(new MasterCallMember(peer.getPeerId(),CallMemberState.RINGING));
+        state.addMember(peer.getPeerId(),MasterCallMemberState.RINGING);
       }
  else {
+        throw new RuntimeException("Unsupported Peer Type group");
       }
       callId=responseDoCall.getCallId();
       callVM=spanNewOutgoingVM(responseDoCall.getCallId(),peer);

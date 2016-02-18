@@ -1,12 +1,7 @@
 {
-  MasterCallMember member=members.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
-  if (member == null) {
-    return;
+  if (state.onDeviceConnected(uid,deviceId)) {
+    sendSignalingMessage(uid,deviceId,new ApiSwitchMaster());
+    updateCallVMState();
+    updateMembers();
   }
-  member.getDeviceId().add(deviceId);
-  if (member.getState() == CallMemberState.RINGING) {
-    member.setState(CallMemberState.CONNECTING);
-  }
-  sendSignalingMessage(uid,deviceId,new ApiSwitchMaster());
-  updateMembers();
 }
