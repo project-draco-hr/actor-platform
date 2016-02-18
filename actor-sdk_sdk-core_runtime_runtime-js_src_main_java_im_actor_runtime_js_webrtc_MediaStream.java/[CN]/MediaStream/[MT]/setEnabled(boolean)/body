@@ -1,8 +1,16 @@
 {
-  if (isEnabled) {
-    audio.play();
+  if (audio != null) {
+    if (isEnabled) {
+      audio.play();
+    }
+ else {
+      audio.pause();
+    }
+  }
+  if (!isEnabled) {
+    stream.stopAll();
   }
  else {
-    audio.pause();
+    stream.startAll();
   }
 }

@@ -1,5 +1,10 @@
 {
   super.onBusStopped();
-  callVM.getState().change(CallState.ENDED);
-  callManager.send(new CallManagerActor.OnCallEnded(callId));
+  if (callback != null) {
+    callback.onError(new RuntimeException("Internal Error"));
+  }
+  if (callVM != null) {
+    callVM.getState().change(CallState.ENDED);
+    callManager.send(new CallManagerActor.OnCallEnded(callId));
+  }
 }

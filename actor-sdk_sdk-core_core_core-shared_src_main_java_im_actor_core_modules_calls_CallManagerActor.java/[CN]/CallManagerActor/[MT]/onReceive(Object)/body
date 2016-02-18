@@ -7,11 +7,11 @@
     OnIncomingCallHandled incomingCallHandled=(OnIncomingCallHandled)message;
     onIncomingCallHandled(incomingCallHandled.getCallId());
   }
- else   if (message instanceof AnswerCall) {
-    doAnswerCall(((AnswerCall)message).getCallId());
+ else   if (message instanceof DoAnswerCall) {
+    doAnswerCall(((DoAnswerCall)message).getCallId());
   }
- else   if (message instanceof EndCall) {
-    doEndCall(((EndCall)message).getCallId());
+ else   if (message instanceof DoEndCall) {
+    doEndCall(((DoEndCall)message).getCallId());
   }
  else   if (message instanceof OnCallEnded) {
     onCallEnded(((OnCallEnded)message).getCallId());

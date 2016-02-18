@@ -1,7 +1,4 @@
 {
   masterNode=new MasterNode(fromUid,fromDeviceId);
-  if (isAnswerPending) {
-    isAnswerPending=false;
-    sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiAnswerCall());
-  }
+  callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
 }

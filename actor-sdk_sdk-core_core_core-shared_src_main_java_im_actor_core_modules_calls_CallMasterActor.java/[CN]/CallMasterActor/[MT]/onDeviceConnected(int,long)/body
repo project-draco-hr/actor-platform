@@ -1,15 +1,12 @@
 {
+  MasterCallMember member=members.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
+  if (member == null) {
+    return;
+  }
+  member.getDeviceId().add(deviceId);
+  if (member.getState() == CallMemberState.RINGING) {
+    member.setState(CallMemberState.CONNECTING);
+  }
   sendSignalingMessage(uid,deviceId,new ApiSwitchMaster());
-  boolean found=false;
-  for (  CallMember m : members) {
-    if (m.getUid() == uid) {
-      m.setState(CallMemberState.CONNECTING);
-      found=true;
-      break;
-    }
-  }
-  if (!found) {
-    members.add(new CallMember(uid,CallMemberState.CONNECTING));
-  }
-  sendSignalingMessage(createMembersChanged());
+  updateMembers();
 }

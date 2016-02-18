@@ -1,0 +1,8 @@
+{
+  return new Predicate<MasterCallMember>(){
+    @Override public boolean apply(    MasterCallMember masterCallMember){
+      return masterCallMember.getUid() == uid;
+    }
+  }
+;
+}

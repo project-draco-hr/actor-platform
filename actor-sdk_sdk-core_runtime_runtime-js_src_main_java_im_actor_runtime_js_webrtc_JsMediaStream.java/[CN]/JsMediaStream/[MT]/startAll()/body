@@ -1,6 +1,6 @@
 {
   JsArray<JsMediaStreamTrack> tracks=getTracks();
   for (int i=0; i < tracks.length(); i++) {
-    tracks.get(i).setEnabled(false);
+    tracks.get(i).setEnabled(true);
   }
 }

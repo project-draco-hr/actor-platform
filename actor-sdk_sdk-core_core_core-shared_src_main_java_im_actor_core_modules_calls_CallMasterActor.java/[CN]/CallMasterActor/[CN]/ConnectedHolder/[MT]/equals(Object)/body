@@ -1,7 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  ConnectedHolder that=(ConnectedHolder)o;
-  if (uid != that.uid)   return false;
-  return deviceId == that.deviceId;
-}

@@ -1,0 +1,15 @@
+{
+  MasterCallMember callMember=members.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
+  if (callMember == null) {
+    return;
+  }
+  getPeer(uid,deviceId).send(new PeerConnectionActor.OnOfferNeeded());
+  for (  MasterCallMember member : members) {
+    for (    long devId : member.getDeviceId()) {
+      sendSignalingMessage(member.getUid(),devId,new ApiNeedOffer(uid,deviceId));
+    }
+  }
+  callMember.getDeviceId().add(deviceId);
+  callMember.setState(CallMemberState.CONNECTED);
+  updateMembers();
+}

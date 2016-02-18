@@ -1,21 +1,9 @@
 {
   if (signaling instanceof ApiAnswerCall) {
-    ConnectedHolder connectedHolder=new ConnectedHolder(fromUid,fromDeviceId);
-    if (connectedDevices.contains(connectedHolder)) {
-      return;
-    }
-    getPeer(fromUid,fromDeviceId).send(new PeerConnectionActor.OnOfferNeeded());
-    for (    ConnectedHolder c : connectedDevices) {
-      sendSignalingMessage(c.uid,c.deviceId,new ApiNeedOffer(fromUid,fromDeviceId));
-    }
-    connectedDevices.add(connectedHolder);
-    for (    CallMember m : members) {
-      if (m.getUid() == fromUid) {
-        m.setState(CallMemberState.CONNECTED);
-        break;
-      }
-    }
-    sendSignalingMessage(createMembersChanged());
+    onCallAnswered(fromUid,fromDeviceId);
+  }
+ else   if (signaling instanceof ApiRejectCall) {
+    onCallRejected(fromUid,fromDeviceId);
   }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);

@@ -1,9 +1,4 @@
 {
   callVM.getState().change(CallState.CONNECTING);
-  if (masterNode == null) {
-    isAnswerPending=true;
-  }
- else {
-    sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiAnswerCall());
-  }
+  sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiAnswerCall());
 }

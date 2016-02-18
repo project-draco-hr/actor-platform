@@ -1,0 +1,15 @@
+{
+  MasterCallMember callMember=members.filter(MasterCallMember.PREDICATE(uid,deviceId)).firstOrNull();
+  if (callMember == null) {
+    return;
+  }
+  callMember.getDeviceId().remove(deviceId);
+  if (callMember.getDeviceId().size() == 0) {
+    members.remove(callMember);
+  }
+  if (members.isEmpty()) {
+    shutdown();
+    return;
+  }
+  updateMembers();
+}

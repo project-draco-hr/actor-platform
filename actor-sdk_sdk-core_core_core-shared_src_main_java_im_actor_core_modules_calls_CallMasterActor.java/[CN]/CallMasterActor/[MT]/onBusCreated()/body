@@ -1,6 +1,19 @@
 {
   api(new RequestDoCall(buidOutPeer(peer),getBusId())).then(new Consumer<ResponseDoCall>(){
     @Override public void apply(    ResponseDoCall responseDoCall){
+      if (peer.getPeerType() == PeerType.GROUP) {
+        members=ManagedList.of(getGroup(peer.getPeerId()).getMembers()).filter(new Predicate<GroupMember>(){
+          @Override public boolean apply(          GroupMember groupMember){
+            return groupMember.getUid() != myUid();
+          }
+        }
+).map(MasterCallMember.FROM_MEMBER);
+      }
+ else       if (peer.getPeerType() == PeerType.PRIVATE) {
+        members=ManagedList.of(new MasterCallMember(peer.getPeerId(),CallMemberState.RINGING));
+      }
+ else {
+      }
       callId=responseDoCall.getCallId();
       callVM=spanNewOutgoingVM(responseDoCall.getCallId(),peer);
       callVM.getIsMuted().change(isMuted());
