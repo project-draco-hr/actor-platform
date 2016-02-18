@@ -22,6 +22,12 @@
     PeerConnectionActor.OnStreamRemoved streamRemoved=(PeerConnectionActor.OnStreamRemoved)message;
     onStreamRemoved(streamRemoved.getUid(),streamRemoved.getDeviceId(),streamRemoved.getStream());
   }
+ else   if (message instanceof Mute) {
+    onMute();
+  }
+ else   if (message instanceof Unmute) {
+    onUnmute();
+  }
  else {
     super.onReceive(message);
   }

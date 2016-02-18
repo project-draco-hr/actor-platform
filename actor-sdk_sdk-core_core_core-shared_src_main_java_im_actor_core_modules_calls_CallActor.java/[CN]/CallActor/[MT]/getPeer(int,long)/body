@@ -6,7 +6,7 @@
   if (refs.containsKey(deviceId)) {
     return refs.get(deviceId);
   }
-  ActorRef ref=system().actorOf(getPath() + "/uid:" + uid+ "/"+ deviceId,PeerConnectionActor.CONSTRUCTOR(self(),uid,deviceId,context()));
+  ActorRef ref=system().actorOf(getPath() + "/uid:" + uid+ "/"+ deviceId,PeerConnectionActor.CONSTRUCTOR(self(),uid,deviceId,isMuted,context()));
   refs.put(deviceId,ref);
   return ref;
 }

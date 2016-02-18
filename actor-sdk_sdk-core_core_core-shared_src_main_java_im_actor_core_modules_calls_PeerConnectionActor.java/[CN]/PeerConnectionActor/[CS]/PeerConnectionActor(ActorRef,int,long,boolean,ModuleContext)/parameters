@@ -1,4 +1,5 @@
 ActorRef root
 int uid
 long deviceId
+boolean isMuted
 ModuleContext context

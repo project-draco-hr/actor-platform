@@ -35,6 +35,20 @@
     }
     onEnded();
   }
+ else   if (message instanceof DoMute) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    onMute();
+  }
+ else   if (message instanceof DoUnmute) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    onUnmute();
+  }
  else {
     super.onReceive(message);
   }
