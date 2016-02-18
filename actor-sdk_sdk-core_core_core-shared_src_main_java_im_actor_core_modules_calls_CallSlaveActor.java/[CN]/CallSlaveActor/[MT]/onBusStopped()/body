@@ -1,5 +1,7 @@
 {
   super.onBusStopped();
-  callVM.getState().change(CallState.ENDED);
+  if (callVM != null) {
+    callVM.getState().change(CallState.ENDED);
+  }
   callManager.send(new CallManagerActor.OnCallEnded(callId));
 }
