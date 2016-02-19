@@ -1,8 +1,5 @@
 {
   super.doEndCall();
-  if (callVM != null) {
-    callVM.getState().change(CallState.ENDED);
-  }
   if (masterNode != null) {
     sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiRejectCall());
   }
