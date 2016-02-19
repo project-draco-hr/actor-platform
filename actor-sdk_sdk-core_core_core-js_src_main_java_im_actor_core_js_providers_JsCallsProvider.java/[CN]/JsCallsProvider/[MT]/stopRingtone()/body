@@ -1,0 +1,6 @@
+{
+  if (callRingtone != null) {
+    callRingtone.pause();
+    callRingtone.setCurrentTime(0);
+  }
+}

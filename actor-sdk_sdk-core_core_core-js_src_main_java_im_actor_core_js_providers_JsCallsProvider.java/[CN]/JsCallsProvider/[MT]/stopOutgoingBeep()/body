@@ -1,6 +1,6 @@
 {
   if (callBeep != null) {
     callBeep.pause();
-    callBeep.setSrc(null);
+    callBeep.setCurrentTime(0);
   }
 }

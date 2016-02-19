@@ -1,4 +1,4 @@
 {
   JsMessenger.getInstance().broadcastEvent("calls",callEvent("" + callId,"ended"));
-  JsMessenger.getInstance().broadcastEvent("call",callEvent("" + callId,"ended"));
+  stopRingtone();
 }
