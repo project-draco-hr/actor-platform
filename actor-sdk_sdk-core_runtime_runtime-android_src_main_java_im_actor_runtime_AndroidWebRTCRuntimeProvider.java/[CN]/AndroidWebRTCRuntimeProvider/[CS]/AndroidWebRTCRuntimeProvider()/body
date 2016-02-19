@@ -1,4 +1,0 @@
-{
-  PeerConnectionFactory.initializeAndroidGlobals(ActorSDK.sharedActor().getMessenger().getContext(),true,true,true);
-  factory=new PeerConnectionFactory();
-}

@@ -1,6 +1,0 @@
-{
-  if (rtcRuntime == null) {
-    return Promises.failure(new RuntimeException("WebRTC Runtime not set"));
-  }
-  return rtcRuntime.createPeerConnection();
-}

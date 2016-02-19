@@ -1,0 +1,4 @@
+{
+  this.is3DESEnabled=is3DESEnabled;
+  this.isDataChannelsEnabled=isDataChannelsEnabled;
+}

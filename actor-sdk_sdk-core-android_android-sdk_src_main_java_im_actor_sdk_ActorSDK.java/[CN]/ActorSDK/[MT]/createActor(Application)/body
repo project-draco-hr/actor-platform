@@ -7,6 +7,9 @@
   for (  String s : endpoints) {
     builder.addEndpoint(s);
   }
+  for (  WebRTCIceServer s : webRTCIceServers) {
+    builder.addWebRTCServer(s.getUrl(),s.getCredential(),s.getCredential());
+  }
   for (  String t : trustedKeys) {
     builder.addTrustedKey(t);
   }

@@ -25,6 +25,9 @@
   for (  String endpoint : endpoints) {
     configuration.addEndpoint(endpoint);
   }
+  for (  WebRTCIceServer iceServer : webRTCIceServers) {
+    configuration.addWebRTCServer(iceServer.getUrl(),iceServer.getUsername(),iceServer.getCredential());
+  }
   messenger=new JsMessenger(configuration.build());
   Log.d(TAG,"JsMessenger created");
 }

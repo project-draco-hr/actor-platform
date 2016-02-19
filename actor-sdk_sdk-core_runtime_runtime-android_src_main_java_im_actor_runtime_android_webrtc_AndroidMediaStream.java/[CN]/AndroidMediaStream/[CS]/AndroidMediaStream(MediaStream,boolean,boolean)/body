@@ -1,0 +1,13 @@
+{
+  this.local=local;
+  this.stream=stream;
+  if (!local) {
+    audioTrack=stream.audioTracks.get(0);
+  }
+ else {
+    AudioSource audioSource=AndroidWebRTCRuntimeProvider.FACTORY.createAudioSource(new MediaConstraints());
+    audioTrack=AndroidWebRTCRuntimeProvider.FACTORY.createAudioTrack("ARDAMSa0",audioSource);
+    stream.addTrack(audioTrack);
+  }
+  setEnabled(autoPlay);
+}
