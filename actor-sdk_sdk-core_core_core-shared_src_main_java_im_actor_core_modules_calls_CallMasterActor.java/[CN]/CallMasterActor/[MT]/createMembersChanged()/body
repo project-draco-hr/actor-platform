@@ -1,4 +1,0 @@
-{
-  ArrayList<ApiCallMember> callMembers=new ArrayList<>();
-  return new ApiMembersChanged(callMembers);
-}

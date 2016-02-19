@@ -23,4 +23,5 @@ break;
 callMembers.add(new CallMember(callMember.getUid(),callMemberState));
 }
 callVM.getMembers().change(callMembers);
+sendSignalingMessage(buildMembersList());
 }

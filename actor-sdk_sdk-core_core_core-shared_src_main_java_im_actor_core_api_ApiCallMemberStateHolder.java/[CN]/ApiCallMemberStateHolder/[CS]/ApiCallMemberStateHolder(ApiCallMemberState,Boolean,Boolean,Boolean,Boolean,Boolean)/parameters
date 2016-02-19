@@ -2,3 +2,5 @@ ApiCallMemberState state
 Boolean fallbackIsRinging
 Boolean fallbackIsConnected
 Boolean fallbackIsConnecting
+Boolean fallbackIsRingingReached
+Boolean fallbackIsEnded

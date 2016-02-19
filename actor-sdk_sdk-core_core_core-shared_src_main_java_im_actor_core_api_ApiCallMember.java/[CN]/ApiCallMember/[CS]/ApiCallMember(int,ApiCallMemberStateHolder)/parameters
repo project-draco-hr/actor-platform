@@ -1,3 +1,2 @@
 int userId
-long deviceId
 ApiCallMemberStateHolder state

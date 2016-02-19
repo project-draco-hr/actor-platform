@@ -6,6 +6,9 @@
  else   if (signaling instanceof ApiSwitchMaster) {
     onMasterNodeChanged(fromUid,fromDeviceId);
   }
+ else   if (signaling instanceof ApiMembersChanged) {
+    onMembersChanged(((ApiMembersChanged)signaling).getAllMembers());
+  }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);
   }

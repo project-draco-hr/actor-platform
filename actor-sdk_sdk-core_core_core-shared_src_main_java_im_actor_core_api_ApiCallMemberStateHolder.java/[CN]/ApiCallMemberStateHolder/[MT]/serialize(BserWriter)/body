@@ -12,4 +12,10 @@
   if (this.fallbackIsConnecting != null) {
     writer.writeBool(4,this.fallbackIsConnecting);
   }
+  if (this.fallbackIsRingingReached != null) {
+    writer.writeBool(5,this.fallbackIsRingingReached);
+  }
+  if (this.fallbackIsEnded != null) {
+    writer.writeBool(6,this.fallbackIsEnded);
+  }
 }

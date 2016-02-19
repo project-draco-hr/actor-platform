@@ -1,4 +1,4 @@
 {
-  this.uid=uid;
+  this.userId=userId;
   this.state=state;
 }

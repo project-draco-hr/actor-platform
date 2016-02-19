@@ -4,6 +4,8 @@
   res+=", fallbackIsRinging=" + this.fallbackIsRinging;
   res+=", fallbackIsConnected=" + this.fallbackIsConnected;
   res+=", fallbackIsConnecting=" + this.fallbackIsConnecting;
+  res+=", fallbackIsRingingReached=" + this.fallbackIsRingingReached;
+  res+=", fallbackIsEnded=" + this.fallbackIsEnded;
   res+="}";
   return res;
 }

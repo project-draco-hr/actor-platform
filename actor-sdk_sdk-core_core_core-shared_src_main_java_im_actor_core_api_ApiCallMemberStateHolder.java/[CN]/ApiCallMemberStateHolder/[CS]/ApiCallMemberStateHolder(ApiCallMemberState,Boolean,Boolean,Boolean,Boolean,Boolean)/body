@@ -3,4 +3,6 @@
   this.fallbackIsRinging=fallbackIsRinging;
   this.fallbackIsConnected=fallbackIsConnected;
   this.fallbackIsConnecting=fallbackIsConnecting;
+  this.fallbackIsRingingReached=fallbackIsRingingReached;
+  this.fallbackIsEnded=fallbackIsEnded;
 }
