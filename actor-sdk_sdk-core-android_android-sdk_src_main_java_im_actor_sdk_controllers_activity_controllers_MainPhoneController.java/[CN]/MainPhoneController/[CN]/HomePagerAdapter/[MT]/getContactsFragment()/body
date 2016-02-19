@@ -1,0 +1,5 @@
+{
+  ContactsFragment res2=new ContactsFragment();
+  res2.setHasOptionsMenu(false);
+  return res2;
+}
