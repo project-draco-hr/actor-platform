@@ -1,8 +1,0 @@
-{
-  if (state.onDeviceConnected(uid,deviceId)) {
-    sendSignalingMessage(uid,deviceId,new ApiSwitchMaster());
-    sendSignalingMessage(uid,deviceId,buildMembersList());
-    updateCallVMState();
-    updateMembers();
-  }
-}

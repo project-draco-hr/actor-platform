@@ -1,5 +1,6 @@
 {
-  if (state.onDeviceRejected(uid,deviceId)) {
+  state.onDeviceRejected(uid,deviceId);
+  if (state.onInvalidated()) {
     updateCallVMState();
     updateMembers();
   }

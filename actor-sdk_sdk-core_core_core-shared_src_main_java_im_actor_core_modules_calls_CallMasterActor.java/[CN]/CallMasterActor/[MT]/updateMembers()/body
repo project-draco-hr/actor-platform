@@ -1,6 +1,6 @@
 {
   ArrayList<im.actor.core.viewmodel.CallMember> callMembers=new ArrayList<>();
-  for (  MasterCallMember callMember : state.getConnectedMembers()) {
+  for (  MasterCallMember callMember : state.getMembers()) {
     CallMemberState callMemberState;
 switch (callMember.getState()) {
 case RINGING_REACHED:

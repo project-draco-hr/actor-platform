@@ -1,11 +1,7 @@
 {
-  if (state.onDeviceAdvertised(uid,deviceId,peerSettings)) {
-    if (state.startSilentConnection(uid,deviceId)) {
-      debugState();
-      getPeer(uid,deviceId).send(new PeerConnectionActor.OnOfferNeeded());
-      for (      MasterCallDevice device : state.getConnectedDevices()) {
-        sendSignalingMessage(device.getUid(),device.getDeviceId(),new ApiNeedOffer(uid,deviceId,peerSettings,true));
-      }
-    }
+  state.onDeviceAdvertised(uid,deviceId,peerSettings);
+  if (state.onInvalidated()) {
+    updateCallVMState();
+    updateMembers();
   }
 }

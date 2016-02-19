@@ -2,5 +2,5 @@ ActorRef root
 int uid
 long deviceId
 boolean isMuted
-boolean isSilentMode
+boolean isEnabled
 ModuleContext context

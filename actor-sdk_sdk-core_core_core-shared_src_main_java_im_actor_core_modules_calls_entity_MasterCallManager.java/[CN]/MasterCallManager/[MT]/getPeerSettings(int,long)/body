@@ -1,7 +1,0 @@
-{
-  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
-  if (device == null) {
-    return null;
-  }
-  return device.getPeerSettings();
-}

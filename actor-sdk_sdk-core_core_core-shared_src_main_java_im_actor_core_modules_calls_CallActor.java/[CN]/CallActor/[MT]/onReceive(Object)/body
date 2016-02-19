@@ -16,17 +16,27 @@
   }
  else   if (message instanceof PeerConnectionActor.OnStreamAdded) {
     PeerConnectionActor.OnStreamAdded streamAdded=(PeerConnectionActor.OnStreamAdded)message;
-    onStreamAdded(streamAdded.getUid(),streamAdded.getDeviceId(),streamAdded.getStream());
+    try {
+      onStreamAdded(streamAdded.getUid(),streamAdded.getDeviceId(),streamAdded.getStream());
+    }
+ catch (    InvalidTransactionException e) {
+      e.printStackTrace();
+    }
   }
  else   if (message instanceof PeerConnectionActor.OnStreamRemoved) {
     PeerConnectionActor.OnStreamRemoved streamRemoved=(PeerConnectionActor.OnStreamRemoved)message;
-    onStreamRemoved(streamRemoved.getUid(),streamRemoved.getDeviceId(),streamRemoved.getStream());
+    try {
+      onStreamRemoved(streamRemoved.getUid(),streamRemoved.getDeviceId(),streamRemoved.getStream());
+    }
+ catch (    InvalidTransactionException e) {
+      e.printStackTrace();
+    }
   }
  else   if (message instanceof Mute) {
-    onMute();
+    onMuteChanged(true);
   }
  else   if (message instanceof Unmute) {
-    onUnmute();
+    onMuteChanged(false);
   }
  else {
     super.onReceive(message);

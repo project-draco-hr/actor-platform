@@ -1,3 +1,0 @@
-{
-  return deviceState == MasterCallDeviceState.CONNECTING || deviceState == MasterCallDeviceState.IN_PROGRESS;
-}

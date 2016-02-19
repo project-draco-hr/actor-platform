@@ -1,8 +1,0 @@
-{
-  setIsSilentEnabled(false);
-  for (  HashMap<Long,ActorRef> deviceRefs : peerConnections.values()) {
-    for (    ActorRef ref : deviceRefs.values()) {
-      ref.send(new PeerConnectionActor.DoUnsilence());
-    }
-  }
-}

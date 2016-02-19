@@ -1,6 +1,0 @@
-{
-  this.uid=uid;
-  this.deviceId=deviceId;
-  this.deviceState=MasterCallDeviceState.PENDING;
-  this.peerSettings=null;
-}

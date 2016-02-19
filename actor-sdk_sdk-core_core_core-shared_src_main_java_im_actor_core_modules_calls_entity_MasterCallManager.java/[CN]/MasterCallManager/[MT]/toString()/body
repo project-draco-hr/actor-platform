@@ -1,10 +1,7 @@
 {
   String res="Devices: \n";
-  for (  MasterCallDevice device : connectedDevices) {
-    res+=device.getUid() + "-" + device.getDeviceId()+ ": "+ device.getDeviceState()+ "\n";
-  }
   res+="Members: \n";
-  for (  MasterCallMember member : connectedMembers) {
+  for (  MasterCallMember member : members) {
     res+=member.getUid() + " - " + member.getState()+ "\n";
   }
   return res;

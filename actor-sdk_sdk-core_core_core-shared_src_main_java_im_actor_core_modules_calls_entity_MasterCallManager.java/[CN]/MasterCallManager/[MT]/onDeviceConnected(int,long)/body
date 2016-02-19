@@ -1,14 +1,11 @@
 {
-  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
-  if (member == null) {
-    return false;
+  if (hasNode(uid,deviceId)) {
+    throw new InvalidTransactionException();
   }
-  if (!connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).isEmpty()) {
-    return false;
-  }
-  connectedDevices.add(new MasterCallDevice(uid,deviceId));
+  MasterCallMember member=getMember(uid);
+  callGrid.addNode(new CallNode(member,deviceId));
   if (member.getState() == MasterCallMemberState.RINGING) {
     member.setState(MasterCallMemberState.RINGING_REACHED);
+    isInvalidated=true;
   }
-  return true;
 }

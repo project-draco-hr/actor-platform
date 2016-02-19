@@ -20,14 +20,12 @@
           root.send(new DoCandidate(uid,deviceId,label,id,candidate));
         }
         @Override public void onStreamAdded(        WebRTCMediaStream stream){
-          if (isSilentMode && isSilented) {
-            stream.setEnabled(false);
-            silencedStreams.add(stream);
-          }
+          stream.setEnabled(isEnabled);
+          incomingStreams.add(stream);
           root.send(new OnStreamAdded(uid,deviceId,stream));
         }
         @Override public void onStreamRemoved(        WebRTCMediaStream stream){
-          silencedStreams.remove(stream);
+          incomingStreams.remove(stream);
           root.send(new OnStreamRemoved(uid,deviceId,stream));
         }
         @Override public void onRenegotiationNeeded(){

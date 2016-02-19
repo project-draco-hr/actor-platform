@@ -1,22 +1,15 @@
 {
-  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
-  if (device == null) {
-    return false;
-  }
-  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
-  if (member == null) {
-    return false;
-  }
+  CallNode device=getNode(uid,deviceId);
 switch (device.getDeviceState()) {
 case IN_PROGRESS:
 case CONNECTING:
-    return false;
+    throw new InvalidTransactionException();
 }
-switch (member.getState()) {
+switch (device.getMember().getState()) {
 case RINGING_REACHED:
 case RINGING:
-  member.setState(MasterCallMemberState.ENDED);
+  device.getMember().setState(MasterCallMemberState.ENDED);
+isInvalidated=true;
 break;
 }
-return true;
 }

@@ -40,21 +40,14 @@
       stash();
       return;
     }
-    onMute();
+    onMute(((DoMute)message).isMuted());
   }
- else   if (message instanceof DoUnmute) {
+ else   if (message instanceof DoEnable) {
     if (!isReady) {
       stash();
       return;
     }
-    onUnmute();
-  }
- else   if (message instanceof DoUnsilence) {
-    if (!isReady) {
-      stash();
-      return;
-    }
-    onUnsilence();
+    onEnabled(((DoEnable)message).isEnabled());
   }
  else {
     super.onReceive(message);

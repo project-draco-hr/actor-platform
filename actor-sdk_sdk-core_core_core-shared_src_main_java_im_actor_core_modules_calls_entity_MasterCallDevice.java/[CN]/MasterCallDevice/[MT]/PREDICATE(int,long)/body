@@ -1,8 +1,0 @@
-{
-  return new Predicate<MasterCallDevice>(){
-    @Override public boolean apply(    MasterCallDevice masterCallDevice){
-      return masterCallDevice.getUid() == uid && masterCallDevice.getDeviceId() == deviceId;
-    }
-  }
-;
-}

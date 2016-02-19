@@ -1,16 +1,9 @@
 {
-  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
-  if (member == null) {
-    return false;
+  CallNode node=getNode(uid,deviceId);
+  if (node.getDeviceState() != CallNodeState.PENDING) {
+    throw new InvalidTransactionException();
   }
-  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
-  if (device == null) {
-    return false;
-  }
-  if (device.getDeviceState() != MasterCallDeviceState.PENDING) {
-    return false;
-  }
-  device.setDeviceState(MasterCallDeviceState.ADVERTISED);
-  device.setPeerSettings(peerSettings);
-  return true;
+  node.setDeviceState(CallNodeState.ADVERTISED);
+  node.setPeerSettings(peerSettings);
+  isInvalidated=true;
 }

@@ -5,6 +5,5 @@
   this.root=root;
   this.uid=uid;
   this.deviceId=deviceId;
-  this.isSilentMode=isSilentMode;
-  this.isSilented=isSilentMode;
+  this.isEnabled=isEnabled;
 }

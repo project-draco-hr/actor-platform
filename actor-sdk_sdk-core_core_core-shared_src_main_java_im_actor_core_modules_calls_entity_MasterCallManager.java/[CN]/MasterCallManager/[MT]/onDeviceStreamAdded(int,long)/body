@@ -1,16 +1,18 @@
 {
-  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
-  if (device == null) {
-    return false;
-  }
-  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
-  if (member == null) {
-    return false;
-  }
-switch (member.getState()) {
+  CallNode device=getNode(uid,deviceId);
+switch (device.getDeviceState()) {
 case CONNECTING:
-    member.setState(MasterCallMemberState.IN_PROGRESS);
+    device.setDeviceState(CallNodeState.IN_PROGRESS);
   break;
+case CONNECTING_SILENCED:
+device.setDeviceState(CallNodeState.SILENCED);
+break;
+}
+switch (device.getDeviceState()) {
+case IN_PROGRESS:
+device.getMember().setState(MasterCallMemberState.IN_PROGRESS);
+isInvalidated=true;
+break;
 }
 if (isAnswered) {
 return false;

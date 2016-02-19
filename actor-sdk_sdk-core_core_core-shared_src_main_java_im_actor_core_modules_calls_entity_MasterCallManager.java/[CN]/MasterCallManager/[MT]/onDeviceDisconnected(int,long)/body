@@ -1,24 +1,31 @@
 {
-  MasterCallMember member=connectedMembers.filter(MasterCallMember.PREDICATE(uid)).firstOrNull();
-  if (member == null) {
-    return false;
-  }
-  MasterCallDevice device=connectedDevices.filter(MasterCallDevice.PREDICATE(uid,deviceId)).firstOrNull();
-  if (device == null) {
-    return false;
-  }
-  connectedDevices.remove(device);
-  if (device.isAnswered()) {
+  CallNode node=getNode(uid,deviceId);
+  ArrayList<CallGridEdge> removedEdges=callGrid.removeNode(node);
+  if (node.isAnswered()) {
     boolean isConnected=false;
-    for (    MasterCallDevice m : connectedDevices.filter(MasterCallDevice.PREDICATE(uid))) {
+    for (    CallNode m : callGrid.getNodes(uid)) {
       if (m.isAnswered()) {
         isConnected=true;
         break;
       }
     }
     if (!isConnected) {
-      member.setState(MasterCallMemberState.ENDED);
+      if (node.getMember().getState() != MasterCallMemberState.ENDED) {
+        node.getMember().setState(MasterCallMemberState.ENDED);
+        isInvalidated=true;
+      }
     }
   }
-  return true;
+  return ManagedList.of(removedEdges).map(new Function<CallGridEdge,CallNode>(){
+    @Override public CallNode apply(    CallGridEdge callGridEdge){
+      CallNode endNode=callGridEdge.getEnd();
+      if (endNode.getMember().getUid() != uid && endNode.getDeviceId() != deviceId) {
+        return callGridEdge.getEnd();
+      }
+ else {
+        return callGridEdge.getStart();
+      }
+    }
+  }
+);
 }

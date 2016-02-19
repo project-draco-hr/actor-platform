@@ -3,15 +3,15 @@
   if (callVM.getState().get() == CallState.ENDED) {
     return;
   }
-  if (state.getConnectedMembers().isAll(MasterCallMember.IS_ENDED)) {
+  if (state.getMembers().isAll(MasterCallMember.IS_ENDED)) {
     shutdown();
     return;
   }
-  if (state.getConnectedMembers().isAny(MasterCallMember.IS_IN_PROGRESS)) {
+  if (state.getMembers().isAny(MasterCallMember.IS_IN_PROGRESS)) {
     callVM.getState().change(CallState.IN_PROGRESS);
     return;
   }
-  if (state.getConnectedMembers().isAny(MasterCallMember.IS_CONNECTING)) {
+  if (state.getMembers().isAny(MasterCallMember.IS_CONNECTING)) {
     callVM.getState().change(CallState.CONNECTING);
     return;
   }

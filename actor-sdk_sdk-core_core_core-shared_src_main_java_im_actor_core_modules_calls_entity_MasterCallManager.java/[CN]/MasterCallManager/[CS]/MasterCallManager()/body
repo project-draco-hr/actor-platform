@@ -1,4 +1,4 @@
 {
-  this.connectedDevices=ManagedList.of();
-  this.connectedMembers=ManagedList.of();
+  this.callGrid=new CallGrid();
+  this.members=ManagedList.of();
 }

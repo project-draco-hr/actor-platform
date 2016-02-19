@@ -1,4 +1,0 @@
-{
-  isMuted=true;
-  setEnabled(stream);
-}

@@ -1,7 +1,7 @@
 {
   ArrayList<ApiCallMember> apiCallMembers=new ArrayList<>();
   apiCallMembers.add(new ApiCallMember(myUid(),new ApiCallMemberStateHolder(ApiCallMemberState.CONNECTED,false,true,false,false,false)));
-  for (  MasterCallMember callMember : state.getConnectedMembers()) {
+  for (  MasterCallMember callMember : state.getMembers()) {
     ApiCallMemberStateHolder callMemberStateHolder;
 switch (callMember.getState()) {
 case RINGING_REACHED:

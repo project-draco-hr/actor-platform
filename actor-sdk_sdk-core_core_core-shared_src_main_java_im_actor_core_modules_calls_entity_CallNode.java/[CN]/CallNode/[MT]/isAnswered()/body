@@ -1,0 +1,3 @@
+{
+  return deviceState == CallNodeState.CONNECTING || deviceState == CallNodeState.IN_PROGRESS;
+}

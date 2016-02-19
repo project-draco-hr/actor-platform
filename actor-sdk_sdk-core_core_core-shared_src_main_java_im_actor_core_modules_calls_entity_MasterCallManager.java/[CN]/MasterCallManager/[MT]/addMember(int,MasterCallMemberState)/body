@@ -1,6 +1,6 @@
 {
-  if (connectedMembers.filter(MasterCallMember.PREDICATE(uid)).isEmpty()) {
-    connectedMembers.add(new MasterCallMember(uid,state));
+  if (members.filter(MasterCallMember.PREDICATE(uid)).isEmpty()) {
+    members.add(new MasterCallMember(uid,state));
     return true;
   }
   return false;

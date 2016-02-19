@@ -8,6 +8,6 @@
       callVM.getState().change(CallState.CONNECTING);
     }
     sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiAnswerCall());
-    unsilencePeers();
+    getPeerCollection().setIsEnabled(true);
   }
 }

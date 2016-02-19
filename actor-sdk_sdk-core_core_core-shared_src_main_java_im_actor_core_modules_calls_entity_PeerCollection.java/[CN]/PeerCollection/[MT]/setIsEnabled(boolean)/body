@@ -1,0 +1,11 @@
+{
+  if (this.isEnabled == isEnabled) {
+    return;
+  }
+  this.isEnabled=isEnabled;
+  for (  HashMap<Long,ActorRef> deviceRefs : peerConnections.values()) {
+    for (    ActorRef ref : deviceRefs.values()) {
+      ref.send(new PeerConnectionActor.DoEnable(isEnabled));
+    }
+  }
+}

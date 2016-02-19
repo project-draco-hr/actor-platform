@@ -1,7 +1,7 @@
 {
   super.preStart();
   callManager=context().getCallsModule().getCallManager();
-  setIsSilentEnabled(true);
+  getPeerCollection().setIsEnabled(false);
   api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
     @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
       peer=convert(responseGetCallInfo.getPeer());

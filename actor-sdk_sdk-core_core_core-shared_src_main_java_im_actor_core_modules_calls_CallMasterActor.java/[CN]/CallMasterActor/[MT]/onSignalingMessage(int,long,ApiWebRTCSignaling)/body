@@ -1,12 +1,27 @@
 {
   if (signaling instanceof ApiAnswerCall) {
-    onDeviceAnswered(fromUid,fromDeviceId);
+    try {
+      onDeviceAnswered(fromUid,fromDeviceId);
+    }
+ catch (    InvalidTransactionException e) {
+      e.printStackTrace();
+    }
   }
  else   if (signaling instanceof ApiRejectCall) {
-    onDeviceRejected(fromUid,fromDeviceId);
+    try {
+      onDeviceRejected(fromUid,fromDeviceId);
+    }
+ catch (    InvalidTransactionException e) {
+      e.printStackTrace();
+    }
   }
  else   if (signaling instanceof ApiAdvertiseSelf) {
-    onDeviceAdvertised(fromUid,fromDeviceId,((ApiAdvertiseSelf)signaling).getPeerSettings());
+    try {
+      onDeviceAdvertised(fromUid,fromDeviceId,((ApiAdvertiseSelf)signaling).getPeerSettings());
+    }
+ catch (    InvalidTransactionException e) {
+      e.printStackTrace();
+    }
   }
  else {
     super.onSignalingMessage(fromUid,fromDeviceId,signaling);

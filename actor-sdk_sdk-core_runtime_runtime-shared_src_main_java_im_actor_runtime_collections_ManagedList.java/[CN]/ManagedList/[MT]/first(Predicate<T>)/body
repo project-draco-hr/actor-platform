@@ -1,0 +1,8 @@
+{
+  for (  T t : this) {
+    if (predicate.apply(t)) {
+      return t;
+    }
+  }
+  throw new RuntimeException("Unable to find element");
+}
