@@ -1,21 +1,3 @@
 {
-  isProcessing=true;
-  api(new RequestJoinEventBus(busId,TIMEOUT)).then(new Consumer<ResponseJoinEventBus>(){
-    @Override public void apply(    ResponseJoinEventBus responseJoinEventBus){
-      EventBusActor.this.busId=busId;
-      deviceId=responseJoinEventBus.getDeviceId();
-      context().getEventBus().subscribe(busId,self());
-      onBusJoined();
-      onBusStarted();
-      isProcessing=false;
-      unstashAll();
-      keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      dispose();
-    }
-  }
-).done(self());
+  joinBus(busId,DEFAULT_TIMEOUT);
 }

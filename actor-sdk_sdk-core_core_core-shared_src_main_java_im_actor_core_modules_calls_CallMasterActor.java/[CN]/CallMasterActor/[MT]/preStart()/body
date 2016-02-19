@@ -1,5 +1,5 @@
 {
   super.preStart();
   callManager=context().getCallsModule().getCallManager();
-  createBus();
+  createBus(MASTER_CALL_TIMEOUT);
 }

@@ -1,0 +1,23 @@
+{
+  isProcessing=true;
+  keepAliveTimeout=timeout;
+  keepAliveRetry=timeout / 2;
+  api(new RequestCreateNewEventBus(keepAliveTimeout,true)).then(new Consumer<ResponseCreateNewEventBus>(){
+    @Override public void apply(    ResponseCreateNewEventBus responseCreateNewEventBus){
+      busId=responseCreateNewEventBus.getId();
+      deviceId=responseCreateNewEventBus.getDeviceId();
+      context().getEventBus().subscribe(busId,self());
+      onBusCreated();
+      onBusStarted();
+      isProcessing=false;
+      unstashAll();
+      keepAliveCancel=schedule(new KeepAlive(),keepAliveRetry);
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      dispose();
+    }
+  }
+).done(self());
+}

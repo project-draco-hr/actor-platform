@@ -1,6 +1,6 @@
 {
   stopKeepAlive();
-  keepAliveRequest=request(new RequestKeepAliveEventBus(busId,TIMEOUT),new RpcCallback<ResponseVoid>(){
+  keepAliveRequest=request(new RequestKeepAliveEventBus(busId,keepAliveTimeout),new RpcCallback<ResponseVoid>(){
     @Override public void onResult(    ResponseVoid response){
     }
     @Override public void onError(    RpcException e){
@@ -8,5 +8,5 @@
     }
   }
 );
-  keepAliveCancel=schedule(new KeepAlive(),KEEP_ALIVE);
+  keepAliveCancel=schedule(new KeepAlive(),keepAliveRetry);
 }
