@@ -1,6 +1,8 @@
 {
   if (init || isLoading) {
-    lastCallback.onError(new RpcException(TAG,0,"callback replaced",false,null));
+    if (lastCallback != null) {
+      lastCallback.onError(new RpcException(TAG,0,"callback replaced",false,null));
+    }
   }
   lastCallback=callback;
   if (isLoading && !init) {
