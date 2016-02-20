@@ -1,5 +1,5 @@
 {
-  if (peerConnection == null && settings != null && mediaStream != null && (settings.isPreConnectionEnabled() || isAnswered)) {
+  if (peerConnection == null && settings != null && mediaStream != null && ((settings.isPreConnectionEnabled() && isPreConnectEnabled) || isAnswered)) {
     peerConnection=system().actorOf(getPath() + "/connection",PeerConnectionActor.CONSTRUCTOR(mediaStream,isAnswered,self(),context()),new ActorSupervisor(){
       @Override public void onActorStopped(      ActorRef ref){
         self().send(PoisonPill.INSTANCE);

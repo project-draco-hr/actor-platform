@@ -18,7 +18,6 @@
  else   if (signaling instanceof ApiOffer) {
     ApiOffer offer=(ApiOffer)signaling;
     getPeer(senderId,senderDeviceId).onAdvertised(new PeerNodeSettings(offer.getOwnPeerSettings()));
-    getPeer(senderId,senderDeviceId).onAnswered();
     getPeer(senderId,senderDeviceId).onOffer(offer.getSdp());
   }
  else   if (signaling instanceof ApiAnswer) {

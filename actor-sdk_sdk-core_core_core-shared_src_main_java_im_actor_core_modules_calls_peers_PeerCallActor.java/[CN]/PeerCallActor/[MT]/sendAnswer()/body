@@ -1,6 +1,13 @@
 {
+  if (isAnswered) {
+    return;
+  }
+  isAnswered=true;
   if (haveMaster) {
     sendSignaling(masterUid,masterDeviceId,new ApiAnswerCall());
+    for (    PeerNodeInt node : refs.values()) {
+      node.onAnswered();
+    }
   }
  else {
     wasAnswered=true;
