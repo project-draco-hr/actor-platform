@@ -1,0 +1,7 @@
+{
+  super.onFirstPeerStarted();
+  isStarted=true;
+  if (isAnswered) {
+    callVM.getState().change(CallState.IN_PROGRESS);
+  }
+}

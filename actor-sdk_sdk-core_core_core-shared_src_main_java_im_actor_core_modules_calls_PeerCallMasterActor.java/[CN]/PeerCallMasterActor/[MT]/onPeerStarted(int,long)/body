@@ -1,4 +1,6 @@
 {
   super.onPeerStarted(uid,deviceId);
   Log.d(TAG,"onPeerStarted:" + deviceId);
+  if (callVM.getState().get() == CallState.RINGING || callVM.getState().get() == CallState.CONNECTING) {
+  }
 }
