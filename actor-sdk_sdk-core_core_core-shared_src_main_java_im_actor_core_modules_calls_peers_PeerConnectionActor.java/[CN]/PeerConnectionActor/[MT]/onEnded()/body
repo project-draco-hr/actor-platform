@@ -1,0 +1,10 @@
+{
+  Log.d(TAG,"OnEnded");
+  if (peerConnection != null) {
+    peerConnection.close();
+    peerConnection=null;
+  }
+  isReady=false;
+  state=PeerConnectionState.CLOSED;
+  self().send(PoisonPill.INSTANCE);
+}

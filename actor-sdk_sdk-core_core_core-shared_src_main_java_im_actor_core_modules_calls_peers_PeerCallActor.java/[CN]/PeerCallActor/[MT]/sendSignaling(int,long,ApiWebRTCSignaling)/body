@@ -1,0 +1,11 @@
+{
+  byte[] msg;
+  try {
+    msg=signaling.buildContainer();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return;
+  }
+  sendMessage(uid,deviceId,msg);
+}

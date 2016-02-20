@@ -1,7 +1,0 @@
-{
-  state.onDeviceAdvertised(uid,deviceId,peerSettings);
-  if (state.onInvalidated()) {
-    updateCallVMState();
-    updateMembers();
-  }
-}

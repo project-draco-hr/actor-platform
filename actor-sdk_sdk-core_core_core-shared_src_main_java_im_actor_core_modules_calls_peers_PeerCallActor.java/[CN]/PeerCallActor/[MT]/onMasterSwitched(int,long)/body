@@ -1,0 +1,15 @@
+{
+  this.masterUid=uid;
+  this.masterDeviceId=deviceId;
+  this.haveMaster=true;
+  if (wasAnswered) {
+    wasAnswered=false;
+    sendSignaling(uid,deviceId,new ApiAnswerCall());
+  }
+  if (wasRejected) {
+    wasRejected=false;
+    sendSignaling(uid,deviceId,new ApiRejectCall());
+  }
+  sendAdvertise(uid,deviceId,selfSettings.toApi());
+  onSignalingStarted();
+}

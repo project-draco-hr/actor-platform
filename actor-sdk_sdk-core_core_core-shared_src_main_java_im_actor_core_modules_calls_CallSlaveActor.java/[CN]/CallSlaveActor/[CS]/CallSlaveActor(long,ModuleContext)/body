@@ -1,6 +1,8 @@
 {
-  super(context);
+  super(true,context);
+  getSelfSettings().setIsPreConnectionEnabled(true);
   this.callId=callId;
-  this.isConnected=false;
+  this.callManager=context.getCallsModule().getCallManager();
   this.isAnswered=false;
+  this.isConnected=false;
 }

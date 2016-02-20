@@ -1,9 +1,0 @@
-{
-  if (state.onDeviceStreamAdded(uid,deviceId)) {
-    callManager.send(new CallManagerActor.OnCallAnswered(callId));
-  }
-  if (state.onInvalidated()) {
-    updateCallVMState();
-    updateMembers();
-  }
-}

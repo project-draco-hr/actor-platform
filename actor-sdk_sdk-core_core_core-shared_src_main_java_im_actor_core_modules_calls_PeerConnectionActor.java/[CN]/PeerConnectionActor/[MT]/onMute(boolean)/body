@@ -1,7 +1,0 @@
-{
-  if (isMuted == this.isMuted) {
-    return;
-  }
-  this.isMuted=isMuted;
-  setEnabled(stream);
-}

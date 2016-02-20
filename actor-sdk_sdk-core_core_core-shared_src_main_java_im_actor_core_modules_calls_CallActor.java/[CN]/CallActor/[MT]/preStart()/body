@@ -1,7 +1,0 @@
-{
-  super.preStart();
-  callModels=context().getCallsModule().getCallModels();
-  peerCollection=new PeerCollection(self(),context());
-  boolean isMobile=config().getDeviceCategory() == DeviceCategory.MOBILE || config().getDeviceCategory() == DeviceCategory.TABLET;
-  peerSettings=new ApiPeerSettings(true,isMobile,false,true);
-}

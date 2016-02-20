@@ -1,0 +1,41 @@
+{
+  Log.d(TAG,"preStart");
+  isReady=false;
+  WebRTCIceServer[] iceServers=config().getWebRTCIceServers();
+  WebRTCSettings settings=new WebRTCSettings(false,false);
+  WebRTC.createPeerConnection(iceServers,settings).then(new Consumer<WebRTCPeerConnection>(){
+    @Override public void apply(    WebRTCPeerConnection webRTCPeerConnection){
+      Log.d(TAG,"preStart:then");
+      PeerConnectionActor.this.peerConnection=webRTCPeerConnection;
+      PeerConnectionActor.this.peerConnection.addOwnStream(stream);
+      PeerConnectionActor.this.peerConnection.addCallback(new WebRTCPeerConnectionCallback(){
+        @Override public void onCandidate(        int label,        String id,        String candidate){
+          nodeActor.send(new PeerNodeActor.DoCandidate(label,id,candidate));
+        }
+        @Override public void onStreamAdded(        WebRTCMediaStream stream){
+          stream.setEnabled(isEnabled);
+          incomingStreams.add(stream);
+          nodeActor.send(new PeerNodeActor.OnStreamAdded());
+        }
+        @Override public void onStreamRemoved(        WebRTCMediaStream stream){
+          incomingStreams.remove(stream);
+          nodeActor.send(new PeerNodeActor.OnStreamRemoved());
+        }
+        @Override public void onRenegotiationNeeded(){
+        }
+      }
+);
+      state=PeerConnectionState.WAITING_HANDSHAKE;
+      isReady=true;
+      unstashAll();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.d(TAG,"preStart:error");
+      e.printStackTrace();
+      onHandshakeFailure();
+    }
+  }
+).done(self());
+}

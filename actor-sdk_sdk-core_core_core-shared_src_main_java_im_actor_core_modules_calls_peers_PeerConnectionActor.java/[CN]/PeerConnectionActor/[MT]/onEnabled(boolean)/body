@@ -1,0 +1,9 @@
+{
+  if (isEnabled == this.isEnabled) {
+    return;
+  }
+  this.isEnabled=isEnabled;
+  for (  WebRTCMediaStream s : incomingStreams) {
+    s.setEnabled(isEnabled);
+  }
+}

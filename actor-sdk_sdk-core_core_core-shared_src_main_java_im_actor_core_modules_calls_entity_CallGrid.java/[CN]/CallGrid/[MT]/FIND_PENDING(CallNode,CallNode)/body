@@ -1,0 +1,8 @@
+{
+  return new Predicate<PendingEdge>(){
+    @Override public boolean apply(    PendingEdge pendingEdge){
+      return (pendingEdge.getStart() == a && pendingEdge.getEnd() == b) || (pendingEdge.getEnd() == a && pendingEdge.getStart() == b);
+    }
+  }
+;
+}

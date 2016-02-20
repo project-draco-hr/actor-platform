@@ -1,0 +1,8 @@
+{
+  this.isAnswered=true;
+  makePeerConnectionIfNeeded();
+  enablePeerConnectionIfNeeded();
+  if (isConnected) {
+    callActor.send(new PeerCallActor.ConnectionActive(uid,deviceId));
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (peerConnection != null) {
+    peerConnection.send(PoisonPill.INSTANCE);
+    peerConnection=null;
+  }
+}

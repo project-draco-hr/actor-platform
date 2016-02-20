@@ -1,0 +1,5 @@
+{
+  this.creator=creator;
+  this.dispatcher=dispatcher;
+  this.supervisor=supervisor;
+}

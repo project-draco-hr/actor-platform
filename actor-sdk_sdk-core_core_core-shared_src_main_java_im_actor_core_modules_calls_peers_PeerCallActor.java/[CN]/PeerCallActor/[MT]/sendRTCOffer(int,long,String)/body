@@ -1,0 +1,3 @@
+{
+  sendSignaling(uid,deviceId,new ApiAnswer(0,sdp));
+}

@@ -1,9 +1,0 @@
-{
-  super.onDeviceDisconnected(uid,deviceId);
-  try {
-    onNodeDisconnected(uid,deviceId);
-  }
- catch (  InvalidTransactionException e) {
-    e.printStackTrace();
-  }
-}

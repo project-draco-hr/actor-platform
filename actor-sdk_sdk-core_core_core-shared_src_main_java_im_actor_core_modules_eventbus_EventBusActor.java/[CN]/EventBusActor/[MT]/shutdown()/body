@@ -6,12 +6,4 @@
   }
   onBusShutdown();
   onBusStopped();
-  if (busId != null) {
-    api(new RequestKeepAliveEventBus(busId,1L)).then(new Consumer<ResponseVoid>(){
-      @Override public void apply(      ResponseVoid responseVoid){
-        self().send(PoisonPill.INSTANCE);
-      }
-    }
-).done(self());
-  }
 }

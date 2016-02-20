@@ -1,8 +1,0 @@
-{
-  try {
-    sendMessage(uid,deviceId,signaling.buildContainer());
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-  }
-}

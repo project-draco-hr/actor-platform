@@ -1,9 +1,0 @@
-{
-  super.onDeviceConnected(uid,deviceId);
-  try {
-    onNodeConnected(uid,deviceId);
-  }
- catch (  InvalidTransactionException e) {
-    e.printStackTrace();
-  }
-}

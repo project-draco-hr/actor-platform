@@ -1,6 +1,0 @@
-{
-  isReady=true;
-  isReadyForCandidates=true;
-  state=State.READY;
-  unstashAll();
-}

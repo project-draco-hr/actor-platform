@@ -1,11 +1,9 @@
 {
   super.preStart();
-  callManager=context().getCallsModule().getCallManager();
-  getPeerCollection().setIsEnabled(false);
   api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
     @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
       peer=convert(responseGetCallInfo.getPeer());
-      joinBus(responseGetCallInfo.getEventBusId());
+      startSignaling(responseGetCallInfo.getEventBusId());
     }
   }
 ).failure(new Consumer<Exception>(){

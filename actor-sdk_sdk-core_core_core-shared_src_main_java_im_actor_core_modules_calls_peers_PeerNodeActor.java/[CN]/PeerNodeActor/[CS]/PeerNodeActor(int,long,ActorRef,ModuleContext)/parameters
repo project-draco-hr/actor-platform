@@ -1,0 +1,4 @@
+int uid
+long deviceId
+ActorRef callActor
+ModuleContext context

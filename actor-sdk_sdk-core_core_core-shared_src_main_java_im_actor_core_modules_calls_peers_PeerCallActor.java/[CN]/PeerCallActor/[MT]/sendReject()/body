@@ -1,0 +1,8 @@
+{
+  if (haveMaster) {
+    sendSignaling(masterUid,masterDeviceId,new ApiRejectCall());
+  }
+ else {
+    wasRejected=true;
+  }
+}

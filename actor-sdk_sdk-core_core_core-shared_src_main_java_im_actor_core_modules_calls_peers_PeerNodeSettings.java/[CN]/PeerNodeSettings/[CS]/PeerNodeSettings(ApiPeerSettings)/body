@@ -1,0 +1,7 @@
+{
+  if (peerSettings != null) {
+    if (peerSettings.canConnect() != null) {
+      isPreConnectionEnabled=peerSettings.canConnect();
+    }
+  }
+}

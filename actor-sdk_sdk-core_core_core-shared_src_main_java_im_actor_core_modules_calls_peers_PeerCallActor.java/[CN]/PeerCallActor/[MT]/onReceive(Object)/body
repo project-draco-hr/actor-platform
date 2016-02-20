@@ -1,0 +1,28 @@
+{
+  if (message instanceof SendAnswer) {
+    SendAnswer answer=(SendAnswer)message;
+    sendRTCAnswer(answer.getUid(),answer.getDeviceId(),answer.getSdp());
+  }
+ else   if (message instanceof SendOffer) {
+    SendOffer offer=(SendOffer)message;
+    sendRTCOffer(offer.getUid(),offer.getDeviceId(),offer.getSdp());
+  }
+ else   if (message instanceof SendCandidate) {
+    SendCandidate candidate=(SendCandidate)message;
+    sendRTCCandidate(candidate.getUid(),candidate.getDeviceId(),candidate.getIndex(),candidate.getId(),candidate.getSdp());
+  }
+ else   if (message instanceof ConnectionCreated) {
+    ConnectionCreated connectionCreated=(ConnectionCreated)message;
+    onPeerConnected(connectionCreated.getUid(),connectionCreated.getDeviceId());
+  }
+ else   if (message instanceof ConnectionActive) {
+    ConnectionActive connectionActive=(ConnectionActive)message;
+    onPeerStarted(connectionActive.getUid(),connectionActive.getDeviceId());
+  }
+ else   if (message instanceof ChangeMute) {
+    onMute(((ChangeMute)message).isMuted());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

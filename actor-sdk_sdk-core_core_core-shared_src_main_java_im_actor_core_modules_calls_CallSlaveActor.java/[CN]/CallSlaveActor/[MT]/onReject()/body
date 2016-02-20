@@ -1,0 +1,7 @@
+{
+  if (!isAnswered && !isRejected) {
+    isRejected=true;
+    sendReject();
+    self().send(PoisonPill.INSTANCE);
+  }
+}

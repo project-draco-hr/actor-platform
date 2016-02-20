@@ -1,0 +1,10 @@
+{
+  isReady=false;
+  isReadyForCandidates=false;
+  state=PeerConnectionState.CLOSED;
+  if (peerConnection != null) {
+    peerConnection.close();
+    peerConnection=null;
+  }
+  self().send(PoisonPill.INSTANCE);
+}

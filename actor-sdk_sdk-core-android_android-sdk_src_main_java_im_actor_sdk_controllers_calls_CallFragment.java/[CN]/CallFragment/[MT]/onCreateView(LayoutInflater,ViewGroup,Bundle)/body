@@ -104,7 +104,7 @@
       if (currentState != val) {
         currentState=val;
 switch (val) {
-case CALLING:
+case RINGING:
           if (call.isOutgoing()) {
             statusTV.setText(R.string.call_outgoing);
           }

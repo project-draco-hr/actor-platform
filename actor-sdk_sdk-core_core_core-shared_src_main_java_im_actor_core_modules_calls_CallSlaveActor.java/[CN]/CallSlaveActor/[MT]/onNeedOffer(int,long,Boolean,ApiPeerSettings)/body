@@ -1,3 +1,0 @@
-{
-  getPeerCollection().getPeer(destUid,destDeviceId).send(new PeerConnectionActor.OnOfferNeeded());
-}

@@ -1,6 +1,9 @@
 {
-  if (message instanceof DoAnswer) {
-    doAnswer();
+  if (message instanceof DoAnswerCall) {
+    onAnswer();
+  }
+ else   if (message instanceof DoRejectCall) {
+    onReject();
   }
  else {
     super.onReceive(message);

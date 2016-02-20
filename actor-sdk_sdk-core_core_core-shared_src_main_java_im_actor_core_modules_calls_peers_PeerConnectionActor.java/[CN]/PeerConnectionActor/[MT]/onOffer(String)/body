@@ -1,0 +1,31 @@
+{
+  if (state != PeerConnectionState.WAITING_HANDSHAKE) {
+    return;
+  }
+  Log.d(TAG,"Received Offer");
+  isReady=false;
+  peerConnection.setRemoteDescription(new WebRTCSessionDescription("offer",sdp)).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+    @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
+      return peerConnection.createAnswer();
+    }
+  }
+).map(OPTIMIZE_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+    @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
+      return peerConnection.setLocalDescription(description);
+    }
+  }
+).then(new Consumer<WebRTCSessionDescription>(){
+    @Override public void apply(    WebRTCSessionDescription description){
+      nodeActor.send(new PeerNodeActor.DoAnswer(description.getSdp()));
+      onHandShakeCompleted();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      Log.d(TAG,"onOffer:failure");
+      e.printStackTrace();
+      onHandshakeFailure();
+    }
+  }
+).done(self());
+}

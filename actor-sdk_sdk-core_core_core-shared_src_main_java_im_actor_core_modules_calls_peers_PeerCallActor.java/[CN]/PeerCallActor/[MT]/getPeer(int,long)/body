@@ -1,0 +1,16 @@
+{
+  if (!refs.containsKey(deviceId)) {
+    ActorRef ref=system().actorOf(getPath() + "/" + uid+ "/"+ deviceId,new ActorCreator(){
+      @Override public Actor create(){
+        return new PeerNodeActor(uid,deviceId,self(),context());
+      }
+    }
+);
+    PeerNodeInt peerNodeInt=new PeerNodeInt(ref);
+    if (webRTCMediaStream != null) {
+      peerNodeInt.setOwnStream(webRTCMediaStream);
+    }
+    refs.put(deviceId,peerNodeInt);
+  }
+  return refs.get(deviceId);
+}

@@ -1,3 +1,0 @@
-Peer peer
-ModuleContext context
-CommandCallback<Long> callback

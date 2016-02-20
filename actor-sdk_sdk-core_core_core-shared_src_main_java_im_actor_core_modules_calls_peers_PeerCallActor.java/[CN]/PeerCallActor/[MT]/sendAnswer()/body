@@ -1,0 +1,8 @@
+{
+  if (haveMaster) {
+    sendSignaling(masterUid,masterDeviceId,new ApiAnswerCall());
+  }
+ else {
+    wasAnswered=true;
+  }
+}

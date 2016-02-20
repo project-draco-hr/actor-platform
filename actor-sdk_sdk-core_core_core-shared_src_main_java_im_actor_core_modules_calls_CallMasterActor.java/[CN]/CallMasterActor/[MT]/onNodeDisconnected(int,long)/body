@@ -1,8 +1,0 @@
-{
-  state.onDeviceDisconnected(uid,deviceId);
-  getPeerCollection().disconnectPeer(uid,deviceId);
-  if (state.onInvalidated()) {
-    updateCallVMState();
-    updateMembers();
-  }
-}

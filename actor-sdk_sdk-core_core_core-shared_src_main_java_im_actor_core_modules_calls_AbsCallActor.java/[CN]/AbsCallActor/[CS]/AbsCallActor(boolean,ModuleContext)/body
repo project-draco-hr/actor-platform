@@ -1,0 +1,4 @@
+{
+  super(isSlaveMode,context);
+  callModels=context().getCallsModule().getCallModels();
+}

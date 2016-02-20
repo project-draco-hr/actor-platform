@@ -1,0 +1,6 @@
+{
+  super(context);
+  this.callActor=callActor;
+  this.uid=uid;
+  this.deviceId=deviceId;
+}

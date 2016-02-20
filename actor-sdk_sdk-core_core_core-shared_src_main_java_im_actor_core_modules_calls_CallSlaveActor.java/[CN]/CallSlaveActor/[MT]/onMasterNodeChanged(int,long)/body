@@ -1,5 +1,0 @@
-{
-  masterNode=new MasterNode(fromUid,fromDeviceId);
-  sendSignalingMessage(fromUid,fromDeviceId,new ApiAdvertiseSelf(getPeerSettings()));
-  callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
-}

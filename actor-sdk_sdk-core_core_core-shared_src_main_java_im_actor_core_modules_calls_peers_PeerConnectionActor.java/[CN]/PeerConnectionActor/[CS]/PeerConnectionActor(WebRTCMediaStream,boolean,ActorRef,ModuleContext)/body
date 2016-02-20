@@ -1,0 +1,7 @@
+{
+  super(context);
+  TAG="PeerConnection";
+  this.nodeActor=nodeActor;
+  this.isEnabled=isEnabled;
+  this.stream=mediaStream;
+}
