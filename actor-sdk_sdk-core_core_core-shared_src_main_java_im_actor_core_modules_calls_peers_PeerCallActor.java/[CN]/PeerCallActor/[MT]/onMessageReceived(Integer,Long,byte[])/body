@@ -32,4 +32,11 @@
     ApiNeedOffer needOffer=(ApiNeedOffer)signaling;
     getPeer(needOffer.getUid(),needOffer.getDevice()).onOfferNeeded();
   }
+ else   if (signaling instanceof ApiAdvertiseSelf) {
+    ApiAdvertiseSelf advertiseSelf=(ApiAdvertiseSelf)signaling;
+    onAdvertised(senderId,senderDeviceId,advertiseSelf.getPeerSettings());
+  }
+ else   if (signaling instanceof ApiAnswerCall) {
+    onAnswered(senderId,senderDeviceId);
+  }
 }

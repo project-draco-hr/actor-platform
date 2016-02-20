@@ -1,0 +1,5 @@
+int uid
+long deviceId
+PeerNodeInt nodeInt
+PeerNodeSettings peerSettings
+ApiPeerSettings apiPeerSettings

@@ -1,3 +1,3 @@
 {
-  sendSignaling(uid,deviceId,new ApiAnswer(0,sdp));
+  sendSignaling(uid,deviceId,new ApiOffer(0,sdp,getSelfSettings().toApi()));
 }

@@ -1,0 +1,25 @@
+{
+  if (nodes.containsKey(deviceId)) {
+    return;
+  }
+  Log.d(TAG,"onAdvertised:" + deviceId + ", "+ settings);
+  PeerNodeSettings nodeSettings=new PeerNodeSettings(settings);
+  Node node=new Node(uid,deviceId,getPeer(uid,deviceId),nodeSettings,settings);
+  nodes.put(deviceId,node);
+  if (nodeSettings.isPreConnectionEnabled()) {
+    for (    Node n : nodes.values()) {
+      if (n.getDeviceId() == deviceId) {
+        continue;
+      }
+      if (n.isAnswered() || n.getPeerSettings().isPreConnectionEnabled()) {
+        sendNeedOffer(n.getUid(),n.getDeviceId(),uid,deviceId,settings,true);
+        node.getConnectedDevices().put(n.getDeviceId(),ConnectionState.SILENT);
+        n.getConnectedDevices().put(node.getDeviceId(),ConnectionState.SILENT);
+      }
+    }
+    if (getSelfSettings().isPreConnectionEnabled()) {
+      getPeer(uid,deviceId).onAdvertised(nodeSettings);
+      getPeer(uid,deviceId).onOfferNeeded();
+    }
+  }
+}

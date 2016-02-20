@@ -1,0 +1,4 @@
+int uid
+long deviceId
+int destUid
+long destDeviceId

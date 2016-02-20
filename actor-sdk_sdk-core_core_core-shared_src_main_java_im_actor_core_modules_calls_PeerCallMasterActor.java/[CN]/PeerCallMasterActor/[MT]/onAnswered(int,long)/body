@@ -1,0 +1,33 @@
+{
+  super.onAnswered(uid,deviceId);
+  Log.d(TAG,"onAnswered:" + deviceId);
+  if (!nodes.containsKey(deviceId)) {
+    return;
+  }
+  Node node=nodes.get(deviceId);
+  if (node.getPeerSettings().isPreConnectionEnabled() && getSelfSettings().isPreConnectionEnabled()) {
+    getPeer(uid,deviceId).onAnswered();
+  }
+ else {
+    getPeer(uid,deviceId).onAdvertised(node.getPeerSettings());
+    getPeer(uid,deviceId).onOfferNeeded();
+    getPeer(uid,deviceId).onAnswered();
+  }
+  for (  Node n : nodes.values()) {
+    if (n.getDeviceId() == deviceId) {
+      continue;
+    }
+    if (n.isAnswered() || n.getPeerSettings().isPreConnectionEnabled()) {
+      ConnectionState connectionState=n.getConnectedDevices().get(deviceId);
+      if (connectionState == null) {
+        sendNeedOffer(n.getUid(),n.getDeviceId(),uid,deviceId,n.getApiPeerSettings(),false);
+      }
+ else       if (connectionState == ConnectionState.SILENT) {
+        sendOnAnswered(n.getUid(),n.getDeviceId(),uid,deviceId);
+        n.getConnectedDevices().put(deviceId,ConnectionState.CONNECTED);
+      }
+ else {
+      }
+    }
+  }
+}

@@ -2,5 +2,5 @@
   this.is3DESSupported=is3DESSupported;
   this.isMobile=isMobile;
   this.canBeAudioRelay=canBeAudioRelay;
-  this.canConnect=canConnect;
+  this.canPreConnect=canPreConnect;
 }

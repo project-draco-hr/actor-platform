@@ -8,7 +8,7 @@
   if (this.canBeAudioRelay != null) {
     writer.writeBool(3,this.canBeAudioRelay);
   }
-  if (this.canConnect != null) {
-    writer.writeBool(4,this.canConnect);
+  if (this.canPreConnect != null) {
+    writer.writeBool(4,this.canPreConnect);
   }
 }

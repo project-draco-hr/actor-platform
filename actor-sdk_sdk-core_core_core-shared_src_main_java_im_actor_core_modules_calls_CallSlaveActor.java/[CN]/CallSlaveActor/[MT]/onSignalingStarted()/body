@@ -1,5 +1,4 @@
 {
   callVM=spawnNewVM(callId,peer,false,new ArrayList<CallMember>(),CallState.RINGING);
-  callVM.getIsMuted().change(isMuted());
   callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
 }

@@ -1,4 +1,4 @@
 Boolean is3DESSupported
 Boolean isMobile
 Boolean canBeAudioRelay
-Boolean canConnect
+Boolean canPreConnect

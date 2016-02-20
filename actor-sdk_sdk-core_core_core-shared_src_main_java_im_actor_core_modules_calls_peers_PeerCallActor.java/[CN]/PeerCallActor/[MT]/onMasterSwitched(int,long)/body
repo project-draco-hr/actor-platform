@@ -1,4 +1,7 @@
 {
+  if (!isSlaveMode) {
+    throw new RuntimeException("This operation is only for slave mode");
+  }
   this.masterUid=uid;
   this.masterDeviceId=deviceId;
   this.haveMaster=true;
