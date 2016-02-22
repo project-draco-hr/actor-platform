@@ -20,6 +20,7 @@
     ApiOffer offer=(ApiOffer)signal;
     peerCall.onAdvertised(senderDeviceId,new PeerSettings(offer.getOwnPeerSettings()));
     peerCall.onOffer(senderDeviceId,offer.getSdp());
+    peerCall.onTheirStarted(senderDeviceId);
   }
  else   if (signal instanceof ApiCandidate) {
     ApiCandidate candidate=(ApiCandidate)signal;
@@ -30,6 +31,7 @@
     deviceIds.put(needOffer.getDevice(),needOffer.getUid());
     peerCall.onAdvertised(needOffer.getDevice(),new PeerSettings(needOffer.getPeerSettings()));
     peerCall.onOfferNeeded(needOffer.getDevice());
+    peerCall.onTheirStarted(needOffer.getDevice());
   }
  else   if (signal instanceof ApiOnAnswer) {
     ApiOnAnswer onAnswer=(ApiOnAnswer)signal;
