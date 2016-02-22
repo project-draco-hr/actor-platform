@@ -1,8 +1,7 @@
 {
   super.postStop();
-  onSignalingEnded();
   for (  PeerNodeInt d : refs.values()) {
-    d.stop();
+    d.kill();
   }
   refs.clear();
 }

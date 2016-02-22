@@ -1,8 +1,0 @@
-{
-  this.uid=uid;
-  this.deviceId=deviceId;
-  this.nodeInt=nodeInt;
-  this.peerSettings=peerSettings;
-  this.isAnswered=false;
-  this.apiPeerSettings=apiPeerSettings;
-}

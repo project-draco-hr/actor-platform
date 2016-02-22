@@ -1,9 +1,9 @@
 {
-  if (peerConnection == null) {
+  if (peerConnection == null || !isOwnEnabled || !isTheirEnabled || isEnabled) {
     return;
   }
-  if (!isAnswered) {
-    return;
+  isEnabled=true;
+  for (  WebRTCMediaStream mediaStream : incomingStreams) {
+    mediaStream.setEnabled(true);
   }
-  peerConnection.send(new PeerConnectionActor.DoEnable(true));
 }

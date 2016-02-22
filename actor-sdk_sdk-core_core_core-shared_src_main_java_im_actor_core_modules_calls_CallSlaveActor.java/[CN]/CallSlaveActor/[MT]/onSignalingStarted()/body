@@ -1,4 +1,0 @@
-{
-  callVM=spawnNewVM(callId,peer,false,new ArrayList<CallMember>(),CallState.RINGING);
-  callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
-}

@@ -1,0 +1,7 @@
+{
+  if (this.isTheirEnabled) {
+    return;
+  }
+  this.isTheirEnabled=true;
+  reconfigurePeerConnectionIfNeeded();
+}

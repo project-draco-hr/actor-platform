@@ -1,0 +1,4 @@
+long deviceId
+int mdpIndex
+String id
+String sdp

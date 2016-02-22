@@ -1,0 +1,6 @@
+{
+  this.isOutputEnabled=isEnabled;
+  if (webRTCMediaStream != null) {
+    webRTCMediaStream.setEnabled(!isOutputEnabled);
+  }
+}

@@ -6,5 +6,4 @@
     peerConnection.close();
     peerConnection=null;
   }
-  self().send(PoisonPill.INSTANCE);
 }

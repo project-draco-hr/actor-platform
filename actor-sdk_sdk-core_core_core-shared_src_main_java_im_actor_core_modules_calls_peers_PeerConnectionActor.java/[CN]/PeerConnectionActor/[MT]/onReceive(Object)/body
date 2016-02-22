@@ -28,20 +28,6 @@
     }
     onOfferNeeded();
   }
- else   if (message instanceof DoStop) {
-    if (!isReady) {
-      stash();
-      return;
-    }
-    onEnded();
-  }
- else   if (message instanceof DoEnable) {
-    if (!isReady) {
-      stash();
-      return;
-    }
-    onEnabled(((DoEnable)message).isEnabled());
-  }
  else {
     super.onReceive(message);
   }

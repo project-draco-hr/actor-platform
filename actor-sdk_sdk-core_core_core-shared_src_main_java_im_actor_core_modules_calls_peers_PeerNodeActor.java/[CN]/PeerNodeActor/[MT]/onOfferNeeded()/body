@@ -1,3 +1,0 @@
-{
-  peerConnection.send(new PeerConnectionActor.OnOfferNeeded());
-}

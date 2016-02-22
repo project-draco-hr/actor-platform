@@ -1,6 +1,6 @@
 {
   if (peerConnection != null) {
-    peerConnection.send(PoisonPill.INSTANCE);
+    peerConnection.kill();
     peerConnection=null;
   }
 }

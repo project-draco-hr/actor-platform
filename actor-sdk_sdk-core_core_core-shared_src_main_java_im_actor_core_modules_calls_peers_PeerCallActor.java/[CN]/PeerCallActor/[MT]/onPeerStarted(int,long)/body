@@ -1,6 +1,0 @@
-{
-  if (!isStarted) {
-    isStarted=true;
-    onFirstPeerStarted();
-  }
-}

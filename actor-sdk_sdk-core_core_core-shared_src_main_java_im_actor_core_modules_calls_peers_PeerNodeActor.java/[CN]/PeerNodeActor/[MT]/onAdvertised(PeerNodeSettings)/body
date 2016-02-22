@@ -1,5 +1,7 @@
 {
-  this.settings=settings;
-  makePeerConnectionIfNeeded();
-  enablePeerConnectionIfNeeded();
+  if (this.theirSettings != null) {
+    return;
+  }
+  this.theirSettings=settings;
+  reconfigurePeerConnectionIfNeeded();
 }

@@ -1,0 +1,12 @@
+{
+  if (isMasterReady) {
+    return;
+  }
+  Log.d(TAG,"onMasterSwitched");
+  isMasterReady=true;
+  masterUid=uid;
+  masterDeviceId=deviceId;
+  callBusInt.sendSignal(masterUid,masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
+  unstashAll();
+  schedule(new AnswerCall(),1000);
+}

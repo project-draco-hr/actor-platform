@@ -1,61 +1,48 @@
 {
-  if (message instanceof OnOfferReceived) {
-    if (peerConnection == null) {
-      stash(STASH_CONNECTION);
-      return;
-    }
-    OnOfferReceived offer=(OnOfferReceived)message;
-    peerConnection.send(new PeerConnectionActor.OnOffer(offer.getSdp()));
+  if (message instanceof RTCStart) {
+    onEnableTheir();
   }
- else   if (message instanceof DoOffer) {
-    DoOffer offer=(DoOffer)message;
-    callActor.send(new PeerCallActor.SendOffer(uid,deviceId,offer.getSdp()));
+ else   if (message instanceof RTCOwnStart) {
+    onEnableOwn();
   }
- else   if (message instanceof OnAnswerReceived) {
-    if (peerConnection == null) {
-      stash(STASH_CONNECTION);
-      return;
-    }
-    OnAnswerReceived answer=(OnAnswerReceived)message;
-    peerConnection.send(new PeerConnectionActor.OnAnswer(answer.getSdp()));
-  }
- else   if (message instanceof DoAnswer) {
-    DoAnswer answer=(DoAnswer)message;
-    callActor.send(new PeerCallActor.SendAnswer(uid,deviceId,answer.getSdp()));
-  }
- else   if (message instanceof OnCandidateReceived) {
-    if (peerConnection == null) {
-      stash(STASH_CONNECTION);
-      return;
-    }
-    OnCandidateReceived candidate=(OnCandidateReceived)message;
-    peerConnection.send(new PeerConnectionActor.OnCandidate(candidate.getIndex(),candidate.getId(),candidate.getSdp()));
-  }
- else   if (message instanceof DoCandidate) {
-    DoCandidate candidate=(DoCandidate)message;
-    callActor.send(new PeerCallActor.SendCandidate(uid,deviceId,candidate.getIndex(),candidate.getId(),candidate.getSdp()));
-  }
- else   if (message instanceof OnOfferNeeded) {
-    if (peerConnection == null) {
-      stash(STASH_CONNECTION);
-      return;
-    }
-    onOfferNeeded();
-  }
- else   if (message instanceof OnAdvertised) {
-    OnAdvertised nodeSettings=(OnAdvertised)message;
-    onAdvertised(nodeSettings.getSettings());
-  }
- else   if (message instanceof OnAnswered) {
-    onAnswered();
-  }
- else   if (message instanceof OnStreamAdded) {
-    onStreamAdded();
-  }
- else   if (message instanceof OnStreamRemoved) {
+ else   if (message instanceof RTCAdvertised) {
+    RTCAdvertised advertised=(RTCAdvertised)message;
+    onAdvertised(advertised.getSettings());
   }
  else   if (message instanceof SetOwnStream) {
-    setOwnSetStream(((SetOwnStream)message).getMediaStream());
+    SetOwnStream ownStream=(SetOwnStream)message;
+    setOwnSetStream(ownStream.getMediaStream());
+  }
+ else   if (message instanceof RTCOffer) {
+    if (peerConnection == null) {
+      stash();
+      return;
+    }
+    RTCOffer offer=(RTCOffer)message;
+    peerConnection.onOffer(offer.getSdp());
+  }
+ else   if (message instanceof RTCAnswer) {
+    if (peerConnection == null) {
+      stash();
+      return;
+    }
+    RTCAnswer answer=(RTCAnswer)message;
+    peerConnection.onAnswer(answer.getSdp());
+  }
+ else   if (message instanceof RTCNeedOffer) {
+    if (peerConnection == null) {
+      stash();
+      return;
+    }
+    peerConnection.onOfferNeeded();
+  }
+ else   if (message instanceof RTCCandidate) {
+    if (peerConnection == null) {
+      stash();
+      return;
+    }
+    RTCCandidate candidate=(RTCCandidate)message;
+    peerConnection.onCandidate(candidate.getMdpIndex(),candidate.getId(),candidate.getSdp());
   }
  else {
     super.onReceive(message);

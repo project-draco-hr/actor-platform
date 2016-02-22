@@ -1,5 +1,0 @@
-int uid
-long deviceId
-boolean isPreConnectEnabled
-ActorRef callActor
-ModuleContext context

@@ -1,9 +1,0 @@
-{
-  if (isConnected) {
-    return;
-  }
-  isConnected=true;
-  if (isAnswered) {
-    callActor.send(new PeerCallActor.ConnectionActive(uid,deviceId));
-  }
-}

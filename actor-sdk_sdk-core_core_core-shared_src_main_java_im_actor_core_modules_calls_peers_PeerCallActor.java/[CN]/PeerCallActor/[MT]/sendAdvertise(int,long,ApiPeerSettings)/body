@@ -1,3 +1,0 @@
-{
-  sendSignaling(uid,deviceId,new ApiAdvertiseSelf(settings));
-}

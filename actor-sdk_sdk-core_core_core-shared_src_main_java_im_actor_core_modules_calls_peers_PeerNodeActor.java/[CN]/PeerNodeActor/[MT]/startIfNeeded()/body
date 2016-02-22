@@ -1,0 +1,9 @@
+{
+  if (isEnabled && isConnected && !isStarted) {
+    isStarted=true;
+    callback.onConnectionStarted(deviceId);
+    for (    WebRTCMediaStream mediaStream : incomingStreams) {
+      callback.onStreamAdded(deviceId,mediaStream);
+    }
+  }
+}

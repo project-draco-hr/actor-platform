@@ -4,7 +4,7 @@
   }
   Log.d(TAG,"onOfferNeeded");
   isReady=false;
-  peerConnection.createOffer().map(OPTIMIZE_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+  peerConnection.createOffer().map(OPTIMIZE_OWN_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
       return peerConnection.setLocalDescription(description);
     }
@@ -12,7 +12,7 @@
 ).then(new Consumer<WebRTCSessionDescription>(){
     @Override public void apply(    WebRTCSessionDescription description){
       Log.d(TAG,"onOfferNeeded:then");
-      nodeActor.send(new PeerNodeActor.DoOffer(description.getSdp()));
+      callback.onOffer(description.getSdp());
       state=PeerConnectionState.WAITING_ANSWER;
       isReady=true;
       unstashAll();

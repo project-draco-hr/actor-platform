@@ -1,0 +1,8 @@
+{
+  if (!isOwnStarted) {
+    isOwnStarted=true;
+    for (    PeerNodeInt d : refs.values()) {
+      d.startOwn();
+    }
+  }
+}

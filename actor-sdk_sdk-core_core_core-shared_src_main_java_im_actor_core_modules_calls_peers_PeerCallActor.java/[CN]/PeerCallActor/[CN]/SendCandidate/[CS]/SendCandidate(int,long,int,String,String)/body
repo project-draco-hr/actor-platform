@@ -1,7 +1,0 @@
-{
-  this.uid=uid;
-  this.deviceId=deviceId;
-  this.index=index;
-  this.id=id;
-  this.sdp=sdp;
-}

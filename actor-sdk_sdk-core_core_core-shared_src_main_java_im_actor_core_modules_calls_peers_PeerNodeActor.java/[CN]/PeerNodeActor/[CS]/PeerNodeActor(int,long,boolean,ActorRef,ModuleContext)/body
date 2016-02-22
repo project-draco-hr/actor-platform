@@ -1,7 +1,0 @@
-{
-  super(context);
-  this.isPreConnectEnabled=isPreConnectEnabled;
-  this.callActor=callActor;
-  this.uid=uid;
-  this.deviceId=deviceId;
-}

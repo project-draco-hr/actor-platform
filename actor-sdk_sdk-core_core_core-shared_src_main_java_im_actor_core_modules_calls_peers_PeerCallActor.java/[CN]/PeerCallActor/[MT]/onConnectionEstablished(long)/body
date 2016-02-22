@@ -1,0 +1,3 @@
+{
+  callback.onConnectionEstablished(deviceId);
+}

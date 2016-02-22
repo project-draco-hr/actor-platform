@@ -1,0 +1,12 @@
+{
+  if (message instanceof AnswerCall) {
+    if (!isMasterReady) {
+      stash();
+      return;
+    }
+    onAnswerCall();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

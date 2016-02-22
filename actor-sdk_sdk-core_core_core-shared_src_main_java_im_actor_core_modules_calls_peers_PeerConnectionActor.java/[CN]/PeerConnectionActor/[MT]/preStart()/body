@@ -10,16 +10,14 @@
       PeerConnectionActor.this.peerConnection.addOwnStream(stream);
       PeerConnectionActor.this.peerConnection.addCallback(new WebRTCPeerConnectionCallback(){
         @Override public void onCandidate(        int label,        String id,        String candidate){
-          nodeActor.send(new PeerNodeActor.DoCandidate(label,id,candidate));
+          callback.onCandidate(label,id,candidate);
         }
         @Override public void onStreamAdded(        WebRTCMediaStream stream){
-          stream.setEnabled(isEnabled);
-          incomingStreams.add(stream);
-          nodeActor.send(new PeerNodeActor.OnStreamAdded());
+          stream.setEnabled(false);
+          callback.onStreamAdded(stream);
         }
         @Override public void onStreamRemoved(        WebRTCMediaStream stream){
-          incomingStreams.remove(stream);
-          nodeActor.send(new PeerNodeActor.OnStreamRemoved());
+          callback.onStreamRemoved(stream);
         }
         @Override public void onRenegotiationNeeded(){
         }

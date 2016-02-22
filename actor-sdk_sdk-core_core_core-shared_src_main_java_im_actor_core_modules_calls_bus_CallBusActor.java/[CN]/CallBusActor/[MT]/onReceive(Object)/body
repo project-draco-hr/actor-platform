@@ -1,0 +1,15 @@
+{
+  if (message instanceof JoinBus) {
+    joinBus(((JoinBus)message).getBusId());
+  }
+ else   if (message instanceof CreateBus) {
+    createBus();
+  }
+ else   if (message instanceof SendSignal) {
+    SendSignal signal=(SendSignal)message;
+    sendSignal(signal.getUid(),signal.getDeviceId(),signal.getSignal());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

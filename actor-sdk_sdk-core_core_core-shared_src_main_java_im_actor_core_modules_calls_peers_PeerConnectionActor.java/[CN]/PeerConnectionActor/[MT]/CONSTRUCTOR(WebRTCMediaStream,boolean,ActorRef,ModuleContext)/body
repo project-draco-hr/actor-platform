@@ -1,8 +1,0 @@
-{
-  return new ActorCreator(){
-    @Override public Actor create(){
-      return new PeerConnectionActor(mediaStream,isEnabled,nodeActor,context);
-    }
-  }
-;
-}

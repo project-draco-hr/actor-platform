@@ -1,0 +1,46 @@
+{
+  if (senderId == null || senderDeviceId == null) {
+    return;
+  }
+  deviceIds.put(senderDeviceId,senderId);
+  ApiWebRTCSignaling signal;
+  try {
+    signal=ApiWebRTCSignaling.fromBytes(data);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return;
+  }
+  Log.d("CallBusActor","Message Received: " + signal);
+  if (signal instanceof ApiAnswer) {
+    ApiAnswer answer=(ApiAnswer)signal;
+    peerCall.onAnswer(senderDeviceId,answer.getSdp());
+  }
+ else   if (signal instanceof ApiOffer) {
+    ApiOffer offer=(ApiOffer)signal;
+    peerCall.onOffer(senderDeviceId,offer.getSdp());
+  }
+ else   if (signal instanceof ApiCandidate) {
+    ApiCandidate candidate=(ApiCandidate)signal;
+    peerCall.onCandidate(senderDeviceId,candidate.getIndex(),candidate.getId(),candidate.getSdp());
+  }
+ else   if (signal instanceof ApiNeedOffer) {
+    ApiNeedOffer needOffer=(ApiNeedOffer)signal;
+    deviceIds.put(needOffer.getDevice(),needOffer.getUid());
+    peerCall.onOfferNeeded(needOffer.getDevice());
+  }
+ else {
+    if (callBusCallback instanceof CallBusCallbackSlave) {
+      CallBusCallbackSlave slaveCallback=(CallBusCallbackSlave)callBusCallback;
+      if (signal instanceof ApiSwitchMaster) {
+        slaveCallback.onMasterSwitched(senderId,senderDeviceId);
+      }
+ else       if (signal instanceof ApiMembersChanged) {
+        ApiMembersChanged membersChanged=(ApiMembersChanged)signal;
+        slaveCallback.onMembersChanged(membersChanged.getAllMembers());
+      }
+    }
+ else {
+    }
+  }
+}

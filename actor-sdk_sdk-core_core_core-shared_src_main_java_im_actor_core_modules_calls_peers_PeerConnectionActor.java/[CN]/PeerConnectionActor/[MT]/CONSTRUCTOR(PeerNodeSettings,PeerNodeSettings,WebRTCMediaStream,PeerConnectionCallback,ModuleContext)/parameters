@@ -1,0 +1,5 @@
+PeerNodeSettings selfSettings
+PeerNodeSettings theirSettings
+WebRTCMediaStream mediaStream
+PeerConnectionCallback callback
+ModuleContext context

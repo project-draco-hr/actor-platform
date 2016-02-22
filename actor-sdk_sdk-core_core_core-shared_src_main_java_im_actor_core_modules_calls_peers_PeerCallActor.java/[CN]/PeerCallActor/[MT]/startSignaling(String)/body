@@ -1,6 +1,0 @@
-{
-  if (!isSlaveMode) {
-    throw new RuntimeException("This operation is only for slave mode");
-  }
-  joinBus(busId);
-}

@@ -1,6 +1,0 @@
-{
-  if (!members.contains(uid) && uid != 0) {
-    return;
-  }
-  sendSwitchMaster(uid,deviceId);
-}

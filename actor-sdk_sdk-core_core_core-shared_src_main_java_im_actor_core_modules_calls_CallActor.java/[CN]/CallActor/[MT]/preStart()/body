@@ -1,0 +1,20 @@
+{
+  super.preStart();
+  callBusInt=new CallBusInt(system().actorOf(getPath() + "/bus",new ActorCreator(){
+    @Override public Actor create(){
+      return new CallBusActor(new CallbackWrapper(),selfSettings,context());
+    }
+  }
+));
+  api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
+    @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
+      peer=convert(responseGetCallInfo.getPeer());
+      callBusInt.joinBus(responseGetCallInfo.getEventBusId());
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+    }
+  }
+).done(self());
+}

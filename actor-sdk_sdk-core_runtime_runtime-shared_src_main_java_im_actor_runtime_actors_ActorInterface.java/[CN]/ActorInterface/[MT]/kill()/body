@@ -1,0 +1,3 @@
+{
+  dest.send(PoisonPill.INSTANCE);
+}

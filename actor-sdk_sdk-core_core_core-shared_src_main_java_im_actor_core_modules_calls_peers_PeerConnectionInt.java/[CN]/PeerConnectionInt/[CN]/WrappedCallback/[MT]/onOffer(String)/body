@@ -1,0 +1,8 @@
+{
+  getDest().send(new Runnable(){
+    @Override public void run(){
+      callback.onOffer(sdp);
+    }
+  }
+);
+}

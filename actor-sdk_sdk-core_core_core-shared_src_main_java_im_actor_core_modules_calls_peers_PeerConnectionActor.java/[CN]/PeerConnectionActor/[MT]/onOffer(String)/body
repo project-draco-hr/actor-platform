@@ -9,14 +9,14 @@
       return peerConnection.createAnswer();
     }
   }
-).map(OPTIMIZE_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+).map(OPTIMIZE_OWN_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
       return peerConnection.setLocalDescription(description);
     }
   }
 ).then(new Consumer<WebRTCSessionDescription>(){
     @Override public void apply(    WebRTCSessionDescription description){
-      nodeActor.send(new PeerNodeActor.DoAnswer(description.getSdp()));
+      callback.onAnswer(description.getSdp());
       onHandShakeCompleted();
     }
   }

@@ -6,7 +6,7 @@
   handledCalls.add(callId);
   system().actorOf("actor/slave/" + RandomUtils.nextRid(),new ActorCreator(){
     @Override public Actor create(){
-      return new CallSlaveActor(callId,context());
+      return new CallActor(callId,context());
     }
   }
 );

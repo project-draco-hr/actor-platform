@@ -1,6 +1,0 @@
-{
-  super.preStart();
-  getSelfSettings().setIsPreConnectionEnabled(true);
-  callManager=context().getCallsModule().getCallManager();
-  createBus(MASTER_CALL_TIMEOUT);
-}

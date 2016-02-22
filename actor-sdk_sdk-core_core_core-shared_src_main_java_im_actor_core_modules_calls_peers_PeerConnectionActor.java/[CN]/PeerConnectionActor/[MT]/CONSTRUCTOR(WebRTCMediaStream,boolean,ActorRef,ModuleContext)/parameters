@@ -1,4 +1,0 @@
-WebRTCMediaStream mediaStream
-boolean isEnabled
-ActorRef nodeActor
-ModuleContext context

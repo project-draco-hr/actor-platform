@@ -1,0 +1,4 @@
+{
+  this.ownSettings=ownSettings;
+  this.theirSettings=theirSettings;
+}
