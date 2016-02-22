@@ -3,8 +3,15 @@
     Logging.enableTracing("logcat:",EnumSet.of(Logging.TraceLevel.TRACE_ALL),Logging.Severity.LS_SENSITIVE);
   }
   ArrayList<PeerConnection.IceServer> servers=new ArrayList<>();
+  PeerConnection.IceServer ice;
   for (  WebRTCIceServer webRTCIceServer : webRTCIceServers) {
-    servers.add(new PeerConnection.IceServer(webRTCIceServer.getUrl(),webRTCIceServer.getUsername(),webRTCIceServer.getCredential()));
+    if (webRTCIceServer.getUsername() != null) {
+      ice=new PeerConnection.IceServer(webRTCIceServer.getUrl(),webRTCIceServer.getUsername(),webRTCIceServer.getCredential() == null ? "" : webRTCIceServer.getCredential());
+    }
+ else {
+      ice=new PeerConnection.IceServer(webRTCIceServer.getUrl());
+    }
+    servers.add(ice);
   }
   this.peerConnection=AndroidWebRTCRuntimeProvider.FACTORY.createPeerConnection(servers,new MediaConstraints(),new PeerConnection.Observer(){
     @Override public void onSignalingChange(    PeerConnection.SignalingState signalingState){
