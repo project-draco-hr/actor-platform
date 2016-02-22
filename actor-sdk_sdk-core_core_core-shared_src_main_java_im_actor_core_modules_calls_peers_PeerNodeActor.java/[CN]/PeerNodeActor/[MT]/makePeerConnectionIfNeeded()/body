@@ -3,7 +3,8 @@
     return;
   }
   if ((isOwnEnabled && isTheirEnabled) || (theirSettings.isPreConnectionEnabled() && ownSettings.isPreConnectionEnabled())) {
+    Log.d(TAG,"Creating connection");
     peerConnection=new PeerConnectionInt(ownSettings,theirSettings,mediaStream,this,context(),self(),"connection");
-    unstashAll(STASH_CONNECTION);
+    unstashAll();
   }
 }

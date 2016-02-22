@@ -3,7 +3,7 @@
     return;
   }
   isEnabled=true;
+  Log.d(TAG,"Enabling connection");
   for (  WebRTCMediaStream mediaStream : incomingStreams) {
-    mediaStream.setEnabled(true);
   }
 }

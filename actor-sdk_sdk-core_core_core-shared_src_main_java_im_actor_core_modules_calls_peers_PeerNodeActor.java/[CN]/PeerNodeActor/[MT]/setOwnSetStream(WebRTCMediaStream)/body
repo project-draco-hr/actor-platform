@@ -1,4 +1,5 @@
 {
   this.mediaStream=mediaStream;
   reconfigurePeerConnectionIfNeeded();
+  Log.d(TAG,"setOwnSetStream");
 }

@@ -13,7 +13,6 @@
           callback.onCandidate(label,id,candidate);
         }
         @Override public void onStreamAdded(        WebRTCMediaStream stream){
-          stream.setEnabled(false);
           callback.onStreamAdded(stream);
         }
         @Override public void onStreamRemoved(        WebRTCMediaStream stream){

@@ -1,3 +1,4 @@
 {
   callBusInt.sendSignal(masterUid,masterDeviceId,new ApiAnswerCall());
+  peerCallInt.onOwnStarted();
 }
