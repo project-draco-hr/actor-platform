@@ -1,7 +1,12 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCMediaStream>(){
     @Override public void exec(    @NotNull final PromiseResolver<WebRTCMediaStream> resolver){
-      resolver.result(new AndroidMediaStream(FACTORY.createLocalMediaStream("ARDAMS"),true,true));
+      sVcHandler.post(new Runnable(){
+        @Override public void run(){
+          resolver.result(new AndroidMediaStream(FACTORY.createLocalMediaStream("ARDAMS"),true,true));
+        }
+      }
+);
     }
   }
 );
