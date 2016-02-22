@@ -1,4 +1,0 @@
-{
-  super.onPeerConnected(uid,deviceId);
-  Log.d(TAG,"onPeerConnected:" + deviceId);
-}

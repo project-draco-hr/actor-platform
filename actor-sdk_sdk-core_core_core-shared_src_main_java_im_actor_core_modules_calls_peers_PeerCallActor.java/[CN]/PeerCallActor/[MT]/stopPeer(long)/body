@@ -1,0 +1,6 @@
+{
+  PeerNodeInt peerNodeInt=refs.remove(deviceId);
+  if (peerNodeInt != null) {
+    peerNodeInt.stop();
+  }
+}

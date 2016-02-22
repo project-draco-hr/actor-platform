@@ -1,10 +1,10 @@
 {
-  super.onAnswered(uid,deviceId);
-  Log.d(TAG,"onAnswered:" + deviceId);
-  if (!nodes.containsKey(deviceId)) {
+  Node node=nodes.get(deviceId);
+  if (node == null || node.isAnswered()) {
     return;
   }
-  Node node=nodes.get(deviceId);
+  node.setIsAnswered(true);
+  Log.d(TAG,"onAnswered:" + deviceId);
   if (node.getPeerSettings().isPreConnectionEnabled() && getSelfSettings().isPreConnectionEnabled()) {
     getPeer(uid,deviceId).onAnswered();
   }
@@ -38,5 +38,6 @@
  else {
       callVM.getState().change(CallState.CONNECTING);
     }
+    callManager.send(new CallManagerActor.OnCallAnswered(callId));
   }
 }

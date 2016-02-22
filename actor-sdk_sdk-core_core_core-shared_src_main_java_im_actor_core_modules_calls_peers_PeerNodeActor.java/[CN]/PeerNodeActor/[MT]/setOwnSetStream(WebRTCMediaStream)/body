@@ -1,6 +1,6 @@
 {
   this.mediaStream=mediaStream;
-  this.mediaStream.setEnabled(!isMuted);
+  this.mediaStream.setEnabled(!isMuted && isAnswered);
   makePeerConnectionIfNeeded();
   enablePeerConnectionIfNeeded();
 }

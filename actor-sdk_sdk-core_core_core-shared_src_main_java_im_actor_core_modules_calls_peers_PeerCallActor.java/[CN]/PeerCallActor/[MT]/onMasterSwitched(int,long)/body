@@ -8,6 +8,9 @@
   if (wasAnswered) {
     wasAnswered=false;
     sendSignaling(uid,deviceId,new ApiAnswerCall());
+    for (    PeerNodeInt node : refs.values()) {
+      node.onAnswered();
+    }
   }
   if (wasRejected) {
     wasRejected=false;

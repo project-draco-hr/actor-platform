@@ -1,2 +1,9 @@
 {
+  Node node=nodes.remove(deviceId);
+  if (node == null) {
+    return;
+  }
+  stopPeer(deviceId);
+  if (node.isAnswered()) {
+  }
 }

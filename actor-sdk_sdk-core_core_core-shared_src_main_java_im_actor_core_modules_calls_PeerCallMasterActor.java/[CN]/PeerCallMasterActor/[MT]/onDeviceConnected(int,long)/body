@@ -1,7 +1,6 @@
 {
-  if (!members.contains(uid) || uid == 0) {
+  if (!members.contains(uid) && uid != 0) {
     return;
   }
-  Log.d(TAG,"onDeviceConnected:" + deviceId);
   sendSwitchMaster(uid,deviceId);
 }
