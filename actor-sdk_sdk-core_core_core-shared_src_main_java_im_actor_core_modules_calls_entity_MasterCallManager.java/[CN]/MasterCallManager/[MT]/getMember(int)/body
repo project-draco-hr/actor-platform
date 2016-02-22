@@ -1,7 +1,0 @@
-{
-  MasterCallMember member=members.firstOrNull(MasterCallMember.PREDICATE(uid));
-  if (member == null) {
-    throw new InvalidTransactionException();
-  }
-  return member;
-}

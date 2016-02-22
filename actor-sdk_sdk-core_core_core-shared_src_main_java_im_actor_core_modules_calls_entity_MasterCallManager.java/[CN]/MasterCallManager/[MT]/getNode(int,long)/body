@@ -1,7 +1,0 @@
-{
-  CallNode node=callGrid.getNodes().firstOrNull(CallNode.PREDICATE(uid,deviceId));
-  if (node == null) {
-    throw new InvalidTransactionException();
-  }
-  return node;
-}

@@ -1,6 +1,0 @@
-{
-  this.member=member;
-  this.deviceId=deviceId;
-  this.deviceState=CallNodeState.PENDING;
-  this.peerSettings=null;
-}

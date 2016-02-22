@@ -1,5 +1,0 @@
-{
-  this.isOutputEnabled=isEnabled;
-  if (webRTCMediaStream != null) {
-  }
-}

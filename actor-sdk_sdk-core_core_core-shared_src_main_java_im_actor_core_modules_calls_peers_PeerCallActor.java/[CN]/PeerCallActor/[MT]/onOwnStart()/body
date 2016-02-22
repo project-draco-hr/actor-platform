@@ -1,6 +1,9 @@
 {
   if (!isOwnStarted) {
     isOwnStarted=true;
+    if (webRTCMediaStream != null) {
+      webRTCMediaStream.setEnabled(!isMuted);
+    }
     for (    PeerNodeInt d : refs.values()) {
       d.startOwn();
     }

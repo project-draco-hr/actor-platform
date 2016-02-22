@@ -1,8 +1,0 @@
-{
-  if (this.theirSettings != null) {
-    return;
-  }
-  this.theirSettings=settings;
-  reconfigurePeerConnectionIfNeeded();
-  Log.d(TAG,"onAdvertised");
-}

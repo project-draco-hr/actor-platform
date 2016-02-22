@@ -1,5 +1,5 @@
 {
-  getDest().send(new Runnable(){
+  callbackDest.send(new Runnable(){
     @Override public void run(){
       callback.onCandidate(mdpIndex,id,sdp);
     }

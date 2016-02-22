@@ -1,10 +1,9 @@
 {
-  if (peerConnection != null || theirSettings == null || mediaStream == null) {
+  if (peerConnection != null || theirSettings == null || ownMediaStream == null) {
     return;
   }
   if ((isOwnEnabled && isTheirEnabled) || (theirSettings.isPreConnectionEnabled() && ownSettings.isPreConnectionEnabled())) {
-    Log.d(TAG,"Creating connection");
-    peerConnection=new PeerConnectionInt(ownSettings,theirSettings,mediaStream,this,context(),self(),"connection");
+    peerConnection=new PeerConnectionInt(ownSettings,theirSettings,ownMediaStream,this,context(),self(),"connection");
     unstashAll();
   }
 }

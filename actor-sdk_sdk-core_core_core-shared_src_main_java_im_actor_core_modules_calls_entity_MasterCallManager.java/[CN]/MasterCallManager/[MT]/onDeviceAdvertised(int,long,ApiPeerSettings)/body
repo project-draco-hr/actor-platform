@@ -1,9 +1,0 @@
-{
-  CallNode node=getNode(uid,deviceId);
-  if (node.getDeviceState() != CallNodeState.PENDING) {
-    throw new InvalidTransactionException();
-  }
-  node.setDeviceState(CallNodeState.ADVERTISED);
-  node.setPeerSettings(peerSettings);
-  isInvalidated=true;
-}

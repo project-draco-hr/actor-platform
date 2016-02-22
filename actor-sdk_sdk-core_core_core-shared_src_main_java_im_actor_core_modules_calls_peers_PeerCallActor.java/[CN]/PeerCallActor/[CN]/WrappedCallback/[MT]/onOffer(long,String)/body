@@ -1,8 +1,0 @@
-{
-  self().send(new Runnable(){
-    @Override public void run(){
-      PeerCallActor.this.onOffer(deviceId,sdp);
-    }
-  }
-);
-}

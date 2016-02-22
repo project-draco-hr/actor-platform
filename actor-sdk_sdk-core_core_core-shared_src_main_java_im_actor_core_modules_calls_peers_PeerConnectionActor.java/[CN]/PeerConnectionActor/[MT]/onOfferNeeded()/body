@@ -2,7 +2,6 @@
   if (state != PeerConnectionState.WAITING_HANDSHAKE) {
     return;
   }
-  Log.d(TAG,"onOfferNeeded");
   isReady=false;
   peerConnection.createOffer().map(OPTIMIZE_OWN_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
@@ -11,7 +10,6 @@
   }
 ).then(new Consumer<WebRTCSessionDescription>(){
     @Override public void apply(    WebRTCSessionDescription description){
-      Log.d(TAG,"onOfferNeeded:then");
       callback.onOffer(description.getSdp());
       state=PeerConnectionState.WAITING_ANSWER;
       isReady=true;
@@ -20,7 +18,6 @@
   }
 ).failure(new Consumer<Exception>(){
     @Override public void apply(    Exception e){
-      Log.d(TAG,"onOfferNeeded:failure");
       e.printStackTrace();
       onHandshakeFailure();
     }

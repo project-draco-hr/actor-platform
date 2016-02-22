@@ -1,3 +1,0 @@
-{
-  return members.removeAll(members.filter(MasterCallMember.PREDICATE(uid)));
-}

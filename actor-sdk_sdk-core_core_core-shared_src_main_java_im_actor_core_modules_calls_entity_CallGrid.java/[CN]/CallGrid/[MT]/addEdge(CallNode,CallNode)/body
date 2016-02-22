@@ -1,6 +1,0 @@
-{
-  if (edges.isAny(FIND_EDGE(src,dest))) {
-    throw new RuntimeException();
-  }
-  edges.add(new CallGridEdge(src,dest));
-}

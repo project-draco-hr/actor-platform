@@ -1,0 +1,6 @@
+{
+  if (this.theirSettings == null) {
+    this.theirSettings=settings;
+    reconfigurePeerConnectionIfNeeded();
+  }
+}

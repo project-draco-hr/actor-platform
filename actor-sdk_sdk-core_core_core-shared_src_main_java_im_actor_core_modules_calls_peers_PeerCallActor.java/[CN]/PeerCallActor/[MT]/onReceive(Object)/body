@@ -30,6 +30,10 @@
     RTCAdvertised advertised=(RTCAdvertised)message;
     getPeer(advertised.getDeviceId()).onAdvertised(advertised.getSettings());
   }
+ else   if (message instanceof MuteChanged) {
+    MuteChanged muteChanged=(MuteChanged)message;
+    onMuteChanged(muteChanged.isMuted());
+  }
  else {
     super.onReceive(message);
   }

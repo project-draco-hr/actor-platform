@@ -1,8 +1,6 @@
 {
-  if (this.isTheirEnabled) {
-    return;
+  if (!this.isTheirEnabled) {
+    this.isTheirEnabled=true;
+    reconfigurePeerConnectionIfNeeded();
   }
-  this.isTheirEnabled=true;
-  reconfigurePeerConnectionIfNeeded();
-  Log.d(TAG,"onEnableTheir");
 }

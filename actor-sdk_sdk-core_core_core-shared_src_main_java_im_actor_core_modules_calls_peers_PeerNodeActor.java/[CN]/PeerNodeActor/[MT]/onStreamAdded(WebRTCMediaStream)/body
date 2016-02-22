@@ -1,5 +1,6 @@
 {
-  incomingStreams.add(stream);
+  theirMediaStreams.add(stream);
+  stream.setEnabled(isEnabled);
   if (isStarted) {
     callback.onStreamAdded(deviceId,stream);
   }

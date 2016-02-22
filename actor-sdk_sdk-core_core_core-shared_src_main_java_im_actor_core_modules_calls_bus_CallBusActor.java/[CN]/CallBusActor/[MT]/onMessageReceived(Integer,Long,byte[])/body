@@ -18,9 +18,8 @@
   }
  else   if (signal instanceof ApiOffer) {
     ApiOffer offer=(ApiOffer)signal;
-    peerCall.onAdvertised(senderDeviceId,new PeerNodeSettings(offer.getOwnPeerSettings()));
+    peerCall.onAdvertised(senderDeviceId,new PeerSettings(offer.getOwnPeerSettings()));
     peerCall.onOffer(senderDeviceId,offer.getSdp());
-    peerCall.onTheirStarted(senderDeviceId);
   }
  else   if (signal instanceof ApiCandidate) {
     ApiCandidate candidate=(ApiCandidate)signal;
@@ -29,9 +28,13 @@
  else   if (signal instanceof ApiNeedOffer) {
     ApiNeedOffer needOffer=(ApiNeedOffer)signal;
     deviceIds.put(needOffer.getDevice(),needOffer.getUid());
-    peerCall.onAdvertised(needOffer.getDevice(),new PeerNodeSettings(needOffer.getPeerSettings()));
+    peerCall.onAdvertised(needOffer.getDevice(),new PeerSettings(needOffer.getPeerSettings()));
     peerCall.onOfferNeeded(needOffer.getDevice());
-    peerCall.onTheirStarted(needOffer.getDevice());
+  }
+ else   if (signal instanceof ApiOnAnswer) {
+    ApiOnAnswer onAnswer=(ApiOnAnswer)signal;
+    deviceIds.put(onAnswer.getDevice(),onAnswer.getUid());
+    peerCall.onTheirStarted(onAnswer.getDevice());
   }
  else {
     if (callBusCallback instanceof CallBusCallbackSlave) {

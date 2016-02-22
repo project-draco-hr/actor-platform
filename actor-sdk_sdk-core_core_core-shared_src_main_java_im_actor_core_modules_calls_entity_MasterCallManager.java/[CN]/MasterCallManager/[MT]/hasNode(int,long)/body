@@ -1,3 +1,0 @@
-{
-  return callGrid.getNodes().firstOrNull(CallNode.PREDICATE(uid,deviceId)) != null;
-}

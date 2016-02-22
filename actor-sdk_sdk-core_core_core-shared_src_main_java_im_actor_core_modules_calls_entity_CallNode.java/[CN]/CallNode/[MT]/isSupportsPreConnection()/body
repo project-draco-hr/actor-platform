@@ -1,6 +1,0 @@
-{
-  if (peerSettings == null) {
-    return false;
-  }
-  return false;
-}

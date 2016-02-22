@@ -1,4 +1,0 @@
-{
-  this.callGrid=new CallGrid();
-  this.members=ManagedList.of();
-}

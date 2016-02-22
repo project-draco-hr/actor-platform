@@ -1,8 +1,0 @@
-{
-  return new Predicate<CallNode>(){
-    @Override public boolean apply(    CallNode callNode){
-      return callNode.getMember().getUid() == uid && callNode.getDeviceId() == deviceId;
-    }
-  }
-;
-}

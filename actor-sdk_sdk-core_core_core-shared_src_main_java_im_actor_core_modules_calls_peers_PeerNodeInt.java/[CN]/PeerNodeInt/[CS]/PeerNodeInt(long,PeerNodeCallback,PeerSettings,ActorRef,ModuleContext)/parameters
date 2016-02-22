@@ -1,0 +1,5 @@
+long deviceId
+PeerNodeCallback callback
+PeerSettings selfSettings
+ActorRef dest
+ModuleContext context

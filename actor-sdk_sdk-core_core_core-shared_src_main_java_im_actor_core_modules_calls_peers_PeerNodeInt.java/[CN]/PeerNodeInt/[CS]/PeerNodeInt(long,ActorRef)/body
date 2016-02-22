@@ -1,4 +1,0 @@
-{
-  super(dest);
-  this.deviceId=deviceId;
-}

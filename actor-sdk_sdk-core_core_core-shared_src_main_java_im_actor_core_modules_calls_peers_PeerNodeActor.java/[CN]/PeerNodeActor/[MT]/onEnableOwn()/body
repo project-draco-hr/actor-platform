@@ -1,8 +1,6 @@
 {
-  if (this.isOwnEnabled) {
-    return;
+  if (!this.isOwnEnabled) {
+    this.isOwnEnabled=true;
+    reconfigurePeerConnectionIfNeeded();
   }
-  this.isOwnEnabled=true;
-  reconfigurePeerConnectionIfNeeded();
-  Log.d(TAG,"onEnableOwn");
 }

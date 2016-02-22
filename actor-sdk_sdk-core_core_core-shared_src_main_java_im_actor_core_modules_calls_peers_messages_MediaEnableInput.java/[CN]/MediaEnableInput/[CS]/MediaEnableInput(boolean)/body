@@ -1,5 +1,0 @@
-{
-  this.isEnabled=isEnabled;
-  this.isForAll=true;
-  this.deviceId=0;
-}

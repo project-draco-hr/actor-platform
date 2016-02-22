@@ -1,5 +1,0 @@
-{
-  this.callback=callback;
-  ActorRef ref=system().actorOf(dest.getPath() + "/" + path,PeerConnectionActor.CONSTRUCTOR(ownSettings,theirSettings,mediaStream,new WrappedCallback(),context));
-  setDest(ref);
-}

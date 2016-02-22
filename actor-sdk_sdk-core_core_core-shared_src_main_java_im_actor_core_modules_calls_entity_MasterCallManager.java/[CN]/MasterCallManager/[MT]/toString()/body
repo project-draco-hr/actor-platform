@@ -1,8 +1,0 @@
-{
-  String res="Devices: \n";
-  res+="Members: \n";
-  for (  MasterCallMember member : members) {
-    res+=member.getUid() + " - " + member.getState()+ "\n";
-  }
-  return res;
-}

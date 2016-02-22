@@ -1,3 +1,0 @@
-{
-  return nodes.filter(CallNode.PREDICATE(uid));
-}
