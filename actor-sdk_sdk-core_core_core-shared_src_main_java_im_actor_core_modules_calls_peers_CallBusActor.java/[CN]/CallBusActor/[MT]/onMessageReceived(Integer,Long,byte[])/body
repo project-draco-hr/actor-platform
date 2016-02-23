@@ -20,7 +20,6 @@
     ApiOffer offer=(ApiOffer)signal;
     peerCall.onAdvertised(senderDeviceId,new PeerSettings(offer.getOwnPeerSettings()));
     peerCall.onOffer(senderDeviceId,offer.getSdp());
-    peerCall.onTheirStarted(senderDeviceId);
   }
  else   if (signal instanceof ApiCandidate) {
     ApiCandidate candidate=(ApiCandidate)signal;
@@ -31,7 +30,6 @@
     deviceIds.put(needOffer.getDevice(),needOffer.getUid());
     peerCall.onAdvertised(needOffer.getDevice(),new PeerSettings(needOffer.getPeerSettings()));
     peerCall.onOfferNeeded(needOffer.getDevice());
-    peerCall.onTheirStarted(needOffer.getDevice());
   }
  else   if (signal instanceof ApiOnAnswer) {
     ApiOnAnswer onAnswer=(ApiOnAnswer)signal;
@@ -52,12 +50,27 @@
     masterDeviceId=senderDeviceId;
     unstashAll(STASH);
     sendSignal(masterUid,masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
+    peerCall.onTheirStarted(masterDeviceId);
   }
  else   if (signal instanceof ApiAdvertiseSelf) {
     ApiAdvertiseSelf advertiseSelf=(ApiAdvertiseSelf)signal;
-    peerCall.onAdvertised(senderDeviceId,new PeerSettings(advertiseSelf.getPeerSettings()));
+    if (peerSettings.containsKey(senderDeviceId)) {
+      return;
+    }
+    PeerSettings settings=new PeerSettings(advertiseSelf.getPeerSettings());
+    peerSettings.put(senderDeviceId,settings);
+    peerCall.onAdvertised(senderDeviceId,settings);
+    if (isAnswered.contains(senderDeviceId)) {
+      callBusCallback.onAnswered(senderId,senderDeviceId);
+    }
   }
  else   if (signal instanceof ApiAnswerCall) {
-    callBusCallback.onAnswered(senderId,senderDeviceId);
+    if (isAnswered.contains(senderDeviceId)) {
+      return;
+    }
+    isAnswered.add(senderDeviceId);
+    if (peerSettings.containsKey(senderDeviceId)) {
+      callBusCallback.onAnswered(senderId,senderDeviceId);
+    }
   }
 }

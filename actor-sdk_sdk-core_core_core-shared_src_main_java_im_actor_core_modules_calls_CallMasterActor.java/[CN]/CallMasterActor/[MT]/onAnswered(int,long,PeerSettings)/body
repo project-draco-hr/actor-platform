@@ -1,0 +1,6 @@
+{
+  peerCall.onTheirStarted(deviceId);
+  if (!selfSettings.isPreConnectionEnabled() || !settings.isPreConnectionEnabled()) {
+    peerCall.onOfferNeeded(deviceId);
+  }
+}

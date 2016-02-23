@@ -2,23 +2,5 @@
   super(context);
   this.selfSettings=selfSettings;
   this.callBusCallback=callBusCallback;
-  this.peerCallback=new CallbackWrapper(new PeerCallCallback(){
-    @Override public void onOffer(    long deviceId,    String sdp){
-      sendSignal(deviceId,new ApiOffer(0,sdp,CallBusActor.this.selfSettings.toApi()));
-    }
-    @Override public void onAnswer(    long deviceId,    String sdp){
-      sendSignal(deviceId,new ApiAnswer(0,sdp));
-    }
-    @Override public void onCandidate(    long deviceId,    int mdpIndex,    String id,    String sdp){
-      sendSignal(deviceId,new ApiCandidate(0,mdpIndex,id,sdp));
-    }
-    @Override public void onPeerStateChanged(    long deviceId,    PeerState state){
-      callBusCallback.onPeerStateChanged(deviceIds.get(deviceId),deviceId,state);
-    }
-    @Override public void onStreamAdded(    long deviceId,    WebRTCMediaStream stream){
-    }
-    @Override public void onStreamRemoved(    long deviceId,    WebRTCMediaStream stream){
-    }
-  }
-);
+  this.peerCallback=new CallbackWrapper(this);
 }

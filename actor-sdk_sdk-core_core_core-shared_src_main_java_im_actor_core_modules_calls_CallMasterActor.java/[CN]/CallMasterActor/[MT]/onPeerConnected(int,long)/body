@@ -1,4 +1,0 @@
-{
-  Log.d("CallMasterActor","On Peer Connected: " + uid + ", device: "+ deviceId);
-  peerCall.onOfferNeeded(deviceId);
-}
