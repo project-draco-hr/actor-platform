@@ -1,5 +1,20 @@
 {
-  if (state == PeerState.DISPOSED) {
-    readyDevices.remove(deviceId);
+  PeerStateHolder peerState=statesMap.get(uid);
+  if (peerState == null) {
+    return;
   }
+switch (state) {
+case PENDING:
+    break;
+case CONNECTING:
+  break;
+case CONNECTED:
+break;
+case ACTIVE:
+break;
+case DISPOSED:
+readyDevices.remove(deviceId);
+break;
+}
+broadcastMembers();
 }

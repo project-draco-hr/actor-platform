@@ -1,5 +1,9 @@
 {
-  Log.d("CallMasterActor","onAnswered: " + deviceId);
+  PeerStateHolder peerState=statesMap.get(uid);
+  if (peerState == null) {
+    return;
+  }
+  peerState.setWasAnswered(true);
   peerCall.onTheirStarted(deviceId);
   onPeerStarted(uid,deviceId,settings);
   for (  long d : readyDevices) {
@@ -7,4 +11,5 @@
       callBus.sendSignal(d,new ApiOnAnswer(uid,deviceId));
     }
   }
+  broadcastMembers();
 }

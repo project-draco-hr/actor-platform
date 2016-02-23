@@ -1,5 +1,4 @@
 {
-  Log.d("CallMasterActor","onPeerStarted: " + deviceId);
   if (readyDevices.contains(deviceId)) {
     return;
   }

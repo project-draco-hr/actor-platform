@@ -1,7 +1,12 @@
 {
-  Log.d("CallMasterActor","onAdvertised: " + deviceId);
+  PeerStateHolder peerState=statesMap.get(uid);
+  if (peerState == null) {
+    return;
+  }
+  peerState.setIsConnected(true);
   peerCall.onAdvertised(deviceId,settings);
   if (selfSettings.isPreConnectionEnabled() && settings.isPreConnectionEnabled()) {
     onPeerStarted(uid,deviceId,settings);
   }
+  broadcastMembers();
 }

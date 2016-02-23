@@ -4,10 +4,16 @@
       if (peer.getPeerType() == PeerType.GROUP) {
         for (        GroupMember gm : getGroup(peer.getPeerId()).getMembers()) {
           if (gm.getUid() != myUid()) {
+            PeerStateHolder st=new PeerStateHolder(gm.getUid());
+            peerStates.add(st);
+            statesMap.put(st.getUid(),st);
           }
         }
       }
  else       if (peer.getPeerType() == PeerType.PRIVATE) {
+        PeerStateHolder st=new PeerStateHolder(peer.getPeerId());
+        peerStates.add(st);
+        statesMap.put(st.getUid(),st);
       }
  else {
         throw new RuntimeException("Unsupported Peer Type group");
