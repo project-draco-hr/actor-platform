@@ -1,2 +1,7 @@
 {
+  ArrayList<CallMember> vmMembers=new ArrayList<>();
+  for (  ApiCallMember callMember : members) {
+    vmMembers.add(new CallMember(callMember.getUserId(),CallMemberState.from(callMember.getState())));
+  }
+  callVM.getMembers().change(vmMembers);
 }

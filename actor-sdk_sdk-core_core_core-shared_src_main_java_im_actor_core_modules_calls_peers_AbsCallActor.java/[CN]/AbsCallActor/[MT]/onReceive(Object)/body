@@ -1,0 +1,8 @@
+{
+  if (message instanceof MuteChanged) {
+    onMuteChanged(((MuteChanged)message).isMuted());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

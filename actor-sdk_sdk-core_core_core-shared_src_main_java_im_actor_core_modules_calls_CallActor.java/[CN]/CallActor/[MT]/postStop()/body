@@ -1,0 +1,8 @@
+{
+  super.postStop();
+  if (callVM != null) {
+    callVM.getState().change(CallState.ENDED);
+  }
+  callBus.kill();
+  peerCall.kill();
+}

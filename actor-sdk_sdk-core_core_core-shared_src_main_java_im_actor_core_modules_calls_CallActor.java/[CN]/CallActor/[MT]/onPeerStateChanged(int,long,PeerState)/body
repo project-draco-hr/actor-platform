@@ -1,3 +1,8 @@
 {
-  Log.d(TAG,"onPeerStateChanged " + deviceId + "("+ state+ ")");
+  if ((state == PeerState.CONNECTED || state == PeerState.ACTIVE) && !isConnected) {
+    isConnected=true;
+    if (isAnswered) {
+      callVM.getState().change(CallState.IN_PROGRESS);
+    }
+  }
 }

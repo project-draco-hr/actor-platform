@@ -6,6 +6,7 @@
     }
     ActorRef ref=runningCalls.remove(callId);
     if (ref != null) {
+      ref.send(PoisonPill.INSTANCE);
     }
   }
 }

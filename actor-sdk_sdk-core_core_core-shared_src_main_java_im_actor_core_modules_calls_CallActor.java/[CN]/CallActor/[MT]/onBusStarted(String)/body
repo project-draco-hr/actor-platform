@@ -1,4 +1,3 @@
 {
-  Log.d(TAG,"onBusStarted");
   callManager.send(new CallManagerActor.IncomingCallReady(callId),self());
 }
