@@ -1,6 +1,10 @@
 {
+  Log.d("CallMasterActor","onAnswered: " + deviceId);
   peerCall.onTheirStarted(deviceId);
-  if (!selfSettings.isPreConnectionEnabled() || !settings.isPreConnectionEnabled()) {
-    peerCall.onOfferNeeded(deviceId);
+  onPeerStarted(uid,deviceId,settings);
+  for (  long d : readyDevices) {
+    if (d != deviceId) {
+      callBus.sendSignal(d,new ApiOnAnswer(uid,deviceId));
+    }
   }
 }

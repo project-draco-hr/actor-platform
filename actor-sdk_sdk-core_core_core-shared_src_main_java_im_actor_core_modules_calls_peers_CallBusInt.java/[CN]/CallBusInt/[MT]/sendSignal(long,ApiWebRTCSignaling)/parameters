@@ -1,3 +1,2 @@
-int uid
 long deviceId
 ApiWebRTCSignaling signal

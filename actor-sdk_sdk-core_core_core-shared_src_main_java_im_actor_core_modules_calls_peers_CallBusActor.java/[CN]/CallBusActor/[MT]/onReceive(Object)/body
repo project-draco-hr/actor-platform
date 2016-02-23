@@ -7,7 +7,7 @@
   }
  else   if (message instanceof SendSignal) {
     SendSignal signal=(SendSignal)message;
-    sendSignal(signal.getUid(),signal.getDeviceId(),signal.getSignal());
+    sendSignal(signal.getDeviceId(),signal.getSignal());
   }
  else   if (message instanceof AnswerCall) {
     if (isMasterMode) {

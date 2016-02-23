@@ -59,9 +59,9 @@
     }
     PeerSettings settings=new PeerSettings(advertiseSelf.getPeerSettings());
     peerSettings.put(senderDeviceId,settings);
-    peerCall.onAdvertised(senderDeviceId,settings);
+    callBusCallback.onAdvertised(senderId,senderDeviceId,settings);
     if (isAnswered.contains(senderDeviceId)) {
-      callBusCallback.onAnswered(senderId,senderDeviceId);
+      callBusCallback.onAnswered(senderId,senderDeviceId,settings);
     }
   }
  else   if (signal instanceof ApiAnswerCall) {
@@ -70,7 +70,7 @@
     }
     isAnswered.add(senderDeviceId);
     if (peerSettings.containsKey(senderDeviceId)) {
-      callBusCallback.onAnswered(senderId,senderDeviceId);
+      callBusCallback.onAnswered(senderId,senderDeviceId,peerSettings.get(senderDeviceId));
     }
   }
 }

@@ -1,3 +1,0 @@
-{
-  send(new CallBusActor.SendSignal(uid,deviceId,signal));
-}

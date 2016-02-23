@@ -1,6 +1,7 @@
 {
+  Log.d("CallMasterActor","onAdvertised: " + deviceId);
   peerCall.onAdvertised(deviceId,settings);
   if (selfSettings.isPreConnectionEnabled() && settings.isPreConnectionEnabled()) {
-    peerCall.onOfferNeeded(deviceId);
+    onPeerStarted(uid,deviceId,settings);
   }
 }

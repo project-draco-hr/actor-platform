@@ -1,0 +1,5 @@
+{
+  if (state == PeerState.DISPOSED) {
+    readyDevices.remove(deviceId);
+  }
+}

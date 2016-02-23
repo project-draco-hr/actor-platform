@@ -1,0 +1,11 @@
+{
+  Log.d("CallMasterActor","onPeerStarted: " + deviceId);
+  if (readyDevices.contains(deviceId)) {
+    return;
+  }
+  peerCall.onOfferNeeded(deviceId);
+  for (  long d : readyDevices) {
+    callBus.sendSignal(d,new ApiNeedOffer(uid,deviceId,settings.toApi(),false));
+  }
+  readyDevices.add(deviceId);
+}
