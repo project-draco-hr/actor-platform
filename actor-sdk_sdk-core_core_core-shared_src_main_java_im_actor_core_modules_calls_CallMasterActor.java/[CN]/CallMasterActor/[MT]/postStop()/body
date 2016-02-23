@@ -1,0 +1,7 @@
+{
+  super.postStop();
+  if (callback != null) {
+    callback.onError(new RuntimeException());
+    callback=null;
+  }
+}

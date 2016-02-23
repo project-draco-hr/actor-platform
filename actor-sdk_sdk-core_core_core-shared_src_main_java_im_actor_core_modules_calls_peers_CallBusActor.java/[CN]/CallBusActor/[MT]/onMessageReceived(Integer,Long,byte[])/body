@@ -38,8 +38,13 @@
     deviceIds.put(onAnswer.getDevice(),onAnswer.getUid());
     peerCall.onTheirStarted(onAnswer.getDevice());
   }
+ else   if (signal instanceof ApiNeedDisconnect) {
+    ApiNeedDisconnect disconnect=(ApiNeedDisconnect)signal;
+    deviceIds.put(disconnect.getDevice(),disconnect.getUid());
+    peerCall.disposePeer(disconnect.getDevice());
+  }
  else   if (signal instanceof ApiSwitchMaster) {
-    if (isMasterReady) {
+    if (isMasterReady || isMasterMode) {
       return;
     }
     isMasterReady=true;
@@ -48,6 +53,11 @@
     unstashAll(STASH);
     sendSignal(masterUid,masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
   }
- else {
+ else   if (signal instanceof ApiAdvertiseSelf) {
+    ApiAdvertiseSelf advertiseSelf=(ApiAdvertiseSelf)signal;
+    peerCall.onAdvertised(senderDeviceId,new PeerSettings(advertiseSelf.getPeerSettings()));
+  }
+ else   if (signal instanceof ApiAnswerCall) {
+    callBusCallback.onAnswered(senderId,senderDeviceId);
   }
 }

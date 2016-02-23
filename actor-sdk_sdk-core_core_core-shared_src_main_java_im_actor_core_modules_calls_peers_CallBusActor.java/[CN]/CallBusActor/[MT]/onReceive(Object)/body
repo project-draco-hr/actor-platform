@@ -3,13 +3,16 @@
     joinBus(((JoinBus)message).getBusId());
   }
  else   if (message instanceof CreateBus) {
-    createBus();
+    createMasterBus();
   }
  else   if (message instanceof SendSignal) {
     SendSignal signal=(SendSignal)message;
     sendSignal(signal.getUid(),signal.getDeviceId(),signal.getSignal());
   }
  else   if (message instanceof AnswerCall) {
+    if (isMasterMode) {
+      return;
+    }
     if (!isMasterReady) {
       stash(STASH);
       return;
@@ -17,6 +20,9 @@
     onAnswerCall();
   }
  else   if (message instanceof RejectCall) {
+    if (isMasterMode) {
+      return;
+    }
     if (!isMasterReady) {
       stash(STASH);
       return;
