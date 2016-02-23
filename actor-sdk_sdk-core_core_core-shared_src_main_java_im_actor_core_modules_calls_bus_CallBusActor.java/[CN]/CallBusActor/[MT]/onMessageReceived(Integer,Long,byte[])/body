@@ -38,18 +38,16 @@
     deviceIds.put(onAnswer.getDevice(),onAnswer.getUid());
     peerCall.onTheirStarted(onAnswer.getDevice());
   }
- else {
-    if (callBusCallback instanceof CallBusCallbackSlave) {
-      CallBusCallbackSlave slaveCallback=(CallBusCallbackSlave)callBusCallback;
-      if (signal instanceof ApiSwitchMaster) {
-        slaveCallback.onMasterSwitched(senderId,senderDeviceId);
-      }
- else       if (signal instanceof ApiMembersChanged) {
-        ApiMembersChanged membersChanged=(ApiMembersChanged)signal;
-        slaveCallback.onMembersChanged(membersChanged.getAllMembers());
-      }
+ else   if (signal instanceof ApiSwitchMaster) {
+    if (isMasterReady) {
+      return;
     }
+    isMasterReady=true;
+    masterUid=senderId;
+    masterDeviceId=senderDeviceId;
+    unstashAll(STASH);
+    sendSignal(masterUid,masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
+  }
  else {
-    }
   }
 }

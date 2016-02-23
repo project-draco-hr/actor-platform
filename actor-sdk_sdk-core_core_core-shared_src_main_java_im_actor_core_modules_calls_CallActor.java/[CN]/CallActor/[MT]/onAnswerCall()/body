@@ -1,4 +1,7 @@
 {
-  callBusInt.sendSignal(masterUid,masterDeviceId,new ApiAnswerCall());
-  peerCallInt.onOwnStarted();
+  if (!isAnswered && !isRejected) {
+    isAnswered=true;
+    callBus.answerCall();
+    peerCall.onOwnStarted();
+  }
 }

@@ -1,4 +1,5 @@
 {
   super(context);
   provider=context().getConfiguration().getCallsProvider();
+  callViewModels=new CallViewModels(context());
 }

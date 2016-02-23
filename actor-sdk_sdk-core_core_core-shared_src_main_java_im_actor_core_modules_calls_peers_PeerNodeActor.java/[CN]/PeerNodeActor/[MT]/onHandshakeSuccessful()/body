@@ -1,0 +1,3 @@
+{
+  callback.onHandshakeSuccessful(deviceId);
+}

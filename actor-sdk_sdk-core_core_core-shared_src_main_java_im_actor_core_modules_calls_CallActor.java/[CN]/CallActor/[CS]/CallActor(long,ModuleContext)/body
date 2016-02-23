@@ -1,9 +1,6 @@
 {
   super(context);
   this.callId=callId;
-  this.callManager=context.getCallsModule().getCallManager();
   this.isAnswered=false;
   this.isConnected=false;
-  this.selfSettings=new PeerSettings();
-  this.selfSettings.setIsPreConnectionEnabled(true);
 }

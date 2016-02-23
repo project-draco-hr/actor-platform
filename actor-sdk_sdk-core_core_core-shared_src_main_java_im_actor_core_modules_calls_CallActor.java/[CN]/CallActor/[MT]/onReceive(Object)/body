@@ -1,10 +1,9 @@
 {
   if (message instanceof AnswerCall) {
-    if (!isMasterReady) {
-      stash();
-      return;
-    }
     onAnswerCall();
+  }
+ else   if (message instanceof RejectCall) {
+    onRejectCall();
   }
  else {
     super.onReceive(message);

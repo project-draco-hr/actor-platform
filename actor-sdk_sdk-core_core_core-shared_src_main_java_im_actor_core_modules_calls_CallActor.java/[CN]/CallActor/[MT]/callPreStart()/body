@@ -1,0 +1,15 @@
+{
+  api(new RequestGetCallInfo(callId)).then(new Consumer<ResponseGetCallInfo>(){
+    @Override public void apply(    final ResponseGetCallInfo responseGetCallInfo){
+      peer=convert(responseGetCallInfo.getPeer());
+      callBus.joinBus(responseGetCallInfo.getEventBusId());
+      callVM=callViewModels.spawnNewIncomingVM(callId,peer,CallState.RINGING);
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      self().send(PoisonPill.INSTANCE);
+    }
+  }
+).done(self());
+}

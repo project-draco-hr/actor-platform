@@ -9,6 +9,12 @@
     SendSignal signal=(SendSignal)message;
     sendSignal(signal.getUid(),signal.getDeviceId(),signal.getSignal());
   }
+ else   if (message instanceof AnswerCall) {
+    if (!isMasterReady) {
+      stash(STASH);
+    }
+    onAnswerCall();
+  }
  else {
     super.onReceive(message);
   }

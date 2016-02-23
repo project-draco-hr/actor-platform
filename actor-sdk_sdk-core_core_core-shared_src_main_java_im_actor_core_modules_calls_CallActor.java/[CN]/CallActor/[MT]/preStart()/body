@@ -1,9 +1,0 @@
-{
-  super.preStart();
-  callBusInt=new CallBusInt(system().actorOf(getPath() + "/bus",new ActorCreator(){
-    @Override public Actor create(){
-      return new CallBusActor(new CallbackWrapper(),selfSettings,context());
-    }
-  }
-));
-}
