@@ -1,0 +1,3 @@
+{
+  Log.d(TAG,"onPeerStateChanged " + deviceId + "("+ state+ ")");
+}

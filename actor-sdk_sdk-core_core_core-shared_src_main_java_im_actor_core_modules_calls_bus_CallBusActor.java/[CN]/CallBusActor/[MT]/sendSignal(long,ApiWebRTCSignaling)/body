@@ -1,4 +1,3 @@
 {
-  int uid=deviceIds.get(deviceId);
-  sendSignal(uid,deviceId,signal);
+  sendSignal(deviceIds.get(deviceId),deviceId,signal);
 }

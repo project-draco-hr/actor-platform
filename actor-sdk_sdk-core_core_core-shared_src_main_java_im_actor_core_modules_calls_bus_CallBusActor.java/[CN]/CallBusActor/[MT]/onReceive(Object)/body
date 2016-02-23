@@ -12,8 +12,16 @@
  else   if (message instanceof AnswerCall) {
     if (!isMasterReady) {
       stash(STASH);
+      return;
     }
     onAnswerCall();
+  }
+ else   if (message instanceof RejectCall) {
+    if (!isMasterReady) {
+      stash(STASH);
+      return;
+    }
+    onRejectCall();
   }
  else {
     super.onReceive(message);

@@ -1,7 +1,8 @@
 {
   if (isEnabled && isConnected && !isStarted) {
     isStarted=true;
-    callback.onConnectionStarted(deviceId);
+    state=PeerState.ACTIVE;
+    callback.onPeerStateChanged(deviceId,state);
     for (    WebRTCMediaStream mediaStream : theirMediaStreams) {
       callback.onStreamAdded(deviceId,mediaStream);
     }

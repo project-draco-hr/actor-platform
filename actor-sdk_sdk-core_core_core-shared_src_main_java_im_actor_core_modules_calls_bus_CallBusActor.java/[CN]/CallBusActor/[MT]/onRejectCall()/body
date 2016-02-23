@@ -1,0 +1,3 @@
+{
+  sendSignal(masterUid,masterDeviceId,new ApiRejectCall());
+}

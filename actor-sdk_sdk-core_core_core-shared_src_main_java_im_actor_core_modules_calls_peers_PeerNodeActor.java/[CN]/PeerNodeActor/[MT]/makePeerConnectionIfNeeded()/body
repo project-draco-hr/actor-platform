@@ -3,6 +3,8 @@
     return;
   }
   if ((isOwnEnabled && isTheirEnabled) || (theirSettings.isPreConnectionEnabled() && ownSettings.isPreConnectionEnabled())) {
+    state=PeerState.CONNECTING;
+    callback.onPeerStateChanged(deviceId,state);
     peerConnection=new PeerConnectionInt(ownSettings,theirSettings,ownMediaStream,this,context(),self(),"connection");
     unstashAll();
   }

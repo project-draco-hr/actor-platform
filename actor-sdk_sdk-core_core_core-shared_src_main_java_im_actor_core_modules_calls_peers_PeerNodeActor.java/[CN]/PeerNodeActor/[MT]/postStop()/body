@@ -3,4 +3,6 @@
     peerConnection.kill();
     peerConnection=null;
   }
+  state=PeerState.DISPOSED;
+  callback.onPeerStateChanged(deviceId,state);
 }

@@ -1,7 +1,7 @@
 {
   self().send(new Runnable(){
     @Override public void run(){
-      callCallback.onConnectionStarted(deviceId);
+      callCallback.onPeerStateChanged(deviceId,state);
     }
   }
 );
