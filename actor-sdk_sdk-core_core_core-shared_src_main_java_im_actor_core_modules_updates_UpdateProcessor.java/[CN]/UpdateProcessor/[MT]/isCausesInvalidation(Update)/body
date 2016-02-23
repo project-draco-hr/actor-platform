@@ -47,6 +47,19 @@
     UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
     users.add(localNameChanged.getUid());
   }
+ else   if (update instanceof UpdateChatGroupsChanged) {
+    UpdateChatGroupsChanged changed=(UpdateChatGroupsChanged)update;
+    for (    ApiDialogGroup group : changed.getDialogs()) {
+      for (      ApiDialogShort dialog : group.getDialogs()) {
+        if (dialog.getPeer().getType() == ApiPeerType.PRIVATE) {
+          users.add(dialog.getPeer().getId());
+        }
+ else         if (dialog.getPeer().getType() == ApiPeerType.GROUP) {
+          groups.add(dialog.getPeer().getId());
+        }
+      }
+    }
+  }
   if (!usersProcessor.hasUsers(users)) {
     return true;
   }
