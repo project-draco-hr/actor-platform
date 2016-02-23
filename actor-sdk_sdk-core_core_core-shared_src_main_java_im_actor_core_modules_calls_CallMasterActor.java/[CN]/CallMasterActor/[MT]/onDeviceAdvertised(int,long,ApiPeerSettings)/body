@@ -4,7 +4,9 @@
       debugState();
       getPeer(uid,deviceId).send(new PeerConnectionActor.OnOfferNeeded());
       for (      MasterCallDevice device : state.getConnectedDevices()) {
-        sendSignalingMessage(device.getUid(),device.getDeviceId(),new ApiNeedOffer(uid,deviceId,peerSettings,true));
+        if (device.getUid() != uid && device.getDeviceId() != deviceId) {
+          sendSignalingMessage(device.getUid(),device.getDeviceId(),new ApiNeedOffer(uid,deviceId,peerSettings,true));
+        }
       }
     }
   }
