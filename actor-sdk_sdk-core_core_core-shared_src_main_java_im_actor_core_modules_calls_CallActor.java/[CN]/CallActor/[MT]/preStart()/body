@@ -15,4 +15,7 @@
     }
 ).done(self());
   }
+ else {
+    callBus.startMaster();
+  }
 }
