@@ -1,0 +1,6 @@
+{
+  String res="update SyncedSetAddedOrUpdated{";
+  res+="setName=" + this.setName;
+  res+="}";
+  return res;
+}

@@ -1,10 +1,7 @@
 {
-  writer.writeInt(1,this.uid);
-  writer.writeLong(2,this.device);
+  writer.writeLong(1,this.device);
+  writer.writeLong(2,this.sessionId);
   if (this.peerSettings != null) {
     writer.writeObject(3,this.peerSettings);
-  }
-  if (this.isSilent != null) {
-    writer.writeBool(4,this.isSilent);
   }
 }

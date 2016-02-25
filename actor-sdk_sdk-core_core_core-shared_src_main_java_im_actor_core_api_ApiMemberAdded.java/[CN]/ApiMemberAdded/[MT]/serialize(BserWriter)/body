@@ -1,6 +1,0 @@
-{
-  if (this.memberAdded == null) {
-    throw new IOException();
-  }
-  writer.writeObject(2,this.memberAdded);
-}

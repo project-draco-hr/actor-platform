@@ -1,7 +1,6 @@
 {
   if (!isAnswered && !isRejected) {
     isRejected=true;
-    callBus.rejectCall();
-    peerCall.kill();
+    request(new RequestRejectCall(callId));
   }
 }

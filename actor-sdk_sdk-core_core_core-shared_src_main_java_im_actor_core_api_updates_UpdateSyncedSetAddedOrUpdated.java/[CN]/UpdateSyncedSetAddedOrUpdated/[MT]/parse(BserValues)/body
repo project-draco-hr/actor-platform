@@ -1,0 +1,8 @@
+{
+  this.setName=values.getString(1);
+  List<ApiSyncedValue> _addedOrUpdatedValues=new ArrayList<ApiSyncedValue>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _addedOrUpdatedValues.add(new ApiSyncedValue());
+  }
+  this.addedOrUpdatedValues=values.getRepeatedObj(2,_addedOrUpdatedValues);
+}

@@ -1,0 +1,10 @@
+{
+  if (this.id == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.id);
+  if (this.rejoinToken == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(2,this.rejoinToken);
+}

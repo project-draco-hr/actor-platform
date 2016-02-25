@@ -1,0 +1,6 @@
+{
+  String res="struct EnableConnection{";
+  res+="device=" + this.device;
+  res+="}";
+  return res;
+}

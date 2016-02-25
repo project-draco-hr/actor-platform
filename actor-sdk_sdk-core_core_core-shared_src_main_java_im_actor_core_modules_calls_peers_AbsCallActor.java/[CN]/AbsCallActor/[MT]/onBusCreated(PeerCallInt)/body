@@ -1,4 +1,0 @@
-{
-  this.peerCall=peerCallInt;
-  callPreStart();
-}

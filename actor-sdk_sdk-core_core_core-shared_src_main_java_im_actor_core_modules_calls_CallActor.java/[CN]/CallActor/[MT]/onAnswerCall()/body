@@ -1,8 +1,7 @@
 {
   if (!isAnswered && !isRejected) {
     isAnswered=true;
-    callBus.answerCall();
-    peerCall.onOwnStarted();
+    request(new RequestJoinCall(callId));
     if (isConnected) {
       callVM.getState().change(CallState.IN_PROGRESS);
     }

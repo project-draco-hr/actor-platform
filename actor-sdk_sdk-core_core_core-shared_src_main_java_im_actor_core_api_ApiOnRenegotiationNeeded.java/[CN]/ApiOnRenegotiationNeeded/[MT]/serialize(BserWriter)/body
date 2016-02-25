@@ -1,0 +1,4 @@
+{
+  writer.writeLong(1,this.device);
+  writer.writeLong(2,this.sessionId);
+}

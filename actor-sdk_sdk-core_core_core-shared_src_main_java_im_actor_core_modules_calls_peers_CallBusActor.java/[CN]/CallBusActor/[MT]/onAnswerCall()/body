@@ -1,3 +1,2 @@
 {
-  sendSignal(masterUid,masterDeviceId,new ApiAnswerCall());
 }

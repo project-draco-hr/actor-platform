@@ -1,0 +1,6 @@
+{
+  if (this.optimizedSDP == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.optimizedSDP);
+}

@@ -1,0 +1,4 @@
+{
+  this.setName=setName;
+  this.removedItems=removedItems;
+}

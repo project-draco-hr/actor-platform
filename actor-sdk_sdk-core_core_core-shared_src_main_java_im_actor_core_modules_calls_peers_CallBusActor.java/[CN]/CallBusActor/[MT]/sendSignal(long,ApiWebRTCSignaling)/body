@@ -1,3 +1,9 @@
 {
-  sendSignal(deviceIds.get(deviceId),deviceId,signal);
+  Log.d("CallBusActor","Message Sent: " + signal);
+  try {
+    sendMessage(deviceId,signal.buildContainer());
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
 }

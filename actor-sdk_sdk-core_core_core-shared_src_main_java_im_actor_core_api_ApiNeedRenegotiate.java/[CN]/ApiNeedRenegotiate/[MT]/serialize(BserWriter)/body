@@ -1,3 +1,0 @@
-{
-  writer.writeLong(1,this.sessionId);
-}

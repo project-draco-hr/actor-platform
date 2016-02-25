@@ -1,3 +1,2 @@
 {
-  callBusCallback.onPeerStateChanged(deviceIds.get(deviceId),deviceId,state);
 }

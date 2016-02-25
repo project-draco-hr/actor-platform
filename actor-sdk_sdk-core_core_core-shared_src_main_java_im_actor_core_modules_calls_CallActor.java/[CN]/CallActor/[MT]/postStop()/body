@@ -4,5 +4,4 @@
     callVM.getState().change(CallState.ENDED);
   }
   callBus.kill();
-  peerCall.kill();
 }

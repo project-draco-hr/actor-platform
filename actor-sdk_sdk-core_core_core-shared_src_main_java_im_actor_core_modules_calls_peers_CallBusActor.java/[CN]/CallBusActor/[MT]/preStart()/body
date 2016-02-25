@@ -7,5 +7,4 @@
   }
 );
   this.peerCall=new PeerCallInt(ref);
-  callBusCallback.onBusCreated(peerCall);
 }

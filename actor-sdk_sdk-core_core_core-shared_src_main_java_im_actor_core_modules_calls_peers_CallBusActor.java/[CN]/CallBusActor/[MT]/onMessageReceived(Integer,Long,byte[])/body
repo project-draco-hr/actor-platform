@@ -2,7 +2,6 @@
   if (senderId == null || senderDeviceId == null) {
     return;
   }
-  deviceIds.put(senderDeviceId,senderId);
   ApiWebRTCSignaling signal;
   try {
     signal=ApiWebRTCSignaling.fromBytes(data);
@@ -27,50 +26,21 @@
   }
  else   if (signal instanceof ApiNeedOffer) {
     ApiNeedOffer needOffer=(ApiNeedOffer)signal;
-    deviceIds.put(needOffer.getDevice(),needOffer.getUid());
     peerCall.onAdvertised(needOffer.getDevice(),new PeerSettings(needOffer.getPeerSettings()));
     peerCall.onOfferNeeded(needOffer.getDevice());
   }
- else   if (signal instanceof ApiOnAnswer) {
-    ApiOnAnswer onAnswer=(ApiOnAnswer)signal;
-    deviceIds.put(onAnswer.getDevice(),onAnswer.getUid());
-    peerCall.onTheirStarted(onAnswer.getDevice());
-  }
  else   if (signal instanceof ApiNeedDisconnect) {
     ApiNeedDisconnect disconnect=(ApiNeedDisconnect)signal;
-    deviceIds.put(disconnect.getDevice(),disconnect.getUid());
     peerCall.disposePeer(disconnect.getDevice());
   }
- else   if (signal instanceof ApiSwitchMaster) {
-    if (isMasterReady || isMasterMode) {
+ else   if (signal instanceof ApiAdvertiseMaster) {
+    if (isMasterReady) {
       return;
     }
     isMasterReady=true;
-    masterUid=senderId;
     masterDeviceId=senderDeviceId;
     unstashAll(STASH);
-    sendSignal(masterUid,masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
+    sendSignal(masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
     peerCall.onTheirStarted(masterDeviceId);
-  }
- else   if (signal instanceof ApiAdvertiseSelf) {
-    ApiAdvertiseSelf advertiseSelf=(ApiAdvertiseSelf)signal;
-    if (peerSettings.containsKey(senderDeviceId)) {
-      return;
-    }
-    PeerSettings settings=new PeerSettings(advertiseSelf.getPeerSettings());
-    peerSettings.put(senderDeviceId,settings);
-    callBusCallback.onAdvertised(senderId,senderDeviceId,settings);
-    if (isAnswered.contains(senderDeviceId)) {
-      callBusCallback.onAnswered(senderId,senderDeviceId,settings);
-    }
-  }
- else   if (signal instanceof ApiAnswerCall) {
-    if (isAnswered.contains(senderDeviceId)) {
-      return;
-    }
-    isAnswered.add(senderDeviceId);
-    if (peerSettings.containsKey(senderDeviceId)) {
-      callBusCallback.onAnswered(senderId,senderDeviceId,peerSettings.get(senderDeviceId));
-    }
   }
 }

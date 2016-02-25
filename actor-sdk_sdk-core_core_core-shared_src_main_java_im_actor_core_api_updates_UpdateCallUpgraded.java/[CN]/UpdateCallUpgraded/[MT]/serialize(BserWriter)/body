@@ -1,0 +1,4 @@
+{
+  writer.writeLong(1,this.callId);
+  writer.writeInt(2,this.groupId);
+}

@@ -1,0 +1,8 @@
+{
+  List<ApiSyncedValue> _values=new ArrayList<ApiSyncedValue>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _values.add(new ApiSyncedValue());
+  }
+  this.values=values.getRepeatedObj(1,_values);
+  this.isStrong=values.optBool(2);
+}

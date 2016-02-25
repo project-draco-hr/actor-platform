@@ -1,0 +1,5 @@
+{
+  this.device=device;
+  this.sessionId=sessionId;
+  this.peerSettings=peerSettings;
+}

@@ -1,0 +1,6 @@
+{
+  writer.writeRepeatedObj(1,this.values);
+  if (this.isStrong != null) {
+    writer.writeBool(2,this.isStrong);
+  }
+}

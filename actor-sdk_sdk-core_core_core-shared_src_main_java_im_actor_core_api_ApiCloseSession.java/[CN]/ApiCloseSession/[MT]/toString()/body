@@ -1,0 +1,6 @@
+{
+  String res="struct CloseSession{";
+  res+="sessionId=" + this.sessionId;
+  res+="}";
+  return res;
+}

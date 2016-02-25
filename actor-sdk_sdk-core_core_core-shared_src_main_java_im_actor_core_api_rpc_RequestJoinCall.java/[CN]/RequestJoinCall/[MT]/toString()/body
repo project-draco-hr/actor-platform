@@ -1,0 +1,6 @@
+{
+  String res="rpc JoinCall{";
+  res+="callId=" + this.callId;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,5 @@
+{
+  ArrayList<Long> devices=new ArrayList<>();
+  devices.add(deviceId);
+  request(new RequestPostToEventBus(busId,devices,data));
+}

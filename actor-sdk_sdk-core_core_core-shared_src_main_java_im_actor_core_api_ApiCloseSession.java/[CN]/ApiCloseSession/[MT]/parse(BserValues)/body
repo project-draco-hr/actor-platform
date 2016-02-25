@@ -1,0 +1,4 @@
+{
+  this.device=values.getLong(1);
+  this.sessionId=values.getLong(2);
+}

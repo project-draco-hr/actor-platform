@@ -1,0 +1,2 @@
+String setName
+List<ApiSyncedValue> addedOrUpdatedValues

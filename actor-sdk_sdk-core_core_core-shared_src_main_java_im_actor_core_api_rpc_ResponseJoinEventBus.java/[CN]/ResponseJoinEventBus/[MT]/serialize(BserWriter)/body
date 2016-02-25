@@ -1,3 +1,6 @@
 {
   writer.writeLong(1,this.deviceId);
+  if (this.rejoinToken != null) {
+    writer.writeBytes(2,this.rejoinToken);
+  }
 }

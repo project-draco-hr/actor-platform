@@ -1,5 +1,6 @@
 {
   super(context);
+  this.isMaster=false;
   this.callId=callId;
   this.isAnswered=false;
   this.isConnected=false;

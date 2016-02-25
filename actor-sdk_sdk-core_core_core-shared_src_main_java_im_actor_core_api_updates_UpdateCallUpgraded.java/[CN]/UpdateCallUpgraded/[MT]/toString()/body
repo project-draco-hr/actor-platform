@@ -1,0 +1,7 @@
+{
+  String res="update CallUpgraded{";
+  res+="callId=" + this.callId;
+  res+=", groupId=" + this.groupId;
+  res+="}";
+  return res;
+}

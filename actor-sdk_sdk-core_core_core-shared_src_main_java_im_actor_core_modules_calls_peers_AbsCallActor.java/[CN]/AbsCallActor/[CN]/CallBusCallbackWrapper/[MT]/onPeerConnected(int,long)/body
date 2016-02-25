@@ -1,8 +1,0 @@
-{
-  self().send(new Runnable(){
-    @Override public void run(){
-      AbsCallActor.this.onPeerConnected(uid,deviceId);
-    }
-  }
-);
-}

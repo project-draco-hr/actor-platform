@@ -1,0 +1,6 @@
+{
+  this.type=values.getString(1);
+  this.sdp=values.getString(2);
+  this.ownSettings=values.getObj(3,new ApiPeerSettings());
+  this.theirSettings=values.getObj(4,new ApiPeerSettings());
+}

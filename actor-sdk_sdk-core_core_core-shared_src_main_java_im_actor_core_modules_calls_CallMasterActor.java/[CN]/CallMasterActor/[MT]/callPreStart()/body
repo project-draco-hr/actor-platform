@@ -1,4 +1,0 @@
-{
-  callBus.startMaster();
-  peerCall.onOwnStarted();
-}

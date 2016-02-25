@@ -1,4 +1,0 @@
-{
-  this.uid=values.getInt(1);
-  this.deviceId=values.getLong(2);
-}

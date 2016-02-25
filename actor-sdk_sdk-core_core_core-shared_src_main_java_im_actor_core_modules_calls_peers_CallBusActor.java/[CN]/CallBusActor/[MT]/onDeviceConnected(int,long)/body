@@ -1,7 +1,2 @@
 {
-  deviceIds.put(deviceId,uid);
-  if (isMasterMode) {
-    sendSignal(uid,deviceId,new ApiSwitchMaster());
-  }
-  callBusCallback.onPeerConnected(uid,deviceId);
 }

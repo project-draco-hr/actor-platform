@@ -1,0 +1,18 @@
+{
+  if (this.type == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.type);
+  if (this.sdp == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.sdp);
+  if (this.ownSettings == null) {
+    throw new IOException();
+  }
+  writer.writeObject(3,this.ownSettings);
+  if (this.theirSettings == null) {
+    throw new IOException();
+  }
+  writer.writeObject(4,this.theirSettings);
+}

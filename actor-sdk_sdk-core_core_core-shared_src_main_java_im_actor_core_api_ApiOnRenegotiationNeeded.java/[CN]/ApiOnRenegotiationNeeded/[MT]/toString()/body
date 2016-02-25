@@ -1,0 +1,5 @@
+{
+  String res="struct OnRenegotiationNeeded{";
+  res+="}";
+  return res;
+}
