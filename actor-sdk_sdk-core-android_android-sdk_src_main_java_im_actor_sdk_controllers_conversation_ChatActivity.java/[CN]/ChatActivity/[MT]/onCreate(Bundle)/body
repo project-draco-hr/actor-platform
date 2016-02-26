@@ -104,13 +104,15 @@ catch (  NullPointerException e) {
         startActivityForResult(intent,REQUEST_GALLERY);
       }
  else       if (item.getId() == R.id.share_camera) {
-        File externalFile=getExternalFilesDir(null);
+        File externalFile=Environment.getExternalStorageDirectory();
         if (externalFile == null) {
           Toast.makeText(ChatActivity.this,R.string.toast_no_sdcard,Toast.LENGTH_LONG).show();
         }
-        String externalPath=externalFile.getAbsolutePath();
-        new File(externalPath + "/actor/").mkdirs();
-        pending_fileName=externalPath + "/actor/capture_" + Randoms.randomId()+ ".jpg";
+ else {
+          String externalPath=externalFile.getAbsolutePath();
+          new File(externalPath + "/Actor/capture/").mkdirs();
+          pending_fileName=externalPath + "/Actor/capture/capture_" + Randoms.randomId()+ ".jpg";
+        }
         if (ContextCompat.checkSelfPermission(ChatActivity.this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
           Log.d("Permissions","camera - no permission :c");
           ActivityCompat.requestPermissions(ChatActivity.this,new String[]{Manifest.permission.CAMERA},PERMISSIONS_REQUEST_CAMERA);
@@ -120,15 +122,17 @@ catch (  NullPointerException e) {
         }
       }
  else       if (item.getId() == R.id.share_video) {
-        File externalFile=getExternalFilesDir(null);
+        File externalFile=Environment.getExternalStorageDirectory();
         if (externalFile == null) {
           Toast.makeText(ChatActivity.this,R.string.toast_no_sdcard,Toast.LENGTH_LONG).show();
         }
-        String externalPath=externalFile.getAbsolutePath();
-        new File(externalPath + "/actor/").mkdirs();
-        pending_fileName=externalPath + "/actor/capture_" + Randoms.randomId()+ ".mp4";
-        Intent i=new Intent(MediaStore.ACTION_VIDEO_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pending_fileName)));
-        startActivityForResult(i,REQUEST_VIDEO);
+ else {
+          String externalPath=externalFile.getAbsolutePath();
+          new File(externalPath + "/Actor/capture/").mkdirs();
+          pending_fileName=externalPath + "/Actor/capture/capture_" + Randoms.randomId()+ ".mp4";
+          Intent i=new Intent(MediaStore.ACTION_VIDEO_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pending_fileName)));
+          startActivityForResult(i,REQUEST_VIDEO);
+        }
       }
  else       if (item.getId() == R.id.share_file) {
         startActivityForResult(Intents.pickFile(ChatActivity.this),REQUEST_DOC);

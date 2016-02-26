@@ -7,9 +7,11 @@
     }
  else     if (requestCode == REQUEST_PHOTO) {
       messenger().sendPhoto(peer,pending_fileName);
+      MediaScannerConnection.scanFile(this,new String[]{pending_fileName},new String[]{"image/jpeg"},null);
     }
  else     if (requestCode == REQUEST_VIDEO) {
       messenger().sendVideo(peer,pending_fileName);
+      MediaScannerConnection.scanFile(this,new String[]{pending_fileName},new String[]{"image/jpeg"},null);
     }
  else     if (requestCode == REQUEST_DOC) {
       if (data.getData() != null) {
