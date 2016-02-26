@@ -10,6 +10,7 @@
     if (currentConnection != null) {
       if (authKey != null) {
         int seq=outSeq++;
+        long start=Runtime.getActorTime();
         byte[] ruIv=new byte[16];
         Crypto.nextBytes(ruIv);
         byte[] usIv=new byte[16];
@@ -26,6 +27,7 @@
         bos.writeBytes(cipherData,0,cipherData.length);
         byte[] pkg=bos.toByteArray();
         currentConnection.post(pkg,0,pkg.length);
+        Log.d(TAG,"Package encrypted in " + (Runtime.getActorTime() - start) + " ms, size: "+ len);
       }
  else {
         DataOutput bos=new DataOutput();

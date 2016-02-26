@@ -1,0 +1,5 @@
+{
+  if (currentCall != null) {
+    doEndCall(currentCall);
+  }
+}

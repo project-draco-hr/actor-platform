@@ -7,7 +7,6 @@
       throw new IOException("Incorrect header");
     }
     if (authKey != null) {
-      Log.d(TAG,"Package: " + Hex.toHex(data));
       EncryptedPackage encryptedPackage=new EncryptedPackage(bis);
       int seq=(int)encryptedPackage.getSeqNumber();
       if (seq != inSeq) {
@@ -19,6 +18,7 @@
       byte[] ruPackage=serverUSDecryptor.decryptPackage(ByteStrings.longToBytes(seq),usEncryptedPackage.getIv(),usEncryptedPackage.getEncryptedContent());
       EncryptedCBCPackage ruEncryptedPackage=new EncryptedCBCPackage(new DataInput(ruPackage));
       byte[] plainText=serverRUDecryptor.decryptPackage(ByteStrings.longToBytes(seq),ruEncryptedPackage.getIv(),ruEncryptedPackage.getEncryptedContent());
+      Log.d(TAG,"Package decrypted in " + (Runtime.getActorTime() - start) + " ms, size: "+ len);
       DataInput ptInput=new DataInput(plainText);
       long messageId=ptInput.readLong();
       byte[] ptPayload=ptInput.readProtoBytes();
