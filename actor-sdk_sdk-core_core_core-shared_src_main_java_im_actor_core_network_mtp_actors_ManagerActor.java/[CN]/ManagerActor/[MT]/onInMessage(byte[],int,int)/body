@@ -7,6 +7,7 @@
       throw new IOException("Incorrect header");
     }
     if (authKey != null) {
+      Log.d(TAG,"Package: " + Hex.toHex(data));
       EncryptedPackage encryptedPackage=new EncryptedPackage(bis);
       int seq=(int)encryptedPackage.getSeqNumber();
       if (seq != inSeq) {

@@ -1,0 +1,3 @@
+{
+  callback.onNegotiationSuccessful(deviceId,sessionId);
+}

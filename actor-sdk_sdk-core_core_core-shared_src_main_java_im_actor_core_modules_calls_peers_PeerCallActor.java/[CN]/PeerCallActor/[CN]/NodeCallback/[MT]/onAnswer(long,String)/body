@@ -1,3 +1,0 @@
-{
-  callback.onAnswer(deviceId,sdp);
-}

@@ -1,7 +1,0 @@
-{
-  callback.onHandshakeSuccessful();
-  isReady=true;
-  isReadyForCandidates=true;
-  state=PeerConnectionState.READY;
-  unstashAll();
-}

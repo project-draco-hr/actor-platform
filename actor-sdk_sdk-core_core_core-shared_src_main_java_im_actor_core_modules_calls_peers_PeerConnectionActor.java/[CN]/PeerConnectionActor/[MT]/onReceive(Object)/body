@@ -4,14 +4,16 @@
       stash();
       return;
     }
-    onOffer(((OnOffer)message).getSdp());
+    OnOffer offer=(OnOffer)message;
+    onOffer(offer.getSessionId(),offer.getSdp());
   }
  else   if (message instanceof OnAnswer) {
     if (!isReady) {
       stash();
       return;
     }
-    onAnswer(((OnAnswer)message).getSdp());
+    OnAnswer answer=(OnAnswer)message;
+    onAnswer(answer.getSessionId(),answer.getSdp());
   }
  else   if (message instanceof OnCandidate) {
     if (!isReady || !isReadyForCandidates) {
@@ -26,7 +28,15 @@
       stash();
       return;
     }
-    onOfferNeeded();
+    OnOfferNeeded offerNeeded=(OnOfferNeeded)message;
+    onOfferNeeded(offerNeeded.getSessionId());
+  }
+ else   if (message instanceof ResetState) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    onResetState();
   }
  else {
     super.onReceive(message);

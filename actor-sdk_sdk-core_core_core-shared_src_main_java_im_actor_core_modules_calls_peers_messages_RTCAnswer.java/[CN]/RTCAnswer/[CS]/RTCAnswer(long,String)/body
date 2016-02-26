@@ -1,4 +1,0 @@
-{
-  this.deviceId=deviceId;
-  this.sdp=sdp;
-}

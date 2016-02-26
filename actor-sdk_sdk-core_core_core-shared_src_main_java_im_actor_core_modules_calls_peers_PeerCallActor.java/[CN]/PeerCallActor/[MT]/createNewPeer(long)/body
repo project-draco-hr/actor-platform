@@ -3,9 +3,6 @@
   if (webRTCMediaStream != null) {
     peerNodeInt.setOwnStream(webRTCMediaStream);
   }
-  if (isOwnStarted) {
-    peerNodeInt.startOwn();
-  }
   refs.put(deviceId,peerNodeInt);
   return peerNodeInt;
 }

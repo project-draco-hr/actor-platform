@@ -1,0 +1,9 @@
+{
+  if (isOwnStarted) {
+    return;
+  }
+  isOwnStarted=true;
+  if (webRTCMediaStream != null) {
+    webRTCMediaStream.setEnabled(!isMuted);
+  }
+}

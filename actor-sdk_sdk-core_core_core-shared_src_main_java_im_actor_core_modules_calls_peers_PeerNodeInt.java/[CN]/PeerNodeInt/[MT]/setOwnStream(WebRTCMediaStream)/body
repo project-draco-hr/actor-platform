@@ -1,3 +1,3 @@
 {
-  send(new PeerNodeActor.SetOwnStream(stream));
+  send(new PeerNodeActor.AddOwnStream(stream));
 }

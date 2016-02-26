@@ -9,20 +9,6 @@
     SendSignal signal=(SendSignal)message;
     sendSignal(signal.getDeviceId(),signal.getSignal());
   }
- else   if (message instanceof AnswerCall) {
-    if (!isMasterReady) {
-      stash(STASH);
-      return;
-    }
-    onAnswerCall();
-  }
- else   if (message instanceof RejectCall) {
-    if (!isMasterReady) {
-      stash(STASH);
-      return;
-    }
-    onRejectCall();
-  }
  else   if (message instanceof Mute) {
     onChangeMute(((Mute)message).isMuted());
   }

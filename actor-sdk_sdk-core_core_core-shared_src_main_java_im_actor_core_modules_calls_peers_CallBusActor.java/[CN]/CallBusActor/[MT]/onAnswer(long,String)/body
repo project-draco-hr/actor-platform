@@ -1,3 +1,0 @@
-{
-  sendSignal(deviceId,new ApiAnswer(0,sdp));
-}
