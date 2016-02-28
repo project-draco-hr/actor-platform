@@ -1,6 +1,5 @@
 {
-  if (provider == null) {
-    return;
+  if (context().getConfiguration().isVoiceCallsEnabled()) {
+    callManager=system().actorOf("calls/manager",CallManagerActor.CONSTRUCTOR(context()));
   }
-  callManager=system().actorOf("calls/manager",CallManagerActor.CONSTRUCTOR(context()));
 }

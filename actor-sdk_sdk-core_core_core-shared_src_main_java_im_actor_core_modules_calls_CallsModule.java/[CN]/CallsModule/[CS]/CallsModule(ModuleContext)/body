@@ -1,5 +1,6 @@
 {
   super(context);
-  provider=context().getConfiguration().getCallsProvider();
-  callViewModels=new CallViewModels(context());
+  if (context().getConfiguration().isVoiceCallsEnabled()) {
+    callViewModels=new CallViewModels(context());
+  }
 }

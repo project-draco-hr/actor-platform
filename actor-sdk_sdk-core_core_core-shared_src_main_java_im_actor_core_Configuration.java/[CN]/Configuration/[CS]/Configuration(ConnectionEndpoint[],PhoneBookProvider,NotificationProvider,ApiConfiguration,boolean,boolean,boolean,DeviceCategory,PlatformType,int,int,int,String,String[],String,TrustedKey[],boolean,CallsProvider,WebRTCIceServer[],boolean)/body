@@ -18,4 +18,5 @@
   this.enablePhoneBookImport=enablePhoneBookImport;
   this.callsProvider=callsProvider;
   this.webRTCIceServers=webRTCIceServers;
+  this.voiceCallsEnabled=voiceCallsEnabled;
 }
