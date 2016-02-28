@@ -1,0 +1,8 @@
+{
+  String res="struct ActiveCall{";
+  res+="callId=" + this.callId;
+  res+=", peer=" + this.peer;
+  res+=", callMembers=" + this.callMembers;
+  res+="}";
+  return res;
+}

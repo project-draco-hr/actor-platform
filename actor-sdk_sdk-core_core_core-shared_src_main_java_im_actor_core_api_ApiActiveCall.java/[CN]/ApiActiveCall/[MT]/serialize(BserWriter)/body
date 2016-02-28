@@ -1,0 +1,8 @@
+{
+  writer.writeLong(1,this.callId);
+  if (this.peer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(2,this.peer);
+  writer.writeRepeatedObj(3,this.callMembers);
+}

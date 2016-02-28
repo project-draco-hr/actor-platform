@@ -1,0 +1,8 @@
+{
+  String res="rpc UpdateMessage{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", updatedMessage=" + this.updatedMessage;
+  res+="}";
+  return res;
+}

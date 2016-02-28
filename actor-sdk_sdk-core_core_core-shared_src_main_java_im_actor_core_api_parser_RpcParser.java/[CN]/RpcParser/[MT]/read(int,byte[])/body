@@ -68,6 +68,8 @@ case 112:
 return RequestSearchContacts.fromBytes(payload);
 case 92:
 return RequestSendMessage.fromBytes(payload);
+case 2658:
+return RequestUpdateMessage.fromBytes(payload);
 case 55:
 return RequestMessageReceived.fromBytes(payload);
 case 57:

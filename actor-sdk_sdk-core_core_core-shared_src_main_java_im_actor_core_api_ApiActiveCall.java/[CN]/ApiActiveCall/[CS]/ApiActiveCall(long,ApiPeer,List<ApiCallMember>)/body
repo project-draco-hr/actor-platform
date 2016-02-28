@@ -1,0 +1,5 @@
+{
+  this.callId=callId;
+  this.peer=peer;
+  this.callMembers=callMembers;
+}

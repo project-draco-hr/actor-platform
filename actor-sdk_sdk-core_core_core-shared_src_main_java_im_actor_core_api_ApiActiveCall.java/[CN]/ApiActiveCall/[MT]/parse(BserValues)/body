@@ -1,0 +1,9 @@
+{
+  this.callId=values.getLong(1);
+  this.peer=values.getObj(2,new ApiPeer());
+  List<ApiCallMember> _callMembers=new ArrayList<ApiCallMember>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _callMembers.add(new ApiCallMember());
+  }
+  this.callMembers=values.getRepeatedObj(3,_callMembers);
+}

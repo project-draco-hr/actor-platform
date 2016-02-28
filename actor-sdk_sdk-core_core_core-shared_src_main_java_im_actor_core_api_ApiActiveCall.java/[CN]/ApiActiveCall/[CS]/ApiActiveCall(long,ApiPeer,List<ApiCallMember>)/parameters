@@ -1,0 +1,3 @@
+long callId
+ApiPeer peer
+List<ApiCallMember> callMembers

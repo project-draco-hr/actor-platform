@@ -1,0 +1,3 @@
+ApiOutPeer peer
+long rid
+ApiMessage updatedMessage
