@@ -8,7 +8,7 @@
       return peerConnection.createAnswer();
     }
   }
-).map(OPTIMIZE_OWN_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
       return peerConnection.setLocalDescription(description);
     }

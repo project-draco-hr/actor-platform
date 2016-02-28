@@ -1,2 +1,10 @@
 {
+  if (state == PeerState.CONNECTED && !isConnected && !isEnabled) {
+    isConnected=true;
+    callBusCallback.onCallConnected();
+  }
+  if (state == PeerState.ACTIVE && !isEnabled) {
+    isEnabled=true;
+    callBusCallback.onCallEnabled();
+  }
 }

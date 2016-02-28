@@ -1,0 +1,4 @@
+{
+  isDisposed=true;
+  cancel();
+}

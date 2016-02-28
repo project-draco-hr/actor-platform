@@ -4,5 +4,5 @@
   this.callback=callback;
   this.peer=peer;
   this.isAnswered=true;
-  this.isConnected=false;
+  this.isActive=false;
 }

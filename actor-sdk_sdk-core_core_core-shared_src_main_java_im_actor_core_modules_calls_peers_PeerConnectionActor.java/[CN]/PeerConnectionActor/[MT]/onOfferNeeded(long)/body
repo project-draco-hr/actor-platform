@@ -3,7 +3,7 @@
     return;
   }
   isReady=false;
-  peerConnection.createOffer().map(OPTIMIZE_OWN_SDP).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+  peerConnection.createOffer().mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
       return peerConnection.setLocalDescription(description);
     }

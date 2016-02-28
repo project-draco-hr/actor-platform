@@ -1,0 +1,8 @@
+{
+  super.postStop();
+  if (peerCall != null) {
+    peerCall.kill();
+    peerCall=null;
+  }
+  callBusCallback.onBusStopped();
+}
