@@ -1,0 +1,6 @@
+{
+  if (lifecycleRuntime == null) {
+    throw new RuntimeException("Lifecycle Runtime not set!");
+  }
+  lifecycleRuntime.killApp();
+}
