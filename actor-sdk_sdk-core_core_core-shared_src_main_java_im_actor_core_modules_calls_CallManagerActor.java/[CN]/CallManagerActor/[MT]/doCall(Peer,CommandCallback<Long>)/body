@@ -7,9 +7,10 @@
     }
     currentCall=null;
   }
+  final WakeLock wakeLock=Runtime.makeWakeLock();
   system().actorOf("actor/master/" + RandomUtils.nextRid(),new ActorCreator(){
     @Override public Actor create(){
-      return new CallActor(peer,callback,context());
+      return new CallActor(peer,callback,wakeLock,context());
     }
   }
 );

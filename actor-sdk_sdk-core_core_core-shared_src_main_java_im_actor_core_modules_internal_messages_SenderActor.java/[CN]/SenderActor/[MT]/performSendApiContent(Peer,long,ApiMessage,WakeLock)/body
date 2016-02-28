@@ -8,9 +8,11 @@
     @Override public void onResult(    ResponseSeqDate response){
       self().send(new MessageSent(peer,rid));
       updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));
+      wakeLock.releaseLock();
     }
     @Override public void onError(    RpcException e){
       self().send(new MessageError(peer,rid));
+      wakeLock.releaseLock();
     }
   }
 );

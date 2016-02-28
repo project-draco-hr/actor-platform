@@ -25,6 +25,7 @@
     return;
   }
   Log.d(TAG,"Handling update #" + seq);
+  startWakeLock();
   handler.onSeqUpdate(type,body,users,groups).then(new Consumer<SequenceHandlerActor.UpdateProcessed>(){
     @Override public void apply(    SequenceHandlerActor.UpdateProcessed updateProcessed){
       Log.d(TAG,"Handling update ended #" + seq);

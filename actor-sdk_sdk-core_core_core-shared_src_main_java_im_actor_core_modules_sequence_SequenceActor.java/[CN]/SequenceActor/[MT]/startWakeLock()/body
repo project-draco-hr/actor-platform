@@ -1,0 +1,6 @@
+{
+  if (currentWakeLock == null) {
+    currentWakeLock=Runtime.makeWakeLock();
+    Log.w(TAG,"Starting Wake Lock");
+  }
+}

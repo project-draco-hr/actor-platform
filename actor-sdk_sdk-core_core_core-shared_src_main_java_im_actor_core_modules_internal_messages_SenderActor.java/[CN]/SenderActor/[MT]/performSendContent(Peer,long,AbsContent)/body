@@ -1,4 +1,5 @@
 {
+  WakeLock wakeLock=im.actor.runtime.Runtime.makeWakeLock();
   ApiMessage message;
   if (content instanceof TextContent) {
     message=new ApiTextMessage(((TextContent)content).getText(),((TextContent)content).getMentions(),((TextContent)content).getTextMessageEx());
@@ -41,5 +42,5 @@
  else {
     return;
   }
-  performSendApiContent(peer,rid,message);
+  performSendApiContent(peer,rid,message,wakeLock);
 }

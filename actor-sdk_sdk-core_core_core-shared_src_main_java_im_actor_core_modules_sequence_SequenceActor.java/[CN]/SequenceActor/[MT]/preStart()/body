@@ -3,5 +3,6 @@
   finishedSeq=seq;
   state=preferences().getBytes(KEY_STATE);
   handler=context().getUpdatesModule().getUpdateHandler();
+  currentWakeLock=im.actor.runtime.Runtime.makeWakeLock();
   self().send(new Invalidate());
 }

@@ -1,5 +1,6 @@
 {
   super(context);
+  this.wakeLock=wakeLock;
   this.isMaster=false;
   this.callId=callId;
   this.isAnswered=false;

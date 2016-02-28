@@ -1,3 +1,4 @@
 {
+  fileUplaodingWakeLocks.put(rid,Runtime.makeWakeLock());
   context().getFilesModule().requestUpload(rid,descriptor,fileName,self());
 }

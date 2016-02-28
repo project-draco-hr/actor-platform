@@ -3,6 +3,7 @@
     return;
   }
   isValidated=false;
+  startWakeLock();
   if (seq < 0) {
     Log.d(TAG,"Loading fresh state...");
     ArrayList<ApiUpdateOptimization> optimizations=new ArrayList<>();
@@ -16,6 +17,7 @@
         seq=response.getSeq();
         state=response.getState();
         persistState(seq,state);
+        stopWakeLock();
         onBecomeValid(response.getSeq(),response.getState());
       }
       @Override public void onError(      RpcException e){

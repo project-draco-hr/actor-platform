@@ -8,4 +8,5 @@
   if (callId != 0) {
     callManager.send(new CallManagerActor.OnCallEnded(callId),self());
   }
+  wakeLock.releaseLock();
 }

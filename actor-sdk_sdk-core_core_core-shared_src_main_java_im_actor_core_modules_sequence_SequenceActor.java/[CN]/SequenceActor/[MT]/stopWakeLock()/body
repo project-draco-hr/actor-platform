@@ -1,0 +1,7 @@
+{
+  if (currentWakeLock != null) {
+    currentWakeLock.releaseLock();
+    currentWakeLock=null;
+    Log.w(TAG,"Released Wake Lock");
+  }
+}
