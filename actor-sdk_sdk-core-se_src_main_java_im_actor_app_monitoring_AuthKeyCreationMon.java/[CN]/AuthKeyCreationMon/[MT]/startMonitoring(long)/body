@@ -1,5 +1,0 @@
-{
-  this.delay=delay;
-  Log.d("AuthKeyCreation","Start monitoring");
-  keyCreation.send(new AuthKeyActor.StartKeyCreation(endpoints),self());
-}

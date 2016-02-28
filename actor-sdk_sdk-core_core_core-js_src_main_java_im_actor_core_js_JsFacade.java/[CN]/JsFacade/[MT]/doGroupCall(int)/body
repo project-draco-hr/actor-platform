@@ -1,0 +1,18 @@
+{
+  return JsPromise.create(new JsPromiseExecutor(){
+    @Override public void execute(){
+      messenger.doGroupCall(gid).start(new CommandCallback<Long>(){
+        @Override public void onResult(        Long res){
+          Log.d(TAG,"doGroupCall:result");
+          resolve();
+        }
+        @Override public void onError(        Exception e){
+          Log.d(TAG,"doGroupCall:error");
+          reject(e.getMessage());
+        }
+      }
+);
+    }
+  }
+);
+}
