@@ -1,4 +1,7 @@
 {
+  if (preferences().getBool("push.apple",false) && preferences().getBool("push.apple.registered",false) && token.equals(preferences().getString("push.apple.token"))&& apnsId == preferences().getInt("push.apple.id",0)) {
+    return;
+  }
   preferences().putBool("push.apple",true);
   preferences().putBool("push.apple.registered",false);
   preferences().putInt("push.apple.id",apnsId);

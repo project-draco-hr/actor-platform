@@ -1,4 +1,7 @@
 {
+  if (preferences().getBool("push.google",false) && preferences().getBool("push.google.registered",false) && token.equals(preferences().getString("push.google.token"))&& projectId == preferences().getLong("push.apple.id",0)) {
+    return;
+  }
   preferences().putBool("push.google",true);
   preferences().putBool("push.google.registered",false);
   preferences().putLong("push.google.id",projectId);

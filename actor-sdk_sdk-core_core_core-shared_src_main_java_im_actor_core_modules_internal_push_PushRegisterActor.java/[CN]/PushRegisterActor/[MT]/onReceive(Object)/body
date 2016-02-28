@@ -11,8 +11,9 @@
     RegisterActorPush actorPush=(RegisterActorPush)message;
     registerActorPush(actorPush.getEndpoint());
   }
- else   if (message instanceof ResendPush) {
-    resendPush();
+ else   if (message instanceof RegisterAppleVoipPush) {
+    RegisterAppleVoipPush appleVoipPush=(RegisterAppleVoipPush)message;
+    registerApplePushKit(appleVoipPush.getApnsKey(),appleVoipPush.getToken());
   }
  else {
     drop(message);

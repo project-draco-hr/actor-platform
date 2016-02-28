@@ -1,4 +1,7 @@
 {
+  if (preferences().getBool("push.actor",false) && preferences().getBool("push.actor.registered",false) && endpoint.equals(preferences().getString("push.actor.endpoint"))) {
+    return;
+  }
   preferences().putBool("push.actor",true);
   preferences().putBool("push.actor.registered",false);
   preferences().putString("push.actor.endpoint",endpoint);

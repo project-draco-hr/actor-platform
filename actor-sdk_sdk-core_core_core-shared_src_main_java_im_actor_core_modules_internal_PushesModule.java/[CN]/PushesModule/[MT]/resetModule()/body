@@ -1,3 +1,0 @@
-{
-  pushRegisterActor.send(new PushRegisterActor.ResendPush());
-}

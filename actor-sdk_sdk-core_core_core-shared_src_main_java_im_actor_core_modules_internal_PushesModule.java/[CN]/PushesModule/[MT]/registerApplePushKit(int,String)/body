@@ -1,0 +1,3 @@
+{
+  pushRegisterActor.send(new PushRegisterActor.RegisterAppleVoipPush(apnsKey,token));
+}
