@@ -5,12 +5,11 @@
  else   if (message instanceof CreateBus) {
     createBus();
   }
- else   if (message instanceof SendSignal) {
-    SendSignal signal=(SendSignal)message;
-    sendSignal(signal.getDeviceId(),signal.getSignal());
-  }
  else   if (message instanceof Mute) {
     onChangeMute(((Mute)message).isMuted());
+  }
+ else   if (message instanceof OnAnswered) {
+    onOwnAnswered();
   }
  else {
     super.onReceive(message);
