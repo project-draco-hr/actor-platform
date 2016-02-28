@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.callManager=context.getCallsModule().getCallManager();
+  this.callViewModels=context().getCallsModule().getCallViewModels();
+  this.selfSettings=new PeerSettings();
+  this.selfSettings.setIsPreConnectionEnabled(true);
+}

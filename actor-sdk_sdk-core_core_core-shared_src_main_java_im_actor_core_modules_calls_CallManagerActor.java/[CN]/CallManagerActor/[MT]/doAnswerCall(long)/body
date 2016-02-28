@@ -4,7 +4,7 @@
     answeredCalls.add(callId);
     ActorRef ref=runningCalls.get(callId);
     if (ref != null) {
-      ref.send(new CallSlaveActor.DoAnswer());
+      ref.send(new CallActor.AnswerCall());
     }
     if (currentCall != null && currentCall == callId) {
       provider.onCallAnswered(callId);

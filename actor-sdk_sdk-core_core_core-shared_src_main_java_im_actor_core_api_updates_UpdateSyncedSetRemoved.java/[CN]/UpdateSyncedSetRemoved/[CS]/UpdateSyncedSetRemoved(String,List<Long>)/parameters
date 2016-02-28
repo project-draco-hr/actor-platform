@@ -1,0 +1,2 @@
+String setName
+List<Long> removedItems

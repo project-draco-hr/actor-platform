@@ -1,0 +1,6 @@
+{
+  if (!isAnswered && !isRejected) {
+    isRejected=true;
+    request(new RequestRejectCall(callId));
+  }
+}

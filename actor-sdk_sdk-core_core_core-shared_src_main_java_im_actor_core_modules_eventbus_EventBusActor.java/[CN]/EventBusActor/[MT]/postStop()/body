@@ -1,0 +1,6 @@
+{
+  super.postStop();
+  if (busId != null) {
+    request(new RequestKeepAliveEventBus(busId,1L));
+  }
+}

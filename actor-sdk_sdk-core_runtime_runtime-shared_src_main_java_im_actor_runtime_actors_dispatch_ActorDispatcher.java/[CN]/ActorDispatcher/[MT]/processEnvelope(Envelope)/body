@@ -37,6 +37,7 @@
     if (actorSystem.getTraceInterface() != null) {
       actorSystem.getTraceInterface().onActorDie(scope.getActorRef(),envelope,e);
     }
+    scope.getActor().postStop();
     onActorDie(scope);
   }
  finally {

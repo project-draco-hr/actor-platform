@@ -1,3 +1,0 @@
-{
-  Log.d(TAG,"Call State:\n" + state);
-}

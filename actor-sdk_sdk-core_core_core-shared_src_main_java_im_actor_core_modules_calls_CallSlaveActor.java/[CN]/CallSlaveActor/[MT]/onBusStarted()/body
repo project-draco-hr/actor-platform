@@ -1,5 +1,0 @@
-{
-  super.onBusStarted();
-  callVM=spawnNewVM(callId,peer,false,new ArrayList<CallMember>(),CallState.CALLING);
-  callVM.getIsMuted().change(isMuted());
-}

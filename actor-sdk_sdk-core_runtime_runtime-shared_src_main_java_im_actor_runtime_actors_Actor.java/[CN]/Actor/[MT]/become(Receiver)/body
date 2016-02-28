@@ -1,3 +1,6 @@
 {
+  if (receivers == null) {
+    receivers=new ArrayList<>();
+  }
   receivers.add(receiver);
 }

@@ -1,6 +1,0 @@
-{
-  super.onMute();
-  if (callVM != null) {
-    callVM.getIsMuted().change(true);
-  }
-}

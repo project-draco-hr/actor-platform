@@ -1,0 +1,9 @@
+{
+  String res="rpc OptimizeSDP{";
+  res+="type=" + this.type;
+  res+=", sdp=" + this.sdp;
+  res+=", ownSettings=" + this.ownSettings;
+  res+=", theirSettings=" + this.theirSettings;
+  res+="}";
+  return res;
+}

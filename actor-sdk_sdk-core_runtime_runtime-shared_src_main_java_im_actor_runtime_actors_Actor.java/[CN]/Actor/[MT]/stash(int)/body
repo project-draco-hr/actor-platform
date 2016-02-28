@@ -1,0 +1,11 @@
+{
+  if (stashed == null) {
+    stashed=new HashMap<>();
+  }
+  ArrayList<StashedMessage> stashedMessages=stashed.get(index);
+  if (stashedMessages == null) {
+    stashedMessages=new ArrayList<>();
+    stashed.put(index,stashedMessages);
+  }
+  stashedMessages.add(new StashedMessage(context.message(),context.sender()));
+}

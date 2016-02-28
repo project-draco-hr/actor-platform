@@ -1,5 +1,8 @@
 {
   scope.onActorDie();
+  if (scope.getProps().getSupervisor() != null) {
+    scope.getProps().getSupervisor().onActorStopped(scope.getActorRef());
+  }
   Envelope[] deadLetters;
 synchronized (LOCK) {
     scopes.remove(scope.getPath());

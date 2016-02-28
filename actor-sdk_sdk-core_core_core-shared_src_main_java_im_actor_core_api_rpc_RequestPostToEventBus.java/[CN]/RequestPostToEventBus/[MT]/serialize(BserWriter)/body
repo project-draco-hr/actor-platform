@@ -3,7 +3,7 @@
     throw new IOException();
   }
   writer.writeString(1,this.id);
-  writer.writeRepeatedObj(2,this.destinations);
+  writer.writeRepeatedLong(2,this.destinations);
   if (this.message == null) {
     throw new IOException();
   }

@@ -1,0 +1,13 @@
+{
+  if (stashed == null) {
+    return;
+  }
+  ArrayList<StashedMessage> stashedMessages=stashed.get(index);
+  if (stashedMessages == null || stashedMessages.size() == 0) {
+    return;
+  }
+  for (  StashedMessage stashedMessage : stashedMessages) {
+    self().sendFirst(stashedMessage.getMessage(),stashedMessage.getSender());
+  }
+  stashedMessages.clear();
+}

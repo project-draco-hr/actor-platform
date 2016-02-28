@@ -1,0 +1,6 @@
+{
+  String res="rpc RejectCall{";
+  res+="callId=" + this.callId;
+  res+="}";
+  return res;
+}

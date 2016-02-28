@@ -1,0 +1,6 @@
+{
+  super(context);
+  this.deviceId=deviceId;
+  this.ownSettings=ownSettings;
+  this.callback=callback;
+}

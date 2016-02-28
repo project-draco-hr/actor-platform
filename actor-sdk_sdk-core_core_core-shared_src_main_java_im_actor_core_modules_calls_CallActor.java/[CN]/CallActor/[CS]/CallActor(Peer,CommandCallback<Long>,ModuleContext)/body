@@ -1,0 +1,8 @@
+{
+  super(context);
+  this.isMaster=true;
+  this.callback=callback;
+  this.peer=peer;
+  this.isAnswered=true;
+  this.isActive=false;
+}

@@ -1,0 +1,19 @@
+{
+  if (!closedSessions.contains(sessionId)) {
+    closedSessions.add(sessionId);
+    currentSession=0;
+    for (    PendingSession p : pendingSessions) {
+      if (p.getSessionId() == sessionId) {
+        pendingSessions.remove(p);
+        break;
+      }
+    }
+    peerConnection.onResetState();
+    PendingSession p=pendingSessions.remove(0);
+    if (p != null) {
+      for (      Object o : p.getMessages()) {
+        self().sendFirst(o,self());
+      }
+    }
+  }
+}

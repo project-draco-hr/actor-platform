@@ -1,0 +1,14 @@
+{
+  if (!isAnswered && !isRejected) {
+    isAnswered=true;
+    callBus.startOwn();
+    request(new RequestJoinCall(callId));
+    if (isActive) {
+      callVM.getState().change(CallState.IN_PROGRESS);
+      callVM.setCallStart(im.actor.runtime.Runtime.getCurrentTime());
+    }
+ else {
+      callVM.getState().change(CallState.CONNECTING);
+    }
+  }
+}

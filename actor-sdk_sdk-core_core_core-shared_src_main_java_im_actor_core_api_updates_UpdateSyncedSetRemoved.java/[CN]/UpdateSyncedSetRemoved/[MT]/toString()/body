@@ -1,0 +1,7 @@
+{
+  String res="update SyncedSetRemoved{";
+  res+="setName=" + this.setName;
+  res+=", removedItems=" + this.removedItems;
+  res+="}";
+  return res;
+}

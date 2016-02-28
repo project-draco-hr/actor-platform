@@ -1,4 +1,0 @@
-{
-  this.connectedDevices=ManagedList.of();
-  this.connectedMembers=ManagedList.of();
-}

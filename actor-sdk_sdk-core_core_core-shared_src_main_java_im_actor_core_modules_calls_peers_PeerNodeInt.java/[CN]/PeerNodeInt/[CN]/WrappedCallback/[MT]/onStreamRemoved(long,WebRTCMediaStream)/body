@@ -1,0 +1,8 @@
+{
+  callbackDest.send(new Runnable(){
+    @Override public void run(){
+      callback.onStreamRemoved(deviceId,stream);
+    }
+  }
+);
+}

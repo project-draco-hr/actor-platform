@@ -1,0 +1,5 @@
+{
+  this.deviceId=deviceId;
+  this.sessionId=sessionId;
+  this.sdp=sdp;
+}

@@ -1,6 +1,0 @@
-{
-  this.uid=uid;
-  this.device=device;
-  this.peerSettings=peerSettings;
-  this.isSilent=isSilent;
-}

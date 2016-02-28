@@ -1,0 +1,3 @@
+{
+  callManager.send(new CallManagerActor.ProbablyEndCall());
+}

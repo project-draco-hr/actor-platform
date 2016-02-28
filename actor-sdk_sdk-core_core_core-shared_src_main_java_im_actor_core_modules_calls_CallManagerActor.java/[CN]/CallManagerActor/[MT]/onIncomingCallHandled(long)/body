@@ -6,7 +6,7 @@
     }
     ActorRef ref=runningCalls.remove(callId);
     if (ref != null) {
-      ref.send(new CallActor.EventBusShutdown());
+      ref.send(PoisonPill.INSTANCE);
     }
   }
 }

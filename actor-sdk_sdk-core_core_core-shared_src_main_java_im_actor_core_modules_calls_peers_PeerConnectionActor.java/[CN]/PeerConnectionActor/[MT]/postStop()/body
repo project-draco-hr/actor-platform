@@ -1,0 +1,9 @@
+{
+  super.postStop();
+  if (peerConnection != null) {
+    peerConnection.close();
+    peerConnection=null;
+  }
+  isReady=false;
+  state=PeerConnectionState.CLOSED;
+}

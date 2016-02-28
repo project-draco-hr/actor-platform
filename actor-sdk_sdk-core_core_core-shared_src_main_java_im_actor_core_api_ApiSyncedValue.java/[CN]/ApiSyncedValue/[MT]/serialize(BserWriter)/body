@@ -1,0 +1,6 @@
+{
+  writer.writeLong(1,this.id);
+  if (this.value != null) {
+    writer.writeBytes(2,this.value);
+  }
+}

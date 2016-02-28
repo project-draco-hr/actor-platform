@@ -1,0 +1,7 @@
+{
+  writer.writeLong(1,this.callId);
+  if (this.user == null) {
+    throw new IOException();
+  }
+  writer.writeObject(2,this.user);
+}

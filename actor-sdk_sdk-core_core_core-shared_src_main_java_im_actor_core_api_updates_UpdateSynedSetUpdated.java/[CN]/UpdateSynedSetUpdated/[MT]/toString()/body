@@ -1,0 +1,8 @@
+{
+  String res="update SynedSetUpdated{";
+  res+="setName=" + this.setName;
+  res+=", syncedValues=" + this.syncedValues;
+  res+=", isStrong=" + this.isStrong;
+  res+="}";
+  return res;
+}

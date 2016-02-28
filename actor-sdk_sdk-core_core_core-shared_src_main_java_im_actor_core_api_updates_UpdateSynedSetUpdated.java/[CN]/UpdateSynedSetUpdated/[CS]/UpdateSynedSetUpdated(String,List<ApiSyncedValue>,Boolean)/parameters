@@ -1,0 +1,3 @@
+String setName
+List<ApiSyncedValue> syncedValues
+Boolean isStrong

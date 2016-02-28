@@ -1,0 +1,6 @@
+{
+  if (this.ownMediaStream == null) {
+    this.ownMediaStream=mediaStream;
+    reconfigurePeerConnectionIfNeeded();
+  }
+}

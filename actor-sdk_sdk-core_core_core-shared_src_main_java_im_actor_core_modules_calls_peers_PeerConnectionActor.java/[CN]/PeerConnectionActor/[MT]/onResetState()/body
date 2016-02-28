@@ -1,0 +1,3 @@
+{
+  state=PeerConnectionState.WAITING_HANDSHAKE;
+}

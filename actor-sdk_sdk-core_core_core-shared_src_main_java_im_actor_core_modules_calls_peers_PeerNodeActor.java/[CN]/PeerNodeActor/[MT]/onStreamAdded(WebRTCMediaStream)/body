@@ -1,0 +1,17 @@
+{
+  theirMediaStreams.add(stream);
+  stream.setEnabled(isEnabled);
+  if (isStarted) {
+    callback.onStreamAdded(deviceId,stream);
+  }
+  if (!isConnected) {
+    isConnected=true;
+    if (!isEnabled) {
+      state=PeerState.CONNECTED;
+      callback.onPeerStateChanged(deviceId,state);
+    }
+ else {
+    }
+  }
+  startIfNeeded();
+}

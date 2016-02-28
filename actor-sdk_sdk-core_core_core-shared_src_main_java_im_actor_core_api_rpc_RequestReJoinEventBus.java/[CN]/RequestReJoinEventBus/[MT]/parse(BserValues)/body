@@ -1,0 +1,4 @@
+{
+  this.id=values.getString(1);
+  this.rejoinToken=values.getBytes(2);
+}

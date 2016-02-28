@@ -1,0 +1,23 @@
+{
+  if (currentSession == sessionId || currentSession == 0) {
+    currentSession=sessionId;
+    return true;
+  }
+ else {
+    if (!closedSessions.contains(sessionId)) {
+      boolean found=false;
+      for (      PendingSession p : pendingSessions) {
+        if (p.getSessionId() == sessionId) {
+          p.getMessages().add(msg);
+          found=true;
+        }
+      }
+      if (!found) {
+        PendingSession p=new PendingSession(sessionId);
+        p.getMessages().add(msg);
+        pendingSessions.add(p);
+      }
+    }
+    return false;
+  }
+}

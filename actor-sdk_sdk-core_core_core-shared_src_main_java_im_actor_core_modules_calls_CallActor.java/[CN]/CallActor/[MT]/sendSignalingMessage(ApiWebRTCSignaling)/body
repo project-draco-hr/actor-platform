@@ -1,8 +1,0 @@
-{
-  try {
-    sendMessage(signaling.buildContainer());
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-  }
-}

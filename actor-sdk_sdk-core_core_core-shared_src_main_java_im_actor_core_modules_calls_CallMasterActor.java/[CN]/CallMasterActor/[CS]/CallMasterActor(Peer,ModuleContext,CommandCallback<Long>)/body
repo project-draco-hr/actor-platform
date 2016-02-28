@@ -1,5 +1,0 @@
-{
-  super(context);
-  this.callback=callback;
-  this.peer=peer;
-}

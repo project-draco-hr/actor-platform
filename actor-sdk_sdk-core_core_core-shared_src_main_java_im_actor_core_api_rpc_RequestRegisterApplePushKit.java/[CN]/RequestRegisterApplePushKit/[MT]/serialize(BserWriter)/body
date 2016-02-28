@@ -1,0 +1,7 @@
+{
+  writer.writeInt(1,this.apnsKey);
+  if (this.token == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.token);
+}

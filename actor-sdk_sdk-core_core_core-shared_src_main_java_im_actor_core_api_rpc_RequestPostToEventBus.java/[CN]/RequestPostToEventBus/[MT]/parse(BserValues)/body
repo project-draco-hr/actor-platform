@@ -1,9 +1,5 @@
 {
   this.id=values.getString(1);
-  List<ApiEventBusDestination> _destinations=new ArrayList<ApiEventBusDestination>();
-  for (int i=0; i < values.getRepeatedCount(2); i++) {
-    _destinations.add(new ApiEventBusDestination());
-  }
-  this.destinations=values.getRepeatedObj(2,_destinations);
+  this.destinations=values.getRepeatedLong(2);
   this.message=values.getBytes(3);
 }

@@ -1,0 +1,11 @@
+{
+  this.callbackDest=dest;
+  this.deviceId=deviceId;
+  this.callback=callback;
+  setDest(system().actorOf(dest.getPath() + "/" + deviceId,new ActorCreator(){
+    @Override public Actor create(){
+      return new PeerNodeActor(deviceId,selfSettings,new WrappedCallback(),context);
+    }
+  }
+));
+}

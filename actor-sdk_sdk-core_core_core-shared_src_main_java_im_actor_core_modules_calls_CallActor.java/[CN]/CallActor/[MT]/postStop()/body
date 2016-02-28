@@ -1,0 +1,11 @@
+{
+  super.postStop();
+  if (callVM != null) {
+    callVM.getState().change(CallState.ENDED);
+    callVM.setCallEnd(im.actor.runtime.Runtime.getCurrentTime());
+  }
+  callBus.kill();
+  if (callId != 0) {
+    callManager.send(new CallManagerActor.OnCallEnded(callId),self());
+  }
+}

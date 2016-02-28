@@ -1,3 +1,4 @@
 {
   this.deviceId=values.getLong(1);
+  this.rejoinToken=values.optBytes(2);
 }

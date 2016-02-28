@@ -1,0 +1,10 @@
+{
+  if (isEnabled && isConnected && !isStarted) {
+    isStarted=true;
+    state=PeerState.ACTIVE;
+    callback.onPeerStateChanged(deviceId,state);
+    for (    WebRTCMediaStream mediaStream : theirMediaStreams) {
+      callback.onStreamAdded(deviceId,mediaStream);
+    }
+  }
+}

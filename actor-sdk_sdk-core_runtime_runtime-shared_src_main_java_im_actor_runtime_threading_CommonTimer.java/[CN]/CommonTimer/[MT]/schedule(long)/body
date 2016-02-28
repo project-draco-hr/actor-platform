@@ -1,4 +1,7 @@
 {
+  if (isDisposed) {
+    return;
+  }
   if (lastSchedule != null) {
     lastSchedule.cancel();
   }

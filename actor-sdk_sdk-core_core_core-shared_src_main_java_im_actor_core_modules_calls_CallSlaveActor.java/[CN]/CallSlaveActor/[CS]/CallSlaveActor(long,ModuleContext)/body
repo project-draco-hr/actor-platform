@@ -1,6 +1,0 @@
-{
-  super(context);
-  this.callId=callId;
-  this.isConnected=false;
-  this.isAnswered=false;
-}

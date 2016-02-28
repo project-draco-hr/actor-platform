@@ -1,6 +1,6 @@
 {
   ActorRef ref=runningCalls.get(callId);
   if (ref != null) {
-    ref.send(new CallActor.Mute());
+    ref.send(new AbsCallActor.MuteChanged(true));
   }
 }

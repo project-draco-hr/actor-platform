@@ -1,0 +1,44 @@
+{
+  if (message instanceof OnOffer) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    OnOffer offer=(OnOffer)message;
+    onOffer(offer.getSessionId(),offer.getSdp());
+  }
+ else   if (message instanceof OnAnswer) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    OnAnswer answer=(OnAnswer)message;
+    onAnswer(answer.getSessionId(),answer.getSdp());
+  }
+ else   if (message instanceof OnCandidate) {
+    if (!isReady || !isReadyForCandidates) {
+      stash();
+      return;
+    }
+    OnCandidate candidate=(OnCandidate)message;
+    onCandidate(candidate.getIndex(),candidate.getId(),candidate.getSdp());
+  }
+ else   if (message instanceof OnOfferNeeded) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    OnOfferNeeded offerNeeded=(OnOfferNeeded)message;
+    onOfferNeeded(offerNeeded.getSessionId());
+  }
+ else   if (message instanceof ResetState) {
+    if (!isReady) {
+      stash();
+      return;
+    }
+    onResetState();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

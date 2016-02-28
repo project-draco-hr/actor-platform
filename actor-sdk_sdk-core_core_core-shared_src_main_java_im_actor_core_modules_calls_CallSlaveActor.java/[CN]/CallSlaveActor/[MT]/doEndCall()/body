@@ -1,6 +1,0 @@
-{
-  super.doEndCall();
-  if (masterNode != null) {
-    sendSignalingMessage(masterNode.getUid(),masterNode.getDeviceId(),new ApiRejectCall());
-  }
-}

@@ -1,0 +1,6 @@
+{
+  this.deviceId=deviceId;
+  this.mdpIndex=mdpIndex;
+  this.id=id;
+  this.sdp=sdp;
+}

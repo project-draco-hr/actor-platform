@@ -1,0 +1,6 @@
+{
+  if (!refs.containsKey(deviceId)) {
+    return createNewPeer(deviceId);
+  }
+  return refs.get(deviceId);
+}

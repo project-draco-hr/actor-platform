@@ -1,0 +1,3 @@
+{
+  return new ApiPeerSettings(false,isMobile,false,isPreConnectionEnabled);
+}

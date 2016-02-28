@@ -1,0 +1,7 @@
+{
+  String res="struct SyncedValue{";
+  res+="id=" + this.id;
+  res+=", value=" + this.value;
+  res+="}";
+  return res;
+}

@@ -6,5 +6,6 @@
   }
   onBusDisposed();
   onBusStopped();
+  busId=null;
   self().send(PoisonPill.INSTANCE);
 }

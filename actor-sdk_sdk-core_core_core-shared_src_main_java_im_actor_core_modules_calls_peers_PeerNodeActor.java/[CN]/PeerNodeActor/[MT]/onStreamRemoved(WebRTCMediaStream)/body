@@ -1,0 +1,6 @@
+{
+  theirMediaStreams.remove(stream);
+  if (isStarted) {
+    callback.onStreamRemoved(deviceId,stream);
+  }
+}

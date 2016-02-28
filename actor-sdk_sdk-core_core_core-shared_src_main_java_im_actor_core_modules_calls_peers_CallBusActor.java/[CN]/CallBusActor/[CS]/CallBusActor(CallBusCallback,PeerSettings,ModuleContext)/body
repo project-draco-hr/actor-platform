@@ -1,0 +1,6 @@
+{
+  super(context);
+  this.selfSettings=selfSettings;
+  this.callBusCallback=callBusCallback;
+  this.peerCallback=new CallbackWrapper(this);
+}

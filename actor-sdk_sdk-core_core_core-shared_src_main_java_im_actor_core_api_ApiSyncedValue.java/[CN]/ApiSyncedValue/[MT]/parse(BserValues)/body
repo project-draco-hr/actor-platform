@@ -1,0 +1,4 @@
+{
+  this.id=values.getLong(1);
+  this.value=values.optBytes(2);
+}

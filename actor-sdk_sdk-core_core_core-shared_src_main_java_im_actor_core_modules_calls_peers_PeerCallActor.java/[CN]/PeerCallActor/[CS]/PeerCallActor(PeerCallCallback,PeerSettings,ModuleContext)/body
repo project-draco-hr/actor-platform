@@ -1,0 +1,5 @@
+{
+  super(context);
+  this.callback=callback;
+  this.selfSettings=selfSettings;
+}

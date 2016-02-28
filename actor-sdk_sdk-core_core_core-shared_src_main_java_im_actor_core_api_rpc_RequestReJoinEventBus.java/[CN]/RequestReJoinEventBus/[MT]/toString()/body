@@ -1,0 +1,7 @@
+{
+  String res="rpc ReJoinEventBus{";
+  res+="id=" + this.id;
+  res+=", rejoinToken=" + byteArrayToString(this.rejoinToken);
+  res+="}";
+  return res;
+}

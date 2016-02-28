@@ -1,0 +1,8 @@
+{
+  if (isMasterReady) {
+    sendSignal(masterDeviceId,new ApiNegotinationSuccessful(deviceId,sessionId));
+  }
+ else {
+    stash(STASH);
+  }
+}

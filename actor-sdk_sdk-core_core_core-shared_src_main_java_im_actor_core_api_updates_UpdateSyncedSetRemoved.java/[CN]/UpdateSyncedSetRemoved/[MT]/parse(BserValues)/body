@@ -1,0 +1,4 @@
+{
+  this.setName=values.getString(1);
+  this.removedItems=values.getRepeatedLong(2);
+}

@@ -1,5 +1,0 @@
-{
-  if (mediaStream != null) {
-    mediaStream.setEnabled(!(isMuted || (isSilentMode && isSilented)));
-  }
-}

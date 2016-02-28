@@ -1,32 +1,9 @@
 {
-  if (message instanceof PeerConnectionActor.DoAnswer) {
-    PeerConnectionActor.DoAnswer answer=(PeerConnectionActor.DoAnswer)message;
-    sendSignalingMessage(answer.getUid(),answer.getDeviceId(),new ApiAnswer(0,answer.getSdp()));
+  if (message instanceof AnswerCall) {
+    onAnswerCall();
   }
- else   if (message instanceof PeerConnectionActor.DoOffer) {
-    PeerConnectionActor.DoOffer offer=(PeerConnectionActor.DoOffer)message;
-    sendSignalingMessage(offer.getUid(),offer.getDeviceId(),new ApiOffer(0,offer.getSdp(),null));
-  }
- else   if (message instanceof PeerConnectionActor.DoCandidate) {
-    PeerConnectionActor.DoCandidate candidate=(PeerConnectionActor.DoCandidate)message;
-    sendSignalingMessage(candidate.getUid(),candidate.getDeviceId(),new ApiCandidate(0,candidate.getIndex(),candidate.getId(),candidate.getSdp()));
-  }
- else   if (message instanceof DoEndCall) {
-    doEndCall();
-  }
- else   if (message instanceof PeerConnectionActor.OnStreamAdded) {
-    PeerConnectionActor.OnStreamAdded streamAdded=(PeerConnectionActor.OnStreamAdded)message;
-    onStreamAdded(streamAdded.getUid(),streamAdded.getDeviceId(),streamAdded.getStream());
-  }
- else   if (message instanceof PeerConnectionActor.OnStreamRemoved) {
-    PeerConnectionActor.OnStreamRemoved streamRemoved=(PeerConnectionActor.OnStreamRemoved)message;
-    onStreamRemoved(streamRemoved.getUid(),streamRemoved.getDeviceId(),streamRemoved.getStream());
-  }
- else   if (message instanceof Mute) {
-    onMute();
-  }
- else   if (message instanceof Unmute) {
-    onUnmute();
+ else   if (message instanceof RejectCall) {
+    onRejectCall();
   }
  else {
     super.onReceive(message);

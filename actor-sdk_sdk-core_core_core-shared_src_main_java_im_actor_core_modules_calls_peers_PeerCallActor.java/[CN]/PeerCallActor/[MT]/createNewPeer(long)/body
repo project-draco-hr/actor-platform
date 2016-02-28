@@ -1,0 +1,8 @@
+{
+  PeerNodeInt peerNodeInt=new PeerNodeInt(deviceId,new NodeCallback(),selfSettings,self(),context());
+  if (webRTCMediaStream != null) {
+    peerNodeInt.setOwnStream(webRTCMediaStream);
+  }
+  refs.put(deviceId,peerNodeInt);
+  return peerNodeInt;
+}

@@ -1,4 +1,0 @@
-{
-  writer.writeInt(1,this.uid);
-  writer.writeLong(2,this.deviceId);
-}

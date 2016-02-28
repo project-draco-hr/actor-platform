@@ -1,0 +1,5 @@
+{
+  String res="rpc RegisterApplePushKit{";
+  res+="}";
+  return res;
+}
