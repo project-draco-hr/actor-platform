@@ -1,0 +1,5 @@
+{
+  if (!wakeLock.isHeld()) {
+    wakeLock.acquire();
+  }
+}
