@@ -1,0 +1,11 @@
+{
+  if (view == null) {
+    return;
+  }
+  ScaleAnimation scaleAnimation=new ScaleAnimation(1.0f,scale,1.0f,scale,Animation.RELATIVE_TO_SELF,(float)0.5,Animation.RELATIVE_TO_SELF,(float)0.5);
+  scaleAnimation.setDuration(isAnimated ? 150 : 0);
+  scaleAnimation.setInterpolator(MaterialInterpolator.getInstance());
+  scaleAnimation.setFillAfter(true);
+  view.clearAnimation();
+  view.startAnimation(scaleAnimation);
+}

@@ -1,6 +1,7 @@
 {
   getMenuInflater().inflate(R.menu.call_menu,menu);
-  if (messenger().getCall(callId).getPeer().getPeerType() != PeerType.GROUP) {
+  CallVM call=messenger().getCall(callId);
+  if (call != null && call.getPeer().getPeerType() != PeerType.GROUP) {
     menu.findItem(R.id.members).setVisible(false);
   }
   return super.onCreateOptionsMenu(menu);

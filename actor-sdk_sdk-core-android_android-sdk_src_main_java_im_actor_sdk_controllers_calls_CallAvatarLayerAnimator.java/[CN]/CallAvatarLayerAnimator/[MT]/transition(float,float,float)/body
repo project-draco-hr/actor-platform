@@ -1,0 +1,3 @@
+{
+  return (float)SpringUtil.mapValueFromRangeToRange(progress,0,1,startValue,endValue);
+}

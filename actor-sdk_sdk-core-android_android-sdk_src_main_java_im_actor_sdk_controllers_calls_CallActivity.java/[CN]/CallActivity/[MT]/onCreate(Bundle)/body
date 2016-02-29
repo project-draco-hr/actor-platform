@@ -1,6 +1,8 @@
 {
   super.onCreate(savedInstanceState);
   getSupportActionBar().setTitle("Call");
+  getSupportActionBar().hide();
+  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
   if (savedInstanceState == null) {
     boolean incoming=getIntent().getBooleanExtra("incoming",false);
     if (incoming) {

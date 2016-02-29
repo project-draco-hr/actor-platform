@@ -1,0 +1,7 @@
+{
+  popAnimationSpring.setEndValue(on ? 1 : 0);
+  popAnimationSpring1.setEndValue(on ? 1 : 0);
+  popAnimationSpring2.setEndValue(on ? 1 : 0);
+  popAnimationSpring3.setEndValue(on ? 1 : 0);
+  popAnimationSpring4.setEndValue(on ? 1 : 0);
+}

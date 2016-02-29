@@ -1,6 +1,11 @@
 {
   this.callId=callId;
   this.call=messenger().getCall(callId);
-  this.peer=call.getPeer();
+  if (call == null) {
+    this.peer=Peer.user(myUid());
+  }
+ else {
+    this.peer=call.getPeer();
+  }
   this.incoming=incoming;
 }

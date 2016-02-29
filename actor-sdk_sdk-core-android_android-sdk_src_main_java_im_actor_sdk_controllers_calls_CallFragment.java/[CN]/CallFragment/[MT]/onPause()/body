@@ -1,6 +1,6 @@
 {
   super.onPause();
-  if (call.getState().get() != CallState.ENDED) {
+  if (call != null && call.getState().get() != CallState.ENDED) {
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(getActivity());
     builder.setAutoCancel(true);
     builder.setSmallIcon(R.drawable.ic_app_notify);

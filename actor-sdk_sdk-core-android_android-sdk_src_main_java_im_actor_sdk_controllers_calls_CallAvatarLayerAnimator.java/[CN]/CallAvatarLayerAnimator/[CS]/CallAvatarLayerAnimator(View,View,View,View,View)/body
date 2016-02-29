@@ -1,0 +1,38 @@
+{
+  this.layer=layer;
+  this.layer1=layer1;
+  this.layer2=layer2;
+  this.layer3=layer3;
+  this.layer4=layer4;
+  springSystem=SpringSystem.create();
+  popAnimationSpring=springSystem.createSpring().setSpringConfig(SpringConfig.fromBouncinessAndSpeed(0,1)).addListener(new SimpleSpringListener(){
+    @Override public void onSpringUpdate(    Spring spring){
+      setPopAnimationProgress((float)spring.getCurrentValue());
+    }
+  }
+);
+  popAnimationSpring1=springSystem.createSpring().setSpringConfig(SpringConfig.fromBouncinessAndSpeed(0,1)).addListener(new SimpleSpringListener(){
+    @Override public void onSpringUpdate(    Spring spring){
+      setPopAnimationProgress1((float)spring.getCurrentValue());
+    }
+  }
+);
+  popAnimationSpring2=springSystem.createSpring().setSpringConfig(SpringConfig.fromBouncinessAndSpeed(0,1)).addListener(new SimpleSpringListener(){
+    @Override public void onSpringUpdate(    Spring spring){
+      setPopAnimationProgress2((float)spring.getCurrentValue());
+    }
+  }
+);
+  popAnimationSpring3=springSystem.createSpring().setSpringConfig(SpringConfig.fromBouncinessAndSpeed(0,1)).addListener(new SimpleSpringListener(){
+    @Override public void onSpringUpdate(    Spring spring){
+      setPopAnimationProgress((float)spring.getCurrentValue());
+    }
+  }
+);
+  popAnimationSpring4=springSystem.createSpring().setSpringConfig(SpringConfig.fromBouncinessAndSpeed(9,20)).addListener(new SimpleSpringListener(){
+    @Override public void onSpringUpdate(    Spring spring){
+      setPopAnimationProgress1((float)spring.getCurrentValue());
+    }
+  }
+);
+}

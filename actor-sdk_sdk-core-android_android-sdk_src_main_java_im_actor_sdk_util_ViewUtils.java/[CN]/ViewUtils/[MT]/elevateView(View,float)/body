@@ -1,0 +1,3 @@
+{
+  elevateView(view,true,scale);
+}

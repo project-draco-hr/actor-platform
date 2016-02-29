@@ -1,0 +1,5 @@
+{
+  float transition2=transition(progress,0.85f,0.9f);
+  layer1.setScaleX(transition2);
+  layer1.setScaleY(transition2);
+}
