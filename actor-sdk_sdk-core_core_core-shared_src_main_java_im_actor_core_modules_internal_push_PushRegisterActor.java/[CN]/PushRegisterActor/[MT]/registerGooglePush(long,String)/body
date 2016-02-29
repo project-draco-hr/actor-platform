@@ -11,6 +11,7 @@
       preferences().putBool("push.google.registered",true);
     }
     @Override public void onError(    RpcException e){
+      e.printStackTrace();
     }
   }
 );
