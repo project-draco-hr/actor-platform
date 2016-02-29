@@ -1,16 +1,3 @@
 {
-  return new Command<ResponseRawRequest>(){
-    @Override public void start(    final CommandCallback<ResponseRawRequest> callback){
-      request(new RequestRawRequest(service,method,params),new RpcCallback<ResponseRawRequest>(){
-        @Override public void onResult(        ResponseRawRequest response){
-          callback.onResult(response);
-        }
-        @Override public void onError(        RpcException e){
-          callback.onError(e);
-        }
-      }
-);
-    }
-  }
-;
+  request(new RequestRawRequest(service,method,params));
 }
