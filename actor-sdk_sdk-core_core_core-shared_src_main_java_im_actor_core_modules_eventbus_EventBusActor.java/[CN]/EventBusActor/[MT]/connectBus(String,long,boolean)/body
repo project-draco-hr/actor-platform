@@ -1,0 +1,3 @@
+{
+  connectBus(busId,deviceId,DEFAULT_TIMEOUT,isJoined);
+}

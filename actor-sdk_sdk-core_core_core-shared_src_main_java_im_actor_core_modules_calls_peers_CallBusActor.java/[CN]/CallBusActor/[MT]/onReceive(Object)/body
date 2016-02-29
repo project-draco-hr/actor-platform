@@ -2,6 +2,10 @@
   if (message instanceof JoinBus) {
     joinBus(((JoinBus)message).getBusId());
   }
+ else   if (message instanceof JoinMasterBus) {
+    JoinMasterBus joinMasterBus=(JoinMasterBus)message;
+    connectBus(joinMasterBus.getBusId(),joinMasterBus.getDeviceId(),true);
+  }
  else   if (message instanceof Mute) {
     onChangeMute(((Mute)message).isMuted());
   }

@@ -1,0 +1,4 @@
+String busId
+long deviceId
+long timeout
+boolean isJoined

@@ -1,0 +1,4 @@
+{
+  this.busId=busId;
+  this.deviceId=deviceId;
+}

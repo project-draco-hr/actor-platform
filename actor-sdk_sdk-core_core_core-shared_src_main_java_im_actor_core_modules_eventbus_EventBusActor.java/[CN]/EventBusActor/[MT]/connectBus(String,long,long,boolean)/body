@@ -1,0 +1,17 @@
+{
+  keepAliveTimeout=timeout;
+  keepAliveRetry=timeout / 2;
+  this.busId=busId;
+  this.deviceId=deviceId;
+  context().getEventBus().subscribe(busId,self());
+  if (isJoined) {
+    onBusJoined();
+  }
+ else {
+    onBusCreated();
+  }
+  onBusStarted();
+  isProcessing=false;
+  unstashAll();
+  keepAliveCancel=schedule(new KeepAlive(),keepAliveRetry);
+}

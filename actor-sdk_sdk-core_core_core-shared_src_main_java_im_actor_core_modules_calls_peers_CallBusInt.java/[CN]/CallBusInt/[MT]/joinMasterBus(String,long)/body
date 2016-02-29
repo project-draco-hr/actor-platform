@@ -1,0 +1,3 @@
+{
+  send(new CallBusActor.JoinMasterBus(busId,deviceId));
+}
