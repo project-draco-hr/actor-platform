@@ -1,0 +1,3 @@
+{
+  modules.getExternalModule().rawPersistentRequest(service,method,params);
+}
