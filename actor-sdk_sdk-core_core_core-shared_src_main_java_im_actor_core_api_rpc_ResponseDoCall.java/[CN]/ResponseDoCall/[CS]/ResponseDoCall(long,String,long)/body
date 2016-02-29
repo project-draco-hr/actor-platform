@@ -1,0 +1,5 @@
+{
+  this.callId=callId;
+  this.eventBusId=eventBusId;
+  this.deviceId=deviceId;
+}

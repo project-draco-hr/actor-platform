@@ -2,9 +2,6 @@
   if (message instanceof JoinBus) {
     joinBus(((JoinBus)message).getBusId());
   }
- else   if (message instanceof CreateBus) {
-    createBus();
-  }
  else   if (message instanceof Mute) {
     onChangeMute(((Mute)message).isMuted());
   }

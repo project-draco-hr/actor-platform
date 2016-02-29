@@ -1,3 +1,8 @@
 {
   writer.writeLong(1,this.callId);
+  if (this.eventBusId == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.eventBusId);
+  writer.writeLong(3,this.deviceId);
 }

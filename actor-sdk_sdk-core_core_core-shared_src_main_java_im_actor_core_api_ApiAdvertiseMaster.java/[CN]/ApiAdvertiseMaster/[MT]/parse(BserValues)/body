@@ -1,2 +1,7 @@
 {
+  List<ApiICEServer> _server=new ArrayList<ApiICEServer>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _server.add(new ApiICEServer());
+  }
+  this.server=values.getRepeatedObj(1,_server);
 }

@@ -3,8 +3,4 @@
     throw new IOException();
   }
   writer.writeObject(1,this.peer);
-  if (this.eventBusId == null) {
-    throw new IOException();
-  }
-  writer.writeString(2,this.eventBusId);
 }

@@ -1,0 +1,5 @@
+{
+  this.url=values.getString(1);
+  this.username=values.optString(2);
+  this.credential=values.optString(3);
+}

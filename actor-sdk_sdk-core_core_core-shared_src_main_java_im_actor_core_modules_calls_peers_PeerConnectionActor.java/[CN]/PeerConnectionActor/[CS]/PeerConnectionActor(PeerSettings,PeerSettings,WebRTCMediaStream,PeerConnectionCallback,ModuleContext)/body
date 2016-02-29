@@ -1,6 +1,0 @@
-{
-  super(context);
-  this.TAG="PeerConnection";
-  this.callback=callback;
-  this.stream=mediaStream;
-}

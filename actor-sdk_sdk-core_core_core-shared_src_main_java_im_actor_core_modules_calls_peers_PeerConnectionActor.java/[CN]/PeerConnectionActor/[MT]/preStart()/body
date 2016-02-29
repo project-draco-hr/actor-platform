@@ -1,8 +1,13 @@
 {
   isReady=false;
-  WebRTCIceServer[] iceServers=config().getWebRTCIceServers();
+  WebRTCIceServer[] rtcIceServers=ManagedList.of(iceServers).map(new Function<ApiICEServer,WebRTCIceServer>(){
+    @Override public WebRTCIceServer apply(    ApiICEServer apiICEServer){
+      return new WebRTCIceServer(apiICEServer.getUrl(),apiICEServer.getUsername(),apiICEServer.getCredential());
+    }
+  }
+).toArray(new WebRTCIceServer[0]);
   WebRTCSettings settings=new WebRTCSettings(false,false);
-  WebRTC.createPeerConnection(iceServers,settings).then(new Consumer<WebRTCPeerConnection>(){
+  WebRTC.createPeerConnection(rtcIceServers,settings).then(new Consumer<WebRTCPeerConnection>(){
     @Override public void apply(    WebRTCPeerConnection webRTCPeerConnection){
       PeerConnectionActor.this.peerConnection=webRTCPeerConnection;
       PeerConnectionActor.this.peerConnection.addOwnStream(stream);

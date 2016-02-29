@@ -1,0 +1,7 @@
+{
+  String res="struct ICEServer{";
+  res+="url=" + this.url;
+  res+=", username=" + this.username;
+  res+="}";
+  return res;
+}

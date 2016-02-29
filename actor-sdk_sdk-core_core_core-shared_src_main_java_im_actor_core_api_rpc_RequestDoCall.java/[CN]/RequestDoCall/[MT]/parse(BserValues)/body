@@ -1,4 +1,3 @@
 {
   this.peer=values.getObj(1,new ApiOutPeer());
-  this.eventBusId=values.getString(2);
 }

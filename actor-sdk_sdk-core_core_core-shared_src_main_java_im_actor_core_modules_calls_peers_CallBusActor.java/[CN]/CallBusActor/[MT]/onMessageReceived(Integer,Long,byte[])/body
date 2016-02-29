@@ -43,6 +43,7 @@
     peerCall.closeSession(closeSession.getDevice(),closeSession.getSessionId());
   }
  else   if (signal instanceof ApiAdvertiseMaster) {
+    ApiAdvertiseMaster advertiseMaster=(ApiAdvertiseMaster)signal;
     if (isMasterReady) {
       return;
     }
@@ -50,6 +51,6 @@
     masterDeviceId=senderDeviceId;
     unstashAll(STASH);
     sendSignal(masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
-    peerCall.onTheirStarted(masterDeviceId);
+    peerCall.onConfigurationReady(advertiseMaster.getServer());
   }
 }

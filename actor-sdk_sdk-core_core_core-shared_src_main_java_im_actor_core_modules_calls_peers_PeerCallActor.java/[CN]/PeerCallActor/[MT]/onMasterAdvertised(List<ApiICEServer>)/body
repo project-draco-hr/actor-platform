@@ -1,0 +1,8 @@
+{
+  if (this.iceServers == null) {
+    this.iceServers=iceServers;
+    for (    PeerNodeInt node : refs.values()) {
+      node.onAdvertisedMaster(iceServers);
+    }
+  }
+}

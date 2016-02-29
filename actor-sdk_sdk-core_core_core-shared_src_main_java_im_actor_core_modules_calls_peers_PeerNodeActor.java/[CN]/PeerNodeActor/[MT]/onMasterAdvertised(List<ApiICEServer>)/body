@@ -1,0 +1,6 @@
+{
+  if (this.iceServers == null) {
+    this.iceServers=iceServers;
+    reconfigurePeerConnectionIfNeeded();
+  }
+}

@@ -1,3 +1,5 @@
 {
   this.callId=values.getLong(1);
+  this.eventBusId=values.getString(2);
+  this.deviceId=values.getLong(3);
 }

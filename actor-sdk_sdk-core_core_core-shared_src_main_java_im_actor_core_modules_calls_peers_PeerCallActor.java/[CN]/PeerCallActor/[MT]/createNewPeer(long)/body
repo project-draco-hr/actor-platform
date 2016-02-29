@@ -3,6 +3,9 @@
   if (webRTCMediaStream != null) {
     peerNodeInt.setOwnStream(webRTCMediaStream);
   }
+  if (this.iceServers != null) {
+    peerNodeInt.onAdvertisedMaster(iceServers);
+  }
   refs.put(deviceId,peerNodeInt);
   return peerNodeInt;
 }

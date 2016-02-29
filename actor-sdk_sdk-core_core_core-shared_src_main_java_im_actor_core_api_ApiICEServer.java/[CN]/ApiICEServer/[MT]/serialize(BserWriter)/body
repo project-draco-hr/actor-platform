@@ -1,0 +1,12 @@
+{
+  if (this.url == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.url);
+  if (this.username != null) {
+    writer.writeString(2,this.username);
+  }
+  if (this.credential != null) {
+    writer.writeString(3,this.credential);
+  }
+}

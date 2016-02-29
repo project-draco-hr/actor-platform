@@ -10,6 +10,10 @@
     AddOwnStream ownStream=(AddOwnStream)message;
     addOwnStream(ownStream.getMediaStream());
   }
+ else   if (message instanceof RTCMasterAdvertised) {
+    RTCMasterAdvertised advertisedMaster=(RTCMasterAdvertised)message;
+    onMasterAdvertised(advertisedMaster.getIceServers());
+  }
  else   if (message instanceof RTCNeedOffer) {
     RTCNeedOffer needOffer=(RTCNeedOffer)message;
     if (peerConnection != null) {
