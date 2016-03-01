@@ -2,3 +2,4 @@ JsPeer peer
 boolean isOutgoing
 JsArray<JsPeerInfo> members
 String state
+boolean isMuted

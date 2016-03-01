@@ -19,5 +19,5 @@ case ENDED:
 state="ended";
 break;
 }
-return create(JsPeer.create(model.getPeer()),model.isOutgoing(),members,state);
+return create(JsPeer.create(model.getPeer()),model.isOutgoing(),members,state,model.getIsMuted().get());
 }

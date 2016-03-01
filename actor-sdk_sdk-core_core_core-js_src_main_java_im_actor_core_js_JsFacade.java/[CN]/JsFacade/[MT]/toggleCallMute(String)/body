@@ -1,0 +1,3 @@
+{
+  messenger.toggleCallMute(Long.parseLong(callId));
+}
