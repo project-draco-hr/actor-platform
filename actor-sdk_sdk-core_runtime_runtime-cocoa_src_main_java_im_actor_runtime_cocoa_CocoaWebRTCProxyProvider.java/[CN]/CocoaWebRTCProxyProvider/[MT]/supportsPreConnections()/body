@@ -1,0 +1,6 @@
+{
+  if (rtcRuntime == null) {
+    throw new RuntimeException("WebRTC Runtime not set");
+  }
+  return rtcRuntime.supportsPreConnections();
+}

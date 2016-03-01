@@ -1,0 +1,3 @@
+{
+  return rtcRuntime.supportsPreConnections();
+}
