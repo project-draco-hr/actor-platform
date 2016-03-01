@@ -11,6 +11,7 @@
     currentCall=null;
   }
   runningCalls.put(callId,ref);
+  answeredCalls.add(callId);
   currentCall=callId;
   provider.onCallStart(callId);
   isBeeping=true;
