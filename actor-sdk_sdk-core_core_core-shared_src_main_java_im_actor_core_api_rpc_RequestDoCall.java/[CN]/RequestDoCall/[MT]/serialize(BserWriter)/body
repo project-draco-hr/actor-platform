@@ -3,4 +3,7 @@
     throw new IOException();
   }
   writer.writeObject(1,this.peer);
+  if (this.timeout != null) {
+    writer.writeLong(2,this.timeout);
+  }
 }

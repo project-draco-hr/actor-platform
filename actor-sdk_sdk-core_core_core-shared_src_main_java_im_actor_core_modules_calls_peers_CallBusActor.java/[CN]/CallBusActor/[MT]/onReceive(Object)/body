@@ -1,10 +1,10 @@
 {
   if (message instanceof JoinBus) {
-    joinBus(((JoinBus)message).getBusId());
+    joinBus(((JoinBus)message).getBusId(),TIMEOUT);
   }
  else   if (message instanceof JoinMasterBus) {
     JoinMasterBus joinMasterBus=(JoinMasterBus)message;
-    connectBus(joinMasterBus.getBusId(),joinMasterBus.getDeviceId(),true);
+    connectBus(joinMasterBus.getBusId(),joinMasterBus.getDeviceId(),TIMEOUT,true);
   }
  else   if (message instanceof Mute) {
     onChangeMute(((Mute)message).isMuted());

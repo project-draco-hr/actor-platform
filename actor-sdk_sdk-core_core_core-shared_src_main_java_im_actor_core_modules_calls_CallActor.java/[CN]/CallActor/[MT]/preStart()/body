@@ -1,7 +1,7 @@
 {
   super.preStart();
   if (isMaster) {
-    api(new RequestDoCall(buidOutPeer(peer))).then(new Consumer<ResponseDoCall>(){
+    api(new RequestDoCall(buidOutPeer(peer),CallBusActor.TIMEOUT)).then(new Consumer<ResponseDoCall>(){
       @Override public void apply(      ResponseDoCall responseDoCall){
         callId=responseDoCall.getCallId();
         callBus.joinMasterBus(responseDoCall.getEventBusId(),responseDoCall.getDeviceId());
