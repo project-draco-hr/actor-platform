@@ -2,7 +2,12 @@
   Log.d(TAG,"doEndCall (" + callId + ")");
   ActorRef currentCallActor=runningCalls.remove(callId);
   if (currentCallActor != null) {
-    currentCallActor.send(PoisonPill.INSTANCE);
+    if (answeredCalls.contains(callId)) {
+      currentCallActor.send(PoisonPill.INSTANCE);
+    }
+ else {
+      currentCallActor.send(new CallActor.RejectCall());
+    }
   }
   if (currentCall != null && currentCall == callId) {
     currentCall=null;
