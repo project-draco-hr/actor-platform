@@ -1,0 +1,10 @@
+{
+  if (speakerOn) {
+    speaker.setTint(Color.WHITE);
+    speakerTV.setTextColor(Color.WHITE);
+  }
+ else {
+    speaker.setTint(getResources().getColor(R.color.picker_grey));
+    speakerTV.setTextColor(getResources().getColor(R.color.picker_grey));
+  }
+}

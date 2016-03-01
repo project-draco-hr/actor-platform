@@ -1,0 +1,5 @@
+{
+  speakerOn=!speakerOn;
+  audioManager.setSpeakerphoneOn(speakerOn);
+  checkSpeaker(speaker,speakerTV);
+}
