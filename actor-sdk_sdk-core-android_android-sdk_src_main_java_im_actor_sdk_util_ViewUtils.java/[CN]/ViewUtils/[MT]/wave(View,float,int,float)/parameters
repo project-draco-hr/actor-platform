@@ -1,0 +1,4 @@
+View layer
+float scale
+int duration
+float stepOffset
