@@ -1,4 +1,4 @@
 View[] layers
 float scale
 int duration
-int stepOffset
+float offset

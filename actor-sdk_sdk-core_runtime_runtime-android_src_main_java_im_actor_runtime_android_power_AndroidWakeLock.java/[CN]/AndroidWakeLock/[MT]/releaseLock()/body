@@ -1,3 +1,5 @@
 {
-  wakeLock.release();
+  if (wakeLock != null && wakeLock.isHeld()) {
+    wakeLock.release();
+  }
 }

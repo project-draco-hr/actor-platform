@@ -1,3 +1,0 @@
-{
-  ViewUtils.wave(layers,scale,duration,stepOffset);
-}

@@ -1,6 +1,6 @@
 {
-  endCall.setVisibility(View.VISIBLE);
-  answerContainer.setVisibility(View.INVISIBLE);
+  endCallContainer.setVisibility(View.VISIBLE);
+  answerContainer.setVisibility(View.GONE);
   if (ringtone != null) {
     ringtone.stop();
   }

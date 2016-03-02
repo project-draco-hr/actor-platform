@@ -2,13 +2,14 @@
   manager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   FrameLayout cont=(FrameLayout)inflater.inflate(R.layout.fragment_call,container,false);
   v=(Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-  avatarLayers=new View[]{cont.findViewById(R.id.layer),cont.findViewById(R.id.layer1),cont.findViewById(R.id.layer2),cont.findViewById(R.id.layer3),cont.findViewById(R.id.layer4)};
-  wave(avatarLayers,1.1f,1200,200);
+  avatarLayers=new View[]{cont.findViewById(R.id.layer1),cont.findViewById(R.id.layer2),cont.findViewById(R.id.layer3)};
+  wave(avatarLayers,1.5f,1900,-2f);
   for (int i=0; i < avatarLayers.length; i++) {
     View layer=avatarLayers[i];
     ((GradientDrawable)layer.getBackground()).setColor(Color.WHITE);
     ((GradientDrawable)layer.getBackground()).setAlpha(50);
   }
+  endCallContainer=cont.findViewById(R.id.end_call_container);
   answerContainer=cont.findViewById(R.id.answer_container);
   ImageButton answer=(ImageButton)cont.findViewById(R.id.answer);
   answer.setOnClickListener(new View.OnClickListener(){
