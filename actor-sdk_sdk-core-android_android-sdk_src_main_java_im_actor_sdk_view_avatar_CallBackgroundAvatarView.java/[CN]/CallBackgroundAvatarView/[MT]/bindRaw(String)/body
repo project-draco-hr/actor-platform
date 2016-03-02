@@ -1,0 +1,10 @@
+{
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
+  }
+  currentId=0;
+  ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(fileName))).setAutoRotateEnabled(true).build();
+  PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(getController()).setImageRequest(request).build();
+  setController(controller);
+}

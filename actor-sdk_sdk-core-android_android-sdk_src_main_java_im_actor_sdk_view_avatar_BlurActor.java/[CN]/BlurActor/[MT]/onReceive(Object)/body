@@ -1,0 +1,5 @@
+{
+  if (message instanceof RequestBlur) {
+    onNeedBlur(((RequestBlur)message).getPath(),((RequestBlur)message).getRadius(),((RequestBlur)message).getBl());
+  }
+}

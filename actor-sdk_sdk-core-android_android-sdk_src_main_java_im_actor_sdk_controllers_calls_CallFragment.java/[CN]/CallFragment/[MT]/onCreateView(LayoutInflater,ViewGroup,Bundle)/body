@@ -2,6 +2,7 @@
   manager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   FrameLayout cont=(FrameLayout)inflater.inflate(R.layout.fragment_call,container,false);
   v=(Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+  CallBackgroundAvatarView backgroundAvatarView=(CallBackgroundAvatarView)cont.findViewById(R.id.background);
   layer1=cont.findViewById(R.id.layer1);
   layer2=cont.findViewById(R.id.layer2);
   layer3=cont.findViewById(R.id.layer3);
@@ -45,11 +46,13 @@
   if (peer.getPeerType() == PeerType.PRIVATE) {
     UserVM user=users().get(peer.getPeerId());
     avatarView.bind(user);
+    backgroundAvatarView.bind(user);
     bind(nameTV,user.getName());
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     GroupVM g=groups().get(peer.getPeerId());
     avatarView.bind(g);
+    backgroundAvatarView.bind(g);
     bind(nameTV,g.getName());
   }
   nameTV.setSelected(true);

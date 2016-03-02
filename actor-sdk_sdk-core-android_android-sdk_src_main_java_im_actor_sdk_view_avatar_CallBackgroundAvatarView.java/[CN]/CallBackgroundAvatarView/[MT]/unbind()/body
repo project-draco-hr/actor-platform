@@ -1,0 +1,8 @@
+{
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
+  }
+  currentId=0;
+  setImageURI(null);
+}

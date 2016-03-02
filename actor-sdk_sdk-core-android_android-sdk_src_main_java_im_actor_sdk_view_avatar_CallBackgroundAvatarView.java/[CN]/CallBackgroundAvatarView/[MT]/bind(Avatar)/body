@@ -1,0 +1,39 @@
+{
+  if (avatar != null && getImage(avatar) != null && getImage(avatar).getFileReference().getFileId() == currentId) {
+    return;
+  }
+  fastThumbLoader=new FastThumbLoader(this);
+  fastThumbLoader.setBlur(10);
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
+  }
+  setImageURI(null);
+  if (avatar == null || getImage(avatar) == null) {
+    currentId=0;
+    return;
+  }
+  currentId=getImage(avatar).getFileReference().getFileId();
+  bindedFile=messenger().bindFile(getImage(avatar).getFileReference(),true,new FileVMCallback(){
+    @Override public void onNotDownloaded(){
+    }
+    @Override public void onDownloading(    float progress){
+    }
+    @Override public void onDownloaded(    FileSystemReference reference){
+      blurActor.send(new BlurActor.RequestBlur(reference.getDescriptor(),10,new BlurActor.BluredListener(){
+        @Override public void onBlured(        final File f){
+          ((BaseActivity)getContext()).runOnUiThread(new Runnable(){
+            @Override public void run(){
+              ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(f)).setResizeOptions(new ResizeOptions(Screen.getWidth(),Screen.getHeight())).build();
+              PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(getController()).setImageRequest(request).build();
+              setController(controller);
+            }
+          }
+);
+        }
+      }
+));
+    }
+  }
+);
+}

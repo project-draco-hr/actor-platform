@@ -1,0 +1,5 @@
+{
+  this.path=path;
+  this.radius=radius;
+  this.bl=bl;
+}

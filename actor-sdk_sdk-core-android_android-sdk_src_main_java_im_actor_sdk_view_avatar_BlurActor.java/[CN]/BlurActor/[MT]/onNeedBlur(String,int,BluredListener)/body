@@ -1,0 +1,19 @@
+{
+  File blured=new File(path + "_blured");
+  if (!blured.exists() || blured.length() == 0) {
+    try {
+      Bitmap blurdBitmap=BitmapUtil.fastBlur(ImageLoading.loadBitmap(path),blurRadius);
+      BitmapUtil.save(blurdBitmap,blured.getPath());
+      bl.onBlured(blured);
+    }
+ catch (    ImageLoadException e) {
+      e.printStackTrace();
+    }
+catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+ else {
+    bl.onBlured(blured);
+  }
+}

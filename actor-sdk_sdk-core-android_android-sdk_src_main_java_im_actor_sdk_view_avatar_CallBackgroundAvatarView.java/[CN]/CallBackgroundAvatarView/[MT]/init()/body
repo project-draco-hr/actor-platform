@@ -1,0 +1,13 @@
+{
+  if (blurActor == null) {
+    blurActor=system().actorOf(Props.create(new ActorCreator(){
+      @Override public BlurActor create(){
+        return new BlurActor();
+      }
+    }
+),"actor/call_blur");
+  }
+  GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(getResources());
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).build();
+  setHierarchy(hierarchy);
+}
