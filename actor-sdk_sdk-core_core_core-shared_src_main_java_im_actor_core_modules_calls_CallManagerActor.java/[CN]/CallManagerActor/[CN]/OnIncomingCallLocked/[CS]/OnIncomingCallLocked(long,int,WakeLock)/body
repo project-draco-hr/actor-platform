@@ -1,0 +1,5 @@
+{
+  this.callId=callId;
+  this.wakeLock=wakeLock;
+  this.attempt=attempt;
+}

@@ -1,0 +1,6 @@
+{
+  ActorRef dest=runningCalls.remove(callId);
+  if (dest != null) {
+    dest.send(PoisonPill.INSTANCE);
+  }
+}

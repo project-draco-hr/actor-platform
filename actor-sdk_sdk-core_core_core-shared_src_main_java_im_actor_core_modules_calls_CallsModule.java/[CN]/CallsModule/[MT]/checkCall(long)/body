@@ -1,3 +1,0 @@
-{
-  callManager.send(new CallManagerActor.OnIncomingCallLocked(callId,im.actor.runtime.Runtime.makeWakeLock()));
-}

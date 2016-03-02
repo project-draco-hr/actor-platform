@@ -1,0 +1,6 @@
+{
+  ActorRef dest=runningCalls.get(callId);
+  if (dest != null) {
+    dest.send(message);
+  }
+}

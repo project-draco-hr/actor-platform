@@ -1,5 +1,0 @@
-{
-  if (modules.getCallsModule() != null) {
-    modules.getCallsModule().checkCall(callId);
-  }
-}

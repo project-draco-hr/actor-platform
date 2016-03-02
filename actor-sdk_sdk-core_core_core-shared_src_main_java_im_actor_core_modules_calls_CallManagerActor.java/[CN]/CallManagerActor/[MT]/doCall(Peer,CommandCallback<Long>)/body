@@ -1,10 +1,7 @@
 {
   Log.d(TAG,"doCall (" + peer + ")");
   if (currentCall != null) {
-    ActorRef dest=runningCalls.remove(currentCall);
-    if (dest != null) {
-      dest.send(PoisonPill.INSTANCE);
-    }
+    terminalCall(currentCall);
     currentCall=null;
   }
   final WakeLock wakeLock=Runtime.makeWakeLock();

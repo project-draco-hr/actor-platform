@@ -1,3 +1,6 @@
 {
   writer.writeLong(1,this.callId);
+  if (this.attemptIndex != null) {
+    writer.writeInt(2,this.attemptIndex);
+  }
 }
