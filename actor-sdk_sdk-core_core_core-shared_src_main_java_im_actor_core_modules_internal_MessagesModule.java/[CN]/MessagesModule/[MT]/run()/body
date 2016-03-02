@@ -17,12 +17,14 @@
     }
   }
 ),"actor/dialogs/archived");
-  this.dialogsGroupedActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public GroupedDialogsActor create(){
-      return new GroupedDialogsActor(context());
+  if (context().getConfiguration().isEnabledGroupedChatList()) {
+    this.dialogsGroupedActor=system().actorOf(Props.create(new ActorCreator(){
+      @Override public GroupedDialogsActor create(){
+        return new GroupedDialogsActor(context());
+      }
     }
-  }
 ),"actor/dialogs/grouped");
+  }
   this.ownReadActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public OwnReadActor create(){
       return new OwnReadActor(context());

@@ -14,6 +14,7 @@
   builder.setNotificationProvider(new AndroidNotifications(AndroidContext.getContext()));
   builder.setDeviceCategory(DeviceCategory.MOBILE);
   builder.setPlatformType(PlatformType.ANDROID);
+  builder.setIsEnabledGroupedChatList(false);
   builder.setApiConfiguration(new ApiConfiguration(appName,apiAppId,apiAppKey,Devices.getDeviceName(),AndroidContext.getContext().getPackageName() + ":" + Build.SERIAL));
   Locale defaultLocale=Locale.getDefault();
   Log.d(TAG,"Found Locale: " + defaultLocale.getLanguage() + "-"+ defaultLocale.getCountry());

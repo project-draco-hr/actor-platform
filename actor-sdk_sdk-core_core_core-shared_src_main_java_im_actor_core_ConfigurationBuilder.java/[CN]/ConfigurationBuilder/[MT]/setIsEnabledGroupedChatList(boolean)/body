@@ -1,0 +1,4 @@
+{
+  this.isEnabledGroupedChatList=isEnabledGroupedChatList;
+  return this;
+}

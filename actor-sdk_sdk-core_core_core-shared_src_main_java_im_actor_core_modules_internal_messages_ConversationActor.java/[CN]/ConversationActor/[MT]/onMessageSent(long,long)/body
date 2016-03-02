@@ -18,7 +18,9 @@
     }
     if (!isHiddenPeer) {
       dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inPendingIndex.getCount()));
-      dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+      if (dialogsGroupedActor != null) {
+        dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+      }
     }
     if (state != MessageState.READ) {
       outPendingIndex.put(rid,date);
