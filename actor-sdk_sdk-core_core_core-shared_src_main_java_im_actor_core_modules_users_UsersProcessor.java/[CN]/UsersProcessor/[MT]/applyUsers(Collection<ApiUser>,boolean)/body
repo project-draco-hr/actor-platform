@@ -12,6 +12,11 @@
         onUserDescChanged(upd);
       }
     }
+    if (saved != null) {
+      if (saved.getAccessHash() != u.getAccessHash()) {
+        Log.w("UsersProcessor","User's Access Hash changed!");
+      }
+    }
   }
   if (batch.size() > 0) {
     users().addOrUpdateItems(batch);
