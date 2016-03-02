@@ -56,6 +56,8 @@
     if (!isHiddenPeer) {
       dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
     }
-    dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+    if (dialogsGroupedActor != null) {
+      dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+    }
   }
 }

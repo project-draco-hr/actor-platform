@@ -3,7 +3,9 @@
   docs=context().getMessagesModule().getConversationDocsEngine(peer);
   readerActor=context().getMessagesModule().getOwnReadActor();
   dialogsActor=context().getMessagesModule().getDialogsActor();
-  dialogsGroupedActor=context().getMessagesModule().getDialogsGroupedActor();
+  if (context().getConfiguration().isEnabledGroupedChatList()) {
+    dialogsGroupedActor=context().getMessagesModule().getDialogsGroupedActor();
+  }
   outPendingIndex=new IndexEngine(Storage.createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
   inPendingIndex=new IndexEngine(Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
   inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);

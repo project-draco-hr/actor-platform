@@ -1,3 +1,5 @@
 {
-  context().getMessagesModule().getDialogsGroupedActor().send(new GroupedDialogsActor.GroupedDialogsChanged(groups));
+  if (context().getConfiguration().isEnabledGroupedChatList()) {
+    context().getMessagesModule().getDialogsGroupedActor().send(new GroupedDialogsActor.GroupedDialogsChanged(groups));
+  }
 }

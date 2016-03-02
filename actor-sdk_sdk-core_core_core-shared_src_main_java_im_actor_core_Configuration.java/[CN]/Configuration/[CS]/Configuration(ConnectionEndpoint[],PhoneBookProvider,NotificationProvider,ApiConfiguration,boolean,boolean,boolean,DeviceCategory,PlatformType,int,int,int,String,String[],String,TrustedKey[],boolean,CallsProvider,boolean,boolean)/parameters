@@ -17,3 +17,4 @@ TrustedKey[] trustedKeys
 boolean enablePhoneBookImport
 CallsProvider callsProvider
 boolean voiceCallsEnabled
+boolean isEnabledGroupedChatList
