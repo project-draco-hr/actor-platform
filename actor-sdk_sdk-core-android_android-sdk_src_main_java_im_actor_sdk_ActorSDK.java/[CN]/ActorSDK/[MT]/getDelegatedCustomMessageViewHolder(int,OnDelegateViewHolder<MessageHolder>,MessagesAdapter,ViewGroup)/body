@@ -1,5 +1,5 @@
 {
-  MessageHolder delegated=delegate.getCustomMessageViewHolder(id,messagesAdapter,viewGroup);
+  MessageHolder delegated=delegate.getCustomMessageViewHolder(dataTypeHash,messagesAdapter,viewGroup);
   if (delegated != null) {
     return delegated;
   }

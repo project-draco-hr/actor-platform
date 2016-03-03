@@ -56,17 +56,14 @@ return new StickerHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_st
 }
 }
 ,MessagesAdapter.this,inflate(R.layout.adapter_dialog_sticker,viewGroup));
+case -1:
+return new UnsupportedHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_text,viewGroup));
 default :
-if (viewType - 8 >= 0 && viewType - 8 < AbsContent.getConverters().length) {
-return ActorSDK.sharedActor().getDelegatedCustomMessageViewHolder(viewType - 8,new ActorSDK.OnDelegateViewHolder<MessageHolder>(){
+return ActorSDK.sharedActor().getDelegatedCustomMessageViewHolder(viewType,new ActorSDK.OnDelegateViewHolder<MessageHolder>(){
 @Override public MessageHolder onNotDelegated(){
 return new UnsupportedHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_text,viewGroup));
 }
 }
 ,MessagesAdapter.this,viewGroup);
-}
- else {
-return new UnsupportedHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_text,viewGroup));
-}
 }
 }

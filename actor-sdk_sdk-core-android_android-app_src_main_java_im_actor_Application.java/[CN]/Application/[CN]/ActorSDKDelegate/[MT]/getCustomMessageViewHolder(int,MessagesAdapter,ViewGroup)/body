@@ -1,8 +1,6 @@
 {
-switch (id) {
-case 0:
+  if (dataTypeHash == "tcmessage".hashCode()) {
     return new TCMessageHolder(messagesAdapter,viewGroup,R.layout.tc_holder,false);
-default :
+  }
   return null;
-}
 }
