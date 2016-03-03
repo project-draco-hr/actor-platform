@@ -58,6 +58,10 @@
       goneView(quoteContainer);
       quoteText.setText("");
       currentQuote="";
+      if (textEditing) {
+        messageEditText.setText("");
+      }
+      textEditing=false;
     }
   }
 );

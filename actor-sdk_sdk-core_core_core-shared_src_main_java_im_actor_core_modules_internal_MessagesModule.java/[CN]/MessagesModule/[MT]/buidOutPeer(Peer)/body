@@ -1,0 +1,19 @@
+{
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    User user=users().getValue(peer.getPeerId());
+    if (user == null) {
+      return null;
+    }
+    return new ApiOutPeer(ApiPeerType.PRIVATE,user.getUid(),user.getAccessHash());
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    Group group=groups().getValue(peer.getPeerId());
+    if (group == null) {
+      return null;
+    }
+    return new ApiOutPeer(ApiPeerType.GROUP,group.getGroupId(),group.getAccessHash());
+  }
+ else {
+    throw new RuntimeException("Unknown peer: " + peer);
+  }
+}

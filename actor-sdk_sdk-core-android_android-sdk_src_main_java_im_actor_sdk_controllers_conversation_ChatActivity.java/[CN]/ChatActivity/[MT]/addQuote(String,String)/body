@@ -1,4 +1,5 @@
 {
+  textEditing=false;
   if (quote != null && !quote.isEmpty()) {
     quoteText.setText(quote);
   }
@@ -7,5 +8,6 @@
   }
   currentQuote=rawQuote;
   hideShareMenu();
+  quoteText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_editor_format_quote_gray),null,null,null);
   showView(quoteContainer);
 }

@@ -1,0 +1,12 @@
+{
+  currentQuote=null;
+  forwardText=null;
+  forwardTextRaw=null;
+  textEditing=true;
+  currentEditRid=rid;
+  quoteText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_content_create),null,null,null);
+  quoteText.setText(R.string.edit_message);
+  messageEditText.setText(text);
+  hideShareMenu();
+  showView(quoteContainer);
+}

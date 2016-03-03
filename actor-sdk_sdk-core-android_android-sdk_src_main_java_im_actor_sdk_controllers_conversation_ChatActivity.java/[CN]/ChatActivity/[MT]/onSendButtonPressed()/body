@@ -13,5 +13,32 @@
   if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
     keyboardUtils.setImeVisibility(messageEditText,false);
   }
-  messenger().sendMessage(peer,rawText);
+  if (textEditing) {
+    execute(messenger().updateMessage(peer,rawText,currentEditRid),new CommandCallback<ResponseSeqDate>(){
+      @Override public void onResult(      ResponseSeqDate res){
+      }
+      @Override public void onError(      final Exception e){
+        runOnUiThread(new Runnable(){
+          @Override public void run(){
+            RpcException re=(RpcException)e;
+            String error="";
+            if (re.getTag().equals("NOT_IN_TIME_WINDOW")) {
+              error=getString(R.string.edit_message_error_slowpoke);
+            }
+ else             if (re.getTag().equals("NOT_LAST_MESSAGE")) {
+              error=getString(R.string.edit_message_error_not_last);
+            }
+            Toast.makeText(ChatActivity.this,error,Toast.LENGTH_LONG).show();
+          }
+        }
+);
+      }
+    }
+);
+    goneView(quoteContainer);
+    textEditing=false;
+  }
+ else {
+    messenger().sendMessage(peer,rawText);
+  }
 }

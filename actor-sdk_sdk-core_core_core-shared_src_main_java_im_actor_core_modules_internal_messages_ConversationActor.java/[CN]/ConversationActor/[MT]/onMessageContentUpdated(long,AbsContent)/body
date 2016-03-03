@@ -3,6 +3,9 @@
   if (message == null) {
     return;
   }
+  if (content instanceof TextContent) {
+    content.setUpdatedHash(((TextContent)content).getText().hashCode());
+  }
   Message updatedMsg=message.changeContent(content);
   messages.addOrUpdateItem(updatedMsg);
   if (updatedMsg.getContent() instanceof DocumentContent) {
