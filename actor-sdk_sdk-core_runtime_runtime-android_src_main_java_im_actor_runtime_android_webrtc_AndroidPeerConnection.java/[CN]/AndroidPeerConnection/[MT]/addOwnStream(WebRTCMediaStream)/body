@@ -1,3 +1,8 @@
 {
-  peerConnection.addStream(((AndroidMediaStream)stream).getStream());
+  AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
+    @Override public void run(){
+      peerConnection.addStream(((AndroidMediaStream)stream).getStream());
+    }
+  }
+);
 }

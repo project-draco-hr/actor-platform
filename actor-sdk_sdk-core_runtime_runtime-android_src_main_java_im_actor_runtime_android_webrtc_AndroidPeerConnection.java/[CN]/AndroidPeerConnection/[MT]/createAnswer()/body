@@ -1,19 +1,24 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCSessionDescription>(){
     @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
-      peerConnection.createAnswer(new SdpObserver(){
-        @Override public void onCreateSuccess(        SessionDescription sessionDescription){
-          resolver.result(new WebRTCSessionDescription(sessionDescription.type.name().toLowerCase(),sessionDescription.description));
-        }
-        @Override public void onSetSuccess(){
-        }
-        @Override public void onCreateFailure(        String s){
-          resolver.error(new Exception("createAnswer:onCreateFailure"));
-        }
-        @Override public void onSetFailure(        String s){
+      AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
+        @Override public void run(){
+          peerConnection.createAnswer(new SdpObserver(){
+            @Override public void onCreateSuccess(            SessionDescription sessionDescription){
+              resolver.result(new WebRTCSessionDescription(sessionDescription.type.name().toLowerCase(),sessionDescription.description));
+            }
+            @Override public void onSetSuccess(){
+            }
+            @Override public void onCreateFailure(            String s){
+              resolver.error(new Exception("createAnswer:onCreateFailure"));
+            }
+            @Override public void onSetFailure(            String s){
+            }
+          }
+,new MediaConstraints());
         }
       }
-,new MediaConstraints());
+);
     }
   }
 );

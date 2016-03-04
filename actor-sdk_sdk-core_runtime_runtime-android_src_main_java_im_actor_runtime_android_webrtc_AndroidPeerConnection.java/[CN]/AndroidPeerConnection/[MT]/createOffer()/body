@@ -3,22 +3,22 @@
     @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
       AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
         @Override public void run(){
+          peerConnection.createOffer(new SdpObserver(){
+            @Override public void onCreateSuccess(            SessionDescription sessionDescription){
+              resolver.result(new WebRTCSessionDescription(sessionDescription.type.name().toLowerCase(),sessionDescription.description));
+            }
+            @Override public void onSetSuccess(){
+            }
+            @Override public void onCreateFailure(            String s){
+              resolver.error(new Exception("createOffer:onCreateFailure"));
+            }
+            @Override public void onSetFailure(            String s){
+            }
+          }
+,new MediaConstraints());
         }
       }
 );
-      peerConnection.createOffer(new SdpObserver(){
-        @Override public void onCreateSuccess(        SessionDescription sessionDescription){
-          resolver.result(new WebRTCSessionDescription(sessionDescription.type.name().toLowerCase(),sessionDescription.description));
-        }
-        @Override public void onSetSuccess(){
-        }
-        @Override public void onCreateFailure(        String s){
-          resolver.error(new Exception("createOffer:onCreateFailure"));
-        }
-        @Override public void onSetFailure(        String s){
-        }
-      }
-,new MediaConstraints());
     }
   }
 );
