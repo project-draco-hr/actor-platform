@@ -1,0 +1,7 @@
+{
+  callbacks.remove(callback);
+  audioRecord.stop();
+  audioRecord.release();
+  audioRecord=null;
+  self().send(PoisonPill.INSTANCE);
+}

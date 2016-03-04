@@ -1,0 +1,11 @@
+{
+  if (message instanceof Check) {
+    check();
+  }
+ else   if (message instanceof Subscribe) {
+    subscribeForVolume(((Subscribe)message).getCallback());
+  }
+ else   if (message instanceof Unsubscribe) {
+    unsubscribeFromVolume(((Unsubscribe)message).getCallback());
+  }
+}
