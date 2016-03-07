@@ -1,0 +1,11 @@
+{
+  try {
+    KeyStore keyStore=KeyStore.getInstance(KeyStore.getDefaultType());
+    InputStream in=null;
+    keyStore.load(in,password);
+    return keyStore;
+  }
+ catch (  IOException e) {
+    throw new AssertionError(e);
+  }
+}

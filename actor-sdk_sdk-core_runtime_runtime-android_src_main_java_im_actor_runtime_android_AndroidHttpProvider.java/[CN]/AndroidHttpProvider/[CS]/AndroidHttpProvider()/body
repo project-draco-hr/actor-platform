@@ -1,0 +1,16 @@
+{
+  String cert=AndroidContext.getContext().getResources().getString(R.string.trusted_pem);
+  if (!cert.equals("none")) {
+    SSLContext sslContext=sslContextForTrustedCertificates(new Buffer().writeUtf8(cert).inputStream());
+    client.setSslSocketFactory(sslContext.getSocketFactory());
+  }
+  final String trustHostname=AndroidContext.getContext().getResources().getString(R.string.trusted_hostname);
+  if (!trustHostname.equals("none")) {
+    client.setHostnameVerifier(new HostnameVerifier(){
+      @Override public boolean verify(      String hostname,      SSLSession session){
+        return hostname.equals(trustHostname);
+      }
+    }
+);
+  }
+}
