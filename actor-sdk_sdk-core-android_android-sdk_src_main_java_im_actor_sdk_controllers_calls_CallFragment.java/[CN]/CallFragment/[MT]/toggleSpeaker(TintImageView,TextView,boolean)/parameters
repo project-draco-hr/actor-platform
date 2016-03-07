@@ -1,0 +1,3 @@
+TintImageView speaker
+TextView speakerTV
+boolean speakerOn

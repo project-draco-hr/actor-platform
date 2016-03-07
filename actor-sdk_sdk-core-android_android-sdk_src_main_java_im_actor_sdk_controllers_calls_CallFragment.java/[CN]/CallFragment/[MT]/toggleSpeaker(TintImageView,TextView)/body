@@ -1,5 +1,3 @@
 {
-  speakerOn=!speakerOn;
-  audioManager.setSpeakerphoneOn(speakerOn);
-  checkSpeaker(speaker,speakerTV);
+  toggleSpeaker(speaker,speakerTV,!speakerOn);
 }
