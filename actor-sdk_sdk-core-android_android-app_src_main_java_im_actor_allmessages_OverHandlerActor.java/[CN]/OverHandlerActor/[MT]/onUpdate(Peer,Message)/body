@@ -1,3 +1,15 @@
 {
-  allMessages.addOrUpdateItem(new MessageEx(msg,peer));
+  boolean containsMyReaction=false;
+  for (  Reaction r : msg.getReactions()) {
+    if (r.getUids().contains(myUid())) {
+      containsMyReaction=true;
+      break;
+    }
+  }
+  if (containsMyReaction) {
+    allMessages.addOrUpdateItem(new MessageEx(msg,peer));
+  }
+ else {
+    allMessages.removeItem(msg.getEngineId());
+  }
 }

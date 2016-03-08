@@ -11,4 +11,7 @@
  else {
     docs.removeItem(rid);
   }
+  if (delegate != null) {
+    delegate.onUpdate(updatedMsg);
+  }
 }

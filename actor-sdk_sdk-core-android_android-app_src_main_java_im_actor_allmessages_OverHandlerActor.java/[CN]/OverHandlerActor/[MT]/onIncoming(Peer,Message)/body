@@ -1,3 +1,12 @@
 {
-  allMessages.addOrUpdateItem(new MessageEx(msg,peer));
+  boolean containsMyLike=false;
+  for (  Reaction r : msg.getReactions()) {
+    if (r.getUids().contains(myUid())) {
+      containsMyLike=true;
+      break;
+    }
+  }
+  if (containsMyLike) {
+    allMessages.addOrUpdateItem(new MessageEx(msg,peer));
+  }
 }

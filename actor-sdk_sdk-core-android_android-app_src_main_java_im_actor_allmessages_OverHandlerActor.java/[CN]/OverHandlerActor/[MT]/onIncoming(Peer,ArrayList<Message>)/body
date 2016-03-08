@@ -1,7 +1,16 @@
 {
   ArrayList<MessageEx> msgex=new ArrayList<MessageEx>();
   for (  Message m : msgs) {
-    msgex.add(new MessageEx(m,peer));
+    boolean containsMyLike=false;
+    for (    Reaction r : m.getReactions()) {
+      if (r.getUids().contains(myUid())) {
+        containsMyLike=true;
+        break;
+      }
+    }
+    if (containsMyLike) {
+      msgex.add(new MessageEx(m,peer));
+    }
   }
   allMessages.addOrUpdateItems(msgex);
 }
