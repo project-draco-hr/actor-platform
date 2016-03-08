@@ -9,13 +9,6 @@
     @Override public void run(){
       state=AuthState.LOGGED_IN;
       callback.onResult(state);
-      User user=modules.getUsersModule().getUsersStorage().getValue(myUid);
-      ArrayList<Long> records=new ArrayList<Long>();
-      for (      ContactRecord contactRecord : user.getRecords()) {
-        if (contactRecord.getRecordType() == ContactRecordType.PHONE) {
-          records.add(Long.parseLong(contactRecord.getRecordData()));
-        }
-      }
     }
   }
 ));

@@ -1,7 +1,7 @@
 {
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
-      ArrayList<String> langs=new ArrayList<String>();
+      ArrayList<String> langs=new ArrayList<>();
       for (      String s : modules.getConfiguration().getPreferredLanguages()) {
         langs.add(s);
       }
@@ -9,7 +9,15 @@
         @Override public void onResult(        ResponseStartPhoneAuth response){
           modules.getPreferences().putLong(KEY_PHONE,phone);
           modules.getPreferences().putString(KEY_TRANSACTION_HASH,response.getTransactionHash());
-          state=AuthState.CODE_VALIDATION_PHONE;
+          if (response.getActivationType() == ApiPhoneActivationType.CODE) {
+            state=AuthState.CODE_VALIDATION_PHONE;
+          }
+ else           if (response.getActivationType() == ApiPhoneActivationType.PASSWORD) {
+            state=AuthState.PASSWORD_VALIDATION;
+          }
+ else {
+            state=AuthState.CODE_VALIDATION_PHONE;
+          }
           im.actor.runtime.Runtime.postToMainThread(new Runnable(){
             @Override public void run(){
               callback.onResult(state);

@@ -1,0 +1,3 @@
+{
+  return modules.getAuthModule().doStartEmailAuth(email);
+}

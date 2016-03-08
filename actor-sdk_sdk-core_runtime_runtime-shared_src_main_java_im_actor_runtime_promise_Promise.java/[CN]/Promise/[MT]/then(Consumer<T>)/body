@@ -1,7 +1,7 @@
 {
   if (isFinished) {
     if (exception == null) {
-      dispatchActor.send(new PromiseDispatch(this){
+      dispatchActor.dispatch(this,new Runnable(){
         @Override public void run(){
           then.apply(result);
         }

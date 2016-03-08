@@ -1,0 +1,16 @@
+{
+  return new Promise<>(new PromiseFunc<AuthRes>(){
+    @Override public void exec(    @NotNull final PromiseResolver<AuthRes> resolver){
+      request(new RequestSignUp(transactionHash,name,sex.toApi(),null),new RpcCallback<ResponseAuth>(){
+        @Override public void onResult(        ResponseAuth response){
+          resolver.result(new AuthRes(response.toByteArray()));
+        }
+        @Override public void onError(        RpcException e){
+          resolver.error(e);
+        }
+      }
+);
+    }
+  }
+);
+}

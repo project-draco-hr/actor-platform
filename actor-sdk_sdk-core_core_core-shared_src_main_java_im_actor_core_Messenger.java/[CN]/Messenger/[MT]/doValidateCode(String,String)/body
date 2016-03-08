@@ -1,0 +1,3 @@
+{
+  return modules.getAuthModule().doValidateCode(transactionHash,code);
+}

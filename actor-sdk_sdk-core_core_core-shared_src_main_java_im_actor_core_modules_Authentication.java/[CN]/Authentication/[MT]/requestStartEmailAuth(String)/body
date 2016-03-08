@@ -1,7 +1,7 @@
 {
   return new Command<AuthState>(){
     @Override public void start(    final CommandCallback<AuthState> callback){
-      ArrayList<String> langs=new ArrayList<String>();
+      ArrayList<String> langs=new ArrayList<>();
       for (      String s : modules.getConfiguration().getPreferredLanguages()) {
         langs.add(s);
       }
@@ -18,6 +18,9 @@
           }
  else           if (emailActivationType.equals(ApiEmailActivationType.PASSWORD)) {
             state=AuthState.PASSWORD_VALIDATION;
+          }
+ else {
+            state=AuthState.CODE_VALIDATION_EMAIL;
           }
           im.actor.runtime.Runtime.postToMainThread(new Runnable(){
             @Override public void run(){
