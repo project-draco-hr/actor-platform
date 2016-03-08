@@ -15,5 +15,6 @@
   if (peer.getPeerType() == PeerType.GROUP) {
     isHiddenPeer=getGroup(peer.getPeerId()).isHidden();
   }
+  delegate=context().getMessenger().getConversationActorDelegate(peer);
   subscribe(AppVisibleChanged.EVENT);
 }

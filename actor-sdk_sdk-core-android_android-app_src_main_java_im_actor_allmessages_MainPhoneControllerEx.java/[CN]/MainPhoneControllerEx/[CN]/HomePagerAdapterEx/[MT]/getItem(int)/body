@@ -1,0 +1,11 @@
+{
+switch (position) {
+default :
+case 0:
+    return getDialogsFragment();
+case 1:
+  return getContactsFragment();
+case 2:
+return new AllMessagesFragment();
+}
+}

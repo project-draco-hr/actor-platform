@@ -1,5 +1,0 @@
-{
-  this.ids=new HashSet<>();
-  this.url=url;
-  this.tc=tc;
-}

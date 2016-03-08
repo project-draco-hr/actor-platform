@@ -16,6 +16,9 @@
   if (message.getContent() instanceof DocumentContent) {
     docs.addOrUpdateItem(message);
   }
+  if (delegate != null) {
+    delegate.onIncoming(message);
+  }
   if (message.isOnServer()) {
     if (message.getSenderId() == myUid()) {
       if (message.isOnServer() && message.getMessageState() != MessageState.READ) {

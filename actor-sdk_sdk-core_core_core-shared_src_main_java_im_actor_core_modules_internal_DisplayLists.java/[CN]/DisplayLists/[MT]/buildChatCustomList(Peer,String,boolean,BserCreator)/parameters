@@ -1,0 +1,4 @@
+Peer peer
+String datatype
+boolean isShared
+BserCreator creator

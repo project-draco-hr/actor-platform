@@ -1,3 +1,0 @@
-{
-  self().send(new Check());
-}

@@ -1,0 +1,8 @@
+{
+  String key=peer.getUnuqueId() + dataType;
+  if (!customLists.containsKey(key)) {
+    BindedDisplayList list=(BindedDisplayList)modules.getDisplayListsModule().getCustomSharedList(peer,dataType,creator);
+    customLists.put(key,list);
+  }
+  return customLists.get(key);
+}

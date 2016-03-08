@@ -1,0 +1,3 @@
+{
+  handler.send(new OverHandlerActor.Delete(peer,rids));
+}

@@ -1,0 +1,3 @@
+{
+  return (position == 2 ? R.drawable.ic_social_public_24dp : -1);
+}

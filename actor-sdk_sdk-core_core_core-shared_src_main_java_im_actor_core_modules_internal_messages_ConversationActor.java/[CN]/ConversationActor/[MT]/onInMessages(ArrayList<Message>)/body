@@ -33,6 +33,9 @@
   }
   messages.addOrUpdateItems(updated);
   docs.addOrUpdateItems(updatedDocs);
+  if (delegate != null) {
+    delegate.onIncoming(updated);
+  }
   for (  Message m : updated) {
     if (m.getSenderId() == myUid()) {
       if (m.isOnServer() && m.getMessageState() != MessageState.READ) {

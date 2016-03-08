@@ -1,0 +1,17 @@
+{
+  if (message instanceof Incoming) {
+    ArrayList<Message> msgs=((Incoming)message).getMsgs();
+    if (msgs != null) {
+      onIncoming(((Incoming)message).getPeer(),msgs);
+    }
+ else {
+      onIncoming(((Incoming)message).getPeer(),((Incoming)message).getMsg());
+    }
+  }
+ else   if (message instanceof Delete) {
+    onDelete(((Delete)message).getPeer(),((Delete)message).getRids());
+  }
+ else   if (message instanceof Update) {
+    onUpdate(((Update)message).getPeer(),((Update)message).getMsg());
+  }
+}

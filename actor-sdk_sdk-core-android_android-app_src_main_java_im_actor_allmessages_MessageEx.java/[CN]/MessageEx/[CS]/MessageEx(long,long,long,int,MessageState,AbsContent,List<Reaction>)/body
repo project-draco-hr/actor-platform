@@ -1,0 +1,3 @@
+{
+  super(rid,sortDate,date,senderId,messageState,content,reactions);
+}

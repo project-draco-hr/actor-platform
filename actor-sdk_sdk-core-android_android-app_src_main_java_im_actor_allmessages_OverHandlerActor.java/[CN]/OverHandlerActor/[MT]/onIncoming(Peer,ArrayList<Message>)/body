@@ -1,0 +1,7 @@
+{
+  ArrayList<MessageEx> msgex=new ArrayList<MessageEx>();
+  for (  Message m : msgs) {
+    msgex.add(new MessageEx(m,peer));
+  }
+  allMessages.addOrUpdateItems(msgex);
+}

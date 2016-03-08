@@ -1,0 +1,8 @@
+{
+  super.onCollectionChanged();
+  if (scrolledTOTop) {
+    if (recyclerView != null) {
+      recyclerView.scrollToPosition(0);
+    }
+  }
+}

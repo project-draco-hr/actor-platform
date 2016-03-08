@@ -1,0 +1,14 @@
+{
+  this.recyclerView=recyclerView;
+  recyclerView.setHasFixedSize(true);
+  final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
+  linearLayoutManager.setStackFromEnd(false);
+  recyclerView.setLayoutManager(linearLayoutManager);
+  recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener(){
+    @Override public void onScrolled(    RecyclerView recyclerView,    int dx,    int dy){
+      super.onScrolled(recyclerView,dx,dy);
+      scrolledTOTop=linearLayoutManager.findFirstCompletelyVisibleItemPosition() == 0;
+    }
+  }
+);
+}

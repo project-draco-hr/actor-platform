@@ -1,0 +1,10 @@
+{
+  return new AllMessagesAdapter(displayList,new OnItemClickedListener<MessageEx>(){
+    @Override public void onClicked(    MessageEx item){
+    }
+    @Override public boolean onLongClicked(    MessageEx item){
+      return false;
+    }
+  }
+,activity);
+}

@@ -20,6 +20,9 @@
   if (updatedDocs.size() > 0) {
     docs.addOrUpdateItems(updatedDocs);
   }
+  if (delegate != null) {
+    delegate.onIncoming(updated);
+  }
   inReadStateNew=Math.max(inReadStateNew,maxReadMessage);
   preferences().putLong(IN_READ_STATE_NEW_PREF,inReadStateNew);
   if (isConversationAutoRead()) {

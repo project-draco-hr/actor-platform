@@ -1,0 +1,3 @@
+AllMessageHolder messageHolder
+int index
+MessageEx item

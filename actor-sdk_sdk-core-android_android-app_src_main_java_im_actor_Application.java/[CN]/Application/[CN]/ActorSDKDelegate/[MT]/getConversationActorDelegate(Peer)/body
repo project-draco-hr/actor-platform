@@ -1,0 +1,14 @@
+{
+  if (overHandler == null) {
+    overHandler=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
+      @Override public Actor create(){
+        return new OverHandlerActor();
+      }
+    }
+),"actor/overhandler");
+  }
+  if (!handlers.containsKey(peer)) {
+    handlers.put(peer,new MessagesHandler(peer,overHandler));
+  }
+  return handlers.get(peer);
+}
