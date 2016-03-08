@@ -1,6 +1,6 @@
 {
   if (callbacks.size() > 0) {
-    dispatchActor.send(new PromiseDispatch(this){
+    dispatchActor.dispatch(this,new Runnable(){
       @Override public void run(){
         if (exception != null) {
           for (          PromiseCallback<T> callback : callbacks) {

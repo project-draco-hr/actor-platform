@@ -1,0 +1,14 @@
+{
+  if (isStarted) {
+    throw new RuntimeException("Promise already started!");
+  }
+  isStarted=true;
+  dispatchActor=dispatcher;
+  dispatchActor.dispatch(this,new Runnable(){
+    @Override public void run(){
+      exec(new PromiseResolver<>(Promise.this,dispatchActor));
+    }
+  }
+);
+  return this;
+}

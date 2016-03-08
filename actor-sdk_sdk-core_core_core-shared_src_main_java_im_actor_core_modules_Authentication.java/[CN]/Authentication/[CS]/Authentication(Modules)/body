@@ -1,10 +1,15 @@
 {
   this.modules=modules;
-  this.myUid=modules.getPreferences().getInt(KEY_AUTH_UID,0);
-  deviceHash=modules.getPreferences().getBytes(KEY_DEVICE_HASH);
-  if (deviceHash == null) {
-    deviceHash=Crypto.SHA256(modules.getConfiguration().getApiConfiguration().getDeviceString().getBytes());
-    modules.getPreferences().putBytes(KEY_DEVICE_HASH,deviceHash);
+  byte[] _deviceHash=modules.getPreferences().getBytes(KEY_DEVICE_HASH);
+  if (_deviceHash == null) {
+    _deviceHash=Crypto.SHA256(modules.getConfiguration().getApiConfiguration().getDeviceString().getBytes());
+    modules.getPreferences().putBytes(KEY_DEVICE_HASH,_deviceHash);
+  }
+  deviceHash=_deviceHash;
+  langs=new ArrayList<>();
+  for (  String s : modules.getConfiguration().getPreferredLanguages()) {
+    langs.add(s);
   }
   apiConfiguration=modules.getConfiguration().getApiConfiguration();
+  myUid=modules.getPreferences().getInt(KEY_AUTH_UID,0);
 }

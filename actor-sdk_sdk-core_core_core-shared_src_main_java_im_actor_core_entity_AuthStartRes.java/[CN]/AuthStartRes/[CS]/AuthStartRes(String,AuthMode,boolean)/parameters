@@ -1,0 +1,3 @@
+String transactionHash
+AuthMode authMode
+boolean isRegistered
