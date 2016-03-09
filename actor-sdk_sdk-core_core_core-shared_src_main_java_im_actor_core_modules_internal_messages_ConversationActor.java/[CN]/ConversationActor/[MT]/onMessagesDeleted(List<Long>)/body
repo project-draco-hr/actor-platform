@@ -5,9 +5,6 @@
   }
   messages.removeItems(rids2);
   docs.removeItems(rids2);
-  if (delegate != null) {
-    delegate.onDelete(rids2);
-  }
   inPendingIndex.remove(rids);
   outPendingIndex.remove(rids);
   if (!isHiddenPeer) {

@@ -14,9 +14,6 @@
  else {
     docs.removeItem(rid);
   }
-  if (delegate != null) {
-    delegate.onUpdate(updatedMsg);
-  }
   if (!isHiddenPeer) {
     dialogsActor.send(new DialogsActor.MessageContentChanged(peer,rid,content));
   }
