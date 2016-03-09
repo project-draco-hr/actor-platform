@@ -1,16 +1,21 @@
 {
-  String cert="none";
-  if (!cert.equals("none")) {
+  Resources resources=AndroidContext.getContext().getResources();
+  try {
+    String cert=resources.getString(resources.getIdentifier("trusted_pem","string",AndroidContext.getContext().getPackageName()));
     SSLContext sslContext=sslContextForTrustedCertificates(new Buffer().writeUtf8(cert).inputStream());
     client.setSslSocketFactory(sslContext.getSocketFactory());
   }
-  final String trustHostname="none";
-  if (!trustHostname.equals("none")) {
+ catch (  Resources.NotFoundException e) {
+  }
+  try {
+    final String trustHostname=resources.getString(resources.getIdentifier("trusted_hostname","string",AndroidContext.getContext().getPackageName()));
     client.setHostnameVerifier(new HostnameVerifier(){
       @Override public boolean verify(      String hostname,      SSLSession session){
         return hostname.equals(trustHostname);
       }
     }
 );
+  }
+ catch (  Resources.NotFoundException e) {
   }
 }
