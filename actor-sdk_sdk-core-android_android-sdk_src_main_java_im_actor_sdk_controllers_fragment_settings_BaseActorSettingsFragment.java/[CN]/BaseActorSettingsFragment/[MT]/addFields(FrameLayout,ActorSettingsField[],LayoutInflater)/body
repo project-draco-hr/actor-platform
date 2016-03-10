@@ -31,7 +31,7 @@
         name.setVisibility(View.GONE);
       }
       if (rightView != null) {
-        fieldLayout.addView(rightView,LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        fieldLayout.addView(rightView,field.getRightViewWidth(),field.getRightViewHeight());
       }
       if (field.getOnclickListener() != null) {
         fieldLayout.setOnClickListener(field.getOnclickListener());
