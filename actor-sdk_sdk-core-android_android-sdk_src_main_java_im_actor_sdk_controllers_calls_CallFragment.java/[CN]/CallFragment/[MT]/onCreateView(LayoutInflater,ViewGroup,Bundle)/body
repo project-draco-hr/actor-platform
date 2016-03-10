@@ -80,19 +80,6 @@
     CallFragment.this.requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.VIBRATE,Manifest.permission.MODIFY_AUDIO_SETTINGS,Manifest.permission.WAKE_LOCK},PERMISSIONS_REQUEST_FOR_CALL);
   }
   audioManager=(AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
-  audioVolumeListener=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-    @Override public AudioStreamVolumeValueActor create(){
-      return new AudioStreamVolumeValueActor();
-    }
-  }
-),"actor/calls/audioVolumeListener");
-  volumeValueListener=new AudioStreamVolumeValueActor.VolumeValueListener(){
-    @Override public void onVolumeValue(    int val){
-      Log.d("VOLUME",val + "");
-    }
-  }
-;
-  audioVolumeListener.send(new AudioStreamVolumeValueActor.Subscribe(volumeValueListener));
   audioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL);
   final TintImageView speaker=(TintImageView)cont.findViewById(R.id.speaker);
   speaker.setResource(R.drawable.ic_volume_up_white_24dp);
@@ -173,7 +160,6 @@ startTimer();
 break;
 case ENDED:
 statusTV.setText(R.string.call_ended);
-audioVolumeListener.send(new AudioStreamVolumeValueActor.Unsubscribe(volumeValueListener));
 onCallEnd();
 break;
 }
