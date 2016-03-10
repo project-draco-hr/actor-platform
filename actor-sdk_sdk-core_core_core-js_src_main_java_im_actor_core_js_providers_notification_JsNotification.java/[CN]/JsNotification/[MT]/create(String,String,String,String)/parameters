@@ -1,3 +1,4 @@
+String key
 String title
 String message
-String avatarUrl
+String avatar

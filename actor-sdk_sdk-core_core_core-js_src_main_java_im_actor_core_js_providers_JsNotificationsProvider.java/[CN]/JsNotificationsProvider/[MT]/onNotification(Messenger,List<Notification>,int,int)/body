@@ -1,10 +1,12 @@
 {
   String peerTitle;
+  String peerKey=null;
   String peerAvatarUrl=null;
   String contentMessage="";
   Notification notification=topNotifications.get(0);
   if (conversationsCount == 1) {
     Avatar peerAvatar;
+    JsPeer jsPeer=JsPeer.create(notification.getPeer());
     if (notification.getPeer().getPeerType() == PeerType.PRIVATE) {
       UserVM userVM=messenger.getUser(notification.getPeer().getPeerId());
       peerTitle=userVM.getName().get();
@@ -18,6 +20,7 @@
     if (peerAvatar != null && peerAvatar.getSmallImage() != null) {
       peerAvatarUrl=((JsMessenger)messenger).getFileUrl(peerAvatar.getSmallImage().getFileReference());
     }
+    peerKey=jsPeer.getPeerKey();
   }
  else {
     peerTitle="New messages";
@@ -71,5 +74,5 @@
   if (!JsNotification.isGranted()) {
     return;
   }
-  JsManagedNotification.show(peerTitle,contentMessage,peerAvatarUrl);
+  JsManagedNotification.show(peerKey,peerTitle,contentMessage,peerAvatarUrl);
 }
