@@ -1,0 +1,3 @@
+{
+  JsLogProvider.logCallback=logCallback;
+}

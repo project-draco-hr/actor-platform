@@ -3,5 +3,10 @@
   for (  StackTraceElement element : throwable.getStackTrace()) {
     stackTrace+=element + "\n";
   }
-  error(formatTime() + "[E] " + tag+ ":"+ throwable.getMessage()+ "\n"+ stackTrace);
+  if (logCallback != null) {
+    logCallback.log(tag,"e",throwable.getMessage() + "\n" + stackTrace);
+  }
+ else {
+    error(formatTime() + "[E] " + tag+ ":"+ throwable.getMessage()+ "\n"+ stackTrace);
+  }
 }

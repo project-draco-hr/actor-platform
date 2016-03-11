@@ -22,8 +22,17 @@
   configuration.setTimeZone(timeZone);
   configuration.setPlatformType(PlatformType.WEB);
   configuration.setDeviceCategory(DeviceCategory.DESKTOP);
-  for (  String endpoint : endpoints) {
+  for (  String endpoint : config.getEndpoints()) {
     configuration.addEndpoint(endpoint);
+  }
+  if (config.getLogHandler() != null) {
+    final JsLogCallback callback=config.getLogHandler();
+    JsLogProvider.setLogCallback(new JsLogProvider.LogCallback(){
+      @Override public void log(      String tag,      String level,      String message){
+        callback.log(tag,level,message);
+      }
+    }
+);
   }
   messenger=new JsMessenger(configuration.build());
   Log.d(TAG,"JsMessenger created");

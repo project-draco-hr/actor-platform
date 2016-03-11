@@ -1,3 +1,8 @@
 {
-  warn(formatTime() + "[W] " + tag+ ":"+ message);
+  if (logCallback != null) {
+    logCallback.log(tag,"w",message);
+  }
+ else {
+    warn(formatTime() + "[W] " + tag+ ":"+ message);
+  }
 }
