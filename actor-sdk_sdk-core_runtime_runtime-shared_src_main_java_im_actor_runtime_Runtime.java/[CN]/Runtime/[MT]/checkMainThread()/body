@@ -1,4 +1,7 @@
 {
+  if (RuntimeEnvironment.isProduction()) {
+    return;
+  }
   if (mainThreadRuntime.isSingleThread()) {
     return;
   }
