@@ -114,8 +114,8 @@ catch (  NullPointerException e) {
         }
  else {
           String externalPath=externalFile.getAbsolutePath();
-          new File(externalPath + "/Actor/capture/").mkdirs();
-          pending_fileName=externalPath + "/Actor/capture/capture_" + Randoms.randomId()+ ".jpg";
+          new File(externalPath + "/" + ActorSDK.sharedActor().getAppName()+ "/capture/").mkdirs();
+          pending_fileName=externalPath + "/" + ActorSDK.sharedActor().getAppName()+ "/capture/capture_"+ Randoms.randomId()+ ".jpg";
         }
         if (ContextCompat.checkSelfPermission(ChatActivity.this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
           Log.d("Permissions","camera - no permission :c");
@@ -132,8 +132,8 @@ catch (  NullPointerException e) {
         }
  else {
           String externalPath=externalFile.getAbsolutePath();
-          new File(externalPath + "/Actor/capture/").mkdirs();
-          pending_fileName=externalPath + "/Actor/capture/capture_" + Randoms.randomId()+ ".mp4";
+          new File(externalPath + "/" + ActorSDK.sharedActor().getAppName()+ "/capture/").mkdirs();
+          pending_fileName=externalPath + "/" + ActorSDK.sharedActor().getAppName()+ "/capture/capture_"+ Randoms.randomId()+ ".mp4";
           Intent i=new Intent(MediaStore.ACTION_VIDEO_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pending_fileName)));
           startActivityForResult(i,REQUEST_VIDEO);
         }
