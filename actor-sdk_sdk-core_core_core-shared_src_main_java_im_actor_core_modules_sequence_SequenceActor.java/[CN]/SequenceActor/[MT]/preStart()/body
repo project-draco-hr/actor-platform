@@ -1,7 +1,8 @@
 {
   seq=preferences().getInt(KEY_SEQ,-1);
-  finishedSeq=seq;
   state=preferences().getBytes(KEY_STATE);
+  finishedSeq=seq;
+  finishedState=state;
   handler=context().getUpdatesModule().getUpdateHandler();
   currentWakeLock=im.actor.runtime.Runtime.makeWakeLock();
   self().send(new Invalidate());
