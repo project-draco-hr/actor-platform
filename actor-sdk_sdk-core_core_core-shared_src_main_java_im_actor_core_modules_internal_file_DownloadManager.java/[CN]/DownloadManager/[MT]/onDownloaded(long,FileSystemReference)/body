@@ -12,6 +12,17 @@
   downloaded.addOrUpdateItem(new Downloaded(queueItem.fileReference.getFileId(),queueItem.fileReference.getFileSize(),reference.getDescriptor()));
   queue.remove(queueItem);
   queueItem.taskRef.send(PoisonPill.INSTANCE);
+  for (  final WeakCallbackHolder weakReference : callbacks) {
+    final FileEventCallback callback=weakReference.getCallbackWeakReference().get();
+    if (callback != null) {
+      im.actor.runtime.Runtime.dispatch(new Runnable(){
+        @Override public void run(){
+          callback.onDownloaded(fileId);
+        }
+      }
+);
+    }
+  }
   for (  final FileCallback fileCallback : queueItem.callbacks) {
     im.actor.runtime.Runtime.dispatch(new Runnable(){
       @Override public void run(){

@@ -1,0 +1,9 @@
+{
+  for (  WeakCallbackHolder callbackHolder : callbacks) {
+    if (callbackHolder.getCallbackWeakReference() == callback) {
+      callbacks.remove(callbackHolder);
+      break;
+    }
+  }
+  cleanWeakSubscribers();
+}

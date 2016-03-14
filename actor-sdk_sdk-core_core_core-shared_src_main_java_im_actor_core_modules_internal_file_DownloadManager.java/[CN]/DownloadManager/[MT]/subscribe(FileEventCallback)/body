@@ -1,0 +1,4 @@
+{
+  callbacks.add(new WeakCallbackHolder(callback));
+  cleanWeakSubscribers();
+}

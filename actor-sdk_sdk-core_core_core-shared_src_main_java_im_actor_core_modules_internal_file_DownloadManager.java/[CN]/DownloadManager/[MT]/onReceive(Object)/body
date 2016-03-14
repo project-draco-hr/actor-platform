@@ -31,6 +31,12 @@
     RequestState requestState=(RequestState)message;
     requestState(requestState.getFileId(),requestState.getCallback());
   }
+ else   if (message instanceof SubscribeToDownloads) {
+    subscribe(((SubscribeToDownloads)message).getCallback());
+  }
+ else   if (message instanceof UnsubscribeToDownloads) {
+    unsubscribe(((UnsubscribeToDownloads)message).getCallback());
+  }
  else {
     drop(message);
   }
