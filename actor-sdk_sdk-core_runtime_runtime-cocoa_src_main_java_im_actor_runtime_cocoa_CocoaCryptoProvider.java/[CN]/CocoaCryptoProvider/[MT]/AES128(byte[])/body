@@ -1,3 +1,6 @@
 {
+  if (proxyProvider != null) {
+    return proxyProvider.createAES128(key);
+  }
   return super.AES128(key);
 }
