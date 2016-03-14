@@ -1,0 +1,9 @@
+{
+  if (message instanceof AskUrl) {
+    AskUrl askUrl=(AskUrl)message;
+    return askUrl(askUrl.getFileId(),askUrl.getAccessHash());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

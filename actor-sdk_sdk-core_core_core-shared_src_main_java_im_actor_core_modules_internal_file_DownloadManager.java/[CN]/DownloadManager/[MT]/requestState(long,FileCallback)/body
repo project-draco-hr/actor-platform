@@ -5,8 +5,8 @@
   Downloaded downloaded1=downloaded.getValue(fileId);
   if (downloaded1 != null) {
     FileSystemReference reference=Storage.fileFromDescriptor(downloaded1.getDescriptor());
-    boolean isExist=true;
-    int fileSize=downloaded1.getFileSize();
+    boolean isExist=reference.isExist();
+    int fileSize=reference.getSize();
     if (isExist && fileSize == downloaded1.getFileSize()) {
       if (LOG) {
         Log.d(TAG,"- Downloaded");

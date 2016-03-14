@@ -1,0 +1,6 @@
+{
+  if (checkCancellable != null) {
+    checkCancellable.cancel();
+  }
+  checkCancellable=schedule(new CheckQueue(),500);
+}

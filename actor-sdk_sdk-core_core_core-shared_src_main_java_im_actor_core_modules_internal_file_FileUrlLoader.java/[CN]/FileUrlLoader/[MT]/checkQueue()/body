@@ -1,0 +1,41 @@
+{
+  if (isExecuting) {
+    return;
+  }
+  if (pendingFiles.size() == 0) {
+    return;
+  }
+  final ArrayList<RequestedFile> destFiles=new ArrayList<>(pendingFiles);
+  pendingFiles.clear();
+  isExecuting=true;
+  ArrayList<ApiFileLocation> locations=new ArrayList<>();
+  for (  RequestedFile f : destFiles) {
+    Log.d("FileUrlLoader","api: " + f.getFileId());
+    locations.add(new ApiFileLocation(f.getFileId(),f.getAccessHash()));
+  }
+  api(new RequestGetFileUrls(locations)).then(new Consumer<ResponseGetFileUrls>(){
+    @Override public void apply(    ResponseGetFileUrls responseGetFileUrls){
+      outer:       for (      RequestedFile f : destFiles) {
+        for (        ApiFileUrlDescription urlDescription : responseGetFileUrls.getFileUrls()) {
+          if (f.getFileId() == urlDescription.getFileId()) {
+            Log.d("FileUrlLoader","resp: " + f.getFileId());
+            f.getResolver().result(urlDescription.getUrl());
+            continue outer;
+          }
+        }
+      }
+      isExecuting=false;
+      scheduleCheck();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      for (      RequestedFile f : destFiles) {
+        f.getResolver().error(e);
+      }
+      isExecuting=false;
+      scheduleCheck();
+    }
+  }
+).done(self());
+}

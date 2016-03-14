@@ -1,0 +1,15 @@
+{
+  Log.d("FileUrlLoader","request: " + fileId);
+  if (requestedFiles.containsKey(fileId)) {
+    return requestedFiles.get(fileId);
+  }
+  final Promise<String> res=new Promise<>(new PromiseFunc<String>(){
+    @Override public void exec(    @NotNull PromiseResolver<String> resolver){
+      pendingFiles.add(new RequestedFile(fileId,accessHash,resolver));
+      scheduleCheck();
+    }
+  }
+);
+  requestedFiles.put(fileId,res);
+  return res;
+}
