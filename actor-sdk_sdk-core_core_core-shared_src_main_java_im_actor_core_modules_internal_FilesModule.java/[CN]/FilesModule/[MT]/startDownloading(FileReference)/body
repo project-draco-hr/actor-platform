@@ -1,3 +1,8 @@
 {
-  downloadManager.send(new DownloadManager.StartDownload(location));
+  im.actor.runtime.Runtime.dispatch(new Runnable(){
+    @Override public void run(){
+      downloadManager.send(new DownloadManager.StartDownload(location));
+    }
+  }
+);
 }
