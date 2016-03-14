@@ -1,0 +1,4 @@
+{
+  this.referenceImplementation=referenceImplementation;
+  this.modifiedImplementation=modifiedImplementation;
+}

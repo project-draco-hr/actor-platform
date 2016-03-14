@@ -5,9 +5,9 @@
   this.authKey=mtProto.getAuthKey();
   if (this.authKey != null) {
     this.authProtoKey=new ActorProtoKey(this.authKey);
-    this.serverUSDecryptor=new CBCHmacBox(new AESFastEngine(this.authProtoKey.getServerKey()),Crypto.createSHA256(),this.authProtoKey.getServerMacKey());
+    this.serverUSDecryptor=new CBCHmacBox(Crypto.createAES128(this.authProtoKey.getServerKey()),Crypto.createSHA256(),this.authProtoKey.getServerMacKey());
     this.serverRUDecryptor=new CBCHmacBox(new KuznechikFastEngine(this.authProtoKey.getServerRussianKey()),new Streebog256(),this.authProtoKey.getServerMacRussianKey());
-    this.clientUSEncryptor=new CBCHmacBox(new AESFastEngine(this.authProtoKey.getClientKey()),Crypto.createSHA256(),this.authProtoKey.getClientMacKey());
+    this.clientUSEncryptor=new CBCHmacBox(Crypto.createAES128(this.authProtoKey.getClientKey()),Crypto.createSHA256(),this.authProtoKey.getClientMacKey());
     this.clientRUEncryptor=new CBCHmacBox(new KuznechikFastEngine(this.authProtoKey.getClientRussianKey()),new Streebog256(),this.authProtoKey.getClientMacRussianKey());
   }
  else {

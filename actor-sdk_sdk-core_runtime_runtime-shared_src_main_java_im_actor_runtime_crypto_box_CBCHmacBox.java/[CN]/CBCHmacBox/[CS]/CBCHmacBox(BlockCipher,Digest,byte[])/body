@@ -1,8 +1,5 @@
 {
   this.cbcBlockCipher=new CBCBlockCipher(baseCipher);
-  this.baseCipher=baseCipher;
-  this.baseDigest=baseDigest;
-  this.hmacKey=hmacKey;
   this.padding=new PKCS7Padding();
   this.hmac=new HMAC(hmacKey,baseDigest);
 }

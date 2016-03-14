@@ -1,0 +1,6 @@
+{
+  if (referenceImplementation.getBlockSize() != modifiedImplementation.getBlockSize()) {
+    throw new RuntimeException();
+  }
+  return modifiedImplementation.getBlockSize();
+}

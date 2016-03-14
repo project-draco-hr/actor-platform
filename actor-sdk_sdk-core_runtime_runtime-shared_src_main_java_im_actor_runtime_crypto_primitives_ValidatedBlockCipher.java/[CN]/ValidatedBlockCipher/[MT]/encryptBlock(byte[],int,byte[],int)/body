@@ -1,0 +1,12 @@
+{
+  byte[] dest1=new byte[getBlockSize()];
+  byte[] dest2=new byte[getBlockSize()];
+  referenceImplementation.encryptBlock(data,offset,dest1,0);
+  modifiedImplementation.encryptBlock(data,offset,dest2,0);
+  for (int i=0; i < dest1.length; i++) {
+    if (dest1[i] != dest2[i]) {
+      throw new RuntimeException("Mismatched output at " + i + ": "+ Crypto.hex(dest1)+ " "+ Crypto.hex(dest2));
+    }
+  }
+  referenceImplementation.encryptBlock(data,offset,dest,destOffset);
+}

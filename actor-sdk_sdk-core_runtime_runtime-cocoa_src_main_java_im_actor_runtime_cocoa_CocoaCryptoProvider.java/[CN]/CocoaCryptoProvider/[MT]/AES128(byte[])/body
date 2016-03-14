@@ -1,0 +1,3 @@
+{
+  return super.AES128(key);
+}
