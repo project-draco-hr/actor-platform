@@ -24,7 +24,7 @@
         if (!Curve25519.verifySignature(key,verify,r.getVerifySign())) {
           throw new IOException("Incorrect Signature");
         }
-        SHA256 sha256=new SHA256();
+        Digest sha256=Crypto.createSHA256();
         sha256.update(master_secret,0,master_secret.length);
         byte[] authIdHash=new byte[32];
         sha256.doFinal(authIdHash,0);

@@ -5,7 +5,7 @@
     BserWriter writer=new BserWriter(dataOutput);
     writer.writeLong(1,keyId);
     writer.writeString(2,keyAlg);
-    SHA256 sha256=new SHA256();
+    Digest sha256=Crypto.createSHA256();
     sha256.update(publicKey,0,publicKey.length);
     byte[] hash=new byte[32];
     sha256.doFinal(hash,0);

@@ -1,5 +1,5 @@
 {
-  CBCHmacBox aesCipher=new CBCHmacBox(new AESFastEngine(key.getKeyAES()),new SHA256(),key.getMacAES());
+  CBCHmacBox aesCipher=new CBCHmacBox(new AESFastEngine(key.getKeyAES()),Crypto.createSHA256(),key.getMacAES());
   CBCHmacBox kuzCipher=new CBCHmacBox(new KuznechikFastEngine(key.getKeyKuz()),new Streebog256(),key.getMacKuz());
   int paddingSize=(plainText.length + 1) % 16;
   byte[] paddedPlainText=new byte[plainText.length + 1 + paddingSize];

@@ -1,5 +1,5 @@
 {
   byte[] ecRes=Curve25519.calculateAgreement(ownEphermal.getPrivateKey(),theirEphermal.getKey());
-  HKDF hkdf=new HKDF(new SHA256());
+  HKDF hkdf=new HKDF(Crypto.createSHA256());
   return hkdf.deriveSecrets(ecRes,masterSecret,"ActorRatchet".getBytes(),32);
 }

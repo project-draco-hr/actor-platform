@@ -1,0 +1,6 @@
+{
+  if (proxyProvider != null) {
+    return proxyProvider.createSHA256();
+  }
+  return super.SHA256();
+}

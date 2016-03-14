@@ -3,7 +3,7 @@
     throw new RuntimeException("Random bytes too small");
   }
   byte[] privateKey=new byte[32];
-  SHA256 sha256=new SHA256();
+  Digest sha256=Crypto.createSHA256();
   sha256.update(randomBytes,0,randomBytes.length);
   sha256.doFinal(privateKey,0);
   privateKey[0]&=248;
