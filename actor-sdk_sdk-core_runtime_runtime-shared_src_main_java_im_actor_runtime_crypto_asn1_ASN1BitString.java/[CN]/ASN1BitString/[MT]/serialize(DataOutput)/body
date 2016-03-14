@@ -1,6 +1,0 @@
-{
-  dataOutput.writeByte(TAG_BIT_STRING);
-  dataOutput.writeASN1Length(content.length + 1);
-  dataOutput.writeByte(paddingBit);
-  dataOutput.writeBytes(content,0,content.length);
-}

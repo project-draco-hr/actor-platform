@@ -1,4 +1,0 @@
-{
-  int paddingBytes=dataInput.readByte();
-  return new ASN1BitString(paddingBytes,dataInput.readBytes(dataInput.getRemaining()));
-}

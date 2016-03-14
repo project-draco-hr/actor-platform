@@ -1,3 +1,0 @@
-{
-  return new ASN1Sequence(new ASN1Integer(0),new ASN1Sequence(new ASN1ObjectIdentifier(ALGO),new ASN1Null()),new ASN1OctetString(new ASN1Sequence(new ASN1Integer(),new ASN1Integer(modulus),new ASN1Integer(),new ASN1Integer(exponent),new ASN1Integer(),new ASN1Integer(),new ASN1Integer(),new ASN1Integer(),new ASN1Integer()).serialize())).serialize();
-}

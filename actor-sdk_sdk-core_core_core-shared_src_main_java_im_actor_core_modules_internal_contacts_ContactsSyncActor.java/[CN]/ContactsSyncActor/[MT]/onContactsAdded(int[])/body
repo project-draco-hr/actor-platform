@@ -3,6 +3,9 @@
     Log.d(TAG,"OnContactsAdded received");
   }
   for (  int uid : uids) {
+    if (contacts.contains(uid)) {
+      continue;
+    }
     if (ENABLE_LOG) {
       Log.d(TAG,"Adding: #" + uid);
     }

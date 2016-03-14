@@ -1,7 +1,0 @@
-{
-  ASN1Sequence sequence=new ASN1Sequence();
-  while (!dataInput.isEOF()) {
-    sequence.add(ASN1.readObject(dataInput));
-  }
-  return sequence;
-}

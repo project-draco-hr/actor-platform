@@ -1,7 +1,0 @@
-{
-  int tag=readByte();
-  if (tag == 0) {
-    throw new IOException();
-  }
-  return tag;
-}

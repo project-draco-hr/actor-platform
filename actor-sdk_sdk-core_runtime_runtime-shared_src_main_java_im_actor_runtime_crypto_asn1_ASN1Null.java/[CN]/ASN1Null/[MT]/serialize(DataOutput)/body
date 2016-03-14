@@ -1,4 +1,0 @@
-{
-  dataOutput.writeByte(TAG_NULL);
-  dataOutput.writeByte(0);
-}

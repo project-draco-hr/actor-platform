@@ -1,3 +1,0 @@
-{
-  return new ASN1Sequence(new ASN1Sequence(new ASN1ObjectIdentifier(ALGO_TYPE),new ASN1Null()),new ASN1BitString(0,new ASN1Sequence(new ASN1Integer(modulus),new ASN1Integer(exponent)).serialize())).serialize();
-}

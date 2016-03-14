@@ -9,7 +9,10 @@
       DataInput dataInput=new DataInput(data,0,data.length);
       int count=dataInput.readInt();
       for (int i=0; i < count; i++) {
-        contacts.add(dataInput.readInt());
+        int uid=dataInput.readInt();
+        if (!contacts.contains(uid)) {
+          contacts.add(uid);
+        }
       }
     }
  catch (    IOException e) {

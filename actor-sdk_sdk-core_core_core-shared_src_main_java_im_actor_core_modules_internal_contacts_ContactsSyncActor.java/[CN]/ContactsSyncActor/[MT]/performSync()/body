@@ -32,9 +32,15 @@
     return;
   }
   String hashValue=Crypto.hex(Crypto.SHA256(hashData));
-  Log.d(TAG,"Performing sync with hash: " + hashValue);
+  if (ENABLE_LOG) {
+    Log.d(TAG,"Performing sync with hash: " + hashValue);
+    Log.d(TAG,"Performing sync with uids: " + hash);
+  }
   request(new RequestGetContacts(hashValue),new RpcCallback<ResponseGetContacts>(){
     @Override public void onResult(    ResponseGetContacts response){
+      if (ENABLE_LOG) {
+        Log.d(TAG,"Sync received (0) " + response.getUsers().size() + " contacts");
+      }
       updates().onUpdateReceived(new im.actor.core.modules.updates.internal.ContactsLoaded(response));
     }
     @Override public void onError(    RpcException e){

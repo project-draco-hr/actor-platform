@@ -1,5 +1,0 @@
-{
-  dataOutput.writeByte(TAG_OCTET_STRING);
-  dataOutput.writeASN1Length(data.length);
-  dataOutput.writeBytes(data,0,data.length);
-}
