@@ -2,6 +2,10 @@
   if (LOG) {
     Log.d(TAG,"Starting download #" + fileReference.getFileId());
   }
+  Downloaded downloaded1=downloaded.getValue(fileReference.getFileId());
+  if (downloaded1 != null) {
+    return;
+  }
   QueueItem queueItem=findItem(fileReference.getFileId());
   if (queueItem == null) {
     if (LOG) {
