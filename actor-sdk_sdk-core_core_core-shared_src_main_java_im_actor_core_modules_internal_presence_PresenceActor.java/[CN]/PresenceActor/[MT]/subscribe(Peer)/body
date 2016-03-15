@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"subscribe:" + peer);
   if (peer.getPeerType() == PeerType.PRIVATE) {
     if (uids.contains(peer.getPeerId())) {
       return;
@@ -8,9 +9,6 @@
       return;
     }
     uids.add(user.getUid());
-    List<ApiUserOutPeer> peers=new ArrayList<ApiUserOutPeer>();
-    peers.add(new ApiUserOutPeer(user.getUid(),user.getAccessHash()));
-    request(new RequestSubscribeToOnline(peers));
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     if (gids.contains(peer.getPeerId())) {
@@ -21,8 +19,13 @@
       return;
     }
     gids.add(peer.getPeerId());
-    List<ApiGroupOutPeer> peers=new ArrayList<ApiGroupOutPeer>();
-    peers.add(new ApiGroupOutPeer(group.getGroupId(),group.getAccessHash()));
-    request(new RequestSubscribeToGroupOnline(peers));
   }
+ else {
+    return;
+  }
+  if (pendingPeers.contains(peer)) {
+    return;
+  }
+  pendingPeers.add(peer);
+  onCheckQueue();
 }

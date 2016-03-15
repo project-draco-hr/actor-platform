@@ -26,6 +26,6 @@
     onUserGoesOffline(timeout.getUid(),timeout.getDate(),timeout.getUpdateDate());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

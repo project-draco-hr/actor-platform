@@ -1,0 +1,49 @@
+{
+  if (isRequesting) {
+    return;
+  }
+  if (pendingPeers.size() == 0) {
+    return;
+  }
+  ArrayList<Peer> destPeers=new ArrayList<>(pendingPeers);
+  pendingPeers.clear();
+  ArrayList<ApiUserOutPeer> outUserPeers=new ArrayList<>();
+  ArrayList<ApiGroupOutPeer> outGroupPeers=new ArrayList<>();
+  for (  Peer p : destPeers) {
+    if (p.getPeerType() == PeerType.GROUP) {
+      Group g=getGroup(p.getPeerId());
+      if (g != null) {
+        outGroupPeers.add(new ApiGroupOutPeer(p.getPeerId(),g.getAccessHash()));
+      }
+    }
+ else     if (p.getPeerType() == PeerType.PRIVATE) {
+      User u=getUser(p.getPeerId());
+      if (u != null) {
+        outUserPeers.add(new ApiUserOutPeer(p.getPeerId(),u.getAccessHash()));
+      }
+    }
+  }
+  ArrayList<Promise<ResponseVoid>> requests=new ArrayList<>();
+  if (outUserPeers.size() > 0) {
+    requests.add(api(new RequestSubscribeToOnline(outUserPeers)));
+  }
+  if (outGroupPeers.size() > 0) {
+    requests.add(api(new RequestSubscribeToGroupOnline(outGroupPeers)));
+  }
+  if (requests.size() > 0) {
+    isRequesting=true;
+    PromisesArray.ofPromises(requests).zip().then(new Consumer<ResponseVoid[]>(){
+      @Override public void apply(      ResponseVoid[] responseVoids){
+        isRequesting=false;
+        onCheckQueue();
+      }
+    }
+).failure(new Consumer<Exception>(){
+      @Override public void apply(      Exception e){
+        isRequesting=false;
+        onCheckQueue();
+      }
+    }
+).done(self());
+  }
+}
