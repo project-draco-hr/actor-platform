@@ -1,3 +1,5 @@
 {
-  logRuntime.d(tag,message);
+  if (!RuntimeEnvironment.isProduction()) {
+    logRuntime.d(tag,message);
+  }
 }
