@@ -1,0 +1,3 @@
+{
+  weakReference=new WeakReference<T>(val);
+}
