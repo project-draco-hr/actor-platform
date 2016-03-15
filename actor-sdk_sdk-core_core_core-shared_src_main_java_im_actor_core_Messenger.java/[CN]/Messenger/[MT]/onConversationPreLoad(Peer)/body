@@ -1,0 +1,3 @@
+{
+  modules.getEvents().post(new PeerChatPreload(peer));
+}

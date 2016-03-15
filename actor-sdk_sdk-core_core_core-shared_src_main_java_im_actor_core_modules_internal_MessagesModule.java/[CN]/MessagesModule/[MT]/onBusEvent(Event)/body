@@ -9,4 +9,8 @@
     assumeConvActor(peer);
     conversationActors.get(peer).send(new ConversationActor.ConversationHidden());
   }
+ else   if (event instanceof PeerChatPreload) {
+    Peer peer=((PeerChatPreload)event).getPeer();
+    assumeConvActor(peer);
+  }
 }
