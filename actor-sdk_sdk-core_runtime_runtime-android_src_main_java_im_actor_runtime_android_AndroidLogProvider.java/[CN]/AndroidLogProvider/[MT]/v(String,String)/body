@@ -1,3 +1,5 @@
 {
   Log.v(tag,message);
+  writeToFile(Level.ALL,tag,message);
+  sendLogs("w",tag,message);
 }

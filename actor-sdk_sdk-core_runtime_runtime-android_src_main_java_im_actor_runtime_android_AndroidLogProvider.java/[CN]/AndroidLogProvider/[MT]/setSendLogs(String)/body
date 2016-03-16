@@ -1,0 +1,6 @@
+{
+  AndroidLogProvider.sendLogs=sendLogsUrl != null;
+  AndroidLogProvider.sendLogsUrl=sendLogsUrl;
+  shp.edit().putString("sendLogsUrl",sendLogsUrl).apply();
+  shp.edit().putBoolean("sendLogs",sendLogs).apply();
+}

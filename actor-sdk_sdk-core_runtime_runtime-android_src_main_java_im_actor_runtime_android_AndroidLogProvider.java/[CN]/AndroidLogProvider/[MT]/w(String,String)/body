@@ -1,3 +1,5 @@
 {
   Log.w(tag,message);
+  writeToFile(Level.WARNING,tag,message);
+  sendLogs("w",tag,message);
 }

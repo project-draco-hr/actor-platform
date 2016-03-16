@@ -1,0 +1,30 @@
+{
+  if (sendLogs && sendLogsUrl != null) {
+    if (i == 0) {
+      s=s.concat("```");
+    }
+    s=s.concat("\n").concat(level).concat(" ").concat(tag).concat(":").concat(msg);
+    if (i == 19) {
+      s=s.concat("```");
+      JSONObject json=new JSONObject();
+      try {
+        json.put("text",s);
+        final Request request=new Request.Builder().url(sendLogsUrl).post(RequestBody.create(null,json.toString())).build();
+        client.newCall(request).enqueue(new Callback(){
+          @Override public void onFailure(          Request request,          IOException e){
+          }
+          @Override public void onResponse(          Response response) throws IOException {
+          }
+        }
+);
+      }
+ catch (      JSONException e) {
+      }
+      s="";
+      i=0;
+    }
+ else {
+      i++;
+    }
+  }
+}
