@@ -5,8 +5,6 @@
       fileHandler.publish(new LogRecord(level,tag + ": " + msg));
     }
  catch (    Exception e) {
-      Log.e("MyLog","FileHandler exception",e);
-      return;
     }
   }
 }
