@@ -8,7 +8,7 @@
   dest.mkdirs();
   String baseFileName=fileName;
   if (fileName.contains(".")) {
-    String prefix=baseFileName.substring(baseFileName.lastIndexOf('.'));
+    String prefix=baseFileName.substring(0,baseFileName.lastIndexOf('.')).replaceAll(FILE_SYSTEM_SAFE_RENAME,"");
     String ext=baseFileName.substring(prefix.length() + 1);
     File res=new File(dest,prefix + "_" + fileId+ "."+ ext);
     int index=0;

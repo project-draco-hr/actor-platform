@@ -6,5 +6,6 @@
   if (!new File(sourceFile.getDescriptor()).renameTo(new File(realFileName))) {
     return null;
   }
-  return new AndroidFileSystemReference(realFileName);
+  AndroidFileSystemReference androidFileSystemReference=new AndroidFileSystemReference(realFileName);
+  return androidFileSystemReference;
 }
