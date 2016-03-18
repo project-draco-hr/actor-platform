@@ -10,4 +10,5 @@
   }
   fastThumbLoader.cancel();
   previewView.setImageURI(null);
+  previewView.destroyDrawingCache();
 }

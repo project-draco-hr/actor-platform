@@ -77,6 +77,13 @@ uploadFileVM=null;
 }
 needRebind=true;
 }
+updated=false;
+int updatedCounter=fileMessage.getUpdatedCounter();
+if (lastUpdatedIndex != updatedCounter) {
+updated=true;
+needRebind=true;
+lastUpdatedIndex=updatedCounter;
+}
 if (needRebind) {
 progressContainer.setVisibility(View.GONE);
 progressView.setVisibility(View.GONE);
@@ -84,7 +91,9 @@ progressValue.setVisibility(View.GONE);
 progressIcon.setVisibility(View.GONE);
 if (fileMessage.getSource() instanceof FileRemoteSource) {
 boolean autoDownload=fileMessage instanceof PhotoContent;
+if (!updated) {
 previewView.setImageURI(null);
+}
 downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(fileMessage));
 }
  else if (fileMessage.getSource() instanceof FileLocalSource) {
@@ -93,7 +102,9 @@ if (isPhoto) {
 previewView.setImageURI(Uri.fromFile(new File(((FileLocalSource)fileMessage.getSource()).getFileDescriptor())));
 }
  else {
+if (!updated) {
 previewView.setImageURI(null);
+}
 if (fileMessage.getFastThumb() != null) {
 fastThumbLoader.request(fileMessage.getFastThumb().getImage());
 }

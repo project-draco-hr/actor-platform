@@ -1,5 +1,13 @@
 {
   if (isPhoto) {
+    if (updated) {
+      previewView.destroyDrawingCache();
+      previewView.buildDrawingCache();
+      Bitmap drawingCache=previewView.getDrawingCache();
+      if (drawingCache != null && !drawingCache.isRecycled()) {
+        previewView.getHierarchy().setPlaceholderImage(new FastBitmapDrawable(drawingCache));
+      }
+    }
     ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(reference.getDescriptor()))).setResizeOptions(new ResizeOptions(previewView.getLayoutParams().width,previewView.getLayoutParams().height)).build();
     PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(previewView.getController()).setImageRequest(request).build();
     previewView.setController(controller);

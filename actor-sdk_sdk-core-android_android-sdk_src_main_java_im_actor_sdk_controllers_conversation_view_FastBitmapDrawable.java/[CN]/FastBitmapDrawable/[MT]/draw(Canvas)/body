@@ -1,3 +1,5 @@
 {
-  canvas.drawBitmap(bitmap,bitmapBounds,getBounds(),PAINT);
+  if (!bitmap.isRecycled()) {
+    canvas.drawBitmap(bitmap,bitmapBounds,getBounds(),PAINT);
+  }
 }
