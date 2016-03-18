@@ -1,5 +1,5 @@
 {
   Log.e(tag,"",throwable);
   writeToFile(Level.WARNING,tag,throwable.getMessage());
-  sendLogs("w",tag,throwable.getMessage());
+  sendLogs("e",tag,throwable.getMessage());
 }
