@@ -5,6 +5,10 @@
     }
     s=s.concat("\n").concat(level).concat(" ").concat(tag).concat(":").concat(msg);
     if (i == 19) {
+      if (System.currentTimeMillis() - sendLogsTime > SEND_LOGS_EXPIRES) {
+        setSendLogs(null);
+        return;
+      }
       s=s.concat("```");
       JSONObject json=new JSONObject();
       try {
