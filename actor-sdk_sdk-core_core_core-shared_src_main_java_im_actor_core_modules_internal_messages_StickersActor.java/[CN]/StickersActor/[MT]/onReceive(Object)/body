@@ -1,0 +1,8 @@
+{
+  if (message instanceof StickerCollectionsChanged) {
+    onStickerCollectionsChanged(((StickerCollectionsChanged)message).getUpdated());
+  }
+ else   if (message instanceof OwnStickerCollectionsChanged) {
+    onOwnStickerCollectionsChanged(((OwnStickerCollectionsChanged)message).getUpdated(),((OwnStickerCollectionsChanged)message).getRemoved());
+  }
+}

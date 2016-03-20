@@ -1,0 +1,4 @@
+{
+  this.updated=updated;
+  this.removed=removed;
+}

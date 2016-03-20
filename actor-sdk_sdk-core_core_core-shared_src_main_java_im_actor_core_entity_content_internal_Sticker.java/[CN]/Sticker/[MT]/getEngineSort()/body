@@ -1,0 +1,10 @@
+{
+  long uid;
+  if (isHeader) {
+    uid=(((long)localCollectionId & 0xFFFFFFFFL) * 10000000000L);
+  }
+ else {
+    uid=((long)stickerId & 0xFFFFFFFFL) + (((long)localCollectionId & 0xFFFFFFFFL) * 10000000000L);
+  }
+  return uid * -1;
+}

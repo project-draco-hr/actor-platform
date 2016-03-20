@@ -1,0 +1,9 @@
+{
+  Sticker item=getItem(position);
+  if (item.isHeader()) {
+    return 1;
+  }
+ else {
+    return 0;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  this.position=position;
+  this.sp=sp;
+  s=sp.getStickers().get(0);
+  sv.bind(s,StickerView.STICKER_SMALL);
+  if (selectedPostion == position) {
+    fl.setBackgroundColor(Color.LTGRAY);
+  }
+ else {
+    fl.setBackgroundColor(Color.TRANSPARENT);
+  }
+}

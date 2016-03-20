@@ -1,0 +1,9 @@
+{
+  int position=displayList.getPosition(s);
+  if (position != -1) {
+    ((GridLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(position,0);
+  }
+ else {
+    displayList.initCenter(s.getEngineSort(),true);
+  }
+}

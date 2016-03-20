@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < getItemCount(); i++) {
+    StickersPack p=getItem(i);
+    if (p.getLocalId() == localPackId) {
+      selectedPostion=i;
+      notifyDataSetChanged();
+      break;
+    }
+  }
+}

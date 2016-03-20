@@ -1,0 +1,10 @@
+{
+  this.isHeader=false;
+  this.collectionAccessHash=accessHash;
+  this.stickerCollectionId=collectionId;
+  this.stickerId=apiStickerDescriptor.getId();
+  this.localCollectionId=localCollectionId;
+  this.apiImageLocation128=apiStickerDescriptor.getImage128();
+  this.apiImageLocation256=apiStickerDescriptor.getImage256();
+  this.apiImageLocation512=apiStickerDescriptor.getImage512();
+}

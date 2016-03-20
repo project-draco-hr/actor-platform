@@ -1,0 +1,14 @@
+{
+switch (viewType) {
+default :
+case 0:
+    return ActorSDK.sharedActor().getDelegatedViewHolder(StickerHolder.class,new ActorSDK.OnDelegateViewHolder<StickerHolder>(){
+      @Override public StickerHolder onNotDelegated(){
+        return new StickerHolder(context,new FrameLayout(context));
+      }
+    }
+,context,new FrameLayout(context));
+case 1:
+  return new StickerPackHeaderHolder(context,new FrameLayout(context));
+}
+}

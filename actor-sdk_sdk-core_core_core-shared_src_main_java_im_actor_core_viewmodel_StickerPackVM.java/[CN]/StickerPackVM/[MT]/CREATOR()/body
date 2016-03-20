@@ -1,8 +1,0 @@
-{
-  return new ValueModelCreator<StickersPack,StickerPackVM>(){
-    @Override public StickerPackVM create(    StickersPack baseValue){
-      return new StickerPackVM(baseValue);
-    }
-  }
-;
-}

@@ -1,4 +1,3 @@
 {
-  setDivider(new ColorDrawable(Color.TRANSPARENT));
   buildAdapter(context);
 }
