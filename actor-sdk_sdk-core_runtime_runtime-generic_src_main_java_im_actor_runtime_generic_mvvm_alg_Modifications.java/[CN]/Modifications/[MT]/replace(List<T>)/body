@@ -1,7 +1,7 @@
 {
   return new Modification<T>(){
     @Override public List<ChangeDescription<T>> modify(    ArrayList<T> sourceList){
-      ArrayList<ChangeDescription<T>> res=new ArrayList<ChangeDescription<T>>();
+      ArrayList<ChangeDescription<T>> res=new ArrayList<>();
       replace(items,sourceList,res);
       return res;
     }

@@ -1,0 +1,5 @@
+{
+  for (  T toAdd : items) {
+    addOrUpdate(toAdd,sourceList,changes,isLoadMore);
+  }
+}

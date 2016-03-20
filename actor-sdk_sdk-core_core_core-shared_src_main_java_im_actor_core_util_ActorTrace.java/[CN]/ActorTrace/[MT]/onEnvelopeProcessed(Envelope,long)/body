@@ -1,6 +1,5 @@
 {
-  long sendDuration=ActorTime.currentTime() - envelope.getSendTime() - duration;
   if (duration > PROCESS_THRESHOLD) {
-    Log.w(TAG,"Too long " + envelope.getScope().getPath() + " {"+ envelope.getMessage()+ "}");
+    Log.w(TAG,"Too long " + envelope.getScope().getPath() + " {"+ envelope.getMessage()+ "} in "+ duration+ " ms");
   }
 }

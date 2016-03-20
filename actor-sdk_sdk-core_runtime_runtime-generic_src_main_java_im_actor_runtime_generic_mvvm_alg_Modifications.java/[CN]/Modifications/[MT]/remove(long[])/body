@@ -1,7 +1,7 @@
 {
   return new Modification<T>(){
     @Override public List<ChangeDescription<T>> modify(    ArrayList<T> sourceList){
-      ArrayList<ChangeDescription<T>> res=new ArrayList<ChangeDescription<T>>();
+      ArrayList<ChangeDescription<T>> res=new ArrayList<>();
       for (int i=0; i < sourceList.size(); i++) {
         ListEngineItem src=sourceList.get(i);
         for (        long aDstId : dstIds) {
