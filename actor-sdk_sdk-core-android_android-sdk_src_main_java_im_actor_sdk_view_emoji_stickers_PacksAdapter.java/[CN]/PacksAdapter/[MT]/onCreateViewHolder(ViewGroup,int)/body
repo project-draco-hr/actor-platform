@@ -1,3 +1,0 @@
-{
-  return new StickerHolder(context,new FrameLayout(context));
-}

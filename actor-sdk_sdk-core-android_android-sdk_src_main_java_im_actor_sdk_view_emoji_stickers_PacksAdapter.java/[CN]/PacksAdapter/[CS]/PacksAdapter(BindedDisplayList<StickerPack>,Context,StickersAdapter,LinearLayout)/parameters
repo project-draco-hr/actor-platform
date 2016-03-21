@@ -1,4 +1,0 @@
-BindedDisplayList<StickerPack> displayList
-Context context
-StickersAdapter stickersAdapter
-LinearLayout stickerIndicatorContainer

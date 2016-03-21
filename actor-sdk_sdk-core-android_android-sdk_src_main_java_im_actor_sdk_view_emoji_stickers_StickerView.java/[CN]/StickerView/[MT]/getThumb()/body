@@ -1,9 +1,0 @@
-{
-  try {
-    return Files.toByteArray(imageFile);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-  return new byte[0];
-}

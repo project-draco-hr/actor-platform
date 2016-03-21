@@ -1,7 +1,0 @@
-{
-  super(displayList);
-  this.packsSwitchContainer=stickerIndicatorContainer;
-  this.context=context;
-  this.stickersAdapter=stickersAdapter;
-  stickersAdapter.setPacksAdapter(this);
-}

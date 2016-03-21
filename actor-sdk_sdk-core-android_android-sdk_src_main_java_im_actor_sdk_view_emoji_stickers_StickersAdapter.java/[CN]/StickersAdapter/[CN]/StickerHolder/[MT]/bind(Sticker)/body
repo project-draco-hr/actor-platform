@@ -1,4 +1,0 @@
-{
-  this.s=s;
-  sv.bind(s,StickerView.STICKER_SMALL);
-}

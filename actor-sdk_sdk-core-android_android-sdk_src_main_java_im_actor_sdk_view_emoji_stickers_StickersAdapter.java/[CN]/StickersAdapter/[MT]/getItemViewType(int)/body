@@ -1,4 +1,0 @@
-{
-  Sticker item=getItem(position);
-  return 0;
-}

@@ -1,4 +1,0 @@
-{
-  builder.setFadeDuration(0);
-  setHierarchy(builder.build());
-}
