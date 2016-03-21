@@ -1,8 +1,0 @@
-{
-  ContentConverter[] nConverters=new ContentConverter[converters.length + 1];
-  for (int i=0; i < converters.length; i++) {
-    nConverters[i]=converters[i];
-  }
-  nConverters[nConverters.length - 1]=contentConverter;
-  converters=nConverters;
-}

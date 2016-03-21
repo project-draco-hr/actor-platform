@@ -1,7 +1,0 @@
-{
-  im.actor.runtime.Runtime.checkMainThread();
-  if (stickersList == null) {
-    stickersList=buildStickersList(true);
-  }
-  return stickersList;
-}

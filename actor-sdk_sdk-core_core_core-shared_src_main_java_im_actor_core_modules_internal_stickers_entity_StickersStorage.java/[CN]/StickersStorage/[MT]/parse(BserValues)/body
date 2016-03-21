@@ -1,0 +1,6 @@
+{
+  stickerPacks.clear();
+  for (  byte[] b : values.getRepeatedBytes(1)) {
+    stickerPacks.add(new StickerPack(b));
+  }
+}

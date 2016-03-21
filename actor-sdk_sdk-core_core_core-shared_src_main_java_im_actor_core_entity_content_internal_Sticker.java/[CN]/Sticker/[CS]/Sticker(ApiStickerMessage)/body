@@ -1,8 +1,0 @@
-{
-  thumb=msg.getFastPreview();
-  this.stickerId=msg.getStickerId();
-  this.stickerCollectionId=msg.getStickerCollectionId();
-  this.collectionAccessHash=msg.getStickerCollectionAccessHash();
-  this.apiImageLocation256=msg.getImage256();
-  this.apiImageLocation512=msg.getImage512();
-}

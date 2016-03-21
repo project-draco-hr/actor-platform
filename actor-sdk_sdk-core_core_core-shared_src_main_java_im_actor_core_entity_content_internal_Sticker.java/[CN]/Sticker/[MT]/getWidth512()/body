@@ -1,6 +1,0 @@
-{
-  if (apiImageLocation512 == null) {
-    return 0;
-  }
-  return apiImageLocation512.getWidth();
-}

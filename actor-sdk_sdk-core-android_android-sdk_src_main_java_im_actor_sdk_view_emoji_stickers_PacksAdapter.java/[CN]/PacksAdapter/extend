@@ -1,1 +1,1 @@
-BindedListAdapter<StickersPack,PacksAdapter.StickerHolder>
+BindedListAdapter<StickerPack,PacksAdapter.StickerHolder>

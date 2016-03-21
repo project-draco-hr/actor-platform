@@ -1,6 +1,0 @@
-{
-  im.actor.runtime.Runtime.checkMainThread();
-  PlatformDisplayList<StickersPack> res=Storage.createDisplayList(context().getStickersModule().getPacksEngine(),isShared,StickersPack.ENTITY_NAME);
-  res.initTop();
-  return res;
-}

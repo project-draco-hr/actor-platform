@@ -1,0 +1,16 @@
+{
+  if (message instanceof StickerCollectionsChanged) {
+    if (!isLoaded) {
+      stash();
+    }
+  }
+ else   if (message instanceof OwnStickerCollectionsChanged) {
+    if (!isLoaded) {
+      stash();
+    }
+    onOwnStickerCollectionChanged(((OwnStickerCollectionsChanged)message).getOwnStickers());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

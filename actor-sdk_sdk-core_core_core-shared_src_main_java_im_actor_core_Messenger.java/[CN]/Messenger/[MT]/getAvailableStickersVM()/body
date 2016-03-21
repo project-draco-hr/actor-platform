@@ -1,0 +1,3 @@
+{
+  return modules.getStickersModule().getStickersVM();
+}

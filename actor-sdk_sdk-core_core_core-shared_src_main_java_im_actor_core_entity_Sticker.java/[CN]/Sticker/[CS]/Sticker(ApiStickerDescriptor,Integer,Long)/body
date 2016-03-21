@@ -1,0 +1,5 @@
+{
+  super(RECORD_ID,descriptor);
+  this.collectionId=collectionId;
+  this.collectionAccessHash=collectionAccessHash;
+}

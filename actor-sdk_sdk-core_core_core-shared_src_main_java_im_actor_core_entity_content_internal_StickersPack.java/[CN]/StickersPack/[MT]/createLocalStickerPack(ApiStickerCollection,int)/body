@@ -1,6 +1,0 @@
-{
-  StickersPack res=new StickersPack();
-  res.localId=localId;
-  res.setWrapped(wrappedPack);
-  return res;
-}

@@ -1,4 +1,0 @@
-{
-  im.actor.runtime.Runtime.checkMainThread();
-  listeners.remove(listener);
-}

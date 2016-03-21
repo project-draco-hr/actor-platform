@@ -1,4 +1,13 @@
 {
   super(remoteContainer);
-  sticker=new Sticker((ApiStickerMessage)remoteContainer.getMessage());
+  ApiStickerMessage stickerMessage=(ApiStickerMessage)remoteContainer.getMessage();
+  id=stickerMessage.getStickerId();
+  collectionId=stickerMessage.getStickerCollectionId();
+  collectionAccessHash=stickerMessage.getStickerCollectionAccessHash();
+  if (stickerMessage.getImage512() != null) {
+    image512=new ImageLocation(stickerMessage.getImage512(),"sticker.webp");
+  }
+  if (stickerMessage.getImage256() != null) {
+    image256=new ImageLocation(stickerMessage.getImage256(),"sticker.webp");
+  }
 }

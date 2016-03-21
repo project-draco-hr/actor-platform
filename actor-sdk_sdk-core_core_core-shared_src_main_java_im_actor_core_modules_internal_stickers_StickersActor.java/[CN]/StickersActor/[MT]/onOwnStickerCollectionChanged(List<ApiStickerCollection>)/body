@@ -1,0 +1,8 @@
+{
+  stickersStorage.getStickerPacks().clear();
+  for (  ApiStickerCollection collection : ownStickers) {
+    stickersStorage.getStickerPacks().add(new StickerPack(collection));
+  }
+  notifyVM();
+  saveStorage();
+}

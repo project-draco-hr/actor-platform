@@ -1,6 +1,0 @@
-{
-  if (apiImageLocation128 == null) {
-    return 0;
-  }
-  return apiImageLocation128.getHeight();
-}

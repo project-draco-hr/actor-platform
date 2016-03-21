@@ -22,7 +22,7 @@
       super.onScrolled(recyclerView,dx,dy);
       int firstVisiblePosition=layoutManager.findFirstCompletelyVisibleItemPosition();
       s=getItem(firstVisiblePosition);
-      int newTopPack=s.getLocalCollectionId();
+      int newTopPack=s.getStickerCollectionId();
       if (newTopPack != topPack) {
         topPack=newTopPack;
         if (packsAdapter != null) {

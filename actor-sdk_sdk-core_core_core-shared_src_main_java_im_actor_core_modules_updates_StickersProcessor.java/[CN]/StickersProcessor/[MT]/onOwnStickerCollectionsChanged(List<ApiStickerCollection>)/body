@@ -1,33 +1,3 @@
 {
-  byte[] oldUpdate=stickerPacksStorage().loadItem(0);
-  if (oldUpdate == null) {
-    stickersActor().send(new StickersActor.OwnStickerCollectionsChanged(updated,new ArrayList<ApiStickerCollection>()));
-  }
- else {
-    UpdateOwnStickersChanged old=new UpdateOwnStickersChanged();
-    try {
-      Bser.parse(old,oldUpdate);
-      List<ApiStickerCollection> oldPacks=old.getCollections();
-      List<ApiStickerCollection> remove=old.getCollections();
-      Set<ApiStickerCollection> add=new HashSet<ApiStickerCollection>();
-      boolean needUpdate=false;
-      for (      ApiStickerCollection oldPack : oldPacks) {
-        for (        ApiStickerCollection newPack : updated) {
-          if (oldPack.getId() == newPack.getId()) {
-            needUpdate=true;
-            remove.remove(oldPack);
-          }
- else {
-            add.add(newPack);
-          }
-        }
-      }
-      if (needUpdate) {
-        stickersActor().send(new StickersActor.OwnStickerCollectionsChanged(new ArrayList<ApiStickerCollection>(add),remove));
-      }
-    }
- catch (    Exception e) {
-      e.printStackTrace();
-    }
-  }
+  stickersActor().send(new StickersActor.OwnStickerCollectionsChanged(updated));
 }

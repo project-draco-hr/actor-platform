@@ -1,6 +1,0 @@
-{
-  if (apiImageLocation512 == null) {
-    return null;
-  }
-  return new FileReference(apiImageLocation512.getFileLocation(),"",apiImageLocation512.getFileSize());
-}

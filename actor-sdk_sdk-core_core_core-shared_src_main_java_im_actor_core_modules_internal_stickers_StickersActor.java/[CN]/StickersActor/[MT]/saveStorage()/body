@@ -1,0 +1,3 @@
+{
+  context().getPreferences().putBytes("stickers.data",stickersStorage.toByteArray());
+}

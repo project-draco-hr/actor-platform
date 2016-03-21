@@ -1,0 +1,5 @@
+{
+  width=imageLocation.getWidth();
+  height=imageLocation.getHeight();
+  reference=new FileReference(imageLocation.getFileLocation(),fileName,imageLocation.getFileSize());
+}

@@ -1,15 +1,4 @@
 {
-  for (  ContentConverter converter : converters) {
-    try {
-      AbsContent res=converter.convert(container);
-      if (res != null) {
-        return res;
-      }
-    }
- catch (    Exception e) {
-      e.printStackTrace();
-    }
-  }
   if (container instanceof ContentLocalContainer) {
     ContentLocalContainer localContainer=(ContentLocalContainer)container;
     AbsLocalContent content=((ContentLocalContainer)container).getContent();
@@ -24,9 +13,6 @@
     }
  else     if (content instanceof LocalDocument) {
       return new DocumentContent(localContainer);
-    }
- else     if (content instanceof Sticker) {
-      return new StickerContent(localContainer);
     }
  else {
       throw new IOException("Unknown type");

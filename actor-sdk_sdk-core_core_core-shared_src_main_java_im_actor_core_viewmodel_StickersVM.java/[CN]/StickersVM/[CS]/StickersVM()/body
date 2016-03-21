@@ -1,0 +1,3 @@
+{
+  ownStickerPacks=new ValueModel<>("stickers.own",new ArrayList<StickerPack>());
+}

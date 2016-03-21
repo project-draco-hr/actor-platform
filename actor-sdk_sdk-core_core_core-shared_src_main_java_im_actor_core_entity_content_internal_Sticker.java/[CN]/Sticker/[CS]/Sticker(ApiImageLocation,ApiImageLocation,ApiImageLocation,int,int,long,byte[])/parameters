@@ -1,7 +1,0 @@
-ApiImageLocation apiImageLocation128
-ApiImageLocation apiImageLocation256
-ApiImageLocation apiImageLocation512
-int stickerId
-int stickerCollectionId
-long collectionAccessHash
-byte[] thumb

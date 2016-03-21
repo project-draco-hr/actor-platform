@@ -1,6 +1,3 @@
 {
   super(context);
-  this.stickerPacksList=Storage.createKeyValue(STORAGE_STICKER_ALL_PACKS);
-  packs=Storage.createList(STORAGE_STICKER_PACKS,StickersPack.CREATOR);
-  stickers=Storage.createList(STORAGE_STICKERS,Sticker.CREATOR);
 }
