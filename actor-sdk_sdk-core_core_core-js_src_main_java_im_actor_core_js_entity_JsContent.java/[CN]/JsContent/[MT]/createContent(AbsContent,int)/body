@@ -53,18 +53,14 @@
     }
   }
  else   if (src instanceof StickerContent) {
-    Sticker sticker=((StickerContent)src).getSticker();
-    FileReference fileReference512=sticker.getFileReference512();
-    ApiImageLocation imageLocation512=sticker.getApiImageLocation512();
-    String fileUrl=messenger.getFileUrl(fileReference512);
-    String fileSize=messenger.getFormatter().formatFileSize(fileReference512.getFileSize());
-    String thumb=null;
-    byte[] thumbRaw=sticker.getThumb();
-    if (thumbRaw != null) {
-      String thumbBase64=Base64Utils.toBase64(thumbRaw);
-      thumb="data:image/jpg;base64," + thumbBase64;
+    StickerContent sticker=(StickerContent)src;
+    ImageLocation stickerImage=sticker.getImage256();
+    if (sticker.getImage512() != null) {
+      stickerImage=sticker.getImage512();
     }
-    content=JsContentSticker.create(fileReference512.getFileName(),".webp",fileSize,imageLocation512.getWidth(),imageLocation512.getHeight(),thumb,fileUrl,false);
+    String fileUrl=messenger.getFileUrl(stickerImage.getReference());
+    String fileSize=messenger.getFormatter().formatFileSize(stickerImage.getReference().getFileSize());
+    content=JsContentSticker.create(stickerImage.getReference().getFileName(),".webp",fileSize,stickerImage.getWidth(),stickerImage.getHeight(),null,fileUrl,false);
   }
  else   if (src instanceof ContactContent) {
     ContactContent contactContent=(ContactContent)src;
