@@ -1,0 +1,9 @@
+{
+  try {
+    return new Sticker(Base64Utils.fromBase64(getContent()));
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    throw new RuntimeException(e);
+  }
+}

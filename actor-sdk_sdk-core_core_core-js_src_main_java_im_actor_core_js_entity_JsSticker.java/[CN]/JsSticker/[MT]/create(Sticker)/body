@@ -1,0 +1,5 @@
+{
+  String content=Base64Utils.toBase64(sticker.toByteArray());
+  String url=JsMessenger.getInstance().getFileUrl(sticker.getImage256());
+  return create(sticker.getId(),url,content);
+}

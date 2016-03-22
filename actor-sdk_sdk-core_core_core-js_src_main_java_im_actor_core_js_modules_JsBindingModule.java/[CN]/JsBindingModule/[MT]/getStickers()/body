@@ -1,0 +1,19 @@
+{
+  if (stickers == null) {
+    stickers=new JsBindedValue<>(JsArray.createArray().cast());
+    messenger.getAvailableStickersVM().getOwnStickerPacks().subscribe(new ValueChangedListener<ArrayList<StickerPack>>(){
+      @Override public void onChanged(      ArrayList<StickerPack> val,      Value<ArrayList<StickerPack>> valueModel){
+        JsArray<JsSticker> stickerJsArray=JsArray.createArray().cast();
+        stickerJsArray.setLength(0);
+        for (        StickerPack pack : val) {
+          for (          Sticker sticker : pack.getStickers()) {
+            stickerJsArray.push(JsSticker.create(sticker));
+          }
+        }
+        stickers.changeValue(stickerJsArray);
+      }
+    }
+);
+  }
+  return stickers;
+}

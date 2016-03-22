@@ -84,4 +84,14 @@
       g.changeValue(JsGroup.fromGroupVM(groupVM,messenger));
     }
   }
+  if (stickers != null) {
+    outer:     for (    StickerPack stickerPack : messenger.getAvailableStickersVM().getOwnStickerPacks().get()) {
+      for (      Sticker s : stickerPack.getStickers()) {
+        if (s.getImage256() != null && fileId.contains(s.getImage256().getFileId())) {
+          messenger.getAvailableStickersVM().getOwnStickerPacks().forceNotify();
+          break outer;
+        }
+      }
+    }
+  }
 }
