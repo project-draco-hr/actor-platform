@@ -1,0 +1,13 @@
+{
+  for (int i=0; i < stickersStorage.getStickerPacks().size(); i++) {
+    StickerPack collection=stickersStorage.getStickerPacks().get(i);
+    for (    ApiStickerCollection c : updated) {
+      if (c.getId() == collection.getId()) {
+        stickersStorage.getStickerPacks().set(i,new StickerPack(c));
+        break;
+      }
+    }
+  }
+  notifyVM();
+  saveStorage();
+}

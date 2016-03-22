@@ -3,6 +3,7 @@
     if (!isLoaded) {
       stash();
     }
+    onStickerCollectionsChanged(((StickerCollectionsChanged)message).getUpdated());
   }
  else   if (message instanceof OwnStickerCollectionsChanged) {
     if (!isLoaded) {
