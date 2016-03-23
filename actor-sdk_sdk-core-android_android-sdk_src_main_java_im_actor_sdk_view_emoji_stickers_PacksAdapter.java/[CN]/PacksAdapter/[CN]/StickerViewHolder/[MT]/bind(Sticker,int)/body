@@ -1,0 +1,11 @@
+{
+  this.s=s;
+  this.position=position;
+  sv.bind(s.getImage128(),StickerView.STICKER_SMALL);
+  if (selectedPostion == position) {
+    fl.setBackgroundColor(Color.LTGRAY);
+  }
+ else {
+    fl.setBackgroundColor(Color.TRANSPARENT);
+  }
+}

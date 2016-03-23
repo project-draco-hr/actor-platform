@@ -1,0 +1,48 @@
+{
+  this.keyboard=keyboard;
+  this.recyclerView=recyclerView;
+  vm=messenger().getAvailableStickersVM();
+  vm.getOwnStickerPacks().subscribe(new ValueChangedListener<ArrayList<StickerPack>>(){
+    @Override public void onChanged(    ArrayList<StickerPack> val,    Value<ArrayList<StickerPack>> valueModel){
+      stickers.clear();
+      for (      StickerPack pack : val) {
+        List<Sticker> stickers=pack.getStickers();
+        if (stickers.size() > 0) {
+          Sticker sticker=stickers.get(0);
+          StickersAdapter.this.stickers.add(new StickerCat(sticker.toWrapped(),sticker.getCollectionId(),sticker.getCollectionAccessHash()));
+        }
+        StickersAdapter.this.stickers.addAll(stickers);
+      }
+      notifyDataSetChanged();
+    }
+  }
+);
+  final GridLayoutManager layoutManager=(GridLayoutManager)recyclerView.getLayoutManager();
+  layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
+    @Override public int getSpanSize(    int position){
+      if (getItemViewType(position) == 1) {
+        return layoutManager.getSpanCount();
+      }
+ else {
+        return 1;
+      }
+    }
+  }
+);
+  recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+    Sticker s;
+    @Override public void onScrolled(    RecyclerView recyclerView,    int dx,    int dy){
+      super.onScrolled(recyclerView,dx,dy);
+      int firstVisiblePosition=layoutManager.findFirstCompletelyVisibleItemPosition();
+      s=stickers.get(firstVisiblePosition);
+      Integer newTopPack=s.getCollectionId();
+      if (newTopPack != null && newTopPack != topPack) {
+        topPack=newTopPack;
+        if (packsAdapter != null) {
+          packsAdapter.selectPack(newTopPack);
+        }
+      }
+    }
+  }
+);
+}

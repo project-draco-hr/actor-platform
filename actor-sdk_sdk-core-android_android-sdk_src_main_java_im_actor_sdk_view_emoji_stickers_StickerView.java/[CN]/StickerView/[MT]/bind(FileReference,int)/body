@@ -1,0 +1,33 @@
+{
+  if (this.fileReference != null && this.fileReference.equals(fileReference)) {
+    return;
+  }
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
+  }
+  setImageURI(null);
+  this.fileReference=fileReference;
+  bindedFile=messenger().bindFile(fileReference,true,new FileVMCallback(){
+    private boolean isFastThumbLoaded=false;
+    private void checkFastThumb(){
+      if (!isFastThumbLoaded) {
+        isFastThumbLoaded=true;
+      }
+    }
+    @Override public void onNotDownloaded(){
+      checkFastThumb();
+    }
+    @Override public void onDownloading(    float progress){
+      checkFastThumb();
+    }
+    @Override public void onDownloaded(    FileSystemReference reference){
+      imageFile=new File(reference.getDescriptor());
+      ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(imageFile)).setAutoRotateEnabled(true).build();
+      PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(getController()).setImageRequest(request).build();
+      setController(controller);
+      loaded=true;
+    }
+  }
+);
+}

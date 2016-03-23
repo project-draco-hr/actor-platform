@@ -1,0 +1,16 @@
+{
+  super(itemView);
+  if (itemView instanceof StickerView) {
+    int padding=Screen.dp(5);
+    sv=(StickerView)itemView;
+    sv.setPadding(padding,padding,padding,padding);
+    sv.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        if (s != null) {
+          keyboard.onStickerClicked(s);
+        }
+      }
+    }
+);
+  }
+}

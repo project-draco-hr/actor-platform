@@ -1,0 +1,4 @@
+{
+  this.s=s;
+  sv.bind(s.getImage256(),StickerView.STICKER_SMALL);
+}

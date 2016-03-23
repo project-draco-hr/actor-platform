@@ -49,6 +49,13 @@ return new LocationHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_l
 }
 }
 ,MessagesAdapter.this,inflate(R.layout.adapter_dialog_locaton,viewGroup));
+case 7:
+return ActorSDK.sharedActor().getDelegatedViewHolder(StickerHolder.class,new ActorSDK.OnDelegateViewHolder<StickerHolder>(){
+@Override public StickerHolder onNotDelegated(){
+return new StickerHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_sticker,viewGroup));
+}
+}
+,MessagesAdapter.this,inflate(R.layout.adapter_dialog_sticker,viewGroup));
 case -1:
 return new UnsupportedHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_text,viewGroup));
 default :

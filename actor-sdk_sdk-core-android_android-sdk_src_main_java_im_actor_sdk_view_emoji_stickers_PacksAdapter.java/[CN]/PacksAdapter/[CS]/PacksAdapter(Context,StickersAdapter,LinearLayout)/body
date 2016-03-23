@@ -1,0 +1,16 @@
+{
+  packsSwitchContainer=stickerIndicatorContainer;
+  this.context=context;
+  this.stickersAdapter=stickersAdapter;
+  messenger().getAvailableStickersVM().getOwnStickerPacks().subscribe(new ValueChangedListener<ArrayList<StickerPack>>(){
+    @Override public void onChanged(    ArrayList<StickerPack> val,    Value<ArrayList<StickerPack>> valueModel){
+      stickers.clear();
+      for (      StickerPack pack : val) {
+        if (pack.getStickers().size() > 0) {
+          stickers.add(pack.getStickers().get(0));
+        }
+      }
+    }
+  }
+);
+}

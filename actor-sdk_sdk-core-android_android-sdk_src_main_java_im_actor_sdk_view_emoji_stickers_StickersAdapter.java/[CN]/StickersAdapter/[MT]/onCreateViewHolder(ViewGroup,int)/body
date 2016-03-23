@@ -1,0 +1,13 @@
+{
+switch (viewType) {
+case 0:
+    StickerView itemView=new StickerView(parent.getContext());
+  int stSize=Screen.dp(70);
+itemView.setLayoutParams(new FrameLayout.LayoutParams(stSize,stSize));
+return new StickerViewHolder(itemView);
+default :
+View cat=new View(parent.getContext());
+cat.setLayoutParams(new FrameLayout.LayoutParams(1,1));
+return new StickerCatHolder(cat);
+}
+}

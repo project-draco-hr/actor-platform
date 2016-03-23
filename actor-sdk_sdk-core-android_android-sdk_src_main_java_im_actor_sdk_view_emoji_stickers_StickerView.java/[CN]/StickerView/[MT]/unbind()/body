@@ -1,0 +1,8 @@
+{
+  if (bindedFile != null) {
+    bindedFile.detach();
+    bindedFile=null;
+  }
+  setImageURI(null);
+  fastThumbLoader.cancel();
+}

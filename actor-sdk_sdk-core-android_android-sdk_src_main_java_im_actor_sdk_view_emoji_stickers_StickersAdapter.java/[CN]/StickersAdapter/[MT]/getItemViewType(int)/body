@@ -1,0 +1,3 @@
+{
+  return stickers.get(position) instanceof StickerCat ? 1 : 0;
+}

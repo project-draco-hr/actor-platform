@@ -1,0 +1,10 @@
+{
+  int position=0;
+  for (  Sticker st : stickers) {
+    if (st.getId() == s.getId()) {
+      break;
+    }
+    position++;
+  }
+  ((GridLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(position,0);
+}
