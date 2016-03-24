@@ -30,11 +30,13 @@
           }
  else {
             Intent intent=new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url.getUrl())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Bundle b=addChromeCustomTabData(intent);
             if (intent.resolveActivity(view.getContext().getPackageManager()) != null) {
               AndroidContext.getContext().startActivity(intent);
             }
  else {
               Intent WithSchema=new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://".concat(url.getUrl()))).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              Bundle b1=addChromeCustomTabData(WithSchema);
               if (WithSchema.resolveActivity(view.getContext().getPackageManager()) != null) {
                 AndroidContext.getContext().startActivity(WithSchema);
               }
