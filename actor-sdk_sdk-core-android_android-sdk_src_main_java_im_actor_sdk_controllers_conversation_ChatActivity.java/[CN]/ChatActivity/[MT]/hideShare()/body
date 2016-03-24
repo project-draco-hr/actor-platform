@@ -1,0 +1,15 @@
+{
+  if (!isShareVisible || animationInProgress) {
+    return;
+  }
+  isShareVisible=false;
+  TranslateAnimation animation=new TranslateAnimation(0,0,0,Screen.getHeight());
+  animation.setDuration(160);
+  animation.setAnimationListener(animationListener);
+  shareMenu.clearAnimation();
+  shareMenu.setAnimation(animation);
+  shareMenu.animate();
+  shareMenu.setVisibility(View.GONE);
+  shareContainer.setVisibility(View.GONE);
+  messenger().getGalleryScannerActor().send(new GalleryScannerActor.Visible(false));
+}

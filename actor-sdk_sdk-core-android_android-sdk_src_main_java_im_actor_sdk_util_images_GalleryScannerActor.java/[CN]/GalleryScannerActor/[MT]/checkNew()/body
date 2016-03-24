@@ -1,0 +1,27 @@
+{
+  cursor=getQuery();
+  newMedia.clear();
+  while (cursor != null && cursor.moveToNext()) {
+    absolutePathOfImage=cursor.getString(column_index_data);
+    if (!listOfAllImages.contains(absolutePathOfImage)) {
+      Bitmap bitmap=ImageHelper.loadOptimizedHQ(absolutePathOfImage);
+      if (bitmap != null) {
+        bitmap.recycle();
+        newMedia.add(absolutePathOfImage);
+      }
+ else {
+        break;
+      }
+    }
+ else {
+      break;
+    }
+  }
+  if (newMedia.size() > 0) {
+    listOfAllImages.addAll(0,newMedia);
+    galleryVM.getGalleryMediaPath().change(new ArrayList<String>(listOfAllImages));
+  }
+  if (visible) {
+    schedule(new CheckNew(),1000);
+  }
+}

@@ -28,6 +28,6 @@
     }
   }
 );
-  hideShareMenu();
+  hideShare();
   expandMentions(mentionsList,0,mentionsList.getCount());
 }

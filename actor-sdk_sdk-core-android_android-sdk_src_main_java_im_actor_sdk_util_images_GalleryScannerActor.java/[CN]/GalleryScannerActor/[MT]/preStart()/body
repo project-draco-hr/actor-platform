@@ -1,0 +1,5 @@
+{
+  galleryVM=messenger().getGalleryVM();
+  uri=android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+  self().send(new InitScan());
+}

@@ -1,6 +1,7 @@
 {
   this.application=application;
-  Fresco.initialize(application);
+  ImagePipelineConfig config=ImagePipelineConfig.newBuilder(application).setDownsampleEnabled(true).build();
+  Fresco.initialize(application,config);
   AndroidContext.setContext(application);
   new SmileProcessor(application).loadEmoji();
   ConfigurationBuilder builder=new ConfigurationBuilder();

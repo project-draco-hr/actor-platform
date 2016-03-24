@@ -1,6 +1,0 @@
-{
-  if (shareMenu.getVisibility() == View.VISIBLE) {
-    expand(shareMenu,0);
-    shareContainer.setVisibility(View.GONE);
-  }
-}

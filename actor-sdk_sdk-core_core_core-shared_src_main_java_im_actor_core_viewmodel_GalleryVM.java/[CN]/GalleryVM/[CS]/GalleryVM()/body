@@ -1,0 +1,3 @@
+{
+  galleryMediaPath=new ValueModel<>("gallery.photo",new ArrayList<String>());
+}

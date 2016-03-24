@@ -1,13 +1,13 @@
 {
   if (shareMenuMaxHeight == 0) {
-    shareMenuMaxHeight=Screen.dp(180);
+    shareMenuMaxHeight=Screen.dp(245);
   }
   if (shareMenu.getVisibility() == View.VISIBLE) {
-    hideShareMenu();
+    hideShare();
   }
  else {
     shareContainer.setVisibility(View.VISIBLE);
-    expand(shareMenu,shareMenuMaxHeight);
+    showShare();
     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
       keyboardUtils.setImeVisibility(messageEditText,false);
     }

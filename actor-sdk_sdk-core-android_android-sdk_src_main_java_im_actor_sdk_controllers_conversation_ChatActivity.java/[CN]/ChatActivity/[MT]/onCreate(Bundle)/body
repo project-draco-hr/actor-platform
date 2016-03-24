@@ -73,9 +73,10 @@
   }
 );
   shareContainer=findViewById(R.id.closeMenuLayout);
-  shareContainer.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      hideShareMenu();
+  shareContainer.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      hideShare();
+      return false;
     }
   }
 );
@@ -150,7 +151,7 @@ catch (  NullPointerException e) {
       }
  else       if (item.getId() == R.id.share_hide) {
       }
-      hideShareMenu();
+      hideShare();
     }
   }
 ;
@@ -162,4 +163,9 @@ catch (  NullPointerException e) {
   findViewById(R.id.share_hide).setOnClickListener(shareMenuOCL);
   findViewById(R.id.share_contact).setOnClickListener(shareMenuOCL);
   handleIntent();
+  RecyclerView fastShare=(RecyclerView)findViewById(R.id.fast_share);
+  FastShareAdapter fastShareAdapter=new FastShareAdapter(this);
+  LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+  fastShare.setAdapter(fastShareAdapter);
+  fastShare.setLayoutManager(layoutManager);
 }

@@ -1,0 +1,22 @@
+{
+  if (message instanceof Scan) {
+    scan();
+  }
+ else   if (message instanceof InitScan) {
+    initScan();
+  }
+ else   if (message instanceof CheckNew) {
+    checkNew();
+  }
+ else   if (message instanceof Visible) {
+    if (((Visible)message).isVisible()) {
+      visible=true;
+      if (scanned) {
+        self().send(new CheckNew());
+      }
+    }
+ else {
+      visible=false;
+    }
+  }
+}

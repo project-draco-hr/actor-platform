@@ -1,0 +1,13 @@
+{
+  projection=new String[]{MediaStore.MediaColumns.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME,MediaStore.Images.Media.DATE_MODIFIED};
+  cursor=getQuery();
+  if (cursor != null && cursor.getCount() > 0) {
+    column_index_data=cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+    column_index_date=cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_MODIFIED);
+    column_index_folder_name=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
+    self().send(new Scan());
+  }
+ else {
+    schedule(new InitScan(),1000);
+  }
+}

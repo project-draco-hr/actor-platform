@@ -1,0 +1,7 @@
+{
+  data=path;
+  ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(path))).setResizeOptions(new ResizeOptions(v.getLayoutParams().width,v.getLayoutParams().height)).build();
+  PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(v.getController()).setImageRequest(request).build();
+  v.setController(controller);
+  chb.setChecked(selected.contains(data));
+}

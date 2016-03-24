@@ -1,0 +1,17 @@
+{
+  int i=0;
+  while (offset + i++ < offset + SCAN_COUNT && cursor.moveToNext()) {
+    absolutePathOfImage=cursor.getString(column_index_data);
+    listOfAllImages.add(absolutePathOfImage);
+  }
+  galleryVM.getGalleryMediaPath().change(new ArrayList<String>(listOfAllImages));
+  offset+=i;
+  if (offset < cursor.getCount()) {
+    self().send(new Scan());
+  }
+ else {
+    lastScan=MediaStore.getMediaScannerUri();
+    scanned=true;
+    schedule(new CheckNew(),1000);
+  }
+}
