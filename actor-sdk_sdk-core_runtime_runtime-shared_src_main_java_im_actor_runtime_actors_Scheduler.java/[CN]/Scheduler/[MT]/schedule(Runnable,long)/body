@@ -1,6 +1,9 @@
 {
+  if (LOG) {
+    Log.d(TAG,"schedule " + ref.getPath());
+  }
   final TaskCancellable res=new TaskCancellable();
-  destDispatcher.dispatch(new Runnable(){
+  res.setDispatchCancel(destDispatcher.dispatch(new Runnable(){
     @Override public void run(){
       if (res.isCancelled()) {
         return;
@@ -16,6 +19,6 @@
 );
     }
   }
-,delay);
+,delay));
   return res;
 }

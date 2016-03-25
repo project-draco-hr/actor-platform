@@ -1,3 +1,11 @@
 {
-  isCancelled=true;
+  if (!isCancelled) {
+    if (LOG) {
+      Log.d(TAG,"Cancel " + ref.getPath());
+    }
+    isCancelled=true;
+    if (this.dispatchCancel != null) {
+      this.dispatchCancel.cancel();
+    }
+  }
 }

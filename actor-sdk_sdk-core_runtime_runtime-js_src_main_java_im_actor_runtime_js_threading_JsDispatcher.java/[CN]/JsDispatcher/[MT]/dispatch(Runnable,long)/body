@@ -1,3 +1,9 @@
 {
-  dispatchJs(message,(int)delay);
+  final JsCanceller canceller=dispatchJs(message,(int)delay);
+  return new DispatchCancel(){
+    @Override public void cancel(){
+      canceller.cancel();
+    }
+  }
+;
 }
