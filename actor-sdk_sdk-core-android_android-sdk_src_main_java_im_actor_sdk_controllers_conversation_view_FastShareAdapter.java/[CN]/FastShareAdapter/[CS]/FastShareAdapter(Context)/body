@@ -8,4 +8,5 @@
     }
   }
 );
+  selectedVM=new ValueModel<Set<String>>("fast_share.selected",new HashSet<String>());
 }

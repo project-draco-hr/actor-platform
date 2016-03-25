@@ -1,0 +1,3 @@
+{
+  selectedVM.change(new HashSet<String>(selected));
+}

@@ -8,9 +8,11 @@
     @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
       if (isChecked && data != null) {
         selected.add(data);
+        notifyVm();
       }
  else {
         selected.remove(data);
+        notifyVm();
       }
     }
   }
