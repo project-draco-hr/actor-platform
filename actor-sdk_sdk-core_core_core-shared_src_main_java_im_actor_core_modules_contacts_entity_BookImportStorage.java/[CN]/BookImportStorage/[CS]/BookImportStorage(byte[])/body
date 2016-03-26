@@ -1,0 +1,11 @@
+{
+  super();
+  try {
+    super.load(data);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    importedEmails=new HashSet<>();
+    importedPhones=new HashSet<>();
+  }
+}

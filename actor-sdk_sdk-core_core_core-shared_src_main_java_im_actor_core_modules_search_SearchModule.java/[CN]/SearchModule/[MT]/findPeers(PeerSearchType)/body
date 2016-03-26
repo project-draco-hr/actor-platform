@@ -1,0 +1,47 @@
+{
+  final ApiSearchPeerType apiType;
+  if (type == PeerSearchType.GROUPS) {
+    apiType=ApiSearchPeerType.GROUPS;
+  }
+ else   if (type == PeerSearchType.PUBLIC) {
+    apiType=ApiSearchPeerType.PUBLIC;
+  }
+ else {
+    apiType=ApiSearchPeerType.CONTACTS;
+  }
+  return new Command<List<PeerSearchEntity>>(){
+    @Override public void start(    final CommandCallback<List<PeerSearchEntity>> callback){
+      ArrayList<ApiSearchCondition> conditions=new ArrayList<>();
+      conditions.add(new ApiSearchPeerTypeCondition(apiType));
+      request(new RequestPeerSearch(conditions),new RpcCallback<ResponsePeerSearch>(){
+        @Override public void onResult(        final ResponsePeerSearch response){
+          updates().executeRelatedResponse(response.getUsers(),response.getGroups(),new Runnable(){
+            @Override public void run(){
+              final ArrayList<PeerSearchEntity> res=new ArrayList<>();
+              for (              ApiPeerSearchResult r : response.getSearchResults()) {
+                res.add(new PeerSearchEntity(convert(r.getPeer()),r.getTitle(),r.getDescription(),r.getMembersCount(),r.getDateCreated(),r.getCreator(),r.isPublic(),r.isJoined()));
+              }
+              runOnUiThread(new Runnable(){
+                @Override public void run(){
+                  callback.onResult(res);
+                }
+              }
+);
+            }
+          }
+);
+        }
+        @Override public void onError(        final RpcException e){
+          runOnUiThread(new Runnable(){
+            @Override public void run(){
+              callback.onError(e);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+}

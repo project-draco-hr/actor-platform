@@ -1,7 +1,0 @@
-{
-  List<SearchEntity> updated=new ArrayList<SearchEntity>();
-  for (  Dialog d : dialogs) {
-    updated.add(new SearchEntity(d.getPeer(),d.getSortDate(),d.getDialogAvatar(),d.getDialogTitle()));
-  }
-  listEngine.addOrUpdateItems(updated);
-}
