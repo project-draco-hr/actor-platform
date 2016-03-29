@@ -3,7 +3,6 @@
   this.context=context;
   final int paddingH=Screen.dp(11);
   final int paddingV=Screen.dp(9);
-  ActorStyle style=ActorSDK.sharedActor().style;
   pendingColor=style.getDialogsStatePendingColor();
   sentColor=style.getDialogsStateSentColor();
   receivedColor=style.getDialogsStateDeliveredColor();
@@ -44,7 +43,7 @@
   title.setTextColor(ActorSDK.sharedActor().style.getDialogsTitleColor());
   title.setTypeface(Fonts.medium());
   title.setTextSize(17);
-  title.setPadding(0,Screen.dp(1),0,0);
+  title.setPadding(0,Screen.dp(2),0,0);
   title.setSingleLine();
   title.setCompoundDrawablePadding(Screen.dp(4));
   title.setEllipsize(TextUtils.TruncateAt.END);

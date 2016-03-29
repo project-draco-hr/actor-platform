@@ -18,7 +18,7 @@ return locale.get("Contact");
 case LOCATION:
 return locale.get("Location");
 case STICKER:
-if (text != null) {
+if (text != null && !"".equals(text)) {
 return text + " " + locale.get("Sticker");
 }
  else {

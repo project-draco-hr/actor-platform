@@ -26,7 +26,6 @@
   if (SmileProcessor.containsEmoji(bindedText)) {
     if (emoji().isLoaded()) {
       bindedText=emoji().processEmojiCompatMutable(bindedText,SmileProcessor.CONFIGURATION_BUBBLES);
-      ;
     }
  else {
       emoji().registerListener(new SmilesListener(){
@@ -49,6 +48,13 @@
     messenger().getGroupTyping(bindedGid).unsubscribe(groupTypingListener);
     groupTypingListener=null;
   }
+  final int textColor;
+  if (data.getMessageType() != ContentType.TEXT) {
+    textColor=style.getDialogsActiveTextColor();
+  }
+ else {
+    textColor=style.getDialogsTextColor();
+  }
   if (data.getPeer().getPeerType() == PeerType.PRIVATE) {
     bindedUid=data.getPeer().getPeerId();
     privateTypingListener=new ValueChangedListener<Boolean>(){
@@ -59,7 +65,7 @@
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(ActorSDK.sharedActor().style.getDialogsTextColor());
+          text.setTextColor(textColor);
         }
       }
     }
@@ -81,7 +87,7 @@
         }
  else {
           text.setText(bindedText);
-          text.setTextColor(ActorSDK.sharedActor().style.getDialogsTextColor());
+          text.setTextColor(textColor);
         }
       }
     }
@@ -90,7 +96,7 @@
   }
  else {
     text.setText(bindedText);
-    text.setTextColor(ActorSDK.sharedActor().style.getDialogsTextColor());
+    text.setTextColor(textColor);
   }
   if (data.getSenderId() != myUid()) {
     state.setVisibility(View.GONE);
