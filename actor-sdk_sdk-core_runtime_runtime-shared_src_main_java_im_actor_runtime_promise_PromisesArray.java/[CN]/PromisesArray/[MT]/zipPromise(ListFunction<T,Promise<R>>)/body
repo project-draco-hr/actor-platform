@@ -1,22 +1,25 @@
 {
   return new Promise<R>(){
-    @Override void exec(    final PromiseResolver resolver){
+    @Override void exec(    final PromiseResolver<R> resolver){
       promises.then(new Consumer<Promise<T>[]>(){
         @Override public void apply(        final Promise<T>[] promises1){
-          final Object[] res=new Object[promises1.length];
+          final ArrayList<T> res=new ArrayList<T>();
+          for (int i=0; i < promises1.length; i++) {
+            res.add(null);
+          }
           final Boolean[] ended=new Boolean[promises1.length];
           for (int i=0; i < promises1.length; i++) {
             final int finalI=i;
             promises1[i].then(new Consumer<T>(){
               @Override public void apply(              T t){
-                res[finalI]=t;
+                res.set(finalI,t);
                 ended[finalI]=true;
                 for (int i1=0; i1 < promises1.length; i1++) {
                   if (ended[i1] == null || !ended[i1]) {
                     return;
                   }
                 }
-                Promise<R> promise=fuc.apply((T[])res);
+                Promise<R> promise=fuc.apply(res);
                 promise.then(new Consumer<R>(){
                   @Override public void apply(                  R r){
                     resolver.result(r);
@@ -42,7 +45,7 @@
             promises1[i].done(resolver.getDispatcher());
           }
           if (promises1.length == 0) {
-            Promise<R> promise=fuc.apply((T[])new Object[0]);
+            Promise<R> promise=fuc.apply(res);
             promise.then(new Consumer<R>(){
               @Override public void apply(              R r){
                 resolver.result(r);

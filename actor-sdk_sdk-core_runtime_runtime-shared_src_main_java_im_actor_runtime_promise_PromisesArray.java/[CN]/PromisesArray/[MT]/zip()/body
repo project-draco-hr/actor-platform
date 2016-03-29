@@ -1,6 +1,6 @@
 {
-  return zipPromise(new ArrayFunction<T,Promise<T[]>>(){
-    @Override public Promise<T[]> apply(    T[] t){
+  return zipPromise(new ListFunction<T,Promise<List<T>>>(){
+    @Override public Promise<List<T>> apply(    List<T> t){
       return Promises.success(t);
     }
   }

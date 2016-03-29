@@ -1,7 +1,7 @@
 {
-  return PromisesArray.ofPromises(t1.cast(),t2.cast(),t3.cast(),t4.cast()).zip().map(new Function<Object[],Tuple4<T1,T2,T3,T4>>(){
-    @Override public Tuple4<T1,T2,T3,T4> apply(    Object[] src){
-      return new Tuple4<>((T1)src[0],(T2)src[1],(T3)src[2],(T4)src[3]);
+  return PromisesArray.ofPromises(t1.cast(),t2.cast(),t3.cast(),t4.cast()).zip().map(new Function<List<Object>,Tuple4<T1,T2,T3,T4>>(){
+    @Override public Tuple4<T1,T2,T3,T4> apply(    List<Object> src){
+      return new Tuple4<>((T1)src.get(0),(T2)src.get(1),(T3)src.get(2),(T4)src.get(3));
     }
   }
 );

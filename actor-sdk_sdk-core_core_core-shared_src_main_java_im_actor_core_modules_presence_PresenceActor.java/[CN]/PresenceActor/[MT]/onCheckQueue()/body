@@ -32,8 +32,8 @@
   }
   if (requests.size() > 0) {
     isRequesting=true;
-    PromisesArray.ofPromises(requests).zip().then(new Consumer<ResponseVoid[]>(){
-      @Override public void apply(      ResponseVoid[] responseVoids){
+    PromisesArray.ofPromises(requests).zip().then(new Consumer<List<ResponseVoid>>(){
+      @Override public void apply(      List<ResponseVoid> responseVoids){
         isRequesting=false;
         onCheckQueue();
       }

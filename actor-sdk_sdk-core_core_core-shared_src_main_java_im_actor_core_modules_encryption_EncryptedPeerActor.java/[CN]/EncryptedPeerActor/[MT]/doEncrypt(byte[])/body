@@ -30,9 +30,9 @@
 );
     }
   }
-).mapOptional(encrypt(encKeyExtended)).zip().map(new Function<EncryptedSessionActor.EncryptedPackageRes[],EncryptBoxResponse>(){
-    @Override public EncryptBoxResponse apply(    EncryptedSessionActor.EncryptedPackageRes[] src){
-      if (src.length == 0) {
+).mapOptional(encrypt(encKeyExtended)).zip().map(new Function<List<EncryptedSessionActor.EncryptedPackageRes>,EncryptBoxResponse>(){
+    @Override public EncryptBoxResponse apply(    List<EncryptedSessionActor.EncryptedPackageRes> src){
+      if (src.size() == 0) {
         throw new RuntimeException("No sessions available");
       }
       Log.d(TAG,"Keys Encrypted in " + (Runtime.getActorTime() - start) + " ms");
