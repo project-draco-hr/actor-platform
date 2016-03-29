@@ -14,6 +14,9 @@
       if (scanned) {
         self().send(new CheckNew());
       }
+ else {
+        self().send(new InitScan());
+      }
     }
  else {
       visible=false;

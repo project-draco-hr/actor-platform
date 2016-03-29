@@ -23,5 +23,7 @@
   shareMenu.animate();
   shareMenu.setVisibility(View.VISIBLE);
   isShareVisible=true;
-  messenger().getGalleryScannerActor().send(new GalleryScannerActor.Visible(true));
+  if (ActorSDK.sharedActor().isFastShareEnabled()) {
+    messenger().getGalleryScannerActor().send(new GalleryScannerActor.Visible(true));
+  }
 }
