@@ -1,6 +1,7 @@
 {
   this.context=context;
-  messenger().getGalleryVM().getGalleryMediaPath().subscribe(new ValueChangedListener<ArrayList<String>>(){
+  binder=new ActorBinder();
+  binder.bind(messenger().getGalleryVM().getGalleryMediaPath(),new ValueChangedListener<ArrayList<String>>(){
     @Override public void onChanged(    ArrayList<String> val,    Value<ArrayList<String>> valueModel){
       imagesPath.clear();
       imagesPath.addAll(val);

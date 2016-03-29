@@ -166,7 +166,7 @@ catch (  NullPointerException e) {
   findViewById(R.id.share_contact).setOnClickListener(shareMenuOCL);
   handleIntent();
   RecyclerView fastShare=(RecyclerView)findViewById(R.id.fast_share);
-  final FastShareAdapter fastShareAdapter=new FastShareAdapter(this);
+  fastShareAdapter=new FastShareAdapter(this);
   LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
   fastShare.setAdapter(fastShareAdapter);
   fastShare.setLayoutManager(layoutManager);

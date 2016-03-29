@@ -1,3 +1,5 @@
 {
   this.actor=null;
+  this.sender=null;
+  this.message=null;
 }

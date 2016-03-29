@@ -1,0 +1,7 @@
+{
+  super.onDestroy();
+  if (fastShareAdapter != null) {
+    fastShareAdapter.release();
+    fastShareAdapter=null;
+  }
+}
