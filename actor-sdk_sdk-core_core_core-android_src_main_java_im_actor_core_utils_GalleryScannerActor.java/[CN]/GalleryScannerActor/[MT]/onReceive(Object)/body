@@ -8,18 +8,18 @@
  else   if (message instanceof CheckNew) {
     checkNew();
   }
- else   if (message instanceof Visible) {
-    if (((Visible)message).isVisible()) {
-      visible=true;
-      if (scanned) {
-        self().send(new CheckNew());
-      }
+ else   if (message instanceof Show) {
+    visible=true;
+    if (scanned) {
+      self().send(new CheckNew());
+    }
  else {
+      if (!inited) {
         self().send(new InitScan());
       }
     }
- else {
-      visible=false;
-    }
+  }
+ else   if (message instanceof Hide) {
+    visible=false;
   }
 }

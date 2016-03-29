@@ -65,6 +65,7 @@
   }
 );
   findViewById(R.id.share_menu).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  findViewById(R.id.fast_share).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   shareMenu=findViewById(R.id.share_container);
   shareMenu.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

@@ -7,6 +7,7 @@
     column_index_date=cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_MODIFIED);
     column_index_folder_name=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
     Log.d(TAG,"init scan ok - starting scan iterations");
+    inited=true;
     self().send(new Scan());
   }
  else {

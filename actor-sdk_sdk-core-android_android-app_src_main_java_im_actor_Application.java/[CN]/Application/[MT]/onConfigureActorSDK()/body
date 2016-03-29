@@ -2,4 +2,5 @@
   ActorSDK.sharedActor().setPushId(209133700967L);
   ActorStyle style=ActorSDK.sharedActor().style;
   style.setDialogsActiveTextColor(0xff5882ac);
+  ActorSDK.sharedActor().setFastShareEnabled(true);
 }
