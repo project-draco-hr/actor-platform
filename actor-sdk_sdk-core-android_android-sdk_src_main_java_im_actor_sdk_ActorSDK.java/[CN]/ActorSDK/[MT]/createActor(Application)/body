@@ -4,6 +4,7 @@
   Fresco.initialize(application,config);
   AndroidContext.setContext(application);
   new SmileProcessor(application).loadEmoji();
+  ActorSystem.system().addDispatcher("voice_capture_dispatcher",1);
   ConfigurationBuilder builder=new ConfigurationBuilder();
   for (  String s : endpoints) {
     builder.addEndpoint(s);

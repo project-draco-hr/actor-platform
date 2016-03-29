@@ -3,10 +3,6 @@
     messagesAdapter.setFirstUnread(unreadId);
   }
   if (index > 0) {
-    if (linearLayoutManager != null) {
-      linearLayoutManager.setStackFromEnd(false);
-      linearLayoutManager.scrollToPositionWithOffset(index + 1,Screen.dp(64));
-    }
   }
  else   if (getCollection() != null) {
     getCollection().scrollToPosition(0);

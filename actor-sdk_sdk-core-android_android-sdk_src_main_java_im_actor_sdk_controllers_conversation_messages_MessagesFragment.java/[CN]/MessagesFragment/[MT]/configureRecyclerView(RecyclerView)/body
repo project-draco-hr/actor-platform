@@ -1,11 +1,11 @@
 {
   recyclerView.setHasFixedSize(true);
-  linearLayoutManager=new ChatLinearLayoutManager(getActivity(),ChatLinearLayoutManager.VERTICAL,true);
-  linearLayoutManager.setStackFromEnd(false);
-  recyclerView.setLayoutManager(linearLayoutManager);
+  final LinearLayoutManager manager=new LinearLayoutManager(getActivity(),ChatLinearLayoutManager.VERTICAL,true);
+  manager.setStackFromEnd(false);
+  recyclerView.setLayoutManager(manager);
   getDisplayList().setLinearLayoutCallback(new BindedDisplayList.LinearLayoutCallback(){
     @Override public void setStackFromEnd(    boolean b){
-      if (linearLayoutManager != null)       linearLayoutManager.setStackFromEnd(b);
+      if (manager != null)       manager.setStackFromEnd(b);
     }
   }
 );
