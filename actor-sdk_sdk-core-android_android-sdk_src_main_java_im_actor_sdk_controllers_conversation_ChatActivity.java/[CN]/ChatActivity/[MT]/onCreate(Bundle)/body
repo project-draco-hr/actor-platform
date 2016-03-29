@@ -65,6 +65,7 @@
   }
 );
   findViewById(R.id.share_menu).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  findViewById(R.id.fast_share).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   shareMenu=findViewById(R.id.share_container);
   shareMenu.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
@@ -81,6 +82,7 @@
 );
   final TextView locationText=(TextView)findViewById(R.id.location_text);
   final View shareLocation=findViewById(R.id.share_location);
+  findViewById(R.id.share_hide).setVisibility(View.GONE);
   View.OnClickListener shareMenuOCL=new View.OnClickListener(){
     @Override public void onClick(    View item){
       if (item.getId() == R.id.share_gallery) {
@@ -156,4 +158,29 @@
     }
   }
 );
+  RecyclerView fastShare=(RecyclerView)findViewById(R.id.fast_share);
+  if (ActorSDK.sharedActor().isFastShareEnabled()) {
+    fastShareAdapter=new FastShareAdapter(this);
+    LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+    fastShare.setAdapter(fastShareAdapter);
+    fastShare.setLayoutManager(layoutManager);
+    fastShareAdapter.getSelectedVM().subscribe(new ValueChangedListener<Set<String>>(){
+      @Override public void onChanged(      Set<String> val,      Value<Set<String>> valueModel){
+        if (val.size() > 0) {
+          shareLocation.setVisibility(View.INVISIBLE);
+          shareMenuSend.setVisibility(View.VISIBLE);
+          locationText.setText(getString(R.string.chat_doc_send) + "(" + val.size()+ ")");
+        }
+ else {
+          shareLocation.setVisibility(View.VISIBLE);
+          shareMenuSend.setVisibility(View.INVISIBLE);
+          locationText.setText(getString(R.string.share_menu_location));
+        }
+      }
+    }
+);
+  }
+ else {
+    fastShare.setVisibility(View.GONE);
+  }
 }

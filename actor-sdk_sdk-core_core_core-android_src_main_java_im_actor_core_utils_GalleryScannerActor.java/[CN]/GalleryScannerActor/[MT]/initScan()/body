@@ -1,13 +1,17 @@
 {
+  Log.d(TAG,"init scan");
   projection=new String[]{MediaStore.MediaColumns.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME,MediaStore.Images.Media.DATE_MODIFIED};
   cursor=getQuery();
   if (cursor != null && cursor.getCount() > 0) {
     column_index_data=cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
     column_index_date=cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_MODIFIED);
     column_index_folder_name=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
+    Log.d(TAG,"init scan ok - starting scan iterations");
+    inited=true;
     self().send(new Scan());
   }
  else {
-    schedule(new InitScan(),1000);
+    Log.d(TAG,"init scan - no media, let's check it in " + CHECK_NEW_DELAY);
+    schedule(new InitScan(),CHECK_NEW_DELAY);
   }
 }
