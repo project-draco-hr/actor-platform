@@ -61,7 +61,10 @@ smilesPackView.update();
 );
 }
  else {
-itemView=new StickersView(container.getContext(),emojiKeyboard);
+if (stickersView == null) {
+stickersView=new StickersView(container.getContext(),emojiKeyboard);
+}
+itemView=stickersView;
 }
 container.addView(itemView,0);
 return itemView;

@@ -1,2 +1,3 @@
 Collection<GroupMember> members
 Context context
+GroupInfoFragment fragment

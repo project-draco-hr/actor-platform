@@ -1,4 +1,5 @@
 {
   super(context);
+  this.fragment=fragment;
   this.members=members.toArray(new GroupMember[0]);
 }

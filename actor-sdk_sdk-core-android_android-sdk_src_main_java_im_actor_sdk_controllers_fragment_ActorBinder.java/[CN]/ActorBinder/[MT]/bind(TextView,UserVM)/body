@@ -12,6 +12,9 @@
  else {
         textView.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
       }
+      if (user.isBot()) {
+        s=textView.getContext().getString(R.string.members_adapter_bot_online_status);
+      }
       textView.setText(s);
     }
   }

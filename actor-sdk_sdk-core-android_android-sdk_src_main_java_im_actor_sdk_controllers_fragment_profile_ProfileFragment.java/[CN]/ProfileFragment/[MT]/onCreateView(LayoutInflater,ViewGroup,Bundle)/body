@@ -11,7 +11,7 @@
   bind(nameText,user.getName());
   final TextView lastSeen=(TextView)res.findViewById(R.id.lastSeen);
   lastSeen.setTextColor(style.getProfileSubtitleColor());
-  bind(lastSeen,lastSeen,user);
+  bind(lastSeen,user);
   boolean nickVisible=false;
   boolean aboutVivisbe=false;
   final FrameLayout about=(FrameLayout)res.findViewById(R.id.about);

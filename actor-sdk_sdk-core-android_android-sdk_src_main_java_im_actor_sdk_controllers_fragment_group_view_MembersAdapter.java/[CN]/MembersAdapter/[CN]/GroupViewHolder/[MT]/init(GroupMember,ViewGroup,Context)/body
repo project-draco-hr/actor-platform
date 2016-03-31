@@ -5,10 +5,8 @@
   avatarView.init(Screen.dp(42),24);
   admin=res.findViewById(R.id.adminFlag);
   online=(TextView)res.findViewById(R.id.online);
-  lastSeen=(TextView)res.findViewById(R.id.lastSeen);
   ((TextView)admin).setTextColor(ActorSDK.sharedActor().style.getGroupAdminColor());
   ((TextView)res.findViewById(R.id.name)).setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
   res.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
-  this.context=context;
   return res;
 }

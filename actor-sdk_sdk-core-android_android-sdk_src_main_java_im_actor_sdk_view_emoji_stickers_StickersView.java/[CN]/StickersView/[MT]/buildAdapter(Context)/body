@@ -1,7 +1,7 @@
 {
   GridLayoutManager layoutManager=new GridLayoutManager(context,Screen.getWidth() / Screen.dp(70));
   setLayoutManager(layoutManager);
-  StickersAdapter stickersAdapter=new StickersAdapter(keyboard,this);
+  stickersAdapter=new StickersAdapter(keyboard,this);
   setAdapter(stickersAdapter);
   RecyclerView packSwitch=new RecyclerView(context);
   LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context,HORIZONTAL,false);

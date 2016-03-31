@@ -8,7 +8,7 @@
     }
     bind(barAvatar,user.getId(),user.getAvatar(),user.getName());
     bind(barTitle,user.getName());
-    bind(barSubtitle,barSubtitleContainer,user);
+    bind(barSubtitle,user);
     bindPrivateTyping(barTyping,barTypingContainer,barSubtitle,messenger().getTyping(user.getId()));
     removedFromGroup.setVisibility(View.GONE);
   }
