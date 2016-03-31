@@ -2,6 +2,9 @@
   if (isMentionsVisible) {
     hideMentions();
   }
+ else   if (isShareVisible) {
+    hideShare();
+  }
  else   if (emojiKeyboard.isShowing()) {
     emojiKeyboard.dismiss();
   }

@@ -4,4 +4,9 @@
       startCamera();
     }
   }
+ else   if (requestCode == PERMISSION_REQ_MEDIA) {
+    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+      showShareChecked();
+    }
+  }
 }

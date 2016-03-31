@@ -1,14 +1,3 @@
 {
-  if (s.length() > 0) {
-    sendButton.setTint(ActorSDK.sharedActor().style.getConvSendEnabledColor());
-    sendButton.setEnabled(true);
-    zoomInView(sendButton);
-    zoomOutView(audioButton);
-  }
- else {
-    sendButton.setTint(ActorSDK.sharedActor().style.getConvSendDisabledColor());
-    sendButton.setEnabled(false);
-    zoomInView(audioButton);
-    zoomOutView(sendButton);
-  }
+  checkSendButton(s.length() > 0);
 }

@@ -10,4 +10,5 @@
   hideShare();
   quoteText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_editor_format_quote_gray),null,null,null);
   showView(quoteContainer);
+  checkSendButton();
 }

@@ -61,6 +61,7 @@
         messageEditText.setText("");
       }
       textEditing=false;
+      checkSendButton();
     }
   }
 );

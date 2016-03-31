@@ -1,0 +1,3 @@
+{
+  checkSendButton(messageEditText.getText().length() > 0);
+}

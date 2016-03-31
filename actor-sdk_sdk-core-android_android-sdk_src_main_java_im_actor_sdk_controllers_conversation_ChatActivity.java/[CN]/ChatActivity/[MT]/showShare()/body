@@ -1,29 +1,13 @@
 {
-  if (animationInProgress) {
-    return;
-  }
-  if (animationListener == null) {
-    animationListener=new Animation.AnimationListener(){
-      @Override public void onAnimationStart(      Animation animation){
-        animationInProgress=true;
-      }
-      @Override public void onAnimationEnd(      Animation animation){
-        animationInProgress=false;
-      }
-      @Override public void onAnimationRepeat(      Animation animation){
-      }
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    if (ContextCompat.checkSelfPermission(ChatActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(ChatActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},PERMISSION_REQ_MEDIA);
     }
-;
+ else {
+      showShareChecked();
+    }
   }
-  TranslateAnimation animation=new TranslateAnimation(0,0,Screen.getHeight(),0);
-  animation.setDuration(160);
-  animation.setAnimationListener(animationListener);
-  shareMenu.clearAnimation();
-  shareMenu.setAnimation(animation);
-  shareMenu.animate();
-  shareMenu.setVisibility(View.VISIBLE);
-  isShareVisible=true;
-  if (ActorSDK.sharedActor().isFastShareEnabled()) {
-    messenger().getGalleryScannerActor().send(new GalleryScannerActor.Show());
+ else {
+    showShareChecked();
   }
 }

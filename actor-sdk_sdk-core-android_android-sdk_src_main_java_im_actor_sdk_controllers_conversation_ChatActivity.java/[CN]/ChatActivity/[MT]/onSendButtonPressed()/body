@@ -36,6 +36,7 @@
     }
 );
     goneView(quoteContainer);
+    checkSendButton();
     textEditing=false;
   }
  else {
