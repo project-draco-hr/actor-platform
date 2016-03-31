@@ -1,3 +1,5 @@
 {
-  binder.unbindAll();
+  if (binder != null) {
+    binder.unbindAll();
+  }
 }

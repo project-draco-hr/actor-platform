@@ -1,3 +1,5 @@
 {
-  mEmojisAdapter.release();
+  if (mEmojisAdapter != null) {
+    mEmojisAdapter.release();
+  }
 }

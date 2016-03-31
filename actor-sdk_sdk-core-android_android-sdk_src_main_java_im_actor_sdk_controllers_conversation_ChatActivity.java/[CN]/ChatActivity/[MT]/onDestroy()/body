@@ -4,4 +4,7 @@
     fastShareAdapter.release();
     fastShareAdapter=null;
   }
+  if (barAvatar != null) {
+    barAvatar.unbind();
+  }
 }

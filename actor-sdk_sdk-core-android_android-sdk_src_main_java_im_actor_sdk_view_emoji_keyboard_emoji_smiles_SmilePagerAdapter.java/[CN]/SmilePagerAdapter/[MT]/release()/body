@@ -1,3 +1,5 @@
 {
-  stickersView.relesase();
+  if (stickersView != null) {
+    stickersView.relesase();
+  }
 }

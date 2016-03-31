@@ -1,3 +1,5 @@
 {
-  stickersAdapter.release();
+  if (stickersAdapter != null) {
+    stickersAdapter.release();
+  }
 }

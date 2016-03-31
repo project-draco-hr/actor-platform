@@ -3,7 +3,4 @@
   voiceRecordActor.send(PoisonPill.INSTANCE);
   AudioHolder.stopPlaying();
   messenger().saveDraft(peer,messageEditText.getText().toString());
-  if (barAvatar != null) {
-    barAvatar.unbind();
-  }
 }
