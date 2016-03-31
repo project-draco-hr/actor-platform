@@ -1,8 +1,8 @@
 {
   this.keyboard=keyboard;
   this.recyclerView=recyclerView;
-  vm=messenger().getAvailableStickersVM();
-  vm.getOwnStickerPacks().subscribe(new ValueChangedListener<ArrayList<StickerPack>>(){
+  binder=new ActorBinder();
+  binder.bind(messenger().getAvailableStickersVM().getOwnStickerPacks(),new ValueChangedListener<ArrayList<StickerPack>>(){
     @Override public void onChanged(    ArrayList<StickerPack> val,    Value<ArrayList<StickerPack>> valueModel){
       stickers.clear();
       for (      StickerPack pack : val) {
