@@ -1,7 +1,7 @@
 {
   user=users().get(data.getUid());
   ActorSDK.sharedActor().getMessenger().onUserVisible(data.getUid());
-  onlineBinding=fragment.bind(online,user);
+  onlineBinding=fragment.bindOnline(online,user);
   avatarView.bind(user);
   userName.setText(user.getName().get());
   if (data.isAdministrator()) {

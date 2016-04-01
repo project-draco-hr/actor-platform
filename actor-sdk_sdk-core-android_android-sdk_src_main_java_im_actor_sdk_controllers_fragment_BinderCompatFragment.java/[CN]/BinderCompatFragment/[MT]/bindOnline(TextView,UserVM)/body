@@ -1,0 +1,3 @@
+{
+  return BINDER.bindOnline(textView,user);
+}
