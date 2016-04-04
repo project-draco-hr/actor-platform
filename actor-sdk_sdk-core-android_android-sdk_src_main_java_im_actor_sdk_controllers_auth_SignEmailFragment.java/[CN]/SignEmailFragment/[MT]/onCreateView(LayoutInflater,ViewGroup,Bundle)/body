@@ -1,0 +1,11 @@
+{
+  View v=inflater.inflate(R.layout.fragment_sign_email,container,false);
+  TextView buttonCotinueText=(TextView)v.findViewById(R.id.button_continue_text);
+  StateListDrawable states=SelectorFactory.get(ActorSDK.sharedActor().style.getMainColor(),getActivity());
+  buttonCotinueText.setBackgroundDrawable(states);
+  buttonCotinueText.setTypeface(Fonts.medium());
+  buttonCotinueText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryInvColor());
+  keyboardHelper=new KeyboardHelper(getActivity());
+  initView(v);
+  return v;
+}

@@ -1,0 +1,2 @@
+Promise<AuthCodeRes> promise
+String code

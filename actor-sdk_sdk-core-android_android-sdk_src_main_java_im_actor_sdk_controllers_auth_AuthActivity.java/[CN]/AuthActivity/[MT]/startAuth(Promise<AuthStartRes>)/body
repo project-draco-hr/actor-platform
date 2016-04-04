@@ -1,0 +1,30 @@
+{
+  showProgress();
+  res.then(new Consumer<AuthStartRes>(){
+    @Override public void apply(    AuthStartRes authStartRes){
+      if (dismissProgress()) {
+        transactionHash=authStartRes.getTransactionHash();
+        isRegistered=authStartRes.isRegistered();
+switch (authStartRes.getAuthMode()) {
+case OTP:
+switch (currentAuthType) {
+case AUTH_TYPE_PHONE:
+            updateState(AuthState.CODE_VALIDATION_PHONE);
+          break;
+case AUTH_TYPE_EMAIL:
+        updateState(AuthState.CODE_VALIDATION_EMAIL);
+      break;
+  }
+break;
+default :
+}
+}
+}
+}
+).failure(new Consumer<Exception>(){
+@Override public void apply(Exception e){
+handleAuthError(e);
+}
+}
+).done(authActor);
+}

@@ -12,8 +12,9 @@
   ((TextView)v.findViewById(R.id.button_edit_phone)).setTextColor(ActorSDK.sharedActor().style.getMainColor());
   TextView sendHint=(TextView)v.findViewById(R.id.sendHint);
   sendHint.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  String authId=getArguments().getString("authId","");
   if (authType.equals(AUTH_TYPE_PHONE)) {
-    String phoneNumber="+" + messenger().getAuthPhone();
+    String phoneNumber="+" + authId;
     try {
       Phonenumber.PhoneNumber number=PhoneNumberUtil.getInstance().parse(phoneNumber,null);
       phoneNumber=PhoneNumberUtil.getInstance().format(number,PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
@@ -24,12 +25,7 @@
     sendHint.setText(Html.fromHtml(getString(R.string.auth_code_phone_hint).replace("{0}","<b>" + phoneNumber + "</b>")));
   }
  else   if (authType.equals(AUTH_TYPE_EMAIL)) {
-    String email=messenger().getAuthEmail();
-    sendHint.setText(Html.fromHtml(getString(R.string.auth_code_email_hint).replace("{0}","<b>" + email + "</b>")));
-  }
- else {
-    String authId=getArguments().getString("authId");
-    sendHint.setText(Html.fromHtml(getArguments().getString("authHint")));
+    sendHint.setText(Html.fromHtml(getString(R.string.auth_code_email_hint).replace("{0}","<b>" + authId + "</b>")));
   }
   codeEnterEditText=(EditText)v.findViewById(R.id.et_sms_code_enter);
   codeEnterEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
@@ -69,8 +65,12 @@
     @Override public void onClick(    View v){
       new AlertDialog.Builder(getActivity()).setMessage(authType.equals(AUTH_TYPE_EMAIL) ? R.string.auth_code_email_change : R.string.auth_code_phone_change).setPositiveButton(R.string.auth_code_change_yes,new DialogInterface.OnClickListener(){
         @Override public void onClick(        DialogInterface dialog,        int which){
-          messenger().resetAuth();
-          updateState();
+          if (authType.equals(AUTH_TYPE_EMAIL)) {
+            switchToEmail();
+          }
+ else           if (authType.equals(AUTH_TYPE_PHONE)) {
+            switchToPhone();
+          }
         }
       }
 ).setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){

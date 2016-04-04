@@ -1,0 +1,4 @@
+{
+  AuthActivity activity=(AuthActivity)getActivity();
+  activity.validateCode(messenger().doValidateCode(code,activity.getTransactionHash()),code);
+}

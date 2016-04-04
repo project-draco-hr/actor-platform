@@ -1,0 +1,98 @@
+{
+  runOnUiThread(new Runnable(){
+    @Override public void run(){
+      if (dismissProgress()) {
+        boolean canTryAgain=false;
+        String message=getString(R.string.error_unknown);
+        String tag="UNKNOWN";
+        if (e instanceof RpcException) {
+          RpcException re=(RpcException)e;
+          tag=re.getTag();
+          if (re instanceof RpcInternalException) {
+            message=getString(R.string.error_unknown);
+            canTryAgain=true;
+          }
+ else           if (re instanceof RpcTimeoutException) {
+            message=getString(R.string.error_connection);
+            canTryAgain=true;
+          }
+ else {
+            if ("PHONE_CODE_EXPIRED".equals(re.getTag())) {
+              message=getString(R.string.auth_error_code_expired);
+              canTryAgain=false;
+            }
+ else             if ("PHONE_CODE_INVALID".equals(re.getTag())) {
+              message=getString(R.string.auth_error_code_invalid);
+              canTryAgain=false;
+            }
+ else             if ("FAILED_GET_OAUTH2_TOKEN".equals(re.getTag())) {
+              message=getString(R.string.auth_error_failed_get_oauth2_token);
+              canTryAgain=false;
+            }
+ else {
+              message=re.getMessage();
+              canTryAgain=re.isCanTryAgain();
+            }
+          }
+        }
+        try {
+          if (canTryAgain) {
+            new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_try_again,new DialogInterface.OnClickListener(){
+              @Override public void onClick(              DialogInterface dialog,              int which){
+                dismissAlert();
+switch (state) {
+case AUTH_EMAIL:
+case AUTH_PHONE:
+switch (currentAuthType) {
+case AUTH_TYPE_PHONE:
+                    startAuth(messenger().doStartPhoneAuth(currentPhone));
+                  break;
+case AUTH_TYPE_EMAIL:
+                startAuth(messenger().doStartEmailAuth(currentEmail));
+              break;
+          }
+        break;
+case CODE_VALIDATION_EMAIL:
+case CODE_VALIDATION_PHONE:
+      validateCode(messenger().doValidateCode(currentCode,transactionHash),currentCode);
+    break;
+case SIGN_UP:
+  signUp(messenger().doSignup(currentName,currentSex,transactionHash),currentName,currentSex);
+break;
+}
+}
+}
+).setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
+@Override public void onClick(DialogInterface dialog,int which){
+dismissAlert();
+updateState(AuthState.AUTH_START);
+}
+}
+).setCancelable(false).show().setCanceledOnTouchOutside(false);
+}
+ else {
+new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
+@Override public void onClick(DialogInterface dialog,int which){
+dismissAlert();
+if (currentAuthType == AUTH_TYPE_EMAIL) {
+switchToEmailAuth();
+}
+ else if (currentAuthType == AUTH_TYPE_PHONE) {
+switchToPhoneAuth();
+}
+ else {
+updateState(AuthState.AUTH_START);
+}
+}
+}
+).setCancelable(false).show().setCanceledOnTouchOutside(false);
+}
+}
+ catch (Exception ex) {
+ex.printStackTrace();
+}
+}
+}
+}
+);
+}

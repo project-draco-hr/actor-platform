@@ -6,24 +6,37 @@
   this.state=state;
 switch (state) {
 case AUTH_START:
-    signFragment=ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),new SignPhoneFragment(),BaseAuthFragment.class);
-  if (signFragment instanceof SignPhoneFragment) {
-    authType=AUTH_TYPE_PHONE;
-  }
+    availableAuthType=ActorSDK.sharedActor().getAuthType();
+  BaseAuthFragment baseAuthFragment;
+AuthState authState;
+if ((availableAuthType & AUTH_TYPE_PHONE) == AUTH_TYPE_PHONE) {
+baseAuthFragment=new SignPhoneFragment();
+authState=AuthState.AUTH_PHONE;
+}
+ else if ((availableAuthType & AUTH_TYPE_EMAIL) == AUTH_TYPE_EMAIL) {
+baseAuthFragment=new SignEmailFragment();
+authState=AuthState.AUTH_EMAIL;
+}
  else {
-    authType=AUTH_TYPE_CUSTOM;
-  }
-showFragment(signFragment,false,false);
+return;
+}
+signFragment=ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),baseAuthFragment,BaseAuthFragment.class);
+updateState(authState);
 break;
 case AUTH_PHONE:
-signFragment=new SignPhoneFragment();
+currentAuthType=AUTH_TYPE_PHONE;
 showFragment(signFragment,false,false);
-authType=AUTH_TYPE_PHONE;
+break;
+case AUTH_EMAIL:
+currentAuthType=AUTH_TYPE_EMAIL;
+showFragment(signFragment,false,false);
 break;
 case CODE_VALIDATION_PHONE:
+case CODE_VALIDATION_EMAIL:
 Fragment signInFragment=new SignInFragment();
 Bundle args=new Bundle();
-args.putString("authType",SignInFragment.AUTH_TYPE_PHONE);
+args.putString("authType",state == AuthState.CODE_VALIDATION_EMAIL ? SignInFragment.AUTH_TYPE_EMAIL : SignInFragment.AUTH_TYPE_PHONE);
+args.putString("authId",state == AuthState.CODE_VALIDATION_EMAIL ? currentEmail : Long.toString(currentPhone));
 signInFragment.setArguments(args);
 showFragment(signInFragment,false,false);
 break;

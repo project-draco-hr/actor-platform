@@ -1,0 +1,26 @@
+{
+  currentName=name;
+  currentSex=sex;
+  promise.then(new Consumer<AuthRes>(){
+    @Override public void apply(    AuthRes authRes){
+      dismissProgress();
+      messenger().doCompleteAuth(authRes).then(new Consumer<Boolean>(){
+        @Override public void apply(        Boolean aBoolean){
+          updateState(AuthState.LOGGED_IN);
+        }
+      }
+).failure(new Consumer<Exception>(){
+        @Override public void apply(        Exception e){
+          handleAuthError(e);
+        }
+      }
+).done(authActor);
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      handleAuthError(e);
+    }
+  }
+).done(authActor).done(authActor);
+}

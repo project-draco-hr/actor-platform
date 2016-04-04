@@ -1,0 +1,10 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putLong("currentPhone",currentPhone);
+  outState.putString("currentEmail",currentEmail);
+  outState.putString("transactionHash",transactionHash);
+  outState.putString("currentCode",currentCode);
+  outState.putBoolean("isRegistered",isRegistered);
+  outState.putString("currentName",currentName);
+  outState.putString("state",state.toString());
+}

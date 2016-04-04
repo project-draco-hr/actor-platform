@@ -1,0 +1,8 @@
+{
+  dismissProgress();
+  progressDialog=new ProgressDialog(this);
+  progressDialog.setCanceledOnTouchOutside(false);
+  progressDialog.setCancelable(false);
+  progressDialog.setTitle(getString(R.string.progress_common));
+  progressDialog.show();
+}

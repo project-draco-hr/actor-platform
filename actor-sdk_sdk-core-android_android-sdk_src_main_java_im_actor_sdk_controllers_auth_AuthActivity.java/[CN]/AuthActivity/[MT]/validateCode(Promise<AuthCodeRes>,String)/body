@@ -1,0 +1,33 @@
+{
+  currentCode=code;
+  showProgress();
+  promise.then(new Consumer<AuthCodeRes>(){
+    @Override public void apply(    AuthCodeRes authCodeRes){
+      if (dismissProgress()) {
+        transactionHash=authCodeRes.getTransactionHash();
+        if (!authCodeRes.isNeedToSignup()) {
+          messenger().doCompleteAuth(authCodeRes.getResult()).then(new Consumer<Boolean>(){
+            @Override public void apply(            Boolean aBoolean){
+              updateState(AuthState.LOGGED_IN);
+            }
+          }
+).failure(new Consumer<Exception>(){
+            @Override public void apply(            Exception e){
+              handleAuthError(e);
+            }
+          }
+).done(authActor);
+        }
+ else {
+          updateState(AuthState.SIGN_UP);
+        }
+      }
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      handleAuthError(e);
+    }
+  }
+).done(authActor);
+}

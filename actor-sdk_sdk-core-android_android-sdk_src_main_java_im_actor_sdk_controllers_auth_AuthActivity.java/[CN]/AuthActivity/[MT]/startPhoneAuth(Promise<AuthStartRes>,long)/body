@@ -1,0 +1,4 @@
+{
+  currentPhone=phone;
+  startAuth(promise);
+}

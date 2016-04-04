@@ -1,0 +1,3 @@
+Promise<AuthRes> promise
+String name
+Sex sex

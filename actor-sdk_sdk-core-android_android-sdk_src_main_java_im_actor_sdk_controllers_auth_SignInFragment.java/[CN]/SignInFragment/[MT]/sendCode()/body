@@ -1,6 +1,6 @@
 {
   String text=codeEnterEditText.getText().toString().trim();
   if (text.length() > 0) {
-    executeAuth(messenger().validateCode(text),"Send Code");
+    validateCode(text);
   }
 }

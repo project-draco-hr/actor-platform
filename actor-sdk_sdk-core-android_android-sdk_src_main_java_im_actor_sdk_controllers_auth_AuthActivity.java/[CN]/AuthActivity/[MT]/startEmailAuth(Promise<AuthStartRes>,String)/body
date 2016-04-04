@@ -1,0 +1,4 @@
+{
+  currentEmail=email;
+  startAuth(promise);
+}

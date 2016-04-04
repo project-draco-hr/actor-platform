@@ -1,0 +1,5 @@
+{
+  AuthActivity activity=(AuthActivity)getActivity();
+  Promise<AuthRes> promise=messenger().doSignup(name,sex,activity.getTransactionHash());
+  ((AuthActivity)getActivity()).signUp(promise,name,sex);
+}

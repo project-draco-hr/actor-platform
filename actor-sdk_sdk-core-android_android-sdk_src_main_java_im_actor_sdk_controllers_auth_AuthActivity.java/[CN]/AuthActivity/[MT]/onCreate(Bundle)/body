@@ -1,7 +1,23 @@
 {
   super.onCreate(savedInstanceState);
+  authActor=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
+    @Override public Actor create(){
+      return new Actor();
+    }
+  }
+),"actor/auth_promises_actor");
   signType=getIntent().getIntExtra(SIGN_TYPE_KEY,SIGN_TYPE_IN);
   if (savedInstanceState == null) {
-    updateState();
+    updateState(AuthState.AUTH_START);
+  }
+ else {
+    currentPhone=savedInstanceState.getLong("currentPhone",0);
+    currentEmail=savedInstanceState.getString("currentEmail");
+    transactionHash=savedInstanceState.getString("transactionHash");
+    currentCode=savedInstanceState.getString("currentCode");
+    isRegistered=savedInstanceState.getBoolean("isRegistered",false);
+    currentName=savedInstanceState.getString("currentName");
+    state=Enum.valueOf(AuthState.class,savedInstanceState.getString("state","AUTH_START"));
+    updateState(state);
   }
 }

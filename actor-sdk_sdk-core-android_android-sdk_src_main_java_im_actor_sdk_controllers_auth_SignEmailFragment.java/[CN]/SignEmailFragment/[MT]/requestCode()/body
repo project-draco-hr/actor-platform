@@ -1,0 +1,9 @@
+{
+  final String ACTION="Request code email";
+  if (emailEditText.getText().toString().trim().length() == 0) {
+    new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_email).setPositiveButton(R.string.dialog_ok,null).show();
+    return;
+  }
+  rawEmail=emailEditText.getText().toString();
+  startEmailAuth(rawEmail);
+}

@@ -1,0 +1,4 @@
+{
+  signFragment=ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),new SignEmailFragment(),BaseAuthFragment.class);
+  updateState(AuthState.AUTH_EMAIL);
+}
