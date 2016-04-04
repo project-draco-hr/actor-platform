@@ -2,7 +2,12 @@
   if (messagesAdapter != null) {
     messagesAdapter.setFirstUnread(unreadId);
   }
-  if (index > 0) {
+  RecyclerView.LayoutManager layoutManager=getCollection().getLayoutManager();
+  if (index > 0 && layoutManager != null && layoutManager instanceof ChatLinearLayoutManager) {
+    if (layoutManager != null) {
+      ((ChatLinearLayoutManager)layoutManager).setStackFromEnd(false);
+      ((ChatLinearLayoutManager)layoutManager).scrollToPositionWithOffset(index + 1,Screen.dp(64));
+    }
   }
  else   if (getCollection() != null) {
     getCollection().scrollToPosition(0);
