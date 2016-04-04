@@ -6,26 +6,18 @@
   preferences().putLong(OUT_READ_STATE_PREF,date);
   List<Long> res=outPendingIndex.removeBeforeValue(date);
   if (res.size() > 0) {
-    long minRid=-1;
-    long minDate=Long.MAX_VALUE;
-    ArrayList<Message> updated=new ArrayList<Message>();
+    ArrayList<Message> updated=new ArrayList<>();
     for (    Long ref : res) {
       Message msg=messages.getValue(ref);
       if (msg != null && msg.isReceivedOrSent()) {
-        if (msg.getDate() < minDate) {
-          minDate=msg.getDate();
-          minRid=ref;
-        }
         updated.add(msg.changeState(MessageState.READ));
       }
     }
     if (updated.size() > 0) {
       messages.addOrUpdateItems(updated);
     }
-    if (minRid != -1) {
-      if (!isHiddenPeer) {
-        dialogsActor.send(new DialogsActor.MessageStateChanged(peer,minRid,MessageState.READ));
-      }
-    }
+  }
+  if (!isHiddenPeer) {
+    dialogsActor.send(new DialogsActor.PeerReadChanged(peer,date));
   }
 }

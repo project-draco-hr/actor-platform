@@ -1,6 +1,0 @@
-{
-  Dialog dialog=dialogs.getValue(peer.getUnuqueId());
-  if (dialog != null && dialog.getRid() == rid) {
-    addOrUpdateItem(new DialogBuilder(dialog).setStatus(state).createDialog());
-  }
-}

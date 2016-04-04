@@ -1,5 +1,0 @@
-{
-  MessageShownEvent c=(MessageShownEvent)current.getObject();
-  MessageShownEvent n=(MessageShownEvent)next.getObject();
-  return c.getSortDate() < n.getSortDate();
-}

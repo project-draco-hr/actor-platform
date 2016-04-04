@@ -1,0 +1,6 @@
+{
+  Dialog dialog=dialogs.getValue(peer.getUnuqueId());
+  if (dialog != null) {
+    addOrUpdateItem(new DialogBuilder(dialog).updateKnownReadDate(date).createDialog());
+  }
+}

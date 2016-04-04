@@ -13,9 +13,13 @@
  else   if (message instanceof ChatDelete) {
     onChatDeleted(((ChatDelete)message).getPeer());
   }
- else   if (message instanceof MessageStateChanged) {
-    MessageStateChanged messageStateChanged=(MessageStateChanged)message;
-    onMessageStatusChanged(messageStateChanged.getPeer(),messageStateChanged.getRid(),messageStateChanged.getState());
+ else   if (message instanceof PeerReadChanged) {
+    PeerReadChanged peerReadChanged=(PeerReadChanged)message;
+    onPeerRead(peerReadChanged.getPeer(),peerReadChanged.getDate());
+  }
+ else   if (message instanceof PeerReceiveChanged) {
+    PeerReceiveChanged peerReceiveChanged=(PeerReceiveChanged)message;
+    onPeerReceive(peerReceiveChanged.getPeer(),peerReceiveChanged.getDate());
   }
  else   if (message instanceof MessageDeleted) {
     MessageDeleted deleted=(MessageDeleted)message;

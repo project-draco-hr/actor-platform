@@ -6,9 +6,6 @@
     if (updatedMsg.getContent() instanceof DocumentContent) {
       docs.addOrUpdateItem(updatedMsg);
     }
-    if (!isHiddenPeer) {
-      dialogsActor.send(new DialogsActor.MessageStateChanged(peer,rid,MessageState.ERROR));
-    }
     if (dialogsGroupedActor != null) {
       dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
     }

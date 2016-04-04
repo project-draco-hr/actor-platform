@@ -1,6 +1,6 @@
 {
   peer=Peer.fromBytes(values.getBytes(1));
-  dialogTitle=values.getString(2);
+  dialogTitle=StringUtil.ellipsize(values.getString(2),MAX_LENGTH);
   byte[] av=values.optBytes(3);
   if (av != null) {
     dialogAvatar=new Avatar(av);
@@ -11,10 +11,8 @@
   senderId=values.getInt(7);
   date=values.getLong(8);
   messageType=ContentType.fromValue(values.getInt(9));
-  text=values.getString(10);
-  if (text.length() > MAX_LENGTH) {
-    text=text.substring(0,MAX_LENGTH) + "...";
-  }
-  status=MessageState.fromValue(values.getInt(11));
+  text=StringUtil.ellipsize(values.getString(10),MAX_LENGTH);
   relatedUid=values.getInt(12);
+  knownReceiveDate=values.optLong(13);
+  knownReadDate=values.optLong(14);
 }

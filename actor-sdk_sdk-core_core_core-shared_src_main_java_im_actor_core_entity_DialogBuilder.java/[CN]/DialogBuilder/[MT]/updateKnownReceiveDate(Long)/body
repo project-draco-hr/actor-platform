@@ -1,0 +1,6 @@
+{
+  if (knownReceiveDate != null && (this.knownReceiveDate == null || this.knownReceiveDate < knownReceiveDate)) {
+    this.knownReceiveDate=knownReceiveDate;
+  }
+  return this;
+}

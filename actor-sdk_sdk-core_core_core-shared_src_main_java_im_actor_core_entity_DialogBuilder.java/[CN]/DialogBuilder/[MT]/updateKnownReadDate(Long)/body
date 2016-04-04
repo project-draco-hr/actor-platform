@@ -1,0 +1,6 @@
+{
+  if (knownReadDate != null && (this.knownReadDate == null || this.knownReadDate < knownReadDate)) {
+    this.knownReadDate=knownReadDate;
+  }
+  return this;
+}

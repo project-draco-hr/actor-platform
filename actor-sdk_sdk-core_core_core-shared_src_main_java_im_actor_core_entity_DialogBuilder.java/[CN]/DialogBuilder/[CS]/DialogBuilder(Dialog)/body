@@ -7,8 +7,9 @@
   rid=dialog.getRid();
   messageType=dialog.getMessageType();
   text=dialog.getText();
-  status=dialog.getStatus();
   senderId=dialog.getSenderId();
   time=dialog.getDate();
   relatedUid=dialog.getRelatedUid();
+  knownReadDate=dialog.getKnownReadDate();
+  knownReceiveDate=dialog.getKnownReceiveDate();
 }
