@@ -1,0 +1,7 @@
+String titleText
+String valueText
+int resourceId
+boolean isFirst
+boolean isLast
+LayoutInflater inflater
+ViewGroup container

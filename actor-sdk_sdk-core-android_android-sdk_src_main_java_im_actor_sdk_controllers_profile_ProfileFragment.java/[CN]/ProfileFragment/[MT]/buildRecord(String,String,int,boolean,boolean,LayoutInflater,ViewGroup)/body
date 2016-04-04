@@ -1,0 +1,20 @@
+{
+  final View recordView=inflater.inflate(R.layout.contact_record,container,false);
+  TextView value=(TextView)recordView.findViewById(R.id.value);
+  TextView title=(TextView)recordView.findViewById(R.id.title);
+  title.setText(titleText);
+  title.setTextColor(style.getTextSecondaryColor());
+  value.setTextColor(style.getTextPrimaryColor());
+  value.setText(valueText);
+  if (!isLast) {
+    recordView.findViewById(R.id.divider).setVisibility(View.GONE);
+  }
+  if (resourceId != 0 && isFirst) {
+    ImageView iconView=(ImageView)recordView.findViewById(R.id.recordIcon);
+    Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(resourceId));
+    DrawableCompat.setTint(drawable,style.getSettingsIconColor());
+    iconView.setImageDrawable(drawable);
+  }
+  container.addView(recordView);
+  return recordView;
+}

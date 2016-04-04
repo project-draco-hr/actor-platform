@@ -1,0 +1,5 @@
+String titleText
+String valueText
+boolean isLast
+LayoutInflater inflater
+ViewGroup container

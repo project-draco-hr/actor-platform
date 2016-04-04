@@ -1,0 +1,10 @@
+{
+  if (avatar != null && avatar.getFullImage() != null) {
+    String downloadedDescriptor=messenger().findDownloadedDescriptor(avatar.getFullImage().getFileReference().getFileId());
+    if (downloadedDescriptor != null) {
+      setImageURI(Uri.fromFile(new File(downloadedDescriptor)));
+      return true;
+    }
+  }
+  return false;
+}

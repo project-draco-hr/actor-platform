@@ -1,0 +1,4 @@
+String titleText
+String valueText
+LayoutInflater inflater
+ViewGroup container

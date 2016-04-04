@@ -1,0 +1,170 @@
+{
+  final UserVM user=users().get(getArguments().getInt(EXTRA_UID));
+  ArrayList<UserPhone> phones=user.getPhones().get();
+  ArrayList<UserEmail> emails=user.getEmails().get();
+  String about=user.getAbout().get();
+  final String userName=user.getNick().get();
+  final View res=inflater.inflate(R.layout.fragment_profile,container,false);
+  res.findViewById(R.id.container).setBackgroundColor(style.getMainBackgroundColor());
+  avatarView=(CoverAvatarView)res.findViewById(R.id.avatar);
+  bind(avatarView,user.getAvatar());
+  avatarView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(ViewAvatarActivity.viewAvatar(user.getId(),getActivity()));
+    }
+  }
+);
+  FloatingActionButton fab=(FloatingActionButton)res.findViewById(R.id.profileAction);
+  fab.setColorNormal(style.getFabColor());
+  fab.setColorPressed(style.getFabPressedColor());
+  fab.setVisibility(View.VISIBLE);
+  fab.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(Intents.openPrivateDialog(user.getId(),true,getActivity()));
+    }
+  }
+);
+  TextView nameText=(TextView)res.findViewById(R.id.name);
+  nameText.setTextColor(style.getProfileTitleColor());
+  bind(nameText,user.getName());
+  TextView lastSeen=(TextView)res.findViewById(R.id.lastSeen);
+  lastSeen.setTextColor(style.getProfileSubtitleColor());
+  bind(lastSeen,user);
+  LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
+  boolean isFirstContact=true;
+  for (int i=0; i < phones.size(); i++) {
+    final UserPhone userPhone=phones.get(i);
+    String _phoneNumber;
+    try {
+      Phonenumber.PhoneNumber number=PhoneNumberUtil.getInstance().parse("+" + userPhone.getPhone(),"us");
+      _phoneNumber=PhoneNumberUtil.getInstance().format(number,PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
+    }
+ catch (    NumberParseException e) {
+      e.printStackTrace();
+      _phoneNumber="+" + userPhone.getPhone();
+    }
+    final String phoneNumber=_phoneNumber;
+    String phoneTitle=userPhone.getTitle();
+    if (phoneTitle.toLowerCase().equals("mobile phone")) {
+      phoneTitle=getString(R.string.settings_mobile_phone);
+    }
+    View view=buildRecord(phoneTitle,phoneNumber,R.drawable.ic_import_contacts_black_24dp,isFirstContact,false,inflater,contactsContainer);
+    view.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.phone_menu_call).replace("{0}",phoneNumber),getString(R.string.phone_menu_sms).replace("{0}",phoneNumber),getString(R.string.phone_menu_share).replace("{0}",phoneNumber),getString(R.string.phone_menu_copy)},new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            if (which == 0) {
+              startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:+" + userPhone.getPhone())));
+            }
+ else             if (which == 1) {
+              startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("sms:+" + userPhone.getPhone())));
+            }
+ else             if (which == 2) {
+              startActivity(new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT,getString(R.string.settings_share_text).replace("{0}",phoneNumber).replace("{1}",user.getName().get())));
+            }
+ else             if (which == 3) {
+              ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+              ClipData clip=ClipData.newPlainText("Phone number",phoneNumber);
+              clipboard.setPrimaryClip(clip);
+              Snackbar.make(res,R.string.toast_phone_copied,Snackbar.LENGTH_SHORT).show();
+            }
+          }
+        }
+).show().setCanceledOnTouchOutside(true);
+      }
+    }
+);
+    view.setOnLongClickListener(new View.OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip=ClipData.newPlainText("Phone number","+" + userPhone.getPhone());
+        clipboard.setPrimaryClip(clip);
+        Snackbar.make(res,R.string.toast_phone_copied,Snackbar.LENGTH_SHORT).show();
+        return true;
+      }
+    }
+);
+    isFirstContact=false;
+  }
+  for (int i=0; i < emails.size(); i++) {
+    final UserEmail userEmail=emails.get(i);
+    View view=buildRecord(userEmail.getTitle(),userEmail.getEmail(),R.drawable.ic_import_contacts_black_24dp,isFirstContact,false,inflater,contactsContainer);
+    view.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.email_menu_email).replace("{0}",userEmail.getEmail()),getString(R.string.phone_menu_copy)},new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            if (which == 0) {
+              startActivity(new Intent(Intent.ACTION_SENDTO,Uri.fromParts("mailto",userEmail.getEmail(),null)));
+            }
+ else             if (which == 1) {
+              ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+              ClipData clip=ClipData.newPlainText("Email",userEmail.getEmail());
+              clipboard.setPrimaryClip(clip);
+              Snackbar.make(res,R.string.toast_email_copied,Snackbar.LENGTH_SHORT).show();
+            }
+          }
+        }
+).show().setCanceledOnTouchOutside(true);
+      }
+    }
+);
+    view.setOnLongClickListener(new View.OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip=ClipData.newPlainText("Email","+" + userEmail.getEmail());
+        clipboard.setPrimaryClip(clip);
+        Snackbar.make(res,R.string.toast_email_copied,Snackbar.LENGTH_SHORT).show();
+        return true;
+      }
+    }
+);
+    isFirstContact=false;
+  }
+  if (userName != null) {
+    View view=buildRecord(getString(R.string.nickname),"@" + userName,R.drawable.ic_import_contacts_black_24dp,isFirstContact,true,inflater,contactsContainer);
+    view.setOnLongClickListener(new View.OnLongClickListener(){
+      @Override public boolean onLongClick(      View v){
+        ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip=ClipData.newPlainText("Nickname",userName);
+        clipboard.setPrimaryClip(clip);
+        Snackbar.make(res,"Copied",Snackbar.LENGTH_SHORT).show();
+        return true;
+      }
+    }
+);
+  }
+  if (about != null) {
+    buildRecordBig(about,R.drawable.ic_info_outline_black_24dp,true,true,inflater,contactsContainer);
+  }
+{
+    View notificationContainer=res.findViewById(R.id.notificationsCont);
+    ((TextView)notificationContainer.findViewById(R.id.settings_notifications_title)).setTextColor(style.getTextPrimaryColor());
+    final SwitchCompat notificationEnable=(SwitchCompat)res.findViewById(R.id.enableNotifications);
+    notificationEnable.setChecked(messenger().isNotificationsEnabled(Peer.user(user.getId())));
+    notificationEnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+      @Override public void onCheckedChanged(      CompoundButton buttonView,      boolean isChecked){
+        messenger().changeNotificationsEnabled(Peer.user(user.getId()),isChecked);
+      }
+    }
+);
+    notificationContainer.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        notificationEnable.setChecked(!notificationEnable.isChecked());
+      }
+    }
+);
+    ImageView iconView=(ImageView)res.findViewById(R.id.settings_notification_icon);
+    Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_list_black_24dp));
+    DrawableCompat.setTint(drawable,style.getSettingsIconColor());
+    iconView.setImageDrawable(drawable);
+  }
+  final ScrollView scrollView=((ScrollView)res.findViewById(R.id.scrollContainer));
+  scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener(){
+    @Override public void onScrollChanged(){
+      updateBar(scrollView.getScrollY());
+    }
+  }
+);
+  updateBar(scrollView.getScrollY());
+  return res;
+}

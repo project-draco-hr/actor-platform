@@ -1,0 +1,4 @@
+{
+  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+  setMeasuredDimension(getMeasuredWidth(),getResources().getDimensionPixelSize(R.dimen.div_size));
+}
