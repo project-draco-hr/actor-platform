@@ -1,0 +1,9 @@
+{
+  edittextToFill=et;
+  if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
+    requestPermissions(new String[]{Manifest.permission.GET_ACCOUNTS},PERMISSIONS_REQUEST_ACCOUNT);
+  }
+ else {
+    et.setText(getSuggestedEmailChecked());
+  }
+}
