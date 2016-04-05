@@ -14,16 +14,6 @@
     }
   }
 );
-  FloatingActionButton fab=(FloatingActionButton)res.findViewById(R.id.profileAction);
-  fab.setColorNormal(style.getFabColor());
-  fab.setColorPressed(style.getFabPressedColor());
-  fab.setVisibility(View.VISIBLE);
-  fab.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      startActivity(Intents.openPrivateDialog(user.getId(),true,getActivity()));
-    }
-  }
-);
   TextView nameText=(TextView)res.findViewById(R.id.name);
   nameText.setTextColor(style.getProfileTitleColor());
   bind(nameText,user.getName());
@@ -32,6 +22,20 @@
   bind(lastSeen,user);
   LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
   boolean isFirstContact=true;
+  buildRecordAction("Free Message",R.drawable.ic_chat_bubble_white_24dp,true,false,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(Intents.openPrivateDialog(user.getId(),true,getActivity()));
+    }
+  }
+);
+  if (ActorSDK.sharedActor().isCallsEnabled()) {
+    buildRecordAction("Free Call",R.drawable.ic_phone_white_24dp,true,true,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        execute(ActorSDK.sharedActor().getMessenger().doCall(user.getId()));
+      }
+    }
+);
+  }
   for (int i=0; i < phones.size(); i++) {
     final UserPhone userPhone=phones.get(i);
     String _phoneNumber;
