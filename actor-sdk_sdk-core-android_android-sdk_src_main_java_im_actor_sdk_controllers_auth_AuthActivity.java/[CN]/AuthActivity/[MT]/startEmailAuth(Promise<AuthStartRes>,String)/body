@@ -1,4 +1,5 @@
 {
+  currentAuthType=AUTH_TYPE_EMAIL;
   currentEmail=email;
   startAuth(promise);
 }

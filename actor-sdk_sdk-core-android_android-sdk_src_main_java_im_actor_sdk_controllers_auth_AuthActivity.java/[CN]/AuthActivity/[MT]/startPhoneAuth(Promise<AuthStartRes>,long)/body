@@ -1,4 +1,5 @@
 {
+  currentAuthType=AUTH_TYPE_PHONE;
   currentPhone=phone;
   startAuth(promise);
 }
