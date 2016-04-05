@@ -22,13 +22,14 @@
   bind(lastSeen,user);
   LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
   boolean isFirstContact=true;
-  buildRecordAction("Free Message",R.drawable.ic_chat_bubble_white_24dp,true,false,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
+  boolean showCalls=ActorSDK.sharedActor().isCallsEnabled() && !user.isBot();
+  buildRecordAction("Free Message",R.drawable.ic_chat_bubble_white_24dp,true,!showCalls,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(Intents.openPrivateDialog(user.getId(),true,getActivity()));
     }
   }
 );
-  if (ActorSDK.sharedActor().isCallsEnabled()) {
+  if (showCalls) {
     buildRecordAction("Free Call",R.drawable.ic_phone_white_24dp,true,true,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         execute(ActorSDK.sharedActor().getMessenger().doCall(user.getId()));
@@ -52,7 +53,7 @@
     if (phoneTitle.toLowerCase().equals("mobile phone")) {
       phoneTitle=getString(R.string.settings_mobile_phone);
     }
-    View view=buildRecord(phoneTitle,phoneNumber,R.drawable.ic_import_contacts_black_24dp,isFirstContact,false,inflater,contactsContainer);
+    View view=buildRecord(phoneTitle,phoneNumber,R.drawable.ic_import_contacts_black_24dp,isFirstContact,emails.size() == 0 && i == phones.size() - 1,inflater,contactsContainer);
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.phone_menu_call).replace("{0}",phoneNumber),getString(R.string.phone_menu_sms).replace("{0}",phoneNumber),getString(R.string.phone_menu_share).replace("{0}",phoneNumber),getString(R.string.phone_menu_copy)},new DialogInterface.OnClickListener(){
@@ -92,7 +93,7 @@
   }
   for (int i=0; i < emails.size(); i++) {
     final UserEmail userEmail=emails.get(i);
-    View view=buildRecord(userEmail.getTitle(),userEmail.getEmail(),R.drawable.ic_import_contacts_black_24dp,isFirstContact,false,inflater,contactsContainer);
+    View view=buildRecord(userEmail.getTitle(),userEmail.getEmail(),R.drawable.ic_import_contacts_black_24dp,isFirstContact,userName == null && i == emails.size() - 1,inflater,contactsContainer);
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         new AlertDialog.Builder(getActivity()).setItems(new CharSequence[]{getString(R.string.email_menu_email).replace("{0}",userEmail.getEmail()),getString(R.string.phone_menu_copy)},new DialogInterface.OnClickListener(){
