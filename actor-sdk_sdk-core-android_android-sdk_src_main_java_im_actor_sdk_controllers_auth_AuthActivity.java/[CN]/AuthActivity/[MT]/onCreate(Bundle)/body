@@ -17,6 +17,7 @@
     currentCode=savedInstanceState.getString("currentCode");
     isRegistered=savedInstanceState.getBoolean("isRegistered",false);
     currentName=savedInstanceState.getString("currentName");
+    signType=savedInstanceState.getInt("signType",SIGN_TYPE_UP);
     state=Enum.valueOf(AuthState.class,savedInstanceState.getString("state","AUTH_START"));
     updateState(state);
   }

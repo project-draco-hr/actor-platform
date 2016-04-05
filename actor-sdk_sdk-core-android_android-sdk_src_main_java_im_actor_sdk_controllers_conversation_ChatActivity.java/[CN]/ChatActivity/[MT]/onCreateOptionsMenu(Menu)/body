@@ -20,9 +20,16 @@
     menu.findItem(R.id.groupInfo).setVisible(false);
     menu.findItem(R.id.leaveGroup).setVisible(false);
   }
-  if (!ActorSDK.sharedActor().isCallsEnabled()) {
-    menu.findItem(R.id.call).setVisible(false);
+  boolean callsEnabled=ActorSDK.sharedActor().isCallsEnabled();
+  if (callsEnabled) {
+    if (peer.getPeerType() == PeerType.PRIVATE) {
+      callsEnabled=!users().get(peer.getPeerId()).isBot();
+    }
+ else     if (peer.getPeerType() == PeerType.GROUP) {
+      callsEnabled=groups().get(peer.getPeerId()).getMembersCount() <= MAX_USERS_FOR_CALLS;
+    }
   }
+  menu.findItem(R.id.call).setVisible(callsEnabled);
   menu.findItem(R.id.files).setVisible(false);
   return super.onCreateOptionsMenu(menu);
 }

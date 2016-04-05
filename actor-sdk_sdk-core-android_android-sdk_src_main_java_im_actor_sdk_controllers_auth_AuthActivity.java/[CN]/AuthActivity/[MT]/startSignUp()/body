@@ -1,0 +1,4 @@
+{
+  signType=SIGN_TYPE_UP;
+  updateState(AuthState.AUTH_START,true);
+}

@@ -34,7 +34,7 @@
     }
   }
 );
-  TextView switchToPhone=(TextView)v.findViewById(R.id.button_switch_to_phone);
+  Button switchToPhone=(Button)v.findViewById(R.id.button_switch_to_phone);
   switchToPhone.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
   onClick(switchToPhone,new View.OnClickListener(){
     @Override public void onClick(    View v){

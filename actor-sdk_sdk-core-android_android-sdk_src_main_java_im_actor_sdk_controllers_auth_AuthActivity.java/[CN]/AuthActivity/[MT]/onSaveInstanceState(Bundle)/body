@@ -6,5 +6,6 @@
   outState.putString("currentCode",currentCode);
   outState.putBoolean("isRegistered",isRegistered);
   outState.putString("currentName",currentName);
+  outState.putInt("signType",signType);
   outState.putString("state",state.toString());
 }

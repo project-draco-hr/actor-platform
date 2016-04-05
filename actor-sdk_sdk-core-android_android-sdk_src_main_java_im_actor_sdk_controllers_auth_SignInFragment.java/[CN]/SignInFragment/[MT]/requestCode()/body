@@ -1,0 +1,20 @@
+{
+  String message=getString(R.string.auth_error_wrong_auth_id);
+  if (signIdEditText.getText().toString().trim().length() == 0) {
+    new AlertDialog.Builder(getActivity()).setMessage(message).setPositiveButton(R.string.dialog_ok,null).show();
+    return;
+  }
+  String rawId=signIdEditText.getText().toString();
+  if (rawId.contains("@")) {
+    startEmailAuth(rawId);
+  }
+ else {
+    try {
+      startPhoneAuth(Long.parseLong(rawId.replace("+","")));
+    }
+ catch (    Exception e) {
+      new AlertDialog.Builder(getActivity()).setMessage(message).setPositiveButton(R.string.dialog_ok,null).show();
+      return;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  ((TextView)v.findViewById(R.id.sign_in_login_hint)).setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  signIdEditText=(EditText)v.findViewById(R.id.tv_sign_in);
+  signIdEditText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
+  signIdEditText.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+  signIdEditText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+    @Override public boolean onEditorAction(    TextView textView,    int id,    KeyEvent keyEvent){
+      if (id == EditorInfo.IME_ACTION_GO) {
+        requestCode();
+        return true;
+      }
+      return false;
+    }
+  }
+);
+  Button singUp=(Button)v.findViewById(R.id.button_sign_up);
+  singUp.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  onClick(singUp,new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startSignUp();
+    }
+  }
+);
+  onClick(v,R.id.button_continue,new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      requestCode();
+    }
+  }
+);
+}

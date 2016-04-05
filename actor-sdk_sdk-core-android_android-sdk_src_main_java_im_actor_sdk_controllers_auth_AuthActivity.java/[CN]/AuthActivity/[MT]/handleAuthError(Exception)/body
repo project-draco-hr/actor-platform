@@ -74,11 +74,19 @@ updateState(AuthState.AUTH_START);
 new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
 @Override public void onClick(DialogInterface dialog,int which){
 dismissAlert();
+if (signType == SIGN_TYPE_UP) {
 if (currentAuthType == AUTH_TYPE_EMAIL) {
 switchToEmailAuth();
 }
  else if (currentAuthType == AUTH_TYPE_PHONE) {
 switchToPhoneAuth();
+}
+ else {
+updateState(AuthState.AUTH_START);
+}
+}
+ else if (signType == SIGN_TYPE_IN) {
+startSignIn();
 }
  else {
 updateState(AuthState.AUTH_START);

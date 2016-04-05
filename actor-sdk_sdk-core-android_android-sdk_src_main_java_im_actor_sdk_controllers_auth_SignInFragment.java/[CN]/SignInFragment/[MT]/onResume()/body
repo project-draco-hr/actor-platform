@@ -1,6 +1,6 @@
 {
   super.onResume();
-  setTitle(R.string.auth_code_title);
-  keyboardHelper.setImeVisibility(codeEnterEditText,true);
-  focus(codeEnterEditText);
+  setTitle(R.string.sign_in_title);
+  focussignId();
+  keyboardHelper.setImeVisibility(signIdEditText,true);
 }

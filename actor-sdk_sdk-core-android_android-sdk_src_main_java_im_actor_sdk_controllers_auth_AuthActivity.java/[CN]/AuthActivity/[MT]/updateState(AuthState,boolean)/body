@@ -1,0 +1,59 @@
+{
+  if (this.state != null && (this.state == state && !force)) {
+    return;
+  }
+  if (state != AuthState.LOGGED_IN && getIsResumed() == false) {
+    return;
+  }
+  this.state=state;
+switch (state) {
+case AUTH_START:
+    if (signType == SIGN_TYPE_UP) {
+      availableAuthType=ActorSDK.sharedActor().getAuthType();
+      BaseAuthFragment baseAuthFragment;
+      AuthState authState;
+      if ((availableAuthType & AUTH_TYPE_PHONE) == AUTH_TYPE_PHONE) {
+        baseAuthFragment=new SignPhoneFragment();
+        authState=AuthState.AUTH_PHONE;
+      }
+ else       if ((availableAuthType & AUTH_TYPE_EMAIL) == AUTH_TYPE_EMAIL) {
+        baseAuthFragment=new SignEmailFragment();
+        authState=AuthState.AUTH_EMAIL;
+      }
+ else {
+        return;
+      }
+      signFragment=ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),baseAuthFragment,BaseAuthFragment.class);
+      updateState(authState);
+    }
+ else     if (signType == SIGN_TYPE_IN) {
+      showFragment(new SignInFragment(),false,false);
+    }
+  break;
+case AUTH_PHONE:
+currentAuthType=AUTH_TYPE_PHONE;
+showFragment(signFragment,false,false);
+break;
+case AUTH_EMAIL:
+currentAuthType=AUTH_TYPE_EMAIL;
+showFragment(signFragment,false,false);
+break;
+case CODE_VALIDATION_PHONE:
+case CODE_VALIDATION_EMAIL:
+Fragment signInFragment=new ValidateCodeFragment();
+Bundle args=new Bundle();
+args.putString("authType",state == AuthState.CODE_VALIDATION_EMAIL ? ValidateCodeFragment.AUTH_TYPE_EMAIL : ValidateCodeFragment.AUTH_TYPE_PHONE);
+args.putBoolean(ValidateCodeFragment.AUTH_TYPE_SIGN,signType == SIGN_TYPE_IN);
+args.putString("authId",state == AuthState.CODE_VALIDATION_EMAIL ? currentEmail : Long.toString(currentPhone));
+signInFragment.setArguments(args);
+showFragment(signInFragment,false,false);
+break;
+case SIGN_UP:
+showFragment(new SignUpFragment(),false,false);
+break;
+case LOGGED_IN:
+finish();
+startActivity(new Intent(this,ActorMainActivity.class));
+break;
+}
+}
