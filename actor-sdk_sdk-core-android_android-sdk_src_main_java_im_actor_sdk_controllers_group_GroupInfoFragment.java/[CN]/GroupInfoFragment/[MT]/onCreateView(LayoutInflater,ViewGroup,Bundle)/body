@@ -47,9 +47,6 @@
   }
   theme=new String[1];
   about=new String[1];
-  TextView themeTV=(TextView)header.findViewById(R.id.theme);
-  themeTV.setTextColor(style.getTextPrimaryColor());
-  ((TextView)header.findViewById(R.id.group_theme_hint)).setTextColor(style.getTextSecondaryColor());
   TextView aboutTV=(TextView)header.findViewById(R.id.about);
   aboutTV.setTextColor(style.getTextPrimaryColor());
   ((TextView)header.findViewById(R.id.about_hint)).setTextColor(style.getTextSecondaryColor());
@@ -57,13 +54,6 @@
   final TextView themeHeader=(TextView)header.findViewById(R.id.theme_header);
   themeHeader.setTextColor(style.getProfileSubtitleColor());
   final boolean finalIsAdmin=isAdmin;
-  bind(themeTV,header.findViewById(R.id.themeContainer),groupInfo.getTheme(),new ActorBinder.OnChangedListener<String>(){
-    @Override public void onChanged(    String s){
-      theme[0]=s;
-      updateDescriptionVisibility(descriptionContainer,finalIsAdmin,header);
-    }
-  }
-,!isAdmin,getString(R.string.theme_group_empty));
   bind(aboutTV,header.findViewById(R.id.aboutContainer),groupInfo.getAbout(),new ActorBinder.OnChangedListener<String>(){
     @Override public void onChanged(    String s){
       about[0]=s;
@@ -72,12 +62,6 @@
   }
 ,!isAdmin,getString(R.string.about_group_empty));
   if (isAdmin) {
-    header.findViewById(R.id.themeContainer).setOnClickListener(new View.OnClickListener(){
-      @Override public void onClick(      View v){
-        startActivity(Intents.editGroupTheme(groupInfo.getId(),getActivity()));
-      }
-    }
-);
     header.findViewById(R.id.aboutContainer).setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         startActivity(Intents.editGroupAbout(groupInfo.getId(),getActivity()));
