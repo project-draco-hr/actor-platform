@@ -19,8 +19,8 @@
 ),"actor/dialogs/archived");
   if (context().getConfiguration().isEnabledGroupedChatList()) {
     this.dialogsGroupedActor=system().actorOf(Props.create(new ActorCreator(){
-      @Override public GroupedDialogsActor create(){
-        return new GroupedDialogsActor(context());
+      @Override public ActiveDialogsActor create(){
+        return new ActiveDialogsActor(context());
       }
     }
 ),"actor/dialogs/grouped");

@@ -7,7 +7,7 @@
       docs.addOrUpdateItem(updatedMsg);
     }
     if (dialogsGroupedActor != null) {
-      dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+      dialogsGroupedActor.send(new ActiveDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
     }
   }
 }

@@ -38,7 +38,7 @@
       dialogsActor.send(new DialogsActor.InMessage(peer,message,inPendingIndex.getCount()));
     }
     if (dialogsGroupedActor != null) {
-      dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
+      dialogsGroupedActor.send(new ActiveDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
     }
   }
 }

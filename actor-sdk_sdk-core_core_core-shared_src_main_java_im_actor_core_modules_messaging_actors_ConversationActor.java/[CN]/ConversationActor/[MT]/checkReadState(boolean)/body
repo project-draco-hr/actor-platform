@@ -10,7 +10,7 @@
         dialogsActor.send(new DialogsActor.CounterChanged(peer,0));
       }
       if (dialogsGroupedActor != null) {
-        dialogsGroupedActor.send(new GroupedDialogsActor.CounterChanged(peer,0));
+        dialogsGroupedActor.send(new ActiveDialogsActor.CounterChanged(peer,0));
       }
     }
   }
