@@ -12,6 +12,7 @@
   }
   if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
     keyboardUtils.setImeVisibility(messageEditText,false);
+    messageEditText.clearFocus();
   }
   if (textEditing) {
     execute(messenger().updateMessage(peer,rawText,currentEditRid),new CommandCallback<ResponseSeqDate>(){

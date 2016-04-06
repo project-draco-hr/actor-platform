@@ -1,4 +1,6 @@
 {
+  keyboardUtils.setImeVisibility(messageEditText,false);
+  messageEditText.clearFocus();
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     if (ContextCompat.checkSelfPermission(ChatActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
       ActivityCompat.requestPermissions(ChatActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},PERMISSION_REQ_MEDIA);

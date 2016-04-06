@@ -10,6 +10,7 @@
     showShare();
     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
       keyboardUtils.setImeVisibility(messageEditText,false);
+      messageEditText.clearFocus();
     }
   }
 }

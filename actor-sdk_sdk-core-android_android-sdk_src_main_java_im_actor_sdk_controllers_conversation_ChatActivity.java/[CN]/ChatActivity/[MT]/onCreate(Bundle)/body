@@ -9,6 +9,14 @@
   }
   super.onCreate(saveInstance);
   messageEditText.addTextChangedListener(new TextWatcherImp());
+  messageEditText.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+    @Override public void onFocusChange(    View v,    boolean hasFocus){
+      if (hasFocus) {
+        hideShare();
+      }
+    }
+  }
+);
   SLIDE_LIMIT=(int)(Screen.getDensity() * 180);
   audioContainer=findViewById(R.id.audioContainer);
   audioTimer=(TextView)findViewById(R.id.audioTimer);
