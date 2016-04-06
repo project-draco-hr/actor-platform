@@ -1,0 +1,6 @@
+Peer peer
+boolean isLoaded
+long inMaxMessageDate
+long inReadDate
+long outReadDate
+long outReceiveState

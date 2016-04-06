@@ -1,3 +1,4 @@
 {
   isLoaded.change(rawObj.isLoaded());
+  ownReadDate.change(rawObj.getInReadDate());
 }

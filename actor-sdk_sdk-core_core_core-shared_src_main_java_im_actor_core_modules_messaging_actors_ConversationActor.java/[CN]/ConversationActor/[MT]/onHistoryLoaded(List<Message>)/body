@@ -20,8 +20,8 @@
   if (updatedDocs.size() > 0) {
     docs.addOrUpdateItems(updatedDocs);
   }
-  inReadStateNew=Math.max(inReadStateNew,maxReadMessage);
-  preferences().putLong(IN_READ_STATE_NEW_PREF,inReadStateNew);
+  state=state.changeInMaxDate(Math.max(state.getInMaxMessageDate(),maxReadMessage));
+  conversationState.addOrUpdateItem(state);
   if (isConversationAutoRead()) {
     checkReadState(true);
   }

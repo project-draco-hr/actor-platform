@@ -1,17 +1,17 @@
 {
   Message msg=messages.getValue(rid);
   if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
-    MessageState state;
-    if (date <= outReadState) {
-      state=MessageState.READ;
+    MessageState messageState;
+    if (date <= state.getOutReadDate()) {
+      messageState=MessageState.READ;
     }
- else     if (date <= outReceiveState) {
-      state=MessageState.RECEIVED;
+ else     if (date <= state.getOutReceiveState()) {
+      messageState=MessageState.RECEIVED;
     }
  else {
-      state=MessageState.SENT;
+      messageState=MessageState.SENT;
     }
-    Message updatedMsg=msg.changeAllDate(date).changeState(state);
+    Message updatedMsg=msg.changeAllDate(date).changeState(messageState);
     messages.addOrUpdateItem(updatedMsg);
     if (updatedMsg.getContent() instanceof DocumentContent) {
       docs.addOrUpdateItem(updatedMsg);
@@ -22,7 +22,7 @@
         dialogsGroupedActor.send(new ActiveDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
       }
     }
-    if (state != MessageState.READ) {
+    if (messageState != MessageState.READ) {
       outPendingIndex.put(rid,date);
     }
   }

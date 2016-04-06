@@ -1,4 +1,7 @@
 {
   writer.writeBytes(1,peer.toByteArray());
   writer.writeBool(2,isLoaded);
+  writer.writeLong(3,inReadDate);
+  writer.writeLong(4,outReceiveState);
+  writer.writeLong(5,outReadDate);
 }

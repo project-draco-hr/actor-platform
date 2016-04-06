@@ -1,9 +1,6 @@
 {
   long readState=loadReadState(peer);
-  if (sortingDate <= readState) {
-    return;
+  if (sortingDate > readState) {
+    markAsOwnRead(peer,sortingDate);
   }
-  context().getMessagesModule().getConversationActor(peer).send(new ConversationActor.MessageReadByMe(sortingDate));
-  saveReadState(peer,sortingDate);
-  context().getNotificationsModule().onOwnRead(peer,sortingDate);
 }

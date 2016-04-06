@@ -1,9 +1,9 @@
 {
-  if (date <= outReceiveState) {
+  if (date <= state.getOutReceiveState()) {
     return;
   }
-  outReceiveState=date;
-  preferences().putLong(OUT_RECEIVE_STATE_PREF,date);
+  state=state.changeOutReceiveDate(date);
+  conversationState.addOrUpdateItem(state);
   List<Long> res=outPendingIndex.findBeforeValue(date);
   if (res.size() > 0) {
     ArrayList<Message> updated=new ArrayList<>();

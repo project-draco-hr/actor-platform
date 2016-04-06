@@ -3,7 +3,7 @@
   if (res != null) {
     return res;
   }
-  res=context().getMessagesModule().loadReadState(peer);
+  res=context().getMessagesModule().getConversationVM(peer).getOwnReadDate().get();
   cachedReadStates.put(peer,res);
   return res;
 }

@@ -1,4 +1,5 @@
 {
   super(rawObj);
-  isLoaded=new BooleanValueModel("chat.state." + rawObj.getPeer(),rawObj.isLoaded());
+  isLoaded=new BooleanValueModel("chat.is_loaded." + rawObj.getPeer(),rawObj.isLoaded());
+  ownReadDate=new ValueModel<>("chat.read_date" + rawObj.getPeer(),rawObj.getInReadDate());
 }

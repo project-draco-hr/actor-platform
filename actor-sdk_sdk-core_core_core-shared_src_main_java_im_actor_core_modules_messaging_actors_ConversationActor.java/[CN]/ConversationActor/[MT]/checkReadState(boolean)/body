@@ -1,10 +1,10 @@
 {
-  if (inReadStateNew > inReadState) {
-    inReadState=inReadStateNew;
-    preferences().putLong(IN_READ_STATE_PREF,inReadState);
+  if (state.getInMaxMessageDate() > state.getInReadDate()) {
+    state=state.changeInReadDate(state.getInMaxMessageDate());
+    conversationState.addOrUpdateItem(state);
     boolean wasNotNull=inPendingIndex.getCount() != 0;
     inPendingIndex.clear();
-    readerActor.send(new OwnReadActor.MessageRead(peer,inReadState));
+    readerActor.send(new OwnReadActor.MessageRead(peer,state.getInReadDate()));
     if (wasNotNull && updateDialogs) {
       if (!isHiddenPeer) {
         dialogsActor.send(new DialogsActor.CounterChanged(peer,0));
