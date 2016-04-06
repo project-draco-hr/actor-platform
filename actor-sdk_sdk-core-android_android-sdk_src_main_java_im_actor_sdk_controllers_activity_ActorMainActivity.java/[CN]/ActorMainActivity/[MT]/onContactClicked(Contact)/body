@@ -1,0 +1,3 @@
+{
+  getController().onContactClicked(contact);
+}

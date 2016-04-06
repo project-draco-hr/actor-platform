@@ -17,6 +17,7 @@
   final Request request=new Request.Builder().url(endpoint).method("POST",RequestBody.create(MediaType.parse("application/json"),"{}")).build();
   client.newCall(request).enqueue(new com.squareup.okhttp.Callback(){
     @Override public void onFailure(    Request request,    IOException e){
+      Log.d("ACTOR_PUSH","ACTOR_PUSH not registered: " + e.getMessage());
     }
     @Override public void onResponse(    Response response) throws IOException {
       try {

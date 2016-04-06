@@ -1,0 +1,9 @@
+{
+  sendUriMultiple.clear();
+  sendUriString="";
+  forwardDocDescriptor="";
+  forwardText="";
+  forwardTextRaw="";
+  sendText="";
+  shareUser=0;
+}

@@ -1,0 +1,4 @@
+{
+  getActivity().startActivity(Intents.openPrivateDialog(contact.getUid(),true,getActivity()).putExtra("send_uri",sendUriString).putExtra("send_uri_multiple",sendUriMultiple).putExtra("send_text",sendText).putExtra("forward_text",forwardText).putExtra("forward_text_raw",forwardTextRaw).putExtra("forward_doc_descriptor",forwardDocDescriptor).putExtra("forward_doc_is_doc",forwardDocIsDoc).putExtra("share_user",shareUser));
+  clearShare();
+}

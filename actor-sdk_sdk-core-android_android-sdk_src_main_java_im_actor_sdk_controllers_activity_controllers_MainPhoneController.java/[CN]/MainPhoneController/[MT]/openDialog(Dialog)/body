@@ -1,10 +1,4 @@
 {
   startActivity(Intents.openDialog(item.getPeer(),false,getActivity()).putExtra("send_uri",sendUriString).putExtra("send_uri_multiple",sendUriMultiple).putExtra("send_text",sendText).putExtra("forward_text",forwardText).putExtra("forward_text_raw",forwardTextRaw).putExtra("forward_doc_descriptor",forwardDocDescriptor).putExtra("forward_doc_is_doc",forwardDocIsDoc).putExtra("share_user",shareUser));
-  sendUriMultiple.clear();
-  sendUriString="";
-  forwardDocDescriptor="";
-  forwardText="";
-  forwardTextRaw="";
-  sendText="";
-  shareUser=0;
+  clearShare();
 }
