@@ -1,0 +1,5 @@
+{
+  super.onPrepareOptionsMenu(menu);
+  menu.clear();
+  getActivity().getMenuInflater().inflate(R.menu.sign_in,menu);
+}

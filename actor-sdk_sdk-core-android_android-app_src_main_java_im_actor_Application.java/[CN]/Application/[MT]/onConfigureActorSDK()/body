@@ -4,4 +4,6 @@
   style.setDialogsActiveTextColor(0xff5882ac);
   ActorSDK.sharedActor().setFastShareEnabled(true);
   ActorSDK.sharedActor().setCallsEnabled(true);
+  ActorSDK.sharedActor().setTosUrl("http://actor.im");
+  ActorSDK.sharedActor().setPrivacyText("bla bla bla");
 }

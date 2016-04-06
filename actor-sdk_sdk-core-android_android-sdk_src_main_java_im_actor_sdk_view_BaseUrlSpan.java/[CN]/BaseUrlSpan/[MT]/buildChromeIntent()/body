@@ -1,0 +1,7 @@
+{
+  CustomTabsIntent.Builder customTabsIntent=new CustomTabsIntent.Builder();
+  Intent actionIntent=new Intent(AndroidContext.getContext(),ChromeCustomTabReceiver.class);
+  PendingIntent pi=PendingIntent.getBroadcast(AndroidContext.getContext(),0,actionIntent,0);
+  customTabsIntent.setToolbarColor(ActorSDK.sharedActor().style.getMainColor()).setActionButton(BitmapFactory.decodeResource(AndroidContext.getContext().getResources(),R.drawable.ic_share_white_24dp),"Share",pi).setCloseButtonIcon(BitmapFactory.decodeResource(AndroidContext.getContext().getResources(),R.drawable.ic_arrow_back_white_24dp));
+  return customTabsIntent.build();
+}

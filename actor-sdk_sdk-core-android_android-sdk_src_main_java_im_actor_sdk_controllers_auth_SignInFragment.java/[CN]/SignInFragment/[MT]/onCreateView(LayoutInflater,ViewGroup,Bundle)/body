@@ -6,6 +6,7 @@
   buttonCotinueText.setTypeface(Fonts.medium());
   buttonCotinueText.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryInvColor());
   keyboardHelper=new KeyboardHelper(getActivity());
+  v.findViewById(R.id.divider).setBackgroundColor(style.getDividerColor());
   initView(v);
   return v;
 }

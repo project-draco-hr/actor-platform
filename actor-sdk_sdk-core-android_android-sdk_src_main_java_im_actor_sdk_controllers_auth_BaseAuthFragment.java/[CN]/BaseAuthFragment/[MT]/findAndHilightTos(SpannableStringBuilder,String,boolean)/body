@@ -1,0 +1,22 @@
+{
+  String tosIndex=getString(R.string.auth_tos_index);
+  int index=text.indexOf(tosIndex);
+  ClickableSpan span;
+  if (urlAvailable) {
+    span=new BaseUrlSpan(ActorSDK.sharedActor().getTosUrl(),false);
+  }
+ else {
+    span=new CustomClicableSpan(new CustomClicableSpan.SpanClickListener(){
+      @Override public void onClick(){
+        new AlertDialog.Builder(getContext()).setTitle(R.string.auth_tos_index).setMessage(ActorSDK.sharedActor().getTosText()).setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
+          @Override public void onClick(          DialogInterface dialog,          int which){
+            dialog.dismiss();
+          }
+        }
+).show();
+      }
+    }
+);
+  }
+  builder.setSpan(span,index,index + tosIndex.length(),Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+}

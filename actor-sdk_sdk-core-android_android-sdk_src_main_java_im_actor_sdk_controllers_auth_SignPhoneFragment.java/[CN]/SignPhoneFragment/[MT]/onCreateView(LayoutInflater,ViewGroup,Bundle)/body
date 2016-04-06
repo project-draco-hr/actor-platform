@@ -33,5 +33,7 @@
     countryCodeEditText.setText("");
     focusCode();
   }
+  v.findViewById(R.id.divider).setBackgroundColor(style.getDividerColor());
+  setTosAndPrivacy((TextView)v.findViewById(R.id.disclaimer));
   return v;
 }

@@ -1,0 +1,39 @@
+{
+  ActorSDK actorSDK=ActorSDK.sharedActor();
+  String tosUrl=actorSDK.getTosUrl();
+  String tosText=actorSDK.getTosText();
+  boolean tosUrlAvailable=tosUrl != null && !tosUrl.isEmpty();
+  boolean tosTextAvailable=tosText != null && !tosText.isEmpty();
+  boolean tosAvailable=tosUrlAvailable || tosTextAvailable;
+  String privacyUrl=actorSDK.getPrivacyUrl();
+  String privacyText=actorSDK.getPrivacyText();
+  boolean privacyUrlAvailable=privacyUrl != null && !privacyUrl.isEmpty();
+  boolean privacyTextAvailable=privacyText != null && !privacyText.isEmpty();
+  boolean ppAvailable=privacyUrlAvailable || privacyTextAvailable;
+  boolean tosOrPrivacyAvailable=tosAvailable || ppAvailable;
+  if (!tosOrPrivacyAvailable) {
+    tv.setVisibility(View.GONE);
+    return;
+  }
+  String text;
+  SpannableStringBuilder builder;
+  if (tosAvailable && ppAvailable) {
+    text=getString(R.string.auth_tos_privacy);
+    builder=new SpannableStringBuilder(text);
+    findAndHilightTos(builder,text,tosUrlAvailable);
+    findAndHilightPrivacy(builder,text,privacyUrlAvailable);
+  }
+ else   if (tosAvailable) {
+    text=getString(R.string.auth_tos);
+    builder=new SpannableStringBuilder(text);
+    findAndHilightTos(builder,text,tosUrlAvailable);
+  }
+ else {
+    text=getString(R.string.auth_privacy);
+    builder=new SpannableStringBuilder(text);
+    tv.setText(getString(R.string.auth_privacy));
+    findAndHilightPrivacy(builder,text,privacyUrlAvailable);
+  }
+  tv.setText(builder);
+  tv.setMovementMethod(LinkMovementMethod.getInstance());
+}

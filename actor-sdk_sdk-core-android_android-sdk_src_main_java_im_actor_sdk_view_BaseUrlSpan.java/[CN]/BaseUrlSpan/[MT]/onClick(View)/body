@@ -1,15 +1,17 @@
 {
-  Intent viewIntent=new Intent(Intent.ACTION_VIEW,Uri.parse(getURL()));
-  Bundle extras=new Bundle();
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-    extras.putBinder(EXTRA_CUSTOM_TABS_SESSION,null);
-  }
-  extras.putInt(EXTRA_CUSTOM_TABS_TOOLBAR_COLOR,ActorSDK.sharedActor().style.getMainColor());
-  viewIntent.putExtras(extras);
-  if (viewIntent.resolveActivity(v.getContext().getPackageManager()) != null) {
-    super.onClick(v);
+  Context ctx=v.getContext();
+  Intent intent=buildChromeIntent().intent;
+  intent.setData(Uri.parse(getURL()));
+  if (intent.resolveActivity(ctx.getPackageManager()) != null) {
+    ctx.startActivity(intent);
   }
  else {
-    Toast.makeText(v.getContext(),"Unknown URL type",Toast.LENGTH_SHORT).show();
+    intent.setData(Uri.parse("http://" + getURL()));
+    if (intent.resolveActivity(ctx.getPackageManager()) != null) {
+      ctx.startActivity(intent);
+    }
+ else {
+      Toast.makeText(ctx,"Unknown URL type",Toast.LENGTH_SHORT).show();
+    }
   }
 }

@@ -1,0 +1,3 @@
+SpannableStringBuilder builder
+String text
+boolean urlAvailable
