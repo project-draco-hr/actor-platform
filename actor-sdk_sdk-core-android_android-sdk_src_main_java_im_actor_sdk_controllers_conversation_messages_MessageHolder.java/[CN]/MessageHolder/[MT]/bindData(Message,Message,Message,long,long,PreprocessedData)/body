@@ -1,0 +1,46 @@
+{
+  boolean isUpdated=currentMessage == null || currentMessage.getRid() != message.getRid();
+  currentMessage=message;
+  boolean useDiv;
+  if (prev != null) {
+    useDiv=!Strings.areSameDays(prev.getDate(),message.getDate());
+  }
+ else {
+    useDiv=true;
+  }
+  if (useDiv) {
+    container.showDate(message.getDate());
+  }
+ else {
+    container.hideDate();
+  }
+  if (message.getRid() == adapter.getFirstUnread()) {
+    container.showUnread();
+  }
+ else {
+    container.hideUnread();
+  }
+  if (!isFullSize) {
+    if (message.getSenderId() == myUid()) {
+      container.makeOutboundBubble();
+    }
+ else {
+      boolean isGroupBot=getPeer().getPeerType().equals(PeerType.GROUP) && users().get(message.getSenderId()).getName().get().equals("Bot");
+      container.makeInboundBubble(getPeer().getPeerType() == PeerType.GROUP,message.getSenderId(),isGroupBot ? getPeer().getPeerId() : 0);
+    }
+  }
+  container.setBubbleSelected(adapter.isSelected(currentMessage));
+  hasMyReaction=false;
+  if (preprocessedData != null) {
+    reactions=preprocessedData.getReactionsSpannable();
+    if (reactions != null) {
+      for (      ReactionSpan r : reactions.getSpans(0,reactions.length(),ReactionSpan.class)) {
+        if (r.hasMyReaction()) {
+          hasMyReaction=true;
+        }
+      }
+    }
+  }
+  bindData(message,readDate,receiveDate,isUpdated,preprocessedData);
+  ActorSDK.sharedActor().getMessenger().onUserVisible(message.getSenderId());
+}

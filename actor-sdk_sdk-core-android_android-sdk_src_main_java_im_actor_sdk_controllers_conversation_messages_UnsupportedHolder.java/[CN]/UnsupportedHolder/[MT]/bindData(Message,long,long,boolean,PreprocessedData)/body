@@ -1,0 +1,3 @@
+{
+  bindRawText(text,readDate,receiveDate,null,message,true);
+}

@@ -1,0 +1,5 @@
+Message message
+long readDate
+long receiveDate
+boolean isNewMessage
+PreprocessedData preprocessedData

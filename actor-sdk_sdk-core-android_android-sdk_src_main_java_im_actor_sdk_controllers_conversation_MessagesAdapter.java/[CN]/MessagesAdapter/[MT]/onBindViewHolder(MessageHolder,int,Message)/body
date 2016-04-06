@@ -1,0 +1,12 @@
+{
+  Message prev=null;
+  Message next=null;
+  if (index > 1) {
+    next=getItem(index - 1);
+  }
+  if (index < getItemCount() - 1) {
+    prev=getItem(index + 1);
+  }
+  PreprocessedList list=((PreprocessedList)getPreprocessedList());
+  dialogHolder.bindData(item,prev,next,0,0,list.getPreprocessedData()[index]);
+}

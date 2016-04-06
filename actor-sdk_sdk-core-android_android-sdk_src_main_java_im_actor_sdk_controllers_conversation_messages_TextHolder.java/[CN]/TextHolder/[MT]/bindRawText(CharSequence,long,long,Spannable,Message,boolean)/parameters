@@ -1,0 +1,6 @@
+CharSequence rawText
+long readDate
+long receiveDate
+Spannable reactions
+Message message
+boolean isItalic
