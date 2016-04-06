@@ -23,7 +23,9 @@
   ((TextView)v.findViewById(R.id.sign_up_hint)).setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
   sendConfirmCodeButton.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      signUp(firstNameEditText.getText().toString().trim(),Sex.UNKNOWN);
+      if (!firstNameEditText.getText().toString().isEmpty()) {
+        startAuth(firstNameEditText.getText().toString().trim());
+      }
     }
   }
 );

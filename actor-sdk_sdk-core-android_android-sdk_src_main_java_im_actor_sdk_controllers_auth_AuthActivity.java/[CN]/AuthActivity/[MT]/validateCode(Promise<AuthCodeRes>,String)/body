@@ -19,7 +19,7 @@
 ).done(authActor);
         }
  else {
-          updateState(AuthState.SIGN_UP);
+          signUp(messenger().doSignup(currentName,currentSex,transactionHash),currentName,currentSex);
         }
       }
     }

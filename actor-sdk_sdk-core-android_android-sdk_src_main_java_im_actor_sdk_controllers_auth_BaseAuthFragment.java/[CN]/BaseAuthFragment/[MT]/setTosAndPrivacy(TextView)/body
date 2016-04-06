@@ -34,6 +34,7 @@
     tv.setText(getString(R.string.auth_privacy));
     findAndHilightPrivacy(builder,text,privacyUrlAvailable);
   }
+  builder.append(" ".concat(getString(R.string.auth_find_by_diclamer)));
   tv.setText(builder);
   tv.setMovementMethod(LinkMovementMethod.getInstance());
 }
