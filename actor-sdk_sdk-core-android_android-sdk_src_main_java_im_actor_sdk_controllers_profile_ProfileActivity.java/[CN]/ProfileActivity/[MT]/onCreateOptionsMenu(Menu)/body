@@ -1,25 +1,4 @@
 {
-  try {
-    getMenuInflater().inflate(R.menu.profile_menu,menu);
-    UserVM userVM=users().get(uid);
-    if (userVM.isBot()) {
-      menu.findItem(R.id.remove).setVisible(false);
-      menu.findItem(R.id.add).setVisible(false);
-      menu.findItem(R.id.share).setVisible(false);
-    }
- else {
-      if (userVM.isContact().get()) {
-        menu.findItem(R.id.remove).setVisible(true);
-        menu.findItem(R.id.add).setVisible(false);
-      }
- else {
-        menu.findItem(R.id.remove).setVisible(false);
-        menu.findItem(R.id.add).setVisible(true);
-      }
-      menu.findItem(R.id.share).setVisible(false);
-    }
-  }
- catch (  RuntimeException e) {
-  }
+  getMenuInflater().inflate(R.menu.profile_menu,menu);
   return super.onCreateOptionsMenu(menu);
 }

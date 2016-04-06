@@ -20,23 +20,79 @@
   TextView lastSeen=(TextView)res.findViewById(R.id.lastSeen);
   lastSeen.setTextColor(style.getProfileSubtitleColor());
   bind(lastSeen,user);
-  LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
-  boolean isFirstContact=true;
-  boolean showCalls=ActorSDK.sharedActor().isCallsEnabled() && !user.isBot();
-  buildRecordAction("Free Message",R.drawable.ic_chat_bubble_white_24dp,true,!showCalls,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
+  final View addContact=res.findViewById(R.id.addContact);
+  final ImageView addContactIcon=(ImageView)addContact.findViewById(R.id.addContactIcon);
+  final TextView addContactTitle=(TextView)addContact.findViewById(R.id.addContactTitle);
+  bind(user.isContact(),new ValueChangedListener<Boolean>(){
+    @Override public void onChanged(    Boolean isContact,    Value<Boolean> valueModel){
+      if (isContact) {
+        addContactTitle.setText("In Contacts");
+        addContactTitle.setTextColor(style.getProfileContactIconColor());
+        Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_check_circle_black_24dp));
+        DrawableCompat.setTint(drawable,style.getProfileContactIconColor());
+        addContactIcon.setImageDrawable(drawable);
+        addContact.setOnClickListener(new View.OnClickListener(){
+          @Override public void onClick(          View v){
+            execute(ActorSDK.sharedActor().getMessenger().removeContact(user.getId()));
+          }
+        }
+);
+      }
+ else {
+        addContactTitle.setText("Add to Contacts");
+        addContactTitle.setTextColor(style.getProfileContactIconColor());
+        Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_person_add_white_24dp));
+        DrawableCompat.setTint(drawable,style.getProfileContactIconColor());
+        addContactIcon.setImageDrawable(drawable);
+        addContact.setOnClickListener(new View.OnClickListener(){
+          @Override public void onClick(          View v){
+            execute(ActorSDK.sharedActor().getMessenger().addContact(user.getId()));
+          }
+        }
+);
+      }
+    }
+  }
+);
+  View newMessageView=res.findViewById(R.id.newMessage);
+  ImageView newMessageIcon=(ImageView)newMessageView.findViewById(R.id.newMessageIcon);
+  TextView newMessageTitle=(TextView)newMessageView.findViewById(R.id.newMessageText);
+{
+    Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_chat_black_24dp));
+    DrawableCompat.setTint(drawable,style.getListActionColor());
+    newMessageIcon.setImageDrawable(drawable);
+    newMessageTitle.setTextColor(style.getListActionColor());
+  }
+  newMessageView.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(Intents.openPrivateDialog(user.getId(),true,getActivity()));
     }
   }
 );
-  if (showCalls) {
-    buildRecordAction("Free Call",R.drawable.ic_phone_white_24dp,true,true,inflater,contactsContainer).setOnClickListener(new View.OnClickListener(){
+  boolean enableCalls=ActorSDK.sharedActor().isCallsEnabled() && !user.isBot();
+  View voiceCallView=res.findViewById(R.id.voiceCall);
+  ImageView voiceViewIcon=(ImageView)voiceCallView.findViewById(R.id.actionIcon);
+  TextView voiceViewTitle=(TextView)voiceCallView.findViewById(R.id.actionText);
+  if (enableCalls) {
+    Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_phone_white_24dp));
+    DrawableCompat.setTint(drawable,style.getListActionColor());
+    voiceViewIcon.setImageDrawable(drawable);
+    voiceViewTitle.setTextColor(style.getListActionColor());
+    voiceCallView.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         execute(ActorSDK.sharedActor().getMessenger().doCall(user.getId()));
       }
     }
 );
   }
+ else {
+    Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_phone_white_24dp));
+    DrawableCompat.setTint(drawable,style.getTextHintColor());
+    voiceViewIcon.setImageDrawable(drawable);
+    voiceViewTitle.setTextColor(style.getTextHintColor());
+  }
+  LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
+  boolean isFirstContact=true;
   for (int i=0; i < phones.size(); i++) {
     final UserPhone userPhone=phones.get(i);
     String _phoneNumber;

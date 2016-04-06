@@ -1,6 +1,6 @@
 {
-  if (profilleIconColor != 0) {
-    return profilleIconColor;
+  if (profileIconColor != 0) {
+    return profileIconColor;
   }
  else {
     return getSectionIconLargeColor();

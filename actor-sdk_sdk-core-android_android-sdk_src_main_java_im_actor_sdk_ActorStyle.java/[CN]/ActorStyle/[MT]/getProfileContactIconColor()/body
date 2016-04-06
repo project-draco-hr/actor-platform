@@ -1,0 +1,8 @@
+{
+  if (profileContactIconColor != 0) {
+    return profileContactIconColor;
+  }
+ else {
+    return getListActionColor();
+  }
+}
