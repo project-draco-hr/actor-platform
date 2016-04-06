@@ -1,4 +1,5 @@
 {
+  keyboardUtils.setImeVisibility(messageEditText,false);
   int i=item.getItemId();
   if (i == android.R.id.home) {
     finish();
