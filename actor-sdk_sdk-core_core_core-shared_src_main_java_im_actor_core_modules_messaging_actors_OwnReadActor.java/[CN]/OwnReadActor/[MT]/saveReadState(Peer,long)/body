@@ -1,0 +1,4 @@
+{
+  cachedReadStates.put(peer,date);
+  context().getMessagesModule().saveReadState(peer,date);
+}

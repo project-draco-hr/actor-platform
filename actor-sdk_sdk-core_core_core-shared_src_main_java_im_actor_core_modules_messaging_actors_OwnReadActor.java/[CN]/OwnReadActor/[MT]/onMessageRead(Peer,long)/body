@@ -1,10 +1,10 @@
 {
-  long readState=context().getMessagesModule().loadReadState(peer);
+  long readState=loadReadState(peer);
   if (sortingDate <= readState) {
     return;
   }
   context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,sortingDate));
   context().getMessagesModule().getConversationActor(peer).send(new ConversationActor.MessageReadByMe(sortingDate));
-  context().getMessagesModule().saveReadState(peer,sortingDate);
+  saveReadState(peer,sortingDate);
   context().getNotificationsModule().onOwnRead(peer,sortingDate);
 }
