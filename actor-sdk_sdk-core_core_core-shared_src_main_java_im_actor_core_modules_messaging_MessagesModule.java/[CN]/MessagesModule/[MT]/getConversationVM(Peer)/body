@@ -1,3 +1,8 @@
 {
-  return new ConversationVM(peer,context());
+synchronized (conversationVMS) {
+    if (!conversationVMS.containsKey(peer)) {
+      conversationVMS.put(peer,new ConversationVM(peer,context()));
+    }
+    return conversationVMS.get(peer);
+  }
 }
