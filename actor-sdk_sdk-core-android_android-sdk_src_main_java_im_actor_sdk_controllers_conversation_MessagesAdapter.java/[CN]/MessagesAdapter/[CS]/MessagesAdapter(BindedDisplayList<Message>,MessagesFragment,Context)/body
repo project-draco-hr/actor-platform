@@ -3,15 +3,39 @@
   this.messagesFragment=messagesFragment;
   this.context=context;
   ConversationVM conversationVM=messenger().getConversationVM(messagesFragment.getPeer());
+  readDate=conversationVM.getReadDate().get();
+  receiveDate=conversationVM.getReceiveDate().get();
   BINDER.bind(conversationVM.getReadDate(),new ValueChangedListener<Long>(){
     @Override public void onChanged(    Long val,    Value<Long> valueModel){
-      readDate=val;
+      if (val != readDate) {
+        for (int i=0; i < displayList.getSize(); i++) {
+          long date=displayList.getItem(i).getSortDate();
+          if (date > readDate && date <= val) {
+            notifyItemChanged(i);
+          }
+          if (date <= readDate) {
+            break;
+          }
+        }
+        readDate=val;
+      }
     }
   }
 );
   BINDER.bind(conversationVM.getReceiveDate(),new ValueChangedListener<Long>(){
     @Override public void onChanged(    Long val,    Value<Long> valueModel){
-      receiveDate=val;
+      if (val != receiveDate) {
+        for (int i=0; i < displayList.getSize(); i++) {
+          long date=displayList.getItem(i).getSortDate();
+          if (date > receiveDate && date <= val) {
+            notifyItemChanged(i);
+          }
+          if (date <= receiveDate) {
+            break;
+          }
+        }
+        receiveDate=val;
+      }
     }
   }
 );
