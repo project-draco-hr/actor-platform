@@ -2,4 +2,17 @@
   super(displayList);
   this.messagesFragment=messagesFragment;
   this.context=context;
+  ConversationVM conversationVM=messenger().getConversationVM(messagesFragment.getPeer());
+  BINDER.bind(conversationVM.getReadDate(),new ValueChangedListener<Long>(){
+    @Override public void onChanged(    Long val,    Value<Long> valueModel){
+      readDate=val;
+    }
+  }
+);
+  BINDER.bind(conversationVM.getReceiveDate(),new ValueChangedListener<Long>(){
+    @Override public void onChanged(    Long val,    Value<Long> valueModel){
+      receiveDate=val;
+    }
+  }
+);
 }

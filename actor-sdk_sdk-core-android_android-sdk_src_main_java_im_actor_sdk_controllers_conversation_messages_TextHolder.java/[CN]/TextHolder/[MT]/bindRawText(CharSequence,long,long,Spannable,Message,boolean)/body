@@ -17,20 +17,24 @@
     status.setVisibility(View.VISIBLE);
 switch (message.getMessageState()) {
 case SENT:
-      status.setResource(R.drawable.msg_check_1);
-    status.setTint(sentColor);
-  break;
 case RECEIVED:
-status.setResource(R.drawable.msg_check_2);
-status.setTint(deliveredColor);
-break;
 case READ:
-status.setResource(R.drawable.msg_check_2);
-status.setTint(readColor);
-break;
+      if (message.getSortDate() <= readDate) {
+        status.setResource(R.drawable.msg_check_2);
+        status.setTint(readColor);
+      }
+ else       if (message.getSortDate() <= receiveDate) {
+        status.setResource(R.drawable.msg_check_2);
+        status.setTint(deliveredColor);
+      }
+ else {
+        status.setResource(R.drawable.msg_check_1);
+        status.setTint(sentColor);
+      }
+    break;
 default :
 case PENDING:
-status.setResource(R.drawable.msg_clock);
+  status.setResource(R.drawable.msg_clock);
 status.setTint(waitColor);
 break;
 case ERROR:

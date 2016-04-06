@@ -8,5 +8,5 @@
     prev=getItem(index + 1);
   }
   PreprocessedList list=((PreprocessedList)getPreprocessedList());
-  dialogHolder.bindData(item,prev,next,0,0,list.getPreprocessedData()[index]);
+  dialogHolder.bindData(item,prev,next,readDate,receiveDate,list.getPreprocessedData()[index]);
 }

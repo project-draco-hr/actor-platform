@@ -1,4 +1,6 @@
 {
   isLoaded.change(rawObj.isLoaded());
   ownReadDate.change(rawObj.getInReadDate());
+  readDate.change(rawObj.getOutReadDate());
+  receiveDate.change(rawObj.getOutReceiveState());
 }
