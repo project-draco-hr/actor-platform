@@ -25,9 +25,6 @@
   if (intMessageSortDate > 0) {
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,intMessageSortDate));
   }
-  if (outMessageSortDate > 0) {
-    ownReadActor().send(new OwnReadActor.OutMessage(peer,outMessageSortDate));
-  }
   for (  Message m : nMessages) {
     if (m.getSenderId() != myUid()) {
       ownReadActor().send(new OwnReadActor.InMessage(peer,m));

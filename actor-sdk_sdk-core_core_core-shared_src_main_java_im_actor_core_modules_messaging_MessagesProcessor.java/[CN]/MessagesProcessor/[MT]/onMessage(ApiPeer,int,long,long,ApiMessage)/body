@@ -15,7 +15,4 @@
     plainReceiveActor().send(new CursorReceiverActor.MarkReceived(peer,date));
     ownReadActor().send(new OwnReadActor.InMessage(peer,message));
   }
- else {
-    ownReadActor().send(new OwnReadActor.OutMessage(peer,message.getSortDate()));
-  }
 }

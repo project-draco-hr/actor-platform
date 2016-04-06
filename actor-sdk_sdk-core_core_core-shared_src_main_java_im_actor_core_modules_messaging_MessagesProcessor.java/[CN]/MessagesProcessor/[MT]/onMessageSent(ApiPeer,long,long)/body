@@ -5,5 +5,4 @@
   }
   conversationActor(peer).send(new ConversationActor.MessageSent(rid,date));
   sendActor().send(new SenderActor.MessageSent(peer,rid));
-  ownReadActor().send(new OwnReadActor.OutMessage(peer,date));
 }
