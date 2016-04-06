@@ -1,6 +1,3 @@
 {
-  this.creator=creator;
-  this.bserCreator=bserCreator;
-  this.collectionStorage=collectionStorage;
-  this.proxyKeyValueEngine=new ProxyKeyValueEngine();
+  this(collectionStorage,creator,bserCreator,null);
 }

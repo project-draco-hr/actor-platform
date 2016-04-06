@@ -6,6 +6,6 @@
     self().send(new LoadMore());
   }
  else {
-    context().getMessagesModule().markAsLoaded(peer);
+    context().getMessagesModule().getConversationActor(peer).send(new ConversationActor.ConversationLoaded());
   }
 }

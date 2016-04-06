@@ -1,0 +1,4 @@
+{
+  peer=Peer.fromBytes(values.getBytes(1));
+  isLoaded=values.getBool(2,false);
+}

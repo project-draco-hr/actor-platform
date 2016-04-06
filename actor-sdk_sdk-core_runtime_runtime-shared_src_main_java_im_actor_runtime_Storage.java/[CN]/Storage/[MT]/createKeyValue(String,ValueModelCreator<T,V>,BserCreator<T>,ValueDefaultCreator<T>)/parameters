@@ -1,0 +1,4 @@
+String name
+ValueModelCreator<T,V> wrapperCreator
+BserCreator<T> creator
+ValueDefaultCreator<T> defaultCreator

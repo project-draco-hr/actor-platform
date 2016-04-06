@@ -1,0 +1,4 @@
+{
+  super(rawObj);
+  isLoaded=new BooleanValueModel("chat.state." + rawObj.getPeer(),rawObj.isLoaded());
+}

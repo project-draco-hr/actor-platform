@@ -1,3 +1,0 @@
-{
-  isLoaded=new BooleanValueModel("chat.state." + peer,context.getMessagesModule().isLoaded(peer));
-}

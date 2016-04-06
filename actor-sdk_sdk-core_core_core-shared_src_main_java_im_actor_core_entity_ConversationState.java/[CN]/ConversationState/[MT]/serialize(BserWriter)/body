@@ -1,0 +1,4 @@
+{
+  writer.writeBytes(1,peer.toByteArray());
+  writer.writeBool(2,isLoaded);
+}

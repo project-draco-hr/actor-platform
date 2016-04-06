@@ -1,0 +1,3 @@
+{
+  return new MVVMCollection<>(storageRuntime.createKeyValue(name),wrapperCreator,creator,defaultCreator);
+}

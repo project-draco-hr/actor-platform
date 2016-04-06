@@ -14,5 +14,10 @@
       e.printStackTrace();
     }
   }
-  return null;
+  if (bserDefaultCreator != null) {
+    return bserDefaultCreator.createDefaultInstance(id);
+  }
+ else {
+    return null;
+  }
 }
