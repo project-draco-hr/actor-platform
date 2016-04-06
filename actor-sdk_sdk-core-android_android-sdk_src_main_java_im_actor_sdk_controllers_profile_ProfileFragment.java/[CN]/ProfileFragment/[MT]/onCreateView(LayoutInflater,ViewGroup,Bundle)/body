@@ -6,8 +6,10 @@
   final String userName=user.getNick().get();
   final View res=inflater.inflate(R.layout.fragment_profile,container,false);
   res.findViewById(R.id.container).setBackgroundColor(style.getMainBackgroundColor());
-  avatarView=(CoverAvatarView)res.findViewById(R.id.avatar);
-  bind(avatarView,user.getAvatar());
+  res.findViewById(R.id.avatarContainer).setBackgroundColor(style.getToolBarColor());
+  avatarView=(AvatarView)res.findViewById(R.id.avatar);
+  avatarView.init(Screen.dp(96),48);
+  avatarView.bind(user.getAvatar().get(),user.getName().get(),user.getId());
   avatarView.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(ViewAvatarActivity.viewAvatar(user.getId(),getActivity()));

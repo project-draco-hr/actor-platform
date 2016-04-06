@@ -1,5 +1,4 @@
 {
-  avatarView.setOffset(offset);
   ActionBar bar=((AppCompatActivity)getActivity()).getSupportActionBar();
   if (bar != null) {
     int fullColor=style.getToolBarColor();
