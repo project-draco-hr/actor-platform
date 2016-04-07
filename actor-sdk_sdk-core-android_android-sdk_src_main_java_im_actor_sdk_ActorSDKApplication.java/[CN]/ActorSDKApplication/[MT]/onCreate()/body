@@ -1,5 +1,15 @@
 {
   super.onCreate();
-  onConfigureActorSDK();
-  ActorSDK.sharedActor().createActor(this);
+  int id=android.os.Process.myPid();
+  String myProcessName=getPackageName();
+  ActivityManager activityManager=(ActivityManager)getSystemService(ACTIVITY_SERVICE);
+  for (  ActivityManager.RunningAppProcessInfo procInfo : activityManager.getRunningAppProcesses()) {
+    if (id == procInfo.pid) {
+      myProcessName=procInfo.processName;
+    }
+  }
+  if (!myProcessName.endsWith(":actor_push")) {
+    onConfigureActorSDK();
+    ActorSDK.sharedActor().createActor(this);
+  }
 }

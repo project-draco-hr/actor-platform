@@ -1,6 +1,6 @@
 {
-  final int val=currentFailureCount.incrementAndGet();
-  if (val > maxFailureCount) {
-    currentFailureCount.compareAndSet(val,maxFailureCount);
+  currentFailureCount++;
+  if (currentFailureCount > maxFailureCount) {
+    currentFailureCount=maxFailureCount;
   }
 }

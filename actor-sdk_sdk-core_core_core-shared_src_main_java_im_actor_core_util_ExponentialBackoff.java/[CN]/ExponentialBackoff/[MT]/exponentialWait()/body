@@ -1,6 +1,4 @@
 {
-  long maxDelayRet=minDelay + ((maxDelay - minDelay) / maxFailureCount) * currentFailureCount.get();
-synchronized (random) {
-    return (long)(random.nextFloat() * maxDelayRet);
-  }
+  long maxDelayRet=minDelay + ((maxDelay - minDelay) / maxFailureCount) * currentFailureCount;
+  return (long)(random.nextFloat() * maxDelayRet);
 }
