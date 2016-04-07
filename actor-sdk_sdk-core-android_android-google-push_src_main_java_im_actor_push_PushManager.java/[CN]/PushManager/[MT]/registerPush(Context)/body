@@ -3,6 +3,7 @@
     Log.d(TAG,"Requesting push token...");
     new Thread(){
       @Override public void run(){
+        ExponentialBackoff exponentialBackoff=new ExponentialBackoff();
         while (true) {
           try {
             String regId=tryRegisterPush(context);
@@ -17,10 +18,12 @@
           }
  catch (          Exception e) {
             e.printStackTrace();
+            exponentialBackoff.onFailure();
           }
-          Log.d(TAG,"Waiting for next attempt");
+          long waitTime=exponentialBackoff.exponentialWait();
+          Log.d(TAG,"Next attempt in " + waitTime + " ms");
           try {
-            Thread.sleep(1000);
+            Thread.sleep(waitTime);
           }
  catch (          InterruptedException e1) {
             e1.printStackTrace();

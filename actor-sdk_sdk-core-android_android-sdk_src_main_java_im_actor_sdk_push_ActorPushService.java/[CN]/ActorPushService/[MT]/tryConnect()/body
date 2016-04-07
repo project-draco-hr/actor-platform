@@ -10,27 +10,27 @@
   }
   isConnecting=true;
   Log.d(TAG,"Starting connecting...");
-  if (mqttClient != null) {
-    try {
-      mqttClient.close();
-    }
- catch (    MqttException e) {
-      e.printStackTrace();
-    }
-  }
-  mqttClient=null;
-  try {
-    Thread.sleep(exponentialBackoff.exponentialWait());
-  }
- catch (  InterruptedException e) {
-    e.printStackTrace();
-    return;
-  }
-  connectOptions.setUserName(mqttUsername);
-  connectOptions.setPassword(mqttPassword.toCharArray());
-  final int attempt=++attemptIndex;
   connectionExecutor.execute(new Runnable(){
     @Override public void run(){
+      if (mqttClient != null) {
+        try {
+          mqttClient.close();
+        }
+ catch (        MqttException e) {
+          e.printStackTrace();
+        }
+      }
+      mqttClient=null;
+      try {
+        Thread.sleep(exponentialBackoff.exponentialWait());
+      }
+ catch (      InterruptedException e) {
+        e.printStackTrace();
+        return;
+      }
+      connectOptions.setUserName(mqttUsername);
+      connectOptions.setPassword(mqttPassword.toCharArray());
+      final int attempt=++attemptIndex;
       Log.d(TAG,"Connecting...");
       MqttClient mqttClient;
       try {
