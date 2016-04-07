@@ -13,7 +13,9 @@
     previewView.setController(controller);
   }
  else {
-    checkFastThumb();
+    if (!updated) {
+      checkFastThumb();
+    }
   }
   progressValue.setText(100 + "");
   progressView.setValue(100);

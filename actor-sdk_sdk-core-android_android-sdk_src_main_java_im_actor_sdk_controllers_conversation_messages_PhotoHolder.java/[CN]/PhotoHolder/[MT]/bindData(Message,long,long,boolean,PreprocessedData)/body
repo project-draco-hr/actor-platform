@@ -36,6 +36,7 @@ break;
 stateIcon.setVisibility(View.GONE);
 }
 setTimeAndReactions(time);
+Log.d(TAG,"isNewMessage: " + isNewMessage);
 if (isNewMessage) {
 int w, h;
 if (message.getContent() instanceof PhotoContent) {
@@ -77,13 +78,20 @@ uploadFileVM=null;
 }
 needRebind=true;
 }
+Log.d(TAG,"needRebind by new: " + needRebind);
 updated=false;
 int updatedCounter=fileMessage.getUpdatedCounter();
-if (lastUpdatedIndex != updatedCounter) {
+Log.d(TAG,"oldRid: " + currenrRid);
+Log.d(TAG,"newRid: " + currentMessage.getRid());
+Log.d(TAG,"oldCounter: " + lastUpdatedIndex);
+Log.d(TAG,"newCounter: " + updatedCounter);
+if (currenrRid == currentMessage.getRid() && lastUpdatedIndex != updatedCounter) {
 updated=true;
 needRebind=true;
 lastUpdatedIndex=updatedCounter;
 }
+currenrRid=currentMessage.getRid();
+Log.d(TAG,"updated: " + updated);
 if (needRebind) {
 progressContainer.setVisibility(View.GONE);
 progressView.setVisibility(View.GONE);
@@ -104,9 +112,11 @@ previewView.setImageURI(Uri.fromFile(new File(((FileLocalSource)fileMessage.getS
  else {
 if (!updated) {
 previewView.setImageURI(null);
+Log.d(TAG,"rebind video - setImageURI(null)!");
 }
-if (fileMessage.getFastThumb() != null) {
+if (fileMessage.getFastThumb() != null && !updated) {
 fastThumbLoader.request(fileMessage.getFastThumb().getImage());
+Log.d(TAG,"rebind video- new thumb!");
 }
 }
 }
