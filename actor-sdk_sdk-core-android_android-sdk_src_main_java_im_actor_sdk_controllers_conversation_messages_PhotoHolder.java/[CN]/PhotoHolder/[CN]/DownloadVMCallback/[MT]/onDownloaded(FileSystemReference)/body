@@ -16,6 +16,10 @@
     if (!updated) {
       checkFastThumb();
     }
+    if (playRequested) {
+      playRequested=false;
+      playVideo((DocumentContent)currentMessage.getContent(),reference);
+    }
   }
   progressValue.setText(100 + "");
   progressView.setValue(100);

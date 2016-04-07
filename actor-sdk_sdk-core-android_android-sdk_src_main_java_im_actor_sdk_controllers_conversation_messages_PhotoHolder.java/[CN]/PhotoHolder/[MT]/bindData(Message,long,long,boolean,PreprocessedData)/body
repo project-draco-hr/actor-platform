@@ -93,6 +93,9 @@ lastUpdatedIndex=updatedCounter;
 currenrRid=currentMessage.getRid();
 Log.d(TAG,"updated: " + updated);
 if (needRebind) {
+if (!updated) {
+playRequested=false;
+}
 progressContainer.setVisibility(View.GONE);
 progressView.setVisibility(View.GONE);
 progressValue.setVisibility(View.GONE);
