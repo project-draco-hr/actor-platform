@@ -5,7 +5,7 @@
   senderId=values.getInt(4);
   messageState=MessageState.fromValue(values.getInt(5));
   content=AbsContent.parse(values.getBytes(6));
-  reactions=new ArrayList<Reaction>();
+  reactions=new ArrayList<>();
   for (  byte[] react : values.getRepeatedBytes(7)) {
     reactions.add(Reaction.fromBytes(react));
   }

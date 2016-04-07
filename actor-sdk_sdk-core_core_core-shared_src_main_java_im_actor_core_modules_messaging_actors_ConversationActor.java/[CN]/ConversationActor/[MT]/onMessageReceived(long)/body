@@ -1,5 +1,5 @@
 {
-  if (date <= state.getOutReceiveState()) {
+  if (date <= state.getOutReceiveDate()) {
     return;
   }
   state=state.changeOutReceiveDate(date);

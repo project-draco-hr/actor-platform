@@ -1,0 +1,3 @@
+List<Message> messages
+long maxReadDate
+long maxReceiveDate

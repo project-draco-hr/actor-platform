@@ -1,17 +1,7 @@
 {
   Message msg=messages.getValue(rid);
   if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
-    MessageState messageState;
-    if (date <= state.getOutReadDate()) {
-      messageState=MessageState.READ;
-    }
- else     if (date <= state.getOutReceiveState()) {
-      messageState=MessageState.RECEIVED;
-    }
- else {
-      messageState=MessageState.SENT;
-    }
-    Message updatedMsg=msg.changeAllDate(date).changeState(messageState);
+    Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
     messages.addOrUpdateItem(updatedMsg);
     if (updatedMsg.getContent() instanceof DocumentContent) {
       docs.addOrUpdateItem(updatedMsg);

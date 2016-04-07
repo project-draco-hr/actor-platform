@@ -1,3 +1,0 @@
-{
-  return messageState == MessageState.SENT || messageState == MessageState.RECEIVED;
-}

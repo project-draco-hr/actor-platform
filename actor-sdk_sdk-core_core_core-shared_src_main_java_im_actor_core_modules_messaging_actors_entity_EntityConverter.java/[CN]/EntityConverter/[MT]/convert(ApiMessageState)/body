@@ -4,12 +4,10 @@
   }
 switch (state) {
 case READ:
-    return MessageState.READ;
 case RECEIVED:
-  return MessageState.RECEIVED;
 case SENT:
-return MessageState.SENT;
+    return MessageState.SENT;
 default :
-return MessageState.UNKNOWN;
+  return MessageState.UNKNOWN;
 }
 }

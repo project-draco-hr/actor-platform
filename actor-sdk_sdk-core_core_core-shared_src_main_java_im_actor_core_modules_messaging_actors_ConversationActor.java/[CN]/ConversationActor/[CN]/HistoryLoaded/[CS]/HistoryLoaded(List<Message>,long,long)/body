@@ -1,0 +1,5 @@
+{
+  this.messages=messages;
+  this.maxReadDate=maxReadDate;
+  this.maxReceiveDate=maxReceiveDate;
+}

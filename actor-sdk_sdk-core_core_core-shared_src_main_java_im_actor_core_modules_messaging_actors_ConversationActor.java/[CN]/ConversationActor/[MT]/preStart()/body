@@ -30,7 +30,7 @@
     state=state.changeOutReadDate(outReadState);
     isChanged=true;
   }
-  if (state.getOutReceiveState() < outReceiveState) {
+  if (state.getOutReceiveDate() < outReceiveState) {
     state=state.changeOutReceiveDate(outReceiveState);
     isChanged=true;
   }

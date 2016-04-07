@@ -1,17 +1,4 @@
 {
-  if (message.getSenderId() == myUid()) {
-    if (message.isOnServer()) {
-      if (message.getSortDate() <= state.getOutReadDate()) {
-        message=message.changeState(MessageState.READ);
-      }
- else       if (message.getSortDate() <= state.getOutReceiveState()) {
-        message=message.changeState(MessageState.RECEIVED);
-      }
- else {
-        message=message.changeState(MessageState.SENT);
-      }
-    }
-  }
   messages.addOrUpdateItem(message);
   if (message.getContent() instanceof DocumentContent) {
     docs.addOrUpdateItem(message);

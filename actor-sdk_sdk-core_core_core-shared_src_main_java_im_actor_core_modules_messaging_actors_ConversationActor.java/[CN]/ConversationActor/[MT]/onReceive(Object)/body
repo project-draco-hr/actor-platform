@@ -24,7 +24,8 @@
     onMessageReceived(((MessageReceived)message).getDate());
   }
  else   if (message instanceof HistoryLoaded) {
-    onHistoryLoaded(((HistoryLoaded)message).getMessages());
+    HistoryLoaded historyLoaded=((HistoryLoaded)message);
+    onHistoryLoaded(historyLoaded.getMessages(),historyLoaded.getMaxReadDate(),historyLoaded.getMaxReceiveDate());
   }
  else   if (message instanceof ClearConversation) {
     onClearConversation();

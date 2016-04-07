@@ -2,7 +2,7 @@
   long outMessageSortDate=0;
   long intMessageSortDate=0;
   Peer peer=convert(_peer);
-  ArrayList<Message> nMessages=new ArrayList<Message>();
+  ArrayList<Message> nMessages=new ArrayList<>();
   for (  UpdateMessage u : messages) {
     AbsContent msgContent;
     try {

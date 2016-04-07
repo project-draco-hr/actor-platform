@@ -3,19 +3,6 @@
   ArrayList<Message> updated=new ArrayList<>();
   ArrayList<Message> updatedDocs=new ArrayList<>();
   for (  Message m : inMessages) {
-    if (m.getSenderId() == myUid()) {
-      if (m.isOnServer()) {
-        if (m.getSortDate() <= state.getOutReadDate()) {
-          m=m.changeState(MessageState.READ);
-        }
- else         if (m.getSortDate() <= state.getOutReceiveState()) {
-          m=m.changeState(MessageState.RECEIVED);
-        }
- else {
-          m=m.changeState(MessageState.SENT);
-        }
-      }
-    }
     if (m.isOnServer()) {
       if (topMessage == null) {
         topMessage=m;
