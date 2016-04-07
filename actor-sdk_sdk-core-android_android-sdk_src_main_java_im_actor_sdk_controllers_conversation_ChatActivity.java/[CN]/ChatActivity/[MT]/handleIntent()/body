@@ -6,7 +6,7 @@
   forwardTextRaw=intent.getStringExtra("forward_text_raw");
   sendText=intent.getStringExtra("send_text");
   try {
-    forwardContent=(DocumentContent)DocumentContent.parse(intent.getByteArrayExtra("forward_content"));
+    forwardContent=AbsContent.parse(intent.getByteArrayExtra("forward_content"));
   }
  catch (  Exception e) {
     e.printStackTrace();

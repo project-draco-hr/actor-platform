@@ -118,10 +118,10 @@
               i.putExtra("forward_text",forward);
               i.putExtra("forward_text_raw",forward);
             }
- else             if (m.getContent() instanceof DocumentContent) {
-              DocumentContent fileMessage=(DocumentContent)m.getContent();
+ else             if (!(m.getContent() instanceof UnsupportedContent)) {
+              AbsContent fileMessage=m.getContent();
               try {
-                i.putExtra("forward_content",DocumentContent.serialize(fileMessage));
+                i.putExtra("forward_content",AbsContent.serialize(fileMessage));
               }
  catch (              IOException e) {
                 e.printStackTrace();

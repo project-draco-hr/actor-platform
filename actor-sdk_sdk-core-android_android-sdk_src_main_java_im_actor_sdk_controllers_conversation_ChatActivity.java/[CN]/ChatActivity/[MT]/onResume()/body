@@ -77,7 +77,7 @@
     forwardTextRaw="";
   }
   if (forwardContent != null) {
-    messenger().sendDocumentContent(peer,forwardContent);
+    messenger().forwardContent(peer,forwardContent);
     forwardContent=null;
   }
 }

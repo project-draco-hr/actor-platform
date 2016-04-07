@@ -1,3 +1,0 @@
-{
-  modules.getMessagesModule().sendDocumentContent(peer,content);
-}
