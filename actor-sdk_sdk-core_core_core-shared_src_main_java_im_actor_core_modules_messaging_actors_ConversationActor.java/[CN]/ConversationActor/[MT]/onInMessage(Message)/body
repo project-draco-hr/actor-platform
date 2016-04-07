@@ -17,12 +17,7 @@
     docs.addOrUpdateItem(message);
   }
   if (message.isOnServer()) {
-    if (message.getSenderId() == myUid()) {
-      if (message.isOnServer() && message.getMessageState() != MessageState.READ) {
-        outPendingIndex.put(message.getRid(),message.getDate());
-      }
-    }
- else {
+    if (message.getSenderId() != myUid()) {
       if (message.getSortDate() > state.getInMaxMessageDate()) {
         state=state.changeInMaxDate(message.getSortDate());
         conversationState.addOrUpdateItem(state);

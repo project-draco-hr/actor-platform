@@ -4,19 +4,6 @@
   }
   state=state.changeOutReadDate(date);
   conversationState.addOrUpdateItem(state);
-  List<Long> res=outPendingIndex.removeBeforeValue(date);
-  if (res.size() > 0) {
-    ArrayList<Message> updated=new ArrayList<>();
-    for (    Long ref : res) {
-      Message msg=messages.getValue(ref);
-      if (msg != null && msg.isReceivedOrSent()) {
-        updated.add(msg.changeState(MessageState.READ));
-      }
-    }
-    if (updated.size() > 0) {
-      messages.addOrUpdateItems(updated);
-    }
-  }
   if (!isHiddenPeer) {
     dialogsActor.send(new DialogsActor.PeerReadChanged(peer,date));
   }

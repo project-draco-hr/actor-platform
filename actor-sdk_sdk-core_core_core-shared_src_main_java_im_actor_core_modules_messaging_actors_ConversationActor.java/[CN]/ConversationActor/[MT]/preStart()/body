@@ -11,7 +11,6 @@
     isHiddenPeer=getGroup(peer.getPeerId()).isHidden();
   }
   subscribe(AppVisibleChanged.EVENT);
-  outPendingIndex=new IndexEngine(Storage.createIndex("out_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
   inPendingIndex=new IndexEngine(Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
   long inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);
   long inMaxDate=context().getPreferences().getLong(IN_READ_STATE_NEW_PREF,0);

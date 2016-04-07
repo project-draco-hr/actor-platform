@@ -34,12 +34,7 @@
   messages.addOrUpdateItems(updated);
   docs.addOrUpdateItems(updatedDocs);
   for (  Message m : updated) {
-    if (m.getSenderId() == myUid()) {
-      if (m.isOnServer() && m.getMessageState() != MessageState.READ) {
-        outPendingIndex.put(m.getRid(),m.getDate());
-      }
-    }
- else {
+    if (m.getSenderId() != myUid()) {
       if (m.getSortDate() > state.getInMaxMessageDate()) {
         state=state.changeInMaxDate(m.getSortDate());
         conversationState.addOrUpdateItem(state);

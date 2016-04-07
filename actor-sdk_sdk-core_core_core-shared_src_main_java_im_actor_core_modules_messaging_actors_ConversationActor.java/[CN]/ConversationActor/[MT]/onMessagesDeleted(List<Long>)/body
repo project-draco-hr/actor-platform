@@ -6,7 +6,6 @@
   messages.removeItems(rids2);
   docs.removeItems(rids2);
   inPendingIndex.remove(rids);
-  outPendingIndex.remove(rids);
   if (!isHiddenPeer) {
     dialogsActor.send(new DialogsActor.MessageDeleted(peer,messages.getHeadValue()));
   }

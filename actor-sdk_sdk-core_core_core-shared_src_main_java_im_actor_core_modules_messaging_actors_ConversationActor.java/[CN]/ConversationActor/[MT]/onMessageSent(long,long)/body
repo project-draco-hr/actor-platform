@@ -22,8 +22,5 @@
         dialogsGroupedActor.send(new ActiveDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
       }
     }
-    if (messageState != MessageState.READ) {
-      outPendingIndex.put(rid,date);
-    }
   }
 }
