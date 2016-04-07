@@ -1,7 +1,7 @@
 {
   sendUriMultiple.clear();
   sendUriString="";
-  forwardDocDescriptor="";
+  docContent=null;
   forwardText="";
   forwardTextRaw="";
   sendText="";

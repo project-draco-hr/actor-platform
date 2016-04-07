@@ -51,6 +51,10 @@
     SendJson sendJson=(SendJson)message;
     doSendJson(sendJson.getPeer(),sendJson.getJson());
   }
+ else   if (message instanceof SendDocumentContent) {
+    SendDocumentContent sendDocumentContent=(SendDocumentContent)message;
+    doSendDocumentContent(sendDocumentContent.getPeer(),sendDocumentContent.getDocumentContent());
+  }
  else {
     drop(message);
   }

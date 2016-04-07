@@ -5,6 +5,10 @@
   forwardText=intent.getStringExtra("forward_text");
   forwardTextRaw=intent.getStringExtra("forward_text_raw");
   sendText=intent.getStringExtra("send_text");
-  forwardDocDescriptor=intent.getStringExtra("forward_doc_descriptor");
-  forwardDocIsDoc=intent.getBooleanExtra("forward_doc_is_doc",true);
+  try {
+    forwardContent=(DocumentContent)DocumentContent.parse(intent.getByteArrayExtra("forward_content"));
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
 }
