@@ -23,13 +23,13 @@
       }
     }
  else {
-      if (message.getSortDate() > state.getInMaxMessageDate()) {
-        state=state.changeInMaxDate(message.getSortDate());
-        conversationState.addOrUpdateItem(state);
-      }
       if (message.getSortDate() > state.getInReadDate()) {
         inPendingIndex.put(message.getRid(),message.getDate());
       }
+    }
+    if (message.getSortDate() > state.getInMaxMessageDate()) {
+      state=state.changeInMaxDate(message.getSortDate());
+      conversationState.addOrUpdateItem(state);
     }
     if (isConversationAutoRead()) {
       checkReadState(false);
