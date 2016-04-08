@@ -40,13 +40,13 @@
       }
     }
  else {
+      if (m.getSortDate() > state.getInMaxMessageDate()) {
+        state=state.changeInMaxDate(m.getSortDate());
+        conversationState.addOrUpdateItem(state);
+      }
       if (m.getSortDate() > state.getInReadDate()) {
         inPendingIndex.put(m.getRid(),m.getDate());
       }
-    }
-    if (m.getSortDate() > state.getInMaxMessageDate()) {
-      state=state.changeInMaxDate(m.getSortDate());
-      conversationState.addOrUpdateItem(state);
     }
   }
   if (isConversationAutoRead()) {
