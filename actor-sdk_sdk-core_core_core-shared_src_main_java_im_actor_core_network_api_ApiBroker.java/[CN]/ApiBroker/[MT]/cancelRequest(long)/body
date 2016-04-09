@@ -1,4 +1,9 @@
 {
+  CommonTimer timer=timeouts.get(randomId);
+  if (timer != null) {
+    timer.cancel();
+    timeouts.remove(randomId);
+  }
   RequestHolder holder=requests.get(randomId);
   if (holder != null) {
     requests.remove(randomId);

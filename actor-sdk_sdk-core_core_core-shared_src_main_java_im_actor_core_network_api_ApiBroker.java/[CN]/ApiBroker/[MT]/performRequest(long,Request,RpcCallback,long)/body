@@ -1,0 +1,15 @@
+{
+  Log.d(TAG,"-> request#" + randomId + ": "+ message);
+  RequestHolder holder=new RequestHolder(Runtime.getCurrentTime(),randomId,new RpcRequest(message.getHeaderKey(),message.toByteArray()),callback);
+  requests.put(holder.publicId,holder);
+  if (proto != null) {
+    long mid=proto.sendRpcMessage(holder.message);
+    holder.protoId=mid;
+    idMap.put(mid,randomId);
+  }
+  if (timeout > 0) {
+    CommonTimer commonTimer=new CommonTimer(new TimeoutTask(holder.publicId));
+    timeouts.put(holder.publicId,commonTimer);
+    commonTimer.schedule(timeout);
+  }
+}

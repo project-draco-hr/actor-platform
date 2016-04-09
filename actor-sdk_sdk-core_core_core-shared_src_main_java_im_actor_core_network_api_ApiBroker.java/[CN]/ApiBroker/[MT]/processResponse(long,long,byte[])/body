@@ -18,6 +18,11 @@
  else {
     return;
   }
+  CommonTimer timer=timeouts.get(rid);
+  if (timer != null) {
+    timer.cancel();
+    timeouts.remove(rid);
+  }
   RequestHolder holder;
   if (requests.containsKey(rid)) {
     holder=requests.get(rid);
