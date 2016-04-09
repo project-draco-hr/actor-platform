@@ -1,6 +1,7 @@
 {
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   if (date > state.getOutReceiveDate()) {
+    dialogsActor(new DialogsActor.PeerReceiveChanged(peer,date));
     state=state.changeOutReceiveDate(date);
     conversationStates.addOrUpdateItem(state);
   }

@@ -3,6 +3,7 @@
   boolean isChanged=false;
   if (date > state.getOutReadDate()) {
     state=state.changeOutReadDate(date);
+    dialogsActor(new DialogsActor.PeerReadChanged(peer,date));
     isChanged=true;
   }
   if (date > state.getOutReceiveDate()) {
