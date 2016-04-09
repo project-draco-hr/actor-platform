@@ -6,4 +6,5 @@
   writer.writeInt(5,messageState.getValue());
   writer.writeBytes(6,AbsContent.serialize(content));
   writer.writeRepeatedObj(7,reactions);
+  writer.writeInt(8,contentIndex);
 }

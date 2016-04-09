@@ -1,0 +1,12 @@
+{
+  Message topMessage=null;
+  for (  Message m : messages) {
+    if (topMessage == null || topMessage.getSortDate() < m.getSortDate()) {
+      topMessage=m;
+    }
+  }
+  conversation(peer).addOrUpdateItems(messages);
+  if (topMessage != null) {
+    dialogsActor(new DialogsActor.InMessage(peer,topMessage,-1));
+  }
+}

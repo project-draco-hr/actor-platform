@@ -3,8 +3,8 @@
   long date=createPendingDate();
   long sortDate=date + 365 * 24 * 60* 60* 1000L;
   VideoContent videoContent=VideoContent.createLocalVideo(descriptor,fileName,fileSize,w,h,duration,fastThumb);
-  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,videoContent,new ArrayList<Reaction>());
-  context().getMessagesModule().getConversationActor(peer).send(message);
+  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,videoContent);
+  context().getMessagesModule().getRouter().onOutgoingMessage(peer,message);
   pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,videoContent));
   savePending();
   performUploadFile(rid,descriptor,fileName);

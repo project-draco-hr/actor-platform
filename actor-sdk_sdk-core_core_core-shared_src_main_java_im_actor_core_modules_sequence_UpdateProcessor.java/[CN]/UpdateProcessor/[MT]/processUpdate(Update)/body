@@ -95,9 +95,6 @@
  else   if (update instanceof UpdateParameterChanged) {
     settingsProcessor.onSettingsChanged(((UpdateParameterChanged)update).getKey(),((UpdateParameterChanged)update).getValue());
   }
- else   if (update instanceof UpdateCountersChanged) {
-    messagesProcessor.onCountersChanged(((UpdateCountersChanged)update).getCounters());
-  }
  else   if (update instanceof UpdateChatGroupsChanged) {
     messagesProcessor.onChatGroupsChanged(((UpdateChatGroupsChanged)update).getDialogs());
   }

@@ -1,3 +1,0 @@
-BindedDisplayList<MessageEx> displayList
-OnItemClickedListener<MessageEx> onItemClicked
-Context context

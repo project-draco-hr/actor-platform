@@ -4,13 +4,7 @@
   for (  ApiDialog dialog : dialogsResponse.getDialogs()) {
     maxLoadedDate=Math.min(dialog.getSortDate(),maxLoadedDate);
     Peer peer=convert(dialog.getPeer());
-    AbsContent msgContent=null;
-    try {
-      msgContent=AbsContent.fromMessage(dialog.getMessage());
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
+    AbsContent msgContent=AbsContent.fromMessage(dialog.getMessage());
     if (msgContent == null) {
       continue;
     }

@@ -11,6 +11,5 @@
   preferences().putBool(KEY_LOADED,historyLoaded);
   preferences().putBool(KEY_LOADED_INIT,true);
   if (historyLoaded) {
-    context().getMessagesModule().getConversationActor(peer).send(new ConversationActor.ConversationLoaded());
   }
 }

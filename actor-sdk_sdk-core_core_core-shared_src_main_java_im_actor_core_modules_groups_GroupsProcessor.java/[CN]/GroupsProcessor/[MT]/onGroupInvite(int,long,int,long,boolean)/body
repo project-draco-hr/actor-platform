@@ -4,12 +4,10 @@
     groups().addOrUpdateItem(group.addMember(myUid(),inviterId,date));
     if (!isSilent) {
       if (inviterId == myUid()) {
-        Message message=new Message(rid,date,date,inviterId,MessageState.UNKNOWN,ServiceGroupCreated.create(),new ArrayList<Reaction>());
-        conversationActor(group.peer()).send(message);
+        Message message=new Message(rid,date,date,inviterId,MessageState.UNKNOWN,ServiceGroupCreated.create());
       }
  else {
-        Message message=new Message(rid,date,date,inviterId,MessageState.SENT,ServiceGroupUserInvited.create(myUid()),new ArrayList<Reaction>());
-        conversationActor(group.peer()).send(message);
+        Message message=new Message(rid,date,date,inviterId,MessageState.SENT,ServiceGroupUserInvited.create(myUid()));
       }
     }
   }

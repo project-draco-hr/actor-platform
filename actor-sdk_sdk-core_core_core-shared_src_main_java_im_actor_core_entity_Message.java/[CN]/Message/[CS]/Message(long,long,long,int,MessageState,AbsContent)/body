@@ -1,0 +1,3 @@
+{
+  this(rid,sortDate,date,senderId,messageState,content,new ArrayList<Reaction>(),0);
+}

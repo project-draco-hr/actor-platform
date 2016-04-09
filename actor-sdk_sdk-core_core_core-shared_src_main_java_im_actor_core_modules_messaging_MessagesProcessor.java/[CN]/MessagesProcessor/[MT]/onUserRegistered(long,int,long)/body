@@ -1,4 +1,2 @@
 {
-  Message message=new Message(rid,date,date,uid,MessageState.UNKNOWN,ServiceUserRegistered.create(),new ArrayList<Reaction>());
-  conversationActor(Peer.user(uid)).send(message);
 }

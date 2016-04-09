@@ -1,7 +1,3 @@
 {
   messages.clear();
-  inPendingIndex.clear();
-  dialogsActor.send(new DialogsActor.ChatClear(peer));
-  state=state.changeInReadDate(0).changeInMaxDate(0);
-  conversationState.addOrUpdateItem(state);
 }

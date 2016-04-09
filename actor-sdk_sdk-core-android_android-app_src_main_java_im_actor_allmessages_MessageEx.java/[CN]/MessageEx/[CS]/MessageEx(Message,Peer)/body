@@ -1,4 +1,0 @@
-{
-  super(msg.getRid(),msg.getSortDate(),msg.getDate(),msg.getSenderId(),msg.getMessageState(),msg.getContent(),msg.getReactions());
-  this.peer=peer;
-}

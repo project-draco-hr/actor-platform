@@ -1,0 +1,47 @@
+{
+  if (message instanceof RouterConversationVisible) {
+    RouterConversationVisible conversationVisible=(RouterConversationVisible)message;
+    onConversationVisible(conversationVisible.getPeer());
+  }
+ else   if (message instanceof RouterConversationHidden) {
+    RouterConversationHidden conversationHidden=(RouterConversationHidden)message;
+    onConversationHidden(conversationHidden.getPeer());
+  }
+ else   if (message instanceof RouterAppVisible) {
+    onAppVisible();
+  }
+ else   if (message instanceof RouterAppHidden) {
+    onAppHidden();
+  }
+ else   if (message instanceof RouterNewMessages) {
+    RouterNewMessages routerNewMessages=(RouterNewMessages)message;
+    onNewMessages(routerNewMessages.getPeer(),routerNewMessages.getMessages());
+  }
+ else   if (message instanceof RouterOutgoingMessage) {
+    RouterOutgoingMessage routerOutgoingMessage=(RouterOutgoingMessage)message;
+    onOutgoingMessage(routerOutgoingMessage.getPeer(),routerOutgoingMessage.getMessage());
+  }
+ else   if (message instanceof RouterOutgoingSent) {
+    RouterOutgoingSent routerOutgoingSent=(RouterOutgoingSent)message;
+    onOutgoingSent(routerOutgoingSent.getPeer(),routerOutgoingSent.getRid(),routerOutgoingSent.getDate());
+  }
+ else   if (message instanceof RouterOutgoingError) {
+    RouterOutgoingError outgoingError=(RouterOutgoingError)message;
+    onOutgoingError(outgoingError.getPeer(),outgoingError.getRid());
+  }
+ else   if (message instanceof RouterChangedContent) {
+    RouterChangedContent routerChangedContent=(RouterChangedContent)message;
+    onContentUpdate(routerChangedContent.getPeer(),routerChangedContent.getRid(),routerChangedContent.getContent());
+  }
+ else   if (message instanceof RouterChangedReactions) {
+    RouterChangedReactions routerChangedReactions=(RouterChangedReactions)message;
+    onReactionsUpdate(routerChangedReactions.getPeer(),routerChangedReactions.getRid(),routerChangedReactions.getReactions());
+  }
+ else   if (message instanceof RouterDeletedMessages) {
+    RouterDeletedMessages routerDeletedMessages=(RouterDeletedMessages)message;
+    onMessageDeleted(routerDeletedMessages.getPeer(),routerDeletedMessages.getRids());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

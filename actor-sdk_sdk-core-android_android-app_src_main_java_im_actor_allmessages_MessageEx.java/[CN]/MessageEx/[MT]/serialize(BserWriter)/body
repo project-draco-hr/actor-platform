@@ -1,4 +1,0 @@
-{
-  super.serialize(writer);
-  writer.writeLong(8,peer.getUnuqueId());
-}

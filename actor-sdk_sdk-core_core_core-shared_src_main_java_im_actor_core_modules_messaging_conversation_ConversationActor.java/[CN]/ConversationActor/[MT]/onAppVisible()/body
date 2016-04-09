@@ -1,6 +1,0 @@
-{
-  isAppVisible=true;
-  if (isConversationAutoRead()) {
-    checkReadState(true);
-  }
-}

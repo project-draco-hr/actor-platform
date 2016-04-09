@@ -1,35 +1,3 @@
 {
-  Message topMessage=null;
-  ArrayList<Message> updated=new ArrayList<>();
-  for (  Message m : inMessages) {
-    if (m.isOnServer()) {
-      if (topMessage == null || topMessage.getSortDate() < m.getSortDate()) {
-        topMessage=m;
-      }
-    }
-    updated.add(m);
-  }
-  messages.addOrUpdateItems(updated);
-  for (  Message m : updated) {
-    if (m.getSenderId() != myUid()) {
-      if (m.getSortDate() > state.getInMaxMessageDate()) {
-        state=state.changeInMaxDate(m.getSortDate());
-        conversationState.addOrUpdateItem(state);
-      }
-      if (m.getSortDate() > state.getInReadDate()) {
-        inPendingIndex.put(m.getRid(),m.getDate());
-      }
-    }
-  }
-  if (isConversationAutoRead()) {
-    checkReadState(false);
-  }
-  if (topMessage != null) {
-    if (!isHiddenPeer) {
-      dialogsActor.send(new DialogsActor.InMessage(peer,topMessage,inPendingIndex.getCount()));
-    }
-    if (dialogsGroupedActor != null) {
-      dialogsGroupedActor.send(new ActiveDialogsActor.CounterChanged(peer,inPendingIndex.getCount()));
-    }
-  }
+  messages.addOrUpdateItems(inMessages);
 }

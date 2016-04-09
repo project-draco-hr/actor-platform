@@ -20,9 +20,6 @@
   for (  Update u : combinedDifference.getOtherUpdates()) {
     processUpdate(u);
   }
-  if (combinedDifference.getCounters() != null) {
-    messagesProcessor.onCountersChanged(combinedDifference.getCounters());
-  }
   context().getMessagesModule().getOwnReadActor().send(new OwnReadActor.StopGetDifference());
   applyRelated(users,groups,true);
 }

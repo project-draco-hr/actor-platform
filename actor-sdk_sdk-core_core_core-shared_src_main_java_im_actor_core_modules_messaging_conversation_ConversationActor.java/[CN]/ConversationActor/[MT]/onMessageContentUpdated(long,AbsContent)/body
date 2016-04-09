@@ -3,10 +3,5 @@
   if (message == null) {
     return;
   }
-  content.incrementUpdatedCounter(message.getContent().getUpdatedCounter());
-  Message updatedMsg=message.changeContent(content);
-  messages.addOrUpdateItem(updatedMsg);
-  if (!isHiddenPeer) {
-    dialogsActor.send(new DialogsActor.MessageContentChanged(peer,rid,content));
-  }
+  messages.addOrUpdateItem(message.changeContent(content));
 }

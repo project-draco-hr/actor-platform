@@ -9,4 +9,5 @@
   for (  byte[] react : values.getRepeatedBytes(7)) {
     reactions.add(Reaction.fromBytes(react));
   }
+  contentIndex=values.getInt(8,0);
 }

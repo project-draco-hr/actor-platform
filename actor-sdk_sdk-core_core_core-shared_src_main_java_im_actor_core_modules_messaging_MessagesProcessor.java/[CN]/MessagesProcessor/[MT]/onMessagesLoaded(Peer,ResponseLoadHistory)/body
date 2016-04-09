@@ -5,16 +5,7 @@
   long maxReceiveDate=0;
   for (  ApiMessageContainer historyMessage : historyResponse.getHistory()) {
     maxLoadedDate=Math.min(historyMessage.getDate(),maxLoadedDate);
-    AbsContent content=null;
-    try {
-      content=AbsContent.fromMessage(historyMessage.getMessage());
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
-    if (content == null) {
-      continue;
-    }
+    AbsContent content=AbsContent.fromMessage(historyMessage.getMessage());
     MessageState state=EntityConverter.convert(historyMessage.getState());
     if (historyMessage.getState() == ApiMessageState.RECEIVED) {
       maxReceiveDate=Math.max(historyMessage.getDate(),maxReceiveDate);
@@ -27,10 +18,6 @@
     for (    ApiMessageReaction r : historyMessage.getReactions()) {
       reactions.add(new Reaction(r.getCode(),r.getUsers()));
     }
-    messages.add(new Message(historyMessage.getRid(),historyMessage.getDate(),historyMessage.getDate(),historyMessage.getSenderUid(),state,content,reactions));
+    messages.add(new Message(historyMessage.getRid(),historyMessage.getDate(),historyMessage.getDate(),historyMessage.getSenderUid(),state,content,reactions,0));
   }
-  if (messages.size() > 0) {
-    conversationActor(peer).send(new ConversationActor.HistoryLoaded(messages,maxReadDate,maxReceiveDate));
-  }
-  conversationHistoryActor(peer).send(new ConversationHistoryActor.LoadedMore(historyResponse.getHistory().size(),maxLoadedDate));
 }

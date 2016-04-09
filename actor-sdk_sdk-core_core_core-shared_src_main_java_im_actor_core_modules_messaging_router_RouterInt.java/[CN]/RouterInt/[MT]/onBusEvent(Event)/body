@@ -1,0 +1,18 @@
+{
+  if (event instanceof PeerChatOpened) {
+    PeerChatOpened peerChatOpened=(PeerChatOpened)event;
+    send(new RouterConversationVisible(peerChatOpened.getPeer()));
+  }
+ else   if (event instanceof PeerChatClosed) {
+    PeerChatClosed peerChatClosed=(PeerChatClosed)event;
+    send(new RouterConversationVisible(peerChatClosed.getPeer()));
+  }
+ else   if (event instanceof AppVisibleChanged) {
+    if (((AppVisibleChanged)event).isVisible()) {
+      send(new RouterAppVisible());
+    }
+ else {
+      send(new RouterAppVisible());
+    }
+  }
+}

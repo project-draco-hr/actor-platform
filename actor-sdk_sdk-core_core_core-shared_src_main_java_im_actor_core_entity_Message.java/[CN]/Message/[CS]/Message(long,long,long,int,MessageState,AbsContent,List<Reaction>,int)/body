@@ -1,0 +1,10 @@
+{
+  this.rid=rid;
+  this.sortDate=sortDate;
+  this.date=date;
+  this.senderId=senderId;
+  this.messageState=messageState;
+  this.content=content;
+  this.reactions=reactions;
+  this.contentIndex=contentIndex;
+}

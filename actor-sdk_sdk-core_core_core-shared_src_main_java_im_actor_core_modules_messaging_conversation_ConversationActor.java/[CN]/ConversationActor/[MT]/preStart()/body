@@ -1,39 +1,3 @@
 {
-  conversationState=context().getMessagesModule().getConversationStates().getEngine();
   messages=context().getMessagesModule().getConversationEngine(peer);
-  readerActor=context().getMessagesModule().getOwnReadActor();
-  dialogsActor=context().getMessagesModule().getDialogsActor();
-  if (context().getConfiguration().isEnabledGroupedChatList()) {
-    dialogsGroupedActor=context().getMessagesModule().getDialogsGroupedActor();
-  }
-  if (peer.getPeerType() == PeerType.GROUP) {
-    isHiddenPeer=getGroup(peer.getPeerId()).isHidden();
-  }
-  subscribe(AppVisibleChanged.EVENT);
-  inPendingIndex=new IndexEngine(Storage.createIndex("in_pending_" + peer.getPeerType() + "_"+ peer.getPeerId()));
-  long inReadState=context().getPreferences().getLong(IN_READ_STATE_PREF,0);
-  long inMaxDate=context().getPreferences().getLong(IN_READ_STATE_NEW_PREF,0);
-  long outReadState=context().getPreferences().getLong(OUT_READ_STATE_PREF,0);
-  long outReceiveState=context().getPreferences().getLong(OUT_RECEIVE_STATE_PREF,0);
-  state=conversationState.getValue(peerUniqueId);
-  boolean isChanged=false;
-  if (state.getInReadDate() < inReadState) {
-    state=state.changeInReadDate(inReadState);
-    isChanged=true;
-  }
-  if (state.getInMaxMessageDate() < inMaxDate) {
-    state=state.changeInMaxDate(inMaxDate);
-    isChanged=true;
-  }
-  if (state.getOutReadDate() < outReadState) {
-    state=state.changeOutReadDate(outReadState);
-    isChanged=true;
-  }
-  if (state.getOutReceiveDate() < outReceiveState) {
-    state=state.changeOutReceiveDate(outReceiveState);
-    isChanged=true;
-  }
-  if (isChanged) {
-    conversationState.addOrUpdateItem(state);
-  }
 }

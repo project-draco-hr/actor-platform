@@ -5,8 +5,7 @@
     groups().addOrUpdateItem(upd);
     onGroupDescChanged(upd);
     if (!isSilent) {
-      Message message=new Message(rid,date,date,uid,uid == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupAvatarChanged.create(avatar),new ArrayList<Reaction>());
-      conversationActor(group.peer()).send(message);
+      Message message=new Message(rid,date,date,uid,uid == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupAvatarChanged.create(avatar));
     }
   }
 }

@@ -22,9 +22,9 @@
           performUploadFile(pending.getRid(),((FileLocalSource)documentContent.getSource()).getFileDescriptor(),((FileLocalSource)documentContent.getSource()).getFileName());
         }
  else {
-          List<Long> rids=new ArrayList<Long>();
+          List<Long> rids=new ArrayList<>();
           rids.add(pending.getRid());
-          context().getMessagesModule().getConversationActor(pending.getPeer()).send(new ConversationActor.MessagesDeleted(rids));
+          context().getMessagesModule().getRouter().onMessagesDeleted(pending.getPeer(),rids);
           pendingMessages.getPendingMessages().remove(pending);
           isChanged=true;
         }

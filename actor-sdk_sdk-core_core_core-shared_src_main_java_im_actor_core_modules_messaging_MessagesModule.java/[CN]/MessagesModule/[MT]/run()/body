@@ -1,4 +1,5 @@
 {
+  this.router=new RouterInt(context());
   this.dialogsActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public DialogsActor create(){
       return new DialogsActor(context());
@@ -55,7 +56,4 @@
     }
   }
 ),"actor/deletions");
-  context().getEvents().subscribe(this,PeerChatOpened.EVENT);
-  context().getEvents().subscribe(this,PeerChatClosed.EVENT);
-  context().getEvents().subscribe(this,AppVisibleChanged.EVENT);
 }

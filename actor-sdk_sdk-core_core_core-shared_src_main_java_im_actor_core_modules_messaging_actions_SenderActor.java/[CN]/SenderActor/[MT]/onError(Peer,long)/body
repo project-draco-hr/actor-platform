@@ -6,5 +6,5 @@
     }
   }
   savePending();
-  context().getMessagesModule().getConversationActor(peer).send(new ConversationActor.MessageError(rid));
+  context().getMessagesModule().getRouter().onOutgoingError(peer,rid);
 }

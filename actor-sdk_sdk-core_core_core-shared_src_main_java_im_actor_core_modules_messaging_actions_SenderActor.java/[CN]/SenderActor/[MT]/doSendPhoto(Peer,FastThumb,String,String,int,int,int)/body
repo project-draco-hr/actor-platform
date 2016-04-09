@@ -3,8 +3,8 @@
   long date=createPendingDate();
   long sortDate=date + 365 * 24 * 60* 60* 1000L;
   PhotoContent photoContent=PhotoContent.createLocalPhoto(descriptor,fileName,fileSize,w,h,fastThumb);
-  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,photoContent,new ArrayList<Reaction>());
-  context().getMessagesModule().getConversationActor(peer).send(message);
+  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,photoContent);
+  context().getMessagesModule().getRouter().onOutgoingMessage(peer,message);
   pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,photoContent));
   savePending();
   performUploadFile(rid,descriptor,fileName);

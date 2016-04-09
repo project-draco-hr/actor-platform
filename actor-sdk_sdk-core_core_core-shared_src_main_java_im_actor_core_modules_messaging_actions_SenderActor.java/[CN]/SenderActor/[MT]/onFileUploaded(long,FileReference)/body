@@ -25,7 +25,7 @@
     return;
   }
   pendingMessages.getPendingMessages().add(new PendingMessage(msg.getPeer(),msg.getRid(),nContent));
-  context().getMessagesModule().getConversationActor(msg.getPeer()).send(new ConversationActor.MessageContentUpdated(msg.getRid(),nContent));
+  context().getMessagesModule().getRouter().onContentChanged(msg.getPeer(),msg.getRid(),nContent);
   performSendContent(msg.getPeer(),rid,nContent);
   fileUplaodingWakeLocks.remove(rid).releaseLock();
 }

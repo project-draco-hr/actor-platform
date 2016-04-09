@@ -17,15 +17,9 @@
     MessageError messageError=(MessageError)message;
     onMessageError(messageError.getRid());
   }
- else   if (message instanceof MessageRead) {
-    onMessageRead(((MessageRead)message).getDate());
-  }
- else   if (message instanceof MessageReceived) {
-    onMessageReceived(((MessageReceived)message).getDate());
-  }
  else   if (message instanceof HistoryLoaded) {
     HistoryLoaded historyLoaded=((HistoryLoaded)message);
-    onHistoryLoaded(historyLoaded.getMessages(),historyLoaded.getMaxReadDate(),historyLoaded.getMaxReceiveDate());
+    onHistoryLoaded(historyLoaded.getMessages());
   }
  else   if (message instanceof ClearConversation) {
     onClearConversation();
@@ -36,20 +30,8 @@
  else   if (message instanceof MessagesDeleted) {
     onMessagesDeleted(((MessagesDeleted)message).getRids());
   }
- else   if (message instanceof MessageReadByMe) {
-    onMessageReadByMe(((MessageReadByMe)message).getDate());
-  }
  else   if (message instanceof MessageReactionsChanged) {
     onMessageReactionsUpdated(((MessageReactionsChanged)message).getRid(),((MessageReactionsChanged)message).getReactions());
-  }
- else   if (message instanceof ConversationVisible) {
-    onConversationVisible();
-  }
- else   if (message instanceof ConversationHidden) {
-    onConversationHidden();
-  }
- else   if (message instanceof ConversationLoaded) {
-    onConversationLoaded();
   }
  else {
     drop(message);

@@ -1,6 +1,0 @@
-{
-  ConversationState state=conversationState.getValue(peer.getUnuqueId());
-  if (!state.isLoaded()) {
-    conversationState.addOrUpdateItem(state.changeIsLoaded(true));
-  }
-}
