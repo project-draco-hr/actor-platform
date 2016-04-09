@@ -42,5 +42,4 @@
     }
   }
   bindData(message,readDate,receiveDate,isUpdated,preprocessedData);
-  ActorSDK.sharedActor().getMessenger().onUserVisible(message.getSenderId());
 }
