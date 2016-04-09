@@ -76,13 +76,8 @@
     forwardText="";
     forwardTextRaw="";
   }
-  if (forwardDocDescriptor != null && !forwardDocDescriptor.isEmpty()) {
-    if (forwardDocIsDoc) {
-      messenger().sendDocument(peer,forwardDocDescriptor);
-    }
- else {
-      execute(messenger().sendUri(peer,Uri.fromFile(new File(forwardDocDescriptor))));
-    }
-    forwardDocDescriptor="";
+  if (forwardContent != null) {
+    messenger().forwardContent(peer,forwardContent);
+    forwardContent=null;
   }
 }

@@ -30,9 +30,8 @@
         forwardText=extras.getString("forward_text");
         forwardTextRaw=extras.getString("forward_text_raw");
       }
- else       if (extras.containsKey("forward_doc_descriptor")) {
-        forwardDocDescriptor=extras.getString("forward_doc_descriptor");
-        forwardDocIsDoc=extras.getBoolean("forward_doc_is_doc");
+ else       if (extras.containsKey("forward_content")) {
+        docContent=extras.getByteArray("forward_content");
       }
     }
   }

@@ -1,0 +1,4 @@
+{
+  Activity activity=getAdapter().getMessagesFragment().getActivity();
+  activity.startActivity(Intents.openDoc(document.getName(),reference.getDescriptor()));
+}

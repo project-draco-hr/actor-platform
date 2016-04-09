@@ -6,6 +6,7 @@
     messenger().requestState(location.getFileId(),new FileCallback(){
       @Override public void onNotDownloaded(){
         messenger().startDownloading(location);
+        playRequested=true;
       }
       @Override public void onDownloading(      float progress){
         messenger().cancelDownloading(location.getFileId());
@@ -17,8 +18,7 @@
               Intents.openMedia(getAdapter().getMessagesFragment().getActivity(),previewView,reference.getDescriptor(),currentMessage.getSenderId());
             }
  else {
-              Activity activity=getAdapter().getMessagesFragment().getActivity();
-              activity.startActivity(Intents.openDoc(document.getName(),reference.getDescriptor()));
+              playVideo(document,reference);
             }
           }
         }

@@ -1,0 +1,3 @@
+{
+  sendMessageActor.send(new SenderActor.ForwardContent(peer,content));
+}
