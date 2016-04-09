@@ -1,0 +1,4 @@
+Peer peer
+List<Message> messages
+Long maxReceiveDate
+Long maxReadDate

@@ -1,5 +1,0 @@
-{
-  ApiPeer apiPeer=new ApiPeer(peer.getPeerType() == PeerType.PRIVATE ? ApiPeerType.PRIVATE : ApiPeerType.GROUP,peer.getPeerId());
-  ApiJsonMessage jsonMessage=new ApiJsonMessage(json.getRawJson());
-  updates().onUpdateReceived(new ChangeContent(new UpdateMessageContentChanged(apiPeer,rid,jsonMessage)));
-}

@@ -1,3 +1,0 @@
-{
-  modules.getMessagesModule().updateJson(peer,rid,json);
-}

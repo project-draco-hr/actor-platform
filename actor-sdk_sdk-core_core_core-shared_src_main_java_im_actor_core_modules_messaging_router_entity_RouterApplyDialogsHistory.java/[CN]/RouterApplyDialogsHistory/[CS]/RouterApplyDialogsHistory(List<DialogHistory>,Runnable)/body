@@ -1,0 +1,4 @@
+{
+  this.dialogs=dialogs;
+  this.executeAfter=executeAfter;
+}

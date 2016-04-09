@@ -1,0 +1,6 @@
+{
+  isLoading=false;
+  historyLoaded=true;
+  preferences().putBool(KEY_LOADED,true);
+  preferences().putBool(KEY_LOADED_INIT,true);
+}

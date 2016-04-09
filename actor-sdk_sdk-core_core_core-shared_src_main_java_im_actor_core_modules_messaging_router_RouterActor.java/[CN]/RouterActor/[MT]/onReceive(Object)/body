@@ -53,6 +53,11 @@
     RouterMessageReceived messageReceived=(RouterMessageReceived)message;
     onMessageReceived(messageReceived.getPeer(),messageReceived.getDate());
   }
+ else   if (message instanceof RouterApplyDialogsHistory) {
+    RouterApplyDialogsHistory dialogsHistory=(RouterApplyDialogsHistory)message;
+    onDialogHistoryLoaded(dialogsHistory.getDialogs());
+    dialogsHistory.getExecuteAfter().run();
+  }
  else {
     super.onReceive(message);
   }

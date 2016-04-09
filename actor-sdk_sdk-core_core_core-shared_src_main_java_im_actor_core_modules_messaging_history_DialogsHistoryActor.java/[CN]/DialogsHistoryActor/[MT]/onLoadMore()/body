@@ -1,0 +1,17 @@
+{
+  if (historyLoaded || isLoading) {
+    return;
+  }
+  isLoading=true;
+  api(new RequestLoadDialogs(historyMaxDate,LIMIT)).then(new Consumer<ResponseLoadDialogs>(){
+    @Override public void apply(    final ResponseLoadDialogs response){
+      updates().executeRelatedResponse(response.getUsers(),response.getGroups(),new Runnable(){
+        @Override public void run(){
+          onLoadedMore(response.getDialogs());
+        }
+      }
+);
+    }
+  }
+).done(self());
+}
