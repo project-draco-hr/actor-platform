@@ -1,25 +1,15 @@
 {
   Message topMessage=null;
   ArrayList<Message> updated=new ArrayList<>();
-  ArrayList<Message> updatedDocs=new ArrayList<>();
   for (  Message m : inMessages) {
     if (m.isOnServer()) {
-      if (topMessage == null) {
+      if (topMessage == null || topMessage.getSortDate() < m.getSortDate()) {
         topMessage=m;
-      }
- else {
-        if (topMessage.getSortDate() < m.getSortDate()) {
-          topMessage=m;
-        }
       }
     }
     updated.add(m);
-    if (m.getContent() instanceof DocumentContent) {
-      updatedDocs.add(m);
-    }
   }
   messages.addOrUpdateItems(updated);
-  docs.addOrUpdateItems(updatedDocs);
   for (  Message m : updated) {
     if (m.getSenderId() != myUid()) {
       if (m.getSortDate() > state.getInMaxMessageDate()) {

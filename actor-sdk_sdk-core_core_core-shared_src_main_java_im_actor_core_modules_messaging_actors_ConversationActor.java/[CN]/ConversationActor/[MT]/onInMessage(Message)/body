@@ -1,8 +1,5 @@
 {
   messages.addOrUpdateItem(message);
-  if (message.getContent() instanceof DocumentContent) {
-    docs.addOrUpdateItem(message);
-  }
   if (message.isOnServer()) {
     if (message.getSenderId() != myUid()) {
       if (message.getSortDate() > state.getInMaxMessageDate()) {

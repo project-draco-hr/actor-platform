@@ -3,9 +3,6 @@
   if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
     Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
     messages.addOrUpdateItem(updatedMsg);
-    if (updatedMsg.getContent() instanceof DocumentContent) {
-      docs.addOrUpdateItem(updatedMsg);
-    }
     if (!isHiddenPeer) {
       dialogsActor.send(new DialogsActor.InMessage(peer,updatedMsg,inPendingIndex.getCount()));
       if (dialogsGroupedActor != null) {

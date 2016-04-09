@@ -5,10 +5,4 @@
   }
   Message updatedMsg=message.changeReactions(reactions);
   messages.addOrUpdateItem(updatedMsg);
-  if (updatedMsg.getContent() instanceof DocumentContent) {
-    docs.addOrUpdateItem(updatedMsg);
-  }
- else {
-    docs.removeItem(rid);
-  }
 }

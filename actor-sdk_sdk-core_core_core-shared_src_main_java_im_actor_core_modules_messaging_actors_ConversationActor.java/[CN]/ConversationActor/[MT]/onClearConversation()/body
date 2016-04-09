@@ -1,6 +1,5 @@
 {
   messages.clear();
-  docs.clear();
   inPendingIndex.clear();
   dialogsActor.send(new DialogsActor.ChatClear(peer));
   state=state.changeInReadDate(0).changeInMaxDate(0);

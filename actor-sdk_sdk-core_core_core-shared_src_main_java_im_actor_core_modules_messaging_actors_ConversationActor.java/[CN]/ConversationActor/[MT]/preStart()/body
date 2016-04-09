@@ -1,7 +1,6 @@
 {
   conversationState=context().getMessagesModule().getConversationStates().getEngine();
   messages=context().getMessagesModule().getConversationEngine(peer);
-  docs=context().getMessagesModule().getConversationDocsEngine(peer);
   readerActor=context().getMessagesModule().getOwnReadActor();
   dialogsActor=context().getMessagesModule().getDialogsActor();
   if (context().getConfiguration().isEnabledGroupedChatList()) {
