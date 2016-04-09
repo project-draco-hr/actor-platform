@@ -14,7 +14,7 @@
     if (msgContent == null) {
       continue;
     }
-    dialogs.add(new DialogHistory(peer,dialog.getUnreadCount(),dialog.getSortDate(),dialog.getRid(),dialog.getDate(),dialog.getSenderUid(),msgContent,convert(dialog.getState())));
+    dialogs.add(new DialogHistory(peer,dialog.getUnreadCount(),dialog.getSortDate(),dialog.getRid(),dialog.getDate(),dialog.getSenderUid(),msgContent,dialog.getState() == ApiMessageState.READ,dialog.getState() == ApiMessageState.RECEIVED));
   }
   if (dialogs.size() > 0) {
     dialogsActor().send(new DialogsActor.HistoryLoaded(dialogs));

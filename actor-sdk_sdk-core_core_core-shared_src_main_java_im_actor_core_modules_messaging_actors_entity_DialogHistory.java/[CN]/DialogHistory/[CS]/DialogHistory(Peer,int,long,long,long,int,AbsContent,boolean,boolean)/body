@@ -6,5 +6,6 @@
   this.date=date;
   this.senderId=senderId;
   this.content=content;
-  this.status=status;
+  this.isRead=isRead;
+  this.isReceived=isReceived;
 }

@@ -5,4 +5,5 @@ long rid
 long date
 int senderId
 AbsContent content
-MessageState status
+boolean isRead
+boolean isReceived
