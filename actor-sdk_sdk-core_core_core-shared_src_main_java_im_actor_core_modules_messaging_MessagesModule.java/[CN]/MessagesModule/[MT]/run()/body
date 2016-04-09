@@ -56,4 +56,6 @@
     }
   }
 ),"actor/deletions");
+  context().getEvents().subscribe(this,PeerChatOpened.EVENT);
+  context().getEvents().subscribe(this,PeerChatPreload.EVENT);
 }

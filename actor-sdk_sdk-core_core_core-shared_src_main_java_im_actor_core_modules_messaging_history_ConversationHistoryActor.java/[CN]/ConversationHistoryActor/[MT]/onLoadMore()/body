@@ -1,18 +1,12 @@
 {
-  if (historyLoaded) {
-    return;
-  }
-  if (isLoading) {
+  if (isLoading || historyLoaded) {
     return;
   }
   isLoading=true;
-  request(new RequestLoadHistory(buidOutPeer(peer),historyMaxDate,null,LIMIT),new RpcCallback<ResponseLoadHistory>(){
-    @Override public void onResult(    ResponseLoadHistory response){
-      updates().onUpdateReceived(new MessagesHistoryLoaded(peer,response));
-    }
-    @Override public void onError(    RpcException e){
-      e.printStackTrace();
+  api(new RequestLoadHistory(buidOutPeer(peer),historyMaxDate,null,LIMIT)).mapPromise(applyRelated()).then(applyHistory(peer)).then(new Consumer<ResponseLoadHistory>(){
+    @Override public void apply(    ResponseLoadHistory responseLoadHistory){
+      isLoading=false;
     }
   }
-);
+).done(self());
 }

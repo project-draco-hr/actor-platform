@@ -1,0 +1,3 @@
+{
+  send(new RouterApplyChatHistory(peer,history,maxReceivedDate,maxReadDate,isEnded));
+}

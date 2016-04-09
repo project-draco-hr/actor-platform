@@ -1,5 +1,5 @@
 {
-  ArrayList<Message> messages=new ArrayList<Message>();
+  ArrayList<Message> messages=new ArrayList<>();
   long maxLoadedDate=Long.MAX_VALUE;
   long maxReadDate=0;
   long maxReceiveDate=0;

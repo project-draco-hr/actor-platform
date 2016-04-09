@@ -2,11 +2,7 @@
   if (message instanceof LoadMore) {
     onLoadMore();
   }
- else   if (message instanceof LoadedMore) {
-    LoadedMore loadedMore=(LoadedMore)message;
-    onLoadedMore(loadedMore.loaded,loadedMore.maxLoadedDate);
-  }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

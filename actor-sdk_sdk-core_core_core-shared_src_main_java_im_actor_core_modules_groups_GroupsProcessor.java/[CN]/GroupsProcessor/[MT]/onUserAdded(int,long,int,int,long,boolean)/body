@@ -4,6 +4,7 @@
     groups().addOrUpdateItem(group.addMember(uid,adder,date));
     if (!isSilent) {
       Message message=new Message(rid,date,date,adder,adder == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupUserInvited.create(uid));
+      getRouter().onNewMessage(group.peer(),message);
     }
   }
 }

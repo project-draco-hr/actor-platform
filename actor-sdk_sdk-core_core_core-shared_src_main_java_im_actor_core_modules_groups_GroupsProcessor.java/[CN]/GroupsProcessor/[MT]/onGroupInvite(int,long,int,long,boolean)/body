@@ -5,9 +5,11 @@
     if (!isSilent) {
       if (inviterId == myUid()) {
         Message message=new Message(rid,date,date,inviterId,MessageState.UNKNOWN,ServiceGroupCreated.create());
+        getRouter().onNewMessage(group.peer(),message);
       }
  else {
         Message message=new Message(rid,date,date,inviterId,MessageState.SENT,ServiceGroupUserInvited.create(myUid()));
+        getRouter().onNewMessage(group.peer(),message);
       }
     }
   }

@@ -1,0 +1,8 @@
+{
+  if (event instanceof PeerChatOpened) {
+    getHistoryActor(((PeerChatOpened)event).getPeer());
+  }
+ else   if (event instanceof PeerChatPreload) {
+    getHistoryActor(((PeerChatPreload)event).getPeer());
+  }
+}

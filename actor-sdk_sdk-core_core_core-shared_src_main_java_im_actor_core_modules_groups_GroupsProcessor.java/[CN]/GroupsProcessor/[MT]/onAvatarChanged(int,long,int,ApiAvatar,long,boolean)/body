@@ -6,6 +6,7 @@
     onGroupDescChanged(upd);
     if (!isSilent) {
       Message message=new Message(rid,date,date,uid,uid == myUid() ? MessageState.SENT : MessageState.UNKNOWN,ServiceGroupAvatarChanged.create(avatar));
+      getRouter().onNewMessage(group.peer(),message);
     }
   }
 }

@@ -1,9 +1,0 @@
-{
-  String key=peer.getUnuqueId() + dataType;
-synchronized (customConversationEngines) {
-    if (!customConversationEngines.containsKey(key)) {
-      customConversationEngines.put(key,Storage.createList(STORAGE_CHAT_CUSTOM_PREFIX + "_" + dataType+ "_"+ peer.getUnuqueId(),creator));
-    }
-    return customConversationEngines.get(key);
-  }
-}

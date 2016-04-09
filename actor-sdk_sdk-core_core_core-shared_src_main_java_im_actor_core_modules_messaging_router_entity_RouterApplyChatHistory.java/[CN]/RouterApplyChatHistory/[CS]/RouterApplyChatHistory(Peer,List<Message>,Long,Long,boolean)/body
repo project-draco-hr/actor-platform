@@ -1,0 +1,7 @@
+{
+  this.peer=peer;
+  this.messages=messages;
+  this.maxReceiveDate=maxReceiveDate;
+  this.maxReadDate=maxReadDate;
+  this.isEnded=isEnded;
+}

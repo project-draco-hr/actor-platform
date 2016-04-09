@@ -58,6 +58,10 @@
     onDialogHistoryLoaded(dialogsHistory.getDialogs());
     dialogsHistory.getExecuteAfter().run();
   }
+ else   if (message instanceof RouterApplyChatHistory) {
+    RouterApplyChatHistory chatHistory=(RouterApplyChatHistory)message;
+    onChatHistoryLoaded(chatHistory.getPeer(),chatHistory.getMessages(),chatHistory.getMaxReadDate(),chatHistory.getMaxReceiveDate(),chatHistory.isEnded());
+  }
  else {
     super.onReceive(message);
   }

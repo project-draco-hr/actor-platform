@@ -1,2 +1,8 @@
 {
+  im.actor.runtime.Runtime.dispatch(new Runnable(){
+    @Override public void run(){
+      getHistoryActor(peer).send(new ConversationHistoryActor.LoadMore());
+    }
+  }
+);
 }
