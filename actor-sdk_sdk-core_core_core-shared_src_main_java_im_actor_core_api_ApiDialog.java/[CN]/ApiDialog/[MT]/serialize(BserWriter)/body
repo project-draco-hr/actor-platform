@@ -15,4 +15,10 @@
   if (this.state != null) {
     writer.writeInt(9,this.state.getValue());
   }
+  if (this.firstUnreadDate != null) {
+    writer.writeLong(10,this.firstUnreadDate);
+  }
+  if (this.attributes != null) {
+    writer.writeObject(11,this.attributes);
+  }
 }

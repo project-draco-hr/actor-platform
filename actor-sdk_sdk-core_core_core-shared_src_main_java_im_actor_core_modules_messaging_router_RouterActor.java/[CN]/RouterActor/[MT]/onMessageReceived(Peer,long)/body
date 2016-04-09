@@ -1,0 +1,7 @@
+{
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  if (date > state.getOutReceiveDate()) {
+    state=state.changeOutReceiveDate(date);
+    conversationStates.addOrUpdateItem(state);
+  }
+}

@@ -5,7 +5,7 @@
   }
  else   if (event instanceof PeerChatClosed) {
     PeerChatClosed peerChatClosed=(PeerChatClosed)event;
-    send(new RouterConversationVisible(peerChatClosed.getPeer()));
+    send(new RouterConversationHidden(peerChatClosed.getPeer()));
   }
  else   if (event instanceof AppVisibleChanged) {
     if (((AppVisibleChanged)event).isVisible()) {

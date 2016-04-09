@@ -1,0 +1,5 @@
+{
+  this.peer=peer;
+  this.date=date;
+  this.counter=counter;
+}

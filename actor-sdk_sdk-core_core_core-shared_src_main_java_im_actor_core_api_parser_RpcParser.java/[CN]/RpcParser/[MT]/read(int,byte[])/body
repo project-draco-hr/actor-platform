@@ -102,6 +102,8 @@ case 224:
 return RequestFavouriteDialog.fromBytes(payload);
 case 227:
 return RequestUnfavouriteDialog.fromBytes(payload);
+case 2785:
+return RequestNotifyDialogOpened.fromBytes(payload);
 case 65:
 return RequestCreateGroupObsolete.fromBytes(payload);
 case 230:
@@ -176,6 +178,8 @@ case 77:
 return RequestGetFileUrl.fromBytes(payload);
 case 2573:
 return RequestGetFileUrls.fromBytes(payload);
+case 2579:
+return RequestGetFileUrlBuilder.fromBytes(payload);
 case 97:
 return RequestGetFileUploadUrl.fromBytes(payload);
 case 122:
@@ -232,6 +236,8 @@ case 76:
 return RequestRegisterApplePush.fromBytes(payload);
 case 2576:
 return RequestRegisterApplePushKit.fromBytes(payload);
+case 2593:
+return RequestRegisterApplePushToken.fromBytes(payload);
 case 2575:
 return RequestRegisterActorPush.fromBytes(payload);
 case 52:
@@ -350,6 +356,8 @@ case 78:
 return ResponseGetFileUrl.fromBytes(payload);
 case 2574:
 return ResponseGetFileUrls.fromBytes(payload);
+case 2580:
+return ResponseGetFileUrlBuilder.fromBytes(payload);
 case 121:
 return ResponseGetFileUploadUrl.fromBytes(payload);
 case 138:

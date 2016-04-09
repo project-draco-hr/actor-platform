@@ -1,0 +1,14 @@
+{
+  if (this.isMentioned != null) {
+    writer.writeBool(1,this.isMentioned);
+  }
+  if (this.isHighlighted != null) {
+    writer.writeBool(2,this.isHighlighted);
+  }
+  if (this.isNotified != null) {
+    writer.writeBool(3,this.isNotified);
+  }
+  if (this.isOnlyForYou != null) {
+    writer.writeBool(4,this.isOnlyForYou);
+  }
+}

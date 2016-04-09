@@ -1,0 +1,19 @@
+{
+  if (this.baseUrl == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.baseUrl);
+  if (this.algo == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.algo);
+  if (this.seed == null) {
+    throw new IOException();
+  }
+  writer.writeString(5,this.seed);
+  if (this.signatureSecret == null) {
+    throw new IOException();
+  }
+  writer.writeBytes(3,this.signatureSecret);
+  writer.writeInt(4,this.timeout);
+}

@@ -1,0 +1,4 @@
+Boolean isMentioned
+Boolean isHighlighted
+Boolean isNotified
+Boolean isOnlyForYou

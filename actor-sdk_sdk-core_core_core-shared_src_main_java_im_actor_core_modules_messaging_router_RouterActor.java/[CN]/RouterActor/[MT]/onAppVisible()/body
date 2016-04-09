@@ -1,3 +1,6 @@
 {
   isAppVisible=true;
+  for (  Peer p : visiblePeers) {
+    markAsReadIfNeeded(p);
+  }
 }

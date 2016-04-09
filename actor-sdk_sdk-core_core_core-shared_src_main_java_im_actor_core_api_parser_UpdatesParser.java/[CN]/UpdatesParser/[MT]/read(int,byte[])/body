@@ -16,6 +16,8 @@ case 212:
 return UpdateUserPreferredLanguagesChanged.fromBytes(payload);
 case 216:
 return UpdateUserTimeZoneChanged.fromBytes(payload);
+case 217:
+return UpdateUserBotCommandsChanged.fromBytes(payload);
 case 5:
 return UpdateContactRegistered.fromBytes(payload);
 case 40:

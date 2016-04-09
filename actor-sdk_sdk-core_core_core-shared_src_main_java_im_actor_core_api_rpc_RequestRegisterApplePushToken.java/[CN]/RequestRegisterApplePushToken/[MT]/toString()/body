@@ -1,0 +1,7 @@
+{
+  String res="rpc RegisterApplePushToken{";
+  res+="bundleId=" + this.bundleId;
+  res+=", token=" + this.token;
+  res+="}";
+  return res;
+}

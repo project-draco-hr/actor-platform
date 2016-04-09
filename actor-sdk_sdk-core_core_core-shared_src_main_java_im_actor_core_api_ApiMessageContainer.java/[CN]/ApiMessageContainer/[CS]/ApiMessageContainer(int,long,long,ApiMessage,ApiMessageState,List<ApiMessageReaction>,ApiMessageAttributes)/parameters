@@ -1,0 +1,7 @@
+int senderUid
+long rid
+long date
+ApiMessage message
+ApiMessageState state
+List<ApiMessageReaction> reactions
+ApiMessageAttributes attributes

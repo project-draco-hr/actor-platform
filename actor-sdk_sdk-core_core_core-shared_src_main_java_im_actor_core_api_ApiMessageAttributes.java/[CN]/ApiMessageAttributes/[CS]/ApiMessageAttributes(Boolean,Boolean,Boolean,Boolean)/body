@@ -1,0 +1,6 @@
+{
+  this.isMentioned=isMentioned;
+  this.isHighlighted=isHighlighted;
+  this.isNotified=isNotified;
+  this.isOnlyForYou=isOnlyForYou;
+}

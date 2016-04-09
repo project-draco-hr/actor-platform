@@ -1,0 +1,7 @@
+{
+  String res="update UserBotCommandsChanged{";
+  res+="uid=" + this.uid;
+  res+=", commands=" + this.commands;
+  res+="}";
+  return res;
+}

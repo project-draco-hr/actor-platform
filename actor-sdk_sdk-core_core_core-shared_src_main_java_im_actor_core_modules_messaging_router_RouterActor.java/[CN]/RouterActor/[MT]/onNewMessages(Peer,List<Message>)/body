@@ -1,12 +1,41 @@
 {
+  assertTrue(messages.size() != 0);
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   Message topMessage=null;
+  int unreadCount=0;
+  long maxInDate=0;
   for (  Message m : messages) {
     if (topMessage == null || topMessage.getSortDate() < m.getSortDate()) {
       topMessage=m;
     }
+    if (m.getSenderId() != myUid()) {
+      if (m.getSortDate() > state.getInReadDate()) {
+        unreadCount++;
+      }
+      maxInDate=Math.max(maxInDate,m.getSortDate());
+    }
   }
   conversation(peer).addOrUpdateItems(messages);
-  if (topMessage != null) {
-    dialogsActor(new DialogsActor.InMessage(peer,topMessage,-1));
+  boolean isRead=false;
+  if (unreadCount != 0) {
+    if (isConversationVisible(peer)) {
+      if (maxInDate > 0) {
+        state=state.changeInReadDate(maxInDate).changeInMaxDate(maxInDate).changeCounter(0);
+        context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,maxInDate));
+        isRead=true;
+        conversationStates.addOrUpdateItem(state);
+      }
+    }
+ else {
+      state=state.changeCounter(state.getUnreadCount() + unreadCount);
+      if (maxInDate > 0) {
+        state=state.changeInMaxDate(maxInDate);
+      }
+      conversationStates.addOrUpdateItem(state);
+    }
   }
+  if (maxInDate > 0 && !isRead) {
+    context().getMessagesModule().getPlainReceiverActor().send(new CursorReceiverActor.MarkReceived(peer,maxInDate));
+  }
+  dialogsActor(new DialogsActor.InMessage(peer,topMessage,state.getUnreadCount()));
 }

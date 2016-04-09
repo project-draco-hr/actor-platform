@@ -12,6 +12,7 @@
   res+=", external=" + this.external;
   res+=", preferredLanguages=" + this.preferredLanguages;
   res+=", timeZone=" + this.timeZone;
+  res+=", botCommands=" + this.botCommands;
   res+="}";
   return res;
 }

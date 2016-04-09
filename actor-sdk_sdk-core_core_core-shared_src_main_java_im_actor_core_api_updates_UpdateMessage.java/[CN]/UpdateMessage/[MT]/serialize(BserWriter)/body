@@ -10,4 +10,7 @@
     throw new IOException();
   }
   writer.writeBytes(5,this.message.buildContainer());
+  if (this.attributes != null) {
+    writer.writeObject(6,this.attributes);
+  }
 }

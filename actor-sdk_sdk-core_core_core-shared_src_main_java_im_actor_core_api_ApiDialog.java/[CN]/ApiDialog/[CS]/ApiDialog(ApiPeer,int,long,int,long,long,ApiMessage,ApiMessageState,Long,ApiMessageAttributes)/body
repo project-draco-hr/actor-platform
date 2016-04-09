@@ -1,0 +1,12 @@
+{
+  this.peer=peer;
+  this.unreadCount=unreadCount;
+  this.sortDate=sortDate;
+  this.senderUid=senderUid;
+  this.rid=rid;
+  this.date=date;
+  this.message=message;
+  this.state=state;
+  this.firstUnreadDate=firstUnreadDate;
+  this.attributes=attributes;
+}

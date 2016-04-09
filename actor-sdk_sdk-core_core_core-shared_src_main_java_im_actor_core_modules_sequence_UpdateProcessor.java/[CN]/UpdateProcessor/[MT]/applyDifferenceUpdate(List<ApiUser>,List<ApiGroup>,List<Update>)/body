@@ -12,7 +12,7 @@
   }
   for (  Peer peer : combinedDifference.getReadByMe().keySet()) {
     long time=combinedDifference.getReadByMe().get(peer);
-    messagesProcessor.onMessageReadByMe(buildApiPeer(peer),time);
+    messagesProcessor.onMessageReadByMe(buildApiPeer(peer),time,0);
   }
   for (  Peer peer : combinedDifference.getMessages().keySet()) {
     messagesProcessor.onMessages(buildApiPeer(peer),combinedDifference.getMessages().get(peer));

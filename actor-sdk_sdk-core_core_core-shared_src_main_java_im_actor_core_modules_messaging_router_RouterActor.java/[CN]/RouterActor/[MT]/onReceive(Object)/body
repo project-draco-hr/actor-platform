@@ -41,6 +41,18 @@
     RouterDeletedMessages routerDeletedMessages=(RouterDeletedMessages)message;
     onMessageDeleted(routerDeletedMessages.getPeer(),routerDeletedMessages.getRids());
   }
+ else   if (message instanceof RouterMessageRead) {
+    RouterMessageRead messageRead=(RouterMessageRead)message;
+    onMessageRead(messageRead.getPeer(),messageRead.getDate());
+  }
+ else   if (message instanceof RouterMessageReadByMe) {
+    RouterMessageReadByMe readByMe=(RouterMessageReadByMe)message;
+    onMessageReadByMe(readByMe.getPeer(),readByMe.getDate(),readByMe.getCounter());
+  }
+ else   if (message instanceof RouterMessageReceived) {
+    RouterMessageReceived messageReceived=(RouterMessageReceived)message;
+    onMessageReceived(messageReceived.getPeer(),messageReceived.getDate());
+  }
  else {
     super.onReceive(message);
   }

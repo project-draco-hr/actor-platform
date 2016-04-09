@@ -10,4 +10,6 @@
   if (val_state != 0) {
     this.state=ApiMessageState.parse(val_state);
   }
+  this.firstUnreadDate=values.optLong(10);
+  this.attributes=values.optObj(11,new ApiMessageAttributes());
 }

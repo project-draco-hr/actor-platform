@@ -6,7 +6,7 @@
     return;
   }
   isLoading=true;
-  request(new RequestLoadHistory(buidOutPeer(peer),historyMaxDate,LIMIT),new RpcCallback<ResponseLoadHistory>(){
+  request(new RequestLoadHistory(buidOutPeer(peer),historyMaxDate,null,LIMIT),new RpcCallback<ResponseLoadHistory>(){
     @Override public void onResult(    ResponseLoadHistory response){
       updates().onUpdateReceived(new MessagesHistoryLoaded(peer,response));
     }

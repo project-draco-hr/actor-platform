@@ -1,0 +1,9 @@
+{
+  String res="struct MessageAttributes{";
+  res+="isMentioned=" + this.isMentioned;
+  res+=", isHighlighted=" + this.isHighlighted;
+  res+=", isNotified=" + this.isNotified;
+  res+=", isOnlyForYou=" + this.isOnlyForYou;
+  res+="}";
+  return res;
+}

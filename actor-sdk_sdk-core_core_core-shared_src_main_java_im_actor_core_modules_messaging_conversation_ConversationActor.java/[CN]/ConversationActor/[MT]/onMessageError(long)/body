@@ -1,7 +1,0 @@
-{
-  Message msg=messages.getValue(rid);
-  if (msg != null && msg.isPendingOrSent()) {
-    Message updatedMsg=msg.changeState(MessageState.ERROR);
-    messages.addOrUpdateItem(updatedMsg);
-  }
-}

@@ -1,5 +1,0 @@
-ApiPeer peer
-int senderUid
-long date
-long rid
-ApiMessage message

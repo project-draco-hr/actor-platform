@@ -1,0 +1,5 @@
+{
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  state=state.changeCounter(counter).changeInReadDate(date);
+  conversationStates.addOrUpdateItem(state);
+}

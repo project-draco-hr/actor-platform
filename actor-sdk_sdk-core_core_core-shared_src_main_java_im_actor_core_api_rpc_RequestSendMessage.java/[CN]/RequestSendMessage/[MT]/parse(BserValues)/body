@@ -2,4 +2,5 @@
   this.peer=values.getObj(1,new ApiOutPeer());
   this.rid=values.getLong(3);
   this.message=ApiMessage.fromBytes(values.getBytes(4));
+  this.isOnlyForUser=values.optInt(5);
 }

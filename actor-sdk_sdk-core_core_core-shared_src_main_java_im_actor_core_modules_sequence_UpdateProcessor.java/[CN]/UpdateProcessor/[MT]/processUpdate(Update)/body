@@ -25,7 +25,7 @@
   }
  else   if (update instanceof UpdateMessageReadByMe) {
     UpdateMessageReadByMe messageReadByMe=(UpdateMessageReadByMe)update;
-    messagesProcessor.onMessageReadByMe(messageReadByMe.getPeer(),messageReadByMe.getStartDate());
+    messagesProcessor.onMessageReadByMe(messageReadByMe.getPeer(),messageReadByMe.getStartDate(),0);
   }
  else   if (update instanceof UpdateMessageReceived) {
     UpdateMessageReceived received=(UpdateMessageReceived)update;

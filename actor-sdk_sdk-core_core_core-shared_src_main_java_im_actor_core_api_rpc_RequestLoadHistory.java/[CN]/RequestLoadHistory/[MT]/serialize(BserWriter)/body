@@ -3,6 +3,9 @@
     throw new IOException();
   }
   writer.writeObject(1,this.peer);
-  writer.writeLong(3,this.minDate);
+  writer.writeLong(3,this.date);
+  if (this.loadMode != null) {
+    writer.writeInt(5,this.loadMode.getValue());
+  }
   writer.writeInt(4,this.limit);
 }

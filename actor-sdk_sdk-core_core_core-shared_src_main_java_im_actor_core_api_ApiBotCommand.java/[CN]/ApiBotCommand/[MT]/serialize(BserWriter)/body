@@ -1,0 +1,13 @@
+{
+  if (this.slashCommand == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.slashCommand);
+  if (this.description == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.description);
+  if (this.locKey != null) {
+    writer.writeString(3,this.locKey);
+  }
+}
