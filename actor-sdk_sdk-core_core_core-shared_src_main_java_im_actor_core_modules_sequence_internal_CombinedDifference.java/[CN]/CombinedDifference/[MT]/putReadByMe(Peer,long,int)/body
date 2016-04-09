@@ -1,0 +1,10 @@
+{
+  if (readByMe.containsKey(peer)) {
+    if (readByMe.get(peer).date <= date) {
+      readByMe.put(peer,new ReadByMeValue(date,counter));
+    }
+  }
+ else {
+    readByMe.put(peer,new ReadByMeValue(date,counter));
+  }
+}
