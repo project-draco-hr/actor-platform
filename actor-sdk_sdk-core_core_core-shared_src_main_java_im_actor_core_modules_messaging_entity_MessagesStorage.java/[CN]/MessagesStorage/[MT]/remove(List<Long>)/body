@@ -1,8 +1,0 @@
-{
-  ArrayList<MessageRef> toRemove=find(rids);
-  if (toRemove.size() > 0) {
-    messages.removeAll(toRemove);
-    return false;
-  }
-  return false;
-}
