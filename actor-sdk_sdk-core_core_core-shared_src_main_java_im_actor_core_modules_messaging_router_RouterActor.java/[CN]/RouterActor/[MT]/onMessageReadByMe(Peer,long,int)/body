@@ -2,4 +2,5 @@
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   state=state.changeCounter(counter).changeInReadDate(date);
   conversationStates.addOrUpdateItem(state);
+  dialogsActor(new DialogsActor.CounterChanged(peer,counter));
 }
