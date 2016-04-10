@@ -62,6 +62,14 @@
     RouterApplyChatHistory chatHistory=(RouterApplyChatHistory)message;
     onChatHistoryLoaded(chatHistory.getPeer(),chatHistory.getMessages(),chatHistory.getMaxReadDate(),chatHistory.getMaxReceiveDate(),chatHistory.isEnded());
   }
+ else   if (message instanceof RouterChatClear) {
+    RouterChatClear routerChatClear=(RouterChatClear)message;
+    onChatClear(routerChatClear.getPeer());
+  }
+ else   if (message instanceof RouterChatDelete) {
+    RouterChatDelete chatDelete=(RouterChatDelete)message;
+    onChatDelete(chatDelete.getPeer());
+  }
  else {
     super.onReceive(message);
   }

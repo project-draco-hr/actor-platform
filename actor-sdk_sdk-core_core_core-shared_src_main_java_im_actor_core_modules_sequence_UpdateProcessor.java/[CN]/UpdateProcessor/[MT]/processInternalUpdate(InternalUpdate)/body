@@ -4,11 +4,6 @@
     applyRelated(dialogs.getUsers(),dialogs.getGroups(),false);
     messagesProcessor.onArchivedDialogsLoaded(((ArchivedDialogLoaded)update).getDialogs());
   }
- else   if (update instanceof MessagesHistoryLoaded) {
-    MessagesHistoryLoaded historyLoaded=(MessagesHistoryLoaded)update;
-    applyRelated(historyLoaded.getLoadHistory().getUsers(),new ArrayList<ApiGroup>(),false);
-    messagesProcessor.onMessagesLoaded(historyLoaded.getPeer(),historyLoaded.getLoadHistory());
-  }
  else   if (update instanceof LoggedIn) {
     ArrayList<ApiUser> users=new ArrayList<ApiUser>();
     users.add(((LoggedIn)update).getAuth().getUser());

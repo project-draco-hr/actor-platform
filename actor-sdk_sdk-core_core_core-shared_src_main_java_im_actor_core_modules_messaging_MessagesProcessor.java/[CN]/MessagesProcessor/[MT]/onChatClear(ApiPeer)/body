@@ -1,2 +1,7 @@
 {
+  Peer peer=convert(_peer);
+  if (!isValidPeer(peer)) {
+    return;
+  }
+  context().getMessagesModule().getRouter().onChatClear(peer);
 }
