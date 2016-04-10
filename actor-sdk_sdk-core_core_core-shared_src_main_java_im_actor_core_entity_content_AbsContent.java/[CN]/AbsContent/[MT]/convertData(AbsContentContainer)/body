@@ -48,6 +48,12 @@
  else         if (ext instanceof ApiServiceExChangedTitle) {
           return new ServiceGroupTitleChanged(remoteContainer);
         }
+ else         if (ext instanceof ApiServiceExChangedTopic) {
+          return new ServiceGroupTopicChanged(remoteContainer);
+        }
+ else         if (ext instanceof ApiServiceExChangedAbout) {
+          return new ServiceGroupAboutChanged(remoteContainer);
+        }
  else         if (ext instanceof ApiServiceExChangedAvatar) {
           return new ServiceGroupAvatarChanged(remoteContainer);
         }
