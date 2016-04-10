@@ -189,6 +189,8 @@
   }
   if (userName != null) {
     View view=buildRecord(getString(R.string.nickname),"@" + userName,R.drawable.ic_import_contacts_black_24dp,isFirstContact,true,inflater,contactsContainer);
+    TextView userNameTextView=(TextView)view.findViewById(R.id.value);
+    bind(userNameTextView,user.getNick());
     view.setOnLongClickListener(new View.OnLongClickListener(){
       @Override public boolean onLongClick(      View v){
         ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
@@ -201,7 +203,9 @@
 );
   }
   if (about != null) {
-    buildRecordBig(about,R.drawable.ic_info_outline_black_24dp,true,true,inflater,contactsContainer);
+    View view=buildRecordBig(about,R.drawable.ic_info_outline_black_24dp,true,true,inflater,contactsContainer);
+    TextView aboutTextView=(TextView)view.findViewById(R.id.value);
+    bind(aboutTextView,user.getAbout());
   }
 {
     View notificationContainer=res.findViewById(R.id.notificationsCont);
