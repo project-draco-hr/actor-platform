@@ -2,7 +2,9 @@
   this.displayList=displayList;
   this.closure=closure;
   this.conversationVM=conversationVM;
-  this.conversationVM.getIsLoaded().subscribe(this);
+  this.conversationVM.getIsLoaded().subscribe(isLoadedListener);
+  this.conversationVM.getReadDate().subscribe(readDateListener);
+  this.conversationVM.getReceiveDate().subscribe(receiveDateListener);
   this.bind=displayList.subscribe(this,true);
   this.bind.initAll();
   notifySubscriber();

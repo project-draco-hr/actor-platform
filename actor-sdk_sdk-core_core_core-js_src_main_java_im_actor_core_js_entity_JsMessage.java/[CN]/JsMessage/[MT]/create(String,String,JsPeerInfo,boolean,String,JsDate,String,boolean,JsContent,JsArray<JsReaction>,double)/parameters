@@ -8,3 +8,4 @@ String state
 boolean isOnServer
 JsContent content
 JsArray<JsReaction> reactions
+double sortDate
