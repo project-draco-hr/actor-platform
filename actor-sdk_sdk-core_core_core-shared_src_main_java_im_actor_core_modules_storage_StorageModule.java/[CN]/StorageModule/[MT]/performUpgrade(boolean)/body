@@ -1,0 +1,22 @@
+{
+  Log.w(TAG,"Backing up sensitive data");
+  AuthKeyStorage storage=context().getActorApi().getKeyStorage();
+  long authKey=storage.getAuthKey();
+  byte[] masterKey=storage.getAuthMasterKey();
+  AuthenticationBackupData authenticationBackupData=null;
+  if (!isFirst) {
+    authenticationBackupData=context().getAuthModule().performBackup();
+  }
+  Log.w(TAG,"Resetting storage");
+  Storage.resetStorage();
+  Log.w(TAG,"Resetting modules");
+  context().afterStorageReset();
+  Log.w(TAG,"Restoring data");
+  storage.saveAuthKey(authKey);
+  if (masterKey != null) {
+    storage.saveMasterKey(masterKey);
+  }
+  if (authenticationBackupData != null) {
+    context().getAuthModule().restoreBackup(authenticationBackupData);
+  }
+}

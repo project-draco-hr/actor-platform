@@ -12,10 +12,10 @@
       }
       state=AuthState.LOGGED_IN;
       myUid=auth.getUser().getId();
+      modules.onLoggedIn(true);
+      modules.getUsersModule().getUsersStorage().addOrUpdateItem(new User(auth.getUser()));
       modules.getPreferences().putBool(KEY_AUTH,true);
       modules.getPreferences().putInt(KEY_AUTH_UID,myUid);
-      modules.onLoggedIn();
-      modules.getUsersModule().getUsersStorage().addOrUpdateItem(new User(auth.getUser()));
       modules.getUpdatesModule().onUpdateReceived(new LoggedIn(auth,new Runnable(){
         @Override public void run(){
           resolver.result(true);

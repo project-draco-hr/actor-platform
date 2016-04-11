@@ -1,0 +1,8 @@
+{
+  modules.getAppStateModule().getAppStateVM().getGlobalCounter().subscribe(new ValueChangedListener<Integer>(){
+    @Override public void onChanged(    Integer val,    Value<Integer> valueModel){
+      ShortcutBadger.with(AndroidContext.getContext()).count(val);
+    }
+  }
+);
+}

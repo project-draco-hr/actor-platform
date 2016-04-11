@@ -1,0 +1,6 @@
+{
+  Timing timing=new Timing("RUN");
+  timing.section("Auth");
+  this.authentication.run();
+  timing.end();
+}

@@ -2,8 +2,12 @@
   Timing timing=new Timing("ACCOUNT_CREATE");
   timing.section("Users");
   users=new UsersModule(this);
+  timing.section("Storage");
+  storageModule.applyStorage(first);
   timing.section("Groups");
   groups=new GroupsModule(this);
+  timing.section("App State");
+  appStateModule=new AppStateModule(this);
   timing.section("Stickers");
   stickers=new StickersModule(this);
   timing.section("Calls");
@@ -40,8 +44,6 @@
   deviceInfoModule=new DeviceInfoModule(this);
   timing.section("EventBus");
   eventBusModule=new EventBusModule(this);
-  timing.section("Storage");
-  storageModule.applyStorage();
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");
@@ -71,5 +73,15 @@
   timing.section("Stickers");
   stickers.run();
   timing.end();
-  messenger.onLoggedIn();
+  if (Runtime.isMainThread()) {
+    messenger.onLoggedIn();
+  }
+ else {
+    Runtime.postToMainThread(new Runnable(){
+      @Override public void run(){
+        messenger.onLoggedIn();
+      }
+    }
+);
+  }
 }

@@ -1,6 +1,6 @@
 {
   if (!isLoggedIn()) {
-    throw new RuntimeException("Nothing to backup!");
+    return null;
   }
   byte[] userData=modules.getUsersModule().getUsersStorage().getValue(myUid).toByteArray();
   return new AuthenticationBackupData(deviceHash,myUid,userData);

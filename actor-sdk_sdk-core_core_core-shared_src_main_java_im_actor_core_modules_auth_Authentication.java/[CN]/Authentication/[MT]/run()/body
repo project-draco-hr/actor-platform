@@ -1,7 +1,7 @@
 {
   if (modules.getPreferences().getBool(KEY_AUTH,false)) {
     state=AuthState.LOGGED_IN;
-    modules.onLoggedIn();
+    modules.onLoggedIn(false);
   }
  else {
     state=AuthState.AUTH_START;
