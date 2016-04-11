@@ -6,6 +6,8 @@
   this.i18nEngine=new I18nEngine(this);
   timing.section("Preferences");
   this.preferences=Storage.createPreferencesStorage();
+  timing.section("Storage");
+  this.storageModule=new StorageModule(this);
   timing.section("Events");
   this.events=new EventBus();
   timing.section("API");

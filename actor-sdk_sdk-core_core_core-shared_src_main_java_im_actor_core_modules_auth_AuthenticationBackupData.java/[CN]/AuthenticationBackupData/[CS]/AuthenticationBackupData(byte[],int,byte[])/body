@@ -1,0 +1,5 @@
+{
+  this.deviceHash=deviceHash;
+  this.authenticatedUid=authenticatedUid;
+  this.ownUserData=ownUserData;
+}

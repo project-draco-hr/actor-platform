@@ -1,0 +1,12 @@
+{
+  AuthKeyStorage storage=context().getActorApi().getKeyStorage();
+  long authKey=storage.getAuthKey();
+  byte[] masterKey=storage.getAuthMasterKey();
+  AuthenticationBackupData authenticationBackupData=context().getAuthModule().performBackup();
+  Storage.resetStorage();
+  storage.saveAuthKey(authKey);
+  if (masterKey != null) {
+    storage.saveMasterKey(masterKey);
+  }
+  context().getAuthModule().restoreBackup(authenticationBackupData);
+}

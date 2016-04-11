@@ -40,6 +40,8 @@
   deviceInfoModule=new DeviceInfoModule(this);
   timing.section("EventBus");
   eventBusModule=new EventBusModule(this);
+  timing.section("Storage");
+  storageModule.applyStorage();
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Settings");
