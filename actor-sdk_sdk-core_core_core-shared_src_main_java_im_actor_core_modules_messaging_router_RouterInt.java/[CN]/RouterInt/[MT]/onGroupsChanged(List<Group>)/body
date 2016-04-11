@@ -1,0 +1,3 @@
+{
+  onPeersChanged(new ArrayList<User>(),groups);
+}

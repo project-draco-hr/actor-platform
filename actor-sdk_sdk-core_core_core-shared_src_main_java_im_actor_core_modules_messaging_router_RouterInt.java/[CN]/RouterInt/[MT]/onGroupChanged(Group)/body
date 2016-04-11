@@ -1,0 +1,5 @@
+{
+  ArrayList<Group> groups=new ArrayList<>();
+  groups.add(group);
+  onGroupsChanged(groups);
+}

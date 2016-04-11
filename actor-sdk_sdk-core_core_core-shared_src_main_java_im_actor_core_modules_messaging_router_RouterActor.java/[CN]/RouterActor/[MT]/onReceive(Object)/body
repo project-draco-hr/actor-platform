@@ -74,6 +74,10 @@
     RouterChatDelete chatDelete=(RouterChatDelete)message;
     onChatDelete(chatDelete.getPeer());
   }
+ else   if (message instanceof RouterPeersChanged) {
+    RouterPeersChanged peersChanged=(RouterPeersChanged)message;
+    onPeersChanged(peersChanged.getUsers(),peersChanged.getGroups());
+  }
  else {
     super.onReceive(message);
   }
