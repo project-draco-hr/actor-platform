@@ -4,4 +4,5 @@
   writer.writeLong(3,inReadDate);
   writer.writeLong(4,outReceiveState);
   writer.writeLong(5,outReadDate);
+  writer.writeLong(6,inMaxMessageDate);
 }

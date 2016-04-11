@@ -4,4 +4,5 @@
   inReadDate=values.getLong(3,0);
   outReceiveState=values.getLong(4,0);
   outReadDate=values.getLong(5,0);
+  inMaxMessageDate=values.getLong(6,0);
 }
