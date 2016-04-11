@@ -1,0 +1,8 @@
+{
+  isLoaded=values.getBool(1);
+  for (  byte[] data : values.getRepeatedBytes(2)) {
+    groups.add(new ActiveDialogGroup(data));
+  }
+  isHaveArchived=values.getBool(3);
+  isShowInvite=values.getBool(4);
+}

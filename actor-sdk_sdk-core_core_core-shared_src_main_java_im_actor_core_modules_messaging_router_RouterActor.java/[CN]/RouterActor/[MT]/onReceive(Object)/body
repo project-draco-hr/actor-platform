@@ -1,4 +1,8 @@
 {
+  if (!activeDialogStorage.isLoaded() && message instanceof RouterMessageOnlyActive) {
+    stash();
+    return;
+  }
   if (message instanceof RouterConversationVisible) {
     RouterConversationVisible conversationVisible=(RouterConversationVisible)message;
     onConversationVisible(conversationVisible.getPeer());

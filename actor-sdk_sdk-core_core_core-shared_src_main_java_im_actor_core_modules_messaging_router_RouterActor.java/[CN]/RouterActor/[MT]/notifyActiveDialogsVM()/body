@@ -1,0 +1,27 @@
+{
+  ArrayList<DialogGroup> groups=new ArrayList<>();
+  for (  ActiveDialogGroup i : activeDialogStorage.getGroups()) {
+    ArrayListDialogSmall dialogSmalls=new ArrayListDialogSmall();
+    for (    Peer p : i.getPeers()) {
+      String title;
+      Avatar avatar;
+      if (p.getPeerType() == PeerType.GROUP) {
+        Group group=getGroup(p.getPeerId());
+        title=group.getTitle();
+        avatar=group.getAvatar();
+      }
+ else       if (p.getPeerType() == PeerType.PRIVATE) {
+        User user=getUser(p.getPeerId());
+        title=user.getName();
+        avatar=user.getAvatar();
+      }
+ else {
+        continue;
+      }
+      int unreadCount=conversationStates.getValue(p.getUnuqueId()).getUnreadCount();
+      dialogSmalls.add(new DialogSmall(p,title,avatar,unreadCount));
+    }
+    groups.add(new DialogGroup(i.getTitle(),i.getKey(),dialogSmalls));
+  }
+  context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel().change(groups);
+}

@@ -1,5 +1,0 @@
-{
-  peer=Peer.fromBytes(values.getBytes(1));
-  counter=values.getInt(2);
-  isUnread=values.getBool(3);
-}

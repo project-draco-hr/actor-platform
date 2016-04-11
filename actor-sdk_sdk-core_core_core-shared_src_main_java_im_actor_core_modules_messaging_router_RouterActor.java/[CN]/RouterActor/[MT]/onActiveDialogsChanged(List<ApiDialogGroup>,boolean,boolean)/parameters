@@ -1,0 +1,3 @@
+List<ApiDialogGroup> dialogs
+boolean showArchived
+boolean showInvite

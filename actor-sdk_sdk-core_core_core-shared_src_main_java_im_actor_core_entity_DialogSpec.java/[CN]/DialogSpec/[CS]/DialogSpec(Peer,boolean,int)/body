@@ -1,5 +1,0 @@
-{
-  this.peer=peer;
-  this.isUnread=isUnread;
-  this.counter=counter;
-}

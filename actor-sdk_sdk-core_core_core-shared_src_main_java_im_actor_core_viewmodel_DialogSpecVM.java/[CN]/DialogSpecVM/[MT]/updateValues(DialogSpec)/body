@@ -1,4 +1,0 @@
-{
-  counter.change(rawObj.getCounter());
-  isUnread.change(rawObj.isUnread());
-}

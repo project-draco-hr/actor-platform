@@ -24,5 +24,12 @@
     onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
     return true;
   }
+ else   if (update instanceof UpdateContactRegistered) {
+    UpdateContactRegistered registered=(UpdateContactRegistered)update;
+    if (!registered.isSilent()) {
+      onUserRegistered(registered.getRid(),registered.getUid(),registered.getDate());
+    }
+    return true;
+  }
   return false;
 }
