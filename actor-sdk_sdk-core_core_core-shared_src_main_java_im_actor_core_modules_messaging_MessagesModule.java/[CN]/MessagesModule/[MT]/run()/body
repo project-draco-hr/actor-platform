@@ -18,12 +18,6 @@
     }
   }
 ),"actor/dialogs/archived");
-  this.ownReadActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public OwnReadActor create(){
-      return new OwnReadActor(context());
-    }
-  }
-),"actor/read/own");
   this.plainReadActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public CursorReaderActor create(){
       return new CursorReaderActor(context());

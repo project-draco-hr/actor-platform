@@ -1,4 +1,0 @@
-{
-  saveReadState(peer,sortingDate);
-  context().getNotificationsModule().onOwnRead(peer,sortingDate);
-}

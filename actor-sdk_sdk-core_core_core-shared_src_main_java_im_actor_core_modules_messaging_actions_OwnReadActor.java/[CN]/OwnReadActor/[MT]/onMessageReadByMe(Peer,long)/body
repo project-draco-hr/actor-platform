@@ -1,6 +1,0 @@
-{
-  long readState=loadReadState(peer);
-  if (sortingDate > readState) {
-    markAsOwnRead(peer,sortingDate);
-  }
-}

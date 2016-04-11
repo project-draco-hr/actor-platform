@@ -1,7 +1,0 @@
-{
-  if (isInDifference) {
-    return;
-  }
-  isInDifference=true;
-  context().getNotificationsModule().pauseNotifications();
-}

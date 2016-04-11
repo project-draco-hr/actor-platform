@@ -1,6 +1,5 @@
 {
   applyRelated(users,groups,false);
-  context().getMessagesModule().getOwnReadActor().send(new OwnReadActor.StartGetDifference());
   CombinedDifference combinedDifference=GetDiffCombiner.buildDiff(updates);
   for (  Peer peer : combinedDifference.getReceived().keySet()) {
     long time=combinedDifference.getReceived().get(peer);
@@ -20,6 +19,5 @@
   for (  Update u : combinedDifference.getOtherUpdates()) {
     processUpdate(u);
   }
-  context().getMessagesModule().getOwnReadActor().send(new OwnReadActor.StopGetDifference());
   applyRelated(users,groups,true);
 }
