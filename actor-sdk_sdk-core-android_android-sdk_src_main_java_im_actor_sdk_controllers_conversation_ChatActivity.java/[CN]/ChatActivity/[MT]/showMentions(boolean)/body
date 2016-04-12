@@ -17,7 +17,7 @@
       if (item != null && item instanceof MentionFilterResult) {
         String origMention=((MentionFilterResult)item).getMentionString();
         if (mentionStart != -1 && mentionStart + mentionSearchString.length() + 1 <= messageEditText.getText().length()) {
-          String mentionString=origMention + ": ";
+          String mentionString=origMention + (mentionStart == 0 ? "" : ": ");
           Editable text=messageEditText.getText();
           int cursorPosition=mentionStart + mentionString.length();
           text.replace(mentionStart,mentionStart + mentionSearchString.length() + 1,mentionString);
