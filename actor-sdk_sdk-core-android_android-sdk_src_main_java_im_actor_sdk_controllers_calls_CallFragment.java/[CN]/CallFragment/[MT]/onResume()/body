@@ -1,4 +1,5 @@
 {
   super.onResume();
+  enableWakeLock();
   manager.cancel(NOTIFICATION_ID);
 }

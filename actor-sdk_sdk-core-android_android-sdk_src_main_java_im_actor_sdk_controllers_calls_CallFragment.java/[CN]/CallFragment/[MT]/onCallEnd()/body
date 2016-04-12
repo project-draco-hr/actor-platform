@@ -7,11 +7,6 @@
   if (v != null) {
     v.cancel();
   }
-  if (wakeLock != null) {
-    if (wakeLock.isHeld()) {
-      wakeLock.release();
-    }
-  }
   if (timer != null) {
     timer.send(PoisonPill.INSTANCE);
   }

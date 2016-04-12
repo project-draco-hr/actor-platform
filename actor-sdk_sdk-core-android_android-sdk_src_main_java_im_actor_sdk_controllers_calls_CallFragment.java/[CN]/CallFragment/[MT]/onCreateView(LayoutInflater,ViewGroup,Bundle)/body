@@ -148,14 +148,13 @@ case RINGING:
               toggleSpeaker(speaker,speakerTV,true);
               initIncoming();
             }
-          enableWakeLock();
-        break;
+          break;
 case CONNECTING:
-      statusTV.setText(R.string.call_connecting);
-    break;
+        statusTV.setText(R.string.call_connecting);
+      break;
 case IN_PROGRESS:
-  toggleSpeaker(speaker,speakerTV,false);
-onConnected();
+    toggleSpeaker(speaker,speakerTV,false);
+  onConnected();
 startTimer();
 break;
 case ENDED:

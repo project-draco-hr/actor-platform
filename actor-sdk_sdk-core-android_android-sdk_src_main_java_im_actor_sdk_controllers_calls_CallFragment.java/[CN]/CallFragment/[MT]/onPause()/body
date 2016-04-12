@@ -13,6 +13,7 @@
     builder.setContentIntent(PendingIntent.getActivity(getActivity(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT));
     Notification n=builder.build();
     n.flags+=Notification.FLAG_ONGOING_EVENT;
+    disableWakeLock();
     manager.notify(NOTIFICATION_ID,n);
   }
 }
