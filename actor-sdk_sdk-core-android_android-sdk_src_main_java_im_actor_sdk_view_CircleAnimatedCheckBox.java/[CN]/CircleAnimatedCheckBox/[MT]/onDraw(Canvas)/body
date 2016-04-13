@@ -1,0 +1,47 @@
+{
+  if (animationProgress >= 0f && animationProgress <= 1f) {
+    int toColorSelected=0;
+    int fromColorSelected=0;
+    int toColorBack=0;
+    int fromColorBack=0;
+    if (!isChecked()) {
+      if (isShow) {
+        fromColorSelected=baseRingColor;
+        toColorSelected=selectedRingColor;
+        fromColorBack=baseBackColor;
+        toColorBack=baseBackColor;
+      }
+ else {
+        fromColorSelected=baseRingColor;
+        toColorSelected=baseRingColor;
+        fromColorBack=selectedBackColor;
+        toColorBack=baseBackColor;
+      }
+    }
+ else {
+      if (isShow) {
+        fromColorSelected=selectedRingColor;
+        toColorSelected=baseRingColor;
+        fromColorBack=selectedBackColor;
+        toColorBack=selectedBackColor;
+      }
+ else {
+        fromColorSelected=selectedRingColor;
+        toColorSelected=selectedRingColor;
+        fromColorBack=baseBackColor;
+        toColorBack=selectedBackColor;
+      }
+    }
+    int ringColor=ViewUtils.blendColors(toColorSelected,fromColorSelected,animationProgress,false);
+    int backColor=ViewUtils.blendColors(toColorBack,fromColorBack,animationProgress,true);
+    circlePaint.setColor(ringColor);
+    backgroundPaint.setColor(backColor);
+  }
+  canvas.drawCircle(centerX,centerY,pressedRingRadius + animationProgress * pressedRingWidth,backgroundPaint);
+  canvas.drawCircle(centerX,centerY,pressedRingRadius + animationProgress * pressedRingWidth,circlePaint);
+  int padding=(getWidth() - Screen.dp(checkSize)) / 2;
+  d.setBounds(padding,padding,getWidth() - padding,getHeight() - padding);
+  if (isChecked()) {
+    d.draw(canvas);
+  }
+}

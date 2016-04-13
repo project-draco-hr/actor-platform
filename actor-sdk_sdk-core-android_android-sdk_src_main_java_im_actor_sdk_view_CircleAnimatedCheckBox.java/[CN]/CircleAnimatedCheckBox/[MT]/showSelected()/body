@@ -1,0 +1,6 @@
+{
+  isShow=true;
+  animator.setDuration(100);
+  animator.setFloatValues(animationProgress,1f);
+  animator.start();
+}
