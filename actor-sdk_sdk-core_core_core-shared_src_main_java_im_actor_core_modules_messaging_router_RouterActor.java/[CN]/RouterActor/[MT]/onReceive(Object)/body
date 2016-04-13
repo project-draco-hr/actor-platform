@@ -78,6 +78,10 @@
     RouterPeersChanged peersChanged=(RouterPeersChanged)message;
     onPeersChanged(peersChanged.getUsers(),peersChanged.getGroups());
   }
+ else   if (message instanceof RouterActiveDialogsChanged) {
+    RouterActiveDialogsChanged dialogsChanged=(RouterActiveDialogsChanged)message;
+    onActiveDialogsChanged(dialogsChanged.getGroups(),dialogsChanged.isHasArchived(),dialogsChanged.isShowInvite());
+  }
  else {
     super.onReceive(message);
   }

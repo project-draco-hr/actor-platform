@@ -1,6 +1,5 @@
 {
   globalCounter.change(value);
-  context.getPreferences().putInt("app.counter",value);
   if (!isAppVisible.get()) {
     globalTempCounter.change(value);
   }

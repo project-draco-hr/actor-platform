@@ -1,0 +1,5 @@
+{
+  this.groups=groups;
+  this.showInvite=showInvite;
+  this.hasArchived=hasArchived;
+}

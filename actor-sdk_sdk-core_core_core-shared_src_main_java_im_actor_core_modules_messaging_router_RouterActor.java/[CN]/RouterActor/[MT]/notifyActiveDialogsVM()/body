@@ -1,4 +1,5 @@
 {
+  int counter=0;
   ArrayList<DialogGroup> groups=new ArrayList<>();
   for (  ActiveDialogGroup i : activeDialogStorage.getGroups()) {
     ArrayListDialogSmall dialogSmalls=new ArrayListDialogSmall();
@@ -19,9 +20,11 @@
         continue;
       }
       int unreadCount=conversationStates.getValue(p.getUnuqueId()).getUnreadCount();
+      counter+=unreadCount;
       dialogSmalls.add(new DialogSmall(p,title,avatar,unreadCount));
     }
     groups.add(new DialogGroup(i.getTitle(),i.getKey(),dialogSmalls));
   }
   context().getMessagesModule().getDialogGroupsVM().getGroupsValueModel().change(groups);
+  context().getAppStateModule().getAppStateVM().getGlobalCounter().change(counter);
 }
