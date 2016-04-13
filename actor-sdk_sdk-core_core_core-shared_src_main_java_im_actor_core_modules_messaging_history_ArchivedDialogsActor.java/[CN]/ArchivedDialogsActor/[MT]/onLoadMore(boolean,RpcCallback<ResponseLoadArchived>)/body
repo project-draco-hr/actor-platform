@@ -17,8 +17,13 @@
   isLoading=true;
   Log.d(TAG,"Loading archived dialogs");
   lastRequest=request(new RequestLoadArchived(nextOffset,LIMIT),new RpcCallback<ResponseLoadArchived>(){
-    @Override public void onResult(    ResponseLoadArchived response){
-      updates().onUpdateReceived(new ArchivedDialogLoaded(response));
+    @Override public void onResult(    final ResponseLoadArchived response){
+      updates().applyRelatedData(response.getUsers(),response.getGroups()).then(new Consumer<Void>(){
+        @Override public void apply(        Void aVoid){
+          onLoadedMore(response);
+        }
+      }
+).done(self());
     }
     @Override public void onError(    RpcException e){
       lastCallback.onError(e);
