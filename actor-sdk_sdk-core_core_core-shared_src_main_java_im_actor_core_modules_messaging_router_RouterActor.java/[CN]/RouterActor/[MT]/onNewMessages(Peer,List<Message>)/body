@@ -43,7 +43,15 @@
   dialogsActor(new DialogsActor.InMessage(peer,topMessage,state.getUnreadCount()));
   if (!isConversationVisible) {
     for (    Message m : messages) {
-      context().getNotificationsModule().onInMessage(peer,m.getSenderId(),m.getSortDate(),ContentDescription.fromContent(m.getContent()),false);
+      if (m.getSenderId() != myUid()) {
+        boolean hasCurrentMention=false;
+        if (m.getContent() instanceof TextContent) {
+          if (((TextContent)m.getContent()).getMentions().contains(myUid())) {
+            hasCurrentMention=true;
+          }
+        }
+        context().getNotificationsModule().onInMessage(peer,m.getSenderId(),m.getSortDate(),ContentDescription.fromContent(m.getContent()),hasCurrentMention);
+      }
     }
   }
 }
