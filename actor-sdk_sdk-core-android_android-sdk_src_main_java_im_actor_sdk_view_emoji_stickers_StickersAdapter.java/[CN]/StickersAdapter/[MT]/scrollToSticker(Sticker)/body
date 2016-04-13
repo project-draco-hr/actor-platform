@@ -1,4 +1,5 @@
 {
+  updatePackSelector=false;
   int position=0;
   for (  Sticker st : stickers) {
     if (st.getId() == s.getId()) {
