@@ -7,7 +7,7 @@
   timing.section("Groups");
   groups=new GroupsModule(this);
   timing.section("App State");
-  appStateModule=new AppStateModule(this);
+  appStateModule.run();
   timing.section("Stickers");
   stickers=new StickersModule(this);
   timing.section("Calls");

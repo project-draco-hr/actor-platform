@@ -10,6 +10,8 @@
   this.storageModule=new StorageModule(this);
   timing.section("Events");
   this.events=new EventBus();
+  timing.section("App State");
+  appStateModule=new AppStateModule(this);
   timing.section("API");
   this.api=new ApiModule(this);
   timing.section("External");
