@@ -38,8 +38,11 @@
       Integer newTopPack=s.getCollectionId();
       if (newTopPack != null && newTopPack != topPack) {
         topPack=newTopPack;
-        if (packsAdapter != null) {
+        if (packsAdapter != null && updatePackSelector) {
           packsAdapter.selectPack(newTopPack);
+        }
+ else {
+          updatePackSelector=true;
         }
       }
     }

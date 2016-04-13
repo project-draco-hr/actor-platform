@@ -8,7 +8,10 @@
   fl.addView(sv,params);
   fl.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
+      int oldSelected=selectedPostion;
       selectedPostion=position;
+      notifyItemChanged(oldSelected);
+      notifyItemChanged(selectedPostion);
       stickersAdapter.scrollToSticker(s);
     }
   }

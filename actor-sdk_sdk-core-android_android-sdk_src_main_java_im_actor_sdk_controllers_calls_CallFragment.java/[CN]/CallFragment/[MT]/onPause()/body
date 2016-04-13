@@ -15,4 +15,5 @@
     n.flags+=Notification.FLAG_ONGOING_EVENT;
     manager.notify(NOTIFICATION_ID,n);
   }
+  disableWakeLock();
 }
