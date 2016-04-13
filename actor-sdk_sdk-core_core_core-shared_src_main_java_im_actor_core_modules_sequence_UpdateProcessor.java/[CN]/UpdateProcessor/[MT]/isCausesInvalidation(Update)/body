@@ -1,6 +1,6 @@
 {
-  HashSet<Integer> users=new HashSet<Integer>();
-  HashSet<Integer> groups=new HashSet<Integer>();
+  HashSet<Integer> users=new HashSet<>();
+  HashSet<Integer> groups=new HashSet<>();
   if (update instanceof UpdateMessage) {
     UpdateMessage updateMessage=(UpdateMessage)update;
     users.add(updateMessage.getSenderUid());

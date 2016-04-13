@@ -1,6 +1,7 @@
 {
   applyRelated(users,groups,false);
   CombinedDifference combinedDifference=GetDiffCombiner.buildDiff(updates);
+  messagesProcessor.onDifferenceStart();
   for (  Peer peer : combinedDifference.getReceived().keySet()) {
     long time=combinedDifference.getReceived().get(peer);
     messagesProcessor.onMessageReceived(buildApiPeer(peer),time);
@@ -19,5 +20,6 @@
   for (  Update u : combinedDifference.getOtherUpdates()) {
     processUpdate(u);
   }
+  messagesProcessor.onDifferenceEnd();
   applyRelated(users,groups,true);
 }

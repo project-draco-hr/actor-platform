@@ -1,5 +1,6 @@
 {
   assertTrue(messages.size() != 0);
+  boolean isConversationVisible=isConversationVisible(peer);
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   Message topMessage=null;
   int unreadCount=0;
@@ -18,10 +19,11 @@
   conversation(peer).addOrUpdateItems(messages);
   boolean isRead=false;
   if (unreadCount != 0) {
-    if (isConversationVisible(peer)) {
+    if (isConversationVisible) {
       if (maxInDate > 0) {
         state=state.changeInReadDate(maxInDate).changeInMaxDate(maxInDate).changeCounter(0);
         context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,maxInDate));
+        context().getNotificationsModule().onOwnRead(peer,maxInDate);
         isRead=true;
         conversationStates.addOrUpdateItem(state);
       }
@@ -39,4 +41,9 @@
     context().getMessagesModule().getPlainReceiverActor().send(new CursorReceiverActor.MarkReceived(peer,maxInDate));
   }
   dialogsActor(new DialogsActor.InMessage(peer,topMessage,state.getUnreadCount()));
+  if (!isConversationVisible) {
+    for (    Message m : messages) {
+      context().getNotificationsModule().onInMessage(peer,m.getSenderId(),m.getSortDate(),ContentDescription.fromContent(m.getContent()),false);
+    }
+  }
 }

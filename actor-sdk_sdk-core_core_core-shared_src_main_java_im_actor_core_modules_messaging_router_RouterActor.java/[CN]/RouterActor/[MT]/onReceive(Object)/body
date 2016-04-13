@@ -82,6 +82,12 @@
     RouterActiveDialogsChanged dialogsChanged=(RouterActiveDialogsChanged)message;
     onActiveDialogsChanged(dialogsChanged.getGroups(),dialogsChanged.isHasArchived(),dialogsChanged.isShowInvite());
   }
+ else   if (message instanceof RouterDifferenceStart) {
+    onDifferenceStart();
+  }
+ else   if (message instanceof RouterDifferenceEnd) {
+    onDifferenceEnd();
+  }
  else {
     super.onReceive(message);
   }
