@@ -1,0 +1,9 @@
+{
+  super.setPressed(pressed);
+  if (pressed) {
+    showSelected();
+  }
+ else {
+    hideSelected();
+  }
+}
