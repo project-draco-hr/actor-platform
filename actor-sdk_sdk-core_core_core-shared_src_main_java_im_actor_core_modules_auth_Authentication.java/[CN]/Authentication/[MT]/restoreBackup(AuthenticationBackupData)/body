@@ -1,0 +1,11 @@
+{
+  myUid=authenticationBackupData.getAuthenticatedUid();
+  modules.getPreferences().putInt(KEY_AUTH_UID,myUid);
+  modules.getPreferences().putBool(KEY_AUTH,true);
+  try {
+    modules.getUsersModule().getUsersStorage().addOrUpdateItem(new User(authenticationBackupData.getOwnUserData()));
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+}

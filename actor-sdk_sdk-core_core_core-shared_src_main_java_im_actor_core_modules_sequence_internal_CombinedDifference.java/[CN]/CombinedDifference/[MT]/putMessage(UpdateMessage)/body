@@ -4,7 +4,7 @@
     messages.get(peer).add(message);
   }
  else {
-    ArrayList<UpdateMessage> msgs=new ArrayList<UpdateMessage>();
+    ArrayList<UpdateMessage> msgs=new ArrayList<>();
     msgs.add(message);
     messages.put(peer,msgs);
   }

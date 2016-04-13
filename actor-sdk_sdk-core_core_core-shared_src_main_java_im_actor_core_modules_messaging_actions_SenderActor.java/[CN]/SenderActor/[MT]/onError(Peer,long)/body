@@ -1,0 +1,10 @@
+{
+  for (  PendingMessage pending : pendingMessages.getPendingMessages()) {
+    if (pending.getRid() == rid && pending.getPeer().equals(peer)) {
+      pendingMessages.getPendingMessages().remove(pending);
+      break;
+    }
+  }
+  savePending();
+  context().getMessagesModule().getRouter().onOutgoingError(peer,rid);
+}

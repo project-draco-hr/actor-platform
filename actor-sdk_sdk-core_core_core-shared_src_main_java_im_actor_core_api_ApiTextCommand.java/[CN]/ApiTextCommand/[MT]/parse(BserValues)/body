@@ -1,0 +1,7 @@
+{
+  this.command=values.getString(1);
+  this.args=values.getString(2);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

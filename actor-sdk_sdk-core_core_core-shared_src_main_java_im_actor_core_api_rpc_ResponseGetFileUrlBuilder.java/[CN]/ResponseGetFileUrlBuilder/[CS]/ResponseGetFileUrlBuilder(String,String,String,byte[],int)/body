@@ -1,0 +1,7 @@
+{
+  this.baseUrl=baseUrl;
+  this.algo=algo;
+  this.seed=seed;
+  this.signatureSecret=signatureSecret;
+  this.timeout=timeout;
+}

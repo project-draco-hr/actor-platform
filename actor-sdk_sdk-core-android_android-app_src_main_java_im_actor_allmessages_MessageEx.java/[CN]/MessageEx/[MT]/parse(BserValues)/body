@@ -1,4 +1,0 @@
-{
-  super.parse(values);
-  peer=Peer.fromUniqueId(values.getLong(8));
-}

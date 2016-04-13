@@ -1,5 +1,0 @@
-{
-  super(displayList);
-  this.context=context;
-  this.onItemClicked=onItemClicked;
-}

@@ -1,0 +1,57 @@
+{
+  assertTrue(messages.size() != 0);
+  boolean isConversationVisible=isConversationVisible(peer);
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  Message topMessage=null;
+  int unreadCount=0;
+  long maxInDate=0;
+  for (  Message m : messages) {
+    if (topMessage == null || topMessage.getSortDate() < m.getSortDate()) {
+      topMessage=m;
+    }
+    if (m.getSenderId() != myUid()) {
+      if (m.getSortDate() > state.getInReadDate()) {
+        unreadCount++;
+      }
+      maxInDate=Math.max(maxInDate,m.getSortDate());
+    }
+  }
+  conversation(peer).addOrUpdateItems(messages);
+  boolean isRead=false;
+  if (unreadCount != 0) {
+    if (isConversationVisible) {
+      if (maxInDate > 0) {
+        state=state.changeInReadDate(maxInDate).changeInMaxDate(maxInDate).changeCounter(0);
+        context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,maxInDate));
+        context().getNotificationsModule().onOwnRead(peer,maxInDate);
+        isRead=true;
+        conversationStates.addOrUpdateItem(state);
+      }
+    }
+ else {
+      state=state.changeCounter(state.getUnreadCount() + unreadCount);
+      if (maxInDate > 0) {
+        state=state.changeInMaxDate(maxInDate);
+      }
+      conversationStates.addOrUpdateItem(state);
+      notifyActiveDialogsVM();
+    }
+  }
+  if (maxInDate > 0 && !isRead) {
+    context().getMessagesModule().getPlainReceiverActor().send(new CursorReceiverActor.MarkReceived(peer,maxInDate));
+  }
+  dialogsActor(new DialogsActor.InMessage(peer,topMessage,state.getUnreadCount()));
+  if (!isConversationVisible) {
+    for (    Message m : messages) {
+      if (m.getSenderId() != myUid()) {
+        boolean hasCurrentMention=false;
+        if (m.getContent() instanceof TextContent) {
+          if (((TextContent)m.getContent()).getMentions().contains(myUid())) {
+            hasCurrentMention=true;
+          }
+        }
+        context().getNotificationsModule().onInMessage(peer,m.getSenderId(),m.getSortDate(),ContentDescription.fromContent(m.getContent()),hasCurrentMention);
+      }
+    }
+  }
+}

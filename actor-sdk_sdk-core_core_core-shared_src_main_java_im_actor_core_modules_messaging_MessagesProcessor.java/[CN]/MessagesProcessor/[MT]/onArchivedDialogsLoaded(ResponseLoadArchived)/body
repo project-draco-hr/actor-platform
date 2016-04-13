@@ -1,3 +1,0 @@
-{
-  archivedDialogsActor().send(new ArchivedDialogsActor.LoadedMore(responseLoadArchived));
-}

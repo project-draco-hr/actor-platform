@@ -1,5 +1,5 @@
 {
-  ArrayList<User> batch=new ArrayList<User>();
+  ArrayList<User> batch=new ArrayList<>();
   for (  ApiUser u : updated) {
     User saved=users().getValue(u.getId());
     if (saved == null) {

@@ -1,7 +1,0 @@
-{
-  long readState=loadReadState(peer);
-  if (sortingDate > readState) {
-    context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,sortingDate));
-    markAsOwnRead(peer,sortingDate);
-  }
-}

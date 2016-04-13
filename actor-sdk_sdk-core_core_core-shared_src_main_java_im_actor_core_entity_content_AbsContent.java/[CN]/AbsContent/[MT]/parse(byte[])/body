@@ -5,7 +5,7 @@
     container=AbsContentContainer.loadContainer(reader.getBytes(33));
   }
  else {
-    throw new IOException("Unsupported obsolete format");
+    throw new RuntimeException("Unsupported obsolete format");
   }
   return convertData(container);
 }

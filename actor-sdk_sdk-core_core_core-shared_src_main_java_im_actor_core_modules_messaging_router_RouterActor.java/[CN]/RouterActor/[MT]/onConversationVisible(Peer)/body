@@ -1,0 +1,4 @@
+{
+  visiblePeers.add(peer);
+  markAsReadIfNeeded(peer);
+}

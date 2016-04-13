@@ -1,3 +1,0 @@
-FrameLayout fl
-Context context
-OnItemClickedListener<MessageEx> onClickListener

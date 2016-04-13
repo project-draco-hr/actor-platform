@@ -1,0 +1,8 @@
+{
+  isLoading=false;
+  historyLoaded=false;
+  historyMaxDate=date;
+  preferences().putBool(KEY_LOADED,false);
+  preferences().putBool(KEY_LOADED_INIT,true);
+  preferences().putLong(KEY_LOADED_DATE,date);
+}

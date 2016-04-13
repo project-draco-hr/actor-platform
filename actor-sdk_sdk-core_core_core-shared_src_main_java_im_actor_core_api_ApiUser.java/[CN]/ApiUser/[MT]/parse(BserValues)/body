@@ -19,6 +19,11 @@
   this.external=values.optString(15);
   this.preferredLanguages=values.getRepeatedString(16);
   this.timeZone=values.optString(17);
+  List<ApiBotCommand> _botCommands=new ArrayList<ApiBotCommand>();
+  for (int i=0; i < values.getRepeatedCount(19); i++) {
+    _botCommands.add(new ApiBotCommand());
+  }
+  this.botCommands=values.getRepeatedObj(19,_botCommands);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

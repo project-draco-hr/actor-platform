@@ -1,4 +1,5 @@
 {
   this.peer=values.getObj(1,new ApiPeer());
   this.startDate=values.getLong(2);
+  this.unreadCounter=values.optInt(3);
 }

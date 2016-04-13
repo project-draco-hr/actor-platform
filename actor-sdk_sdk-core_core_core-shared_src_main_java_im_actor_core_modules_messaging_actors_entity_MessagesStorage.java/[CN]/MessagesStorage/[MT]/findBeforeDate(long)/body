@@ -1,9 +1,0 @@
-{
-  ArrayList<MessageRef> res=new ArrayList<MessageRef>();
-  for (  MessageRef ref : messages) {
-    if (ref.getDate() <= date) {
-      res.add(ref);
-    }
-  }
-  return res;
-}

@@ -1,0 +1,9 @@
+Peer peer
+int unreadCount
+long sortDate
+long rid
+long date
+int senderId
+AbsContent content
+boolean isRead
+boolean isReceived

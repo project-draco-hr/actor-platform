@@ -1,0 +1,7 @@
+Peer peer
+boolean isLoaded
+int unreadCount
+long inMaxMessageDate
+long inReadDate
+long outReadDate
+long outReceiveDate

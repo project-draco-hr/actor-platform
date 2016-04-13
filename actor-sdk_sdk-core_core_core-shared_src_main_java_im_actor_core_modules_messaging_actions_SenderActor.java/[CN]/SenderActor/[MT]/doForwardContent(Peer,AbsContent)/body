@@ -1,0 +1,10 @@
+{
+  long rid=RandomUtils.nextRid();
+  long date=createPendingDate();
+  long sortDate=date + 365 * 24 * 60* 60* 1000L;
+  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,content);
+  context().getMessagesModule().getRouter().onOutgoingMessage(peer,message);
+  pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,content));
+  savePending();
+  performSendContent(peer,rid,content);
+}

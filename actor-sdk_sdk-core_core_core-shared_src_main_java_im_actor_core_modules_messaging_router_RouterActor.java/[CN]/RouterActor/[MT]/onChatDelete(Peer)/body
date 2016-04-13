@@ -1,0 +1,4 @@
+{
+  conversation(peer).clear();
+  dialogsActor(new DialogsActor.ChatDelete(peer));
+}

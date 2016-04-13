@@ -1,3 +1,7 @@
 {
+  this.closure=null;
   this.displayList.unsubscribe(this);
+  this.conversationVM.getIsLoaded().unsubscribe(isLoadedListener);
+  this.conversationVM.getReadDate().unsubscribe(readDateListener);
+  this.conversationVM.getReceiveDate().unsubscribe(receiveDateListener);
 }

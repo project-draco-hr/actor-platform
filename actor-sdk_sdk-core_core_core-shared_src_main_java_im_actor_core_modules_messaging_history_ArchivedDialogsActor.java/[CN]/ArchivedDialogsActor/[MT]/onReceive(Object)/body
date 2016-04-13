@@ -1,0 +1,8 @@
+{
+  if (message instanceof LoadMore) {
+    onLoadMore(((LoadMore)message).isInit(),((LoadMore)message).getCallback());
+  }
+ else {
+    drop(message);
+  }
+}

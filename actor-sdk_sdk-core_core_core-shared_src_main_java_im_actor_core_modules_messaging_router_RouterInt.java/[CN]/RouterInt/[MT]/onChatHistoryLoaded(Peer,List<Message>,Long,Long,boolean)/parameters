@@ -1,0 +1,5 @@
+Peer peer
+List<Message> history
+Long maxReceivedDate
+Long maxReadDate
+boolean isEnded

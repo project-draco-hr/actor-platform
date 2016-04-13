@@ -1,0 +1,8 @@
+{
+  Message msg=conversation(peer).getValue(rid);
+  if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
+    Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
+    conversation(peer).addOrUpdateItem(updatedMsg);
+    dialogsActor(new DialogsActor.InMessage(peer,updatedMsg,-1));
+  }
+}

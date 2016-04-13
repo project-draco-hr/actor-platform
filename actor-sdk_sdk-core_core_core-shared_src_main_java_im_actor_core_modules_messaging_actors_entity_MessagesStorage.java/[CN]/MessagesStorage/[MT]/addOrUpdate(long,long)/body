@@ -1,9 +1,0 @@
-{
-  for (  MessageRef ref : messages) {
-    if (ref.getRid() == rid) {
-      messages.remove(ref);
-      break;
-    }
-  }
-  messages.add(new MessageRef(rid,date));
-}

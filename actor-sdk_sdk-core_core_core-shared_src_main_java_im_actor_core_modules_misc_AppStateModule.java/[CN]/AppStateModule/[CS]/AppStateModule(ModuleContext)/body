@@ -1,4 +1,4 @@
 {
   super(context);
-  this.appStateVM=new AppStateVM(context);
+  globalStateVM=new GlobalStateVM(context);
 }

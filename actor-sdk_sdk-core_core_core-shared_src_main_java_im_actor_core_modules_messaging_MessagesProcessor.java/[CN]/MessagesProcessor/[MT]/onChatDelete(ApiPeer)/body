@@ -3,5 +3,5 @@
   if (!isValidPeer(peer)) {
     return;
   }
-  conversationActor(peer).send(new ConversationActor.DeleteConversation());
+  context().getMessagesModule().getRouter().onChatDelete(peer);
 }

@@ -1,0 +1,16 @@
+{
+  for (  DialogHistory d : dialogs) {
+    ConversationState state=conversationStates.getValue(d.getPeer().getUnuqueId());
+    if (d.getUnreadCount() > 0) {
+      state=state.changeCounter(d.getUnreadCount()).changeInMaxDate(d.getDate());
+    }
+    if (d.isRead()) {
+      state=state.changeOutReadDate(d.getDate()).changeOutReceiveDate(d.getDate());
+    }
+ else     if (d.isReceived()) {
+      state=state.changeOutReceiveDate(d.getDate());
+    }
+    conversationStates.addOrUpdateItem(state);
+  }
+  dialogsActor(new DialogsActor.HistoryLoaded(dialogs));
+}

@@ -4,4 +4,7 @@
   }
   writer.writeObject(1,this.peer);
   writer.writeLong(2,this.startDate);
+  if (this.unreadCounter != null) {
+    writer.writeInt(3,this.unreadCounter);
+  }
 }

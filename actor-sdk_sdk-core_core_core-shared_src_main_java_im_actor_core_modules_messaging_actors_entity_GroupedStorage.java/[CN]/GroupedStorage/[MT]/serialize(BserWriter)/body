@@ -1,5 +1,0 @@
-{
-  for (  GroupedItem g : groups) {
-    writer.writeObject(1,g);
-  }
-}

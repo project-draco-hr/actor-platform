@@ -1,3 +1,0 @@
-{
-  listStatesActor.send(new ListsStatesActor.OnAppCounterChanged(counters));
-}

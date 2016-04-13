@@ -1,7 +1,0 @@
-{
-  if (!isInDifference) {
-    return;
-  }
-  isInDifference=false;
-  context().getNotificationsModule().resumeNotifications();
-}

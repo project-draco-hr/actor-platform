@@ -1,0 +1,7 @@
+{
+  if (!isLoggedIn()) {
+    return null;
+  }
+  byte[] userData=modules.getUsersModule().getUsersStorage().getValue(myUid).toByteArray();
+  return new AuthenticationBackupData(deviceHash,myUid,userData);
+}

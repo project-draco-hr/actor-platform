@@ -1,0 +1,3 @@
+byte[] deviceHash
+int authenticatedUid
+byte[] ownUserData

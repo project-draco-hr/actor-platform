@@ -1,0 +1,8 @@
+{
+  String res="struct BotCommand{";
+  res+="slashCommand=" + this.slashCommand;
+  res+=", description=" + this.description;
+  res+=", locKey=" + this.locKey;
+  res+="}";
+  return res;
+}

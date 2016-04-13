@@ -1,0 +1,8 @@
+{
+  this.uid=values.getInt(1);
+  List<ApiBotCommand> _commands=new ArrayList<ApiBotCommand>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _commands.add(new ApiBotCommand());
+  }
+  this.commands=values.getRepeatedObj(2,_commands);
+}

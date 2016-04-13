@@ -1,8 +1,0 @@
-{
-  this.peer=peer;
-  this.isLoaded=isLoaded;
-  this.inMaxMessageDate=inMaxMessageDate;
-  this.inReadDate=inReadDate;
-  this.outReadDate=outReadDate;
-  this.outReceiveState=outReceiveState;
-}

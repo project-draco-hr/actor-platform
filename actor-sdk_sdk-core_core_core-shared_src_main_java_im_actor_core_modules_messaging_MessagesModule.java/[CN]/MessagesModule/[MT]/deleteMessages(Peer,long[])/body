@@ -1,9 +1,8 @@
 {
-  ActorRef conversationActor=getConversationActor(peer);
-  ArrayList<Long> deleted=new ArrayList<Long>();
+  ArrayList<Long> deleted=new ArrayList<>();
   for (  long rid : rids) {
     deleted.add(rid);
   }
-  conversationActor.send(new ConversationActor.MessagesDeleted(deleted));
+  router.onMessagesDeleted(peer,deleted);
   deletionsActor.send(new MessageDeleteActor.DeleteMessage(peer,rids));
 }

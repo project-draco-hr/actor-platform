@@ -1,0 +1,7 @@
+{
+  this.baseUrl=values.getString(1);
+  this.algo=values.getString(2);
+  this.seed=values.getString(5);
+  this.signatureSecret=values.getBytes(3);
+  this.timeout=values.getInt(4);
+}

@@ -1,3 +1,0 @@
-{
-  messageHolder.bind(item,index == getItemCount() - 1);
-}

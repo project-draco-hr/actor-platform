@@ -1,6 +1,0 @@
-{
-  assumeConvActor(peer);
-synchronized (conversationActors) {
-    return conversationHistoryActors.get(peer);
-  }
-}

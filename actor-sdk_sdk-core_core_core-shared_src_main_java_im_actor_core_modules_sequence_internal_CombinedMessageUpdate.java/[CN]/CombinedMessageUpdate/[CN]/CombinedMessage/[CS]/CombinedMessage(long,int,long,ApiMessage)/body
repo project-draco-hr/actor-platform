@@ -1,6 +1,0 @@
-{
-  this.rid=rid;
-  this.sender=sender;
-  this.date=date;
-  this.message=message;
-}

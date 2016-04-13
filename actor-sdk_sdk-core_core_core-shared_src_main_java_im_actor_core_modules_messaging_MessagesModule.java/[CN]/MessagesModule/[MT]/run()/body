@@ -1,4 +1,5 @@
 {
+  this.router=new RouterInt(context());
   this.dialogsActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public DialogsActor create(){
       return new DialogsActor(context());
@@ -17,20 +18,6 @@
     }
   }
 ),"actor/dialogs/archived");
-  if (context().getConfiguration().isEnabledGroupedChatList()) {
-    this.dialogsGroupedActor=system().actorOf(Props.create(new ActorCreator(){
-      @Override public ActiveDialogsActor create(){
-        return new ActiveDialogsActor(context());
-      }
-    }
-),"actor/dialogs/grouped");
-  }
-  this.ownReadActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public OwnReadActor create(){
-      return new OwnReadActor(context());
-    }
-  }
-),"actor/read/own");
   this.plainReadActor=system().actorOf(Props.create(new ActorCreator(){
     @Override public CursorReaderActor create(){
       return new CursorReaderActor(context());
@@ -56,6 +43,5 @@
   }
 ),"actor/deletions");
   context().getEvents().subscribe(this,PeerChatOpened.EVENT);
-  context().getEvents().subscribe(this,PeerChatClosed.EVENT);
-  context().getEvents().subscribe(this,AppVisibleChanged.EVENT);
+  context().getEvents().subscribe(this,PeerChatPreload.EVENT);
 }

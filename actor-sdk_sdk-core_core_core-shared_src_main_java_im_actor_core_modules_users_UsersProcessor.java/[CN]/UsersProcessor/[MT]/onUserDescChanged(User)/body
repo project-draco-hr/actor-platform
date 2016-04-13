@@ -1,7 +1,4 @@
 {
-  context().getMessagesModule().getDialogsActor().send(new DialogsActor.UserChanged(u));
-  if (context().getConfiguration().isEnabledGroupedChatList()) {
-    context().getMessagesModule().getDialogsGroupedActor().send(new ActiveDialogsActor.PeerInformationChanged(Peer.user(u.getUid())));
-  }
+  context().getMessagesModule().getRouter().onUserChanged(u);
   context().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(u));
 }

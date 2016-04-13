@@ -3,6 +3,7 @@
   res+="peer=" + this.peer;
   res+=", rid=" + this.rid;
   res+=", message=" + this.message;
+  res+=", isOnlyForUser=" + this.isOnlyForUser;
   res+="}";
   return res;
 }

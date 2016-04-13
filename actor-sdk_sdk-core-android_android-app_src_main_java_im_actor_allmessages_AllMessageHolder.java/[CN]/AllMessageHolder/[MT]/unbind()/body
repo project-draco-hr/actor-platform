@@ -1,4 +1,0 @@
-{
-  this.bindedItem=null;
-  this.avatar.unbind();
-}

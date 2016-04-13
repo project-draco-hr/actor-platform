@@ -2,7 +2,7 @@
   writer.writeBytes(1,peer.toByteArray());
   writer.writeBool(2,isLoaded);
   writer.writeLong(3,inReadDate);
-  writer.writeLong(4,outReceiveState);
+  writer.writeLong(4,outReceiveDate);
   writer.writeLong(5,outReadDate);
-  writer.writeLong(6,inMaxMessageDate);
+  writer.writeInt(6,unreadCount);
 }

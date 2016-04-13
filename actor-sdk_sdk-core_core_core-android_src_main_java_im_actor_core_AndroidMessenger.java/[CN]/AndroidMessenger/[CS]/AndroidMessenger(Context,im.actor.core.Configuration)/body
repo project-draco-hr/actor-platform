@@ -13,6 +13,14 @@
     }
   }
 );
+  modules.getAppStateModule().getGlobalStateVM().getGlobalCounter().subscribe(new ValueChangedListener<Integer>(){
+    @Override public void onChanged(    Integer val,    Value<Integer> valueModel){
+      if (val != null) {
+        ShortcutBadger.with(AndroidContext.getContext()).count(val);
+      }
+    }
+  }
+);
   context.registerReceiver(new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
       ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -60,10 +68,4 @@ appStateActor.send(new AppStateActor.OnScreenOn());
  else {
 appStateActor.send(new AppStateActor.OnScreenOff());
 }
-modules.getAppStateModule().getAppStateVM().getGlobalCounter().subscribe(new ValueChangedListener<Integer>(){
-@Override public void onChanged(Integer val,Value<Integer> valueModel){
-ShortcutBadger.with(AndroidContext.getContext()).count(val);
-}
-}
-);
 }

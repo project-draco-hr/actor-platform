@@ -1,5 +1,0 @@
-{
-  writer.writeObject(1,peer);
-  writer.writeInt(2,counter);
-  writer.writeBool(3,isUnread);
-}

@@ -1,0 +1,5 @@
+{
+  this.slashCommand=values.getString(1);
+  this.description=values.getString(2);
+  this.locKey=values.optString(3);
+}

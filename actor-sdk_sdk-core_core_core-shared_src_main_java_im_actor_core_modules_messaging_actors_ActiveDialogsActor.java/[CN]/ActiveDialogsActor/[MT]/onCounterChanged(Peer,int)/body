@@ -1,5 +1,0 @@
-{
-  DialogSpec spec=new DialogSpec(peer,false,counter);
-  specs.getEngine().addOrUpdateItem(spec);
-  notifyVM(peer);
-}

@@ -6,7 +6,7 @@
           ApiGroup group=response.getGroup();
           ArrayList<ApiGroup> groups=new ArrayList<ApiGroup>();
           groups.add(group);
-          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateMessage(new ApiPeer(ApiPeerType.GROUP,group.getId()),myUid(),response.getDate(),response.getRid(),new ApiServiceMessage("Joined chat",new ApiServiceExUserJoined())),response.getUsers(),groups);
+          updates().onFatSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateMessage(new ApiPeer(ApiPeerType.GROUP,group.getId()),myUid(),response.getDate(),response.getRid(),new ApiServiceMessage("Joined chat",new ApiServiceExUserJoined()),new ApiMessageAttributes()),response.getUsers(),groups);
           updates().executeAfter(response.getSeq(),new Runnable(){
             @Override public void run(){
               runOnUiThread(new Runnable(){

@@ -1,0 +1,3 @@
+{
+  writer.writeRepeatedString(1,this.supportedSignatureAlgorithms);
+}

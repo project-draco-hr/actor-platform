@@ -31,6 +31,7 @@
   if (this.timeZone != null) {
     writer.writeString(17,this.timeZone);
   }
+  writer.writeRepeatedObj(19,this.botCommands);
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

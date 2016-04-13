@@ -1,7 +1,0 @@
-{
-  Peer peer=convert(_peer);
-  if (!isValidPeer(peer)) {
-    return;
-  }
-  ownReadActor().send(new OwnReadActor.MessageReadByMe(peer,startDate));
-}

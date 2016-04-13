@@ -1,8 +1,0 @@
-{
-  im.actor.runtime.Runtime.checkMainThread();
-  String key=peer.getUnuqueId() + dataType;
-  if (!chatsCustomGlobalLists.containsKey(key)) {
-    chatsCustomGlobalLists.put(key,buildChatCustomList(peer,dataType,true,creator));
-  }
-  return chatsCustomGlobalLists.get(key);
-}

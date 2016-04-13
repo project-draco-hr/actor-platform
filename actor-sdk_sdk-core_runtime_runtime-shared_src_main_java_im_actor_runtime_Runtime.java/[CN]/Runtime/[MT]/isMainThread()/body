@@ -1,0 +1,3 @@
+{
+  return mainThreadRuntime.isSingleThread() || mainThreadRuntime.isMainThread();
+}

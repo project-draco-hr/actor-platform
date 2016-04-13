@@ -1,0 +1,12 @@
+{
+  this.context=context;
+  setDest(system().actorOf("actor/router",new ActorCreator(){
+    @Override public Actor create(){
+      return new RouterActor(context);
+    }
+  }
+));
+  context.getEvents().subscribe(this,PeerChatOpened.EVENT);
+  context.getEvents().subscribe(this,PeerChatClosed.EVENT);
+  context.getEvents().subscribe(this,AppVisibleChanged.EVENT);
+}

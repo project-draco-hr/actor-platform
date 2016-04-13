@@ -1,0 +1,6 @@
+{
+  this.isMentioned=values.optBool(1);
+  this.isHighlighted=values.optBool(2);
+  this.isNotified=values.optBool(3);
+  this.isOnlyForYou=values.optBool(4);
+}

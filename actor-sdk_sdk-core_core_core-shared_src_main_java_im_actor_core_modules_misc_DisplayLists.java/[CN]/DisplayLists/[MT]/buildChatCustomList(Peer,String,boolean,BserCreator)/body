@@ -1,6 +1,0 @@
-{
-  im.actor.runtime.Runtime.checkMainThread();
-  PlatformDisplayList res=Storage.createDisplayList(context().getMessagesModule().getCustomConversationEngine(peer,datatype,creator),isShared,datatype);
-  res.initTop();
-  return res;
-}

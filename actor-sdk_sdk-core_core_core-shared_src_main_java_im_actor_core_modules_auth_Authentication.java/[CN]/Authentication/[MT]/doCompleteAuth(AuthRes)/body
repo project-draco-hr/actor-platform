@@ -1,0 +1,28 @@
+{
+  return new Promise<>(new PromiseFunc<Boolean>(){
+    @Override public void exec(    @NotNull final PromiseResolver<Boolean> resolver){
+      ResponseAuth auth;
+      try {
+        auth=ResponseAuth.fromBytes(authRes.getData());
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+        resolver.error(e);
+        return;
+      }
+      state=AuthState.LOGGED_IN;
+      myUid=auth.getUser().getId();
+      modules.onLoggedIn(true);
+      modules.getUsersModule().getUsersStorage().addOrUpdateItem(new User(auth.getUser()));
+      modules.getPreferences().putBool(KEY_AUTH,true);
+      modules.getPreferences().putInt(KEY_AUTH_UID,myUid);
+      modules.getUpdatesModule().onUpdateReceived(new LoggedIn(auth,new Runnable(){
+        @Override public void run(){
+          resolver.result(true);
+        }
+      }
+));
+    }
+  }
+);
+}

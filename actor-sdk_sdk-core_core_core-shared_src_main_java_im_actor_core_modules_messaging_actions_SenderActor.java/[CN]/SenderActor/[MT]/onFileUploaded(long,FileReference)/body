@@ -1,0 +1,31 @@
+{
+  PendingMessage msg=findPending(rid);
+  if (msg == null) {
+    return;
+  }
+  pendingMessages.getPendingMessages().remove(msg);
+  AbsContent nContent;
+  if (msg.getContent() instanceof PhotoContent) {
+    PhotoContent basePhotoContent=(PhotoContent)msg.getContent();
+    nContent=PhotoContent.createRemotePhoto(fileReference,basePhotoContent.getW(),basePhotoContent.getH(),basePhotoContent.getFastThumb());
+  }
+ else   if (msg.getContent() instanceof VideoContent) {
+    VideoContent baseVideoContent=(VideoContent)msg.getContent();
+    nContent=VideoContent.createRemoteVideo(fileReference,baseVideoContent.getW(),baseVideoContent.getH(),baseVideoContent.getDuration(),baseVideoContent.getFastThumb());
+  }
+ else   if (msg.getContent() instanceof VoiceContent) {
+    VoiceContent baseVoiceContent=(VoiceContent)msg.getContent();
+    nContent=VoiceContent.createRemoteAudio(fileReference,baseVoiceContent.getDuration());
+  }
+ else   if (msg.getContent() instanceof DocumentContent) {
+    DocumentContent baseDocContent=(DocumentContent)msg.getContent();
+    nContent=DocumentContent.createRemoteDocument(fileReference,baseDocContent.getFastThumb());
+  }
+ else {
+    return;
+  }
+  pendingMessages.getPendingMessages().add(new PendingMessage(msg.getPeer(),msg.getRid(),nContent));
+  context().getMessagesModule().getRouter().onContentChanged(msg.getPeer(),msg.getRid(),nContent);
+  performSendContent(msg.getPeer(),rid,nContent);
+  fileUplaodingWakeLocks.remove(rid).releaseLock();
+}

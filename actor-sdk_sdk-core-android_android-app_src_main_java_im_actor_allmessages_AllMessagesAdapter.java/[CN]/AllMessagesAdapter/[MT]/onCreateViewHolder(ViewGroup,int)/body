@@ -1,3 +1,0 @@
-{
-  return new AllMessageHolder(new FrameLayout(context),context,onItemClicked);
-}

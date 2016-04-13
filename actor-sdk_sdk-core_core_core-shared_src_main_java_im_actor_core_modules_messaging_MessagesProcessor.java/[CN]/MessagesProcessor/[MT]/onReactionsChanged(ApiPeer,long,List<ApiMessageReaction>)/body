@@ -3,9 +3,9 @@
   if (!isValidPeer(peer)) {
     return;
   }
-  ArrayList<Reaction> reactions=new ArrayList<Reaction>();
+  ArrayList<Reaction> reactions=new ArrayList<>();
   for (  ApiMessageReaction r : apiReactions) {
     reactions.add(new Reaction(r.getCode(),r.getUsers()));
   }
-  conversationActor(peer).send(new ConversationActor.MessageReactionsChanged(rid,reactions));
+  context().getMessagesModule().getRouter().onReactionsChanged(peer,rid,reactions);
 }

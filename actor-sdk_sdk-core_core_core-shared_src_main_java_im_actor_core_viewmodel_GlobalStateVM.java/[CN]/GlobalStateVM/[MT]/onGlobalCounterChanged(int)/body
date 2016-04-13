@@ -1,0 +1,6 @@
+{
+  globalCounter.change(value);
+  if (!isAppVisible.get()) {
+    globalTempCounter.change(value);
+  }
+}

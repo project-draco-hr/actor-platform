@@ -1,4 +1,16 @@
 {
   properties.clear();
-  database.rawQuery("select 'drop table ' || name || ';' from sqlite_master where type = 'table';",null);
+  ArrayList<String> tables=new ArrayList<>();
+  Cursor cursor=database.rawQuery("SELECT name FROM sqlite_master WHERE type='table';",null);
+  try {
+    while (cursor.moveToNext()) {
+      tables.add(cursor.getString(0));
+    }
+  }
+  finally {
+    cursor.close();
+  }
+  for (  String s : tables) {
+    getDatabase().execSQL("drop table " + s + ";");
+  }
 }

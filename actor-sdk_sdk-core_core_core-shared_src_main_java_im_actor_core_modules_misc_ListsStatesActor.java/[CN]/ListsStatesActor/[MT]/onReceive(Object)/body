@@ -14,9 +14,6 @@
  else   if (message instanceof OnDialogsLoaded) {
     onDialogsLoaded();
   }
- else   if (message instanceof OnAppCounterChanged) {
-    onCounterChanged(((OnAppCounterChanged)message).getCounters());
-  }
  else {
     drop(message);
   }

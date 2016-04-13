@@ -1,0 +1,7 @@
+{
+  Message message=conversation(peer).getValue(rid);
+  if (message == null) {
+    return;
+  }
+  conversation(peer).addOrUpdateItem(message.changeContent(content));
+}

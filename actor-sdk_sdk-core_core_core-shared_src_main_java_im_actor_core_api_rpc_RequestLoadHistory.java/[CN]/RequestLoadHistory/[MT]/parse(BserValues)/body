@@ -1,5 +1,9 @@
 {
   this.peer=values.getObj(1,new ApiOutPeer());
-  this.minDate=values.getLong(3);
+  this.date=values.getLong(3);
+  int val_loadMode=values.getInt(5,0);
+  if (val_loadMode != 0) {
+    this.loadMode=ApiListLoadMode.parse(val_loadMode);
+  }
   this.limit=values.getInt(4);
 }

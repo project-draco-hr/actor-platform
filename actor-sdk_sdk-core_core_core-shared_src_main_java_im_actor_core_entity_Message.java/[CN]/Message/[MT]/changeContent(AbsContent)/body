@@ -1,3 +1,3 @@
 {
-  return new Message(rid,sortDate,date,senderId,messageState,content,reactions);
+  return new Message(rid,sortDate,date,senderId,messageState,content,reactions,contentIndex + 1);
 }

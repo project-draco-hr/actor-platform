@@ -1,0 +1,6 @@
+{
+  this.peer=peer;
+  this.date=date;
+  this.loadMode=loadMode;
+  this.limit=limit;
+}

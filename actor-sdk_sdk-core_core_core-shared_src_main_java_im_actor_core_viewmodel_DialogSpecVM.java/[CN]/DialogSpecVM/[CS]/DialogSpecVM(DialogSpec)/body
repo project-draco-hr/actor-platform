@@ -1,6 +1,0 @@
-{
-  super(rawObj);
-  this.peer=rawObj.getPeer();
-  this.counter=new IntValueModel("dialogs.desc.counter",rawObj.getCounter());
-  this.isUnread=new BooleanValueModel("dialogs.desc.unread",rawObj.isUnread());
-}

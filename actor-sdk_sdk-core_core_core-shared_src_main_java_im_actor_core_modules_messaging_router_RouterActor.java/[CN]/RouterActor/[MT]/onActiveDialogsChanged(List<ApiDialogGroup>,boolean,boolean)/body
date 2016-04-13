@@ -1,0 +1,37 @@
+{
+  ArrayList<ConversationState> convStates=new ArrayList<>();
+  for (  ApiDialogGroup g : dialogs) {
+    for (    ApiDialogShort s : g.getDialogs()) {
+      Peer peer=convert(s.getPeer());
+      ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+      boolean isChanged=false;
+      if (state.getUnreadCount() != s.getCounter() && !isConversationVisible(peer)) {
+        state=state.changeCounter(s.getCounter());
+        isChanged=true;
+      }
+      if (state.getInMaxMessageDate() < s.getDate()) {
+        state=state.changeInMaxDate(s.getDate());
+        isChanged=true;
+      }
+      if (isChanged) {
+        convStates.add(state);
+      }
+    }
+  }
+  conversationStates.addOrUpdateItems(convStates);
+  activeDialogStorage.setHaveArchived(showArchived);
+  activeDialogStorage.setShowInvite(showInvite);
+  activeDialogStorage.setLoaded(true);
+  activeDialogStorage.getGroups().clear();
+  for (  ApiDialogGroup g : dialogs) {
+    ArrayList<Peer> peers=new ArrayList<>();
+    for (    ApiDialogShort s : g.getDialogs()) {
+      Peer peer=convert(s.getPeer());
+      peers.add(peer);
+    }
+    activeDialogStorage.getGroups().add(new ActiveDialogGroup(g.getKey(),g.getTitle(),peers));
+  }
+  context().getStorageModule().getBlobStorage().addOrUpdateItem(AbsModule.BLOB_DIALOGS_ACTIVE,activeDialogStorage.toByteArray());
+  notifyActiveDialogsVM();
+  unstashAll();
+}

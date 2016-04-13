@@ -1,0 +1,4 @@
+{
+  this.bundleId=values.getString(1);
+  this.token=values.getString(2);
+}

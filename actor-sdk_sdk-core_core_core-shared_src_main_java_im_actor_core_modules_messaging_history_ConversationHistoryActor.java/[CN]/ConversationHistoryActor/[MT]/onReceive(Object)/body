@@ -1,0 +1,8 @@
+{
+  if (message instanceof LoadMore) {
+    onLoadMore();
+  }
+ else {
+    super.onReceive(message);
+  }
+}

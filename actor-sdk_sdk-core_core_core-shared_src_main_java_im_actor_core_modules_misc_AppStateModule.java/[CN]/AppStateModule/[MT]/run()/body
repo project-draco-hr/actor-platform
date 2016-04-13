@@ -1,4 +1,5 @@
 {
+  this.appStateVM=new AppStateVM(context());
   listStatesActor=system().actorOf("actor/app/state",new ActorCreator(){
     @Override public ListsStatesActor create(){
       return new ListsStatesActor(context());

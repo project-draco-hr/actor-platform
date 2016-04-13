@@ -1,0 +1,10 @@
+{
+  if (this.bundleId == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.bundleId);
+  if (this.token == null) {
+    throw new IOException();
+  }
+  writer.writeString(2,this.token);
+}

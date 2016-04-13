@@ -2,6 +2,7 @@
   String res="update MessageReadByMe{";
   res+="peer=" + this.peer;
   res+=", startDate=" + this.startDate;
+  res+=", unreadCounter=" + this.unreadCounter;
   res+="}";
   return res;
 }

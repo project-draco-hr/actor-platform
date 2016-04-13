@@ -1,0 +1,35 @@
+{
+  long maxMessageDate=0;
+  ArrayList<Message> updated=new ArrayList<>();
+  for (  Message historyMessage : messages) {
+    if (conversation(peer).getValue(historyMessage.getEngineId()) != null) {
+      continue;
+    }
+    updated.add(historyMessage);
+    if (historyMessage.getSenderId() != myUid()) {
+      maxMessageDate=Math.max(maxMessageDate,historyMessage.getSortDate());
+    }
+  }
+  conversation(peer).addOrUpdateItems(updated);
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  boolean isChanged=false;
+  if (state.getInMaxMessageDate() < maxMessageDate) {
+    state=state.changeInMaxDate(maxMessageDate);
+    isChanged=true;
+  }
+  if (maxReadDate != null && maxReadDate != 0 && state.getOutReadDate() < maxMessageDate) {
+    state=state.changeOutReadDate(maxReadDate);
+    isChanged=true;
+  }
+  if (maxReceiveDate != null && maxReceiveDate != 0 && state.getOutReceiveDate() < maxReceiveDate) {
+    state=state.changeOutReceiveDate(maxReceiveDate);
+    isChanged=true;
+  }
+  if (state.isLoaded() != isEnded) {
+    state=state.changeIsLoaded(isEnded);
+    isChanged=true;
+  }
+  if (isChanged) {
+    conversationStates.addOrUpdateItem(state);
+  }
+}

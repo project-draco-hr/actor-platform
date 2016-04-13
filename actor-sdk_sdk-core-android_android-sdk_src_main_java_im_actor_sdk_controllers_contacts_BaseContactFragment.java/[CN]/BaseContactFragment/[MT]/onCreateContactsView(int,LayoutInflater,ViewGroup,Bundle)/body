@@ -1,6 +1,6 @@
 {
   View res=inflate(inflater,container,layoutId,messenger().buildContactsDisplayList());
-  res.findViewById(R.id.collection).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
+  res.findViewById(R.id.collection).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   emptyView=res.findViewById(R.id.emptyCollection);
   if (emptyView != null) {
     emptyView.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
@@ -39,6 +39,6 @@
     }
   }
 );
-  res.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   return res;
 }

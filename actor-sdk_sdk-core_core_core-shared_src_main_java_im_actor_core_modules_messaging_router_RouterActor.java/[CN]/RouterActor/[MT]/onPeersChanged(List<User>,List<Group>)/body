@@ -1,0 +1,28 @@
+{
+  boolean isActiveNeedUpdate=false;
+  for (  User u : users) {
+    if (!isActiveNeedUpdate) {
+      for (      ActiveDialogGroup g : activeDialogStorage.getGroups()) {
+        if (g.getPeers().contains(u.peer())) {
+          isActiveNeedUpdate=true;
+          break;
+        }
+      }
+    }
+    dialogsActor(new DialogsActor.UserChanged(u));
+  }
+  for (  Group group : groups) {
+    if (!isActiveNeedUpdate) {
+      for (      ActiveDialogGroup g : activeDialogStorage.getGroups()) {
+        if (g.getPeers().contains(group.peer())) {
+          isActiveNeedUpdate=true;
+          break;
+        }
+      }
+    }
+    dialogsActor(new DialogsActor.GroupChanged(group));
+  }
+  if (isActiveNeedUpdate) {
+    notifyActiveDialogsVM();
+  }
+}

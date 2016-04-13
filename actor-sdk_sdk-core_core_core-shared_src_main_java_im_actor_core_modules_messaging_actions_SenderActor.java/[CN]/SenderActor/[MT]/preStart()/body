@@ -1,0 +1,40 @@
+{
+  pendingMessages=new PendingMessagesStorage();
+  byte[] p=preferences().getBytes(PREFERENCES);
+  if (p != null) {
+    try {
+      pendingMessages=PendingMessagesStorage.fromBytes(p);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  boolean isChanged=false;
+  ArrayList<PendingMessage> messages=pendingMessages.getPendingMessages();
+  for (  PendingMessage pending : messages.toArray(new PendingMessage[messages.size()])) {
+    if (pending.getContent() instanceof TextContent) {
+      performSendContent(pending.getPeer(),pending.getRid(),pending.getContent());
+    }
+ else     if (pending.getContent() instanceof DocumentContent) {
+      DocumentContent documentContent=(DocumentContent)pending.getContent();
+      if (documentContent.getSource() instanceof FileLocalSource) {
+        if (Storage.isFsPersistent()) {
+          performUploadFile(pending.getRid(),((FileLocalSource)documentContent.getSource()).getFileDescriptor(),((FileLocalSource)documentContent.getSource()).getFileName());
+        }
+ else {
+          List<Long> rids=new ArrayList<>();
+          rids.add(pending.getRid());
+          context().getMessagesModule().getRouter().onMessagesDeleted(pending.getPeer(),rids);
+          pendingMessages.getPendingMessages().remove(pending);
+          isChanged=true;
+        }
+      }
+ else {
+        performSendContent(pending.getPeer(),pending.getRid(),pending.getContent());
+      }
+    }
+  }
+  if (isChanged) {
+    savePending();
+  }
+}

@@ -1,5 +1,0 @@
-{
-  for (  byte[] data : values.getRepeatedBytes(1)) {
-    groups.add(new GroupedItem(data));
-  }
-}

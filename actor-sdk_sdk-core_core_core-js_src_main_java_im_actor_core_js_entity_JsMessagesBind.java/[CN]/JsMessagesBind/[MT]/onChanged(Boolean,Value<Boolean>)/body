@@ -1,6 +1,0 @@
-{
-  this.isLoaded=val;
-  if (!isLocked) {
-    notifySubscriber();
-  }
-}

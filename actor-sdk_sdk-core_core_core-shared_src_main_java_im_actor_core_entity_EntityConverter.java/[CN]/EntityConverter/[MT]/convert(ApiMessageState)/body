@@ -1,0 +1,13 @@
+{
+  if (state == null) {
+    return MessageState.UNKNOWN;
+  }
+switch (state) {
+case READ:
+case RECEIVED:
+case SENT:
+    return MessageState.SENT;
+default :
+  return MessageState.UNKNOWN;
+}
+}

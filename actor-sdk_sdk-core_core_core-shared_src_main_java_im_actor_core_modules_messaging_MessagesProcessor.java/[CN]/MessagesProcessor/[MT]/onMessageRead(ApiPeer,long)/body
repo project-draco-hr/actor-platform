@@ -3,5 +3,5 @@
   if (!isValidPeer(peer)) {
     return;
   }
-  conversationActor(peer).send(new ConversationActor.MessageRead(startDate));
+  context().getMessagesModule().getRouter().onMessageRead(peer,startDate);
 }
