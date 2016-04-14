@@ -1,4 +1,5 @@
 {
+  this.menu=menu;
   getMenuInflater().inflate(R.menu.chat_menu,menu);
   if (peer.getPeerType() == PeerType.PRIVATE) {
     menu.findItem(R.id.contact).setVisible(true);
@@ -30,6 +31,15 @@
     }
   }
   menu.findItem(R.id.call).setVisible(callsEnabled);
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    bind(users().get(peer.getPeerId()).isContact(),new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
+        menu.findItem(R.id.add_to_contacts).setVisible(!val);
+        invalidateOptionsMenu();
+      }
+    }
+);
+  }
   menu.findItem(R.id.files).setVisible(false);
   return super.onCreateOptionsMenu(menu);
 }

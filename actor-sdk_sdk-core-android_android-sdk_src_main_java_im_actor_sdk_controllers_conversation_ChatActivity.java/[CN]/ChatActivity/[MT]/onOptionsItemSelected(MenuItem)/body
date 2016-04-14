@@ -30,6 +30,9 @@
   }
  else   if (i == R.id.files) {
   }
+ else   if (i == R.id.add_to_contacts) {
+    execute(messenger().addContact(peer.getPeerId()));
+  }
   if (ActorSDK.sharedActor().isCallsEnabled()) {
     if (item.getItemId() == R.id.call) {
       if (ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {

@@ -1,5 +1,9 @@
 {
   super.onResume();
+  if (peer.getPeerType() == PeerType.PRIVATE && menu != null) {
+    menu.findItem(R.id.add_to_contacts).setVisible(users().get(peer.getPeerId()).isContact().get());
+    invalidateOptionsMenu();
+  }
   emojiKeyboard.setPeer(peer);
   voiceRecordActor=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
     @Override public VoiceCaptureActor create(){
