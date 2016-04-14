@@ -1,6 +1,6 @@
 {
-  return new Constructor<CallManagerActor>(){
-    @Override public CallManagerActor create(){
+  return new ActorCreator(){
+    @Override public Actor create(){
       return new CallManagerActor(context);
     }
   }

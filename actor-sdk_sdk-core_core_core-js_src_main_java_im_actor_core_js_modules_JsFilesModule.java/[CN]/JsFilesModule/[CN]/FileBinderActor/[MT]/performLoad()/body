@@ -2,7 +2,7 @@
   if (isLoading) {
     return;
   }
-  ArrayList<ApiFileLocation> fileLocations=new ArrayList<ApiFileLocation>();
+  ArrayList<ApiFileLocation> fileLocations=new ArrayList<>();
   for (int i=0; i < MAX_FILE_SIZE && filesQueue.size() > 0; i++) {
     FileRequest request=filesQueue.remove(0);
     fileLocations.add(new ApiFileLocation(request.getId(),request.getAccessHash()));
@@ -14,7 +14,7 @@
   request(new RequestGetFileUrls(fileLocations),new RpcCallback<ResponseGetFileUrls>(){
     @Override public void onResult(    ResponseGetFileUrls response){
       long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime();
-      ArrayList<FileResponse> responses=new ArrayList<FileResponse>();
+      ArrayList<FileResponse> responses=new ArrayList<>();
       for (      ApiFileUrlDescription u : response.getFileUrls()) {
         long urlTime=currentTime + u.getTimeout() * 1000L;
         responses.add(new FileResponse(u.getFileId(),u.getUrl(),urlTime));

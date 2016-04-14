@@ -1,6 +1,6 @@
 {
-  HashSet<Long> ids=new HashSet<Long>();
-  ArrayList<CachedFileUrl> cachedFileUrls=new ArrayList<CachedFileUrl>();
+  HashSet<Long> ids=new HashSet<>();
+  ArrayList<CachedFileUrl> cachedFileUrls=new ArrayList<>();
   for (  FileResponse r : responses) {
     ids.add(r.getId());
     requestedFiles.remove(r.getId());

@@ -1,6 +1,6 @@
 {
-  return new Constructor<SequenceActor>(){
-    @Override public SequenceActor create(){
+  return new ActorCreator(){
+    @Override public Actor create(){
       return new SequenceActor(context);
     }
   }
