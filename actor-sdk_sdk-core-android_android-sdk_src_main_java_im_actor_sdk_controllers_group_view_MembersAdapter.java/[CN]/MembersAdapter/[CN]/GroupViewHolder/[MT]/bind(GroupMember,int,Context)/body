@@ -1,6 +1,9 @@
 {
   user=users().get(data.getUid());
   ActorSDK.sharedActor().getMessenger().onUserVisible(data.getUid());
+  if (onlineBinding != null) {
+    onlineBinding.unbind();
+  }
   onlineBinding=fragment.bindOnline(online,user);
   avatarView.bind(user);
   userName.setText(user.getName().get());
