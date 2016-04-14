@@ -1,6 +1,0 @@
-{
-  long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime();
-  if (isLoaded && (timeout * 1000L < currentTime)) {
-    requestUrlBuilder();
-  }
-}

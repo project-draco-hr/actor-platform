@@ -1,0 +1,12 @@
+{
+  if (message instanceof FileRequest) {
+    filesQueue.add((FileRequest)message);
+    schedulePerform();
+  }
+ else   if (message instanceof PerformLoad) {
+    performLoad();
+  }
+ else {
+    drop(message);
+  }
+}

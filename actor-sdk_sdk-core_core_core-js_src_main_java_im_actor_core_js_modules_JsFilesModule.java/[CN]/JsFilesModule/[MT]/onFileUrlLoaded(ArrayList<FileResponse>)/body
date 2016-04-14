@@ -1,0 +1,13 @@
+{
+  HashSet<Long> ids=new HashSet<>();
+  ArrayList<CachedFileUrl> cachedFileUrls=new ArrayList<>();
+  for (  FileResponse r : responses) {
+    ids.add(r.getId());
+    requestedFiles.remove(r.getId());
+    cachedFileUrls.add(new CachedFileUrl(r.getId(),r.getUrl(),r.getTimeout()));
+  }
+  keyValueStorage.addOrUpdateItems(cachedFileUrls);
+  for (  JsFileLoadedListener listener : listeners) {
+    listener.onFileLoaded(ids);
+  }
+}

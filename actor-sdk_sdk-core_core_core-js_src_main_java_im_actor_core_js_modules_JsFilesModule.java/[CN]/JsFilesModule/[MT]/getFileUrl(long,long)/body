@@ -1,17 +1,19 @@
 {
-  requestUrlBuilderIfNeeded();
-  if (isLoaded) {
-    hmac.reset();
-    DataOutput dataOutput=new DataOutput();
-    dataOutput.writeBytes(seed.getBytes());
-    dataOutput.writeBytes((id + "").getBytes());
-    dataOutput.writeBytes((accessHash + "").getBytes());
-    byte[] toHash=dataOutput.toByteArray();
-    hmac.update(toHash,0,toHash.length);
-    byte[] sig=new byte[hmac.getDigestSize()];
-    hmac.doFinal(sig,0);
-    String signature=seed + "_" + Crypto.hex(sig);
-    return baseUrl + "/" + id+ "?signature="+ signature;
+  CachedFileUrl cachedFileUrl=keyValueStorage.getValue(id);
+  if (cachedFileUrl != null) {
+    long urlTime=cachedFileUrl.getTimeout();
+    long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime();
+    if (urlTime <= currentTime) {
+      Log.w("JsFilesModule","URL #" + id + " timeout (urlTime: "+ urlTime+ ", current:"+ currentTime+ ")");
+      keyValueStorage.removeItem(id);
+    }
+ else {
+      return cachedFileUrl.getUrl();
+    }
+  }
+  if (!requestedFiles.contains(id)) {
+    requestedFiles.add(id);
+    urlLoader.send(new FileRequest(id,accessHash));
   }
   return null;
 }
