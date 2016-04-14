@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  getWindow().setBackgroundDrawable(null);
+  getWindow().setBackgroundDrawable(new ColorDrawable(ActorSDK.sharedActor().style.getMainBackgroundColor()));
   setContentView(R.layout.activity_dialog);
   setFragment(savedInstanceState);
   ActorStyle style=ActorSDK.sharedActor().style;
