@@ -1,0 +1,11 @@
+{
+  if (message instanceof UserBlocked) {
+    onBlocked(((UserBlocked)message).getUid());
+  }
+ else   if (message instanceof UserUnblocked) {
+    onUnblocked(((UserUnblocked)message).getUid());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

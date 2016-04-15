@@ -1,0 +1,6 @@
+{
+  String res="rpc UnregisterApplePush{";
+  res+="token=" + this.token;
+  res+="}";
+  return res;
+}

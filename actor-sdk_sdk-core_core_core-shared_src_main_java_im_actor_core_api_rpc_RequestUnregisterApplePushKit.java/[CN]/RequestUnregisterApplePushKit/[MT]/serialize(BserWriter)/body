@@ -1,0 +1,6 @@
+{
+  if (this.token == null) {
+    throw new IOException();
+  }
+  writer.writeString(1,this.token);
+}

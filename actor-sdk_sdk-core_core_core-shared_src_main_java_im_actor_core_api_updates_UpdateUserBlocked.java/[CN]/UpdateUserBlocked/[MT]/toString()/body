@@ -1,0 +1,6 @@
+{
+  String res="update UserBlocked{";
+  res+="uid=" + this.uid;
+  res+="}";
+  return res;
+}

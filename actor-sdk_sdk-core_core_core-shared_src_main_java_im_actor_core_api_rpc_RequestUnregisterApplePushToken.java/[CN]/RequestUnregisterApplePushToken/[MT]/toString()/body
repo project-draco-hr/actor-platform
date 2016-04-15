@@ -1,0 +1,5 @@
+{
+  String res="rpc UnregisterApplePushToken{";
+  res+="}";
+  return res;
+}

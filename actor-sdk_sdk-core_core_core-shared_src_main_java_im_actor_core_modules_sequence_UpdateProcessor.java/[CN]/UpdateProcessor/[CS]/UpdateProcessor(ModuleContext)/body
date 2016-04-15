@@ -11,4 +11,5 @@
   this.callsProcessor=new CallsProcessor(context);
   this.encryptedProcessor=new EncryptedProcessor(context);
   this.eventBusProcessor=new EventBusProcessor(context);
+  this.blockListProcessor=new BlockListProcessor(context);
 }

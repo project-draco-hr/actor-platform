@@ -14,6 +14,9 @@
   if (contactsProcessor.process(update)) {
     return;
   }
+  if (blockListProcessor.process(update)) {
+    return;
+  }
   if (update instanceof UpdateMessage) {
     UpdateMessage message=(UpdateMessage)update;
     messagesProcessor.onMessage(message.getPeer(),message.getSenderUid(),message.getDate(),message.getRid(),message.getMessage());

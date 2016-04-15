@@ -1,0 +1,5 @@
+{
+  String res="rpc LoadBlockedUsers{";
+  res+="}";
+  return res;
+}

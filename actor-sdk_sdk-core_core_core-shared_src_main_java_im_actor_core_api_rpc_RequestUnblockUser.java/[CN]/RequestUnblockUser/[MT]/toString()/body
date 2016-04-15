@@ -1,0 +1,6 @@
+{
+  String res="rpc UnblockUser{";
+  res+="peer=" + this.peer;
+  res+="}";
+  return res;
+}
