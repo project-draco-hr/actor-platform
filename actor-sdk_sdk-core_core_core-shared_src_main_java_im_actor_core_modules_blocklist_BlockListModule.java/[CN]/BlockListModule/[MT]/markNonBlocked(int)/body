@@ -1,3 +1,4 @@
 {
   preferences().putBool("blocked_" + uid,false);
+  context().getUsersModule().getUsers().get(uid).getIsBlocked().change(false);
 }

@@ -1,8 +1,5 @@
 {
-  final AppCompatDialog dialog=new AppCompatDialog(getActivity());
-  dialog.setTitle(title);
-  dialog.setCancelable(false);
-  dialog.show();
+  final ProgressDialog dialog=ProgressDialog.show(getContext(),"",getString(title),true,false);
   cmd.start(new CommandCallback<T>(){
     @Override public void onResult(    T res){
       dialog.dismiss();

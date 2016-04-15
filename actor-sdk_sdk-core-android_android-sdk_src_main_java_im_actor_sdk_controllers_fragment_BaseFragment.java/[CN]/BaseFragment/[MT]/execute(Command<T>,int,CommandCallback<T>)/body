@@ -1,16 +1,12 @@
 {
-  final ProgressDialog progressDialog=new ProgressDialog(getActivity());
-  progressDialog.setMessage(getString(title));
-  progressDialog.setCancelable(false);
-  progressDialog.setCanceledOnTouchOutside(false);
-  progressDialog.show();
+  final ProgressDialog dialog=ProgressDialog.show(getContext(),"",getString(title),true,false);
   cmd.start(new CommandCallback<T>(){
     @Override public void onResult(    T res){
-      progressDialog.dismiss();
+      dialog.dismiss();
       callback.onResult(res);
     }
     @Override public void onError(    Exception e){
-      progressDialog.dismiss();
+      dialog.dismiss();
       callback.onError(e);
     }
   }
