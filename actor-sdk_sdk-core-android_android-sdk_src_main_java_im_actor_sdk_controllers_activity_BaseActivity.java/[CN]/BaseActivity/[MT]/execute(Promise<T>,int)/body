@@ -1,5 +1,5 @@
 {
-  final ProgressDialog dialog=ProgressDialog.show(getContext(),"",getString(title),true,false);
+  final ProgressDialog dialog=ProgressDialog.show(this,"",getString(title),true,false);
   promise.then(new Consumer<T>(){
     @Override public void apply(    T t){
       dismissDialog(dialog);
