@@ -1,0 +1,23 @@
+{
+  View res=inflater.inflate(R.layout.fragment_recycler_list,container,false);
+  list=(RecyclerView)res.findViewById(R.id.listView);
+  list.setLayoutManager(new LinearLayoutManager(getActivity()));
+  emptyView=(TextView)res.findViewById(R.id.emptyView);
+  emptyView.setText(R.string.blocked_loading);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
+  emptyView.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  adapter=new BlockedAdapter(new ArrayList<User>(),new BlockedAdapter.OnBlockedClickListener(){
+    @Override public void onClick(    UserVM u){
+      execute(messenger().unblockUser(u.getId()).then(new Consumer<im.actor.runtime.actors.messages.Void>(){
+        @Override public void apply(        Void aVoid){
+          checkBlockedList();
+        }
+      }
+).done(getPromiseActor()));
+    }
+  }
+);
+  list.setAdapter(adapter);
+  checkBlockedList();
+  return res;
+}

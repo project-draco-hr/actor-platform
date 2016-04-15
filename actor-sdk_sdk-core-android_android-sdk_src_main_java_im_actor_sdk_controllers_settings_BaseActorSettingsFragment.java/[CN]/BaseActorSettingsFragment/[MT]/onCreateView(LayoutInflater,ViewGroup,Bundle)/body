@@ -282,6 +282,12 @@
     }
   }
 );
+  view.findViewById(R.id.blockedList).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(new Intent(getActivity(),BlockedListActivity.class));
+    }
+  }
+);
   view.findViewById(R.id.chatSettings).setOnLongClickListener(new View.OnLongClickListener(){
     @Override public boolean onLongClick(    View v){
       Toast.makeText(getActivity(),AndroidLogProvider.toggleWriteLogs() ? "write logs on" : "write logs off",Toast.LENGTH_LONG).show();
@@ -351,6 +357,10 @@
   securityTitle.setTextColor(style.getSettingsTitleColor());
   TintImageView securityIcon=(TintImageView)view.findViewById(R.id.settings_security_icon);
   securityIcon.setTint(style.getSettingsIconColor());
+  TextView blockedListTitle=(TextView)view.findViewById(R.id.settings_blocked_title);
+  blockedListTitle.setTextColor(style.getSettingsTitleColor());
+  TintImageView blockedListIcon=(TintImageView)view.findViewById(R.id.settings_blocked_icon);
+  blockedListIcon.setTint(style.getSettingsIconColor());
   TextView helpTitle=(TextView)view.findViewById(R.id.settings_help_title);
   helpTitle.setTextColor(style.getSettingsTitleColor());
   TintImageView helpIcon=(TintImageView)view.findViewById(R.id.settings_help_icon);
@@ -371,6 +381,7 @@
   view.findViewById(R.id.divider4).setBackgroundColor(style.getDividerColor());
   view.findViewById(R.id.divider5).setBackgroundColor(style.getDividerColor());
   view.findViewById(R.id.divider6).setBackgroundColor(style.getDividerColor());
+  view.findViewById(R.id.divider7).setBackgroundColor(style.getDividerColor());
   if (getBeforeNickSettingsView() != null) {
     FrameLayout beforeNick=(FrameLayout)view.findViewById(R.id.before_nick_container);
     beforeNick.addView(getBeforeNickSettingsView(),FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);

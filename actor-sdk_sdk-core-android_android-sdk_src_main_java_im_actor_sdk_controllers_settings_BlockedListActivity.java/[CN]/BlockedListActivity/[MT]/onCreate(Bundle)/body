@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setTitle(R.string.blocked_title);
+  if (savedInstanceState == null) {
+    showFragment(new BlockedListFragment(),false,false);
+  }
+}
