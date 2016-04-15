@@ -1,6 +1,6 @@
 {
   this.name=name;
-  this.secureInterval=JsSecureInterval.create(new Runnable(){
+  this.secureInterval=JsSecureInterval.create(allowWebWorker,new Runnable(){
     @Override public void run(){
       isInvalidated=true;
       int iteration=0;
