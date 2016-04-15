@@ -97,7 +97,7 @@
  else {
     voiceCallView.setVisibility(View.GONE);
   }
-  LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
+  final LinearLayout contactsContainer=(LinearLayout)res.findViewById(R.id.contactsContainer);
   boolean isFirstContact=true;
   for (int i=0; i < phones.size(); i++) {
     final UserPhone userPhone=phones.get(i);
@@ -187,22 +187,45 @@
 );
     isFirstContact=false;
   }
-  if (userName != null) {
-    View view=buildRecord(getString(R.string.nickname),"@" + userName,R.drawable.ic_import_contacts_black_24dp,isFirstContact,true,inflater,contactsContainer);
-    view.setOnLongClickListener(new View.OnLongClickListener(){
-      @Override public boolean onLongClick(      View v){
-        ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip=ClipData.newPlainText("Nickname",userName);
-        clipboard.setPrimaryClip(clip);
-        Snackbar.make(res,R.string.toast_nickname_copied,Snackbar.LENGTH_SHORT).show();
-        return true;
+  final boolean finalIsFirstContact=isFirstContact;
+  bind(user.getNick(),new ValueChangedListener<String>(){
+    private View userNameRecord;
+    @Override public void onChanged(    final String newUserName,    Value<String> valueModel){
+      if (newUserName != null && newUserName.length() > 0) {
+        if (userNameRecord == null) {
+          userNameRecord=buildRecord(getString(R.string.nickname),"@" + newUserName,R.drawable.ic_import_contacts_black_24dp,finalIsFirstContact,true,inflater,contactsContainer);
+        }
+ else {
+          ((TextView)userNameRecord.findViewById(R.id.value)).setText(newUserName);
+        }
+        userNameRecord.setOnLongClickListener(new View.OnLongClickListener(){
+          @Override public boolean onLongClick(          View v){
+            ClipboardManager clipboard=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip=ClipData.newPlainText("Nickname",newUserName);
+            clipboard.setPrimaryClip(clip);
+            Snackbar.make(res,R.string.toast_nickname_copied,Snackbar.LENGTH_SHORT).show();
+            return true;
+          }
+        }
+);
       }
     }
+  }
 );
+  bind(user.getAbout(),new ValueChangedListener<String>(){
+    private View userAboutRecord;
+    @Override public void onChanged(    final String newUserAbout,    Value<String> valueModel){
+      if (newUserAbout != null && newUserAbout.length() > 0) {
+        if (userAboutRecord == null) {
+          userAboutRecord=buildRecordBig(newUserAbout,R.drawable.ic_info_outline_black_24dp,true,true,inflater,contactsContainer);
+        }
+ else {
+          ((TextView)userAboutRecord.findViewById(R.id.value)).setText(newUserAbout);
+        }
+      }
+    }
   }
-  if (about != null) {
-    buildRecordBig(about,R.drawable.ic_info_outline_black_24dp,true,true,inflater,contactsContainer);
-  }
+);
 {
     View notificationContainer=res.findViewById(R.id.notificationsCont);
     ((TextView)notificationContainer.findViewById(R.id.settings_notifications_title)).setTextColor(style.getTextPrimaryColor());

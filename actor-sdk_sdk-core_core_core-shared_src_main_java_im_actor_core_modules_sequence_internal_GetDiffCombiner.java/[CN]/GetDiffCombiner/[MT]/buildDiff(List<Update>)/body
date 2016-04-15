@@ -22,14 +22,6 @@
     }
  else     if (u instanceof UpdateCountersChanged) {
     }
- else     if (u instanceof UpdateUserNameChanged) {
-    }
- else     if (u instanceof UpdateUserLocalNameChanged) {
-    }
- else     if (u instanceof UpdateUserNickChanged) {
-    }
- else     if (u instanceof UpdateUserAboutChanged) {
-    }
  else {
       res.getOtherUpdates().add(u);
     }
