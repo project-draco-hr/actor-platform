@@ -1,5 +1,6 @@
 {
   super.onDestroy();
+  mentionsAdapter.dispose();
   if (fastShareAdapter != null) {
     fastShareAdapter.release();
     fastShareAdapter=null;

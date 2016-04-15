@@ -56,7 +56,7 @@
     bind(nameTV,g.getName());
   }
   nameTV.setSelected(true);
-  membersList=(ListView)cont.findViewById(R.id.members_list);
+  membersList=(RecyclerListView)cont.findViewById(R.id.members_list);
   if (call != null) {
     CallMembersAdapter membersAdapter=new CallMembersAdapter(getActivity(),call.getMembers());
     membersList.setAdapter(membersAdapter);

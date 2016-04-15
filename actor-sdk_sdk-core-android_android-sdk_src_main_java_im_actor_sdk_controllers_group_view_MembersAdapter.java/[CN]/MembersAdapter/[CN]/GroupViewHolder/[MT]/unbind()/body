@@ -1,6 +1,6 @@
 {
   avatarView.unbind();
   if (onlineBinding != null) {
-    onlineBinding.unbind();
+    BINDER.unbind(onlineBinding);
   }
 }
