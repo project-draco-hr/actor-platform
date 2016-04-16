@@ -1,0 +1,5 @@
+{
+  checkTable();
+  Object[] args=new Object[]{valueContainer.getKey(),valueContainer.getQuery() != null ? valueContainer.getQuery().toLowerCase() : null,valueContainer.getOrder(),valueContainer.getData(),this.context};
+  database.execSQL("REPLACE INTO \"" + tableName + "\" (\"ID\",\"QUERY\",\"SORT_KEY\",\"BYTES\",\"CONTEXT\") VALUES (?,?,?,?,?)",args);
+}

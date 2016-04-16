@@ -1,0 +1,12 @@
+{
+  Cursor cursor=database.rawQuery("SELECT EXISTS (SELECT * FROM \"" + tableName + "\" WHERE \"CONTEXT\"='?');",new String[]{this.context});
+  if (cursor != null) {
+    try {
+      return cursor.getInt(1) == 0;
+    }
+  finally {
+      cursor.close();
+    }
+  }
+  return false;
+}

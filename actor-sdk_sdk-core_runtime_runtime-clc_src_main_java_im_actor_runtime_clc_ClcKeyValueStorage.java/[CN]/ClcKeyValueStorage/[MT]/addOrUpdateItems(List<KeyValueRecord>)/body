@@ -1,0 +1,10 @@
+{
+  checkSqlite();
+  checkInsertStatement();
+  for (  KeyValueRecord r : values) {
+    insertStatement.bindLong(1,r.getId());
+    insertStatement.bindBlob(2,r.getData());
+    insertStatement.bindString(3,this.context);
+    insertStatement.executeInsert();
+  }
+}

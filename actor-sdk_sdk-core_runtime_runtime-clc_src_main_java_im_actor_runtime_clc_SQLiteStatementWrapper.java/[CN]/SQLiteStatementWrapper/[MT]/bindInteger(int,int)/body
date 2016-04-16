@@ -1,0 +1,8 @@
+{
+  try {
+    statement.setInt(i,key);
+  }
+ catch (  SQLException e) {
+    logger.error(e.getMessage(),e);
+  }
+}

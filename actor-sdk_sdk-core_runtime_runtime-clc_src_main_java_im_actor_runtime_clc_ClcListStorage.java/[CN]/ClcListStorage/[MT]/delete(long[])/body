@@ -1,0 +1,7 @@
+{
+  checkTable();
+  for (  long key : keys) {
+    Object[] args=new Object[]{key,this.context};
+    database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"ID\"=? AND \"CONTEXT\"=?",args);
+  }
+}

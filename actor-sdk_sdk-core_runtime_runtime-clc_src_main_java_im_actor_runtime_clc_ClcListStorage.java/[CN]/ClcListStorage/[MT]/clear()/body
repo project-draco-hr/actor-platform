@@ -1,0 +1,4 @@
+{
+  checkTable();
+  database.execSQL("DELETE FROM \"" + tableName + "\" WHERE \"CONTEXT\"=?",new Object[]{this.context});
+}

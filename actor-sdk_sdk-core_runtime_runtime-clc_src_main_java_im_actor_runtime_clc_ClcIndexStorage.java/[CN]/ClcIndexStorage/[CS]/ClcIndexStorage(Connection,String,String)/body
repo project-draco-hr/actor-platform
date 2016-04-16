@@ -1,0 +1,9 @@
+{
+  this.db=new DBWrapper(i_db);
+  this.name=name;
+  this.context=context;
+  if (context == null) {
+    logger.warn("context is not set");
+    this.context="";
+  }
+}

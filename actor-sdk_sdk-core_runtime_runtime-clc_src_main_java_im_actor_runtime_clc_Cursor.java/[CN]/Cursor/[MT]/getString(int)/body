@@ -1,0 +1,9 @@
+{
+  try {
+    resultSet.getString(queryColumn);
+  }
+ catch (  SQLException e) {
+    logger.error(e.getMessage(),e);
+  }
+  return null;
+}

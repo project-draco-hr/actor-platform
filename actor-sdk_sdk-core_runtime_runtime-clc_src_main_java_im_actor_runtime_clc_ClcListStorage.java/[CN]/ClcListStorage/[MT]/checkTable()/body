@@ -1,0 +1,9 @@
+{
+  if (isTableChecked) {
+    return;
+  }
+  isTableChecked=true;
+  database.execSQL("CREATE TABLE IF NOT EXISTS \"" + tableName + "\" ("+ "\"ID\" INTEGER NOT NULL,"+ "\"SORT_KEY\" INTEGER NOT NULL,"+ "\"QUERY\" TEXT,"+ "\"BYTES\" BLOB NOT NULL,"+ "\"CONTEXT\" TEXT NOT NULL,"+ "PRIMARY KEY(\"ID\", \"CONTEXT\"));");
+  database.execSQL("CREATE INDEX IF NOT EXISTS IDX_ID_QUERY_SORT ON \"" + tableName + "\" (\"QUERY\", \"SORT_KEY\");");
+  database.execSQL("CREATE INDEX IF NOT EXISTS IDX_ID_SORT ON \"" + tableName + "\" (\"SORT_KEY\");");
+}

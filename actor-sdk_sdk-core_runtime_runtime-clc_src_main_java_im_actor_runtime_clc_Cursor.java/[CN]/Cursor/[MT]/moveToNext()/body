@@ -1,0 +1,9 @@
+{
+  try {
+    return resultSet.next();
+  }
+ catch (  SQLException e) {
+    logger.error(e.getMessage(),e);
+  }
+  return false;
+}

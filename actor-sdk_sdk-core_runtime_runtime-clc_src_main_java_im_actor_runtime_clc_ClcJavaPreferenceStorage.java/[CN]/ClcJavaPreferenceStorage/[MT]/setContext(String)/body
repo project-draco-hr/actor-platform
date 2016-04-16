@@ -1,0 +1,9 @@
+{
+  if (context == null) {
+    logger.warn("context is not set");
+    this.context="";
+  }
+ else {
+    this.context=context;
+  }
+}

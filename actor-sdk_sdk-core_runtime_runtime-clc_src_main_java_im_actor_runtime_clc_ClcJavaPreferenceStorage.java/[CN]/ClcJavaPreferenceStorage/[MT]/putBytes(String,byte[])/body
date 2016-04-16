@@ -1,0 +1,5 @@
+{
+  if (v != null) {
+    pref.putByteArray(context + "_" + key,v);
+  }
+}

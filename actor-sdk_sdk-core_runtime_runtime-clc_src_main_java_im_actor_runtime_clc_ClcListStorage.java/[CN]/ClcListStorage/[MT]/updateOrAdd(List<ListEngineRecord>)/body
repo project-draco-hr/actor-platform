@@ -1,0 +1,7 @@
+{
+  checkTable();
+  for (  ListEngineRecord record : items) {
+    Object[] args=new Object[]{record.getKey(),record.getQuery() != null ? record.getQuery().toLowerCase() : null,record.getOrder(),record.getData(),this.context};
+    database.execSQL("REPLACE INTO \"" + tableName + "\" (\"ID\",\"QUERY\",\"SORT_KEY\",\"BYTES\",\"CONTEXT\") VALUES (?,?,?,?,?)",args);
+  }
+}

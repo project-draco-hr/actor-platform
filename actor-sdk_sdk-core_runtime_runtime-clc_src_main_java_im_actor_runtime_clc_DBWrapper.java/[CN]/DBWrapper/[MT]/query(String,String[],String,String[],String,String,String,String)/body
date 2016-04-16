@@ -1,0 +1,19 @@
+{
+  String query="SELECT " + Arrays.stream(columns).collect(Collectors.joining(", ")) + " FROM "+ table;
+  if (selection != null) {
+    query+=" WHERE " + selection;
+  }
+  if (groupBy != null) {
+    query+=" GROUP BY " + groupBy;
+  }
+  if (having != null) {
+    query+=" HAVING " + having;
+  }
+  if (orderBy != null) {
+    query+=" ORDER BY " + orderBy;
+  }
+  if (limit != null) {
+    query+=" LIMIT " + limit;
+  }
+  return rawQuery(query,selectionArgs);
+}

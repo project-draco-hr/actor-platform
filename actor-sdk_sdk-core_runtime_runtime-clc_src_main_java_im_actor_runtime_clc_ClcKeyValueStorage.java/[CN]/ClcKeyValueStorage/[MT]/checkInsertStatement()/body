@@ -1,0 +1,5 @@
+{
+  if (insertStatement == null) {
+    insertStatement=db.compileStatement("INSERT OR REPLACE INTO \"" + name + "\" "+ "(\"ID\",\"BYTES\",\"CONTEXT\") VALUES (?,?,?)");
+  }
+}
