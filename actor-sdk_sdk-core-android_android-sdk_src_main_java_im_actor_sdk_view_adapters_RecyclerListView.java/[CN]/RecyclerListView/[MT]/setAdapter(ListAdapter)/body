@@ -1,0 +1,11 @@
+{
+  super.setAdapter(adapter);
+  if (adapter instanceof HolderAdapter) {
+    setRecyclerListener(new RecyclerListener(){
+      @Override public void onMovedToScrapHeap(      View view){
+        ((HolderAdapter)adapter).onMovedToScrapHeap(view);
+      }
+    }
+);
+  }
+}

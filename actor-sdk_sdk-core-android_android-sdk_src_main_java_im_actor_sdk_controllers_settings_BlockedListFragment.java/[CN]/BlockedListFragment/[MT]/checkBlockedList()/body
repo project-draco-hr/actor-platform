@@ -1,0 +1,22 @@
+{
+  messenger().loadBlockedUsers().then(new Consumer<List<User>>(){
+    @Override public void apply(    final List<User> users){
+      getActivity().runOnUiThread(new Runnable(){
+        @Override public void run(){
+          if (users.size() > 0) {
+            hideView(emptyView);
+            showView(list);
+          }
+ else {
+            hideView(list);
+            showView(emptyView);
+            emptyView.setText(R.string.blocked_empty_list);
+          }
+          adapter.setBlockedList(users);
+        }
+      }
+);
+    }
+  }
+).done(getPromiseActor());
+}

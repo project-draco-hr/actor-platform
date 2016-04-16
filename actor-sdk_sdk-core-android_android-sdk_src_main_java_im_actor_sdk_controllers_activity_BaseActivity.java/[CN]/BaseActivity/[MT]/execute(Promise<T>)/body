@@ -1,0 +1,3 @@
+{
+  execute(promise,R.string.progress_common);
+}

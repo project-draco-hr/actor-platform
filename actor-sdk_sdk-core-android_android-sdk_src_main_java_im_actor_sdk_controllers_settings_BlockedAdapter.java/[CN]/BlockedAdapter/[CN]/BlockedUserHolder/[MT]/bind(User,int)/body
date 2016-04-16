@@ -1,0 +1,8 @@
+{
+  user=users().get(data.getUid());
+  ActorSDK.sharedActor().getMessenger().onUserVisible(data.getUid());
+  avatarView.bind(user);
+  userName.setText(user.getName().get());
+  divider.setVisibility(position == getItemCount() - 1 ? View.INVISIBLE : View.VISIBLE);
+  footer.setVisibility(!(position == getItemCount() - 1) ? View.GONE : View.VISIBLE);
+}

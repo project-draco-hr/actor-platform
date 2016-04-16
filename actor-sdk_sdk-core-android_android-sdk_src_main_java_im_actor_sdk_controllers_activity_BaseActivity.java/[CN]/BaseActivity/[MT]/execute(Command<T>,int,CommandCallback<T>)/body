@@ -6,11 +6,11 @@
   progressDialog.show();
   cmd.start(new CommandCallback<T>(){
     @Override public void onResult(    T res){
-      dismissDiaog(progressDialog);
+      dismissDialog(progressDialog);
       callback.onResult(res);
     }
     @Override public void onError(    Exception e){
-      dismissDiaog(progressDialog);
+      dismissDialog(progressDialog);
       callback.onError(e);
     }
   }

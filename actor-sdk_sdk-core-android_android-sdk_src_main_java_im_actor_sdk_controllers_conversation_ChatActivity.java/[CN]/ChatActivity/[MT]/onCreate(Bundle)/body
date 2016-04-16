@@ -55,7 +55,7 @@
     }
   }
 );
-  mentionsList=(ListView)findViewById(R.id.mentionsList);
+  mentionsList=(RecyclerListView)findViewById(R.id.mentionsList);
   mentionsList.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   quoteContainer=(FrameLayout)findViewById(R.id.quoteContainer);
   quoteContainer.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());

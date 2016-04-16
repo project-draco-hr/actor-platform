@@ -1,0 +1,3 @@
+{
+  return new BlockedUserHolder(((Activity)parent.getContext()).getLayoutInflater().inflate(R.layout.fragment_blocked_item,parent,false));
+}

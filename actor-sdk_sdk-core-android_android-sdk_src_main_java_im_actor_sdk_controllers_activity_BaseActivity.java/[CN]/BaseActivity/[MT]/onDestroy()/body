@@ -1,4 +1,5 @@
 {
   super.onDestroy();
   notifyOnPause();
+  promiseActor.send(PoisonPill.INSTANCE);
 }

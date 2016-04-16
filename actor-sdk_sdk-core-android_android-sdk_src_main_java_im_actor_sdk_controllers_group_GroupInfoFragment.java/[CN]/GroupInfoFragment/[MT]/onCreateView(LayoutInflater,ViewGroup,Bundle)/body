@@ -14,7 +14,7 @@
     }
   }
 );
-  listView=(ListView)res.findViewById(R.id.groupList);
+  listView=(RecyclerListView)res.findViewById(R.id.groupList);
   listView.setBackgroundColor(style.getMainBackgroundColor());
   header=inflater.inflate(R.layout.fragment_group_header,listView,false);
   header.setBackgroundColor(style.getMainBackgroundColor());
@@ -109,7 +109,7 @@
   }
 );
   listView.addFooterView(add,null,false);
-  groupUserAdapter=new MembersAdapter(groupInfo.getMembers().get(),getActivity(),this);
+  groupUserAdapter=new MembersAdapter(groupInfo.getMembers().get(),getActivity());
   bind(groupInfo.getMembers(),new ValueChangedListener<HashSet<GroupMember>>(){
     @Override public void onChanged(    HashSet<GroupMember> val,    Value<HashSet<GroupMember>> Value){
       groupUserAdapter.updateUid(val);

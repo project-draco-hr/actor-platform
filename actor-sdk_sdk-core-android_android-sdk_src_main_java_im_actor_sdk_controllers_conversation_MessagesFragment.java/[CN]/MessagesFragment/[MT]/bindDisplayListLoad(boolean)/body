@@ -2,7 +2,7 @@
   firstUnread=messenger().loadFirstUnread(peer);
   Log.d("DIAPLAY_LIST","bindDisplayListLoad: " + notify);
   final BindedDisplayList<Message> list=getDisplayList();
-  DisplayList.AndroidChangeListener<Message> listener=new DisplayList.AndroidChangeListener<Message>(){
+  listener=new DisplayList.AndroidChangeListener<Message>(){
     @Override public void onCollectionChanged(    AndroidListUpdate<Message> modification){
       ondisplayListLoaded();
     }

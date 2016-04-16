@@ -1,0 +1,4 @@
+{
+  this.blockedList=blockedList;
+  this.onBlockedClickListener=onBlockedClickListener;
+}

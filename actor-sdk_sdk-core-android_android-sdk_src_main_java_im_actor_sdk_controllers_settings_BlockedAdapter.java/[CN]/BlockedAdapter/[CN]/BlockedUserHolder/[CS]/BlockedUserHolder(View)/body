@@ -1,0 +1,20 @@
+{
+  super(res);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  userName=(TextView)res.findViewById(R.id.name);
+  avatarView=(AvatarView)res.findViewById(R.id.avatar);
+  avatarView.init(Screen.dp(42),24);
+  unblock=(TextView)res.findViewById(R.id.unblock);
+  unblock.setTextColor(ActorSDK.sharedActor().style.getListActionColor());
+  ((TextView)res.findViewById(R.id.name)).setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
+  divider=res.findViewById(R.id.divider);
+  divider.setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
+  footer=res.findViewById(R.id.footer);
+  footer.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
+  res.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onBlockedClickListener.onClick(user);
+    }
+  }
+);
+}

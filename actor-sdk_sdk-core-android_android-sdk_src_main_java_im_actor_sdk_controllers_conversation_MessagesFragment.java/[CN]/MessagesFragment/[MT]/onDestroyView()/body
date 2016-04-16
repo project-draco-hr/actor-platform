@@ -1,5 +1,7 @@
 {
   super.onDestroyView();
+  getDisplayList().removeAndroidListener(listener);
+  listener=null;
   if (messagesAdapter != null) {
     messagesAdapter.getBinder().unbindAll();
     messagesAdapter=null;
