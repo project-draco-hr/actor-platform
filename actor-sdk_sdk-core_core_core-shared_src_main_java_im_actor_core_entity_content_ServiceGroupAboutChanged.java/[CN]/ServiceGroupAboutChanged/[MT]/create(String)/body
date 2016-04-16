@@ -1,0 +1,3 @@
+{
+  return new ServiceGroupAboutChanged(new ContentRemoteContainer(new ApiServiceMessage("About changed",new ApiServiceExChangedAbout(title))));
+}
