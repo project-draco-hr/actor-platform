@@ -1,0 +1,22 @@
+{
+  try {
+    messenger.validateCode(code).start(new CommandCallback<AuthState>(){
+      @Override public void onResult(      AuthState res){
+        randomSeed=new Random().nextInt();
+        if (res == AuthState.SIGN_UP) {
+          logger.info("SIGN_UP");
+          signUp("75550000" + (myNumber),Sex.MALE,null);
+        }
+ else         if (res == AuthState.LOGGED_IN) {
+          logger.info("LOGGED_IN");
+        }
+      }
+      @Override public void onError(      Exception e){
+      }
+    }
+);
+  }
+ catch (  Exception e) {
+    logger.error(e.getMessage(),e);
+  }
+}

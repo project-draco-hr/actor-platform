@@ -1,0 +1,9 @@
+{
+  if (!messagesLists.containsKey(peer)) {
+    BindedDisplayList<Message> list=(BindedDisplayList<Message>)modules.getDisplayListsModule().getMessagesSharedList(peer);
+    messagesLists.put(peer,list);
+  }
+  BindedDisplayList<Message> bdl=messagesLists.get(peer);
+  bdl.initEmpty();
+  return bdl;
+}

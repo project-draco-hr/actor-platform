@@ -1,0 +1,13 @@
+{
+  long res=Long.parseLong("75550000" + phone);
+  messenger.requestStartPhoneAuth(res).start(new CommandCallback<AuthState>(){
+    @Override public void onResult(    AuthState res){
+      logger.info(res.toString());
+      sendCode("0000");
+    }
+    @Override public void onError(    Exception e){
+      logger.error(e.getMessage(),e);
+    }
+  }
+);
+}

@@ -1,0 +1,3 @@
+{
+  return ((ClcPreferencesStorage)modules.getPreferences()).getContext();
+}
