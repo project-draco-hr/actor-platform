@@ -1,0 +1,5 @@
+{
+  System.out.println("before");
+  srp=new StorageRuntimeProvider();
+  is=srp.createIndex("test");
+}

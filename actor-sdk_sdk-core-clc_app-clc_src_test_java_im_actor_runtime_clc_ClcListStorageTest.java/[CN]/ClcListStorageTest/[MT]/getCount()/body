@@ -1,0 +1,4 @@
+{
+  updateOrAddList();
+  assertEquals(ls.getCount(),6);
+}

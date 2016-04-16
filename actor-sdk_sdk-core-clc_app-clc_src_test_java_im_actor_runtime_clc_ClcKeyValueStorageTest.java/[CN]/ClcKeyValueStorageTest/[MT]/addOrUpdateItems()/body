@@ -1,0 +1,10 @@
+{
+  List keyValues=Arrays.asList(new KeyValueRecord(1,"value1".getBytes()),new KeyValueRecord(2,"value2".getBytes()));
+  kvs.addOrUpdateItems(keyValues);
+  assertEquals(new String(kvs.loadItem(1)),"value1");
+  assertEquals(new String(kvs.loadItem(2)),"value2");
+  keyValues=Arrays.asList(new KeyValueRecord(1,"value3".getBytes()),new KeyValueRecord(2,"value4".getBytes()));
+  kvs.addOrUpdateItems(keyValues);
+  assertEquals(new String(kvs.loadItem(1)),"value3");
+  assertEquals(new String(kvs.loadItem(2)),"value4");
+}

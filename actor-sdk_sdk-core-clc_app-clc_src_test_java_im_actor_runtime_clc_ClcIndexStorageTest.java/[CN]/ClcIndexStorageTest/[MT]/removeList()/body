@@ -1,0 +1,9 @@
+{
+  is.put(1,10);
+  is.put(2,10);
+  is.put(3,10);
+  is.remove(Arrays.asList(1L,2L,3L));
+  assertNull(is.get(1));
+  assertNull(is.get(2));
+  assertNull(is.get(3));
+}

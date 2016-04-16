@@ -1,0 +1,5 @@
+{
+  assertTrue(ls.isEmpty());
+  updateOrAdd();
+  assertFalse(ls.isEmpty());
+}

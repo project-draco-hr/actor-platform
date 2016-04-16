@@ -1,0 +1,17 @@
+{
+  kvs.addOrUpdateItem(1,"value1".getBytes());
+  kvs.addOrUpdateItem(2,"value2".getBytes());
+  assertEquals(new String(kvs.loadItem(1)),"value1");
+  assertEquals(new String(kvs.loadItem(2)),"value2");
+  srp.setContext("935");
+  kvs=srp.createKeyValue("test");
+  kvs.addOrUpdateItem(3,"value3".getBytes());
+  kvs.addOrUpdateItem(4,"value4".getBytes());
+  assertEquals(new String(kvs.loadItem(3)),"value3");
+  assertNull(kvs.loadItem(1));
+  assertNull(kvs.loadItem(2));
+  srp.setContext(null);
+  kvs=srp.createKeyValue("test");
+  assertEquals(new String(kvs.loadItem(1)),"value1");
+  assertEquals(new String(kvs.loadItem(2)),"value2");
+}

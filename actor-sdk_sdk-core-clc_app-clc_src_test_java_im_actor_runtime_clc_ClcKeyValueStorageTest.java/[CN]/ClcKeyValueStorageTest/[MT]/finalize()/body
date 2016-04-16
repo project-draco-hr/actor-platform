@@ -1,0 +1,4 @@
+{
+  srp.setContext(null);
+  ((ClcKeyValueStorage)kvs).clearAll();
+}

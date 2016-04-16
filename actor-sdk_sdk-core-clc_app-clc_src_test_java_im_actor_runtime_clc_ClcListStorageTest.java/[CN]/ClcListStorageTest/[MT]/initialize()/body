@@ -1,0 +1,4 @@
+{
+  srp=new StorageRuntimeProvider();
+  ls=srp.createList("test");
+}

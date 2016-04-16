@@ -1,0 +1,6 @@
+{
+  kvs.addOrUpdateItem(1,"value1".getBytes());
+  assertEquals(new String(kvs.loadItem(1)),"value1");
+  kvs.removeItem(1);
+  assertNull(kvs.loadItem(1));
+}

@@ -1,0 +1,6 @@
+{
+  updateOrAddList();
+  ls.clear();
+  assertNull(ls.loadItem(1));
+  assertNull(ls.loadItem(2));
+}
