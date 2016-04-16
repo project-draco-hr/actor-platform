@@ -16,7 +16,12 @@ case AUTH_START:
     }
   break;
 case SIGN_UP:
-showFragment(new SignUpFragment(),false,false);
+if (currentName != null && !currentName.isEmpty()) {
+  startAuth(currentName);
+}
+ else {
+  showFragment(new SignUpFragment(),false,false);
+}
 break;
 case AUTH_PHONE:
 currentAuthType=AUTH_TYPE_PHONE;
