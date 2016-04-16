@@ -1,4 +1,3 @@
 {
-  signFragment=ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),new SignPhoneFragment(),BaseAuthFragment.class);
   updateState(AuthState.AUTH_PHONE);
 }

@@ -1,0 +1,8 @@
+{
+  super.onStart();
+  String authState=getSharedPreferences("properties.ini",Context.MODE_PRIVATE).getString("auth_state",null);
+  if (authState != null && !authState.equals("SIGN_UP") && !authState.equals("AUTH_START")) {
+    ActorSDK.sharedActor().startMessagingApp(this);
+    finish();
+  }
+}

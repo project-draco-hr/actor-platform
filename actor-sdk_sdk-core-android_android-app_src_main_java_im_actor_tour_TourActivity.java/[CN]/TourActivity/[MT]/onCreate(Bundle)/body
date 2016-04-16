@@ -25,7 +25,7 @@
     @Override public void onClick(    View v){
       Bundle authExtras=new Bundle();
       authExtras.putInt(AuthActivity.SIGN_TYPE_KEY,AuthActivity.SIGN_TYPE_UP);
-      ActorSDK.sharedActor().getActivityManager().startAuthActivity(TourActivity.this,authExtras);
+      ActorSDK.sharedActor().startAuthActivity(TourActivity.this,authExtras);
       finish();
     }
   }
@@ -34,7 +34,7 @@
     @Override public void onClick(    View v){
       Bundle authExtras=new Bundle();
       authExtras.putInt(AuthActivity.SIGN_TYPE_KEY,AuthActivity.SIGN_TYPE_IN);
-      ActorSDK.sharedActor().getActivityManager().startAuthActivity(TourActivity.this,authExtras);
+      ActorSDK.sharedActor().startAuthActivity(TourActivity.this,authExtras);
       finish();
     }
   }

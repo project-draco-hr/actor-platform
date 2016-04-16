@@ -2,6 +2,15 @@
   if (this.state != null && (this.state == state && !force)) {
     return;
   }
+  PreferencesStorage preferences=messenger().getPreferences();
+  preferences.putLong("currentPhone",currentPhone);
+  preferences.putString("currentEmail",currentEmail);
+  preferences.putString("transactionHash",transactionHash);
+  preferences.putString("currentCode",currentCode);
+  preferences.putBool("isRegistered",isRegistered);
+  preferences.putString("currentName",currentName);
+  preferences.putInt("signType",signType);
+  preferences.putString("auth_state",state.toString());
   if (state != AuthState.LOGGED_IN && getIsResumed() == false) {
     return;
   }
@@ -25,11 +34,11 @@ if (currentName != null && !currentName.isEmpty()) {
 break;
 case AUTH_PHONE:
 currentAuthType=AUTH_TYPE_PHONE;
-showFragment(signFragment,false,false);
+showFragment(ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),new SignPhoneFragment(),BaseAuthFragment.class),false,false);
 break;
 case AUTH_EMAIL:
 currentAuthType=AUTH_TYPE_EMAIL;
-showFragment(signFragment,false,false);
+showFragment(ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),new SignEmailFragment(),BaseAuthFragment.class),false,false);
 break;
 case CODE_VALIDATION_PHONE:
 case CODE_VALIDATION_EMAIL:
