@@ -5,7 +5,7 @@
   }
  else   if (message instanceof PerformRequest) {
     PerformRequest request=(PerformRequest)message;
-    performRequest(request.getRid(),request.getMessage(),request.getCallback());
+    performRequest(request.getRid(),request.getMessage(),request.getCallback(),request.getTimeout());
   }
  else   if (message instanceof CancelRequest) {
     CancelRequest cancelRequest=(CancelRequest)message;
