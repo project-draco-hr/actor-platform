@@ -1,0 +1,6 @@
+{
+  if (callback == null) {
+    return;
+  }
+  messenger.getJsUserBlocked(uid).subscribe(callback);
+}

@@ -1,0 +1,14 @@
+{
+  if (!usersBloked.containsKey(uid)) {
+    final JsBindedValue<JsBlockedUser> value=new JsBindedValue<>();
+    final UserVM userVM=context().getUsersModule().getUsers().get(uid);
+    userVM.getIsBlocked().subscribe(new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
+        value.changeValue(JsBlockedUser.create(val));
+      }
+    }
+);
+    usersBloked.put(uid,value);
+  }
+  return usersBloked.get(uid);
+}

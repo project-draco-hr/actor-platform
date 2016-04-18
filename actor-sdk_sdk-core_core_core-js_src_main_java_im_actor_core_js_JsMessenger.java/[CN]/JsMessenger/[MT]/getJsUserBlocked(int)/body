@@ -1,0 +1,3 @@
+{
+  return jsBindingModule.getUserBlocked(uid);
+}
