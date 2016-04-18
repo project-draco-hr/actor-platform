@@ -28,4 +28,10 @@
     }
   }
 );
+  if (isLast) {
+    separator.setVisibility(View.GONE);
+  }
+ else {
+    separator.setVisibility(View.VISIBLE);
+  }
 }

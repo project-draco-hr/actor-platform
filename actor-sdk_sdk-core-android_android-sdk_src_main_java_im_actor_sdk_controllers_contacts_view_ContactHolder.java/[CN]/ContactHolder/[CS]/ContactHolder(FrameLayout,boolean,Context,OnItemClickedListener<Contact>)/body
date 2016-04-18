@@ -64,12 +64,12 @@
     layoutParams.rightMargin=padding;
     cont.addView(isSelected,layoutParams);
   }
-  View div=new View(context);
-  div.setBackgroundColor(ActorSDK.sharedActor().style.getContactDividerColor());
+  separator=new View(context);
+  separator.setBackgroundColor(ActorSDK.sharedActor().style.getContactDividerColor());
 {
     FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,context.getResources().getDimensionPixelSize(R.dimen.div_size));
     layoutParams.gravity=Gravity.BOTTOM;
     layoutParams.leftMargin=Screen.dp(72);
-    cont.addView(div,layoutParams);
+    cont.addView(separator,layoutParams);
   }
 }
