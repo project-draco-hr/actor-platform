@@ -7,6 +7,7 @@
           getActivity().finish();
         }
         @Override public void onError(        Exception e){
+          Toast.makeText(getActivity(),getString(R.string.toast_unable_create_group),Toast.LENGTH_LONG).show();
         }
       }
 );

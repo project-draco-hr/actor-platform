@@ -86,6 +86,7 @@
         @Override public void run(){
           if (currentAudio != null && currentAudio.equals(fileName)) {
             Toast.makeText(activity,"error playing this file",Toast.LENGTH_SHORT).show();
+            keepScreenOn(false);
           }
         }
       }

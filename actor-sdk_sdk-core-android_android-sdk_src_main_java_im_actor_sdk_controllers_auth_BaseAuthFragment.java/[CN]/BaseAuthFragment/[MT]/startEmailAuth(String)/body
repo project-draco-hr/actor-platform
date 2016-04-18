@@ -1,3 +1,4 @@
 {
+  messenger().getPreferences().putString("sign_in_auth_id",email);
   ((AuthActivity)getActivity()).startEmailAuth(messenger().doStartEmailAuth(email),email);
 }

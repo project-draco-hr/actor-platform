@@ -17,6 +17,12 @@
  else   if (content instanceof ServiceGroupTitleChanged) {
     return getTemplateNamed(senderId,"ServiceGroupTitleFull").replace("{title}",((ServiceGroupTitleChanged)content).getNewTitle());
   }
+ else   if (content instanceof ServiceGroupTopicChanged) {
+    return getTemplateNamed(senderId,"ServiceGroupTopicFull").replace("{topic}",((ServiceGroupTopicChanged)content).getNewTopic());
+  }
+ else   if (content instanceof ServiceGroupAboutChanged) {
+    return getTemplateNamed(senderId,"ServiceGroupAboutFull").replace("{about}",((ServiceGroupAboutChanged)content).getNewAbout());
+  }
  else   if (content instanceof ServiceGroupAvatarChanged) {
     if (((ServiceGroupAvatarChanged)content).getNewAvatar() != null) {
       return getTemplateNamed(senderId,"ServiceGroupAvatarChanged");

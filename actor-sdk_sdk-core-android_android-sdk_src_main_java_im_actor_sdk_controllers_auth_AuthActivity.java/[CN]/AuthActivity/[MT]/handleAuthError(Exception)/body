@@ -3,11 +3,11 @@
     @Override public void run(){
       if (dismissProgress()) {
         boolean canTryAgain=false;
+        boolean keepState=false;
         String message=getString(R.string.error_unknown);
         String tag="UNKNOWN";
         if (e instanceof RpcException) {
           RpcException re=(RpcException)e;
-          tag=re.getTag();
           if (re instanceof RpcInternalException) {
             message=getString(R.string.error_unknown);
             canTryAgain=true;
@@ -17,13 +17,14 @@
             canTryAgain=true;
           }
  else {
-            if ("PHONE_CODE_EXPIRED".equals(re.getTag())) {
+            if ("PHONE_CODE_EXPIRED".equals(re.getTag()) || "EMAIL_CODE_EXPIRED".equals(re.getTag())) {
               message=getString(R.string.auth_error_code_expired);
               canTryAgain=false;
             }
- else             if ("PHONE_CODE_INVALID".equals(re.getTag())) {
+ else             if ("PHONE_CODE_INVALID".equals(re.getTag()) || "EMAIL_CODE_INVALID".equals(re.getTag())) {
               message=getString(R.string.auth_error_code_invalid);
               canTryAgain=false;
+              keepState=true;
             }
  else             if ("FAILED_GET_OAUTH2_TOKEN".equals(re.getTag())) {
               message=getString(R.string.auth_error_failed_get_oauth2_token);
@@ -71,10 +72,14 @@ updateState(AuthState.AUTH_START);
 ).setCancelable(false).show().setCanceledOnTouchOutside(false);
 }
  else {
+final boolean finalKeepState=keepState;
 new AlertDialog.Builder(AuthActivity.this).setMessage(message).setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
 @Override public void onClick(DialogInterface dialog,int which){
 dismissAlert();
-if (signType == SIGN_TYPE_UP) {
+if (finalKeepState) {
+updateState(state,true);
+}
+ else if (signType == SIGN_TYPE_UP) {
 if (currentAuthType == AUTH_TYPE_EMAIL) {
 switchToEmailAuth();
 }

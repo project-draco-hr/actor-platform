@@ -5,4 +5,5 @@
     duration.setText(ActorSDK.sharedActor().getMessenger().getFormatter().formatDuration((int)(currentDuration / 1000)));
   }
   treckingTouch=false;
+  keepScreenOn(false);
 }

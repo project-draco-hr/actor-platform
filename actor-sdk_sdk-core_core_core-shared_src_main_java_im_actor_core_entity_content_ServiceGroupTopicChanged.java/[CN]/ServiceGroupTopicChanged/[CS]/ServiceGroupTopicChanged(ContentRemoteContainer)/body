@@ -1,0 +1,5 @@
+{
+  super(remoteContainer);
+  ApiServiceMessage serviceMessage=(ApiServiceMessage)remoteContainer.getMessage();
+  newTopic=((ApiServiceExChangedTopic)serviceMessage.getExt()).getTopic();
+}

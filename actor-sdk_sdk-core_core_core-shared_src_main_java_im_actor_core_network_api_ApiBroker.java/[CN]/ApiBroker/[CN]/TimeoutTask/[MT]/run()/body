@@ -1,0 +1,7 @@
+{
+  if (requests.containsKey(rid)) {
+    RpcCallback callBack=requests.get(rid).callback;
+    if (callBack != null)     callBack.onError(new RpcTimeoutException());
+  }
+  cancelRequest(rid);
+}

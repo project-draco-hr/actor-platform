@@ -1,0 +1,3 @@
+{
+  return new ServiceGroupTopicChanged(new ContentRemoteContainer(new ApiServiceMessage("Topic changed",new ApiServiceExChangedTopic(topic))));
+}

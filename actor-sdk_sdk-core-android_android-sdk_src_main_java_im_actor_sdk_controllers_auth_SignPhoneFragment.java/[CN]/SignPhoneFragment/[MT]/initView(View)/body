@@ -110,6 +110,10 @@
     }
   }
 );
+  String savedCountryCode=messenger().getPreferences().getString("auth_county_code");
+  countryCodeEditText.setText(savedCountryCode);
+  String savedPhoneNumber=messenger().getPreferences().getString("auth_phone_number");
+  phoneNumberEditText.setText(savedPhoneNumber);
   v.findViewById(R.id.button_why).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_phone_why_description).setPositiveButton(R.string.auth_phone_why_done,null).show().setCanceledOnTouchOutside(true);

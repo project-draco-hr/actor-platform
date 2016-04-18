@@ -2,19 +2,15 @@
   currentName=name;
   currentSex=Sex.UNKNOWN;
   availableAuthType=ActorSDK.sharedActor().getAuthType();
-  BaseAuthFragment baseAuthFragment;
   AuthState authState;
   if ((availableAuthType & AUTH_TYPE_PHONE) == AUTH_TYPE_PHONE) {
-    baseAuthFragment=new SignPhoneFragment();
     authState=AuthState.AUTH_PHONE;
   }
  else   if ((availableAuthType & AUTH_TYPE_EMAIL) == AUTH_TYPE_EMAIL) {
-    baseAuthFragment=new SignEmailFragment();
     authState=AuthState.AUTH_EMAIL;
   }
  else {
     return;
   }
-  signFragment=ActorSDK.sharedActor().getDelegatedFragment(ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),baseAuthFragment,BaseAuthFragment.class);
   updateState(authState);
 }

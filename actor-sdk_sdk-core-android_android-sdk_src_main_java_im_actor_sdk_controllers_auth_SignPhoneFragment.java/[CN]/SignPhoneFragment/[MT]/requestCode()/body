@@ -9,5 +9,7 @@
     new AlertDialog.Builder(getActivity()).setMessage(R.string.auth_error_empty_phone).setPositiveButton(R.string.dialog_ok,null).show();
     return;
   }
+  messenger().getPreferences().putString("auth_county_code",countryCodeEditText.getText().toString());
+  messenger().getPreferences().putString("auth_phone_number",phoneNumberEditText.getText().toString());
   startPhoneAuth(Long.parseLong(rawPhoneN));
 }

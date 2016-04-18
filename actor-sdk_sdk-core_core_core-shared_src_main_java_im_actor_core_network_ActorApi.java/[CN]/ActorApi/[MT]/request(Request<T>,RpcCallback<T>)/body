@@ -1,8 +1,3 @@
 {
-  if (request == null) {
-    throw new RuntimeException("Request can't be null");
-  }
-  long rid=NEXT_RPC_ID.incrementAndGet();
-  this.apiBroker.send(new ApiBroker.PerformRequest(rid,request,callback));
-  return rid;
+  return request(request,callback,0);
 }

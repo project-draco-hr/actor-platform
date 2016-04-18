@@ -1,3 +1,4 @@
 {
+  messenger().getPreferences().putString("sign_in_auth_id",Long.toString(phone));
   ((AuthActivity)getActivity()).startPhoneAuth(messenger().doStartPhoneAuth(phone),phone);
 }
