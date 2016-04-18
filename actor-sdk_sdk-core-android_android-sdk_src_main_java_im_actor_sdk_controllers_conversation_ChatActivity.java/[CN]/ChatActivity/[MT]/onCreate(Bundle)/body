@@ -154,8 +154,17 @@
   shareContact.setOnClickListener(shareMenuOCL);
   findViewById(R.id.share_file).setOnClickListener(shareMenuOCL);
   findViewById(R.id.share_hide).setOnClickListener(shareMenuOCL);
-  findViewById(R.id.share_location).setOnClickListener(shareMenuOCL);
+  View shareLocation=findViewById(R.id.share_location);
+  shareLocation.setOnClickListener(shareMenuOCL);
   handleIntent();
+  try {
+    Class.forName("com.google.android.gms.maps.GoogleMap");
+  }
+ catch (  ClassNotFoundException e) {
+    shareLocation.setVisibility(View.GONE);
+    findViewById(R.id.share_hide).setVisibility(View.VISIBLE);
+    findViewById(R.id.location_text).setVisibility(View.INVISIBLE);
+  }
   final ImageButton shareMenuSend=(ImageButton)findViewById(R.id.share_send);
   shareMenuSend.setColorFilter(Color.WHITE,PorterDuff.Mode.SRC_IN);
   shareMenuSend.setOnClickListener(new View.OnClickListener(){

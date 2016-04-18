@@ -1,3 +1,4 @@
 {
-  return new Intent(context,MapPickerActivity.class);
+  Intent intent=new Intent("im.actor.pickLocation");
+  return intent;
 }
