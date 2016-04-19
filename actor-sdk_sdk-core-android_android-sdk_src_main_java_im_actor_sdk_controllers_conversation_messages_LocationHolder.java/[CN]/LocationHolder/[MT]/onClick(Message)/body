@@ -6,7 +6,7 @@
     double longitude=((LocationContent)currentMessage.getContent()).getLongitude();
     try {
       Class.forName("com.google.android.gms.maps.GoogleMap");
-      Intent intent=new Intent("im.actor.locationPreview");
+      Intent intent=new Intent("im.actor.locationPreview_" + context.getPackageName());
       intent.putExtra("latitude",latitude);
       intent.putExtra("longitude",longitude);
       context.startActivity(intent);
