@@ -9,5 +9,6 @@ boolean isContact
 boolean isBot
 String presence
 boolean isOnline
+boolean isBlocked
 JsArray<JsPhone> phones
 JsArray<JsEmail> emails
