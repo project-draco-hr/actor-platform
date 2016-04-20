@@ -1,0 +1,5 @@
+{
+  assertEquals(actualLer.getOrder(),expectedLer.getOrder());
+  assertEquals(actualLer.getQuery(),expectedLer.getQuery());
+  assertEquals(new String(actualLer.getData()),new String(expectedLer.getData()));
+}

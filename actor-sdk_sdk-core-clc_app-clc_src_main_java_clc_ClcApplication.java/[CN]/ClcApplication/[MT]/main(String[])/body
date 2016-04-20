@@ -1,0 +1,27 @@
+{
+  ConfigurationBuilder builder=new ConfigurationBuilder();
+  if (args.length > 0)   builder.addEndpoint(args[0]);
+ else   builder.addEndpoint("tcp://localhost:9070");
+  builder.setPhoneBookProvider(new PhoneBookProvider(){
+    @Override public void loadPhoneBook(    Callback callback){
+      callback.onLoaded(new ArrayList<PhoneBookContact>());
+    }
+  }
+);
+  builder.setNotificationProvider(new NotificationProvider(){
+    @Override public void onMessageArriveInApp(    Messenger messenger){
+    }
+    @Override public void onNotification(    Messenger messenger,    List<Notification> topNotifications,    int messagesCount,    int conversationsCount){
+    }
+    @Override public void onUpdateNotification(    Messenger messenger,    List<Notification> topNotifications,    int messagesCount,    int conversationsCount){
+    }
+    @Override public void hideAllNotifications(){
+    }
+  }
+);
+  builder.setDeviceCategory(DeviceCategory.DESKTOP);
+  builder.setPlatformType(PlatformType.GENERIC);
+  builder.setApiConfiguration(new ApiConfiguration("cli",1,"4295f9666fad3faf2d04277fe7a0c40ff39a85d313de5348ad8ffa650ad71855","najva00000000000000000123-" + myNumber,"najva00000000000000000000-v1-" + myNumber));
+  messenger=new ClcMessenger(builder.build(),Integer.toString(myNumber));
+  requestSms(myNumber);
+}

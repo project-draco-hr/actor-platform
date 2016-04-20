@@ -1,0 +1,21 @@
+{
+  List keyValues=Arrays.asList(new KeyValueRecord(1,"value1".getBytes()),new KeyValueRecord(2,"value2".getBytes()));
+  kvs.addOrUpdateItems(keyValues);
+  assertEquals(new String(kvs.loadItem(1)),"value1");
+  assertEquals(new String(kvs.loadItem(2)),"value2");
+  srp.setContext("935");
+  kvs=srp.createKeyValue("test");
+  assertNull(kvs.loadItem(1));
+  assertNull(kvs.loadItem(2));
+  List keyValues2=Arrays.asList(new KeyValueRecord(3,"value3".getBytes()),new KeyValueRecord(4,"value4".getBytes()));
+  kvs.addOrUpdateItems(keyValues2);
+  assertEquals(new String(kvs.loadItem(3)),"value3");
+  assertEquals(new String(kvs.loadItem(4)),"value4");
+  kvs.clear();
+  assertNull(kvs.loadItem(3));
+  assertNull(kvs.loadItem(4));
+  srp.setContext(null);
+  kvs=srp.createKeyValue("test");
+  assertEquals(new String(kvs.loadItem(1)),"value1");
+  assertEquals(new String(kvs.loadItem(2)),"value2");
+}

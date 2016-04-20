@@ -1,0 +1,5 @@
+{
+  super(configuration);
+  setContext(context);
+  ((ClcContext)Storage.getStorageRuntime()).setContext(context);
+}

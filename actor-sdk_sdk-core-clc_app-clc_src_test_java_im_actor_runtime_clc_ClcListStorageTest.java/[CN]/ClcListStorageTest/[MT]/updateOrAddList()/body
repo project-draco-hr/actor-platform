@@ -1,0 +1,21 @@
+{
+  ListEngineRecord ler1=new ListEngineRecord(1,1,"test1","bytes1".getBytes());
+  ListEngineRecord ler2=new ListEngineRecord(2,2,"test2","bytes2".getBytes());
+  ListEngineRecord ler3=new ListEngineRecord(3,3,"test3","bytes3".getBytes());
+  ListEngineRecord ler4=new ListEngineRecord(4,4,"test4","bytes4".getBytes());
+  ListEngineRecord ler5=new ListEngineRecord(5,5,"test5","bytes5".getBytes());
+  ListEngineRecord ler6=new ListEngineRecord(6,6,"test6","bytes6".getBytes());
+  ls.updateOrAdd(Arrays.asList(ler1,ler2,ler3,ler4,ler5,ler6));
+  ListEngineRecord actual=ls.loadItem(ler1.getKey());
+  assertEqualLER(actual,ler1);
+  actual=ls.loadItem(ler2.getKey());
+  assertEqualLER(actual,ler2);
+  actual=ls.loadItem(ler3.getKey());
+  assertEqualLER(actual,ler3);
+  actual=ls.loadItem(ler4.getKey());
+  assertEqualLER(actual,ler4);
+  actual=ls.loadItem(ler5.getKey());
+  assertEqualLER(actual,ler5);
+  actual=ls.loadItem(ler6.getKey());
+  assertEqualLER(actual,ler6);
+}

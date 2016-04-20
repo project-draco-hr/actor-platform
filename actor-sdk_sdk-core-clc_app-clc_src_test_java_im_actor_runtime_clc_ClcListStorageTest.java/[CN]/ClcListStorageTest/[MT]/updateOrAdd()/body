@@ -1,0 +1,10 @@
+{
+  ListEngineRecord ler=new ListEngineRecord(1,1,"test","bytes".getBytes());
+  ls.updateOrAdd(ler);
+  ListEngineRecord actual=ls.loadItem(ler.getKey());
+  assertEqualLER(actual,ler);
+  ler=new ListEngineRecord(1,1,"test2","bytes2".getBytes());
+  ls.updateOrAdd(ler);
+  actual=ls.loadItem(ler.getKey());
+  assertEqualLER(actual,ler);
+}
