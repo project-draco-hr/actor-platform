@@ -1,0 +1,4 @@
+{
+  PreferencesStorage pref=new ClcJavaPreferenceStorage();
+  pref.putString("key","string");
+}

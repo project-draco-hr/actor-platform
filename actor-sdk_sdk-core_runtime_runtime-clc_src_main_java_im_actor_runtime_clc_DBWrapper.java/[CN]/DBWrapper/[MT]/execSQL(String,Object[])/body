@@ -1,0 +1,31 @@
+{
+  try {
+    SQLiteStatementWrapper statement=new SQLiteStatementWrapper(db.prepareStatement(sql));
+    int i=0;
+    for (    Object arg : args) {
+      i++;
+      if (arg == null) {
+        continue;
+      }
+ else       if (arg instanceof byte[] || arg instanceof Byte[]) {
+        statement.bindBlob(i,(byte[])arg);
+      }
+ else       if (arg instanceof Long) {
+        statement.bindLong(i,(Long)arg);
+      }
+ else       if (arg instanceof String) {
+        statement.bindString(i,(String)arg);
+      }
+ else       if (arg instanceof Integer) {
+        statement.bindInteger(i,(Integer)arg);
+      }
+ else {
+        logger.warn("FATAL: not found : " + arg.getClass().toString());
+      }
+    }
+    statement.execute();
+  }
+ catch (  SQLException e) {
+    logger.error("Error in execute query",e);
+  }
+}

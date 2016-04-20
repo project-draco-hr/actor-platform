@@ -1,0 +1,4 @@
+{
+  srp.setContext(null);
+  ((ClcListStorage)ls).clearAll();
+}

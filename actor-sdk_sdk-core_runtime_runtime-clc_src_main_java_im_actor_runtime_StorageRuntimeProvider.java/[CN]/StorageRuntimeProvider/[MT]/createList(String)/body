@@ -1,0 +1,13 @@
+{
+  try {
+    if (l_db == null) {
+      Class.forName("org.sqlite.JDBC");
+      l_db=DriverManager.getConnection("jdbc:sqlite:list.db");
+    }
+    return new ClcListStorage(l_db,name,this.context);
+  }
+ catch (  SQLException|ClassNotFoundException e) {
+    logger.error("Error in creating list storage",e);
+  }
+  return null;
+}

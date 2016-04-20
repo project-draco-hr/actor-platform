@@ -1,0 +1,6 @@
+{
+  if (context == null) {
+    logger.warn("context is not set");
+    context="";
+  }
+}

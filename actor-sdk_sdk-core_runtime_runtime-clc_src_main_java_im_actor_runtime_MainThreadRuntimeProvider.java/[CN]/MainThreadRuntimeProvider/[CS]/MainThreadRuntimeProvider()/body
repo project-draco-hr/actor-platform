@@ -1,0 +1,16 @@
+{
+  main=new Thread(new Runnable(){
+    @Override public void run(){
+      while (true) {
+        try {
+          queue.take().run();
+        }
+ catch (        InterruptedException e) {
+          logger.error(e.getMessage(),e);
+        }
+      }
+    }
+  }
+);
+  main.start();
+}

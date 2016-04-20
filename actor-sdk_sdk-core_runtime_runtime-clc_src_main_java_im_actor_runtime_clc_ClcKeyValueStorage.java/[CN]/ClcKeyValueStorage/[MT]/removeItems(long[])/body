@@ -1,0 +1,9 @@
+{
+  checkSqlite();
+  checkDeleteStatement();
+  for (  long id : ids) {
+    deleteStatement.bindLong(1,id);
+    deleteStatement.bindString(2,this.context);
+    deleteStatement.execute();
+  }
+}

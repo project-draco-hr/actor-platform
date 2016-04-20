@@ -1,0 +1,4 @@
+{
+  checkSqlite();
+  db.execSQL("DELETE FROM \"" + name + "\""+ " WHERE \"CONTEXT\"='"+ this.context+ "'");
+}

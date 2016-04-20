@@ -1,0 +1,5 @@
+{
+  PreferencesStorage pref=new ClcJavaPreferenceStorage();
+  pref.putBytes("key",new byte[]{1,2,3});
+  byte[] arr=pref.getBytes("key");
+}

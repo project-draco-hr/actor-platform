@@ -1,0 +1,17 @@
+{
+  ArrayList<ListEngineRecord> res=new ArrayList<ListEngineRecord>();
+  if (cursor != null) {
+    try {
+      if (cursor.moveToNext()) {
+        do {
+          res.add(new ListEngineRecord(cursor.getLong("ID"),cursor.getLong("SORT_KEY"),cursor.getString("QUERY"),cursor.getBlob("BYTES")));
+        }
+ while (cursor.moveToNext());
+      }
+    }
+  finally {
+      cursor.close();
+    }
+  }
+  return res;
+}

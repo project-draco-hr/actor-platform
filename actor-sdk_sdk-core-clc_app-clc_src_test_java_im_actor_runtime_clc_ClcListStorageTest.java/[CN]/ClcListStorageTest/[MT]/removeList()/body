@@ -1,0 +1,7 @@
+{
+  updateOrAddList();
+  ls.delete(new long[]{1,2});
+  assertNull(ls.loadItem(1));
+  assertNull(ls.loadItem(2));
+  assertNotNull(ls.loadItem(3));
+}

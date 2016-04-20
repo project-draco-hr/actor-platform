@@ -1,0 +1,4 @@
+{
+  boolean isMain=Thread.currentThread() == main;
+  return isMain;
+}

@@ -1,0 +1,16 @@
+{
+  checkTable();
+  Cursor cursor=database.query("\"" + tableName + "\"",new String[]{"\"ID\"","\"SORT_KEY\"","\"QUERY\"","\"BYTES\""},"\"SORT_KEY\"=? AND \"CONTEXT\"='?'",new String[]{String.valueOf(key),this.context},null,null,null);
+  if (cursor == null) {
+    return null;
+  }
+  try {
+    if (cursor.moveToNext()) {
+      return new ListEngineRecord(key,cursor.getLong("SORT_KEY"),cursor.getString("QUERY"),cursor.getBlob("BYTES"));
+    }
+  }
+  finally {
+    cursor.close();
+  }
+  return null;
+}

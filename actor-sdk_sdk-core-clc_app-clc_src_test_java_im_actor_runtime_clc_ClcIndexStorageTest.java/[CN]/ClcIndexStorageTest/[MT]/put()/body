@@ -1,0 +1,7 @@
+{
+  is.put(123,456);
+  assertEquals(is.get(123),new Long(456));
+  is.put(3,30);
+  is.put(4,30);
+  assertEquals(is.get(3),new Long(30));
+}

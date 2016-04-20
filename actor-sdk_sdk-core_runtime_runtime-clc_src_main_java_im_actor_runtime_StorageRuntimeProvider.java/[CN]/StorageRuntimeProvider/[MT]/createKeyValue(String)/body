@@ -1,0 +1,13 @@
+{
+  try {
+    if (kv_db == null) {
+      Class.forName("org.sqlite.JDBC");
+      kv_db=DriverManager.getConnection("jdbc:sqlite:keyvalue.db");
+    }
+    return new ClcKeyValueStorage(kv_db,name,this.context);
+  }
+ catch (  SQLException|ClassNotFoundException e) {
+    logger.error("Error in creating keyvalue storage",e);
+  }
+  return null;
+}

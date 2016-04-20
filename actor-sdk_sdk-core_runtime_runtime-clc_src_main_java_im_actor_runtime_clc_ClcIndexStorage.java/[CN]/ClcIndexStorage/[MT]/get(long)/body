@@ -1,0 +1,16 @@
+{
+  checkSqlite();
+  Cursor cursor=db.query("\"" + name + "\"",new String[]{"\"VALUE\""},"\"ID\" = ? AND \"CONTEXT\"='?' ",new String[]{"" + key,this.context},null,null,null);
+  if (cursor == null) {
+    return null;
+  }
+  try {
+    if (cursor.moveToNext()) {
+      return cursor.getLong(1);
+    }
+  }
+  finally {
+    cursor.close();
+  }
+  return null;
+}
