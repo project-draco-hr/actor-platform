@@ -1,0 +1,9 @@
+{
+  this.database=new DBWrapper(database);
+  this.tableName=tableName;
+  this.context=context;
+  if (context == null) {
+    logger.warn("context is not set");
+    this.context="";
+  }
+}

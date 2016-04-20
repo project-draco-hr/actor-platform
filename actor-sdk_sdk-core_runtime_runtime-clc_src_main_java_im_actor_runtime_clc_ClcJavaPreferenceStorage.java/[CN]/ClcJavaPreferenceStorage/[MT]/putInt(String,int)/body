@@ -1,0 +1,3 @@
+{
+  pref.putInt(context + "_" + key,v);
+}

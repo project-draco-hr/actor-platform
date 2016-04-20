@@ -1,0 +1,14 @@
+{
+  checkSqlite();
+  Cursor cursor=db.query("\"" + name + "\"",new String[]{"\"BYTES\""},"\"ID\" = ? AND \"CONTEXT\"='?' ",new String[]{"" + key,this.context},null,null,null);
+  if (cursor == null) {
+    return null;
+  }
+  try {
+    if (cursor.moveToNext())     return cursor.getBlob("BYTES");
+  }
+  finally {
+    cursor.close();
+  }
+  return null;
+}

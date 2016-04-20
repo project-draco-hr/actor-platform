@@ -1,0 +1,16 @@
+{
+  checkTable();
+  Cursor cursor;
+  if (centerSortKey == null) {
+    cursor=database.query("\"" + tableName + "\"",new String[]{"\"LIST_ID\"","\"ID\"","\"SORT_KEY\"","\"QUERY\"","\"BYTES\""},null,null,null,null,"\"SORT_KEY\" DESC",String.valueOf(limit));
+    return loadSlice(cursor);
+  }
+ else {
+    ListEngineRecord centerItem=loadItemBySortKey(centerSortKey);
+    ArrayList<ListEngineRecord> ret=new ArrayList<ListEngineRecord>();
+    ret.addAll(loadBackward(centerSortKey,limit));
+    if (centerItem != null)     ret.add(centerItem);
+    ret.addAll(loadForward(centerSortKey,limit));
+    return ret;
+  }
+}

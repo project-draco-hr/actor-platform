@@ -1,0 +1,16 @@
+{
+  checkSqlite();
+  Cursor mCount=null;
+  try {
+    mCount=db.rawQuery("SELECT COUNT(*) FROM \"" + name + "\"",null);
+    if (mCount.moveToNext()) {
+      return mCount.getInt(1);
+    }
+  }
+  finally {
+    if (mCount != null) {
+      mCount.close();
+    }
+  }
+  return 0;
+}

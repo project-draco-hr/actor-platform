@@ -1,0 +1,3 @@
+Connection db
+String name
+String context

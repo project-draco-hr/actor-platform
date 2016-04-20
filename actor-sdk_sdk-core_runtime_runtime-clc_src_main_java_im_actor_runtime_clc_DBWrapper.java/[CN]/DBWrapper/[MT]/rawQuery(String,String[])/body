@@ -1,0 +1,14 @@
+{
+  try {
+    if (selectionArgs != null) {
+      for (      String select : selectionArgs) {
+        sql=sql.replaceFirst("\\?",select);
+      }
+    }
+    return new Cursor(db.createStatement().executeQuery(sql));
+  }
+ catch (  SQLException e) {
+    logger.error("Error in execute query",e);
+  }
+  return null;
+}

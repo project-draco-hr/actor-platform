@@ -1,0 +1,5 @@
+{
+  List<Long> res=findBeforeValue(value);
+  remove(res);
+  return res;
+}

@@ -1,0 +1,11 @@
+{
+  Preferences pref=this.preferences.getPref();
+  try {
+    for (    String key : pref.keys()) {
+      pref.remove(context + "_" + key);
+    }
+  }
+ catch (  BackingStoreException e) {
+    logger.error("Error in clearing preferences for context: " + context,e);
+  }
+}

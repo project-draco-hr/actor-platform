@@ -1,0 +1,6 @@
+{
+  if (!isSqliteChecked) {
+    isSqliteChecked=true;
+    db.execSQL("CREATE TABLE IF NOT EXISTS \"" + name + "\" ("+ "\"ID\" INTEGER NOT NULL,"+ "\"BYTES\" BLOB NOT NULL,"+ "\"CONTEXT\" TEXT NOT NULL,"+ "PRIMARY KEY(\"ID\", \"CONTEXT\"));");
+  }
+}
