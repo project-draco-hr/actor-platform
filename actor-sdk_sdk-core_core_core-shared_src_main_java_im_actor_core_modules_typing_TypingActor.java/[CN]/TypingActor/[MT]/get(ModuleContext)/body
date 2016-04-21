@@ -1,8 +1,2 @@
 {
-  return ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-    @Override public TypingActor create(){
-      return new TypingActor(messenger);
-    }
-  }
-),"actor/typing");
 }

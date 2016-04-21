@@ -27,7 +27,7 @@
     }
   }
   if (!groupCancellables.containsKey(gid)) {
-    groupCancellables.put(gid,new HashMap<Integer,Cancellable>());
+    groupCancellables.put(gid,new HashMap<>());
   }
   HashMap<Integer,Cancellable> cancellables=groupCancellables.get(gid);
   if (cancellables.containsKey(uid)) {

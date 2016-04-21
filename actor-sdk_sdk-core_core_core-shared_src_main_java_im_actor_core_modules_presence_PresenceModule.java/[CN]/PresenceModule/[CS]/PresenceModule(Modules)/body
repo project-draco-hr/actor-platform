@@ -1,10 +1,2 @@
 {
-  super(modules);
-  system().actorOf(Props.create(new ActorCreator(){
-    @Override public OwnPresenceActor create(){
-      return new OwnPresenceActor(modules);
-    }
-  }
-),"actor/presence/own");
-  PresenceActor.create(modules);
 }
