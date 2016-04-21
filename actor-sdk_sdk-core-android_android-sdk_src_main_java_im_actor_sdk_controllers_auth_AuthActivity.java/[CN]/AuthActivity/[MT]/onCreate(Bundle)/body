@@ -11,7 +11,6 @@
   currentPhone=preferences.getLong("currentPhone",0);
   currentEmail=preferences.getString("currentEmail");
   transactionHash=preferences.getString("transactionHash");
-  currentCode=preferences.getString("currentCode");
   isRegistered=preferences.getBool("isRegistered",false);
   currentName=preferences.getString("currentName");
   signType=preferences.getInt("signType",signType);

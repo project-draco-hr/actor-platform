@@ -18,6 +18,7 @@
           }
  else {
             if ("PHONE_CODE_EXPIRED".equals(re.getTag()) || "EMAIL_CODE_EXPIRED".equals(re.getTag())) {
+              currentCode="";
               message=getString(R.string.auth_error_code_expired);
               canTryAgain=false;
             }

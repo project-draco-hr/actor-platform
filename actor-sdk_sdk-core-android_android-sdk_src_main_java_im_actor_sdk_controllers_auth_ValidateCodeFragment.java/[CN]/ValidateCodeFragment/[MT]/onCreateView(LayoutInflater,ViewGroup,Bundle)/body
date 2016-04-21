@@ -34,9 +34,6 @@
     @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
-      if (s.length() == 6) {
-        sendCode();
-      }
     }
     @Override public void afterTextChanged(    Editable s){
     }
@@ -52,6 +49,7 @@
     }
   }
 );
+  codeEnterEditText.setText(((AuthActivity)getActivity()).getCurrentCode());
   onClick(v,R.id.button_confirm_sms_code,new View.OnClickListener(){
     @Override public void onClick(    View v){
       sendCode();

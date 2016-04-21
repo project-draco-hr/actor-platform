@@ -6,7 +6,6 @@
   preferences.putLong("currentPhone",currentPhone);
   preferences.putString("currentEmail",currentEmail);
   preferences.putString("transactionHash",transactionHash);
-  preferences.putString("currentCode",currentCode);
   preferences.putBool("isRegistered",isRegistered);
   preferences.putString("currentName",currentName);
   preferences.putInt("signType",signType);
