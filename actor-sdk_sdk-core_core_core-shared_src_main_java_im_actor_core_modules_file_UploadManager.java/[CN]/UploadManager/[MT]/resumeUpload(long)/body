@@ -1,21 +1,2 @@
 {
-  QueueItem queueItem=findItem(rid);
-  if (queueItem != null) {
-    if (queueItem.isStarted) {
-      return;
-    }
-    if (queueItem.isStopped) {
-      queueItem.isStopped=false;
-    }
-    queueItem.progress=0;
-    for (    final UploadFileCallback callback : queueItem.callbacks) {
-      im.actor.runtime.Runtime.dispatch(new Runnable(){
-        @Override public void run(){
-          callback.onUploading(0);
-        }
-      }
-);
-    }
-    checkQueue();
-  }
 }

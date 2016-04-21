@@ -1,25 +1,2 @@
 {
-  if (LOG) {
-    Log.d(TAG,"Upload #" + rid + " complete");
-  }
-  QueueItem queueItem=findItem(rid);
-  if (queueItem == null) {
-    return;
-  }
-  if (!queueItem.isStarted) {
-    return;
-  }
-  queue.remove(queueItem);
-  queueItem.taskRef.send(PoisonPill.INSTANCE);
-  context().getFilesModule().getDownloadedEngine().addOrUpdateItem(new Downloaded(fileReference.getFileId(),fileReference.getFileSize(),reference.getDescriptor()));
-  for (  final UploadFileCallback fileCallback : queueItem.callbacks) {
-    im.actor.runtime.Runtime.dispatch(new Runnable(){
-      @Override public void run(){
-        fileCallback.onUploaded();
-      }
-    }
-);
-  }
-  queueItem.requestActor.send(new UploadCompleted(rid,fileReference));
-  checkQueue();
 }

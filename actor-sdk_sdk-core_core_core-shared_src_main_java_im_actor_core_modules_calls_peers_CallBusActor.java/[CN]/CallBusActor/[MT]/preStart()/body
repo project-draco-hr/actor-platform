@@ -1,10 +1,2 @@
 {
-  super.preStart();
-  ActorRef ref=system().actorOf(getPath() + "/peer",new ActorCreator(){
-    @Override public Actor create(){
-      return new PeerCallActor(peerCallback,CallBusActor.this.selfSettings,context());
-    }
-  }
-);
-  this.peerCall=new PeerCallInt(ref);
 }

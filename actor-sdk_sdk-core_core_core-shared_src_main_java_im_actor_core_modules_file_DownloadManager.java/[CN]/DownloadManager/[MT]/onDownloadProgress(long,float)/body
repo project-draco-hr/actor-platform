@@ -1,21 +1,2 @@
 {
-  if (LOG) {
-    Log.d(TAG,"onDownloadProgress file #" + fileId + " "+ progress);
-  }
-  QueueItem queueItem=findItem(fileId);
-  if (queueItem == null) {
-    return;
-  }
-  if (!queueItem.isStarted) {
-    return;
-  }
-  queueItem.progress=progress;
-  for (  final FileCallback fileCallback : queueItem.callbacks) {
-    im.actor.runtime.Runtime.dispatch(new Runnable(){
-      @Override public void run(){
-        fileCallback.onDownloading(progress);
-      }
-    }
-);
-  }
 }

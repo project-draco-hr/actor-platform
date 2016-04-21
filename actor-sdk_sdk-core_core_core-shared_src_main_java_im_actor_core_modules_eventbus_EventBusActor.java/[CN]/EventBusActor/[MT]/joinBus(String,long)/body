@@ -1,14 +1,2 @@
 {
-  isProcessing=true;
-  api(new RequestJoinEventBus(busId,timeout)).then(new Consumer<ResponseJoinEventBus>(){
-    @Override public void apply(    ResponseJoinEventBus responseJoinEventBus){
-      connectBus(busId,responseJoinEventBus.getDeviceId(),timeout,true);
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      dispose();
-    }
-  }
-).done(self());
 }

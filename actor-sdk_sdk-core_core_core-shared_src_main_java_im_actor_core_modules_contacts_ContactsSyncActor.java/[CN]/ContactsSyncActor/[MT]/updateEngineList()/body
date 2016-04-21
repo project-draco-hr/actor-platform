@@ -1,29 +1,2 @@
 {
-  if (ENABLE_LOG) {
-    Log.d(TAG,"Saving contact EngineList");
-  }
-  ArrayList<User> userList=new ArrayList<User>();
-  for (  int u : contacts) {
-    userList.add(getUser(u));
-  }
-  Collections.sort(userList,new Comparator<User>(){
-    @Override public int compare(    User lhs,    User rhs){
-      return lhs.getName().compareTo(rhs.getName());
-    }
-  }
-);
-  List<Contact> registeredContacts=new ArrayList<Contact>();
-  int index=-1;
-  for (  User userModel : userList) {
-    Contact contact=new Contact(userModel.getUid(),(long)index--,userModel.getAvatar(),userModel.getName());
-    registeredContacts.add(contact);
-  }
-  context().getContactsModule().getContacts().replaceItems(registeredContacts);
-  Integer[] sorted=new Integer[contacts.size()];
-  int sindex=0;
-  for (  User userModel : userList) {
-    sorted[sindex++]=userModel.getUid();
-  }
-  context().getSearchModule().onContactsChanged(sorted);
-  notifyState();
 }

@@ -1,21 +1,2 @@
 {
-  return new Promise<>(new PromiseFunc<AuthCodeRes>(){
-    @Override public void exec(    @NotNull final PromiseResolver<AuthCodeRes> resolver){
-      request(new RequestValidateCode(transactionHash,code),new RpcCallback<ResponseAuth>(){
-        @Override public void onResult(        ResponseAuth response){
-          resolver.result(new AuthCodeRes(new AuthRes(response.toByteArray())));
-        }
-        @Override public void onError(        RpcException e){
-          if ("PHONE_NUMBER_UNOCCUPIED".equals(e.getTag()) || "EMAIL_UNOCCUPIED".equals(e.getTag())) {
-            resolver.result(new AuthCodeRes(transactionHash));
-          }
- else {
-            resolver.error(e);
-          }
-        }
-      }
-);
-    }
-  }
-);
 }

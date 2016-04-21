@@ -1,13 +1,2 @@
 {
-  super(context);
-  this.parserConfig.addExtension(new ParsingExtension(new RpcParser(),new UpdatesParser()));
-  this.authKeyStorage=new PreferenceApiStorage(context().getPreferences());
-  this.actorApi=new ActorApi(new Endpoints(context().getConfiguration().getEndpoints(),context().getConfiguration().getTrustedKeys()),authKeyStorage,new ActorApiCallbackImpl(),context().getConfiguration().isEnableNetworkLogging(),context().getConfiguration().getMinDelay(),context().getConfiguration().getMaxDelay(),context().getConfiguration().getMaxFailureCount(),parserConfig);
-  context.getEvents().subscribe(this,AppVisibleChanged.EVENT);
-  persistentRequests=system().actorOf("api/persistence",new ActorCreator(){
-    @Override public PersistentRequestsActor create(){
-      return new PersistentRequestsActor(context());
-    }
-  }
-);
 }

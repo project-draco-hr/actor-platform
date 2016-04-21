@@ -49,7 +49,7 @@
         for (        ApiUser u : response.getUsers()) {
           uids.add(u.getId());
         }
-        updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateContactsAdded.HEADER,new UpdateContactsAdded(uids).toByteArray(),response.getUsers(),new ArrayList<ApiGroup>()));
+        updates().onUpdateReceived(new FatSeqUpdate(response.getSeq(),response.getState(),UpdateContactsAdded.HEADER,new UpdateContactsAdded(uids).toByteArray(),response.getUsers(),new ArrayList<>()));
       }
  else {
         if (ENABLE_LOG) {

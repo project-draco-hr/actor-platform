@@ -1,9 +1,2 @@
 {
-  super(context);
-  blockListProcessor=system().actorOf("actor/blocked",new ActorCreator(){
-    @Override public Actor create(){
-      return new BlockListActor(context);
-    }
-  }
-);
 }

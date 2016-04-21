@@ -1,24 +1,2 @@
 {
-  if (LOG) {
-    Log.d(TAG,"onDownloadError file #" + fileId);
-  }
-  QueueItem queueItem=findItem(fileId);
-  if (queueItem == null) {
-    return;
-  }
-  if (!queueItem.isStarted) {
-    return;
-  }
-  queueItem.taskRef.send(PoisonPill.INSTANCE);
-  queueItem.isStopped=true;
-  queueItem.isStarted=false;
-  for (  final FileCallback fileCallback : queueItem.callbacks) {
-    im.actor.runtime.Runtime.dispatch(new Runnable(){
-      @Override public void run(){
-        fileCallback.onNotDownloaded();
-      }
-    }
-);
-  }
-  checkQueue();
 }

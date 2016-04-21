@@ -1,26 +1,2 @@
 {
-  return new Command<List<ApiAuthSession>>(){
-    @Override public void start(    final CommandCallback<List<ApiAuthSession>> callback){
-      request(new RequestGetAuthSessions(),new RpcCallback<ResponseGetAuthSessions>(){
-        @Override public void onResult(        final ResponseGetAuthSessions response){
-          runOnUiThread(new Runnable(){
-            @Override public void run(){
-              callback.onResult(response.getUserAuths());
-            }
-          }
-);
-        }
-        @Override public void onError(        final RpcException e){
-          runOnUiThread(new Runnable(){
-            @Override public void run(){
-              callback.onError(e);
-            }
-          }
-);
-        }
-      }
-);
-    }
-  }
-;
 }

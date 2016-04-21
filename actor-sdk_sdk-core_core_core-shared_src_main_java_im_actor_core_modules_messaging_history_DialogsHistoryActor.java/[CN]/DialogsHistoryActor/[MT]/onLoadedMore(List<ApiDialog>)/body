@@ -1,25 +1,2 @@
 {
-  final ArrayList<DialogHistory> dialogs=new ArrayList<>();
-  long maxLoadedDate=Long.MAX_VALUE;
-  for (  ApiDialog dialog : rawDialogs) {
-    dialogs.add(new DialogHistory(convert(dialog.getPeer()),dialog.getUnreadCount(),dialog.getSortDate(),dialog.getRid(),dialog.getDate(),dialog.getSenderUid(),AbsContent.fromMessage(dialog.getMessage()),dialog.getState() == ApiMessageState.READ,dialog.getState() == ApiMessageState.RECEIVED));
-    maxLoadedDate=Math.min(dialog.getSortDate(),maxLoadedDate);
-  }
-  if (dialogs.size() > 0) {
-    final long finalMaxLoadedDate=maxLoadedDate;
-    context().getMessagesModule().getRouter().onDialogsHistoryLoaded(dialogs,new Runnable(){
-      @Override public void run(){
-        if (dialogs.size() < LIMIT) {
-          markAsLoaded();
-        }
- else {
-          markAsSliceLoaded(finalMaxLoadedDate);
-        }
-      }
-    }
-);
-  }
- else {
-    markAsLoaded();
-  }
 }

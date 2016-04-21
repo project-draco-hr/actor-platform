@@ -1,16 +1,2 @@
 {
-  return new Command<Boolean>(){
-    @Override public void start(    final CommandCallback<Boolean> callback){
-      request(new RequestCompleteWebaction(actionHash,url),new RpcCallback<ResponseCompleteWebaction>(){
-        @Override public void onResult(        ResponseCompleteWebaction response){
-          callback.onResult(true);
-        }
-        @Override public void onError(        RpcException e){
-          callback.onError(e);
-        }
-      }
-);
-    }
-  }
-;
 }

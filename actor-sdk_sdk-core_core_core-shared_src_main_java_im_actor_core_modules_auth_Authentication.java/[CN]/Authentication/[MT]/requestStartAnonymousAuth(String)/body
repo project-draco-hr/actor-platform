@@ -1,22 +1,2 @@
 {
-  return new Command<AuthState>(){
-    @Override public void start(    final CommandCallback<AuthState> callback){
-      request(new RequestStartAnonymousAuth(userName,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle(),modules.getConfiguration().getTimeZone(),langs),new RpcCallback<ResponseAuth>(){
-        @Override public void onResult(        ResponseAuth response){
-          onLoggedIn(callback,response);
-        }
-        @Override public void onError(        final RpcException e){
-          im.actor.runtime.Runtime.postToMainThread(new Runnable(){
-            @Override public void run(){
-              Log.e(TAG,e);
-              callback.onError(e);
-            }
-          }
-);
-        }
-      }
-);
-    }
-  }
-;
 }

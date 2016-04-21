@@ -1,27 +1,2 @@
 {
-  stickersStorage=new StickersStorage();
-  byte[] data=context().getPreferences().getBytes("stickers.data");
-  if (data != null) {
-    try {
-      stickersStorage=new StickersStorage(data);
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
-  }
-  if (!context().getPreferences().getBool("stickers_loaded",false)) {
-    api(new RequestLoadOwnStickers()).then(new Consumer<ResponseLoadOwnStickers>(){
-      @Override public void apply(      ResponseLoadOwnStickers responseLoadOwnStickers){
-        onOwnStickerCollectionChanged(responseLoadOwnStickers.getOwnStickers());
-        context().getPreferences().putBool("stickers_loaded",true);
-        isLoaded=true;
-        unstashAll();
-      }
-    }
-).done(self());
-  }
- else {
-    isLoaded=true;
-    notifyVM();
-  }
 }

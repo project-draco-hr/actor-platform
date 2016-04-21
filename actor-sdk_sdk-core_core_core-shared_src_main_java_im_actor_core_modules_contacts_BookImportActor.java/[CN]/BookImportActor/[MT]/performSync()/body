@@ -1,24 +1,2 @@
 {
-  if (!config().isEnablePhoneBookImport()) {
-    return;
-  }
-  if (ENABLE_LOG) {
-    Log.d(TAG,"Checking sync...");
-  }
-  if (phoneBookReadingIsInProgress) {
-    if (ENABLE_LOG) {
-      Log.d(TAG,"Sync already in progress");
-    }
-    return;
-  }
-  phoneBookReadingIsInProgress=true;
-  if (ENABLE_LOG) {
-    Log.d(TAG,"Starting book loading...");
-  }
-  context().getConfiguration().getPhoneBookProvider().loadPhoneBook(new PhoneBookProvider.Callback(){
-    @Override public void onLoaded(    List<PhoneBookContact> contacts){
-      self().send(new PhoneBookLoaded(contacts));
-    }
-  }
-);
 }

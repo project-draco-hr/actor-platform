@@ -1,8 +1,2 @@
 {
-  settingsSync=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-    @Override public SettingsSyncActor create(){
-      return new SettingsSyncActor(context());
-    }
-  }
-),"actor/settings");
 }

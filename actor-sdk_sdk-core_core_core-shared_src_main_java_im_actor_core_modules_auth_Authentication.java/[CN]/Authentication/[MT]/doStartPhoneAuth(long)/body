@@ -1,16 +1,2 @@
 {
-  return new Promise<>(new PromiseFunc<AuthStartRes>(){
-    @Override public void exec(    @NotNull final PromiseResolver<AuthStartRes> resolver){
-      request(new RequestStartPhoneAuth(phone,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle(),modules.getConfiguration().getTimeZone(),langs),new RpcCallback<ResponseStartPhoneAuth>(){
-        @Override public void onResult(        ResponseStartPhoneAuth response){
-          resolver.result(new AuthStartRes(response.getTransactionHash(),AuthMode.fromApi(response.getActivationType()),response.isRegistered()));
-        }
-        @Override public void onError(        RpcException e){
-          resolver.error(e);
-        }
-      }
-);
-    }
-  }
-);
 }

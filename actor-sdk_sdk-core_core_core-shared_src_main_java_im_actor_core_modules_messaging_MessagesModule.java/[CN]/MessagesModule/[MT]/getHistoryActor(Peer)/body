@@ -1,13 +1,2 @@
 {
-synchronized (historyLoaderActors) {
-    if (!historyLoaderActors.containsKey(peer)) {
-      historyLoaderActors.put(peer,system().actorOf("history/" + peer,new ActorCreator(){
-        @Override public Actor create(){
-          return new ConversationHistoryActor(peer,context());
-        }
-      }
-));
-    }
-    return historyLoaderActors.get(peer);
-  }
 }

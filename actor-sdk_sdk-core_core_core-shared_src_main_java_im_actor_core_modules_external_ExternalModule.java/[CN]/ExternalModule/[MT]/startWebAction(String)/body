@@ -1,16 +1,2 @@
 {
-  return new Command<WebActionDescriptor>(){
-    @Override public void start(    final CommandCallback<WebActionDescriptor> callback){
-      request(new RequestInitWebaction(webAction,new ApiMapValue(new ArrayList<ApiMapValueItem>())),new RpcCallback<ResponseInitWebaction>(){
-        @Override public void onResult(        ResponseInitWebaction response){
-          callback.onResult(new WebActionDescriptor(response.getUri(),response.getRegexp(),response.getActionHash()));
-        }
-        @Override public void onError(        RpcException e){
-          callback.onError(e);
-        }
-      }
-);
-    }
-  }
-;
 }

@@ -1,25 +1,2 @@
 {
-  if (state != PeerConnectionState.WAITING_HANDSHAKE) {
-    return;
-  }
-  isReady=false;
-  peerConnection.createOffer().mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
-    @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
-      return peerConnection.setLocalDescription(description);
-    }
-  }
-).then(new Consumer<WebRTCSessionDescription>(){
-    @Override public void apply(    WebRTCSessionDescription description){
-      callback.onOffer(sessionId,description.getSdp());
-      state=PeerConnectionState.WAITING_ANSWER;
-      onReady();
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      e.printStackTrace();
-      onHandshakeFailure();
-    }
-  }
-).done(self());
 }

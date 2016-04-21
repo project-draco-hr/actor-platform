@@ -1,8 +1,2 @@
 {
-  return new Consumer<ResponseLoadHistory>(){
-    @Override public void apply(    ResponseLoadHistory responseLoadHistory){
-      applyHistory(peer,responseLoadHistory.getHistory());
-    }
-  }
-;
 }

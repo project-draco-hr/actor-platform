@@ -1,26 +1,2 @@
 {
-  return new Command<Boolean>(){
-    @Override public void start(    final CommandCallback<Boolean> callback){
-      request(new RequestTerminateSession(id),new RpcCallback<ResponseVoid>(){
-        @Override public void onResult(        ResponseVoid response){
-          runOnUiThread(new Runnable(){
-            @Override public void run(){
-              callback.onResult(true);
-            }
-          }
-);
-        }
-        @Override public void onError(        final RpcException e){
-          runOnUiThread(new Runnable(){
-            @Override public void run(){
-              callback.onError(e);
-            }
-          }
-);
-        }
-      }
-);
-    }
-  }
-;
 }

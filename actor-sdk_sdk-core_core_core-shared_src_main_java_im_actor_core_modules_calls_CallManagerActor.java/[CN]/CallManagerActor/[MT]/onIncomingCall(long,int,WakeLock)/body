@@ -1,29 +1,2 @@
 {
-  Log.d(TAG,"onIncomingCall (" + callId + ")");
-  if (handledCalls.contains(callId)) {
-    if (handledCallAttempts.get(callId) >= attempt) {
-      if (wakeLock != null) {
-        wakeLock.releaseLock();
-      }
-      return;
-    }
-  }
-  if (runningCalls.containsKey(callId)) {
-    if (wakeLock != null) {
-      wakeLock.releaseLock();
-    }
-    return;
-  }
-  handledCalls.add(callId);
-  handledCallAttempts.put(callId,attempt);
-  if (wakeLock == null) {
-    wakeLock=Runtime.makeWakeLock();
-  }
-  final WakeLock finalWakeLock=wakeLock;
-  system().actorOf("actor/call" + RandomUtils.nextRid(),new ActorCreator(){
-    @Override public Actor create(){
-      return new CallActor(callId,finalWakeLock,context());
-    }
-  }
-);
 }

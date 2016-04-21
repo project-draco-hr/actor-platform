@@ -1,10 +1,2 @@
 {
-  super(modules);
-  ownAvatarVM=new OwnAvatarVM();
-  avatarChangeActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public OwnAvatarChangeActor create(){
-      return new OwnAvatarChangeActor(modules);
-    }
-  }
-),"actor/avatar/my");
 }

@@ -1,12 +1,2 @@
 {
-  if (isLoading || historyLoaded) {
-    return;
-  }
-  isLoading=true;
-  api(new RequestLoadHistory(buidOutPeer(peer),historyMaxDate,null,LIMIT)).mapPromise(applyRelated()).then(applyHistory(peer)).then(new Consumer<ResponseLoadHistory>(){
-    @Override public void apply(    ResponseLoadHistory responseLoadHistory){
-      isLoading=false;
-    }
-  }
-).done(self());
 }

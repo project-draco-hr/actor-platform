@@ -1,9 +1,2 @@
 {
-  super(modules);
-  pushRegisterActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public PushRegisterActor create(){
-      return new PushRegisterActor(context());
-    }
-  }
-),"actor/push");
 }

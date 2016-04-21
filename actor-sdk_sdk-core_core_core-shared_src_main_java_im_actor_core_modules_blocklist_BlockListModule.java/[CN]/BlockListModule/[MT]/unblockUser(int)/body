@@ -1,27 +1,2 @@
 {
-  return new Promise<>(new PromiseFunc<Void>(){
-    @Override public void exec(    @NotNull final PromiseResolver<Void> resolver){
-      ApiOutPeer outPeer=buildApiOutPeer(Peer.user(uid));
-      if (outPeer == null) {
-        resolver.error(new RuntimeException());
-        return;
-      }
-      request(new RequestUnblockUser(new ApiUserOutPeer(outPeer.getId(),outPeer.getAccessHash())),new RpcCallback<ResponseSeq>(){
-        @Override public void onResult(        ResponseSeq response){
-          updates().onSeqUpdateReceived(response.getSeq(),response.getState(),new UpdateUserUnblocked(uid));
-          updates().executeAfter(response.getSeq(),new Runnable(){
-            @Override public void run(){
-              resolver.result(null);
-            }
-          }
-);
-        }
-        @Override public void onError(        RpcException e){
-          resolver.error(e);
-        }
-      }
-);
-    }
-  }
-);
 }

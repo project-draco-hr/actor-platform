@@ -1,14 +1,2 @@
 {
-  isProcessing=true;
-  api(new RequestCreateNewEventBus(timeout,true)).then(new Consumer<ResponseCreateNewEventBus>(){
-    @Override public void apply(    ResponseCreateNewEventBus responseCreateNewEventBus){
-      connectBus(responseCreateNewEventBus.getId(),responseCreateNewEventBus.getDeviceId(),timeout,false);
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      dispose();
-    }
-  }
-).done(self());
 }

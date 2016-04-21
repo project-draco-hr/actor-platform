@@ -1,8 +1,2 @@
 {
-  actorRef=system().actorOf(Props.create(new ActorCreator(){
-    @Override public SearchActor create(){
-      return new SearchActor(context());
-    }
-  }
-),"actor/search");
 }

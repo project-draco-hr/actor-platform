@@ -1,16 +1,2 @@
 {
-  return new Promise<>(new PromiseFunc<AuthStartRes>(){
-    @Override public void exec(    @NotNull final PromiseResolver<AuthStartRes> resolver){
-      request(new RequestStartEmailAuth(email,apiConfiguration.getAppId(),apiConfiguration.getAppKey(),deviceHash,apiConfiguration.getDeviceTitle(),modules.getConfiguration().getTimeZone(),langs),new RpcCallback<ResponseStartEmailAuth>(){
-        @Override public void onResult(        ResponseStartEmailAuth response){
-          resolver.result(new AuthStartRes(response.getTransactionHash(),AuthMode.fromApi(response.getActivationType()),response.isRegistered()));
-        }
-        @Override public void onError(        RpcException e){
-          resolver.error(e);
-        }
-      }
-);
-    }
-  }
-);
 }

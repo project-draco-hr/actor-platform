@@ -1,20 +1,2 @@
 {
-  fileUrlInt=new FileUrlInt(system().actorOf("actor/download/urls",new ActorCreator(){
-    @Override public Actor create(){
-      return new FileUrlLoader(context());
-    }
-  }
-));
-  downloadManager=system().actorOf(Props.create(new ActorCreator(){
-    @Override public DownloadManager create(){
-      return new DownloadManager(context());
-    }
-  }
-).changeDispatcher("heavy"),"actor/download/manager");
-  uploadManager=system().actorOf(Props.create(new ActorCreator(){
-    @Override public UploadManager create(){
-      return new UploadManager(context());
-    }
-  }
-).changeDispatcher("heavy"),"actor/upload/manager");
 }

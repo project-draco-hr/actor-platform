@@ -1,25 +1,2 @@
 {
-  if (isCompleted) {
-    return;
-  }
-  if (progress > currentProgress) {
-    currentProgress=progress;
-  }
-  long delta=im.actor.runtime.Runtime.getActorTime() - lastNotifyDate;
-  if (notifyCancellable != null) {
-    notifyCancellable.cancel();
-    notifyCancellable=null;
-  }
-  if (delta > NOTIFY_THROTTLE) {
-    lastNotifyDate=im.actor.runtime.Runtime.getActorTime();
-    performReportProgress();
-  }
- else {
-    notifyCancellable=schedule(new Runnable(){
-      @Override public void run(){
-        performReportProgress();
-      }
-    }
-,delta);
-  }
 }

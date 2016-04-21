@@ -1,8 +1,2 @@
 {
-  return new Command<Long>(){
-    @Override public void start(    final CommandCallback<Long> callback){
-      callManager.send(new CallManagerActor.DoCall(peer,callback));
-    }
-  }
-;
 }

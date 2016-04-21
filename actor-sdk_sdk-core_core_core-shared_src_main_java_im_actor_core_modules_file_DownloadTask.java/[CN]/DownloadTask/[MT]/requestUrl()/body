@@ -1,23 +1,2 @@
 {
-  if (LOG) {
-    Log.d(TAG,"Loading url...");
-  }
-  context().getFilesModule().getFileUrlInt().askForUrl(fileReference.getFileId(),fileReference.getAccessHash()).then(new Consumer<String>(){
-    @Override public void apply(    String url){
-      fileUrl=url;
-      if (LOG) {
-        Log.d(TAG,"Loaded file url: " + fileUrl);
-      }
-      startDownload();
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      if (LOG) {
-        Log.d(TAG,"Unable to load file url");
-      }
-      reportError();
-    }
-  }
-).done(self());
 }

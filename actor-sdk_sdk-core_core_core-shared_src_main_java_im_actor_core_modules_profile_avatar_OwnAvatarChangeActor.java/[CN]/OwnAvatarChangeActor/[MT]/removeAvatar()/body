@@ -1,28 +1,2 @@
 {
-  if (currentChangeTask != 0) {
-    context().getFilesModule().cancelUpload(currentChangeTask);
-    currentChangeTask=0;
-  }
-  currentChangeTask=RandomUtils.nextRid();
-  context().getProfileModule().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,true));
-  final long currentRid=currentChangeTask;
-  request(new RequestRemoveAvatar(),new RpcCallback<ResponseSeq>(){
-    @Override public void onResult(    ResponseSeq response){
-      updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateUserAvatarChanged.HEADER,new UpdateUserAvatarChanged(myUid(),null).toByteArray()));
-      updates().onUpdateReceived(new ExecuteAfter(response.getSeq(),new Runnable(){
-        @Override public void run(){
-          self().send(new AvatarChanged(currentRid));
-        }
-      }
-));
-    }
-    @Override public void onError(    RpcException e){
-      if (currentRid != currentChangeTask) {
-        return;
-      }
-      currentChangeTask=0;
-      context().getProfileModule().getOwnAvatarVM().getUploadState().change(new AvatarUploadState(null,false));
-    }
-  }
-);
 }

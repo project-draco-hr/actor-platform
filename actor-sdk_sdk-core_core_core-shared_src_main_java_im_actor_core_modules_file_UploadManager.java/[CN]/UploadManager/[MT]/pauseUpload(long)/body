@@ -1,19 +1,2 @@
 {
-  QueueItem queueItem=findItem(rid);
-  if (queueItem != null) {
-    if (queueItem.isStarted) {
-      queueItem.taskRef.send(PoisonPill.INSTANCE);
-      queueItem.taskRef=null;
-      queueItem.isStarted=false;
-    }
-    queueItem.isStopped=true;
-    for (    final UploadFileCallback callback : queueItem.callbacks) {
-      im.actor.runtime.Runtime.dispatch(new Runnable(){
-        @Override public void run(){
-          callback.onNotUploading();
-        }
-      }
-);
-    }
-  }
 }

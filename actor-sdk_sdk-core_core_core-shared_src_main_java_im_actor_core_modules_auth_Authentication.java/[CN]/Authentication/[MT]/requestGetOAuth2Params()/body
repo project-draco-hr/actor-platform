@@ -1,29 +1,2 @@
 {
-  return new Command<AuthState>(){
-    @Override public void start(    final CommandCallback<AuthState> callback){
-      request(new RequestGetOAuth2Params(modules.getPreferences().getString(KEY_TRANSACTION_HASH),"https://actor.im/auth/oauth2callback"),new RpcCallback<ResponseGetOAuth2Params>(){
-        @Override public void onResult(        final ResponseGetOAuth2Params response){
-          modules.getPreferences().putString(KEY_OAUTH_REDIRECT_URL,response.getAuthUrl());
-          state=AuthState.COMPLETE_OAUTH;
-          im.actor.runtime.Runtime.postToMainThread(new Runnable(){
-            @Override public void run(){
-              callback.onResult(state);
-            }
-          }
-);
-        }
-        @Override public void onError(        final RpcException e){
-          im.actor.runtime.Runtime.postToMainThread(new Runnable(){
-            @Override public void run(){
-              Log.e(TAG,e);
-              callback.onError(e);
-            }
-          }
-);
-        }
-      }
-);
-    }
-  }
-;
 }

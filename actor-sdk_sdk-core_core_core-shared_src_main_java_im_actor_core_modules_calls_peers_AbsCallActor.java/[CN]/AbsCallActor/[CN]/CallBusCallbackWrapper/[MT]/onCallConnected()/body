@@ -1,8 +1,2 @@
 {
-  self().send(new Runnable(){
-    @Override public void run(){
-      AbsCallActor.this.onCallConnected();
-    }
-  }
-);
 }

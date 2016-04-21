@@ -1,13 +1,2 @@
 {
-  return new Function<ResponseLoadHistory,Promise<ResponseLoadHistory>>(){
-    @Override public Promise<ResponseLoadHistory> apply(    final ResponseLoadHistory responseLoadHistory){
-      return updates().applyRelatedData(responseLoadHistory.getUsers(),new ArrayList<ApiGroup>()).map(new Function<Void,ResponseLoadHistory>(){
-        @Override public ResponseLoadHistory apply(        Void aVoid){
-          return responseLoadHistory;
-        }
-      }
-);
-    }
-  }
-;
 }

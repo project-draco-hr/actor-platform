@@ -1,14 +1,2 @@
 {
-  Log.d(TAG,"doCall (" + peer + ")");
-  if (currentCall != null) {
-    terminalCall(currentCall);
-    currentCall=null;
-  }
-  final WakeLock wakeLock=Runtime.makeWakeLock();
-  system().actorOf("actor/master/" + RandomUtils.nextRid(),new ActorCreator(){
-    @Override public Actor create(){
-      return new CallActor(peer,callback,wakeLock,context());
-    }
-  }
-);
 }

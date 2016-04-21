@@ -1,3 +1,3 @@
 {
-  request(new RequestPostToEventBus(busId,new ArrayList<Long>(),data));
+  request(new RequestPostToEventBus(busId,new ArrayList<>(),data));
 }

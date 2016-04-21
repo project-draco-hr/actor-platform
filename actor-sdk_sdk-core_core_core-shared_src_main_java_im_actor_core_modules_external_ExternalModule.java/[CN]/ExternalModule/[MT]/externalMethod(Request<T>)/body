@@ -1,16 +1,2 @@
 {
-  return new Command<T>(){
-    @Override public void start(    final CommandCallback<T> callback){
-      request(request,new RpcCallback<T>(){
-        @Override public void onResult(        T response){
-          callback.onResult(response);
-        }
-        @Override public void onError(        RpcException e){
-          callback.onError(e);
-        }
-      }
-);
-    }
-  }
-;
 }

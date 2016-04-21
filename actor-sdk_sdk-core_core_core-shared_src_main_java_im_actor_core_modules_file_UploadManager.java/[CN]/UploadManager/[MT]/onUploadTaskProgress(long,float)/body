@@ -1,21 +1,2 @@
 {
-  if (LOG) {
-    Log.d(TAG,"Upload #" + rid + " progress "+ progress);
-  }
-  QueueItem queueItem=findItem(rid);
-  if (queueItem == null) {
-    return;
-  }
-  if (!queueItem.isStarted) {
-    return;
-  }
-  queueItem.progress=progress;
-  for (  final UploadFileCallback fileCallback : queueItem.callbacks) {
-    im.actor.runtime.Runtime.dispatch(new Runnable(){
-      @Override public void run(){
-        fileCallback.onUploading(progress);
-      }
-    }
-);
-  }
 }

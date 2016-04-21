@@ -1,9 +1,2 @@
 {
-  this.stickersVM=new StickersVM();
-  this.stickersActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public StickersActor create(){
-      return new StickersActor(context());
-    }
-  }
-),"actor/stickers");
 }

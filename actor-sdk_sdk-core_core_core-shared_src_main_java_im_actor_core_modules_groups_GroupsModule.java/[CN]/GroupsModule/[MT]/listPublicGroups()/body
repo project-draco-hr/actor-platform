@@ -1,29 +1,2 @@
 {
-  return new Command<List<PublicGroup>>(){
-    @Override public void start(    final CommandCallback<List<PublicGroup>> callback){
-      request(new RequestGetPublicGroups(),new RpcCallback<ResponseGetPublicGroups>(){
-        @Override public void onResult(        ResponseGetPublicGroups response){
-          ArrayList<PublicGroup> groups=new ArrayList<PublicGroup>();
-          for (          ApiPublicGroup g : response.getGroups()) {
-            Avatar avatar=null;
-            if (g.getAvatar() != null) {
-              avatar=new Avatar(g.getAvatar());
-            }
-            groups.add(new PublicGroup(g.getId(),g.getAccessHash(),g.getTitle(),avatar,g.getDescription(),g.getMembersCount(),g.getFriendsCount()));
-          }
-          callback.onResult(groups);
-        }
-        @Override public void onError(        final RpcException e){
-          runOnUiThread(new Runnable(){
-            @Override public void run(){
-              callback.onError(e);
-            }
-          }
-);
-        }
-      }
-,RPC_TIMEOUT);
-    }
-  }
-;
 }
