@@ -55,10 +55,4 @@
  catch (  Exception e) {
     e.printStackTrace();
   }
-  messenger.getEvents().subscribe(new BusSubscriber(){
-    @Override public void onBusEvent(    Event event){
-      delegate.onIncominCall(((IncomingCall)event).getCall(),((IncomingCall)event).getUid());
-    }
-  }
-,IncomingCall.EVENT);
 }
