@@ -38,6 +38,6 @@
     unsubscribe(((UnsubscribeToDownloads)message).getCallback());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

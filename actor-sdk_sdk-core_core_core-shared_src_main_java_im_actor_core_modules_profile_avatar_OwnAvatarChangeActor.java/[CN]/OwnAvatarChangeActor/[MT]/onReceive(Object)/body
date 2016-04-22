@@ -18,6 +18,6 @@
     avatarChanged(((AvatarChanged)message).getRid());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

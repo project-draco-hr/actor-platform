@@ -16,6 +16,6 @@
     registerApplePushKit(appleVoipPush.getApnsKey(),appleVoipPush.getToken());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

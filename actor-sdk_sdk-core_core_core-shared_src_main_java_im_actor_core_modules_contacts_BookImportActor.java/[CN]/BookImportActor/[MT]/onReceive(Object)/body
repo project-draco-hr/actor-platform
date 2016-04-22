@@ -6,6 +6,6 @@
     onPhoneBookLoaded(((PhoneBookLoaded)message).getPhoneBook());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

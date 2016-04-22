@@ -47,6 +47,6 @@
     onPushSeqReceived(((PushSeq)message).seq);
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

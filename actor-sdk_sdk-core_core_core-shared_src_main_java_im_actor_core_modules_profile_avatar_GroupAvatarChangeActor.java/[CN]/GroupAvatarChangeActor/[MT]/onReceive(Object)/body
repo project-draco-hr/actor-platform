@@ -20,6 +20,6 @@
     removeAvatar(removeAvatar.getGid());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

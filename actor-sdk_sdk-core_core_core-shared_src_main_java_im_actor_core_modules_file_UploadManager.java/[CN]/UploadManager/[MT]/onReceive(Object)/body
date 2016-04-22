@@ -40,6 +40,6 @@
     resumeUpload(resumeUpload.getRid());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

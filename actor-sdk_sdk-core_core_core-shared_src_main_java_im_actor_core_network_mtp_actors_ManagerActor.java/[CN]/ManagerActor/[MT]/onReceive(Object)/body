@@ -27,6 +27,6 @@
     onInMessage(m.data,m.offset,m.len);
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

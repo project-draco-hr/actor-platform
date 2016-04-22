@@ -7,6 +7,6 @@
     performSync(action);
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

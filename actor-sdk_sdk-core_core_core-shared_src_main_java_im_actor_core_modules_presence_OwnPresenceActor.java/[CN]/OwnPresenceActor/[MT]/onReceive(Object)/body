@@ -9,6 +9,6 @@
     performOnline();
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

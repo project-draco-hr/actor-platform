@@ -16,6 +16,6 @@
     stopGroupTyping(typing.getGid(),typing.getUid());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

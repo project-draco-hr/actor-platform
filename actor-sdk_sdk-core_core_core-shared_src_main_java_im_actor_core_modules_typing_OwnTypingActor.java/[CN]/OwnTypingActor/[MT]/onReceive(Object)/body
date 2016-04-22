@@ -9,6 +9,6 @@
     onAbortTyping(((AbortTyping)message).getPeer());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

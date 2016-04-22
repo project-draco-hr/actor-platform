@@ -42,6 +42,6 @@
     onCounterChanged(counterChanged.getPeer(),counterChanged.getCounter());
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

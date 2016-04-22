@@ -6,6 +6,6 @@
     onFlush();
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

@@ -3,6 +3,6 @@
     onReceive((ProtoMessage)message);
   }
  else {
-    drop(message);
+    super.onReceive(message);
   }
 }

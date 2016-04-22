@@ -1,16 +1,2 @@
 {
-  if (subscriber == null) {
-    subscriber=new BusSubscriber(){
-      @Override public void onBusEvent(      final Event event){
-        self().send(new Runnable(){
-          @Override public void run(){
-            ModuleActor.this.onBusEvent(event);
-          }
-        }
-);
-      }
-    }
-;
-  }
-  context().getEvents().subscribe(subscriber,eventType);
 }
