@@ -1,6 +1,6 @@
 {
   this.onScrollListener=onScrollListener;
   if (collection != null) {
-    collection.addOnScrollListener(onScrollListener);
+    collection.setOnScrollListener(onScrollListener);
   }
 }
