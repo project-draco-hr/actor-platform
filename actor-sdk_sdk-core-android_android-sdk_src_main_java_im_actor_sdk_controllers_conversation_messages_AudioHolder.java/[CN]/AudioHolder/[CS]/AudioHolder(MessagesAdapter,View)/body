@@ -1,6 +1,7 @@
 {
   super(fragment,itemView,false);
-  context=fragment.getMessagesFragment().getActivity();
+  context=fragment.getMessagesFragment().getContext();
+  mainThread=new Handler(context.getMainLooper());
   waitColor=ActorSDK.sharedActor().style.getConvStatePendingColor();
   sentColor=ActorSDK.sharedActor().style.getConvStateSentColor();
   deliveredColor=ActorSDK.sharedActor().style.getConvStateDeliveredColor();
@@ -43,10 +44,9 @@
   messageBubble=(FrameLayout)itemView.findViewById(R.id.fl_bubble);
   playBtn=(ImageView)itemView.findViewById(R.id.contact_avatar);
   playBtn.getBackground().setColorFilter(Color.parseColor("#4295e3"),PorterDuff.Mode.MULTIPLY);
-  activity=(Activity)playBtn.getContext();
   callback=new AudioPlayerActor.AudioPlayerCallback(){
     @Override public void onStart(    final String fileName){
-      activity.runOnUiThread(new Runnable(){
+      mainThread.post(new Runnable(){
         @Override public void run(){
           play(fileName);
         }
@@ -54,7 +54,7 @@
 );
     }
     @Override public void onStop(    final String fileName){
-      activity.runOnUiThread(new Runnable(){
+      mainThread.post(new Runnable(){
         @Override public void run(){
           stop();
         }
@@ -62,7 +62,7 @@
 );
     }
     @Override public void onPause(    final String fileName,    float progress){
-      activity.runOnUiThread(new Runnable(){
+      mainThread.post(new Runnable(){
         @Override public void run(){
           if (currentAudio != null && currentAudio.equals(fileName)) {
             pause();
@@ -72,7 +72,7 @@
 );
     }
     @Override public void onProgress(    final String fileName,    final float progress){
-      activity.runOnUiThread(new Runnable(){
+      mainThread.post(new Runnable(){
         @Override public void run(){
           if (currentAudio != null && currentAudio.equals(fileName) && currentPlayingAudio.equals(currentAudio)) {
             if (!treckingTouch)             progress(progress);
@@ -82,10 +82,10 @@
 );
     }
     @Override public void onError(    final String fileName){
-      activity.runOnUiThread(new Runnable(){
+      mainThread.post(new Runnable(){
         @Override public void run(){
           if (currentAudio != null && currentAudio.equals(fileName)) {
-            Toast.makeText(activity,"error playing this file",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"error playing this file",Toast.LENGTH_SHORT).show();
             keepScreenOn(false);
           }
         }
