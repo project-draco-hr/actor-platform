@@ -1,6 +1,8 @@
 {
+  int topPadding=Screen.dp(8);
   if (getArguments() != null) {
     joinGroupUrl=getArguments().getString("invite_url",null);
+    topPadding=getArguments().getInt("top_padding",topPadding);
   }
   View res=inflate(inflater,container,R.layout.fragment_dialogs,messenger().getDialogsDisplayList());
   res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
@@ -9,7 +11,7 @@
   footer.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   addFooterView(footer);
   View header=new View(getActivity());
-  header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(8)));
+  header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,topPadding));
   header.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   addHeaderView(header);
   emptyDialogs=res.findViewById(R.id.emptyDialogs);
