@@ -1,3 +1,4 @@
 {
-  return ActorSDK.sharedActor().getComponentName().getClassName();
+  ComponentName componentName=mContext.getPackageManager().getLaunchIntentForPackage(mContext.getPackageName()).getComponent();
+  return componentName.getClassName();
 }
