@@ -11,5 +11,6 @@
   if (!myProcessName.endsWith(":actor_push")) {
     onConfigureActorSDK();
     ActorSDK.sharedActor().createActor(this);
+    ActorSDK.sharedActor().setComponentName(getPackageManager().getLaunchIntentForPackage(getPackageName()).getComponent());
   }
 }
