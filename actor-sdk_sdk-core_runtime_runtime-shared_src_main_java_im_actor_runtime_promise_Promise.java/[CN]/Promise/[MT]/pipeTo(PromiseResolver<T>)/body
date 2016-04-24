@@ -1,12 +1,2 @@
 {
-  complete(new PromiseCallback<T>(){
-    @Override public void onResult(    T t){
-      resolver.result(t);
-    }
-    @Override public void onError(    Exception e){
-      resolver.error(e);
-    }
-  }
-);
-  return this;
 }

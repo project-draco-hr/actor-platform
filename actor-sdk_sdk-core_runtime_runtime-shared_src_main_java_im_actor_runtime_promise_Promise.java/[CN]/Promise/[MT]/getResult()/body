@@ -1,6 +1,0 @@
-{
-  if (!isFinished) {
-    throw new RuntimeException("Promise is not finished!");
-  }
-  return result;
-}
