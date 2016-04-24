@@ -1,13 +1,2 @@
 {
-  return new Promise<T>(new PromiseFunc<T>(){
-    @Override public void exec(    @NotNull PromiseResolver<T> executor){
-      if (size() == 0) {
-        executor.error(new RuntimeException("Array is empty"));
-      }
- else {
-        executor.result(get(0));
-      }
-    }
-  }
-);
 }

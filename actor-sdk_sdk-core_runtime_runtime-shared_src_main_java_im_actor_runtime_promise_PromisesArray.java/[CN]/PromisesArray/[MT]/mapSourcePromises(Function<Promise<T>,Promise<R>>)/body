@@ -1,23 +1,2 @@
 {
-  return new PromisesArray<R>(new PromiseFunc<Promise<R>[]>(){
-    @Override public void exec(    final PromiseResolver<Promise<R>[]> executor){
-      promises.then(new Consumer<Promise<T>[]>(){
-        @Override public void apply(        final Promise<T>[] sourcePromises){
-          final Promise<R>[] mappedPromises=new Promise[sourcePromises.length];
-          for (int i=0; i < mappedPromises.length; i++) {
-            mappedPromises[i]=fun.apply(sourcePromises[i]);
-          }
-          executor.result(mappedPromises);
-        }
-      }
-);
-      promises.failure(new Consumer<Exception>(){
-        @Override public void apply(        Exception e){
-          executor.error(e);
-        }
-      }
-);
-    }
-  }
-);
 }

@@ -1,0 +1,6 @@
+{
+  this.dispatcher=ThreadDispatcher.peekDispatcher();
+  this.result=null;
+  this.exception=e;
+  this.isFinished=true;
+}

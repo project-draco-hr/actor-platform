@@ -1,6 +1,6 @@
 {
   return new Promise<>(new PromiseFunc<T>(){
-    @Override public void exec(    PromiseResolver<T> executor){
+    @Override public void exec(    @NotNull PromiseResolver<T> executor){
       send(new AskIntRequest(message,executor));
     }
   }

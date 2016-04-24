@@ -1,11 +1,2 @@
 {
-  return flatMap(new Function<T,T[]>(){
-    @Override public T[] apply(    T t){
-      if (predicate.apply(t)) {
-        return (T[])new Object[]{t};
-      }
-      return (T[])new Object[0];
-    }
-  }
-);
 }

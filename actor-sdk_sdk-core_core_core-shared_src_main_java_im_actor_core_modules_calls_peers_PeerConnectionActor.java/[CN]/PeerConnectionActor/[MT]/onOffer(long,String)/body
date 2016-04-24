@@ -1,2 +1,30 @@
 {
+  if (state != PeerConnectionState.WAITING_HANDSHAKE) {
+    return;
+  }
+  isReady=false;
+  peerConnection.setRemoteDescription(new WebRTCSessionDescription("offer",sdp)).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+    @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription description){
+      return peerConnection.createAnswer();
+    }
+  }
+).mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+    @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription webRTCSessionDescription){
+      return peerConnection.setLocalDescription(webRTCSessionDescription);
+    }
+  }
+).then(new Consumer<WebRTCSessionDescription>(){
+    @Override public void apply(    WebRTCSessionDescription webRTCSessionDescription){
+      callback.onAnswer(sessionId,webRTCSessionDescription.getSdp());
+      onHandShakeCompleted(sessionId);
+      onReady();
+    }
+  }
+).failure(new Consumer<Exception>(){
+    @Override public void apply(    Exception e){
+      e.printStackTrace();
+      onHandshakeFailure();
+    }
+  }
+);
 }

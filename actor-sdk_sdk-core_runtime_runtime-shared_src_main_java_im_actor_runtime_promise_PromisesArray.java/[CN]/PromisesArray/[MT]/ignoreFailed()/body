@@ -1,24 +1,2 @@
 {
-  return mapSourcePromises(new Function<Promise<T>,Promise<T>>(){
-    @Override public Promise<T> apply(    final Promise<T> tPromise){
-      return new Promise<T>(new PromiseFunc<T>(){
-        @Override public void exec(        @NotNull final PromiseResolver<T> resolver){
-          tPromise.then(new Consumer<T>(){
-            @Override public void apply(            T t){
-              resolver.result(t);
-            }
-          }
-);
-          tPromise.failure(new Consumer<Exception>(){
-            @Override public void apply(            Exception e){
-              resolver.result(null);
-            }
-          }
-);
-        }
-      }
-);
-    }
-  }
-);
 }

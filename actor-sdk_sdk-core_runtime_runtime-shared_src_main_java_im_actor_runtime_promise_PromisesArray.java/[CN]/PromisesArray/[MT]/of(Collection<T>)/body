@@ -1,13 +1,2 @@
 {
-  final ArrayList<Promise<T>> res=new ArrayList<>();
-  for (  T t : collection) {
-    res.add(Promises.success(t));
-  }
-  final Promise<T>[] promises=(Promise<T>[])res.toArray();
-  return new PromisesArray<>(new PromiseFunc<Promise<T>[]>(){
-    @Override public void exec(    PromiseResolver<Promise<T>[]> executor){
-      executor.result(promises);
-    }
-  }
-);
 }

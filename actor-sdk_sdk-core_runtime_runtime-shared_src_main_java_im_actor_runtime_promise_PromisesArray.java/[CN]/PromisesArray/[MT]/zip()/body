@@ -1,8 +1,2 @@
 {
-  return zipPromise(new ListFunction<T,Promise<List<T>>>(){
-    @Override public Promise<List<T>> apply(    List<T> t){
-      return Promises.success(t);
-    }
-  }
-);
 }
