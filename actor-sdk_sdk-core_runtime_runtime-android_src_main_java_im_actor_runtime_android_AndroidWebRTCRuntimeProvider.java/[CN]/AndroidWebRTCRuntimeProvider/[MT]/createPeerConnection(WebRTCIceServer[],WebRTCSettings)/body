@@ -1,6 +1,6 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCPeerConnection>(){
-    @Override public void exec(    @NotNull final PromiseResolver<WebRTCPeerConnection> resolver){
+    @Override public void exec(    @NonNull @NotNull final PromiseResolver<WebRTCPeerConnection> resolver){
       resolver.result(new AndroidPeerConnection(webRTCIceServers,settings));
     }
   }

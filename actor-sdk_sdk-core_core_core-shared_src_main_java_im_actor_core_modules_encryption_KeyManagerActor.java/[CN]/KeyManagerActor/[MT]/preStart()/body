@@ -38,7 +38,7 @@
         Log.e(TAG,e);
       }
     }
-).done(self());
+);
   }
  else {
     onMainKeysReady();

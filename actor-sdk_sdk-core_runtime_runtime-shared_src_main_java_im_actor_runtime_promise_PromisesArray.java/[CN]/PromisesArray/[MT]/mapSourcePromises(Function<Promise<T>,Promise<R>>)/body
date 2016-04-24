@@ -17,7 +17,6 @@
         }
       }
 );
-      promises.done(executor.getDispatcher());
     }
   }
 );

@@ -1,8 +1,2 @@
 {
-  return new Promise<T>(){
-    @Override void exec(    PromiseResolver resolver){
-      resolver.result(val);
-    }
-  }
-;
 }

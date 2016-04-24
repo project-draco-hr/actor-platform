@@ -13,7 +13,7 @@
           checkBlockedList();
         }
       }
-).done(getPromiseActor()));
+));
     }
   }
 );

@@ -1,7 +1,7 @@
 {
   return new Function<SessionActor,Promise<EncryptedSessionActor.EncryptedPackageRes>>(){
     @Override public Promise<EncryptedSessionActor.EncryptedPackageRes> apply(    SessionActor sessionActor){
-      return ask(sessionActor.getActorRef(),new EncryptedSessionActor.EncryptPackage(encKey));
+      return null;
     }
   }
 ;

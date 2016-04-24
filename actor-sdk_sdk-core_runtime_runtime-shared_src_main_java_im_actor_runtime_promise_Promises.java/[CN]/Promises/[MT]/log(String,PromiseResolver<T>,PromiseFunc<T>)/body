@@ -1,22 +1,2 @@
 {
-  return new Promise<T>(){
-    @Override void exec(    PromiseResolver<T> resolver){
-      func.exec(resolver);
-    }
-  }
-.then(new Consumer<T>(){
-    @Override public void apply(    T t){
-      Log.d(TAG,"Result: " + t);
-      resolver.result(t);
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      Log.d(TAG,"Error: " + e);
-      Log.e(TAG,e);
-      e.printStackTrace();
-      resolver.error(e);
-    }
-  }
-);
 }

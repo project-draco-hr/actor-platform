@@ -1,3 +1,4 @@
 {
   this.executor=null;
+  this.dispatcher=null;
 }

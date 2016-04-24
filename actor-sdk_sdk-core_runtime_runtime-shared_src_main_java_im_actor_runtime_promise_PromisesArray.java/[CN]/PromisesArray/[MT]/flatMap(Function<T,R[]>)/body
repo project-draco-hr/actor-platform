@@ -1,6 +1,6 @@
 {
-  return new PromisesArray<R>(new Promise<Promise<R>[]>(){
-    @Override void exec(    final PromiseResolver resolver){
+  return new PromisesArray<R>(new Promise<>(new PromiseFunc<Promise<R>[]>(){
+    @Override public void exec(    @NotNull PromiseResolver<Promise<R>[]> resolver){
       promises.then(new Consumer<Promise<T>[]>(){
         @Override public void apply(        final Promise<T>[] sourcePromises){
           final Object[][] res=new Object[sourcePromises.length][];
@@ -32,7 +32,6 @@
               }
             }
 );
-            sourcePromises[i].done(resolver.getDispatcher());
           }
           if (sourcePromises.length == 0) {
             resolver.result(new Promise[0]);
@@ -46,8 +45,7 @@
         }
       }
 );
-      promises.done(resolver.getDispatcher());
     }
   }
-);
+));
 }

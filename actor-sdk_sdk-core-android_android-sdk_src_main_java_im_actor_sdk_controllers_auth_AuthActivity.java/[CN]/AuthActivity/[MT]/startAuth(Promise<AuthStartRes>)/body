@@ -26,5 +26,5 @@ default :
 handleAuthError(e);
 }
 }
-).done(authActor);
+);
 }

@@ -23,7 +23,7 @@
           onLoadedMore(response);
         }
       }
-).done(self());
+);
     }
     @Override public void onError(    RpcException e){
       lastCallback.onError(e);

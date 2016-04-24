@@ -6,7 +6,7 @@
       if (p == null) {
         return;
       }
-      p.pipeTo(askRequest.getFuture()).done(self());
+      p.pipeTo(askRequest.getFuture());
     }
  catch (    Exception e) {
       e.printStackTrace();

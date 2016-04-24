@@ -1,8 +1,0 @@
-{
-  ref.send(new PromiseDispatch(promise){
-    @Override public void run(){
-      runnable.run();
-    }
-  }
-);
-}

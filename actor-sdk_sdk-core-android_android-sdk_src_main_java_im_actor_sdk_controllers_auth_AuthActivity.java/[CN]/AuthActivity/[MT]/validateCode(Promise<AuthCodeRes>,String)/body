@@ -16,7 +16,7 @@
               handleAuthError(e);
             }
           }
-).done(authActor);
+);
         }
  else {
           signUp(messenger().doSignup(currentName,currentSex,transactionHash),currentName,currentSex);
@@ -29,5 +29,5 @@
       handleAuthError(e);
     }
   }
-).done(authActor);
+);
 }

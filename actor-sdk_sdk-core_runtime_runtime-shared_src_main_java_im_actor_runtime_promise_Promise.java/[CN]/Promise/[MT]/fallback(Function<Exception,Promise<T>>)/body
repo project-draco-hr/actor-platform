@@ -23,11 +23,9 @@
             }
           }
 );
-          res.done(resolver.getDispatcher());
         }
       }
 );
-      self.done(resolver.getDispatcher());
     }
   }
 );

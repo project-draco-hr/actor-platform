@@ -1,16 +1,4 @@
 {
   Log.d(TAG,"doEncrypt");
-  return ask(context().getEncryption().getEncryptedChatManager(uid),new EncryptedPeerActor.EncryptBox(message.buildContainer())).map(new Function<EncryptedPeerActor.EncryptBoxResponse,EncryptedMessage>(){
-    @Override public EncryptedMessage apply(    EncryptedPeerActor.EncryptBoxResponse encryptBoxResponse){
-      Log.d(TAG,"doEncrypt:onResult");
-      ArrayList<ApiEncyptedBoxKey> boxKeys=new ArrayList<ApiEncyptedBoxKey>();
-      for (      EncryptedBoxKey b : encryptBoxResponse.getBox().getKeys()) {
-        boxKeys.add(new ApiEncyptedBoxKey(b.getUid(),b.getKeyGroupId(),"curve25519",b.getEncryptedKey()));
-      }
-      ApiEncryptedBox apiEncryptedBox=new ApiEncryptedBox(0,boxKeys,"aes-kuznechik",encryptBoxResponse.getBox().getEncryptedPackage(),new ArrayList<ApiEncryptedBoxSignature>());
-      ApiEncryptedMessage apiEncryptedMessage=new ApiEncryptedMessage(apiEncryptedBox);
-      return new EncryptedMessage(apiEncryptedMessage);
-    }
-  }
-);
+  return null;
 }

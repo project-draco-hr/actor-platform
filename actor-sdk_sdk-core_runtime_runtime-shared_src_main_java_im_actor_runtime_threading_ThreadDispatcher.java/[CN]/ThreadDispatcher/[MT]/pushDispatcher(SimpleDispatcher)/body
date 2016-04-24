@@ -1,0 +1,10 @@
+{
+  if (currentDispatcher.get() == null) {
+    ArrayList<SimpleDispatcher> dispatchers=new ArrayList<>();
+    dispatchers.add(dispatcher);
+    currentDispatcher.set(dispatchers);
+  }
+ else {
+    currentDispatcher.get().add(dispatcher);
+  }
+}

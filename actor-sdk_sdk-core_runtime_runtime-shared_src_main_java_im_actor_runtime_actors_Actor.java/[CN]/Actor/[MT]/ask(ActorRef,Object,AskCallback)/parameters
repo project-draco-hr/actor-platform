@@ -1,3 +1,0 @@
-ActorRef dest
-Object message
-AskCallback callback

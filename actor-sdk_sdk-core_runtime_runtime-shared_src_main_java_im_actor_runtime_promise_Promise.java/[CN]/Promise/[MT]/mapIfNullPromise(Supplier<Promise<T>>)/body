@@ -25,7 +25,6 @@
               }
             }
 );
-            promise.done(resolver.getDispatcher());
           }
  else {
             resolver.result(t);
@@ -39,7 +38,6 @@
         }
       }
 );
-      self.done(resolver.getDispatcher());
     }
   }
 );

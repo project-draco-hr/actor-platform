@@ -1,6 +1,6 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCSessionDescription>(){
-    @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
+    @Override public void exec(    @NonNull @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
       AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
         @Override public void run(){
           peerConnection.setLocalDescription(new SdpObserver(){

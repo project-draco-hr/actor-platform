@@ -15,7 +15,7 @@
           reject(e);
         }
       }
-).done(JsPromiseDispatcher.INSTANCE);
+);
     }
   }
 );

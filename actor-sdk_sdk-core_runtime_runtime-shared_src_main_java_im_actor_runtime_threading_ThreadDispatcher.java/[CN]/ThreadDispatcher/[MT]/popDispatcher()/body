@@ -1,0 +1,9 @@
+{
+  ArrayList<SimpleDispatcher> dispatchers=currentDispatcher.get();
+  if (dispatchers == null || dispatchers.size() == 0) {
+    throw new RuntimeException("Current Thread doesn't have Active Dispatchers");
+  }
+ else {
+    dispatchers.remove(dispatchers.size() - 1);
+  }
+}

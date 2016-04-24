@@ -1,0 +1,3 @@
+{
+  peekDispatcher().dispatch(runnable);
+}

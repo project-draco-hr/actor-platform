@@ -10,5 +10,5 @@
       dismissDialog(dialog);
     }
   }
-).done(promiseActor);
+);
 }

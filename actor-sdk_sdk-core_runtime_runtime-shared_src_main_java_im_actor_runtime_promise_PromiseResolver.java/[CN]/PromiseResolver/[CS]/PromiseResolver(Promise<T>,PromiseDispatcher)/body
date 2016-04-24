@@ -1,4 +1,0 @@
-{
-  this.promise=promise;
-  this.dispatcher=dispatcher;
-}

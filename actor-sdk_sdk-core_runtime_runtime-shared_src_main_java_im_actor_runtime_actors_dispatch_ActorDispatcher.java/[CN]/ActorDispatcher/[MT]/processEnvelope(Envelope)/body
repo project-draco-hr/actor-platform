@@ -11,7 +11,13 @@
     try {
       Actor actor=scope.getProps().create();
       actor.initActor(scope.getPath(),new ActorContext(scope),scope.getMailbox());
-      actor.preStart();
+      ThreadDispatcher.pushDispatcher(actor.getDispatcher());
+      try {
+        actor.preStart();
+      }
+  finally {
+        ThreadDispatcher.popDispatcher();
+      }
       scope.onActorCreated(actor);
     }
  catch (    Exception e) {
@@ -26,7 +32,13 @@
     if (envelope.getMessage() == StartActor.INSTANCE) {
     }
  else     if (envelope.getMessage() == PoisonPill.INSTANCE) {
-      scope.getActor().postStop();
+      ThreadDispatcher.pushDispatcher(scope.getActor().getDispatcher());
+      try {
+        scope.getActor().postStop();
+      }
+  finally {
+        ThreadDispatcher.popDispatcher();
+      }
       onActorDie(scope);
     }
  else {
@@ -37,7 +49,13 @@
     if (actorSystem.getTraceInterface() != null) {
       actorSystem.getTraceInterface().onActorDie(scope.getActorRef(),envelope,e);
     }
-    scope.getActor().postStop();
+    ThreadDispatcher.pushDispatcher(scope.getActor().getDispatcher());
+    try {
+      scope.getActor().postStop();
+    }
+  finally {
+      ThreadDispatcher.popDispatcher();
+    }
     onActorDie(scope);
   }
  finally {

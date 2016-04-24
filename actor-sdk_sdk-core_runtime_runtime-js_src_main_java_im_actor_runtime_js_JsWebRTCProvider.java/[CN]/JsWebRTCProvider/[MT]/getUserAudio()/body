@@ -11,7 +11,7 @@
           resolver.error(e);
         }
       }
-).done(JsScheduller.scheduller());
+);
     }
   }
 );

@@ -1,4 +1,5 @@
 {
+  ThreadDispatcher.pushDispatcher(dispatcher);
   context.setSender(sender);
   context.setMessage(message);
   try {
@@ -13,6 +14,7 @@
     onReceive(message);
   }
   finally {
+    ThreadDispatcher.popDispatcher();
     context.setSender(null);
     context.setMessage(null);
   }

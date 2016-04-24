@@ -1,7 +1,7 @@
 {
   final Promise<T> self=this;
-  return new Promise<R>(){
-    @Override void exec(    final PromiseResolver<R> resolver){
+  return new Promise<>(new PromiseFunc<R>(){
+    @Override public void exec(    @NotNull PromiseResolver<R> resolver){
       self.then(new Consumer<T>(){
         @Override public void apply(        T t){
           Promise<R> promise;
@@ -25,7 +25,6 @@
             }
           }
 );
-          promise.done(resolver.getDispatcher());
         }
       }
 );
@@ -35,8 +34,7 @@
         }
       }
 );
-      self.done(resolver.getDispatcher());
     }
   }
-;
+);
 }
