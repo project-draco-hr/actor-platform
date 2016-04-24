@@ -1,12 +1,2 @@
 {
-  im.actor.runtime.Runtime.postToMainThread(new Runnable(){
-    @Override public void run(){
-      for (      T i : items) {
-        if (values.containsKey(i.getEngineId())) {
-          values.get(i.getEngineId()).update(i);
-        }
-      }
-    }
-  }
-);
 }

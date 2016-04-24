@@ -1,0 +1,9 @@
+{
+  T res=getValue(key);
+  if (res != null) {
+    return Promise.success(res);
+  }
+ else {
+    return Promise.failure(new RuntimeException());
+  }
+}

@@ -3,7 +3,7 @@
     return;
   }
   isReady=false;
-  peerConnection.createOffer().mapPromise(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
+  peerConnection.createOffer().flatMap(new Function<WebRTCSessionDescription,Promise<WebRTCSessionDescription>>(){
     @Override public Promise<WebRTCSessionDescription> apply(    WebRTCSessionDescription webRTCSessionDescription){
       return peerConnection.setLocalDescription(webRTCSessionDescription);
     }

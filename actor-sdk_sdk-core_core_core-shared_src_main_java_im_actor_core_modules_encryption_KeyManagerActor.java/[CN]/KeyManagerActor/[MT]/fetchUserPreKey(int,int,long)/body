@@ -3,7 +3,7 @@
   if (user == null) {
     throw new RuntimeException("Unable to find user #" + uid);
   }
-  return pickUserGroup(uid,keyGroupId).mapPromise(new Function<Tuple2<UserKeysGroup,UserKeys>,Promise<PublicKey>>(){
+  return pickUserGroup(uid,keyGroupId).flatMap(new Function<Tuple2<UserKeysGroup,UserKeys>,Promise<PublicKey>>(){
     @Override public Promise<PublicKey> apply(    final Tuple2<UserKeysGroup,UserKeys> keysGroup){
       for (      PublicKey p : keysGroup.getT1().getEphemeralKeys()) {
         if (p.getKeyId() == keyId) {

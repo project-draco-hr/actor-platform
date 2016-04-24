@@ -8,7 +8,7 @@
   if (ignoredKeyGroups.contains(senderKeyGroup)) {
     throw new RuntimeException("This key group is ignored");
   }
-  return PromisesArray.of(data.getKeys()).filter(EncryptedBoxKey.FILTER(myUid(),ownKeyGroupId)).first().mapPromise(new Function<EncryptedBoxKey,Promise<Tuple2<SessionActor,EncryptedBoxKey>>>(){
+  return PromisesArray.of(data.getKeys()).filter(EncryptedBoxKey.FILTER(myUid(),ownKeyGroupId)).first().flatMap(new Function<EncryptedBoxKey,Promise<Tuple2<SessionActor,EncryptedBoxKey>>>(){
     @Override public Promise<Tuple2<SessionActor,EncryptedBoxKey>> apply(    final EncryptedBoxKey boxKey){
       final long senderPreKeyId=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),4);
       final long receiverPreKeyId=ByteStrings.bytesToLong(boxKey.getEncryptedKey(),12);
@@ -27,7 +27,7 @@
 );
     }
   }
-).mapPromise(new Function<Tuple2<SessionActor,EncryptedBoxKey>,Promise<EncryptedSessionActor.DecryptedPackage>>(){
+).flatMap(new Function<Tuple2<SessionActor,EncryptedBoxKey>,Promise<EncryptedSessionActor.DecryptedPackage>>(){
     @Override public Promise<EncryptedSessionActor.DecryptedPackage> apply(    Tuple2<SessionActor,EncryptedBoxKey> src){
       Log.d(TAG,"Key size:" + src.getT2().getEncryptedKey().length);
       return null;

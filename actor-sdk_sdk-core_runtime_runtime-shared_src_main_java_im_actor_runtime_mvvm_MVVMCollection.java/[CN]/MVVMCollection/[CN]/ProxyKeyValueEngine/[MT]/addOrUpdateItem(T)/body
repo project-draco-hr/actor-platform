@@ -1,6 +1,6 @@
 {
   cache.put(item.getEngineId(),item);
-  ArrayList<T> res=new ArrayList<T>();
+  ArrayList<T> res=new ArrayList<>();
   res.add(item);
   notifyChange(res);
   byte[] data=item.toByteArray();

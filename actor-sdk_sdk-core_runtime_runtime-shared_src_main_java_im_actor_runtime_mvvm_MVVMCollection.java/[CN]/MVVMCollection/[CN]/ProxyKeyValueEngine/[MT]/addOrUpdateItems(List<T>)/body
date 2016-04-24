@@ -3,7 +3,7 @@
     cache.put(t.getEngineId(),t);
   }
   notifyChange(values);
-  ArrayList<KeyValueRecord> records=new ArrayList<KeyValueRecord>();
+  ArrayList<KeyValueRecord> records=new ArrayList<>();
   for (  T v : values) {
     records.add(new KeyValueRecord(v.getEngineId(),v.toByteArray()));
   }

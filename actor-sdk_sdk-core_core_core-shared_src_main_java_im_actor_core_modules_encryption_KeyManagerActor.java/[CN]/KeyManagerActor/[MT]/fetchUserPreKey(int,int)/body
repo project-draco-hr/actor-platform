@@ -1,5 +1,5 @@
 {
-  return pickUserGroup(uid,keyGroupId).mapPromise(new Function<Tuple2<UserKeysGroup,UserKeys>,Promise<PublicKey>>(){
+  return pickUserGroup(uid,keyGroupId).flatMap(new Function<Tuple2<UserKeysGroup,UserKeys>,Promise<PublicKey>>(){
     @Override public Promise<PublicKey> apply(    final Tuple2<UserKeysGroup,UserKeys> keyGroups){
       return api(new RequestLoadPrePublicKeys(new ApiUserOutPeer(uid,getUser(uid).getAccessHash()),keyGroupId)).map(new Function<ResponsePublicKeys,PublicKey>(){
         @Override public PublicKey apply(        ResponsePublicKeys response){

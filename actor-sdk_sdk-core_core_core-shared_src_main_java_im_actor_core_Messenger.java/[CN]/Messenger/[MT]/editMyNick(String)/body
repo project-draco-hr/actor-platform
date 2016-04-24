@@ -1,3 +1,2 @@
 {
-  return modules.getUsersModule().editNick(newNick);
 }

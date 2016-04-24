@@ -6,7 +6,7 @@
       break;
     }
   }
-  return success(pickedChain).mapPromise(new Function<EncryptedSessionChain,Promise<EncryptedSessionChain>>(){
+  return success(pickedChain).flatMap(new Function<EncryptedSessionChain,Promise<EncryptedSessionChain>>(){
     @Override public Promise<EncryptedSessionChain> apply(    EncryptedSessionChain src){
       if (src != null) {
         return success(src);
