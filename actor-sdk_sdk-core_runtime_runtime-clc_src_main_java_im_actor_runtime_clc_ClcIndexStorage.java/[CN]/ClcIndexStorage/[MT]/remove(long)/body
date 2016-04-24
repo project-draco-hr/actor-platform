@@ -1,7 +1,0 @@
-{
-  checkSqlite();
-  checkDeleteStatement();
-  deleteStatement.bindLong(1,key);
-  deleteStatement.bindString(2,this.context);
-  deleteStatement.execute();
-}

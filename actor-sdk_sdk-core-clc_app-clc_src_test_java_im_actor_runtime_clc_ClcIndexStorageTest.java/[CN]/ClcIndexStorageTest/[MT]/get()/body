@@ -1,3 +1,0 @@
-{
-  assertNull(is.get(0));
-}

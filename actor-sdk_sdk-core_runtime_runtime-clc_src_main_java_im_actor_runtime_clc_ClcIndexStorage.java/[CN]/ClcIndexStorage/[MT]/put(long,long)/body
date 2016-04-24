@@ -1,8 +1,0 @@
-{
-  checkSqlite();
-  checkInsertStatement();
-  insertStatement.bindLong(1,key);
-  insertStatement.bindLong(2,value);
-  insertStatement.bindString(3,this.context);
-  insertStatement.executeInsert();
-}

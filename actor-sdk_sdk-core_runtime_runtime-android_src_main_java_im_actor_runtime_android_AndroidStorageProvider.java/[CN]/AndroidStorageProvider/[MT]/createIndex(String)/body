@@ -1,3 +1,0 @@
-{
-  return new SQLiteIndexStorage(getDatabase(),"i_" + name);
-}

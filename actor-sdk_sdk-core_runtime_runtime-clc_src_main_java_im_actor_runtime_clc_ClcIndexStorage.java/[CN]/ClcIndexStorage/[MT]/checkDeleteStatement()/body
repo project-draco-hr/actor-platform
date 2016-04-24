@@ -1,5 +1,0 @@
-{
-  if (deleteStatement == null) {
-    deleteStatement=db.compileStatement("DELETE FROM \"" + name + "\" WHERE \"ID\"=? AND \"CONTEXT\"=? ");
-  }
-}

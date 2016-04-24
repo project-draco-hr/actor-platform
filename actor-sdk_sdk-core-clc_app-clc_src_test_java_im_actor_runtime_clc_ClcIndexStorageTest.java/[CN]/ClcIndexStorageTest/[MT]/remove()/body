@@ -1,5 +1,0 @@
-{
-  is.put(1,10);
-  is.remove(1);
-  assertNull(is.get(1));
-}

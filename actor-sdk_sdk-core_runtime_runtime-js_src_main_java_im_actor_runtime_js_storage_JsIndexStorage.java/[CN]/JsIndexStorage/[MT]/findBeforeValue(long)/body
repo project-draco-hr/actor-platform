@@ -1,9 +1,0 @@
-{
-  ArrayList<Long> keys=new ArrayList<Long>();
-  for (  Item itm : items) {
-    if (itm.getValue() <= value) {
-      keys.add(itm.getKey());
-    }
-  }
-  return keys;
-}

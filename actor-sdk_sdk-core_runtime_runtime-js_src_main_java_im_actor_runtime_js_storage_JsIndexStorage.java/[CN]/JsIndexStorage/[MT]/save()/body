@@ -1,9 +1,0 @@
-{
-  DataOutput dataOutput=new DataOutput();
-  dataOutput.writeInt(items.size());
-  for (  Item l : items) {
-    dataOutput.writeLong(l.getKey());
-    dataOutput.writeLong(l.getValue());
-  }
-  storage.setItem("index_" + prefix + "_index",toBase64(dataOutput.toByteArray()));
-}

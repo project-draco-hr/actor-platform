@@ -1,5 +1,0 @@
-{
-  System.out.println("after");
-  srp.setContext(null);
-  ((ClcIndexStorage)is).clearAll();
-}

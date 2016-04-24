@@ -1,9 +1,0 @@
-{
-  for (  Item itm : items) {
-    if (itm.getKey() == key) {
-      items.remove(itm);
-    }
-  }
-  items.add(new Item(key,value));
-  save();
-}

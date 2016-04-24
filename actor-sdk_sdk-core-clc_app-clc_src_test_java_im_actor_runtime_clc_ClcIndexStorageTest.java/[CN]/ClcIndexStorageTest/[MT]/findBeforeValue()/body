@@ -1,8 +1,0 @@
-{
-  is.put(1,10);
-  is.put(2,10);
-  is.put(3,20);
-  List<Long> actual=is.findBeforeValue(10);
-  List<Long> expected=Arrays.asList(1L,2L);
-  assertThat(actual,is(expected));
-}

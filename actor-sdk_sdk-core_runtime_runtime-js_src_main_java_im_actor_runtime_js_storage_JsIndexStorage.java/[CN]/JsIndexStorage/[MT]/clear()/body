@@ -1,4 +1,0 @@
-{
-  items.clear();
-  save();
-}

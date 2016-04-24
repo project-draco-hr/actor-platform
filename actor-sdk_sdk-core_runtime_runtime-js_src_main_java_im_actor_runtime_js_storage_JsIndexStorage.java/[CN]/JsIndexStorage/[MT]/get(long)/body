@@ -1,8 +1,0 @@
-{
-  for (  Item itm : items) {
-    if (itm.getKey() == key) {
-      return itm.getValue();
-    }
-  }
-  return null;
-}
