@@ -1,2 +1,4 @@
 {
+  this.dispatcher=ThreadDispatcher.peekDispatcher();
+  executor.exec(new PromiseResolver<>(this));
 }

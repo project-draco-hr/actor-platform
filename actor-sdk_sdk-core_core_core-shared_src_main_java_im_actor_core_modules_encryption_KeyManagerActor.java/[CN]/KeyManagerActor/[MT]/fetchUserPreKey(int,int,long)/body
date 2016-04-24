@@ -7,7 +7,7 @@
     @Override public Promise<PublicKey> apply(    final Tuple2<UserKeysGroup,UserKeys> keysGroup){
       for (      PublicKey p : keysGroup.getT1().getEphemeralKeys()) {
         if (p.getKeyId() == keyId) {
-          return Promises.success(p);
+          return Promise.success(p);
         }
       }
       ArrayList<Long> ids=new ArrayList<Long>();

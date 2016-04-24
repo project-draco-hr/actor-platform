@@ -6,7 +6,7 @@
  catch (  IOException e) {
     Log.w(TAG,"Unable to parse update: ignoring");
     Log.e(TAG,e);
-    return Promises.success(Void.INSTANCE);
+    return Promise.success(Void.INSTANCE);
   }
   if (groups == null || users == null) {
     if (processor.isCausesInvalidation(update)) {
@@ -22,5 +22,5 @@
   if (groups != null && users != null) {
     processor.applyRelated(users,groups,true);
   }
-  return Promises.success(Void.INSTANCE);
+  return Promise.success(Void.INSTANCE);
 }

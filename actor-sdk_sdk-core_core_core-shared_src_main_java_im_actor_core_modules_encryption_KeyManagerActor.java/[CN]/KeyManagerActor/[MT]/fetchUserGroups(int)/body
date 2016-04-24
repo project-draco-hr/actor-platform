@@ -5,7 +5,7 @@
   }
   final UserKeys userKeys=getCachedUserKeys(uid);
   if (userKeys != null) {
-    return Promises.success(userKeys);
+    return Promise.success(userKeys);
   }
   return api(new RequestLoadPublicKeyGroups(new ApiUserOutPeer(uid,user.getAccessHash()))).map(new Function<ResponsePublicKeyGroups,ArrayList<UserKeysGroup>>(){
     @Override public ArrayList<UserKeysGroup> apply(    ResponsePublicKeyGroups response){
