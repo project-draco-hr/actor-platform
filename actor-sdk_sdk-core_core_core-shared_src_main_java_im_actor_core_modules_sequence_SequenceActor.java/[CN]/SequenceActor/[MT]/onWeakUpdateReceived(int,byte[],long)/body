@@ -1,0 +1,11 @@
+{
+  Update update;
+  try {
+    update=updatesParser.read(type,body);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return;
+  }
+  handler.onWeakUpdate(update,date);
+}

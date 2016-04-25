@@ -1,4 +1,0 @@
-int updateKey
-byte[] data
-List<ApiUser> users
-List<ApiGroup> groups

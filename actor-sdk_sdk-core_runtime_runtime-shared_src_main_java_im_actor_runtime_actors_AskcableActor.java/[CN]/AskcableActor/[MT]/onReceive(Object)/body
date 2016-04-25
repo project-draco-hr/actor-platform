@@ -6,6 +6,7 @@
       if (p == null) {
         return;
       }
+      Log.d("Asckable","" + askRequest.getFuture());
       p.pipeTo(askRequest.getFuture());
     }
  catch (    Exception e) {

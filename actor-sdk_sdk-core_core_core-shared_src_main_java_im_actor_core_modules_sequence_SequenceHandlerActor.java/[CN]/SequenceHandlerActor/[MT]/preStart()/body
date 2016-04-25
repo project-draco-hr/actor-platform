@@ -1,4 +1,0 @@
-{
-  super.preStart();
-  this.updatesParser=new UpdatesParser();
-}

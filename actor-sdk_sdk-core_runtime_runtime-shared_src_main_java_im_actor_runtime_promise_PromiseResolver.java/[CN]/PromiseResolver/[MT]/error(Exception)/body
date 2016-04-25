@@ -1,3 +1,4 @@
 {
+  Log.d("Resolver","" + this);
   promise.error(e);
 }

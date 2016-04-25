@@ -1,5 +1,0 @@
-{
-  this.type=type;
-  this.body=body;
-  this.date=date;
-}

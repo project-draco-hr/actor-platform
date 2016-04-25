@@ -1,19 +1,19 @@
 {
-  if (message instanceof SeqUpdate) {
-    SeqUpdate seqUpdate=(SeqUpdate)message;
+  if (message instanceof HandlerSeqUpdate) {
+    HandlerSeqUpdate seqUpdate=(HandlerSeqUpdate)message;
     if (isUpdating) {
       stash();
       return null;
     }
-    return onSeqUpdate(seqUpdate.type,seqUpdate.body,seqUpdate.users,seqUpdate.groups);
+    return onSeqUpdate(seqUpdate.getUpdate(),seqUpdate.getUsers(),seqUpdate.getGroups());
   }
- else   if (message instanceof DifferenceUpdate) {
-    DifferenceUpdate differenceUpdate=(DifferenceUpdate)message;
+ else   if (message instanceof HandlerDifferenceUpdates) {
+    HandlerDifferenceUpdates differenceUpdate=(HandlerDifferenceUpdates)message;
     if (isUpdating) {
       stash();
       return null;
     }
-    return onDifferenceUpdate(differenceUpdate.getDifference());
+    return onDifferenceUpdate(differenceUpdate.getUsers(),differenceUpdate.getGroups(),differenceUpdate.getUserOutPeers(),differenceUpdate.getGroupOutPeers(),differenceUpdate.getUpdates());
   }
  else {
     return super.onAsk(message);

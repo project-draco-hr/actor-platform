@@ -46,6 +46,10 @@
     }
     onPushSeqReceived(((PushSeq)message).seq);
   }
+ else   if (message instanceof WeakUpdate) {
+    WeakUpdate weakUpdate=(WeakUpdate)message;
+    onWeakUpdateReceived(weakUpdate.getUpdateHeader(),weakUpdate.getUpdate(),weakUpdate.getDate());
+  }
  else {
     super.onReceive(message);
   }

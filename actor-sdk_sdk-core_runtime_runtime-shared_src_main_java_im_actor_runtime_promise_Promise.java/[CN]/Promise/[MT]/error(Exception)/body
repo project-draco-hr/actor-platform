@@ -5,6 +5,7 @@
   if (e == null) {
     throw new RuntimeException("Error can't be null");
   }
+  Log.d("Promise","error " + this);
   isFinished=true;
   exception=e;
   deliverResult();

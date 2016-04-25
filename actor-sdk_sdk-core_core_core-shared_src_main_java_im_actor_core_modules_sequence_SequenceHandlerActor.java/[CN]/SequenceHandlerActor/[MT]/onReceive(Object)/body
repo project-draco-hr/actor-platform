@@ -1,8 +1,8 @@
 {
-  if (message instanceof WeakUpdate) {
-    WeakUpdate weakUpdate=(WeakUpdate)message;
+  if (message instanceof HandlerWeakUpdate) {
+    HandlerWeakUpdate weakUpdate=(HandlerWeakUpdate)message;
     try {
-      onWeakUpdateReceived(weakUpdate.type,weakUpdate.body,weakUpdate.date);
+      onWeakUpdateReceived(weakUpdate.getUpdate(),weakUpdate.getDate());
     }
  catch (    Exception e) {
       e.printStackTrace();
@@ -13,7 +13,8 @@
       stash();
       return;
     }
-    onRelatedResponse(((RelatedResponse)message).getRelatedUsers(),((RelatedResponse)message).getRelatedGroups(),((RelatedResponse)message).getAfterApply());
+    RelatedResponse relatedResponse=(RelatedResponse)message;
+    onRelatedResponse(relatedResponse.getRelatedUsers(),relatedResponse.getRelatedGroups(),relatedResponse.getAfterApply());
   }
  else   if (message instanceof InternalUpdate) {
     if (isUpdating) {

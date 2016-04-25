@@ -3,6 +3,8 @@
   state=preferences().getBytes(KEY_STATE);
   finishedSeq=seq;
   finishedState=state;
+  validator=new UpdateValidator(context());
+  updatesParser=new UpdatesParser();
   handler=context().getUpdatesModule().getUpdateHandler();
   currentWakeLock=im.actor.runtime.Runtime.makeWakeLock();
   self().send(new Invalidate());
