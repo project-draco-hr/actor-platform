@@ -2,8 +2,8 @@
 switch (position) {
 default :
 case 0:
-    return getDialogsFragment();
+    return getDialogsFragment(new DialogsFragment());
 case 1:
-  return getContactsFragment();
+  return getContactsFragment(new ContactsFragment());
 }
 }

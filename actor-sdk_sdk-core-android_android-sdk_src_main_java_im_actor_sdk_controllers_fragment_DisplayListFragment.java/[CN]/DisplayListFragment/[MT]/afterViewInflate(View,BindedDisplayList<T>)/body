@@ -11,7 +11,4 @@
   configureRecyclerView(collection);
   adapter=onCreateAdapter(displayList,getActivity());
   collection.setAdapter(adapter);
-  if (onScrollListener != null) {
-    collection.setOnScrollListener(onScrollListener);
-  }
 }
