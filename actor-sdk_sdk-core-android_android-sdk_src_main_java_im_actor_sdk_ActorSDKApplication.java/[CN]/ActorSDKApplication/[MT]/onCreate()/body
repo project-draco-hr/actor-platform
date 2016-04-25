@@ -9,6 +9,7 @@
     }
   }
   if (!myProcessName.endsWith(":actor_push")) {
+    AndroidContext.setContext(this);
     onConfigureActorSDK();
     ActorSDK.sharedActor().createActor(this);
   }
