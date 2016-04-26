@@ -10,7 +10,10 @@
     writer.writeInt(6,this.state.getValue());
   }
   writer.writeRepeatedObj(7,this.reactions);
-  if (this.attributes != null) {
-    writer.writeObject(8,this.attributes);
+  if (this.attribute != null) {
+    writer.writeObject(8,this.attribute);
+  }
+  if (this.quotedMessage != null) {
+    writer.writeObject(9,this.quotedMessage);
   }
 }

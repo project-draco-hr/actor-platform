@@ -1,0 +1,11 @@
+{
+  User u=users().getValue(uid);
+  if (u != null) {
+    if (equalsE(u.getAbout(),about)) {
+      return Promise.success(null);
+    }
+    u=u.editAbout(about);
+    users().addOrUpdateItem(u);
+  }
+  return Promise.success(null);
+}

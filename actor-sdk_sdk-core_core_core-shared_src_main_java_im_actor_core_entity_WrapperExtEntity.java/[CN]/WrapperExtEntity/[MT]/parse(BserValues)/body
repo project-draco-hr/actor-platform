@@ -1,0 +1,7 @@
+{
+  byte[] rawExt=values.optBytes(extRecordField);
+  if (rawExt != null) {
+    wrappedExt=Bser.parse(createExtInstance(),rawExt);
+  }
+  super.parse(values);
+}

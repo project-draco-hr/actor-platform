@@ -6,7 +6,7 @@
       nMembers.add(member);
     }
   }
-  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.getTheme(),w.getAbout(),w.isHidden(),w.getGroupType(),w.getExt());
+  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.getMembersCount(),w.isHidden(),w.getExt(),w.isMember(),w.isAdmin(),w.getCreatorUid(),nMembers,w.getCreateDate(),w.getTheme(),w.getAbout());
   res.setUnmappedObjects(w.getUnmappedObjects());
   return new Group(res);
 }

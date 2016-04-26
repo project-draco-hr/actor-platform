@@ -12,5 +12,6 @@
     _reactions.add(new ApiMessageReaction());
   }
   this.reactions=values.getRepeatedObj(7,_reactions);
-  this.attributes=values.optObj(8,new ApiMessageAttributes());
+  this.attribute=values.optObj(8,new ApiMessageAttributes());
+  this.quotedMessage=values.optObj(9,new ApiQuotedMessage());
 }

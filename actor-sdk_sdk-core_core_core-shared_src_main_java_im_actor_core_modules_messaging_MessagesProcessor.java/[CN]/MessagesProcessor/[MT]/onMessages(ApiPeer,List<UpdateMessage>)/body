@@ -6,4 +6,5 @@
     nMessages.add(new Message(u.getRid(),u.getDate(),u.getDate(),u.getSenderUid(),myUid() == u.getSenderUid() ? MessageState.SENT : MessageState.UNKNOWN,msgContent));
   }
   context().getMessagesModule().getRouter().onNewMessages(peer,nMessages);
+  return Promise.success(null);
 }

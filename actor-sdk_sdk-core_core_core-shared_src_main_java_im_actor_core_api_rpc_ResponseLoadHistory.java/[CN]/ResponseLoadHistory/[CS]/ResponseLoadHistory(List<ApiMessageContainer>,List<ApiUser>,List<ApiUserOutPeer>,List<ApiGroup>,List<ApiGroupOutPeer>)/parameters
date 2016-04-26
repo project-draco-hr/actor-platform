@@ -1,0 +1,5 @@
+List<ApiMessageContainer> history
+List<ApiUser> users
+List<ApiUserOutPeer> userPeers
+List<ApiGroup> groups
+List<ApiGroupOutPeer> groupPeers

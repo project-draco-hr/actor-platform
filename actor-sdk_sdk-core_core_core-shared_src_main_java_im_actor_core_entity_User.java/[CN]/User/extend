@@ -1,1 +1,1 @@
-WrapperEntity<ApiUser>
+WrapperExtEntity<ApiFullUser,ApiUser>

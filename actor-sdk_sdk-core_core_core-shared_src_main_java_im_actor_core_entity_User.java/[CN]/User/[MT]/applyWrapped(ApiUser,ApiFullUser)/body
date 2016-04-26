@@ -1,0 +1,52 @@
+{
+  this.uid=wrapped.getId();
+  this.accessHash=wrapped.getAccessHash();
+  this.name=wrapped.getName();
+  this.localName=wrapped.getLocalName();
+  if (wrapped.getNick() != null && wrapped.getNick().length() > 0) {
+    this.username=wrapped.getNick();
+  }
+ else {
+    this.username=null;
+  }
+  if (wrapped.getAvatar() != null) {
+    this.avatar=new Avatar(wrapped.getAvatar());
+  }
+  this.isBot=false;
+  if (wrapped.isBot() != null) {
+    this.isBot=wrapped.isBot();
+  }
+  this.sex=Sex.UNKNOWN;
+  if (wrapped.getSex() != null) {
+switch (wrapped.getSex()) {
+case FEMALE:
+      this.sex=Sex.FEMALE;
+    break;
+case MALE:
+  this.sex=Sex.MALE;
+break;
+}
+}
+if (ext != null) {
+this.records=new ArrayList<>();
+for (ApiContactRecord record : ext.getContactInfo()) {
+if (record.getType() == ApiContactType.PHONE) {
+this.records.add(new ContactRecord(ContactRecordType.PHONE,record.getTypeSpec(),"" + record.getLongValue(),record.getTitle(),record.getSubtitle()));
+}
+ else if (record.getType() == ApiContactType.EMAIL) {
+this.records.add(new ContactRecord(ContactRecordType.EMAIL,record.getTypeSpec(),record.getStringValue(),record.getTitle(),record.getSubtitle()));
+}
+ else if (record.getType() == ApiContactType.WEB) {
+this.records.add(new ContactRecord(ContactRecordType.WEB,record.getTypeSpec(),record.getStringValue(),record.getTitle(),record.getSubtitle()));
+}
+ else if (record.getType() == ApiContactType.SOCIAL) {
+this.records.add(new ContactRecord(ContactRecordType.SOCIAL,record.getTypeSpec(),record.getStringValue(),record.getTitle(),record.getSubtitle()));
+}
+}
+this.about=ext.getAbout();
+}
+ else {
+this.records=new ArrayList<>();
+this.about=null;
+}
+}

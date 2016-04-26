@@ -1,8 +1,9 @@
 {
   Peer peer=convert(_peer);
   if (!isValidPeer(peer)) {
-    return;
+    return Promise.success(null);
   }
   context().getMessagesModule().getRouter().onOutgoingSent(peer,rid,date);
   sendActor().send(new SenderActor.MessageSent(peer,rid));
+  return Promise.success(null);
 }

@@ -2,4 +2,7 @@
   for (  ApiSearchCondition i : this.query) {
     writer.writeBytes(1,i.buildContainer());
   }
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(2,i.getValue());
+  }
 }

@@ -1,0 +1,21 @@
+{
+  this.id=values.getInt(1);
+  List<ApiContactRecord> _contactInfo=new ArrayList<ApiContactRecord>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _contactInfo.add(new ApiContactRecord());
+  }
+  this.contactInfo=values.getRepeatedObj(2,_contactInfo);
+  this.about=values.optString(3);
+  this.preferredLanguages=values.getRepeatedString(4);
+  this.timeZone=values.optString(5);
+  List<ApiBotCommand> _botCommands=new ArrayList<ApiBotCommand>();
+  for (int i=0; i < values.getRepeatedCount(6); i++) {
+    _botCommands.add(new ApiBotCommand());
+  }
+  this.botCommands=values.getRepeatedObj(6,_botCommands);
+  this.ext=values.optObj(7,new ApiMapValue());
+  this.isBlocked=values.optBool(8);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

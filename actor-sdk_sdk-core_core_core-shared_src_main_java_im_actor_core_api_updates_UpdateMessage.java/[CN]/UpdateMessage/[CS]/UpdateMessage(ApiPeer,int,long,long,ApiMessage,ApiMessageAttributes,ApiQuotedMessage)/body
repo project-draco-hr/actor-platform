@@ -1,0 +1,9 @@
+{
+  this.peer=peer;
+  this.senderUid=senderUid;
+  this.date=date;
+  this.rid=rid;
+  this.message=message;
+  this.attributes=attributes;
+  this.quotedMessage=quotedMessage;
+}

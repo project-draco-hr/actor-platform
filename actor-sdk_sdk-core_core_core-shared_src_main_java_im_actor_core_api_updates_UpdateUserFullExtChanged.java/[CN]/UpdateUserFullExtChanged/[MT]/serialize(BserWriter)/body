@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,this.uid);
+  if (this.ext != null) {
+    writer.writeObject(3,this.ext);
+  }
+}

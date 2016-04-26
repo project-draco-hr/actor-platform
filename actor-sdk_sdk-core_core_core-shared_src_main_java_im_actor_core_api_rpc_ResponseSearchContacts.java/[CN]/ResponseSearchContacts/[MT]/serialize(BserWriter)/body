@@ -1,3 +1,4 @@
 {
   writer.writeRepeatedObj(1,this.users);
+  writer.writeRepeatedObj(2,this.userPeers);
 }

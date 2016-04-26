@@ -3,27 +3,14 @@
   this.accessHash=values.getLong(2);
   this.name=values.getString(3);
   this.localName=values.optString(4);
+  this.nick=values.optString(13);
   int val_sex=values.getInt(5,0);
   if (val_sex != 0) {
     this.sex=ApiSex.parse(val_sex);
   }
   this.avatar=values.optObj(8,new ApiAvatar());
-  List<ApiContactRecord> _contactInfo=new ArrayList<ApiContactRecord>();
-  for (int i=0; i < values.getRepeatedCount(12); i++) {
-    _contactInfo.add(new ApiContactRecord());
-  }
-  this.contactInfo=values.getRepeatedObj(12,_contactInfo);
   this.isBot=values.optBool(11);
-  this.nick=values.optString(13);
-  this.about=values.optString(14);
-  this.external=values.optString(15);
-  this.preferredLanguages=values.getRepeatedString(16);
-  this.timeZone=values.optString(17);
-  List<ApiBotCommand> _botCommands=new ArrayList<ApiBotCommand>();
-  for (int i=0; i < values.getRepeatedCount(19); i++) {
-    _botCommands.add(new ApiBotCommand());
-  }
-  this.botCommands=values.getRepeatedObj(19,_botCommands);
+  this.ext=values.optObj(20,new ApiMapValue());
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

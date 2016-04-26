@@ -1,4 +1,5 @@
 {
   writer.writeRepeatedObj(1,this.users);
   writer.writeBool(2,this.isNotChanged);
+  writer.writeRepeatedObj(3,this.userPeers);
 }

@@ -2,4 +2,6 @@
   writer.writeRepeatedObj(1,this.searchResults);
   writer.writeRepeatedObj(2,this.users);
   writer.writeRepeatedObj(3,this.groups);
+  writer.writeRepeatedObj(4,this.userPeers);
+  writer.writeRepeatedObj(5,this.groupPeers);
 }

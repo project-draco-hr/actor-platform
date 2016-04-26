@@ -1,7 +1,7 @@
 {
   if (update instanceof UpdateParameterChanged) {
     onSettingsChanged(((UpdateParameterChanged)update).getKey(),((UpdateParameterChanged)update).getValue());
-    return true;
+    return Promise.success(null);
   }
-  return false;
+  return null;
 }

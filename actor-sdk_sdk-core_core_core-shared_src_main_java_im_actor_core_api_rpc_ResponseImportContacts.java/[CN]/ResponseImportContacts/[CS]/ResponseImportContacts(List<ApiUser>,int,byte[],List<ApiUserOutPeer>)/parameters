@@ -1,0 +1,4 @@
+List<ApiUser> users
+int seq
+byte[] state
+List<ApiUserOutPeer> userPeers

@@ -1,0 +1,9 @@
+{
+  this.id=id;
+  this.theme=theme;
+  this.about=about;
+  this.members=members;
+  this.creatorUid=creatorUid;
+  this.createDate=createDate;
+  this.ext=ext;
+}

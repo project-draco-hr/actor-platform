@@ -1,0 +1,7 @@
+{
+  String res="update UserFullExtChanged{";
+  res+="uid=" + this.uid;
+  res+=", ext=" + this.ext;
+  res+="}";
+  return res;
+}

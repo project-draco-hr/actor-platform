@@ -3,4 +3,7 @@
     writer.writeBytes(1,this.nextOffset);
   }
   writer.writeInt(2,this.limit);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(3,i.getValue());
+  }
 }

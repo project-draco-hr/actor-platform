@@ -4,4 +4,9 @@
     _users.add(new ApiUser());
   }
   this.users=values.getRepeatedObj(1,_users);
+  List<ApiUserOutPeer> _userPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _userPeers.add(new ApiUserOutPeer());
+  }
+  this.userPeers=values.getRepeatedObj(2,_userPeers);
 }

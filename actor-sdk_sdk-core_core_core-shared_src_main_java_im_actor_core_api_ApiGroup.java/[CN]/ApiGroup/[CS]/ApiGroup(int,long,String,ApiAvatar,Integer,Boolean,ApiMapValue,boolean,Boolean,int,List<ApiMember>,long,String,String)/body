@@ -1,0 +1,16 @@
+{
+  this.id=id;
+  this.accessHash=accessHash;
+  this.title=title;
+  this.avatar=avatar;
+  this.membersCount=membersCount;
+  this.isHidden=isHidden;
+  this.ext=ext;
+  this.isMember=isMember;
+  this.isAdmin=isAdmin;
+  this.creatorUid=creatorUid;
+  this.members=members;
+  this.createDate=createDate;
+  this.theme=theme;
+  this.about=about;
+}

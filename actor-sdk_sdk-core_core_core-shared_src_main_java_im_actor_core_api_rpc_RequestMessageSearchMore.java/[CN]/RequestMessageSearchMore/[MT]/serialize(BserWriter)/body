@@ -3,4 +3,7 @@
     throw new IOException();
   }
   writer.writeBytes(1,this.loadMoreState);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(2,i.getValue());
+  }
 }

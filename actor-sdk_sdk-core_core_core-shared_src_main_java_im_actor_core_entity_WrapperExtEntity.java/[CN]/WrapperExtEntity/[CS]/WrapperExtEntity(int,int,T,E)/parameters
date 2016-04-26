@@ -1,0 +1,4 @@
+int recordField
+int extRecordField
+T wrapped
+E ext

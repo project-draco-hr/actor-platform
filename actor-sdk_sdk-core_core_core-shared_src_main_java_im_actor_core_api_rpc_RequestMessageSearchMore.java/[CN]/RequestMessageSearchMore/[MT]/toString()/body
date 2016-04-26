@@ -1,5 +1,6 @@
 {
   String res="rpc MessageSearchMore{";
+  res+="optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

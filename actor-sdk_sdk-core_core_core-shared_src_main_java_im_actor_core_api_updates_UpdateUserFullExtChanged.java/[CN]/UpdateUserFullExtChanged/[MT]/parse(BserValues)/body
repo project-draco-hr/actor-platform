@@ -1,0 +1,4 @@
+{
+  this.uid=values.getInt(1);
+  this.ext=values.optObj(3,new ApiMapValue());
+}

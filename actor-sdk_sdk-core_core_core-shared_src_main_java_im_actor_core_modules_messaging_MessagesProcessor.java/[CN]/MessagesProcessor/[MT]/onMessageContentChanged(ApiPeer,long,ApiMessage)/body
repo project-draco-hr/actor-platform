@@ -1,8 +1,9 @@
 {
   Peer peer=convert(_peer);
   if (!isValidPeer(peer)) {
-    return;
+    return Promise.success(null);
   }
   AbsContent content=AbsContent.fromMessage(message);
   context().getMessagesModule().getRouter().onContentChanged(peer,rid,content);
+  return Promise.success(null);
 }

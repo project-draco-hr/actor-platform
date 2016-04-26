@@ -1,4 +1,8 @@
 {
   this.nextOffset=values.optBytes(1);
   this.limit=values.getInt(2);
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(3)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

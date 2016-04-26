@@ -1,5 +1,0 @@
-{
-  this.groups=groups;
-  this.users=users;
-  this.dialogs=dialogs;
-}

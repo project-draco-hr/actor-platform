@@ -3,6 +3,11 @@
   this.accessHash=values.getLong(2);
   this.title=values.getString(3);
   this.avatar=values.optObj(4,new ApiAvatar());
+  this.membersCount=values.optInt(24);
+  this.isHidden=values.optBool(20);
+  this.ext=values.optObj(22,new ApiMapValue());
+  this.isMember=values.getBool(6);
+  this.isAdmin=values.optBool(16);
   this.creatorUid=values.getInt(8);
   List<ApiMember> _members=new ArrayList<ApiMember>();
   for (int i=0; i < values.getRepeatedCount(9); i++) {
@@ -12,9 +17,6 @@
   this.createDate=values.getLong(10);
   this.theme=values.optString(17);
   this.about=values.optString(18);
-  this.isHidden=values.optBool(20);
-  this.groupType=values.optString(23);
-  this.ext=values.optObj(22,new ApiMapValue());
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

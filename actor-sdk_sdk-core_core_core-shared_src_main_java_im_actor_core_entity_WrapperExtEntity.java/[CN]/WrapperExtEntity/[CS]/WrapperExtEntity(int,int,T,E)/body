@@ -1,0 +1,6 @@
+{
+  super(recordField);
+  this.extRecordField=extRecordField;
+  this.wrappedExt=ext;
+  setWrapped(wrapped);
+}

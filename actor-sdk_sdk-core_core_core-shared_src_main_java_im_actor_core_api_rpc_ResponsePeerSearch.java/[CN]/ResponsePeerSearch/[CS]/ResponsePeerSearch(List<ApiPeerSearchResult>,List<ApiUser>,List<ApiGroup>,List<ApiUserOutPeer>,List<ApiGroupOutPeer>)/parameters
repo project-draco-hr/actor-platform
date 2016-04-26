@@ -1,0 +1,5 @@
+List<ApiPeerSearchResult> searchResults
+List<ApiUser> users
+List<ApiGroup> groups
+List<ApiUserOutPeer> userPeers
+List<ApiGroupOutPeer> groupPeers

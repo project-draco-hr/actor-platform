@@ -6,6 +6,7 @@
   res+=", rid=" + this.rid;
   res+=", message=" + this.message;
   res+=", attributes=" + this.attributes;
+  res+=", quotedMessage=" + this.quotedMessage;
   res+="}";
   return res;
 }

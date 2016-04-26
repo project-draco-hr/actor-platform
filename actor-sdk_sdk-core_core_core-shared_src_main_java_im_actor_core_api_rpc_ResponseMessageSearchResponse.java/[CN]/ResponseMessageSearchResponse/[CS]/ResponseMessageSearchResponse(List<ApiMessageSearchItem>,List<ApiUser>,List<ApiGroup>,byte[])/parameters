@@ -1,4 +1,0 @@
-List<ApiMessageSearchItem> searchResults
-List<ApiUser> users
-List<ApiGroup> groups
-byte[] loadMoreState

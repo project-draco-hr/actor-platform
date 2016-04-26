@@ -1,0 +1,13 @@
+{
+  String res="struct FullUser{";
+  res+="id=" + this.id;
+  res+=", contactInfo=" + this.contactInfo.size();
+  res+=", about=" + this.about;
+  res+=", preferredLanguages=" + this.preferredLanguages;
+  res+=", timeZone=" + this.timeZone;
+  res+=", botCommands=" + this.botCommands;
+  res+=", ext=" + this.ext;
+  res+=", isBlocked=" + this.isBlocked;
+  res+="}";
+  return res;
+}

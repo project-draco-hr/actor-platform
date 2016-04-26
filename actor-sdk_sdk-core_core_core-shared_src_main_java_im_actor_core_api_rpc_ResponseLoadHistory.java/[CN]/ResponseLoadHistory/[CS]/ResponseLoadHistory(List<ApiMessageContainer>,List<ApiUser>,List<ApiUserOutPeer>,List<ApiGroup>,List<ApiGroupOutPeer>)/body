@@ -1,0 +1,7 @@
+{
+  this.history=history;
+  this.users=users;
+  this.userPeers=userPeers;
+  this.groups=groups;
+  this.groupPeers=groupPeers;
+}

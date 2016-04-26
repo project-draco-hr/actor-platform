@@ -1,0 +1,7 @@
+{
+  this.messageId=messageId;
+  this.publicGroupId=publicGroupId;
+  this.senderUserId=senderUserId;
+  this.messageDate=messageDate;
+  this.quotedMessageContent=quotedMessageContent;
+}

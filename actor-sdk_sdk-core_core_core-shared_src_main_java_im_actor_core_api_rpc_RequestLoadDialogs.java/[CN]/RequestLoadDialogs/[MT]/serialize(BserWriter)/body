@@ -1,4 +1,7 @@
 {
   writer.writeLong(1,this.minDate);
   writer.writeInt(2,this.limit);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(3,i.getValue());
+  }
 }

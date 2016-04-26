@@ -1,0 +1,10 @@
+{
+  this.id=id;
+  this.contactInfo=contactInfo;
+  this.about=about;
+  this.preferredLanguages=preferredLanguages;
+  this.timeZone=timeZone;
+  this.botCommands=botCommands;
+  this.ext=ext;
+  this.isBlocked=isBlocked;
+}

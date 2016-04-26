@@ -1,0 +1,5 @@
+{
+  String res="struct EmptyMessage{";
+  res+="}";
+  return res;
+}

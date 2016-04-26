@@ -13,4 +13,7 @@
   if (this.attributes != null) {
     writer.writeObject(6,this.attributes);
   }
+  if (this.quotedMessage != null) {
+    writer.writeObject(7,this.quotedMessage);
+  }
 }

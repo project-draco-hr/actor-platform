@@ -11,4 +11,7 @@
   if (this.isOnlyForUser != null) {
     writer.writeInt(5,this.isOnlyForUser);
   }
+  if (this.quotedMessageReference != null) {
+    writer.writeObject(6,this.quotedMessageReference);
+  }
 }

@@ -1,0 +1,8 @@
+{
+  String res="update MessageQuotedChanged{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+=", quotedMessage=" + this.quotedMessage;
+  res+="}";
+  return res;
+}

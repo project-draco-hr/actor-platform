@@ -1,0 +1,6 @@
+{
+  this.users=users;
+  this.seq=seq;
+  this.state=state;
+  this.userPeers=userPeers;
+}

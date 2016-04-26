@@ -3,4 +3,8 @@
   for (  byte[] b : values.getRepeatedBytes(1)) {
     query.add(ApiSearchCondition.fromBytes(b));
   }
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(2)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

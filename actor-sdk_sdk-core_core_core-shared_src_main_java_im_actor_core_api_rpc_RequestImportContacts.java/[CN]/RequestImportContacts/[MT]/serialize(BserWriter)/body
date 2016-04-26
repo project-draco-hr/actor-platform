@@ -1,4 +1,7 @@
 {
   writer.writeRepeatedObj(1,this.phones);
   writer.writeRepeatedObj(2,this.emails);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(3,i.getValue());
+  }
 }

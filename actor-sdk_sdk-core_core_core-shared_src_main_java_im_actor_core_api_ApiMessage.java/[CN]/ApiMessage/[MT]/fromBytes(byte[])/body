@@ -19,6 +19,8 @@ case 7:
 return Bser.parse(new ApiBinaryMessage(),content);
 case 8:
 return Bser.parse(new ApiEncryptedMessage(),content);
+case 9:
+return Bser.parse(new ApiEmptyMessage(),content);
 default :
 return new ApiMessageUnsupported(key,content);
 }

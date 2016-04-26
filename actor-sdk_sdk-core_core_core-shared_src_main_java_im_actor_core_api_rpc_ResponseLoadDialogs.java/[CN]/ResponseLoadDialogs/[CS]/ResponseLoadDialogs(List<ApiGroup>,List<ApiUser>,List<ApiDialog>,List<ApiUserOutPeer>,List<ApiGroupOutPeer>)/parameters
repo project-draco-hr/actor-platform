@@ -1,0 +1,5 @@
+List<ApiGroup> groups
+List<ApiUser> users
+List<ApiDialog> dialogs
+List<ApiUserOutPeer> userPeers
+List<ApiGroupOutPeer> groupPeers

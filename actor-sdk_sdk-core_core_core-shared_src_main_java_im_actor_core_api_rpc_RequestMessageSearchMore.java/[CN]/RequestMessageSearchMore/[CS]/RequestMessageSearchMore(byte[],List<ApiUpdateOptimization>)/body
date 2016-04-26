@@ -1,0 +1,4 @@
+{
+  this.loadMoreState=loadMoreState;
+  this.optimizations=optimizations;
+}

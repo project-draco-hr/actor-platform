@@ -1,0 +1,8 @@
+int id
+List<ApiContactRecord> contactInfo
+String about
+List<String> preferredLanguages
+String timeZone
+List<ApiBotCommand> botCommands
+ApiMapValue ext
+Boolean isBlocked

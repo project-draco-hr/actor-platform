@@ -3,16 +3,11 @@
   res+="id=" + this.id;
   res+=", name=" + this.name;
   res+=", localName=" + this.localName;
+  res+=", nick=" + this.nick;
   res+=", sex=" + this.sex;
   res+=", avatar=" + (this.avatar != null ? "set" : "empty");
-  res+=", contactInfo=" + this.contactInfo.size();
   res+=", isBot=" + this.isBot;
-  res+=", nick=" + this.nick;
-  res+=", about=" + this.about;
-  res+=", external=" + this.external;
-  res+=", preferredLanguages=" + this.preferredLanguages;
-  res+=", timeZone=" + this.timeZone;
-  res+=", botCommands=" + this.botCommands;
+  res+=", ext=" + this.ext;
   res+="}";
   return res;
 }

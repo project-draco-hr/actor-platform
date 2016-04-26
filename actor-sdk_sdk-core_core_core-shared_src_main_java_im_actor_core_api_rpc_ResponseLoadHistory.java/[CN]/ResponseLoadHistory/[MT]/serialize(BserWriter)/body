@@ -1,4 +1,7 @@
 {
   writer.writeRepeatedObj(1,this.history);
   writer.writeRepeatedObj(2,this.users);
+  writer.writeRepeatedObj(4,this.userPeers);
+  writer.writeRepeatedObj(5,this.groups);
+  writer.writeRepeatedObj(6,this.groupPeers);
 }

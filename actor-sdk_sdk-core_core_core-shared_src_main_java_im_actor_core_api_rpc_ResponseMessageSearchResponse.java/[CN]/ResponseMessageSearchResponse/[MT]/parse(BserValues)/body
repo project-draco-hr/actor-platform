@@ -15,4 +15,14 @@
   }
   this.groups=values.getRepeatedObj(3,_groups);
   this.loadMoreState=values.optBytes(4);
+  List<ApiUserOutPeer> _userOutPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(5); i++) {
+    _userOutPeers.add(new ApiUserOutPeer());
+  }
+  this.userOutPeers=values.getRepeatedObj(5,_userOutPeers);
+  List<ApiGroupOutPeer> _groupOutPeers=new ArrayList<ApiGroupOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(6); i++) {
+    _groupOutPeers.add(new ApiGroupOutPeer());
+  }
+  this.groupOutPeers=values.getRepeatedObj(6,_groupOutPeers);
 }

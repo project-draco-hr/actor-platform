@@ -4,7 +4,7 @@
   if (outPeer == null || apiPeer == null) {
     return;
   }
-  request(new RequestSendMessage(outPeer,rid,message,null),new RpcCallback<ResponseSeqDate>(){
+  request(new RequestSendMessage(outPeer,rid,message,null,null),new RpcCallback<ResponseSeqDate>(){
     @Override public void onResult(    ResponseSeqDate response){
       self().send(new MessageSent(peer,rid));
       updates().onUpdateReceived(new SeqUpdate(response.getSeq(),response.getState(),UpdateMessageSent.HEADER,new UpdateMessageSent(apiPeer,rid,response.getDate()).toByteArray()));

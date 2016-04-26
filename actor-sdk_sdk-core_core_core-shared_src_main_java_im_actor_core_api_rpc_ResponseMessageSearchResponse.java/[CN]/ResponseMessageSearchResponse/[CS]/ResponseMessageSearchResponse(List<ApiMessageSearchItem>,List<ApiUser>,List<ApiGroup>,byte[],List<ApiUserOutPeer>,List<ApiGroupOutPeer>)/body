@@ -1,0 +1,8 @@
+{
+  this.searchResults=searchResults;
+  this.users=users;
+  this.groups=groups;
+  this.loadMoreState=loadMoreState;
+  this.userOutPeers=userOutPeers;
+  this.groupOutPeers=groupOutPeers;
+}

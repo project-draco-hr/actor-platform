@@ -1,0 +1,15 @@
+{
+  writer.writeInt(1,this.id);
+  if (this.theme != null) {
+    writer.writeString(2,this.theme);
+  }
+  if (this.about != null) {
+    writer.writeString(3,this.about);
+  }
+  writer.writeRepeatedObj(4,this.members);
+  writer.writeInt(5,this.creatorUid);
+  writer.writeLong(6,this.createDate);
+  if (this.ext != null) {
+    writer.writeObject(7,this.ext);
+  }
+}

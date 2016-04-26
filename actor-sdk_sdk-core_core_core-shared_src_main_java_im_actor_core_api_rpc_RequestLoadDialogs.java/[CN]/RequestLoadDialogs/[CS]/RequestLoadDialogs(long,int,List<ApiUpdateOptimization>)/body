@@ -1,0 +1,5 @@
+{
+  this.minDate=minDate;
+  this.limit=limit;
+  this.optimizations=optimizations;
+}

@@ -1,0 +1,3 @@
+long minDate
+int limit
+List<ApiUpdateOptimization> optimizations

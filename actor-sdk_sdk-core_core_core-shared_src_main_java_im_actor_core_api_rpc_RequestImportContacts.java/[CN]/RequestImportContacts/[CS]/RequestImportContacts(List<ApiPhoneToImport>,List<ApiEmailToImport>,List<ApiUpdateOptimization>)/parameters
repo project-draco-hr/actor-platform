@@ -1,0 +1,3 @@
+List<ApiPhoneToImport> phones
+List<ApiEmailToImport> emails
+List<ApiUpdateOptimization> optimizations

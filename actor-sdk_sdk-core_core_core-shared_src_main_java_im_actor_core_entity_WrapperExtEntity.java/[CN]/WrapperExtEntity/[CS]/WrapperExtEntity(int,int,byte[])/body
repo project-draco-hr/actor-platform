@@ -1,0 +1,5 @@
+{
+  super(recordField);
+  this.extRecordField=extRecordField;
+  this.load(data);
+}

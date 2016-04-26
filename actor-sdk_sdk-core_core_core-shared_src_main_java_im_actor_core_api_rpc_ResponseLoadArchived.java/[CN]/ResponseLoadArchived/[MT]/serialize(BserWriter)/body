@@ -2,6 +2,8 @@
   writer.writeRepeatedObj(1,this.groups);
   writer.writeRepeatedObj(2,this.users);
   writer.writeRepeatedObj(3,this.dialogs);
+  writer.writeRepeatedObj(5,this.userPeers);
+  writer.writeRepeatedObj(6,this.groupPeers);
   if (this.nextOffset != null) {
     writer.writeBytes(4,this.nextOffset);
   }

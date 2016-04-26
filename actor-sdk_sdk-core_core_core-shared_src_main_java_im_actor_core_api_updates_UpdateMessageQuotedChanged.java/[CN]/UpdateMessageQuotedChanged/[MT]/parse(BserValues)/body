@@ -1,0 +1,5 @@
+{
+  this.peer=values.getObj(1,new ApiPeer());
+  this.rid=values.getLong(2);
+  this.quotedMessage=values.optObj(3,new ApiQuotedMessage());
+}

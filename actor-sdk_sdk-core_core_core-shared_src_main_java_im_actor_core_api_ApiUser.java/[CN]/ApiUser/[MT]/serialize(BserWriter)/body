@@ -8,30 +8,21 @@
   if (this.localName != null) {
     writer.writeString(4,this.localName);
   }
+  if (this.nick != null) {
+    writer.writeString(13,this.nick);
+  }
   if (this.sex != null) {
     writer.writeInt(5,this.sex.getValue());
   }
   if (this.avatar != null) {
     writer.writeObject(8,this.avatar);
   }
-  writer.writeRepeatedObj(12,this.contactInfo);
   if (this.isBot != null) {
     writer.writeBool(11,this.isBot);
   }
-  if (this.nick != null) {
-    writer.writeString(13,this.nick);
+  if (this.ext != null) {
+    writer.writeObject(20,this.ext);
   }
-  if (this.about != null) {
-    writer.writeString(14,this.about);
-  }
-  if (this.external != null) {
-    writer.writeString(15,this.external);
-  }
-  writer.writeRepeatedString(16,this.preferredLanguages);
-  if (this.timeZone != null) {
-    writer.writeString(17,this.timeZone);
-  }
-  writer.writeRepeatedObj(19,this.botCommands);
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

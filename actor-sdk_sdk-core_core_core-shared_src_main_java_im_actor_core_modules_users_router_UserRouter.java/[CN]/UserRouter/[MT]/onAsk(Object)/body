@@ -1,0 +1,29 @@
+{
+  if (message instanceof RouterNameChanged) {
+    RouterNameChanged nameChanged=(RouterNameChanged)message;
+    return onUserNameChanged(nameChanged.getUid(),nameChanged.getName());
+  }
+ else   if (message instanceof RouterLocalNameChanged) {
+    RouterLocalNameChanged localNameChanged=(RouterLocalNameChanged)message;
+    return onUserLocalNameChanged(localNameChanged.getUid(),localNameChanged.getLocalName());
+  }
+ else   if (message instanceof RouterAvatarChanged) {
+    RouterAvatarChanged avatarChanged=(RouterAvatarChanged)message;
+    return onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
+  }
+ else   if (message instanceof RouterNicknameChanged) {
+    RouterNicknameChanged nicknameChanged=(RouterNicknameChanged)message;
+    return onUserNickChanged(nicknameChanged.getUid(),nicknameChanged.getNickname());
+  }
+ else   if (message instanceof RouterAboutChanged) {
+    RouterAboutChanged aboutChanged=(RouterAboutChanged)message;
+    return onUserAboutChanged(aboutChanged.getUid(),aboutChanged.getAbout());
+  }
+ else   if (message instanceof RouterUserRegistered) {
+    RouterUserRegistered userRegistered=(RouterUserRegistered)message;
+    return onUserRegistered(userRegistered.getRid(),userRegistered.getUid(),userRegistered.getDate());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

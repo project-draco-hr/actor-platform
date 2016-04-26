@@ -3,4 +3,5 @@
   this.rid=values.getLong(3);
   this.message=ApiMessage.fromBytes(values.getBytes(4));
   this.isOnlyForUser=values.optInt(5);
+  this.quotedMessageReference=values.optObj(6,new ApiMessageOutReference());
 }

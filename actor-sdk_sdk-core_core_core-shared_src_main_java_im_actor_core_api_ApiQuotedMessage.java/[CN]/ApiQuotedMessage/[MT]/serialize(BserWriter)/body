@@ -1,0 +1,13 @@
+{
+  if (this.messageId != null) {
+    writer.writeLong(1,this.messageId);
+  }
+  if (this.publicGroupId != null) {
+    writer.writeInt(2,this.publicGroupId);
+  }
+  writer.writeInt(3,this.senderUserId);
+  writer.writeLong(4,this.messageDate);
+  if (this.quotedMessageContent != null) {
+    writer.writeBytes(5,this.quotedMessageContent.buildContainer());
+  }
+}

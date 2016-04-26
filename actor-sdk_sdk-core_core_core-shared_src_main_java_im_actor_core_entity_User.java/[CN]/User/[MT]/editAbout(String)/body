@@ -1,6 +1,10 @@
 {
-  ApiUser w=getWrapped();
-  ApiUser res=new ApiUser(w.getId(),w.getAccessHash(),w.getName(),w.getLocalName(),w.getSex(),w.getAvatar(),w.getContactInfo(),w.isBot(),w.getNick(),about,w.getExternal(),w.getPreferredLanguages(),w.getTimeZone(),w.getBotCommands());
-  res.setUnmappedObjects(w.getUnmappedObjects());
-  return new User(res);
+  ApiFullUser ext=getWrappedExt();
+  if (ext != null) {
+    ApiFullUser upd=new ApiFullUser(ext.getId(),ext.getContactInfo(),about,ext.getPreferredLanguages(),ext.getTimeZone(),ext.getBotCommands(),ext.getExt(),ext.isBlocked());
+    return new User(getWrapped(),upd);
+  }
+ else {
+    return this;
+  }
 }

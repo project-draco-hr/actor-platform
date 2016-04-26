@@ -1,7 +1,8 @@
 {
   Peer peer=convert(_peer);
   if (!isValidPeer(peer)) {
-    return;
+    return Promise.success(null);
   }
   context().getMessagesModule().getRouter().onMessagesDeleted(peer,rids);
+  return Promise.success(null);
 }

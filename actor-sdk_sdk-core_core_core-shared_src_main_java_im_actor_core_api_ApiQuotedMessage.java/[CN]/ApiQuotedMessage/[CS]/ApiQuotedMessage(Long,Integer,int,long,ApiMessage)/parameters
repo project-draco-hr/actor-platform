@@ -1,0 +1,5 @@
+Long messageId
+Integer publicGroupId
+int senderUserId
+long messageDate
+ApiMessage quotedMessageContent

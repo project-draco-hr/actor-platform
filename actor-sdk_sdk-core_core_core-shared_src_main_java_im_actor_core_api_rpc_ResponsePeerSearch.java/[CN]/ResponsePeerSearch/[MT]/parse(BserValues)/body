@@ -14,4 +14,14 @@
     _groups.add(new ApiGroup());
   }
   this.groups=values.getRepeatedObj(3,_groups);
+  List<ApiUserOutPeer> _userPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(4); i++) {
+    _userPeers.add(new ApiUserOutPeer());
+  }
+  this.userPeers=values.getRepeatedObj(4,_userPeers);
+  List<ApiGroupOutPeer> _groupPeers=new ArrayList<ApiGroupOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(5); i++) {
+    _groupPeers.add(new ApiGroupOutPeer());
+  }
+  this.groupPeers=values.getRepeatedObj(5,_groupPeers);
 }

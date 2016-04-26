@@ -1,3 +1,7 @@
 {
   this.contactsHash=values.getString(1);
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(2)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

@@ -2,12 +2,12 @@
   if (update instanceof UpdateUserBlocked) {
     UpdateUserBlocked blocked=(UpdateUserBlocked)update;
     context().getBlockList().markBlocked(blocked.getUid());
-    return true;
+    return Promise.success(null);
   }
  else   if (update instanceof UpdateUserUnblocked) {
     UpdateUserUnblocked unblocked=(UpdateUserUnblocked)update;
     context().getBlockList().markNonBlocked(unblocked.getUid());
-    return true;
+    return Promise.success(null);
   }
-  return false;
+  return null;
 }

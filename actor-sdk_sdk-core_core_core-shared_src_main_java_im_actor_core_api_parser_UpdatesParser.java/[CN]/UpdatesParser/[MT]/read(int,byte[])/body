@@ -18,6 +18,10 @@ case 216:
 return UpdateUserTimeZoneChanged.fromBytes(payload);
 case 217:
 return UpdateUserBotCommandsChanged.fromBytes(payload);
+case 218:
+return UpdateUserExtChanged.fromBytes(payload);
+case 219:
+return UpdateUserFullExtChanged.fromBytes(payload);
 case 5:
 return UpdateContactRegistered.fromBytes(payload);
 case 40:
@@ -32,6 +36,8 @@ case 55:
 return UpdateMessage.fromBytes(payload);
 case 162:
 return UpdateMessageContentChanged.fromBytes(payload);
+case 169:
+return UpdateMessageQuotedChanged.fromBytes(payload);
 case 163:
 return UpdateMessageDateChanged.fromBytes(payload);
 case 4:

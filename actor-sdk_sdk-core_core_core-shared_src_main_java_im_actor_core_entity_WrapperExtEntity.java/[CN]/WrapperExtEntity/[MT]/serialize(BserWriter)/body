@@ -1,0 +1,6 @@
+{
+  if (wrappedExt != null) {
+    writer.writeObject(extRecordField,wrappedExt);
+  }
+  super.serialize(writer);
+}

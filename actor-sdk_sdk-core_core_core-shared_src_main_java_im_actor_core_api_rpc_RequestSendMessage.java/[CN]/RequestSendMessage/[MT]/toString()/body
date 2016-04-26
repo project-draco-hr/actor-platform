@@ -4,6 +4,7 @@
   res+=", rid=" + this.rid;
   res+=", message=" + this.message;
   res+=", isOnlyForUser=" + this.isOnlyForUser;
+  res+=", quotedMessageReference=" + this.quotedMessageReference;
   res+="}";
   return res;
 }

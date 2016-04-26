@@ -4,6 +4,7 @@
   res+=", date=" + this.date;
   res+=", loadMode=" + this.loadMode;
   res+=", limit=" + this.limit;
+  res+=", optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

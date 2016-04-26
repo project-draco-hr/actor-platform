@@ -5,4 +5,9 @@
   }
   this.users=values.getRepeatedObj(1,_users);
   this.isNotChanged=values.getBool(2);
+  List<ApiUserOutPeer> _userPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _userPeers.add(new ApiUserOutPeer());
+  }
+  this.userPeers=values.getRepeatedObj(3,_userPeers);
 }

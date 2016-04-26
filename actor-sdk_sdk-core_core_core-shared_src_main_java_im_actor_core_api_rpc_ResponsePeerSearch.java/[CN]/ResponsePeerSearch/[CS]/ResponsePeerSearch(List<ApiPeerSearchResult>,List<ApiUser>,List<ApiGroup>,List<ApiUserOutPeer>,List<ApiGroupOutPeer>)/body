@@ -1,0 +1,7 @@
+{
+  this.searchResults=searchResults;
+  this.users=users;
+  this.groups=groups;
+  this.userPeers=userPeers;
+  this.groupPeers=groupPeers;
+}

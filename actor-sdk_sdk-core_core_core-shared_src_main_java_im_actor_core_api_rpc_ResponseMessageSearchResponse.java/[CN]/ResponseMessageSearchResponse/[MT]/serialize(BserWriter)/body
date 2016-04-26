@@ -5,4 +5,6 @@
   if (this.loadMoreState != null) {
     writer.writeBytes(4,this.loadMoreState);
   }
+  writer.writeRepeatedObj(5,this.userOutPeers);
+  writer.writeRepeatedObj(6,this.groupOutPeers);
 }

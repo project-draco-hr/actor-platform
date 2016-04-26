@@ -1,0 +1,9 @@
+{
+  this.messageId=values.optLong(1);
+  this.publicGroupId=values.optInt(2);
+  this.senderUserId=values.getInt(3);
+  this.messageDate=values.getLong(4);
+  if (values.optBytes(5) != null) {
+    this.quotedMessageContent=ApiMessage.fromBytes(values.getBytes(5));
+  }
+}

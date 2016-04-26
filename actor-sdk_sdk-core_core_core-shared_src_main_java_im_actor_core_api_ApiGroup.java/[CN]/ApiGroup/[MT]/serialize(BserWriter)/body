@@ -8,6 +8,19 @@
   if (this.avatar != null) {
     writer.writeObject(4,this.avatar);
   }
+  if (this.membersCount != null) {
+    writer.writeInt(24,this.membersCount);
+  }
+  if (this.isHidden != null) {
+    writer.writeBool(20,this.isHidden);
+  }
+  if (this.ext != null) {
+    writer.writeObject(22,this.ext);
+  }
+  writer.writeBool(6,this.isMember);
+  if (this.isAdmin != null) {
+    writer.writeBool(16,this.isAdmin);
+  }
   writer.writeInt(8,this.creatorUid);
   writer.writeRepeatedObj(9,this.members);
   writer.writeLong(10,this.createDate);
@@ -16,15 +29,6 @@
   }
   if (this.about != null) {
     writer.writeString(18,this.about);
-  }
-  if (this.isHidden != null) {
-    writer.writeBool(20,this.isHidden);
-  }
-  if (this.groupType != null) {
-    writer.writeString(23,this.groupType);
-  }
-  if (this.ext != null) {
-    writer.writeObject(22,this.ext);
   }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();

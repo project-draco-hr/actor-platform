@@ -1,3 +1,4 @@
 {
   context().getMessagesModule().getRouter().onActiveDialogsChanged(groups,true,true);
+  return Promise.success(null);
 }

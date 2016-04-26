@@ -1,0 +1,7 @@
+{
+  String res="struct MessageOutReference{";
+  res+="peer=" + this.peer;
+  res+=", rid=" + this.rid;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,10 @@
+{
+  String res="struct QuotedMessage{";
+  res+="messageId=" + this.messageId;
+  res+=", publicGroupId=" + this.publicGroupId;
+  res+=", senderUserId=" + this.senderUserId;
+  res+=", messageDate=" + this.messageDate;
+  res+=", quotedMessageContent=" + this.quotedMessageContent;
+  res+="}";
+  return res;
+}

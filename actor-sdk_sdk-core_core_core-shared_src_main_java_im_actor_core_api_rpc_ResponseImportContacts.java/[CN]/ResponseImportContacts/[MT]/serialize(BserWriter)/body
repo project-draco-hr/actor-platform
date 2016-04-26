@@ -5,4 +5,5 @@
     throw new IOException();
   }
   writer.writeBytes(3,this.state);
+  writer.writeRepeatedObj(4,this.userPeers);
 }

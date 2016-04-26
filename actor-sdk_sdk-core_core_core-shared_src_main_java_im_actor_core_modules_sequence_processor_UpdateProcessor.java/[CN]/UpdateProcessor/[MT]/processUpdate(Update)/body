@@ -4,8 +4,9 @@
     typingProcessor.onMessage(message.getPeer(),message.getSenderUid());
   }
   for (  SequenceProcessor sequenceProcessor : sequenceProcessors) {
-    if (sequenceProcessor.process(update)) {
-      return Promise.success(null);
+    Promise<Void> res=sequenceProcessor.process(update);
+    if (res != null) {
+      return res;
     }
   }
   return Promise.success(null);

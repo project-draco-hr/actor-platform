@@ -1,0 +1,3 @@
+byte[] nextOffset
+int limit
+List<ApiUpdateOptimization> optimizations

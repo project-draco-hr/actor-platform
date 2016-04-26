@@ -6,4 +6,8 @@
     this.loadMode=ApiListLoadMode.parse(val_loadMode);
   }
   this.limit=values.getInt(4);
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(6)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

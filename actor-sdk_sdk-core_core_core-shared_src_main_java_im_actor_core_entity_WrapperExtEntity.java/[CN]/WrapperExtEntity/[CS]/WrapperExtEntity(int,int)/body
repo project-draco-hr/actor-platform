@@ -1,0 +1,4 @@
+{
+  super(recordField);
+  this.extRecordField=extRecordField;
+}

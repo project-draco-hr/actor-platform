@@ -1,0 +1,12 @@
+{
+  User u=users().getValue(uid);
+  if (u != null) {
+    if (equalsE(u.getLocalName(),name)) {
+      return Promise.success(null);
+    }
+    u=u.editLocalName(name);
+    users().addOrUpdateItem(u);
+    onUserDescChanged(u);
+  }
+  return Promise.success(null);
+}

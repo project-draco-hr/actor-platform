@@ -8,4 +8,7 @@
     writer.writeInt(5,this.loadMode.getValue());
   }
   writer.writeInt(4,this.limit);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(6,i.getValue());
+  }
 }

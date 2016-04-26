@@ -1,0 +1,9 @@
+int id
+long accessHash
+String name
+String localName
+String nick
+ApiSex sex
+ApiAvatar avatar
+Boolean isBot
+ApiMapValue ext

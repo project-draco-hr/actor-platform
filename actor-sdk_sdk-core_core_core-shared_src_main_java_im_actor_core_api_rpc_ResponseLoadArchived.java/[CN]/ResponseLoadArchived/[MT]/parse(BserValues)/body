@@ -14,5 +14,15 @@
     _dialogs.add(new ApiDialog());
   }
   this.dialogs=values.getRepeatedObj(3,_dialogs);
+  List<ApiUserOutPeer> _userPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(5); i++) {
+    _userPeers.add(new ApiUserOutPeer());
+  }
+  this.userPeers=values.getRepeatedObj(5,_userPeers);
+  List<ApiGroupOutPeer> _groupPeers=new ArrayList<ApiGroupOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(6); i++) {
+    _groupPeers.add(new ApiGroupOutPeer());
+  }
+  this.groupPeers=values.getRepeatedObj(6,_groupPeers);
   this.nextOffset=values.optBytes(4);
 }

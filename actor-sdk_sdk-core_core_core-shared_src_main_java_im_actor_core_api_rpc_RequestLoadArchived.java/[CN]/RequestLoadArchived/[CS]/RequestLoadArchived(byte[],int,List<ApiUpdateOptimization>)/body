@@ -1,0 +1,5 @@
+{
+  this.nextOffset=nextOffset;
+  this.limit=limit;
+  this.optimizations=optimizations;
+}

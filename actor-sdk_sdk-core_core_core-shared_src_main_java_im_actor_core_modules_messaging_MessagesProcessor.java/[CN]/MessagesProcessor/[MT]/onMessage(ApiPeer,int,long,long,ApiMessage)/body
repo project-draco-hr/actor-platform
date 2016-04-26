@@ -5,4 +5,5 @@
   ArrayList<Message> messages=new ArrayList<>();
   messages.add(message);
   context().getMessagesModule().getRouter().onNewMessages(peer,messages);
+  return Promise.success(null);
 }

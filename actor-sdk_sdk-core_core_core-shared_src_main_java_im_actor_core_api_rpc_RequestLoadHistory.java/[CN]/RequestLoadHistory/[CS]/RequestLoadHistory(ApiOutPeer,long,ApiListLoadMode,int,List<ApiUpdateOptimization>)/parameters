@@ -1,0 +1,5 @@
+ApiOutPeer peer
+long date
+ApiListLoadMode loadMode
+int limit
+List<ApiUpdateOptimization> optimizations

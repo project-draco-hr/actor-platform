@@ -1,23 +1,2 @@
 {
-  CombinedDifference combinedDifference=GetDiffCombiner.buildDiff(updates);
-  messagesProcessor.onDifferenceStart();
-  for (  Peer peer : combinedDifference.getReceived().keySet()) {
-    long time=combinedDifference.getReceived().get(peer);
-    messagesProcessor.onMessageReceived(buildApiPeer(peer),time);
-  }
-  for (  Peer peer : combinedDifference.getRead().keySet()) {
-    long time=combinedDifference.getRead().get(peer);
-    messagesProcessor.onMessageRead(buildApiPeer(peer),time);
-  }
-  for (  Peer peer : combinedDifference.getReadByMe().keySet()) {
-    CombinedDifference.ReadByMeValue time=combinedDifference.getReadByMe().get(peer);
-    messagesProcessor.onMessageReadByMe(buildApiPeer(peer),time.getDate(),time.getCounter());
-  }
-  for (  Peer peer : combinedDifference.getMessages().keySet()) {
-    messagesProcessor.onMessages(buildApiPeer(peer),combinedDifference.getMessages().get(peer));
-  }
-  for (  Update u : combinedDifference.getOtherUpdates()) {
-    processUpdate(u);
-  }
-  messagesProcessor.onDifferenceEnd();
 }

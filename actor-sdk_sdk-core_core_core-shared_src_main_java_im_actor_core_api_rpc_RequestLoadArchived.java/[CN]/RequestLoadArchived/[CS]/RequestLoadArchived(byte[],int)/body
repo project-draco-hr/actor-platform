@@ -1,4 +1,0 @@
-{
-  this.nextOffset=nextOffset;
-  this.limit=limit;
-}

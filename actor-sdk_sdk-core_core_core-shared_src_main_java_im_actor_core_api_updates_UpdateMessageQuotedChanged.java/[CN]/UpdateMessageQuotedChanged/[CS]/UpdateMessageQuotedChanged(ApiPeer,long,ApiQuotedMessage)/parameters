@@ -1,0 +1,3 @@
+ApiPeer peer
+long rid
+ApiQuotedMessage quotedMessage

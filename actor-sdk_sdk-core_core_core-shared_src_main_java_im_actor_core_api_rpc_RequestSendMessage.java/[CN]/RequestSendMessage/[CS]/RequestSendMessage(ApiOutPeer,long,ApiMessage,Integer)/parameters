@@ -1,4 +1,0 @@
-ApiOutPeer peer
-long rid
-ApiMessage message
-Integer isOnlyForUser

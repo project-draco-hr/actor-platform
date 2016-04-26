@@ -1,7 +1,8 @@
 {
   Peer peer=convert(_peer);
   if (!isValidPeer(peer)) {
-    return;
+    return Promise.success(null);
   }
   context().getMessagesModule().getRouter().onMessageReceived(peer,startDate);
+  return Promise.success(null);
 }

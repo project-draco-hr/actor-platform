@@ -1,11 +1,12 @@
 {
   Peer peer=convert(_peer);
   if (!isValidPeer(peer)) {
-    return;
+    return Promise.success(null);
   }
   ArrayList<Reaction> reactions=new ArrayList<>();
   for (  ApiMessageReaction r : apiReactions) {
     reactions.add(new Reaction(r.getCode(),r.getUsers()));
   }
   context().getMessagesModule().getRouter().onReactionsChanged(peer,rid,reactions);
+  return Promise.success(null);
 }

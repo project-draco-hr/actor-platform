@@ -1,0 +1,5 @@
+{
+  this.phones=phones;
+  this.emails=emails;
+  this.optimizations=optimizations;
+}

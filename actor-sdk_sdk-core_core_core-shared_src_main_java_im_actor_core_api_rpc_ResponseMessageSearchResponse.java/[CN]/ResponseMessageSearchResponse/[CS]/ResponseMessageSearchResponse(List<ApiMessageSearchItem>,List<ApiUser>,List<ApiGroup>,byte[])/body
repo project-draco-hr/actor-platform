@@ -1,6 +1,0 @@
-{
-  this.searchResults=searchResults;
-  this.users=users;
-  this.groups=groups;
-  this.loadMoreState=loadMoreState;
-}

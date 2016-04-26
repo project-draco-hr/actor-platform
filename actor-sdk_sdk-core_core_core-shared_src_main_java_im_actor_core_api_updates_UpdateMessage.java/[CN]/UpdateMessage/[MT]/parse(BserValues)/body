@@ -5,4 +5,5 @@
   this.rid=values.getLong(4);
   this.message=ApiMessage.fromBytes(values.getBytes(5));
   this.attributes=values.optObj(6,new ApiMessageAttributes());
+  this.quotedMessage=values.optObj(7,new ApiQuotedMessage());
 }

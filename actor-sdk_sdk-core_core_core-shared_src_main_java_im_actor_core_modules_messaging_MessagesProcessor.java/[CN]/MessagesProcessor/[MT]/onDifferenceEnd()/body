@@ -1,3 +1,4 @@
 {
   context().getMessagesModule().getRouter().onDifferenceEnd();
+  return Promise.success(null);
 }
