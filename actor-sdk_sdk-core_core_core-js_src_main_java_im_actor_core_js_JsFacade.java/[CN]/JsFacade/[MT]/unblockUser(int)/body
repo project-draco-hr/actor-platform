@@ -1,18 +1,3 @@
 {
-  return JsPromise.create(new JsPromiseExecutor(){
-    @Override public void execute(){
-      messenger.unblockUser(uid).then(new Consumer<im.actor.runtime.actors.messages.Void>(){
-        @Override public void apply(        Void aVoid){
-          resolve();
-        }
-      }
-).failure(new Consumer<Exception>(){
-        @Override public void apply(        Exception e){
-          reject();
-        }
-      }
-);
-    }
-  }
-);
+  return JsPromise.from(messenger.unblockUser(uid));
 }
