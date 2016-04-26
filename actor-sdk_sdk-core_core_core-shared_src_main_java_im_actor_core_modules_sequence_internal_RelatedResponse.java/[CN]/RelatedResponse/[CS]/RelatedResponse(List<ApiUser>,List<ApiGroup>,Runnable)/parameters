@@ -1,3 +1,0 @@
-List<ApiUser> relatedUsers
-List<ApiGroup> relatedGroups
-Runnable afterApply

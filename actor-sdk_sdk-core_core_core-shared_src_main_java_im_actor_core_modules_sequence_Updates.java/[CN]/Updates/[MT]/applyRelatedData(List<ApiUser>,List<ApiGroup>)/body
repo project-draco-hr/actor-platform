@@ -1,2 +1,3 @@
 {
+  return updateHandlerInt.onRelatedResponse(users,groups);
 }

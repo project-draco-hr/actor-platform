@@ -8,14 +8,6 @@
       e.printStackTrace();
     }
   }
- else   if (message instanceof RelatedResponse) {
-    if (isUpdating) {
-      stash();
-      return;
-    }
-    RelatedResponse relatedResponse=(RelatedResponse)message;
-    onRelatedResponse(relatedResponse.getRelatedUsers(),relatedResponse.getRelatedGroups(),relatedResponse.getAfterApply());
-  }
  else   if (message instanceof InternalUpdate) {
     if (isUpdating) {
       stash();

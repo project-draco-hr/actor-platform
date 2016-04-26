@@ -1,5 +1,0 @@
-{
-  this.relatedUsers=relatedUsers;
-  this.relatedGroups=relatedGroups;
-  this.afterApply=afterApply;
-}

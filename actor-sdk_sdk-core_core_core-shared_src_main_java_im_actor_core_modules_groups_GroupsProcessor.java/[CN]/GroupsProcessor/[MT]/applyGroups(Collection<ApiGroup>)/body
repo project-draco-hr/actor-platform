@@ -1,0 +1,12 @@
+{
+  ArrayList<Group> batch=new ArrayList<>();
+  for (  ApiGroup group : updated) {
+    Group saved=groups().getValue(group.getId());
+    if (saved == null) {
+      batch.add(EntityConverter.convert(group));
+    }
+  }
+  if (batch.size() > 0) {
+    groups().addOrUpdateItems(batch);
+  }
+}

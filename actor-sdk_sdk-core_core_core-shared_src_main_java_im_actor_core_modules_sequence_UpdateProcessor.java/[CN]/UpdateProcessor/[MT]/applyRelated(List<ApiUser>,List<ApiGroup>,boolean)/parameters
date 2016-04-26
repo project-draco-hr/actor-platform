@@ -1,3 +1,0 @@
-List<ApiUser> users
-List<ApiGroup> groups
-boolean force

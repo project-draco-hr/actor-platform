@@ -1,0 +1,4 @@
+{
+  this.relatedUsers=relatedUsers;
+  this.relatedGroups=relatedGroups;
+}

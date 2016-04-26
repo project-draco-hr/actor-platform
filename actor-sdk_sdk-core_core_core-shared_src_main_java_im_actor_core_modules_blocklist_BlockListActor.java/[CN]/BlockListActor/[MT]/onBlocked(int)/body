@@ -1,3 +1,0 @@
-{
-  context().getBlockList().markBlocked(uid);
-}
