@@ -2,5 +2,5 @@
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.invite,menu);
   sendButton=menu.getItem(0);
-  checkSEndButton();
+  checkSendButton();
 }

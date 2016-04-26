@@ -1,0 +1,11 @@
+{
+  try {
+    PhoneBookIds ids=Bser.parse(new PhoneBookIds(),messenger().getPreferences().getBytes("phone_book_ids"));
+    for (    long id : ids.getIds()) {
+      selectedUsers.add(id);
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}
