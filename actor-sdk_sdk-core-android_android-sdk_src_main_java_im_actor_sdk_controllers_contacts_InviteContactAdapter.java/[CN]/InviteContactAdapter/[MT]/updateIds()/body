@@ -4,6 +4,7 @@
     for (    long id : ids.getIds()) {
       selectedUsers.add(id);
     }
+    notifyDataSetChanged();
   }
  catch (  Exception e) {
     e.printStackTrace();

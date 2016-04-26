@@ -1,5 +1,8 @@
 {
   super.onCollectionChanged();
   checkSendButton();
-  ((InviteContactAdapter)getAdapter()).updateIds();
+  InviteContactAdapter adapter=(InviteContactAdapter)getAdapter();
+  if (adapter != null) {
+    adapter.updateIds();
+  }
 }
