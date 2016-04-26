@@ -1,4 +1,0 @@
-long contactId
-String name
-ArrayList<PhoneBookPhone> phones
-ArrayList<PhoneBookEmail> emails

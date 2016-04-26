@@ -1,0 +1,5 @@
+long contactId
+String name
+List<PhoneBookPhone> phones
+List<PhoneBookEmail> emails
+long sortId

@@ -1,0 +1,3 @@
+{
+  return new InviteContactHolder(new FrameLayout(context),context,onItemClickedListener);
+}

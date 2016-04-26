@@ -1,0 +1,3 @@
+{
+  return ((InviteContactAdapter)getAdapter()).isSelected(id);
+}

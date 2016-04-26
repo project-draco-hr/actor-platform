@@ -1,0 +1,3 @@
+{
+  return onCreateContactsView(R.layout.fragment_base_contacts,inflater,container,savedInstanceState);
+}

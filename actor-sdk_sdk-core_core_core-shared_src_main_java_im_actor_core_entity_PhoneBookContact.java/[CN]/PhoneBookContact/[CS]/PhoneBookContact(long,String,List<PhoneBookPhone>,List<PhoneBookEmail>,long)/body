@@ -3,4 +3,5 @@
   this.name=name;
   this.phones=phones;
   this.emails=emails;
+  this.sortId=sortId;
 }

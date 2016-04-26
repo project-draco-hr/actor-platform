@@ -12,11 +12,17 @@
  else {
     addFooterOrHeaderAction(ActorSDK.sharedActor().style.getActionShareColor(),R.drawable.ic_share_white_24dp,R.string.contacts_share,false,new Runnable(){
       @Override public void run(){
-        String inviteMessage=getResources().getString(R.string.invite_message).replace("{inviteUrl}",ActorSDK.sharedActor().getInviteUrl()).replace("{appName}",ActorSDK.sharedActor().getAppName());
-        Intent sendIntent=new Intent(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT,inviteMessage);
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+        Intent intent;
+        if (USE_APP_INVITES) {
+          intent=new Intent(getActivity(),InviteActivity.class);
+        }
+ else {
+          String inviteMessage=getResources().getString(R.string.invite_message).replace("{inviteUrl}",ActorSDK.sharedActor().getInviteUrl()).replace("{appName}",ActorSDK.sharedActor().getAppName());
+          intent=new Intent(Intent.ACTION_SEND);
+          intent.putExtra(Intent.EXTRA_TEXT,inviteMessage);
+          intent.setType("text/plain");
+        }
+        startActivity(intent);
       }
     }
 ,true);

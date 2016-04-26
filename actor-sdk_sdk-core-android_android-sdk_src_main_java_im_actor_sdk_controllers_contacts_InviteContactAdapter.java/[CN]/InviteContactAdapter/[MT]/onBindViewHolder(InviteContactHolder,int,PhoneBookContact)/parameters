@@ -1,0 +1,3 @@
+InviteContactHolder contactHolder
+int index
+PhoneBookContact item

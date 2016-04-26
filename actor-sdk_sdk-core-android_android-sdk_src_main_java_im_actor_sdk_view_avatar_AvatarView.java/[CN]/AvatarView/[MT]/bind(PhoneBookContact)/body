@@ -1,0 +1,3 @@
+{
+  bind(null,contact.getName(),0);
+}

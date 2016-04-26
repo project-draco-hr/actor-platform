@@ -1,0 +1,4 @@
+{
+  id=values.getLong(1);
+  email=values.getString(2);
+}

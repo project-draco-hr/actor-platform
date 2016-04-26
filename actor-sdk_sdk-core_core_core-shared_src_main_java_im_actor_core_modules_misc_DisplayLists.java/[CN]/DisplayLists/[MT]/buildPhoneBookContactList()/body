@@ -1,0 +1,6 @@
+{
+  im.actor.runtime.Runtime.checkMainThread();
+  PlatformDisplayList<PhoneBookContact> res=Storage.createDisplayList(context().getContactsModule().getPhoneBook(),false,PhoneBookContact.ENTITY_NAME);
+  res.initTop();
+  return res;
+}

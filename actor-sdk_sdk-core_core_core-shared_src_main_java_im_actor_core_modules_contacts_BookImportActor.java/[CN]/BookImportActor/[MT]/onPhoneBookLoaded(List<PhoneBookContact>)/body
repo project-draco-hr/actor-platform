@@ -5,6 +5,14 @@
   }
   int newPhones=0;
   int newEmails=0;
+  ArrayList<Long> newids=new ArrayList<Long>();
+  List<Long> oldids=new ArrayList<Long>();
+  try {
+    oldids.addAll(Bser.parse(new PhoneBookIds(),preferences().getBytes("phone_book_ids")).getIds());
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
   for (  PhoneBookContact record : phoneBook) {
     for (    PhoneBookPhone phone : record.getPhones()) {
       if (storage.isImported(phone.getNumber())) {
@@ -28,7 +36,25 @@
       importQueue.add(new ImportEmailQueueItem(email.getEmail().toLowerCase(),record.getName()));
       newEmails++;
     }
+    newids.add(record.getContactId());
   }
+  int size=phoneBook.size();
+  for (  PhoneBookContact c : phoneBook) {
+    if (!oldids.contains(c.getContactId())) {
+      context().getContactsModule().getPhoneBook().addOrUpdateItem(c.setSortId(size--));
+    }
+  }
+  ArrayList<Long> toRemove=new ArrayList<Long>();
+  for (  long oldId : oldids) {
+    if (!newids.contains(oldId)) {
+      toRemove.add(oldId);
+    }
+  }
+  long[] toRemoveArray=new long[toRemove.size()];
+  for (int i=0; i < toRemove.size(); i++) {
+    toRemoveArray[i]=toRemove.get(i);
+  }
+  context().getContactsModule().getPhoneBook().removeItems(toRemoveArray);
   if (ENABLE_LOG) {
     if (newPhones == 0 && newEmails == 0) {
       Log.d(TAG,"No new contacts found");

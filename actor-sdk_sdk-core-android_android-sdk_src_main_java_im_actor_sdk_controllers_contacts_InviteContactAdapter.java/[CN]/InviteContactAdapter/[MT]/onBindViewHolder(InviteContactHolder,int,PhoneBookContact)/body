@@ -1,0 +1,15 @@
+{
+  String fastName=null;
+  if (index == 0) {
+    fastName=messenger().getFormatter().formatFastName(item.getName());
+  }
+ else {
+    String prevName=messenger().getFormatter().formatFastName(getItem(index - 1).getName());
+    String currentFastName=messenger().getFormatter().formatFastName(item.getName());
+    if (!prevName.equals(currentFastName)) {
+      fastName=currentFastName;
+    }
+  }
+  Integer type=selectedContactType.get(item.getContactId());
+  contactHolder.bind(item,fastName,query,selectedUsers.contains(item.getContactId()),type == null ? -1 : type,index == getItemCount() - 1);
+}

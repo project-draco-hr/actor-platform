@@ -1,0 +1,11 @@
+{
+  contactId=values.getLong(1);
+  name=values.getString(2);
+  for (  byte[] ph : values.getRepeatedBytes(3)) {
+    phones.add(Bser.parse(new PhoneBookPhone(),ph));
+  }
+  for (  byte[] em : values.getRepeatedBytes(4)) {
+    emails.add(Bser.parse(new PhoneBookEmail(),em));
+  }
+  sortId=values.getLong(5,0);
+}

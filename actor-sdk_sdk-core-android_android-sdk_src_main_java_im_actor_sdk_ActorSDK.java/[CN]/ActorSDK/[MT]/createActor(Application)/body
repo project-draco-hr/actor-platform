@@ -36,15 +36,6 @@
     AlarmManager alarm=(AlarmManager)application.getSystemService(Context.ALARM_SERVICE);
     alarm.setRepeating(AlarmManager.RTC,System.currentTimeMillis(),30 * 1000,pendingIntent);
   }
-  if (actorPushEndpoint != null && delegate.useActorPush()) {
-    ActorPushRegister.registerForPush(application,actorPushEndpoint,new ActorPushRegister.Callback(){
-      @Override public void onRegistered(      String endpoint){
-        Log.d(TAG,"On Actor push registered: " + endpoint);
-        messenger.registerActorPush(endpoint);
-      }
-    }
-);
-  }
   try {
     if (pushId != 0) {
       final ActorPushManager pushManager=(ActorPushManager)Class.forName("im.actor.push.PushManager").newInstance();

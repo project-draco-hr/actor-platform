@@ -1,0 +1,40 @@
+{
+  if (shortName == null) {
+    fastTitle.setVisibility(View.GONE);
+  }
+ else {
+    fastTitle.setVisibility(View.VISIBLE);
+    fastTitle.setText(shortName);
+  }
+  avatar.bind(data);
+  if (query.length() > 0) {
+    title.setText(SearchHighlight.highlightQuery(data.getName(),query,0xff0277bd));
+  }
+ else {
+    title.setText(data.getName());
+  }
+  if (selected) {
+    if ((type == TYPE_EMAIL && data.getEmails().size() > 0) || data.getPhones().size() == 0) {
+      subtitle.setText(data.getEmails().get(0).getEmail());
+    }
+ else {
+      subtitle.setText(Long.toString(data.getPhones().get(0).getNumber()));
+    }
+  }
+ else {
+    subtitle.setText("");
+  }
+  isSelected.setChecked(selected);
+  cont.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      onItemClickedListener.onClicked(data);
+    }
+  }
+);
+  if (isLast) {
+    separator.setVisibility(View.GONE);
+  }
+ else {
+    separator.setVisibility(View.VISIBLE);
+  }
+}

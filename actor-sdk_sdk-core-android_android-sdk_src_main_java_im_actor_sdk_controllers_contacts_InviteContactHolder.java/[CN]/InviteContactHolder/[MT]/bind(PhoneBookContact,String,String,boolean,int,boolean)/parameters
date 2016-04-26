@@ -1,0 +1,6 @@
+PhoneBookContact data
+String shortName
+String query
+boolean selected
+int type
+boolean isLast

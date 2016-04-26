@@ -1,0 +1,11 @@
+{
+  return new InviteContactAdapter(displayList,activity,new OnItemClickedListener<PhoneBookContact>(){
+    @Override public void onClicked(    PhoneBookContact item){
+      onItemClicked(item);
+    }
+    @Override public boolean onLongClicked(    PhoneBookContact item){
+      return false;
+    }
+  }
+);
+}

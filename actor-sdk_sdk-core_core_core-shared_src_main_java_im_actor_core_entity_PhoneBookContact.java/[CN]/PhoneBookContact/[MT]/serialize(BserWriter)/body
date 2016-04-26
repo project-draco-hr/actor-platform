@@ -1,0 +1,11 @@
+{
+  writer.writeLong(1,contactId);
+  writer.writeString(2,name);
+  for (  PhoneBookPhone ph : phones) {
+    writer.writeObject(3,ph);
+  }
+  for (  PhoneBookEmail em : emails) {
+    writer.writeObject(4,em);
+  }
+  writer.writeLong(5,sortId);
+}
