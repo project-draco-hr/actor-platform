@@ -1,6 +1,5 @@
 {
   CombinedDifference combinedDifference=GetDiffCombiner.buildDiff(updates);
-  applyRelated(users,groups);
   messagesProcessor.onDifferenceStart();
   for (  Peer peer : combinedDifference.getReceived().keySet()) {
     long time=combinedDifference.getReceived().get(peer);

@@ -1,4 +1,2 @@
 {
-  processor.applyRelated(relatedUsers,relatedGroups);
-  return Promise.success(null);
 }

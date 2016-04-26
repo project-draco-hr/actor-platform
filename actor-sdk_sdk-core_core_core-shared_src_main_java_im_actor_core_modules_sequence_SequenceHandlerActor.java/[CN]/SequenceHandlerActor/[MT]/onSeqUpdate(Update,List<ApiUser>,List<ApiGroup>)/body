@@ -1,8 +1,2 @@
 {
-  Log.d(TAG,"Processing update: " + update);
-  if (groups != null && users != null) {
-    processor.applyRelated(users,groups);
-  }
-  processor.processUpdate(update);
-  return Promise.success(Void.INSTANCE);
 }

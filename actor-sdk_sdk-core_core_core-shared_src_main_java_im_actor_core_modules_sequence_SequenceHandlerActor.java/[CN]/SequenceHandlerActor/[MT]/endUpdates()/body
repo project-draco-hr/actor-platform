@@ -1,0 +1,4 @@
+{
+  isUpdating=false;
+  unstashAll();
+}
