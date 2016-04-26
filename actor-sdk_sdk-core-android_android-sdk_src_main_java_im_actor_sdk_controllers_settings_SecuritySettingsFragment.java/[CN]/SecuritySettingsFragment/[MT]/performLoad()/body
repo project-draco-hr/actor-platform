@@ -29,8 +29,8 @@
             @Override public void onClick(            View v){
               new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.security_terminate_this_message).replace("{device}",item.getDeviceTitle())).setPositiveButton(R.string.dialog_yes,new DialogInterface.OnClickListener(){
                 @Override public void onClick(                DialogInterface dialog,                int which){
-                  execute(messenger().terminateSession(item.getId()),R.string.progress_common,new CommandCallback<Boolean>(){
-                    @Override public void onResult(                    Boolean res){
+                  execute(messenger().terminateSession(item.getId()),R.string.progress_common,new CommandCallback<Void>(){
+                    @Override public void onResult(                    Void res){
                       performLoad();
                     }
                     @Override public void onError(                    Exception e){

@@ -1,4 +1,2 @@
 {
-  usersProcessor.applyUsers(users);
-  groupsProcessor.applyGroups(groups);
 }

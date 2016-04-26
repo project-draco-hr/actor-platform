@@ -9,4 +9,5 @@
   if (batch.size() > 0) {
     groups().addOrUpdateItems(batch);
   }
+  return Promise.success(null);
 }
