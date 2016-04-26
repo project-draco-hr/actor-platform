@@ -1,0 +1,6 @@
+{
+  Uri smsToUri=Uri.parse("smsto:" + phoneNumbersStrings);
+  Intent i=new Intent(Intent.ACTION_SENDTO,smsToUri);
+  i.putExtra("sms_body",inviteMessage);
+  startActivity(i);
+}

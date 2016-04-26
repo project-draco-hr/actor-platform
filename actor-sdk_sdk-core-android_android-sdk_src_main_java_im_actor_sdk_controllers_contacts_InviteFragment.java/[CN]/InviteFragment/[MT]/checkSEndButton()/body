@@ -1,0 +1,5 @@
+{
+  if (sendButton != null) {
+    sendButton.setVisible(getDisplayList().getSize() != 0);
+  }
+}

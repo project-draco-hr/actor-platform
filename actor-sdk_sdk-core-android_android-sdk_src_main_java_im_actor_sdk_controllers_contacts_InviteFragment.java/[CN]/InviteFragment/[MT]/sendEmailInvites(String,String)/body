@@ -1,0 +1,6 @@
+{
+  Uri emailsToUri=Uri.parse("mailto:" + emailsString);
+  Intent i=new Intent(Intent.ACTION_SENDTO,emailsToUri);
+  i.putExtra(Intent.EXTRA_TEXT,inviteMessage);
+  startActivity(Intent.createChooser(i,getString(R.string.contacts_invite_via_link)));
+}

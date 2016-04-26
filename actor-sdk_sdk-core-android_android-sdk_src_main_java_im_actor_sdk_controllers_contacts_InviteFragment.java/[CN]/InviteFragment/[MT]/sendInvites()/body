@@ -1,0 +1,52 @@
+{
+  ArrayList<Long> phones=new ArrayList<Long>();
+  ArrayList<String> emails=new ArrayList<String>();
+  Long[] selected=((InviteContactAdapter)getAdapter()).getSelected();
+  HashMap<Long,Integer> selectedTypes=((InviteContactAdapter)getAdapter()).getSelectedContactsTypes();
+  PhoneBookContact contact;
+  Integer selectedType;
+  String phoneNumbersStrings="";
+  String emailsString="";
+  String email;
+  long number;
+  for (  long s : selected) {
+    contact=messenger().getPhoneBookContact(s);
+    selectedType=selectedTypes.get(s);
+    selectedType=selectedType != null ? selectedType : InviteContactHolder.TYPE_PHONE;
+    if ((selectedType == InviteContactHolder.TYPE_EMAIL && contact.getEmails().size() > 0) || contact.getPhones().size() == 0) {
+      email=contact.getEmails().get(0).getEmail();
+      emails.add(email);
+      emailsString+=email + ";";
+    }
+ else {
+      number=contact.getPhones().get(0).getNumber();
+      phones.add(number);
+      phoneNumbersStrings+=number + ";";
+    }
+  }
+  String inviteMessage=getResources().getString(R.string.invite_message).replace("{inviteUrl}",ActorSDK.sharedActor().getInviteUrl()).replace("{appName}",ActorSDK.sharedActor().getAppName());
+  if (phones.size() > 0 && emails.size() > 0) {
+    AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+    String[] options=new String[]{getString(R.string.invite_options_sms),getString(R.string.invite_options_email)};
+    final String finalPhoneNumbersStrings=phoneNumbersStrings;
+    final String finalEmailsString=emailsString;
+    builder.setItems(options,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        if (which == 0) {
+          sendSmsInvites(finalPhoneNumbersStrings,inviteMessage);
+        }
+ else {
+          sendEmailInvites(finalEmailsString,inviteMessage);
+        }
+        dialog.dismiss();
+      }
+    }
+).show();
+  }
+ else   if (phones.size() > 0) {
+    sendSmsInvites(phoneNumbersStrings,inviteMessage);
+  }
+ else {
+    sendEmailInvites(emailsString,inviteMessage);
+  }
+}
