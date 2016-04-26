@@ -7,10 +7,6 @@
     UploadManager.UploadCompleted uploadCompleted=(UploadManager.UploadCompleted)message;
     uploadCompleted(uploadCompleted.getRid(),uploadCompleted.getFileReference());
   }
- else   if (message instanceof AvatarChanged) {
-    AvatarChanged avatarChanged=(AvatarChanged)message;
-    avatarChanged(avatarChanged.getGid(),avatarChanged.getRid());
-  }
  else   if (message instanceof UploadManager.UploadError) {
     UploadManager.UploadError uploadError=(UploadManager.UploadError)message;
     uploadError(uploadError.getRid());

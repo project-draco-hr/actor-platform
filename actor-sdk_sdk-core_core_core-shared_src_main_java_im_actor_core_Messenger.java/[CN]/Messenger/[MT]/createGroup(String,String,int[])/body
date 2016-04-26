@@ -1,3 +1,2 @@
 {
-  return modules.getGroupsModule().createGroup(title,avatarDescriptor,uids);
 }

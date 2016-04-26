@@ -45,8 +45,8 @@
 );
       }
  else       if (type == EditAboutActivity.TYPE_GROUP) {
-        execute(messenger().editGroupAbout(id,about),R.string.edit_about_process,new CommandCallback<Boolean>(){
-          @Override public void onResult(          Boolean res){
+        execute(messenger().editGroupAbout(id,about),R.string.edit_about_process,new CommandCallback<Void>(){
+          @Override public void onResult(          Void res){
             getActivity().finish();
           }
           @Override public void onError(          Exception e){

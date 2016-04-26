@@ -1,3 +1,2 @@
 {
-  return modules.getMessagesModule().removeReaction(peer,rid,code);
 }

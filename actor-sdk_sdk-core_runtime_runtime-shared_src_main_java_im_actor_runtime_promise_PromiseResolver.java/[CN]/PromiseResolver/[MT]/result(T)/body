@@ -1,4 +1,3 @@
 {
-  Log.d("Resolver","" + this);
   promise.result(res);
 }

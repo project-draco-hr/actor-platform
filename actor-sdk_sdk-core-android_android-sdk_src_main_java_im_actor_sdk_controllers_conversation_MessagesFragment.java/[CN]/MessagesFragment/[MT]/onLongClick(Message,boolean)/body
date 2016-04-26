@@ -60,8 +60,8 @@
  else         if (menuItem.getItemId() == R.id.like) {
           Message currentMessage=messagesAdapter.getSelected()[0];
           if (hasMyReaction) {
-            ActorSDK.sharedActor().getMessenger().removeReaction(getPeer(),currentMessage.getRid(),"\u2764").start(new CommandCallback<Boolean>(){
-              @Override public void onResult(              Boolean res){
+            ActorSDK.sharedActor().getMessenger().removeReaction(getPeer(),currentMessage.getRid(),"\u2764").start(new CommandCallback<Void>(){
+              @Override public void onResult(              Void res){
               }
               @Override public void onError(              Exception e){
               }
@@ -69,8 +69,8 @@
 );
           }
  else {
-            ActorSDK.sharedActor().getMessenger().addReaction(getPeer(),currentMessage.getRid(),"\u2764").start(new CommandCallback<Boolean>(){
-              @Override public void onResult(              Boolean res){
+            ActorSDK.sharedActor().getMessenger().addReaction(getPeer(),currentMessage.getRid(),"\u2764").start(new CommandCallback<Void>(){
+              @Override public void onResult(              Void res){
               }
               @Override public void onError(              Exception e){
               }

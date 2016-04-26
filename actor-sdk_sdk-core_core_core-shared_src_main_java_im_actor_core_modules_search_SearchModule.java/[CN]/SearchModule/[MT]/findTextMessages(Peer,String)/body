@@ -1,6 +1,6 @@
 {
   ArrayList<ApiSearchCondition> conditions=new ArrayList<>();
-  conditions.add(new ApiSearchPeerCondition(buildApiOutPeer(peer)));
+  conditions.add(new ApiSearchPeerCondition(getApiOutPeer(peer)));
   conditions.add(new ApiSearchPieceText(query));
   return findMessages(new ApiSearchAndCondition(conditions));
 }

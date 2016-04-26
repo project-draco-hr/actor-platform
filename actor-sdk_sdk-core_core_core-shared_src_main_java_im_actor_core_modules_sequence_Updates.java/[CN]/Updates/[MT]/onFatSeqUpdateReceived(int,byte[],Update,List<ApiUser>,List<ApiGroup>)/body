@@ -1,3 +1,0 @@
-{
-  updateActor.send(new FatSeqUpdate(seq,state,update.getHeaderKey(),update.toByteArray(),users,groups));
-}

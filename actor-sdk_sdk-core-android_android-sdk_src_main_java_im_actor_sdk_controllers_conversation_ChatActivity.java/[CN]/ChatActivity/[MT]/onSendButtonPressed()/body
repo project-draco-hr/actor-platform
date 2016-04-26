@@ -15,8 +15,8 @@
     messageEditText.clearFocus();
   }
   if (textEditing) {
-    execute(messenger().updateMessage(peer,rawText,currentEditRid),new CommandCallback<ResponseSeqDate>(){
-      @Override public void onResult(      ResponseSeqDate res){
+    execute(messenger().updateMessage(peer,rawText,currentEditRid),new CommandCallback<Void>(){
+      @Override public void onResult(      Void res){
       }
       @Override public void onError(      final Exception e){
         runOnUiThread(new Runnable(){

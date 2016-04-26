@@ -1,0 +1,5 @@
+{
+  ArrayList<ApiGroup> groups=new ArrayList<>();
+  groups.add(group);
+  return applyUpdate(seq,state,update,users,groups);
+}

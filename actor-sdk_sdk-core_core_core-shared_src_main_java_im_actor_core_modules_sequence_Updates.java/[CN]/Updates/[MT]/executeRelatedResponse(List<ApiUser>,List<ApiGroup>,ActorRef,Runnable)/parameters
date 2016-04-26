@@ -1,4 +1,0 @@
-List<ApiUser> users
-List<ApiGroup> groups
-ActorRef ref
-Runnable runnable

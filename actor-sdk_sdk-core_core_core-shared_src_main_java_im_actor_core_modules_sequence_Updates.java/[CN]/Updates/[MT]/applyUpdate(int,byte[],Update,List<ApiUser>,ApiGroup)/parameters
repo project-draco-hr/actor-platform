@@ -1,3 +1,5 @@
 int seq
 byte[] state
 Update update
+List<ApiUser> users
+ApiGroup group

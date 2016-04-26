@@ -2,7 +2,6 @@
   if (isFinished) {
     throw new RuntimeException("Promise " + this + " already completed!");
   }
-  Log.d("Promise","result " + this);
   isFinished=true;
   result=res;
   deliverResult();

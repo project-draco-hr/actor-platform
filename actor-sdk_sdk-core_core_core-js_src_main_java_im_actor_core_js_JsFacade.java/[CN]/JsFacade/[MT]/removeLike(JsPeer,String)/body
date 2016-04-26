@@ -1,8 +1,8 @@
 {
   return JsPromise.create(new JsPromiseExecutor(){
     @Override public void execute(){
-      messenger.removeReaction(peer.convert(),Long.parseLong(rid),"\u2764").start(new CommandCallback<Boolean>(){
-        @Override public void onResult(        Boolean res){
+      messenger.removeReaction(peer.convert(),Long.parseLong(rid),"\u2764").start(new CommandCallback<Void>(){
+        @Override public void onResult(        Void res){
           resolve();
         }
         @Override public void onError(        Exception e){
