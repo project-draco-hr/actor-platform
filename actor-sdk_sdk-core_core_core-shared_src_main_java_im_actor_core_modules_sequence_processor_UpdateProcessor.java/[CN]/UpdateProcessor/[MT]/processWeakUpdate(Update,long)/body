@@ -1,0 +1,7 @@
+{
+  for (  WeakProcessor w : weakProcessors) {
+    if (w.process(update,date)) {
+      return;
+    }
+  }
+}

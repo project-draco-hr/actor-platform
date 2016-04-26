@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.messagesProcessor=new MessagesProcessor(context);
+  sequenceProcessors=new SequenceProcessor[]{new UsersProcessor(context),new GroupsProcessor(context),new ContactsProcessor(context),new BlockListProcessor(context),new EncryptedProcessor(context),new StickersProcessor(context)};
+  this.typingProcessor=new TypingProcessor(context);
+  this.weakProcessors=new WeakProcessor[]{typingProcessor,new PresenceProcessor(context),new EventBusProcessor(context),new CallsProcessor(context)};
+}

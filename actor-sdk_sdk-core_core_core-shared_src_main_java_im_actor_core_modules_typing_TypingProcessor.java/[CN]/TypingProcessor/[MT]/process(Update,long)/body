@@ -1,0 +1,13 @@
+{
+  if (update instanceof UpdateTyping) {
+    UpdateTyping typing=(UpdateTyping)update;
+    onTyping(typing.getPeer(),typing.getUid(),typing.getTypingType());
+    return true;
+  }
+ else   if (update instanceof UpdateTypingStop) {
+    UpdateTypingStop typing=(UpdateTypingStop)update;
+    onTypingStop(typing.getPeer(),typing.getUid(),typing.getTypingType());
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,23 @@
+{
+  if (update instanceof UpdateUserOnline) {
+    UpdateUserOnline userOnline=(UpdateUserOnline)update;
+    onUserOnline(userOnline.getUid(),date);
+    return true;
+  }
+ else   if (update instanceof UpdateUserOffline) {
+    UpdateUserOffline offline=(UpdateUserOffline)update;
+    onUserOffline(offline.getUid(),date);
+    return true;
+  }
+ else   if (update instanceof UpdateUserLastSeen) {
+    UpdateUserLastSeen lastSeen=(UpdateUserLastSeen)update;
+    onUserLastSeen(lastSeen.getUid(),(int)lastSeen.getDate(),date);
+    return true;
+  }
+ else   if (update instanceof UpdateGroupOnline) {
+    UpdateGroupOnline groupOnline=(UpdateGroupOnline)update;
+    onGroupOnline(groupOnline.getGroupId(),groupOnline.getCount(),date);
+    return true;
+  }
+  return false;
+}

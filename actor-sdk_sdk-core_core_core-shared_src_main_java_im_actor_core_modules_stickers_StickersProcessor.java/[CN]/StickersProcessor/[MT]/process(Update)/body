@@ -1,0 +1,11 @@
+{
+  if (update instanceof UpdateOwnStickersChanged) {
+    onOwnStickerCollectionsChanged(((UpdateOwnStickersChanged)update).getCollections());
+    return true;
+  }
+ else   if (update instanceof UpdateStickerCollectionsChanged) {
+    onStickerCollectionsChanged(((UpdateStickerCollectionsChanged)update).getCollections());
+    return true;
+  }
+  return false;
+}

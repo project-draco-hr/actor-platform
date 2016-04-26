@@ -1,0 +1,3 @@
+{
+  return applyRelatedData(users,new ApiGroup());
+}

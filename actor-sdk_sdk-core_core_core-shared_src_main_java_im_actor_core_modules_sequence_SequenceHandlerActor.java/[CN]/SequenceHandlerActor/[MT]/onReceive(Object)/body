@@ -8,13 +8,6 @@
       e.printStackTrace();
     }
   }
- else   if (message instanceof InternalUpdate) {
-    if (isUpdating) {
-      stash();
-      return;
-    }
-    onInternalUpdate((InternalUpdate)message);
-  }
  else {
     super.onReceive(message);
   }

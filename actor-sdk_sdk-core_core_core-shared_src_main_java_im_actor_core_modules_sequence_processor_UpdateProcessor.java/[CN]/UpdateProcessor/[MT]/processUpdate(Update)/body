@@ -1,0 +1,11 @@
+{
+  if (update instanceof UpdateMessage) {
+    UpdateMessage message=(UpdateMessage)update;
+    typingProcessor.onMessage(message.getPeer(),message.getSenderUid());
+  }
+  for (  SequenceProcessor sequenceProcessor : sequenceProcessors) {
+    if (sequenceProcessor.process(update)) {
+      return;
+    }
+  }
+}

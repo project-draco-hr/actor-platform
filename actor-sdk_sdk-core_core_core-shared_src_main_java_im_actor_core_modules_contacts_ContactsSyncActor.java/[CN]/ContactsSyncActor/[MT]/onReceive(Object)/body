@@ -1,8 +1,5 @@
 {
-  if (message instanceof ContactsLoaded) {
-    onContactsLoaded(((ContactsLoaded)message).getResult());
-  }
- else   if (message instanceof ContactsAdded) {
+  if (message instanceof ContactsAdded) {
     onContactsAdded(((ContactsAdded)message).getUids());
   }
  else   if (message instanceof ContactsRemoved) {

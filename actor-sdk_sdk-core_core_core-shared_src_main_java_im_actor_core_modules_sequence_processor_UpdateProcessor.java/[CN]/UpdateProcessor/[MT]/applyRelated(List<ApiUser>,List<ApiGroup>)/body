@@ -1,0 +1,23 @@
+{
+  ArrayList<User> batch=new ArrayList<>();
+  for (  ApiUser u : users) {
+    User saved=users().getValue(u.getId());
+    if (saved == null) {
+      batch.add(new User(u));
+    }
+  }
+  if (batch.size() > 0) {
+    users().addOrUpdateItems(batch);
+  }
+  ArrayList<Group> groupsBatch=new ArrayList<>();
+  for (  ApiGroup group : groups) {
+    Group saved=groups().getValue(group.getId());
+    if (saved == null) {
+      groupsBatch.add(EntityConverter.convert(group));
+    }
+  }
+  if (batch.size() > 0) {
+    groups().addOrUpdateItems(groupsBatch);
+  }
+  return Promise.success(null);
+}
