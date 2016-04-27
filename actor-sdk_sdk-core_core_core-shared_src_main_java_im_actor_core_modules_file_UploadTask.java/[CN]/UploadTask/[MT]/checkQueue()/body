@@ -21,8 +21,8 @@
           Log.d(TAG,"Upload completed...");
         }
         FileReference location=new FileReference(response.getUploadedFileLocation(),fileName,srcReference.getSize());
-        if (isWriteToDestProvider) {
-          FileSystemReference reference=Storage.commitTempFile(destReference,location.getFileId(),location.getFileName());
+        if (isWriteToDestProvider || alreadyInTemp) {
+          FileSystemReference reference=Storage.commitTempFile(alreadyInTemp ? srcReference : destReference,location.getFileId(),location.getFileName());
           reportComplete(location,reference);
         }
  else {
