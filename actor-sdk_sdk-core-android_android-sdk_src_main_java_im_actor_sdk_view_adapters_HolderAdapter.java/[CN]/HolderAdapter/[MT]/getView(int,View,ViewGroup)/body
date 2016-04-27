@@ -12,6 +12,6 @@
     holder=(ViewHolder<V>)convertView.getTag();
     view=convertView;
   }
-  holder.bind(obj,position,context);
+  onBindViewHolder(holder,obj,position,context);
   return view;
 }

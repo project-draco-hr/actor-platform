@@ -31,6 +31,12 @@
     }
   }
 );
+  cont.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      return onItemClickedListener.onLongClicked(data);
+    }
+  }
+);
   if (isLast) {
     separator.setVisibility(View.GONE);
   }

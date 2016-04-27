@@ -1,0 +1,4 @@
+ViewHolder<V> holder
+V obj
+int position
+Context context

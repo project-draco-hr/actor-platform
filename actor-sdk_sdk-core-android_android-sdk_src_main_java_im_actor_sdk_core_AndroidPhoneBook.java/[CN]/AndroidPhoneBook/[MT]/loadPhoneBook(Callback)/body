@@ -1,11 +1,13 @@
 {
   new Thread(){
     @Override public void run(){
-      try {
-        Thread.sleep(PRELOAD_DELAY);
-      }
- catch (      InterruptedException e) {
-        e.printStackTrace();
+      if (useDelay) {
+        try {
+          Thread.sleep(PRELOAD_DELAY);
+        }
+ catch (        InterruptedException e) {
+          e.printStackTrace();
+        }
       }
       ArrayList<PhoneBookContact> contacts=loadPhoneBook(AndroidContext.getContext(),Devices.getDeviceCountry());
       callback.onLoaded(contacts);

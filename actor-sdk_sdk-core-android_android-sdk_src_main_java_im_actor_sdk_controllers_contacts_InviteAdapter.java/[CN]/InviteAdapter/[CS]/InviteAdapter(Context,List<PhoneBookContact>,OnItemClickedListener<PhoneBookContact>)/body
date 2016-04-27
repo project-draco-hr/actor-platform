@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.phoneBook=phoneBook;
+  selectedUsers.addAll(phoneBook);
+  this.context=context;
+  this.onItemClickedListener=onItemClickedListener;
+}

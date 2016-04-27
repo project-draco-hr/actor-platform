@@ -1,0 +1,16 @@
+{
+  PhoneBookContact item=phoneBook.get(index);
+  String fastName=null;
+  if (index == 0) {
+    fastName=messenger().getFormatter().formatFastName(item.getName());
+  }
+ else {
+    String prevName=messenger().getFormatter().formatFastName(phoneBook.get(index - 1).getName());
+    String currentFastName=messenger().getFormatter().formatFastName(item.getName());
+    if (!prevName.equals(currentFastName)) {
+      fastName=currentFastName;
+    }
+  }
+  Integer type=selectedContactType.get(item);
+  ((InviteContactHolder)holder).bind(item,fastName,"",selectedUsers.contains(item),type == null ? -1 : type,index == getCount() - 1);
+}

@@ -1,3 +1,0 @@
-BindedDisplayList<PhoneBookContact> displayList
-Context context
-OnItemClickedListener<PhoneBookContact> onItemClickedListener

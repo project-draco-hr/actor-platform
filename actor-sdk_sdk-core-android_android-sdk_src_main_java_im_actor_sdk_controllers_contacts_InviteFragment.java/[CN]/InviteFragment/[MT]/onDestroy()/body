@@ -1,0 +1,6 @@
+{
+  super.onDestroy();
+  if (adapter != null) {
+    adapter.dispose();
+  }
+}

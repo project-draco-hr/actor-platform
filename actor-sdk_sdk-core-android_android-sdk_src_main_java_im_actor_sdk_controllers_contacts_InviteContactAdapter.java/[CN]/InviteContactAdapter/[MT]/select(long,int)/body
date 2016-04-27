@@ -1,4 +1,0 @@
-{
-  selectedUsers.add(id);
-  selectedContactType.put(id,type);
-}
