@@ -27,5 +27,5 @@
   for (  UserEmail p : emails) {
     convertedEmails.push(JsEmail.create(p.getEmail(),p.getTitle()));
   }
-  return create(userVM.getId(),userVM.getName().get(),userVM.getNick().get(),userVM.getAbout().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,isOnline,userVM.getIsBlocked().get(),convertedPhones,convertedEmails);
+  return create(userVM.getId(),userVM.getName().get(),userVM.getNick().get(),userVM.getAbout().get(),fileUrl,bigFileUrl,Placeholders.getPlaceholder(userVM.getId()),userVM.isContact().get(),userVM.isBot(),presenceString,isOnline,userVM.getIsBlocked().get(),convertedPhones,convertedEmails,userVM.getTimeZone().get());
 }

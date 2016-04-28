@@ -3,6 +3,7 @@
   isChanged|=localName.change(rawObj.getLocalName());
   isChanged|=serverName.change(rawObj.getServerName());
   isChanged|=nick.change(rawObj.getNick());
+  isChanged|=timeZone.change(rawObj.getTimeZone());
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
   isChanged|=isBlocked.change(rawObj.isBlocked());

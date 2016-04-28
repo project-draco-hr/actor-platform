@@ -12,3 +12,4 @@ boolean isOnline
 boolean isBlocked
 JsArray<JsPhone> phones
 JsArray<JsEmail> emails
+String timeZone

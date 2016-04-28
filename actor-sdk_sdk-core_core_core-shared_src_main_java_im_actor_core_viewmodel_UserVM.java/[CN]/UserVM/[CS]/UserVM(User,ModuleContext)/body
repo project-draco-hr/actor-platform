@@ -11,6 +11,7 @@
   avatar=new AvatarValueModel("user." + id + ".avatar",user.getAvatar());
   isContact=new BooleanValueModel("user." + id + ".contact",modules.getContactsModule().isUserContact(id));
   isBlocked=new BooleanValueModel("user." + id + ".blocked",user.isBlocked());
+  timeZone=new StringValueModel("user." + id + ".time_zone",user.getTimeZone());
   presence=new ValueModelUserPresence("user." + id + ".presence",new UserPresence(UserPresence.State.UNKNOWN));
   phones=new ValueModelUserPhone("user." + id + ".phones",buildPhones(user.getRecords()));
   emails=new ValueModelUserEmail("user." + id + ".emails",buildEmails(user.getRecords()));

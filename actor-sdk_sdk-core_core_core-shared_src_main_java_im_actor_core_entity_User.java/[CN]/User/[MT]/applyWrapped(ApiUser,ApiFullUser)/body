@@ -36,6 +36,7 @@ this.isBlocked=ext.isBlocked();
  else {
 this.isBlocked=false;
 }
+this.timeZone=ext.getTimeZone();
 for (ApiContactRecord record : ext.getContactInfo()) {
 if (record.getType() == ApiContactType.PHONE) {
 this.records.add(new ContactRecord(ContactRecordType.PHONE,record.getTypeSpec(),"" + record.getLongValue(),record.getTitle(),record.getSubtitle()));
@@ -57,5 +58,6 @@ this.isBlocked=false;
 this.haveExtension=false;
 this.records=new ArrayList<>();
 this.about=null;
+this.timeZone=null;
 }
 }
