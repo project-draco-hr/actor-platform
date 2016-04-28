@@ -1,0 +1,13 @@
+{
+  if (message instanceof RouterLoadFullUser) {
+    if (isFreezed) {
+      stash();
+      return;
+    }
+    RouterLoadFullUser loadFullUser=(RouterLoadFullUser)message;
+    onLoadFullUser(loadFullUser.getUid());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

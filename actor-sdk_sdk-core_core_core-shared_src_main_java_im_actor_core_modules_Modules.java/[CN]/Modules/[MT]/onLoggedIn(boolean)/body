@@ -46,6 +46,8 @@
   blockListModule=new BlockListModule(this);
   timing.end();
   timing=new Timing("ACCOUNT_RUN");
+  timing.section("Users");
+  users.run();
   timing.section("Settings");
   settings.run();
   timing.section("DeviceInfo");

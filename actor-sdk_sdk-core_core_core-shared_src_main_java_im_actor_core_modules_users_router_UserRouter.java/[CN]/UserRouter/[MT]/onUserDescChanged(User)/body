@@ -1,4 +1,5 @@
 {
   context().getMessagesModule().getRouter().onUserChanged(u);
   context().getContactsModule().getContactSyncActor().send(new ContactsSyncActor.UserChanged(u));
+  return Promise.success((Void)null);
 }

@@ -1,0 +1,17 @@
+{
+  if (event instanceof PeerChatOpened) {
+    Peer peer=((PeerChatOpened)event).getPeer();
+    if (peer.getPeerType() == PeerType.PRIVATE) {
+      getUserRouter().onFullUserNeeded(peer.getPeerId());
+    }
+  }
+ else   if (event instanceof UserVisible) {
+    getUserRouter().onFullUserNeeded(((UserVisible)event).getUid());
+  }
+ else   if (event instanceof PeerInfoOpened) {
+    Peer peer=((PeerInfoOpened)event).getPeer();
+    if (peer.getPeerType() == PeerType.PRIVATE) {
+      getUserRouter().onFullUserNeeded(peer.getPeerId());
+    }
+  }
+}

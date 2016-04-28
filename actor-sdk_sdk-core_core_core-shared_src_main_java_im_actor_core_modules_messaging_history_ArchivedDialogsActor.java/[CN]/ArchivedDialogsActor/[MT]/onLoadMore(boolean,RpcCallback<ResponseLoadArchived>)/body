@@ -16,7 +16,7 @@
   }
   isLoading=true;
   Log.d(TAG,"Loading archived dialogs");
-  lastRequest=request(new RequestLoadArchived(nextOffset,LIMIT,Configuration.OPTIMIZATIONS),new RpcCallback<ResponseLoadArchived>(){
+  lastRequest=request(new RequestLoadArchived(nextOffset,LIMIT,ApiSupportConfiguration.OPTIMIZATIONS),new RpcCallback<ResponseLoadArchived>(){
     @Override public void onResult(    final ResponseLoadArchived response){
       updates().applyRelatedData(response.getUsers(),response.getGroups()).then(new Consumer<Void>(){
         @Override public void apply(        Void aVoid){

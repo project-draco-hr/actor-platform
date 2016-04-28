@@ -1,11 +1,2 @@
 {
-  User u=users().getValue(uid);
-  if (u != null) {
-    if (equalsE(u.getNick(),nick)) {
-      return Promise.success(null);
-    }
-    u=u.editNick(nick);
-    users().addOrUpdateItem(u);
-  }
-  return Promise.success(null);
 }

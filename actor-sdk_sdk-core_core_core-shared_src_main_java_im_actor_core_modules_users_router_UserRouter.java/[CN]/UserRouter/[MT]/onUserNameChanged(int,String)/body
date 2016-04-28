@@ -1,14 +1,2 @@
 {
-  User u=users().getValue(uid);
-  if (u != null) {
-    if (u.getServerName().equals(name)) {
-      return Promise.success(null);
-    }
-    u=u.editName(name);
-    users().addOrUpdateItem(u);
-    if (u.getLocalName() == null) {
-      onUserDescChanged(u);
-    }
-  }
-  return Promise.success(null);
 }

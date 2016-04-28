@@ -28,6 +28,7 @@ break;
 }
 }
 if (ext != null) {
+this.haveExtension=true;
 this.records=new ArrayList<>();
 for (ApiContactRecord record : ext.getContactInfo()) {
 if (record.getType() == ApiContactType.PHONE) {
@@ -46,6 +47,7 @@ this.records.add(new ContactRecord(ContactRecordType.SOCIAL,record.getTypeSpec()
 this.about=ext.getAbout();
 }
  else {
+this.haveExtension=false;
 this.records=new ArrayList<>();
 this.about=null;
 }
