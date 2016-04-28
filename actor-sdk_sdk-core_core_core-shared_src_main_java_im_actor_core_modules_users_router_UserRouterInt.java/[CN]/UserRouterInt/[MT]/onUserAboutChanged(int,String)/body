@@ -1,3 +1,0 @@
-{
-  return ask(new RouterAboutChanged(uid,about));
-}

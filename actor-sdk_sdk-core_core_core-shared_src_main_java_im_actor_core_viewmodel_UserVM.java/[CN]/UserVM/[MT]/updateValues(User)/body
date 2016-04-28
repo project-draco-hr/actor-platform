@@ -5,6 +5,7 @@
   isChanged|=nick.change(rawObj.getNick());
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=avatar.change(rawObj.getAvatar());
+  isChanged|=isBlocked.change(rawObj.isBlocked());
   isChanged|=phones.change(buildPhones(rawObj.getRecords()));
   isChanged|=emails.change(buildEmails(rawObj.getRecords()));
   isChanged|=links.change(buildLinks(rawObj.getRecords()));

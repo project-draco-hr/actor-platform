@@ -1,5 +1,0 @@
-{
-  this.rid=rid;
-  this.uid=uid;
-  this.date=date;
-}

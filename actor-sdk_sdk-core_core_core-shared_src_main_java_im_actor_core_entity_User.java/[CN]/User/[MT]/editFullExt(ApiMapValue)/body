@@ -1,0 +1,10 @@
+{
+  ApiFullUser ext=getWrappedExt();
+  if (ext != null) {
+    ApiFullUser upd=new ApiFullUser(ext.getId(),ext.getContactInfo(),ext.getAbout(),ext.getPreferredLanguages(),ext.getTimeZone(),ext.getBotCommands(),extv,ext.isBlocked());
+    return new User(getWrapped(),upd);
+  }
+ else {
+    return this;
+  }
+}

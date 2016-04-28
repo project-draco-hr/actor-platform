@@ -1,30 +1,6 @@
 {
-  if (update instanceof UpdateUserNameChanged) {
-    UpdateUserNameChanged userNameChanged=(UpdateUserNameChanged)update;
-    return getRouter().onUserNameChanged(userNameChanged.getUid(),userNameChanged.getName());
-  }
- else   if (update instanceof UpdateUserLocalNameChanged) {
-    UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
-    return getRouter().onUserLocalNameChanged(localNameChanged.getUid(),localNameChanged.getLocalName());
-  }
- else   if (update instanceof UpdateUserNickChanged) {
-    UpdateUserNickChanged nickChanged=(UpdateUserNickChanged)update;
-    return getRouter().onUserNicknameChanged(nickChanged.getUid(),nickChanged.getNickname());
-  }
- else   if (update instanceof UpdateUserAboutChanged) {
-    UpdateUserAboutChanged userAboutChanged=(UpdateUserAboutChanged)update;
-    return getRouter().onUserAboutChanged(userAboutChanged.getUid(),userAboutChanged.getAbout());
-  }
- else   if (update instanceof UpdateUserAvatarChanged) {
-    UpdateUserAvatarChanged avatarChanged=(UpdateUserAvatarChanged)update;
-    return getRouter().onUserAvatarChanged(avatarChanged.getUid(),avatarChanged.getAvatar());
-  }
- else   if (update instanceof UpdateContactRegistered) {
-    UpdateContactRegistered registered=(UpdateContactRegistered)update;
-    if (!registered.isSilent()) {
-      return getRouter().onUserRegistered(registered.getUid(),registered.getRid(),registered.getDate());
-    }
-    return Promise.success(null);
+  if (update instanceof UpdateUserNameChanged || update instanceof UpdateUserLocalNameChanged || update instanceof UpdateUserNickChanged|| update instanceof UpdateUserAboutChanged|| update instanceof UpdateUserAvatarChanged|| update instanceof UpdateContactRegistered|| update instanceof UpdateUserTimeZoneChanged|| update instanceof UpdateUserPreferredLanguagesChanged|| update instanceof UpdateUserExtChanged|| update instanceof UpdateUserFullExtChanged|| update instanceof UpdateUserBotCommandsChanged|| update instanceof UpdateUserContactsChanged|| update instanceof UpdateUserBlocked|| update instanceof UpdateUserUnblocked) {
+    return context().getUsersModule().getUserRouter().onUpdate(update);
   }
   return null;
 }

@@ -1,3 +1,0 @@
-{
-  return preferences().getBool("blocked_" + uid,false);
-}

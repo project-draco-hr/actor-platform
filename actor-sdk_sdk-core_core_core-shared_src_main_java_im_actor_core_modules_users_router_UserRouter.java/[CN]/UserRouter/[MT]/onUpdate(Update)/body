@@ -1,0 +1,61 @@
+{
+  if (update instanceof UpdateUserNameChanged) {
+    UpdateUserNameChanged updateUserNameChanged=(UpdateUserNameChanged)update;
+    return onUserNameChanged(updateUserNameChanged.getUid(),updateUserNameChanged.getName());
+  }
+ else   if (update instanceof UpdateUserLocalNameChanged) {
+    UpdateUserLocalNameChanged localNameChanged=(UpdateUserLocalNameChanged)update;
+    return onUserLocalNameChanged(localNameChanged.getUid(),localNameChanged.getLocalName());
+  }
+ else   if (update instanceof UpdateUserNickChanged) {
+    UpdateUserNickChanged nickChanged=(UpdateUserNickChanged)update;
+    return onUserNickChanged(nickChanged.getUid(),nickChanged.getNickname());
+  }
+ else   if (update instanceof UpdateUserAvatarChanged) {
+    UpdateUserAvatarChanged userAvatarChanged=(UpdateUserAvatarChanged)update;
+    return onUserAvatarChanged(userAvatarChanged.getUid(),userAvatarChanged.getAvatar());
+  }
+ else   if (update instanceof UpdateUserAboutChanged) {
+    UpdateUserAboutChanged aboutChanged=(UpdateUserAboutChanged)update;
+    return onUserAboutChanged(aboutChanged.getUid(),aboutChanged.getAbout());
+  }
+ else   if (update instanceof UpdateUserPreferredLanguagesChanged) {
+    UpdateUserPreferredLanguagesChanged languagesChanged=(UpdateUserPreferredLanguagesChanged)update;
+    return onUserPreferredLanguagesChanged(languagesChanged.getUid(),languagesChanged.getPreferredLanguages());
+  }
+ else   if (update instanceof UpdateContactRegistered) {
+    UpdateContactRegistered contactRegistered=(UpdateContactRegistered)update;
+    if (!contactRegistered.isSilent()) {
+      return onUserRegistered(contactRegistered.getRid(),contactRegistered.getUid(),contactRegistered.getDate());
+    }
+  }
+ else   if (update instanceof UpdateUserTimeZoneChanged) {
+    UpdateUserTimeZoneChanged timeZoneChanged=(UpdateUserTimeZoneChanged)update;
+    return onUserTimeZoneChanged(timeZoneChanged.getUid(),timeZoneChanged.getTimeZone());
+  }
+ else   if (update instanceof UpdateUserContactsChanged) {
+    UpdateUserContactsChanged contactsChanged=(UpdateUserContactsChanged)update;
+    return onUserContactsChanged(contactsChanged.getUid(),contactsChanged.getContactRecords());
+  }
+ else   if (update instanceof UpdateUserExtChanged) {
+    UpdateUserExtChanged extChanged=(UpdateUserExtChanged)update;
+    return onUserExtChanged(extChanged.getUid(),extChanged.getExt());
+  }
+ else   if (update instanceof UpdateUserFullExtChanged) {
+    UpdateUserFullExtChanged extChanged=(UpdateUserFullExtChanged)update;
+    return onUserFullExtChanged(extChanged.getUid(),extChanged.getExt());
+  }
+ else   if (update instanceof UpdateUserBotCommandsChanged) {
+    UpdateUserBotCommandsChanged commandsChanged=(UpdateUserBotCommandsChanged)update;
+    return onUserCommandsChanged(commandsChanged.getUid(),commandsChanged.getCommands());
+  }
+ else   if (update instanceof UpdateUserBlocked) {
+    UpdateUserBlocked updateUserBlocked=(UpdateUserBlocked)update;
+    return onUserBlockedChanged(updateUserBlocked.getUid(),true);
+  }
+ else   if (update instanceof UpdateUserUnblocked) {
+    UpdateUserUnblocked unblocked=(UpdateUserUnblocked)update;
+    return onUserBlockedChanged(unblocked.getUid(),true);
+  }
+  return Promise.success(null);
+}

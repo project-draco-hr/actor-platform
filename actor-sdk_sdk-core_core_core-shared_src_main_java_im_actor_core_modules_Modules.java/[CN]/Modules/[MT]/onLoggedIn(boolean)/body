@@ -42,9 +42,6 @@
   deviceInfoModule=new DeviceInfoModule(this);
   timing.section("EventBus");
   eventBusModule=new EventBusModule(this);
-  timing.section("BlockList");
-  blockListModule=new BlockListModule(this);
-  timing.end();
   timing=new Timing("ACCOUNT_RUN");
   timing.section("Users");
   users.run();

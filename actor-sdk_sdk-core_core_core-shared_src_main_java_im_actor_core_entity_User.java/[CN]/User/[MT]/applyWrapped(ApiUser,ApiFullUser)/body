@@ -30,6 +30,12 @@ break;
 if (ext != null) {
 this.haveExtension=true;
 this.records=new ArrayList<>();
+if (ext.isBlocked() != null) {
+this.isBlocked=ext.isBlocked();
+}
+ else {
+this.isBlocked=false;
+}
 for (ApiContactRecord record : ext.getContactInfo()) {
 if (record.getType() == ApiContactType.PHONE) {
 this.records.add(new ContactRecord(ContactRecordType.PHONE,record.getTypeSpec(),"" + record.getLongValue(),record.getTitle(),record.getSubtitle()));
@@ -47,6 +53,7 @@ this.records.add(new ContactRecord(ContactRecordType.SOCIAL,record.getTypeSpec()
 this.about=ext.getAbout();
 }
  else {
+this.isBlocked=false;
 this.haveExtension=false;
 this.records=new ArrayList<>();
 this.about=null;

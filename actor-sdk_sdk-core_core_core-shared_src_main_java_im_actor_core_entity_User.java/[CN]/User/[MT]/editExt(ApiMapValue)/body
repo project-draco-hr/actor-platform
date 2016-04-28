@@ -1,0 +1,6 @@
+{
+  ApiUser w=getWrapped();
+  ApiUser res=new ApiUser(w.getId(),w.getAccessHash(),w.getName(),w.getLocalName(),w.getNick(),w.getSex(),w.getAvatar(),w.isBot(),ext);
+  res.setUnmappedObjects(w.getUnmappedObjects());
+  return new User(res,getWrappedExt());
+}
