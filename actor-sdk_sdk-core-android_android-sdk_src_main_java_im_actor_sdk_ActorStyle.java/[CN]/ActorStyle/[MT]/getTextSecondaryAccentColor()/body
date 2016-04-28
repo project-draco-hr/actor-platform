@@ -1,8 +1,3 @@
 {
-  if (textSecondaryAccentColor != 0) {
-    return getTextSecondaryColor();
-  }
- else {
-    return textSecondaryAccentColor;
-  }
+  return getColorWithFallback(textSecondaryAccentColor,getTextSecondaryColor());
 }

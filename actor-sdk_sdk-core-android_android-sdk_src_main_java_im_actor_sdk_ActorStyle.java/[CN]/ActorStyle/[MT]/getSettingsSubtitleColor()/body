@@ -1,8 +1,3 @@
 {
-  if (settingsSubtitleColor != 0) {
-    return settingsSubtitleColor;
-  }
- else {
-    return getTextSecondaryColor();
-  }
+  return getColorWithFallback(settingsSubtitleColor,getTextSecondaryColor());
 }

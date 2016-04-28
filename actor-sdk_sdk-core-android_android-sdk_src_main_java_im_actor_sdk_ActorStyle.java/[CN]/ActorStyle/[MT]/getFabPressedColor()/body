@@ -1,9 +1,3 @@
 {
-  if (fabPressedColor != 0) {
-    return fabPressedColor;
-  }
- else {
-    double percent=0.95;
-    return getDarkenArgb(getFabColor(),percent);
-  }
+  return getColorWithFallback(fabPressedColor,getDarkenArgb(getFabColor(),0.95));
 }

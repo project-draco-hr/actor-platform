@@ -1,8 +1,3 @@
 {
-  if (settingsIconColor != 0) {
-    return settingsIconColor;
-  }
- else {
-    return getSectonIconSmallColor();
-  }
+  return getColorWithFallback(settingsIconColor,getSectonIconSmallColor());
 }

@@ -1,0 +1,8 @@
+{
+  if (baseColor != 0) {
+    return baseColor;
+  }
+ else {
+    return fallbackColor;
+  }
+}
