@@ -1,8 +1,3 @@
 {
-  if (toolBarColor != 0) {
-    return toolBarColor;
-  }
- else {
-    return getMainColor();
-  }
+  return getColorWithFallback(toolBarColor,getMainColor());
 }

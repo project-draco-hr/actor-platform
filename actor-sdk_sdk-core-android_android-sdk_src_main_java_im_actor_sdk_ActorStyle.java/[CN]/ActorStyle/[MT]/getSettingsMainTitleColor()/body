@@ -1,8 +1,3 @@
 {
-  if (listActionColor != 0) {
-    return listActionColor;
-  }
- else {
-    return getSettingsCategoryTextColor();
-  }
+  return getColorWithFallback(settingsMainTitleColor,getListActionColor());
 }

@@ -1,8 +1,3 @@
 {
-  if (dialogsActionColor != 0) {
-    return dialogsActionColor;
-  }
- else {
-    return getDialogsTextColor();
-  }
+  return getColorWithFallback(dialogsActionColor,getDialogsTextColor());
 }

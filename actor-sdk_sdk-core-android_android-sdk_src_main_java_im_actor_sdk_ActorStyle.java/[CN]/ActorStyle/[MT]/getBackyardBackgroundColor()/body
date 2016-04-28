@@ -1,8 +1,3 @@
 {
-  if (backyardBackgroundColor != 0) {
-    return backyardBackgroundColor;
-  }
- else {
-    return getDarkenArgb(getMainBackgroundColor(),0.9375);
-  }
+  return getColorWithFallback(backyardBackgroundColor,getDarkenArgb(getMainBackgroundColor(),0.9375));
 }

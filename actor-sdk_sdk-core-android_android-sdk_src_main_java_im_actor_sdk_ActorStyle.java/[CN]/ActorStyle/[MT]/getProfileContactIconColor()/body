@@ -1,8 +1,3 @@
 {
-  if (profileContactIconColor != 0) {
-    return profileContactIconColor;
-  }
- else {
-    return getListActionColor();
-  }
+  return getColorWithFallback(profileContactIconColor,getListActionColor());
 }

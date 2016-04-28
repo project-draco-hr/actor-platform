@@ -1,8 +1,3 @@
 {
-  if (settingsTitleColor != 0) {
-    return settingsTitleColor;
-  }
- else {
-    return getTextPrimaryColor();
-  }
+  return getColorWithFallback(settingsTitleColor,getTextPrimaryColor());
 }

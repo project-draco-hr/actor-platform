@@ -1,8 +1,3 @@
 {
-  if (profileIconColor != 0) {
-    return profileIconColor;
-  }
- else {
-    return getSectionIconLargeColor();
-  }
+  return getColorWithFallback(profileIconColor,getSectionIconLargeColor());
 }
