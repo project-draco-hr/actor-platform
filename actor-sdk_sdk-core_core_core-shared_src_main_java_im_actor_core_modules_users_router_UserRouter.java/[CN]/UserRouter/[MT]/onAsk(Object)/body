@@ -47,6 +47,22 @@
     RouterUserRegistered userRegistered=(RouterUserRegistered)message;
     return onUserRegistered(userRegistered.getRid(),userRegistered.getUid(),userRegistered.getDate());
   }
+ else   if (message instanceof RouterFetchMissingUsers) {
+    if (isFreezed) {
+      stash();
+      return null;
+    }
+    RouterFetchMissingUsers fetchMissingUsers=(RouterFetchMissingUsers)message;
+    return fetchMissingUsers(fetchMissingUsers.getSourcePeers());
+  }
+ else   if (message instanceof RouterApplyUsers) {
+    if (isFreezed) {
+      stash();
+      return null;
+    }
+    RouterApplyUsers applyUsers=(RouterApplyUsers)message;
+    return applyUsers(applyUsers.getUsers());
+  }
  else {
     return super.onAsk(message);
   }
