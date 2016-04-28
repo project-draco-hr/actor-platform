@@ -1,3 +1,0 @@
-{
-  ((InviteContactAdapter)getAdapter()).unselect(id);
-}

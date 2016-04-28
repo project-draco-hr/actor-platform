@@ -1,17 +1,15 @@
 {
   ArrayList<Long> phones=new ArrayList<Long>();
   ArrayList<String> emails=new ArrayList<String>();
-  Long[] selected=((InviteContactAdapter)getAdapter()).getSelected();
-  HashMap<Long,Integer> selectedTypes=((InviteContactAdapter)getAdapter()).getSelectedContactsTypes();
-  PhoneBookContact contact;
+  PhoneBookContact[] selected=getAdapter().getSelected();
+  HashMap<PhoneBookContact,Integer> selectedTypes=getAdapter().getSelectedContactsTypes();
   Integer selectedType;
   String phoneNumbersStrings="";
   String emailsString="";
   String email;
   long number;
-  for (  long s : selected) {
-    contact=messenger().getPhoneBookContact(s);
-    selectedType=selectedTypes.get(s);
+  for (  PhoneBookContact contact : selected) {
+    selectedType=selectedTypes.get(contact);
     selectedType=selectedType != null ? selectedType : InviteContactHolder.TYPE_PHONE;
     if ((selectedType == InviteContactHolder.TYPE_EMAIL && contact.getEmails().size() > 0) || contact.getPhones().size() == 0) {
       email=contact.getEmails().get(0).getEmail();

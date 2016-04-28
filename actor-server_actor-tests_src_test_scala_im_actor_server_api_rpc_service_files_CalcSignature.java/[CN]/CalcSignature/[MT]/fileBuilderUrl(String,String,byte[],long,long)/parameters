@@ -1,0 +1,5 @@
+String baseUri
+String seed
+byte[] signatureSecret
+long fileId
+long fileAccessHash

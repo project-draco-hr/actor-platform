@@ -1,0 +1,9 @@
+{
+  byte[] seedBytes=decodeHex(seed.toCharArray());
+  byte[] fileIdBytes=getBytes(fileId);
+  byte[] accessHashBytes=getBytes(fileAccessHash);
+  byte[] bytesToSign=ArrayUtils.addAll(ArrayUtils.addAll(seedBytes,fileIdBytes),accessHashBytes);
+  String signPart=HmacUtils.hmacSha256Hex(signatureSecret,bytesToSign);
+  String signature=seed + "_" + signPart;
+  return baseUri + "/" + fileId+ "?signature="+ signature;
+}

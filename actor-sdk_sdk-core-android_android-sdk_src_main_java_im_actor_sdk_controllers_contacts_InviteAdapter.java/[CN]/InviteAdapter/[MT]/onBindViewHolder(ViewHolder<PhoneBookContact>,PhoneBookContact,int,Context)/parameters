@@ -1,0 +1,4 @@
+ViewHolder<PhoneBookContact> holder
+PhoneBookContact obj
+int index
+Context context

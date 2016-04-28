@@ -1,6 +1,0 @@
-{
-  super(displayList);
-  this.context=context;
-  this.onItemClickedListener=onItemClickedListener;
-  updateIds();
-}

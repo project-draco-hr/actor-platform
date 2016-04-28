@@ -1,0 +1,3 @@
+{
+  getAdapter().select(id,type);
+}
