@@ -1,3 +1,0 @@
-{
-  send(new RouterOutgoingSent(peer,rid,date));
-}

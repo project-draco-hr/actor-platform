@@ -32,4 +32,5 @@
   if (isChanged) {
     conversationStates.addOrUpdateItem(state);
   }
+  return Promise.success(null);
 }

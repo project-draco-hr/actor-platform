@@ -1,3 +1,4 @@
 {
   conversation(peer).addOrUpdateItem(message);
+  return Promise.success(null);
 }

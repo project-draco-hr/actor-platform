@@ -1,3 +1,0 @@
-{
-  send(new RouterChangedReactions(peer,rid,reactions));
-}

@@ -1,7 +1,7 @@
 {
   Message message=conversation(peer).getValue(rid);
-  if (message == null) {
-    return;
+  if (message != null) {
+    conversation(peer).addOrUpdateItem(message.changeReactions(reactions));
   }
-  conversation(peer).addOrUpdateItem(message.changeReactions(reactions));
+  return Promise.success(null);
 }

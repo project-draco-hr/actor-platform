@@ -4,4 +4,5 @@
     Message updatedMsg=msg.changeState(MessageState.ERROR);
     conversation(peer).addOrUpdateItem(updatedMsg);
   }
+  return Promise.success(null);
 }

@@ -1,5 +1,5 @@
 {
   ArrayList<User> users=new ArrayList<>();
   users.add(user);
-  onUsersChanged(users);
+  return onUsersChanged(users);
 }

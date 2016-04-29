@@ -2,4 +2,5 @@
   conversation(peer).removeItems(JavaUtil.unbox(rids));
   Message head=conversation(peer).getHeadValue();
   dialogsActor(new DialogsActor.MessageDeleted(peer,head));
+  return Promise.success(null);
 }

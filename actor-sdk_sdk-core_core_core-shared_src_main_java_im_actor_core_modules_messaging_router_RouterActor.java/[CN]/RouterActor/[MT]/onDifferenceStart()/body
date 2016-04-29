@@ -1,3 +1,4 @@
 {
   context().getNotificationsModule().pauseNotifications();
+  return Promise.success(null);
 }

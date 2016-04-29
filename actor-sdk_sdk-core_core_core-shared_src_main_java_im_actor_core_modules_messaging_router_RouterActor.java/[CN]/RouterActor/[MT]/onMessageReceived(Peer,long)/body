@@ -5,4 +5,5 @@
     state=state.changeOutReceiveDate(date);
     conversationStates.addOrUpdateItem(state);
   }
+  return Promise.success(null);
 }

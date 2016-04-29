@@ -5,4 +5,5 @@
     conversation(peer).addOrUpdateItem(updatedMsg);
     dialogsActor(new DialogsActor.InMessage(peer,updatedMsg,-1));
   }
+  return Promise.success(null);
 }

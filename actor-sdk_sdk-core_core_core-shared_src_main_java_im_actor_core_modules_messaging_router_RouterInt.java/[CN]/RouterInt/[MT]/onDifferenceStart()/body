@@ -1,3 +1,3 @@
 {
-  send(new RouterDifferenceStart());
+  return ask(new RouterDifferenceStart());
 }

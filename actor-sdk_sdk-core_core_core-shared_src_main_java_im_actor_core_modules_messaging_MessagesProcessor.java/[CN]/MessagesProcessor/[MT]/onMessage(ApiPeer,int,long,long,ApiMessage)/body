@@ -1,9 +1,0 @@
-{
-  Peer peer=convert(_peer);
-  AbsContent msgContent=AbsContent.fromMessage(content);
-  Message message=new Message(rid,date,date,senderUid,myUid() == senderUid ? MessageState.SENT : MessageState.UNKNOWN,msgContent);
-  ArrayList<Message> messages=new ArrayList<>();
-  messages.add(message);
-  context().getMessagesModule().getRouter().onNewMessages(peer,messages);
-  return Promise.success(null);
-}

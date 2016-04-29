@@ -1,3 +1,3 @@
 {
-  send(new RouterOutgoingMessage(peer,message));
+  return ask(new RouterOutgoingMessage(peer,message));
 }

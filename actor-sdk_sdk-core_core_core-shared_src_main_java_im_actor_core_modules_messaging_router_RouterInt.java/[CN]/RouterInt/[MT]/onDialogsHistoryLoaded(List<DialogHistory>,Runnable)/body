@@ -1,3 +1,0 @@
-{
-  send(new RouterApplyDialogsHistory(histories,runnable));
-}

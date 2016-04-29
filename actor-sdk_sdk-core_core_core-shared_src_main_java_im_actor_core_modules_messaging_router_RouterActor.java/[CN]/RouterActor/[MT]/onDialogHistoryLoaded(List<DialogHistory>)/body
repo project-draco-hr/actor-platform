@@ -13,4 +13,5 @@
     conversationStates.addOrUpdateItem(state);
   }
   dialogsActor(new DialogsActor.HistoryLoaded(dialogs));
+  return Promise.success(null);
 }

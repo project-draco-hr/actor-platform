@@ -1,3 +1,4 @@
 {
   context().getNotificationsModule().resumeNotifications();
+  return Promise.success(null);
 }

@@ -1,6 +1,4 @@
 {
-  ArrayList<Message> messages=new ArrayList<>();
-  messages.add(new Message(rid,date,date,uid,MessageState.UNKNOWN,ServiceUserRegistered.create()));
-  context().getMessagesModule().getRouter().onNewMessages(Peer.user(uid),messages);
+  context().getMessagesModule().getRouter().onNewMessage(Peer.user(uid),new Message(rid,date,date,uid,MessageState.UNKNOWN,ServiceUserRegistered.create()));
   return Promise.success((Void)null);
 }

@@ -1,3 +1,0 @@
-{
-  send(new RouterActiveDialogsChanged(dialogs,showInvite,hasArchived));
-}

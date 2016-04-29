@@ -25,4 +25,5 @@
   if (isActiveNeedUpdate) {
     notifyActiveDialogsVM();
   }
+  return Promise.success(null);
 }

@@ -5,4 +5,5 @@
   dialogsActor(new DialogsActor.CounterChanged(peer,counter));
   notifyActiveDialogsVM();
   context().getNotificationsModule().onOwnRead(peer,date);
+  return Promise.success(null);
 }

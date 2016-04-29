@@ -1,3 +1,3 @@
 {
-  send(new RouterNewMessages(peer,messages));
+  return ask(new RouterNewMessages(peer,messages));
 }
