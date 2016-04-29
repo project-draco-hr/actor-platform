@@ -1,0 +1,38 @@
+{
+  if (update instanceof UpdateGroupTitleChanged) {
+    UpdateGroupTitleChanged titleChanged=(UpdateGroupTitleChanged)update;
+    return onTitleChanged(titleChanged.getGroupId(),titleChanged.getRid(),titleChanged.getUid(),titleChanged.getTitle(),titleChanged.getDate(),false);
+  }
+ else   if (update instanceof UpdateGroupTopicChanged) {
+    UpdateGroupTopicChanged topicChanged=(UpdateGroupTopicChanged)update;
+    return onTopicChanged(topicChanged.getGroupId(),topicChanged.getTopic());
+  }
+ else   if (update instanceof UpdateGroupAboutChanged) {
+    UpdateGroupAboutChanged aboutChanged=(UpdateGroupAboutChanged)update;
+    return onAboutChanged(aboutChanged.getGroupId(),aboutChanged.getAbout());
+  }
+ else   if (update instanceof UpdateGroupAvatarChanged) {
+    UpdateGroupAvatarChanged avatarChanged=(UpdateGroupAvatarChanged)update;
+    return onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getRid(),avatarChanged.getUid(),avatarChanged.getAvatar(),avatarChanged.getDate(),false);
+  }
+ else   if (update instanceof UpdateGroupInvite) {
+    UpdateGroupInvite groupInvite=(UpdateGroupInvite)update;
+    return onGroupInvite(groupInvite.getGroupId(),groupInvite.getRid(),groupInvite.getInviteUid(),groupInvite.getDate(),false);
+  }
+ else   if (update instanceof UpdateGroupUserLeave) {
+    UpdateGroupUserLeave leave=(UpdateGroupUserLeave)update;
+    return onUserLeave(leave.getGroupId(),leave.getRid(),leave.getUid(),leave.getDate(),false);
+  }
+ else   if (update instanceof UpdateGroupUserKick) {
+    UpdateGroupUserKick userKick=(UpdateGroupUserKick)update;
+    return onUserKicked(userKick.getGroupId(),userKick.getRid(),userKick.getUid(),userKick.getKickerUid(),userKick.getDate(),false);
+  }
+ else   if (update instanceof UpdateGroupUserInvited) {
+    UpdateGroupUserInvited userInvited=(UpdateGroupUserInvited)update;
+    return onUserAdded(userInvited.getGroupId(),userInvited.getRid(),userInvited.getUid(),userInvited.getInviterUid(),userInvited.getDate(),false);
+  }
+ else   if (update instanceof UpdateGroupMembersUpdate) {
+    return onMembersUpdated(((UpdateGroupMembersUpdate)update).getGroupId(),((UpdateGroupMembersUpdate)update).getMembers());
+  }
+  return Promise.success(null);
+}

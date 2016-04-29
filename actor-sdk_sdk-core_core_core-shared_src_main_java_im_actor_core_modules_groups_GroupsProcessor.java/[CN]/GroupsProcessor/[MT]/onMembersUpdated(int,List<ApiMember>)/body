@@ -1,7 +1,0 @@
-{
-  Group group=groups().getValue(groupId);
-  if (group != null) {
-    group=group.updateMembers(members);
-    groups().addOrUpdateItem(group);
-  }
-}

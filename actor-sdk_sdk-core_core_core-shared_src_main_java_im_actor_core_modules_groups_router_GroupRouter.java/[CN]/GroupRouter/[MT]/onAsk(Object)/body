@@ -1,0 +1,12 @@
+{
+  if (message instanceof GroupUpdate) {
+    if (isFreezed) {
+      stash();
+      return null;
+    }
+    return onUpdate(((GroupUpdate)message).getUpdate());
+  }
+ else {
+    return super.onAsk(message);
+  }
+}
