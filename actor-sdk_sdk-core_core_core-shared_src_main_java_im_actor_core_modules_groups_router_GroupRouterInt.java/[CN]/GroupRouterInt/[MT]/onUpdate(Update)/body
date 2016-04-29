@@ -1,3 +1,3 @@
 {
-  return ask(new GroupUpdate(update));
+  return ask(new RouterGroupUpdate(update));
 }

@@ -14,7 +14,7 @@
     }
     confirm.addAll(pendingConfirm);
     pendingConfirm.clear();
-    ArrayList<ProtoMessage> toSend=new ArrayList<ProtoMessage>();
+    ArrayList<ProtoMessage> toSend=new ArrayList<>();
     for (    ProtoMessage unsentPackage : unsentPackages.values()) {
       if (isEnableLog) {
         Log.d(TAG,"ReSending #" + unsentPackage.getMessageId());
@@ -73,7 +73,7 @@
     Log.w(TAG,"Received NewSessionCreated");
     pendingConfirm.clear();
     confirm.clear();
-    ArrayList<ProtoMessage> toSend=new ArrayList<ProtoMessage>();
+    ArrayList<ProtoMessage> toSend=new ArrayList<>();
     for (    ProtoMessage unsentPackage : unsentPackages.values()) {
       if (unsentPackage.getMessageId() < newSession.getMessageId()) {
         if (isEnableLog) {

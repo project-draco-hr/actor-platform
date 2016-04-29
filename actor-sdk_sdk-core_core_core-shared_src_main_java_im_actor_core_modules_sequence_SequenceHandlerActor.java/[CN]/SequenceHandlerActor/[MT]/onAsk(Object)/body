@@ -15,14 +15,6 @@
     }
     return onDifferenceUpdate(differenceUpdate.getUsers(),differenceUpdate.getGroups(),differenceUpdate.getUserOutPeers(),differenceUpdate.getGroupOutPeers(),differenceUpdate.getUpdates());
   }
- else   if (message instanceof HandlerRelatedResponse) {
-    HandlerRelatedResponse relatedResponse=(HandlerRelatedResponse)message;
-    if (isUpdating) {
-      stash();
-      return null;
-    }
-    return onRelatedResponse(relatedResponse.getRelatedUsers(),relatedResponse.getRelatedGroups());
-  }
  else {
     return super.onAsk(message);
   }

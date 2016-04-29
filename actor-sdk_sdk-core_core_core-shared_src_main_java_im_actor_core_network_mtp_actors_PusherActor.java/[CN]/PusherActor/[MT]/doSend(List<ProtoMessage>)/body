@@ -11,7 +11,7 @@
     doSend(items.get(0));
   }
  else   if (items.size() > 1) {
-    ArrayList<ProtoMessage> messages=new ArrayList<ProtoMessage>();
+    ArrayList<ProtoMessage> messages=new ArrayList<>();
     int currentPayload=0;
     for (int i=0; i < items.size(); i++) {
       ProtoMessage message=items.get(i);

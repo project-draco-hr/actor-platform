@@ -1,4 +1,0 @@
-{
-  this.mid=rid;
-  this.message=message;
-}

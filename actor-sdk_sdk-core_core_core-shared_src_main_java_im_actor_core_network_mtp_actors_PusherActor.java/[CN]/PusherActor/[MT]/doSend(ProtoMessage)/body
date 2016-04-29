@@ -1,6 +1,6 @@
 {
   if (confirm.size() > 0) {
-    ArrayList<ProtoMessage> mtpMessages=new ArrayList<ProtoMessage>();
+    ArrayList<ProtoMessage> mtpMessages=new ArrayList<>();
     mtpMessages.add(message);
     doSend(mtpMessages);
   }

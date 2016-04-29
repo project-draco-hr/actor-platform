@@ -1,0 +1,5 @@
+{
+  this.mid=rid;
+  this.message=message;
+  this.isRPC=isRPC;
+}

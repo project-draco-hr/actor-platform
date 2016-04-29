@@ -1,10 +1,24 @@
 {
-  if (message instanceof GroupUpdate) {
+  if (message instanceof RouterGroupUpdate) {
     if (isFreezed) {
       stash();
       return null;
     }
-    return onUpdate(((GroupUpdate)message).getUpdate());
+    return onUpdate(((RouterGroupUpdate)message).getUpdate());
+  }
+ else   if (message instanceof RouterApplyGroups) {
+    if (isFreezed) {
+      stash();
+      return null;
+    }
+    return applyGroups(((RouterApplyGroups)message).getGroups());
+  }
+ else   if (message instanceof RouterFetchMissingGroups) {
+    if (isFreezed) {
+      stash();
+      return null;
+    }
+    return fetchMissingGroups(((RouterFetchMissingGroups)message).getGroups());
   }
  else {
     return super.onAsk(message);

@@ -1,0 +1,4 @@
+{
+  this.mid=rid;
+  this.isResponse=isResponse;
+}
