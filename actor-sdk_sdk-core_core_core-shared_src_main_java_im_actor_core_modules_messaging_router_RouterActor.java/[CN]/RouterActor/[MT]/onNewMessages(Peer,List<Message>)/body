@@ -40,7 +40,7 @@
   if (maxInDate > 0 && !isRead) {
     context().getMessagesModule().getPlainReceiverActor().send(new CursorReceiverActor.MarkReceived(peer,maxInDate));
   }
-  dialogsActor(new DialogsActor.InMessage(peer,topMessage,state.getUnreadCount()));
+  Promise<Void> res=getDialogsRouter().onMessage(peer,topMessage,state.getUnreadCount());
   if (!isConversationVisible) {
     for (    Message m : messages) {
       if (m.getSenderId() != myUid()) {
@@ -54,5 +54,5 @@
       }
     }
   }
-  return Promise.success(null);
+  return res;
 }

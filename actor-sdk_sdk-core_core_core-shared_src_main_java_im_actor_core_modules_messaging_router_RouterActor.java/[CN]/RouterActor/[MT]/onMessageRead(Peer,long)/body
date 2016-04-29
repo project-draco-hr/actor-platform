@@ -1,10 +1,14 @@
 {
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   boolean isChanged=false;
+  Promise<Void> res;
   if (date > state.getOutReadDate()) {
     state=state.changeOutReadDate(date);
-    dialogsActor(new DialogsActor.PeerReadChanged(peer,date));
+    res=getDialogsRouter().onPeerReadChanged(peer,date);
     isChanged=true;
+  }
+ else {
+    res=Promise.success(null);
   }
   if (date > state.getOutReceiveDate()) {
     state=state.changeOutReceiveDate(date);
@@ -13,5 +17,5 @@
   if (isChanged) {
     conversationStates.addOrUpdateItem(state);
   }
-  return Promise.success(null);
+  return res;
 }

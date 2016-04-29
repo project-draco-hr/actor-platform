@@ -3,4 +3,5 @@
   if (dialog != null) {
     addOrUpdateItem(new DialogBuilder(dialog).updateKnownReadDate(date).updateKnownReceiveDate(date).createDialog());
   }
+  return Promise.success(null);
 }

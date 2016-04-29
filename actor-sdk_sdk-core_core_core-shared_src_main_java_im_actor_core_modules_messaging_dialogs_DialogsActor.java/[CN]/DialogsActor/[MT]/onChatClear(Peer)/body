@@ -3,4 +3,5 @@
   if (dialog != null) {
     addOrUpdateItem(new DialogBuilder(dialog).setMessageType(ContentType.NONE).setText("").setTime(0).setUnreadCount(0).setRid(0).setSenderId(0).createDialog());
   }
+  return Promise.success(null);
 }

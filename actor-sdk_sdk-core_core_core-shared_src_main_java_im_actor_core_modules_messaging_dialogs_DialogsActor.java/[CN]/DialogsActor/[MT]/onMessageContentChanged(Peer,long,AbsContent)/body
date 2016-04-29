@@ -4,4 +4,5 @@
     ContentDescription description=ContentDescription.fromContent(content);
     addOrUpdateItem(new DialogBuilder(dialog).setText(description.getText()).setRelatedUid(description.getRelatedUser()).setMessageType(description.getContentType()).createDialog());
   }
+  return Promise.success(null);
 }

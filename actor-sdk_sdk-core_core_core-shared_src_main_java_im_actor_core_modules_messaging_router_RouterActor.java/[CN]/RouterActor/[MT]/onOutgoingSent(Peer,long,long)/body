@@ -3,7 +3,9 @@
   if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
     Message updatedMsg=msg.changeAllDate(date).changeState(MessageState.SENT);
     conversation(peer).addOrUpdateItem(updatedMsg);
-    dialogsActor(new DialogsActor.InMessage(peer,updatedMsg,-1));
+    return getDialogsRouter().onMessage(peer,updatedMsg,-1);
   }
-  return Promise.success(null);
+ else {
+    return Promise.success(null);
+  }
 }

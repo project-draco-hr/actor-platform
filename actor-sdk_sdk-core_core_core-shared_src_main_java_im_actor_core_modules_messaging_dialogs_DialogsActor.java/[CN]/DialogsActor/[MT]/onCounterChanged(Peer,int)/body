@@ -1,9 +1,7 @@
 {
   Dialog dialog=dialogs.getValue(peer.getUnuqueId());
-  if (dialog != null) {
-    if (dialog.getUnreadCount() == count) {
-      return;
-    }
+  if (dialog != null && dialog.getUnreadCount() != count) {
     addOrUpdateItem(new DialogBuilder(dialog).setUnreadCount(count).createDialog());
   }
+  return Promise.success(null);
 }

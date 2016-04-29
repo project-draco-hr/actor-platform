@@ -2,10 +2,11 @@
   Dialog dialog=dialogs.getValue(group.peer().getUnuqueId());
   if (dialog != null) {
     if (dialog.getDialogTitle().equals(group.getTitle()) && equalsE(dialog.getDialogAvatar(),group.getAvatar())) {
-      return;
+      return Promise.success(null);
     }
     Dialog updated=dialog.editPeerInfo(group.getTitle(),group.getAvatar());
     addOrUpdateItem(updated);
     updateSearch(updated);
   }
+  return Promise.success(null);
 }

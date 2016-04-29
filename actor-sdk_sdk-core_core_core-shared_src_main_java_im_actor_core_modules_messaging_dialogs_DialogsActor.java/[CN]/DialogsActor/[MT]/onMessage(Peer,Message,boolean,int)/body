@@ -3,12 +3,12 @@
   PeerDesc peerDesc=buildPeerDesc(peer);
   if (peerDesc == null) {
     Log.d("DialogsActor","unknown peer desc");
-    return;
+    return Promise.success(null);
   }
   if (message == null) {
     if (!forceWrite) {
       Log.d("DialogsActor","not force");
-      return;
+      return Promise.success(null);
     }
     onChatClear(peer);
   }
@@ -23,7 +23,7 @@
     if (dialog != null) {
       if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {
         Log.d("DialogsActor","too old");
-        return;
+        return Promise.success(null);
       }
       builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setSortKey(dialog.getSortDate()).updateKnownReceiveDate(dialog.getKnownReceiveDate()).updateKnownReadDate(dialog.getKnownReadDate());
       if (!contentDescription.isSilent()) {
@@ -33,7 +33,7 @@
  else {
       if (contentDescription.isSilent()) {
         Log.d("DialogsActor","is silent in");
-        return;
+        return Promise.success(null);
       }
       builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setSortKey(message.getSortDate());
       forceUpdate=true;
@@ -41,5 +41,5 @@
     addOrUpdateItem(builder.createDialog());
     notifyState(forceUpdate);
   }
-  Log.d("DialogsActor","onMessage in " + (Runtime.getCurrentTime() - start) + " ms");
+  return Promise.success(null);
 }

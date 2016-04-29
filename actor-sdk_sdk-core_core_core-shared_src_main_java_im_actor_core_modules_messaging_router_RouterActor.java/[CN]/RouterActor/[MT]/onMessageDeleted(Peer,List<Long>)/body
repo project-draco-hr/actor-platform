@@ -1,6 +1,5 @@
 {
   conversation(peer).removeItems(JavaUtil.unbox(rids));
   Message head=conversation(peer).getHeadValue();
-  dialogsActor(new DialogsActor.MessageDeleted(peer,head.getMessageState() == MessageState.PENDING ? null : head));
-  return Promise.success(null);
+  return getDialogsRouter().onMessageDeleted(peer,head.getMessageState() == MessageState.PENDING ? null : head);
 }

@@ -5,8 +5,8 @@
       state=state.changeCounter(0).changeInReadDate(state.getInMaxMessageDate());
       conversationStates.addOrUpdateItem(state);
       context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,state.getInMaxMessageDate()));
-      dialogsActor(new DialogsActor.CounterChanged(peer,0));
       notifyActiveDialogsVM();
+      getDialogsRouter().onCounterChanged(peer,0);
     }
   }
 }

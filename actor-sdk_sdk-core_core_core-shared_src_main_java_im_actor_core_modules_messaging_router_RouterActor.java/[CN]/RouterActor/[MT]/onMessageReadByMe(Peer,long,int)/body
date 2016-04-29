@@ -2,8 +2,8 @@
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   state=state.changeCounter(counter).changeInReadDate(date);
   conversationStates.addOrUpdateItem(state);
-  dialogsActor(new DialogsActor.CounterChanged(peer,counter));
+  Promise<Void> res=getDialogsRouter().onCounterChanged(peer,counter);
   notifyActiveDialogsVM();
   context().getNotificationsModule().onOwnRead(peer,date);
-  return Promise.success(null);
+  return res;
 }
