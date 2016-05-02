@@ -1,8 +1,2 @@
 {
-  storageActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public AsyncStorageActor<T> create(){
-      return new AsyncStorageActor<T>(storage,creator);
-    }
-  }
-).changeDispatcher("db"),"list_engine/" + NEXT_ID++);
 }

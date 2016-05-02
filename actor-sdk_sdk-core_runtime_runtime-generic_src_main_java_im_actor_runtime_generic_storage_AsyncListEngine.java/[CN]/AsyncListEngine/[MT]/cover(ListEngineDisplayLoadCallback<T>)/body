@@ -1,13 +1,2 @@
 {
-  return new ListEngineDisplayLoadCallback<T>(){
-    @Override public void onLoaded(    List<T> items,    long topSortKey,    long bottomSortKey){
-synchronized (LOCK) {
-        for (        T i : items) {
-          cache.onObjectLoaded(i.getEngineId(),i);
-        }
-      }
-      callback.onLoaded(items,topSortKey,bottomSortKey);
-    }
-  }
-;
 }

@@ -1,27 +1,2 @@
 {
-  final Object lock=new Object();
-  final List<Integer> resultList=new ArrayList<Integer>();
-synchronized (lock) {
-    storageActor.send(new AsyncStorageActor.LoadCount(new AsyncStorageActor.LoadCountCallback(){
-      @Override public void onLoaded(      int count){
-synchronized (lock) {
-          resultList.add(count);
-          lock.notify();
-        }
-      }
-    }
-));
-    try {
-      lock.wait();
-    }
- catch (    InterruptedException e) {
-      return 0;
-    }
-    if (resultList.size() > 0) {
-      return resultList.get(0);
-    }
- else {
-      return 0;
-    }
-  }
 }

@@ -1,29 +1,2 @@
 {
-  final Object lock=new Object();
-  final List<T> resultList=new ArrayList<T>();
-synchronized (lock) {
-    storageActor.send(new AsyncStorageActor.LoadItem<T>(value,new AsyncStorageActor.LoadItemCallback<T>(){
-      @Override public void onLoaded(      T item){
-synchronized (lock) {
-          if (item != null) {
-            resultList.add(item);
-          }
-          lock.notify();
-        }
-      }
-    }
-));
-    try {
-      lock.wait();
-    }
- catch (    InterruptedException e) {
-      return null;
-    }
-    if (resultList.size() > 0) {
-      return resultList.get(0);
-    }
- else {
-      return null;
-    }
-  }
 }
