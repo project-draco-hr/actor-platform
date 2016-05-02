@@ -1,8 +1,2 @@
 {
-  return ActorSystem.system().actorOf(new ActorSelection(Props.create(new ActorCreator(){
-    @Override public ReceiverActor create(){
-      return new ReceiverActor(proto);
-    }
-  }
-).changeDispatcher("network"),proto.getActorPath() + "/receiver"));
 }

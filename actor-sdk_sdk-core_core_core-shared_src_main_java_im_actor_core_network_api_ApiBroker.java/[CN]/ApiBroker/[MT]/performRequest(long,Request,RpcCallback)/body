@@ -1,3 +1,0 @@
-{
-  performRequest(randomId,message,callback,0);
-}

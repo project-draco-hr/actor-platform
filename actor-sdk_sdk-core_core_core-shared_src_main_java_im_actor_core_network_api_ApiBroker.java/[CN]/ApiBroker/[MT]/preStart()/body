@@ -1,18 +1,2 @@
 {
-  this.currentAuthId=keyStorage.getAuthKey();
-  this.keyManager=system().actorOf(Props.create(new ActorCreator(){
-    @Override public AuthKeyActor create(){
-      return new AuthKeyActor();
-    }
-  }
-),getPath() + "/key");
-  if (currentAuthId == 0) {
-    this.keyManager.send(new AuthKeyActor.StartKeyCreation(this.endpoints),self());
-  }
- else {
-    if (isEnableLog) {
-      Log.d(TAG,"Key loaded: " + currentAuthId);
-    }
-    self().send(new InitMTProto(currentAuthId,keyStorage.getAuthMasterKey()));
-  }
 }
