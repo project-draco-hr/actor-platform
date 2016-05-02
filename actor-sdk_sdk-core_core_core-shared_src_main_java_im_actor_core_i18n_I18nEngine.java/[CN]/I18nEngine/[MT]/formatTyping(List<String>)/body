@@ -1,0 +1,6 @@
+{
+  if (names.size() == 1) {
+    return formatTyping(names.get(0));
+  }
+  return locale.get("TypingUserMultiple").replace("{users}",formatSequence(names));
+}
