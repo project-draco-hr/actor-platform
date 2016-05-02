@@ -1,11 +1,2 @@
 {
-  super(context);
-  this.messenger=messenger;
-  this.messenger.onAppVisible();
-  idleActor=system().actorOf(Props.create(new ActorCreator(){
-    @Override public IdleActor create(){
-      return new IdleActor(messenger,context);
-    }
-  }
-),"js/idle_timer");
 }

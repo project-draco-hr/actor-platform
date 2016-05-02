@@ -3,5 +3,7 @@
     isAppVisible=true;
     messenger.onAppVisible();
   }
-  scheduleFlush();
+  if (!isElectron) {
+    scheduleFlush();
+  }
 }

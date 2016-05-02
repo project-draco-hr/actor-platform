@@ -1,4 +1,6 @@
 {
-  JsIdleDetection.subscribe(this);
-  scheduleFlush();
+  if (!isElectron) {
+    JsIdleDetection.subscribe(this);
+    scheduleFlush();
+  }
 }
