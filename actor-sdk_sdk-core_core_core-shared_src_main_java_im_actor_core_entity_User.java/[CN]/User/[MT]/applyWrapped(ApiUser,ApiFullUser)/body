@@ -27,6 +27,16 @@ case MALE:
 break;
 }
 }
+if (wrapped.getExt() != null) {
+this.isVerified=true;
+for (ApiMapValueItem i : wrapped.getExt().getItems()) {
+if ("is_verified".equals(i.getKey())) {
+if (i.getValue() instanceof ApiInt32Value) {
+  this.isVerified=((ApiInt32Value)i.getValue()).getValue() > 0;
+}
+}
+}
+}
 if (ext != null) {
 this.haveExtension=true;
 this.records=new ArrayList<>();

@@ -13,3 +13,4 @@ boolean isBlocked
 JsArray<JsPhone> phones
 JsArray<JsEmail> emails
 String timeZone
+boolean isVerified

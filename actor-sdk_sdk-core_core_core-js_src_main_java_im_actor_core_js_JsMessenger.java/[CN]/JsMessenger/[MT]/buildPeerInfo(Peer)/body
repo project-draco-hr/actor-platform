@@ -1,11 +1,11 @@
 {
   if (peer.getPeerType() == PeerType.PRIVATE) {
     UserVM userVM=getUsers().get(peer.getPeerId());
-    return JsPeerInfo.create(JsPeer.create(peer),userVM.getName().get(),userVM.getNick().get(),getSmallAvatarUrl(userVM.getAvatar().get()),Placeholders.getPlaceholder(peer.getPeerId()));
+    return JsPeerInfo.create(JsPeer.create(peer),userVM.getName().get(),userVM.getNick().get(),getSmallAvatarUrl(userVM.getAvatar().get()),Placeholders.getPlaceholder(peer.getPeerId()),userVM.getIsVerified().get());
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     GroupVM groupVM=getGroups().get(peer.getPeerId());
-    return JsPeerInfo.create(JsPeer.create(peer),groupVM.getName().get(),null,getSmallAvatarUrl(groupVM.getAvatar().get()),Placeholders.getPlaceholder(peer.getPeerId()));
+    return JsPeerInfo.create(JsPeer.create(peer),groupVM.getName().get(),null,getSmallAvatarUrl(groupVM.getAvatar().get()),Placeholders.getPlaceholder(peer.getPeerId()),false);
   }
  else {
     throw new RuntimeException();
