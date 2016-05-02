@@ -67,7 +67,9 @@
       contentMessage+="\n+" + (messagesCount - 4) + " new messages in "+ conversationsCount+ " conversations";
     }
   }
-  playSound();
+  if (!JsElectronApp.isElectron()) {
+    playSound();
+  }
   if (!JsNotification.isSupported()) {
     return;
   }
