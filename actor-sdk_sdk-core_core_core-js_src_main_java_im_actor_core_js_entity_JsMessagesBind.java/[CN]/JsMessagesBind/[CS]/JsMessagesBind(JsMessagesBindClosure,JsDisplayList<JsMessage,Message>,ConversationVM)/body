@@ -6,7 +6,4 @@
   this.conversationVM.getReadDate().subscribe(readDateListener);
   this.conversationVM.getReceiveDate().subscribe(receiveDateListener);
   this.bind=displayList.subscribe(this,true);
-  this.bind.initAll();
-  notifySubscriber();
-  this.isLocked=false;
 }

@@ -1,0 +1,9 @@
+{
+  if (isInited) {
+    throw new RuntimeException("Already inited!");
+  }
+  isInited=true;
+  this.bind.initAll();
+  notifySubscriber();
+  this.isLocked=false;
+}
