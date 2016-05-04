@@ -1,7 +1,7 @@
 {
   super.onDestroy();
-  if (mentionsAdapter != null) {
-    mentionsAdapter.dispose();
+  if (autocompleteAdapter != null) {
+    autocompleteAdapter.dispose();
   }
   if (fastShareAdapter != null) {
     fastShareAdapter.release();

@@ -1,9 +1,9 @@
 {
-  if (!isMentionsVisible) {
+  if (!isAutocompleteVisible) {
     return;
   }
-  isMentionsVisible=false;
-  expandMentions(mentionsList,mentionsAdapter.getCount(),0);
-  mentionsAdapter=null;
-  mentionsList.setAdapter(null);
+  isAutocompleteVisible=false;
+  expandMentions(autocompleteList,autocompleteAdapter.getCount(),0);
+  autocompleteAdapter=null;
+  autocompleteList.setAdapter(null);
 }

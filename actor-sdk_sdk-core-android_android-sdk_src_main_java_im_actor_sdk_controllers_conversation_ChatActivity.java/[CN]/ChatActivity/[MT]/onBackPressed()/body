@@ -1,5 +1,5 @@
 {
-  if (isMentionsVisible) {
+  if (isAutocompleteVisible) {
     hideMentions();
   }
  else   if (isShareVisible) {

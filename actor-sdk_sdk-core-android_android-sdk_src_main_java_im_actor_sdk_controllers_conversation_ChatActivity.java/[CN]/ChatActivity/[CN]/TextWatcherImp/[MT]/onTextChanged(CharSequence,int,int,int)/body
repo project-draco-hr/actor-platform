@@ -12,29 +12,40 @@
     }
   }
   currentWord=currentWord.isEmpty() ? str : currentWord;
-  if (peer.getPeerType() == PeerType.GROUP) {
-    if (count == 1 && s.charAt(start) == '@' && !str.endsWith(" ")) {
-      showMentions(false);
-      mentionSearchString="";
+  char autocompleteTriggerChar='@';
+  String autocompleteTriggerString="@";
+  if (peer.getPeerType() == PeerType.GROUP || isBot) {
+    if (isBot) {
+      autocompleteTriggerChar='/';
+      autocompleteTriggerString="/";
     }
- else     if (currentWord.startsWith("@") && !str.endsWith(" ")) {
-      showMentions(true);
+    if (count == 1 && s.charAt(start) == autocompleteTriggerChar && !str.endsWith(" ")) {
+      showAutoComplete(false,!isBot);
+      autocompleteString="";
+    }
+ else     if (currentWord.startsWith(autocompleteTriggerString) && !str.endsWith(" ")) {
+      showAutoComplete(true,!isBot);
     }
  else {
       hideMentions();
     }
-    mentionStart=firstPeace.lastIndexOf("@");
-    if (currentWord.startsWith("@") && currentWord.length() > 1) {
-      mentionSearchString=currentWord.substring(1,currentWord.length());
+    autocompleteTriggerStart=firstPeace.lastIndexOf(autocompleteTriggerString);
+    if (currentWord.startsWith(autocompleteTriggerString) && currentWord.length() > 1) {
+      autocompleteString=currentWord.substring(1,currentWord.length());
     }
  else {
-      mentionSearchString="";
+      autocompleteString="";
     }
-    if (mentionSearchString.equals(" ")) {
+    if (autocompleteString.equals(" ")) {
       hideMentions();
     }
- else     if (mentionsAdapter != null) {
-      mentionsAdapter.setQuery(mentionSearchString.toLowerCase());
+ else     if (autocompleteAdapter != null) {
+      if (autocompleteAdapter instanceof MentionsAdapter) {
+        ((MentionsAdapter)autocompleteAdapter).setQuery(autocompleteString.toLowerCase());
+      }
+ else       if (autocompleteAdapter instanceof CommandsAdapter) {
+        ((CommandsAdapter)autocompleteAdapter).setQuery(autocompleteString.toLowerCase());
+      }
     }
   }
 }

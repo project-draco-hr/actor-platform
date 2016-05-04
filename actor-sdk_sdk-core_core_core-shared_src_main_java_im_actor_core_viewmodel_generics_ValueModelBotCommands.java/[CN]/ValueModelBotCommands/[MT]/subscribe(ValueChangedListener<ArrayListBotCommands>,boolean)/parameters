@@ -1,0 +1,2 @@
+ValueChangedListener<ArrayListBotCommands> listener
+boolean notify

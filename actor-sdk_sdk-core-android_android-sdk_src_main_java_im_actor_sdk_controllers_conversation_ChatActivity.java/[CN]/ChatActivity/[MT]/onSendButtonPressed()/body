@@ -6,7 +6,7 @@
     currentQuote="";
   }
   messageEditText.setText("");
-  mentionSearchString="";
+  autocompleteString="";
   if (rawText.length() == 0) {
     return;
   }

@@ -1,0 +1,5 @@
+{
+  this.command=command;
+  this.description=description;
+  this.locKey=loc;
+}

@@ -1,0 +1,9 @@
+{
+  UserVM user=users().get(uid);
+  this.data=data;
+  avatarView.bind(user);
+  CharSequence name=data.getSlashCommand();
+  userName.setText(name);
+  CharSequence hint=data.getDescription();
+  mentionHint.setText(hint);
+}

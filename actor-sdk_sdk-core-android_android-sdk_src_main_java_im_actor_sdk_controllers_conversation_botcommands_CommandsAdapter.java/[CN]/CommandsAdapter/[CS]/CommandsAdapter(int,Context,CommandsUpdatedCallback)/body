@@ -1,0 +1,8 @@
+{
+  super(context);
+  highlightColor=context.getResources().getColor(R.color.primary);
+  commands=users().get(uid).getBotCommands().get();
+  commandsToShow=users().get(uid).getBotCommands().get();
+  this.uid=uid;
+  this.updatedCallback=updatedCallback;
+}

@@ -1,0 +1,3 @@
+int uid
+Context context
+CommandsUpdatedCallback updatedCallback

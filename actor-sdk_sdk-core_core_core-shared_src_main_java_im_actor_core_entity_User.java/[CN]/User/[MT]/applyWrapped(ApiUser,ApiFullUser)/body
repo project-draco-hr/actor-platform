@@ -60,6 +60,9 @@ this.records.add(new ContactRecord(ContactRecordType.WEB,record.getTypeSpec(),re
  else if (record.getType() == ApiContactType.SOCIAL) {
 this.records.add(new ContactRecord(ContactRecordType.SOCIAL,record.getTypeSpec(),record.getStringValue(),record.getTitle(),record.getSubtitle()));
 }
+for (ApiBotCommand command : ext.getBotCommands()) {
+commands.add(new BotCommand(command.getSlashCommand(),command.getDescription(),command.getLocKey()));
+}
 }
 this.about=ext.getAbout();
 }
@@ -67,6 +70,7 @@ this.about=ext.getAbout();
 this.isBlocked=false;
 this.haveExtension=false;
 this.records=new ArrayList<>();
+this.commands=new ArrayList<BotCommand>();
 this.about=null;
 this.timeZone=null;
 }
