@@ -1,0 +1,3 @@
+{
+  return runtime.getMethod(url,startOffset,size,totalSize);
+}

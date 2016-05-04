@@ -1,3 +1,0 @@
-{
-  return fileSystemRuntime.isAlreadyInTemp(descriptor);
-}

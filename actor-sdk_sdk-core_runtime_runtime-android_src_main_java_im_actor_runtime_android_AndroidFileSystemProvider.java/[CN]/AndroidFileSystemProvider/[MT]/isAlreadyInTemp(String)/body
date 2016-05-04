@@ -1,4 +1,0 @@
-{
-  File externalFile=AndroidContext.getContext().getExternalFilesDir(null);
-  return externalFile != null && descriptor.startsWith(externalFile.getAbsolutePath() + "/actor/upload_tmp/");
-}
