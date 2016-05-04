@@ -31,4 +31,5 @@
  else {
     scrollToUnread(0,0);
   }
+  checkBotEmptyView();
 }

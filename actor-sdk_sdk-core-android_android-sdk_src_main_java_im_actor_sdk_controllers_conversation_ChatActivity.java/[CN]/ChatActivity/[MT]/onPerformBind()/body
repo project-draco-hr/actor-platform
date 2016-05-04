@@ -23,6 +23,14 @@
       }
     }
 );
+    if (isBot) {
+      bind(users().get(peer.getPeerId()).getAbout(),new ValueChangedListener<String>(){
+        @Override public void onChanged(        String about,        Value<String> valueModel){
+          emptyBotHint.setText((about != null && !about.isEmpty()) ? about : getString(R.string.chat_empty_bot_about));
+        }
+      }
+);
+    }
   }
  else   if (peer.getPeerType() == PeerType.GROUP) {
     GroupVM group=groups().get(peer.getPeerId());

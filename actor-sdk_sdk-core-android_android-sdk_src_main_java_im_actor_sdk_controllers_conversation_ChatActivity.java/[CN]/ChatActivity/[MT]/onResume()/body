@@ -1,6 +1,6 @@
 {
-  super.onResume();
   isBot=(peer.getPeerType() == PeerType.PRIVATE && users().get(peer.getPeerId()).isBot());
+  super.onResume();
   if (peer.getPeerType() == PeerType.PRIVATE && menu != null) {
     menu.findItem(R.id.add_to_contacts).setVisible(users().get(peer.getPeerId()).isContact().get());
     invalidateOptionsMenu();
@@ -84,5 +84,17 @@
   if (forwardContent != null) {
     messenger().forwardContent(peer,forwardContent);
     forwardContent=null;
+  }
+  if (isBot) {
+    emptyBotSend.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+    TextView emptyBotSendText=(TextView)emptyBotSend.findViewById(R.id.empty_bot_text);
+    emptyBotSendText.setTextColor(ActorSDK.sharedActor().style.getMainColor());
+    emptyBotSendText.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        messenger().sendMessage(peer,"/start");
+      }
+    }
+);
+    checkEmptyBot();
   }
 }

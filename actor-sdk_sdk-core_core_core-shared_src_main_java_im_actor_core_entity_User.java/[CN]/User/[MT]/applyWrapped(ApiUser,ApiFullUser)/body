@@ -40,6 +40,7 @@ if (i.getValue() instanceof ApiInt32Value) {
 if (ext != null) {
 this.haveExtension=true;
 this.records=new ArrayList<>();
+this.commands=new ArrayList<BotCommand>();
 if (ext.isBlocked() != null) {
 this.isBlocked=ext.isBlocked();
 }

@@ -1,0 +1,12 @@
+{
+  if (isBot) {
+    if (messenger().checkChatIsempty(peer)) {
+      showView(emptyBotSend);
+      showView(emptyBotHint);
+    }
+ else {
+      hideView(emptyBotSend);
+      hideView(emptyBotHint);
+    }
+  }
+}

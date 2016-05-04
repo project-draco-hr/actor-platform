@@ -203,4 +203,6 @@
  else {
     fastShare.setVisibility(View.GONE);
   }
+  emptyBotSend=findViewById(R.id.botEmptyTextBlock);
+  emptyBotHint=(TextView)findViewById(R.id.botEmptyHint);
 }

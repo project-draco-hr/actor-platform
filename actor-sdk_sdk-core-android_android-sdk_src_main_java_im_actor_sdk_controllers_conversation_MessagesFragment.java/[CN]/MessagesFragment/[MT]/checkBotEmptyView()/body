@@ -1,0 +1,6 @@
+{
+  if (getActivity() == null) {
+    return;
+  }
+  ((ChatActivity)getActivity()).checkEmptyBot();
+}
