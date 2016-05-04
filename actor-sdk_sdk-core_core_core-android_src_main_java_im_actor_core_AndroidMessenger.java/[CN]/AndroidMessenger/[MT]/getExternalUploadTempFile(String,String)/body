@@ -1,0 +1,11 @@
+{
+  File externalFile=context.getExternalFilesDir(null);
+  if (externalFile == null) {
+    return null;
+  }
+  String externalPath=externalFile.getAbsolutePath();
+  File dest=new File(externalPath + "/actor/upload_tmp/");
+  dest.mkdirs();
+  File outputFile=new File(dest,prefix + "_" + random.nextLong()+ "."+ postfix);
+  return outputFile.getAbsolutePath();
+}

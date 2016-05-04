@@ -1,5 +1,6 @@
 {
-  isWriteToDestProvider=Storage.isFsPersistent();
+  alreadyInTemp=Storage.isAlreadyInTemp(descriptor);
+  isWriteToDestProvider=Storage.isFsPersistent() && !alreadyInTemp;
   srcReference=Storage.fileFromDescriptor(descriptor);
   if (srcReference == null) {
     if (LOG) {
