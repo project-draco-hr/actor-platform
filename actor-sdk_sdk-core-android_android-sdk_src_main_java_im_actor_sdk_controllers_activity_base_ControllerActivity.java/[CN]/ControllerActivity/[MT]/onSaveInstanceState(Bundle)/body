@@ -1,0 +1,4 @@
+{
+  controller.onSaveInstanceState(outState);
+  super.onSaveInstanceState(outState);
+}
