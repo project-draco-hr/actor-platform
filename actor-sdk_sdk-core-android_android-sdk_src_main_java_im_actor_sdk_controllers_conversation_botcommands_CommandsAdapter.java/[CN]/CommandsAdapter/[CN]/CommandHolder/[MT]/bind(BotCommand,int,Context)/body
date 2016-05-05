@@ -1,8 +1,8 @@
 {
   this.data=data;
   avatarView.bind(botUser);
-  CharSequence name=data.getSlashCommand();
-  userName.setText(name);
+  String name=data.getSlashCommand();
+  commandName.setText("/".concat(name));
   CharSequence hint=data.getDescription();
-  mentionHint.setText(hint);
+  description.setText(hint);
 }
