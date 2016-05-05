@@ -1,22 +1,2 @@
 {
-  if (LOG) {
-    Log.d(TAG,"Creating file...");
-  }
-  destReference=Storage.createTempFile();
-  if (destReference == null) {
-    reportError();
-    if (LOG) {
-      Log.d(TAG,"Unable to create reference");
-    }
-    return;
-  }
-  outputFile=destReference.openWrite(fileReference.getFileSize());
-  if (outputFile == null) {
-    reportError();
-    if (LOG) {
-      Log.d(TAG,"Unable to write wile");
-    }
-    return;
-  }
-  requestUrl();
 }
