@@ -35,8 +35,8 @@
         }
         hideMentions();
       }
- else       if (item != null && item instanceof CommandsAdapter.CommandHolder) {
-        messenger().sendMessage(peer,((CommandsAdapter.CommandHolder)item).getCommand().getSlashCommand());
+ else       if (item != null && item instanceof BotCommand) {
+        messenger().sendMessage(peer,((BotCommand)item).getSlashCommand());
         hideMentions();
       }
     }
