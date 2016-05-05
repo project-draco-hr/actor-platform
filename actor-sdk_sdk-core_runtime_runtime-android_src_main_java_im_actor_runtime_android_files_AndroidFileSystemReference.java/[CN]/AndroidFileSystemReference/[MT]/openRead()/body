@@ -1,9 +1,8 @@
 {
   try {
-    return new AndroidInputFile(fileName);
+    return Promise.success(new AndroidInputFile(fileName));
   }
- catch (  FileNotFoundException e) {
-    e.printStackTrace();
-    return null;
+ catch (  IOException e) {
+    return Promise.failure(e);
   }
 }

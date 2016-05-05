@@ -1,9 +1,8 @@
 {
   try {
-    return new AndroidOutputFile(fileName,size);
+    return Promise.success(new AndroidOutputFile(fileName,size));
   }
  catch (  IOException e) {
-    e.printStackTrace();
-    return null;
+    return Promise.failure(e);
   }
 }
