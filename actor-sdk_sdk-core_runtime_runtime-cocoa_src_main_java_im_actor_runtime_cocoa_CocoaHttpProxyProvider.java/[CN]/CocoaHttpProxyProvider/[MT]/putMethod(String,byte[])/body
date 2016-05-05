@@ -1,0 +1,3 @@
+{
+  return runtime.putMethod(url,contents);
+}

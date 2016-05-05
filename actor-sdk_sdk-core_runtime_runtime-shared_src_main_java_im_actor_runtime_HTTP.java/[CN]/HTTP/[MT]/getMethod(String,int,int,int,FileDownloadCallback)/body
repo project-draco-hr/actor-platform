@@ -1,3 +1,0 @@
-{
-  runtime.getMethod(url,startOffset,size,totalSize,callback);
-}
