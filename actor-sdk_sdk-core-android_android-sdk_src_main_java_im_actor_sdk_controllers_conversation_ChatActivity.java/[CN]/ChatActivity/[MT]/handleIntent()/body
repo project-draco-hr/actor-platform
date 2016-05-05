@@ -9,6 +9,5 @@
     forwardContent=AbsContent.parse(intent.getByteArrayExtra("forward_content"));
   }
  catch (  Exception e) {
-    e.printStackTrace();
   }
 }

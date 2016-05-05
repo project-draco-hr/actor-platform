@@ -35,6 +35,10 @@
         }
         hideMentions();
       }
+ else       if (item != null && item instanceof CommandsAdapter.CommandHolder) {
+        messenger().sendMessage(peer,((CommandsAdapter.CommandHolder)item).getCommand().getSlashCommand());
+        hideMentions();
+      }
     }
   }
 );

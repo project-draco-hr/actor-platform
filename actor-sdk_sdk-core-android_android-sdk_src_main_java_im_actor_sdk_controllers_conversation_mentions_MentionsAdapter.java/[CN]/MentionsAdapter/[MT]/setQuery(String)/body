@@ -1,4 +1,7 @@
 {
+  if (q == null || q.equals(query)) {
+    return;
+  }
   query=q;
   membersToShow=messenger().findMentions(gid,q);
   int newRowsCount=membersToShow.size();

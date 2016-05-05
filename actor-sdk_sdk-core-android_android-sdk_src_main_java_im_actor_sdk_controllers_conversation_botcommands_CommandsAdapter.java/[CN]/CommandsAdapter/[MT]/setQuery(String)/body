@@ -1,7 +1,11 @@
 {
+  if (q == null || q.equals(query)) {
+    return;
+  }
+  query=q;
   ArrayList<BotCommand> filterd=new ArrayList<BotCommand>();
   for (  BotCommand command : commands) {
-    if (command.getSlashCommand().toLowerCase().startsWith("q")) {
+    if (command.getSlashCommand().toLowerCase().startsWith(q)) {
       filterd.add(command);
     }
   }
