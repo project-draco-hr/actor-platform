@@ -1,0 +1,9 @@
+{
+  JsArray<JsBotCommand> commands=JsArray.createArray().cast();
+  for (  BotCommand c : messenger.getUser(uid).getBotCommands().get()) {
+    if (c.getSlashCommand().startsWith(query)) {
+      commands.push(JsBotCommand.create(c.getSlashCommand(),c.getDescription()));
+    }
+  }
+  return commands;
+}
