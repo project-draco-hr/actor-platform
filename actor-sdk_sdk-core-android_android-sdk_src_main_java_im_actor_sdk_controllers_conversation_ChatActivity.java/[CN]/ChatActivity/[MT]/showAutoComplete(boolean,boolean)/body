@@ -37,6 +37,7 @@
       }
  else       if (item != null && item instanceof BotCommand) {
         messenger().sendMessage(peer,"/".concat(((BotCommand)item).getSlashCommand()));
+        messageEditText.setText("");
         hideMentions();
       }
     }
