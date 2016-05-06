@@ -1,6 +1,7 @@
 {
   intent=getIntent();
   peer=Peer.fromUniqueId(intent.getExtras().getLong(EXTRA_CHAT_PEER));
+  checkIsBot();
   if (saveInstance == null) {
     isCompose=intent.getExtras().getBoolean(EXTRA_CHAT_COMPOSE,false);
   }
@@ -205,4 +206,5 @@
   }
   emptyBotSend=findViewById(R.id.botEmptyTextBlock);
   emptyBotHint=(TextView)findViewById(R.id.botEmptyHint);
+  checkEmptyBot();
 }

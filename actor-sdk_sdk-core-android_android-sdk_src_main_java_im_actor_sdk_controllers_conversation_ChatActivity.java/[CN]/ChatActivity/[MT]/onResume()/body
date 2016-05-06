@@ -1,5 +1,5 @@
 {
-  isBot=(peer.getPeerType() == PeerType.PRIVATE && users().get(peer.getPeerId()).isBot());
+  checkIsBot();
   super.onResume();
   if (peer.getPeerType() == PeerType.PRIVATE && menu != null) {
     menu.findItem(R.id.add_to_contacts).setVisible(users().get(peer.getPeerId()).isContact().get());

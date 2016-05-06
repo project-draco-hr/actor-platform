@@ -1,0 +1,3 @@
+{
+  isBot=(peer.getPeerType() == PeerType.PRIVATE && users().get(peer.getPeerId()).isBot());
+}
