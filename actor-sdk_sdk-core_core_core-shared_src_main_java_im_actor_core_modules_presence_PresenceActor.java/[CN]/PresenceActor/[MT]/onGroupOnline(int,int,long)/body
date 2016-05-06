@@ -1,11 +1,8 @@
 {
-  Log.d(TAG,"onGroupOnline  #" + gid + " "+ count+ " at "+ updateDate);
   if (lastGidState.containsKey(gid) && lastGidState.get(gid) >= updateDate) {
-    Log.d(TAG,"onGroupOnline:ignored - too old");
     return;
   }
   lastGidState.put(gid,updateDate);
-  Log.d(TAG,"onGroupOnline:updated");
   GroupVM vm=getGroupVM(gid);
   if (vm != null) {
     vm.getPresence().change(count);

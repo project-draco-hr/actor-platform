@@ -1,11 +1,8 @@
 {
-  Log.d(TAG,"onUserOffline  #" + uid + " at "+ updateDate);
   if (lastUidState.containsKey(uid) && lastUidState.get(uid) >= updateDate) {
-    Log.d(TAG,"onUserOffline:ignored - too old");
     return;
   }
   lastUidState.put(uid,updateDate);
-  Log.d(TAG,"onUserOffline:updated");
   UserVM vm=getUserVM(uid);
   if (vm != null) {
     vm.getPresence().change(new UserPresence(UserPresence.State.OFFLINE));
