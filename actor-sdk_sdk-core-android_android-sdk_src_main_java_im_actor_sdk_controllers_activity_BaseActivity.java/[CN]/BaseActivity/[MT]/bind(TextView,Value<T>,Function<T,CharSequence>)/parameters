@@ -1,0 +1,3 @@
+TextView textView
+Value<T> value
+Function<T,CharSequence> bind
