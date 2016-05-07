@@ -12,7 +12,7 @@
       send(new RouterAppVisible());
     }
  else {
-      send(new RouterAppVisible());
+      send(new RouterAppHidden());
     }
   }
 }
