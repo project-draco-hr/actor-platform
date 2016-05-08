@@ -1,0 +1,8 @@
+{
+  for (  String l : s.split("\\n")) {
+    if (l.startsWith("#")) {
+      continue;
+    }
+    processLine(res,l);
+  }
+}

@@ -1,3 +1,7 @@
 {
+  if (soundPool == null) {
+    soundPool=new SoundPool(1,AudioManager.STREAM_NOTIFICATION,0);
+    soundId=soundPool.load(context,R.raw.notification,1);
+  }
   soundPool.play(soundId,1.0f,1.0f,0,0,1.0f);
 }

@@ -68,8 +68,15 @@
     if (record == null) {
       continue;
     }
+    if (PHONE_UTIL == null) {
+synchronized (initSync) {
+        if (PHONE_UTIL == null) {
+          PHONE_UTIL=PhoneNumberUtil.getInstance();
+        }
+      }
+    }
     try {
-      final Phonenumber.PhoneNumber phonenumber=phoneUtil.parse(rawPhone,isoCountry);
+      final Phonenumber.PhoneNumber phonenumber=PHONE_UTIL.parse(rawPhone,isoCountry);
       rawPhone=phonenumber.getCountryCode() + "" + phonenumber.getNationalNumber();
     }
  catch (    final NumberParseException e) {

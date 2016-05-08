@@ -1,8 +1,0 @@
-{
-  AndroidLogProvider.sendLogs=sendLogsUrl != null;
-  AndroidLogProvider.sendLogsUrl=sendLogsUrl;
-  AndroidLogProvider.sendLogsTime=sendLogsUrl == null ? 0 : System.currentTimeMillis();
-  shp.edit().putString("sendLogsUrl",sendLogsUrl).apply();
-  shp.edit().putLong("sendLogsTime",sendLogsTime).apply();
-  shp.edit().putBoolean("sendLogs",sendLogs).apply();
-}

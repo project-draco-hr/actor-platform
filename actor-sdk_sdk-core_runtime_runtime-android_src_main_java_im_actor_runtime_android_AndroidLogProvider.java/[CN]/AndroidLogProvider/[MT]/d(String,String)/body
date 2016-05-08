@@ -1,5 +1,3 @@
 {
   Log.d(tag,message);
-  writeToFile(Level.INFO,tag,message);
-  sendLogs("d",tag,message);
 }

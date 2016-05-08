@@ -1,15 +1,6 @@
 {
   String fileContent=Assets.loadAsset(name);
   HashMap<String,String> res=new HashMap<>();
-  String[] lines=linesWorkaround(fileContent);
-  for (  String line : lines) {
-    if (line.startsWith("#")) {
-      continue;
-    }
-    String[] lineVal=valuesWorkaround(line);
-    if (lineVal.length == 2) {
-      res.put(lineVal[0],lineVal[1]);
-    }
-  }
+  processLines(res,fileContent);
   return res;
 }

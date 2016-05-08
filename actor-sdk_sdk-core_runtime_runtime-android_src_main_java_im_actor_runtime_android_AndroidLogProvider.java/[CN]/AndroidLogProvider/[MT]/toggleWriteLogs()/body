@@ -1,5 +1,0 @@
-{
-  AndroidLogProvider.writeLogs=!writeLogs;
-  shp.edit().putBoolean("writeLogs",writeLogs).apply();
-  return writeLogs;
-}
