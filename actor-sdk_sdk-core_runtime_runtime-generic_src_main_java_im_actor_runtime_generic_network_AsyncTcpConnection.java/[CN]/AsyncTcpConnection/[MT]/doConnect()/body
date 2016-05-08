@@ -1,25 +1,2 @@
 {
-  connectExecutor.submit(new Runnable(){
-    @Override public void run(){
-      try {
-        ConnectionEndpoint endpoint=getEndpoint();
-        Socket socket=new Socket();
-        socket.setKeepAlive(false);
-        socket.setTcpNoDelay(true);
-        socket.connect(new InetSocketAddress(endpoint.getHost(),endpoint.getPort()),ManagedConnection.CONNECTION_TIMEOUT);
-        if (endpoint.getType() == ConnectionEndpoint.Type.TCP_TLS) {
-          SSLSocketFactory socketFactory=(SSLSocketFactory)SSLSocketFactory.getDefault();
-          socket=socketFactory.createSocket(socket,endpoint.getHost(),endpoint.getPort(),true);
-        }
-        socket.getInputStream();
-        socket.getOutputStream();
-        onSocketCreated(socket);
-      }
- catch (      Throwable e) {
-        e.printStackTrace();
-        crashConnection();
-      }
-    }
-  }
-);
 }

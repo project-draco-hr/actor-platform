@@ -2,4 +2,5 @@
   this.host=host;
   this.port=port;
   this.type=type;
+  this.knownIp=knownIp;
 }
