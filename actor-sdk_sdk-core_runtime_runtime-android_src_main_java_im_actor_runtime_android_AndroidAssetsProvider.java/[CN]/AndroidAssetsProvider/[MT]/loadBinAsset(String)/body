@@ -1,0 +1,22 @@
+{
+  AssetManager assets=AndroidContext.getContext().getResources().getAssets();
+  InputStream stream=null;
+  try {
+    stream=assets.open(name);
+    return readFully(stream);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+ finally {
+    try {
+      if (stream != null) {
+        stream.close();
+      }
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  return null;
+}
