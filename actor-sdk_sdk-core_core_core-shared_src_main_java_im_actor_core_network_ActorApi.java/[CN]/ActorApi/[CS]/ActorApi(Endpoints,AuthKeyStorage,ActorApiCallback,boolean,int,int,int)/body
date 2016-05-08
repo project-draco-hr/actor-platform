@@ -6,5 +6,5 @@
   this.minDelay=minDelay;
   this.maxDelay=maxDelay;
   this.maxFailureCount=maxFailureCount;
-  this.apiBroker=ApiBroker.get(endpoints,keyStorage,callback,isEnableLog,NEXT_ID.get(),minDelay,maxDelay,maxFailureCount,parserConfig);
+  this.apiBroker=ApiBroker.get(endpoints,keyStorage,callback,isEnableLog,NEXT_ID.get(),minDelay,maxDelay,maxFailureCount);
 }

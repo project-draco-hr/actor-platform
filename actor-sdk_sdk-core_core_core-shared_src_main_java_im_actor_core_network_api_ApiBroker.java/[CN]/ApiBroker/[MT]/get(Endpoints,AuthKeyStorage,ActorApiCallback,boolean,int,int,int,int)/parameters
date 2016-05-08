@@ -6,4 +6,3 @@ int id
 int minDelay
 int maxDelay
 int maxFailureCount
-ApiParserConfig parserConfig

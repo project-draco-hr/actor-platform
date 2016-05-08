@@ -2,7 +2,7 @@
   this.application=application;
   ImagePipelineConfig config=ImagePipelineConfig.newBuilder(application).setDownsampleEnabled(true).build();
   Fresco.initialize(application,config);
-  new SmileProcessor(application).loadEmoji();
+  SmileProcessor emojiProcessor=new SmileProcessor(application);
   ActorSystem.system().addDispatcher("voice_capture_dispatcher",1);
   ConfigurationBuilder builder=new ConfigurationBuilder();
   for (  String s : endpoints) {
