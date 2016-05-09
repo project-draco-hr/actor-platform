@@ -3,4 +3,11 @@
   this.runtime=Runtime.getLocaleRuntime();
   this.locale=new HashMap<>();
   this.currentLocale=runtime.getCurrentLocale();
+  try {
+    IntlEngine engine=new IntlEngine(Assets.loadAsset("AppText.json"));
+    String s2=engine + "";
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
 }

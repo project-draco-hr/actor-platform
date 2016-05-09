@@ -1,0 +1,4 @@
+{
+  this.keys=new HashMap<>();
+  traverseObject(new JSONObject(localization),"");
+}

@@ -1,0 +1,14 @@
+{
+  for (  String s : src.keySet()) {
+    Object itm=src.get(s);
+    if (itm instanceof String) {
+      keys.put(prefix + s,(String)itm);
+    }
+ else     if (itm instanceof JSONObject) {
+      traverseObject((JSONObject)itm,prefix + s + ".");
+    }
+ else {
+      throw new RuntimeException("Unexpected object: " + itm);
+    }
+  }
+}
