@@ -1,5 +1,6 @@
 {
   if (uid == modules.getAuthModule().myUid()) {
+    assumeLoaded();
     return locale.get("Thee");
   }
  else {

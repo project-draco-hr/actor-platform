@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
   if (content instanceof ServiceUserRegistered) {
     return getTemplateNamed(senderId,"ServiceRegisteredFull").replace("{app_name}",getApplicationName());
   }

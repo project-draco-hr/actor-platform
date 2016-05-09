@@ -1,3 +1,4 @@
 {
+  assumeLoaded();
   return locale.get("GroupMembers").replace("{count}","" + count);
 }

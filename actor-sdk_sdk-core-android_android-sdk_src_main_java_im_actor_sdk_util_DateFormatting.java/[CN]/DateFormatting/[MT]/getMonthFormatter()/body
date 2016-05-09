@@ -1,0 +1,8 @@
+{
+  SimpleDateFormat res=MONTH_FORMATTER.get();
+  if (res == null) {
+    res=new SimpleDateFormat("MMMM");
+    MONTH_FORMATTER.set(res);
+  }
+  return res;
+}

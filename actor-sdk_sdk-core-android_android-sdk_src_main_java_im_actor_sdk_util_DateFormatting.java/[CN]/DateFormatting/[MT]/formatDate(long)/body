@@ -1,0 +1,13 @@
+{
+  String month=getMonthFormatter().format(date).toUpperCase();
+  Calendar calendar=getCalendar();
+  calendar.setTimeInMillis(System.currentTimeMillis());
+  int currentYear=calendar.get(Calendar.YEAR);
+  calendar.setTimeInMillis(date);
+  if (calendar.get(Calendar.YEAR) == currentYear) {
+    return String.format(getDateFormatter().format(date),month);
+  }
+ else {
+    return String.format(getDateYearFormatter().format(date),month);
+  }
+}

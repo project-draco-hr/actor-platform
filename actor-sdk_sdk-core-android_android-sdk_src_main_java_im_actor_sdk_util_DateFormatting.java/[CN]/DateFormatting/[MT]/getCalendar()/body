@@ -1,0 +1,8 @@
+{
+  Calendar calendar=CALENDAR.get();
+  if (calendar == null) {
+    calendar=Calendar.getInstance();
+    CALENDAR.set(calendar);
+  }
+  return calendar;
+}

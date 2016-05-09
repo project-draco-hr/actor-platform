@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
   int month=date.getMonth();
   int d=date.getDate();
   return d + " " + MONTHS[month].toUpperCase();

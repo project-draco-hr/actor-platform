@@ -3,6 +3,7 @@
     RpcException e=(RpcException)o;
     String res=Errors.mapError(e.getTag(),null);
     if (res != null) {
+      assumeLoaded();
       return locale.get(res);
     }
  else {

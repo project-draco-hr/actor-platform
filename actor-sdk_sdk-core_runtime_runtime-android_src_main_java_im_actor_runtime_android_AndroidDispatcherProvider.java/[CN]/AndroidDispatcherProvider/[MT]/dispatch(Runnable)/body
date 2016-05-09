@@ -1,12 +1,6 @@
 {
-  while (handler == null) {
-    try {
-      Thread.sleep(1000);
-    }
- catch (    InterruptedException e) {
-      e.printStackTrace();
-      return;
-    }
+  if (EXECUTOR == null) {
+    EXECUTOR=Executors.newSingleThreadExecutor();
   }
-  handler.post(runnable);
+  EXECUTOR.execute(runnable);
 }

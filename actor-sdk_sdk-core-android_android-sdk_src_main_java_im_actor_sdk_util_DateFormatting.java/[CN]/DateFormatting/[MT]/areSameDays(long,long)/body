@@ -1,5 +1,5 @@
 {
-  Calendar calendar=CALENDAR.get();
+  Calendar calendar=getCalendar();
   calendar.setTimeInMillis(a);
   int y1=calendar.get(Calendar.YEAR);
   int m1=calendar.get(Calendar.MONTH);

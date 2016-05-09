@@ -3,7 +3,7 @@
   currentMessage=message;
   boolean useDiv;
   if (prev != null) {
-    useDiv=!Strings.areSameDays(prev.getDate(),message.getDate());
+    useDiv=!DateFormatting.areSameDays(prev.getDate(),message.getDate());
   }
  else {
     useDiv=true;

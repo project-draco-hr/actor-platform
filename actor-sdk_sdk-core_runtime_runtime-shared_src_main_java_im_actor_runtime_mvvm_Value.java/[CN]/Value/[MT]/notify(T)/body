@@ -1,8 +1,2 @@
 {
-  im.actor.runtime.Runtime.postToMainThread(new Runnable(){
-    @Override public void run(){
-      notifyInMainThread(value);
-    }
-  }
-);
 }

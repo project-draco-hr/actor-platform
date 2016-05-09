@@ -1,10 +1,2 @@
 {
-  final Object o=new Object();
-  handler.postAtTime(message,o,SystemClock.uptimeMillis() + delay);
-  return new DispatchCancel(){
-    @Override public void cancel(){
-      handler.removeCallbacks(message,o);
-    }
-  }
-;
 }

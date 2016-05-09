@@ -2,8 +2,8 @@
   Spannable timeWithReactions=null;
   if (reactions != null) {
     SpannableStringBuilder builder=new SpannableStringBuilder(reactions);
-    timeWithReactions=builder.append(Strings.formatTime(currentMessage.getDate()));
+    timeWithReactions=builder.append(DateFormatting.formatTime(currentMessage.getDate()));
   }
-  time.setText(timeWithReactions != null ? timeWithReactions : Strings.formatTime(currentMessage.getDate()));
+  time.setText(timeWithReactions != null ? timeWithReactions : DateFormatting.formatTime(currentMessage.getDate()));
   time.setMovementMethod(LinkMovementMethod.getInstance());
 }

@@ -1,11 +1,4 @@
 {
-  if (!isLoaded) {
-    isLoaded=true;
-    byte[] hash=new byte[32];
-    Digest sha256=Crypto.createSHA256();
-    sha256.update(key,0,key.length);
-    sha256.doFinal(hash,0);
-    this.keyId=ByteStrings.bytesToLong(hash);
-  }
+  load();
   return keyId;
 }

@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  ActorSDK.sharedActor().waitForReady();
   if (!messenger().isLoggedIn()) {
     startActivity(new Intent(this,TourActivity.class));
     finish();

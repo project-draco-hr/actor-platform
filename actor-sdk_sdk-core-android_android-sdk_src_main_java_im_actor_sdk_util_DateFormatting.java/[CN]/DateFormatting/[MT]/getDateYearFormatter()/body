@@ -1,0 +1,8 @@
+{
+  SimpleDateFormat res=DATE_YEAR_FORMATTER.get();
+  if (res == null) {
+    res=new SimpleDateFormat("dd '%s' ''yy");
+    DATE_YEAR_FORMATTER.set(res);
+  }
+  return res;
+}

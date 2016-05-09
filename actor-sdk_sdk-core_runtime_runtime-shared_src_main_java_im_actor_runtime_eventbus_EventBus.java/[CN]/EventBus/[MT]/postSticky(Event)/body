@@ -1,8 +1,2 @@
 {
-  im.actor.runtime.Runtime.dispatch(new Runnable(){
-    @Override public void run(){
-      deliver(event,true);
-    }
-  }
-);
 }

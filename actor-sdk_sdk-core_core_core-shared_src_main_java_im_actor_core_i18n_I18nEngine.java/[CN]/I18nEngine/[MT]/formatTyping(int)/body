@@ -1,3 +1,4 @@
 {
+  assumeLoaded();
   return locale.get("TypingMultiple").replace("{count}","" + count);
 }

@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
   if (senderId == modules.getAuthModule().myUid()) {
     if (locale.containsKey(baseString + "You")) {
       return locale.get(baseString + "You");

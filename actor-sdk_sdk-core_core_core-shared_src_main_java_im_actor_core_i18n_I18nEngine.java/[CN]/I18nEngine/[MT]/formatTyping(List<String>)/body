@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
   if (names.size() == 1) {
     return formatTyping(names.get(0));
   }

@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
   long delta=new Date().getTime() - date;
   if (delta < 60 * 1000) {
     return locale.get("TimeShortNow");

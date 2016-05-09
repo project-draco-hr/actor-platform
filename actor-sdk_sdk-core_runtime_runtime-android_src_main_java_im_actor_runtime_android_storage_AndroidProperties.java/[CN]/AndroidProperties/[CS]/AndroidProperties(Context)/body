@@ -1,3 +1,4 @@
 {
-  this.preference=context.getSharedPreferences("properties.ini",Context.MODE_PRIVATE);
+  this.context=context;
+  load();
 }

@@ -1,3 +1,4 @@
 {
+  load();
   preference.edit().clear().commit();
 }

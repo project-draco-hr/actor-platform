@@ -1,0 +1,8 @@
+{
+  DateFormat dateFormat=TIME_FORMATTER.get();
+  if (dateFormat == null) {
+    dateFormat=android.text.format.DateFormat.getTimeFormat(AndroidContext.getContext());
+    TIME_FORMATTER.set(dateFormat);
+  }
+  return dateFormat;
+}

@@ -2,6 +2,7 @@
   if (value == null) {
     return null;
   }
+  assumeLoaded();
   if (value.getState() == UserPresence.State.OFFLINE) {
     long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime() / 1000L;
     int delta=(int)(currentTime - value.getLastSeen());

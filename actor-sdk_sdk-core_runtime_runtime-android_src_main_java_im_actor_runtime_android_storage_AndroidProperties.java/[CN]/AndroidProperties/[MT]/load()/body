@@ -1,0 +1,6 @@
+{
+  if (!isLoaded) {
+    isLoaded=true;
+    this.preference=context.getSharedPreferences("properties.ini",Context.MODE_PRIVATE);
+  }
+}

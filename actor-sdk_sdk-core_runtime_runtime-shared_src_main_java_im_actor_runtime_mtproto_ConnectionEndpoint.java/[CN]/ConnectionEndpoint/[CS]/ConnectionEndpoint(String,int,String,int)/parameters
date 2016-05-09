@@ -1,4 +1,4 @@
 String host
 int port
 String knownIp
-Type type
+int type

@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
 switch (contentType) {
 case TEXT:
     return text;

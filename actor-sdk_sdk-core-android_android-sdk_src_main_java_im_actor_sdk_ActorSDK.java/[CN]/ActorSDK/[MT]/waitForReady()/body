@@ -1,0 +1,16 @@
+{
+  if (!isLoaded) {
+synchronized (LOAD_LOCK) {
+      if (!isLoaded) {
+        try {
+          long start=Runtime.getActorTime();
+          LOAD_LOCK.wait();
+          Log.d(TAG,"Waited for startup in " + (Runtime.getActorTime() - start) + " ms");
+        }
+ catch (        InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+  }
+}

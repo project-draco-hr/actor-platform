@@ -1,3 +1,4 @@
 {
+  load();
   preference.edit().putString(key,v).commit();
 }

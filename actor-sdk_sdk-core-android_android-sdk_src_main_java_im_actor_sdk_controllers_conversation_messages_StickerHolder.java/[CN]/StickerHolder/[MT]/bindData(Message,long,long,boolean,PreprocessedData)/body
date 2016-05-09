@@ -49,5 +49,5 @@ break;
  else {
 stateIcon.setVisibility(View.GONE);
 }
-time.setText(Strings.formatTime(message.getDate()));
+time.setText(DateFormatting.formatTime(message.getDate()));
 }

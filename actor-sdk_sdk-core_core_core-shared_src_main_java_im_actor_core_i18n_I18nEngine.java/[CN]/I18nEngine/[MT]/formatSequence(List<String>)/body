@@ -1,4 +1,5 @@
 {
+  assumeLoaded();
   String res=values.get(0);
   for (int i=1; i < values.size(); i++) {
     if (i == values.size() - 1) {
