@@ -1,8 +1,4 @@
 {
-  if (isFabVisible) {
-    goneFab();
-    return true;
-  }
   if (isSearchVisible) {
     hideSearch();
     return true;
