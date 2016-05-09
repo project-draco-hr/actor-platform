@@ -1,14 +1,2 @@
 {
-  final ProgressDialog dialog=ProgressDialog.show(this,"",getString(title),true,false);
-  promise.then(new Consumer<T>(){
-    @Override public void apply(    T t){
-      dismissDialog(dialog);
-    }
-  }
-).failure(new Consumer<Exception>(){
-    @Override public void apply(    Exception e){
-      dismissDialog(dialog);
-    }
-  }
-);
 }
