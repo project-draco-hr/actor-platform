@@ -21,7 +21,7 @@
     UpdateMessageRead read=(UpdateMessageRead)update;
     Peer peer=convert(read.getPeer());
     if (isValidPeer(peer)) {
-      onMessageRead(peer,read.getReadDate());
+      onMessageRead(peer,read.getStartDate());
     }
     return Promise.success(null);
   }
