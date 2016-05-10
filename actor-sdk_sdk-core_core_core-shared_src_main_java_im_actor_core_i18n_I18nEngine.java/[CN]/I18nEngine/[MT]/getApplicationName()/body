@@ -1,8 +1,0 @@
-{
-  String appName=modules.getConfiguration().getCustomAppName();
-  if (appName == null) {
-    assumeLoaded();
-    appName=locale.get("AppName");
-  }
-  return appName;
-}

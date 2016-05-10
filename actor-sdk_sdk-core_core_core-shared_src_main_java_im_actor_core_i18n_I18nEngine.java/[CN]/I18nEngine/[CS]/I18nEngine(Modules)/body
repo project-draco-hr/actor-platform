@@ -1,6 +1,0 @@
-{
-  this.modules=modules;
-  this.runtime=Runtime.getLocaleRuntime();
-  this.locale=new HashMap<>();
-  this.currentLocale=runtime.getCurrentLocale();
-}

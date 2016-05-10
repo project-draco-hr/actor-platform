@@ -1,7 +1,6 @@
 {
   if (uid == modules.getAuthModule().myUid()) {
-    assumeLoaded();
-    return locale.get("You");
+    return getYouVerb();
   }
  else {
     return getUser(uid).getName();

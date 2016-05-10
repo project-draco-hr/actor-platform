@@ -1,6 +1,0 @@
-{
-  String fileContent=Assets.loadAsset(name);
-  HashMap<String,String> res=new HashMap<>();
-  processLines(res,fileContent);
-  return res;
-}

@@ -1,8 +1,9 @@
 {
   String newString=getTemplate(senderId,baseString).replace("{name}",formatPerformerName(senderId));
-  if (currentLocale.equals("Fa")) {
-    if (senderId == modules.getAuthModule().myUid())     assumeLoaded();
-    newString=(newString + locale.get("YouSuffixVerb")).replace("\r","");
+  if (getLocaleName().equals("Fa")) {
+    if (senderId == modules.getAuthModule().myUid()) {
+      newString+="????";
+    }
   }
   return newString;
 }

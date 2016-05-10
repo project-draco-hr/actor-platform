@@ -1,45 +1,44 @@
 {
-  assumeLoaded();
   if (content instanceof ServiceUserRegistered) {
-    return getTemplateNamed(senderId,"ServiceRegisteredFull").replace("{app_name}",getApplicationName());
+    return getTemplateNamed(senderId,"content.service.registered.full").replace("{app_name}",getAppName());
   }
  else   if (content instanceof ServiceGroupCreated) {
-    return getTemplateNamed(senderId,"ServiceGroupCreatedFull");
+    return getTemplateNamed(senderId,"content.service.groups.created");
   }
  else   if (content instanceof ServiceGroupUserInvited) {
-    return getTemplateNamed(senderId,"ServiceGroupAdded").replace("{name_added}",getSubjectName(((ServiceGroupUserInvited)content).getAddedUid()));
+    return getTemplateNamed(senderId,"content.service.groups.invited").replace("{name_added}",getSubjectName(((ServiceGroupUserInvited)content).getAddedUid()));
   }
  else   if (content instanceof ServiceGroupUserKicked) {
-    return getTemplateNamed(senderId,"ServiceGroupKicked").replace("{name_kicked}",getSubjectName(((ServiceGroupUserKicked)content).getKickedUid()));
+    return getTemplateNamed(senderId,"content.service.groups.kicked").replace("{name_kicked}",getSubjectName(((ServiceGroupUserKicked)content).getKickedUid()));
   }
  else   if (content instanceof ServiceGroupUserLeave) {
-    return getTemplateNamed(senderId,"ServiceGroupLeaved");
+    return getTemplateNamed(senderId,"content.service.groups.left");
   }
  else   if (content instanceof ServiceGroupTitleChanged) {
-    return getTemplateNamed(senderId,"ServiceGroupTitleFull").replace("{title}",((ServiceGroupTitleChanged)content).getNewTitle());
+    return getTemplateNamed(senderId,"content.service.groups.title_changed.full").replace("{title}",((ServiceGroupTitleChanged)content).getNewTitle());
   }
  else   if (content instanceof ServiceGroupTopicChanged) {
-    return getTemplateNamed(senderId,"ServiceGroupTopicFull").replace("{topic}",((ServiceGroupTopicChanged)content).getNewTopic());
+    return getTemplateNamed(senderId,"content.service.groups.topic_changed.full").replace("{topic}",((ServiceGroupTopicChanged)content).getNewTopic());
   }
  else   if (content instanceof ServiceGroupAboutChanged) {
-    return getTemplateNamed(senderId,"ServiceGroupAboutFull").replace("{about}",((ServiceGroupAboutChanged)content).getNewAbout());
+    return getTemplateNamed(senderId,"content.service.groups.about_changed.full").replace("{about}",((ServiceGroupAboutChanged)content).getNewAbout());
   }
  else   if (content instanceof ServiceGroupAvatarChanged) {
     if (((ServiceGroupAvatarChanged)content).getNewAvatar() != null) {
-      return getTemplateNamed(senderId,"ServiceGroupAvatarChanged");
+      return getTemplateNamed(senderId,"content.service.groups.avatar_changed");
     }
  else {
-      return getTemplateNamed(senderId,"ServiceGroupAvatarRemoved");
+      return getTemplateNamed(senderId,"content.service.groups.avatar_removed");
     }
   }
  else   if (content instanceof ServiceGroupUserJoined) {
-    return getTemplateNamed(senderId,"ServiceGroupJoined");
+    return getTemplateNamed(senderId,"content.service.groups.joined");
   }
  else   if (content instanceof ServiceCallEnded) {
-    return locale.get("ServiceCallEnded");
+    return get("content.calls.ended");
   }
  else   if (content instanceof ServiceCallMissed) {
-    return locale.get("ServiceCallMissed");
+    return get("content.calls.missed");
   }
   return content.getCompatText();
 }

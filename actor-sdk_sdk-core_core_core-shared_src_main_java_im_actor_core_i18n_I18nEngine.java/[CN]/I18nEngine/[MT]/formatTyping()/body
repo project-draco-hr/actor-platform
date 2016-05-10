@@ -1,4 +1,3 @@
 {
-  assumeLoaded();
-  return locale.get("Typing");
+  return get("typing.simple");
 }

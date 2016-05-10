@@ -2,63 +2,43 @@
   if (value == null) {
     return null;
   }
-  assumeLoaded();
+  String[] sexType=DEFAULT;
+  if (sex == Sex.MALE) {
+    sexType=MALE;
+  }
+ else   if (sex == Sex.FEMALE) {
+    sexType=FEMALE;
+  }
   if (value.getState() == UserPresence.State.OFFLINE) {
     long currentTime=im.actor.runtime.Runtime.getCurrentSyncedTime() / 1000L;
     int delta=(int)(currentTime - value.getLastSeen());
     if (delta < 60) {
-      Log.d(TAG,"formatPresence: onlineNow");
-      if (locale.containsKey("OnlineNowMale") && locale.containsKey("OnlineNowFemale")) {
-        return sex == Sex.UNKNOWN ? locale.get("OnlineNow") : sex == Sex.MALE ? locale.get("OnlineNowMale") : locale.get("OnlineNowFemale");
-      }
- else {
-        return locale.get("OnlineNow");
-      }
+      return get("presence.now",sexType);
     }
  else     if (delta < 24 * 60 * 60) {
       String time=formatTime(value.getLastSeen() * 1000L);
       if (areSameDays(value.getLastSeen() * 1000L,new Date().getTime())) {
-        if (locale.containsKey("OnlineLastSeenTodayMale") && locale.containsKey("OnlineLastSeenTodayMale")) {
-          return (sex == Sex.UNKNOWN ? locale.get("OnlineLastSeenToday") : sex == Sex.MALE ? locale.get("OnlineLastSeenTodayMale") : locale.get("OnlineLastSeenTodayFemale")).replace("{time}",time);
-        }
- else {
-          return locale.get("OnlineLastSeenToday").replace("{time}",time);
-        }
+        return get("presence.today",sexType).replace("{time}",time);
       }
  else {
-        if (locale.containsKey("OnlineLastSeenYesterdayMale") && locale.containsKey("OnlineLastSeenYesterdayMale")) {
-          return (sex == Sex.UNKNOWN ? locale.get("OnlineLastSeenYesterday") : sex == Sex.MALE ? locale.get("OnlineLastSeenYesterdayMale") : locale.get("OnlineLastSeenYesterdayFemale")).replace("{time}",time);
-        }
- else {
-          return locale.get("OnlineLastSeenYesterday").replace("{time}",time);
-        }
+        return get("presence.yesterday",sexType).replace("{time}",time);
       }
     }
  else     if (delta < 14 * 24 * 60* 60) {
       String time=formatTime(value.getLastSeen() * 1000L);
       String date=formatDate(value.getLastSeen() * 1000L);
-      if (locale.containsKey("OnlineLastSeenDateTimeMale") && locale.containsKey("OnlineLastSeenDateTimeMale")) {
-        return (sex == Sex.UNKNOWN ? locale.get("OnlineLastSeenDateTime") : sex == Sex.MALE ? locale.get("OnlineLastSeenDateTimeMale") : locale.get("OnlineLastSeenDateTimeFemale")).replace("{time}",time).replace("{date}",date);
-      }
- else {
-        return locale.get("OnlineLastSeenDateTime").replace("{time}",time).replace("{date}",date);
-      }
+      return get("presence.at_day_time",sexType).replace("{time}",time).replace("{date}",date);
     }
  else     if (delta < 6 * 30 * 24* 60* 60) {
       String date=formatDate(value.getLastSeen() * 1000L);
-      if (locale.containsKey("OnlineLastSeenDateMale") && locale.containsKey("OnlineLastSeenDateMale")) {
-        return (sex == Sex.UNKNOWN ? locale.get("OnlineLastSeenDate") : sex == Sex.MALE ? locale.get("OnlineLastSeenDateMale") : locale.get("OnlineLastSeenDateFemale")).replace("{date}",date);
-      }
- else {
-        return locale.get("OnlineLastSeenDate").replace("{date}",date);
-      }
+      return get("presence.at_day",sexType).replace("{date}",date);
     }
  else {
-      return locale.get("OnlineOff");
+      return get("presence.offline",sexType);
     }
   }
  else   if (value.getState() == UserPresence.State.ONLINE) {
-    return locale.get("OnlineOn");
+    return get("presence.online",sexType);
   }
   return null;
 }

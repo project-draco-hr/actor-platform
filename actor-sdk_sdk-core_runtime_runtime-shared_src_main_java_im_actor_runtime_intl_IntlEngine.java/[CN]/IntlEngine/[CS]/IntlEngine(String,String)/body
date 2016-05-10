@@ -1,0 +1,16 @@
+{
+  traverseObject(keys,new JSONObject(localization),"");
+  plurals=PluralFactory.getPluralForLanguage(keys.get("language.code"));
+  if (fallbackLocalization != null) {
+    traverseObject(fallbackKeys,new JSONObject(localization),"");
+    fallbackPlurals=PluralFactory.getPluralForLanguage(fallbackKeys.get("language.code"));
+  }
+ else {
+    fallbackPlurals=null;
+  }
+  appName=get("app.name");
+  localeName=get("language.code");
+  you=get("language.referencing.you");
+  thee=get("language.referencing.thee");
+  runtime=Runtime.getLocaleRuntime();
+}

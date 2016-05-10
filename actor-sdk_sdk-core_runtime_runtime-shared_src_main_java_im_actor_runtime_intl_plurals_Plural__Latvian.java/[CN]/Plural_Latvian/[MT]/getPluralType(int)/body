@@ -1,0 +1,11 @@
+{
+  if (value == 0) {
+    return PluralType.ZERO;
+  }
+ else   if (value % 10 == 1 && value % 100 != 11) {
+    return PluralType.ONE;
+  }
+ else {
+    return PluralType.OTHER;
+  }
+}

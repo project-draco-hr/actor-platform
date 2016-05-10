@@ -1,0 +1,15 @@
+{
+  int rem100=value % 100;
+  if (value == 1) {
+    return PluralType.ONE;
+  }
+ else   if (value == 0 || (rem100 >= 2 && rem100 <= 10)) {
+    return PluralType.FEW;
+  }
+ else   if (rem100 >= 11 && rem100 <= 19) {
+    return PluralType.MANY;
+  }
+ else {
+    return PluralType.OTHER;
+  }
+}
