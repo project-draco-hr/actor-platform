@@ -1,0 +1,21 @@
+{
+  long delta=new Date().getTime() - date;
+  if (delta < 60 * 1000) {
+    return get("language.format.time.now");
+  }
+ else   if (delta < 60 * 60 * 1000) {
+    return get("language.format.time.minutes",SHORT).replace("{minutes}","" + delta / 60000);
+  }
+ else   if (delta < 24 * 60 * 60* 1000) {
+    return get("language.format.time.hours",SHORT).replace("{hours}","" + delta / 3600000);
+  }
+ else   if (delta < 2 * 24 * 60* 60* 1000) {
+    return get("language.format.time.yesterday",SHORT);
+  }
+ else {
+    Date date1=new Date(date);
+    int month=date1.getMonth();
+    int d=date1.getDate();
+    return d + " " + get(MONTHS[month],SHORT);
+  }
+}

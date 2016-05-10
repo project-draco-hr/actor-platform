@@ -1,4 +1,3 @@
 {
-  assumeLoaded();
-  return locale.get("GroupOnline").replace("{count}","" + count);
+  return getPlural("presence.members",count).replace("{count}","" + count);
 }

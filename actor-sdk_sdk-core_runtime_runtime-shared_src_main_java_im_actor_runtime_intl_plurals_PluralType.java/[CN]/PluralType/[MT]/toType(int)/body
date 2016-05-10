@@ -1,0 +1,25 @@
+{
+  String pluralKey;
+switch (key) {
+case PluralType.ZERO:
+    pluralKey="zero";
+  break;
+case PluralType.ONE:
+pluralKey="one";
+break;
+case PluralType.TWO:
+pluralKey="two";
+break;
+case PluralType.FEW:
+pluralKey="few";
+break;
+case PluralType.MANY:
+pluralKey="many";
+break;
+default :
+case PluralType.OTHER:
+pluralKey="other";
+break;
+}
+return pluralKey;
+}

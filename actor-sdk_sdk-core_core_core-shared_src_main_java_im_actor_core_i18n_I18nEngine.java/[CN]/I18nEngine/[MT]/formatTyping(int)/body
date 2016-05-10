@@ -1,4 +1,3 @@
 {
-  assumeLoaded();
-  return locale.get("TypingMultiple").replace("{count}","" + count);
+  return get("typing.group.many").replace("{count}","" + count);
 }

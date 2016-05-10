@@ -1,6 +1,0 @@
-{
-  String[] parts=s.split("=",2);
-  if (parts.length == 2) {
-    res.put(parts[0],parts[1]);
-  }
-}

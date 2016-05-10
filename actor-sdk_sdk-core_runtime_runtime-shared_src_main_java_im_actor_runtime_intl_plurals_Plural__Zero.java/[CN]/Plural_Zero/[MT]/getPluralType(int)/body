@@ -1,0 +1,8 @@
+{
+  if (value == 0 || value == 1) {
+    return PluralType.ONE;
+  }
+ else {
+    return PluralType.OTHER;
+  }
+}

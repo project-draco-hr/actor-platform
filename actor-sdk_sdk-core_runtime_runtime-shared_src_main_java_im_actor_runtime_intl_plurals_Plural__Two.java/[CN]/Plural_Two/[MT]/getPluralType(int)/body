@@ -1,0 +1,11 @@
+{
+  if (value == 1) {
+    return PluralType.ONE;
+  }
+ else   if (value == 2) {
+    return PluralType.TWO;
+  }
+ else {
+    return PluralType.OTHER;
+  }
+}

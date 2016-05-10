@@ -1,0 +1,17 @@
+{
+  if (bytes < 0) {
+    bytes=0;
+  }
+  if (bytes < 1024) {
+    return get("language.file_size.bytes").replace("{bytes}","" + bytes);
+  }
+ else   if (bytes < 1024 * 1024) {
+    return get("language.file_size.kbytes").replace("{kbytes}","" + (bytes / 1024));
+  }
+ else   if (bytes < 1024 * 1024 * 1024) {
+    return get("language.file_size.mbytes").replace("{mbytes}","" + (bytes / (1024 * 1024)));
+  }
+ else {
+    return get("language.file_size.gbytes").replace("{gbytes}","" + (bytes / (1024 * 1024 * 1024)));
+  }
+}

@@ -1,7 +1,7 @@
 {
   this.messenger=messenger;
   this.configuration=configuration;
-  this.i18nEngine=new I18nEngine(this);
+  this.i18nEngine=I18nEngine.create(this);
   this.preferences=Storage.createPreferencesStorage();
   this.storageModule=new StorageModule(this);
   this.events=new EventBus();

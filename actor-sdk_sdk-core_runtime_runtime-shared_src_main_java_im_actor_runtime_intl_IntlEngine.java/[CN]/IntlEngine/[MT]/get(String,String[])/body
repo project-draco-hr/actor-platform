@@ -1,0 +1,25 @@
+{
+  String res=keys.get(key);
+  if (res != null) {
+    return res;
+  }
+  for (  String v : variations) {
+    res=keys.get(key + "." + v);
+    if (res != null) {
+      return res;
+    }
+  }
+  if (fallbackKeys.size() > 0) {
+    res=fallbackKeys.get(key);
+    if (res != null) {
+      return res;
+    }
+    for (    String v : variations) {
+      res=fallbackKeys.get(key + "." + v);
+      if (res != null) {
+        return res;
+      }
+    }
+  }
+  return null;
+}

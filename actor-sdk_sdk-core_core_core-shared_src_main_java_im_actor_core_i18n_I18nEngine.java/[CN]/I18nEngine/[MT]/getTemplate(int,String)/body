@@ -1,18 +1,14 @@
 {
-  assumeLoaded();
   if (senderId == modules.getAuthModule().myUid()) {
-    if (locale.containsKey(baseString + "You")) {
-      return locale.get(baseString + "You");
-    }
+    return get(baseString,YOU);
   }
-  if (locale.containsKey(baseString + "Male") && locale.containsKey(baseString + "Female")) {
-    User u=getUser(senderId);
-    if (u.getSex() == Sex.MALE) {
-      return locale.get(baseString + "Male");
-    }
- else     if (u.getSex() == Sex.FEMALE) {
-      return locale.get(baseString + "Female");
-    }
+  User u=getUser(senderId);
+  String[] sexType=DEFAULT;
+  if (u.getSex() == Sex.MALE) {
+    sexType=MALE;
   }
-  return locale.get(baseString);
+ else   if (u.getSex() == Sex.FEMALE) {
+    sexType=FEMALE;
+  }
+  return get(baseString,sexType);
 }

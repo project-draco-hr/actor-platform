@@ -1,4 +1,3 @@
 {
-  assumeLoaded();
-  return locale.get("TypingUser").replace("{user}",name);
+  return get("typing.user").replace("{user}",name);
 }

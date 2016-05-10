@@ -1,0 +1,19 @@
+{
+  String res=keys.get(key);
+  if (res != null) {
+    return res;
+  }
+  String type=PluralType.toType(plurals.getPluralType(count));
+  res=keys.get(key + "." + type);
+  if (res != null) {
+    return res;
+  }
+  if (fallbackPlurals != null) {
+    type=PluralType.toType(fallbackPlurals.getPluralType(count));
+    res=fallbackKeys.get(key + "." + type);
+    if (res != null) {
+      return res;
+    }
+  }
+  return null;
+}

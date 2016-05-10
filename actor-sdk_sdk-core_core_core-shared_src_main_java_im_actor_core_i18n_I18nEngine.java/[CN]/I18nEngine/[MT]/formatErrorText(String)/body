@@ -1,4 +1,3 @@
 {
-  assumeLoaded();
-  return locale.get(Errors.mapError(tag));
+  return get(Errors.mapError(tag));
 }

@@ -1,0 +1,11 @@
+{
+  if (value >= 0 && value <= 1) {
+    return PluralType.ONE;
+  }
+ else   if (value >= 2 && value <= 10) {
+    return PluralType.FEW;
+  }
+ else {
+    return PluralType.OTHER;
+  }
+}

@@ -10,6 +10,10 @@ case SERVICE_REGISTERED:
 case SERVICE_KICK:
 case SERVICE_ADD:
 case SERVICE_JOINED:
+case SERVICE_CALL_ENDED:
+case SERVICE_CALL_MISSED:
+case SERVICE_ABOUT:
+case SERVICE_TOPIC:
     return true;
 default :
   return false;

@@ -1,0 +1,19 @@
+{
+  String currentLocale=Runtime.getLocaleRuntime().getCurrentLocale();
+  if (currentLocale != null) {
+    if (JavaUtil.contains(SUPPORTED_LOCALES,currentLocale)) {
+      try {
+        return new I18nEngine(modules,Assets.loadAsset("AppText_" + currentLocale + ".json"),Assets.loadAsset("AppText.json"));
+      }
+ catch (      JSONException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+  try {
+    return new I18nEngine(modules,Assets.loadAsset("AppText.json"),null);
+  }
+ catch (  JSONException e) {
+    throw new RuntimeException(e);
+  }
+}
