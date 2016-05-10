@@ -55,7 +55,7 @@
   }
  else   if (update instanceof UpdateUserUnblocked) {
     UpdateUserUnblocked unblocked=(UpdateUserUnblocked)update;
-    return onUserBlockedChanged(unblocked.getUid(),true);
+    return onUserBlockedChanged(unblocked.getUid(),false);
   }
   return Promise.success(null);
 }
