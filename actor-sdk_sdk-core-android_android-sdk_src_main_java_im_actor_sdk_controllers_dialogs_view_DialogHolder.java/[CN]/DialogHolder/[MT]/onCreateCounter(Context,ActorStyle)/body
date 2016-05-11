@@ -1,7 +1,10 @@
 {
   counter=new TextView(context);
   counter.setTextColor(style.getDialogsCounterTextColor());
-  counter.setBackgroundColor(style.getDialogsCounterBackgroundColor());
+  RoundedCornersDrawable bg=new RoundedCornersDrawable(new ColorDrawable(style.getDialogsCounterBackgroundColor()));
+  bg.setRadius(Screen.dp(2));
+  bg.setOverlayColor(style.getMainBackgroundColor());
+  counter.setBackgroundDrawable(bg);
   counter.setPadding(Screen.dp(4),0,Screen.dp(4),0);
   counter.setTextSize(10);
   counter.setTypeface(Fonts.regular());
