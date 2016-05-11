@@ -16,6 +16,6 @@
     Date date1=new Date(date);
     int month=date1.getMonth();
     int d=date1.getDate();
-    return d + " " + get(MONTHS[month],SHORT);
+    return d + " " + get(MONTHS[month],COMPACT);
   }
 }

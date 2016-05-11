@@ -1,5 +1,5 @@
 {
   int month=date.getMonth();
   int d=date.getDate();
-  return d + " " + get(MONTHS[month]);
+  return d + " " + get(MONTHS[month],FULL);
 }
