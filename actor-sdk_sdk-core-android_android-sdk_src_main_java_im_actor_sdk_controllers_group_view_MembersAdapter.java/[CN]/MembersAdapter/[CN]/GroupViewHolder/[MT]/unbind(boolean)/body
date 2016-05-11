@@ -1,5 +1,7 @@
 {
-  avatarView.unbind();
+  if (full) {
+    avatarView.unbind();
+  }
   if (onlineBinding != null) {
     BINDER.unbind(onlineBinding);
   }

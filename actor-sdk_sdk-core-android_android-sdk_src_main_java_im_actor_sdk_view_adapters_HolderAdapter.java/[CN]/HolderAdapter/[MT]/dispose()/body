@@ -1,5 +1,5 @@
 {
   for (  ViewHolder holder : holders) {
-    holder.unbind();
+    holder.unbind(true);
   }
 }

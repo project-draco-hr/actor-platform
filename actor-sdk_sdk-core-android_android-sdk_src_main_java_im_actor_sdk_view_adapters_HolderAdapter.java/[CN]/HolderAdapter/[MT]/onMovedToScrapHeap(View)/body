@@ -1,2 +1,5 @@
 {
+  if (view.getTag() instanceof ViewHolder) {
+    ((ViewHolder)view.getTag()).unbind(false);
+  }
 }
