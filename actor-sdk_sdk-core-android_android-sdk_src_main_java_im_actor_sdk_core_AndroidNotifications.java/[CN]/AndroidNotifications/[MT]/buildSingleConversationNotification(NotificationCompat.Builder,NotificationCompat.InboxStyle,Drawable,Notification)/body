@@ -1,3 +1,3 @@
 {
-  return builder.setLargeIcon(drawableToBitmap(avatarDrawable)).setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_UPDATE_CURRENT)).setStyle(inboxStyle).build();
+  return builder.setSound(ActorSDK.sharedActor().getDelegate().getNotificationSoundForPeer(topNotification.getPeer())).setColor(ActorSDK.sharedActor().getDelegate().getNotificationColorForPeer(topNotification.getPeer())).setLargeIcon(drawableToBitmap(avatarDrawable)).setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_UPDATE_CURRENT)).setStyle(inboxStyle).build();
 }

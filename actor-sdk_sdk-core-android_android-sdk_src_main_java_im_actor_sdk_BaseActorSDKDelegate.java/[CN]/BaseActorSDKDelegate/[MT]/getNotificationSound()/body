@@ -1,0 +1,3 @@
+{
+  return Settings.System.DEFAULT_NOTIFICATION_URI;
+}
