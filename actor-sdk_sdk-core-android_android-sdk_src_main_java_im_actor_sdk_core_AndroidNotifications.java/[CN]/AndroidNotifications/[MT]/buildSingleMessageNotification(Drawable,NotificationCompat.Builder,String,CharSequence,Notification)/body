@@ -1,3 +1,5 @@
 {
-  return builder.setSound(ActorSDK.sharedActor().getDelegate().getNotificationSoundForPeer(topNotification.getPeer())).setColor(ActorSDK.sharedActor().getDelegate().getNotificationColorForPeer(topNotification.getPeer())).setContentTitle(sender).setContentText(text).setLargeIcon(drawableToBitmap(d)).setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_CANCEL_CURRENT)).setStyle(new NotificationCompat.BigTextStyle().bigText(text)).build();
+  android.app.Notification notification=builder.setContentTitle(sender).setContentText(text).setLargeIcon(drawableToBitmap(d)).setContentIntent(PendingIntent.getActivity(context,0,Intents.openDialog(topNotification.getPeer(),false,context),PendingIntent.FLAG_CANCEL_CURRENT)).setStyle(new NotificationCompat.BigTextStyle().bigText(text)).build();
+  addCustomLedAndSound(topNotification,notification);
+  return notification;
 }

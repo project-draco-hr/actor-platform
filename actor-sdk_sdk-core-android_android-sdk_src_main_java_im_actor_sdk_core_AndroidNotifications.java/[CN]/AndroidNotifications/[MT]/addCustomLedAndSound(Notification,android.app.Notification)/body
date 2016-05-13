@@ -1,0 +1,13 @@
+{
+  if (messenger().isNotificationSoundEnabled()) {
+    result.defaults&=~NotificationCompat.DEFAULT_SOUND;
+    result.sound=ActorSDK.sharedActor().getDelegate().getNotificationSoundForPeer(topNotification.getPeer());
+  }
+  result.ledARGB=ActorSDK.sharedActor().getDelegate().getNotificationColorForPeer(topNotification.getPeer());
+  if (result.ledARGB != 0) {
+    result.ledOnMS=100;
+    result.ledOffMS=100;
+    result.defaults&=~NotificationCompat.DEFAULT_LIGHTS;
+    result.flags|=NotificationCompat.FLAG_SHOW_LIGHTS;
+  }
+}
