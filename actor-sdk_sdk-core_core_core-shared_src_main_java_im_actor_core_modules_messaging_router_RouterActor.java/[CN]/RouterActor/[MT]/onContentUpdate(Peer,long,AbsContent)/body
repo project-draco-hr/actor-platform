@@ -1,7 +1,7 @@
 {
   Message message=conversation(peer).getValue(rid);
   if (message != null) {
-    conversation(peer).addOrUpdateItem(message.changeContent(content));
+    conversation(peer).addOrUpdateItem(message.changeContent(content.incrementUpdatedCounter(message.getContent().getUpdatedCounter())));
     return getDialogsRouter().onMessageContentChanged(peer,rid,content);
   }
  else {

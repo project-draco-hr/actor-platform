@@ -1,0 +1,4 @@
+{
+  updatedCounter=++oldCounter;
+  return this;
+}
