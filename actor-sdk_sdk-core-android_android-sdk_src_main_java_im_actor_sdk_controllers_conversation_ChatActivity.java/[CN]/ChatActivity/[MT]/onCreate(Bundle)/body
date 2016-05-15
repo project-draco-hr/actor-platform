@@ -9,6 +9,7 @@
     pending_fileName=saveInstance.getString(STATE_FILE_NAME,null);
   }
   super.onCreate(saveInstance);
+  onCreateToolbar();
   messageEditText.addTextChangedListener(new TextWatcherImp());
   messageEditText.setOnFocusChangeListener(new View.OnFocusChangeListener(){
     @Override public void onFocusChange(    View v,    boolean hasFocus){

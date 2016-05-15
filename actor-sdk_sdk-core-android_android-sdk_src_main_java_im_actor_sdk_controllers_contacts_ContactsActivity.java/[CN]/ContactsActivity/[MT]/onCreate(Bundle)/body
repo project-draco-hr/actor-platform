@@ -1,0 +1,9 @@
+{
+  super.onCreate(savedInstanceState);
+  if (getSupportActionBar() != null) {
+    getSupportActionBar().setTitle(R.string.contacts_title);
+  }
+  if (savedInstanceState == null) {
+    showFragment(new ContactsFragment(),false,false);
+  }
+}

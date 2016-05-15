@@ -1,18 +1,2 @@
 {
-  if ((sendUriMultiple != null && !sendUriMultiple.isEmpty()) || docContent != null || (sendUriString != null && !sendUriString.isEmpty())) {
-    new AlertDialog.Builder(getActivity()).setMessage(getActivity().getString(R.string.confirm_share) + " " + contact.getName()+ "?").setPositiveButton(R.string.dialog_ok,new DialogInterface.OnClickListener(){
-      @Override public void onClick(      DialogInterface dialog,      int which){
-        openContactDialog(contact);
-      }
-    }
-).setNegativeButton(R.string.dialog_cancel,new DialogInterface.OnClickListener(){
-      @Override public void onClick(      DialogInterface dialog,      int which){
-        dialog.dismiss();
-      }
-    }
-).show();
-  }
- else {
-    openContactDialog(contact);
-  }
 }
