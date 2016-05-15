@@ -1,4 +1,7 @@
 {
+  if (getSupportActionBar() == null) {
+    throw new RuntimeException("Action bar is not set!");
+  }
   getSupportActionBar().setDisplayShowCustomEnabled(true);
   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   getSupportActionBar().setDisplayShowTitleEnabled(false);
