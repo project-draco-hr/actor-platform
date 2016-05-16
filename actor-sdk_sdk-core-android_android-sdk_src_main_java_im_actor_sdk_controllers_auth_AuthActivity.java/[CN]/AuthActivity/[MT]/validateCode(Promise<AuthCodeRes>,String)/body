@@ -19,7 +19,7 @@
 );
         }
  else {
-          signUp(messenger().doSignup(currentName,currentSex,transactionHash),currentName,currentSex);
+          signUp(messenger().doSignup(currentName,currentSex != null ? currentSex : Sex.UNKNOWN,transactionHash),currentName,currentSex);
         }
       }
     }

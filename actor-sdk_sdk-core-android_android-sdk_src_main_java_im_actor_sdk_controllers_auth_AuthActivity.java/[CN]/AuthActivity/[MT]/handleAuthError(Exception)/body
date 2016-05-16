@@ -59,7 +59,7 @@ case CODE_VALIDATION_PHONE:
       validateCode(messenger().doValidateCode(currentCode,transactionHash),currentCode);
     break;
 case SIGN_UP:
-  signUp(messenger().doSignup(currentName,currentSex,transactionHash),currentName,currentSex);
+  signUp(messenger().doSignup(currentName,currentSex != null ? currentSex : Sex.UNKNOWN,transactionHash),currentName,currentSex);
 break;
 }
 }
