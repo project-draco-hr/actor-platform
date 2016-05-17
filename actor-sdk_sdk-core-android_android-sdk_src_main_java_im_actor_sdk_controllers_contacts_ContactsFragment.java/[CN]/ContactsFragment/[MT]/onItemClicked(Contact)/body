@@ -1,3 +1,3 @@
 {
-  ((ActorMainActivity)getActivity()).onContactClicked(contact);
+  getActivity().startActivity(Intents.openPrivateDialog(contact.getUid(),true,getActivity()));
 }
