@@ -1,0 +1,17 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  builder.setItems(new String[]{getString(R.string.invites_share_link_one),getString(R.string.invites_share_link_multiple)},new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+switch (which) {
+case 0:
+        sendOneInvite();
+      break;
+case 1:
+    sendMultipleInvites();
+  break;
+}
+dialog.dismiss();
+}
+}
+).show();
+}

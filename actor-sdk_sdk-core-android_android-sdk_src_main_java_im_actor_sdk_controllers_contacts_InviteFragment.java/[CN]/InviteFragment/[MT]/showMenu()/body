@@ -1,0 +1,7 @@
+{
+  if (menu != null && inflater != null && adapter != null) {
+    if (adapter.getCount() > 0) {
+      inflater.inflate(R.menu.invite,menu);
+    }
+  }
+}

@@ -1,8 +1,6 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
-  inflater.inflate(R.menu.invite,menu);
-  sendButton=menu.getItem(0);
-  if (adapter != null && adapter.getCount() > 0) {
-    sendButton.setVisible(true);
-  }
+  this.menu=menu;
+  this.inflater=inflater;
+  showMenu();
 }

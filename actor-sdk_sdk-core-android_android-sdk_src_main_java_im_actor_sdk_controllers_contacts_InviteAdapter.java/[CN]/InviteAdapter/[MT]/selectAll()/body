@@ -1,0 +1,4 @@
+{
+  selectedUsers.addAll(phoneBook);
+  notifyDataSetChanged();
+}

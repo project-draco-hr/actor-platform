@@ -1,7 +1,14 @@
 {
-  if (item.getItemId() == R.id.send_invites) {
+  int id=item.getItemId();
+  if (id == R.id.send_invites) {
     sendInvites();
     return true;
+  }
+ else   if (id == R.id.select_all) {
+    adapter.selectAll();
+  }
+ else   if (id == R.id.select_none) {
+    adapter.selectNone();
   }
   return super.onOptionsItemSelected(item);
 }
