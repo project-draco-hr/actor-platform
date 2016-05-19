@@ -1,5 +1,8 @@
 {
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  if (state.getInReadDate() >= date) {
+    return Promise.success(null);
+  }
   state=state.changeCounter(counter).changeInReadDate(date);
   conversationStates.addOrUpdateItem(state);
   Promise<Void> res=getDialogsRouter().onCounterChanged(peer,counter);
