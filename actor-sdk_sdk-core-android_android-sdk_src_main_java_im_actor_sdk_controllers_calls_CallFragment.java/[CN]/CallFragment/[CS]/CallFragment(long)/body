@@ -7,5 +7,4 @@
  else {
     this.peer=call.getPeer();
   }
-  this.incoming=incoming;
 }
