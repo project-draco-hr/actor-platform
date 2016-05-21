@@ -1,0 +1,5 @@
+{
+  this.groupId=groupId;
+  this.userId=userId;
+  this.isAdmin=isAdmin;
+}

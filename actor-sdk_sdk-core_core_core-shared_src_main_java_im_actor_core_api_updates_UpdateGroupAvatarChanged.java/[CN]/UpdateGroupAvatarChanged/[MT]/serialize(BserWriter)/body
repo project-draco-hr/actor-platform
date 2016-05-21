@@ -1,9 +1,6 @@
 {
   writer.writeInt(1,this.groupId);
-  writer.writeLong(5,this.rid);
-  writer.writeInt(2,this.uid);
   if (this.avatar != null) {
-    writer.writeObject(3,this.avatar);
+    writer.writeObject(2,this.avatar);
   }
-  writer.writeLong(4,this.date);
 }

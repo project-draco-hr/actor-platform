@@ -1,0 +1,3 @@
+ApiGroupOutPeer group
+int limit
+byte[] next

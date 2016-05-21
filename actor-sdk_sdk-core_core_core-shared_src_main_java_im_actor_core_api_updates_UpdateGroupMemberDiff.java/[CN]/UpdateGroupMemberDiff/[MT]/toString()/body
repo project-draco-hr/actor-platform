@@ -1,0 +1,8 @@
+{
+  String res="update GroupMemberDiff{";
+  res+="removedUsers=" + this.removedUsers;
+  res+=", addedMembers=" + this.addedMembers;
+  res+=", membersCount=" + this.membersCount;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,8 @@
+{
+  List<ApiUserOutPeer> _members=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _members.add(new ApiUserOutPeer());
+  }
+  this.members=values.getRepeatedObj(1,_members);
+  this.next=values.optBytes(2);
+}

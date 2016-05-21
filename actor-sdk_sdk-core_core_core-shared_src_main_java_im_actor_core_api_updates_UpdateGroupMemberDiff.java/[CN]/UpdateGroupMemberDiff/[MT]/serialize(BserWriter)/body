@@ -1,0 +1,5 @@
+{
+  writer.writeRepeatedInt(1,this.removedUsers);
+  writer.writeRepeatedObj(2,this.addedMembers);
+  writer.writeInt(3,this.membersCount);
+}

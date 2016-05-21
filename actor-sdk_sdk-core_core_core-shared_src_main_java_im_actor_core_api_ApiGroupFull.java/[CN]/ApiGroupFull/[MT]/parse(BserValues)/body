@@ -1,13 +1,17 @@
 {
   this.id=values.getInt(1);
-  this.theme=values.optString(2);
-  this.about=values.optString(3);
+  this.createDate=values.getLong(6);
+  this.ownerUid=values.getInt(5);
   List<ApiMember> _members=new ArrayList<ApiMember>();
-  for (int i=0; i < values.getRepeatedCount(4); i++) {
+  for (int i=0; i < values.getRepeatedCount(12); i++) {
     _members.add(new ApiMember());
   }
-  this.members=values.getRepeatedObj(4,_members);
-  this.creatorUid=values.getInt(5);
-  this.createDate=values.getLong(6);
+  this.members=values.getRepeatedObj(12,_members);
+  this.theme=values.optString(2);
+  this.about=values.optString(3);
   this.ext=values.optObj(7,new ApiMapValue());
+  this.isAsyncMembers=values.optBool(11);
+  this.canViewMembers=values.optBool(8);
+  this.canInvitePeople=values.optBool(9);
+  this.isSharedHistory=values.optBool(10);
 }

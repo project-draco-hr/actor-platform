@@ -1,0 +1,10 @@
+{
+  String res="update GroupUserKickObsolete{";
+  res+="groupId=" + this.groupId;
+  res+=", rid=" + this.rid;
+  res+=", uid=" + this.uid;
+  res+=", kickerUid=" + this.kickerUid;
+  res+=", date=" + this.date;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,5 @@
+int seq
+byte[] state
+ApiGroup group
+List<ApiUser> users
+List<ApiUserOutPeer> userPeers

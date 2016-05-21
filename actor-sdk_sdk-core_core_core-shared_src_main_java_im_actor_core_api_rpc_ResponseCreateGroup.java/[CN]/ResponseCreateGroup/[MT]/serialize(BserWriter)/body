@@ -9,4 +9,5 @@
   }
   writer.writeObject(3,this.group);
   writer.writeRepeatedObj(4,this.users);
+  writer.writeRepeatedObj(5,this.userPeers);
 }

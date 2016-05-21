@@ -1,0 +1,3 @@
+int groupId
+int userId
+boolean isAdmin

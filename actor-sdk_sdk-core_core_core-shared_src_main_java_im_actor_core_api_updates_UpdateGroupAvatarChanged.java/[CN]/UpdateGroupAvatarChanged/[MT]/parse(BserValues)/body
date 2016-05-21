@@ -1,7 +1,4 @@
 {
   this.groupId=values.getInt(1);
-  this.rid=values.getLong(5);
-  this.uid=values.getInt(2);
-  this.avatar=values.optObj(3,new ApiAvatar());
-  this.date=values.getLong(4);
+  this.avatar=values.optObj(2,new ApiAvatar());
 }

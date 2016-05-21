@@ -1,4 +1,0 @@
-{
-  this.groupPeer=groupPeer;
-  this.rid=rid;
-}

@@ -1,0 +1,7 @@
+{
+  String res="update GroupAboutChangedObsolete{";
+  res+="groupId=" + this.groupId;
+  res+=", about=" + this.about;
+  res+="}";
+  return res;
+}

@@ -1,6 +1,0 @@
-{
-  this.seq=seq;
-  this.state=state;
-  this.group=group;
-  this.users=users;
-}

@@ -1,0 +1,5 @@
+{
+  this.group=values.getObj(1,new ApiGroupOutPeer());
+  this.limit=values.getInt(2);
+  this.next=values.optBytes(3);
+}

@@ -1,0 +1,5 @@
+{
+  this.group=group;
+  this.limit=limit;
+  this.next=next;
+}

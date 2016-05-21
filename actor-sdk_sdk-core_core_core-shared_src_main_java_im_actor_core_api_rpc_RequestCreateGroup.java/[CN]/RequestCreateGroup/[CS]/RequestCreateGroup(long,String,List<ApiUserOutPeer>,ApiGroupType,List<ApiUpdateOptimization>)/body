@@ -1,0 +1,7 @@
+{
+  this.rid=rid;
+  this.title=title;
+  this.users=users;
+  this.groupType=groupType;
+  this.optimizations=optimizations;
+}

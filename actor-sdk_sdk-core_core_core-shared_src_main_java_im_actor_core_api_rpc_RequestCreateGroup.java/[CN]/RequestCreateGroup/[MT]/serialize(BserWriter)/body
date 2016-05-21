@@ -6,9 +6,9 @@
   writer.writeString(2,this.title);
   writer.writeRepeatedObj(3,this.users);
   if (this.groupType != null) {
-    writer.writeString(5,this.groupType);
+    writer.writeInt(6,this.groupType.getValue());
   }
-  if (this.userData != null) {
-    writer.writeObject(4,this.userData);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(7,i.getValue());
   }
 }

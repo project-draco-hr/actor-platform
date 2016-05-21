@@ -1,0 +1,12 @@
+{
+  this.group=values.getObj(1,new ApiGroup());
+  List<ApiUser> _users=new ArrayList<ApiUser>();
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
+    _users.add(new ApiUser());
+  }
+  this.users=values.getRepeatedObj(2,_users);
+  this.rid=values.getLong(3);
+  this.seq=values.getInt(4);
+  this.state=values.getBytes(5);
+  this.date=values.getLong(6);
+}

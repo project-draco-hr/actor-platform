@@ -1,0 +1,7 @@
+{
+  if (this.groupPeer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.groupPeer);
+  writer.writeInt(2,this.newOwner);
+}

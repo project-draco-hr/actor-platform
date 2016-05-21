@@ -1,0 +1,5 @@
+long rid
+String title
+List<ApiUserOutPeer> users
+ApiGroupType groupType
+List<ApiUpdateOptimization> optimizations

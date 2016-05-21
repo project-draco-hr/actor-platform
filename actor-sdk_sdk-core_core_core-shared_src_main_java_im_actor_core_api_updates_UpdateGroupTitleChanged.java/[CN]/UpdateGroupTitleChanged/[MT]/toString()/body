@@ -1,10 +1,7 @@
 {
   String res="update GroupTitleChanged{";
   res+="groupId=" + this.groupId;
-  res+=", rid=" + this.rid;
-  res+=", uid=" + this.uid;
   res+=", title=" + this.title;
-  res+=", date=" + this.date;
   res+="}";
   return res;
 }

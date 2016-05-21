@@ -16,4 +16,14 @@
   this.groups=values.getRepeatedObj(3,_groups);
   this.showArchived=values.optBool(4);
   this.showInvite=values.optBool(5);
+  List<ApiUserOutPeer> _userPeers=new ArrayList<ApiUserOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(6); i++) {
+    _userPeers.add(new ApiUserOutPeer());
+  }
+  this.userPeers=values.getRepeatedObj(6,_userPeers);
+  List<ApiGroupOutPeer> _groupPeers=new ArrayList<ApiGroupOutPeer>();
+  for (int i=0; i < values.getRepeatedCount(7); i++) {
+    _groupPeers.add(new ApiGroupOutPeer());
+  }
+  this.groupPeers=values.getRepeatedObj(7,_groupPeers);
 }

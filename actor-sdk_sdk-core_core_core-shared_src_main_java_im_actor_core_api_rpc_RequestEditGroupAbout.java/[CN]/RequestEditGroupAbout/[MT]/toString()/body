@@ -2,6 +2,8 @@
   String res="rpc EditGroupAbout{";
   res+="groupPeer=" + this.groupPeer;
   res+=", rid=" + this.rid;
+  res+=", about=" + this.about;
+  res+=", optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

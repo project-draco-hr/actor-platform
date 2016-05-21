@@ -1,0 +1,5 @@
+{
+  writer.writeInt(1,this.groupId);
+  writer.writeInt(2,this.userId);
+  writer.writeBool(3,this.isAdmin);
+}

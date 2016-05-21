@@ -1,0 +1,5 @@
+{
+  this.members=members;
+  this.seq=seq;
+  this.state=state;
+}

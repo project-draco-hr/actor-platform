@@ -1,0 +1,4 @@
+ApiGroupOutPeer groupPeer
+long rid
+ApiUserOutPeer user
+List<ApiUpdateOptimization> optimizations

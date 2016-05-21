@@ -8,4 +8,7 @@
     throw new IOException();
   }
   writer.writeString(3,this.title);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(5,i.getValue());
+  }
 }

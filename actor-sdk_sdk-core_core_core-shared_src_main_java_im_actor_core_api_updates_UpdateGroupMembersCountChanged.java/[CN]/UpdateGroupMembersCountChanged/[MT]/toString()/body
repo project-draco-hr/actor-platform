@@ -1,0 +1,7 @@
+{
+  String res="update GroupMembersCountChanged{";
+  res+="groupId=" + this.groupId;
+  res+=", membersCount=" + this.membersCount;
+  res+="}";
+  return res;
+}

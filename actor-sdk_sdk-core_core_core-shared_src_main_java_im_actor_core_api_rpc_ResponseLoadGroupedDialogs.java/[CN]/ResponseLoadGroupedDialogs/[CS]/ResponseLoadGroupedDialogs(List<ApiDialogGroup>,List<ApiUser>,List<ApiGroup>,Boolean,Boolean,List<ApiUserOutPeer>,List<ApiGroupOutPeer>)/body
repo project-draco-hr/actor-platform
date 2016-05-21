@@ -1,0 +1,9 @@
+{
+  this.dialogs=dialogs;
+  this.users=users;
+  this.groups=groups;
+  this.showArchived=showArchived;
+  this.showInvite=showInvite;
+  this.userPeers=userPeers;
+  this.groupPeers=groupPeers;
+}

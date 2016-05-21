@@ -1,0 +1,8 @@
+{
+  String res="rpc LoadMembers{";
+  res+="group=" + this.group;
+  res+=", limit=" + this.limit;
+  res+=", next=" + this.next;
+  res+="}";
+  return res;
+}

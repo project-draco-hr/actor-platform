@@ -1,7 +1,0 @@
-int id
-String theme
-String about
-List<ApiMember> members
-int creatorUid
-long createDate
-ApiMapValue ext

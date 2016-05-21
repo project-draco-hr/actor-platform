@@ -1,0 +1,7 @@
+{
+  String res="update GroupExtChanged{";
+  res+="groupId=" + this.groupId;
+  res+=", ext=" + this.ext;
+  res+="}";
+  return res;
+}

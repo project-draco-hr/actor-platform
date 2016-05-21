@@ -1,10 +1,7 @@
 {
   writer.writeInt(1,this.groupId);
-  writer.writeLong(5,this.rid);
-  writer.writeInt(2,this.uid);
   if (this.title == null) {
     throw new IOException();
   }
-  writer.writeString(3,this.title);
-  writer.writeLong(4,this.date);
+  writer.writeString(2,this.title);
 }

@@ -1,9 +1,6 @@
 {
   writer.writeInt(1,this.groupId);
-  writer.writeLong(2,this.rid);
-  writer.writeInt(3,this.uid);
   if (this.topic != null) {
-    writer.writeString(4,this.topic);
+    writer.writeString(2,this.topic);
   }
-  writer.writeLong(5,this.date);
 }

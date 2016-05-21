@@ -4,6 +4,7 @@
   }
   writer.writeObject(1,this.group);
   writer.writeRepeatedObj(5,this.users);
+  writer.writeRepeatedObj(7,this.userPeers);
   writer.writeLong(6,this.rid);
   writer.writeInt(2,this.seq);
   if (this.state == null) {

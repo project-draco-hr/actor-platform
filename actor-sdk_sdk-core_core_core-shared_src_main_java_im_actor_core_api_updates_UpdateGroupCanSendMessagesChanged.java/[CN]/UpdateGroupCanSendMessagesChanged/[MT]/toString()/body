@@ -1,0 +1,7 @@
+{
+  String res="update GroupCanSendMessagesChanged{";
+  res+="groupId=" + this.groupId;
+  res+=", canSendMessages=" + this.canSendMessages;
+  res+="}";
+  return res;
+}

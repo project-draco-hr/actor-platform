@@ -1,0 +1,6 @@
+{
+  String res="rpc LoadFullGroups{";
+  res+="groups=" + this.groups.size();
+  res+="}";
+  return res;
+}

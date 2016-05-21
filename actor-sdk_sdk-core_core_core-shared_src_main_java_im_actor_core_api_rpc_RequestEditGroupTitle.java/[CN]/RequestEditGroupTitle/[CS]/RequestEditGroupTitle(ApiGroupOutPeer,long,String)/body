@@ -1,5 +1,0 @@
-{
-  this.groupPeer=groupPeer;
-  this.rid=rid;
-  this.title=title;
-}

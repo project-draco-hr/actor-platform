@@ -1,0 +1,7 @@
+{
+  String res="rpc TransferOwnership{";
+  res+="groupPeer=" + this.groupPeer;
+  res+=", newOwner=" + this.newOwner;
+  res+="}";
+  return res;
+}

@@ -1,5 +1,15 @@
 {
   String res="struct GroupFull{";
+  res+="id=" + this.id;
+  res+=", createDate=" + this.createDate;
+  res+=", ownerUid=" + this.ownerUid;
+  res+=", members=" + this.members;
+  res+=", theme=" + this.theme;
+  res+=", about=" + this.about;
+  res+=", isAsyncMembers=" + this.isAsyncMembers;
+  res+=", canViewMembers=" + this.canViewMembers;
+  res+=", canInvitePeople=" + this.canInvitePeople;
+  res+=", isSharedHistory=" + this.isSharedHistory;
   res+="}";
   return res;
 }

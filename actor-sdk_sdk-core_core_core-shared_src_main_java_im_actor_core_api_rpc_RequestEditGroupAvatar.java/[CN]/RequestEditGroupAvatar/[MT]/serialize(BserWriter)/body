@@ -8,4 +8,7 @@
     throw new IOException();
   }
   writer.writeObject(3,this.fileLocation);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(5,i.getValue());
+  }
 }

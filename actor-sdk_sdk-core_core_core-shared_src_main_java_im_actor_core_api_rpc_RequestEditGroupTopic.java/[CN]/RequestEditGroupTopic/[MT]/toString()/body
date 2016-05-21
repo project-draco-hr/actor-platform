@@ -3,6 +3,7 @@
   res+="groupPeer=" + this.groupPeer;
   res+=", rid=" + this.rid;
   res+=", topic=" + this.topic;
+  res+=", optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

@@ -7,4 +7,7 @@
   if (this.about != null) {
     writer.writeString(3,this.about);
   }
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(5,i.getValue());
+  }
 }

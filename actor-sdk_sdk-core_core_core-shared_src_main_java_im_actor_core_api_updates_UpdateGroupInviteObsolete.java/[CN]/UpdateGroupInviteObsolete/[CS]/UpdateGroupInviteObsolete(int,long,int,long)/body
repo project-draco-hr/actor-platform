@@ -1,0 +1,6 @@
+{
+  this.groupId=groupId;
+  this.rid=rid;
+  this.inviteUid=inviteUid;
+  this.date=date;
+}

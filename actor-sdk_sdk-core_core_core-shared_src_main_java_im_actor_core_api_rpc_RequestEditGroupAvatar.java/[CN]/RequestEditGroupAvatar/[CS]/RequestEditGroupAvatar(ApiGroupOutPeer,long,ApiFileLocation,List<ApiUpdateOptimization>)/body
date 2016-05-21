@@ -1,0 +1,6 @@
+{
+  this.groupPeer=groupPeer;
+  this.rid=rid;
+  this.fileLocation=fileLocation;
+  this.optimizations=optimizations;
+}

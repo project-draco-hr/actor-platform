@@ -2,4 +2,8 @@
   this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
   this.rid=values.getLong(4);
   this.fileLocation=values.getObj(3,new ApiFileLocation());
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(5)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

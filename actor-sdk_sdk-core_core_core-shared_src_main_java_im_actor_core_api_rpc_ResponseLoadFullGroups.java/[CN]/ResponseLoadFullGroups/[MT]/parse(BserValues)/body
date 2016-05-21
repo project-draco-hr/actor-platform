@@ -1,0 +1,7 @@
+{
+  List<ApiGroupFull> _groups=new ArrayList<ApiGroupFull>();
+  for (int i=0; i < values.getRepeatedCount(1); i++) {
+    _groups.add(new ApiGroupFull());
+  }
+  this.groups=values.getRepeatedObj(1,_groups);
+}

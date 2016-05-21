@@ -1,4 +1,0 @@
-int seq
-byte[] state
-ApiGroup group
-List<ApiUser> users

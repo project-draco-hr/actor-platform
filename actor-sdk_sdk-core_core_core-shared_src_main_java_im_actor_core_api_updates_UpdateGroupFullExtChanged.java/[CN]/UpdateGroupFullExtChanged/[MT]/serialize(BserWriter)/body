@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,this.groupId);
+  if (this.ext != null) {
+    writer.writeObject(2,this.ext);
+  }
+}

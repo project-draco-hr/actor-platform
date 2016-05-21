@@ -2,4 +2,8 @@
   this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
   this.rid=values.getLong(4);
   this.user=values.getObj(3,new ApiUserOutPeer());
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(5)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

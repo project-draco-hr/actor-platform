@@ -1,0 +1,4 @@
+{
+  this.groupPeer=groupPeer;
+  this.userPeer=userPeer;
+}

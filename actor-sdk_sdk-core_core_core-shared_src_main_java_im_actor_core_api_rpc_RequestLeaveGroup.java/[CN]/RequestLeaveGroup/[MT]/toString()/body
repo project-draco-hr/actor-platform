@@ -2,6 +2,7 @@
   String res="rpc LeaveGroup{";
   res+="groupPeer=" + this.groupPeer;
   res+=", rid=" + this.rid;
+  res+=", optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

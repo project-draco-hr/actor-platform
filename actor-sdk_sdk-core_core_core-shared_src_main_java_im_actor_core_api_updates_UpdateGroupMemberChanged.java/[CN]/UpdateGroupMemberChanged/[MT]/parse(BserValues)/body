@@ -1,0 +1,4 @@
+{
+  this.groupId=values.getInt(1);
+  this.isMember=values.getBool(2);
+}

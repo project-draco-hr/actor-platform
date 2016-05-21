@@ -4,9 +4,14 @@
   this.title=values.getString(3);
   this.avatar=values.optObj(4,new ApiAvatar());
   this.membersCount=values.optInt(24);
+  this.isMember=values.optBool(6);
   this.isHidden=values.optBool(20);
+  int val_groupType=values.getInt(25,0);
+  if (val_groupType != 0) {
+    this.groupType=ApiGroupType.parse(val_groupType);
+  }
+  this.canSendMessage=values.optBool(26);
   this.ext=values.optObj(22,new ApiMapValue());
-  this.isMember=values.getBool(6);
   this.isAdmin=values.optBool(16);
   this.creatorUid=values.getInt(8);
   List<ApiMember> _members=new ArrayList<ApiMember>();

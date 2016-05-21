@@ -1,0 +1,10 @@
+{
+  String res="update GroupTopicChangedObsolete{";
+  res+="groupId=" + this.groupId;
+  res+=", rid=" + this.rid;
+  res+=", uid=" + this.uid;
+  res+=", topic=" + this.topic;
+  res+=", date=" + this.date;
+  res+="}";
+  return res;
+}

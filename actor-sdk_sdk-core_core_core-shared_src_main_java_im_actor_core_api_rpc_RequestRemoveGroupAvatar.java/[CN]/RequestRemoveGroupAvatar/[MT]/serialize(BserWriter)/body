@@ -4,4 +4,7 @@
   }
   writer.writeObject(1,this.groupPeer);
   writer.writeLong(4,this.rid);
+  for (  ApiUpdateOptimization i : this.optimizations) {
+    writer.writeInt(5,i.getValue());
+  }
 }

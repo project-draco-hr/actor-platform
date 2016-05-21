@@ -1,5 +1,0 @@
-List<ApiDialogGroup> dialogs
-List<ApiUser> users
-List<ApiGroup> groups
-Boolean showArchived
-Boolean showInvite

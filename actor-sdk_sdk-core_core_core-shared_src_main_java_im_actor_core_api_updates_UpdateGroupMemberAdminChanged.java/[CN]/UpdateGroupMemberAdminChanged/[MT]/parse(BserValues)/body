@@ -1,0 +1,5 @@
+{
+  this.groupId=values.getInt(1);
+  this.userId=values.getInt(2);
+  this.isAdmin=values.getBool(3);
+}

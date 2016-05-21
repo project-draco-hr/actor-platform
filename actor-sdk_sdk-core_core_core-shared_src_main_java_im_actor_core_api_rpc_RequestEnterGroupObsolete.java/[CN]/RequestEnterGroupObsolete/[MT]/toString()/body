@@ -1,0 +1,6 @@
+{
+  String res="rpc EnterGroupObsolete{";
+  res+="peer=" + this.peer;
+  res+="}";
+  return res;
+}

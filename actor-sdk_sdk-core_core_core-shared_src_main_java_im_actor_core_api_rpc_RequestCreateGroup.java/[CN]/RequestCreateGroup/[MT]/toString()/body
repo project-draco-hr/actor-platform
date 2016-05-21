@@ -2,6 +2,8 @@
   String res="rpc CreateGroup{";
   res+="rid=" + this.rid;
   res+=", title=" + this.title;
+  res+=", groupType=" + this.groupType;
+  res+=", optimizations=" + this.optimizations;
   res+="}";
   return res;
 }

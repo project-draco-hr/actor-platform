@@ -1,11 +1,14 @@
 {
   String res="struct Group{";
   res+="id=" + this.id;
+  res+=", title=" + this.title;
   res+=", avatar=" + (this.avatar != null ? "set" : "empty");
   res+=", membersCount=" + this.membersCount;
-  res+=", isHidden=" + this.isHidden;
-  res+=", ext=" + this.ext;
   res+=", isMember=" + this.isMember;
+  res+=", isHidden=" + this.isHidden;
+  res+=", groupType=" + this.groupType;
+  res+=", canSendMessage=" + this.canSendMessage;
+  res+=", ext=" + this.ext;
   res+=", isAdmin=" + this.isAdmin;
   res+=", members=" + this.members.size();
   res+=", createDate=" + this.createDate;

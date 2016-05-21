@@ -1,0 +1,4 @@
+ApiGroupOutPeer groupPeer
+long rid
+String topic
+List<ApiUpdateOptimization> optimizations

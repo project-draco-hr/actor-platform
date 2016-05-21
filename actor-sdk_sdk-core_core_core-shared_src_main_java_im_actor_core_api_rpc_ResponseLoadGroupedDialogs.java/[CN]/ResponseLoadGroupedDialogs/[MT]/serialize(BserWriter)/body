@@ -8,4 +8,6 @@
   if (this.showInvite != null) {
     writer.writeBool(5,this.showInvite);
   }
+  writer.writeRepeatedObj(6,this.userPeers);
+  writer.writeRepeatedObj(7,this.groupPeers);
 }

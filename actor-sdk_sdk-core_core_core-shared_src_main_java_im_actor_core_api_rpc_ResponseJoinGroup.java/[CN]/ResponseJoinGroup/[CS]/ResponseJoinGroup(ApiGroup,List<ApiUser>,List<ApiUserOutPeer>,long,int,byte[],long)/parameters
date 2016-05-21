@@ -1,0 +1,7 @@
+ApiGroup group
+List<ApiUser> users
+List<ApiUserOutPeer> userPeers
+long rid
+int seq
+byte[] state
+long date

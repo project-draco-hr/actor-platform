@@ -1,0 +1,10 @@
+{
+  if (this.group == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.group);
+  writer.writeInt(2,this.limit);
+  if (this.next != null) {
+    writer.writeBytes(3,this.next);
+  }
+}

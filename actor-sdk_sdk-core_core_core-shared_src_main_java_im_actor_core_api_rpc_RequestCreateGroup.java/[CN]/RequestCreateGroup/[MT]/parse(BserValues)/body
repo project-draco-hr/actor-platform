@@ -6,6 +6,12 @@
     _users.add(new ApiUserOutPeer());
   }
   this.users=values.getRepeatedObj(3,_users);
-  this.groupType=values.optString(5);
-  this.userData=values.optObj(4,new ApiMapValue());
+  int val_groupType=values.getInt(6,0);
+  if (val_groupType != 0) {
+    this.groupType=ApiGroupType.parse(val_groupType);
+  }
+  this.optimizations=new ArrayList<ApiUpdateOptimization>();
+  for (  int b : values.getRepeatedInt(7)) {
+    optimizations.add(ApiUpdateOptimization.parse(b));
+  }
 }

@@ -1,0 +1,5 @@
+{
+  this.groupPeer=groupPeer;
+  this.rid=rid;
+  this.optimizations=optimizations;
+}

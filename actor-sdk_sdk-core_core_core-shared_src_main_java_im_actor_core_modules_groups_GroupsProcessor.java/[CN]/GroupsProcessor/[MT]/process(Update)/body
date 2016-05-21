@@ -1,5 +1,5 @@
 {
-  if (update instanceof UpdateGroupTitleChanged || update instanceof UpdateGroupTopicChanged || update instanceof UpdateGroupAboutChanged|| update instanceof UpdateGroupAvatarChanged|| update instanceof UpdateGroupInvite|| update instanceof UpdateGroupUserLeave|| update instanceof UpdateGroupUserKick|| update instanceof UpdateGroupUserInvited|| update instanceof UpdateGroupMembersUpdate) {
+  if (update instanceof UpdateGroupTitleChangedObsolete || update instanceof UpdateGroupTopicChangedObsolete || update instanceof UpdateGroupAboutChangedObsolete|| update instanceof UpdateGroupAvatarChangedObsolete|| update instanceof UpdateGroupInviteObsolete|| update instanceof UpdateGroupUserLeaveObsolete|| update instanceof UpdateGroupUserKickObsolete|| update instanceof UpdateGroupUserInvitedObsolete|| update instanceof UpdateGroupMembersUpdateObsolete) {
     return context().getGroupsModule().getRouter().onUpdate(update);
   }
   return null;

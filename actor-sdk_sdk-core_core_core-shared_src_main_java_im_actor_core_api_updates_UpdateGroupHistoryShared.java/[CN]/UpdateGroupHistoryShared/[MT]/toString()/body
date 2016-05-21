@@ -1,0 +1,6 @@
+{
+  String res="update GroupHistoryShared{";
+  res+="groupId=" + this.groupId;
+  res+="}";
+  return res;
+}

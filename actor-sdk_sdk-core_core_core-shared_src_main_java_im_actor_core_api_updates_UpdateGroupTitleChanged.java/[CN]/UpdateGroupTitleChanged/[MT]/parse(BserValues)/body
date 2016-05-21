@@ -1,7 +1,4 @@
 {
   this.groupId=values.getInt(1);
-  this.rid=values.getLong(5);
-  this.uid=values.getInt(2);
-  this.title=values.getString(3);
-  this.date=values.getLong(4);
+  this.title=values.getString(2);
 }

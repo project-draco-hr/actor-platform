@@ -1,0 +1,9 @@
+{
+  this.group=group;
+  this.users=users;
+  this.userPeers=userPeers;
+  this.rid=rid;
+  this.seq=seq;
+  this.state=state;
+  this.date=date;
+}

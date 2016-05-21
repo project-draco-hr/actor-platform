@@ -1,7 +1,0 @@
-{
-  this.dialogs=dialogs;
-  this.users=users;
-  this.groups=groups;
-  this.showArchived=showArchived;
-  this.showInvite=showInvite;
-}

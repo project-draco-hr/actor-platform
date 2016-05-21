@@ -11,13 +11,21 @@
   if (this.membersCount != null) {
     writer.writeInt(24,this.membersCount);
   }
+  if (this.isMember != null) {
+    writer.writeBool(6,this.isMember);
+  }
   if (this.isHidden != null) {
     writer.writeBool(20,this.isHidden);
+  }
+  if (this.groupType != null) {
+    writer.writeInt(25,this.groupType.getValue());
+  }
+  if (this.canSendMessage != null) {
+    writer.writeBool(26,this.canSendMessage);
   }
   if (this.ext != null) {
     writer.writeObject(22,this.ext);
   }
-  writer.writeBool(6,this.isMember);
   if (this.isAdmin != null) {
     writer.writeBool(16,this.isAdmin);
   }

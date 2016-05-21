@@ -1,0 +1,16 @@
+int id
+long accessHash
+String title
+ApiAvatar avatar
+Integer membersCount
+Boolean isMember
+Boolean isHidden
+ApiGroupType groupType
+Boolean canSendMessage
+ApiMapValue ext
+Boolean isAdmin
+int creatorUid
+List<ApiMember> members
+long createDate
+String theme
+String about

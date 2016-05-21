@@ -1,0 +1,7 @@
+List<ApiDialogGroup> dialogs
+List<ApiUser> users
+List<ApiGroup> groups
+Boolean showArchived
+Boolean showInvite
+List<ApiUserOutPeer> userPeers
+List<ApiGroupOutPeer> groupPeers

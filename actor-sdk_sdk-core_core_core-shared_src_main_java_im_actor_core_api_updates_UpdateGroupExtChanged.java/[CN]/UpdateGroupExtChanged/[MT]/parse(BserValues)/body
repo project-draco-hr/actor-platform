@@ -1,0 +1,4 @@
+{
+  this.groupId=values.getInt(1);
+  this.ext=values.optObj(2,new ApiMapValue());
+}

@@ -1,0 +1,10 @@
+{
+  String res="update GroupAvatarChangedObsolete{";
+  res+="groupId=" + this.groupId;
+  res+=", rid=" + this.rid;
+  res+=", uid=" + this.uid;
+  res+=", avatar=" + (this.avatar != null ? "set" : "empty");
+  res+=", date=" + this.date;
+  res+="}";
+  return res;
+}
