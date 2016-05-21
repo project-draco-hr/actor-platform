@@ -1,0 +1,7 @@
+{
+  String res="struct DocumentExAnimation{";
+  res+="w=" + this.w;
+  res+=", h=" + this.h;
+  res+="}";
+  return res;
+}
