@@ -1,0 +1,3 @@
+{
+  return new AnimationContent(new ContentLocalContainer(new LocalAnimation(fileName,descriptor,fileSize,"image/gif",fastThumb != null ? new LocalFastThumb(fastThumb) : null,w,h)));
+}

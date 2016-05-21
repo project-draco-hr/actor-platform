@@ -1,0 +1,3 @@
+{
+  return new AnimationContent(new ContentRemoteContainer(new ApiDocumentMessage(reference.getFileId(),reference.getAccessHash(),reference.getFileSize(),reference.getFileName(),"image/gif",fastThumb != null ? new ApiFastThumb(fastThumb.getW(),fastThumb.getH(),fastThumb.getImage()) : null,new ApiDocumentExAnimation(w,h))));
+}

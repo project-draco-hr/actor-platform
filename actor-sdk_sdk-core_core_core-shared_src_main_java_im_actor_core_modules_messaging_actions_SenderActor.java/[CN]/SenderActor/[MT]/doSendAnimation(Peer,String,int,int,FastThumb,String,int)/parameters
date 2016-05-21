@@ -1,0 +1,7 @@
+Peer peer
+String fileName
+int w
+int h
+FastThumb fastThumb
+String descriptor
+int fileSize

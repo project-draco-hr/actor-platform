@@ -11,6 +11,9 @@
  else     if (content instanceof LocalVoice) {
       return new VoiceContent(localContainer);
     }
+ else     if (content instanceof LocalAnimation) {
+      return new AnimationContent(localContainer);
+    }
  else     if (content instanceof LocalDocument) {
       return new DocumentContent(localContainer);
     }
@@ -32,6 +35,9 @@
         }
  else         if (d.getExt() instanceof ApiDocumentExVoice) {
           return new VoiceContent(remoteContainer);
+        }
+ else         if (d.getExt() instanceof ApiDocumentExAnimation) {
+          return new AnimationContent(remoteContainer);
         }
  else {
           return new DocumentContent(remoteContainer);

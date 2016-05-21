@@ -1,0 +1,11 @@
+{
+  long rid=RandomUtils.nextRid();
+  long date=createPendingDate();
+  long sortDate=date + 365 * 24 * 60* 60* 1000L;
+  AnimationContent videoContent=AnimationContent.createLocalAnimation(descriptor,fileName,fileSize,w,h,fastThumb);
+  Message message=new Message(rid,sortDate,date,myUid(),MessageState.PENDING,videoContent);
+  context().getMessagesModule().getRouter().onOutgoingMessage(peer,message);
+  pendingMessages.getPendingMessages().add(new PendingMessage(peer,rid,videoContent));
+  savePending();
+  performUploadFile(rid,descriptor,fileName);
+}

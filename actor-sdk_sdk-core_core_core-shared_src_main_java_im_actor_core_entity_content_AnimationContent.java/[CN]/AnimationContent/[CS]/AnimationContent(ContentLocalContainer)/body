@@ -1,0 +1,6 @@
+{
+  super(contentContainer);
+  LocalVideo localVideo=(LocalVideo)contentContainer.getContent();
+  w=localVideo.getW();
+  h=localVideo.getH();
+}

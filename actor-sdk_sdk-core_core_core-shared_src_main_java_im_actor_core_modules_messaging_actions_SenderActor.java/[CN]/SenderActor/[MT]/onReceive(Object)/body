@@ -55,6 +55,10 @@
     ForwardContent forwardContent=(ForwardContent)message;
     doForwardContent(forwardContent.getPeer(),forwardContent.getContent());
   }
+ else   if (message instanceof SendAnimation) {
+    SendAnimation animation=(SendAnimation)message;
+    doSendAnimation(animation.getPeer(),animation.getFileName(),animation.getW(),animation.getH(),animation.getFastThumb(),animation.getDescriptor(),animation.getFileSize());
+  }
  else {
     super.onReceive(message);
   }

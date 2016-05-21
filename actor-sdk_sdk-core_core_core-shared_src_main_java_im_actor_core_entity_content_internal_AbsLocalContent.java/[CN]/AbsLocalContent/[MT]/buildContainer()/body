@@ -10,6 +10,12 @@
  else   if (this instanceof LocalDocument) {
     writer.writeInt(1,CONTENT_DOC);
   }
+ else   if (this instanceof LocalVoice) {
+    writer.writeInt(1,CONTENT_VOICE);
+  }
+ else   if (this instanceof LocalAnimation) {
+    writer.writeInt(1,CONTENT_ANIMATION);
+  }
  else {
     throw new IOException("Unknown type");
   }

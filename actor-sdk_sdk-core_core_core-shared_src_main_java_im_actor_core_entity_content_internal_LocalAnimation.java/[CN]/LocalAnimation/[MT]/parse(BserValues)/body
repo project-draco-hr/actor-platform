@@ -1,0 +1,5 @@
+{
+  super.parse(values);
+  w=values.getInt(10);
+  h=values.getInt(11);
+}

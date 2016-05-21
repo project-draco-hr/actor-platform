@@ -1,0 +1,6 @@
+{
+  super(contentContainer);
+  ApiDocumentExAnimation animation=(ApiDocumentExAnimation)((ApiDocumentMessage)contentContainer.getMessage()).getExt();
+  w=animation.getW();
+  h=animation.getH();
+}

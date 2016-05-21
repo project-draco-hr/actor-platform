@@ -11,6 +11,12 @@
  else   if (type == CONTENT_VIDEO) {
     return new LocalVideo(content);
   }
+ else   if (type == CONTENT_VOICE) {
+    return new LocalVoice(content);
+  }
+ else   if (type == CONTENT_ANIMATION) {
+    return new LocalAnimation(content);
+  }
  else {
     throw new IOException("Unknown type");
   }
