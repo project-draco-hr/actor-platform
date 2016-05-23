@@ -1,0 +1,13 @@
+{
+  ImageHelper.BitmapSize size=ImageHelper.getImageSize(fullFilePath);
+  if (size == null) {
+    return;
+  }
+  Bitmap bmp=BitmapFactory.decodeFile(fullFilePath);
+  if (bmp == null) {
+    return;
+  }
+  Bitmap fastThumb=ImageHelper.scaleFit(bmp,90,90);
+  byte[] fastThumbData=ImageHelper.save(fastThumb);
+  sendAnimation(peer,fullFilePath,size.getWidth(),size.getHeight(),new FastThumb(fastThumb.getWidth(),fastThumb.getHeight(),fastThumbData),fullFilePath);
+}
