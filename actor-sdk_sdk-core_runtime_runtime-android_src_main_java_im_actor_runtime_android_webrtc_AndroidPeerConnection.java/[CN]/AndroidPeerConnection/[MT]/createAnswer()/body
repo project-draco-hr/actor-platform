@@ -15,7 +15,7 @@
             @Override public void onSetFailure(            String s){
             }
           }
-,new MediaConstraints());
+,getMediaConstraints());
         }
       }
 );

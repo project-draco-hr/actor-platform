@@ -15,7 +15,7 @@
   }
   AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
     @Override public void run(){
-      AndroidPeerConnection.this.peerConnection=AndroidWebRTCRuntimeProvider.FACTORY.createPeerConnection(servers,new MediaConstraints(),new PeerConnection.Observer(){
+      AndroidPeerConnection.this.peerConnection=AndroidWebRTCRuntimeProvider.FACTORY.createPeerConnection(servers,getMediaConstraints(),new PeerConnection.Observer(){
         @Override public void onSignalingChange(        PeerConnection.SignalingState signalingState){
         }
         @Override public void onIceConnectionChange(        PeerConnection.IceConnectionState iceConnectionState){
@@ -32,21 +32,27 @@
         @Override public void onAddStream(        MediaStream stream){
           AndroidMediaStream stream1=new AndroidMediaStream(stream);
           streams.put(stream,stream1);
+          if (mediaStreamCallback != null && !stream1.isLocal()) {
+            mediaStreamCallback.onRemoteStreamAdd(stream1);
+          }
           for (          WebRTCPeerConnectionCallback c : callbacks) {
             c.onStreamAdded(stream1);
           }
         }
         @Override public void onRemoveStream(        MediaStream stream){
-          try {
-            stream.videoTracks.get(0).dispose();
-          }
- catch (          Exception e) {
-          }
           AndroidMediaStream stream1=streams.get(stream);
           if (stream1 != null) {
             for (            WebRTCPeerConnectionCallback c : callbacks) {
               c.onStreamRemoved(stream1);
             }
+          }
+          if (mediaStreamCallback != null) {
+            mediaStreamCallback.onRemoteStreamAdd(stream1);
+          }
+          try {
+            stream.videoTracks.get(0).dispose();
+          }
+ catch (          Exception e) {
           }
         }
         @Override public void onDataChannel(        DataChannel dataChannel){

@@ -3,7 +3,7 @@
     @Override public void run(){
       AndroidPeerConnection.this.stream=(AndroidMediaStream)stream;
       if (mediaStreamCallback != null) {
-        mediaStreamCallback.onAvailable((AndroidMediaStream)stream);
+        mediaStreamCallback.onLocalStreamAvailable((AndroidMediaStream)stream);
       }
       peerConnection.addStream(AndroidPeerConnection.this.stream.getStream());
     }

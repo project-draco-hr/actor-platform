@@ -7,10 +7,6 @@
   layer2=cont.findViewById(R.id.layer2);
   layer3=cont.findViewById(R.id.layer3);
   avatarLayers=new View[]{layer1,layer2,layer3};
-  showView(layer1);
-  showView(layer2);
-  showView(layer3);
-  wave(avatarLayers,1.135f,1900,-2f);
   for (int i=0; i < avatarLayers.length; i++) {
     View layer=avatarLayers[i];
     ((GradientDrawable)layer.getBackground()).setColor(Color.WHITE);
@@ -118,23 +114,39 @@
   TextView addTv=(TextView)cont.findViewById(R.id.add_user_tv);
   addTv.setTextColor(getResources().getColor(R.color.picker_grey));
   add.setTint(getResources().getColor(R.color.picker_grey));
+  rootEglBase=EglBase.create();
   AndroidWebRTCRuntimeProvider.bindPeerConnection(new AndroidWebRTCRuntimeProvider.PeerConnectionCallback(){
     @Override public void onPeerConncetionAvailable(    AndroidPeerConnection peerConnection){
       peerConnection.bind(new AndroidPeerConnection.OwnStreamCallback(){
-        @Override public void onAvailable(        AndroidMediaStream stream){
+        @Override public void onLocalStreamAvailable(        AndroidMediaStream stream){
           if (stream.getVideoTrack() != null) {
-            source=stream.getVideoSource();
-            rootEglBase=EglBase.create();
-            localRender=new SurfaceViewRenderer(getActivity());
-            localRender.init(rootEglBase.getEglBaseContext(),null);
-            stream.getVideoTrack().addRenderer(new VideoRenderer(localRender));
             getActivity().runOnUiThread(new Runnable(){
               @Override public void run(){
+                source=stream.getVideoSource();
+                localRender=new SurfaceViewRenderer(getActivity());
+                localRender.setZOrderMediaOverlay(true);
+                localRender.init(rootEglBase.getEglBaseContext(),null);
+                stream.getVideoTrack().addRenderer(new VideoRenderer(localRender));
                 container.addView(localRender,Screen.dp(200),Screen.dp(200));
               }
             }
 );
           }
+        }
+        @Override public void onRemoteStreamAdd(        AndroidMediaStream stream){
+          if (stream.getVideoTrack() != null) {
+            getActivity().runOnUiThread(new Runnable(){
+              @Override public void run(){
+                remoteRender=new SurfaceViewRenderer(getActivity());
+                remoteRender.init(rootEglBase.getEglBaseContext(),null);
+                stream.getVideoTrack().addRenderer(new VideoRenderer(remoteRender));
+                container.addView(remoteRender,Screen.dp(400),Screen.dp(400));
+              }
+            }
+);
+          }
+        }
+        @Override public void onRemoteStreamRemove(        AndroidMediaStream stream){
         }
         @Override public void onRemoved(){
         }
@@ -144,7 +156,7 @@
   }
 );
   if (call != null) {
-    call.getIsMuted().subscribe(new ValueChangedListener<Boolean>(){
+    bind(call.getIsMuted(),new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
         if (getActivity() != null) {
           if (val) {
@@ -159,7 +171,7 @@
       }
     }
 );
-    call.getState().subscribe(new ValueChangedListener<CallState>(){
+    bind(call.getState(),new ValueChangedListener<CallState>(){
       @Override public void onChanged(      CallState val,      Value<CallState> valueModel){
         if (currentState != val) {
           currentState=val;
@@ -190,7 +202,7 @@ break;
 }
 }
 }
-,true);
+);
 }
 return cont;
 }
