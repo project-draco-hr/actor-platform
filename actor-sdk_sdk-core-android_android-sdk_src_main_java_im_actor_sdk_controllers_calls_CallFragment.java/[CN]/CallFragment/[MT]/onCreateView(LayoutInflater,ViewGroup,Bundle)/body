@@ -118,6 +118,31 @@
   TextView addTv=(TextView)cont.findViewById(R.id.add_user_tv);
   addTv.setTextColor(getResources().getColor(R.color.picker_grey));
   add.setTint(getResources().getColor(R.color.picker_grey));
+  AndroidWebRTCRuntimeProvider.bindPeerConnection(new AndroidWebRTCRuntimeProvider.PeerConnectionCallback(){
+    @Override public void onPeerConncetionAvailable(    AndroidPeerConnection peerConnection){
+      peerConnection.bind(new AndroidPeerConnection.OwnStreamCallback(){
+        @Override public void onAvailable(        AndroidMediaStream stream){
+          if (stream.getVideoTrack() != null) {
+            source=stream.getVideoSource();
+            rootEglBase=EglBase.create();
+            localRender=new SurfaceViewRenderer(getActivity());
+            localRender.init(rootEglBase.getEglBaseContext(),null);
+            stream.getVideoTrack().addRenderer(new VideoRenderer(localRender));
+            getActivity().runOnUiThread(new Runnable(){
+              @Override public void run(){
+                container.addView(localRender,Screen.dp(200),Screen.dp(200));
+              }
+            }
+);
+          }
+        }
+        @Override public void onRemoved(){
+        }
+      }
+);
+    }
+  }
+);
   if (call != null) {
     call.getIsMuted().subscribe(new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){

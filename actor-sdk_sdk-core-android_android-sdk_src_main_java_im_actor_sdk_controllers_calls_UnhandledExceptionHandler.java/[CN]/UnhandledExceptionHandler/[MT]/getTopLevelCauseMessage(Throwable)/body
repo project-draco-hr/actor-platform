@@ -1,0 +1,7 @@
+{
+  Throwable topLevelCause=t;
+  while (topLevelCause.getCause() != null) {
+    topLevelCause=topLevelCause.getCause();
+  }
+  return topLevelCause.getMessage();
+}
