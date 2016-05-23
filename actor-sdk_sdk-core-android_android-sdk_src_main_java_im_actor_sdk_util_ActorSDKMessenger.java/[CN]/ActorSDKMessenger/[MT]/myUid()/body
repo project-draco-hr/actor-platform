@@ -1,3 +1,4 @@
 {
+  ActorSDK.sharedActor().waitForReady();
   return messenger().myUid();
 }

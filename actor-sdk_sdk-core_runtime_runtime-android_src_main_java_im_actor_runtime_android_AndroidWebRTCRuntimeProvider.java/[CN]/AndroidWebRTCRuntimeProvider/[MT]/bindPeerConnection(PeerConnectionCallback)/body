@@ -1,0 +1,8 @@
+{
+  if (currentPeerConnection != null) {
+    callback.onPeerConncetionAvailable(currentPeerConnection);
+  }
+ else {
+    connectionCallback=callback;
+  }
+}

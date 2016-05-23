@@ -1,0 +1,5 @@
+{
+  if (videoSource != null) {
+    videoSource.dispose();
+  }
+}

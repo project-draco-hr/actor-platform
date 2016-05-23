@@ -1,0 +1,6 @@
+{
+  if (stream != null) {
+    callback.onAvailable(stream);
+  }
+  mediaStreamCallback=callback;
+}

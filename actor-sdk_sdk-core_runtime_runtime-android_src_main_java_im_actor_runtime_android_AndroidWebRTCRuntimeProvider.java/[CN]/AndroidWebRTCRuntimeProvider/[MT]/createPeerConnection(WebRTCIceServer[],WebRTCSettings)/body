@@ -1,7 +1,12 @@
 {
   return new Promise<>(new PromiseFunc<WebRTCPeerConnection>(){
     @Override public void exec(    @NonNull @NotNull final PromiseResolver<WebRTCPeerConnection> resolver){
-      resolver.result(new AndroidPeerConnection(webRTCIceServers,settings));
+      currentPeerConnection=new AndroidPeerConnection(webRTCIceServers,settings);
+      resolver.result(currentPeerConnection);
+      if (connectionCallback != null) {
+        connectionCallback.onPeerConncetionAvailable(currentPeerConnection);
+        connectionCallback=null;
+      }
     }
   }
 );

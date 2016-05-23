@@ -37,6 +37,11 @@
           }
         }
         @Override public void onRemoveStream(        MediaStream stream){
+          try {
+            stream.videoTracks.get(0).dispose();
+          }
+ catch (          Exception e) {
+          }
           AndroidMediaStream stream1=streams.get(stream);
           if (stream1 != null) {
             for (            WebRTCPeerConnectionCallback c : callbacks) {

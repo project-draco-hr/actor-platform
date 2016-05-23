@@ -1,7 +1,11 @@
 {
   AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
     @Override public void run(){
-      peerConnection.addStream(((AndroidMediaStream)stream).getStream());
+      AndroidPeerConnection.this.stream=(AndroidMediaStream)stream;
+      if (mediaStreamCallback != null) {
+        mediaStreamCallback.onAvailable((AndroidMediaStream)stream);
+      }
+      peerConnection.addStream(AndroidPeerConnection.this.stream.getStream());
     }
   }
 );

@@ -3,6 +3,11 @@
   this.stream=stream;
   if (!local) {
     audioTrack=stream.audioTracks.get(0);
+    try {
+      videoTrack=stream.videoTracks.get(0);
+    }
+ catch (    Exception e) {
+    }
   }
  else {
     AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
@@ -11,8 +16,11 @@
         audioConstarints.mandatory.add(new MediaConstraints.KeyValuePair("googNoiseSuppression","true"));
         audioConstarints.mandatory.add(new MediaConstraints.KeyValuePair("googEchoCancellation","true"));
         AudioSource audioSource=AndroidWebRTCRuntimeProvider.FACTORY.createAudioSource(audioConstarints);
+        videoSource=AndroidWebRTCRuntimeProvider.FACTORY.createVideoSource(getVideoCapturer(),new MediaConstraints());
+        videoTrack=AndroidWebRTCRuntimeProvider.FACTORY.createVideoTrack("ARDAMSv0",videoSource);
         audioTrack=AndroidWebRTCRuntimeProvider.FACTORY.createAudioTrack("ARDAMSa0",audioSource);
         stream.addTrack(audioTrack);
+        stream.addTrack(videoTrack);
       }
     }
 );
