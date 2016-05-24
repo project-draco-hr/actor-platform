@@ -2,6 +2,9 @@
   if (shareMenuMaxHeight == 0) {
     shareMenuMaxHeight=Screen.dp(245);
   }
+  if (ActorSDK.sharedActor().getDelegate().onAttachMenuClicked(this)) {
+    return;
+  }
   if (shareMenu.getVisibility() == View.VISIBLE) {
     hideShare();
   }
