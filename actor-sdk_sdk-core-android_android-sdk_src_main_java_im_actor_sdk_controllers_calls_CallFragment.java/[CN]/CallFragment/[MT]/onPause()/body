@@ -3,6 +3,7 @@
   if (source != null) {
     source.stop();
   }
+  AndroidWebRTCRuntimeProvider.unbindPeerConnection();
   if (call != null && call.getState().get() != CallState.ENDED) {
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(getActivity());
     builder.setAutoCancel(true);

@@ -2,9 +2,13 @@
   AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
     @Override public void run(){
       peerConnection.dispose();
+      if (mediaStreamCallback != null) {
+        mediaStreamCallback.onDispose();
+      }
       if (stream != null && stream.isLocal()) {
         stream.disposeVideo();
       }
+      stream=null;
     }
   }
 );

@@ -47,7 +47,7 @@
             }
           }
           if (mediaStreamCallback != null) {
-            mediaStreamCallback.onRemoteStreamAdd(stream1);
+            mediaStreamCallback.onRemoteStreamRemove(stream1);
           }
           try {
             stream.videoTracks.get(0).dispose();

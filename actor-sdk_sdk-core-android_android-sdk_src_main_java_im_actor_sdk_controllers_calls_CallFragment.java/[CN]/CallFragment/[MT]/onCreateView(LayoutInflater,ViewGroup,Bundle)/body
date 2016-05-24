@@ -148,7 +148,15 @@
         }
         @Override public void onRemoteStreamRemove(        AndroidMediaStream stream){
         }
-        @Override public void onRemoved(){
+        @Override public void onOwnRemoved(){
+        }
+        @Override public void onDispose(){
+          if (localRender != null) {
+            localRender.release();
+          }
+          if (remoteRender != null) {
+            remoteRender.release();
+          }
         }
       }
 );
