@@ -1,5 +1,0 @@
-{
-  if (!startDelegateActivity(context,ActorSDK.sharedActor().getDelegate().getAuthStartIntent(),extras)) {
-    startActivity(context,extras,ActorMainActivity.class);
-  }
-}
