@@ -1,3 +1,0 @@
-{
-  return AuthState.AUTH_START;
-}
