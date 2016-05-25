@@ -7,6 +7,7 @@
   preferences.putString("currentEmail",currentEmail);
   preferences.putString("transactionHash",transactionHash);
   preferences.putBool("isRegistered",isRegistered);
+  preferences.putBool("codeValidated",codeValidated);
   preferences.putString("currentName",currentName);
   preferences.putInt("signType",signType);
   preferences.putString("auth_state",state.toString());

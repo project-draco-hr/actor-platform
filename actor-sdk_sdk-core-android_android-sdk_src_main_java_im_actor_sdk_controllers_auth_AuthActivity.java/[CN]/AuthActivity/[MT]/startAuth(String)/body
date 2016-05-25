@@ -3,14 +3,19 @@
   currentSex=Sex.UNKNOWN;
   availableAuthType=ActorSDK.sharedActor().getAuthType();
   AuthState authState;
-  if ((availableAuthType & AUTH_TYPE_PHONE) == AUTH_TYPE_PHONE) {
-    authState=AuthState.AUTH_PHONE;
-  }
- else   if ((availableAuthType & AUTH_TYPE_EMAIL) == AUTH_TYPE_EMAIL) {
-    authState=AuthState.AUTH_EMAIL;
+  if (!codeValidated) {
+    if ((availableAuthType & AUTH_TYPE_PHONE) == AUTH_TYPE_PHONE) {
+      authState=AuthState.AUTH_PHONE;
+    }
+ else     if ((availableAuthType & AUTH_TYPE_EMAIL) == AUTH_TYPE_EMAIL) {
+      authState=AuthState.AUTH_EMAIL;
+    }
+ else {
+      return;
+    }
+    updateState(authState);
   }
  else {
-    return;
+    signUp(messenger().doSignup(currentName,currentSex != null ? currentSex : Sex.UNKNOWN,transactionHash),currentName,currentSex);
   }
-  updateState(authState);
 }

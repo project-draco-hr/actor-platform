@@ -12,6 +12,7 @@
   currentEmail=preferences.getString("currentEmail");
   transactionHash=preferences.getString("transactionHash");
   isRegistered=preferences.getBool("isRegistered",false);
+  codeValidated=preferences.getBool("codeValidated",false);
   currentName=preferences.getString("currentName");
   signType=preferences.getInt("signType",signType);
   String savedState=preferences.getString("auth_state");

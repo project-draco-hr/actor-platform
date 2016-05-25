@@ -4,6 +4,7 @@
   promise.then(new Consumer<AuthCodeRes>(){
     @Override public void apply(    AuthCodeRes authCodeRes){
       if (dismissProgress()) {
+        codeValidated=true;
         transactionHash=authCodeRes.getTransactionHash();
         if (!authCodeRes.isNeedToSignup()) {
           messenger().doCompleteAuth(authCodeRes.getResult()).then(new Consumer<Boolean>(){
@@ -19,7 +20,12 @@
 );
         }
  else {
-          signUp(messenger().doSignup(currentName,currentSex != null ? currentSex : Sex.UNKNOWN,transactionHash),currentName,currentSex);
+          if (currentName == null || currentName.isEmpty()) {
+            updateState(AuthState.SIGN_UP,true);
+          }
+ else {
+            signUp(messenger().doSignup(currentName,currentSex != null ? currentSex : Sex.UNKNOWN,transactionHash),currentName,currentSex);
+          }
         }
       }
     }
