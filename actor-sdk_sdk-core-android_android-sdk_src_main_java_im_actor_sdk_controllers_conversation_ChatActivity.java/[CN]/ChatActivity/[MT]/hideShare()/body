@@ -6,10 +6,10 @@
   TranslateAnimation animation=new TranslateAnimation(0,0,0,Screen.getHeight());
   animation.setDuration(160);
   animation.setAnimationListener(animationListener);
-  shareMenu.clearAnimation();
-  shareMenu.setAnimation(animation);
-  shareMenu.animate();
-  shareMenu.setVisibility(View.GONE);
+  shareMenuCaontainer.clearAnimation();
+  shareMenuCaontainer.setAnimation(animation);
+  shareMenuCaontainer.animate();
+  shareMenuCaontainer.setVisibility(View.GONE);
   shareContainer.setVisibility(View.GONE);
   if (ActorSDK.sharedActor().isFastShareEnabled()) {
     messenger().getGalleryScannerActor().send(new GalleryScannerActor.Hide());

@@ -5,7 +5,7 @@
   if (ActorSDK.sharedActor().getDelegate().onAttachMenuClicked(this)) {
     return;
   }
-  if (shareMenu.getVisibility() == View.VISIBLE) {
+  if (shareMenuCaontainer.getVisibility() == View.VISIBLE) {
     hideShare();
   }
  else {

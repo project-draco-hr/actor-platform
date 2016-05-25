@@ -75,10 +75,11 @@
     }
   }
 );
-  findViewById(R.id.share_menu).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  TableLayout shareMenu=(TableLayout)findViewById(R.id.share_menu);
+  shareMenu.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   findViewById(R.id.fast_share).setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
-  shareMenu=findViewById(R.id.share_container);
-  shareMenu.setOnClickListener(new View.OnClickListener(){
+  shareMenuCaontainer=findViewById(R.id.share_container);
+  shareMenuCaontainer.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
     }
   }
@@ -158,6 +159,7 @@
   findViewById(R.id.share_hide).setOnClickListener(shareMenuOCL);
   View shareLocation=findViewById(R.id.share_location);
   shareLocation.setOnClickListener(shareMenuOCL);
+  ActorSDK.sharedActor().getDelegate().onShareMenuCreated(shareMenu);
   handleIntent();
   try {
     Class.forName("com.google.android.gms.maps.GoogleMap");
