@@ -44,6 +44,10 @@
       PhotoContent photoContent=(PhotoContent)src;
       content=JsContentPhoto.create(fileName,fileExtension,fileSize,photoContent.getW(),photoContent.getH(),thumb,fileUrl,isUploading);
     }
+ else     if (src instanceof AnimationContent) {
+      AnimationContent animationContent=(AnimationContent)src;
+      content=JsContentAnimation.create(fileName,fileExtension,fileSize,animationContent.getW(),animationContent.getH(),thumb,fileUrl,isUploading);
+    }
  else     if (src instanceof VoiceContent) {
       VoiceContent voiceContent=(VoiceContent)src;
       content=JsContentVoice.create(fileName,fileExtension,fileSize,fileUrl,isUploading,voiceContent.getDuration());
