@@ -2,6 +2,9 @@
   if (message instanceof MuteChanged) {
     onMuteChanged(((MuteChanged)message).isMuted());
   }
+ else   if (message instanceof VideoEnabled) {
+    onVideoEnableChanged(((VideoEnabled)message).isEnabled());
+  }
  else {
     super.onReceive(message);
   }

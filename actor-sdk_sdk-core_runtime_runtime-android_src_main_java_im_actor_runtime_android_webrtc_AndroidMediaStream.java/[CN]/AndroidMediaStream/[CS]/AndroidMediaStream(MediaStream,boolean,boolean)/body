@@ -25,5 +25,5 @@
     }
 );
   }
-  setEnabled(autoPlay);
+  setAudioEnabled(autoPlay);
 }

@@ -3,7 +3,7 @@
     isEnabled=true;
     reconfigurePeerConnectionIfNeeded();
     for (    WebRTCMediaStream mediaStream : theirMediaStreams) {
-      mediaStream.setEnabled(true);
+      mediaStream.setAudioEnabled(true);
     }
   }
 }

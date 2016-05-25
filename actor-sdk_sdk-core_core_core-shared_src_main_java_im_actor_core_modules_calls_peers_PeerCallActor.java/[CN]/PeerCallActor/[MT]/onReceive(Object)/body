@@ -39,6 +39,10 @@
     MuteChanged muteChanged=(MuteChanged)message;
     onMuteChanged(muteChanged.isMuted());
   }
+ else   if (message instanceof VideoEnabled) {
+    VideoEnabled videoEnabled=(VideoEnabled)message;
+    onVideoEnabled(videoEnabled.isEnabled());
+  }
  else   if (message instanceof OwnStarted) {
     onOwnStarted();
   }

@@ -6,6 +6,6 @@
     callback.onOwnStreamAdded(stream);
   }
   for (  MediaStream mediaStream : streams.keySet()) {
-    callback.onOwnStreamAdded(streams.get(mediaStream));
+    callback.onStreamAdded(streams.get(mediaStream));
   }
 }

@@ -42,6 +42,12 @@
  else   if (message instanceof UnmuteCall) {
     onCallUnmute(((UnmuteCall)message).getCallId());
   }
+ else   if (message instanceof DisableVideo) {
+    onCallVideoDisable(((DisableVideo)message).getCallId());
+  }
+ else   if (message instanceof EnableVideo) {
+    onCallVideoEnable(((EnableVideo)message).getCallId());
+  }
  else   if (message instanceof ProbablyEndCall) {
     probablyEndCall();
   }

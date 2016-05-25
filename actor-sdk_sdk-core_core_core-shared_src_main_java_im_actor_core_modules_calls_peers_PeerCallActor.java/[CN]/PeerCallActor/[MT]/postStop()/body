@@ -5,7 +5,7 @@
   }
   refs.clear();
   if (webRTCMediaStream != null) {
-    webRTCMediaStream.setEnabled(false);
+    webRTCMediaStream.setAudioEnabled(false);
     webRTCMediaStream.close();
   }
 }

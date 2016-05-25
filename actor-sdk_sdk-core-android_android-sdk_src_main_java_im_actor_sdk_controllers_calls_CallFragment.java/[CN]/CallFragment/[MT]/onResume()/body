@@ -7,14 +7,35 @@
   }
   manager.cancel(NOTIFICATION_ID);
   if (call != null) {
-    bind(call.getPeerConnection(),new ValueChangedListener<WebRTCPeerConnection>(){
-      @Override public void onChanged(      WebRTCPeerConnection val,      Value<WebRTCPeerConnection> valueModel){
-        if (val != null) {
-          val.addCallback(webRTCPeerConnectionCallback);
+    if (peer.getPeerType() == PeerType.PRIVATE) {
+      bind(call.getPeerConnection(),new ValueChangedListener<WebRTCPeerConnection>(){
+        @Override public void onChanged(        WebRTCPeerConnection val,        Value<WebRTCPeerConnection> valueModel){
+          if (val != null) {
+            val.addCallback(webRTCPeerConnectionCallback);
+          }
         }
       }
-    }
 );
+      bind(call.getIsVideoEnabled(),new ValueChangedListener<Boolean>(){
+        @Override public void onChanged(        Boolean val,        Value<Boolean> valueModel){
+          if (getActivity() != null) {
+            if (val) {
+              videoTv.setTextColor(Color.WHITE);
+              videoIcon.setTint(Color.WHITE);
+              if (localRender != null) {
+                localVideoView.setVisibility(View.VISIBLE);
+              }
+            }
+ else {
+              videoTv.setTextColor(getResources().getColor(R.color.picker_grey));
+              videoIcon.setTint(getResources().getColor(R.color.picker_grey));
+              localVideoView.setVisibility(View.INVISIBLE);
+            }
+          }
+        }
+      }
+);
+    }
     bind(call.getIsMuted(),new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
         if (getActivity() != null) {
