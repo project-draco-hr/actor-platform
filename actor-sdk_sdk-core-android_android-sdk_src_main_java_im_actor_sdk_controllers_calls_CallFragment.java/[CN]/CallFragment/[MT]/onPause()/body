@@ -2,8 +2,8 @@
   super.onPause();
   if (source != null) {
     source.stop();
+    sourceIsStopped=true;
   }
-  AndroidWebRTCRuntimeProvider.unbindPeerConnection();
   if (call != null && call.getState().get() != CallState.ENDED) {
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(getActivity());
     builder.setAutoCancel(true);
@@ -17,6 +17,20 @@
     Notification n=builder.build();
     n.flags+=Notification.FLAG_ONGOING_EVENT;
     manager.notify(NOTIFICATION_ID,n);
+  }
+  if (call != null) {
+    AndroidPeerConnection webRTCPeerConnection=(AndroidPeerConnection)call.getPeerConnection().get();
+    if (webRTCPeerConnection != null) {
+      webRTCPeerConnection.removeCallback(webRTCPeerConnectionCallback);
+      HashMap<MediaStream,AndroidMediaStream> mediaStreams=((AndroidPeerConnection)webRTCPeerConnection).getStreams();
+      for (      MediaStream mediaStream : mediaStreams.keySet()) {
+        mediaStreams.get(mediaStream).removeRenderer(remoteRender);
+      }
+      AndroidMediaStream stream=webRTCPeerConnection.getStream();
+      if (stream != null) {
+        stream.removeRenderer(localRender);
+      }
+    }
   }
   disableWakeLock();
 }

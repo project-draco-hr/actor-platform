@@ -2,4 +2,10 @@
   if (!callbacks.contains(callback)) {
     callbacks.add(callback);
   }
+  if (stream != null) {
+    callback.onOwnStreamAdded(stream);
+  }
+  for (  MediaStream mediaStream : streams.keySet()) {
+    callback.onOwnStreamAdded(streams.get(mediaStream));
+  }
 }

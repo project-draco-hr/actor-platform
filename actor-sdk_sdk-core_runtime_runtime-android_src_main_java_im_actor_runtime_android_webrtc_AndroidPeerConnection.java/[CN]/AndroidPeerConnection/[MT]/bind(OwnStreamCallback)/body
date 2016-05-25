@@ -1,6 +1,0 @@
-{
-  if (stream != null) {
-    callback.onLocalStreamAvailable(stream);
-  }
-  mediaStreamCallback=callback;
-}

@@ -32,9 +32,6 @@
         @Override public void onAddStream(        MediaStream stream){
           AndroidMediaStream stream1=new AndroidMediaStream(stream);
           streams.put(stream,stream1);
-          if (mediaStreamCallback != null && !stream1.isLocal()) {
-            mediaStreamCallback.onRemoteStreamAdd(stream1);
-          }
           for (          WebRTCPeerConnectionCallback c : callbacks) {
             c.onStreamAdded(stream1);
           }
@@ -45,9 +42,6 @@
             for (            WebRTCPeerConnectionCallback c : callbacks) {
               c.onStreamRemoved(stream1);
             }
-          }
-          if (mediaStreamCallback != null) {
-            mediaStreamCallback.onRemoteStreamRemove(stream1);
           }
           try {
             stream.videoTracks.get(0).dispose();

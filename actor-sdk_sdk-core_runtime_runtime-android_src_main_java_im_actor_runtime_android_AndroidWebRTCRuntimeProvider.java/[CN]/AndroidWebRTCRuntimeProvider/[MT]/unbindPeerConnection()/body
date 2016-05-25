@@ -1,6 +1,0 @@
-{
-  if (currentPeerConnection != null) {
-    currentPeerConnection.unbind();
-  }
-  currentPeerConnection=null;
-}

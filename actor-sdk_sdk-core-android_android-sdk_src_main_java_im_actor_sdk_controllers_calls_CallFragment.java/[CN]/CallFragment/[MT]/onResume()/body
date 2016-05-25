@@ -1,5 +1,66 @@
 {
   super.onResume();
   enableWakeLock();
+  if (source != null) {
+    source.restart();
+    sourceIsStopped=false;
+  }
   manager.cancel(NOTIFICATION_ID);
+  if (call != null) {
+    bind(call.getPeerConnection(),new ValueChangedListener<WebRTCPeerConnection>(){
+      @Override public void onChanged(      WebRTCPeerConnection val,      Value<WebRTCPeerConnection> valueModel){
+        if (val != null) {
+          val.addCallback(webRTCPeerConnectionCallback);
+        }
+      }
+    }
+);
+    bind(call.getIsMuted(),new ValueChangedListener<Boolean>(){
+      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
+        if (getActivity() != null) {
+          if (val) {
+            muteCallTv.setTextColor(getResources().getColor(R.color.picker_grey));
+            muteCall.setTint(getResources().getColor(R.color.picker_grey));
+          }
+ else {
+            muteCallTv.setTextColor(Color.WHITE);
+            muteCall.setTint(Color.WHITE);
+          }
+        }
+      }
+    }
+);
+    bind(call.getState(),new ValueChangedListener<CallState>(){
+      @Override public void onChanged(      CallState val,      Value<CallState> valueModel){
+        if (currentState != val) {
+          currentState=val;
+switch (val) {
+case RINGING:
+            if (call.isOutgoing()) {
+              statusTV.setText(R.string.call_outgoing);
+            }
+ else {
+              statusTV.setText(R.string.call_incoming);
+              toggleSpeaker(speaker,speakerTV,true);
+              initIncoming();
+            }
+          break;
+case CONNECTING:
+        statusTV.setText(R.string.call_connecting);
+      break;
+case IN_PROGRESS:
+    toggleSpeaker(speaker,speakerTV,false);
+  onConnected();
+startTimer();
+break;
+case ENDED:
+statusTV.setText(R.string.call_ended);
+onCallEnd();
+break;
+}
+}
+}
+}
+);
+}
 }

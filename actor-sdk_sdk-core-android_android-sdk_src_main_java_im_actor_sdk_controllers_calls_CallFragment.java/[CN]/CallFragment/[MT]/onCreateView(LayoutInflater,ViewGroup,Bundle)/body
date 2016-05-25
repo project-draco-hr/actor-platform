@@ -1,4 +1,5 @@
 {
+  this.container=container;
   manager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   FrameLayout cont=(FrameLayout)inflater.inflate(R.layout.fragment_call,container,false);
   v=(Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
@@ -77,9 +78,9 @@
   }
   audioManager=(AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
   audioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL);
-  final TintImageView speaker=(TintImageView)cont.findViewById(R.id.speaker);
+  speaker=(TintImageView)cont.findViewById(R.id.speaker);
   speaker.setResource(R.drawable.ic_volume_up_white_24dp);
-  final TextView speakerTV=(TextView)cont.findViewById(R.id.speaker_tv);
+  speakerTV=(TextView)cont.findViewById(R.id.speaker_tv);
   cont.findViewById(R.id.speaker_btn).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       toggleSpeaker(speaker,speakerTV);
@@ -87,8 +88,8 @@
   }
 );
   checkSpeaker(speaker,speakerTV);
-  final TintImageView muteCall=(TintImageView)cont.findViewById(R.id.mute);
-  final TextView muteCallTv=(TextView)cont.findViewById(R.id.mute_tv);
+  muteCall=(TintImageView)cont.findViewById(R.id.mute);
+  muteCallTv=(TextView)cont.findViewById(R.id.mute_tv);
   muteCall.setResource(R.drawable.ic_mic_off_white_24dp);
   cont.findViewById(R.id.mute_btn).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
@@ -98,7 +99,7 @@
 );
   final TintImageView video=(TintImageView)cont.findViewById(R.id.video);
   video.setResource(R.drawable.ic_videocam_white_24dp);
-  TextView videoTv=(TextView)cont.findViewById(R.id.video_tv);
+  videoTv=(TextView)cont.findViewById(R.id.video_tv);
   videoTv.setTextColor(getResources().getColor(R.color.picker_grey));
   video.setTint(getResources().getColor(R.color.picker_grey));
   final TintImageView back=(TintImageView)cont.findViewById(R.id.back);
@@ -115,102 +116,55 @@
   addTv.setTextColor(getResources().getColor(R.color.picker_grey));
   add.setTint(getResources().getColor(R.color.picker_grey));
   rootEglBase=EglBase.create();
-  AndroidWebRTCRuntimeProvider.bindPeerConnection(new AndroidWebRTCRuntimeProvider.PeerConnectionCallback(){
-    @Override public void onPeerConncetionAvailable(    AndroidPeerConnection peerConnection){
-      peerConnection.bind(new AndroidPeerConnection.OwnStreamCallback(){
-        @Override public void onLocalStreamAvailable(        AndroidMediaStream stream){
-          if (stream.getVideoTrack() != null) {
-            getActivity().runOnUiThread(new Runnable(){
-              @Override public void run(){
-                source=stream.getVideoSource();
-                localRender=new SurfaceViewRenderer(getActivity());
-                localRender.setZOrderMediaOverlay(true);
-                localRender.init(rootEglBase.getEglBaseContext(),null);
-                stream.getVideoTrack().addRenderer(new VideoRenderer(localRender));
-                container.addView(localRender,Screen.dp(200),Screen.dp(200));
-              }
-            }
+  remoteVideoView=(SurfaceViewRenderer)cont.findViewById(R.id.remote_renderer);
+  remoteVideoView.init(rootEglBase.getEglBaseContext(),null);
+  localVideoView=(SurfaceViewRenderer)cont.findViewById(R.id.local_renderer);
+  localVideoView.init(rootEglBase.getEglBaseContext(),null);
+  webRTCPeerConnectionCallback=new WebRTCPeerConnectionCallback(){
+    @Override public void onCandidate(    int label,    String id,    String candidate){
+    }
+    @Override public void onStreamAdded(    WebRTCMediaStream remoteStream){
+      AndroidMediaStream stream=(AndroidMediaStream)remoteStream;
+      if (stream.getVideoTrack() != null) {
+        getActivity().runOnUiThread(new Runnable(){
+          @Override public void run(){
+            remoteRender=new VideoRenderer(remoteVideoView);
+            stream.getVideoTrack().addRenderer(remoteRender);
+            remoteVideoView.setVisibility(View.VISIBLE);
+          }
+        }
 );
-          }
-        }
-        @Override public void onRemoteStreamAdd(        AndroidMediaStream stream){
-          if (stream.getVideoTrack() != null) {
-            getActivity().runOnUiThread(new Runnable(){
-              @Override public void run(){
-                remoteRender=new SurfaceViewRenderer(getActivity());
-                remoteRender.init(rootEglBase.getEglBaseContext(),null);
-                stream.getVideoTrack().addRenderer(new VideoRenderer(remoteRender));
-                container.addView(remoteRender,Screen.dp(400),Screen.dp(400));
-              }
-            }
-);
-          }
-        }
-        @Override public void onRemoteStreamRemove(        AndroidMediaStream stream){
-        }
-        @Override public void onOwnRemoved(){
-        }
-        @Override public void onDispose(){
-          if (localRender != null) {
-            localRender.release();
-          }
-          if (remoteRender != null) {
-            remoteRender.release();
-          }
-        }
       }
+    }
+    @Override public void onStreamRemoved(    WebRTCMediaStream stream){
+    }
+    @Override public void onOwnStreamAdded(    WebRTCMediaStream ownStream){
+      AndroidMediaStream stream=(AndroidMediaStream)ownStream;
+      if (stream.getVideoTrack() != null) {
+        getActivity().runOnUiThread(new Runnable(){
+          @Override public void run(){
+            source=stream.getVideoSource();
+            localRender=new VideoRenderer(localVideoView);
+            stream.getVideoTrack().addRenderer(localRender);
+            localVideoView.setVisibility(View.VISIBLE);
+          }
+        }
 );
+      }
+    }
+    @Override public void onOwnStreamRemoved(    WebRTCMediaStream stream){
+    }
+    @Override public void onRenegotiationNeeded(){
+    }
+    @Override public void onDisposed(){
+      if (localVideoView != null) {
+        localVideoView.release();
+      }
+      if (remoteVideoView != null) {
+        remoteVideoView.release();
+      }
     }
   }
-);
-  if (call != null) {
-    bind(call.getIsMuted(),new ValueChangedListener<Boolean>(){
-      @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){
-        if (getActivity() != null) {
-          if (val) {
-            muteCallTv.setTextColor(getResources().getColor(R.color.picker_grey));
-            muteCall.setTint(getResources().getColor(R.color.picker_grey));
-          }
- else {
-            muteCallTv.setTextColor(Color.WHITE);
-            muteCall.setTint(Color.WHITE);
-          }
-        }
-      }
-    }
-);
-    bind(call.getState(),new ValueChangedListener<CallState>(){
-      @Override public void onChanged(      CallState val,      Value<CallState> valueModel){
-        if (currentState != val) {
-          currentState=val;
-switch (val) {
-case RINGING:
-            if (call.isOutgoing()) {
-              statusTV.setText(R.string.call_outgoing);
-            }
- else {
-              statusTV.setText(R.string.call_incoming);
-              toggleSpeaker(speaker,speakerTV,true);
-              initIncoming();
-            }
-          break;
-case CONNECTING:
-        statusTV.setText(R.string.call_connecting);
-      break;
-case IN_PROGRESS:
-    toggleSpeaker(speaker,speakerTV,false);
-  onConnected();
-startTimer();
-break;
-case ENDED:
-statusTV.setText(R.string.call_ended);
-onCallEnd();
-break;
-}
-}
-}
-}
-);
-}
-return cont;
+;
+  return cont;
 }
