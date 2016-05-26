@@ -1,2 +1,3 @@
 boolean is3DESEnabled
 boolean isDataChannelsEnabled
+boolean isVideoEnabled

@@ -1,4 +1,5 @@
 {
+  this.settings=settings;
   if (LIBJINGLE_LOGS) {
     Logging.enableTracing("logcat:",EnumSet.of(Logging.TraceLevel.TRACE_ALL),Logging.Severity.LS_SENSITIVE);
   }
@@ -43,10 +44,12 @@
               c.onStreamRemoved(stream1);
             }
           }
-          try {
-            stream.videoTracks.get(0).dispose();
-          }
- catch (          Exception e) {
+          if (settings.isVideoEnabled()) {
+            try {
+              stream.videoTracks.get(0).dispose();
+            }
+ catch (            Exception e) {
+            }
           }
         }
         @Override public void onDataChannel(        DataChannel dataChannel){

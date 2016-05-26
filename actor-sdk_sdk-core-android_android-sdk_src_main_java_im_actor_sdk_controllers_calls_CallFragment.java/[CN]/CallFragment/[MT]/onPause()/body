@@ -1,6 +1,6 @@
 {
   super.onPause();
-  if (peer.getPeerType() == PeerType.PRIVATE) {
+  if (peer.getPeerType() == PeerType.PRIVATE && ActorSDK.sharedActor().isVideoCallsEnabled()) {
     if (source != null) {
       source.stop();
       sourceIsStopped=true;

@@ -18,5 +18,6 @@
   this.enablePhoneBookImport=enablePhoneBookImport;
   this.callsProvider=callsProvider;
   this.voiceCallsEnabled=voiceCallsEnabled;
+  this.videoCallsEnabled=videoCallsEnabled;
   this.isEnabledGroupedChatList=isEnabledGroupedChatList;
 }

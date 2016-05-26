@@ -1,0 +1,4 @@
+{
+  this.videoCallsEnabled=videoCallsEnabled;
+  return this;
+}

@@ -1,6 +1,7 @@
 {
   this.local=local;
   this.stream=stream;
+  this.isVideoCallsEnabled=isVideoCallsEnabled;
   if (!local) {
     audioTrack=stream.audioTracks.get(0);
     try {
@@ -16,11 +17,13 @@
         audioConstarints.mandatory.add(new MediaConstraints.KeyValuePair("googNoiseSuppression","true"));
         audioConstarints.mandatory.add(new MediaConstraints.KeyValuePair("googEchoCancellation","true"));
         AudioSource audioSource=AndroidWebRTCRuntimeProvider.FACTORY.createAudioSource(audioConstarints);
-        videoSource=AndroidWebRTCRuntimeProvider.FACTORY.createVideoSource(getVideoCapturer(),new MediaConstraints());
-        videoTrack=AndroidWebRTCRuntimeProvider.FACTORY.createVideoTrack("ARDAMSv0",videoSource);
+        if (isVideoCallsEnabled) {
+          videoSource=AndroidWebRTCRuntimeProvider.FACTORY.createVideoSource(getVideoCapturer(),new MediaConstraints());
+          videoTrack=AndroidWebRTCRuntimeProvider.FACTORY.createVideoTrack("ARDAMSv0",videoSource);
+          stream.addTrack(videoTrack);
+        }
         audioTrack=AndroidWebRTCRuntimeProvider.FACTORY.createAudioTrack("ARDAMSa0",audioSource);
         stream.addTrack(audioTrack);
-        stream.addTrack(videoTrack);
       }
     }
 );

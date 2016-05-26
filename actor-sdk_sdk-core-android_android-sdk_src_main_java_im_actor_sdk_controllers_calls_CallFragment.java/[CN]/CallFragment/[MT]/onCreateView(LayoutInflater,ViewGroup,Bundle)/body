@@ -121,7 +121,7 @@
   TextView addTv=(TextView)cont.findViewById(R.id.add_user_tv);
   addTv.setTextColor(getResources().getColor(R.color.picker_grey));
   add.setTint(getResources().getColor(R.color.picker_grey));
-  if (peer.getPeerType() == PeerType.PRIVATE) {
+  if (peer.getPeerType() == PeerType.PRIVATE && ActorSDK.sharedActor().isVideoCallsEnabled()) {
     rootEglBase=EglBase.create();
     remoteVideoView=(SurfaceViewRenderer)cont.findViewById(R.id.remote_renderer);
     remoteVideoView.init(rootEglBase.getEglBaseContext(),null);
