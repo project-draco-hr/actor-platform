@@ -6,9 +6,6 @@
         for (        WebRTCPeerConnectionCallback c : callbacks) {
           c.onDisposed();
         }
-        if (localStream != null) {
-          localStream.disposeVideo();
-        }
         localStream=null;
       }
     }
