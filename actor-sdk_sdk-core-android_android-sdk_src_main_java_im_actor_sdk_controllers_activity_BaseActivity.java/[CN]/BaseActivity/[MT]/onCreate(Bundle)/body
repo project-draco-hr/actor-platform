@@ -1,6 +1,6 @@
 {
-  super.onCreate(savedInstanceState);
   ActorSDK.sharedActor().waitForReady();
+  super.onCreate(savedInstanceState);
   notifyOnResume();
   if (getSupportActionBar() != null && STYLE.getToolBarColor() != 0) {
     getSupportActionBar().setBackgroundDrawable(new ColorDrawable(STYLE.getToolBarColor()));
