@@ -6,14 +6,15 @@
       sourceIsStopped=true;
     }
     if (call != null) {
-      AndroidPeerConnection webRTCPeerConnection=(AndroidPeerConnection)call.getPeerConnection().get();
-      if (webRTCPeerConnection != null) {
+      ArrayList<WebRTCPeerConnection> webRTCPeerConnections=(ArrayList<WebRTCPeerConnection>)call.getPeerConnection().get();
+      for (      WebRTCPeerConnection webRTCPeerConnection : webRTCPeerConnections) {
         webRTCPeerConnection.removeCallback(webRTCPeerConnectionCallback);
         HashMap<MediaStream,AndroidMediaStream> mediaStreams=((AndroidPeerConnection)webRTCPeerConnection).getStreams();
         for (        MediaStream mediaStream : mediaStreams.keySet()) {
           mediaStreams.get(mediaStream).removeRenderer(remoteRender);
         }
-        AndroidMediaStream stream=webRTCPeerConnection.getStream();
+        remoteRendererBinded=false;
+        AndroidMediaStream stream=((AndroidPeerConnection)webRTCPeerConnection).getLocalStream();
         if (stream != null) {
           stream.removeRenderer(localRender);
         }

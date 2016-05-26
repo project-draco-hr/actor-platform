@@ -163,11 +163,13 @@ AndroidMediaStream stream=(AndroidMediaStream)remoteStream;
 if (stream.getVideoTrack() != null) {
 getActivity().runOnUiThread(new Runnable(){
   @Override public void run(){
-    remoteRender=new VideoRenderer(remoteVideoView);
-    stream.getVideoTrack().addRenderer(remoteRender);
-    remoteVideoView.setVisibility(View.VISIBLE);
-    avatarView.setVisibility(View.INVISIBLE);
-    nameTV.setVisibility(View.INVISIBLE);
+    if (!remoteRendererBinded) {
+      remoteRender=new VideoRenderer(remoteVideoView);
+      stream.getVideoTrack().addRenderer(remoteRender);
+      remoteVideoView.setVisibility(View.VISIBLE);
+      avatarView.setVisibility(View.INVISIBLE);
+      nameTV.setVisibility(View.INVISIBLE);
+    }
   }
 }
 );

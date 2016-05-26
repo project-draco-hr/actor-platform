@@ -8,10 +8,10 @@
   manager.cancel(NOTIFICATION_ID);
   if (call != null) {
     if (peer.getPeerType() == PeerType.PRIVATE && ActorSDK.sharedActor().isVideoCallsEnabled()) {
-      bind(call.getPeerConnection(),new ValueChangedListener<WebRTCPeerConnection>(){
-        @Override public void onChanged(        WebRTCPeerConnection val,        Value<WebRTCPeerConnection> valueModel){
-          if (val != null) {
-            val.addCallback(webRTCPeerConnectionCallback);
+      bind(call.getPeerConnection(),new ValueChangedListener<ArrayList<WebRTCPeerConnection>>(){
+        @Override public void onChanged(        ArrayList<WebRTCPeerConnection> val,        Value<ArrayList<WebRTCPeerConnection>> valueModel){
+          for (          WebRTCPeerConnection webRTCPeerConnection : val) {
+            webRTCPeerConnection.addCallback(webRTCPeerConnectionCallback);
           }
         }
       }
