@@ -16,6 +16,10 @@
       VideoContent videoContent=(VideoContent)content;
       documentEx=new ApiDocumentExVideo(videoContent.getW(),videoContent.getH(),videoContent.getDuration());
     }
+ else     if (content instanceof AnimationContent) {
+      AnimationContent animationContent=(AnimationContent)content;
+      documentEx=new ApiDocumentExAnimation(animationContent.getW(),animationContent.getH());
+    }
  else     if (content instanceof VoiceContent) {
       VoiceContent voiceContent=(VoiceContent)content;
       documentEx=new ApiDocumentExVoice(voiceContent.getDuration());
