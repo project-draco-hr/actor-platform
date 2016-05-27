@@ -32,5 +32,6 @@
   if (isChanged) {
     conversationStates.addOrUpdateItem(state);
   }
+  markAsReadIfNeeded(peer);
   return Promise.success(null);
 }
