@@ -47,6 +47,12 @@ h=((PhotoContent)message.getContent()).getH();
 isPhoto=true;
 duration.setVisibility(View.GONE);
 }
+ else if (message.getContent() instanceof AnimationContent) {
+w=((AnimationContent)message.getContent()).getW();
+h=((AnimationContent)message.getContent()).getH();
+isPhoto=true;
+duration.setVisibility(View.GONE);
+}
  else if (message.getContent() instanceof VideoContent) {
 w=((VideoContent)message.getContent()).getW();
 h=((VideoContent)message.getContent()).getH();
