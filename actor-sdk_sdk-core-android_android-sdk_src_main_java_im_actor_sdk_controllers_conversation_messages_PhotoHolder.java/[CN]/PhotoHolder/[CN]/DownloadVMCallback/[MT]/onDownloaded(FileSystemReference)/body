@@ -8,9 +8,8 @@
         previewView.getHierarchy().setPlaceholderImage(new FastBitmapDrawable(drawingCache));
       }
     }
-    ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(reference.getDescriptor()))).setResizeOptions(new ResizeOptions(previewView.getLayoutParams().width,previewView.getLayoutParams().height)).build();
-    PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(previewView.getController()).setImageRequest(request).setAutoPlayAnimations(true).build();
-    previewView.setController(controller);
+    Uri uri=Uri.fromFile(new File(reference.getDescriptor()));
+    bindImage(uri);
   }
  else {
     if (!updated) {
