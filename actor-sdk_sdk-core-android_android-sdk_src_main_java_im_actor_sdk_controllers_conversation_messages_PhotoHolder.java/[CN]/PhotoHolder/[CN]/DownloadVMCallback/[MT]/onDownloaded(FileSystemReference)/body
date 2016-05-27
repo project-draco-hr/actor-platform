@@ -9,7 +9,7 @@
       }
     }
     ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(reference.getDescriptor()))).setResizeOptions(new ResizeOptions(previewView.getLayoutParams().width,previewView.getLayoutParams().height)).build();
-    PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(previewView.getController()).setImageRequest(request).build();
+    PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(previewView.getController()).setImageRequest(request).setAutoPlayAnimations(true).build();
     previewView.setController(controller);
   }
  else {

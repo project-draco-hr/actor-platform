@@ -9,6 +9,9 @@
  else   if (content instanceof PhotoContent) {
     return 2;
   }
+ else   if (content instanceof AnimationContent) {
+    return 2;
+  }
  else   if (content instanceof VideoContent) {
     return 2;
   }
