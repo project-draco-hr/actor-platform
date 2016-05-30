@@ -47,6 +47,12 @@ h=((PhotoContent)message.getContent()).getH();
 isPhoto=true;
 duration.setVisibility(View.GONE);
 }
+ else if (message.getContent() instanceof AnimationContent) {
+w=((AnimationContent)message.getContent()).getW();
+h=((AnimationContent)message.getContent()).getH();
+isPhoto=true;
+duration.setVisibility(View.GONE);
+}
  else if (message.getContent() instanceof VideoContent) {
 w=((VideoContent)message.getContent()).getW();
 h=((VideoContent)message.getContent()).getH();
@@ -102,7 +108,8 @@ downloadFileVM=messenger().bindFile(((FileRemoteSource)fileMessage.getSource()).
  else if (fileMessage.getSource() instanceof FileLocalSource) {
 uploadFileVM=messenger().bindUpload(message.getRid(),new UploadVMCallback());
 if (isPhoto) {
-previewView.setImageURI(Uri.fromFile(new File(((FileLocalSource)fileMessage.getSource()).getFileDescriptor())));
+Uri uri=Uri.fromFile(new File(((FileLocalSource)fileMessage.getSource()).getFileDescriptor()));
+bindImage(uri);
 }
  else {
 if (!updated) {
