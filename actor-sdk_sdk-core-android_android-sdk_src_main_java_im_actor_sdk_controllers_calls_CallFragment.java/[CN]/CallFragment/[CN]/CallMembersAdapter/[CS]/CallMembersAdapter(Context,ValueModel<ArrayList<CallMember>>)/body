@@ -1,12 +1,2 @@
 {
-  super(context);
-  this.members=members.get();
-  members.subscribe(new ValueChangedListener<ArrayList<CallMember>>(){
-    @Override public void onChanged(    ArrayList<CallMember> val,    Value<ArrayList<CallMember>> valueModel){
-      CallMembersAdapter.this.members=val;
-      notifyDataSetChanged();
-      Log.d("STATUS CHANGED",val.toString());
-    }
-  }
-);
 }

@@ -1,27 +1,2 @@
 {
-  final DateFormat formatter=new SimpleDateFormat("HH:mm:ss");
-  formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-  if (timer == null) {
-    timer=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-      @Override public Actor create(){
-        return new TimerActor(300);
-      }
-    }
-),"calls/timer");
-    timer.send(new TimerActor.Register(new TimerActor.TimerCallback(){
-      @Override public void onTick(      long currentTime,      final long timeFromRegister){
-        if (getActivity() != null) {
-          getActivity().runOnUiThread(new Runnable(){
-            @Override public void run(){
-              if (currentState == CallState.IN_PROGRESS) {
-                statusTV.setText(formatter.format(new Date(timeFromRegister)));
-              }
-            }
-          }
-);
-        }
-      }
-    }
-,TIMER_ID));
-  }
 }

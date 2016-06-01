@@ -6,7 +6,7 @@
       sourceIsStopped=true;
     }
     if (call != null) {
-      ArrayList<WebRTCPeerConnection> webRTCPeerConnections=(ArrayList<WebRTCPeerConnection>)call.getPeerConnection().get();
+      ArrayList<WebRTCPeerConnection> webRTCPeerConnections=call.getPeerConnection().get();
       for (      WebRTCPeerConnection webRTCPeerConnection : webRTCPeerConnections) {
         webRTCPeerConnection.removeCallback(webRTCPeerConnectionCallback);
         HashMap<MediaStream,AndroidMediaStream> mediaStreams=((AndroidPeerConnection)webRTCPeerConnection).getStreams();

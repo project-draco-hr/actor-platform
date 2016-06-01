@@ -1,23 +1,2 @@
 {
-  getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED| WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-  answerContainer.setVisibility(View.VISIBLE);
-  endCallContainer.setVisibility(View.GONE);
-  new Thread(new Runnable(){
-    @Override public void run(){
-      try {
-        Thread.sleep(1100);
-        Uri notification=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-        ringtone=RingtoneManager.getRingtone(getActivity(),notification);
-        if (getActivity() != null & answerContainer.getVisibility() == View.VISIBLE && currentState == CallState.RINGING) {
-          if (ringtone != null) {
-            ringtone.play();
-          }
-        }
-      }
- catch (      InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-  }
-).start();
 }
