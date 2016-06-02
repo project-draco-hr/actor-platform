@@ -10,6 +10,9 @@
     }
     Uri uri=Uri.fromFile(new File(reference.getDescriptor()));
     bindImage(uri);
+    if (isAnimation && !updated) {
+      checkFastThumb();
+    }
   }
  else {
     if (!updated) {
