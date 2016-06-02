@@ -1,0 +1,10 @@
+{
+  if (anim != null) {
+    if (play) {
+      anim.start();
+    }
+ else {
+      anim.stop();
+    }
+  }
+}

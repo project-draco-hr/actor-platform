@@ -17,8 +17,11 @@
             if (document instanceof PhotoContent) {
               Intents.openMedia(getAdapter().getMessagesFragment().getActivity(),previewView,reference.getDescriptor(),currentMessage.getSenderId());
             }
- else {
+ else             if (document instanceof VideoContent) {
               playVideo(document,reference);
+            }
+ else             if (document instanceof AnimationContent) {
+              toggleAnimation();
             }
           }
         }

@@ -12,6 +12,13 @@
   GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(context.getResources());
   GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setRoundingParams(new RoundingParams().setCornersRadius(Screen.dp(2)).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
   previewView.setHierarchy(hierarchy);
+  animationController=new BaseControllerListener<ImageInfo>(){
+    @Override public void onFinalImageSet(    String id,    ImageInfo imageInfo,    Animatable anim){
+      PhotoHolder.this.anim=anim;
+      playAnimation();
+    }
+  }
+;
   fastThumbLoader=new FastThumbLoader(previewView);
   time=(TextView)itemView.findViewById(R.id.time);
   duration=(TextView)itemView.findViewById(R.id.duration);

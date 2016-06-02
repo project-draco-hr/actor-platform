@@ -45,18 +45,22 @@ if (message.getContent() instanceof PhotoContent) {
 w=((PhotoContent)message.getContent()).getW();
 h=((PhotoContent)message.getContent()).getH();
 isPhoto=true;
+isAnimation=false;
 duration.setVisibility(View.GONE);
 }
  else if (message.getContent() instanceof AnimationContent) {
 w=((AnimationContent)message.getContent()).getW();
 h=((AnimationContent)message.getContent()).getH();
 isPhoto=true;
-duration.setVisibility(View.GONE);
+isAnimation=true;
+duration.setVisibility(View.VISIBLE);
+duration.setText("");
 }
  else if (message.getContent() instanceof VideoContent) {
 w=((VideoContent)message.getContent()).getW();
 h=((VideoContent)message.getContent()).getH();
 isPhoto=false;
+isAnimation=false;
 duration.setVisibility(View.VISIBLE);
 duration.setText(messenger().getFormatter().formatDuration(((VideoContent)message.getContent()).getDuration()));
 }
@@ -91,6 +95,7 @@ updated=false;
 currenrRid=currentMessage.getRid();
 Log.d(TAG,"updated: " + updated);
 if (needRebind) {
+anim=null;
 if (!updated) {
 playRequested=false;
 }

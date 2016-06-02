@@ -1,0 +1,10 @@
+{
+  if (anim != null) {
+    if (anim.isRunning()) {
+      anim.stop();
+    }
+ else {
+      anim.start();
+    }
+  }
+}

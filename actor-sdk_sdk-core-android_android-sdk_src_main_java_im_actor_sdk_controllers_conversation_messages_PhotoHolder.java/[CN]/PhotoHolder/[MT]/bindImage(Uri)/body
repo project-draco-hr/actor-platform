@@ -1,5 +1,5 @@
 {
   ImageRequest request=ImageRequestBuilder.newBuilderWithSource(uri).setResizeOptions(new ResizeOptions(previewView.getLayoutParams().width,previewView.getLayoutParams().height)).build();
-  PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(previewView.getController()).setImageRequest(request).setAutoPlayAnimations(true).build();
+  PipelineDraweeController controller=(PipelineDraweeController)Fresco.newDraweeControllerBuilder().setOldController(previewView.getController()).setImageRequest(request).setControllerListener(animationController).build();
   previewView.setController(controller);
 }

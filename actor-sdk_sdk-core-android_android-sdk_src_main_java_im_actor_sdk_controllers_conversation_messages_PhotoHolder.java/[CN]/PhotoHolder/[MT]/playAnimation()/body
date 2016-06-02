@@ -1,0 +1,3 @@
+{
+  playAnimation(messenger().isAnimationAutoPlayEnabled());
+}
