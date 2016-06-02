@@ -1,0 +1,3 @@
+{
+  messenger.sendAnimation(peer.convert(),file);
+}
