@@ -1,0 +1,3 @@
+{
+  setStringValue(KEY_NOTIFICATION_PEER_SOUND + getChatKey(peer),sound);
+}
