@@ -1,3 +1,4 @@
 {
   preferences().putString(STORAGE_PREFIX + key,value);
+  eventBus.post(new SettingsChanged());
 }
