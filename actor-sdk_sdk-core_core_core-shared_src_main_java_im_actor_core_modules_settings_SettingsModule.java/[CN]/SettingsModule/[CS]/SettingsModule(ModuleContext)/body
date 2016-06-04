@@ -1,5 +1,6 @@
 {
   super(context);
+  eventBus=context.getEvents();
   String platformType;
 switch (context.getConfiguration().getPlatformType()) {
 case ANDROID:
