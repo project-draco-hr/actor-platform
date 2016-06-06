@@ -1,18 +1,2 @@
 {
-  return new Promise<>(new PromiseFunc<WebRTCMediaStream>(){
-    @Override public void exec(    @NotNull final PromiseResolver<WebRTCMediaStream> resolver){
-      JsStreaming.getUserAudio().then(new Consumer<JsMediaStream>(){
-        @Override public void apply(        JsMediaStream jsMediaStream){
-          resolver.result(new MediaStream(jsMediaStream,false));
-        }
-      }
-).failure(new Consumer<Exception>(){
-        @Override public void apply(        Exception e){
-          resolver.error(e);
-        }
-      }
-);
-    }
-  }
-);
 }
