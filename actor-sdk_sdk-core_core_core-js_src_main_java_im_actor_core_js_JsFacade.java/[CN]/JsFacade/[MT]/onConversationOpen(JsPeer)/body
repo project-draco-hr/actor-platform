@@ -2,4 +2,5 @@
   Log.d(TAG,"onConversationOpen | " + peer);
   lastVisiblePeer=peer.convert();
   messenger.onConversationOpen(lastVisiblePeer);
+  onUserVisible(peer);
 }
