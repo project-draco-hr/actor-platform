@@ -3,3 +3,5 @@ boolean isOutgoing
 JsArray<JsPeerInfo> members
 String state
 boolean isMuted
+JsMediaStream ownStream
+JsArray<JsMediaStream> streams

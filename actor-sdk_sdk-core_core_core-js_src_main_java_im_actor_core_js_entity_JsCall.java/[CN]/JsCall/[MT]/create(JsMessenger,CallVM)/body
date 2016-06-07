@@ -19,5 +19,9 @@ case ENDED:
 state="ended";
 break;
 }
-return create(JsPeer.create(model.getPeer()),model.isOutgoing(),members,state,model.getIsMuted().get());
+JsArray<JsMediaStream> streams=JsArray.createArray().cast();
+for (WebRTCMediaStream stream : model.getMediaStreams().get()) {
+streams.push(((MediaStream)stream).getStream());
+}
+return create(JsPeer.create(model.getPeer()),model.isOutgoing(),members,state,model.getIsMuted().get(),((MediaStream)model.getOwnMediaStream().get()).getStream(),streams);
 }
