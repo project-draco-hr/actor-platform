@@ -1,0 +1,5 @@
+{
+  ArrayList<WebRTCMediaStream> mediaStreams=new ArrayList<>(callVM.getMediaStreams().get());
+  mediaStreams.add(stream);
+  callVM.getMediaStreams().change(mediaStreams);
+}
