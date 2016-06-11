@@ -1,3 +1,5 @@
 {
-  this.defaultBackgrouds=defaultBackgrouds;
+  if (defaultBackgrouds.length > 0) {
+    this.defaultBackgrouds=defaultBackgrouds;
+  }
 }
