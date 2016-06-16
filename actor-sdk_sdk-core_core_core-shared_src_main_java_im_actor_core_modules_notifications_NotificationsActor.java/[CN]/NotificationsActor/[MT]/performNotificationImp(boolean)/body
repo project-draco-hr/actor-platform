@@ -1,17 +1,24 @@
 {
-  List<PendingNotification> destNotifications=getNotifications();
-  if (destNotifications.size() == 0) {
+  List<PendingNotification> allPending=getNotifications();
+  int messagesCount=allPending.size();
+  if (messagesCount == 0) {
     hideNotification();
     return;
   }
+  List<PendingNotification> destNotifications=last(allPending,MAX_NOTIFICATION_COUNT);
   List<Notification> res=new ArrayList<>();
   for (  PendingNotification p : destNotifications) {
     res.add(new Notification(p.getPeer(),p.getSender(),p.getContent()));
   }
+  HashSet<Peer> peers=new HashSet<>();
+  for (  PendingNotification p : allPending) {
+    peers.add(p.getPeer());
+  }
+  int chatsCount=peers.size();
   if (performUpdate) {
-    config().getNotificationProvider().onUpdateNotification(context().getMessenger(),res,pendingStorage.getMessagesCount(),pendingStorage.getDialogsCount());
+    config().getNotificationProvider().onUpdateNotification(context().getMessenger(),res,messagesCount,chatsCount);
   }
  else {
-    config().getNotificationProvider().onNotification(context().getMessenger(),res,pendingStorage.getMessagesCount(),pendingStorage.getDialogsCount());
+    config().getNotificationProvider().onNotification(context().getMessenger(),res,messagesCount,chatsCount);
   }
 }

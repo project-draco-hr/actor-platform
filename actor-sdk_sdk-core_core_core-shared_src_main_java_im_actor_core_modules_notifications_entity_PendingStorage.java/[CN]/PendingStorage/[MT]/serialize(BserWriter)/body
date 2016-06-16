@@ -1,5 +1,3 @@
 {
   writer.writeRepeatedObj(1,notifications);
-  writer.writeInt(2,messagesCount);
-  writer.writeInt(3,dialogsCount);
 }

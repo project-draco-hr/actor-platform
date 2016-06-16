@@ -1,0 +1,45 @@
+{
+  if (date <= getLastReadDate(peer)) {
+    return;
+  }
+  boolean isEnabled=isNotificationsEnabled(peer,hasCurrentUserMention);
+  if (isEnabled) {
+    List<PendingNotification> allPending=getNotifications();
+    allPending.add(new PendingNotification(peer,sender,date,description));
+    saveStorage();
+  }
+  if (isNotificationsPaused) {
+    if (!notificationsDuringPause.containsKey(peer)) {
+      notificationsDuringPause.put(peer,hasCurrentUserMention);
+    }
+ else {
+      if (hasCurrentUserMention && !notificationsDuringPause.get(peer)) {
+        notificationsDuringPause.put(peer,true);
+      }
+    }
+    return;
+  }
+  if (isAppVisible) {
+    if (visiblePeer != null && visiblePeer.equals(peer)) {
+      if (isMobilePlatform) {
+        playEffectIfEnabled();
+      }
+ else {
+      }
+    }
+ else {
+      if (isMobilePlatform) {
+      }
+ else {
+        if (isEnabled) {
+          playEffectIfEnabled();
+        }
+      }
+    }
+  }
+ else {
+    if (isEnabled) {
+      showNotification();
+    }
+  }
+}

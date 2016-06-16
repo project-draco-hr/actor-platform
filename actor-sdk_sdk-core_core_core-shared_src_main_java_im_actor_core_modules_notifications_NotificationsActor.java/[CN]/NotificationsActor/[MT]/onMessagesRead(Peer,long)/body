@@ -2,11 +2,17 @@
   if (fromDate < getLastReadDate(peer)) {
     return;
   }
-  getNotifications().clear();
-  pendingStorage.setMessagesCount(0);
-  pendingStorage.setDialogsCount(0);
-  allPendingNotifications.clear();
-  saveStorage();
-  updateNotification();
+  boolean isChanged=false;
+  List<PendingNotification> notifications=pendingStorage.getNotifications();
+  for (  PendingNotification p : notifications.toArray(new PendingNotification[notifications.size()])) {
+    if (p.getPeer().equals(peer) && p.getDate() <= fromDate) {
+      pendingStorage.getNotifications().remove(p);
+      isChanged=true;
+    }
+  }
+  if (isChanged) {
+    saveStorage();
+    updateNotification();
+  }
   setLastReadDate(peer,fromDate);
 }

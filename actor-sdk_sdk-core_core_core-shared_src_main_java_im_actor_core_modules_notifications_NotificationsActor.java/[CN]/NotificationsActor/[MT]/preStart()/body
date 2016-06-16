@@ -1,11 +1,11 @@
 {
   isMobilePlatform=config().getPlatformType() == PlatformType.ANDROID || config().getPlatformType() == PlatformType.IOS;
   storage=new SyncKeyValue(Storage.createKeyValue(STORAGE_NOTIFICATIONS));
-  pendingStorage=new PendingStorage(MAX_NOTIFICATION_COUNT);
+  pendingStorage=new PendingStorage();
   byte[] storage=this.storage.get(0);
   if (storage != null) {
     try {
-      pendingStorage=PendingStorage.fromBytes(storage,MAX_NOTIFICATION_COUNT);
+      pendingStorage=PendingStorage.fromBytes(storage);
     }
  catch (    IOException e) {
       e.printStackTrace();
