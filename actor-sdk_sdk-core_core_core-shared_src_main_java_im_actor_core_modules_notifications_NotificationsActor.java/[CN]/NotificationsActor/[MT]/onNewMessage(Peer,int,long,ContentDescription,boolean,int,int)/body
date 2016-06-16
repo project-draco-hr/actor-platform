@@ -4,8 +4,12 @@
   }
   boolean isEnabled=isNotificationsEnabled(peer,hasCurrentUserMention);
   if (isEnabled) {
-    List<PendingNotification> allPending=getNotifications();
-    allPending.add(new PendingNotification(peer,sender,date,description));
+    List<PendingNotification> pendingNotifications=getNotifications();
+    PendingNotification pendingNotification=new PendingNotification(peer,sender,date,description);
+    pendingNotifications.add(pendingNotification);
+    pendingStorage.setMessagesCount(messagesCount);
+    pendingStorage.setDialogsCount(dialogsCount);
+    allPendingNotifications.add(pendingNotification);
     saveStorage();
   }
   if (isNotificationsPaused) {

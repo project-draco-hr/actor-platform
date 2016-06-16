@@ -1,0 +1,4 @@
+{
+  limit=maxMessagesLimit;
+  notifications=new NotificationsQueue<>(limit);
+}
