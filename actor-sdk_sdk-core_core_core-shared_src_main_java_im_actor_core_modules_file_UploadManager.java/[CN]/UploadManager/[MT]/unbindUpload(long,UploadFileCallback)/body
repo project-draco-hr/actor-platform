@@ -1,6 +1,6 @@
 {
-  QueueItem queueItem=findItem(rid);
-  if (queueItem != null) {
-    queueItem.callbacks.remove(callback);
+  ArrayList<UploadFileCallback> clist=callbacks.get(rid);
+  if (clist != null) {
+    clist.remove(callback);
   }
 }
