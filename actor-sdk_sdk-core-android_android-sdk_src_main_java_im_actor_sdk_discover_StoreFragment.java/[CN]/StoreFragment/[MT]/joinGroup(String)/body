@@ -1,0 +1,13 @@
+{
+  Command<Integer> cmd=messenger().joinGroupViaToken(token);
+  if (cmd != null) {
+    execute(cmd,im.actor.sdk.R.string.invite_link_title,new CommandCallback<Integer>(){
+      @Override public void onResult(      Integer res){
+        getActivity().startActivity(Intents.openGroupDialog(res,true,getActivity()));
+      }
+      @Override public void onError(      Exception e){
+      }
+    }
+);
+  }
+}

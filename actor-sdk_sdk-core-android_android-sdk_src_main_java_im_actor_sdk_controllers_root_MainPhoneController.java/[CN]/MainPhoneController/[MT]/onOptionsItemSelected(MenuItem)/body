@@ -12,5 +12,9 @@
     startActivity(new Intent(getActivity(),ContactsActivity.class));
     return true;
   }
+ else   if (i == R.id.discover) {
+    startActivity(new Intent(getActivity(),DiscoverActivity.class));
+    return true;
+  }
   return false;
 }

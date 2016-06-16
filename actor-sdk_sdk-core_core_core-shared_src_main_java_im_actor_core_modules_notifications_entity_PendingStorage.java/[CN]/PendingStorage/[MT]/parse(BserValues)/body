@@ -5,6 +5,8 @@
     for (int i=0; i < count; i++) {
       stubs.add(new PendingNotification());
     }
-    notifications=values.getRepeatedObj(1,stubs);
+    notifications=new NotificationsQueue<>(limit).addAllChain(values.getRepeatedObj(1,stubs));
   }
+  messagesCount=values.getInt(2);
+  dialogsCount=values.getInt(3);
 }

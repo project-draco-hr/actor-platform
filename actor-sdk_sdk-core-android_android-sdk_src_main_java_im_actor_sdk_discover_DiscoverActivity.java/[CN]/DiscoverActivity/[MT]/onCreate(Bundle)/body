@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setTitle("Discover");
+  if (savedInstanceState == null) {
+    showFragment(new StoreFragment(),false,false);
+  }
+}
