@@ -1,7 +1,7 @@
 {
-  for (  WeakCallbackHolder callbackHolder : callbacks) {
+  for (  WeakCallbackHolder callbackHolder : globalCallbacks) {
     if (callbackHolder.getCallbackWeakReference() == callback) {
-      callbacks.remove(callbackHolder);
+      globalCallbacks.remove(callbackHolder);
       break;
     }
   }

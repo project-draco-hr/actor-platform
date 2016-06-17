@@ -1,9 +1,9 @@
 {
   ArrayList<WeakCallbackHolder> toRemove=new ArrayList<>();
-  for (  WeakCallbackHolder callbackHolder : callbacks) {
+  for (  WeakCallbackHolder callbackHolder : globalCallbacks) {
     if (callbackHolder.getCallbackWeakReference() == null) {
       toRemove.add(callbackHolder);
     }
   }
-  callbacks.removeAll(toRemove);
+  globalCallbacks.removeAll(toRemove);
 }
