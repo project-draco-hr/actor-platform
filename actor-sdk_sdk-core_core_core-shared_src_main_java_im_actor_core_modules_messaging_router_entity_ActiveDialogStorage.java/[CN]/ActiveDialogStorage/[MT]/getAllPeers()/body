@@ -1,0 +1,7 @@
+{
+  ArrayList<Peer> peers=new ArrayList<>();
+  for (  ActiveDialogGroup group : groups) {
+    peers.addAll(group.getPeers());
+  }
+  return peers;
+}

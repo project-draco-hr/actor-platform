@@ -3,3 +3,5 @@ int sender
 long sortDate
 ContentDescription contentDescription
 boolean hasCurrentUserMention
+int unreadMessagesCount
+int unreadDialogsCount

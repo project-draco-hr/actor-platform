@@ -1,0 +1,3 @@
+{
+  notificationsActor.send(new NotificationsActor.NewMessage(peer,sender,sortDate,contentDescription,hasCurrentUserMention,unreadMessagesCount,unreadDialogsCount));
+}
