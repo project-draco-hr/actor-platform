@@ -3,8 +3,7 @@
   this.peer=peer;
   this.isOutgoing=isOutgoing;
   this.state=new ValueModel<>("calls." + callId + ".state",state);
-  this.peerConnections=new ValueModel<>("calls." + callId + ".peer_connection",new ArrayList<>());
-  this.mediaStreams=new ValueModel<>("calls." + callId + ".media_stram",new ArrayList<>());
+  this.mediaStreams=new ValueModel<>("calls." + callId + ".media_stream",new ArrayList<>());
   this.ownMediaStream=new ValueModel<>("calls." + callId + ".own_media_stream",null);
   this.members=new ValueModel<>("calls." + callId + ".members",new ArrayList<>(initialMembers));
   this.isMuted=new BooleanValueModel("calls." + callId + ".muted",false);

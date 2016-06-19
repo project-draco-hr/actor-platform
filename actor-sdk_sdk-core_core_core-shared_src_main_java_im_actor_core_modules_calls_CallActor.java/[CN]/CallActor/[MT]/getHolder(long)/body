@@ -1,0 +1,6 @@
+{
+  if (!mediaSources.containsKey(deviceId)) {
+    mediaSources.put(deviceId,new PeerConnectionHolder());
+  }
+  return mediaSources.get(deviceId);
+}

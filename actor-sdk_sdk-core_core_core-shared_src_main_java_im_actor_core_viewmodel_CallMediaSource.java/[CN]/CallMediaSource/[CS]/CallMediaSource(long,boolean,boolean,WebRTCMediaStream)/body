@@ -1,0 +1,6 @@
+{
+  this.deviceId=deviceId;
+  this.isVideoEnabled=isVideoEnabled;
+  this.isAudioEnabled=isAudioEnabled;
+  this.stream=stream;
+}

@@ -1,0 +1,4 @@
+long deviceId
+boolean isAudioEnabled
+boolean isVideoEnabled
+WebRTCMediaStream stream

@@ -1,6 +1,0 @@
-{
-  ArrayList<WebRTCMediaStream> mediaStreams=new ArrayList<>(callVM.getMediaStreams().get());
-  if (mediaStreams.remove(stream)) {
-    callVM.getMediaStreams().change(mediaStreams);
-  }
-}

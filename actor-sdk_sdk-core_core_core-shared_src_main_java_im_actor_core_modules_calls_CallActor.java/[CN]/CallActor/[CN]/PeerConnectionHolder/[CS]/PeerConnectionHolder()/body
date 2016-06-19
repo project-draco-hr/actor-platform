@@ -1,0 +1,6 @@
+{
+  this.isEnabled=false;
+  this.isAudioEnabled=true;
+  this.isVideoEnabled=false;
+  this.streams=new ArrayList<>();
+}

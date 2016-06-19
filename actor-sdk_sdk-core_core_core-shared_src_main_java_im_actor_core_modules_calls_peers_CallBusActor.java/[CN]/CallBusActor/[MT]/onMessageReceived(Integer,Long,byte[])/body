@@ -53,4 +53,16 @@
     sendSignal(masterDeviceId,new ApiAdvertiseSelf(selfSettings.toApi()));
     peerCall.onConfigurationReady(advertiseMaster.getServer());
   }
+ else   if (signal instanceof ApiMediaStreamsUpdated) {
+    ApiMediaStreamsUpdated streamsUpdated=(ApiMediaStreamsUpdated)signal;
+    Boolean isAudioEnabled=streamsUpdated.isAudioEnabled();
+    if (isAudioEnabled == null) {
+      isAudioEnabled=true;
+    }
+    Boolean isVideoEnabled=streamsUpdated.isVideoEnabled();
+    if (isVideoEnabled == null) {
+      isVideoEnabled=true;
+    }
+    callBusCallback.onPeerConnectionStateChanged(senderDeviceId,isAudioEnabled,isVideoEnabled);
+  }
 }

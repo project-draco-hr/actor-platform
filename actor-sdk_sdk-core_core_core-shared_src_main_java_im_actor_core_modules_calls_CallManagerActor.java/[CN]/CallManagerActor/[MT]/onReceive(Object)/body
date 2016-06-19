@@ -22,7 +22,7 @@
   }
  else   if (message instanceof DoCall) {
     DoCall doCall=(DoCall)message;
-    doCall(doCall.getPeer(),doCall.getCallback());
+    doCall(doCall.getPeer(),doCall.getCallback(),doCall.isEnableVideoCall());
   }
  else   if (message instanceof DoCallComplete) {
     DoCallComplete callCreated=(DoCallComplete)message;

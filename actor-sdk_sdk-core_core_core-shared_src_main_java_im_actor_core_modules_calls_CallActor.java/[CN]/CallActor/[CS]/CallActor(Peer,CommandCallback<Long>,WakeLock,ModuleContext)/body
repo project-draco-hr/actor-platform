@@ -1,9 +1,0 @@
-{
-  super(context);
-  this.wakeLock=wakeLock;
-  this.isMaster=true;
-  this.callback=callback;
-  this.peer=peer;
-  this.isAnswered=true;
-  this.isActive=false;
-}

@@ -1,0 +1,5 @@
+Peer peer
+CommandCallback<Long> callback
+WakeLock wakeLock
+boolean isVideoInitiallyEnabled
+ModuleContext context

@@ -13,7 +13,7 @@ case 4:
 return Bser.parse(new ApiOffer(),content);
 case 5:
 return Bser.parse(new ApiAnswer(),content);
-case 25:
+case 28:
 return Bser.parse(new ApiMediaStreamsUpdated(),content);
 case 8:
 return Bser.parse(new ApiNeedOffer(),content);

@@ -1,9 +1,6 @@
 {
   AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
     @Override public void run(){
-      for (      WebRTCPeerConnectionCallback c : callbacks) {
-        c.onOwnStreamRemoved(stream);
-      }
       peerConnection.removeStream(((AndroidMediaStream)stream).getStream());
     }
   }

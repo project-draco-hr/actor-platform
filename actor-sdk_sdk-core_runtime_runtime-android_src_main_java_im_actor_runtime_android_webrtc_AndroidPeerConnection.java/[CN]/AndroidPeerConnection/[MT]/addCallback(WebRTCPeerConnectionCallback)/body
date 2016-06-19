@@ -3,9 +3,6 @@
     callbacks.add(callback);
   }
   if (settings.isVideoEnabled()) {
-    if (localStream != null) {
-      callback.onOwnStreamAdded(localStream);
-    }
     for (    MediaStream mediaStream : streams.keySet()) {
       callback.onStreamAdded(streams.get(mediaStream));
     }

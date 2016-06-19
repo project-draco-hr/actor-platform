@@ -1,3 +1,0 @@
-{
-  callBusCallback.onPeerConnectionCreated(peerConnection);
-}

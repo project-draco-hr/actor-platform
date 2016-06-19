@@ -5,6 +5,7 @@
   }
   refs.clear();
   if (webRTCMediaStream != null) {
+    callback.onOwnStreamRemoved(webRTCMediaStream);
     webRTCMediaStream.setAudioEnabled(false);
     webRTCMediaStream.close();
   }

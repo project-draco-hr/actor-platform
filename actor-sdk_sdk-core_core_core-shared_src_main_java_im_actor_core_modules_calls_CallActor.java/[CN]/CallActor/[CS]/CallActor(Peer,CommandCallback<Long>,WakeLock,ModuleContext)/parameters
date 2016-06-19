@@ -1,4 +1,0 @@
-Peer peer
-CommandCallback<Long> callback
-WakeLock wakeLock
-ModuleContext context

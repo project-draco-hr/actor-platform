@@ -1,0 +1,16 @@
+{
+  PeerConnectionHolder holder=getHolder(deviceId);
+  if (holder.isVideoEnabled != isVideoEnabled || holder.isAudioEnabled != isAudioEnabled) {
+    holder.setAudioEnabled(isAudioEnabled);
+    holder.setVideoEnabled(isVideoEnabled);
+    ArrayList<CallMediaSource> mediaSources=new ArrayList<>(callVM.getMediaStreams().get());
+    for (int i=0; i < mediaSources.size(); i++) {
+      CallMediaSource mediaSource=mediaSources.get(i);
+      if (mediaSource.getDeviceId() == deviceId) {
+        mediaSources.remove(i);
+        mediaSources.add(i,new CallMediaSource(deviceId,isAudioEnabled,isAudioEnabled,mediaSource.getStream()));
+      }
+    }
+    callVM.getMediaStreams().change(mediaSources);
+  }
+}

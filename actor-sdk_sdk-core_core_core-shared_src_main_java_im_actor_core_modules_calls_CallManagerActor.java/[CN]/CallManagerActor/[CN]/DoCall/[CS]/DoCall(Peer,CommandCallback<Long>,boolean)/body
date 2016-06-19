@@ -1,0 +1,5 @@
+{
+  this.peer=peer;
+  this.callback=callback;
+  this.enableVideoCall=enableVideoCall;
+}

@@ -1,5 +1,0 @@
-{
-  ArrayList<WebRTCPeerConnection> webRTCPeerConnections=new ArrayList<>(callVM.getPeerConnections().get());
-  webRTCPeerConnections.add(peerConnection);
-  callVM.getPeerConnections().change(webRTCPeerConnections);
-}
