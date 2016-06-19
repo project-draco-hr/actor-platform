@@ -1,5 +1,7 @@
 {
   String res="struct OnRenegotiationNeeded{";
+  res+="device=" + this.device;
+  res+=", sessionId=" + this.sessionId;
   res+="}";
   return res;
 }

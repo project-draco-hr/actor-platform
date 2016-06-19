@@ -1,3 +1,0 @@
-{
-  send(new RTCCandidate(deviceId,mdpIndex,id,sdp));
-}

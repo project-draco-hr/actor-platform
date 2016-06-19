@@ -4,9 +4,8 @@
     d.kill();
   }
   refs.clear();
-  if (webRTCMediaStream != null) {
-    callback.onOwnStreamRemoved(webRTCMediaStream);
-    webRTCMediaStream.setAudioEnabled(false);
-    webRTCMediaStream.close();
+  if (currentMediaStream != null) {
+    callback.onOwnStreamRemoved(currentMediaStream);
+    currentMediaStream.close();
   }
 }

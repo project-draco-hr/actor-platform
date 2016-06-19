@@ -1,0 +1,4 @@
+{
+  super.onAudioEnableChanged(enabled);
+  callVM.getIsMuted().change(!enabled);
+}

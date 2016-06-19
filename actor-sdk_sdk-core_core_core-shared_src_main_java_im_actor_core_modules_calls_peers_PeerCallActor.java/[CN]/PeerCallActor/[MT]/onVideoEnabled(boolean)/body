@@ -1,6 +1,4 @@
 {
-  this.videoEnabled=enabled;
-  if (webRTCMediaStream != null) {
-    webRTCMediaStream.setVideoEnabled(isOwnStarted && this.videoEnabled);
-  }
+  this.isVideoEnabled=isVideoEnabled;
+  requestStream();
 }

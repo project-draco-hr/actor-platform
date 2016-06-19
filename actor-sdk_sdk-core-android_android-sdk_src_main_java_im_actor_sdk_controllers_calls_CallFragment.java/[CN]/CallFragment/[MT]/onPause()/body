@@ -5,17 +5,6 @@
       source.stop();
       sourceIsStopped=true;
     }
-    if (call != null) {
-      for (      AndroidMediaStream s : mediaStreams) {
-        s.removeRenderer(remoteRender);
-        remoteRendererBinded=false;
-      }
-      mediaStreams.clear();
-      if (ownStream != null) {
-        ownStream.removeRenderer(localRender);
-        ownStream=null;
-      }
-    }
   }
   if (call != null && call.getState().get() != CallState.ENDED) {
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(getActivity());

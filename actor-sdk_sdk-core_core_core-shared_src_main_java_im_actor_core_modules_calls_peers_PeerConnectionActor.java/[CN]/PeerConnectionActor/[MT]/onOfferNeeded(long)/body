@@ -1,5 +1,9 @@
 {
+  Log.d(TAG,"onOfferNeeded(" + sessionId + ")");
   if (state != PeerConnectionState.WAITING_HANDSHAKE) {
+    return;
+  }
+  if (this.sessionId != -1) {
     return;
   }
   isReady=false;
@@ -10,8 +14,9 @@
   }
 ).then(new Consumer<WebRTCSessionDescription>(){
     @Override public void apply(    WebRTCSessionDescription webRTCSessionDescription){
+      PeerConnectionActor.this.sessionId=sessionId;
+      PeerConnectionActor.this.state=PeerConnectionState.WAITING_ANSWER;
       callback.onOffer(sessionId,webRTCSessionDescription.getSdp());
-      state=PeerConnectionState.WAITING_ANSWER;
       onReady();
     }
   }

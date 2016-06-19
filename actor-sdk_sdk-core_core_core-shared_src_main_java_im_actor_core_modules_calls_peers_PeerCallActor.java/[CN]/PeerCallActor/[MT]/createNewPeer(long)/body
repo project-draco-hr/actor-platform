@@ -1,7 +1,7 @@
 {
   PeerNodeInt peerNodeInt=new PeerNodeInt(deviceId,new NodeCallback(),selfSettings,self(),context());
-  if (webRTCMediaStream != null) {
-    peerNodeInt.setOwnStream(webRTCMediaStream);
+  if (currentMediaStream != null) {
+    peerNodeInt.setOwnStream(currentMediaStream);
   }
   if (this.iceServers != null) {
     peerNodeInt.onAdvertisedMaster(iceServers);

@@ -1,3 +1,0 @@
-{
-  callBus.changeMute(isMuted);
-}

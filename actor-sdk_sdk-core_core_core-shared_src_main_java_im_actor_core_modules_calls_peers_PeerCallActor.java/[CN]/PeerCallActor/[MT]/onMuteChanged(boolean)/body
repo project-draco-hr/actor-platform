@@ -1,6 +1,0 @@
-{
-  this.isMuted=isMuted;
-  if (webRTCMediaStream != null) {
-    webRTCMediaStream.setAudioEnabled(isOwnStarted && !this.isMuted);
-  }
-}

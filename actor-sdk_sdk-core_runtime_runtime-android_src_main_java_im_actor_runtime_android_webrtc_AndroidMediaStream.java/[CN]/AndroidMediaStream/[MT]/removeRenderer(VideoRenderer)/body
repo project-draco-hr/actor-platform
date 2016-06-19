@@ -1,5 +1,0 @@
-{
-  if (videoTrack != null) {
-    videoTrack.removeRenderer(renderer);
-  }
-}

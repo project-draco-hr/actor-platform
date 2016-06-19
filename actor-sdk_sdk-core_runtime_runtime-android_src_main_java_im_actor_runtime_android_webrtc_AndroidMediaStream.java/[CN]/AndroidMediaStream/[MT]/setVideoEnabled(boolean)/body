@@ -1,6 +1,2 @@
 {
-  if (videoTrack != null) {
-    videoTrack.setEnabled(isEnabled);
-    this.isVideoEnabled=isEnabled;
-  }
 }
