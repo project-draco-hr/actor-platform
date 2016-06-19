@@ -1,0 +1,8 @@
+{
+  if (this.isAudioEnabled != null) {
+    writer.writeBool(1,this.isAudioEnabled);
+  }
+  if (this.isVideoEnabled != null) {
+    writer.writeBool(2,this.isVideoEnabled);
+  }
+}

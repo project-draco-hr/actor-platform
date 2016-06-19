@@ -1,0 +1,7 @@
+{
+  String res="struct MediaStreamsUpdated{";
+  res+="isAudioEnabled=" + this.isAudioEnabled;
+  res+=", isVideoEnabled=" + this.isVideoEnabled;
+  res+="}";
+  return res;
+}

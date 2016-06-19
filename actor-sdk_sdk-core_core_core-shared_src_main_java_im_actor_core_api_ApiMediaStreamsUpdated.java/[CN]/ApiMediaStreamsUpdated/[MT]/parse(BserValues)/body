@@ -1,0 +1,4 @@
+{
+  this.isAudioEnabled=values.optBool(1);
+  this.isVideoEnabled=values.optBool(2);
+}

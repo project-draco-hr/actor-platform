@@ -1,0 +1,4 @@
+{
+  this.isAudioEnabled=isAudioEnabled;
+  this.isVideoEnabled=isVideoEnabled;
+}
