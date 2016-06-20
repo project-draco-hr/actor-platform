@@ -1,0 +1,10 @@
+{
+synchronized (LOCK) {
+    if (currentSource != null) {
+      currentSource.count++;
+      return currentSource;
+    }
+    currentSource=new AndroidAudioSource();
+    return currentSource;
+  }
+}

@@ -38,13 +38,6 @@
     }
     onResetState();
   }
- else   if (message instanceof ReplaceStream) {
-    if (!isReady) {
-      stash();
-      return;
-    }
-    onReplaceStream(((ReplaceStream)message).getStream());
-  }
  else {
     super.onReceive(message);
   }

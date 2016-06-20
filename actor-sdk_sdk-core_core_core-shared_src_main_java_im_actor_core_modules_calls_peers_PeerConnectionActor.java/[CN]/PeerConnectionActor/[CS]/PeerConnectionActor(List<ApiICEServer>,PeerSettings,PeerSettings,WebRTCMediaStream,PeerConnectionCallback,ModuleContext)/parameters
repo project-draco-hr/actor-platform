@@ -1,6 +1,0 @@
-List<ApiICEServer> iceServers
-PeerSettings selfSettings
-PeerSettings theirSettings
-WebRTCMediaStream mediaStream
-PeerConnectionCallback callback
-ModuleContext context

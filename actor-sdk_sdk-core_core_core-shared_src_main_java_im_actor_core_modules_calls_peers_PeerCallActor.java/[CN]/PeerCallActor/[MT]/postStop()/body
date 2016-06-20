@@ -5,7 +5,8 @@
   }
   refs.clear();
   if (currentMediaStream != null) {
-    callback.onOwnStreamRemoved(currentMediaStream);
-    currentMediaStream.close();
+    callback.onOwnStreamRemoved(currentMediaStream.get());
+    currentMediaStream.release();
+    currentMediaStream=null;
   }
 }

@@ -5,7 +5,7 @@
   if (isEnabled || (theirSettings.isPreConnectionEnabled() && ownSettings.isPreConnectionEnabled())) {
     state=PeerState.CONNECTING;
     callback.onPeerStateChanged(deviceId,state);
-    peerConnection=new PeerConnectionInt(iceServers,ownSettings,theirSettings,ownMediaStream,this,context(),self(),"connection");
+    peerConnection=new PeerConnectionInt(iceServers,ownSettings,theirSettings,ownMediaStream,this,context(),self(),"connection/" + (CHILD_NEXT_ID++));
     unstashAll();
   }
 }

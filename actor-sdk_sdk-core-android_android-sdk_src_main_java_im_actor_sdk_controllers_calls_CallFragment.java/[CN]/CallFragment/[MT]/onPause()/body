@@ -1,11 +1,25 @@
 {
   super.onPause();
-  if (peer.getPeerType() == PeerType.PRIVATE && ActorSDK.sharedActor().isVideoCallsEnabled()) {
-    if (source != null) {
-      source.stop();
-      sourceIsStopped=true;
+  disableWakeLock();
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    if (localTrack != null) {
+      localTrack.removeRenderer(localRender);
+      localTrack=null;
+    }
+    if (isLocalViewConfigured) {
+      localVideoView.release();
+      isLocalViewConfigured=false;
+    }
+    if (remoteTrack != null) {
+      remoteTrack.removeRenderer(remoteRender);
+      remoteTrack=null;
+    }
+    if (isRemoteViewConfigured) {
+      remoteVideoView.release();
+      isRemoteViewConfigured=false;
     }
   }
+  ACTIVITY_BINDER.unbindAll();
   if (call != null && call.getState().get() != CallState.ENDED) {
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(getActivity());
     builder.setAutoCancel(true);
@@ -20,5 +34,4 @@
     n.flags+=Notification.FLAG_ONGOING_EVENT;
     manager.notify(NOTIFICATION_ID,n);
   }
-  disableWakeLock();
 }

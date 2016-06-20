@@ -1,0 +1,14 @@
+{
+  this.isLocal=true;
+  this.videoSource=videoSource;
+  this.audioSource=audioSource;
+  this.stream=AndroidWebRTCRuntimeProvider.FACTORY.createLocalMediaStream("ARDAMSv0");
+  if (audioSource != null) {
+    this.audioTrack=AndroidWebRTCRuntimeProvider.FACTORY.createAudioTrack("audio0",audioSource.getAudioSource());
+    this.stream.addTrack(audioTrack);
+  }
+  if (videoSource != null) {
+    this.videoTrack=AndroidWebRTCRuntimeProvider.FACTORY.createVideoTrack("video0",videoSource.getVideoSource());
+    this.stream.addPreservedTrack(videoTrack);
+  }
+}

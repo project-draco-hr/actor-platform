@@ -1,3 +1,23 @@
 {
+  if (isLocal) {
+    if (audioTrack != null) {
+      stream.removeTrack(audioTrack);
+      audioTrack.dispose();
+      audioTrack=null;
+    }
+    if (videoTrack != null) {
+      stream.removeTrack(videoTrack);
+      videoTrack.dispose();
+      videoTrack=null;
+    }
+    if (audioSource != null) {
+      audioSource.unlink();
+      audioSource=null;
+    }
+    if (videoSource != null) {
+      videoSource.unlink();
+      videoSource=null;
+    }
+  }
   stream.dispose();
 }

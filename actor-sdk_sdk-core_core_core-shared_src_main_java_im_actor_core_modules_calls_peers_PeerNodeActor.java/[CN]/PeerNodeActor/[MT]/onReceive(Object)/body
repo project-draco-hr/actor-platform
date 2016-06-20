@@ -6,9 +6,9 @@
     RTCAdvertised advertised=(RTCAdvertised)message;
     onAdvertised(advertised.getSettings());
   }
- else   if (message instanceof AddOwnStream) {
-    AddOwnStream ownStream=(AddOwnStream)message;
-    addOwnStream(ownStream.getMediaStream());
+ else   if (message instanceof ReplaceOwnStream) {
+    ReplaceOwnStream ownStream=(ReplaceOwnStream)message;
+    replaceOwnStream(ownStream.getMediaStream());
   }
  else   if (message instanceof RTCMasterAdvertised) {
     RTCMasterAdvertised advertisedMaster=(RTCMasterAdvertised)message;

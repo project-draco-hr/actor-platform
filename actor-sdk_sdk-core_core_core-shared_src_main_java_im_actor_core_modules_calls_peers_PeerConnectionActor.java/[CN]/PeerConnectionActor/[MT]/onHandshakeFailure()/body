@@ -6,4 +6,8 @@
     peerConnection.close();
     peerConnection=null;
   }
+  if (userMedia != null) {
+    userMedia.release();
+    userMedia=null;
+  }
 }

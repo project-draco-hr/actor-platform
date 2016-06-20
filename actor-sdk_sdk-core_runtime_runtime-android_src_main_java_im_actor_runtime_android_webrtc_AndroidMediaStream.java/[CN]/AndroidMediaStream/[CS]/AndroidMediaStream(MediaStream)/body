@@ -1,3 +1,4 @@
 {
+  this.isLocal=false;
   this.stream=stream;
 }

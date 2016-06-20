@@ -1,5 +1,0 @@
-{
-  peerConnection.removeOwnStream(stream);
-  peerConnection.addOwnStream(newStream);
-  this.stream=newStream;
-}

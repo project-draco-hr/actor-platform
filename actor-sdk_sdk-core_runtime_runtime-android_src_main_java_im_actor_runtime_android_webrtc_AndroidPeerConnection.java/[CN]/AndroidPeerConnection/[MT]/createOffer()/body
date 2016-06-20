@@ -15,7 +15,7 @@
             @Override public void onSetFailure(            String s){
             }
           }
-,settings.isVideoEnabled() ? getMediaConstraints() : new MediaConstraints());
+,getMediaConstraints());
         }
       }
 );

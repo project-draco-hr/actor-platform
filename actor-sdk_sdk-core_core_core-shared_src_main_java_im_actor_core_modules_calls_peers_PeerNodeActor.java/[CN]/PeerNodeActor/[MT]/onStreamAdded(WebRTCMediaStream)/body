@@ -1,6 +1,5 @@
 {
   theirMediaStreams.add(stream);
-  stream.setAudioEnabled(isEnabled);
   if (isStarted) {
     callback.onStreamAdded(deviceId,stream);
   }

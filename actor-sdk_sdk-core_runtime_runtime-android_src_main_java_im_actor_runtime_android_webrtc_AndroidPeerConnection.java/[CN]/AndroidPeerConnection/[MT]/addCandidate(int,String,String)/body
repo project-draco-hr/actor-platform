@@ -1,8 +1,2 @@
 {
-  AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
-    @Override public void run(){
-      peerConnection.addIceCandidate(new IceCandidate(id,index,sdp));
-    }
-  }
-);
 }
