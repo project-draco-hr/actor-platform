@@ -5,4 +5,5 @@
   outReceiveDate=values.getLong(4,0);
   outReadDate=values.getLong(5,0);
   unreadCount=values.getInt(6);
+  outSendDate=values.getLong(7,0);
 }

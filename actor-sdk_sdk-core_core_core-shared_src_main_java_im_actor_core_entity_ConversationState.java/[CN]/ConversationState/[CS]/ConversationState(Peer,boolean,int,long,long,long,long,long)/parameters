@@ -5,3 +5,4 @@ long inMaxMessageDate
 long inReadDate
 long outReadDate
 long outReceiveDate
+long outSendDate

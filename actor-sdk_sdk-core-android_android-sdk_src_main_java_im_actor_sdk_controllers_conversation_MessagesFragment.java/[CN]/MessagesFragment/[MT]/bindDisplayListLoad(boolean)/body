@@ -1,5 +1,5 @@
 {
-  firstUnread=messenger().loadFirstUnread(peer);
+  firstUnread=messenger().loadLastMessageDate(peer);
   Log.d("DIAPLAY_LIST","bindDisplayListLoad: " + notify);
   final BindedDisplayList<Message> list=getDisplayList();
   listener=new DisplayList.AndroidChangeListener<Message>(){

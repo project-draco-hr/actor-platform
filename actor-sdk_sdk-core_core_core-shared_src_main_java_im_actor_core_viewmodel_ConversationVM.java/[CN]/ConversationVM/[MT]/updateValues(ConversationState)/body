@@ -1,6 +1,7 @@
 {
   isLoaded.change(rawObj.isLoaded());
   ownReadDate.change(rawObj.getInReadDate());
+  ownSendDate.change(rawObj.getOutSendDate());
   readDate.change(rawObj.getOutReadDate());
   receiveDate.change(rawObj.getOutReceiveDate());
 }

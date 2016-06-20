@@ -5,4 +5,5 @@
   writer.writeLong(4,outReceiveDate);
   writer.writeLong(5,outReadDate);
   writer.writeInt(6,unreadCount);
+  writer.writeLong(7,outSendDate);
 }

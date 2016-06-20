@@ -6,4 +6,5 @@
   this.inReadDate=inReadDate;
   this.outReadDate=outReadDate;
   this.outReceiveDate=outReceiveDate;
+  this.outSendDate=outSendDate;
 }
