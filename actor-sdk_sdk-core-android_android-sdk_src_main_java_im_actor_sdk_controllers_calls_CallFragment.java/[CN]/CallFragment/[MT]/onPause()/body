@@ -4,6 +4,8 @@
   if (peer.getPeerType() == PeerType.PRIVATE) {
     if (localTrack != null) {
       localTrack.removeRenderer(localRender);
+      localRender.dispose();
+      localRender=null;
       localTrack=null;
     }
     if (isLocalViewConfigured) {
@@ -12,6 +14,8 @@
     }
     if (remoteTrack != null) {
       remoteTrack.removeRenderer(remoteRender);
+      remoteRender.dispose();
+      remoteRender=null;
       remoteTrack=null;
     }
     if (isRemoteViewConfigured) {
