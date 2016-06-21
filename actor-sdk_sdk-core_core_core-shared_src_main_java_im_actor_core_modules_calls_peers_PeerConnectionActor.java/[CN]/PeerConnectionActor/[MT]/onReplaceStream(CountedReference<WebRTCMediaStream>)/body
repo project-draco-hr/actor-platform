@@ -5,4 +5,7 @@
   }
   peerConnection.addOwnStream(newStream);
   userMedia=newStream;
+  if (sessionId != -1) {
+    callback.onNegotiationNeeded(sessionId);
+  }
 }
