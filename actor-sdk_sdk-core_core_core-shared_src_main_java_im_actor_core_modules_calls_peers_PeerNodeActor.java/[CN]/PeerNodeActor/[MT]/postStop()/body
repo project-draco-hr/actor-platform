@@ -3,6 +3,10 @@
     peerConnection.kill();
     peerConnection=null;
   }
+  if (ownMediaStream != null) {
+    ownMediaStream.release();
+    ownMediaStream=null;
+  }
   state=PeerState.DISPOSED;
   callback.onPeerStateChanged(deviceId,state);
 }

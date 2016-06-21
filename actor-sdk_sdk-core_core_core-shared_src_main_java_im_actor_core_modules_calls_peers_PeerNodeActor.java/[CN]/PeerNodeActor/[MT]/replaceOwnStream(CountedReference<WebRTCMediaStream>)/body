@@ -1,0 +1,14 @@
+{
+  if (this.ownMediaStream == null) {
+    this.ownMediaStream=mediaStream;
+    reconfigurePeerConnectionIfNeeded();
+  }
+ else {
+    this.ownMediaStream.release();
+    this.ownMediaStream=mediaStream;
+    if (peerConnection != null) {
+      return peerConnection.replaceStream(mediaStream);
+    }
+  }
+  return Promise.success(null);
+}

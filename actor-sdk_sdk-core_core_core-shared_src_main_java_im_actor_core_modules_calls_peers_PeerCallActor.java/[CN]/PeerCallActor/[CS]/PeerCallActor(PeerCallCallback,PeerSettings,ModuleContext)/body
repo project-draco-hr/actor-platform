@@ -2,4 +2,6 @@
   super(context);
   this.callback=callback;
   this.selfSettings=selfSettings;
+  this.isAudioRequired=true;
+  this.isVideoRequired=false;
 }

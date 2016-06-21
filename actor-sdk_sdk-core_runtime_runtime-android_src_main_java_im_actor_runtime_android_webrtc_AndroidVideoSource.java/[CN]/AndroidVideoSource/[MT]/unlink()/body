@@ -1,0 +1,11 @@
+{
+synchronized (LOCK) {
+    count--;
+    if (count == 0) {
+      if (AndroidVideoSource.currentSource == this) {
+        AndroidVideoSource.currentSource=null;
+        videoSource.dispose();
+      }
+    }
+  }
+}

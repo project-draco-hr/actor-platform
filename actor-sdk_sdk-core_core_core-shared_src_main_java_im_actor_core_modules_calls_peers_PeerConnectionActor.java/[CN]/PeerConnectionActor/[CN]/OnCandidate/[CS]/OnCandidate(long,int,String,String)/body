@@ -1,0 +1,6 @@
+{
+  this.sessionId=sessionId;
+  this.index=index;
+  this.id=id;
+  this.sdp=sdp;
+}

@@ -1,3 +1,0 @@
-{
-  callback.onCandidate(deviceId,mdpIndex,id,sdp);
-}

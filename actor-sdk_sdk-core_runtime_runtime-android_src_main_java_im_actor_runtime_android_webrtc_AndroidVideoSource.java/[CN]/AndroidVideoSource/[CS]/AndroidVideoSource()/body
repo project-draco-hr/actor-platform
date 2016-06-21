@@ -1,0 +1,6 @@
+{
+  this.count=1;
+  this.isReleased=false;
+  this.videoCapturer=getVideoCapturer();
+  this.videoSource=AndroidWebRTCRuntimeProvider.FACTORY.createVideoSource(this.videoCapturer,new MediaConstraints());
+}

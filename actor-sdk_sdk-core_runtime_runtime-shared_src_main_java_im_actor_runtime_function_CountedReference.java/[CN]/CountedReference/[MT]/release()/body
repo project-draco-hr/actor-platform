@@ -1,0 +1,12 @@
+{
+  counter--;
+  release(counter);
+  if (counter == 0) {
+    if (isReleased) {
+      throw new RuntimeException("Already Released!");
+    }
+    value.close();
+    value=null;
+    isReleased=true;
+  }
+}

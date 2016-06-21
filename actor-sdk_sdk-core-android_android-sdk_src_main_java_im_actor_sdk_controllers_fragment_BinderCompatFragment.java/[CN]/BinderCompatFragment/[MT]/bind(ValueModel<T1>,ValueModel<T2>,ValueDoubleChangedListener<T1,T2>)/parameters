@@ -1,0 +1,3 @@
+ValueModel<T1> value1
+ValueModel<T2> value2
+ValueDoubleChangedListener<T1,T2> listener

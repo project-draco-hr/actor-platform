@@ -1,3 +1,4 @@
 {
   state=PeerConnectionState.WAITING_HANDSHAKE;
+  sessionId=-1;
 }

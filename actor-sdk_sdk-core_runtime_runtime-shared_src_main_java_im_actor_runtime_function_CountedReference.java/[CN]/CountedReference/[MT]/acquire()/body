@@ -1,0 +1,8 @@
+{
+  if (isReleased) {
+    throw new RuntimeException("Already Released!");
+  }
+  counter++;
+  acquire(counter);
+  return this;
+}

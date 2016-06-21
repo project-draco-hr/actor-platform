@@ -1,0 +1,8 @@
+{
+  if (userMedia != null) {
+    peerConnection.removeOwnStream(userMedia);
+    userMedia.release();
+  }
+  peerConnection.addOwnStream(newStream);
+  userMedia=newStream;
+}

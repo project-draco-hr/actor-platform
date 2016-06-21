@@ -1,0 +1,13 @@
+{
+  if (message instanceof ReplaceStream) {
+    if (!isReady) {
+      stash();
+      return null;
+    }
+    onReplaceStream(((ReplaceStream)message).getStream());
+    return Promise.success(null);
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

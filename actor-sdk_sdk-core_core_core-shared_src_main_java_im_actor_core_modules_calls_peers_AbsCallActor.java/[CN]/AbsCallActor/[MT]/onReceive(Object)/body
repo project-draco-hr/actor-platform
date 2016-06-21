@@ -1,6 +1,6 @@
 {
-  if (message instanceof MuteChanged) {
-    onMuteChanged(((MuteChanged)message).isMuted());
+  if (message instanceof AudioEnabled) {
+    onAudioEnableChanged(((AudioEnabled)message).isEnabled());
   }
  else   if (message instanceof VideoEnabled) {
     onVideoEnableChanged(((VideoEnabled)message).isEnabled());

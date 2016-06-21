@@ -1,3 +1,0 @@
-{
-  callBusCallback.onStreamAdded(deviceId,stream);
-}

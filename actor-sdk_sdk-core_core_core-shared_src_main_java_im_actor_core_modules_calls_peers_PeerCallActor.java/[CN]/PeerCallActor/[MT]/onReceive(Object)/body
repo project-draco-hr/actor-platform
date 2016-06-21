@@ -17,7 +17,7 @@
   }
  else   if (message instanceof RTCCandidate) {
     RTCCandidate candidate=(RTCCandidate)message;
-    getPeer(candidate.getDeviceId()).onCandidate(candidate.getMdpIndex(),candidate.getId(),candidate.getSdp());
+    getPeer(candidate.getDeviceId()).onCandidate(candidate.getSessionId(),candidate.getMdpIndex(),candidate.getId(),candidate.getSdp());
   }
  else   if (message instanceof RTCNeedOffer) {
     RTCNeedOffer needOffer=(RTCNeedOffer)message;
@@ -31,13 +31,17 @@
     RTCCloseSession closeSession=(RTCCloseSession)message;
     getPeer(closeSession.getDeviceId()).closeSession(closeSession.getSessionId());
   }
+ else   if (message instanceof RTCMediaStateUpdated) {
+    RTCMediaStateUpdated mediaStateUpdated=(RTCMediaStateUpdated)message;
+    getPeer(mediaStateUpdated.getDeviceId()).onMediaStateChanged(mediaStateUpdated.isAudioEnabled(),mediaStateUpdated.isVideoEnabled());
+  }
  else   if (message instanceof RTCMasterAdvertised) {
     RTCMasterAdvertised masterAdvertised=(RTCMasterAdvertised)message;
     onMasterAdvertised(masterAdvertised.getIceServers());
   }
- else   if (message instanceof MuteChanged) {
-    MuteChanged muteChanged=(MuteChanged)message;
-    onMuteChanged(muteChanged.isMuted());
+ else   if (message instanceof AudioEnabled) {
+    AudioEnabled muteChanged=(AudioEnabled)message;
+    onAudioEnabled(muteChanged.isEnabled());
   }
  else   if (message instanceof VideoEnabled) {
     VideoEnabled videoEnabled=(VideoEnabled)message;

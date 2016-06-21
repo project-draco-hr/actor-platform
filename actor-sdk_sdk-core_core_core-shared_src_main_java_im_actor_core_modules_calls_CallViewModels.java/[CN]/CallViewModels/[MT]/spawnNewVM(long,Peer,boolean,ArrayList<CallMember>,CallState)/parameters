@@ -1,5 +1,0 @@
-long callId
-Peer peer
-boolean isOutgoing
-ArrayList<CallMember> members
-CallState callState

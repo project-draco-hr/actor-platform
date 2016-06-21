@@ -1,0 +1,6 @@
+{
+  if (isReleased) {
+    throw new RuntimeException("Already Released!");
+  }
+  return value;
+}

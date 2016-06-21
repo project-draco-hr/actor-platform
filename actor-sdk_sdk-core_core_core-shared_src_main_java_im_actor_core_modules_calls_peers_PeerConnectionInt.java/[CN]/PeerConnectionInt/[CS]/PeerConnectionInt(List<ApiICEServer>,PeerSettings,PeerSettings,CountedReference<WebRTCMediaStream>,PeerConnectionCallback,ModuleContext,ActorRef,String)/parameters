@@ -1,0 +1,8 @@
+List<ApiICEServer> iceServers
+PeerSettings ownSettings
+PeerSettings theirSettings
+CountedReference<WebRTCMediaStream> mediaStream
+PeerConnectionCallback callback
+ModuleContext context
+ActorRef dest
+String path

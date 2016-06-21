@@ -22,7 +22,7 @@
   }
  else   if (signal instanceof ApiCandidate) {
     ApiCandidate candidate=(ApiCandidate)signal;
-    peerCall.onCandidate(senderDeviceId,candidate.getIndex(),candidate.getId(),candidate.getSdp());
+    peerCall.onCandidate(senderDeviceId,candidate.getSessionId(),candidate.getIndex(),candidate.getId(),candidate.getSdp());
   }
  else   if (signal instanceof ApiNeedOffer) {
     ApiNeedOffer needOffer=(ApiNeedOffer)signal;
@@ -63,6 +63,6 @@
     if (isVideoEnabled == null) {
       isVideoEnabled=true;
     }
-    callBusCallback.onPeerConnectionStateChanged(senderDeviceId,isAudioEnabled,isVideoEnabled);
+    peerCall.onMediaStateChanged(senderDeviceId,isAudioEnabled,isVideoEnabled);
   }
 }

@@ -1,3 +1,0 @@
-{
-  callBusCallback.onOwnStreamRemoved(stream);
-}

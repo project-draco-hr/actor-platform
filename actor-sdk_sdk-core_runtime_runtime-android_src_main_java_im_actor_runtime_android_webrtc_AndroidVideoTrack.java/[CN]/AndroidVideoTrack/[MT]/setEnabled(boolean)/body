@@ -1,0 +1,3 @@
+{
+  videoTrack.setEnabled(isEnabled);
+}

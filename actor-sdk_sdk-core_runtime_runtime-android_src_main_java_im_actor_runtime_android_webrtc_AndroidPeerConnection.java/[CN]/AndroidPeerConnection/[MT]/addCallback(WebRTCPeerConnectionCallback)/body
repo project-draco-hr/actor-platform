@@ -2,9 +2,4 @@
   if (!callbacks.contains(callback)) {
     callbacks.add(callback);
   }
-  if (settings.isVideoEnabled()) {
-    for (    MediaStream mediaStream : streams.keySet()) {
-      callback.onStreamAdded(streams.get(mediaStream));
-    }
-  }
 }

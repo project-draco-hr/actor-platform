@@ -8,7 +8,11 @@
         break;
       }
     }
-    peerConnection.onResetState();
+    if (peerConnection != null) {
+      peerConnection.kill();
+      peerConnection=null;
+    }
+    peerConnection=new PeerConnectionInt(iceServers,ownSettings,theirSettings,ownMediaStream,this,context(),self(),"connection/" + (CHILD_NEXT_ID++));
     if (pendingSessions.size() > 0) {
       PendingSession p=pendingSessions.remove(0);
       if (p != null) {

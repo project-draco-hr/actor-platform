@@ -1,0 +1,3 @@
+{
+  callBusCallback.onTrackRemoved(deviceId,track);
+}

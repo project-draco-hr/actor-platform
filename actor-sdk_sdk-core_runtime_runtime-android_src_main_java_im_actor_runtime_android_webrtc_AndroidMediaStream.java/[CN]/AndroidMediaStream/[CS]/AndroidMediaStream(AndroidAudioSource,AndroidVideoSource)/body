@@ -1,0 +1,29 @@
+{
+  this.isLocal=true;
+  this.videoSource=videoSource;
+  this.audioSource=audioSource;
+  this.stream=AndroidWebRTCRuntimeProvider.FACTORY.createLocalMediaStream("ARDAMSv0");
+  if (audioSource != null) {
+    localAudioTrack=AndroidWebRTCRuntimeProvider.FACTORY.createAudioTrack("audio0",audioSource.getAudioSource());
+    stream.addTrack(localAudioTrack);
+    audioTracks=new WebRTCMediaTrack[]{new AndroidAudioTrack(localAudioTrack)};
+  }
+ else {
+    audioTracks=new WebRTCMediaTrack[0];
+  }
+  if (videoSource != null) {
+    localVideoTrack=AndroidWebRTCRuntimeProvider.FACTORY.createVideoTrack("video0",videoSource.getVideoSource());
+    stream.addPreservedTrack(localVideoTrack);
+    videoTracks=new WebRTCMediaTrack[]{new AndroidVideoTrack(localVideoTrack)};
+  }
+ else {
+    videoTracks=new WebRTCMediaTrack[0];
+  }
+  this.allTracks=new WebRTCMediaTrack[audioTracks.length + videoTracks.length];
+  for (int i=0; i < audioTracks.length; i++) {
+    allTracks[i]=audioTracks[i];
+  }
+  for (int i=0; i < videoTracks.length; i++) {
+    allTracks[audioTracks.length + i]=videoTracks[i];
+  }
+}

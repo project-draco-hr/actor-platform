@@ -1,0 +1,23 @@
+{
+  if (this.isAudioEnabled != isAudioEnabled) {
+    this.isAudioEnabled=isAudioEnabled;
+    if (!isAudioRequired) {
+      isAudioRequired=true;
+    }
+    if (currentMediaStream != null) {
+      for (      WebRTCMediaTrack audio : currentMediaStream.get().getAudioTracks()) {
+        audio.setEnabled(isAudioEnabled);
+        if (isAudioEnabled) {
+          callback.onOwnTrackAdded(audio);
+        }
+ else {
+          callback.onOwnTrackRemoved(audio);
+        }
+      }
+    }
+    requestStreamIfNeeded();
+    for (    Long deviceId : refs.keySet()) {
+      callback.onMediaStreamsChanged(deviceId,isAudioEnabled,isVideoEnabled);
+    }
+  }
+}

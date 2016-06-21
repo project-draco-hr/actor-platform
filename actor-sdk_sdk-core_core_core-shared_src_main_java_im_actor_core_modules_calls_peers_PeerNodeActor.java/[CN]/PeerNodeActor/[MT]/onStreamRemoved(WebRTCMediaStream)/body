@@ -1,6 +1,15 @@
 {
   theirMediaStreams.remove(stream);
   if (isStarted) {
-    callback.onStreamRemoved(deviceId,stream);
+    for (    WebRTCMediaTrack track : stream.getAudioTracks()) {
+      if (isAudioEnabled) {
+        callback.onTrackRemoved(deviceId,track);
+      }
+    }
+    for (    WebRTCMediaTrack track : stream.getVideoTracks()) {
+      if (isVideoEnabled) {
+        callback.onTrackRemoved(deviceId,track);
+      }
+    }
   }
 }

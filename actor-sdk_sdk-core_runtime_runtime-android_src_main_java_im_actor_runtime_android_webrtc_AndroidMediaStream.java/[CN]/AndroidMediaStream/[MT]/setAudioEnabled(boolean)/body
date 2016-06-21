@@ -1,6 +1,0 @@
-{
-  if (audioTrack != null) {
-    audioTrack.setEnabled(isEnabled);
-    this.isAudioEnabled=isEnabled;
-  }
-}

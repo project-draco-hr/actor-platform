@@ -1,0 +1,4 @@
+long sessionId
+int mdpIndex
+String id
+String sdp

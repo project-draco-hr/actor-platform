@@ -1,0 +1,11 @@
+{
+synchronized (LOCK) {
+    count--;
+    if (count == 0) {
+      if (AndroidAudioSource.currentSource == this) {
+        AndroidAudioSource.currentSource=null;
+        audioSource.dispose();
+      }
+    }
+  }
+}

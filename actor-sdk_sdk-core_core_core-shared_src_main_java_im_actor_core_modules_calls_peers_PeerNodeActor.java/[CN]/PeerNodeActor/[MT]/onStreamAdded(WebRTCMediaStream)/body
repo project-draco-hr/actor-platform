@@ -1,8 +1,18 @@
 {
   theirMediaStreams.add(stream);
-  stream.setAudioEnabled(isEnabled);
   if (isStarted) {
-    callback.onStreamAdded(deviceId,stream);
+    for (    WebRTCMediaTrack track : stream.getAudioTracks()) {
+      track.setEnabled(isAudioEnabled);
+      if (isAudioEnabled) {
+        callback.onTrackAdded(deviceId,track);
+      }
+    }
+    for (    WebRTCMediaTrack track : stream.getVideoTracks()) {
+      track.setEnabled(isVideoEnabled);
+      if (isVideoEnabled) {
+        callback.onTrackAdded(deviceId,track);
+      }
+    }
   }
   if (!isConnected) {
     isConnected=true;

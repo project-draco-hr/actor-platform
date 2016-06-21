@@ -1,6 +1,0 @@
-{
-  if (rtcRuntime == null) {
-    return Promise.failure(new RuntimeException("WebRTC Runtime not set"));
-  }
-  return rtcRuntime.getUserMedia(isVideoEnabled);
-}

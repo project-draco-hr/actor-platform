@@ -1,3 +1,0 @@
-{
-  sendSignal(deviceId,new ApiCandidate(0,mdpIndex,id,sdp));
-}

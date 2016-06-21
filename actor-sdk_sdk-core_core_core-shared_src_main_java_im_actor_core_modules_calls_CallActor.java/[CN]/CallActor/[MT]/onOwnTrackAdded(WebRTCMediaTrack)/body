@@ -1,0 +1,14 @@
+{
+  if (track.getTrackType() == WebRTCTrackType.AUDIO) {
+    ArrayListMediaTrack tracks=new ArrayListMediaTrack(callVM.getOwnAudioTracks().get());
+    tracks.add(track);
+    callVM.getOwnAudioTracks().change(tracks);
+  }
+ else   if (track.getTrackType() == WebRTCTrackType.VIDEO) {
+    ArrayListMediaTrack tracks=new ArrayListMediaTrack(callVM.getOwnVideoTracks().get());
+    tracks.add(track);
+    callVM.getOwnVideoTracks().change(tracks);
+  }
+ else {
+  }
+}

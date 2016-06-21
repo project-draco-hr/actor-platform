@@ -36,11 +36,11 @@
     OnCallAnswered answered=(OnCallAnswered)message;
     onCallAnswered(answered.getCallId());
   }
- else   if (message instanceof MuteCall) {
-    onCallMute(((MuteCall)message).getCallId());
+ else   if (message instanceof AudioDisable) {
+    onCallAudioDisable(((AudioDisable)message).getCallId());
   }
- else   if (message instanceof UnmuteCall) {
-    onCallUnmute(((UnmuteCall)message).getCallId());
+ else   if (message instanceof AudioEnable) {
+    onCallAudioEnable(((AudioEnable)message).getCallId());
   }
  else   if (message instanceof DisableVideo) {
     onCallVideoDisable(((DisableVideo)message).getCallId());

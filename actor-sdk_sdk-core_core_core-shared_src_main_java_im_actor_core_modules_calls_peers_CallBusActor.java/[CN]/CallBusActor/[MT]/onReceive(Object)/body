@@ -6,8 +6,8 @@
     JoinMasterBus joinMasterBus=(JoinMasterBus)message;
     connectBus(joinMasterBus.getBusId(),joinMasterBus.getDeviceId(),TIMEOUT,true);
   }
- else   if (message instanceof Mute) {
-    onChangeMute(((Mute)message).isMuted());
+ else   if (message instanceof AudioEnabled) {
+    onChangeAudioEnabled(((AudioEnabled)message).isEnabled());
   }
  else   if (message instanceof VideoEnabled) {
     onChangeVideoEnabled(((VideoEnabled)message).isEnabled());

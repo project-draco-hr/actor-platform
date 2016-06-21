@@ -1,0 +1,8 @@
+{
+  this.count=1;
+  this.isReleased=false;
+  MediaConstraints audioConstraints=new MediaConstraints();
+  audioConstraints.mandatory.add(new MediaConstraints.KeyValuePair("googNoiseSuppression","true"));
+  audioConstraints.mandatory.add(new MediaConstraints.KeyValuePair("googEchoCancellation","true"));
+  this.audioSource=AndroidWebRTCRuntimeProvider.FACTORY.createAudioSource(audioConstraints);
+}
