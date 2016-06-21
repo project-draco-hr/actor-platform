@@ -1,0 +1,17 @@
+{
+  SDPScheme sdpScheme=SDP.parse(src.getSdp());
+  for (  SDPMedia media : sdpScheme.getMediaLevel()) {
+    SDPCodec isacCodec=null;
+    for (    SDPCodec codec : media.getCodecs()) {
+      if (codec.getName().toLowerCase().equals("isac")) {
+        isacCodec=codec;
+        break;
+      }
+    }
+    if (isacCodec != null) {
+      media.getCodecs().remove(isacCodec);
+      media.getCodecs().add(0,isacCodec);
+    }
+  }
+  return new WebRTCSessionDescription(src.getType(),sdpScheme.toSDP());
+}
