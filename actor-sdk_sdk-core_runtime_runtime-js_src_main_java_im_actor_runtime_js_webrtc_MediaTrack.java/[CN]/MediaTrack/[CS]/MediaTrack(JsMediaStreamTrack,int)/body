@@ -1,0 +1,4 @@
+{
+  this.track=track;
+  this.type=type;
+}

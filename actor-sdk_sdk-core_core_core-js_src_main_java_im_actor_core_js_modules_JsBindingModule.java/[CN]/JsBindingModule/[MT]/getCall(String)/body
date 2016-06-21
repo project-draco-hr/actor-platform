@@ -14,14 +14,14 @@
       }
     }
 );
-    callModel.getMediaStreams().subscribe(new ValueChangedListener<ArrayList<WebRTCMediaStream>>(){
-      @Override public void onChanged(      ArrayList<WebRTCMediaStream> val,      Value<ArrayList<WebRTCMediaStream>> valueModel){
+    callModel.getOwnVideoTracks().subscribe(new ValueChangedListener<ArrayListMediaTrack>(){
+      @Override public void onChanged(      ArrayListMediaTrack val,      Value<ArrayListMediaTrack> valueModel){
         jsCall.changeValue(JsCall.create(messenger,callModel));
       }
     }
 );
-    callModel.getOwnMediaStream().subscribe(new ValueChangedListener<WebRTCMediaStream>(){
-      @Override public void onChanged(      WebRTCMediaStream val,      Value<WebRTCMediaStream> valueModel){
+    callModel.getTheirVideoTracks().subscribe(new ValueChangedListener<ArrayListMediaTrack>(){
+      @Override public void onChanged(      ArrayListMediaTrack val,      Value<ArrayListMediaTrack> valueModel){
         jsCall.changeValue(JsCall.create(messenger,callModel));
       }
     }

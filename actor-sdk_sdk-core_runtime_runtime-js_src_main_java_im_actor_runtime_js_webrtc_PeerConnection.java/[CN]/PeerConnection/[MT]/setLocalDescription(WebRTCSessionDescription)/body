@@ -1,18 +1,2 @@
 {
-  return new Promise<>(new PromiseFunc<WebRTCSessionDescription>(){
-    @Override public void exec(    @NotNull final PromiseResolver<WebRTCSessionDescription> resolver){
-      peerConnection.setLocalDescription(JsSessionDescription.create(description.getType(),description.getSdp()),new JsClosure(){
-        @Override public void callback(){
-          resolver.result(description);
-        }
-      }
-,new JsClosureError(){
-        @Override public void onError(        JavaScriptObject error){
-          resolver.error(new JavaScriptException(error));
-        }
-      }
-);
-    }
-  }
-);
 }

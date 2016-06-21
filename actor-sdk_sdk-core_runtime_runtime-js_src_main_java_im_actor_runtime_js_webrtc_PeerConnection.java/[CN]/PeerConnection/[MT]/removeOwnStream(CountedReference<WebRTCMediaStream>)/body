@@ -1,0 +1,3 @@
+{
+  peerConnection.removeStream(((MediaStream)stream.get()).getStream());
+}

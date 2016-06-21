@@ -1,5 +1,0 @@
-{
-  if (stream instanceof MediaStream) {
-    peerConnection.addStream(((MediaStream)stream).getStream());
-  }
-}
