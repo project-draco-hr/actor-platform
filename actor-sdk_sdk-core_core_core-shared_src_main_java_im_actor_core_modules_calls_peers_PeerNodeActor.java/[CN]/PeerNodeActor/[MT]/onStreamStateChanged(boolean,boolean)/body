@@ -1,0 +1,34 @@
+{
+  if (this.isAudioEnabled != isAudioEnabled) {
+    this.isAudioEnabled=isAudioEnabled;
+    if (isStarted) {
+      for (      WebRTCMediaStream streams : theirMediaStreams) {
+        for (        WebRTCMediaTrack track : streams.getAudioTracks()) {
+          track.setEnabled(isAudioEnabled);
+          if (isAudioEnabled) {
+            callback.onTrackAdded(deviceId,track);
+          }
+ else {
+            callback.onTrackRemoved(deviceId,track);
+          }
+        }
+      }
+    }
+  }
+  if (this.isVideoEnabled != isVideoEnabled) {
+    this.isVideoEnabled=isVideoEnabled;
+    if (isStarted) {
+      for (      WebRTCMediaStream streams : theirMediaStreams) {
+        for (        WebRTCMediaTrack track : streams.getVideoTracks()) {
+          track.setEnabled(isVideoEnabled);
+          if (isVideoEnabled) {
+            callback.onTrackAdded(deviceId,track);
+          }
+ else {
+            callback.onTrackRemoved(deviceId,track);
+          }
+        }
+      }
+    }
+  }
+}

@@ -65,6 +65,10 @@
       stash();
     }
   }
+ else   if (message instanceof RTCMediaStateUpdated) {
+    RTCMediaStateUpdated stateUpdated=(RTCMediaStateUpdated)message;
+    onStreamStateChanged(stateUpdated.isAudioEnabled(),stateUpdated.isVideoEnabled());
+  }
  else {
     super.onReceive(message);
   }

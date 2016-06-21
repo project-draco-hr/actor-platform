@@ -1,11 +1,11 @@
 {
   if (track.getTrackType() == WebRTCTrackType.AUDIO) {
-    ArrayList<WebRTCMediaTrack> tracks=new ArrayList<>(callVM.getOwnAudioTracks().get());
+    ArrayListMediaTrack tracks=new ArrayListMediaTrack(callVM.getOwnAudioTracks().get());
     tracks.remove(track);
     callVM.getOwnAudioTracks().change(tracks);
   }
  else   if (track.getTrackType() == WebRTCTrackType.VIDEO) {
-    ArrayList<WebRTCMediaTrack> tracks=new ArrayList<>(callVM.getOwnVideoTracks().get());
+    ArrayListMediaTrack tracks=new ArrayListMediaTrack(callVM.getOwnVideoTracks().get());
     tracks.remove(track);
     callVM.getOwnVideoTracks().change(tracks);
   }
