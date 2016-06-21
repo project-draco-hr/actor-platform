@@ -1,3 +1,0 @@
-{
-  callBusCallback.onStreamRemoved(deviceId,stream);
-}

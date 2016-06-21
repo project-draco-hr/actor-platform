@@ -1,6 +1,0 @@
-{
-  PeerConnectionHolder holder=getHolder(deviceId);
-  ArrayList<CallMediaSource> mediaSources=new ArrayList<>(callVM.getMediaStreams().get());
-  mediaSources.add(new CallMediaSource(deviceId,holder.isAudioEnabled(),holder.isVideoEnabled(),stream));
-  callVM.getMediaStreams().change(mediaSources);
-}

@@ -6,6 +6,7 @@
   if (this.iceServers != null) {
     peerNodeInt.onAdvertisedMaster(iceServers);
   }
+  callback.onMediaStreamsChanged(deviceId,isAudioEnabled,isVideoEnabled);
   refs.put(deviceId,peerNodeInt);
   return peerNodeInt;
 }

@@ -1,4 +1,15 @@
 {
   this.isLocal=false;
   this.stream=stream;
+  this.allTracks=new WebRTCMediaTrack[stream.audioTracks.size() + stream.videoTracks.size()];
+  this.audioTracks=new WebRTCMediaTrack[stream.audioTracks.size()];
+  for (int i=0; i < this.audioTracks.length; i++) {
+    audioTracks[i]=new AndroidAudioTrack(stream.audioTracks.get(i));
+    allTracks[i]=audioTracks[i];
+  }
+  this.videoTracks=new WebRTCMediaTrack[stream.videoTracks.size()];
+  for (int i=0; i < this.videoTracks.length; i++) {
+    videoTracks[i]=new AndroidVideoTrack(stream.videoTracks.get(i));
+    allTracks[audioTracks.length + i]=videoTracks[i];
+  }
 }

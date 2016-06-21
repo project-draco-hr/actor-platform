@@ -63,6 +63,6 @@
     if (isVideoEnabled == null) {
       isVideoEnabled=true;
     }
-    callBusCallback.onPeerConnectionStateChanged(senderDeviceId,isAudioEnabled,isVideoEnabled);
+    peerCall.onMediaStateChanged(senderDeviceId,isAudioEnabled,isVideoEnabled);
   }
 }

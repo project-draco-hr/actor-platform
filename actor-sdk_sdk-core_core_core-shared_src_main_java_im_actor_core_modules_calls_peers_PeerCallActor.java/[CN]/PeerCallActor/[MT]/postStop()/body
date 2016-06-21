@@ -5,7 +5,16 @@
   }
   refs.clear();
   if (currentMediaStream != null) {
-    callback.onOwnStreamRemoved(currentMediaStream.get());
+    if (isAudioEnabled) {
+      for (      WebRTCMediaTrack track : currentMediaStream.get().getAudioTracks()) {
+        callback.onOwnTrackRemoved(track);
+      }
+    }
+    if (isVideoEnabled) {
+      for (      WebRTCMediaTrack track : currentMediaStream.get().getVideoTracks()) {
+        callback.onOwnTrackRemoved(track);
+      }
+    }
     currentMediaStream.release();
     currentMediaStream=null;
   }

@@ -1,4 +1,23 @@
 {
-  this.isVideoEnabled=isVideoEnabled;
-  requestStream();
+  if (this.isVideoEnabled != isVideoEnabled) {
+    this.isVideoEnabled=isVideoEnabled;
+    if (!isVideoRequired) {
+      isVideoRequired=true;
+    }
+    if (currentMediaStream != null) {
+      for (      WebRTCMediaTrack video : currentMediaStream.get().getVideoTracks()) {
+        video.setEnabled(isVideoEnabled);
+        if (isVideoEnabled) {
+          callback.onOwnTrackAdded(video);
+        }
+ else {
+          callback.onOwnTrackRemoved(video);
+        }
+      }
+    }
+    requestStreamIfNeeded();
+    for (    Long deviceId : refs.keySet()) {
+      callback.onMediaStreamsChanged(deviceId,isAudioEnabled,isVideoEnabled);
+    }
+  }
 }

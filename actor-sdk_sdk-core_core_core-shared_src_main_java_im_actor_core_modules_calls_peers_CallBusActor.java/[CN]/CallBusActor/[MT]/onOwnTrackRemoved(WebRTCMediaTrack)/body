@@ -1,0 +1,3 @@
+{
+  callBusCallback.onOwnTrackRemoved(track);
+}

@@ -1,0 +1,3 @@
+{
+  audioTrack.setEnabled(isEnabled);
+}

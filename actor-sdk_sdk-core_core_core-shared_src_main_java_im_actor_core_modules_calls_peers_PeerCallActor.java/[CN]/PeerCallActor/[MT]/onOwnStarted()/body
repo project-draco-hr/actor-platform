@@ -3,5 +3,5 @@
     return;
   }
   isOwnStarted=true;
-  requestStream();
+  requestStreamIfNeeded();
 }

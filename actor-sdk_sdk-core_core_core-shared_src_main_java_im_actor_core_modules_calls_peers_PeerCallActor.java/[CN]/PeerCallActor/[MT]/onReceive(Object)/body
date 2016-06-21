@@ -31,6 +31,10 @@
     RTCCloseSession closeSession=(RTCCloseSession)message;
     getPeer(closeSession.getDeviceId()).closeSession(closeSession.getSessionId());
   }
+ else   if (message instanceof RTCMediaStateUpdated) {
+    RTCMediaStateUpdated mediaStateUpdated=(RTCMediaStateUpdated)message;
+    getPeer(mediaStateUpdated.getDeviceId()).onMediaStateChanged(mediaStateUpdated.isAudioEnabled(),mediaStateUpdated.isVideoEnabled());
+  }
  else   if (message instanceof RTCMasterAdvertised) {
     RTCMasterAdvertised masterAdvertised=(RTCMasterAdvertised)message;
     onMasterAdvertised(masterAdvertised.getIceServers());

@@ -1,0 +1,6 @@
+long callId
+Peer peer
+boolean isOutgoing
+boolean isVideoEnabled
+ArrayList<CallMember> initialMembers
+CallState state

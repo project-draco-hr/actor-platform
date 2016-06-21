@@ -1,3 +1,0 @@
-{
-  callVM.getOwnMediaStream().change(null);
-}
