@@ -1,4 +1,7 @@
 {
   this.peer=values.getObj(1,new ApiOutPeer());
   this.timeout=values.optLong(2);
+  this.isAudioOnlyCall=values.optBool(3);
+  this.isVideoOnlyCall=values.optBool(4);
+  this.isVideoPreferred=values.optBool(6);
 }

@@ -1,0 +1,7 @@
+{
+  this.peer=peer;
+  this.timeout=timeout;
+  this.isAudioOnlyCall=isAudioOnlyCall;
+  this.isVideoOnlyCall=isVideoOnlyCall;
+  this.isVideoPreferred=isVideoPreferred;
+}

@@ -1,0 +1,5 @@
+ApiOutPeer peer
+Long timeout
+Boolean isAudioOnlyCall
+Boolean isVideoOnlyCall
+Boolean isVideoPreferred

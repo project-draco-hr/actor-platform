@@ -2,3 +2,6 @@ ApiPeer peer
 List<ApiGroupOutPeer> groups
 List<ApiUserOutPeer> users
 String eventBusId
+Boolean isAudioOnlyCall
+Boolean isVideoOnlyCall
+Boolean isVideoPreferred

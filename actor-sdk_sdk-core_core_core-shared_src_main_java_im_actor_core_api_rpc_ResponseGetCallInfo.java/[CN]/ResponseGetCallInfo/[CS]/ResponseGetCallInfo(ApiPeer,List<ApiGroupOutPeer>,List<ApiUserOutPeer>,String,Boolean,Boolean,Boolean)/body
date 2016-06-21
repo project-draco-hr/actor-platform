@@ -1,0 +1,9 @@
+{
+  this.peer=peer;
+  this.groups=groups;
+  this.users=users;
+  this.eventBusId=eventBusId;
+  this.isAudioOnlyCall=isAudioOnlyCall;
+  this.isVideoOnlyCall=isVideoOnlyCall;
+  this.isVideoPreferred=isVideoPreferred;
+}

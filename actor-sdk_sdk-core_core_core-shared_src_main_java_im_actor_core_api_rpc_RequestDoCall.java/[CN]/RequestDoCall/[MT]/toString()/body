@@ -1,6 +1,10 @@
 {
   String res="rpc DoCall{";
   res+="peer=" + this.peer;
+  res+=", timeout=" + this.timeout;
+  res+=", isAudioOnlyCall=" + this.isAudioOnlyCall;
+  res+=", isVideoOnlyCall=" + this.isVideoOnlyCall;
+  res+=", isVideoPreferred=" + this.isVideoPreferred;
   res+="}";
   return res;
 }

@@ -6,4 +6,13 @@
   if (this.timeout != null) {
     writer.writeLong(2,this.timeout);
   }
+  if (this.isAudioOnlyCall != null) {
+    writer.writeBool(3,this.isAudioOnlyCall);
+  }
+  if (this.isVideoOnlyCall != null) {
+    writer.writeBool(4,this.isVideoOnlyCall);
+  }
+  if (this.isVideoPreferred != null) {
+    writer.writeBool(6,this.isVideoPreferred);
+  }
 }

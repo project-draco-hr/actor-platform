@@ -11,4 +11,7 @@
   }
   this.users=values.getRepeatedObj(3,_users);
   this.eventBusId=values.getString(4);
+  this.isAudioOnlyCall=values.optBool(5);
+  this.isVideoOnlyCall=values.optBool(6);
+  this.isVideoPreferred=values.optBool(7);
 }
