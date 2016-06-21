@@ -1,3 +1,3 @@
 {
-  return Math.max(getConversationVM(peer).getOwnReadDate().get(),getConversationVM(peer).getOwnSendDate().get());
+  return getConversationVM(peer).getLastMessageDate();
 }

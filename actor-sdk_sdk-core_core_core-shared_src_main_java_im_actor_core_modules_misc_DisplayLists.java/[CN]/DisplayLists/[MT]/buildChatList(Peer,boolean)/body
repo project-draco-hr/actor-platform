@@ -1,7 +1,7 @@
 {
   im.actor.runtime.Runtime.checkMainThread();
   PlatformDisplayList<Message> res=Storage.createDisplayList(context().getMessagesModule().getConversationEngine(peer),isShared,Message.ENTITY_NAME);
-  long lastRead=messenger().loadLastMessageDate(peer);
+  long lastRead=context().getMessagesModule().getConversationVM(peer).getLastMessageDate();
   if (lastRead != 0) {
     res.initCenter(lastRead);
   }

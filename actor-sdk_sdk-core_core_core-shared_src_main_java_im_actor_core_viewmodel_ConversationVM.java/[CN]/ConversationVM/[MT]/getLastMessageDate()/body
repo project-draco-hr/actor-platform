@@ -1,0 +1,3 @@
+{
+  return Math.max(ownReadDate.get(),ownSendDate.get());
+}
