@@ -25,13 +25,37 @@
       return false;
     }
     @Override public boolean onQueryTextChange(    String s){
+      searchQuery=s.trim();
       if (isSearchVisible) {
         if (s.trim().length() > 0) {
+          String activeSearchQuery=searchQuery;
           searchDisplay.initSearch(s.trim().toLowerCase(),false);
           searchAdapter.setQuery(s.trim().toLowerCase());
+          messenger().findUsers(s).start(new CommandCallback<UserVM[]>(){
+            @Override public void onResult(            UserVM[] res){
+              int footerVisability=footer.getVisibility();
+              if (searchQuery.equals(activeSearchQuery)) {
+                if (res.length > 0) {
+                  UserVM u=res[0];
+                  footerSearchHolder.bind(new SearchEntity(Peer.user(u.getId()),0,u.getAvatar().get(),u.getName().get()),activeSearchQuery,true);
+                  showView(footer);
+                }
+ else {
+                  goneView(footer);
+                }
+              }
+              if (footerVisability != footer.getVisibility()) {
+                onSearchChanged();
+              }
+            }
+            @Override public void onError(            Exception e){
+            }
+          }
+);
         }
  else {
           searchDisplay.initEmpty();
+          goneView(footer);
         }
       }
       return false;

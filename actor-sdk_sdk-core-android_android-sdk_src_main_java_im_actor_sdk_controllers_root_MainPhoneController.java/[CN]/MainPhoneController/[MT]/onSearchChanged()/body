@@ -5,7 +5,7 @@
   }
  else {
     goneView(searchHintView);
-    if (searchDisplay.getSize() == 0) {
+    if (searchDisplay.getSize() == 0 && footer.getVisibility() != View.VISIBLE) {
       showView(searchEmptyView);
     }
  else {
