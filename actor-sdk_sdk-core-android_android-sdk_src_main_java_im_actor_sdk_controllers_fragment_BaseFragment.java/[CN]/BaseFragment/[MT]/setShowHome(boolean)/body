@@ -1,0 +1,7 @@
+{
+  this.showHome=showHome;
+  ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayShowHomeEnabled(showHome);
+  }
+}

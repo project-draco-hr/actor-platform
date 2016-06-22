@@ -1,0 +1,8 @@
+{
+  text=values.optString(1);
+  uris=values.getRepeatedString(2);
+  userId=values.optInt(3);
+  forwardText=values.optString(4);
+  forwardTextRaw=values.optString(5);
+  docContent=values.optBytes(6);
+}

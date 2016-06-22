@@ -1,0 +1,7 @@
+{
+  this.homeAsUp=homeAsUp;
+  ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(homeAsUp);
+  }
+}

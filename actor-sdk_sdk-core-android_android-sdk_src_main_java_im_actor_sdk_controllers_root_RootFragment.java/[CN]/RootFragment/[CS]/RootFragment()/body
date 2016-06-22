@@ -1,0 +1,4 @@
+{
+  setRootFragment(true);
+  setUnbindOnPause(true);
+}

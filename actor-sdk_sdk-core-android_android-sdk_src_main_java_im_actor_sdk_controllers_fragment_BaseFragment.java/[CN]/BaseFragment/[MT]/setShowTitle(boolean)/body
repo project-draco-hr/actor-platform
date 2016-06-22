@@ -1,0 +1,7 @@
+{
+  this.showTitle=showTitle;
+  ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayShowTitleEnabled(showTitle);
+  }
+}

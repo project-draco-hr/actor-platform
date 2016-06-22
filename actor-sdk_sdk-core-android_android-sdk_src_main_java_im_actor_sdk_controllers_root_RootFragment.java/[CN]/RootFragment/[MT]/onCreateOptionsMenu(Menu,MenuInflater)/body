@@ -1,0 +1,42 @@
+{
+  super.onCreateOptionsMenu(menu,inflater);
+  inflater.inflate(R.menu.main,menu);
+  searchMenu=menu.findItem(R.id.search);
+  if (messenger().getAppState().getIsAppEmpty().get()) {
+    searchMenu.setVisible(false);
+  }
+ else {
+    searchMenu.setVisible(true);
+  }
+  SearchView searchView=(SearchView)searchMenu.getActionView();
+  searchView.setIconifiedByDefault(true);
+  MenuItemCompat.setOnActionExpandListener(searchMenu,new MenuItemCompat.OnActionExpandListener(){
+    @Override public boolean onMenuItemActionExpand(    MenuItem item){
+      showSearch();
+      return true;
+    }
+    @Override public boolean onMenuItemActionCollapse(    MenuItem item){
+      hideSearch();
+      return true;
+    }
+  }
+);
+  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+    @Override public boolean onQueryTextSubmit(    String s){
+      return false;
+    }
+    @Override public boolean onQueryTextChange(    String s){
+      if (isSearchVisible) {
+        if (s.trim().length() > 0) {
+          searchDisplay.initSearch(s.trim().toLowerCase(),false);
+          searchAdapter.setQuery(s.trim().toLowerCase());
+        }
+ else {
+          searchDisplay.initEmpty();
+        }
+      }
+      return false;
+    }
+  }
+);
+}

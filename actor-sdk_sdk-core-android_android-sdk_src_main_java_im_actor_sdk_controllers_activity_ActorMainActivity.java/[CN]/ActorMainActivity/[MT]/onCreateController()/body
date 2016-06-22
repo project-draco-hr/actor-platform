@@ -1,4 +1,0 @@
-{
-  MainPhoneController mainPhoneController=ActorSDK.sharedActor().getDelegate().getMainPhoneController(this);
-  return mainPhoneController != null ? mainPhoneController : new MainPhoneController(this);
-}

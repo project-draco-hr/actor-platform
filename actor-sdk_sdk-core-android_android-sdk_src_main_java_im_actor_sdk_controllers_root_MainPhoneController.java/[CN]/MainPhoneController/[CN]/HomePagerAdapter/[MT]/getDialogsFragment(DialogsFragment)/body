@@ -1,6 +1,0 @@
-{
-  Bundle arguments=new Bundle();
-  res1.setArguments(arguments);
-  res1.setHasOptionsMenu(false);
-  return res1;
-}

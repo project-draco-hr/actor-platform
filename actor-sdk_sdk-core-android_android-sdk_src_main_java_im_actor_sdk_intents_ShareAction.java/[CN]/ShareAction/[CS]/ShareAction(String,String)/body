@@ -1,0 +1,4 @@
+{
+  this.forwardText=forwardText;
+  this.forwardTextRaw=forwardTextRaw;
+}

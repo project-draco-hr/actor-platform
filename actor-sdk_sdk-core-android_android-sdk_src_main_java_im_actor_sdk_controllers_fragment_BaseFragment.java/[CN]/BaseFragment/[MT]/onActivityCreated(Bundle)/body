@@ -1,0 +1,20 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  if (isRootFragment) {
+    ActionBar actionBar=getSupportActionBar();
+    if (actionBar != null) {
+      if (titleRes != 0) {
+        actionBar.setTitle(titleRes);
+      }
+ else {
+        actionBar.setTitle(title);
+      }
+      actionBar.setSubtitle(subtitle);
+      actionBar.setDisplayShowCustomEnabled(showCustom);
+      actionBar.setDisplayHomeAsUpEnabled(homeAsUp);
+      actionBar.setDisplayShowHomeEnabled(showHome);
+      actionBar.setDisplayShowTitleEnabled(showTitle);
+      onConfigureActionBar(actionBar);
+    }
+  }
+}

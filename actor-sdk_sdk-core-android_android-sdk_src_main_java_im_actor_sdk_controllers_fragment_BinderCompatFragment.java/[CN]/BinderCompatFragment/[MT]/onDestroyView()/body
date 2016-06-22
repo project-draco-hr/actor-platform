@@ -1,4 +1,6 @@
 {
   super.onDestroyView();
-  BINDER.unbindAll();
+  if (!unbindOnPause) {
+    BINDER.unbindAll();
+  }
 }

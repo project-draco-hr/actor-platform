@@ -1,0 +1,27 @@
+{
+  if (isSearchVisible) {
+    return;
+  }
+  isSearchVisible=true;
+  searchDisplay=messenger().buildSearchDisplayList();
+  searchAdapter=new SearchAdapter(getActivity(),searchDisplay,new OnItemClickedListener<SearchEntity>(){
+    @Override public void onClicked(    SearchEntity item){
+      startActivity(Intents.openDialog(item.getPeer(),false,getActivity()));
+      searchMenu.collapseActionView();
+    }
+    @Override public boolean onLongClicked(    SearchEntity item){
+      return false;
+    }
+  }
+);
+  HeaderViewRecyclerAdapter recyclerAdapter=new HeaderViewRecyclerAdapter(searchAdapter);
+  View header=new View(getActivity());
+  header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(0)));
+  header.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  recyclerAdapter.addHeaderView(header);
+  searchList.setAdapter(recyclerAdapter);
+  searchDisplay.addListener(searchListener);
+  showView(searchHintView,false);
+  goneView(searchEmptyView,false);
+  showView(searchContainer);
+}

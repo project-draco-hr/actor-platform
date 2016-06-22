@@ -1,0 +1,8 @@
+{
+  this.title=null;
+  this.titleRes=titleRes;
+  ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setTitle(titleRes);
+  }
+}

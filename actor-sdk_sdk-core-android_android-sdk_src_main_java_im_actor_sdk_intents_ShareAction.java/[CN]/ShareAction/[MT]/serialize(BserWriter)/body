@@ -1,0 +1,20 @@
+{
+  if (text != null) {
+    writer.writeString(1,text);
+  }
+  if (uris != null) {
+    writer.writeRepeatedString(2,uris);
+  }
+  if (userId != null) {
+    writer.writeInt(3,userId);
+  }
+  if (forwardText != null) {
+    writer.writeString(4,forwardText);
+  }
+  if (forwardTextRaw != null) {
+    writer.writeString(5,forwardTextRaw);
+  }
+  if (docContent != null) {
+    writer.writeBytes(6,docContent);
+  }
+}

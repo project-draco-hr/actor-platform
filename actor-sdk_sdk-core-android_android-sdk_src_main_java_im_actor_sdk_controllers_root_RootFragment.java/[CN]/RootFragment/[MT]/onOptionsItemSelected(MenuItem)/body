@@ -1,0 +1,18 @@
+{
+  int i=item.getItemId();
+  if (i == R.id.help) {
+    startActivity(new Intent(getActivity(),HelpActivity.class));
+    return true;
+  }
+ else   if (i == R.id.profile) {
+    ActorSDK.sharedActor().startSettingActivity(getActivity());
+    return true;
+  }
+ else   if (i == R.id.contacts) {
+    startActivity(new Intent(getActivity(),ContactsActivity.class));
+    return true;
+  }
+ else {
+    return super.onOptionsItemSelected(item);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  cmd.start(new CommandCallback<T>(){
+    @Override public void onResult(    T res){
+    }
+    @Override public void onError(    Exception e){
+    }
+  }
+);
+}

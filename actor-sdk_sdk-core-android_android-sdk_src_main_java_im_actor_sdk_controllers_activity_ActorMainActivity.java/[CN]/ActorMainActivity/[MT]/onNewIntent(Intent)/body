@@ -1,0 +1,7 @@
+{
+  super.onNewIntent(intent);
+  Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.root);
+  if (fragment instanceof RootFragment) {
+    ((RootFragment)fragment).onHandleIntent(intent);
+  }
+}

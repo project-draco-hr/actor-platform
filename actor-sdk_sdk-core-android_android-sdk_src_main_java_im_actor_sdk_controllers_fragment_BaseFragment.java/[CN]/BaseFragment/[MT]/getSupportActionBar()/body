@@ -1,0 +1,8 @@
+{
+  FragmentActivity activity=getActivity();
+  if (activity instanceof AppCompatActivity) {
+    AppCompatActivity compatActivity=(AppCompatActivity)activity;
+    return compatActivity.getSupportActionBar();
+  }
+  return null;
+}

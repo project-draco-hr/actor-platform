@@ -1,9 +1,0 @@
-{
-switch (position) {
-default :
-case 0:
-    return getActivity().getString(R.string.main_bar_chats);
-case 1:
-  return getActivity().getString(R.string.main_bar_contacts);
-}
-}

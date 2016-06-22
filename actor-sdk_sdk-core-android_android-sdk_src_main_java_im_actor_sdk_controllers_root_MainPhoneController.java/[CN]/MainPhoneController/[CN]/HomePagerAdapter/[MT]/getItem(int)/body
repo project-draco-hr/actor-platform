@@ -1,9 +1,0 @@
-{
-switch (position) {
-default :
-case 0:
-    return getDialogsFragment(new DialogsFragment());
-case 1:
-  return getContactsFragment(new ContactsFragment());
-}
-}

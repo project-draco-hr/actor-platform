@@ -1,0 +1,4 @@
+{
+  isRootFragment=rootFragment;
+  setHasOptionsMenu(rootFragment);
+}
