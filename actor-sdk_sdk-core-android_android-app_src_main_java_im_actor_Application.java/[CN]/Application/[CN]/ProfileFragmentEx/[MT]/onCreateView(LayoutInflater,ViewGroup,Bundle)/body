@@ -1,6 +1,0 @@
-{
-  View view=super.onCreateView(inflater,container,savedInstanceState);
-  view.findViewById(R.id.docsContainer).setVisibility(View.VISIBLE);
-  view.findViewById(R.id.sharedContainer).setVisibility(View.VISIBLE);
-  return view;
-}
