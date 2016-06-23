@@ -12,4 +12,5 @@
  else {
     showShareChecked();
   }
+  menuIconToChange.invalidateDrawable(menuIconToChange.getDrawable());
 }
