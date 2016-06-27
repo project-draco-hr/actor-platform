@@ -5,7 +5,6 @@
     FrameLayout settingsContainer=(FrameLayout)categoryContainer.findViewById(R.id.settings_container);
     categoryContainer.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
     TextView categoryName=(TextView)categoryContainer.findViewById(R.id.category_name);
-    categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsMainTitleColor());
     categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsCategoryTextColor());
     TintImageView icon=(TintImageView)categoryContainer.findViewById(R.id.icon);
     icon.setTint(ActorSDK.sharedActor().style.getSettingsIconColor());
