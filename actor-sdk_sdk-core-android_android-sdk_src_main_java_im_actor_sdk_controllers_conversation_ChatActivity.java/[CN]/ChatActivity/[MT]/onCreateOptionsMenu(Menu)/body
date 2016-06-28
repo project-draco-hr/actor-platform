@@ -30,8 +30,8 @@
       callsEnabled=groups().get(peer.getPeerId()).getMembersCount() <= MAX_USERS_FOR_CALLS;
     }
   }
-  MenuItem v=menu.findItem(R.id.call);
-  v.setVisible(callsEnabled);
+  menu.findItem(R.id.call).setVisible(callsEnabled);
+  menu.findItem(R.id.video_call).setVisible(callsEnabled);
   if (peer.getPeerType() == PeerType.PRIVATE) {
     bind(users().get(peer.getPeerId()).isContact(),new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){

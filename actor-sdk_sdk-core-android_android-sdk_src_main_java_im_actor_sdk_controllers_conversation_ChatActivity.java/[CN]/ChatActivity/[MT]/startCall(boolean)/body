@@ -1,7 +1,7 @@
 {
   Command<Long> cmd;
   if (peer.getPeerType() == PeerType.PRIVATE) {
-    cmd=messenger().doCall(peer.getPeerId());
+    cmd=video ? messenger().doVideoCall(peer.getPeerId()) : messenger().doCall(peer.getPeerId());
   }
  else {
     cmd=messenger().doGroupCall(peer.getPeerId());

@@ -9,9 +9,9 @@
       showShareChecked();
     }
   }
- else   if (requestCode == PERMISSIONS_REQUEST_FOR_CALL) {
+ else   if (requestCode == PERMISSIONS_REQUEST_FOR_CALL || requestCode == PERMISSIONS_REQUEST_FOR_VIDEO_CALL) {
     if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-      startCall();
+      startCall(requestCode == PERMISSIONS_REQUEST_FOR_VIDEO_CALL);
     }
   }
 }
