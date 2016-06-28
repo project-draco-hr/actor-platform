@@ -1,0 +1,6 @@
+{
+  Fragment parent=getParentFragment();
+  if (parent != null && parent instanceof GlobalSearchDelegate) {
+    ((GlobalSearchDelegate)parent).onPeerClicked(peer);
+  }
+}

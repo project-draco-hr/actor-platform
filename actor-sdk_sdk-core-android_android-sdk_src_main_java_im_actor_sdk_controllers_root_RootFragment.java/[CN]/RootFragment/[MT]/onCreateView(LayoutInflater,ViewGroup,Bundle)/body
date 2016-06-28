@@ -1,2 +1,7 @@
 {
+  View res=inflater.inflate(R.layout.activity_root_content,container,false);
+  if (savedInstanceState == null) {
+    getChildFragmentManager().beginTransaction().add(R.id.content,new DialogsDefaultFragment()).add(R.id.search,new GlobalSearchDefaultFragment()).add(R.id.placeholder,new GlobalPlaceholderFragment()).commit();
+  }
+  return res;
 }

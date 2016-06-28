@@ -1,6 +1,6 @@
 {
   Fragment parent=getParentFragment();
-  if (parent != null && parent instanceof PeerSelectedCallback) {
-    ((PeerSelectedCallback)parent).onPeerClick(item.getPeer());
+  if (parent != null && parent instanceof DialogsFragmentDelegate) {
+    ((DialogsFragmentDelegate)parent).onPeerClicked(item.getPeer());
   }
 }

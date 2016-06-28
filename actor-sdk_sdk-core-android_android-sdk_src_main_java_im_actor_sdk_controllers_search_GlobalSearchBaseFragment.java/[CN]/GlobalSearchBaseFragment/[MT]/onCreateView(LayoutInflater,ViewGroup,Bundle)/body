@@ -1,0 +1,15 @@
+{
+  View res=inflater.inflate(R.layout.fragment_global_search,container,false);
+  res.setVisibility(View.GONE);
+  searchList=(RecyclerView)res.findViewById(R.id.searchList);
+  searchList.setLayoutManager(new ChatLinearLayoutManager(getActivity()));
+  searchContainer=res.findViewById(R.id.searchCont);
+  searchContainer.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  searchEmptyView=(TextView)res.findViewById(R.id.empty);
+  searchHintView=(TextView)res.findViewById(R.id.searchHint);
+  searchEmptyView.setTextColor(style.getTextSecondaryColor());
+  searchHintView.setTextColor(style.getTextSecondaryColor());
+  searchHintView.setVisibility(View.GONE);
+  searchEmptyView.setVisibility(View.GONE);
+  return res;
+}

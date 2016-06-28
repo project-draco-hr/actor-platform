@@ -54,7 +54,7 @@ showFragment(signInFragment,false,false);
 break;
 case LOGGED_IN:
 finish();
-startActivity(new Intent(this,ActorMainActivity.class));
+startActivity(new Intent(this,RootActivity.class));
 break;
 }
 }

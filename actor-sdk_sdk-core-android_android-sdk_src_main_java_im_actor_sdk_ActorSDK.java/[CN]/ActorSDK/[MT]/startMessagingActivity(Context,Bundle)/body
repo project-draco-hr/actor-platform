@@ -1,5 +1,5 @@
 {
   if (!startDelegateActivity(context,delegate.getStartIntent(),extras)) {
-    startActivity(context,extras,ActorMainActivity.class);
+    startActivity(context,extras,RootActivity.class);
   }
 }

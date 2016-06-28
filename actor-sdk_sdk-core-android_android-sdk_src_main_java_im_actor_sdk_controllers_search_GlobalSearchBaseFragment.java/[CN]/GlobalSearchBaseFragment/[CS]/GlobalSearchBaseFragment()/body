@@ -1,0 +1,4 @@
+{
+  setHasOptionsMenu(true);
+  setUnbindOnPause(true);
+}
