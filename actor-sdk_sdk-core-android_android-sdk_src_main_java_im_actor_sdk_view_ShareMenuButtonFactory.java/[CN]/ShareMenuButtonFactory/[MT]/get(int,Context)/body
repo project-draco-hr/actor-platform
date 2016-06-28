@@ -1,0 +1,11 @@
+{
+  ShapeDrawable bg=new ShapeDrawable(new OvalShape());
+  int padding=Screen.dp(5);
+  bg.getPaint().setColor(color);
+  ShapeDrawable bgPressed=new ShapeDrawable(new OvalShape());
+  bgPressed.getPaint().setColor(ActorStyle.getDarkenArgb(color,0.95));
+  StateListDrawable states=new StateListDrawable();
+  states.addState(new int[]{android.R.attr.state_pressed},new InsetDrawable(bgPressed,padding));
+  states.addState(StateSet.WILD_CARD,new InsetDrawable(bg,padding));
+  return states;
+}

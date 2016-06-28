@@ -1,8 +1,0 @@
-{
-  return new BaseActorProfileActivity(){
-    @Override public ProfileFragment getProfileFragment(    int uid){
-      return ProfileFragmentEx.create(uid);
-    }
-  }
-;
-}

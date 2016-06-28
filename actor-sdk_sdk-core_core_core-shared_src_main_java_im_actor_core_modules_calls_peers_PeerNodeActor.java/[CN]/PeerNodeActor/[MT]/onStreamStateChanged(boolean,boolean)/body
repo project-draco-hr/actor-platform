@@ -2,9 +2,9 @@
   if (this.isAudioEnabled != isAudioEnabled) {
     this.isAudioEnabled=isAudioEnabled;
     if (isStarted) {
-      for (      WebRTCMediaStream streams : theirMediaStreams) {
-        for (        WebRTCMediaTrack track : streams.getAudioTracks()) {
-          track.setEnabled(isAudioEnabled);
+      for (      WebRTCMediaStream stream : theirMediaStreams) {
+        stream.setAudioTracksEnabled(isAudioEnabled);
+        for (        WebRTCMediaTrack track : stream.getAudioTracks()) {
           if (isAudioEnabled) {
             callback.onTrackAdded(deviceId,track);
           }
@@ -18,9 +18,9 @@
   if (this.isVideoEnabled != isVideoEnabled) {
     this.isVideoEnabled=isVideoEnabled;
     if (isStarted) {
-      for (      WebRTCMediaStream streams : theirMediaStreams) {
-        for (        WebRTCMediaTrack track : streams.getVideoTracks()) {
-          track.setEnabled(isVideoEnabled);
+      for (      WebRTCMediaStream stream : theirMediaStreams) {
+        stream.setVideoTracksEnabled(isVideoEnabled);
+        for (        WebRTCMediaTrack track : stream.getVideoTracks()) {
           if (isVideoEnabled) {
             callback.onTrackAdded(deviceId,track);
           }
