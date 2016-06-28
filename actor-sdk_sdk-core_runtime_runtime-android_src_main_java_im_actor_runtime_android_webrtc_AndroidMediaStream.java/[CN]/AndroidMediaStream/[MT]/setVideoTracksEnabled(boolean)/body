@@ -1,0 +1,5 @@
+{
+  for (  VideoTrack track : stream.videoTracks) {
+    track.setEnabled(enabled);
+  }
+}

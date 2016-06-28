@@ -1,12 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  Thread.setDefaultUncaughtExceptionHandler(new UnhandledExceptionHandler(this));
-  AndroidWebRTCRuntimeProvider.postToHandler(new Runnable(){
-    @Override public void run(){
-      Thread.setDefaultUncaughtExceptionHandler(new UnhandledExceptionHandler(CallActivity.this));
-    }
-  }
-);
   getSupportActionBar().setTitle("Call");
   getSupportActionBar().hide();
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
