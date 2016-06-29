@@ -1,5 +1,0 @@
-{
-  for (  AudioTrack track : stream.audioTracks) {
-    track.setEnabled(enabled);
-  }
-}

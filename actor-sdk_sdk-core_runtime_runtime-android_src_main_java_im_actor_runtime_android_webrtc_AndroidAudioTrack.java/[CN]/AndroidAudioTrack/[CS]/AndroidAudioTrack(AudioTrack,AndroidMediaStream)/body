@@ -1,3 +1,4 @@
 {
   this.audioTrack=audioTrack;
+  this.stream=stream;
 }

@@ -1,3 +1,5 @@
 {
-  audioTrack.setEnabled(isEnabled);
+  if (stream.getStream().audioTracks.contains(audioTrack)) {
+    audioTrack.setEnabled(isEnabled);
+  }
 }

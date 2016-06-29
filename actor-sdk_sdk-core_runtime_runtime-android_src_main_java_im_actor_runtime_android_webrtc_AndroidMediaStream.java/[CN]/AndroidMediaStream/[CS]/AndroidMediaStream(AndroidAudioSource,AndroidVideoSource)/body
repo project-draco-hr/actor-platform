@@ -6,7 +6,7 @@
   if (audioSource != null) {
     localAudioTrack=AndroidWebRTCRuntimeProvider.FACTORY.createAudioTrack("audio0",audioSource.getAudioSource());
     stream.addTrack(localAudioTrack);
-    audioTracks=new WebRTCMediaTrack[]{new AndroidAudioTrack(localAudioTrack)};
+    audioTracks=new WebRTCMediaTrack[]{new AndroidAudioTrack(localAudioTrack,this)};
   }
  else {
     audioTracks=new WebRTCMediaTrack[0];
@@ -14,7 +14,7 @@
   if (videoSource != null) {
     localVideoTrack=AndroidWebRTCRuntimeProvider.FACTORY.createVideoTrack("video0",videoSource.getVideoSource());
     stream.addPreservedTrack(localVideoTrack);
-    videoTracks=new WebRTCMediaTrack[]{new AndroidVideoTrack(localVideoTrack)};
+    videoTracks=new WebRTCMediaTrack[]{new AndroidVideoTrack(localVideoTrack,this)};
   }
  else {
     videoTracks=new WebRTCMediaTrack[0];
