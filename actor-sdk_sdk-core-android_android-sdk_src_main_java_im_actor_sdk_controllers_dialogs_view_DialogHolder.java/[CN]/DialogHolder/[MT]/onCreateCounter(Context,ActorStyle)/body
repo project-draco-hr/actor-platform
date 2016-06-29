@@ -1,5 +1,6 @@
 {
   counter=new TextView(context);
+  counter.setVisibility(View.GONE);
   counter.setTextColor(style.getDialogsCounterTextColor());
   RoundedCornersDrawable bg=new RoundedCornersDrawable(new ColorDrawable(style.getDialogsCounterBackgroundColor()));
   bg.setRadius(Screen.dp(2));
@@ -12,4 +13,5 @@
   counter.setIncludeFontPadding(false);
   counter.setMinWidth(Screen.dp(14));
   counter.setMinHeight(Screen.dp(14));
+  counter.setVisibility(View.VISIBLE);
 }

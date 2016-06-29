@@ -1,0 +1,12 @@
+{
+  this.currentObject=arg;
+  this.currentLayout=null;
+  if (currentLayouting != null) {
+    currentLayouting.cancel();
+    currentLayouting=null;
+  }
+  invalidate();
+  if (isMeasured) {
+    startLayout();
+  }
+}

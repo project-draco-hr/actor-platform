@@ -1,0 +1,4 @@
+{
+  isDividerVisible=dividerVisible;
+  invalidate();
+}

@@ -1,2 +1,6 @@
 {
+  this.binded=data.getPeer().getUnuqueId();
+  this.bindedItem=data;
+  this.dialogView.bind(data);
+  this.dialogView.setDividerVisible(!isLast);
 }

@@ -1,0 +1,16 @@
+{
+  if (!isInited) {
+    isInited=true;
+    dividerPaint=new Paint();
+    dividerPaint.setColor(ActorSDK.sharedActor().style.getDividerColor());
+    dividerPaint.setStyle(Paint.Style.FILL);
+    dividerHeight=getResources().getDimensionPixelSize(R.dimen.div_size);
+    backgroundPaint=new Paint();
+    backgroundPaint.setColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+    backgroundPaint.setStyle(Paint.Style.FILL);
+    backgroundPressedPaint=new Paint();
+    backgroundPressedPaint.setColor(ActorSDK.sharedActor().style.getDividerColor());
+    backgroundPressedPaint.setStyle(Paint.Style.FILL);
+  }
+  setBackgroundResource(R.drawable.selector_fill);
+}

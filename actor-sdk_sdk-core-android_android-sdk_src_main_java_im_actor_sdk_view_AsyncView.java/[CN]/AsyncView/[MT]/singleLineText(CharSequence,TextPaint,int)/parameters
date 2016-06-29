@@ -1,0 +1,3 @@
+CharSequence sequence
+TextPaint paint
+int maxWidth

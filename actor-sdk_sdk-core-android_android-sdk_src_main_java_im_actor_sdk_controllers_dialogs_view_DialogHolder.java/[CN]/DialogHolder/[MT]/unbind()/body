@@ -1,12 +1,3 @@
 {
   this.bindedItem=null;
-  this.avatar.unbind();
-  if (privateTypingListener != null) {
-    messenger().getTyping(bindedUid).unsubscribe(privateTypingListener);
-    privateTypingListener=null;
-  }
-  if (groupTypingListener != null) {
-    messenger().getGroupTyping(bindedGid).unsubscribe(groupTypingListener);
-    groupTypingListener=null;
-  }
 }

@@ -1,0 +1,11 @@
+{
+  super.onLayout(changed,left,top,right,bottom);
+  if (!isMeasured || currentWidth != getWidth() || currentHeight != getHeight()) {
+    isMeasured=true;
+    currentWidth=getWidth();
+    currentHeight=getHeight();
+    if (currentObject != null) {
+      startLayout();
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));
+  setDividerPaddingLeft(Screen.dp(72));
+}

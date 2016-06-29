@@ -1,0 +1,5 @@
+{
+  if (isDividerVisible) {
+    canvas.drawRect(dividerPaddingLeft,getHeight() - dividerHeight,getWidth() - dividerPaddingRight,getHeight(),dividerPaint);
+  }
+}

@@ -1,0 +1,34 @@
+{
+  if (!isStylesLoaded) {
+    ActorStyle style=ActorSDK.sharedActor().style;
+    titlePaint=createTextPaint(Fonts.medium(),16,style.getDialogsTitleColor());
+    datePaint=createTextPaint(Fonts.regular(),14,style.getDialogsTimeColor());
+    textPaint=createTextPaint(Fonts.regular(),16,style.getDialogsTimeColor());
+  }
+  DialogLayout res=new DialogLayout();
+  int maxTitleWidth=(width - Screen.dp(72)) - Screen.dp(8);
+  if (arg.getDate() > 0) {
+    String dateText=messenger().getFormatter().formatShortDate(arg.getDate());
+    int dateWidth=(int)datePaint.measureText(dateText);
+    res.setDate(dateText,dateWidth);
+    maxTitleWidth-=dateWidth + Screen.dp(16);
+  }
+  res.setTitleLayout(singleLineText(arg.getDialogTitle(),titlePaint,maxTitleWidth));
+  if (arg.getSenderId() > 0) {
+    String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid());
+    CharSequence contentResult;
+    if (arg.getPeer().getPeerType() == PeerType.GROUP) {
+      if (messenger().getFormatter().isLargeDialogMessage(arg.getMessageType())) {
+        contentResult=contentText;
+      }
+ else {
+        contentResult=users().get(arg.getSenderId()).getName().get() + ": " + contentText;
+      }
+    }
+ else {
+      contentResult=contentText;
+    }
+    res.setTextLayout(singleLineText(contentResult,textPaint,width - Screen.dp(72) - Screen.dp(8)));
+  }
+  return res;
+}

@@ -1,0 +1,4 @@
+{
+  this.dividerPaddingRight=dividerPaddingRight;
+  invalidate();
+}

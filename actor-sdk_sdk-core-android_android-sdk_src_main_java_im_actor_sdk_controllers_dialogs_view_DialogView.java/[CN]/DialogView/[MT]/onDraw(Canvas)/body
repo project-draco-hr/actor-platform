@@ -1,0 +1,19 @@
+{
+  super.onDraw(canvas);
+  DialogLayout layout=getLayout();
+  if (layout != null) {
+    canvas.save();
+    canvas.translate(Screen.dp(72),Screen.dp(12));
+    layout.getTitleLayout().draw(canvas);
+    canvas.restore();
+    if (layout.getDate() != null) {
+      canvas.drawText(layout.getDate(),getWidth() - Screen.dp(16) - layout.getDateWidth(),Screen.dp(26),datePaint);
+    }
+    if (layout.getTextLayout() != null) {
+      canvas.save();
+      canvas.translate(Screen.dp(72),Screen.dp(42));
+      layout.getTextLayout().draw(canvas);
+      canvas.restore();
+    }
+  }
+}

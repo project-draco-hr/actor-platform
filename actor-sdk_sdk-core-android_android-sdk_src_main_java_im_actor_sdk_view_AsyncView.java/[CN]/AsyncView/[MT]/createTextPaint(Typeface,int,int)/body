@@ -1,0 +1,8 @@
+{
+  TextPaint res=new TextPaint(Paint.ANTI_ALIAS_FLAG);
+  res.setSubpixelText(true);
+  res.setTypeface(typeface);
+  res.setTextSize(Screen.sp(size));
+  res.setColor(color);
+  return res;
+}
