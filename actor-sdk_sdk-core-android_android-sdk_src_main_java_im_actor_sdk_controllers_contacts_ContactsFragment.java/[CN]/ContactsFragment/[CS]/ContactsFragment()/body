@@ -1,3 +1,5 @@
 {
   super(false,false,false);
+  setRootFragment(true);
+  setTitle(R.string.contacts_title);
 }

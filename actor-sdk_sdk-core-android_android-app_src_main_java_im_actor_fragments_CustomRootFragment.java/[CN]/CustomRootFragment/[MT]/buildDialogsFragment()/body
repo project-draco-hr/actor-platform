@@ -1,0 +1,6 @@
+{
+  DialogsDefaultFragment res=new DialogsDefaultFragment();
+  res.setRootFragment(true);
+  res.setTitle(im.actor.sdk.R.string.app_name);
+  return res;
+}

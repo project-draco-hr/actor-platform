@@ -8,7 +8,7 @@
  else {
     searchMenu.setVisible(true);
   }
-  SearchView searchView=(SearchView)searchMenu.getActionView();
+  searchView=(SearchView)searchMenu.getActionView();
   searchView.setIconifiedByDefault(true);
   MenuItemCompat.setOnActionExpandListener(searchMenu,new MenuItemCompat.OnActionExpandListener(){
     @Override public boolean onMenuItemActionExpand(    MenuItem item){

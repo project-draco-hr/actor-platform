@@ -3,6 +3,18 @@
   res.setVisibility(View.GONE);
   searchList=(RecyclerView)res.findViewById(R.id.searchList);
   searchList.setLayoutManager(new ChatLinearLayoutManager(getActivity()));
+  searchList.addOnScrollListener(new RecyclerView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    RecyclerView recyclerView,    int newState){
+      if (newState == RecyclerView.SCROLL_STATE_DRAGGING && isSearchVisible) {
+        if (searchView != null) {
+          searchView.clearFocus();
+        }
+      }
+    }
+    @Override public void onScrolled(    RecyclerView recyclerView,    int dx,    int dy){
+    }
+  }
+);
   searchContainer=res.findViewById(R.id.searchCont);
   searchContainer.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   searchEmptyView=(TextView)res.findViewById(R.id.empty);

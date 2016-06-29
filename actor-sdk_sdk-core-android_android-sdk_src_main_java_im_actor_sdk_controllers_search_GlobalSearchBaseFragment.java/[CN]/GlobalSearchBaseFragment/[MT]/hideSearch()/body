@@ -9,10 +9,14 @@
   }
   searchAdapter=null;
   searchList.setAdapter(null);
-  goneView(searchContainer);
+  goneView(searchContainer,false);
   if (searchMenu != null) {
     if (searchMenu.isActionViewExpanded()) {
       searchMenu.collapseActionView();
     }
+  }
+  Fragment parent=getParentFragment();
+  if (parent != null && parent instanceof GlobalSearchStateDelegate) {
+    ((GlobalSearchStateDelegate)parent).onGlobalSearchEnded();
   }
 }

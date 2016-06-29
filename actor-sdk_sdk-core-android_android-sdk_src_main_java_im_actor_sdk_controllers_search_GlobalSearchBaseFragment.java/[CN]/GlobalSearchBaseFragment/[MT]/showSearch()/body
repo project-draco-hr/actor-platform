@@ -23,5 +23,9 @@
   searchDisplay.addListener(searchListener);
   showView(searchHintView,false);
   goneView(searchEmptyView,false);
-  showView(searchContainer);
+  showView(searchContainer,false);
+  Fragment parent=getParentFragment();
+  if (parent != null && parent instanceof GlobalSearchStateDelegate) {
+    ((GlobalSearchStateDelegate)parent).onGlobalSearchStarted();
+  }
 }
