@@ -1,0 +1,4 @@
+String title
+int id
+int selector
+View.OnClickListener onClickListener
