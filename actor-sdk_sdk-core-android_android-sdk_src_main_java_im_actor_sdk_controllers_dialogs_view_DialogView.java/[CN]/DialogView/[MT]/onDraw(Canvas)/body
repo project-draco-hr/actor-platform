@@ -26,6 +26,11 @@
     }
     layout.getTitleLayout().draw(canvas);
     canvas.restore();
+    if (layout.getState() != null) {
+      int left=getWidth() - Screen.dp(34) - layout.getDateWidth();
+      layout.getState().setBounds(left,Screen.dp(18),left + Screen.dp(16),Screen.dp(18 + 9));
+      layout.getState().draw(canvas);
+    }
     if (layout.getDate() != null) {
       canvas.drawText(layout.getDate(),getWidth() - Screen.dp(16) - layout.getDateWidth(),Screen.dp(26),datePaint);
     }
