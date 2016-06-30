@@ -1,0 +1,10 @@
+{
+  this.i=i;
+  view.bind(i);
+  if (selected == i) {
+    selectedView.setVisibility(View.VISIBLE);
+  }
+ else {
+    selectedView.setVisibility(View.INVISIBLE);
+  }
+}

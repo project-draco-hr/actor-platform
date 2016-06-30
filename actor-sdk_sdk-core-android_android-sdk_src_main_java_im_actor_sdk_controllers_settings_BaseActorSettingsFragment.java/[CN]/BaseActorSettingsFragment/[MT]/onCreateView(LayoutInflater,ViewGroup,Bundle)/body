@@ -23,13 +23,12 @@
 );
   final LinearLayout nickContainer=(LinearLayout)view.findViewById(R.id.nickContainer);
   final LinearLayout contactsContainer=(LinearLayout)view.findViewById(R.id.phoneContainer);
-  final FrameLayout about=(FrameLayout)view.findViewById(R.id.about);
+  final LinearLayout about=(LinearLayout)view.findViewById(R.id.about);
   bind(userModel.getNick(),new ValueChangedListener<String>(){
     @Override public void onChanged(    final String val,    Value<String> Value){
       final View recordView=inflater.inflate(R.layout.contact_record,nickContainer,false);
-      recordView.findViewById(R.id.divider).setBackgroundColor(style.getDividerColor());
       ImageView nickIcon=(ImageView)recordView.findViewById(R.id.recordIcon);
-      Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_star_white_24dp));
+      Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_mention_24_dp));
       DrawableCompat.setTint(drawable,style.getSettingsIconColor());
       nickIcon.setImageDrawable(drawable);
       String value=(val != null && !val.isEmpty()) ? val : getString(R.string.nickname_empty);
@@ -53,15 +52,10 @@
 );
   final TextView aboutTitle=(TextView)about.findViewById(R.id.value);
   ImageView nickIcon=(ImageView)about.findViewById(R.id.recordIcon);
-  Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_format_quote_white_24dp));
+  Drawable drawable=DrawableCompat.wrap(getResources().getDrawable(R.drawable.ic_info_black_24dp));
   DrawableCompat.setTint(drawable,style.getSettingsIconColor());
   nickIcon.setImageDrawable(drawable);
-  TextView aboutValue=(TextView)about.findViewById(R.id.title);
   aboutTitle.setTextColor(style.getTextPrimaryColor());
-  aboutValue.setTextColor(style.getTextSecondaryColor());
-  aboutValue.setText(getString(R.string.about_user_me));
-  aboutTitle.setEllipsize(TextUtils.TruncateAt.END);
-  about.findViewById(R.id.divider).setBackgroundColor(style.getDividerColor());
   about.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       getActivity().startActivity(Intents.editUserAbout(getActivity()));
@@ -307,8 +301,12 @@
   homePageTitle.setTextColor(style.getSettingsTitleColor());
   TintImageView homePageIcon=(TintImageView)view.findViewById(R.id.settings_home_page_icon);
   homePageIcon.setTint(style.getSettingsIconColor());
+  TextView profileHeaderText=(TextView)view.findViewById(R.id.profile_info_header_text);
+  profileHeaderText.setTextColor(style.getSettingsCategoryTextColor());
   TextView settingsHeaderText=(TextView)view.findViewById(R.id.settings_header_text);
   settingsHeaderText.setTextColor(style.getSettingsCategoryTextColor());
+  TextView aboutHeaderText=(TextView)view.findViewById(R.id.about_header_text);
+  aboutHeaderText.setTextColor(style.getSettingsCategoryTextColor());
   TextView settingsNotificationsTitle=(TextView)view.findViewById(R.id.settings_notifications_title);
   settingsNotificationsTitle.setTextColor(style.getSettingsTitleColor());
   TextView settingsChatTitle=(TextView)view.findViewById(R.id.settings_chat_title);
@@ -333,8 +331,6 @@
   notificationsSettingsIcon.setTint(style.getSettingsIconColor());
   TintImageView chatSettingsIcon=(TintImageView)view.findViewById(R.id.settings_chat_icon);
   chatSettingsIcon.setTint(style.getSettingsIconColor());
-  view.findViewById(R.id.after_phone_divider).setBackgroundColor(style.getBackyardBackgroundColor());
-  view.findViewById(R.id.bottom_divider).setBackgroundColor(style.getBackyardBackgroundColor());
   if (getBeforeNickSettingsView() != null) {
     FrameLayout beforeNick=(FrameLayout)view.findViewById(R.id.before_nick_container);
     beforeNick.addView(getBeforeNickSettingsView(),FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -359,48 +355,28 @@
     LinearLayout afterSettings=(LinearLayout)view.findViewById(R.id.after_settings_container);
     addCategories(afterSettings,getAfterSettingsCategories(),inflater);
   }
-  avatarView=(CoverAvatarView)view.findViewById(R.id.avatar);
-  bind(avatarView,users().get(myUid()).getAvatar());
+  view.findViewById(R.id.avatarContainer).setBackgroundColor(style.getToolBarColor());
+  avatarView=(AvatarView)view.findViewById(R.id.avatar);
+  avatarView.init(Screen.dp(96),44);
+  avatarView.bind(users().get(myUid()));
   if (showWallpaperCategory()) {
-    LinearLayout wallpaperContainer=(LinearLayout)view.findViewById(R.id.background_container);
-    wallpaperContainer.setBackgroundColor(style.getMainBackgroundColor());
     ((TextView)view.findViewById(R.id.settings_wallpaper_title)).setTextColor(style.getSettingsCategoryTextColor());
-    view.findViewById(R.id.wallpaperDivider).setBackgroundColor(style.getBackyardBackgroundColor());
-    View.OnClickListener ocl=new View.OnClickListener(){
-      @Override public void onClick(      final View v){
-        Intent i=new Intent(getActivity(),PickWallpaperActivity.class);
-        int j=0;
-        Object tag=v.getTag();
-        if (tag != null && tag instanceof Integer) {
-          j=(int)tag;
-        }
-        i.putExtra("EXTRA_ID",j);
-        startActivity(i);
-      }
-    }
-;
-    int previewSize=80;
-    LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(Screen.dp(previewSize),Screen.dp(previewSize));
-    for (int i=0; i < 3; i++) {
-      FrameLayout frame=new FrameLayout(getActivity());
-      BackgroundPreviewView bckgrnd=new BackgroundPreviewView(getActivity());
-      bckgrnd.init(Screen.dp(previewSize),Screen.dp(previewSize));
-      bckgrnd.bind(i);
-      frame.setTag(i);
-      frame.setOnClickListener(ocl);
-      frame.addView(bckgrnd);
-      wallpaperContainer.addView(frame,params);
-    }
-    TintImageView next=new TintImageView(getActivity());
-    next.setResource(R.drawable.ic_keyboard_arrow_right_white_36dp);
-    next.setTint(style.getSettingsIconColor());
-    next.setOnClickListener(ocl);
-    next.setTag(-1);
-    wallpaperContainer.addView(next,new LinearLayout.LayoutParams(Screen.dp(40),Screen.dp(previewSize)));
+    RecyclerView wallpapers=(RecyclerView)view.findViewById(R.id.wallpapers_list);
+    wallpaperAdapter=new HeaderViewRecyclerAdapter(new WallpapersAdapter());
+    FrameLayout fl=new FrameLayout(getActivity());
+    ImageView icon=new ImageView(getActivity());
+    icon.setImageResource(R.drawable.ic_image_black_24dp);
+    icon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+    icon.setColorFilter(ActorSDK.sharedActor().style.getSettingsIconColor(),PorterDuff.Mode.SRC_IN);
+    icon.setPadding(Screen.dp(16),0,0,0);
+    fl.addView(icon,new FrameLayout.LayoutParams(Screen.dp(40),Screen.dp(85),Gravity.CENTER_VERTICAL | Gravity.LEFT));
+    fl.setLayoutParams(new ViewGroup.LayoutParams(Screen.dp(72),Screen.dp(85)));
+    wallpaperAdapter.addHeaderView(fl);
+    wallpapers.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+    wallpapers.setAdapter(wallpaperAdapter);
   }
  else {
-    view.findViewById(R.id.background_container).setVisibility(View.GONE);
-    view.findViewById(R.id.wallpaperDivider).setVisibility(View.GONE);
+    view.findViewById(R.id.wallpapers_list).setVisibility(View.GONE);
     view.findViewById(R.id.settings_wallpaper_title).setVisibility(View.GONE);
   }
   view.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener(){

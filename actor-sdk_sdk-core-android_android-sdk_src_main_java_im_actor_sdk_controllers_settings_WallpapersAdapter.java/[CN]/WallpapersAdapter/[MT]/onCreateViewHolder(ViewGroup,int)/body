@@ -1,0 +1,21 @@
+{
+  BackgroundPreviewView itemView=new BackgroundPreviewView(parent.getContext());
+  itemView.init(wallpaperSize,wallpaperSize,Screen.dp(2));
+  itemView.setLayoutParams(params);
+  padding=Screen.dp(8);
+  ImageView selected=new ImageView(parent.getContext());
+  selected.setImageResource(R.drawable.ic_done_white_36dp);
+  selected.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  int selectedPadding=Screen.dp(12);
+  int selectedSize=Screen.dp(48);
+  selected.setPadding(selectedPadding,selectedPadding,selectedPadding,selectedPadding);
+  selected.setBackgroundResource(R.drawable.avatar_background);
+  FrameLayout fl=new FrameLayout(parent.getContext());
+  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(wallpaperSize,wallpaperSize,Gravity.LEFT | Gravity.CENTER_VERTICAL);
+  params.setMargins(0,0,Screen.dp(8),0);
+  fl.addView(itemView,params);
+  FrameLayout.LayoutParams params1=new FrameLayout.LayoutParams(selectedSize,selectedSize,Gravity.LEFT | Gravity.CENTER_VERTICAL);
+  params1.setMargins(Screen.dp(18.5f),0,0,0);
+  fl.addView(selected,params1);
+  return new WallpaperHolder(fl,itemView,selected);
+}

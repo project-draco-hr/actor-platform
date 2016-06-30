@@ -1,0 +1,3 @@
+FrameLayout container
+ArrayList<ActorSettingsField> fields
+LayoutInflater inflater

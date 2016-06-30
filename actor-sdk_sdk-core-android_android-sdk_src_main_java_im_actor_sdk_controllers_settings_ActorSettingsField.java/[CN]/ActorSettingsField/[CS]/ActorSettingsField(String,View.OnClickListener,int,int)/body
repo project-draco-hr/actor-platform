@@ -1,6 +1,0 @@
-{
-  this.name=name;
-  this.iconColor=iconColor;
-  this.iconResourceId=iconResourceId;
-  this.onClickListener=onClickListener;
-}
