@@ -1,4 +1,4 @@
 {
   super.onVideoEnableChanged(enabled);
-  callVM.getIsOwnVideoEnabled().change(enabled);
+  callVM.getIsVideoEnabled().change(enabled);
 }
