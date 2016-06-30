@@ -1,9 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  ActionBar actionBar=getSupportActionBar();
-  if (actionBar != null) {
-    actionBar.setTitle(R.string.compose_title);
-  }
   if (savedInstanceState == null) {
     showFragment(new ComposeFragment(),false,false);
   }

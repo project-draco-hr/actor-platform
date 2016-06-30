@@ -1,3 +1,6 @@
 {
   super(true,true,false);
+  setRootFragment(true);
+  setTitle(R.string.compose_title);
+  setHomeAsUp(true);
 }
