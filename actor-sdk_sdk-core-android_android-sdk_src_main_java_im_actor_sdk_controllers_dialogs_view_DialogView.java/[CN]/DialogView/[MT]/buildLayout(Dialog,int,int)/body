@@ -1,9 +1,12 @@
 {
   if (!isStylesLoaded) {
+    isStylesLoaded=true;
     ActorStyle style=ActorSDK.sharedActor().style;
     titlePaint=createTextPaint(Fonts.medium(),16,style.getDialogsTitleColor());
     datePaint=createTextPaint(Fonts.regular(),14,style.getDialogsTimeColor());
     textPaint=createTextPaint(Fonts.regular(),16,style.getDialogsTimeColor());
+    textActivePaint=createTextPaint(Fonts.regular(),16,style.getDialogsActiveTextColor());
+    senderTextColor=style.getDialogsActiveTextColor();
   }
   DialogLayout res=new DialogLayout();
   int maxTitleWidth=(width - Screen.dp(72)) - Screen.dp(8);
@@ -14,21 +17,36 @@
     maxTitleWidth-=dateWidth + Screen.dp(16);
   }
   res.setTitleLayout(singleLineText(arg.getDialogTitle(),titlePaint,maxTitleWidth));
+  int maxWidth=width - Screen.dp(72) - Screen.dp(8);
   if (arg.getSenderId() > 0) {
     String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid());
-    CharSequence contentResult;
     if (arg.getPeer().getPeerType() == PeerType.GROUP) {
       if (messenger().getFormatter().isLargeDialogMessage(arg.getMessageType())) {
-        contentResult=contentText;
+        res.setTextLayout(singleLineText(handleEmoji(contentText),textActivePaint,maxWidth));
       }
  else {
-        contentResult=users().get(arg.getSenderId()).getName().get() + ": " + contentText;
+        String senderName=users().get(arg.getSenderId()).getName().get() + ": ";
+        if (arg.getMessageType() == ContentType.TEXT) {
+          SpannableStringBuilder builder=new SpannableStringBuilder();
+          builder.append(senderName);
+          builder.setSpan(new ForegroundColorSpan(senderTextColor),0,senderName.length(),Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+          builder.append(contentText);
+          res.setTextLayout(singleLineText(builder,textPaint,maxWidth));
+        }
+ else {
+          CharSequence contentResult=handleEmoji(senderName,contentText);
+          res.setTextLayout(singleLineText(contentResult,textActivePaint,maxWidth));
+        }
       }
     }
  else {
-      contentResult=contentText;
+      if (arg.getMessageType() == ContentType.TEXT) {
+        res.setTextLayout(singleLineText(handleEmoji(contentText),textPaint,maxWidth));
+      }
+ else {
+        res.setTextLayout(singleLineText(handleEmoji(contentText),textActivePaint,maxWidth));
+      }
     }
-    res.setTextLayout(singleLineText(contentResult,textPaint,width - Screen.dp(72) - Screen.dp(8)));
   }
   return res;
 }

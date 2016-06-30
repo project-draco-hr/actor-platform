@@ -1,0 +1,17 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  CharSequence seq : args) {
+    if (SmileProcessor.containsEmoji(seq)) {
+      if (emoji().isLoaded()) {
+        builder.append(emoji().processEmojiCompatMutable(seq,SmileProcessor.CONFIGURATION_BUBBLES));
+      }
+ else {
+        builder.append(seq);
+      }
+    }
+ else {
+      builder.append(seq);
+    }
+  }
+  return builder;
+}
