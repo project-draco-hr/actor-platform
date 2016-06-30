@@ -8,16 +8,16 @@
   bottomBar.setOnTabClickListener(new OnTabClickListener(){
     @Override public void onTabSelected(    int position){
       if (position == 0) {
-        getChildFragmentManager().beginTransaction().replace(im.actor.sdk.R.id.content,new EmptyFragment()).commit();
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_fade_in,R.anim.fragment_fade_out).replace(im.actor.sdk.R.id.content,new EmptyFragment()).commit();
       }
  else       if (position == 1) {
-        getChildFragmentManager().beginTransaction().replace(im.actor.sdk.R.id.content,buildDialogsFragment()).commit();
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_fade_in,R.anim.fragment_fade_out).replace(im.actor.sdk.R.id.content,buildDialogsFragment()).commit();
       }
  else       if (position == 2) {
-        getChildFragmentManager().beginTransaction().replace(im.actor.sdk.R.id.content,new ContactsFragment()).commit();
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_fade_in,R.anim.fragment_fade_out).replace(im.actor.sdk.R.id.content,new ContactsFragment()).commit();
       }
  else       if (position == 3) {
-        getChildFragmentManager().beginTransaction().replace(im.actor.sdk.R.id.content,new ActorSettingsFragment()).commit();
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_fade_in,R.anim.fragment_fade_out).replace(im.actor.sdk.R.id.content,new ActorSettingsFragment()).commit();
       }
     }
     @Override public void onTabReSelected(    int position){
