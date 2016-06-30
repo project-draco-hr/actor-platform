@@ -1,3 +1,4 @@
 {
   this.videoTrack=videoTrack;
+  this.stream=stream;
 }

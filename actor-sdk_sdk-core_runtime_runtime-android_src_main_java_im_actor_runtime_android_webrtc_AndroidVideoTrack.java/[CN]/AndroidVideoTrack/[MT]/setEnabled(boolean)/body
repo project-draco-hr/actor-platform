@@ -1,3 +1,5 @@
 {
-  videoTrack.setEnabled(isEnabled);
+  if (stream.getStream().videoTracks.contains(videoTrack)) {
+    videoTrack.setEnabled(isEnabled);
+  }
 }

@@ -1,8 +1,12 @@
 {
-  forwardText=intent.getStringExtra(Intents.EXTRA_FORWARD_TEXT);
-  forwardTextRaw=intent.getStringExtra(Intents.EXTRA_FORWARD_TEXT_RAW);
+  sendUri=intent.getStringExtra("send_uri");
+  sendUriMultiple=intent.getStringArrayListExtra("send_uri_multiple");
+  shareUser=intent.getIntExtra("share_user",0);
+  forwardText=intent.getStringExtra("forward_text");
+  forwardTextRaw=intent.getStringExtra("forward_text_raw");
+  sendText=intent.getStringExtra("send_text");
   try {
-    forwardContent=AbsContent.parse(intent.getByteArrayExtra(Intents.EXTRA_FORWARD_CONTENT));
+    forwardContent=AbsContent.parse(intent.getByteArrayExtra("forward_content"));
   }
  catch (  Exception e) {
   }

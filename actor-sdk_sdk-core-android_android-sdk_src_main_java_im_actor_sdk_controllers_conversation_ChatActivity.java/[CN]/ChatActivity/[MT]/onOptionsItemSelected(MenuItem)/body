@@ -1,2 +1,67 @@
 {
+  keyboardUtils.setImeVisibility(messageEditText,false);
+  messageEditText.clearFocus();
+  int i=item.getItemId();
+  if (i == android.R.id.home) {
+    finish();
+  }
+ else   if (i == R.id.clear) {
+    new AlertDialog.Builder(this).setMessage(R.string.alert_delete_all_messages_text).setPositiveButton(R.string.alert_delete_all_messages_yes,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog,      int which){
+        execute(messenger().clearChat(peer),R.string.progress_common,new CommandCallback<Void>(){
+          @Override public void onResult(          Void res){
+          }
+          @Override public void onError(          Exception e){
+            Toast.makeText(getApplicationContext(),R.string.toast_unable_clear_chat,Toast.LENGTH_LONG).show();
+          }
+        }
+);
+      }
+    }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
+  }
+ else   if (i == R.id.leaveGroup) {
+    new AlertDialog.Builder(this).setMessage(getString(R.string.alert_leave_group_message).replace("%1$s",groups().get(peer.getPeerId()).getName().get())).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
+      @Override public void onClick(      DialogInterface dialog2,      int which){
+        execute(messenger().leaveGroup(peer.getPeerId()),R.string.progress_common,new CommandCallback<Void>(){
+          @Override public void onResult(          Void res){
+          }
+          @Override public void onError(          final Exception e){
+            runOnUiThread(new Runnable(){
+              @Override public void run(){
+                Toast.makeText(getApplicationContext(),R.string.toast_unable_leave,Toast.LENGTH_LONG).show();
+              }
+            }
+);
+          }
+        }
+);
+        finish();
+      }
+    }
+).setNegativeButton(R.string.dialog_cancel,null).show().setCanceledOnTouchOutside(true);
+  }
+ else   if (i == R.id.contact) {
+    ActorSDK.sharedActor().startProfileActivity(ChatActivity.this,peer.getPeerId());
+  }
+ else   if (i == R.id.groupInfo) {
+    ActorSDK.sharedActor().startGroupInfoActivity(ChatActivity.this,peer.getPeerId());
+  }
+ else   if (i == R.id.files) {
+  }
+ else   if (i == R.id.add_to_contacts) {
+    execute(messenger().addContact(peer.getPeerId()));
+  }
+  if (ActorSDK.sharedActor().isCallsEnabled()) {
+    if (item.getItemId() == R.id.call || item.getItemId() == R.id.video_call) {
+      if (ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.MODIFY_AUDIO_SETTINGS) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
+        Log.d("Permissions","call - no permission :c");
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.MODIFY_AUDIO_SETTINGS,Manifest.permission.CAMERA,Manifest.permission.VIBRATE,Manifest.permission.WAKE_LOCK},item.getItemId() == R.id.video_call ? PERMISSIONS_REQUEST_FOR_VIDEO_CALL : PERMISSIONS_REQUEST_FOR_CALL);
+      }
+ else {
+        startCall(item.getItemId() == R.id.video_call);
+      }
+    }
+  }
+  return super.onOptionsItemSelected(item);
 }

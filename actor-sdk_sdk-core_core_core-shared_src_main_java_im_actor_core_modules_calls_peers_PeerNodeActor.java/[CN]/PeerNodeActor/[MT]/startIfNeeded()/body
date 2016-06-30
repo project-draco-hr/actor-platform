@@ -3,14 +3,14 @@
     isStarted=true;
     state=PeerState.ACTIVE;
     callback.onPeerStateChanged(deviceId,state);
-    for (    WebRTCMediaStream mediaStream : theirMediaStreams) {
-      for (      WebRTCMediaTrack track : mediaStream.getAudioTracks()) {
+    if (theirStream != null) {
+      for (      WebRTCMediaTrack track : theirStream.getAudioTracks()) {
         track.setEnabled(isAudioEnabled);
         if (isAudioEnabled) {
           callback.onTrackAdded(deviceId,track);
         }
       }
-      for (      WebRTCMediaTrack track : mediaStream.getVideoTracks()) {
+      for (      WebRTCMediaTrack track : theirStream.getVideoTracks()) {
         track.setEnabled(isVideoEnabled);
         if (isVideoEnabled) {
           callback.onTrackAdded(deviceId,track);
