@@ -3,6 +3,7 @@
   bindedId=-1;
   if (privateTypingListener != null) {
     messenger().getTyping(bindedUid).unsubscribe(privateTypingListener);
+    isPrivateTyping=false;
     privateTypingListener=null;
   }
   if (groupTypingListener != null) {

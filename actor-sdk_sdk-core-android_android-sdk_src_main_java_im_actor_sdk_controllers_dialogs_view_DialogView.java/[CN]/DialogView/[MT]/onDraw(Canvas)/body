@@ -29,23 +29,28 @@
     if (layout.getDate() != null) {
       canvas.drawText(layout.getDate(),getWidth() - Screen.dp(16) - layout.getDateWidth(),Screen.dp(26),datePaint);
     }
-    if (layout.getTextLayout() != null) {
-      canvas.save();
-      canvas.translate(Screen.dp(72),Screen.dp(42));
-      layout.getTextLayout().draw(canvas);
-      canvas.restore();
+    if (isPrivateTyping) {
+      canvas.drawText(typingText,Screen.dp(72),Screen.dp(60),textActivePaint);
     }
-    if (layout.getCounter() != null) {
-      int left=getWidth() - Screen.sp(12) - layout.getCounterWidth();
-      int top=Screen.dp(39);
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        canvas.drawRoundRect(left,top,left + layout.getCounterWidth(),top + Screen.dp(22),Screen.dp(11),Screen.dp(11),counterBgPaint);
-      }
  else {
-        tmpRect.set(left,top,left + layout.getCounterWidth(),top + Screen.dp(22));
-        canvas.drawRoundRect(tmpRect,Screen.dp(11),Screen.dp(11),counterBgPaint);
+      if (layout.getTextLayout() != null) {
+        canvas.save();
+        canvas.translate(Screen.dp(72),Screen.dp(42));
+        layout.getTextLayout().draw(canvas);
+        canvas.restore();
       }
-      canvas.drawText(layout.getCounter(),left + layout.getCounterWidth() / 2,top + Screen.dp(16),counterTextPaint);
+      if (layout.getCounter() != null) {
+        int left=getWidth() - Screen.sp(12) - layout.getCounterWidth();
+        int top=Screen.dp(39);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+          canvas.drawRoundRect(left,top,left + layout.getCounterWidth(),top + Screen.dp(22),Screen.dp(11),Screen.dp(11),counterBgPaint);
+        }
+ else {
+          tmpRect.set(left,top,left + layout.getCounterWidth(),top + Screen.dp(22));
+          canvas.drawRoundRect(tmpRect,Screen.dp(11),Screen.dp(11),counterBgPaint);
+        }
+        canvas.drawText(layout.getCounter(),left + layout.getCounterWidth() / 2,top + Screen.dp(16),counterTextPaint);
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
   if (!isStylesLoaded) {
     isStylesLoaded=true;
     ActorStyle style=ActorSDK.sharedActor().style;
-    Context context=AndroidContext.getContext();
+    Context context=getContext();
     titlePaint=createTextPaint(Fonts.medium(),16,style.getDialogsTitleColor());
     datePaint=createTextPaint(Fonts.regular(),14,style.getDialogsTimeColor());
     textPaint=createTextPaint(Fonts.regular(),16,style.getDialogsTimeColor());
@@ -21,6 +21,7 @@
     avatarBorder.setStrokeWidth(1);
     avatarTextColor=createTextPaint(Fonts.regular(),20,Color.WHITE);
     avatarTextColor.setTextAlign(Paint.Align.CENTER);
+    typingText=context.getResources().getString(R.string.typing_private);
   }
   DialogLayout res=new DialogLayout();
   res.setPlaceholderIndex(Math.abs(arg.getPeer().getPeerId()) % placeholderColors.length);
