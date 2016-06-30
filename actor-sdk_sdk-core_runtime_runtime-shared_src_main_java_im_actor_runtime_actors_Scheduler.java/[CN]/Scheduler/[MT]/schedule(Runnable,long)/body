@@ -2,7 +2,7 @@
   if (LOG) {
     Log.d(TAG,"schedule " + ref.getPath());
   }
-  final TaskCancellable res=new TaskCancellable();
+  final TaskActorCancellable res=new TaskActorCancellable();
   res.setDispatchCancel(destDispatcher.dispatch(new Runnable(){
     @Override public void run(){
       if (res.isCancelled()) {

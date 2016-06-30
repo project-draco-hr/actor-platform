@@ -29,7 +29,7 @@
   if (!groupCancellables.containsKey(gid)) {
     groupCancellables.put(gid,new HashMap<>());
   }
-  HashMap<Integer,Cancellable> cancellables=groupCancellables.get(gid);
+  HashMap<Integer,ActorCancellable> cancellables=groupCancellables.get(gid);
   if (cancellables.containsKey(uid)) {
     cancellables.remove(uid).cancel();
   }
