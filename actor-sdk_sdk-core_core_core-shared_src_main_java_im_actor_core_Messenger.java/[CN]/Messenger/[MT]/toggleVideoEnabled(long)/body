@@ -1,5 +1,5 @@
 {
-  if (modules.getCallsModule().getCall(callId).getIsVideoEnabled().get()) {
+  if (modules.getCallsModule().getCall(callId).getIsOwnVideoEnabled().get()) {
     modules.getCallsModule().disableVideo(callId);
   }
  else {

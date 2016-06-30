@@ -1,4 +1,4 @@
 {
   super.onAudioEnableChanged(enabled);
-  callVM.getIsAudioEnabled().change(enabled);
+  callVM.getIsOwnAudioEnabled().change(enabled);
 }

@@ -1,5 +1,5 @@
 {
-  if (modules.getCallsModule().getCall(callId).getIsAudioEnabled().get()) {
+  if (modules.getCallsModule().getCall(callId).getIsOwnAudioEnabled().get()) {
     modules.getCallsModule().muteCall(callId);
   }
  else {

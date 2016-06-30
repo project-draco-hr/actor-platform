@@ -2,15 +2,13 @@
   if (this.isAudioEnabled != isAudioEnabled) {
     this.isAudioEnabled=isAudioEnabled;
     if (isStarted) {
-      for (      WebRTCMediaStream stream : theirMediaStreams) {
-        for (        WebRTCMediaTrack track : stream.getAudioTracks()) {
-          track.setEnabled(isAudioEnabled);
-          if (isAudioEnabled) {
-            callback.onTrackAdded(deviceId,track);
-          }
+      for (      WebRTCMediaTrack track : theirStream.getAudioTracks()) {
+        track.setEnabled(isAudioEnabled);
+        if (isAudioEnabled) {
+          callback.onTrackAdded(deviceId,track);
+        }
  else {
-            callback.onTrackRemoved(deviceId,track);
-          }
+          callback.onTrackRemoved(deviceId,track);
         }
       }
     }
@@ -18,15 +16,13 @@
   if (this.isVideoEnabled != isVideoEnabled) {
     this.isVideoEnabled=isVideoEnabled;
     if (isStarted) {
-      for (      WebRTCMediaStream stream : theirMediaStreams) {
-        for (        WebRTCMediaTrack track : stream.getVideoTracks()) {
-          track.setEnabled(isVideoEnabled);
-          if (isVideoEnabled) {
-            callback.onTrackAdded(deviceId,track);
-          }
+      for (      WebRTCMediaTrack track : theirStream.getVideoTracks()) {
+        track.setEnabled(isVideoEnabled);
+        if (isVideoEnabled) {
+          callback.onTrackAdded(deviceId,track);
+        }
  else {
-            callback.onTrackRemoved(deviceId,track);
-          }
+          callback.onTrackRemoved(deviceId,track);
         }
       }
     }

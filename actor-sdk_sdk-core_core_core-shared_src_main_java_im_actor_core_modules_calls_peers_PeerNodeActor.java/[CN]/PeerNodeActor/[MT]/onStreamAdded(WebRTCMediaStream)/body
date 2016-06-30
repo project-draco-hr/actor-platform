@@ -1,5 +1,6 @@
 {
-  theirMediaStreams.add(stream);
+  WebRTCMediaStream oldStream=theirStream;
+  theirStream=stream;
   if (isStarted) {
     for (    WebRTCMediaTrack track : stream.getAudioTracks()) {
       track.setEnabled(isAudioEnabled);
@@ -11,6 +12,14 @@
       track.setEnabled(isVideoEnabled);
       if (isVideoEnabled) {
         callback.onTrackAdded(deviceId,track);
+      }
+    }
+    if (oldStream != null) {
+      for (      WebRTCMediaTrack track : oldStream.getVideoTracks()) {
+        callback.onTrackRemoved(deviceId,track);
+      }
+      for (      WebRTCMediaTrack track : oldStream.getAudioTracks()) {
+        callback.onTrackRemoved(deviceId,track);
       }
     }
   }
