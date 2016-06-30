@@ -1,0 +1,9 @@
+{
+  super.layoutReady(res);
+  if (res.getImageRequest() != null) {
+    draweeHolder.setController(Fresco.newDraweeControllerBuilder().setImageRequest(res.getImageRequest()).setOldController(draweeHolder.getController()).build());
+  }
+ else {
+    draweeHolder.setController(Fresco.newDraweeControllerBuilder().setOldController(draweeHolder.getController()).build());
+  }
+}

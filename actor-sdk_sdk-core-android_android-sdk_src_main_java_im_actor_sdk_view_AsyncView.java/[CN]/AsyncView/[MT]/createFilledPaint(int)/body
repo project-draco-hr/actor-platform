@@ -1,0 +1,6 @@
+{
+  Paint res=new Paint(Paint.ANTI_ALIAS_FLAG);
+  res.setColor(color);
+  res.setStyle(Paint.Style.FILL);
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  if (who == draweeHolder.getTopLevelDrawable()) {
+    return true;
+  }
+  return super.verifyDrawable(who);
+}

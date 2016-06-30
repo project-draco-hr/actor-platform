@@ -1,3 +1,4 @@
 {
   this.bindedItem=null;
+  this.dialogView.unbind();
 }

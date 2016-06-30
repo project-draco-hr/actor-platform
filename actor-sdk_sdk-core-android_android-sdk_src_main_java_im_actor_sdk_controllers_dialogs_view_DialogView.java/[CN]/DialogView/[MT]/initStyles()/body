@@ -1,4 +1,7 @@
 {
+  GenericDraweeHierarchy hierarchy=new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setRoundingParams(new RoundingParams().setRoundAsCircle(true).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
+  draweeHolder=DraweeHolder.create(hierarchy,getContext());
+  draweeHolder.getTopLevelDrawable().setCallback(this);
   setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));
   setDividerPaddingLeft(Screen.dp(72));
 }

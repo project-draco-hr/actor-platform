@@ -1,5 +1,2 @@
 {
-  if (bottomBar != null) {
-    bottomBar.hide();
-  }
 }

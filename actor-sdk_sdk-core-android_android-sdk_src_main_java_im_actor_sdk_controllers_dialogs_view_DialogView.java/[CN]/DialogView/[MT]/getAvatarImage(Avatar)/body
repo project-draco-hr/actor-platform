@@ -1,0 +1,3 @@
+{
+  return Screen.dp(52) >= 100 ? avatar.getLargeImage() : avatar.getSmallImage();
+}

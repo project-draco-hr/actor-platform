@@ -2,8 +2,28 @@
   super.onDraw(canvas);
   DialogLayout layout=getLayout();
   if (layout != null) {
+    fillPaint.setColor(placeholderColors[layout.getPlaceholderIndex()]);
+    if (layout.getImageRequest() != null) {
+      Drawable drawable=draweeHolder.getTopLevelDrawable();
+      drawable.setBounds(Screen.dp(12),Screen.dp(12),Screen.dp(60),Screen.dp(60));
+      drawable.draw(canvas);
+    }
+ else {
+      canvas.drawCircle(Screen.dp(36),Screen.dp(36),Screen.dp(24),fillPaint);
+      canvas.drawText(layout.getShortName(),0,layout.getShortName().length(),Screen.dp(36),Screen.dp(44),avatarTextColor);
+    }
+    canvas.drawCircle(Screen.dp(36),Screen.dp(36),Screen.dp(24),avatarBorder);
+    if (layout.getTitleIcon() != null) {
+      layout.getTitleIcon().setBounds(Screen.sp(72),Screen.sp(16),Screen.dp(72 + 16),Screen.dp(16 + 10));
+      layout.getTitleIcon().draw(canvas);
+    }
     canvas.save();
-    canvas.translate(Screen.dp(72),Screen.dp(12));
+    if (layout.getTitleIcon() == null) {
+      canvas.translate(Screen.dp(72),Screen.dp(12));
+    }
+ else {
+      canvas.translate(Screen.dp(72 + 16 + 4),Screen.dp(12));
+    }
     layout.getTitleLayout().draw(canvas);
     canvas.restore();
     if (layout.getDate() != null) {
@@ -14,6 +34,18 @@
       canvas.translate(Screen.dp(72),Screen.dp(42));
       layout.getTextLayout().draw(canvas);
       canvas.restore();
+    }
+    if (layout.getCounter() != null) {
+      int left=getWidth() - Screen.sp(12) - layout.getCounterWidth();
+      int top=Screen.dp(39);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        canvas.drawRoundRect(left,top,left + layout.getCounterWidth(),top + Screen.dp(22),Screen.dp(11),Screen.dp(11),counterBgPaint);
+      }
+ else {
+        tmpRect.set(left,top,left + layout.getCounterWidth(),top + Screen.dp(22));
+        canvas.drawRoundRect(tmpRect,Screen.dp(11),Screen.dp(11),counterBgPaint);
+      }
+      canvas.drawText(layout.getCounter(),left + layout.getCounterWidth() / 2,top + Screen.dp(16),counterTextPaint);
     }
   }
 }

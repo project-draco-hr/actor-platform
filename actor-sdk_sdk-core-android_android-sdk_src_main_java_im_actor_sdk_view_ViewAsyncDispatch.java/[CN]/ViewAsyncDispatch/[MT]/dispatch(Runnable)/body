@@ -1,2 +1,5 @@
 {
+  CancellableSimple res=new CancellableSimple();
+  dispatch(res,runnable);
+  return res;
 }

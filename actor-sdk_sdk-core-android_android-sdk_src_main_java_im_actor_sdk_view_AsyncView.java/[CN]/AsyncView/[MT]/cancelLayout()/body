@@ -1,7 +1,7 @@
 {
   this.currentObject=null;
-  if (currentLayouting != null) {
-    currentLayouting.cancel();
-    currentLayouting=null;
+  if (currentLayoutingContext != null) {
+    currentLayoutingContext.cancel();
+    currentLayoutingContext=null;
   }
 }

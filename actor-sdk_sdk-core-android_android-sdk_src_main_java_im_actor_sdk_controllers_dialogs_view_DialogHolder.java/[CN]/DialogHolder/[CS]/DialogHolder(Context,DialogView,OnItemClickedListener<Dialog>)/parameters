@@ -1,3 +1,0 @@
-Context context
-DialogView dialogView
-OnItemClickedListener<Dialog> onClickListener

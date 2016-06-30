@@ -2,13 +2,59 @@
   if (!isStylesLoaded) {
     isStylesLoaded=true;
     ActorStyle style=ActorSDK.sharedActor().style;
+    Context context=AndroidContext.getContext();
     titlePaint=createTextPaint(Fonts.medium(),16,style.getDialogsTitleColor());
     datePaint=createTextPaint(Fonts.regular(),14,style.getDialogsTimeColor());
     textPaint=createTextPaint(Fonts.regular(),16,style.getDialogsTimeColor());
     textActivePaint=createTextPaint(Fonts.regular(),16,style.getDialogsActiveTextColor());
     senderTextColor=style.getDialogsActiveTextColor();
+    groupIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.dialogs_group),style.getDialogsTitleColor());
+    counterTextPaint=createTextPaint(Fonts.medium(),14,style.getDialogsCounterTextColor());
+    counterTextPaint.setTextAlign(Paint.Align.CENTER);
+    counterBgPaint=createFilledPaint(style.getDialogsCounterBackgroundColor());
+    fillPaint=createFilledPaint(Color.BLACK);
+    placeholderColors=new int[]{context.getResources().getColor(R.color.placeholder_0),context.getResources().getColor(R.color.placeholder_1),context.getResources().getColor(R.color.placeholder_2),context.getResources().getColor(R.color.placeholder_3),context.getResources().getColor(R.color.placeholder_4),context.getResources().getColor(R.color.placeholder_5),context.getResources().getColor(R.color.placeholder_6)};
+    avatarBorder=new Paint();
+    avatarBorder.setStyle(Paint.Style.STROKE);
+    avatarBorder.setAntiAlias(true);
+    avatarBorder.setColor(0x19000000);
+    avatarBorder.setStrokeWidth(1);
+    avatarTextColor=createTextPaint(Fonts.regular(),20,Color.WHITE);
+    avatarTextColor.setTextAlign(Paint.Align.CENTER);
   }
   DialogLayout res=new DialogLayout();
+  res.setPlaceholderIndex(Math.abs(arg.getPeer().getPeerId()) % placeholderColors.length);
+  res.setShortName(buildShortName(arg.getDialogTitle()));
+  if (arg.getDialogAvatar() != null) {
+    AvatarImage image=getAvatarImage(arg.getDialogAvatar());
+    if (image != null) {
+      String desc=messenger().findDownloadedDescriptor(image.getFileReference().getFileId());
+      if (desc != null) {
+        ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(desc))).setResizeOptions(new ResizeOptions(Screen.dp(52),Screen.dp(52))).build();
+        res.setImageRequest(request);
+      }
+ else {
+        InvalidationContext invalidationContext=getCurrentLayoutContext();
+        messenger().bindRawFile(image.getFileReference(),true,new FileCallback(){
+          @Override public void onNotDownloaded(){
+            if (invalidationContext.isCancelled()) {
+              messenger().unbindRawFile(image.getFileReference().getFileId(),false,this);
+            }
+          }
+          @Override public void onDownloading(          float progress){
+            if (invalidationContext.isCancelled()) {
+              messenger().unbindRawFile(image.getFileReference().getFileId(),false,this);
+            }
+          }
+          @Override public void onDownloaded(          FileSystemReference reference){
+            messenger().unbindRawFile(image.getFileReference().getFileId(),false,this);
+            invalidationContext.invalidate();
+          }
+        }
+);
+      }
+    }
+  }
   int maxTitleWidth=(width - Screen.dp(72)) - Screen.dp(8);
   if (arg.getDate() > 0) {
     String dateText=messenger().getFormatter().formatShortDate(arg.getDate());
@@ -16,8 +62,19 @@
     res.setDate(dateText,dateWidth);
     maxTitleWidth-=dateWidth + Screen.dp(16);
   }
+  if (arg.getPeer().getPeerType() == PeerType.GROUP) {
+    res.setTitleIcon(groupIcon);
+    maxTitleWidth-=Screen.dp(16 + 4);
+  }
   res.setTitleLayout(singleLineText(arg.getDialogTitle(),titlePaint,maxTitleWidth));
   int maxWidth=width - Screen.dp(72) - Screen.dp(8);
+  if (arg.getUnreadCount() > 0) {
+    String counterText="" + arg.getUnreadCount();
+    int counterWidth=(int)counterTextPaint.measureText(counterText) + Screen.sp(10);
+    counterWidth=Math.max(counterWidth,Screen.dp(22));
+    res.setCounter(counterText,counterWidth);
+    maxWidth-=counterWidth + Screen.dp(8);
+  }
   if (arg.getSenderId() > 0) {
     String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid());
     if (arg.getPeer().getPeerType() == PeerType.GROUP) {

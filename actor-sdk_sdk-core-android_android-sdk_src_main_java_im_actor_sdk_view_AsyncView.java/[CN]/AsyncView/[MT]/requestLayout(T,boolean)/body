@@ -1,0 +1,14 @@
+{
+  if (clearOld) {
+    this.currentLayout=null;
+  }
+  this.currentObject=arg;
+  if (currentLayoutingContext != null) {
+    currentLayoutingContext.cancel();
+    currentLayoutingContext=null;
+  }
+  invalidate();
+  if (isMeasured) {
+    startLayout();
+  }
+}

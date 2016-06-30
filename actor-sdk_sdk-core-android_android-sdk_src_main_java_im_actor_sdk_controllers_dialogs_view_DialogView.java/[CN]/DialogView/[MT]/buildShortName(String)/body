@@ -1,0 +1,21 @@
+{
+  if (name == null) {
+    name="?";
+  }
+ else   if (name.length() == 0) {
+    name="?";
+  }
+ else {
+    String[] parts=name.trim().split(" ",2);
+    if (parts.length == 0 || parts[0].length() == 0) {
+      name="?";
+    }
+ else {
+      name=parts[0].substring(0,1).toUpperCase();
+      if (parts.length == 2 && parts[1].length() > 0) {
+        name+=parts[1].substring(0,1).toUpperCase();
+      }
+    }
+  }
+  return handleEmoji(name);
+}
