@@ -2,57 +2,30 @@
   return new BaseActorSettingsActivity(){
     @Override public BaseActorSettingsFragment getSettingsFragment(){
       return new BaseActorSettingsFragment(){
-        @Override public View getBeforeNickSettingsView(){
-          return null;
+        CheckBox blablaCheckBox;
+        @Override public View onCreateView(        LayoutInflater inflater,        ViewGroup container,        Bundle savedInstanceState){
+          blablaCheckBox=new CheckBox(getContext());
+          return super.onCreateView(inflater,container,savedInstanceState);
         }
-        @Override public View getAfterPhoneSettingsView(){
-          return null;
+        @Override public ActorSettingsCategories getBeforeSettingsCategories(){
+          return new ActorSettingsCategories().addCategory(new ActorSettingsCategory("azaza").addField(new ActorSettingsField(R.id.terminateSessions).setName("blabla").setIconResourceId(R.drawable.ic_edit_black_24dp).setRightView(blablaCheckBox)));
         }
-        @Override public View getSettingsTopView(){
-          return null;
-        }
-        @Override public View getSettingsBottomView(){
-          return null;
-        }
-        @Override public boolean showWallpaperCategory(){
-          return true;
-        }
-        @Override public boolean showAskQuestion(){
-          return true;
-        }
-        @Override public ActorSettingsCategory[] getBeforeSettingsCategories(){
-          return new ActorSettingsCategory[]{new ActorSettingsCategory(){
-            @Override public String getCategoryName(){
-              return "test";
-            }
-            @Override public ActorSettingsField[] getFields(){
-              final CheckBox chb=new CheckBox(getContext());
-              ActorSettingsField field=new ActorSettingsField(){
-                @Override public View getRightView(){
-                  return chb;
-                }
-                @Override public String getName(){
-                  return "azazaz";
-                }
-              }
-;
-              field.setOnClickListener(new View.OnClickListener(){
-                @Override public void onClick(                View v){
-                  chb.setChecked(!chb.isChecked());
-                }
-              }
-);
-              return new ActorSettingsField[]{field};
-            }
-          }
-};
-        }
-        @Override public ActorSettingsCategory[] getAfterSettingsCategories(){
-          return new ActorSettingsCategory[0];
+        @Override public View.OnClickListener getMenuFieldOnClickListener(){
+          return new View.OnClickListener(){
+            @Override public void onClick(            View v){
+switch (v.getId()) {
+case R.id.terminateSessions:
+                Toast.makeText(v.getContext(),"hey",Toast.LENGTH_LONG).show();
+              blablaCheckBox.toggle();
+            break;
         }
       }
-;
     }
+;
   }
+}
+;
+}
+}
 ;
 }

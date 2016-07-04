@@ -1,0 +1,4 @@
+{
+  this.rightViewWidth=rightViewWidth;
+  return this;
+}

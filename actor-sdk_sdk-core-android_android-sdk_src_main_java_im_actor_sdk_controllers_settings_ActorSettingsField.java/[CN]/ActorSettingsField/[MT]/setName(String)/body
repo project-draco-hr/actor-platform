@@ -1,7 +1,4 @@
 {
   this.name=name;
-  if (nameTextView != null) {
-    nameTextView.setText(name);
-  }
   return this;
 }

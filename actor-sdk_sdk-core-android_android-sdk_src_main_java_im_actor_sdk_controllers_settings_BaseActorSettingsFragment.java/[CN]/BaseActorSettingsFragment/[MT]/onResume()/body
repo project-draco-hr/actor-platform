@@ -1,3 +1,6 @@
 {
   super.onResume();
+  if (wallpaperAdapter != null) {
+    ((WallpapersAdapter)wallpaperAdapter.getWrappedAdapter()).setSelected(getActivity().getSharedPreferences("wallpaper",Context.MODE_PRIVATE).getInt("wallpaper",0));
+  }
 }

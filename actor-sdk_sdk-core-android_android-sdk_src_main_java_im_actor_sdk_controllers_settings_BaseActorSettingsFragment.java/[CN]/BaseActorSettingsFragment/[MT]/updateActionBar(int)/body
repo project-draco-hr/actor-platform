@@ -1,5 +1,4 @@
 {
-  avatarView.setOffset(offset);
   ActionBar bar=((BaseActivity)getActivity()).getSupportActionBar();
   int fullColor=baseColor;
   ActorStyle style=ActorSDK.sharedActor().style;

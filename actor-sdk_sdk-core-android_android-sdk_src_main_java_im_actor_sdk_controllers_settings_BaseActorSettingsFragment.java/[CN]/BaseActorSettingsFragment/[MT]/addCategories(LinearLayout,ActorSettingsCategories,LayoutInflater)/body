@@ -1,0 +1,24 @@
+{
+  for (  ActorSettingsCategory category : categories) {
+    LinearLayout categoryContainer=(LinearLayout)inflater.inflate(R.layout.actor_settings_category,null);
+    FrameLayout settingsContainer=(FrameLayout)categoryContainer.findViewById(R.id.settings_container);
+    TextView categoryName=(TextView)categoryContainer.findViewById(R.id.category_name);
+    categoryName.setTextColor(ActorSDK.sharedActor().style.getSettingsCategoryTextColor());
+    TintImageView icon=(TintImageView)categoryContainer.findViewById(R.id.icon);
+    icon.setTint(ActorSDK.sharedActor().style.getSettingsIconColor());
+    if (category.getIconResourceId() != 0) {
+      icon.setResource(category.getIconResourceId());
+      if (category.getIconColor() != -1) {
+        icon.setTint(category.getIconColor());
+      }
+    }
+ else {
+      icon.setVisibility(View.INVISIBLE);
+    }
+    categoryName.setText(category.getText());
+    if (category.getFields() != null) {
+      addFields(settingsContainer,category.getFields(),inflater);
+    }
+    container.addView(categoryContainer,FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+  }
+}

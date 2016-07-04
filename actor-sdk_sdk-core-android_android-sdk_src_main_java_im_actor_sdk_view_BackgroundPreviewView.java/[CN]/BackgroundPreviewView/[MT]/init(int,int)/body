@@ -1,7 +1,3 @@
 {
-  this.width=width;
-  this.height=height;
-  GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(getResources());
-  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).build();
-  setHierarchy(hierarchy);
+  init(width,height,0);
 }
