@@ -1,0 +1,4 @@
+{
+  this.iconColor=iconColor;
+  return this;
+}

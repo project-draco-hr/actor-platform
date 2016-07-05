@@ -1,0 +1,7 @@
+{
+  this.width=width;
+  this.height=height;
+  GenericDraweeHierarchyBuilder builder=new GenericDraweeHierarchyBuilder(getResources());
+  GenericDraweeHierarchy hierarchy=builder.setFadeDuration(200).setRoundingParams(new RoundingParams().setCornersRadius(corenerRadius).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
+  setHierarchy(hierarchy);
+}

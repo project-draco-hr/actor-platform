@@ -1,0 +1,3 @@
+{
+  return ActorSDK.sharedActor().style.getDefaultBackgrouds().length;
+}
