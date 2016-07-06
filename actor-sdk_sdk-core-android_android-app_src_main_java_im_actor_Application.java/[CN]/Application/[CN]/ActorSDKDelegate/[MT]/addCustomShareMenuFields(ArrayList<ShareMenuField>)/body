@@ -1,5 +1,4 @@
 {
-  ArrayList<ShareMenuField> shareMenuFields=new ArrayList<>();
   shareMenuFields.add(new ShareMenuField(R.drawable.conv_location_icon,ActorSDK.sharedActor().style.getAccentColor(),"lol",new View.OnClickListener(){
     @Override public void onClick(    View v){
       Toast.makeText(v.getContext(),"Hey",Toast.LENGTH_LONG).show();
@@ -24,5 +23,4 @@
     }
   }
 ));
-  return shareMenuFields;
 }
