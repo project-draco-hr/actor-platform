@@ -29,7 +29,7 @@
   barView.findViewById(R.id.titleContainer).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (peer.getPeerType() == PeerType.PRIVATE) {
-        ActorSDK.sharedActor().startProfileActivity(ChatActivity.this,peer.getPeerId());
+        ActorSDKLauncher.startProfileActivity(ChatActivity.this,peer.getPeerId());
       }
  else       if (peer.getPeerType() == PeerType.GROUP) {
         ActorSDK.sharedActor().startGroupInfoActivity(ChatActivity.this,peer.getPeerId());

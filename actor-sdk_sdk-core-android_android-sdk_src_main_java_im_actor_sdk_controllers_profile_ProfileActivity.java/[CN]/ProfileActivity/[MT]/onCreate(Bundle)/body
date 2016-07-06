@@ -1,16 +1,17 @@
 {
   super.onCreate(savedInstanceState);
-  getSupportActionBar().setDisplayShowHomeEnabled(false);
-  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-  getSupportActionBar().setDisplayShowTitleEnabled(false);
-  getSupportActionBar().setDisplayShowCustomEnabled(false);
-  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-  getSupportActionBar().setTitle(null);
-  uid=getIntent().getIntExtra(Intents.EXTRA_UID,0);
-  try {
-    if (uid == 0) {
+  int uid=getIntent().getIntExtra(Intents.EXTRA_UID,0);
+  if (uid == 0) {
+    try {
       uid=Integer.parseInt(getIntent().getData().getPath().replace(")","").split("/")[2]);
     }
+ catch (    Exception e) {
+      Toast.makeText(this,getString(R.string.profile_cant_find_user),Toast.LENGTH_SHORT).show();
+      finish();
+      return;
+    }
+  }
+  try {
     users().get(uid);
   }
  catch (  Exception e) {
@@ -19,12 +20,8 @@
     return;
   }
   if (savedInstanceState == null) {
-    ProfileFragment fragment;
-    BaseActorProfileActivity profileIntent=ActorSDK.sharedActor().getDelegate().getProfileIntent(uid);
-    if (profileIntent != null) {
-      fragment=profileIntent.getProfileFragment(uid);
-    }
- else {
+    Fragment fragment=ActorSDK.sharedActor().getDelegate().fragmentForProfile(uid);
+    if (fragment == null) {
       fragment=ProfileFragment.create(uid);
     }
     showFragment(fragment,false,false);

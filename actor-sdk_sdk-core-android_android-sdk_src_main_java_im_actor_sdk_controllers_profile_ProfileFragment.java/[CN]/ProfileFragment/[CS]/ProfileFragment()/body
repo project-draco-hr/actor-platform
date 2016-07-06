@@ -1,0 +1,5 @@
+{
+  setRootFragment(true);
+  setHomeAsUp(true);
+  setTitle(null);
+}

@@ -163,7 +163,7 @@
               }
             }
  else             if (which == 2) {
-              ActorSDK.sharedActor().startProfileActivity(getActivity(),userVM.getId());
+              ActorSDKLauncher.startProfileActivity(getActivity(),userVM.getId());
             }
  else             if (which == 3) {
               new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_group_remove_text).replace("{0}",userVM.getName().get())).setPositiveButton(R.string.alert_group_remove_yes,new DialogInterface.OnClickListener(){
