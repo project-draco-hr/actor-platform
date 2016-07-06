@@ -1,6 +1,7 @@
 {
   super.onCreate(savedInstanceState);
-  int chatId=getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0);
+  chatId=getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0);
+  groupInfo=groups().get(chatId);
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
   getSupportActionBar().setTitle(null);
   if (savedInstanceState == null) {

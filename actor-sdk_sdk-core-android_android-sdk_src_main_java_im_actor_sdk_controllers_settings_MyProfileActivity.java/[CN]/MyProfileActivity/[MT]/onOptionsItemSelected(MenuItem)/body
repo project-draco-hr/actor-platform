@@ -1,10 +1,10 @@
 {
   if (item.getItemId() == R.id.editProfile) {
-    startActivity(Intents.editMyName(getActivity()));
+    startActivity(Intents.editMyName(this));
     return true;
   }
  else   if (item.getItemId() == R.id.changePhoto) {
-    startActivity(ViewAvatarActivity.viewAvatar(myUid(),getActivity()));
+    startActivity(ViewAvatarActivity.viewAvatar(myUid(),this));
     return true;
   }
   return super.onOptionsItemSelected(item);
