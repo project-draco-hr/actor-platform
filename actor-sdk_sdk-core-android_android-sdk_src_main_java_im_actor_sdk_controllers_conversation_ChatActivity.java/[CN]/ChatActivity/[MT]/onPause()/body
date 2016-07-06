@@ -3,4 +3,5 @@
   voiceRecordActor.send(PoisonPill.INSTANCE);
   AudioHolder.stopPlaying();
   messenger().saveDraft(peer,messageEditText.getText().toString());
+  messenger().getGalleryScannerActor().send(new GalleryScannerActor.Hide());
 }

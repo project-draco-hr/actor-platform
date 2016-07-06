@@ -97,4 +97,7 @@
 );
     checkEmptyBot();
   }
+  if (isShareVisible) {
+    messenger().getGalleryScannerActor().send(new GalleryScannerActor.Show());
+  }
 }

@@ -1,6 +1,6 @@
 {
   try {
-    return context.getContentResolver().query(uri,projection,null,null,MediaStore.MediaColumns.DATE_MODIFIED + " DESC");
+    return context.getContentResolver().query(uri,projection,null,null,MediaStore.Images.Media.DATE_TAKEN + " DESC");
   }
  catch (  Exception e) {
     return null;
