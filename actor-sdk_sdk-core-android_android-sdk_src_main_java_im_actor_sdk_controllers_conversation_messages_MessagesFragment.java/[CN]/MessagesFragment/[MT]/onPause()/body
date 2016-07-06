@@ -1,0 +1,6 @@
+{
+  super.onPause();
+  if (isPrimaryMode) {
+    messenger().onConversationClosed(peer);
+  }
+}

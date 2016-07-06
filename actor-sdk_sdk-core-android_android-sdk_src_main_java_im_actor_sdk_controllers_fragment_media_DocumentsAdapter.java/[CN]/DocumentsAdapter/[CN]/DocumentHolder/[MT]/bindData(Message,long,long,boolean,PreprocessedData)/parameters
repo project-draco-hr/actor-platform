@@ -1,5 +1,0 @@
-Message message
-long readDate
-long receiveDate
-boolean isUpdated
-PreprocessedData preprocessedData

@@ -1,0 +1,37 @@
+{
+  if (!isPrimaryMode) {
+    return;
+  }
+  BindedDisplayList<Message> list=getDisplayList();
+  firstUnread=conversationVM.getLastMessageDate();
+  if (isUnreadLoaded) {
+    return;
+  }
+  if (list.getSize() == 0) {
+    return;
+  }
+  isUnreadLoaded=true;
+  if (firstUnread == 0) {
+    return;
+  }
+  int index=-1;
+  long unread=-1;
+  for (int i=list.getSize() - 1; i >= 0; i--) {
+    Message message=list.getItem(i);
+    if (message.getSenderId() == messenger().myUid()) {
+      continue;
+    }
+    if (message.getSortDate() > firstUnread) {
+      index=i;
+      unread=message.getRid();
+      break;
+    }
+  }
+  if (index >= 0) {
+    scrollToUnread(unread,index);
+  }
+ else {
+    scrollToUnread(0,0);
+  }
+  checkBotEmptyView();
+}

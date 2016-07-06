@@ -1,0 +1,7 @@
+{
+  MessagesDefaultFragment res=new MessagesDefaultFragment();
+  Bundle bundle=new Bundle();
+  bundle.putByteArray("EXTRA_PEER",peer.toByteArray());
+  res.setArguments(bundle);
+  return res;
+}

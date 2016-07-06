@@ -1,7 +1,0 @@
-{
-  BindedDisplayList<Message> res=messenger().getDocsDisplayList(peer);
-  if (res.getListProcessor() == null) {
-    res.setListProcessor(new ChatListProcessor(peer,getContext()));
-  }
-  return res;
-}

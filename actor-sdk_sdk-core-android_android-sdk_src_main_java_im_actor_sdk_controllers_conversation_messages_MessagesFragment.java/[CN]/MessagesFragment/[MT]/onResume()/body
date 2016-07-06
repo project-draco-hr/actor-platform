@@ -1,0 +1,7 @@
+{
+  super.onResume();
+  if (isPrimaryMode) {
+    messenger().onConversationOpen(peer);
+  }
+  checkBotEmptyView();
+}

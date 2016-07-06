@@ -1,0 +1,14 @@
+{
+  if (messagesAdapter != null) {
+    messagesAdapter.setFirstUnread(unreadId);
+  }
+  if (getCollection() != null) {
+    if (index > 0 && layoutManager != null) {
+      layoutManager.setStackFromEnd(false);
+      layoutManager.scrollToPositionWithOffset(index + 1,Screen.dp(64));
+    }
+ else {
+      getCollection().scrollToPosition(0);
+    }
+  }
+}

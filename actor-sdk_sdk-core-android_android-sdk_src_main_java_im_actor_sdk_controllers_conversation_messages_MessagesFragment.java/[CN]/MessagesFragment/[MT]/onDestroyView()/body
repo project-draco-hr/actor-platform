@@ -1,0 +1,7 @@
+{
+  super.onDestroyView();
+  if (messagesAdapter != null) {
+    messagesAdapter.getBinder().unbindAll();
+    messagesAdapter=null;
+  }
+}

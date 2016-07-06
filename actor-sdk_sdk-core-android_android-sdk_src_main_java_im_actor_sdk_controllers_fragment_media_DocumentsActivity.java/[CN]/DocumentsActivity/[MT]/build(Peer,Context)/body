@@ -1,5 +1,0 @@
-{
-  final Intent intent=new Intent(context,DocumentsActivity.class);
-  intent.putExtra(EXTRA_CHAT_PEER,peer.getUnuqueId());
-  return intent;
-}

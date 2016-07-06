@@ -2,10 +2,7 @@
   intent=getIntent();
   peer=Peer.fromUniqueId(intent.getExtras().getLong(EXTRA_CHAT_PEER));
   checkIsBot();
-  if (saveInstance == null) {
-    isCompose=intent.getExtras().getBoolean(EXTRA_CHAT_COMPOSE,false);
-  }
- else {
+  if (saveInstance != null) {
     pending_fileName=saveInstance.getString(STATE_FILE_NAME,null);
   }
   super.onCreate(saveInstance);
