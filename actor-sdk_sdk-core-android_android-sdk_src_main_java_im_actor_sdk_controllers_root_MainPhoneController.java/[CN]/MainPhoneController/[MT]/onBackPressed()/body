@@ -1,7 +1,0 @@
-{
-  if (isSearchVisible) {
-    hideSearch();
-    return true;
-  }
-  return false;
-}
