@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.my_profile,menu);
+  return super.onCreateOptionsMenu(menu);
+}

@@ -1,0 +1,6 @@
+{
+  if (groupInfo.isMember().get()) {
+    getMenuInflater().inflate(R.menu.group_info,menu);
+  }
+  return true;
+}

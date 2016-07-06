@@ -389,6 +389,5 @@
     }
   }
 );
-  updateActionBar(scrollView.getScrollY());
   return view;
 }
