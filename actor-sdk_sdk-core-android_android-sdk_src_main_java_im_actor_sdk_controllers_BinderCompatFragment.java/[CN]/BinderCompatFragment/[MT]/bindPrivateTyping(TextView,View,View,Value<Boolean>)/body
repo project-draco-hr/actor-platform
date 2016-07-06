@@ -1,0 +1,3 @@
+{
+  BINDER.bindPrivateTyping(textView,container,titleContainer,typing);
+}

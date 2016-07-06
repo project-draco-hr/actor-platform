@@ -1,0 +1,7 @@
+{
+  ChatToolbarFragment res=new ChatToolbarFragment();
+  Bundle args=new Bundle();
+  args.putLong("peer",peer.getUnuqueId());
+  res.setArguments(args);
+  return res;
+}

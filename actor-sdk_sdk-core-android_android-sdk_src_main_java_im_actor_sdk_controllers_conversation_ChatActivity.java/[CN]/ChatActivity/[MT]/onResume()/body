@@ -1,10 +1,6 @@
 {
   checkIsBot();
   super.onResume();
-  if (peer.getPeerType() == PeerType.PRIVATE && menu != null) {
-    menu.findItem(R.id.add_to_contacts).setVisible(users().get(peer.getPeerId()).isContact().get());
-    invalidateOptionsMenu();
-  }
   emojiKeyboard.setPeer(peer);
   voiceRecordActor=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
     @Override public VoiceCaptureActor create(){
@@ -54,27 +50,9 @@
   }
   messageEditText.setSelection(messageEditText.getText().length());
   isTypingDisabled=false;
-  if (sendUri != null && !sendUri.isEmpty()) {
-    execute(messenger().sendUri(peer,Uri.parse(sendUri)));
-    sendUri="";
-  }
-  if (sendUriMultiple != null && sendUriMultiple.size() > 0) {
-    for (    String sendUri : sendUriMultiple) {
-      execute(messenger().sendUri(peer,Uri.parse(sendUri)));
-    }
-    sendUriMultiple.clear();
-  }
   if (sendText != null && !sendText.isEmpty()) {
     messageEditText.setText(sendText);
     sendText="";
-  }
-  if (shareUser != 0) {
-    String userName=users().get(shareUser).getName().get();
-    String mentionTitle="@".concat(userName);
-    ArrayList<Integer> mention=new ArrayList<Integer>();
-    mention.add(shareUser);
-    messenger().sendMessage(peer,mentionTitle,"[".concat(mentionTitle).concat("](people://".concat(Integer.toString(shareUser)).concat(")")),mention);
-    shareUser=0;
   }
   if (forwardTextRaw != null && !forwardTextRaw.isEmpty()) {
     addQuote(forwardText,forwardTextRaw);

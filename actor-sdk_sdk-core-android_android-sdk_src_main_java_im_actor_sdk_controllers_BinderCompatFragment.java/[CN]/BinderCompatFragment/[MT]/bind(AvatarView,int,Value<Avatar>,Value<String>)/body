@@ -1,0 +1,3 @@
+{
+  BINDER.bind(avatarView,id,avatar,name);
+}
