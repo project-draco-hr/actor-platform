@@ -1,6 +1,6 @@
 {
   if (item.getItemId() == R.id.leaveGroup) {
-    new AlertDialog.Builder(this).setMessage(getString(R.string.alert_leave_group_message).replace("%1$s",groupInfo.getName().get())).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
+    new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.alert_leave_group_message).replace("%1$s",groupInfo.getName().get())).setPositiveButton(R.string.alert_leave_group_yes,new DialogInterface.OnClickListener(){
       @Override public void onClick(      DialogInterface dialog2,      int which){
         execute(messenger().leaveGroup(chatId));
       }
@@ -9,13 +9,13 @@
     return true;
   }
  else   if (item.getItemId() == R.id.addMember) {
-    startActivity(new Intent(this,AddMemberActivity.class).putExtra("GROUP_ID",chatId));
+    startActivity(new Intent(getActivity(),AddMemberActivity.class).putExtra("GROUP_ID",chatId));
   }
  else   if (item.getItemId() == R.id.editTitle) {
-    startActivity(Intents.editGroupTitle(chatId,this));
+    startActivity(Intents.editGroupTitle(chatId,getActivity()));
   }
  else   if (item.getItemId() == R.id.changePhoto) {
-    startActivity(ViewAvatarActivity.viewGroupAvatar(chatId,this));
+    startActivity(ViewAvatarActivity.viewGroupAvatar(chatId,getActivity()));
   }
   return super.onOptionsItemSelected(item);
 }
