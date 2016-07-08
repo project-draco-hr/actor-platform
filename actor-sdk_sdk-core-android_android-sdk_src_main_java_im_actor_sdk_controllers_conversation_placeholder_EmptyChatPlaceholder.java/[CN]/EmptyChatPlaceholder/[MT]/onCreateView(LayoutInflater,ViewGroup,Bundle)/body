@@ -1,0 +1,5 @@
+{
+  View res=inflater.inflate(R.layout.fragment_chat_empty,container,false);
+  emptyTitle=(TextView)res.findViewById(R.id.emptyHint);
+  return res;
+}

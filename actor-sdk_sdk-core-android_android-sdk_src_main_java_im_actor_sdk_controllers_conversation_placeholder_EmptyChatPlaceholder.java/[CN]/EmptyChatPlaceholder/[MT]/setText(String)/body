@@ -1,0 +1,3 @@
+{
+  emptyTitle.setText(text);
+}

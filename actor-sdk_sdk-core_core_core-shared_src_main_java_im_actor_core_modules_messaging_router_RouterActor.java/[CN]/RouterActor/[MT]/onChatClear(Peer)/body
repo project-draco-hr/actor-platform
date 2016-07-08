@@ -1,5 +1,10 @@
 {
   conversation(peer).clear();
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  if (!state.isLoaded()) {
+    state=state.changeIsLoaded(true);
+    conversationStates.addOrUpdateItem(state);
+  }
   updateChatState(peer);
   return getDialogsRouter().onChatClear(peer);
 }
