@@ -1,6 +1,0 @@
-{
-  super.onDestroy();
-  if (autocompleteAdapter != null) {
-    autocompleteAdapter.dispose();
-  }
-}

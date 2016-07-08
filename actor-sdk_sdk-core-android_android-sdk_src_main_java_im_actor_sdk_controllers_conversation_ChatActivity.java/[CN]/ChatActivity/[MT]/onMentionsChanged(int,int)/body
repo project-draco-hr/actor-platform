@@ -1,5 +1,0 @@
-{
-  if (autocompleteAdapter != null) {
-    expandMentions(autocompleteList,oldRowsCount,newRowsCount);
-  }
-}

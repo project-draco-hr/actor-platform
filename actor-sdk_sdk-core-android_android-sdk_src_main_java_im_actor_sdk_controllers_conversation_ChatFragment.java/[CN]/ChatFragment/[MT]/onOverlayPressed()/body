@@ -1,0 +1,13 @@
+{
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    UserVM userVM=users().get(peer.getPeerId());
+    if (userVM.isBot()) {
+      messenger().sendMessage(peer,"/start");
+    }
+ else {
+      if (userVM.getIsBlocked().get()) {
+        execute(messenger().unblockUser(userVM.getId()));
+      }
+    }
+  }
+}

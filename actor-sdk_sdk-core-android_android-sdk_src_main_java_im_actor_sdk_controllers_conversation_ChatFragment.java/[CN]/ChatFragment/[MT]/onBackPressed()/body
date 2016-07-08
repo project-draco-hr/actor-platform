@@ -5,5 +5,16 @@
       return true;
     }
   }
+  if (editRid != 0) {
+    editRid=0;
+    findInputBar().setText("");
+    hideQuote();
+    return true;
+  }
+  if (currentQuote != null) {
+    currentQuote=null;
+    hideQuote();
+    return true;
+  }
   return false;
 }

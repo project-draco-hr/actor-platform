@@ -1,2 +1,6 @@
 {
+  Fragment fragment=getParentFragment();
+  if (fragment instanceof MessagesFragmentCallback) {
+    ((MessagesFragmentCallback)fragment).onAvatarLongClick(uid);
+  }
 }

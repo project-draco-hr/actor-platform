@@ -1,3 +1,4 @@
 {
   this.isPrimaryMode=isPrimaryMode;
+  setUnbindOnPause(true);
 }

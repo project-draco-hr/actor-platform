@@ -1,0 +1,8 @@
+{
+  boolean isEmpty=conversation(peer).isEmpty();
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  if (state.isEmpty() != isEmpty) {
+    state=state.changeIsEmpty(isEmpty);
+    conversationStates.addOrUpdateItem(state);
+  }
+}

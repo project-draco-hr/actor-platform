@@ -1,4 +1,0 @@
-{
-  super.onPause();
-  messenger().getGalleryScannerActor().send(new GalleryScannerActor.Hide());
-}

@@ -1,17 +1,2 @@
 {
-  View res=inflater.inflate(R.layout.fragment_chat,container,false);
-  quoteContainer=res.findViewById(R.id.quoteFragment);
-  if (savedInstanceState == null) {
-    Fragment toolbarFragment=ActorSDK.sharedActor().getDelegate().fragmentForToolbar(peer);
-    if (toolbarFragment == null) {
-      toolbarFragment=new ChatToolbarFragment(peer);
-    }
-    getChildFragmentManager().beginTransaction().add(toolbarFragment,"toolbar").add(R.id.messagesFragment,MessagesDefaultFragment.create(peer)).add(R.id.sendFragment,new InputBarFragment()).add(R.id.quoteFragment,new QuoteFragment()).commitNow();
-    AbsAttachFragment fragment=ActorSDK.sharedActor().getDelegate().fragmentForAttachMenu(peer);
-    if (fragment == null) {
-      fragment=new AttachFragment(peer);
-    }
-    getFragmentManager().beginTransaction().add(R.id.overlay,fragment).commit();
-  }
-  return res;
 }

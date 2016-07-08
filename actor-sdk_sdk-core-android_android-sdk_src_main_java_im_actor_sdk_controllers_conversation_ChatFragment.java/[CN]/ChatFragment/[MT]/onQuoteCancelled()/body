@@ -1,4 +1,8 @@
 {
-  editRid=0;
+  if (editRid != 0) {
+    editRid=0;
+    findInputBar().setText("");
+  }
+  currentQuote=null;
   hideQuote();
 }

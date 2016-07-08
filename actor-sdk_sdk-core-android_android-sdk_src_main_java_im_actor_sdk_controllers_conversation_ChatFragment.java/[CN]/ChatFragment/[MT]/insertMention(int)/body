@@ -1,0 +1,24 @@
+{
+  UserVM user=users().get(uid);
+  String name=user.getName().get();
+  String nick=user.getNick().get();
+  String text=findInputBar().getText();
+  if (text.length() > 0 && !text.endsWith(" ")) {
+    text=text + " ";
+  }
+  String mentionString;
+  if (nick != null) {
+    mentionString="@" + nick;
+  }
+ else {
+    mentionString=name;
+  }
+  if (text.length() == 0) {
+    mentionString+=": ";
+  }
+ else {
+    mentionString+=" ";
+  }
+  findInputBar().setText(text + mentionString);
+  findInputBar().requestFocus();
+}

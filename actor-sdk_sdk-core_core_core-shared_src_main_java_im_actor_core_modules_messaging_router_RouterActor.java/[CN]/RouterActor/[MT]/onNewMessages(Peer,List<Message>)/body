@@ -17,6 +17,7 @@
     }
   }
   conversation(peer).addOrUpdateItems(messages);
+  updateChatState(peer);
   boolean isRead=false;
   if (unreadCount != 0) {
     if (isConversationVisible) {

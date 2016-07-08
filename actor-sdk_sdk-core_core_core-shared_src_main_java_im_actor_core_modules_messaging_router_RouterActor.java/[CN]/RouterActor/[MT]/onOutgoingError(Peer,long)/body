@@ -3,6 +3,7 @@
   if (msg != null && (msg.getMessageState() == MessageState.PENDING)) {
     Message updatedMsg=msg.changeState(MessageState.ERROR);
     conversation(peer).addOrUpdateItem(updatedMsg);
+    updateChatState(peer);
   }
   return Promise.success(null);
 }

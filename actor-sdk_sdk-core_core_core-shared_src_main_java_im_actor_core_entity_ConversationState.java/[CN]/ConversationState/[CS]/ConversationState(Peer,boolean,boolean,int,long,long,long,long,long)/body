@@ -1,0 +1,11 @@
+{
+  this.peer=peer;
+  this.isLoaded=isLoaded;
+  this.isEmpty=isEmpty;
+  this.unreadCount=unreadCount;
+  this.inMaxMessageDate=inMaxMessageDate;
+  this.inReadDate=inReadDate;
+  this.outReadDate=outReadDate;
+  this.outReceiveDate=outReceiveDate;
+  this.outSendDate=outSendDate;
+}

@@ -1,4 +1,5 @@
 {
   conversation(peer).clear();
+  updateChatState(peer);
   return getDialogsRouter().onChatDelete(peer);
 }

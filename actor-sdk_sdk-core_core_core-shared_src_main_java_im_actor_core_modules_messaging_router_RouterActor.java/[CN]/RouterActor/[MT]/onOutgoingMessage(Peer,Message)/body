@@ -1,4 +1,5 @@
 {
   conversation(peer).addOrUpdateItem(message);
+  updateChatState(peer);
   return Promise.success(null);
 }

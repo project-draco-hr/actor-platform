@@ -1,4 +1,5 @@
 {
   visiblePeers.add(peer);
   markAsReadIfNeeded(peer);
+  updateChatState(peer);
 }

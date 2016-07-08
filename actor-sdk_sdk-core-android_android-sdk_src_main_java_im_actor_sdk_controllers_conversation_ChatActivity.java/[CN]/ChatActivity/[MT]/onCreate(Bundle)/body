@@ -1,14 +1,15 @@
 {
   super.onCreate(saveInstance);
-  peer=Peer.fromUniqueId(getIntent().getExtras().getLong(EXTRA_CHAT_PEER));
+  getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
   setContentView(R.layout.activity_dialog);
   setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
   if (saveInstance == null) {
-    getSupportFragmentManager().beginTransaction().add(R.id.chatFragment,ChatFragment.create(peer)).commit();
+    Peer peer=Peer.fromUniqueId(getIntent().getExtras().getLong(EXTRA_CHAT_PEER));
+    ChatFragment chatFragment=ChatFragment.create(peer);
+    getSupportFragmentManager().beginTransaction().add(R.id.chatFragment,chatFragment).commitNow();
+    String quote=getIntent().getStringExtra("forward_text_raw");
+    if (quote != null) {
+      chatFragment.onMessageQuote(quote);
+    }
   }
-  autocompleteList=(RecyclerListView)findViewById(R.id.mentionsList);
-  autocompleteList.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
-  getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-  handleIntent();
-  checkEmptyBot();
 }

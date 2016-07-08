@@ -1,9 +1,0 @@
-{
-  if (!isAutocompleteVisible) {
-    return;
-  }
-  isAutocompleteVisible=false;
-  expandMentions(autocompleteList,autocompleteAdapter.getCount(),0);
-  autocompleteAdapter=null;
-  autocompleteList.setAdapter(null);
-}

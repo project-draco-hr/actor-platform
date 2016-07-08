@@ -1,3 +1,6 @@
 {
-  ActorSDKLauncher.startProfileActivity(getActivity(),uid);
+  Fragment fragment=getParentFragment();
+  if (fragment instanceof MessagesFragmentCallback) {
+    ((MessagesFragmentCallback)fragment).onAvatarClick(uid);
+  }
 }
