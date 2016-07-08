@@ -1,0 +1,4 @@
+{
+  super.onResume();
+  findInputBar().setText(messenger().loadDraft(peer),true);
+}

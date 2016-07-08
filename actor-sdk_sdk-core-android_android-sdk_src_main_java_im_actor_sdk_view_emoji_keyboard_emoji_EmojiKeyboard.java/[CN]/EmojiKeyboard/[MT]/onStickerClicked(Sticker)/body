@@ -1,3 +1,5 @@
 {
-  messenger().sendSticker(peer,sticker);
+  if (onStickerClickListener != null) {
+    onStickerClickListener.onStickerClicked(sticker);
+  }
 }

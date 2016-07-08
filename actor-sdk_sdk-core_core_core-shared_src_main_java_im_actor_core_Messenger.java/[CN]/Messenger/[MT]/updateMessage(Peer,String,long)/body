@@ -1,2 +1,3 @@
 {
+  return modules.getMessagesModule().updateMessage(peer,text,rid);
 }

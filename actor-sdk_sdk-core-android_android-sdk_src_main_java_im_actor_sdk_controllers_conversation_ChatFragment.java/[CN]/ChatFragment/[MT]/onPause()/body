@@ -1,0 +1,4 @@
+{
+  super.onPause();
+  messenger().saveDraft(peer,findInputBar().getText());
+}

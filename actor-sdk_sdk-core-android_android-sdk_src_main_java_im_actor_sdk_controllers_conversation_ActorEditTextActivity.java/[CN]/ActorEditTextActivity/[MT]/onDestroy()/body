@@ -1,4 +1,0 @@
-{
-  super.onDestroy();
-  emojiKeyboard.release();
-}

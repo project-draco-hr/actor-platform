@@ -1,12 +1,9 @@
 {
-  if (isAutocompleteVisible) {
-    hideMentions();
-  }
- else   if (isShareVisible) {
-    hideShare();
-  }
- else   if (emojiKeyboard.isShowing()) {
-    emojiKeyboard.dismiss();
+  Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.chatFragment);
+  if (fragment instanceof ChatFragment) {
+    if (!((ChatFragment)fragment).onBackPressed()) {
+      super.onBackPressed();
+    }
   }
  else {
     super.onBackPressed();

@@ -1,4 +1,0 @@
-int icon
-int color
-String title
-View.OnClickListener onClickListener

@@ -1,0 +1,3 @@
+{
+  return ((AbsAttachFragment)getFragmentManager().findFragmentById(R.id.overlay));
+}

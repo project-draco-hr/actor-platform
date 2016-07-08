@@ -1,0 +1,3 @@
+{
+  execute(messenger().sendUri(getPeer(),uri));
+}

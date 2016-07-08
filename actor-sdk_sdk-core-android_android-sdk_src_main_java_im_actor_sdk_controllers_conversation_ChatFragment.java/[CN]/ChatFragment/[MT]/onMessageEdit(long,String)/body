@@ -1,0 +1,5 @@
+{
+  editRid=rid;
+  findInputBar().setText(text);
+  showQuote(text,false);
+}

@@ -1,0 +1,3 @@
+{
+  return ((QuoteFragment)getChildFragmentManager().findFragmentById(R.id.quoteFragment));
+}

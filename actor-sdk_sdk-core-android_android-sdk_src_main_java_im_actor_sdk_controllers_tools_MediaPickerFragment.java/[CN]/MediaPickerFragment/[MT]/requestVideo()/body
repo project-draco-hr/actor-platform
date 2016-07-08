@@ -1,0 +1,9 @@
+{
+  pendingFile=generateRandomFile(".mp4");
+  if (pendingFile == null) {
+    return;
+  }
+  Intent intent=new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+  intent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pendingFile)));
+  startActivityForResult(intent,REQUEST_VIDEO);
+}

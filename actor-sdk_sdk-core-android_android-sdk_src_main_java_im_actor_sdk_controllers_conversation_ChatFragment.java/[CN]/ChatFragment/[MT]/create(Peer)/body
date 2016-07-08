@@ -1,0 +1,7 @@
+{
+  ChatFragment res=new ChatFragment();
+  Bundle bundle=new Bundle();
+  bundle.putLong("peer",peer.getUnuqueId());
+  res.setArguments(bundle);
+  return res;
+}

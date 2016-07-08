@@ -1,5 +1,0 @@
-{
-  if (after > count && !isTypingDisabled) {
-    messenger().onTyping(peer);
-  }
-}

@@ -17,8 +17,11 @@
     return true;
   }
  else {
-    if (message.getContent() instanceof TextContent && message.getSenderId() == myUid() && message.getSortDate() >= messenger().loadLastMessageDate(peer)) {
-      ((ChatActivity)getActivity()).onEditTextMessage(message.getRid(),((TextContent)message.getContent()).getText());
+    if (message.getContent() instanceof TextContent && message.getSenderId() == myUid()) {
+      Fragment fragment=getParentFragment();
+      if (fragment instanceof MessagesFragmentCallback) {
+        ((MessagesFragmentCallback)fragment).onMessageEdit(message.getRid(),((TextContent)message.getContent()).getText());
+      }
       return true;
     }
   }

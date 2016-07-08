@@ -1,5 +1,0 @@
-{
-  keyboardUtils.setImeVisibility(messageEditText,false);
-  messageEditText.clearFocus();
-  return super.onOptionsItemSelected(item);
-}

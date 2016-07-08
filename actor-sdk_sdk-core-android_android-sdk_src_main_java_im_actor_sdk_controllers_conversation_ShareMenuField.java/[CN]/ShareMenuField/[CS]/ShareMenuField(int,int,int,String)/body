@@ -1,0 +1,6 @@
+{
+  this.id=id;
+  this.icon=icon;
+  this.color=color;
+  this.title=title;
+}

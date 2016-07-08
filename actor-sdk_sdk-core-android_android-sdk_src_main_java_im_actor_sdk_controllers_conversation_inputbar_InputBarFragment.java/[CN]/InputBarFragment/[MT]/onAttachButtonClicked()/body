@@ -1,0 +1,6 @@
+{
+  Fragment parent=getParentFragment();
+  if (parent instanceof InputBarCallback) {
+    ((InputBarCallback)parent).onAttachPressed();
+  }
+}

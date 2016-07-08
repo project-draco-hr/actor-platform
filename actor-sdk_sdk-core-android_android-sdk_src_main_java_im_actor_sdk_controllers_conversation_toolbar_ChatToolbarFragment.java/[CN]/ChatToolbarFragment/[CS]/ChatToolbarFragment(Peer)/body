@@ -1,0 +1,6 @@
+{
+  this();
+  Bundle args=new Bundle();
+  args.putLong("peer",peer.getUnuqueId());
+  setArguments(args);
+}

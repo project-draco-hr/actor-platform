@@ -1,0 +1,5 @@
+{
+  if (callback != null) {
+    callback.onLocationPicked(latitude,longitude,street,place);
+  }
+}

@@ -1,10 +1,2 @@
 {
-  forwardText=intent.getStringExtra("forward_text");
-  forwardTextRaw=intent.getStringExtra("forward_text_raw");
-  sendText=intent.getStringExtra("send_text");
-  try {
-    forwardContent=AbsContent.parse(intent.getByteArrayExtra("forward_content"));
-  }
- catch (  Exception e) {
-  }
 }

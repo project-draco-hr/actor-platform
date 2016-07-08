@@ -1,0 +1,6 @@
+{
+  Fragment parent=getParentFragment();
+  if (parent instanceof QuoteCallback) {
+    ((QuoteCallback)parent).onQuoteCancelled();
+  }
+}

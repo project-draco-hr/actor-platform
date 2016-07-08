@@ -1,0 +1,4 @@
+{
+  messageEditText.clearFocus();
+  keyboardUtils.setImeVisibility(messageEditText,false);
+}

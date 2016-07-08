@@ -1,0 +1,10 @@
+{
+  if (getResources().getDisplayMetrics().heightPixels <= getResources().getDisplayMetrics().widthPixels) {
+    keyboardUtils.setImeVisibility(messageEditText,false);
+    messageEditText.clearFocus();
+  }
+  Fragment parent=getParentFragment();
+  if (parent instanceof InputBarCallback) {
+    ((InputBarCallback)parent).onTextSent(messageEditText.getText().toString());
+  }
+}

@@ -1,6 +1,0 @@
-{
-  super.onSaveInstanceState(outState);
-  if (pending_fileName != null) {
-    outState.putString(STATE_FILE_NAME,pending_fileName);
-  }
-}

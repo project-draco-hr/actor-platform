@@ -1,0 +1,21 @@
+{
+  MediaPickerFragment picker=(MediaPickerFragment)getChildFragmentManager().findFragmentByTag("picker");
+  if (id == R.id.share_gallery) {
+    picker.requestGallery();
+  }
+ else   if (id == R.id.share_camera) {
+    picker.requestPhoto();
+  }
+ else   if (id == R.id.share_video) {
+    picker.requestVideo();
+  }
+ else   if (id == R.id.share_file) {
+    picker.requestFile();
+  }
+ else   if (id == R.id.share_location) {
+    picker.requestLocation();
+  }
+ else   if (id == R.id.share_contact) {
+    picker.requestContact();
+  }
+}

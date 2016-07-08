@@ -1,0 +1,7 @@
+{
+  String avatar64=null;
+  if (avatar != null) {
+    avatar64=Base64.encodeToString(avatar,Base64.DEFAULT);
+  }
+  messenger().sendContact(getPeer(),name,new ArrayList<>(phones),new ArrayList<>(emails),avatar64);
+}

@@ -1,0 +1,4 @@
+{
+  Activity activity=getActivity();
+  startActivityForResult(new Intent(activity,FilePickerActivity.class),REQUEST_DOC);
+}

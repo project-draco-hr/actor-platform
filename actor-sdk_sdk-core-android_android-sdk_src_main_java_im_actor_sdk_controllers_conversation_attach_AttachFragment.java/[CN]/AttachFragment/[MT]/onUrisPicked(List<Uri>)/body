@@ -1,0 +1,5 @@
+{
+  for (  Uri s : uris) {
+    execute(messenger().sendUri(getPeer(),s));
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return ((InputBarFragment)getChildFragmentManager().findFragmentById(R.id.sendFragment));
+}

@@ -3,5 +3,4 @@
   if (isPrimaryMode) {
     messenger().onConversationOpen(peer);
   }
-  checkBotEmptyView();
 }

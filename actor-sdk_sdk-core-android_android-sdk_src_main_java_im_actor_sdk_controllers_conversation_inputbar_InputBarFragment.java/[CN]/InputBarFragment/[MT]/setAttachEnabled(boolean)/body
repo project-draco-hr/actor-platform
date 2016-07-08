@@ -1,0 +1,5 @@
+{
+  isAttachEnabled=attachEnabled;
+  hideAudio(true);
+  checkSendButton();
+}

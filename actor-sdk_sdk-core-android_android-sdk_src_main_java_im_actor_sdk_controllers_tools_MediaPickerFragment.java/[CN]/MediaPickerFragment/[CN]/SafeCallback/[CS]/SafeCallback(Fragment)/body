@@ -1,0 +1,5 @@
+{
+  if (fragment instanceof MediaPickerCallback) {
+    callback=(MediaPickerCallback)fragment;
+  }
+}

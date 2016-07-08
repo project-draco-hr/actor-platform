@@ -1,6 +1,0 @@
-{
-  this.title=title;
-  this.selector=selector;
-  this.onClickListener=onClickListener;
-  this.id=id;
-}

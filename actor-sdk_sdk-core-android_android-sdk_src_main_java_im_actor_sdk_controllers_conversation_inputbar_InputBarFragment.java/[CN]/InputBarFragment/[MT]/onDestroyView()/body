@@ -1,0 +1,5 @@
+{
+  super.onDestroyView();
+  emojiKeyboard.release();
+  emojiKeyboard=null;
+}

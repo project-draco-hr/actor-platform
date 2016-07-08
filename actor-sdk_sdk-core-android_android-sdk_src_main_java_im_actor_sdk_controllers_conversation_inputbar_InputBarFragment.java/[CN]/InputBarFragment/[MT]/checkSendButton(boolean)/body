@@ -1,0 +1,37 @@
+{
+  if (hasText || !isDisableOnEmptyText) {
+    sendButton.setTint(ActorSDK.sharedActor().style.getConvSendEnabledColor());
+    sendButton.setEnabled(true);
+    if (isAttachEnabled) {
+      if (hasText) {
+        zoomOutView(attachButton);
+      }
+ else {
+        zoomInView(attachButton);
+      }
+    }
+ else {
+      zoomOutView(attachButton);
+    }
+    zoomInView(sendButton);
+    zoomOutView(audioButton);
+  }
+ else {
+    sendButton.setTint(ActorSDK.sharedActor().style.getConvSendDisabledColor());
+    sendButton.setEnabled(false);
+    if (isAttachEnabled) {
+      zoomInView(attachButton);
+    }
+ else {
+      zoomOutView(attachButton);
+    }
+    if (isAudioEnabled) {
+      zoomInView(audioButton);
+      zoomOutView(sendButton);
+    }
+ else {
+      zoomInView(sendButton);
+      zoomOutView(audioButton);
+    }
+  }
+}

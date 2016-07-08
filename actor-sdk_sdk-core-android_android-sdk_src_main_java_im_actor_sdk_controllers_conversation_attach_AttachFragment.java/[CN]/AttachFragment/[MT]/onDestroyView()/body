@@ -1,0 +1,7 @@
+{
+  super.onDestroyView();
+  if (fastAttachAdapter != null) {
+    fastAttachAdapter.release();
+    fastAttachAdapter=null;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  hideView(quoteContainer);
+  findInputBar().setDisableOnEmptyText(true);
+  findInputBar().setAudioEnabled(true);
+  findInputBar().setAttachEnabled(true);
+}

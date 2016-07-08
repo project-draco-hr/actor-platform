@@ -1,3 +1,0 @@
-{
-  checkSendButton(s.length() > 0);
-}

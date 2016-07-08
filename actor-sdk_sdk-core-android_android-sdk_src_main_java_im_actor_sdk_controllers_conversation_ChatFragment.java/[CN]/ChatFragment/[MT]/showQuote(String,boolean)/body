@@ -1,0 +1,7 @@
+{
+  showView(quoteContainer);
+  findQuoteFragment().setText(text,isQuote);
+  findInputBar().setDisableOnEmptyText(false);
+  findInputBar().setAudioEnabled(false);
+  findInputBar().setAttachEnabled(false);
+}

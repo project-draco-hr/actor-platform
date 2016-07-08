@@ -1,5 +1,0 @@
-{
-  if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().replace(R.id.messagesFragment,onCreateFragment()).commit();
-  }
-}

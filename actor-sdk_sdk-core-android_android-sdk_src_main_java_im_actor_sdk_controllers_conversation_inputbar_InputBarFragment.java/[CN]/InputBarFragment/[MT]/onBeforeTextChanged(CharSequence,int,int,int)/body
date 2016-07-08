@@ -1,0 +1,8 @@
+{
+  Fragment parent=getParentFragment();
+  if (parent instanceof InputBarCallback) {
+    if (after > count && !isTypingDisabled) {
+      ((InputBarCallback)parent).onTyping();
+    }
+  }
+}

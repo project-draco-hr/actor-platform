@@ -1,0 +1,4 @@
+{
+  showQuote(text,true);
+  currentQuote=text;
+}

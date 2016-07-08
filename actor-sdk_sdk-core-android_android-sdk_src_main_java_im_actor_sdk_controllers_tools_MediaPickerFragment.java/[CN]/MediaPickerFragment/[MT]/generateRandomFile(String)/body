@@ -1,0 +1,13 @@
+{
+  File externalFile=Environment.getExternalStorageDirectory();
+  if (externalFile != null) {
+    String externalPath=externalFile.getAbsolutePath();
+    String exportPathBase=externalPath + "/" + ActorSDK.sharedActor().getAppName()+ "/"+ ActorSDK.sharedActor().getAppName()+ " images"+ "/";
+    new File(exportPathBase).mkdirs();
+    return exportPathBase + "capture_" + Randoms.randomId()+ ext;
+  }
+ else {
+    Toast.makeText(AndroidContext.getContext(),R.string.toast_no_sdcard,Toast.LENGTH_LONG).show();
+    return null;
+  }
+}

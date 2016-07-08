@@ -1,0 +1,4 @@
+{
+  Intent intent=new Intent("im.actor.pickLocation_" + AndroidContext.getContext().getPackageName());
+  startActivityForResult(intent,REQUEST_LOCATION);
+}

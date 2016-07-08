@@ -1,0 +1,9 @@
+{
+  AbsAttachFragment attachFragment=findShareFragment();
+  if (attachFragment != null) {
+    if (attachFragment.onBackPressed()) {
+      return true;
+    }
+  }
+  return false;
+}

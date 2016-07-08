@@ -1,0 +1,4 @@
+{
+  isDisableOnEmptyText=disableOnEmptyText;
+  checkSendButton();
+}

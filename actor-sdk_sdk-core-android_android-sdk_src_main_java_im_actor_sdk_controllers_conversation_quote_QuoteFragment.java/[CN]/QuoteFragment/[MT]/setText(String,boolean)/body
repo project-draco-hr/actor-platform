@@ -1,0 +1,9 @@
+{
+  quoteText.setText(text);
+  if (isQuoted) {
+    quoteText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_editor_format_quote_gray),null,null,null);
+  }
+ else {
+    quoteText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_content_create),null,null,null);
+  }
+}

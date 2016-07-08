@@ -1,0 +1,7 @@
+{
+  if (container.getVisibility() == View.VISIBLE) {
+    hide();
+    return true;
+  }
+  return false;
+}

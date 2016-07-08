@@ -1,0 +1,4 @@
+{
+  super.onCreate(saveInstance);
+  peer=Peer.fromUniqueId(getArguments().getLong("peer"));
+}

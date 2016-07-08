@@ -1,0 +1,6 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putBoolean("isAudioVisible",isAudioVisible);
+  outState.putBoolean("isAudioEnabled",isAudioEnabled);
+  outState.putBoolean("isDisableOnEmptyText",isDisableOnEmptyText);
+}

@@ -1,0 +1,4 @@
+String name
+List<String> phones
+List<String> emails
+byte[] avatar

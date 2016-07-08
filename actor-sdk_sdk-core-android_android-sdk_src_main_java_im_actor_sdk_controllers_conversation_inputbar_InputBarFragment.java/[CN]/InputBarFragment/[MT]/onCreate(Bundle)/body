@@ -1,0 +1,9 @@
+{
+  super.onCreate(saveInstance);
+  keyboardUtils=new KeyboardHelper(getActivity());
+  if (saveInstance != null) {
+    isAudioEnabled=saveInstance.getBoolean("isAudioEnabled");
+    isDisableOnEmptyText=saveInstance.getBoolean("isDisableOnEmptyText");
+    isAudioVisible=saveInstance.getBoolean("isAudioVisible");
+  }
+}

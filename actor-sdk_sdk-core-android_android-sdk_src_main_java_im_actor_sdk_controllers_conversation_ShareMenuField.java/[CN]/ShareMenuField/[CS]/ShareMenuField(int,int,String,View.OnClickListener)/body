@@ -1,6 +1,0 @@
-{
-  this.icon=icon;
-  this.color=color;
-  this.title=title;
-  this.onClickListener=onClickListener;
-}

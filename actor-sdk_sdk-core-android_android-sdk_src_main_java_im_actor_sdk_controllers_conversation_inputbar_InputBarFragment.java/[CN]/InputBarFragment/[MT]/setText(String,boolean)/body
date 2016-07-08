@@ -1,0 +1,10 @@
+{
+  isTypingDisabled=true;
+  Spannable spantext=AndroidMarkdown.processOnlyLinks(text);
+  spantext=emoji().processEmojiCompatMutable(spantext,SmileProcessor.CONFIGURATION_BUBBLES);
+  messageEditText.setText(spantext);
+  if (selectAll) {
+    messageEditText.setSelection(messageEditText.getText().length());
+  }
+  isTypingDisabled=false;
+}

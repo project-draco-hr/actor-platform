@@ -1,0 +1,4 @@
+int id
+int icon
+int color
+String title

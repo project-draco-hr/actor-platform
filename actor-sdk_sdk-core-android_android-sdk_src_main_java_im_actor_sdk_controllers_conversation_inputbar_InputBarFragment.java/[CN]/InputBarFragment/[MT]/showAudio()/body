@@ -1,0 +1,33 @@
+{
+  if (Build.VERSION.SDK_INT >= 23) {
+    if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED) {
+      requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.VIBRATE},PERMISSION_REQUEST_RECORD_AUDIO);
+      return;
+    }
+  }
+  if (isAudioVisible) {
+    return;
+  }
+  isAudioVisible=true;
+  hideView(attachButton);
+  hideView(messageEditText);
+  hideView(emojiButton);
+  audioFile=ActorSDK.sharedActor().getMessenger().getInternalTempFile("voice_msg","opus");
+  getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+  voiceRecordActor.send(new VoiceCaptureActor.Start(audioFile));
+  slideAudio(0);
+  audioTimer.setText("00:00");
+  TranslateAnimation animation=new TranslateAnimation(Screen.getWidth(),0,0,0);
+  animation.setDuration(160);
+  audioContainer.clearAnimation();
+  audioContainer.setAnimation(animation);
+  audioContainer.animate();
+  audioContainer.setVisibility(View.VISIBLE);
+  AlphaAnimation alphaAnimation=new AlphaAnimation(1f,0.2f);
+  alphaAnimation.setDuration(800);
+  alphaAnimation.setRepeatMode(AlphaAnimation.REVERSE);
+  alphaAnimation.setRepeatCount(AlphaAnimation.INFINITE);
+  recordPoint.clearAnimation();
+  recordPoint.setAnimation(alphaAnimation);
+  recordPoint.animate();
+}
