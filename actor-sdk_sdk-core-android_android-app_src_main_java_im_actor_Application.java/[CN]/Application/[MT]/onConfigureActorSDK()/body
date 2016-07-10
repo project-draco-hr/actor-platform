@@ -3,6 +3,7 @@
   ActorSDK.sharedActor().setPushId(209133700967L);
   ActorStyle style=ActorSDK.sharedActor().style;
   style.setDialogsActiveTextColor(0xff5882ac);
+  style.setShowAvatarPrivateInTitle(false);
   ActorSDK.sharedActor().setFastShareEnabled(true);
   ActorSDK.sharedActor().setCallsEnabled(true);
   ActorSDK.sharedActor().setTosUrl("http://actor.im");
