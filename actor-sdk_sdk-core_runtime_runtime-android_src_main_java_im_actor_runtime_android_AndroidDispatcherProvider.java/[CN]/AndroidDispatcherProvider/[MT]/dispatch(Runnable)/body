@@ -1,6 +1,6 @@
 {
-  if (EXECUTOR == null) {
-    EXECUTOR=Executors.newSingleThreadExecutor();
+  if (dispatcher == null) {
+    dispatcher=new AndroidImmediateDispatcher("callback_dispatcher",ThreadPriority.LOW);
   }
-  EXECUTOR.execute(runnable);
+  dispatcher.dispatchNow(runnable);
 }

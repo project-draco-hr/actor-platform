@@ -1,5 +1,5 @@
 {
-  SparseArray<Object> hashMap=new SparseArray<Object>();
+  SparseArray<Object> hashMap=new SparseArray<>();
   while (!is.isEOF()) {
     long currentTag=is.readVarInt();
     int id=(int)(currentTag >> 3);

@@ -1,0 +1,3 @@
+{
+  messageDigest.update(src,offset,length);
+}

@@ -1,5 +1,4 @@
 {
-  im.actor.runtime.Runtime.checkMainThread();
   if (mode != null && mode == ListMode.FORWARD) {
     return;
   }

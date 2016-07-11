@@ -1,0 +1,16 @@
+{
+  handlerThread=new HandlerThread(name);
+switch (priority) {
+case HIGH:
+    handlerThread.setPriority(Thread.MAX_PRIORITY);
+case LOW:
+  handlerThread.setPriority(Thread.MIN_PRIORITY);
+default :
+case NORMAL:
+handlerThread.setPriority(Thread.NORM_PRIORITY);
+}
+handlerThread.start();
+while (handlerThread.getLooper() == null) {
+}
+handler=new Handler(handlerThread.getLooper());
+}

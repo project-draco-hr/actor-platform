@@ -1,5 +1,5 @@
 {
-  GenericDraweeHierarchy hierarchy=new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setRoundingParams(new RoundingParams().setRoundAsCircle(true).setRoundingMethod(RoundingParams.RoundingMethod.BITMAP_ONLY)).build();
+  GenericDraweeHierarchy hierarchy=new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setRoundingParams(new RoundingParams().setRoundAsCircle(true).setRoundingMethod(RoundingParams.RoundingMethod.OVERLAY_COLOR).setOverlayColor(ActorSDK.sharedActor().style.getMainBackgroundColor())).build();
   draweeHolder=DraweeHolder.create(hierarchy,getContext());
   draweeHolder.getTopLevelDrawable().setCallback(this);
   setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(72)));

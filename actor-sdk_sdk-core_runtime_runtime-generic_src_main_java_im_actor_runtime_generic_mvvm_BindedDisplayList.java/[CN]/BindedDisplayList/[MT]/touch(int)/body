@@ -1,5 +1,4 @@
 {
-  im.actor.runtime.Runtime.checkMainThread();
   if (index >= getSize() - loadGap) {
     if (window.isForwardCompleted()) {
       if (bindHook != null) {

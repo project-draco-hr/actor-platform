@@ -1,0 +1,8 @@
+{
+  try {
+    messageDigest.digest(dest,destOffset,32);
+  }
+ catch (  DigestException e) {
+    throw new RuntimeException(e);
+  }
+}
