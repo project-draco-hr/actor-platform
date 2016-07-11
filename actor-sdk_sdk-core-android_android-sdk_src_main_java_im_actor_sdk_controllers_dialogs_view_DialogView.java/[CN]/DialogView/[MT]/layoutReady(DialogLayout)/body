@@ -1,5 +1,6 @@
 {
   super.layoutReady(res);
+  draweeHolder.onAttach();
   if (res.getImageRequest() != null) {
     draweeHolder.setController(Fresco.newDraweeControllerBuilder().setImageRequest(res.getImageRequest()).setOldController(draweeHolder.getController()).build());
   }
