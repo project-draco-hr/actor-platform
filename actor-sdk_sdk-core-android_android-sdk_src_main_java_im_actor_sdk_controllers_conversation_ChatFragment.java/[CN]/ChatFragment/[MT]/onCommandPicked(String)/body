@@ -1,0 +1,5 @@
+{
+  messenger().sendMessage(peer,"/" + command);
+  findInputBar().setText("");
+  findAutocomplete().onCurrentWordChanged("");
+}

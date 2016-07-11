@@ -11,8 +11,5 @@
   }
   commandsToShow.clear();
   commandsToShow.addAll(filterd);
-  int newRowsCount=commandsToShow.size();
-  updatedCallback.onMentionsUpdated(oldRowsCount,newRowsCount);
-  oldRowsCount=newRowsCount;
   notifyDataSetChanged();
 }

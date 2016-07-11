@@ -1,0 +1,5 @@
+{
+  super(context);
+  highlightColor=context.getResources().getColor(R.color.primary);
+  this.gid=gid;
+}

@@ -1,0 +1,28 @@
+{
+  if (isBot) {
+    if (text.startsWith("/")) {
+      String query=text.substring(1);
+      int oldCount=autocompleteList.getCount();
+      ((CommandsAdapter)autocompleteAdapter).setQuery(query);
+      expandMentions(autocompleteList,oldCount,autocompleteList.getCount());
+    }
+ else {
+      int oldCount=autocompleteList.getCount();
+      ((CommandsAdapter)autocompleteAdapter).clearQuery();
+      expandMentions(autocompleteList,oldCount,autocompleteList.getCount());
+    }
+  }
+ else   if (isGroup) {
+    if (text.startsWith("@")) {
+      String query=text.substring(1);
+      int oldCount=autocompleteList.getCount();
+      ((MentionsAdapter)autocompleteAdapter).setQuery(query);
+      expandMentions(autocompleteList,oldCount,autocompleteList.getCount());
+    }
+ else {
+      int oldCount=autocompleteList.getCount();
+      ((MentionsAdapter)autocompleteAdapter).clearQuery();
+      expandMentions(autocompleteList,oldCount,autocompleteList.getCount());
+    }
+  }
+}

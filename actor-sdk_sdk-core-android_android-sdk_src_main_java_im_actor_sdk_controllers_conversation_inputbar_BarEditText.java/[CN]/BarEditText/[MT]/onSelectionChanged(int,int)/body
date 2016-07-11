@@ -1,0 +1,8 @@
+{
+  super.onSelectionChanged(selStart,selEnd);
+  if (listeners != null) {
+    for (    OnSelectionChangedListener l : listeners) {
+      l.onSelectionChanged(selStart,selStart - selEnd);
+    }
+  }
+}

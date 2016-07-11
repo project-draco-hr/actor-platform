@@ -1,0 +1,26 @@
+{
+  CharSequence sequence=messageEditText.getText();
+  int wordEnd=messageEditText.getSelectionStart();
+  int wordStart=wordEnd - 1;
+  for (; wordStart >= 0; wordStart--) {
+    if (sequence.charAt(wordStart) == ' ' || sequence.charAt(wordStart) == '\n') {
+      break;
+    }
+  }
+  wordStart++;
+  String foundWord;
+  if (wordStart >= 0 && wordStart < wordEnd && wordStart < sequence.length()) {
+    foundWord=sequence.subSequence(wordStart,wordEnd).toString();
+  }
+ else {
+    foundWord="";
+  }
+  if (!lastWord.equals(foundWord)) {
+    lastWord=foundWord;
+    Log.d("InputBarFragment","word: " + foundWord);
+    Fragment parent=getParentFragment();
+    if (parent instanceof InputBarCallback) {
+      ((InputBarCallback)parent).onAutoCompleteWordChanged(lastWord);
+    }
+  }
+}

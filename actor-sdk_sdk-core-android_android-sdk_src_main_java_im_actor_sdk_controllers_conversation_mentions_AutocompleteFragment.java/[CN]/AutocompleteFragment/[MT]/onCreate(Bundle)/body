@@ -1,0 +1,12 @@
+{
+  super.onCreate(saveInstance);
+  peer=Peer.fromUniqueId(getArguments().getLong("peer"));
+  if (peer.getPeerType() == PeerType.PRIVATE) {
+    isBot=users().get(peer.getPeerId()).isBot();
+    autocompleteAdapter=new CommandsAdapter(peer.getPeerId(),getContext());
+  }
+ else   if (peer.getPeerType() == PeerType.GROUP) {
+    isGroup=true;
+    autocompleteAdapter=new MentionsAdapter(peer.getPeerId(),getContext());
+  }
+}

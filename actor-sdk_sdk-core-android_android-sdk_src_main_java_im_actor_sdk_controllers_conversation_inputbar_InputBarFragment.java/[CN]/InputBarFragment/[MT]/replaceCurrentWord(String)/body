@@ -1,0 +1,32 @@
+{
+  isTypingDisabled=true;
+  Editable sequence=messageEditText.getText();
+  int wordEnd=messageEditText.getSelectionEnd();
+  int wordStart=messageEditText.getSelectionStart() - 1;
+  for (; wordStart >= 0; wordStart--) {
+    if (sequence.charAt(wordStart) == ' ' || sequence.charAt(wordStart) == '\n') {
+      break;
+    }
+  }
+  wordStart++;
+  for (; wordEnd < sequence.length(); wordEnd++) {
+    if (sequence.charAt(wordEnd) == ' ' || sequence.charAt(wordEnd) == '\n') {
+      break;
+    }
+  }
+  if (0 <= wordStart && wordStart < wordEnd && wordEnd <= sequence.length()) {
+    boolean wasLast=wordEnd == sequence.length();
+    sequence=sequence.replace(wordStart,wordEnd,word);
+    if (wasLast) {
+      sequence=sequence.append(' ');
+    }
+    messageEditText.setText(sequence);
+    if (wasLast) {
+      messageEditText.setSelection(sequence.length());
+    }
+ else {
+      messageEditText.setSelection(wordStart + word.length() + 1);
+    }
+  }
+  isTypingDisabled=false;
+}

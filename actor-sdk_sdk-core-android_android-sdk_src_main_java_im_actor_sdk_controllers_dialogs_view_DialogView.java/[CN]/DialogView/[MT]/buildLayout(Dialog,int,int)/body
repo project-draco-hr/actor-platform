@@ -34,7 +34,7 @@
     if (image != null) {
       String desc=messenger().findDownloadedDescriptor(image.getFileReference().getFileId());
       if (desc != null) {
-        ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(desc))).setResizeOptions(new ResizeOptions(Screen.dp(52),Screen.dp(52))).build();
+        ImageRequest request=ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(desc))).setResizeOptions(new ResizeOptions(Screen.dp(52),Screen.dp(52))).setImageType(ImageRequest.ImageType.SMALL).build();
         res.setImageRequest(request);
       }
  else {

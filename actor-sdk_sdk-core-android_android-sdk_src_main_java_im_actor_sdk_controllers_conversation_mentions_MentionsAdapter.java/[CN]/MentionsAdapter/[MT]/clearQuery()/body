@@ -1,0 +1,5 @@
+{
+  query=null;
+  membersToShow=new ArrayList<>();
+  notifyDataSetChanged();
+}

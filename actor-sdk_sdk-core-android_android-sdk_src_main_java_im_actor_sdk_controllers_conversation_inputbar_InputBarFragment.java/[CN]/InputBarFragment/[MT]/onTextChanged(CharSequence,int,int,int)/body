@@ -1,6 +1,7 @@
 {
   Fragment parent=getParentFragment();
   if (parent instanceof InputBarCallback) {
-    ((InputBarCallback)parent).onTextChanged(s,start,before,count);
+    ((InputBarCallback)parent).onTextChanged(s.toString());
   }
+  recalculateCurrentWord();
 }

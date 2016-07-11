@@ -1,0 +1,7 @@
+{
+  super.onDestroyView();
+  if (autocompleteAdapter != null) {
+    autocompleteAdapter.dispose();
+  }
+  autocompleteList=null;
+}

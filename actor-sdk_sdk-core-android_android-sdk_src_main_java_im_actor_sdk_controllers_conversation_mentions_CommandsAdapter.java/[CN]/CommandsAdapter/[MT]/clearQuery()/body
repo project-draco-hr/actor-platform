@@ -1,0 +1,5 @@
+{
+  query=null;
+  commandsToShow=new ArrayList<>();
+  notifyDataSetChanged();
+}

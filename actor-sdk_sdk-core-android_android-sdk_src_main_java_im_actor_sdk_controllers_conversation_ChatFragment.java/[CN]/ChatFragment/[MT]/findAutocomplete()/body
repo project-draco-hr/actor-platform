@@ -1,0 +1,3 @@
+{
+  return ((AutocompleteFragment)getChildFragmentManager().findFragmentById(R.id.autocompleteContainer));
+}
