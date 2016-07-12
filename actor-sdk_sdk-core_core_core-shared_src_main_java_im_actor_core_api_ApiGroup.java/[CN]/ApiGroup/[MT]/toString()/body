@@ -9,9 +9,6 @@
   res+=", groupType=" + this.groupType;
   res+=", canSendMessage=" + this.canSendMessage;
   res+=", ext=" + this.ext;
-  res+=", isAdmin=" + this.isAdmin;
-  res+=", members=" + this.members.size();
-  res+=", createDate=" + this.createDate;
   res+="}";
   return res;
 }

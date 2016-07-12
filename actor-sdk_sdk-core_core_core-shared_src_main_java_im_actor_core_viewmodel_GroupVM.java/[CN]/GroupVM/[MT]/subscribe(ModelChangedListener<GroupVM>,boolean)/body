@@ -1,5 +1,4 @@
 {
-  im.actor.runtime.Runtime.checkMainThread();
   if (listeners.contains(listener)) {
     return;
   }

@@ -26,18 +26,6 @@
   if (this.ext != null) {
     writer.writeObject(22,this.ext);
   }
-  if (this.isAdmin != null) {
-    writer.writeBool(16,this.isAdmin);
-  }
-  writer.writeInt(8,this.creatorUid);
-  writer.writeRepeatedObj(9,this.members);
-  writer.writeLong(10,this.createDate);
-  if (this.theme != null) {
-    writer.writeString(17,this.theme);
-  }
-  if (this.about != null) {
-    writer.writeString(18,this.about);
-  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

@@ -1,0 +1,9 @@
+{
+  this.groupId=wrapped.getId();
+  this.accessHash=wrapped.getAccessHash();
+  this.title=wrapped.getTitle();
+  this.avatar=wrapped.getAvatar() != null ? new Avatar(wrapped.getAvatar()) : null;
+  this.isHidden=wrapped.isHidden() != null ? wrapped.isHidden() : false;
+  this.membersCount=wrapped.getMembersCount();
+  this.isMember=wrapped.isMember();
+}

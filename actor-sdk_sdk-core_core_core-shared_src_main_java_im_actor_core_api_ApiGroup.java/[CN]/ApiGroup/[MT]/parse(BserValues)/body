@@ -12,16 +12,6 @@
   }
   this.canSendMessage=values.optBool(26);
   this.ext=values.optObj(22,new ApiMapValue());
-  this.isAdmin=values.optBool(16);
-  this.creatorUid=values.getInt(8);
-  List<ApiMember> _members=new ArrayList<ApiMember>();
-  for (int i=0; i < values.getRepeatedCount(9); i++) {
-    _members.add(new ApiMember());
-  }
-  this.members=values.getRepeatedObj(9,_members);
-  this.createDate=values.getLong(10);
-  this.theme=values.optString(17);
-  this.about=values.optString(18);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

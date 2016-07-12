@@ -1,10 +1,11 @@
 {
   boolean isChanged=name.change(rawObj.getTitle());
+  isChanged|=avatar.change(rawObj.getAvatar());
+  isChanged|=membersCount.change(rawObj.getMembersCount());
+  isChanged|=isMember.change(rawObj.isMember());
   isChanged|=theme.change(rawObj.getTheme());
   isChanged|=about.change(rawObj.getAbout());
-  isChanged|=avatar.change(rawObj.getAvatar());
-  isChanged|=isMember.change(isHaveMember(myUid,rawObj.getMembers()));
-  isChanged|=members.change(new HashSet<GroupMember>(rawObj.getMembers()));
+  isChanged|=members.change(new HashSet<>());
   if (isChanged) {
     notifyChange();
   }

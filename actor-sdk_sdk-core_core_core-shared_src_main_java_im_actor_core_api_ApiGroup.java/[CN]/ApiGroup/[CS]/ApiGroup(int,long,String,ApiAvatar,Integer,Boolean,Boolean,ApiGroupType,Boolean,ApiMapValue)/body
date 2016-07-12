@@ -9,10 +9,4 @@
   this.groupType=groupType;
   this.canSendMessage=canSendMessage;
   this.ext=ext;
-  this.isAdmin=isAdmin;
-  this.creatorUid=creatorUid;
-  this.members=members;
-  this.createDate=createDate;
-  this.theme=theme;
-  this.about=about;
 }
