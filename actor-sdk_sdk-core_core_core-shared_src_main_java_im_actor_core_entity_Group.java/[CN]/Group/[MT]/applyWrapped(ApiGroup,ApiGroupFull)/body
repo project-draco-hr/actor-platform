@@ -5,5 +5,34 @@
   this.avatar=wrapped.getAvatar() != null ? new Avatar(wrapped.getAvatar()) : null;
   this.isHidden=wrapped.isHidden() != null ? wrapped.isHidden() : false;
   this.membersCount=wrapped.getMembersCount();
-  this.isMember=wrapped.isMember();
+  this.isMember=wrapped.isMember() != null ? wrapped.isMember() : true;
+  if (wrapped.getGroupType() == null) {
+    this.groupType=GroupType.GROUP;
+  }
+ else {
+switch (wrapped.getGroupType()) {
+case CHANNEL:
+      this.groupType=GroupType.CHANNEL;
+    break;
+case GROUP:
+  this.groupType=GroupType.GROUP;
+break;
+default :
+case UNSUPPORTED_VALUE:
+this.groupType=GroupType.OTHER;
+break;
+}
+}
+if (wrapped.canSendMessage() != null) {
+this.canWrite=wrapped.canSendMessage();
+}
+ else {
+this.canWrite=this.groupType == GroupType.GROUP;
+}
+if (ext != null) {
+haveExtension=true;
+}
+ else {
+haveExtension=false;
+}
 }

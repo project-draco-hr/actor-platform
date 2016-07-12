@@ -6,6 +6,7 @@
   this.avatar=new AvatarValueModel("group." + groupId + ".avatar",rawObj.getAvatar());
   this.isMember=new BooleanValueModel("group." + groupId + ".isMember",rawObj.isMember());
   this.membersCount=new IntValueModel("group." + groupId + ".membersCount",rawObj.getMembersCount());
+  this.isCanWriteMessage=new BooleanValueModel("group." + groupId + ".can_write",rawObj.isCanWrite());
   this.members=new ValueModel<>("group." + groupId + ".members",new HashSet<>());
   this.presence=new ValueModel<>("group." + groupId + ".presence",0);
   this.theme=new StringValueModel("group." + groupId + ".theme",rawObj.getTheme());

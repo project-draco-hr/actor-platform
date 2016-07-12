@@ -1,7 +1,38 @@
 {
-  if (update instanceof UpdateGroupTitleChangedObsolete) {
-    UpdateGroupTitleChangedObsolete titleChanged=(UpdateGroupTitleChangedObsolete)update;
-    return onTitleChanged(titleChanged.getGroupId(),titleChanged.getRid(),titleChanged.getUid(),titleChanged.getTitle(),titleChanged.getDate(),false);
+  if (update instanceof UpdateGroupTitleChanged) {
+    UpdateGroupTitleChanged titleChanged=(UpdateGroupTitleChanged)update;
+    return onTitleChanged(titleChanged.getGroupId(),titleChanged.getTitle());
+  }
+ else   if (update instanceof UpdateGroupAvatarChanged) {
+    UpdateGroupAvatarChanged avatarChanged=(UpdateGroupAvatarChanged)update;
+    return onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getAvatar());
+  }
+ else   if (update instanceof UpdateGroupCanSendMessagesChanged) {
+    UpdateGroupCanSendMessagesChanged messagesChanged=(UpdateGroupCanSendMessagesChanged)update;
+    return onCanWriteMessagesChanged(messagesChanged.getGroupId(),messagesChanged.canSendMessages());
+  }
+ else   if (update instanceof UpdateGroupMemberChanged) {
+    UpdateGroupMemberChanged memberChanged=(UpdateGroupMemberChanged)update;
+    return onIsMemberChanged(memberChanged.getGroupId(),memberChanged.isMember());
+  }
+ else   if (update instanceof UpdateGroupExtChanged) {
+    UpdateGroupExtChanged extChanged=(UpdateGroupExtChanged)update;
+    return onExtChanged(extChanged.getGroupId(),extChanged.getExt());
+  }
+ else   if (update instanceof UpdateGroupMembersUpdate) {
+    UpdateGroupMembersUpdate membersUpdate=(UpdateGroupMembersUpdate)update;
+  }
+ else   if (update instanceof UpdateGroupMemberAdminChanged) {
+    UpdateGroupMemberAdminChanged adminChanged=(UpdateGroupMemberAdminChanged)update;
+  }
+ else   if (update instanceof UpdateGroupMemberDiff) {
+    UpdateGroupMemberDiff memberDiff=(UpdateGroupMemberDiff)update;
+  }
+ else   if (update instanceof UpdateGroupMembersBecameAsync) {
+    UpdateGroupMembersBecameAsync becameAsync=(UpdateGroupMembersBecameAsync)update;
+  }
+ else   if (update instanceof UpdateGroupMembersCountChanged) {
+    UpdateGroupMembersCountChanged membersCountChanged=(UpdateGroupMembersCountChanged)update;
   }
  else   if (update instanceof UpdateGroupTopicChangedObsolete) {
     UpdateGroupTopicChangedObsolete topicChanged=(UpdateGroupTopicChangedObsolete)update;
@@ -10,10 +41,6 @@
  else   if (update instanceof UpdateGroupAboutChangedObsolete) {
     UpdateGroupAboutChangedObsolete aboutChanged=(UpdateGroupAboutChangedObsolete)update;
     return onAboutChanged(aboutChanged.getGroupId(),aboutChanged.getAbout());
-  }
- else   if (update instanceof UpdateGroupAvatarChangedObsolete) {
-    UpdateGroupAvatarChangedObsolete avatarChanged=(UpdateGroupAvatarChangedObsolete)update;
-    return onAvatarChanged(avatarChanged.getGroupId(),avatarChanged.getRid(),avatarChanged.getUid(),avatarChanged.getAvatar(),avatarChanged.getDate(),false);
   }
  else   if (update instanceof UpdateGroupInviteObsolete) {
     UpdateGroupInviteObsolete groupInvite=(UpdateGroupInviteObsolete)update;
