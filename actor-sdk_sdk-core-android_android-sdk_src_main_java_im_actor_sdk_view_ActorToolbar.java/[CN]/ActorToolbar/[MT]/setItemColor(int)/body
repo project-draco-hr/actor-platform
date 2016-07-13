@@ -1,0 +1,4 @@
+{
+  itemColor=color;
+  colorizeToolbar(this,itemColor,(Activity)ctxt);
+}
