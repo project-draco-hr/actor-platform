@@ -19,8 +19,8 @@
     UpdateGroupExtChanged extChanged=(UpdateGroupExtChanged)update;
     return onExtChanged(extChanged.getGroupId(),extChanged.getExt());
   }
- else   if (update instanceof UpdateGroupMembersUpdate) {
-    UpdateGroupMembersUpdate membersUpdate=(UpdateGroupMembersUpdate)update;
+ else   if (update instanceof UpdateGroupMembersUpdated) {
+    UpdateGroupMembersUpdated membersUpdate=(UpdateGroupMembersUpdated)update;
     return onMembersChanged(membersUpdate.getGroupId(),membersUpdate.getMembers());
   }
  else   if (update instanceof UpdateGroupMemberAdminChanged) {

@@ -1,6 +1,0 @@
-{
-  String res="rpc EnterGroup{";
-  res+="peer=" + this.peer;
-  res+="}";
-  return res;
-}

@@ -4,6 +4,7 @@
     throw new IOException();
   }
   writer.writeBytes(2,this.state);
+  writer.writeLong(6,this.date);
   if (this.group == null) {
     throw new IOException();
   }

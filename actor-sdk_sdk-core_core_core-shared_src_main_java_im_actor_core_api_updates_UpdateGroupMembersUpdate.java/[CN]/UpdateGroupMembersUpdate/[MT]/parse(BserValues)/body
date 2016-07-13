@@ -1,8 +1,0 @@
-{
-  this.groupId=values.getInt(1);
-  List<ApiMember> _members=new ArrayList<ApiMember>();
-  for (int i=0; i < values.getRepeatedCount(2); i++) {
-    _members.add(new ApiMember());
-  }
-  this.members=values.getRepeatedObj(2,_members);
-}
