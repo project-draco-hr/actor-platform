@@ -1,4 +1,6 @@
 {
   super.onCreate(saveInstance);
   setRootFragment(true);
+  setHomeAsUp(true);
+  setShowHome(true);
 }
