@@ -1,5 +1,0 @@
-int groupId
-long rid
-int uid
-long date
-boolean isSilent

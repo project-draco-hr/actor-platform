@@ -1,0 +1,4 @@
+int groupId
+List<Integer> removedUsers
+List<ApiMember> addedMembers
+int membersCount

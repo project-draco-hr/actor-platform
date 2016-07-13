@@ -21,45 +21,51 @@
   }
  else   if (update instanceof UpdateGroupMembersUpdate) {
     UpdateGroupMembersUpdate membersUpdate=(UpdateGroupMembersUpdate)update;
+    return onMembersChanged(membersUpdate.getGroupId(),membersUpdate.getMembers());
   }
  else   if (update instanceof UpdateGroupMemberAdminChanged) {
     UpdateGroupMemberAdminChanged adminChanged=(UpdateGroupMemberAdminChanged)update;
+    return onMemberChangedAdmin(adminChanged.getGroupId(),adminChanged.getUserId(),adminChanged.isAdmin());
   }
  else   if (update instanceof UpdateGroupMemberDiff) {
     UpdateGroupMemberDiff memberDiff=(UpdateGroupMemberDiff)update;
+    return onMembersChanged(memberDiff.getGroupId(),memberDiff.getAddedMembers(),memberDiff.getRemovedUsers(),memberDiff.getMembersCount());
   }
  else   if (update instanceof UpdateGroupMembersBecameAsync) {
     UpdateGroupMembersBecameAsync becameAsync=(UpdateGroupMembersBecameAsync)update;
+    return onMembersBecameAsync(becameAsync.getGroupId());
   }
  else   if (update instanceof UpdateGroupMembersCountChanged) {
     UpdateGroupMembersCountChanged membersCountChanged=(UpdateGroupMembersCountChanged)update;
+    return onMembersChanged(membersCountChanged.getGroupId(),membersCountChanged.getMembersCount());
   }
- else   if (update instanceof UpdateGroupTopicChangedObsolete) {
-    UpdateGroupTopicChangedObsolete topicChanged=(UpdateGroupTopicChangedObsolete)update;
+ else   if (update instanceof UpdateGroupTopicChanged) {
+    UpdateGroupTopicChanged topicChanged=(UpdateGroupTopicChanged)update;
     return onTopicChanged(topicChanged.getGroupId(),topicChanged.getTopic());
   }
- else   if (update instanceof UpdateGroupAboutChangedObsolete) {
-    UpdateGroupAboutChangedObsolete aboutChanged=(UpdateGroupAboutChangedObsolete)update;
+ else   if (update instanceof UpdateGroupAboutChanged) {
+    UpdateGroupAboutChanged aboutChanged=(UpdateGroupAboutChanged)update;
     return onAboutChanged(aboutChanged.getGroupId(),aboutChanged.getAbout());
   }
- else   if (update instanceof UpdateGroupInviteObsolete) {
-    UpdateGroupInviteObsolete groupInvite=(UpdateGroupInviteObsolete)update;
-    return onGroupInvite(groupInvite.getGroupId(),groupInvite.getRid(),groupInvite.getInviteUid(),groupInvite.getDate(),false);
+ else   if (update instanceof UpdateGroupHistoryShared) {
+    UpdateGroupHistoryShared historyShared=(UpdateGroupHistoryShared)update;
+    return onHistoryShared(historyShared.getGroupId());
   }
- else   if (update instanceof UpdateGroupUserLeaveObsolete) {
-    UpdateGroupUserLeaveObsolete leave=(UpdateGroupUserLeaveObsolete)update;
-    return onUserLeave(leave.getGroupId(),leave.getRid(),leave.getUid(),leave.getDate(),false);
+ else   if (update instanceof UpdateGroupOwnerChanged) {
+    UpdateGroupOwnerChanged ownerChanged=(UpdateGroupOwnerChanged)update;
+    return onOwnerChanged(ownerChanged.getGroupId(),ownerChanged.getUserId());
   }
- else   if (update instanceof UpdateGroupUserKickObsolete) {
-    UpdateGroupUserKickObsolete userKick=(UpdateGroupUserKickObsolete)update;
-    return onUserKicked(userKick.getGroupId(),userKick.getRid(),userKick.getUid(),userKick.getKickerUid(),userKick.getDate(),false);
+ else   if (update instanceof UpdateGroupCanViewMembersChanged) {
+    UpdateGroupCanViewMembersChanged membersChanged=(UpdateGroupCanViewMembersChanged)update;
+    return onEditCanViewMembers(membersChanged.getGroupId(),membersChanged.canViewMembers());
   }
- else   if (update instanceof UpdateGroupUserInvitedObsolete) {
-    UpdateGroupUserInvitedObsolete userInvited=(UpdateGroupUserInvitedObsolete)update;
-    return onUserAdded(userInvited.getGroupId(),userInvited.getRid(),userInvited.getUid(),userInvited.getInviterUid(),userInvited.getDate(),false);
+ else   if (update instanceof UpdateGroupCanInviteMembersChanged) {
+    UpdateGroupCanInviteMembersChanged changed=(UpdateGroupCanInviteMembersChanged)update;
+    return onEditCanInviteMembers(changed.getGroupId(),changed.canInviteMembers());
   }
- else   if (update instanceof UpdateGroupMembersUpdateObsolete) {
-    return onMembersUpdated(((UpdateGroupMembersUpdateObsolete)update).getGroupId(),((UpdateGroupMembersUpdateObsolete)update).getMembers());
+ else   if (update instanceof UpdateGroupFullExtChanged) {
+    UpdateGroupFullExtChanged extChanged=(UpdateGroupFullExtChanged)update;
+    return onFullExtChanged(extChanged.getGroupId(),extChanged.getExt());
   }
   return Promise.success(null);
 }

@@ -1,0 +1,11 @@
+{
+  ApiGroupFull fullExt=null;
+  if (getWrappedExt() != null) {
+    ApiGroupFull e=getWrappedExt();
+    fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),members,e.getTheme(),e.getAbout(),e.getExt(),e.isAsyncMembers(),e.canViewMembers(),e.canInvitePeople(),e.isSharedHistory());
+    fullExt.setUnmappedObjects(e.getUnmappedObjects());
+  }
+  ApiGroup w=getWrapped();
+  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),members.size(),w.isMember(),w.isHidden(),w.getGroupType(),w.canSendMessage(),w.getExt());
+  return new Group(res,fullExt);
+}

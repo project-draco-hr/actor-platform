@@ -1,9 +1,10 @@
 {
-  this.removedUsers=values.getRepeatedInt(1);
+  this.groupId=values.getInt(1);
+  this.removedUsers=values.getRepeatedInt(2);
   List<ApiMember> _addedMembers=new ArrayList<ApiMember>();
-  for (int i=0; i < values.getRepeatedCount(2); i++) {
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
     _addedMembers.add(new ApiMember());
   }
-  this.addedMembers=values.getRepeatedObj(2,_addedMembers);
-  this.membersCount=values.getInt(3);
+  this.addedMembers=values.getRepeatedObj(3,_addedMembers);
+  this.membersCount=values.getInt(4);
 }
