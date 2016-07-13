@@ -1,0 +1,6 @@
+{
+  super.onCreate(saveInstance);
+  if (saveInstance != null) {
+    isInited=saveInstance.getBoolean("is_inited");
+  }
+}

@@ -1,0 +1,7 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  if (!isInited) {
+    isInited=true;
+    getChildFragmentManager().beginTransaction().add(R.id.content,new DialogsDefaultFragment()).add(R.id.fab,new ComposeFabFragment()).add(R.id.search,new GlobalSearchDefaultFragment()).add(R.id.placeholder,new GlobalPlaceholderFragment()).commit();
+  }
+}

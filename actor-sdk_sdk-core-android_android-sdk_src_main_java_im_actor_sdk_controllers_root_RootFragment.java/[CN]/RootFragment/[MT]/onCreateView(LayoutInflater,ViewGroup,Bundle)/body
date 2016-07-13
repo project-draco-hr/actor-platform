@@ -1,7 +1,16 @@
 {
-  View res=inflater.inflate(R.layout.activity_root_content,container,false);
-  if (savedInstanceState == null) {
-    getChildFragmentManager().beginTransaction().add(R.id.content,new DialogsDefaultFragment()).add(R.id.fab,new ComposeFabFragment()).add(R.id.search,new GlobalSearchDefaultFragment()).add(R.id.placeholder,new GlobalPlaceholderFragment()).commit();
-  }
+  FrameLayout res=new FrameLayout(getContext());
+  FrameLayout content=new FrameLayout(getContext());
+  content.setId(R.id.content);
+  res.addView(content,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  FrameLayout fab=new FrameLayout(getContext());
+  fab.setId(R.id.fab);
+  res.addView(fab,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  FrameLayout search=new FrameLayout(getContext());
+  search.setId(R.id.search);
+  res.addView(search,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  FrameLayout placeholder=new FrameLayout(getContext());
+  placeholder.setId(R.id.placeholder);
+  res.addView(placeholder,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
   return res;
 }
