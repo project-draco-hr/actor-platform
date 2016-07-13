@@ -1,4 +1,4 @@
 {
   super.onCreate(saveInstance);
-  setHasOptionsMenu(true);
+  setRootFragment(true);
 }

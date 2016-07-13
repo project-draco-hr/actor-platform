@@ -1,7 +1,9 @@
 {
   super.onDestroyView();
-  groupUserAdapter.dispose();
-  groupUserAdapter=null;
+  if (groupUserAdapter != null) {
+    groupUserAdapter.dispose();
+    groupUserAdapter=null;
+  }
   if (avatarView != null) {
     avatarView.unbind();
     avatarView=null;

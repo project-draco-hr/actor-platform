@@ -1,6 +1,6 @@
 {
   super.onCreateOptionsMenu(menu,menuInflater);
-  if (groupInfo.isMember().get()) {
+  if (groupVM.isMember().get()) {
     menuInflater.inflate(R.menu.group_info,menu);
   }
 }

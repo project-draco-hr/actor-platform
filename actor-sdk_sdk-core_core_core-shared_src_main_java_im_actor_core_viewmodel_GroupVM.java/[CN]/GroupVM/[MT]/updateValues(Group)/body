@@ -6,6 +6,7 @@
   isChanged|=theme.change(rawObj.getTopic());
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=members.change(new HashSet<>(rawObj.getMembers()));
+  isChanged|=ownerId.change(rawObj.getOwnerId());
   if (isChanged) {
     notifyChange();
   }

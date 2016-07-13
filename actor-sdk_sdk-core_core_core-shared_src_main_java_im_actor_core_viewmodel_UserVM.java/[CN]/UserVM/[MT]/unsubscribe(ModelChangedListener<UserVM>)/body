@@ -1,4 +1,3 @@
 {
-  Runtime.checkMainThread();
   listeners.remove(listener);
 }
