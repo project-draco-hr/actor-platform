@@ -42,6 +42,11 @@
     }
  catch (    IOException e) {
       e.printStackTrace();
+      requests.remove(rid);
+      if (holder.protoId != 0) {
+        idMap.remove(holder.protoId);
+      }
+      holder.callback.onError(new RpcInternalException());
       return;
     }
     Log.d(TAG,"<- response#" + holder.publicId + ": "+ response+ " in "+ (Runtime.getCurrentTime() - holder.requestTime)+ " ms");
