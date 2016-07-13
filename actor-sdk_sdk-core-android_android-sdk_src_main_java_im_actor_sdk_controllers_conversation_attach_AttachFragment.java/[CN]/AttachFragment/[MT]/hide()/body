@@ -1,5 +1,5 @@
 {
-  if (container.getVisibility() == View.VISIBLE) {
+  if (container != null && container.getVisibility() == View.VISIBLE) {
     onHidden();
     fastAttachAdapter.clearSelected();
     messenger().getGalleryScannerActor().send(new GalleryScannerActor.Hide());

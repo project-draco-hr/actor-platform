@@ -1,2 +1,9 @@
 {
+  if (savedInstanceState == null) {
+    getChildFragmentManager().beginTransaction().add(new MediaPickerFragment(),"picker").commitNow();
+  }
+  root=new FrameLayout(getContext());
+  root.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  isLoaded=false;
+  return root;
 }
