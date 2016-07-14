@@ -14,7 +14,9 @@
     }
     canvas.drawCircle(Screen.dp(36),Screen.dp(36),Screen.dp(24),avatarBorder);
     if (layout.getTitleIcon() != null) {
-      layout.getTitleIcon().setBounds(Screen.sp(72),Screen.sp(16 + 3),Screen.dp(72 + 16),Screen.dp(16 + 3 + 10));
+      int left=Screen.dp(72) + (Screen.dp(16) - layout.getTitleIcon().getIntrinsicWidth()) / 2;
+      int bottom=layout.getTitleIconTop();
+      layout.getTitleIcon().setBounds(left,bottom - layout.getTitleIcon().getIntrinsicHeight(),left + layout.getTitleIcon().getIntrinsicWidth(),bottom);
       layout.getTitleIcon().draw(canvas);
     }
     canvas.save();
