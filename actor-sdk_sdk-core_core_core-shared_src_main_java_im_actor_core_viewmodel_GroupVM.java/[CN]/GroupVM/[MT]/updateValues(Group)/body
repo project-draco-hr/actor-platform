@@ -3,6 +3,7 @@
   isChanged|=avatar.change(rawObj.getAvatar());
   isChanged|=membersCount.change(rawObj.getMembersCount());
   isChanged|=isMember.change(rawObj.isMember());
+  isChanged|=isCanWriteMessage.change(rawObj.isCanWrite());
   isChanged|=theme.change(rawObj.getTopic());
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=members.change(new HashSet<>(rawObj.getMembers()));

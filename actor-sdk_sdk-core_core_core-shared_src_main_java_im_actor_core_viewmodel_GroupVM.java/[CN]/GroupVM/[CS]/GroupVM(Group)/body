@@ -1,6 +1,7 @@
 {
   super(rawObj);
   this.groupId=rawObj.getGroupId();
+  this.groupType=rawObj.getGroupType();
   this.name=new StringValueModel("group." + groupId + ".title",rawObj.getTitle());
   this.avatar=new AvatarValueModel("group." + groupId + ".avatar",rawObj.getAvatar());
   this.isMember=new BooleanValueModel("group." + groupId + ".isMember",rawObj.isMember());

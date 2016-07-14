@@ -1,2 +1,3 @@
 {
+  return createGroup(title,avatarDescriptor,uids,ApiGroupType.GROUP);
 }
