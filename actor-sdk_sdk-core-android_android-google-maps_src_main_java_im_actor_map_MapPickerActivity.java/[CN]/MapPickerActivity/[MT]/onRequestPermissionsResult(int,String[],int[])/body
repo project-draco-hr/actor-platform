@@ -1,0 +1,12 @@
+{
+  if (requestCode == PERMISSION_REQ_LOCATION) {
+    if (grantResults.length > 0) {
+      if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        setUpMap();
+      }
+ else {
+        finish();
+      }
+    }
+  }
+}
