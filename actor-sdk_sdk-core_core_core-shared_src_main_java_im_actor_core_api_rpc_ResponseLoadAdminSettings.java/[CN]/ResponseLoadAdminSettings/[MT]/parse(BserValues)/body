@@ -1,0 +1,3 @@
+{
+  this.settings=values.getObj(1,new ApiAdminSettings());
+}

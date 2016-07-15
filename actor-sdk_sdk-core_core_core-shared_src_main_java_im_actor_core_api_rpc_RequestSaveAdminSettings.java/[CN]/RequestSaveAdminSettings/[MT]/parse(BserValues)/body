@@ -1,0 +1,4 @@
+{
+  this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
+  this.settings=values.getObj(2,new ApiAdminSettings());
+}

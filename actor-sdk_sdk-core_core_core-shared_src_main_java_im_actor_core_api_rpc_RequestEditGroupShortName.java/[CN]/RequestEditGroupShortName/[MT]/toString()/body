@@ -1,0 +1,7 @@
+{
+  String res="rpc EditGroupShortName{";
+  res+="groupPeer=" + this.groupPeer;
+  res+=", shortName=" + this.shortName;
+  res+="}";
+  return res;
+}

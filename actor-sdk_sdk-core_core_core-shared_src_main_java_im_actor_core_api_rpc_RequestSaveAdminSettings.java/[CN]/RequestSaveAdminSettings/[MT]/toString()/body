@@ -1,0 +1,7 @@
+{
+  String res="rpc SaveAdminSettings{";
+  res+="groupPeer=" + this.groupPeer;
+  res+=", settings=" + this.settings;
+  res+="}";
+  return res;
+}

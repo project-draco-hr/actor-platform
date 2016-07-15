@@ -1,0 +1,4 @@
+{
+  this.groupId=values.getInt(1);
+  this.canEditGroup=values.getBool(2);
+}

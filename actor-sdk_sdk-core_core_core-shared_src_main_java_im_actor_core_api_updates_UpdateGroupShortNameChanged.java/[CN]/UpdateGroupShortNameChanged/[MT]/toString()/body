@@ -1,0 +1,7 @@
+{
+  String res="update GroupShortNameChanged{";
+  res+="groupId=" + this.groupId;
+  res+=", shortName=" + this.shortName;
+  res+="}";
+  return res;
+}

@@ -1,0 +1,6 @@
+{
+  String res="update GroupCanViewAdminsChanged{";
+  res+="groupId=" + this.groupId;
+  res+="}";
+  return res;
+}

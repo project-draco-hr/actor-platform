@@ -1,0 +1,17 @@
+int id
+long createDate
+Integer ownerUid
+List<ApiMember> members
+String theme
+String about
+ApiMapValue ext
+Boolean isAsyncMembers
+Boolean canViewMembers
+Boolean canInvitePeople
+Boolean isSharedHistory
+Boolean canEditGroupInfo
+String shortName
+Boolean canEditShortName
+Boolean canEditAdminList
+Boolean canViewAdminList
+Boolean canEditAdminSettings

@@ -1,0 +1,6 @@
+{
+  writer.writeInt(1,this.groupId);
+  if (this.shortName != null) {
+    writer.writeString(2,this.shortName);
+  }
+}
