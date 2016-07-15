@@ -34,6 +34,7 @@ this.haveExtension=true;
 this.ownerId=ext.getOwnerUid();
 this.about=ext.getAbout();
 this.topic=ext.getTheme();
+this.shortName=ext.getShortName();
 this.isAsyncMembers=ext.isAsyncMembers() != null ? ext.isAsyncMembers() : false;
 this.isCanViewMembers=ext.canViewMembers() != null ? ext.canViewMembers() : true;
 this.isCanInviteMembers=ext.canViewMembers() != null ? ext.canViewMembers() : true;
@@ -55,5 +56,6 @@ this.isCanInviteMembers=false;
 this.isSharedHistory=false;
 this.members=new ArrayList<>();
 this.isCanEditInfo=false;
+this.shortName=null;
 }
 }

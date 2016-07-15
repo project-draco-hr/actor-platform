@@ -9,7 +9,10 @@
   isChanged|=members.change(new HashSet<>(rawObj.getMembers()));
   isChanged|=ownerId.change(rawObj.getOwnerId());
   isChanged|=isCanViewMembers.change(rawObj.isCanViewMembers());
+  isChanged|=isCanEditInfo.change(rawObj.isCanEditInfo());
+  isChanged|=shortName.change(rawObj.getShortName());
+  isChanged|=isAsyncMembers.change(rawObj.isAsyncMembers());
   if (isChanged) {
-    notifyChange();
+    notifyIfNeeded();
   }
 }
