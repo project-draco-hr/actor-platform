@@ -10,6 +10,8 @@
     textActivePaint=createTextPaint(Fonts.regular(),16,style.getDialogsActiveTextColor());
     senderTextColor=style.getDialogsActiveTextColor();
     groupIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_group_black_18dp),style.getDialogsTitleColor());
+    channelIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_megaphone_18dp_black),style.getDialogsTitleColor());
+    botIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_robot_black_18dp),style.getDialogsTitleColor());
     secretIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_lock_black_18dp),style.getDialogsTitleSecureColor());
     counterTextPaint=createTextPaint(Fonts.medium(),14,style.getDialogsCounterTextColor());
     counterTextPaint.setTextAlign(Paint.Align.CENTER);
@@ -69,14 +71,27 @@
     maxTitleWidth-=dateWidth + Screen.dp(16);
   }
   if (arg.getPeer().getPeerType() == PeerType.GROUP) {
-    res.setTitleIcon(groupIcon);
-    res.setTitleIconTop(Screen.dp(33));
+    if (arg.isChannel()) {
+      res.setTitleIcon(channelIcon);
+      res.setTitleIconTop(Screen.dp(33));
+    }
+ else {
+      res.setTitleIcon(groupIcon);
+      res.setTitleIconTop(Screen.dp(33));
+    }
     maxTitleWidth-=Screen.dp(16 + 4);
   }
  else   if (arg.getPeer().getPeerType() == PeerType.PRIVATE_ENCRYPTED) {
     res.setTitleIcon(secretIcon);
     res.setTitleIconTop(Screen.dp(31));
     maxTitleWidth-=Screen.dp(16 + 4);
+  }
+ else   if (arg.getPeer().getPeerType() == PeerType.PRIVATE) {
+    if (arg.isBot()) {
+      res.setTitleIcon(botIcon);
+      res.setTitleIconTop(Screen.dp(34));
+      maxTitleWidth-=Screen.dp(16 + 4);
+    }
   }
   if (arg.getSenderId() == messenger().myUid()) {
     if (arg.isRead()) {
