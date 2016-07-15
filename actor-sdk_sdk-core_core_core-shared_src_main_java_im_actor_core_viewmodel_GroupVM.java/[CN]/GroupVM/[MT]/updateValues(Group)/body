@@ -8,6 +8,7 @@
   isChanged|=about.change(rawObj.getAbout());
   isChanged|=members.change(new HashSet<>(rawObj.getMembers()));
   isChanged|=ownerId.change(rawObj.getOwnerId());
+  isChanged|=isCanViewMembers.change(rawObj.isCanViewMembers());
   if (isChanged) {
     notifyChange();
   }

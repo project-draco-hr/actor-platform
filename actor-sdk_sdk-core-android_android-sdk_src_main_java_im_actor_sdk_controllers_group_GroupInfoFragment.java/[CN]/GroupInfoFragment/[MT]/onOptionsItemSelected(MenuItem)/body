@@ -1,2 +1,13 @@
 {
+  if (item.getItemId() == R.id.leaveGroup) {
+    leaveGroup();
+    return true;
+  }
+ else   if (item.getItemId() == R.id.editTitle) {
+    startActivity(Intents.editGroupTitle(chatId,getActivity()));
+  }
+ else   if (item.getItemId() == R.id.changePhoto) {
+    startActivity(ViewAvatarActivity.viewGroupAvatar(chatId,getActivity()));
+  }
+  return super.onOptionsItemSelected(item);
 }
