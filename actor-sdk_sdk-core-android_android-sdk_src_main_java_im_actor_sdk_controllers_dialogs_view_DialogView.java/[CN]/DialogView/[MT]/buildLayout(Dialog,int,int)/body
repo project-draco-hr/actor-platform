@@ -115,7 +115,7 @@
     maxWidth-=counterWidth + Screen.dp(8);
   }
   if (arg.getSenderId() > 0) {
-    String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid());
+    String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid(),arg.isChannel());
     if (arg.getPeer().getPeerType() == PeerType.GROUP) {
       if (messenger().getFormatter().isLargeDialogMessage(arg.getMessageType())) {
         res.setTextLayout(singleLineText(handleEmoji(contentText),textActivePaint,maxWidth));

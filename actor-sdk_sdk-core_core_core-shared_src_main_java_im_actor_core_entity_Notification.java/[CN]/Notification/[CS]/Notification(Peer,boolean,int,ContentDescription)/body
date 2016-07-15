@@ -1,5 +1,6 @@
 {
   this.peer=peer;
+  this.isChannel=isChannel;
   this.sender=sender;
   this.contentDescription=contentDescription;
 }

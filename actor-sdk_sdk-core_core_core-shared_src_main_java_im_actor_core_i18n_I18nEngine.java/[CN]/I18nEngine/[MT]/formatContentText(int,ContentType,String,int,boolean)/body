@@ -1,4 +1,5 @@
 {
+  String groupKey=isChannel ? "channels" : "groups";
 switch (contentType) {
 case TEXT:
     return text;
@@ -29,25 +30,25 @@ return text;
 case SERVICE_REGISTERED:
 return getTemplateNamed(senderId,"content.service.registered.compact").replace("{app_name}",getAppName());
 case SERVICE_CREATED:
-return getTemplateNamed(senderId,"content.service.groups.created");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".created");
 case SERVICE_ADD:
-return getTemplateNamed(senderId,"content.service.groups.invited").replace("{name_added}",getSubjectName(relatedUid));
+return getTemplateNamed(senderId,"content.service." + groupKey + ".invited").replace("{name_added}",getSubjectName(relatedUid));
 case SERVICE_LEAVE:
-return getTemplateNamed(senderId,"content.service.groups.left");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".left");
 case SERVICE_KICK:
-return getTemplateNamed(senderId,"content.service.groups.kicked").replace("{name_kicked}",getSubjectName(relatedUid));
+return getTemplateNamed(senderId,"content.service." + groupKey + ".kicked").replace("{name_kicked}",getSubjectName(relatedUid));
 case SERVICE_AVATAR:
-return getTemplateNamed(senderId,"content.service.groups.avatar_changed");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".avatar_changed");
 case SERVICE_AVATAR_REMOVED:
-return getTemplateNamed(senderId,"content.service.groups.avatar_removed");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".avatar_removed");
 case SERVICE_TITLE:
-return getTemplateNamed(senderId,"content.service.groups.title_changed.compact");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".title_changed.compact");
 case SERVICE_TOPIC:
-return getTemplateNamed(senderId,"content.service.groups.topic_changed.compact");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".topic_changed.compact");
 case SERVICE_ABOUT:
-return getTemplateNamed(senderId,"content.service.groups.about_changed.compact");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".about_changed.compact");
 case SERVICE_JOINED:
-return getTemplateNamed(senderId,"content.service.groups.joined");
+return getTemplateNamed(senderId,"content.service." + groupKey + ".joined");
 case SERVICE_CALL_ENDED:
 return get("content.service.calls.ended");
 case SERVICE_CALL_MISSED:
