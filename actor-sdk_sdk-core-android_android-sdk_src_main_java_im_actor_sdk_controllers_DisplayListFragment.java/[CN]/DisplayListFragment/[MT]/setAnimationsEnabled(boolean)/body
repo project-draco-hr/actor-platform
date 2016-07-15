@@ -1,6 +1,6 @@
 {
   if (isEnabled) {
-    CustomItemAnimator itemAnimator=new CustomItemAnimator();
+    DefaultItemAnimator itemAnimator=new DefaultItemAnimator();
     itemAnimator.setSupportsChangeAnimations(false);
     itemAnimator.setMoveDuration(200);
     itemAnimator.setAddDuration(150);
