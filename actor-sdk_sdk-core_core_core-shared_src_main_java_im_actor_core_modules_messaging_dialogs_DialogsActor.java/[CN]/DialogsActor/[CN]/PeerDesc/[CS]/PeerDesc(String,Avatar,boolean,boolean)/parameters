@@ -1,0 +1,4 @@
+String title
+Avatar avatar
+boolean isBot
+boolean isChannel

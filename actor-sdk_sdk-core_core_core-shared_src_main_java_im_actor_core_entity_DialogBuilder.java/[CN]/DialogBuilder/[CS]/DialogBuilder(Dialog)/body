@@ -12,4 +12,6 @@
   relatedUid=dialog.getRelatedUid();
   knownReadDate=dialog.getKnownReadDate();
   knownReceiveDate=dialog.getKnownReceiveDate();
+  isBot=dialog.isBot();
+  isChannel=dialog.isChannel();
 }

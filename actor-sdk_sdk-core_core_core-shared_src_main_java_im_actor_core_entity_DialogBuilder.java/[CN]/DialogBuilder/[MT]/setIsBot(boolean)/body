@@ -1,0 +1,4 @@
+{
+  this.isBot=isBot;
+  return this;
+}

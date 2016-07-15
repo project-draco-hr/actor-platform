@@ -5,6 +5,8 @@
   if (av != null) {
     dialogAvatar=new Avatar(av);
   }
+  isBot=values.getBool(15,false);
+  isChannel=values.getBool(16,false);
   unreadCount=values.getInt(4);
   sortDate=values.getLong(5);
   rid=values.getLong(6);

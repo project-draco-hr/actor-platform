@@ -2,6 +2,8 @@
   this.peer=peer;
   this.dialogTitle=StringUtil.ellipsize(dialogTitle,MAX_LENGTH);
   this.dialogAvatar=dialogAvatar;
+  this.isBot=isBot;
+  this.isChannel=isChannel;
   this.unreadCount=unreadCount;
   this.rid=rid;
   this.sortDate=sortKey;

@@ -2,10 +2,10 @@
 switch (peer.getPeerType()) {
 case PRIVATE:
     User u=getUser(peer.getPeerId());
-  return new PeerDesc(u.getName(),u.getAvatar());
+  return new PeerDesc(u.getName(),u.getAvatar(),u.isBot(),false);
 case GROUP:
 Group g=getGroup(peer.getPeerId());
-return new PeerDesc(g.getTitle(),g.getAvatar());
+return new PeerDesc(g.getTitle(),g.getAvatar(),false,g.getGroupType() == GroupType.CHANNEL);
 default :
 return null;
 }

@@ -2,6 +2,8 @@ Peer peer
 long sortKey
 String dialogTitle
 Avatar dialogAvatar
+boolean isBot
+boolean isChannel
 int unreadCount
 long rid
 ContentType messageType

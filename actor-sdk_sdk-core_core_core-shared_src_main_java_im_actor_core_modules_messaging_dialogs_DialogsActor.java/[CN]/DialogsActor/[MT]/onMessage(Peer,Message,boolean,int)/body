@@ -15,7 +15,7 @@
  else {
     Dialog dialog=dialogs.getValue(peer.getUnuqueId());
     ContentDescription contentDescription=ContentDescription.fromContent(message.getContent());
-    DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setSenderId(message.getSenderId());
+    DialogBuilder builder=new DialogBuilder().setRid(message.getRid()).setTime(message.getDate()).setMessageType(contentDescription.getContentType()).setText(contentDescription.getText()).setRelatedUid(contentDescription.getRelatedUser()).setSenderId(message.getSenderId()).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setIsBot(peerDesc.isBot()).setIsChannel(peerDesc.isChannel());
     if (counter >= 0) {
       builder.setUnreadCount(counter);
     }
@@ -25,7 +25,7 @@
         Log.d("DialogsActor","too old");
         return Promise.success(null);
       }
-      builder.setPeer(dialog.getPeer()).setDialogTitle(dialog.getDialogTitle()).setDialogAvatar(dialog.getDialogAvatar()).setSortKey(dialog.getSortDate()).updateKnownReceiveDate(dialog.getKnownReceiveDate()).updateKnownReadDate(dialog.getKnownReadDate());
+      builder.setPeer(dialog.getPeer()).setSortKey(dialog.getSortDate()).updateKnownReceiveDate(dialog.getKnownReceiveDate()).updateKnownReadDate(dialog.getKnownReadDate());
       if (!contentDescription.isSilent()) {
         builder.setSortKey(message.getSortDate());
       }
@@ -35,7 +35,7 @@
         Log.d("DialogsActor","is silent in");
         return Promise.success(null);
       }
-      builder.setPeer(peer).setDialogTitle(peerDesc.getTitle()).setDialogAvatar(peerDesc.getAvatar()).setSortKey(message.getSortDate());
+      builder.setPeer(peer).setSortKey(message.getSortDate());
       forceUpdate=true;
     }
     addOrUpdateItem(builder.createDialog());
