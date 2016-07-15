@@ -1,0 +1,6 @@
+{
+  View res=inflater.inflate(R.layout.fragment_members,container,false);
+  adapter=new MembersAdapter(getContext());
+  ((ListView)res.findViewById(R.id.items)).setAdapter(adapter);
+  return res;
+}

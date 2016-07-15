@@ -1,0 +1,6 @@
+{
+  setRootFragment(true);
+  setTitle(R.string.group_members_header);
+  setHomeAsUp(true);
+  setShowHome(true);
+}
