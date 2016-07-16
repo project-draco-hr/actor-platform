@@ -1,0 +1,6 @@
+{
+  this();
+  Bundle args=new Bundle();
+  args.putBoolean("isChannel",isChannel);
+  setArguments(args);
+}
