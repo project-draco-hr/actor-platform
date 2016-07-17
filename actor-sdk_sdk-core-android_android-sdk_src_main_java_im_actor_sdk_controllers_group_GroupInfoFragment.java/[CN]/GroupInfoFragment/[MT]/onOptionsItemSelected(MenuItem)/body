@@ -1,9 +1,5 @@
 {
-  if (item.getItemId() == R.id.leaveGroup) {
-    leaveGroup();
-    return true;
-  }
- else   if (item.getItemId() == R.id.editTitle) {
+  if (item.getItemId() == R.id.editTitle) {
     startActivity(Intents.editGroupTitle(chatId,getActivity()));
   }
  else   if (item.getItemId() == R.id.changePhoto) {

@@ -1,17 +1,8 @@
 {
   super.onCreateOptionsMenu(menu,menuInflater);
   if (groupVM.isMember().get()) {
-    menuInflater.inflate(R.menu.group_info,menu);
-    if (!groupVM.getIsCanViewMembers().get()) {
-      menu.findItem(R.id.leaveGroup).setVisible(false);
-    }
- else {
-      if (groupVM.getGroupType() == GroupType.CHANNEL) {
-        menu.findItem(R.id.leaveGroup).setTitle(R.string.group_leave_channel);
-      }
- else {
-        menu.findItem(R.id.leaveGroup).setTitle(R.string.group_leave);
-      }
+    if (groupVM.getIsCanEditInfo().get()) {
+      menuInflater.inflate(R.menu.group_info,menu);
     }
   }
 }

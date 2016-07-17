@@ -1,0 +1,3 @@
+Value<T1> value1
+Value<T2> value2
+ValueDoubleListener<T1,T2> listener

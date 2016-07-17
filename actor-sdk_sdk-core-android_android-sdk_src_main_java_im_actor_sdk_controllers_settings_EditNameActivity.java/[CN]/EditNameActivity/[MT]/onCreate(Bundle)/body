@@ -18,6 +18,6 @@
     getSupportActionBar().setTitle(R.string.edit_name_title_nick);
   }
   if (savedInstanceState == null) {
-    showFragment(EditNameFragment.editName(type,id),false,false);
+    showFragment(EditNameFragment.editName(type,id),false);
   }
 }
