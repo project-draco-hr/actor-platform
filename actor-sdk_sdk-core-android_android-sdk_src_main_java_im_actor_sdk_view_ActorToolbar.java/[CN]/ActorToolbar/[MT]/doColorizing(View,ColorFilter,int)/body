@@ -3,7 +3,7 @@
     ((ImageButton)v).getDrawable().setAlpha(255);
     ((ImageButton)v).getDrawable().setColorFilter(colorFilter);
   }
-  if (v instanceof ImageView) {
+  if (v instanceof ImageView && !(v instanceof AvatarView)) {
     ((ImageView)v).getDrawable().setAlpha(255);
     ((ImageView)v).getDrawable().setColorFilter(colorFilter);
   }
