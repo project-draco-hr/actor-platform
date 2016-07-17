@@ -1,33 +1,6 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.chat_menu,menu);
-  if (peer.getPeerType() == PeerType.PRIVATE) {
-    menu.findItem(R.id.contact).setVisible(true);
-  }
- else {
-    menu.findItem(R.id.contact).setVisible(false);
-  }
-  if (peer.getPeerType() == PeerType.GROUP) {
-    GroupVM groupVM=groups().get(peer.getPeerId());
-    if (groupVM.isMember().get()) {
-      menu.findItem(R.id.leaveGroup).setVisible(true);
-      menu.findItem(R.id.groupInfo).setVisible(true);
-    }
- else {
-      menu.findItem(R.id.leaveGroup).setVisible(false);
-      menu.findItem(R.id.groupInfo).setVisible(false);
-    }
-    if (groupVM.getGroupType() == GroupType.GROUP) {
-      menu.findItem(R.id.clear).setVisible(true);
-    }
- else {
-      menu.findItem(R.id.clear).setVisible(false);
-    }
-  }
- else {
-    menu.findItem(R.id.groupInfo).setVisible(false);
-    menu.findItem(R.id.leaveGroup).setVisible(false);
-  }
   boolean callsEnabled=ActorSDK.sharedActor().isCallsEnabled();
   boolean videoCallsEnabled=ActorSDK.sharedActor().isVideoCallsEnabled();
   if (callsEnabled) {
