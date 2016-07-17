@@ -1,0 +1,5 @@
+{
+  super.onCreate(saveInstance);
+  groupId=getArguments().getInt("groupId");
+  groupVM=messenger().getGroup(groupId);
+}

@@ -1,8 +1,8 @@
 {
   super.onCreateOptionsMenu(menu,menuInflater);
   if (groupVM.isMember().get()) {
-    if (groupVM.getIsCanEditInfo().get()) {
-      menuInflater.inflate(R.menu.group_info,menu);
-    }
+    MenuItem menuItem=menu.add(Menu.NONE,R.id.edit,Menu.NONE,R.string.actor_menu_edit);
+    menuItem.setIcon(R.drawable.ic_edit_white_24dp);
+    menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
   }
 }

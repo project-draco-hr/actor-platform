@@ -2,5 +2,6 @@
   super.onCreate(saveInstance);
   if (saveInstance != null) {
     pendingFile=saveInstance.getString("pendingFile",null);
+    pickCropped=saveInstance.getBoolean("pickCropped");
   }
 }

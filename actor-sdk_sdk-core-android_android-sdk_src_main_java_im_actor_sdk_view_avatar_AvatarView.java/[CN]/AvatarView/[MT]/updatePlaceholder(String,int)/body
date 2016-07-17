@@ -1,0 +1,3 @@
+{
+  getHierarchy().setPlaceholderImage(new AvatarPlaceholderDrawable(title,id,placeholderTextSize,getContext()));
+}
