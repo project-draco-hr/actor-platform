@@ -13,6 +13,10 @@
   isChanged|=isCanEditInfo.change(rawObj.isCanEditInfo());
   isChanged|=shortName.change(rawObj.getShortName());
   isChanged|=isAsyncMembers.change(rawObj.isAsyncMembers());
+  isChanged|=isHistoryShared.change(rawObj.isSharedHistory());
+  isChanged|=isCanEditAdministration.change(rawObj.isCanEditAdministration());
+  isChanged|=isCanEditAdmins.change(rawObj.isCanEditAdmins());
+  isChanged|=isCanViewAdmins.change(rawObj.isCanViewAdmins());
   if (isChanged) {
     notifyIfNeeded();
   }
