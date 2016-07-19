@@ -1,0 +1,6 @@
+{
+  setPadding(0,Screen.dp(8),0,Screen.dp(8));
+  setWillNotDraw(false);
+  bottomDrawable=getResources().getDrawable(R.drawable.card_shadow_bottom);
+  topDrawable=getResources().getDrawable(R.drawable.card_shadow_top);
+}
