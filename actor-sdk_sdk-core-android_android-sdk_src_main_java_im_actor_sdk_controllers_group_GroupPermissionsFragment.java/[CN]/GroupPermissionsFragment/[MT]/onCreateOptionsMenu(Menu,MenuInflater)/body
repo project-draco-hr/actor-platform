@@ -1,0 +1,6 @@
+{
+  super.onCreateOptionsMenu(menu,inflater);
+  if (permissions != null) {
+    inflater.inflate(R.menu.next,menu);
+  }
+}

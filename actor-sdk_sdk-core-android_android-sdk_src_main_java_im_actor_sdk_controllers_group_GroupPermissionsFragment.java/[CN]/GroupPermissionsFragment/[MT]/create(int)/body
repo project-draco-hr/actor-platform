@@ -1,0 +1,7 @@
+{
+  Bundle args=new Bundle();
+  args.putInt("groupId",chatId);
+  GroupPermissionsFragment res=new GroupPermissionsFragment();
+  res.setArguments(args);
+  return res;
+}
