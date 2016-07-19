@@ -1,6 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  if (savedInstanceState == null) {
-    showFragment(GroupAdminFragment.create(getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0)),false);
-  }
-}
