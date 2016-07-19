@@ -1,5 +1,15 @@
 {
+  if (!animateToolbar) {
+    return;
+  }
+  Activity activity=getActivity();
+  if (!(activity instanceof BaseActivity)) {
+    return;
+  }
   ActionBar bar=((BaseActivity)getActivity()).getSupportActionBar();
+  if (bar == null) {
+    return;
+  }
   int fullColor=baseColor;
   ActorStyle style=ActorSDK.sharedActor().style;
   if (style.getToolBarColor() != 0) {

@@ -5,7 +5,6 @@
     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()),14));
   }
   this.currentLocation=location;
-  ;
   accuranceView.setText(getString(R.string.picker_map_pick_my_accuracy,(int)currentLocation.getAccuracy()));
   Log.d("Location changed",location.toString());
 }

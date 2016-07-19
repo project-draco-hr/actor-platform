@@ -1,4 +1,6 @@
 {
   super.onCreate(saveInstance);
-  setHasOptionsMenu(true);
+  if (saveInstance != null) {
+    animateToolbar=saveInstance.getBoolean("animateToolbar",true);
+  }
 }

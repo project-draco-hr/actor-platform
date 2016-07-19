@@ -1,4 +1,11 @@
 {
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    if (ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PERMISSION_REQ_LOCATION);
+      im.actor.runtime.Log.d("Permissions","MapPickerActivity.setUpMap - no permission :c");
+      return;
+    }
+  }
   LocationManager locationManager=(LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
   for (  String provider : locationManager.getAllProviders()) {
     currentLocation=locationManager.getLastKnownLocation(provider);

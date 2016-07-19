@@ -1,3 +1,4 @@
 {
   inflater.inflate(R.menu.media_picture,menu);
+  saveMenuItem=menu.findItem(R.id.save);
 }
