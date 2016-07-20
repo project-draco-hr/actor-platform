@@ -38,12 +38,15 @@ this.shortName=ext.getShortName();
 this.isAsyncMembers=ext.isAsyncMembers() != null ? ext.isAsyncMembers() : false;
 this.isCanViewMembers=ext.canViewMembers() != null ? ext.canViewMembers() : true;
 this.isCanInviteMembers=ext.canViewMembers() != null ? ext.canViewMembers() : true;
+this.isCanInviteViaLink=ext.canInviteViaLink() != null ? ext.canInviteViaLink() : false;
 this.isSharedHistory=ext.isSharedHistory() != null ? ext.isSharedHistory() : false;
 this.isCanEditInfo=ext.canEditGroupInfo() != null ? ext.canEditGroupInfo() : false;
 this.isCanEditShortName=ext.canEditShortName() != null ? ext.canEditShortName() : false;
 this.isCanEditAdministration=ext.canEditAdminSettings() != null ? ext.canEditAdminSettings() : false;
 this.isCanViewAdmins=ext.canViewAdminList() != null ? ext.canViewAdminList() : false;
 this.isCanEditAdmins=ext.canEditAdminList() != null ? ext.canEditAdminList() : false;
+this.isCanLeave=ext.canLeave() != null ? ext.canLeave() : true;
+this.isCanDelete=ext.canDelete() != null ? ext.canDelete() : false;
 this.members=new ArrayList<>();
 for (ApiMember m : ext.getMembers()) {
 this.members.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate(),m.isAdmin() != null ? m.isAdmin() : false));
@@ -65,5 +68,8 @@ this.isCanEditShortName=false;
 this.isCanEditAdministration=false;
 this.isCanViewAdmins=false;
 this.isCanEditAdmins=false;
+this.isCanDelete=false;
+this.isCanLeave=false;
+this.isCanInviteViaLink=false;
 }
 }

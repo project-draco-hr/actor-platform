@@ -16,6 +16,8 @@
   res+=", canEditAdminList=" + this.canEditAdminList;
   res+=", canViewAdminList=" + this.canViewAdminList;
   res+=", canEditAdminSettings=" + this.canEditAdminSettings;
+  res+=", canInviteViaLink=" + this.canInviteViaLink;
+  res+=", canDelete=" + this.canDelete;
   res+="}";
   return res;
 }

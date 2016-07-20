@@ -17,6 +17,9 @@
   isChanged|=isCanEditAdministration.change(rawObj.isCanEditAdministration());
   isChanged|=isCanEditAdmins.change(rawObj.isCanEditAdmins());
   isChanged|=isCanViewAdmins.change(rawObj.isCanViewAdmins());
+  isChanged|=isCanLeave.change(rawObj.isCanLeave());
+  isChanged|=isCanDelete.change(rawObj.isCanDelete());
+  isChanged|=isCanInviteViaLink.change(rawObj.isCanInviteViaLink());
   if (isChanged) {
     notifyIfNeeded();
   }

@@ -1,0 +1,3 @@
+Long date
+List<ApiKeyGroupId> obsoleteKeyGroups
+List<ApiKeyGroupHolder> missedKeyGroups

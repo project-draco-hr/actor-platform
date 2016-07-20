@@ -91,5 +91,17 @@
     UpdateGroupCanEditAdminSettingsChanged settings=(UpdateGroupCanEditAdminSettingsChanged)update;
     return onEditCanEditAdminSettings(settings.getGroupId(),settings.canEditAdminSettings());
   }
+ else   if (update instanceof UpdateGroupCanLeaveChanged) {
+    UpdateGroupCanLeaveChanged canLeaveChanged=(UpdateGroupCanLeaveChanged)update;
+    return onEditCanLeaveChanged(canLeaveChanged.getGroupId(),canLeaveChanged.canLeaveChanged());
+  }
+ else   if (update instanceof UpdateGroupCanDeleteChanged) {
+    UpdateGroupCanDeleteChanged canDeleteChanged=(UpdateGroupCanDeleteChanged)update;
+    return onEditCanDeleteChanged(canDeleteChanged.getGroupId(),canDeleteChanged.canDeleteChanged());
+  }
+ else   if (update instanceof UpdateGroupCanInviteViaLink) {
+    UpdateGroupCanInviteViaLink inviteViaLink=(UpdateGroupCanInviteViaLink)update;
+    return onEditCanInviteViaLinkChanged(inviteViaLink.getGroupId(),inviteViaLink.canInviteViaLink());
+  }
   return Promise.success(null);
 }

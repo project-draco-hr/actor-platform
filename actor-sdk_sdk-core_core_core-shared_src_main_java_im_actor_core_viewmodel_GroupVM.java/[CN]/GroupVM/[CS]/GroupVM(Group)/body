@@ -16,6 +16,9 @@
   this.isHistoryShared=new BooleanValueModel("group." + groupId + ".isHistoryShared",rawObj.isSharedHistory());
   this.isCanEditAdmins=new BooleanValueModel("group." + groupId + ".isCanEditAdmins",rawObj.isCanEditAdmins());
   this.isCanViewAdmins=new BooleanValueModel("group." + groupId + ".isCanViewAdmins",rawObj.isCanViewAdmins());
+  this.isCanLeave=new BooleanValueModel("group." + groupId + ".isCanLeave",rawObj.isCanLeave());
+  this.isCanDelete=new BooleanValueModel("group." + groupId + ".isCanDelete",rawObj.isCanDelete());
+  this.isCanInviteViaLink=new BooleanValueModel("group." + groupId + ".isCanInviteViaLink",rawObj.isCanInviteViaLink());
   this.ownerId=new IntValueModel("group." + groupId + ".membersCount",rawObj.getOwnerId());
   this.members=new ValueModel<>("group." + groupId + ".members",new HashSet<>(rawObj.getMembers()));
   this.presence=new ValueModel<>("group." + groupId + ".presence",0);

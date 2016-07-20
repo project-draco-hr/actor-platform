@@ -1,0 +1,6 @@
+{
+  String res="rpc ShareHistory{";
+  res+="groupPeer=" + this.groupPeer;
+  res+="}";
+  return res;
+}

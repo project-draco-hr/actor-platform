@@ -2,7 +2,7 @@
   ApiGroupFull fullExt=null;
   if (getWrappedExt() != null) {
     ApiGroupFull e=getWrappedExt();
-    fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),members,e.getTheme(),e.getAbout(),e.getExt(),e.isAsyncMembers(),e.canViewMembers(),e.canInvitePeople(),e.isSharedHistory(),e.canEditGroupInfo(),e.getShortName(),e.canEditShortName(),e.canEditAdminList(),e.canViewAdminList(),e.canEditAdminSettings());
+    fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),members,e.getTheme(),e.getAbout(),e.getExt(),e.isAsyncMembers(),e.canViewMembers(),e.canInvitePeople(),e.isSharedHistory(),e.canEditGroupInfo(),e.getShortName(),e.canEditShortName(),e.canEditAdminList(),e.canViewAdminList(),e.canEditAdminSettings(),e.canInviteViaLink(),e.canDelete(),e.canLeave());
     fullExt.setUnmappedObjects(e.getUnmappedObjects());
   }
   ApiGroup w=getWrapped();

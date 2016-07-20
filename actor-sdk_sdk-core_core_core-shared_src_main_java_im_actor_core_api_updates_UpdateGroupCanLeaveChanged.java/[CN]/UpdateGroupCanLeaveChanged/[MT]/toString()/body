@@ -1,0 +1,7 @@
+{
+  String res="update GroupCanLeaveChanged{";
+  res+="groupId=" + this.groupId;
+  res+=", canLeaveChanged=" + this.canLeaveChanged;
+  res+="}";
+  return res;
+}

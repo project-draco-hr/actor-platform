@@ -1,0 +1,6 @@
+{
+  String res="rpc DeleteGroup{";
+  res+="groupPeer=" + this.groupPeer;
+  res+="}";
+  return res;
+}

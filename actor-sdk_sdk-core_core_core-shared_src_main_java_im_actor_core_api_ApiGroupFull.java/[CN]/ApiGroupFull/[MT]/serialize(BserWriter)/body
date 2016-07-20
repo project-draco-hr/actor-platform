@@ -44,6 +44,15 @@
   if (this.canEditAdminSettings != null) {
     writer.writeBool(18,this.canEditAdminSettings);
   }
+  if (this.canInviteViaLink != null) {
+    writer.writeBool(19,this.canInviteViaLink);
+  }
+  if (this.canDelete != null) {
+    writer.writeBool(20,this.canDelete);
+  }
+  if (this.canLeave != null) {
+    writer.writeBool(21,this.canLeave);
+  }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

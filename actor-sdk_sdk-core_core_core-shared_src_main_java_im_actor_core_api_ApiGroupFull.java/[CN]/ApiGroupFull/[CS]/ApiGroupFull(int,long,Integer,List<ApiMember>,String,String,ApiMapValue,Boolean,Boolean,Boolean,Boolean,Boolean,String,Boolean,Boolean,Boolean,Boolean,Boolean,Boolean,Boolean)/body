@@ -1,0 +1,22 @@
+{
+  this.id=id;
+  this.createDate=createDate;
+  this.ownerUid=ownerUid;
+  this.members=members;
+  this.theme=theme;
+  this.about=about;
+  this.ext=ext;
+  this.isAsyncMembers=isAsyncMembers;
+  this.canViewMembers=canViewMembers;
+  this.canInvitePeople=canInvitePeople;
+  this.isSharedHistory=isSharedHistory;
+  this.canEditGroupInfo=canEditGroupInfo;
+  this.shortName=shortName;
+  this.canEditShortName=canEditShortName;
+  this.canEditAdminList=canEditAdminList;
+  this.canViewAdminList=canViewAdminList;
+  this.canEditAdminSettings=canEditAdminSettings;
+  this.canInviteViaLink=canInviteViaLink;
+  this.canDelete=canDelete;
+  this.canLeave=canLeave;
+}
