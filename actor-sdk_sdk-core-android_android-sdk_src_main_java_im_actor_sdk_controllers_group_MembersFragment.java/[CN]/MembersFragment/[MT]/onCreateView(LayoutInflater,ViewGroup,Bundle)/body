@@ -1,6 +1,6 @@
 {
   View res=inflater.inflate(R.layout.fragment_members,container,false);
-  adapter=new MembersAdapter(getContext());
-  ((ListView)res.findViewById(R.id.items)).setAdapter(adapter);
+  adapter=new MembersAdapter(getContext(),getArguments().getInt("groupId"));
+  ((RecyclerListView)res.findViewById(R.id.items)).setAdapter(adapter);
   return res;
 }

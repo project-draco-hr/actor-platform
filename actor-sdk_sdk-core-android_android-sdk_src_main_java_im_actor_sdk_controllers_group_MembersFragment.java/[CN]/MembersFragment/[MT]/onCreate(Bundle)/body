@@ -1,4 +1,0 @@
-{
-  super.onCreate(saveInstance);
-  groupId=getArguments().getInt("groupId");
-}
