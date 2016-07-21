@@ -1,6 +1,6 @@
 {
   ApiGroup w=getWrapped();
-  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.getMembersCount(),w.isMember(),w.isHidden(),w.getGroupType(),canWrite,w.getExt());
+  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),w.getMembersCount(),w.isMember(),w.isHidden(),w.getGroupType(),canWrite,w.isDeleted(),w.getExt());
   res.setUnmappedObjects(w.getUnmappedObjects());
   return new Group(res,getWrappedExt());
 }

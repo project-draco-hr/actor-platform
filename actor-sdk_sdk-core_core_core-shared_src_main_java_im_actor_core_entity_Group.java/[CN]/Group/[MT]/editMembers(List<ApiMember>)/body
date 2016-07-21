@@ -6,6 +6,6 @@
     fullExt.setUnmappedObjects(e.getUnmappedObjects());
   }
   ApiGroup w=getWrapped();
-  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),members.size(),w.isMember(),w.isHidden(),w.getGroupType(),w.canSendMessage(),w.getExt());
+  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),members.size(),w.isMember(),w.isHidden(),w.getGroupType(),w.canSendMessage(),w.isDeleted(),w.getExt());
   return new Group(res,fullExt);
 }
