@@ -1,2 +1,15 @@
 {
+  final ApiSearchPeerType apiType;
+  if (type == PeerSearchType.GROUPS) {
+    apiType=ApiSearchPeerType.GROUPS;
+  }
+ else   if (type == PeerSearchType.PUBLIC) {
+    apiType=ApiSearchPeerType.PUBLIC;
+  }
+ else {
+    apiType=ApiSearchPeerType.CONTACTS;
+  }
+  ArrayList<ApiSearchCondition> conditions=new ArrayList<>();
+  conditions.add(new ApiSearchPeerTypeCondition(apiType));
+  return findPeers(conditions);
 }
