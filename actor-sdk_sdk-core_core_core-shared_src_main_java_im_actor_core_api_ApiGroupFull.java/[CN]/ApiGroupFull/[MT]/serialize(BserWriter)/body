@@ -17,41 +17,14 @@
   if (this.isAsyncMembers != null) {
     writer.writeBool(11,this.isAsyncMembers);
   }
-  if (this.canViewMembers != null) {
-    writer.writeBool(8,this.canViewMembers);
-  }
-  if (this.canInvitePeople != null) {
-    writer.writeBool(9,this.canInvitePeople);
-  }
   if (this.isSharedHistory != null) {
     writer.writeBool(10,this.isSharedHistory);
-  }
-  if (this.canEditGroupInfo != null) {
-    writer.writeBool(13,this.canEditGroupInfo);
   }
   if (this.shortName != null) {
     writer.writeString(14,this.shortName);
   }
-  if (this.canEditShortName != null) {
-    writer.writeBool(15,this.canEditShortName);
-  }
-  if (this.canEditAdminList != null) {
-    writer.writeBool(16,this.canEditAdminList);
-  }
-  if (this.canViewAdminList != null) {
-    writer.writeBool(17,this.canViewAdminList);
-  }
-  if (this.canEditAdminSettings != null) {
-    writer.writeBool(18,this.canEditAdminSettings);
-  }
-  if (this.canInviteViaLink != null) {
-    writer.writeBool(19,this.canInviteViaLink);
-  }
-  if (this.canDelete != null) {
-    writer.writeBool(20,this.canDelete);
-  }
-  if (this.canLeave != null) {
-    writer.writeBool(21,this.canLeave);
+  if (this.permissions != null) {
+    writer.writeLong(27,this.permissions);
   }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();

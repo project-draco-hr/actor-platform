@@ -20,8 +20,8 @@
   if (this.groupType != null) {
     writer.writeInt(25,this.groupType.getValue());
   }
-  if (this.canSendMessage != null) {
-    writer.writeBool(26,this.canSendMessage);
+  if (this.permissions != null) {
+    writer.writeLong(26,this.permissions);
   }
   if (this.isDeleted != null) {
     writer.writeBool(27,this.isDeleted);

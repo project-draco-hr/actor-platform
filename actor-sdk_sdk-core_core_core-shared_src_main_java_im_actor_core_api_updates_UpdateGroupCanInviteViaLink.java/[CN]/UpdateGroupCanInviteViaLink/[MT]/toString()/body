@@ -1,7 +1,0 @@
-{
-  String res="update GroupCanInviteViaLink{";
-  res+="groupId=" + this.groupId;
-  res+=", canInviteViaLink=" + this.canInviteViaLink;
-  res+="}";
-  return res;
-}

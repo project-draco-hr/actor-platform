@@ -1,4 +1,0 @@
-{
-  this.groupId=values.getInt(1);
-  this.canLeaveChanged=values.getBool(2);
-}

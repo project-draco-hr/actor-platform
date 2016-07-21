@@ -7,17 +7,9 @@
   res+=", theme=" + this.theme;
   res+=", about=" + this.about;
   res+=", isAsyncMembers=" + this.isAsyncMembers;
-  res+=", canViewMembers=" + this.canViewMembers;
-  res+=", canInvitePeople=" + this.canInvitePeople;
   res+=", isSharedHistory=" + this.isSharedHistory;
-  res+=", canEditGroupInfo=" + this.canEditGroupInfo;
   res+=", shortName=" + this.shortName;
-  res+=", canEditShortName=" + this.canEditShortName;
-  res+=", canEditAdminList=" + this.canEditAdminList;
-  res+=", canViewAdminList=" + this.canViewAdminList;
-  res+=", canEditAdminSettings=" + this.canEditAdminSettings;
-  res+=", canInviteViaLink=" + this.canInviteViaLink;
-  res+=", canDelete=" + this.canDelete;
+  res+=", permissions=" + this.permissions;
   res+="}";
   return res;
 }

@@ -1,0 +1,11 @@
+int id
+long accessHash
+String title
+ApiAvatar avatar
+Integer membersCount
+Boolean isMember
+Boolean isHidden
+ApiGroupType groupType
+Long permissions
+Boolean isDeleted
+ApiMapValue ext

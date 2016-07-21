@@ -23,12 +23,14 @@ this.groupType=GroupType.OTHER;
 break;
 }
 }
-if (wrapped.canSendMessage() != null) {
-this.canWrite=wrapped.canSendMessage();
+long permissions=0;
+if (wrapped.getPermissions() != null) {
+permissions=wrapped.getPermissions();
 }
- else {
-this.canWrite=this.groupType == GroupType.GROUP;
-}
+this.isCanSendMessage=BitMaskUtil.getBitValue(permissions,ApiGroupPermissions.SEND_MESSAGE);
+this.isCanClear=BitMaskUtil.getBitValue(permissions,ApiGroupPermissions.CLEAR);
+this.isCanLeave=BitMaskUtil.getBitValue(permissions,ApiGroupPermissions.LEAVE);
+this.isCanDelete=BitMaskUtil.getBitValue(permissions,ApiGroupPermissions.DELETE);
 if (ext != null) {
 this.haveExtension=true;
 this.ownerId=ext.getOwnerUid();
@@ -36,17 +38,19 @@ this.about=ext.getAbout();
 this.topic=ext.getTheme();
 this.shortName=ext.getShortName();
 this.isAsyncMembers=ext.isAsyncMembers() != null ? ext.isAsyncMembers() : false;
-this.isCanViewMembers=ext.canViewMembers() != null ? ext.canViewMembers() : true;
-this.isCanInviteMembers=ext.canViewMembers() != null ? ext.canViewMembers() : true;
-this.isCanInviteViaLink=ext.canInviteViaLink() != null ? ext.canInviteViaLink() : false;
 this.isSharedHistory=ext.isSharedHistory() != null ? ext.isSharedHistory() : false;
-this.isCanEditInfo=ext.canEditGroupInfo() != null ? ext.canEditGroupInfo() : false;
-this.isCanEditShortName=ext.canEditShortName() != null ? ext.canEditShortName() : false;
-this.isCanEditAdministration=ext.canEditAdminSettings() != null ? ext.canEditAdminSettings() : false;
-this.isCanViewAdmins=ext.canViewAdminList() != null ? ext.canViewAdminList() : false;
-this.isCanEditAdmins=ext.canEditAdminList() != null ? ext.canEditAdminList() : false;
-this.isCanLeave=ext.canLeave() != null ? ext.canLeave() : true;
-this.isCanDelete=ext.canDelete() != null ? ext.canDelete() : false;
+long fullPermissions=0;
+if (ext.getPermissions() != null) {
+fullPermissions=ext.getPermissions();
+}
+this.isCanEditInfo=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.EDIT_INFO);
+this.isCanViewMembers=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.VIEW_MEMBERS);
+this.isCanInviteMembers=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.INVITE_MEMBERS);
+this.isCanInviteViaLink=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.INVITE_VIA_LINK);
+this.isCanCall=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.CALL);
+this.isCanEditAdministration=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.EDIT_ADMIN_SETTINGS);
+this.isCanViewAdmins=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.VIEW_ADMINS);
+this.isCanEditAdmins=BitMaskUtil.getBitValue(fullPermissions,ApiGroupFullPermissions.EDIT_ADMINS);
 this.members=new ArrayList<>();
 for (ApiMember m : ext.getMembers()) {
 this.members.add(new GroupMember(m.getUid(),m.getInviterUid(),m.getDate(),m.isAdmin() != null ? m.isAdmin() : false));
@@ -68,8 +72,6 @@ this.isCanEditShortName=false;
 this.isCanEditAdministration=false;
 this.isCanViewAdmins=false;
 this.isCanEditAdmins=false;
-this.isCanDelete=false;
-this.isCanLeave=false;
 this.isCanInviteViaLink=false;
 }
 }

@@ -11,6 +11,10 @@
     UpdateGroupMemberChanged memberChanged=(UpdateGroupMemberChanged)update;
     return onIsMemberChanged(memberChanged.getGroupId(),memberChanged.isMember());
   }
+ else   if (update instanceof UpdateGroupPermissionsChanged) {
+    UpdateGroupPermissionsChanged permissionsChanged=(UpdateGroupPermissionsChanged)update;
+    return onPermissionsChanged(permissionsChanged.getGroupId(),permissionsChanged.getPermissions());
+  }
  else   if (update instanceof UpdateGroupExtChanged) {
     UpdateGroupExtChanged extChanged=(UpdateGroupExtChanged)update;
     return onExtChanged(extChanged.getGroupId(),extChanged.getExt());
@@ -51,57 +55,17 @@
     UpdateGroupOwnerChanged ownerChanged=(UpdateGroupOwnerChanged)update;
     return onOwnerChanged(ownerChanged.getGroupId(),ownerChanged.getUserId());
   }
- else   if (update instanceof UpdateGroupFullExtChanged) {
-    UpdateGroupFullExtChanged extChanged=(UpdateGroupFullExtChanged)update;
-    return onFullExtChanged(extChanged.getGroupId(),extChanged.getExt());
-  }
  else   if (update instanceof UpdateGroupShortNameChanged) {
     UpdateGroupShortNameChanged shortNameChanged=(UpdateGroupShortNameChanged)update;
     return onShortNameChanged(shortNameChanged.getGroupId(),shortNameChanged.getShortName());
   }
- else   if (update instanceof UpdateGroupCanSendMessagesChanged) {
-    UpdateGroupCanSendMessagesChanged messagesChanged=(UpdateGroupCanSendMessagesChanged)update;
-    return onCanWriteMessagesChanged(messagesChanged.getGroupId(),messagesChanged.canSendMessages());
+ else   if (update instanceof UpdateGroupFullPermissionsChanged) {
+    UpdateGroupFullPermissionsChanged permissionsChanged=(UpdateGroupFullPermissionsChanged)update;
+    return onFullPermissionsChanged(permissionsChanged.getGroupId(),permissionsChanged.getPermissions());
   }
- else   if (update instanceof UpdateGroupCanViewMembersChanged) {
-    UpdateGroupCanViewMembersChanged membersChanged=(UpdateGroupCanViewMembersChanged)update;
-    return onEditCanViewMembers(membersChanged.getGroupId(),membersChanged.canViewMembers());
-  }
- else   if (update instanceof UpdateGroupCanInviteMembersChanged) {
-    UpdateGroupCanInviteMembersChanged changed=(UpdateGroupCanInviteMembersChanged)update;
-    return onEditCanInviteMembers(changed.getGroupId(),changed.canInviteMembers());
-  }
- else   if (update instanceof UpdateGroupCanEditInfoChanged) {
-    UpdateGroupCanEditInfoChanged editInfoChanged=(UpdateGroupCanEditInfoChanged)update;
-    return onEditCanEditGroupInfo(editInfoChanged.getGroupId(),editInfoChanged.canEditGroup());
-  }
- else   if (update instanceof UpdateGroupCanEditUsernameChanged) {
-    UpdateGroupCanEditUsernameChanged shortName=(UpdateGroupCanEditUsernameChanged)update;
-    return onEditCanEditShortName(shortName.getGroupId(),shortName.canEditUsername());
-  }
- else   if (update instanceof UpdateGroupCanViewAdminsChanged) {
-    UpdateGroupCanViewAdminsChanged changed=(UpdateGroupCanViewAdminsChanged)update;
-    return onEditCanViewAdminList(changed.getGroupId(),changed.canViewAdmins());
-  }
- else   if (update instanceof UpdateGroupCanEditAdminsChanged) {
-    UpdateGroupCanEditAdminsChanged editAdmins=(UpdateGroupCanEditAdminsChanged)update;
-    return onEditCanEditAdminList(editAdmins.getGroupId(),editAdmins.canAssignAdmins());
-  }
- else   if (update instanceof UpdateGroupCanEditAdminSettingsChanged) {
-    UpdateGroupCanEditAdminSettingsChanged settings=(UpdateGroupCanEditAdminSettingsChanged)update;
-    return onEditCanEditAdminSettings(settings.getGroupId(),settings.canEditAdminSettings());
-  }
- else   if (update instanceof UpdateGroupCanLeaveChanged) {
-    UpdateGroupCanLeaveChanged canLeaveChanged=(UpdateGroupCanLeaveChanged)update;
-    return onEditCanLeaveChanged(canLeaveChanged.getGroupId(),canLeaveChanged.canLeaveChanged());
-  }
- else   if (update instanceof UpdateGroupCanDeleteChanged) {
-    UpdateGroupCanDeleteChanged canDeleteChanged=(UpdateGroupCanDeleteChanged)update;
-    return onEditCanDeleteChanged(canDeleteChanged.getGroupId(),canDeleteChanged.canDeleteChanged());
-  }
- else   if (update instanceof UpdateGroupCanInviteViaLink) {
-    UpdateGroupCanInviteViaLink inviteViaLink=(UpdateGroupCanInviteViaLink)update;
-    return onEditCanInviteViaLinkChanged(inviteViaLink.getGroupId(),inviteViaLink.canInviteViaLink());
+ else   if (update instanceof UpdateGroupFullExtChanged) {
+    UpdateGroupFullExtChanged extChanged=(UpdateGroupFullExtChanged)update;
+    return onFullExtChanged(extChanged.getGroupId(),extChanged.getExt());
   }
   return Promise.success(null);
 }

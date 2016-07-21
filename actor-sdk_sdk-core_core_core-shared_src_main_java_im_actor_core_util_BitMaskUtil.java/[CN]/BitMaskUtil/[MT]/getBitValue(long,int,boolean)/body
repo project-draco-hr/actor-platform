@@ -1,0 +1,9 @@
+{
+  int val=(int)((src >> index) & 1);
+  if (val == 0) {
+    return def;
+  }
+ else {
+    return !def;
+  }
+}

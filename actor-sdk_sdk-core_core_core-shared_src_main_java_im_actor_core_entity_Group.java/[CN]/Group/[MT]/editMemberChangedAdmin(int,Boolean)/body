@@ -10,7 +10,7 @@
         break;
       }
     }
-    ApiGroupFull fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),nMembers,e.getTheme(),e.getAbout(),e.getExt(),e.isAsyncMembers(),e.canViewMembers(),e.canInvitePeople(),e.isSharedHistory(),e.canEditGroupInfo(),e.getShortName(),e.canEditShortName(),e.canEditAdminList(),e.canViewAdminList(),e.canEditAdminSettings(),e.canInviteViaLink(),e.canDelete(),e.canLeave());
+    ApiGroupFull fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),nMembers,e.getTheme(),e.getAbout(),e.getExt(),e.isAsyncMembers(),e.isSharedHistory(),e.getShortName(),e.getPermissions());
     fullExt.setUnmappedObjects(e.getUnmappedObjects());
     return new Group(getWrapped(),fullExt);
   }

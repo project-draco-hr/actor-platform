@@ -1,0 +1,4 @@
+{
+  this.groupId=values.getInt(1);
+  this.permissions=values.getLong(2);
+}

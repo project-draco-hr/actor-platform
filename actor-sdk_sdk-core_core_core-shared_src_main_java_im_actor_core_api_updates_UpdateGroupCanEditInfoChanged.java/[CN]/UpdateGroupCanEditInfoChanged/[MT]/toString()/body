@@ -1,7 +1,0 @@
-{
-  String res="update GroupCanEditInfoChanged{";
-  res+="groupId=" + this.groupId;
-  res+=", canEditGroup=" + this.canEditGroup;
-  res+="}";
-  return res;
-}

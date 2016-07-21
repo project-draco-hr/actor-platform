@@ -1,4 +1,0 @@
-{
-  this.groupId=values.getInt(1);
-  this.canAssignAdmins=values.getBool(2);
-}

@@ -11,18 +11,9 @@
   this.about=values.optString(3);
   this.ext=values.optObj(7,new ApiMapValue());
   this.isAsyncMembers=values.optBool(11);
-  this.canViewMembers=values.optBool(8);
-  this.canInvitePeople=values.optBool(9);
   this.isSharedHistory=values.optBool(10);
-  this.canEditGroupInfo=values.optBool(13);
   this.shortName=values.optString(14);
-  this.canEditShortName=values.optBool(15);
-  this.canEditAdminList=values.optBool(16);
-  this.canViewAdminList=values.optBool(17);
-  this.canEditAdminSettings=values.optBool(18);
-  this.canInviteViaLink=values.optBool(19);
-  this.canDelete=values.optBool(20);
-  this.canLeave=values.optBool(21);
+  this.permissions=values.optLong(27);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }
