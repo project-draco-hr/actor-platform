@@ -1,2 +1,3 @@
 {
+  this.appStateVM=new AppStateVM(context());
 }
