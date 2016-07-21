@@ -4,4 +4,7 @@
   if (!preferences().getBool(KEY_LOADED_INIT,false)) {
     self().send(new LoadMore());
   }
+ else {
+    context().getAppStateModule().onDialogsLoaded();
+  }
 }
