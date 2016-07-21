@@ -1,0 +1,6 @@
+{
+  String res="update GroupDeleted{";
+  res+="groupId=" + this.groupId;
+  res+="}";
+  return res;
+}

@@ -1,8 +1,0 @@
-ApiPeer peer
-String title
-String description
-Integer membersCount
-Long dateCreated
-Integer creator
-Boolean isPublic
-Boolean isJoined

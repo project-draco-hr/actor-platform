@@ -8,5 +8,6 @@
   this.isHidden=isHidden;
   this.groupType=groupType;
   this.canSendMessage=canSendMessage;
+  this.isDeleted=isDeleted;
   this.ext=ext;
 }

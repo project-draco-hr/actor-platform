@@ -100,6 +100,8 @@ case 2648:
 return UpdateGroupCanDeleteChanged.fromBytes(payload);
 case 2641:
 return UpdateGroupCanEditAdminSettingsChanged.fromBytes(payload);
+case 2658:
+return UpdateGroupDeleted.fromBytes(payload);
 case 2612:
 return UpdateGroupMemberChanged.fromBytes(payload);
 case 2615:

@@ -7,4 +7,5 @@ Boolean isMember
 Boolean isHidden
 ApiGroupType groupType
 Boolean canSendMessage
+Boolean isDeleted
 ApiMapValue ext

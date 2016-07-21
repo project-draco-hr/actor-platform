@@ -1,12 +1,7 @@
 {
   String res="struct PeerSearchResult{";
   res+="peer=" + this.peer;
-  res+=", title=" + this.title;
-  res+=", description=" + this.description;
-  res+=", membersCount=" + this.membersCount;
-  res+=", dateCreated=" + this.dateCreated;
-  res+=", creator=" + this.creator;
-  res+=", isPublic=" + this.isPublic;
+  res+=", optMatchString=" + this.optMatchString;
   res+="}";
   return res;
 }

@@ -23,6 +23,9 @@
   if (this.canSendMessage != null) {
     writer.writeBool(26,this.canSendMessage);
   }
+  if (this.isDeleted != null) {
+    writer.writeBool(27,this.isDeleted);
+  }
   if (this.ext != null) {
     writer.writeObject(22,this.ext);
   }

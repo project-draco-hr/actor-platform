@@ -8,6 +8,7 @@
   res+=", isHidden=" + this.isHidden;
   res+=", groupType=" + this.groupType;
   res+=", canSendMessage=" + this.canSendMessage;
+  res+=", isDeleted=" + this.isDeleted;
   res+=", ext=" + this.ext;
   res+="}";
   return res;

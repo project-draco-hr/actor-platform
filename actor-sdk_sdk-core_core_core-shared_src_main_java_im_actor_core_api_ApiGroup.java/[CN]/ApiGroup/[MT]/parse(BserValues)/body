@@ -11,6 +11,7 @@
     this.groupType=ApiGroupType.parse(val_groupType);
   }
   this.canSendMessage=values.optBool(26);
+  this.isDeleted=values.optBool(27);
   this.ext=values.optObj(22,new ApiMapValue());
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
