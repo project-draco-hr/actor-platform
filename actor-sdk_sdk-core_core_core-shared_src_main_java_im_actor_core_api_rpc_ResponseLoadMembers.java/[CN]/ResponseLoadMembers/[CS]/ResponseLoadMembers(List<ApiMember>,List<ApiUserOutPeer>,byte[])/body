@@ -1,4 +1,5 @@
 {
   this.members=members;
+  this.users=users;
   this.next=next;
 }

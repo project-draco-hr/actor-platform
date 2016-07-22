@@ -1,0 +1,3 @@
+List<ApiMember> members
+List<ApiUserOutPeer> users
+byte[] next
