@@ -1,0 +1,6 @@
+{
+  this.peer=peer;
+  this.avatar=avatar;
+  this.title=title;
+  this.matchString=matchString;
+}
