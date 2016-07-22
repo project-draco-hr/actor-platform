@@ -1,0 +1,13 @@
+{
+  if (message instanceof Reset) {
+    if (isFreezed) {
+      stash();
+      return null;
+    }
+    onReset();
+    return Promise.success(null);
+  }
+ else {
+    return super.onAsk(message);
+  }
+}

@@ -13,7 +13,7 @@
     Peer peer=convert(messageSent.getPeer());
     if (isValidPeer(peer)) {
       context().getMessagesModule().getSendMessageActor().send(new SenderActor.MessageSent(peer,messageSent.getRid()));
-      onOutgoingSent(peer,messageSent.getRid(),messageSent.getDate());
+      return onOutgoingSent(peer,messageSent.getRid(),messageSent.getDate());
     }
     return Promise.success(null);
   }
@@ -21,7 +21,7 @@
     UpdateMessageRead read=(UpdateMessageRead)update;
     Peer peer=convert(read.getPeer());
     if (isValidPeer(peer)) {
-      onMessageRead(peer,read.getStartDate());
+      return onMessageRead(peer,read.getStartDate());
     }
     return Promise.success(null);
   }
@@ -33,7 +33,7 @@
       if (readByMe.getUnreadCounter() != null) {
         counter=readByMe.getUnreadCounter();
       }
-      onMessageReadByMe(peer,readByMe.getStartDate(),counter);
+      return onMessageReadByMe(peer,readByMe.getStartDate(),counter);
     }
     return Promise.success(null);
   }
@@ -41,7 +41,7 @@
     UpdateMessageReceived received=(UpdateMessageReceived)update;
     Peer peer=convert(received.getPeer());
     if (isValidPeer(peer)) {
-      onMessageReceived(peer,received.getStartDate());
+      return onMessageReceived(peer,received.getStartDate());
     }
     return Promise.success(null);
   }
@@ -49,7 +49,7 @@
     UpdateChatDelete delete=(UpdateChatDelete)update;
     Peer peer=convert(delete.getPeer());
     if (isValidPeer(peer)) {
-      onChatDelete(peer);
+      return onChatDelete(peer);
     }
     return Promise.success(null);
   }
@@ -57,7 +57,15 @@
     UpdateChatClear clear=(UpdateChatClear)update;
     Peer peer=convert(clear.getPeer());
     if (isValidPeer(peer)) {
-      onChatClear(peer);
+      return onChatClear(peer);
+    }
+    return Promise.success(null);
+  }
+ else   if (update instanceof UpdateChatDropCache) {
+    UpdateChatDropCache dropCache=(UpdateChatDropCache)update;
+    Peer peer=convert(dropCache.getPeer());
+    if (isValidPeer(peer)) {
+      return onChatDropCache(peer);
     }
     return Promise.success(null);
   }
@@ -70,7 +78,7 @@
     UpdateMessageDelete delete=(UpdateMessageDelete)update;
     Peer peer=convert(delete.getPeer());
     if (isValidPeer(peer)) {
-      onMessageDeleted(peer,delete.getRids());
+      return onMessageDeleted(peer,delete.getRids());
     }
     return Promise.success(null);
   }
@@ -79,7 +87,7 @@
     Peer peer=convert(contentChanged.getPeer());
     if (isValidPeer(peer)) {
       AbsContent content=AbsContent.fromMessage(contentChanged.getMessage());
-      onContentUpdate(peer,contentChanged.getRid(),content);
+      return onContentUpdate(peer,contentChanged.getRid(),content);
     }
     return Promise.success(null);
   }
@@ -91,7 +99,7 @@
       for (      ApiMessageReaction r : reactionsUpdate.getReactions()) {
         reactions.add(new Reaction(r.getCode(),r.getUsers()));
       }
-      onReactionsUpdate(peer,reactionsUpdate.getRid(),reactions);
+      return onReactionsUpdate(peer,reactionsUpdate.getRid(),reactions);
     }
     return Promise.success(null);
   }

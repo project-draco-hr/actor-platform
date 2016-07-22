@@ -24,6 +24,7 @@
   this.isCanEditForeign=new BooleanValueModel("group." + groupId + ".isCanEditForeign",rawObj.isCanEditForeign());
   this.isCanDeleteForeign=new BooleanValueModel("group." + groupId + ".isCanDeleteForeign",rawObj.isCanDeleteForeign());
   this.isDeleted=new BooleanValueModel("group." + groupId + ".isDeleted",rawObj.isDeleted());
+  this.isCanClear=new BooleanValueModel("group." + groupId + ".isCanClear",rawObj.isCanClear());
   this.ownerId=new IntValueModel("group." + groupId + ".membersCount",rawObj.getOwnerId());
   this.members=new ValueModel<>("group." + groupId + ".members",new HashSet<>(rawObj.getMembers()));
   this.presence=new ValueModel<>("group." + groupId + ".presence",0);
