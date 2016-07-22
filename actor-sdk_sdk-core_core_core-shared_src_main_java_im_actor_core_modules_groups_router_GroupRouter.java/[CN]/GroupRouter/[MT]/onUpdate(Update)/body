@@ -15,6 +15,10 @@
     UpdateGroupPermissionsChanged permissionsChanged=(UpdateGroupPermissionsChanged)update;
     return onPermissionsChanged(permissionsChanged.getGroupId(),permissionsChanged.getPermissions());
   }
+ else   if (update instanceof UpdateGroupDeleted) {
+    UpdateGroupDeleted groupDeleted=(UpdateGroupDeleted)update;
+    return onGroupDeleted(groupDeleted.getGroupId());
+  }
  else   if (update instanceof UpdateGroupExtChanged) {
     UpdateGroupExtChanged extChanged=(UpdateGroupExtChanged)update;
     return onExtChanged(extChanged.getGroupId(),extChanged.getExt());

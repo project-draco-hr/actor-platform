@@ -6,6 +6,7 @@
   this.isHidden=wrapped.isHidden() != null ? wrapped.isHidden() : false;
   this.membersCount=wrapped.getMembersCount() != null ? wrapped.getMembersCount() : 0;
   this.isMember=wrapped.isMember() != null ? wrapped.isMember() : true;
+  this.isDeleted=wrapped.isDeleted() != null ? wrapped.isDeleted() : false;
   if (wrapped.getGroupType() == null) {
     this.groupType=GroupType.GROUP;
   }

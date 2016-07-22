@@ -24,6 +24,7 @@
   isChanged|=isCanKickAnyone.change(rawObj.isCanKickAnyone());
   isChanged|=isCanEditForeign.change(rawObj.isCanEditForeign());
   isChanged|=isCanDeleteForeign.change(rawObj.isCanDeleteForeign());
+  isChanged|=isDeleted.change(rawObj.isDeleted());
   if (isChanged) {
     notifyIfNeeded();
   }
