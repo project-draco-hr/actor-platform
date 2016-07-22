@@ -20,6 +20,10 @@
   isChanged|=isCanLeave.change(rawObj.isCanLeave());
   isChanged|=isCanDelete.change(rawObj.isCanDelete());
   isChanged|=isCanInviteViaLink.change(rawObj.isCanInviteViaLink());
+  isChanged|=isCanKickInvited.change(rawObj.isCanKickInvited());
+  isChanged|=isCanKickAnyone.change(rawObj.isCanKickAnyone());
+  isChanged|=isCanEditForeign.change(rawObj.isCanEditForeign());
+  isChanged|=isCanDeleteForeign.change(rawObj.isCanDeleteForeign());
   if (isChanged) {
     notifyIfNeeded();
   }

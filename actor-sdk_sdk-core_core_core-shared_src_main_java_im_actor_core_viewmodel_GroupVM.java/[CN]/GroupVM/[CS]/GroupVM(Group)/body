@@ -19,6 +19,10 @@
   this.isCanLeave=new BooleanValueModel("group." + groupId + ".isCanLeave",rawObj.isCanLeave());
   this.isCanDelete=new BooleanValueModel("group." + groupId + ".isCanDelete",rawObj.isCanDelete());
   this.isCanInviteViaLink=new BooleanValueModel("group." + groupId + ".isCanInviteViaLink",rawObj.isCanInviteViaLink());
+  this.isCanKickInvited=new BooleanValueModel("group." + groupId + ".isCanKickInvited",rawObj.isCanKickInvited());
+  this.isCanKickAnyone=new BooleanValueModel("group." + groupId + ".isCanKickAnyone",rawObj.isCanKickAnyone());
+  this.isCanEditForeign=new BooleanValueModel("group." + groupId + ".isCanEditForeign",rawObj.isCanEditForeign());
+  this.isCanDeleteForeign=new BooleanValueModel("group." + groupId + ".isCanDeleteForeign",rawObj.isCanDeleteForeign());
   this.ownerId=new IntValueModel("group." + groupId + ".membersCount",rawObj.getOwnerId());
   this.members=new ValueModel<>("group." + groupId + ".members",new HashSet<>(rawObj.getMembers()));
   this.presence=new ValueModel<>("group." + groupId + ".presence",0);
