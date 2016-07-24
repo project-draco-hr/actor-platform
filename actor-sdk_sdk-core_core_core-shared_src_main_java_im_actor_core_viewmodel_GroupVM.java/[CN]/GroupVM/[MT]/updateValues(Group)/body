@@ -26,6 +26,8 @@
   isChanged|=isCanDeleteForeign.change(rawObj.isCanDeleteForeign());
   isChanged|=isDeleted.change(rawObj.isDeleted());
   isChanged|=isCanClear.change(rawObj.isCanClear());
+  isChanged|=isCanViewInfo.change(rawObj.isCanViewInfo());
+  isChanged|=isCanJoin.change(rawObj.isCanJoin());
   if (isChanged) {
     notifyIfNeeded();
   }
