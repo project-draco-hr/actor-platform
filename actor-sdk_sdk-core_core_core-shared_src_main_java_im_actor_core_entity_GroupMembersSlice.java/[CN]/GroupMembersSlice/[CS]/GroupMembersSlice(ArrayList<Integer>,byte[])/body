@@ -1,4 +1,0 @@
-{
-  this.uids=uids;
-  this.next=next;
-}
