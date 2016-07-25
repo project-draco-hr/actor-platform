@@ -1,18 +1,2 @@
 {
-  return JsPromise.create(new JsPromiseExecutor(){
-    @Override public void execute(){
-      messenger.leaveGroup(gid).start(new CommandCallback<Void>(){
-        @Override public void onResult(        Void res){
-          Log.d(TAG,"leaveGroup:result");
-          resolve();
-        }
-        @Override public void onError(        Exception e){
-          Log.d(TAG,"leaveGroup:error");
-          reject(e.getMessage());
-        }
-      }
-);
-    }
-  }
-);
 }

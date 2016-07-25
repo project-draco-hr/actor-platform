@@ -1,19 +1,2 @@
 {
-  return JsPromise.create(new JsPromiseExecutor(){
-    @Override public void execute(){
-      String avatarDescriptor=file != null ? provider.registerUploadFile(file) : null;
-      messenger.createGroup(title,avatarDescriptor,uids).start(new CommandCallback<Integer>(){
-        @Override public void onResult(        Integer res){
-          Log.d(TAG,"createGroup:result");
-          resolve(JsPeer.create(Peer.group(res)));
-        }
-        @Override public void onError(        Exception e){
-          Log.d(TAG,"createGroup:error");
-          reject(e.getMessage());
-        }
-      }
-);
-    }
-  }
-);
 }

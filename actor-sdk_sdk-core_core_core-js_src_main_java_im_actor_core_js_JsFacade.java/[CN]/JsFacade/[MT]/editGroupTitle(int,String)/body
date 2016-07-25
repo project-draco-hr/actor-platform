@@ -1,18 +1,2 @@
 {
-  return JsPromise.create(new JsPromiseExecutor(){
-    @Override public void execute(){
-      messenger.editGroupTitle(gid,newTitle).start(new CommandCallback<Void>(){
-        @Override public void onResult(        Void res){
-          Log.d(TAG,"editGroupTitle:result");
-          resolve();
-        }
-        @Override public void onError(        Exception e){
-          Log.d(TAG,"editGroupTitle:error");
-          reject(e.getMessage());
-        }
-      }
-);
-    }
-  }
-);
 }
