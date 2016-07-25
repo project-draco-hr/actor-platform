@@ -1,3 +1,0 @@
-{
-  context().getAppStateModule().getAppStateVM().onContactsChanged(isEmpty);
-}

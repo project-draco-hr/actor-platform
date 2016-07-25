@@ -1,3 +1,3 @@
 {
-  messenger().sendLocation(getPeer(),longitude,longitude,street,place);
+  messenger().sendLocation(getPeer(),longitude,latitude,street,place);
 }
