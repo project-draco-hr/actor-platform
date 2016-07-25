@@ -1,2 +1,3 @@
 {
+  return modules.getGroupsModule().editAbout(gid,about);
 }

@@ -1,4 +1,0 @@
-{
-  writer.writeBool(9,true);
-  super.serialize(writer);
-}

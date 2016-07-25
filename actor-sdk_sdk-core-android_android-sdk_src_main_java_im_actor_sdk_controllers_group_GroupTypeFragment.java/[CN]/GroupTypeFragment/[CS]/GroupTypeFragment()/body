@@ -1,0 +1,6 @@
+{
+  setTitle(R.string.group_title);
+  setRootFragment(true);
+  setHomeAsUp(true);
+  setShowHome(true);
+}

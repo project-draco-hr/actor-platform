@@ -1,0 +1,4 @@
+ViewHolder<GroupMember> holder
+GroupMember obj
+int position
+Context context

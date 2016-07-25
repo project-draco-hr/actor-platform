@@ -1,0 +1,5 @@
+int senderId
+ContentType contentType
+String text
+int relatedUid
+boolean isChannel

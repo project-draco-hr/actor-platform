@@ -1,10 +1,2 @@
 {
-  im.actor.runtime.Runtime.postToMainThread(new Runnable(){
-    @Override public void run(){
-      if (!isDetached) {
-        onObjectReceived(obj);
-      }
-    }
-  }
-);
 }

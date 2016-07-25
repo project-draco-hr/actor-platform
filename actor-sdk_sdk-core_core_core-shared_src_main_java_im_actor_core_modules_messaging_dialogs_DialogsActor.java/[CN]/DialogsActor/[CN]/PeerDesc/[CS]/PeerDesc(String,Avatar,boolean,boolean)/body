@@ -1,0 +1,6 @@
+{
+  this.title=title;
+  this.avatar=avatar;
+  this.isBot=isBot;
+  this.isChannel=isChannel;
+}

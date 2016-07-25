@@ -1,15 +1,13 @@
 {
-  this.seq=values.optInt(1);
-  this.state=values.optBytes(2);
-  this.date=values.optLong(3);
+  this.date=values.optLong(1);
   List<ApiKeyGroupId> _obsoleteKeyGroups=new ArrayList<ApiKeyGroupId>();
-  for (int i=0; i < values.getRepeatedCount(4); i++) {
+  for (int i=0; i < values.getRepeatedCount(2); i++) {
     _obsoleteKeyGroups.add(new ApiKeyGroupId());
   }
-  this.obsoleteKeyGroups=values.getRepeatedObj(4,_obsoleteKeyGroups);
-  List<ApiKeyGroupId> _missedKeyGroups=new ArrayList<ApiKeyGroupId>();
-  for (int i=0; i < values.getRepeatedCount(5); i++) {
-    _missedKeyGroups.add(new ApiKeyGroupId());
+  this.obsoleteKeyGroups=values.getRepeatedObj(2,_obsoleteKeyGroups);
+  List<ApiKeyGroupHolder> _missedKeyGroups=new ArrayList<ApiKeyGroupHolder>();
+  for (int i=0; i < values.getRepeatedCount(3); i++) {
+    _missedKeyGroups.add(new ApiKeyGroupHolder());
   }
-  this.missedKeyGroups=values.getRepeatedObj(5,_missedKeyGroups);
+  this.missedKeyGroups=values.getRepeatedObj(3,_missedKeyGroups);
 }

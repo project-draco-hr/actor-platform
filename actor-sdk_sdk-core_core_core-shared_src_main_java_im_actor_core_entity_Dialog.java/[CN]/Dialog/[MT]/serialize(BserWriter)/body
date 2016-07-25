@@ -4,6 +4,8 @@
   if (dialogAvatar != null) {
     writer.writeObject(3,dialogAvatar);
   }
+  writer.writeBool(15,isBot);
+  writer.writeBool(16,isChannel);
   writer.writeInt(4,unreadCount);
   writer.writeLong(5,sortDate);
   writer.writeLong(6,rid);

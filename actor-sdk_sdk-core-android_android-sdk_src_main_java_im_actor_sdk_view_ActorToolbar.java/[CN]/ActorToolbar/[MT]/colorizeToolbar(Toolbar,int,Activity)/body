@@ -1,0 +1,9 @@
+{
+  final PorterDuffColorFilter colorFilter=new PorterDuffColorFilter(toolbarIconsColor,PorterDuff.Mode.SRC_IN);
+  for (int i=0; i < toolbarView.getChildCount(); i++) {
+    final View v=toolbarView.getChildAt(i);
+    doColorizing(v,colorFilter,toolbarIconsColor);
+  }
+  toolbarView.setTitleTextColor(toolbarIconsColor);
+  toolbarView.setSubtitleTextColor(toolbarIconsColor);
+}

@@ -1,0 +1,6 @@
+{
+  super.onBindViewHolder(holder,obj,position,context);
+  if (position >= getCount() - LOAD_GAP) {
+    loadMore();
+  }
+}

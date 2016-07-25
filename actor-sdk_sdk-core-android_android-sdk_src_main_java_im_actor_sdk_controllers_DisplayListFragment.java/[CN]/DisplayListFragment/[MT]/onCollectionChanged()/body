@@ -1,8 +1,8 @@
 {
   if (displayList.getSize() == 0) {
-    hideView(collection);
+    hideView(collection,false);
   }
  else {
-    showView(collection);
+    showView(collection,false);
   }
 }

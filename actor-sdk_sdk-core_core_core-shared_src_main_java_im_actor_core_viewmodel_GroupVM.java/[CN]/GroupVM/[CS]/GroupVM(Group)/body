@@ -1,0 +1,36 @@
+{
+  super(rawObj);
+  this.groupId=rawObj.getGroupId();
+  this.groupType=rawObj.getGroupType();
+  this.name=new StringValueModel("group." + groupId + ".title",rawObj.getTitle());
+  this.avatar=new AvatarValueModel("group." + groupId + ".avatar",rawObj.getAvatar());
+  this.isMember=new BooleanValueModel("group." + groupId + ".isMember",rawObj.isMember());
+  this.membersCount=new IntValueModel("group." + groupId + ".membersCount",rawObj.getMembersCount());
+  this.isCanWriteMessage=new BooleanValueModel("group." + groupId + ".can_write",rawObj.isCanSendMessage());
+  this.isCanCall=new BooleanValueModel("group." + groupId + ".can_call",rawObj.isCanCall());
+  this.isCanViewMembers=new BooleanValueModel("group." + groupId + ".can_view_members",rawObj.isCanViewMembers());
+  this.isCanInviteMembers=new BooleanValueModel("group." + groupId + ".can_invite_members",rawObj.isCanInviteMembers());
+  this.isCanEditInfo=new BooleanValueModel("group." + groupId + ".can_edit_info",rawObj.isCanEditInfo());
+  this.isAsyncMembers=new BooleanValueModel("group." + groupId + ".isAsyncMembers",rawObj.isAsyncMembers());
+  this.isCanEditAdministration=new BooleanValueModel("group." + groupId + ".isCanEditAdministration",rawObj.isCanEditAdministration());
+  this.isHistoryShared=new BooleanValueModel("group." + groupId + ".isHistoryShared",rawObj.isSharedHistory());
+  this.isCanEditAdmins=new BooleanValueModel("group." + groupId + ".isCanEditAdmins",rawObj.isCanEditAdmins());
+  this.isCanViewAdmins=new BooleanValueModel("group." + groupId + ".isCanViewAdmins",rawObj.isCanViewAdmins());
+  this.isCanLeave=new BooleanValueModel("group." + groupId + ".isCanLeave",rawObj.isCanLeave());
+  this.isCanDelete=new BooleanValueModel("group." + groupId + ".isCanDelete",rawObj.isCanDelete());
+  this.isCanInviteViaLink=new BooleanValueModel("group." + groupId + ".isCanInviteViaLink",rawObj.isCanInviteViaLink());
+  this.isCanKickInvited=new BooleanValueModel("group." + groupId + ".isCanKickInvited",rawObj.isCanKickInvited());
+  this.isCanKickAnyone=new BooleanValueModel("group." + groupId + ".isCanKickAnyone",rawObj.isCanKickAnyone());
+  this.isCanEditForeign=new BooleanValueModel("group." + groupId + ".isCanEditForeign",rawObj.isCanEditForeign());
+  this.isCanDeleteForeign=new BooleanValueModel("group." + groupId + ".isCanDeleteForeign",rawObj.isCanDeleteForeign());
+  this.isDeleted=new BooleanValueModel("group." + groupId + ".isDeleted",rawObj.isDeleted());
+  this.isCanClear=new BooleanValueModel("group." + groupId + ".isCanClear",rawObj.isCanClear());
+  this.isCanJoin=new BooleanValueModel("group." + groupId + ".isCanJoin",rawObj.isCanJoin());
+  this.isCanViewInfo=new BooleanValueModel("group." + groupId + ".isCanViewInfo",rawObj.isCanViewInfo());
+  this.ownerId=new IntValueModel("group." + groupId + ".membersCount",rawObj.getOwnerId());
+  this.members=new ValueModel<>("group." + groupId + ".members",new HashSet<>(rawObj.getMembers()));
+  this.presence=new ValueModel<>("group." + groupId + ".presence",0);
+  this.theme=new StringValueModel("group." + groupId + ".theme",rawObj.getTopic());
+  this.about=new StringValueModel("group." + groupId + ".about",rawObj.getAbout());
+  this.shortName=new StringValueModel("group." + groupId + ".shortname",rawObj.getShortName());
+}

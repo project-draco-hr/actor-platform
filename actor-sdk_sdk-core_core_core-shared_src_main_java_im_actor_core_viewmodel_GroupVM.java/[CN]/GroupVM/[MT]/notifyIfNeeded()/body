@@ -1,0 +1,5 @@
+{
+  if (listeners.size() > 0) {
+    notifyChange();
+  }
+}

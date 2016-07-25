@@ -3,4 +3,5 @@
   if (pendingFile != null) {
     outState.putString("pendingFile",pendingFile);
   }
+  outState.putBoolean("pickCropped",pickCropped);
 }

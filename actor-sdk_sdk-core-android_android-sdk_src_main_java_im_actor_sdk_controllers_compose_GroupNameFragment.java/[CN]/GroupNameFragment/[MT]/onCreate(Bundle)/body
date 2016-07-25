@@ -1,0 +1,10 @@
+{
+  super.onCreate(saveInstance);
+  this.isChannel=getArguments().getBoolean("isChannel");
+  if (isChannel) {
+    setTitle(R.string.create_channel_title);
+  }
+ else {
+    setTitle(R.string.create_group_title);
+  }
+}

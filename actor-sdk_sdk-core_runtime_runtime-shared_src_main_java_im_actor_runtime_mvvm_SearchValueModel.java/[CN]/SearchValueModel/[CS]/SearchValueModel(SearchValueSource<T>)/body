@@ -1,0 +1,4 @@
+{
+  this.searchValueSource=searchValueSource;
+  this.results=new ValueModel<>("search.results",new ArrayList<>());
+}

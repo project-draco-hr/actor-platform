@@ -1,0 +1,7 @@
+{
+  Activity activity=getActivity();
+  if (activity != null) {
+    activity.invalidateOptionsMenu();
+  }
+  canEditInfo.setChecked(permissions.isMembersCanEditInfo());
+}

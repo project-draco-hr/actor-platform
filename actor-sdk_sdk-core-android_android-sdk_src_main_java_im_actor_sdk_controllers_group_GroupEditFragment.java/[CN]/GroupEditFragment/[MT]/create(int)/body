@@ -1,0 +1,7 @@
+{
+  Bundle bundle=new Bundle();
+  bundle.putInt("groupId",groupId);
+  GroupEditFragment editFragment=new GroupEditFragment();
+  editFragment.setArguments(bundle);
+  return editFragment;
+}

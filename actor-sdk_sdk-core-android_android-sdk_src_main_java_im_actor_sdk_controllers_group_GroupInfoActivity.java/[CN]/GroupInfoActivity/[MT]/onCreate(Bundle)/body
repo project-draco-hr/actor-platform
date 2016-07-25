@@ -1,17 +1,11 @@
 {
   super.onCreate(savedInstanceState);
-  int chatId=getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0);
-  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-  getSupportActionBar().setTitle(null);
   if (savedInstanceState == null) {
-    GroupInfoFragment fragment;
-    BaseGroupInfoActivity profileIntent=ActorSDK.sharedActor().getDelegate().getGroupInfoIntent(chatId);
-    if (profileIntent != null) {
-      fragment=profileIntent.getGroupInfoFragment(chatId);
+    int groupId=getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0);
+    Fragment profileIntent=ActorSDK.sharedActor().getDelegate().fragmentForGroupInfo(groupId);
+    if (profileIntent == null) {
+      profileIntent=GroupInfoFragment.create(groupId);
     }
- else {
-      fragment=GroupInfoFragment.create(chatId);
-    }
-    showFragment(fragment,false,false);
+    showFragment(profileIntent,false);
   }
 }

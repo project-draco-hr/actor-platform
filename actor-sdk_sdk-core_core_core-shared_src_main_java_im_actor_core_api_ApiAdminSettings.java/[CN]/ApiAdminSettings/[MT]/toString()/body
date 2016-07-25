@@ -1,0 +1,9 @@
+{
+  String res="struct AdminSettings{";
+  res+="showAdminsToMembers=" + this.showAdminsToMembers;
+  res+=", canMembersInvite=" + this.canMembersInvite;
+  res+=", canMembersEditGroupInfo=" + this.canMembersEditGroupInfo;
+  res+=", canAdminsEditGroupInfo=" + this.canAdminsEditGroupInfo;
+  res+="}";
+  return res;
+}

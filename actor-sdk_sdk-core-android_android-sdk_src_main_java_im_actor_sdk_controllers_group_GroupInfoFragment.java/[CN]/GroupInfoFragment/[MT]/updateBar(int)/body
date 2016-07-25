@@ -1,5 +1,4 @@
 {
-  avatarView.setOffset(offset);
   int baseColor=getResources().getColor(R.color.primary);
   ActorStyle style=ActorSDK.sharedActor().style;
   if (style.getToolBarColor() != 0) {

@@ -9,6 +9,6 @@
     getSupportActionBar().setTitle(R.string.about_group);
   }
   if (savedInstanceState == null) {
-    showFragment(EditAboutFragment.editAbout(type,id),false,false);
+    showFragment(EditAboutFragment.editAbout(type,id),false);
   }
 }

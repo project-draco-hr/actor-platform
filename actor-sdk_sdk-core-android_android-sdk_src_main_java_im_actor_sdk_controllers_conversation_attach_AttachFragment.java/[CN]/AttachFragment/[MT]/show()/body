@@ -1,4 +1,5 @@
 {
+  prepareView();
   if (container.getVisibility() == View.INVISIBLE) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
       Activity activity=getActivity();

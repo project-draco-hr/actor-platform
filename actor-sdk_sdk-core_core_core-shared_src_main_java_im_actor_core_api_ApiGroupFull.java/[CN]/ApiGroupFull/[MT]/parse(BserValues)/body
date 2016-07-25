@@ -1,7 +1,7 @@
 {
   this.id=values.getInt(1);
   this.createDate=values.getLong(6);
-  this.ownerUid=values.getInt(5);
+  this.ownerUid=values.optInt(5);
   List<ApiMember> _members=new ArrayList<ApiMember>();
   for (int i=0; i < values.getRepeatedCount(12); i++) {
     _members.add(new ApiMember());
@@ -11,7 +11,10 @@
   this.about=values.optString(3);
   this.ext=values.optObj(7,new ApiMapValue());
   this.isAsyncMembers=values.optBool(11);
-  this.canViewMembers=values.optBool(8);
-  this.canInvitePeople=values.optBool(9);
   this.isSharedHistory=values.optBool(10);
+  this.shortName=values.optString(14);
+  this.permissions=values.optLong(27);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
 }

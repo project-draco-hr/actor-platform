@@ -4,11 +4,15 @@
     ActorStyle style=ActorSDK.sharedActor().style;
     Context context=getContext();
     titlePaint=createTextPaint(Fonts.medium(),16,style.getDialogsTitleColor());
+    titleSecurePaint=createTextPaint(Fonts.medium(),16,style.getDialogsTitleSecureColor());
     datePaint=createTextPaint(Fonts.regular(),14,style.getDialogsTimeColor());
     textPaint=createTextPaint(Fonts.regular(),16,style.getDialogsTimeColor());
     textActivePaint=createTextPaint(Fonts.regular(),16,style.getDialogsActiveTextColor());
     senderTextColor=style.getDialogsActiveTextColor();
-    groupIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.dialogs_group),style.getDialogsTitleColor());
+    groupIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_group_black_18dp),style.getDialogsTitleColor());
+    channelIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_megaphone_18dp_black),style.getDialogsTitleColor());
+    botIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_robot_black_18dp),style.getDialogsTitleColor());
+    secretIcon=new TintDrawable(context.getResources().getDrawable(R.drawable.ic_lock_black_18dp),style.getDialogsTitleSecureColor());
     counterTextPaint=createTextPaint(Fonts.medium(),14,style.getDialogsCounterTextColor());
     counterTextPaint.setTextAlign(Paint.Align.CENTER);
     counterBgPaint=createFilledPaint(style.getDialogsCounterBackgroundColor());
@@ -67,8 +71,27 @@
     maxTitleWidth-=dateWidth + Screen.dp(16);
   }
   if (arg.getPeer().getPeerType() == PeerType.GROUP) {
-    res.setTitleIcon(groupIcon);
+    if (arg.isChannel()) {
+      res.setTitleIcon(channelIcon);
+      res.setTitleIconTop(Screen.dp(33));
+    }
+ else {
+      res.setTitleIcon(groupIcon);
+      res.setTitleIconTop(Screen.dp(33));
+    }
     maxTitleWidth-=Screen.dp(16 + 4);
+  }
+ else   if (arg.getPeer().getPeerType() == PeerType.PRIVATE_ENCRYPTED) {
+    res.setTitleIcon(secretIcon);
+    res.setTitleIconTop(Screen.dp(31));
+    maxTitleWidth-=Screen.dp(16 + 4);
+  }
+ else   if (arg.getPeer().getPeerType() == PeerType.PRIVATE) {
+    if (arg.isBot()) {
+      res.setTitleIcon(botIcon);
+      res.setTitleIconTop(Screen.dp(33));
+      maxTitleWidth-=Screen.dp(16 + 4);
+    }
   }
   if (arg.getSenderId() == messenger().myUid()) {
     if (arg.isRead()) {
@@ -82,7 +105,7 @@
     }
     maxTitleWidth-=Screen.dp(20);
   }
-  res.setTitleLayout(singleLineText(arg.getDialogTitle(),titlePaint,maxTitleWidth));
+  res.setTitleLayout(singleLineText(arg.getDialogTitle(),arg.getPeer().getPeerType() == PeerType.PRIVATE_ENCRYPTED ? titleSecurePaint : titlePaint,maxTitleWidth));
   int maxWidth=width - Screen.dp(72) - Screen.dp(8);
   if (arg.getUnreadCount() > 0) {
     String counterText="" + arg.getUnreadCount();
@@ -92,7 +115,7 @@
     maxWidth-=counterWidth + Screen.dp(8);
   }
   if (arg.getSenderId() > 0) {
-    String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid());
+    String contentText=messenger().getFormatter().formatContentText(arg.getSenderId(),arg.getMessageType(),arg.getText().replace("\n"," "),arg.getRelatedUid(),arg.isChannel());
     if (arg.getPeer().getPeerType() == PeerType.GROUP) {
       if (messenger().getFormatter().isLargeDialogMessage(arg.getMessageType())) {
         res.setTextLayout(singleLineText(handleEmoji(contentText),textActivePaint,maxWidth));

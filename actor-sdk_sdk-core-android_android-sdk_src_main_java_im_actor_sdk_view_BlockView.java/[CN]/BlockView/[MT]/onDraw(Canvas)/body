@@ -1,0 +1,7 @@
+{
+  bottomDrawable.setBounds(0,getHeight() - Screen.dp(8),getWidth(),getHeight() - Screen.dp(4));
+  bottomDrawable.draw(canvas);
+  topDrawable.setBounds(0,Screen.dp(7),getWidth(),Screen.dp(8));
+  topDrawable.draw(canvas);
+  super.onDraw(canvas);
+}

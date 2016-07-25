@@ -1,6 +1,0 @@
-int groupId
-long rid
-int uid
-ApiAvatar avatar
-long date
-boolean isSilent

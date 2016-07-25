@@ -1,0 +1,11 @@
+{
+  if (getWrappedExt() != null) {
+    ApiGroupFull e=getWrappedExt();
+    ApiGroupFull fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),new ArrayList<>(),e.getTheme(),e.getAbout(),e.getExt(),true,e.isSharedHistory(),e.getShortName(),e.getPermissions());
+    fullExt.setUnmappedObjects(e.getUnmappedObjects());
+    return new Group(getWrapped(),fullExt);
+  }
+ else {
+    return this;
+  }
+}

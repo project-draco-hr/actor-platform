@@ -7,9 +7,9 @@
   res+=", theme=" + this.theme;
   res+=", about=" + this.about;
   res+=", isAsyncMembers=" + this.isAsyncMembers;
-  res+=", canViewMembers=" + this.canViewMembers;
-  res+=", canInvitePeople=" + this.canInvitePeople;
   res+=", isSharedHistory=" + this.isSharedHistory;
+  res+=", shortName=" + this.shortName;
+  res+=", permissions=" + this.permissions;
   res+="}";
   return res;
 }

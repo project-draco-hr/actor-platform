@@ -1,0 +1,6 @@
+{
+  if (this.settings == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.settings);
+}

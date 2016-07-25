@@ -1,0 +1,4 @@
+Peer peer
+boolean isChannel
+int sender
+ContentDescription contentDescription

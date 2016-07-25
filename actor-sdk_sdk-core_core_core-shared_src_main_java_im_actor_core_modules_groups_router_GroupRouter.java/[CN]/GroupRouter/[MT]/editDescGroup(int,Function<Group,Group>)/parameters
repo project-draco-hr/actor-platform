@@ -1,0 +1,2 @@
+int groupId
+Function<Group,Group> func

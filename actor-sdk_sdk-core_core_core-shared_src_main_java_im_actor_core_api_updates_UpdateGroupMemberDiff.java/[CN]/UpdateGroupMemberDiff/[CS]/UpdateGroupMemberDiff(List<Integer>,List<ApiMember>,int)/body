@@ -1,5 +1,0 @@
-{
-  this.removedUsers=removedUsers;
-  this.addedMembers=addedMembers;
-  this.membersCount=membersCount;
-}

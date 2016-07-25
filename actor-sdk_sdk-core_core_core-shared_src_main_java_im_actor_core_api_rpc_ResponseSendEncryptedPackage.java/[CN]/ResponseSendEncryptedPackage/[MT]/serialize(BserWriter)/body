@@ -1,13 +1,7 @@
 {
-  if (this.seq != null) {
-    writer.writeInt(1,this.seq);
-  }
-  if (this.state != null) {
-    writer.writeBytes(2,this.state);
-  }
   if (this.date != null) {
-    writer.writeLong(3,this.date);
+    writer.writeLong(1,this.date);
   }
-  writer.writeRepeatedObj(4,this.obsoleteKeyGroups);
-  writer.writeRepeatedObj(5,this.missedKeyGroups);
+  writer.writeRepeatedObj(2,this.obsoleteKeyGroups);
+  writer.writeRepeatedObj(3,this.missedKeyGroups);
 }

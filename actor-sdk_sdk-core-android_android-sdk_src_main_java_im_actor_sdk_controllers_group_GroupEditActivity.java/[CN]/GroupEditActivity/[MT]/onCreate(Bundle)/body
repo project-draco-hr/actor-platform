@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  if (savedInstanceState == null) {
+    showFragment(GroupEditFragment.create(getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0)),false);
+  }
+}

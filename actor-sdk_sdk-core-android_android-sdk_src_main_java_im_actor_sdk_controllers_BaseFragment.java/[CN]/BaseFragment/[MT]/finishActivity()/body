@@ -1,0 +1,6 @@
+{
+  Activity a=getActivity();
+  if (a != null) {
+    a.finish();
+  }
+}

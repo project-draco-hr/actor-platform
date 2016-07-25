@@ -1,0 +1,9 @@
+{
+  if (this.groupPeer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.groupPeer);
+  if (this.shortName != null) {
+    writer.writeString(2,this.shortName);
+  }
+}

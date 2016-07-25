@@ -1,8 +1,10 @@
 {
-  addFooterOrHeaderAction(ActorSDK.sharedActor().style.getActionAddContactColor(),R.drawable.ic_person_add_white_24dp,R.string.contacts_invite_via_link,false,new Runnable(){
-    @Override public void run(){
-      startActivity(Intents.inviteLink(getArguments().getInt("GROUP_ID",0),getActivity()));
+  if (groupVM.getIsCanInviteViaLink().get()) {
+    addFooterOrHeaderAction(ActorSDK.sharedActor().style.getActionAddContactColor(),R.drawable.ic_person_add_white_24dp,R.string.contacts_invite_via_link,false,new Runnable(){
+      @Override public void run(){
+        startActivity(Intents.inviteLink(getArguments().getInt("GROUP_ID",0),getActivity()));
+      }
     }
-  }
 ,true);
+  }
 }

@@ -1,5 +1,6 @@
 {
-  writer.writeRepeatedInt(1,this.removedUsers);
-  writer.writeRepeatedObj(2,this.addedMembers);
-  writer.writeInt(3,this.membersCount);
+  writer.writeInt(1,this.groupId);
+  writer.writeRepeatedInt(2,this.removedUsers);
+  writer.writeRepeatedObj(3,this.addedMembers);
+  writer.writeInt(4,this.membersCount);
 }

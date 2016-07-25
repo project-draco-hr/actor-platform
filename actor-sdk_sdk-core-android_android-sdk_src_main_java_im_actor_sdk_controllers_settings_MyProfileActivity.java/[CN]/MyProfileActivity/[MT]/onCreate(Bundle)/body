@@ -16,6 +16,6 @@
  else {
       fragment=new ActorSettingsFragment();
     }
-    showFragment(fragment,false,false);
+    showFragment(fragment,false);
   }
 }

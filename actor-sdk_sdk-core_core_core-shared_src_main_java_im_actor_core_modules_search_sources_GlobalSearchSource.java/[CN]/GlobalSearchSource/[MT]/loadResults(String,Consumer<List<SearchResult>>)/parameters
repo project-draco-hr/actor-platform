@@ -1,0 +1,2 @@
+String query
+Consumer<List<SearchResult>> callback

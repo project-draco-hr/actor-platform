@@ -1,0 +1,9 @@
+{
+  this.showAdminsToMembers=values.getBool(1);
+  this.canMembersInvite=values.getBool(2);
+  this.canMembersEditGroupInfo=values.getBool(3);
+  this.canAdminsEditGroupInfo=values.getBool(4);
+  if (values.hasRemaining()) {
+    setUnmappedObjects(values.buildRemaining());
+  }
+}

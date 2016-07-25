@@ -1,5 +1,6 @@
 {
-  writer.writeRepeatedObj(1,this.members);
+  writer.writeRepeatedObj(3,this.members);
+  writer.writeRepeatedObj(1,this.users);
   if (this.next != null) {
     writer.writeBytes(2,this.next);
   }

@@ -1,0 +1,4 @@
+{
+  MultiDex.install(this);
+  super.onCreate();
+}

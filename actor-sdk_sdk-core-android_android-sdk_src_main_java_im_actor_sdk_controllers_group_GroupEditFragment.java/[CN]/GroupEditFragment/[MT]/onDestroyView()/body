@@ -1,0 +1,9 @@
+{
+  super.onDestroyView();
+  titleEditText=null;
+  descriptionEditText=null;
+  if (avatarView != null) {
+    avatarView.unbind();
+    avatarView=null;
+  }
+}

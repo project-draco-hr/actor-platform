@@ -1,0 +1,10 @@
+{
+  if (this.groupPeer == null) {
+    throw new IOException();
+  }
+  writer.writeObject(1,this.groupPeer);
+  if (this.settings == null) {
+    throw new IOException();
+  }
+  writer.writeObject(2,this.settings);
+}

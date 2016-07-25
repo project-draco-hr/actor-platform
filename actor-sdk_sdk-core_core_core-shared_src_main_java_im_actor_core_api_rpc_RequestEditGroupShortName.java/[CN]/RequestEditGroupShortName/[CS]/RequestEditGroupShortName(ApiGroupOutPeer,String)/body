@@ -1,0 +1,4 @@
+{
+  this.groupPeer=groupPeer;
+  this.shortName=shortName;
+}

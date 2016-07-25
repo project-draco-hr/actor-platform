@@ -1,0 +1,3 @@
+{
+  return modules.getGroupsModule().saveAdminSettings(gid,adminSettings);
+}

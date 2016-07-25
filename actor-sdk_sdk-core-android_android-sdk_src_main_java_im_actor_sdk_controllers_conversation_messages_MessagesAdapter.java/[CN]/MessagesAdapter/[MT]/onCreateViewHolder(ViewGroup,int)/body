@@ -10,7 +10,7 @@ case 0:
 case 1:
   return ActorSDK.sharedActor().getDelegatedViewHolder(ServiceHolder.class,new ActorSDK.OnDelegateViewHolder<ServiceHolder>(){
     @Override public ServiceHolder onNotDelegated(){
-      return new ServiceHolder(MessagesAdapter.this,inflate(R.layout.adapter_dialog_service,viewGroup));
+      return new ServiceHolder(MessagesAdapter.this,isChannel,inflate(R.layout.adapter_dialog_service,viewGroup));
     }
   }
 ,MessagesAdapter.this,inflate(R.layout.adapter_dialog_service,viewGroup));

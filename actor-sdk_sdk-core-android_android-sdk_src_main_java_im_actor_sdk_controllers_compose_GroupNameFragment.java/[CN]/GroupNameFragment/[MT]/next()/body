@@ -1,6 +1,2 @@
 {
-  String title=groupName.getText().toString().trim();
-  if (title.length() > 0) {
-    ((CreateGroupActivity)getActivity()).showNextFragment(GroupUsersFragment.create(groupName.getText().toString().trim(),avatarPath),false,true);
-  }
 }

@@ -1,0 +1,4 @@
+{
+  this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
+  this.shortName=values.optString(2);
+}

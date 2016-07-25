@@ -1,0 +1,8 @@
+{
+  if (obj instanceof Results) {
+    Results<T> r=(Results<T>)obj;
+    if (r.getRequestIndex() == requestId) {
+      onResultsReceived(r.getRes());
+    }
+  }
+}

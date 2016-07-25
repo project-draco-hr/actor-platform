@@ -1,0 +1,7 @@
+{
+  String res="update GroupPermissionsChanged{";
+  res+="groupId=" + this.groupId;
+  res+=", permissions=" + this.permissions;
+  res+="}";
+  return res;
+}

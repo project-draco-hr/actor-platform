@@ -1,0 +1,6 @@
+{
+  this.callback=callback;
+  if (!isInitiallyLoaded) {
+    loadMore();
+  }
+}

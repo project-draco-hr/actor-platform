@@ -1,0 +1,7 @@
+{
+  super.onPause();
+  for (  WrappedPromise w : pending) {
+    w.kill();
+  }
+  pending.clear();
+}

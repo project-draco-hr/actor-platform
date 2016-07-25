@@ -1,3 +1,3 @@
 {
-  return members.length;
+  return members.size();
 }

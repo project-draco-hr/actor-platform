@@ -1,5 +1,0 @@
-{
-  String res="tuple EnterGroup{";
-  res+="}";
-  return res;
-}

@@ -1,0 +1,12 @@
+{
+  if (message instanceof RouterLoadFullGroup) {
+    if (isFreezed) {
+      stash();
+      return;
+    }
+    onRequestLoadFullGroup(((RouterLoadFullGroup)message).getGid());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

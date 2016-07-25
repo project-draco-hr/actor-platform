@@ -1,0 +1,6 @@
+{
+  if (isKilled) {
+    return;
+  }
+  super.invokeDeliver();
+}

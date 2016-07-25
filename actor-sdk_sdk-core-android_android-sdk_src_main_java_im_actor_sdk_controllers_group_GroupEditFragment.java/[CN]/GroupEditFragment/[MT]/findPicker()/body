@@ -1,0 +1,3 @@
+{
+  return (MediaPickerFragment)getChildFragmentManager().findFragmentByTag("picker");
+}

@@ -3,26 +3,7 @@
     throw new IOException();
   }
   writer.writeObject(1,this.peer);
-  if (this.title == null) {
-    throw new IOException();
-  }
-  writer.writeString(2,this.title);
-  if (this.description != null) {
-    writer.writeString(3,this.description);
-  }
-  if (this.membersCount != null) {
-    writer.writeInt(4,this.membersCount);
-  }
-  if (this.dateCreated != null) {
-    writer.writeLong(5,this.dateCreated);
-  }
-  if (this.creator != null) {
-    writer.writeInt(6,this.creator);
-  }
-  if (this.isPublic != null) {
-    writer.writeBool(7,this.isPublic);
-  }
-  if (this.isJoined != null) {
-    writer.writeBool(8,this.isJoined);
+  if (this.optMatchString != null) {
+    writer.writeString(3,this.optMatchString);
   }
 }

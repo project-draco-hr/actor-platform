@@ -20,23 +20,14 @@
   if (this.groupType != null) {
     writer.writeInt(25,this.groupType.getValue());
   }
-  if (this.canSendMessage != null) {
-    writer.writeBool(26,this.canSendMessage);
+  if (this.permissions != null) {
+    writer.writeLong(26,this.permissions);
+  }
+  if (this.isDeleted != null) {
+    writer.writeBool(27,this.isDeleted);
   }
   if (this.ext != null) {
     writer.writeObject(22,this.ext);
-  }
-  if (this.isAdmin != null) {
-    writer.writeBool(16,this.isAdmin);
-  }
-  writer.writeInt(8,this.creatorUid);
-  writer.writeRepeatedObj(9,this.members);
-  writer.writeLong(10,this.createDate);
-  if (this.theme != null) {
-    writer.writeString(17,this.theme);
-  }
-  if (this.about != null) {
-    writer.writeString(18,this.about);
   }
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();

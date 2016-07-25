@@ -3,6 +3,10 @@
   this.messagesFragment=messagesFragment;
   this.context=context;
   ConversationVM conversationVM=messenger().getConversationVM(messagesFragment.getPeer());
+  isChannel=false;
+  if (messagesFragment.getPeer().getPeerType() == PeerType.GROUP) {
+    isChannel=groups().get(messagesFragment.getPeer().getPeerId()).getGroupType() == GroupType.CHANNEL;
+  }
   readDate=conversationVM.getReadDate().get();
   receiveDate=conversationVM.getReceiveDate().get();
   BINDER.bind(conversationVM.getReadDate(),new ValueChangedListener<Long>(){

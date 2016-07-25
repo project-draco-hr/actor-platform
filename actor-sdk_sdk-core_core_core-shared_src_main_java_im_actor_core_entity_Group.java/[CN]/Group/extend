@@ -1,1 +1,1 @@
-WrapperEntity<ApiGroup>
+WrapperExtEntity<ApiGroupFull,ApiGroup>

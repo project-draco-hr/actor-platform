@@ -5,6 +5,6 @@
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
   if (savedInstanceState == null) {
     callId=getIntent().getLongExtra("callId",-1);
-    showFragment(new CallFragment(callId),false,false);
+    showFragment(new CallFragment(callId),false);
   }
 }

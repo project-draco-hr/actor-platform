@@ -1,8 +1,0 @@
-{
-  if (values.getBool(9,false)) {
-    super.parse(values);
-  }
- else {
-    throw new IOException("Unsupported obsolete format");
-  }
-}

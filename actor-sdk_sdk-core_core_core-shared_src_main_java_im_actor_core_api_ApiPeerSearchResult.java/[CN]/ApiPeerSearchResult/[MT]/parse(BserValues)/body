@@ -1,10 +1,4 @@
 {
   this.peer=values.getObj(1,new ApiPeer());
-  this.title=values.getString(2);
-  this.description=values.optString(3);
-  this.membersCount=values.optInt(4);
-  this.dateCreated=values.optLong(5);
-  this.creator=values.optInt(6);
-  this.isPublic=values.optBool(7);
-  this.isJoined=values.optBool(8);
+  this.optMatchString=values.optString(3);
 }

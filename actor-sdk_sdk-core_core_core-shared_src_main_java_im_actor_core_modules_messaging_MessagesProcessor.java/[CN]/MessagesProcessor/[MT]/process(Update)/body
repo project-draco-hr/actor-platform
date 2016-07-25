@@ -1,5 +1,5 @@
 {
-  if (update instanceof UpdateMessage || update instanceof UpdateMessageRead || update instanceof UpdateMessageReadByMe|| update instanceof UpdateMessageReceived|| update instanceof UpdateMessageDelete|| update instanceof UpdateMessageContentChanged|| update instanceof UpdateChatClear|| update instanceof UpdateChatDelete|| update instanceof UpdateChatGroupsChanged|| update instanceof UpdateReactionsUpdate|| update instanceof UpdateMessageSent) {
+  if (update instanceof UpdateMessage || update instanceof UpdateMessageRead || update instanceof UpdateMessageReadByMe|| update instanceof UpdateMessageReceived|| update instanceof UpdateMessageDelete|| update instanceof UpdateMessageContentChanged|| update instanceof UpdateChatClear|| update instanceof UpdateChatDelete|| update instanceof UpdateChatDropCache|| update instanceof UpdateChatGroupsChanged|| update instanceof UpdateReactionsUpdate|| update instanceof UpdateMessageSent) {
     return context().getMessagesModule().getRouter().onUpdate(update);
   }
   return null;

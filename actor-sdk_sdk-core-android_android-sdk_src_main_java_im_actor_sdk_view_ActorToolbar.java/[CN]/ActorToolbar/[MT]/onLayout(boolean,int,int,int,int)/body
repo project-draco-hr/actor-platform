@@ -1,0 +1,5 @@
+{
+  Log.d("LL","onLayout");
+  super.onLayout(changed,l,t,r,b);
+  colorizeToolbar(this,itemColor,(Activity)ctxt);
+}

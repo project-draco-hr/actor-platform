@@ -1,0 +1,29 @@
+{
+  ApiGroupFull fullExt=null;
+  if (getWrappedExt() != null) {
+    ApiGroupFull e=getWrappedExt();
+    ArrayList<ApiMember> nMembers=new ArrayList<>(e.getMembers());
+    for (    Integer i : removed) {
+      for (      ApiMember m : nMembers) {
+        if (m.getUid() == i) {
+          nMembers.remove(m);
+          break;
+        }
+      }
+    }
+    outer:     for (    ApiMember a : added) {
+      for (      ApiMember m : nMembers) {
+        if (m.getUid() == a.getUid()) {
+          nMembers.remove(m);
+          continue outer;
+        }
+      }
+      nMembers.add(a);
+    }
+    fullExt=new ApiGroupFull(e.getId(),e.getCreateDate(),e.getOwnerUid(),nMembers,e.getTheme(),e.getAbout(),e.getExt(),e.isAsyncMembers(),e.isSharedHistory(),e.getShortName(),e.getPermissions());
+    fullExt.setUnmappedObjects(e.getUnmappedObjects());
+  }
+  ApiGroup w=getWrapped();
+  ApiGroup res=new ApiGroup(w.getId(),w.getAccessHash(),w.getTitle(),w.getAvatar(),count,w.isMember(),w.isHidden(),w.getGroupType(),w.getPermissions(),w.isDeleted(),w.getExt());
+  return new Group(res,fullExt);
+}

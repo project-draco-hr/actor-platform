@@ -1,0 +1,3 @@
+int senderId
+ServiceContent content
+boolean isChannel

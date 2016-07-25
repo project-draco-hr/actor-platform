@@ -1,5 +1,0 @@
-{
-  this.peer=peer;
-  this.sender=sender;
-  this.contentDescription=contentDescription;
-}

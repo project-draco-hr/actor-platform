@@ -1,26 +1,6 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.chat_menu,menu);
-  if (peer.getPeerType() == PeerType.PRIVATE) {
-    menu.findItem(R.id.contact).setVisible(true);
-  }
- else {
-    menu.findItem(R.id.contact).setVisible(false);
-  }
-  if (peer.getPeerType() == PeerType.GROUP) {
-    if (groups().get(peer.getPeerId()).isMember().get()) {
-      menu.findItem(R.id.leaveGroup).setVisible(true);
-      menu.findItem(R.id.groupInfo).setVisible(true);
-    }
- else {
-      menu.findItem(R.id.leaveGroup).setVisible(false);
-      menu.findItem(R.id.groupInfo).setVisible(false);
-    }
-  }
- else {
-    menu.findItem(R.id.groupInfo).setVisible(false);
-    menu.findItem(R.id.leaveGroup).setVisible(false);
-  }
   boolean callsEnabled=ActorSDK.sharedActor().isCallsEnabled();
   boolean videoCallsEnabled=ActorSDK.sharedActor().isVideoCallsEnabled();
   if (callsEnabled) {
@@ -28,8 +8,15 @@
       callsEnabled=!users().get(peer.getPeerId()).isBot();
     }
  else     if (peer.getPeerType() == PeerType.GROUP) {
-      callsEnabled=groups().get(peer.getPeerId()).getMembersCount() <= MAX_USERS_FOR_CALLS;
-      videoCallsEnabled=false;
+      GroupVM groupVM=groups().get(peer.getPeerId());
+      if (groupVM.getGroupType() == GroupType.GROUP) {
+        callsEnabled=groupVM.getMembersCount().get() <= MAX_USERS_FOR_CALLS;
+        videoCallsEnabled=false;
+      }
+ else {
+        callsEnabled=false;
+        videoCallsEnabled=false;
+      }
     }
   }
   menu.findItem(R.id.call).setVisible(callsEnabled);

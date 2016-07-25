@@ -1,4 +1,0 @@
-{
-  this.groupId=values.getInt(1);
-  this.canSendMessages=values.getBool(2);
-}

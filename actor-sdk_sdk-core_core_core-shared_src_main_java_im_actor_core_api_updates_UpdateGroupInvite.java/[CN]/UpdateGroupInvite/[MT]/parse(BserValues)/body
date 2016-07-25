@@ -1,6 +1,0 @@
-{
-  this.groupId=values.getInt(1);
-  this.rid=values.getLong(9);
-  this.inviteUid=values.getInt(5);
-  this.date=values.getLong(8);
-}

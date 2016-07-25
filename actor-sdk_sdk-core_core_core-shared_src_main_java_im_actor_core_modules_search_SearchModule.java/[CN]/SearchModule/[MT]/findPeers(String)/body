@@ -1,0 +1,5 @@
+{
+  ArrayList<ApiSearchCondition> conditions=new ArrayList<>();
+  conditions.add(new ApiSearchPieceText(query));
+  return findPeers(conditions);
+}

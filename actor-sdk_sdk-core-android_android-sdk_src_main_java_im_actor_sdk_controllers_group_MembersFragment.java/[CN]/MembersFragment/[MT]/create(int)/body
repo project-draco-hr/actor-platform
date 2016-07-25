@@ -1,0 +1,7 @@
+{
+  MembersFragment res=new MembersFragment();
+  Bundle args=new Bundle();
+  args.putInt("groupId",groupId);
+  res.setArguments(args);
+  return res;
+}

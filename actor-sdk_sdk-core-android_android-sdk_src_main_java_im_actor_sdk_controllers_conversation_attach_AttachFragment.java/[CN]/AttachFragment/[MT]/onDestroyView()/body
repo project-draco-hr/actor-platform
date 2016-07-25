@@ -4,4 +4,8 @@
     fastAttachAdapter.release();
     fastAttachAdapter=null;
   }
+  container=null;
+  root=null;
+  menuIconToChange=null;
+  menuTitleToChange=null;
 }

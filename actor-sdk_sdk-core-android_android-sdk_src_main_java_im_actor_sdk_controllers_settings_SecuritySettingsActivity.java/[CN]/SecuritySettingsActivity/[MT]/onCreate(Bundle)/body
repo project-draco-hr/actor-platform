@@ -10,6 +10,6 @@
     fragment=new SecuritySettingsFragment();
   }
   if (savedInstanceState == null) {
-    showFragment(fragment,false,false);
+    showFragment(fragment,false);
   }
 }

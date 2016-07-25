@@ -1,4 +1,4 @@
 {
   this.groupPeer=values.getObj(1,new ApiGroupOutPeer());
-  this.newOwner=values.getInt(2);
+  this.newOwner=values.getObj(2,new ApiUserOutPeer());
 }

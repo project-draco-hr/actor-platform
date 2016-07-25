@@ -1,8 +1,35 @@
 {
   super.onCreate(saveInstance);
   getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-  setContentView(R.layout.activity_dialog);
-  setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
+  RelativeLayout rootLayout=new RelativeLayout(this);
+  View antiFocus=new View(this);
+  antiFocus.setLayoutParams(new RelativeLayout.LayoutParams(0,0));
+  antiFocus.setFocusable(true);
+  antiFocus.setFocusableInTouchMode(true);
+  rootLayout.addView(antiFocus);
+  FrameLayout chatFragmentCont=new FrameLayout(this);
+  chatFragmentCont.setId(R.id.chatFragment);
+  RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+  params.addRule(RelativeLayout.BELOW,R.id.toolbar);
+  chatFragmentCont.setLayoutParams(params);
+  rootLayout.addView(chatFragmentCont);
+  ActorToolbar toolbar=new ActorToolbar(this);
+  final TypedArray styledAttributes=getTheme().obtainStyledAttributes(new int[]{R.attr.actionBarSize});
+  int actionBarSize=(int)styledAttributes.getDimension(0,0);
+  styledAttributes.recycle();
+  toolbar.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,actionBarSize));
+  toolbar.setMinimumHeight(actionBarSize);
+  toolbar.setId(R.id.toolbar);
+  toolbar.setBackgroundColor(ActorSDK.sharedActor().style.getToolBarColor());
+  toolbar.setItemColor(Color.WHITE);
+  rootLayout.addView(toolbar);
+  this.toolbar=toolbar;
+  FrameLayout overlay=new FrameLayout(this);
+  overlay.setId(R.id.overlay);
+  overlay.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  rootLayout.addView(overlay);
+  setContentView(rootLayout);
+  setSupportActionBar(toolbar);
   if (saveInstance == null) {
     Peer peer=Peer.fromUniqueId(getIntent().getExtras().getLong(EXTRA_CHAT_PEER));
     chatFragment=ChatFragment.create(peer);

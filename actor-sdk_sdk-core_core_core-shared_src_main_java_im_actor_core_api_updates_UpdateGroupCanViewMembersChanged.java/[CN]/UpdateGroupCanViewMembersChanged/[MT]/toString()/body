@@ -1,7 +1,0 @@
-{
-  String res="update GroupCanViewMembersChanged{";
-  res+="groupId=" + this.groupId;
-  res+=", canViewMembers=" + this.canViewMembers;
-  res+="}";
-  return res;
-}

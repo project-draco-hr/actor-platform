@@ -1,5 +1,4 @@
 {
   setRootFragment(true);
-  setTitle(R.string.create_group_title);
   setHomeAsUp(true);
 }

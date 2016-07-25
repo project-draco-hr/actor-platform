@@ -3,17 +3,34 @@
   if (resultCode == Activity.RESULT_OK) {
     if (requestCode == REQUEST_GALLERY) {
       if (data.getData() != null) {
-        getCallback().onUriPicked(data.getData());
+        if (pickCropped) {
+          pendingFile=generateRandomFile(".jpg");
+          Crop.of(data.getData(),Uri.fromFile(new File(pendingFile))).asSquare().start(getContext(),this);
+        }
+ else {
+          getCallback().onUriPicked(data.getData());
+        }
       }
     }
  else     if (requestCode == REQUEST_PHOTO) {
       if (pendingFile != null) {
-        getCallback().onPhotoPicked(pendingFile);
+        String sourceFileName=pendingFile;
         Context context=getContext();
         if (context != null) {
           MediaScannerConnection.scanFile(context,new String[]{pendingFile},new String[]{"image/jpeg"},null);
         }
-        pendingFile=null;
+        if (pickCropped) {
+          pendingFile=generateRandomFile(".jpg");
+          Crop.of(Uri.fromFile(new File(sourceFileName)),Uri.fromFile(new File(pendingFile))).asSquare().start(getContext(),this);
+        }
+ else {
+          getCallback().onPhotoPicked(sourceFileName);
+        }
+      }
+    }
+ else     if (requestCode == Crop.REQUEST_CROP) {
+      if (pendingFile != null) {
+        getCallback().onPhotoCropped(pendingFile);
       }
     }
  else     if (requestCode == REQUEST_VIDEO) {

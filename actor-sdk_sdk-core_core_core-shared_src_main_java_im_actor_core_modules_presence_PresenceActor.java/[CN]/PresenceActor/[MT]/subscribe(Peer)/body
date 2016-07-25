@@ -17,6 +17,9 @@
     if (group == null) {
       return;
     }
+    if (group.getGroupType() == GroupType.CHANNEL) {
+      return;
+    }
     gids.add(peer.getPeerId());
   }
  else {

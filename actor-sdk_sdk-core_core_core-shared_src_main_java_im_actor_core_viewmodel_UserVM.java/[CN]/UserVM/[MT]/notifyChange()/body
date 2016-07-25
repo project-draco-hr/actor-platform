@@ -1,10 +1,2 @@
 {
-  Runtime.postToMainThread(new Runnable(){
-    @Override public void run(){
-      for (      ModelChangedListener<UserVM> l : listeners.toArray(new ModelChangedListener[listeners.size()])) {
-        l.onChanged(UserVM.this);
-      }
-    }
-  }
-);
 }

@@ -1,0 +1,3 @@
+{
+  return modules.getGroupsModule().editShortName(gid,shortName);
+}

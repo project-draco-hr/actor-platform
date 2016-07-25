@@ -1,2 +1,8 @@
 {
+synchronized (historyLoaderActors) {
+    if (!historyLoaderActors.containsKey(peer)) {
+      historyLoaderActors.put(peer,new ConversationHistory(peer,context()));
+    }
+    return historyLoaderActors.get(peer);
+  }
 }

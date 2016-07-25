@@ -1,0 +1,22 @@
+{
+  this.pickCropped=pickCropped;
+  Activity activity=getActivity();
+  if (activity != null) {
+    if (Build.VERSION.SDK_INT >= 23) {
+      if (ContextCompat.checkSelfPermission(activity,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        requestPermissions(new String[]{Manifest.permission.CAMERA},PERMISSIONS_REQUEST_CAMERA);
+        return;
+      }
+    }
+  }
+ else {
+    return;
+  }
+  pendingFile=generateRandomFile(".jpg");
+  if (pendingFile == null) {
+    return;
+  }
+  Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+  intent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(pendingFile)));
+  startActivityForResult(intent,REQUEST_PHOTO);
+}

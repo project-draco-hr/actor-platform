@@ -1,0 +1,10 @@
+{
+  View res=inflater.inflate(R.layout.fragment_edit_permissions,container,false);
+  View rootContainer=res.findViewById(R.id.rootContainer);
+  rootContainer.setBackgroundColor(style.getBackyardBackgroundColor());
+  canEditInfo=(CheckBox)res.findViewById(R.id.canEditValue);
+  scrollContainer=res.findViewById(R.id.scrollContainer);
+  progress=(CircularProgressBar)res.findViewById(R.id.progress);
+  progress.setIndeterminate(true);
+  return res;
+}
