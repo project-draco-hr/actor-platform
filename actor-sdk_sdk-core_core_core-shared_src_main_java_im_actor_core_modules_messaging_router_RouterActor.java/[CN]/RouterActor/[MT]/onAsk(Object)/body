@@ -48,6 +48,10 @@
     RouterDeletedMessages routerDeletedMessages=(RouterDeletedMessages)message;
     return onMessageDeleted(routerDeletedMessages.getPeer(),routerDeletedMessages.getRids());
   }
+ else   if (message instanceof RouterResetChat) {
+    RouterResetChat resetChat=(RouterResetChat)message;
+    return onChatReset(resetChat.getPeer());
+  }
  else {
     return super.onAsk(message);
   }

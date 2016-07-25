@@ -1,0 +1,6 @@
+{
+  String res="rpc JoinGroupByPeer{";
+  res+="groupPeer=" + this.groupPeer;
+  res+="}";
+  return res;
+}

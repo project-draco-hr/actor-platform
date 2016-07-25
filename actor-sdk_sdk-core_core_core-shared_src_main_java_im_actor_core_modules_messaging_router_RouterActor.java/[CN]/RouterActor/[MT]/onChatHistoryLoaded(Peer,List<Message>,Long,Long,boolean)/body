@@ -1,4 +1,5 @@
 {
+  Log.d(TAG,"History Loaded");
   long maxMessageDate=0;
   ArrayList<Message> updated=new ArrayList<>();
   for (  Message historyMessage : messages) {

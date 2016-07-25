@@ -1,0 +1,9 @@
+{
+  Log.d(TAG,"onChatReset");
+  conversation(peer).clear();
+  ConversationState state=conversationStates.getValue(peer.getUnuqueId());
+  state=state.changeIsLoaded(false);
+  conversationStates.addOrUpdateItem(state);
+  updateChatState(peer);
+  return Promise.success(null);
+}
