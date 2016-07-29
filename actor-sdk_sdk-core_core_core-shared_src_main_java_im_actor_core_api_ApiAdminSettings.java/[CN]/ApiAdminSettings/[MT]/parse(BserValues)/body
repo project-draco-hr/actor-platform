@@ -3,6 +3,7 @@
   this.canMembersInvite=values.getBool(2);
   this.canMembersEditGroupInfo=values.getBool(3);
   this.canAdminsEditGroupInfo=values.getBool(4);
+  this.showJoinLeaveMessages=values.getBool(5);
   if (values.hasRemaining()) {
     setUnmappedObjects(values.buildRemaining());
   }

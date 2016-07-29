@@ -3,4 +3,5 @@
   this.canMembersInvite=canMembersInvite;
   this.canMembersEditGroupInfo=canMembersEditGroupInfo;
   this.canAdminsEditGroupInfo=canAdminsEditGroupInfo;
+  this.showJoinLeaveMessages=showJoinLeaveMessages;
 }
