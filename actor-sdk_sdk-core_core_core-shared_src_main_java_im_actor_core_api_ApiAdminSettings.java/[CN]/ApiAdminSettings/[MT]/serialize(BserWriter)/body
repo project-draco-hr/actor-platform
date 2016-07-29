@@ -3,6 +3,7 @@
   writer.writeBool(2,this.canMembersInvite);
   writer.writeBool(3,this.canMembersEditGroupInfo);
   writer.writeBool(4,this.canAdminsEditGroupInfo);
+  writer.writeBool(5,this.showJoinLeaveMessages);
   if (this.getUnmappedObjects() != null) {
     SparseArray<Object> unmapped=this.getUnmappedObjects();
     for (int i=0; i < unmapped.size(); i++) {

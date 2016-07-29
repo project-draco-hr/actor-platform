@@ -2,3 +2,4 @@ boolean showAdminsToMembers
 boolean canMembersInvite
 boolean canMembersEditGroupInfo
 boolean canAdminsEditGroupInfo
+boolean showJoinLeaveMessages

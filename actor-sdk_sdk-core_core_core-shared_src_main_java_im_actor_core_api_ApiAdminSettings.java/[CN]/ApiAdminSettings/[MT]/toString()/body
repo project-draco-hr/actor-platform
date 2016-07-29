@@ -4,6 +4,7 @@
   res+=", canMembersInvite=" + this.canMembersInvite;
   res+=", canMembersEditGroupInfo=" + this.canMembersEditGroupInfo;
   res+=", canAdminsEditGroupInfo=" + this.canAdminsEditGroupInfo;
+  res+=", showJoinLeaveMessages=" + this.showJoinLeaveMessages;
   res+="}";
   return res;
 }
