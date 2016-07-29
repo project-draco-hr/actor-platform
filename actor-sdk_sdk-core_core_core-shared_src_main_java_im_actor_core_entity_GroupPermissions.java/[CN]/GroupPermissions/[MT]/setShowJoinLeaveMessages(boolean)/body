@@ -1,0 +1,5 @@
+{
+  SparseArray<Object> unmapped=settings.getUnmappedObjects();
+  settings=new ApiAdminSettings(settings.showAdminsToMembers(),settings.canMembersInvite(),settings.canMembersEditGroupInfo(),settings.canAdminsEditGroupInfo(),showJoinLeaveMessages);
+  settings.setUnmappedObjects(unmapped);
+}
