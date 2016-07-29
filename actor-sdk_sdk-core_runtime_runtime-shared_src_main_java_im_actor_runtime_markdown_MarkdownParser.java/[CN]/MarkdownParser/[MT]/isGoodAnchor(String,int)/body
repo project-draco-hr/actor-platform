@@ -1,7 +1,7 @@
 {
+  String punct=" .,:!?\t\n";
   if (index >= 0 && index < text.length()) {
-    char postfix=text.charAt(index);
-    if (postfix != ' ' && postfix != '\t' && postfix != '\n') {
+    if (punct.indexOf(text.charAt(index)) == -1) {
       return false;
     }
   }
