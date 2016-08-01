@@ -4,6 +4,5 @@ String about
 String avatar
 String bigAvatar
 String placeholder
-int adminId
 String presence
 JsArray<JsGroupMember> members

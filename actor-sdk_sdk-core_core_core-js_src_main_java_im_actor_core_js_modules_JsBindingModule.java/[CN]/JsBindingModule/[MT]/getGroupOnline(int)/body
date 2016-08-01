@@ -9,11 +9,11 @@
             value.changeValue(null);
             return;
           }
-          String presence=messenger.getFormatter().formatGroupMembers(groupVM.getMembersCount());
+          String presence=messenger.getFormatter().formatGroupMembers(groupVM.getMembersCount().get());
           if (val > 0) {
             presence+=", " + messenger.getFormatter().formatGroupOnline(val);
           }
-          value.changeValue(JsOnlineGroup.create(groupVM.getMembersCount(),val,presence,false));
+          value.changeValue(JsOnlineGroup.create(groupVM.getMembersCount().get(),val,presence,false));
         }
  else {
           value.changeValue(JsOnlineGroup.create(0,0,"Not member",false));

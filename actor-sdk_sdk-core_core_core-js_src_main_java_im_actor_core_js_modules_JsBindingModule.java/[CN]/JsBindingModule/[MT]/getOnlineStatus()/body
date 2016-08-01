@@ -1,6 +1,6 @@
 {
   if (onlineState == null) {
-    final GlobalStateVM vm=context().getAppStateModule().getGlobalStateVM();
+    final GlobalStateVM vm=context().getConductor().getGlobalStateVM();
     onlineState=new JsBindedValue<>("online");
     vm.getIsConnecting().subscribe(new ValueChangedListener<Boolean>(){
       @Override public void onChanged(      Boolean val,      Value<Boolean> valueModel){

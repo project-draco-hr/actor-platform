@@ -1,6 +1,6 @@
 {
   if (globalCounter == null) {
-    ValueModel<Integer> counter=context().getAppStateModule().getGlobalStateVM().getGlobalCounter();
+    ValueModel<Integer> counter=context().getConductor().getGlobalStateVM().getGlobalCounter();
     globalCounter=new JsBindedValue<>(JsCounter.create(counter.get()));
     counter.subscribe(new ValueChangedListener<Integer>(){
       @Override public void onChanged(      Integer val,      Value<Integer> valueModel){
