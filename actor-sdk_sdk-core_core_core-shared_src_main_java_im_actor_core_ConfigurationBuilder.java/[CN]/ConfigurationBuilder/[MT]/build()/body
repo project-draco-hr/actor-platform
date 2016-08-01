@@ -17,5 +17,5 @@
   if (trustedKeys.size() == 0) {
     Log.w("ConfigurationBuilder","No Trusted keys set. Using anonymous server authentication.");
   }
-  return new Configuration(endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),phoneBookProvider,notificationProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,deviceCategory,platformType,minDelay,maxDelay,maxFailureCount,timeZone,preferredLanguages.toArray(new String[preferredLanguages.size()]),customAppName,trustedKeys.toArray(new TrustedKey[trustedKeys.size()]),isPhoneBookImportEnabled,callsProvider,voiceCallsEnabled,videoCallsEnabled,isEnabledGroupedChatList);
+  return new Configuration(endpoints.toArray(new ConnectionEndpoint[endpoints.size()]),phoneBookProvider,notificationProvider,apiConfiguration,enableContactsLogging,enableNetworkLogging,enableFilesLogging,deviceCategory,platformType,minDelay,maxDelay,maxFailureCount,timeZone,preferredLanguages.toArray(new String[preferredLanguages.size()]),customAppName,trustedKeys.toArray(new TrustedKey[trustedKeys.size()]),isPhoneBookImportEnabled,callsProvider,voiceCallsEnabled,videoCallsEnabled,isEnabledGroupedChatList,autoJoinGroups.toArray(new String[autoJoinGroups.size()]),autoJoinType);
 }

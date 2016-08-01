@@ -6,8 +6,8 @@
   storageModule.run(first);
   timing.section("Groups");
   groups=new GroupsModule(this);
-  timing.section("App State");
-  appStateModule.run();
+  timing.section("Conductor");
+  conductor.run();
   timing.section("Stickers");
   stickers=new StickersModule(this);
   timing.section("Calls");
@@ -38,8 +38,6 @@
   mentions=new MentionsModule(this);
   timing.section("DisplayLists");
   displayLists=new DisplayLists(this);
-  timing.section("DeviceInfo");
-  deviceInfoModule=new DeviceInfoModule(this);
   timing.section("EventBus");
   eventBusModule=new EventBusModule(this);
   timing=new Timing("ACCOUNT_RUN");
@@ -49,16 +47,12 @@
   groups.run();
   timing.section("Settings");
   settings.run();
-  timing.section("DeviceInfo");
-  deviceInfoModule.run();
   timing.section("Files");
   filesModule.run();
   timing.section("Search");
   search.run();
   timing.section("Notifications");
   notifications.run();
-  timing.section("AppState");
-  appStateModule.run();
   timing.section("Contacts");
   contacts.run();
   timing.section("Messages");

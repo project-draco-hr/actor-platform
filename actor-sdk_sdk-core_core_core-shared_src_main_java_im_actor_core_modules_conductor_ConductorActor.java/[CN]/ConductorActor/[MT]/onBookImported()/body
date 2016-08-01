@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"Book Uploaded");
+  if (!appStateVM.isBookImported()) {
+    appStateVM.onPhoneImported();
+    onAppLoaded();
+  }
+}

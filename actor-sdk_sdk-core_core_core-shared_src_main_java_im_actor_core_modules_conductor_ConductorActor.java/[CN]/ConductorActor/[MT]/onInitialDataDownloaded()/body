@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"Initial Data Loaded");
+  context().getContactsModule().startImport();
+  if (appStateVM.isBookImported()) {
+    onAppLoaded();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  autoJoinGroups.add(groupTokenOrShortName);
+  return this;
+}

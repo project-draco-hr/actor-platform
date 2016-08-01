@@ -1,0 +1,7 @@
+{
+  if (!isSettingsLoaded) {
+    isSettingsLoaded=true;
+    context.getPreferences().putBool("app.settings.loaded",true);
+    updateLoaded();
+  }
+}

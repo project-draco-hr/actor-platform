@@ -9,5 +9,4 @@
       e.getLocalizedMessage();
     }
   }
-  self().send(new PerformSync());
 }

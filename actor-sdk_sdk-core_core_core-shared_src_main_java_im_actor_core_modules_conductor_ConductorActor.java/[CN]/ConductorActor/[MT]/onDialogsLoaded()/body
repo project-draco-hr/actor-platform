@@ -1,0 +1,9 @@
+{
+  Log.d(TAG,"Dialogs Loaded");
+  if (!appStateVM.isDialogsLoaded()) {
+    appStateVM.onDialogsLoaded();
+    if (appStateVM.isContactsLoaded() && appStateVM.isSettingsLoaded()) {
+      onInitialDataDownloaded();
+    }
+  }
+}

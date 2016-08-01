@@ -5,7 +5,7 @@
   this.preferences=Storage.createPreferencesStorage();
   this.storageModule=new StorageModule(this);
   this.events=new EventBus();
-  appStateModule=new AppStateModule(this);
+  this.conductor=new ConductorModule(this);
   this.api=new ApiModule(this);
   this.external=new ExternalModule(this);
   this.pushes=new PushesModule(this);

@@ -3,7 +3,7 @@
     Log.d(TAG,"Sync result received");
   }
   isInProgress=false;
-  context().getAppStateModule().onContactsLoaded();
+  context().getConductor().getConductor().onContactsLoaded();
   if (result.isNotChanged()) {
     Log.d(TAG,"Sync: Not changed");
     if (isInvalidated) {

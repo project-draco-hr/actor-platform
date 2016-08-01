@@ -1,0 +1,4 @@
+{
+  this.autoJoinType=autoJoinType;
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  Log.d(TAG,"App Ready");
+  if (config().getAutoJoinType() == AutoJoinType.AFTER_INIT) {
+    joinGroups();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (!isStarted) {
+    isStarted=true;
+    self().send(new PerformSync());
+  }
+}

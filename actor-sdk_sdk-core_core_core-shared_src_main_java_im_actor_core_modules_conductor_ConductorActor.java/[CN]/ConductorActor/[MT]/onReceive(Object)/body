@@ -1,0 +1,23 @@
+{
+  if (message instanceof DialogsLoaded) {
+    onDialogsLoaded();
+  }
+ else   if (message instanceof ContactsLoaded) {
+    onContactsLoaded();
+  }
+ else   if (message instanceof SettingsLoaded) {
+    onSettingsLoaded();
+  }
+ else   if (message instanceof BookImported) {
+    onBookImported();
+  }
+ else   if (message instanceof ContactsChanged) {
+    onContactsChanged(((ContactsChanged)message).isEmpty());
+  }
+ else   if (message instanceof DialogsChanged) {
+    onDialogsChanged(((DialogsChanged)message).isEmpty());
+  }
+ else {
+    super.onReceive(message);
+  }
+}

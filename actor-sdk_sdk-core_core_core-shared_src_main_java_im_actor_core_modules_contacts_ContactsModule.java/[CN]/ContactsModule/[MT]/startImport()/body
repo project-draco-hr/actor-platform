@@ -1,0 +1,3 @@
+{
+  bookImportActor.send(new BookImportActor.Start());
+}

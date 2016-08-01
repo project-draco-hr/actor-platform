@@ -6,5 +6,6 @@
   this.isBookImported=context.getPreferences().getBool("app.contacts.imported",false);
   this.isDialogsLoaded=context.getPreferences().getBool("app.dialogs.loaded",false);
   this.isContactsLoaded=context.getPreferences().getBool("app.contacts.loaded",false);
+  this.isSettingsLoaded=context.getPreferences().getBool("app.settings.loaded",false);
   this.isAppLoaded=new BooleanValueModel("app.loaded",isBookImported && isDialogsLoaded && isContactsLoaded);
 }

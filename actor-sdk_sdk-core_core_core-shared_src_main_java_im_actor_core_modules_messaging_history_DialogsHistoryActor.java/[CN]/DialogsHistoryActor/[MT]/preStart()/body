@@ -5,6 +5,6 @@
     self().send(new LoadMore());
   }
  else {
-    context().getAppStateModule().onDialogsLoaded();
+    context().getConductor().getConductor().onDialogsLoaded();
   }
 }

@@ -1,9 +1,15 @@
 {
   if (message instanceof PerformSync) {
+    if (!isStarted) {
+      return;
+    }
     performSync();
   }
  else   if (message instanceof PhoneBookLoaded) {
     onPhoneBookLoaded(((PhoneBookLoaded)message).getPhoneBook());
+  }
+ else   if (message instanceof Start) {
+    start();
   }
  else {
     super.onReceive(message);

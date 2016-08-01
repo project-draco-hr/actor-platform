@@ -1,0 +1,7 @@
+{
+  boolean wasEmpty=appStateVM.getIsAppEmpty().get();
+  appStateVM.onDialogsChanged(isEmpty);
+  if (wasEmpty && !appStateVM.getIsAppEmpty().get()) {
+    onAppReady();
+  }
+}

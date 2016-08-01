@@ -3,5 +3,5 @@
   historyLoaded=true;
   preferences().putBool(KEY_LOADED,true);
   preferences().putBool(KEY_LOADED_INIT,true);
-  context().getAppStateModule().onDialogsLoaded();
+  context().getConductor().getConductor().onDialogsLoaded();
 }

@@ -1,5 +1,5 @@
 {
-  boolean val=isBookImported && isDialogsLoaded && isContactsLoaded;
+  boolean val=isBookImported && isDialogsLoaded && isContactsLoaded&& isSettingsLoaded;
   if (isAppLoaded.get() != val) {
     this.isAppLoaded.change(val);
   }

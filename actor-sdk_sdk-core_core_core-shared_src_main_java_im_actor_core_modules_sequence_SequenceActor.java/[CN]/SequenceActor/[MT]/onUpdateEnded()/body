@@ -1,3 +1,3 @@
 {
-  context().getAppStateModule().getGlobalStateVM().getIsSyncing().change(false);
+  context().getConductor().getGlobalStateVM().getIsSyncing().change(false);
 }

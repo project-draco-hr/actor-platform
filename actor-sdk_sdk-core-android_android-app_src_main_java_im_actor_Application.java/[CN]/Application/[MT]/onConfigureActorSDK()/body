@@ -9,4 +9,5 @@
   ActorSDK.sharedActor().setTosUrl("http://actor.im");
   ActorSDK.sharedActor().setPrivacyText("bla bla bla");
   ActorSDK.sharedActor().setVideoCallsEnabled(true);
+  ActorSDK.sharedActor().setAutoJoinGroups(new String[]{"actor_news"});
 }

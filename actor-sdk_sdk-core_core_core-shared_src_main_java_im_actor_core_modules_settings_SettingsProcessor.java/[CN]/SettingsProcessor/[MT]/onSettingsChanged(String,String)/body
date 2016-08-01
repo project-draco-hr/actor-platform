@@ -1,3 +1,4 @@
 {
   context().getSettingsModule().onUpdatedSetting(key,value);
+  context().getSettingsModule().notifySettingsChanged();
 }
