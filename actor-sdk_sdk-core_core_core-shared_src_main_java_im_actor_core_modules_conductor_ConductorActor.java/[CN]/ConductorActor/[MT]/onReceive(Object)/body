@@ -1,21 +1,48 @@
 {
   if (message instanceof DialogsLoaded) {
+    if (!isStarted) {
+      stash();
+      return;
+    }
     onDialogsLoaded();
   }
  else   if (message instanceof ContactsLoaded) {
+    if (!isStarted) {
+      stash();
+      return;
+    }
     onContactsLoaded();
   }
  else   if (message instanceof SettingsLoaded) {
+    if (!isStarted) {
+      stash();
+      return;
+    }
     onSettingsLoaded();
   }
  else   if (message instanceof BookImported) {
+    if (!isStarted) {
+      stash();
+      return;
+    }
     onBookImported();
   }
  else   if (message instanceof ContactsChanged) {
+    if (!isStarted) {
+      stash();
+      return;
+    }
     onContactsChanged(((ContactsChanged)message).isEmpty());
   }
  else   if (message instanceof DialogsChanged) {
+    if (!isStarted) {
+      stash();
+      return;
+    }
     onDialogsChanged(((DialogsChanged)message).isEmpty());
+  }
+ else   if (message instanceof FinishLaunching) {
+    onFinishLaunching();
   }
  else {
     super.onReceive(message);

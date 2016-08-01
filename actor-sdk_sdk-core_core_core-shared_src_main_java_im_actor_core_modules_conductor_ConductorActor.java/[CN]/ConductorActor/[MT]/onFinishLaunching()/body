@@ -1,0 +1,13 @@
+{
+  if (isStarted) {
+    return;
+  }
+  isStarted=true;
+  unstashAll();
+  if (appStateVM.isDialogsLoaded() && appStateVM.isContactsLoaded() && appStateVM.isSettingsLoaded()) {
+    onInitialDataDownloaded();
+  }
+  if (appStateVM.getIsAppLoaded().get() || !appStateVM.getIsAppEmpty().get()) {
+    onAppReady();
+  }
+}
