@@ -1,0 +1,49 @@
+{
+  if (intent.getAction() != null && intent.getAction().equals(Intent.ACTION_VIEW) && intent.getData() != null) {
+    String joinGroupUrl=intent.getData().toString();
+    if (joinGroupUrl != null && (joinGroupUrl.contains("join") || joinGroupUrl.contains("token"))) {
+      String[] urlSplit=null;
+      if (joinGroupUrl.contains("join")) {
+        urlSplit=joinGroupUrl.split("/join/");
+      }
+ else       if (joinGroupUrl.contains("token")) {
+        urlSplit=joinGroupUrl.split("token=");
+      }
+      if (urlSplit != null) {
+        joinGroupUrl=urlSplit[urlSplit.length - 1];
+        final String token=joinGroupUrl;
+        HTTP.getMethod("https://api.actor.im/v1/groups/invites/" + joinGroupUrl,0,0,0).then(new Consumer<HTTPResponse>(){
+          @Override public void apply(          HTTPResponse httpResponse){
+            try {
+              JSONObject data=new JSONObject(new String(httpResponse.getContent(),"UTF-8"));
+              JSONObject group=data.getJSONObject("group");
+              String title=group.getString("title");
+              if (group.has("id")) {
+                int gid=group.getInt("id");
+                try {
+                  GroupVM groupVM=groups().get(gid);
+                  if (groupVM.isMember().get()) {
+                    startActivity(Intents.openDialog(Peer.group(gid),false,RootActivity.this));
+                  }
+ else {
+                    joinViaToken(token,title);
+                  }
+                }
+ catch (                Exception e) {
+                  joinViaToken(token,title);
+                }
+              }
+ else {
+                joinViaToken(token,title);
+              }
+            }
+ catch (            JSONException|UnsupportedEncodingException e) {
+              e.printStackTrace();
+            }
+          }
+        }
+);
+      }
+    }
+  }
+}
