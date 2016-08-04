@@ -1,0 +1,8 @@
+{
+  super.onPause();
+  if (memberBindings != null) {
+    for (    ActorBinder.Binding b : memberBindings) {
+      getBINDER().unbind(b);
+    }
+  }
+}

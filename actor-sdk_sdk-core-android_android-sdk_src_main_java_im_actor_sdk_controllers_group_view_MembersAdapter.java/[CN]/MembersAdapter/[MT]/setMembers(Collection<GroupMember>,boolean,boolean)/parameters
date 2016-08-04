@@ -1,2 +1,3 @@
 Collection<GroupMember> members
+boolean clear
 boolean sort
