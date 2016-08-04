@@ -1,0 +1,7 @@
+{
+  AutocompleteFragment res=new AutocompleteFragment();
+  Bundle bundle=new Bundle();
+  bundle.putLong("peer",peer.getUnuqueId());
+  res.setArguments(bundle);
+  return res;
+}
