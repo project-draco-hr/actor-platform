@@ -1,15 +1,14 @@
 {
-  AlertDialog.Builder b=new AlertDialog.Builder(this);
-  b.setTitle(getString(R.string.invite_link_join_confirm,title)).setPositiveButton(R.string.dialog_yes,new DialogInterface.OnClickListener(){
+  AlertDialog.Builder b=new AlertDialog.Builder(activity);
+  b.setTitle(activity.getString(R.string.invite_link_join_confirm,title)).setPositiveButton(R.string.dialog_yes,new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialogInterface,    int i){
       dialogInterface.dismiss();
-      execute(messenger().joinGroupViaToken(joinGroupUrl),R.string.invite_link_title,new CommandCallback<Integer>(){
+      activity.execute(messenger().joinGroupViaToken(joinGroupUrl),R.string.invite_link_title,new CommandCallback<Integer>(){
         @Override public void onResult(        Integer res){
-          startActivity(Intents.openGroupDialog(res,true,RootActivity.this));
-          finish();
+          activity.startActivity(Intents.openGroupDialog(res,true,activity));
         }
         @Override public void onError(        Exception e){
-          Toast.makeText(RootActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+          Toast.makeText(activity,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
       }
 );

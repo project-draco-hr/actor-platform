@@ -23,18 +23,18 @@
                 try {
                   GroupVM groupVM=groups().get(gid);
                   if (groupVM.isMember().get()) {
-                    startActivity(Intents.openDialog(Peer.group(gid),false,RootActivity.this));
+                    activity.startActivity(Intents.openDialog(Peer.group(gid),false,activity));
                   }
  else {
-                    joinViaToken(token,title);
+                    joinViaToken(token,title,activity);
                   }
                 }
  catch (                Exception e) {
-                  joinViaToken(token,title);
+                  joinViaToken(token,title,activity);
                 }
               }
  else {
-                joinViaToken(token,title);
+                joinViaToken(token,title,activity);
               }
             }
  catch (            JSONException|UnsupportedEncodingException e) {

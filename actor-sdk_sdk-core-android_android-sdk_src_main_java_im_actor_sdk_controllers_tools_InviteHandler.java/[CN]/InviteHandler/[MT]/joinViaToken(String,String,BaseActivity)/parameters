@@ -1,2 +1,3 @@
 String joinGroupUrl
 String title
+BaseActivity activity

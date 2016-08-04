@@ -1,4 +1,4 @@
 {
   super.onNewIntent(intent);
-  handleIntent(intent);
+  InviteHandler.handleIntent(this,intent);
 }
