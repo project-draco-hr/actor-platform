@@ -1,0 +1,5 @@
+GroupVM groupVM
+UserVM userVM
+boolean isAdministrator
+boolean isInvitedByMe
+BaseActivity activity
