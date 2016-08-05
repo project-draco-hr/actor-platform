@@ -1,0 +1,3 @@
+{
+  hideViews(isAnimated,true,views);
+}

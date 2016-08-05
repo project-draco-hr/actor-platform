@@ -1,3 +1,13 @@
 {
+  SharedPreferences sharedPreferences=AndroidContext.getContext().getSharedPreferences("notifications",Context.MODE_PRIVATE);
+  String globalSound=sharedPreferences.getString("globalSound",null);
+  if (globalSound != null) {
+    if (globalSound.equals("none")) {
+      return null;
+    }
+ else {
+      return Uri.parse(globalSound);
+    }
+  }
   return Settings.System.DEFAULT_NOTIFICATION_URI;
 }

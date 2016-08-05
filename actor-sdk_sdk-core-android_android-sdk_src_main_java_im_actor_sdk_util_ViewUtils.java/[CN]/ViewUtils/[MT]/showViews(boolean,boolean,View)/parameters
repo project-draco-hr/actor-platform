@@ -1,0 +1,3 @@
+boolean isAnimated
+boolean isSlow
+View views
