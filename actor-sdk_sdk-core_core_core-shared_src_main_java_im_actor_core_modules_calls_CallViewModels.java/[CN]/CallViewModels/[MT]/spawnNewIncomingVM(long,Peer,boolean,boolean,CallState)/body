@@ -1,0 +1,7 @@
+{
+  CallVM callVM=new CallVM(callId,peer,false,isVideoEnabled,isVideoPreffered,new ArrayList<>(),callState);
+synchronized (callModels) {
+    callModels.put(callId,callVM);
+  }
+  return callVM;
+}

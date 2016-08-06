@@ -10,5 +10,6 @@
   this.members=new ValueModel<>("calls." + callId + ".members",new ArrayList<>(initialMembers));
   this.isAudioEnabled=new BooleanValueModel("calls." + callId + ".audio_enabled",true);
   this.isVideoEnabled=new BooleanValueModel("calls." + callId + ".video_enabled",isVideoEnabled);
+  this.isVideoPreferred=isVideoPreferred;
   this.callStart=0;
 }

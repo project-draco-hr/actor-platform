@@ -1,4 +1,5 @@
 long callId
 Peer peer
 boolean isVideoEnabled
+boolean isVideoPreffered
 CallState callState

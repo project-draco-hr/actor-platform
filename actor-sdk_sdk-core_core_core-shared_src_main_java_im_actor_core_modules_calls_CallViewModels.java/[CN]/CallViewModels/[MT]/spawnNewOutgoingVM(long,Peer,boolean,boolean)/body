@@ -11,5 +11,5 @@
       }
     }
   }
-  return spawnNewVM(callId,peer,true,isVideoEnabled,members,CallState.RINGING);
+  return spawnNewVM(callId,peer,true,isVideoEnabled,isVideoPreferred,members,CallState.RINGING);
 }
