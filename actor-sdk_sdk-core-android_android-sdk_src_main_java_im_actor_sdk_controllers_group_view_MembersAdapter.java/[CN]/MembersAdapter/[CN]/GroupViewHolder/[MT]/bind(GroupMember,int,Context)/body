@@ -1,8 +1,11 @@
 {
+  boolean needRebind=user == null || data.getUid() != user.getId();
   user=users().get(data.getUid());
   ActorSDK.sharedActor().getMessenger().onUserVisible(data.getUid());
   onlineBinding=BINDER.bindOnline(online,user);
-  avatarView.bind(user);
+  if (needRebind) {
+    avatarView.bind(user);
+  }
   userName.setText(user.getName().get());
   if (data.isAdministrator()) {
     admin.setVisibility(View.VISIBLE);

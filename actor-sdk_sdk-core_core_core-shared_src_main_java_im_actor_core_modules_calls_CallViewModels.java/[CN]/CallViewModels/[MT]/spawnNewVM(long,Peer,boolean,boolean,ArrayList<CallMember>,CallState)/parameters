@@ -1,6 +1,0 @@
-long callId
-Peer peer
-boolean isOutgoing
-boolean isVideoEnabled
-ArrayList<CallMember> members
-CallState callState
