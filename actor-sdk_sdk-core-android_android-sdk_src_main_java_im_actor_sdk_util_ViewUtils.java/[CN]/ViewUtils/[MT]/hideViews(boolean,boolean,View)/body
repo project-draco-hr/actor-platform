@@ -1,0 +1,5 @@
+{
+  for (  View view : views) {
+    hideView(view,isAnimated,isSlow);
+  }
+}
