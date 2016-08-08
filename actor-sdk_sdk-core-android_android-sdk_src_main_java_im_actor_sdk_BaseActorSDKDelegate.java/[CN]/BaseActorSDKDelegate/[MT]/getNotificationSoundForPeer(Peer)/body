@@ -1,6 +1,5 @@
 {
-  SharedPreferences sharedPreferences=AndroidContext.getContext().getSharedPreferences("notifications",Context.MODE_PRIVATE);
-  String globalSound=sharedPreferences.getString("userSound_" + peer.getPeerId(),null);
+  String globalSound=messenger().getPreferences().getString("userNotificationSound_" + peer.getPeerId());
   if (globalSound != null) {
     if (globalSound.equals("none")) {
       return null;

@@ -2,11 +2,10 @@
   if (resultCode == Activity.RESULT_OK && requestCode == SOUND_PICKER_REQUEST_CODE) {
     Uri ringtone=data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
     if (ringtone != null) {
-      notificationPreferencesEditor.putString("userSound_" + uid,ringtone.toString());
+      messenger().getPreferences().putString("userNotificationSound_" + uid,ringtone.toString());
     }
  else {
-      notificationPreferencesEditor.putString("userSound" + uid,"none");
+      messenger().getPreferences().putString("userNotificationSound_" + uid,"none");
     }
-    notificationPreferencesEditor.commit();
   }
 }
