@@ -1,2 +1,12 @@
 {
+  super.onResume();
+  adapter.initLoad(new MembersAdapter.LoadedCallback(){
+    @Override public void onLoaded(){
+      hideView(progressView);
+    }
+    @Override public void onLoadedToEnd(){
+      footer.setVisibility(View.INVISIBLE);
+    }
+  }
+);
 }
