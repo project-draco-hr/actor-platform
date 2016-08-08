@@ -22,6 +22,9 @@
         inputOverlayText.setText(getString(R.string.chat_mute));
       }
     }
+ else     if (groupVM.getIsCanJoin().get()) {
+      messenger().joinGroup(groupVM.getId());
+    }
  else {
     }
   }
