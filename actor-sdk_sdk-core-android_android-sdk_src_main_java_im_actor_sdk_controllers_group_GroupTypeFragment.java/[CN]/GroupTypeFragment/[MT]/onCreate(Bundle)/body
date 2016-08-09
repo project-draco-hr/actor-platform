@@ -1,4 +1,5 @@
 {
   super.onCreate(saveInstance);
   groupVM=messenger().getGroup(getArguments().getInt("groupId"));
+  setTitle(groupVM.getGroupType() == GroupType.CHANNEL ? R.string.channel_title : R.string.group_title);
 }

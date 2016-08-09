@@ -3,9 +3,10 @@
   adapter.initLoad(new MembersAdapter.LoadedCallback(){
     @Override public void onLoaded(){
       hideView(progressView);
+      showView(footer);
     }
     @Override public void onLoadedToEnd(){
-      footer.setVisibility(View.INVISIBLE);
+      hideView(footer);
     }
   }
 );
