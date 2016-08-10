@@ -1,45 +1,4 @@
 {
   super(new FrameLayout(context));
-  itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
-  highlightColor=context.getResources().getColor(R.color.primary);
-  avatar=new AvatarView(context);
-  avatar.init(Screen.dp(52),22);
-{
-    FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(Screen.dp(52),Screen.dp(52));
-    layoutParams.leftMargin=Screen.dp(12);
-    layoutParams.topMargin=Screen.dp(6);
-    layoutParams.bottomMargin=Screen.dp(6);
-    layoutParams.gravity=Gravity.CENTER_VERTICAL | Gravity.LEFT;
-    ((ViewGroup)itemView).addView(avatar,layoutParams);
-  }
-  title=new TextView(context);
-  title.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
-  title.setPadding(Screen.dp(74),0,Screen.dp(12),0);
-  title.setTextSize(16);
-  title.setSingleLine(true);
-  title.setEllipsize(TextUtils.TruncateAt.END);
-  title.setTypeface(Fonts.regular());
-{
-    FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-    layoutParams.gravity=Gravity.CENTER_VERTICAL;
-    layoutParams.topMargin=Screen.dp(10);
-    layoutParams.bottomMargin=Screen.dp(10);
-    ((ViewGroup)itemView).addView(title,layoutParams);
-  }
-  separator=new View(context);
-  separator.setBackgroundColor(ActorSDK.sharedActor().style.getDialogsDividerColor());
-{
-    FrameLayout.LayoutParams divLayoutParams=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,context.getResources().getDimensionPixelSize(R.dimen.div_size));
-    divLayoutParams.leftMargin=Screen.dp(74);
-    divLayoutParams.rightMargin=Screen.dp(12);
-    divLayoutParams.gravity=Gravity.BOTTOM;
-    ((ViewGroup)itemView).addView(separator,divLayoutParams);
-  }
-  itemView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.selector_fill));
-  itemView.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      clickedListener.onClicked(entity);
-    }
-  }
-);
+  init(context,clickedListener);
 }

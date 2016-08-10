@@ -31,18 +31,22 @@
         if (s.trim().length() > 0) {
           String activeSearchQuery=searchQuery;
           searchDisplay.initSearch(s.trim().toLowerCase(),false);
+          scrolledToEnd=false;
           searchAdapter.setQuery(s.trim().toLowerCase());
+          globalSearchResults.clear();
           messenger().findPeers(s).start(new CommandCallback<List<PeerSearchEntity>>(){
             @Override public void onResult(            List<PeerSearchEntity> res){
-              int footerVisability=footer.getVisibility();
               if (searchQuery.equals(activeSearchQuery)) {
-                boolean showResult=false;
-                Peer peer=null;
-                String name=null;
-                Avatar avatar=null;
-                if (res.size() > 0) {
-                  PeerSearchEntity peerSearchEntity=res.get(0);
-                  peer=peerSearchEntity.getPeer();
+                int order=0;
+                outer:                 for (                PeerSearchEntity pse : res) {
+                  for (int i=0; i < searchDisplay.getSize(); i++) {
+                    if (searchDisplay.getItem(i).getPeer().equals(pse.getPeer())) {
+                      continue outer;
+                    }
+                  }
+                  Avatar avatar;
+                  Peer peer=pse.getPeer();
+                  String name;
                   if (peer.getPeerType() == PeerType.PRIVATE) {
                     UserVM userVM=users().get(peer.getPeerId());
                     name=userVM.getName().get();
@@ -54,26 +58,15 @@
                     avatar=groupVM.getAvatar().get();
                   }
  else {
-                    return;
+                    continue;
                   }
-                  showResult=true;
-                  for (int i=0; i < searchDisplay.getSize(); i++) {
-                    if (searchDisplay.getItem(i).getPeer().equals(peer))                     showResult=false;
-                    break;
-                  }
-                  if (peerSearchEntity.getOptMatchString() != null) {
-                    name=peerSearchEntity.getOptMatchString();
-                  }
+                  String optMatchString=pse.getOptMatchString();
+                  globalSearchResults.add(new SearchEntity(pse.getPeer(),order++,avatar,optMatchString == null ? name : optMatchString));
                 }
-                if (showResult) {
-                  footerSearchHolder.bind(new SearchEntity(peer,0,avatar,name),activeSearchQuery,true);
-                  showView(footer);
+                if (globalSearchResults.size() > 0) {
+                  globalSearchResults.add(new SearchEntityHeader(order++));
                 }
- else {
-                  goneView(footer);
-                }
-              }
-              if (footerVisability != footer.getVisibility()) {
+                checkGlobalSearch();
                 onSearchChanged();
               }
             }
@@ -84,7 +77,6 @@
         }
  else {
           searchDisplay.initEmpty();
-          goneView(footer);
         }
       }
       return false;

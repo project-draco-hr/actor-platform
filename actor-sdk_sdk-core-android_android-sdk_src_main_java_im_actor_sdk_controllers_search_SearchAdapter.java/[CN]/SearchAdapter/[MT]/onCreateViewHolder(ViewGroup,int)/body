@@ -1,3 +1,9 @@
 {
+switch (viewType) {
+case 1:
+    return new SearchHolderEx(context,onItemClickedListener);
+default :
+case 0:
   return new SearchHolder(context,onItemClickedListener);
+}
 }

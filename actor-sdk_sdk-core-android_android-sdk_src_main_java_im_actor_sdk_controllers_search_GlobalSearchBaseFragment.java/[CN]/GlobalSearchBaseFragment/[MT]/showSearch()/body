@@ -4,6 +4,15 @@
   }
   isSearchVisible=true;
   searchDisplay=messenger().buildSearchDisplayList();
+  searchDisplay.setBindHook(new BindedDisplayList.BindHook<SearchEntity>(){
+    @Override public void onScrolledToEnd(){
+      scrolledToEnd=true;
+      checkGlobalSearch();
+    }
+    @Override public void onItemTouched(    SearchEntity item){
+    }
+  }
+);
   searchAdapter=new SearchAdapter(getActivity(),searchDisplay,new OnItemClickedListener<SearchEntity>(){
     @Override public void onClicked(    SearchEntity item){
       onPeerPicked(item.getPeer());
@@ -19,45 +28,13 @@
   header.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Screen.dp(0)));
   header.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   recyclerAdapter.addHeaderView(header);
-  TextView footerTitle=new TextView(getActivity());
-  footerTitle.setText(R.string.main_search_global_header);
-  footerTitle.setTextSize(16);
-  footerTitle.setPadding(Screen.dp(12),Screen.dp(8),0,Screen.dp(8));
-  footerTitle.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
-  footerTitle.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
-  footerSearchHolder=new SearchHolder(getActivity(),new OnItemClickedListener<SearchEntity>(){
-    @Override public void onClicked(    SearchEntity item){
-      searchMenu.collapseActionView();
-      int peerId=item.getPeer().getPeerId();
-switch (item.getPeer().getPeerType()) {
-case PRIVATE:
-        startActivity(Intents.openPrivateDialog(peerId,true,getActivity()));
-      break;
-case GROUP:
-    startActivity(Intents.openGroupDialog(peerId,false,getActivity()));
-  break;
-}
-}
-@Override public boolean onLongClicked(SearchEntity item){
-return false;
-}
-}
-);
-View footerGlobalSearchView=footerSearchHolder.itemView;
-footer=new LinearLayout(getActivity());
-footer.setOrientation(LinearLayout.VERTICAL);
-LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(Screen.getWidth(),ViewGroup.LayoutParams.WRAP_CONTENT);
-footer.addView(footerTitle,params);
-footer.addView(footerGlobalSearchView,params);
-footer.setVisibility(View.GONE);
-recyclerAdapter.addFooterView(footer);
-searchList.setAdapter(recyclerAdapter);
-searchDisplay.addListener(searchListener);
-showView(searchHintView,false);
-goneView(searchEmptyView,false);
-showView(searchContainer,false);
-Fragment parent=getParentFragment();
-if (parent != null && parent instanceof GlobalSearchStateDelegate) {
-((GlobalSearchStateDelegate)parent).onGlobalSearchStarted();
-}
+  searchList.setAdapter(recyclerAdapter);
+  searchDisplay.addListener(searchListener);
+  showView(searchHintView,false);
+  goneView(searchEmptyView,false);
+  showView(searchContainer,false);
+  Fragment parent=getParentFragment();
+  if (parent != null && parent instanceof GlobalSearchStateDelegate) {
+    ((GlobalSearchStateDelegate)parent).onGlobalSearchStarted();
+  }
 }

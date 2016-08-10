@@ -1,0 +1,5 @@
+{
+  if ((scrolledToEnd || searchDisplay.getSize() == 0) && globalSearchResults.size() > 0) {
+    searchDisplay.editList(Modifications.addLoadMore(globalSearchResults));
+  }
+}

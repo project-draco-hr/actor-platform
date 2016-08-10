@@ -1,11 +1,14 @@
 {
+  if (searchDisplay == null) {
+    return;
+  }
   if (!searchDisplay.isInSearchState()) {
     showView(searchHintView);
     goneView(searchEmptyView);
   }
  else {
     goneView(searchHintView);
-    if (searchDisplay.getSize() == 0 && footer.getVisibility() != View.VISIBLE) {
+    if (searchDisplay.getSize() == 0) {
       showView(searchEmptyView);
     }
  else {

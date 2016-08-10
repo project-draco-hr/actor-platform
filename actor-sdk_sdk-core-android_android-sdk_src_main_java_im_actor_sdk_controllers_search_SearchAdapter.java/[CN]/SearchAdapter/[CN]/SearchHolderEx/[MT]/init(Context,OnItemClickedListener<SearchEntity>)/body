@@ -1,0 +1,11 @@
+{
+  itemView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  itemView.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
+  TextView globalSearchTitle=new TextView(context);
+  globalSearchTitle.setText(R.string.main_search_global_header);
+  globalSearchTitle.setTextSize(16);
+  globalSearchTitle.setPadding(Screen.dp(12),Screen.dp(8),0,Screen.dp(8));
+  globalSearchTitle.setBackgroundColor(ActorSDK.sharedActor().style.getBackyardBackgroundColor());
+  globalSearchTitle.setTextColor(ActorSDK.sharedActor().style.getTextSecondaryColor());
+  ((ViewGroup)itemView).addView(globalSearchTitle);
+}

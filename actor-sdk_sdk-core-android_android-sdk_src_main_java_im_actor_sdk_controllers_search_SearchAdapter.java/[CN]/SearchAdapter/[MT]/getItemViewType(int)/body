@@ -1,0 +1,9 @@
+{
+  SearchEntity e=getItem(position);
+  if (e instanceof GlobalSearchBaseFragment.SearchEntityHeader) {
+    return 1;
+  }
+ else {
+    return super.getItemViewType(position);
+  }
+}
