@@ -1,5 +1,5 @@
 {
   for (  Uri s : uris) {
-    execute(messenger().sendUri(getPeer(),s));
+    execute(messenger().sendUri(getPeer(),s,ActorSDK.sharedActor().getAppName()));
   }
 }
