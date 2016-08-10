@@ -20,6 +20,7 @@
       builder.setUnreadCount(counter);
     }
     boolean forceUpdate=false;
+    boolean needUpdateSearch=false;
     if (dialog != null) {
       if (!forceWrite && dialog.getSortDate() > message.getSortDate()) {
         Log.d("DialogsActor","too old");
@@ -36,9 +37,14 @@
         return Promise.success(null);
       }
       builder.setPeer(peer).setSortKey(message.getSortDate());
+      needUpdateSearch=true;
       forceUpdate=true;
     }
-    addOrUpdateItem(builder.createDialog());
+    Dialog dialog1=builder.createDialog();
+    addOrUpdateItem(dialog1);
+    if (needUpdateSearch) {
+      updateSearch(dialog1);
+    }
     notifyState(forceUpdate);
   }
   return Promise.success(null);
