@@ -1,0 +1,7 @@
+{
+  CallFragment res=new CallFragment();
+  Bundle args=new Bundle();
+  args.putLong("call_id",callId);
+  res.setArguments(args);
+  return res;
+}

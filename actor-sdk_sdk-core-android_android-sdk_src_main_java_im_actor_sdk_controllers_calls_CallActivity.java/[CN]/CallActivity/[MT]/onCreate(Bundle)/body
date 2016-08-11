@@ -5,6 +5,10 @@
   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
   if (savedInstanceState == null) {
     callId=getIntent().getLongExtra("callId",-1);
-    showFragment(new CallFragment(callId),false);
+    Fragment callFragment=ActorSDK.sharedActor().getDelegate().fragmentForCall(callId);
+    if (callFragment == null) {
+      callFragment=CallFragment.create(callId);
+    }
+    showFragment(callFragment,false);
   }
 }
