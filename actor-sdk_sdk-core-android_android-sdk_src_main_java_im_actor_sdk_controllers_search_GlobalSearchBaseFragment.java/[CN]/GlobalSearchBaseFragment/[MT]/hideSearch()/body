@@ -9,6 +9,7 @@
   }
   searchAdapter=null;
   searchList.setAdapter(null);
+  searchQuery=null;
   goneView(searchContainer,false);
   if (searchMenu != null) {
     if (searchMenu.isActionViewExpanded()) {

@@ -29,6 +29,10 @@
   header.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
   recyclerAdapter.addHeaderView(header);
   searchList.setAdapter(recyclerAdapter);
+  RecyclerView.ItemAnimator animator=searchList.getItemAnimator();
+  if (animator instanceof SimpleItemAnimator) {
+    ((SimpleItemAnimator)animator).setSupportsChangeAnimations(false);
+  }
   searchDisplay.addListener(searchListener);
   showView(searchHintView,false);
   goneView(searchEmptyView,false);
