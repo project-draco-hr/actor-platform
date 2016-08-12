@@ -1,11 +1,2 @@
 {
-  manager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-  this.callId=getArguments().getLong("call_id");
-  this.call=messenger().getCall(callId);
-  if (call == null) {
-    this.peer=Peer.user(myUid());
-  }
- else {
-    this.peer=call.getPeer();
-  }
 }
