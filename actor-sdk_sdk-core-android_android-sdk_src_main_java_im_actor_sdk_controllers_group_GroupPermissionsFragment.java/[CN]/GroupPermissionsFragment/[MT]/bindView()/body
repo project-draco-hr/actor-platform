@@ -4,4 +4,8 @@
     activity.invalidateOptionsMenu();
   }
   canEditInfo.setChecked(permissions.isMembersCanEditInfo());
+  canAdminsEditInfo.setChecked(permissions.isAdminsCanEditGroupInfo());
+  canSendInvintations.setChecked(permissions.isMembersCanInvite());
+  showLeaveJoin.setChecked(permissions.isShowJoinLeaveMessages());
+  showAdminsToMembers.setChecked(permissions.isShowAdminsToMembers());
 }

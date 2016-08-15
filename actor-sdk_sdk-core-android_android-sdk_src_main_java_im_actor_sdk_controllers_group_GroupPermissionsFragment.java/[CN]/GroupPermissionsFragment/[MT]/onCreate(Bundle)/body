@@ -3,6 +3,7 @@
   groupId=getArguments().getInt("groupId");
   if (messenger().getGroup(groupId).getGroupType() == GroupType.CHANNEL) {
     setTitle(R.string.channel_admin_title);
+    isChannel=true;
   }
  else {
     setTitle(R.string.group_admin_title);
