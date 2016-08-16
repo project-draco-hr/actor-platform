@@ -1,0 +1,4 @@
+{
+  this.rawUpdatesHandler=rawUpdatesHandler;
+  return this;
+}

@@ -1,7 +1,2 @@
 {
-  if (update instanceof UpdateRawUpdate) {
-    rawUpdatesHandlerActor.send(update);
-    return Promise.success(null);
-  }
-  return null;
 }

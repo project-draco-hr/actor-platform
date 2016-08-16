@@ -16,7 +16,7 @@ String customAppName
 TrustedKey[] trustedKeys
 boolean enablePhoneBookImport
 CallsProvider callsProvider
-RawUpdatesHandlerProvider rawUpdatesHandlerProvider
+RawUpdatesHandler rawUpdatesHandler
 boolean voiceCallsEnabled
 boolean videoCallsEnabled
 boolean isEnabledGroupedChatList
