@@ -17,6 +17,7 @@
   this.trustedKeys=trustedKeys;
   this.enablePhoneBookImport=enablePhoneBookImport;
   this.callsProvider=callsProvider;
+  this.rawUpdatesHandler=rawUpdatesHandler;
   this.voiceCallsEnabled=voiceCallsEnabled;
   this.videoCallsEnabled=videoCallsEnabled;
   this.isEnabledGroupedChatList=isEnabledGroupedChatList;
