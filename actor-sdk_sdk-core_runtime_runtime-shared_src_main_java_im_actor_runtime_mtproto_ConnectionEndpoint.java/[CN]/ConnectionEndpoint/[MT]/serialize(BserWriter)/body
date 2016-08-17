@@ -1,0 +1,8 @@
+{
+  writer.writeString(1,host);
+  if (knownIp != null) {
+    writer.writeString(2,knownIp);
+  }
+  writer.writeInt(3,port);
+  writer.writeInt(4,type);
+}

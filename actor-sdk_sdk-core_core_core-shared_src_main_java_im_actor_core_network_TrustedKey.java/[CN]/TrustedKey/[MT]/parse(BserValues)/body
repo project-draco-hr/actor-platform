@@ -1,0 +1,6 @@
+{
+  isLoaded=values.getBool(1);
+  hexKey=values.getString(2);
+  keyId=values.getLong(3);
+  key=values.getBytes(4);
+}

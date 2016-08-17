@@ -1,0 +1,6 @@
+{
+  host=values.getString(1);
+  knownIp=values.optString(2);
+  port=values.getInt(3);
+  type=values.getInt(4);
+}

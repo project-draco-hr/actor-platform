@@ -3,10 +3,6 @@
     return;
   }
   Log.w(TAG,"Auth id invalidated");
-  keyStorage.saveAuthKey(0);
-  keyStorage.saveMasterKey(null);
-  currentAuthId=0;
-  proto=null;
   callback.onAuthIdInvalidated();
-  this.keyManager.send(new AuthKeyActor.StartKeyCreation(this.endpoints),self());
+  recreateAuthId();
 }

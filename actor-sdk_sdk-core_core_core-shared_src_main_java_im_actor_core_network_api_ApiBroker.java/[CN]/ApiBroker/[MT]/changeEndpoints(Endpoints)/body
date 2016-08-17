@@ -1,0 +1,7 @@
+{
+  if (endpoints.equals(this.endpoints)) {
+    return;
+  }
+  this.endpoints=endpoints;
+  recreateAuthId();
+}

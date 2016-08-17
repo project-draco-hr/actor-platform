@@ -1,5 +1,6 @@
 {
   this.endpoints=endpoints;
+  this.defaultEndpoints=endpoints;
   this.keyStorage=keyStorage;
   this.callback=callback;
   this.isEnableLog=isEnableLog;
