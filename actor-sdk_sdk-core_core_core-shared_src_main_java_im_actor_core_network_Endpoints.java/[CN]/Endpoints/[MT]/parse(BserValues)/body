@@ -1,0 +1,12 @@
+{
+  List<byte[]> endpointsRepeatedBytes=values.getRepeatedBytes(1);
+  endpoints=new ConnectionEndpoint[endpointsRepeatedBytes.size()];
+  for (int i=0; i < endpoints.length; i++) {
+    endpoints[i]=ConnectionEndpoint.fromBytes(endpointsRepeatedBytes.get(i));
+  }
+  List<byte[]> trustedKeysRepeatedBytes=values.getRepeatedBytes(2);
+  trustedKeys=new TrustedKey[trustedKeysRepeatedBytes.size()];
+  for (int i=0; i < trustedKeys.length; i++) {
+    trustedKeys[i]=TrustedKey.fromBytes(trustedKeysRepeatedBytes.get(i));
+  }
+}

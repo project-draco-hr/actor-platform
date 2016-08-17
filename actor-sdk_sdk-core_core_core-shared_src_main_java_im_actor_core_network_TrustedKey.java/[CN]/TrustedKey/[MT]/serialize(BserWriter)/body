@@ -1,0 +1,6 @@
+{
+  writer.writeBool(1,isLoaded);
+  writer.writeString(2,hexKey);
+  writer.writeLong(3,keyId);
+  writer.writeBytes(4,key);
+}

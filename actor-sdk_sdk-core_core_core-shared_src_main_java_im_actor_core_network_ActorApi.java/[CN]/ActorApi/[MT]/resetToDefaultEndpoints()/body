@@ -1,0 +1,4 @@
+{
+  this.endpoints=defaultEndpoints;
+  this.apiBroker.send(new ApiBroker.ChangeEndpoints(endpoints));
+}

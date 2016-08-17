@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ConnectionEndpoint that=(ConnectionEndpoint)o;
+  if (port != that.port)   return false;
+  if (type != that.type)   return false;
+  if (!host.equals(that.host))   return false;
+  return !(knownIp != null ? !knownIp.equals(that.knownIp) : that.knownIp != null);
+}

@@ -1,0 +1,3 @@
+{
+  changeEndpoints(new Endpoints(new ConnectionEndpointArray().addEndpoint(endpoint).toArray(new ConnectionEndpoint[1]),new TrustedKey[0]));
+}

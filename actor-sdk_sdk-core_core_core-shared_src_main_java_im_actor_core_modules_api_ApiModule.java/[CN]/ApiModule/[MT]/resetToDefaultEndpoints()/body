@@ -1,0 +1,4 @@
+{
+  context().getPreferences().putBytes("custom_endpoints",null);
+  actorApi.resetToDefaultEndpoints();
+}

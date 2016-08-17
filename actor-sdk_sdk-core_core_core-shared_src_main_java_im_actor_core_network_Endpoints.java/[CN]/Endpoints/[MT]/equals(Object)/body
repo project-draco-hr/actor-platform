@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  Endpoints endpoints1=(Endpoints)o;
+  return Arrays.equals(endpoints,endpoints1.endpoints) && Arrays.equals(trustedKeys,endpoints1.trustedKeys);
+}

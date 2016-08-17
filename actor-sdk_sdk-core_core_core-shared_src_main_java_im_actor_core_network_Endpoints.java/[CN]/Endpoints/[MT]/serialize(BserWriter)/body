@@ -1,0 +1,4 @@
+{
+  writer.writeRepeatedObj(1,new ArrayList<>(Arrays.asList(endpoints)));
+  writer.writeRepeatedObj(2,new ArrayList<>(Arrays.asList(trustedKeys)));
+}

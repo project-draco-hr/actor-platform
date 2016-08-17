@@ -1,0 +1,4 @@
+{
+  context().getPreferences().putBytes("custom_endpoints",endpoints.toByteArray());
+  actorApi.changeEndpoints(endpoints);
+}

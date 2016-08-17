@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  TrustedKey that=(TrustedKey)o;
+  return hexKey.equals(that.hexKey);
+}

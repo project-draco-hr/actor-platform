@@ -44,6 +44,9 @@
  else   if (message instanceof AuthKeyActor.KeyCreated) {
     onKeyCreated(((AuthKeyActor.KeyCreated)message).getAuthKeyId(),((AuthKeyActor.KeyCreated)message).getAuthKey());
   }
+ else   if (message instanceof ChangeEndpoints) {
+    changeEndpoints(((ChangeEndpoints)message).getEndpoints());
+  }
  else {
     super.onReceive(message);
   }
