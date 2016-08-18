@@ -1,0 +1,7 @@
+{
+  super(fragment,itemView,true);
+  isChannel=peer.getPeerType() == PeerType.GROUP && groups().get(peer.getPeerId()).getGroupType() == GroupType.CHANNEL;
+  messageText=(TextView)itemView.findViewById(R.id.serviceMessage);
+  messageText.setTextColor(ActorSDK.sharedActor().style.getConvDatetextColor());
+  onConfigureViewHolder();
+}

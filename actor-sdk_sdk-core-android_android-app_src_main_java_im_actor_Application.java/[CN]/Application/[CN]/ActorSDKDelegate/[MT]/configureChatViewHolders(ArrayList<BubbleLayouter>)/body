@@ -1,0 +1,3 @@
+{
+  layouters.add(0,new BubbleTextHolderLayouter());
+}

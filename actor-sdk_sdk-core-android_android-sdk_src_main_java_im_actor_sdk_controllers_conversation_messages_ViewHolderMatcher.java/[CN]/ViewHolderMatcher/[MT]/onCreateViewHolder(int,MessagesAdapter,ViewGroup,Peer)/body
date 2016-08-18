@@ -1,0 +1,7 @@
+{
+  if (id == -1) {
+    return new UnsupportedHolder(adapter,ViewUtils.inflate(R.layout.adapter_dialog_text,root),peer);
+  }
+  BubbleLayouter baseViewHolderMatch=layouters.get(id);
+  return baseViewHolderMatch.onCreateViewHolder(adapter,root,peer);
+}

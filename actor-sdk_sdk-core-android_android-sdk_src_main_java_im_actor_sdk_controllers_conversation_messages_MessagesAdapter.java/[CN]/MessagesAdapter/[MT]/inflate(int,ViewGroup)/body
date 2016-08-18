@@ -1,3 +1,0 @@
-{
-  return LayoutInflater.from(context).inflate(id,viewGroup,false);
-}

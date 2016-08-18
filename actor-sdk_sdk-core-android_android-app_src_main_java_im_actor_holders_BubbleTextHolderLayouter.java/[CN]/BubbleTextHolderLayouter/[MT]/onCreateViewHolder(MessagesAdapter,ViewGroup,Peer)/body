@@ -1,0 +1,7 @@
+{
+  TextView itemView=new TextView(root.getContext());
+  itemView.setId(R.id.text);
+  BubbleContainer container=new BubbleContainer(root.getContext());
+  container.addView(itemView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+  return new TextHolderEx(adapter,container);
+}

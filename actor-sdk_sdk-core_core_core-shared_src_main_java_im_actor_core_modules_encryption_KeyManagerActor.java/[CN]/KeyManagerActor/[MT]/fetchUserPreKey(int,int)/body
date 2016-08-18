@@ -19,7 +19,7 @@
           }
           byte[] keyHash=RatchetKeySignature.hashForSignature(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial());
           if (!Curve25519.verifySignature(keyGroups.getT1().getIdentityKey().getPublicKey(),keyHash,sig.getSignature())) {
-            throw new RuntimeException("Key signature does not match");
+            throw new RuntimeException("Key signature does not isMatch");
           }
           return new PublicKey(key.getKeyId(),key.getKeyAlg(),key.getKeyMaterial());
         }

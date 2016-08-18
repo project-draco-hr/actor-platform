@@ -1,6 +1,0 @@
-{
-  View base=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_holder,viewGroup,false);
-  View content=LayoutInflater.from(viewGroup.getContext()).inflate(resourceId,viewGroup,false);
-  ((FrameLayout)base.findViewById(R.id.custom_container)).addView(content);
-  return base;
-}

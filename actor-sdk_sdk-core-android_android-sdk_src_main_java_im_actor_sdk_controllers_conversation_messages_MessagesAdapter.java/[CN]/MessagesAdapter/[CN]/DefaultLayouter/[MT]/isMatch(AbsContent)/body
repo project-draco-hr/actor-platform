@@ -1,0 +1,8 @@
+{
+  for (  HolderMapEntry e : holderMap) {
+    if (e.getaClass().isAssignableFrom(content.getClass())) {
+      return e.getId() == id;
+    }
+  }
+  return false;
+}

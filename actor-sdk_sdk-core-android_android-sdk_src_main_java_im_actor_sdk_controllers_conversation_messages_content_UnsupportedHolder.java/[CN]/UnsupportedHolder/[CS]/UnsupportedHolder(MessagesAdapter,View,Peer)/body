@@ -1,0 +1,5 @@
+{
+  super(fragment,itemView,peer);
+  text=fragment.getMessagesFragment().getResources().getString(R.string.chat_unsupported);
+  onConfigureViewHolder();
+}

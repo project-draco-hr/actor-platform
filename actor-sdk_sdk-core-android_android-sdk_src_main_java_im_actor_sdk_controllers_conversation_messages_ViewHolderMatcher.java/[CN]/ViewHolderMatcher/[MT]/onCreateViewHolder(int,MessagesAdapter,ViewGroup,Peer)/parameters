@@ -1,0 +1,4 @@
+int id
+MessagesAdapter adapter
+ViewGroup root
+Peer peer
