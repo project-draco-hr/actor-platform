@@ -1,4 +1,0 @@
-int dataTypeHash
-OnDelegateViewHolder<MessageHolder> callback
-MessagesAdapter messagesAdapter
-ViewGroup viewGroup

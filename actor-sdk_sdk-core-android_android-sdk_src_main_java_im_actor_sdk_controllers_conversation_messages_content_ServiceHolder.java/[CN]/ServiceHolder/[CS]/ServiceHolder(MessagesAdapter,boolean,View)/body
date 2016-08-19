@@ -1,7 +1,0 @@
-{
-  super(fragment,itemView,true);
-  this.isChannel=isChannel;
-  messageText=(TextView)itemView.findViewById(R.id.serviceMessage);
-  messageText.setTextColor(ActorSDK.sharedActor().style.getConvDatetextColor());
-  onConfigureViewHolder();
-}

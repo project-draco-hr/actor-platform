@@ -1,0 +1,5 @@
+{
+  super(itemView);
+  tv=(TextView)itemView;
+  tv.setTextColor(Color.RED);
+}

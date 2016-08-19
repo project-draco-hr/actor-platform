@@ -1,0 +1,4 @@
+{
+  TextContent content=(TextContent)message.getContent();
+  tv.setText(content.getText());
+}

@@ -1,0 +1,6 @@
+Message message
+Message prev
+Message next
+long readDate
+long receiveDate
+PreprocessedData preprocessedData

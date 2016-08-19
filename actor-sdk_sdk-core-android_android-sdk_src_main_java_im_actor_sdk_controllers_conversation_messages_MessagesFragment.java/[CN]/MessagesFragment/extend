@@ -1,1 +1,1 @@
-DisplayListFragment<Message,MessageHolder>
+DisplayListFragment<Message,AbsMessageViewHolder>

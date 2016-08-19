@@ -1,0 +1,3 @@
+{
+  return new TextHolderEx(new TextView(root.getContext()));
+}

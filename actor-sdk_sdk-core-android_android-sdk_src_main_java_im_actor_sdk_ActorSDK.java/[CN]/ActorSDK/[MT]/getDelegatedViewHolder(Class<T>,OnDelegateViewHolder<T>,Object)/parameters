@@ -1,3 +1,0 @@
-Class<T> base
-OnDelegateViewHolder<T> callback
-Object args
