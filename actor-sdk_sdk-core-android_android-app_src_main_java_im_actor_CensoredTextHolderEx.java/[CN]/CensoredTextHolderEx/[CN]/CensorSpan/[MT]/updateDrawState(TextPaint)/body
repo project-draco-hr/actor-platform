@@ -1,0 +1,6 @@
+{
+  super.updateDrawState(ds);
+  ds.setColor(Color.BLACK);
+  ds.bgColor=Color.BLACK;
+  ds.setUnderlineText(false);
+}
