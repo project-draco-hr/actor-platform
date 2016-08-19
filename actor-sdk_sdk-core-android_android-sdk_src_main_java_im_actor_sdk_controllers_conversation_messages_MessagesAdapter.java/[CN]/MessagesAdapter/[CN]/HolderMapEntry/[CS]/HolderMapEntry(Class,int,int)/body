@@ -1,4 +1,5 @@
 {
   this.aClass=aClass;
   this.id=id;
+  this.layoutId=layoutId;
 }
