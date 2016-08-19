@@ -1,6 +1,6 @@
 {
-  super(fragment,itemView,false);
-  context=fragment.getMessagesFragment().getContext();
+  super(adapter,itemView,false);
+  context=adapter.getMessagesFragment().getContext();
   mainThread=new Handler(context.getMainLooper());
   waitColor=ActorSDK.sharedActor().style.getConvStatePendingColor();
   sentColor=ActorSDK.sharedActor().style.getConvStateSentColor();

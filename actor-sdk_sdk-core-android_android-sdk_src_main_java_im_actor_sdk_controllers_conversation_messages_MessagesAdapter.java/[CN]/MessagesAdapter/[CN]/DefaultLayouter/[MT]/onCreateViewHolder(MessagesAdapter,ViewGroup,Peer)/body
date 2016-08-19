@@ -1,3 +1,0 @@
-{
-  return holderCreator.createHolder(adapter,ViewUtils.inflate(layoutId,root),peer);
-}

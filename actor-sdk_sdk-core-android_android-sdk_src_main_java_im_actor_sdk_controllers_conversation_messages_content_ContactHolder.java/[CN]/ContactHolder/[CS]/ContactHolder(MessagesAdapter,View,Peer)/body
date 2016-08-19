@@ -1,5 +1,5 @@
 {
-  super(fragment,itemView,false);
+  super(adapter,itemView,false);
   waitColor=ActorSDK.sharedActor().style.getConvStatePendingColor();
   sentColor=ActorSDK.sharedActor().style.getConvStateSentColor();
   deliveredColor=ActorSDK.sharedActor().style.getConvStateDeliveredColor();

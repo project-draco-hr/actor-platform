@@ -1,5 +1,0 @@
-{
-  this.id=id;
-  this.layoutId=layoutId;
-  this.holderCreator=holderCreator;
-}

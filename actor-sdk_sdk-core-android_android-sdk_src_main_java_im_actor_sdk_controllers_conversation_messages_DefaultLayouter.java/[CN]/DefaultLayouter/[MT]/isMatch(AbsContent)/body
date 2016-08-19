@@ -1,6 +1,7 @@
 {
   for (  HolderMapEntry e : holderMap) {
     if (e.getaClass().isAssignableFrom(content.getClass())) {
+      layoutId=e.getLayoutId();
       return e.getId() == id;
     }
   }

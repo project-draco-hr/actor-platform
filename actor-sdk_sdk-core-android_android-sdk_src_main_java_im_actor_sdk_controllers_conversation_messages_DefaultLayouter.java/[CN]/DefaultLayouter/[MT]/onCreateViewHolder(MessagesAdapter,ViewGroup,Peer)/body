@@ -1,0 +1,9 @@
+{
+  View view=ViewUtils.inflate(layoutId,root);
+  if (!(view instanceof BubbleContainer)) {
+    BubbleContainer container=new BubbleContainer(root.getContext());
+    container.addView(view);
+    view=container;
+  }
+  return creator.onCreateViewHolder(adapter,(ViewGroup)view,peer);
+}

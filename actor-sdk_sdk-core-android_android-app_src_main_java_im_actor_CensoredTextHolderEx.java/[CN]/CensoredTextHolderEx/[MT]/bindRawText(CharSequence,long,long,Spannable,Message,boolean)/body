@@ -1,0 +1,6 @@
+{
+  for (  String s : badWords) {
+    rawText=rawText.toString().replaceAll("/*(?i)" + s + "/*",new String(new char[s.length()]).replace('\0','*'));
+  }
+  super.bindRawText(rawText,readDate,receiveDate,reactions,message,isItalic);
+}

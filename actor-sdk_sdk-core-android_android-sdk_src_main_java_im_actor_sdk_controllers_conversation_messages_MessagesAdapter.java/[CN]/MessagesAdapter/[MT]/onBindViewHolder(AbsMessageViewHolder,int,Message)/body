@@ -1,11 +1,11 @@
 {
   Message prev=null;
   Message next=null;
-  if (index > SERVICE_CONTENT) {
-    next=getItem(index - SERVICE_CONTENT);
+  if (index > DefaultLayouter.SERVICE_CONTENT) {
+    next=getItem(index - DefaultLayouter.SERVICE_CONTENT);
   }
-  if (index < getItemCount() - SERVICE_CONTENT) {
-    prev=getItem(index + SERVICE_CONTENT);
+  if (index < getItemCount() - DefaultLayouter.SERVICE_CONTENT) {
+    prev=getItem(index + DefaultLayouter.SERVICE_CONTENT);
   }
   PreprocessedList list=((PreprocessedList)getPreprocessedList());
   dialogHolder.bindData(item,prev,next,readDate,receiveDate,list.getPreprocessedData()[index]);
