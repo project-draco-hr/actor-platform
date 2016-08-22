@@ -1,0 +1,8 @@
+{
+  GroupUsersFragment res=new GroupUsersFragment();
+  Bundle args=new Bundle();
+  args.putBoolean("isChannel",true);
+  args.putInt("gid",gid);
+  res.setArguments(args);
+  return res;
+}

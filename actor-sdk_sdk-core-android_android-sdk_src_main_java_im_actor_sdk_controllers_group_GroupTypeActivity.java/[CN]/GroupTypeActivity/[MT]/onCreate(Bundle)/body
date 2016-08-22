@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState == null) {
-    showFragment(GroupTypeFragment.create(getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0)),false);
+    showFragment(GroupTypeFragment.create(getIntent().getIntExtra(Intents.EXTRA_GROUP_ID,0),false),false);
   }
 }

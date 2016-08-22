@@ -1,6 +1,7 @@
 {
   Bundle bundle=new Bundle();
   bundle.putInt("groupId",groupId);
+  bundle.putBoolean("isCreate",isCreate);
   GroupTypeFragment editFragment=new GroupTypeFragment();
   editFragment.setArguments(bundle);
   return editFragment;

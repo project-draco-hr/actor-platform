@@ -1,0 +1,8 @@
+{
+  if (isCreate) {
+    ((CreateGroupActivity)getActivity()).showNextFragment(GroupUsersFragment.createChannel(getArguments().getInt("groupId")),false);
+  }
+ else {
+    finishActivity();
+  }
+}

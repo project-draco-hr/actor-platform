@@ -1,4 +1,7 @@
 {
+  isChannel=getArguments().getBoolean("isChannel",false);
+  setTitle(isChannel ? R.string.channel_add_members : R.string.create_group_title);
+  gid=getArguments().getInt("gid");
   title=getArguments().getString("title");
   avatarPath=getArguments().getString("avatarPath");
   View res=onCreateContactsView(R.layout.fragment_create_group_participants,inflater,container,savedInstanceState);
@@ -21,5 +24,7 @@
     }
   }
 ;
+  KeyboardHelper helper=new KeyboardHelper(getActivity());
+  helper.setImeVisibility(searchField,false);
   return res;
 }

@@ -1,0 +1,4 @@
+{
+  getActivity().startActivity(Intents.openGroupDialog(gid,true,getActivity()));
+  getActivity().finish();
+}
