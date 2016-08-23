@@ -1,0 +1,4 @@
+{
+  this.authId=authId;
+  this.seq=seq;
+}

@@ -44,7 +44,7 @@
       stash();
       return;
     }
-    onPushSeqReceived(((PushSeq)message).seq);
+    onPushSeqReceived(((PushSeq)message).seq,((PushSeq)message).authId);
   }
  else   if (message instanceof WeakUpdate) {
     WeakUpdate weakUpdate=(WeakUpdate)message;

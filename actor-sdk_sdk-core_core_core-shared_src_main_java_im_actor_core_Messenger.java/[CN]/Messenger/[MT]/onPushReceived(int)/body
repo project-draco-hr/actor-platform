@@ -1,5 +1,0 @@
-{
-  if (modules.getUpdatesModule() != null) {
-    modules.getUpdatesModule().onPushReceived(seq);
-  }
-}

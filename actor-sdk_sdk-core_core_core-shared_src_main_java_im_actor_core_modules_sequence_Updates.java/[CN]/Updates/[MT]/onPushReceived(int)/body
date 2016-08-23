@@ -1,5 +1,0 @@
-{
-  if (updateActor != null) {
-    updateActor.send(new SequenceActor.PushSeq(seq));
-  }
-}

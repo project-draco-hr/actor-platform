@@ -1,0 +1,6 @@
+{
+  if (message instanceof CheckIsCurrentAuthId) {
+    return checkIsCurrentAuthId(((CheckIsCurrentAuthId)message).getAuthId());
+  }
+  return super.onAsk(message);
+}
