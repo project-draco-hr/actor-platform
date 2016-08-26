@@ -1,10 +1,3 @@
 {
-  return new RootFragment(){
-    @Override public void onConfigureActionBar(    ActionBar actionBar){
-      super.onConfigureActionBar(actionBar);
-      actionBar.setDisplayShowHomeEnabled(true);
-      actionBar.setIcon(R.drawable.ic_app_notify);
-    }
-  }
-;
+  return new RootFragmentEx();
 }

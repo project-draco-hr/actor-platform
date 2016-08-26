@@ -1,0 +1,5 @@
+{
+  super.onConfigureActionBar(actionBar);
+  actionBar.setDisplayShowHomeEnabled(true);
+  actionBar.setIcon(R.drawable.ic_app_notify);
+}
