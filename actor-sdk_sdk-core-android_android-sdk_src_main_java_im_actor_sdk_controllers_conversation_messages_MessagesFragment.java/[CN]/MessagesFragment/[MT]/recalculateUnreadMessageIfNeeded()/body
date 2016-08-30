@@ -1,9 +1,12 @@
 {
+  Log.d("READ_DEBUG","trying to scroll to unread");
   if (!isPrimaryMode) {
     return;
   }
   BindedDisplayList<Message> list=getDisplayList();
-  firstUnread=conversationVM.getLastMessageDate();
+  if (firstUnread == -1) {
+    firstUnread=conversationVM.getLastMessageDate();
+  }
   if (isUnreadLoaded) {
     return;
   }
