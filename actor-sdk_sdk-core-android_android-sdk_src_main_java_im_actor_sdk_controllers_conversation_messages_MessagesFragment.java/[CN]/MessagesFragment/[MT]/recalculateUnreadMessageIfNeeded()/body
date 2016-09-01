@@ -14,7 +14,7 @@
     return;
   }
   isUnreadLoaded=true;
-  if (firstUnread == 0) {
+  if (firstUnread <= 0) {
     return;
   }
   int index=-1;

@@ -7,4 +7,5 @@
   outReadDate=values.getLong(5,0);
   unreadCount=values.getInt(6);
   outSendDate=values.getLong(7,0);
+  inMaxMessageDate=values.getLong(9,0);
 }
