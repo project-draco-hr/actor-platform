@@ -1,5 +1,5 @@
 {
-  if (mode != null && mode == ListMode.CENTER) {
+  if (!refresh && mode != null && mode == ListMode.CENTER) {
     return;
   }
   mode=ListMode.CENTER;

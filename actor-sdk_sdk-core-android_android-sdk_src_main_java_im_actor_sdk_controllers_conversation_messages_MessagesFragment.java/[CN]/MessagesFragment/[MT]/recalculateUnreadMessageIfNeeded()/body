@@ -13,6 +13,10 @@
   if (list.getSize() == 0) {
     return;
   }
+  if (getDisplayList().getItem(0).getSortDate() < firstUnread) {
+    getDisplayList().initCenter(firstUnread,true);
+    return;
+  }
   isUnreadLoaded=true;
   if (firstUnread <= 0) {
     return;
