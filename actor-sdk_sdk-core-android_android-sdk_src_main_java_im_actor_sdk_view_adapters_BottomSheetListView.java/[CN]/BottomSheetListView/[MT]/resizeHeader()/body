@@ -1,0 +1,6 @@
+{
+  if (header.getLayoutParams().height != getHeight() - minHeight) {
+    header.getLayoutParams().height=getHeight() - minHeight;
+    header.requestLayout();
+  }
+}

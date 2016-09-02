@@ -1,0 +1,25 @@
+{
+  header=new View(getContext());
+  header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0));
+  addHeaderView(header);
+  setOnTouchListener(new View.OnTouchListener(){
+    boolean delegateTouch=false;
+    @Override public boolean onTouch(    View view,    MotionEvent motionEvent){
+      boolean stopDelegate=false;
+switch (motionEvent.getAction()) {
+case MotionEvent.ACTION_DOWN:
+        delegateTouch=isWithinHeaderBounds(motionEvent.getRawX(),motionEvent.getRawY());
+      break;
+case MotionEvent.ACTION_UP:
+    stopDelegate=true;
+}
+if (delegateTouch && underlyingView != null) {
+  delegateTouch=!stopDelegate;
+  underlyingView.dispatchTouchEvent(motionEvent);
+  return true;
+}
+return false;
+}
+}
+);
+}
