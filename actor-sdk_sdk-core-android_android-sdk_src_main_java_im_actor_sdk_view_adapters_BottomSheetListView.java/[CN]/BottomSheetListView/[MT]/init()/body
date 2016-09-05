@@ -1,4 +1,5 @@
 {
+  setSelector(new ColorDrawable(Color.TRANSPARENT));
   setOverScrollMode(OVER_SCROLL_NEVER);
   setVerticalScrollBarEnabled(false);
   header=new FrameLayout(getContext());

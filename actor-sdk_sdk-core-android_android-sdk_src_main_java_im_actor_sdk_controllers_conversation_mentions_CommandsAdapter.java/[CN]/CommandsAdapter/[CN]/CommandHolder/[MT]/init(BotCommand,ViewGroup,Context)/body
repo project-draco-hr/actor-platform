@@ -1,5 +1,7 @@
 {
   View res=((Activity)context).getLayoutInflater().inflate(R.layout.fragment_chat_mention_item,viewGroup,false);
+  res.setBackgroundColor(ActorSDK.sharedActor().style.getMainBackgroundColor());
+  res.findViewById(R.id.container).setBackgroundResource(R.drawable.selector);
   res.findViewById(R.id.divider).setBackgroundColor(ActorSDK.sharedActor().style.getDividerColor());
   commandName=(TextView)res.findViewById(R.id.name);
   commandName.setTextColor(ActorSDK.sharedActor().style.getTextPrimaryColor());
