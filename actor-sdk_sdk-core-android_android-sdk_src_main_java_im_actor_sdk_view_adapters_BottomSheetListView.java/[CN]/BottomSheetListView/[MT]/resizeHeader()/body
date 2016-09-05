@@ -1,4 +1,5 @@
 {
+  setVisibility(minHeight == 0 ? INVISIBLE : VISIBLE);
   if (header.getLayoutParams().height != getHeight() - minHeight) {
     header.getLayoutParams().height=getHeight() - minHeight;
     header.requestLayout();

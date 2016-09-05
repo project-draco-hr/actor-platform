@@ -1,8 +1,13 @@
 {
   setOverScrollMode(OVER_SCROLL_NEVER);
   setVerticalScrollBarEnabled(false);
-  header=new View(getContext());
+  header=new FrameLayout(getContext());
   header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0));
+  ImageView shadow=new ImageView(getContext());
+  shadow.setScaleType(ImageView.ScaleType.FIT_XY);
+  shadow.setImageResource(R.drawable.conv_field_shadow);
+  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,Screen.dp(2),Gravity.BOTTOM);
+  header.addView(shadow,params);
   addHeaderView(header);
   setOnTouchListener(new View.OnTouchListener(){
     boolean delegateTouch=false;
