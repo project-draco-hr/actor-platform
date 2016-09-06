@@ -23,7 +23,7 @@
     }
   }
  else   if (src instanceof ServiceContent) {
-    content=JsContentService.create(messenger.getFormatter().formatFullServiceMessage(sender,(ServiceContent)src));
+    content=JsContentService.create(messenger.getFormatter().formatFullServiceMessage(sender,(ServiceContent)src,false));
   }
  else   if (src instanceof DocumentContent) {
     DocumentContent doc=(DocumentContent)src;
