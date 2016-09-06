@@ -4,6 +4,7 @@
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   Message topMessage=null;
   int unreadCount=0;
+  long maxInReadDate=0;
   long maxInDate=0;
   for (  Message m : messages) {
     if (topMessage == null || topMessage.getSortDate() < m.getSortDate()) {
@@ -12,6 +13,9 @@
     if (m.getSenderId() != myUid()) {
       if (m.getSortDate() > state.getInReadDate()) {
         unreadCount++;
+        maxInReadDate=Math.max(maxInReadDate,m.getSortDate());
+      }
+      if (m.getSortDate() > state.getInMaxMessageDate()) {
         maxInDate=Math.max(maxInDate,m.getSortDate());
       }
     }
@@ -21,31 +25,36 @@
   boolean isRead=false;
   if (unreadCount != 0) {
     if (isConversationVisible) {
-      if (maxInDate > 0) {
-        if (state.getInReadDate() < maxInDate) {
-          state=state.changeInReadDate(maxInDate);
+      boolean needUpdateState=false;
+      if (maxInReadDate > 0) {
+        if (state.getInReadDate() < maxInReadDate) {
+          state=state.changeInReadDate(maxInReadDate);
         }
         state=state.changeCounter(0);
-        if (state.getInMaxMessageDate() < maxInDate) {
-          state.changeInMaxDate(maxInDate);
-        }
-        context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,maxInDate));
-        context().getNotificationsModule().onOwnRead(peer,maxInDate);
+        context().getMessagesModule().getPlainReadActor().send(new CursorReaderActor.MarkRead(peer,maxInReadDate));
+        context().getNotificationsModule().onOwnRead(peer,maxInReadDate);
         isRead=true;
+        needUpdateState=true;
+      }
+      if (state.getInMaxMessageDate() < maxInDate) {
+        state.changeInMaxDate(maxInDate);
+        needUpdateState=true;
+      }
+      if (needUpdateState) {
         conversationStates.addOrUpdateItem(state);
       }
     }
  else {
       state=state.changeCounter(state.getUnreadCount() + unreadCount);
-      if (maxInDate > state.getInMaxMessageDate()) {
+      if (state.getInMaxMessageDate() < maxInDate) {
         state=state.changeInMaxDate(maxInDate);
       }
       conversationStates.addOrUpdateItem(state);
       notifyActiveDialogsVM();
     }
   }
-  if (maxInDate > 0 && !isRead) {
-    context().getMessagesModule().getPlainReceiverActor().send(new CursorReceiverActor.MarkReceived(peer,maxInDate));
+  if (maxInReadDate > 0 && !isRead) {
+    context().getMessagesModule().getPlainReceiverActor().send(new CursorReceiverActor.MarkReceived(peer,maxInReadDate));
   }
   Promise<Void> res=getDialogsRouter().onMessage(peer,topMessage,state.getUnreadCount());
   if (!isConversationVisible) {
