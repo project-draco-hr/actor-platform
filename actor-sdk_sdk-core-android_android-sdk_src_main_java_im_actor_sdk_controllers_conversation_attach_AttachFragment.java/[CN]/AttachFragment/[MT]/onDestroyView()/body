@@ -5,6 +5,7 @@
     fastAttachAdapter=null;
   }
   container=null;
+  fastShare=null;
   root=null;
   menuIconToChange=null;
   menuTitleToChange=null;

@@ -1,6 +1,6 @@
 {
   prepareView();
-  if (container.getVisibility() == View.INVISIBLE) {
+  if (fastShare.getVisibility() == View.INVISIBLE) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
       Activity activity=getActivity();
       if (activity == null) {
@@ -13,16 +13,6 @@
     }
     onShown();
     messenger().getGalleryScannerActor().send(new GalleryScannerActor.Show());
-    showView(container);
-    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-      View internal=container.findViewById(R.id.menu_bg);
-      int cx=internal.getWidth() - Screen.dp(56 + 56);
-      int cy=internal.getHeight() - Screen.dp(56 / 2);
-      float finalRadius=(float)Math.hypot(cx,cy);
-      Animator anim=ViewAnimationUtils.createCircularReveal(internal,cx,cy,0,finalRadius);
-      anim.setDuration(200);
-      anim.start();
-      internal.setAlpha(1);
-    }
+    showView(fastShare);
   }
 }
