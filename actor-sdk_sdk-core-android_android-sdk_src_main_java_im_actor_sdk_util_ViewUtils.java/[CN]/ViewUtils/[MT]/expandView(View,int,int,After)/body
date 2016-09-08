@@ -1,0 +1,17 @@
+{
+  Animation a=new ExpandAnimation(v,targetHeight,initialHeight);
+  a.setDuration((targetHeight > initialHeight ? targetHeight : initialHeight / Screen.dp(1)));
+  a.setInterpolator(MaterialInterpolator.getInstance());
+  v.clearAnimation();
+  a.setAnimationListener(new Animation.AnimationListener(){
+    @Override public void onAnimationStart(    Animation animation){
+    }
+    @Override public void onAnimationEnd(    Animation animation){
+      after.doAfter();
+    }
+    @Override public void onAnimationRepeat(    Animation animation){
+    }
+  }
+);
+  v.startAnimation(a);
+}

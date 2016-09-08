@@ -1,8 +1,38 @@
 {
-  if (fastShare != null && fastShare.getVisibility() == View.VISIBLE) {
+  if (root != null && root.getVisibility() == View.VISIBLE) {
     onHidden();
     fastAttachAdapter.clearSelected();
     messenger().getGalleryScannerActor().send(new GalleryScannerActor.Hide());
-    hideView(fastShare);
+    fastShare.scrollToPosition(0);
+    hideView(root);
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP && !isFastShareFullScreen) {
+      View internal=fastShare;
+      int cx=internal.getWidth() - Screen.dp(56 + 56);
+      int cy=internal.getHeight() - Screen.dp(56 / 2);
+      float finalRadius=(float)Math.hypot(cx,cy);
+      Animator anim=ViewAnimationUtils.createCircularReveal(internal,cx,cy,finalRadius,0);
+      anim.addListener(new Animator.AnimatorListener(){
+        @Override public void onAnimationStart(        Animator animator){
+          internal.setAlpha(1);
+        }
+        @Override public void onAnimationEnd(        Animator animator){
+          internal.setAlpha(0);
+        }
+        @Override public void onAnimationCancel(        Animator animator){
+        }
+        @Override public void onAnimationRepeat(        Animator animator){
+        }
+      }
+);
+      anim.setDuration(200);
+      anim.start();
+    }
+ else {
+      TranslateAnimation animation=new TranslateAnimation(0,0,0,root.getHeight());
+      animation.setInterpolator(MaterialInterpolator.getInstance());
+      animation.setDuration(250);
+      fastShare.startAnimation(animation);
+      bottomBackground.startAnimation(animation);
+    }
   }
 }

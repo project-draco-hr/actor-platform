@@ -4,7 +4,7 @@
     fastAttachAdapter.release();
     fastAttachAdapter=null;
   }
-  container=null;
+  shareButtons=null;
   fastShare=null;
   root=null;
   menuIconToChange=null;

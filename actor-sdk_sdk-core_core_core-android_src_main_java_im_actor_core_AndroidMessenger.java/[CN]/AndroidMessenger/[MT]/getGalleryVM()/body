@@ -1,12 +1,7 @@
 {
   if (galleryVM == null) {
     galleryVM=new GalleryVM();
-    galleryScannerActor=ActorSystem.system().actorOf(Props.create(new ActorCreator(){
-      @Override public Actor create(){
-        return new GalleryScannerActor(AndroidContext.getContext(),galleryVM);
-      }
-    }
-),"actor/gallery_scanner");
+    checkGalleryScannerActor();
   }
   return galleryVM;
 }

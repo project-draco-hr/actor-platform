@@ -1,3 +1,5 @@
 {
-  return new FastShareVH(inflate(R.layout.share_menu_fast_share,parent));
+  View itemView=inflate(R.layout.share_menu_fast_share,parent);
+  itemView.setLayoutParams(new ViewGroup.LayoutParams(widthGetter.get(),widthGetter.get()));
+  return new FastShareVH(itemView);
 }
