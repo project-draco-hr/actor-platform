@@ -1,9 +1,0 @@
-{
-  if (ctx instanceof AppCompatActivity) {
-    return ctx;
-  }
- else   if (ctx instanceof ContextWrapper) {
-    return extractContext(((ContextWrapper)ctx).getBaseContext());
-  }
-  return ctx;
-}
