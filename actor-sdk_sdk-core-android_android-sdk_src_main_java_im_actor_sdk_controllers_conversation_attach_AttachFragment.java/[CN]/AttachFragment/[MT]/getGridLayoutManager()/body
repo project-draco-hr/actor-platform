@@ -1,0 +1,5 @@
+{
+  spanCount=Screen.getWidth() / Screen.dp(88);
+  fastShareWidth=Screen.getWidth() / spanCount;
+  return new GridLayoutManager(getActivity(),spanCount);
+}

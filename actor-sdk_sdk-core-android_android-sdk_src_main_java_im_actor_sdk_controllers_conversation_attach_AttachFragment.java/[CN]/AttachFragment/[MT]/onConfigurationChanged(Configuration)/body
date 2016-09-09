@@ -1,0 +1,9 @@
+{
+  super.onConfigurationChanged(newConfig);
+  hide();
+  if (layoutManager != null) {
+    layoutManager=getGridLayoutManager();
+  }
+  root.removeAllViews();
+  isLoaded=false;
+}

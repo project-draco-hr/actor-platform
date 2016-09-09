@@ -1,11 +1,12 @@
 {
-  if (container != null && container.getVisibility() == View.VISIBLE) {
+  if (root != null && root.getVisibility() == View.VISIBLE) {
     onHidden();
     fastAttachAdapter.clearSelected();
     messenger().getGalleryScannerActor().send(new GalleryScannerActor.Hide());
-    hideView(container);
-    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-      View internal=container.findViewById(R.id.menu_bg);
+    fastShare.scrollToPosition(0);
+    hideView(root);
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP && !isFastShareFullScreen) {
+      View internal=fastShare;
       int cx=internal.getWidth() - Screen.dp(56 + 56);
       int cy=internal.getHeight() - Screen.dp(56 / 2);
       float finalRadius=(float)Math.hypot(cx,cy);
@@ -25,6 +26,13 @@
 );
       anim.setDuration(200);
       anim.start();
+    }
+ else {
+      TranslateAnimation animation=new TranslateAnimation(0,0,0,root.getHeight());
+      animation.setInterpolator(MaterialInterpolator.getInstance());
+      animation.setDuration(250);
+      fastShare.startAnimation(animation);
+      bottomBackground.startAnimation(animation);
     }
   }
 }

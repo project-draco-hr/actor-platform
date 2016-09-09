@@ -2,8 +2,19 @@
   if (savedInstanceState == null) {
     getChildFragmentManager().beginTransaction().add(new MediaPickerFragment(),"picker").commitNow();
   }
-  root=new FrameLayout(getContext());
+  root=new FrameLayout(getContext()){
+    @Override protected void onSizeChanged(    int w,    int h,    int oldw,    int oldh){
+      super.onSizeChanged(w,h,oldw,oldh);
+      if (h != oldh && shareButtons != null) {
+        shareButtons.getLayoutParams().height=root.getHeight() - Screen.dp(135);
+        shareButtons.requestLayout();
+      }
+    }
+  }
+;
   root.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  root.setBackgroundColor(getActivity().getResources().getColor(R.color.dialog_overlay));
+  root.setVisibility(View.INVISIBLE);
   isLoaded=false;
   return root;
 }

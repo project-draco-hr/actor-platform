@@ -1,5 +1,5 @@
 {
-  if (container != null && container.getVisibility() == View.VISIBLE) {
+  if (root != null && root.getVisibility() == View.VISIBLE) {
     hide();
     return true;
   }
