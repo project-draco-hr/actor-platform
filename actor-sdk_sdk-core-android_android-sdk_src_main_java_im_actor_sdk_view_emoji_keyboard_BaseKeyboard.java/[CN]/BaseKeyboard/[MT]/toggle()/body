@@ -1,0 +1,8 @@
+{
+  if (isShowing()) {
+    dismiss();
+  }
+ else {
+    show();
+  }
+}

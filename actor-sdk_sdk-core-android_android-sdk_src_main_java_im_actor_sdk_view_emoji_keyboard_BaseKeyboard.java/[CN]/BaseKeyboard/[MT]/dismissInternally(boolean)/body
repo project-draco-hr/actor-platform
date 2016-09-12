@@ -1,0 +1,22 @@
+{
+  showing=false;
+  if (messageBody != null) {
+    keyboardHelper.setImeVisibility(messageBody,!dismissAll);
+  }
+  if (emojiKeyboardView != null && root != null && container != null && keyboardHelper != null) {
+    final View emojiKeyboardViewCopy=emojiKeyboardView;
+    emojiKeyboardViewCopy.setVisibility(View.GONE);
+    root.removeView(emojiKeyboardViewCopy);
+    emojiKeyboardView=null;
+    if (keyboardStatusListener != null) {
+      keyboardStatusListener.onDismiss();
+    }
+    if (dismissAll) {
+      container.setPadding(0,0,0,0);
+    }
+    onDismiss();
+  }
+  if (root != null) {
+    root.dismissInternal();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  showInternal=true;
+  this.keyboardHeight=keyboardHeight;
+}

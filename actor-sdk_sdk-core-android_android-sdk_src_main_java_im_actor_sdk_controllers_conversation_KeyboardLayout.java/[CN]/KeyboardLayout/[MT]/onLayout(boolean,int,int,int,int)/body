@@ -1,0 +1,17 @@
+{
+  if (container != null) {
+    if (!showInternal) {
+      if (container.getPaddingBottom() != 0) {
+        container.setPadding(0,0,0,0);
+      }
+    }
+  }
+  super.onLayout(changed,left,top,right,bottom);
+  if (container != null) {
+    if (showInternal) {
+      if (container.getPaddingBottom() != keyboardHeight) {
+        container.setPadding(0,0,0,keyboardHeight);
+      }
+    }
+  }
+}

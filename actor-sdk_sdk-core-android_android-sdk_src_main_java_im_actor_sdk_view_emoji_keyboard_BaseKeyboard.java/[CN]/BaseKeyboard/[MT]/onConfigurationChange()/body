@@ -1,0 +1,4 @@
+{
+  dismiss(true);
+  softwareKeyboardShowing=false;
+}

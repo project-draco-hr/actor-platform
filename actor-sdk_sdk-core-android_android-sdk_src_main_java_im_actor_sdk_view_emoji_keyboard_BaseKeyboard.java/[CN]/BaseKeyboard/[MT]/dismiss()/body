@@ -1,5 +1,3 @@
 {
-  dismissed=true;
-  showing=false;
-  dismissInternally();
+  dismissInternally(false);
 }

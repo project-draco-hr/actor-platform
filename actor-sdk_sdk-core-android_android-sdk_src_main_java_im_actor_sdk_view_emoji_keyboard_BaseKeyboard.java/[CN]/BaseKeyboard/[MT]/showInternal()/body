@@ -1,14 +1,15 @@
 {
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-    if (!Settings.canDrawOverlays(activity)) {
-      Intent intent=new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,Uri.parse("package:" + activity.getPackageName()));
-      activity.startActivityForResult(intent,OVERLAY_PERMISSION_REQ_CODE);
-    }
- else {
-      showChecked();
-    }
+  if (isShowing()) {
+    return;
   }
- else {
-    showChecked();
+  showRequested=false;
+  showing=true;
+  emojiKeyboardView=createView();
+  FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,keyboardHeight);
+  params.gravity=Gravity.BOTTOM;
+  root.addView(emojiKeyboardView,params);
+  if (keyboardStatusListener != null) {
+    keyboardStatusListener.onShow();
   }
+  onShow();
 }

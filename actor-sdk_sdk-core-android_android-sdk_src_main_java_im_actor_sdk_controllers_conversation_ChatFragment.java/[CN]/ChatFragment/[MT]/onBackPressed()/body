@@ -5,6 +5,9 @@
       return true;
     }
   }
+  if (findInputBar().onBackPressed()) {
+    return true;
+  }
   if (editRid != 0) {
     editRid=0;
     findInputBar().setText("");

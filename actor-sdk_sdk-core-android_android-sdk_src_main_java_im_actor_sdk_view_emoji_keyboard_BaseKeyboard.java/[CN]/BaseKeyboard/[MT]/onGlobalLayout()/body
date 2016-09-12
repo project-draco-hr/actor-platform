@@ -7,6 +7,10 @@
   decorView.getWindowVisibleDisplayFrame(r);
   int screenHeight=decorView.getRootView().getHeight();
   int heightDifference=screenHeight - (r.bottom - r.top);
+  int widthDiff=decorView.getRootView().getWidth() - (r.right - r.left);
+  if (Math.abs(widthDiff) > 0) {
+    return;
+  }
   int resourceId=activity.getResources().getIdentifier("status_bar_height","dimen","android");
   if (resourceId > 0) {
     heightDifference-=activity.getResources().getDimensionPixelSize(resourceId);
@@ -22,17 +26,22 @@
     }
   }
   if (heightDifference > 100) {
-    Log.d(TAG,"onGlobalLayout: " + heightDifference);
     softwareKeyboardShowing=true;
+    Log.d(TAG,"onGlobalLayout: " + heightDifference);
     keyboardHeight=heightDifference;
-    Log.d(TAG,"onGlobalLayout: " + "showing");
-    showInternal();
+    if (!showRequested) {
+      Log.d(TAG,"onGlobalLayout: " + "showing");
+      if (showing) {
+        dismiss();
+      }
+    }
   }
  else {
+    softwareKeyboardShowing=false;
+    if (showRequested) {
+      showInternal();
+    }
     Log.d(TAG,"onGlobalLayout: " + heightDifference);
     Log.d(TAG,"onGlobalLayout: " + "dismiss?");
-    softwareKeyboardShowing=false;
-    dismissed=true;
-    dismissInternally();
   }
 }

@@ -1,0 +1,6 @@
+{
+  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+  if (container == null) {
+    container=(RelativeLayout)findViewById(R.id.container);
+  }
+}

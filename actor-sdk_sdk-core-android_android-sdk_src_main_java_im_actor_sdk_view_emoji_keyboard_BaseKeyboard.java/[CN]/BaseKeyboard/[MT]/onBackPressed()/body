@@ -1,0 +1,7 @@
+{
+  if (showing) {
+    dismiss(true);
+    return true;
+  }
+  return false;
+}

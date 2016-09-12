@@ -1,0 +1,6 @@
+{
+  super.onConfigurationChanged(newConfig);
+  if (emojiKeyboard != null) {
+    emojiKeyboard.onConfigurationChange();
+  }
+}
