@@ -1,10 +1,2 @@
 {
-  this.activity=activity;
-  this.windowManager=activity.getWindowManager();
-  this.inputMethodManager=(InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-  this.decorView=activity.getWindow().getDecorView();
-  decorView.getViewTreeObserver().addOnGlobalLayoutListener(this);
-  keyboardHeight=(int)activity.getResources().getDimension(R.dimen.keyboard_height);
-  keyboardHelper=new KeyboardHelper(activity);
-  this.messageBody=messageBody;
 }

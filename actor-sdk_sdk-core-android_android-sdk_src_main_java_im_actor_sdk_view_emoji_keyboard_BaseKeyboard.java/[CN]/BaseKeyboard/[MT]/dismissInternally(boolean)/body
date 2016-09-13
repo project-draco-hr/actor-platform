@@ -3,7 +3,7 @@
   if (messageBody != null) {
     keyboardHelper.setImeVisibility(messageBody,!dismissAll);
   }
-  if (emojiKeyboardView != null && root != null && container != null && keyboardHelper != null) {
+  if (emojiKeyboardView != null && root != null && keyboardHelper != null) {
     final View emojiKeyboardViewCopy=emojiKeyboardView;
     emojiKeyboardViewCopy.setVisibility(View.GONE);
     root.removeView(emojiKeyboardViewCopy);

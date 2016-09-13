@@ -1,2 +1,14 @@
 {
+  softKeyboardListeningEnabled=true;
+  this.root=(KeyboardLayout)messageBody.getRootView().findViewById(R.id.container).getParent();
+  this.container=(RelativeLayout)messageBody.getRootView().findViewById(R.id.container);
+  root.showInternal(keyboardHeight);
+  showRequested=true;
+  if (softwareKeyboardShowing) {
+    keyboardHelper.setImeVisibility(messageBody,false);
+  }
+ else {
+    container.setPadding(0,0,0,keyboardHeight);
+    showInternal();
+  }
 }
