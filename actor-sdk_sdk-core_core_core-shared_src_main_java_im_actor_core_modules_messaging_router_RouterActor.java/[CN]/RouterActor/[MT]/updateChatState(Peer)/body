@@ -3,6 +3,6 @@
   ConversationState state=conversationStates.getValue(peer.getUnuqueId());
   if (state.isEmpty() != isEmpty) {
     state=state.changeIsEmpty(isEmpty);
-    conversationStates.addOrUpdateItem(state);
   }
+  conversationStates.addOrUpdateItem(state);
 }

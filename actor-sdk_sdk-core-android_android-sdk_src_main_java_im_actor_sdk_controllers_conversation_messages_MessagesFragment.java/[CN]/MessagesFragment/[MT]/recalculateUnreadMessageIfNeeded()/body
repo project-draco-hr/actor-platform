@@ -5,7 +5,7 @@
   }
   BindedDisplayList<Message> list=getDisplayList();
   if (firstUnread == -1) {
-    firstUnread=conversationVM.getLastMessageDate();
+    firstUnread=conversationVM.getLastReadMessageDate();
   }
   if (isUnreadLoaded) {
     return;
@@ -13,7 +13,8 @@
   if (list.getSize() == 0) {
     return;
   }
-  if (getDisplayList().getItem(0).getSortDate() < firstUnread) {
+  if (getDisplayList().getItem(0).getSortDate() < firstUnread && !reloaded) {
+    reloaded=true;
     getDisplayList().initCenter(firstUnread,true);
     return;
   }
