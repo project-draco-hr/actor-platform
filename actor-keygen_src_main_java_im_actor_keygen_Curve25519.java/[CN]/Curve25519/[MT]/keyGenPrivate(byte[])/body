@@ -1,0 +1,12 @@
+{
+  if (randomBytes.length < 32) {
+    throw new RuntimeException("Random bytes too small");
+  }
+  MessageDigest digest=MessageDigest.getInstance("SHA-256");
+  digest.digest(randomBytes,0,randomBytes.length);
+  byte[] privateKey=digest.digest();
+  privateKey[0]&=248;
+  privateKey[31]&=127;
+  privateKey[31]|=64;
+  return privateKey;
+}

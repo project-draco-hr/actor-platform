@@ -1,0 +1,6 @@
+{
+  fe_add.fe_add(r.YplusX,p.Y,p.X);
+  fe_sub.fe_sub(r.YminusX,p.Y,p.X);
+  fe_copy.fe_copy(r.Z,p.Z);
+  fe_mul.fe_mul(r.T2d,p.T,d2);
+}

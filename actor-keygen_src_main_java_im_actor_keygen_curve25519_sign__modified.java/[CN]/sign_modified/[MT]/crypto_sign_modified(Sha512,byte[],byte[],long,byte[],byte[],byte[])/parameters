@@ -1,0 +1,7 @@
+Sha512 sha512provider
+byte[] sm
+byte[] m
+long mlen
+byte[] sk
+byte[] pk
+byte[] random
