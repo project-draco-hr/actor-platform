@@ -1,8 +1,5 @@
 {
-  showing=false;
-  if (emojiKeyboardView != null) {
-    emojiKeyboardView=null;
-  }
+  dismiss(true);
   if (keyboardStatusListener != null) {
     keyboardStatusListener.onDismiss();
   }
