@@ -1,7 +1,15 @@
 {
   showing=false;
   if (messageBody != null) {
-    keyboardHelper.setImeVisibility(messageBody,!dismissAll);
+    if (dismissAll) {
+      keyboardHelper.setImeVisibility(messageBody,false);
+    }
+ else     if (!softwareKeyboardShowing) {
+      keyboardHelper.setImeVisibility(messageBody,true);
+    }
+  }
+  if (root != null) {
+    root.dismissInternal();
   }
   if (emojiKeyboardView != null && root != null && keyboardHelper != null) {
     final View emojiKeyboardViewCopy=emojiKeyboardView;
@@ -15,8 +23,5 @@
       container.setPadding(0,0,0,0);
     }
     onDismiss();
-  }
-  if (root != null) {
-    root.dismissInternal();
   }
 }

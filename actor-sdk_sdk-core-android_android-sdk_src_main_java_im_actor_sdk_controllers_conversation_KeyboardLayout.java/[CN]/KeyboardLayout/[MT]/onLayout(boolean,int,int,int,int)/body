@@ -4,6 +4,7 @@
       if (container.getPaddingBottom() != 0) {
         container.setPadding(0,0,0,0);
       }
+      sync=showInternal;
     }
   }
   super.onLayout(changed,left,top,right,bottom);
@@ -12,6 +13,7 @@
       if (container.getPaddingBottom() != keyboardHeight) {
         container.setPadding(0,0,0,keyboardHeight);
       }
+      sync=showInternal;
     }
   }
 }
