@@ -1,5 +1,6 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
+  menu.clear();
   inflater.inflate(R.menu.chat_menu,menu);
   boolean callsEnabled=ActorSDK.sharedActor().isCallsEnabled();
   boolean videoCallsEnabled=ActorSDK.sharedActor().isVideoCallsEnabled();
