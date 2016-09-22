@@ -1,0 +1,3 @@
+{
+  setBooleanValue(KEY_ANIMATION_AUTO_DOWNLOAD,enabled);
+}

@@ -1,0 +1,3 @@
+{
+  setBooleanValue(KEY_IMAGE_AUTO_DOWNLOAD,enabled);
+}

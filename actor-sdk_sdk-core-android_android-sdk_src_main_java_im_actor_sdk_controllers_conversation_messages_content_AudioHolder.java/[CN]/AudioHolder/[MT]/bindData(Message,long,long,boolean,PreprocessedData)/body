@@ -55,7 +55,10 @@ needRebind=true;
 }
 if (needRebind) {
 if (audioMsg.getSource() instanceof FileRemoteSource) {
-boolean autoDownload=audioMsg instanceof VoiceContent;
+boolean autoDownload=false;
+if (audioMsg instanceof VoiceContent) {
+autoDownload=messenger().isAudioAutoDownloadEnabled();
+}
 downloadFileVM=ActorSDK.sharedActor().getMessenger().bindFile(((FileRemoteSource)audioMsg.getSource()).getFileReference(),autoDownload,new DownloadVMCallback(audioMsg));
 }
  else if (audioMsg.getSource() instanceof FileLocalSource) {

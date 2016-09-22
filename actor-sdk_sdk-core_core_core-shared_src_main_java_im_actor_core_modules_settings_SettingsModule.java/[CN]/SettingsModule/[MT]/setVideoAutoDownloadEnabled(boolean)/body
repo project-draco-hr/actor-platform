@@ -1,0 +1,3 @@
+{
+  setBooleanValue(KEY_VIDEO_AUTO_DOWNLOAD,enabled);
+}

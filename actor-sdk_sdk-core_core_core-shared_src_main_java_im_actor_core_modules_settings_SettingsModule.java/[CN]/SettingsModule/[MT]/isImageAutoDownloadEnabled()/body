@@ -1,0 +1,3 @@
+{
+  return getBooleanValue(KEY_IMAGE_AUTO_DOWNLOAD,true);
+}

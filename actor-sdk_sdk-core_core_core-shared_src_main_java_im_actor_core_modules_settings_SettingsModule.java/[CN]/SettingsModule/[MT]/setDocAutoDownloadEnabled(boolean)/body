@@ -1,0 +1,3 @@
+{
+  setBooleanValue(KEY_DOC_AUTO_DOWNLOAD,enabled);
+}

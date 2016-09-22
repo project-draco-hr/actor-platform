@@ -1,0 +1,3 @@
+{
+  setBooleanValue(KEY_AUDIO_AUTO_DOWNLOAD,enabled);
+}

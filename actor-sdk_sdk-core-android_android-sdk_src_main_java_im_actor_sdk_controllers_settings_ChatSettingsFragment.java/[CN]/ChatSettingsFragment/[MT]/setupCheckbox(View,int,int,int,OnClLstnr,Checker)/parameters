@@ -1,0 +1,6 @@
+View root
+int chbId
+int contId
+int titleId
+OnClLstnr lstnr
+Checker checker
