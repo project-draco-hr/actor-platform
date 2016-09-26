@@ -1,0 +1,24 @@
+{
+  if (view == null || view.getRootView() == null) {
+    return 0;
+  }
+  view=view.getRootView();
+  if (Build.VERSION.SDK_INT < 21 || view.getHeight() == Screen.getHeight() || view.getHeight() == Screen.getHeight() - statusBarHeight) {
+    return 0;
+  }
+  try {
+    Field mAttachInfoField=View.class.getDeclaredField("mAttachInfo");
+    mAttachInfoField.setAccessible(true);
+    Object mAttachInfo=mAttachInfoField.get(view);
+    if (mAttachInfo != null) {
+      Field mStableInsetsField=mAttachInfo.getClass().getDeclaredField("mStableInsets");
+      mStableInsetsField.setAccessible(true);
+      Rect insets=(Rect)mStableInsetsField.get(mAttachInfo);
+      return insets.bottom;
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return 0;
+}
